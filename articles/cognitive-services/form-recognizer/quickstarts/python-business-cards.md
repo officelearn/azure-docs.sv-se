@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8132358dcd0ad9d87dc6687afd2adef1942f3b67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 5e27aaebc015f47e0fcdb5da81770d49b86ad000
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823912"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934335"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera visitkorts data med hjälp av formulär tolken REST API med python
 
@@ -38,33 +38,35 @@ För att slutföra den här snabb starten måste du ha:
 
 ## <a name="analyze-a-business-card"></a>Analysera ett visitkort
 
-Om du vill börja analysera ett visitkort anropar du **[visitkorts](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** -API: et med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
+Om du vill börja analysera ett visitkort anropar du **[visitkorts](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)** -API: et med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
-1. Ersätt `<path to your business card>` med sökvägen till ditt lokala formulär dokument.
+1. Ersätt `<endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
+1. Ersätt `<path to your business card>` med den lokala sökvägen till din visitkorts bild eller PDF.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
+1. Ersätt `<file type>` med "image/jpeg", "image/png", "Application/PDF" eller "image/TIFF".
 
     ```python
-    ########### Python Form Recognizer Async Business cards #############
+    ########### Python Form Recognizer Async Business Cards #############
 
     import json
     import time
     from requests import get, post
     
     # Endpoint URL
-    endpoint = r"<Endpoint>"
+    endpoint = r"<endpoint>"
     apim_key = "<subscription key>"
     post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
+    content_type = "<file type>"
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': content_type,
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     
     params = {
-        "includeTextDetails": True
+        "includeTextDetails": True  # True to output all recognized text
     }
     
     with open(source, "rb") as f:
@@ -86,15 +88,15 @@ Om du vill börja analysera ett visitkort anropar du **[visitkorts](https://west
 1. Öppna ett kommandotolksfönster.
 1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-businesscards.py`.
 
-Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
+Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett resultat-ID som du kan använda för att fråga efter statusen för den tids krävande åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` resultat-ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>Hämta resultat från företags kortet
 
-När du har anropat API för **analys av visitkort** anropar du API: et för att **[analysera affärskorts resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. Detta använder åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
+När du har anropat API för **analys av visitkort** anropar du API: et för att **[analysera affärskorts resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. Detta använder resultat-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python
 n_tries = 10
@@ -129,7 +131,7 @@ while n_try < n_tries:
 ### <a name="examine-the-response"></a>Granska svaret
 ![Ett visitkort från contoso Company](../media/business-card-english.jpg)
 
-Det här exemplet illustrerar JSON-utdata som returneras av formulär tolken. Exemplen har trunkerats för att kunna läsas av exemplet.
+Det här exemplet illustrerar JSON-utdata som returneras av formulär tolken. Den har trunkerats för läsbarhet.
 
 ```json
 {
@@ -243,7 +245,7 @@ Det här exemplet illustrerar JSON-utdata som returneras av formulär tolken. Ex
 }
 ```
 
-Skriptet kommer att skriva ut svar till konsolen tills åtgärden **analysera visitkort** slutförs. `"readResults"`Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"documentResults"`Noden innehåller de företagsspecifika värden som modellen identifierade. Här hittar du användbara nyckel/värde-par som företagets namn, förnamn, efter namn, telefon och så vidare.
+Skriptet kommer att skriva ut svar till konsolen tills åtgärden **analysera visitkort** slutförs. `"readResults"`Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"documentResults"`Noden innehåller de företagsspecifika värden som modellen identifierade. Här hittar du användbar kontakt information, till exempel företagets namn, förnamn, efter namn, telefonnummer och så vidare.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -251,4 +253,4 @@ Skriptet kommer att skriva ut svar till konsolen tills åtgärden **analysera vi
 I den här snabb starten använde du formulär tolken REST API med python för att extrahera innehållet i ett visitkort. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)
+> [REST API referens dokumentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

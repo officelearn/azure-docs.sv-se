@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202013"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934845"
 ---
-# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData geo-spatial-funktioner i Azure Kognitiv sökning – `geo.distance` och`geo.intersects`
+# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData geo-spatial-funktioner i Azure Kognitiv sökning – `geo.distance` och `geo.intersects`
 
 Azure Kognitiv sökning stöder geo-spatiala frågor i [OData filter-uttryck](query-odata-filter-orderby-syntax.md) via- `geo.distance` och- `geo.intersects` funktionerna. `geo.distance`Funktionen returnerar avståndet i kilo meter mellan två punkter, ett fält eller en intervall variabel, och en är en konstant som ska skickas som en del av filtret. `geo.intersects`Funktionen returnerar `true` om en viss punkt är inom en viss polygon, där punkten är en fält-eller intervall variabel och polygonen anges som en konstant som skickas som en del av filtret.
 
@@ -84,7 +84,7 @@ Geografisk punkts konstant är av formen `geography'POINT(<longitude> <latitude>
 
 `geo.intersects`Funktionen tar en variabel av typen `Edm.GeographyPoint` och en konstant `Edm.GeographyPolygon` och returnerar en `Edm.Boolean`  --  `true` om punkten är inom gränserna för polygonen, `false` annars.
 
-Polygonen är en tvådimensionell yta som lagras som en sekvens med punkter som definierar en avgränsnings ring (se [exemplen](#examples) nedan). Polygonen måste stängas, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. [Punkter i en polygon måste vara i moturs ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Polygonen är en tvådimensionell yta som lagras som en sekvens med punkter som definierar en avgränsnings ring (se [exemplen](#examples) nedan). Polygonen måste stängas, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. [Punkter i en polygon måste vara i moturs ordning](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Geo-spatiala frågor och polygoner som sträcker sig över 180th-Meri Dian
 
@@ -92,7 +92,7 @@ För många geo-spatiala fråge bibliotek skapas en fråga som innehåller 180th
 
 I Azure Kognitiv sökning fungerar geo-spatiala frågor som innehåller 180-graders longitud som förväntat om frågetexten är rektangulär och koordinaterna stämmer överens med en rutnäts layout utmed longitud och latitud (till exempel `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'` ). Annars, för icke-rektangulära eller ej justerade former, bör du tänka på metoden dela upp polygon.  
 
-### <a name="geo-spatial-functions-and-null"></a>Geo-spatiala funktioner och`null`
+### <a name="geo-spatial-functions-and-null"></a>Geo-spatiala funktioner och `null`
 
 Precis som alla andra icke-samlings fält i Azure Kognitiv sökning kan fält av typen `Edm.GeographyPoint` innehålla `null` värden. När Azure-Kognitiv sökning utvärderar `geo.intersects` för ett fält som är `null` , blir resultatet alltid `false` . Beteendet för `geo.distance` i det här fallet beror på kontexten:
 
@@ -109,7 +109,7 @@ Hitta alla hotell inom 10 kilo meter från en viss referens punkt (där platsen 
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där platsen är ett fält av typen `Edm.GeographyPoint` ). Observera att polygonen är stängd (de första och sista punkt uppsättningarna måste vara identiska) och [punkterna måste anges i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där platsen är ett fält av typen `Edm.GeographyPoint` ). Observera att polygonen är stängd (de första och sista punkt uppsättningarna måste vara identiska) och [punkterna måste anges i motsols ordning](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -134,4 +134,4 @@ Sortera hotell i fallande ordning efter `search.score` och och `rating` sedan i 
 - [Filter i Azure Kognitiv sökning](search-filters.md)
 - [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
 - [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)

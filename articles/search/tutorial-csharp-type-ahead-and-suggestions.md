@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 244809db8efac00124a11ab5c163bfefc9ea7dd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: dd93ef68b0e0e7ac465584eaecb3b4c8a0c39476
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420608"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934947"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
@@ -145,7 +145,7 @@ Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: 
  
     ![Skriv "pa" med fuzzy-inställt på Sant](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Om du är intresse rad av [Lucene-frågesyntaxen i Azure kognitiv sökning](https://docs.microsoft.com/azure/search/query-lucene-syntax) beskrivs den logik som används i fuzzy-sökningar i detalj.
+    Om du är intresse rad av [Lucene-frågesyntaxen i Azure kognitiv sökning](./query-lucene-syntax.md) beskrivs den logik som används i fuzzy-sökningar i detalj.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Lägg till markering i förslagen
 
@@ -244,7 +244,7 @@ En annan variation, som skiljer sig något från förslag, är ifyllning (kallas
 
     Observera att vi använder samma *förslags* funktion, som kallas "SG", i sökningen som vi gjorde för förslag (så att vi bara försöker komplettera om hotell namnen).
 
-    Det finns ett antal **AutocompleteMode** -inställningar och vi använder **OneTermWithContext**. En beskrivning av ytterligare alternativ hittar du i [API för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
+    Det finns ett antal **AutocompleteMode** -inställningar och vi använder **OneTermWithContext**. En beskrivning av ytterligare alternativ hittar du i [API för automatisk komplettering](/rest/api/searchservice/autocomplete) .
 
 4. Kör appen. Observera hur intervallet för de alternativ som visas i list rutan är enkla ord. Försök att skriva ord som börjar med "re". Observera hur antalet alternativ minskar när fler bokstäver skrivs.
 
@@ -464,5 +464,3 @@ I nästa självstudie har vi en titt på ett annat sätt att förbättra använd
 
 > [!div class="nextstepaction"]
 > [C#-självstudie: använda Faces för att under lätta navigeringen – Azure Kognitiv sökning](tutorial-csharp-facets.md)
-
-

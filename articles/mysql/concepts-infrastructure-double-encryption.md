@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066414"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919717"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL infrastruktur Double Encryption
 
@@ -62,6 +62,12 @@ De krypterings funktioner som tillhandahålls av Azure Database for MySQL kan an
 För Azure Database for MySQL har stöd för infrastruktur med dubbel kryptering med hjälp av tjänstens hanterade nycklar följande begränsningar:
 
 * Stöd för den här funktionen är begränsat till **generell användning** och **minnesoptimerade pris nivåer** .
+* Du kan skapa en Azure Database for MySQL med infrastruktur kryptering aktive rad i följande regioner:
+
+   * East US
+   * USA, södra centrala
+   * USA, västra 2
+   
 * * Den här funktionen stöds bara i regioner och servrar som har stöd för lagring upp till 16 TB. För en lista över Azure-regioner som stöder lagring upp till 16 TB, se [lagrings dokumentationen](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

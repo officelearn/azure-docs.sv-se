@@ -3,12 +3,13 @@ title: Data ändring – LUIS
 description: Lär dig hur data kan ändras innan förutsägelser i Language Understanding (LUIS)
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 3a88739caa9b35679f10b0cb63a804e9464c871c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872244"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934675"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck-data före eller under förutsägelse
 LUIS tillhandahåller sätt att ändra uttryck före eller under förutsägelsen. Detta inkluderar att [åtgärda stavnings](luis-tutorial-bing-spellcheck.md)-och åtgärda tids zons problem för färdiga [datetimeV2](luis-reference-prebuilt-datetimev2.md).
@@ -80,7 +81,7 @@ När en LUIS-app använder den fördefinierade [datetimeV2](luis-reference-prebu
 I v3 `datetimeReference` bestämmer timezone-förskjutningen. Läs mer om [v3-förutsägelser](luis-migration-api-v3.md#v3-post-body).
 
 ### <a name="v2-prediction-api-to-alter-timezone"></a>V2 förutsägelse-API för att ändra tidszon
-Tids zonen korrigeras genom att lägga till användarens tidszon till slut punkten med `timezoneOffset` hjälp av parametern som baseras på API-versionen. Värdet för parametern ska vara ett positivt eller negativt tal, i minuter, för att ändra tiden.
+Tids zonen korrigeras genom att lägga till användarens tidszon till slut punkten med hjälp av `timezoneOffset` parametern som baseras på API-versionen. Värdet för parametern ska vara ett positivt eller negativt tal, i minuter, för att ändra tiden.
 
 #### <a name="v2-prediction-daylight-savings-example"></a>Exempel på v2-förutsägelse, sommar
 Om du behöver den returnerade förskapade datetimeV2 för att justera för sommar tid, bör du använda parametern QueryString med ett +/-värde i minuter för [slut punkts](https://go.microsoft.com/fwlink/?linkid=2092356) frågan.

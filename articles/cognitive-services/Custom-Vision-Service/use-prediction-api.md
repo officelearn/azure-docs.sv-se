@@ -10,12 +10,13 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: pafarley
-ms.openlocfilehash: cbc899d1278a2afcdf4948a88b54af81954f1eba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205590"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934760"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
 
@@ -113,7 +114,7 @@ I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under
    * Ersätt plats hållaren `<Your prediction key>` med det nyckel värde som du hämtade tidigare.
    * Ersätt plats hållaren `<Your prediction URL>` med URL: en som du hämtade tidigare.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 När du kör programmet uppmanas du att ange en sökväg till en avbildnings fil i-konsolen. Avbildningen skickas sedan till förutsägelse-API: et och förutsägelse resultatet returneras som en JSON-formaterad sträng. Följande är ett exempel på ett svar.
 

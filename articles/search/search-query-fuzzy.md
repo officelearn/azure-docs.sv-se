@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146127"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934896"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Fuzzy-sökning för att korrigera fel stavningar och skrivfel
 
@@ -82,7 +82,7 @@ När resultatet är tvetydigt kan [träff markerings](search-pagination-page-lay
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Exempel 1: suddig sökning med den exakta termen
 
-Anta att följande sträng finns i ett `"Description"` fält i ett Sök dokument:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Anta att följande sträng finns i ett `"Description"` fält i ett Sök dokument: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Börja med en Fuzzy-sökning på "Special" och Lägg till träff markeringar i fältet Beskrivning:
 
@@ -136,5 +136,5 @@ Punkten för det här expanderade exemplet är att illustrera den klarhet som tr
 
 + [Hur full texts ökning fungerar i Azure Kognitiv sökning (arkitektur för frågekörning)](search-lucene-query-architecture.md)
 + [Sök Utforskaren](search-explorer.md)
-+ [Så här frågar du i .NET](search-query-dotnet.md)
-+ [Fråga i REST](search-create-index-rest-api.md)
++ [Så här frågar du i .NET](./search-get-started-dotnet.md)
++ [Fråga i REST](./search-get-started-powershell.md)

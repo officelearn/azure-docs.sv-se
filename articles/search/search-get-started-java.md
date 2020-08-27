@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6ac8638efc09efe6d74f634c4042346d738d44ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327539"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924205"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "87327539"
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -31,7 +31,7 @@ Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi använde följande program och tjänster för att bygga och testa den här snabb starten:
 
@@ -76,7 +76,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. Välj **fil**  >  **Inställningar**.
 1. I fönstret **Inställningar** väljer du **build, Execution, Deployment**  >  **build tools**  >  **maven**  >  **Importing**.
-1. Markera kryss rutan **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar pom.xml-filen i nästa steg.
+1. Markera kryss rutan  **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar pom.xml-filen i nästa steg.
 
     ![Maven som importerar alternativ i IntelliJ-inställningar](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
@@ -565,13 +565,13 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
           Thread.sleep(1000L); // wait a second to create the index
     ```
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet:`verify exec:java`
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
 
     När koden körs söker du efter ett "skapa index"-meddelande följt av en 201-svarskod. Den här svars koden bekräftar att indexet har skapats. Körningen ska avslutas med ett meddelande om att skapa ett meddelande och noll (0) avslutnings kod.
     
 ## <a name="2---load-documents"></a>2 Läs in dokument
 
-1. I fönstret **projekt** expanderar du käll trädet för att få åtkomst till `src`  >   `main`  > `resources`  >  `service` mappen och lägger till en `hotels.json` fil. Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
+1. I fönstret **projekt** expanderar du käll trädet för att få åtkomst till `src`  >   `main`  > `resources`  >  `service` mappen och lägger till en `hotels.json` fil. Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja  **fil**och ange fil namnet.
 1. Infoga följande hotell dokument i filen.
 
     ```json
@@ -685,7 +685,7 @@ Index definitionen för hotell innehåller enkla fält och ett komplext fält. E
 
     En paus på två sekunder infogas efter överförings förfrågan för att säkerställa att dokument inläsningen slutförs innan du skickar frågor till indexet.
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet:`verify exec:java`
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
 
     Eftersom du skapade ett index med "Hotels-snabb start" i föregående steg tar koden bort den och återskapar den igen innan du läser in hotellet-dokumenten.
 
@@ -814,13 +814,13 @@ Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få
 
     Det finns två [sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter. En fullständig text Sök fråga söker efter en eller flera villkor i `IsSearchable` fält i ditt index. Ett filter är ett booleskt uttryck som utvärderas över `IsFilterable` fält i ett index. Du kan använda full texts ökning och filter tillsammans eller separat.
 
-1. Öppna fönstret **maven** -verktyg och kör det här maven-målet:`verify exec:java`
+1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java`
 
     Leta efter en sammanfattning av varje fråga och resultatet. Körningen måste slutföras med ett meddelande om att det är klart och en slutkod (0).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056086"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923746"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -60,9 +60,9 @@ Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. 
 
 <a id="api-scope-data-lake-client-library"></a>
 
-## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Stöd för fil system i SDK: er, PowerShell och Azure CLI
+## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Stöd för att ställa in åtkomst kontrol listor (ACL) rekursivt
 
-- Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
+Möjligheten att tillämpa ACL-ändringar rekursivt från överordnad katalog till underordnade objekt finns i [offentlig för hands version](recursive-access-control-lists.md). I den aktuella versionen av den här funktionen kan du tillämpa ACL-ändringar med hjälp av PowerShell, .NET SDK och python SDK. Support är ännu inte tillgängligt för Java SDK, Azure CLI, Azure Portal eller Azure Storage Explorer.
 
 <a id="known-issues-tools"></a>
 

@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146036"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934879"
 ---
-# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>OData-jämförelse operatörer i Azure kognitiv sökning –,,,, `eq` `ne` `gt` `lt` `ge` och`le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>OData-jämförelse operatörer i Azure kognitiv sökning –,,,, `eq` `ne` `gt` `lt` `ge` och `le`
 
 Den mest grundläggande åtgärden i ett [OData filter-uttryck](query-odata-filter-orderby-syntax.md) i Azure kognitiv sökning är att jämföra ett fält med ett angivet värde. Två typer av jämförelse är möjliga – likhets jämförelse och jämförelse av intervall. Du kan använda följande operatorer för att jämföra ett fält med ett konstant värde:
 
@@ -96,11 +96,11 @@ För jämförelser som inte är tillåtna, till exempel jämförelse av ett fäl
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>Särskilda fall för `null` och`NaN`
+### <a name="special-cases-for-null-and-nan"></a>Särskilda fall för `null` och `NaN`
 
 När du använder jämförelse operatorer är det viktigt att komma ihåg att alla fält som inte är samlings fält i Azure Kognitiv sökning kan vara `null` . I följande tabell visas alla möjliga resultat för ett jämförelse uttryck där endera sidan kan vara `null` :
 
-| Operator | Resultat när endast fältet eller variabeln är`null` | Resultat när endast konstanten är`null` | Resultat när både fältet eller variabeln och konstanten är`null` |
+| Operator | Resultat när endast fältet eller variabeln är `null` | Resultat när endast konstanten är `null` | Resultat när både fältet eller variabeln och konstanten är `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: fel i felaktig begäran | HTTP 400: fel i felaktig begäran |
 | `lt` | `false` | HTTP 400: fel i felaktig begäran | HTTP 400: fel i felaktig begäran |
@@ -113,7 +113,7 @@ I sammanfattning `null` är bara lika med sig själv, och är inte mindre eller 
 
 Om ditt index har fält av typ `Edm.Double` och du överför `NaN` värden till dessa fält, måste du ha konto för det när du skriver filter. Azure Kognitiv sökning implementerar IEEE 754-standarden för hantering av `NaN` värden och jämförelser med sådana värden ger icke-uppenbara resultat, vilket visas i följande tabell.
 
-| Operator | Resultat när minst en operand är`NaN` |
+| Operator | Resultat när minst en operand är `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -169,4 +169,4 @@ Rooms/any(room: room/Type eq 'Deluxe Room')
 - [Filter i Azure Kognitiv sökning](search-filters.md)
 - [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
 - [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202297"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932771"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Översikt över data import – Azure Kognitiv sökning
 
@@ -34,12 +34,12 @@ Den här metoden är mer flexibel än pull-modellen eftersom du kan ladda upp do
 
 Du kan använda följande API:er för att läsa in ett eller flera dokument i ett index:
 
-+ [Lägg till, uppdatera eller ta bort dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) eller [indexBatch-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Lägg till, uppdatera eller ta bort dokument (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [indexAction-klass](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) eller [indexBatch-klass](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
 
 Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
 
-En introduktion till varje metod finns i [snabb start: skapa ett azure kognitiv sökning-index med PowerShell](search-create-index-rest-api.md) eller [C# snabb start: skapa ett Azure kognitiv sökning-index med .NET SDK](search-get-started-dotnet.md).
+En introduktion till varje metod finns i [snabb start: skapa ett azure kognitiv sökning-index med PowerShell](./search-get-started-powershell.md) eller [C# snabb start: skapa ett Azure kognitiv sökning-index med .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -61,7 +61,7 @@ I .NET SDK ska du paketera dina data i ett `IndexBatch` objekt. En `IndexBatch` 
 
 ### <a name="formulate-your-query"></a>Formulera frågan
 
-Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
+Du kan [söka i ditt index med hjälp av REST-API:et](/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
 
 För både POST och GET måste du ange *tjänst namn*, *index namn*och en *API-version* i fråge-URL: en. 
 

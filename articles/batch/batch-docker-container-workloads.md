@@ -3,13 +3,13 @@ title: Containerarbetsbelastningar
 description: Lär dig hur du kör och skalar appar från behållar avbildningar på Azure Batch. Skapa en pool av datornoder som stöder körning av container aktiviteter.
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18
-ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: a26582572302f670010f3038147687b47feef84a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726731"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933553"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
 
@@ -21,7 +21,7 @@ Du bör känna till behållar koncept och hur du skapar en batch-pool och ett jo
 
 Att använda behållare är ett enkelt sätt att köra batch-uppgifter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuerar program som enkla, portabla, självpresterande enheter som kan köras i flera olika miljöer. Du kan till exempel bygga och testa en behållare lokalt och sedan ladda upp behållar avbildningen till ett register i Azure eller någon annan stans. Distributions modellen för behållare säkerställer att körnings miljön för ditt program alltid är korrekt installerad och konfigurerad oavsett var du är värd för programmet. Containerbaserade uppgifter i batch kan också dra nytta av funktioner i icke-container-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **SDK-versioner**: batch SDK: er stöder behållar avbildningar från och med följande versioner:
     * Batch REST API version 2017 -09 – 01.6.0
@@ -56,15 +56,15 @@ För för Linux container-arbetsbelastningar stöder batch för närvarande föl
 
 #### <a name="vm-sizes-without-rdma"></a>VM-storlekar utan RDMA
 
-- Förläggare`microsoft-azure-batch`
-  - Styrelse`centos-container`
-  - Styrelse`ubuntu-server-container`
+- Förläggare `microsoft-azure-batch`
+  - Styrelse `centos-container`
+  - Styrelse `ubuntu-server-container`
 
 #### <a name="vm-sizes-with-rdma"></a>VM-storlekar med RDMA
 
-- Förläggare`microsoft-azure-batch`
-  - Styrelse`centos-container-rdma`
-  - Styrelse`ubuntu-server-container-rdma`
+- Förläggare `microsoft-azure-batch`
+  - Styrelse `centos-container-rdma`
+  - Styrelse `ubuntu-server-container-rdma`
 
 De här avbildningarna stöds bara för användning i Azure Batch pooler och är avsedd för Docker-behållar körning. De fungerar:
 
@@ -253,7 +253,7 @@ Valfria [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainerset
 
 ### <a name="container-task-working-directory"></a>Arbets katalog för container uppgift
 
-En batch container-aktivitet körs i en arbets katalog i den behållare som är mycket lik katalog batchen konfigurerar för en vanlig (icke container) aktivitet. Observera att den här arbets katalogen skiljer sig från [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) om den kon figurer ATS i avbildningen eller standard arbets katalogen för behållaren ( `C:\` på en Windows-behållare eller `/` på en Linux-behållare).
+En batch container-aktivitet körs i en arbets katalog i den behållare som är mycket lik katalog batchen konfigurerar för en vanlig (icke container) aktivitet. Observera att den här arbets katalogen skiljer sig från [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) om den kon figurer ATS i avbildningen eller standard arbets katalogen för behållaren ( `C:\`  på en Windows-behållare eller `/` på en Linux-behållare).
 
 För en batch container-aktivitet:
 

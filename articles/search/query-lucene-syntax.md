@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891104"
+ms.locfileid: "88923457"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene-frågesyntax i Azure Kognitiv sökning
 
 Du kan skriva frågor mot Azure-Kognitiv sökning baserat på den avancerade Lucene-syntaxen för att [köra frågor](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) för särskilda fråge formulär: jokertecken, fuzzy search, närhets sökning, reguljära uttryck är några exempel. En stor del av den här syntaxen för en Lucene-fråga [implementeras intakt i azure kognitiv sökning](search-lucene-query-architecture.md), med undantag för *intervalls ökningar* som är konstruerade i Azure kognitiv sökning genom `$filter` uttryck. 
 
 > [!NOTE]
-> Den fullständiga Lucene-syntaxen används för frågeuttryck som skickas i **Sök** -parametern i [sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) -API: t, inte att förväxlas med [OData-syntaxen](query-odata-filter-orderby-syntax.md) som används för parametern [$filter](search-filters.md) för detta API. Dessa olika syntaxer har sina egna regler för att skapa frågor, undantags strängar och så vidare.
+> Den fullständiga Lucene-syntaxen används för frågeuttryck som skickas i **Sök** -parametern i [sökdokument](/rest/api/searchservice/search-documents) -API: t, inte att förväxlas med [OData-syntaxen](query-odata-filter-orderby-syntax.md) som används för parametern [$filter](search-filters.md) för detta API. Dessa olika syntaxer har sina egna regler för att skapa frågor, undantags strängar och så vidare.
 
 ## <a name="invoke-full-parsing"></a>Anropa fullständig parsning
 
@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 }
 ```
 
-Fler exempel finns i exempel på Lucene-frågesyntax [för att skapa frågor i Azure kognitiv sökning](search-query-lucene-examples.md). Mer information om hur du anger en fullständig förfrågan om frågeparametrar finns i [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Fler exempel finns i exempel på Lucene-frågesyntax [för att skapa frågor i Azure kognitiv sökning](search-query-lucene-examples.md). Mer information om hur du anger en fullständig förfrågan om frågeparametrar finns i [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  Azure Kognitiv sökning stöder också [enkel frågesyntax](query-simple-syntax.md), ett enkelt och robust frågespråk som kan användas för enkel nyckelords sökning.  
@@ -139,7 +139,7 @@ Du kan definiera en fält Sök åtgärd med `fieldName:searchExpression` syntaxe
 
 Se till att placera flera strängar inom citat tecken om du vill att båda strängarna ska utvärderas som en enda entitet, i det här fallet söker du efter två distinkta artister i `artists` fältet.  
 
-Fältet som anges i `fieldName:searchExpression` måste vara ett `searchable` fält.  Se [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) för information om hur index-attribut används i fält definitioner.  
+Fältet som anges i `fieldName:searchExpression` måste vara ett `searchable` fält.  Se [skapa index](/rest/api/searchservice/create-index) för information om hur index-attribut används i fält definitioner.  
 
 > [!NOTE]
 > När du använder ett fält med sökuttryck behöver du inte använda `searchFields` parametern eftersom varje fält som är angivet i uttrycket har ett explicit angivet fält namn. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. Frågan skulle till exempel `search=genre:jazz NOT history&searchFields=description` matcha `jazz` enbart till `genre` fältet, men den matchar `NOT history` `description` fältet. Fält namnet som har angetts i `fieldName:searchExpression` har alltid företräde framför `searchFields` parametern, vilket är anledningen till att vi inte behöver inkludera `genre` i parametern i det här exemplet `searchFields` .
@@ -202,6 +202,6 @@ Azure Kognitiv sökning använder frekvens-baserad poängsättning ([TF-IDF](htt
 
 + [Fråga exempel för enkel sökning](search-query-simple-examples.md)
 + [Fråga exempel för fullständig Lucene-sökning](search-query-lucene-examples.md)
-+ [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Sök dokument](/rest/api/searchservice/Search-Documents)
 + [OData-uttrycks syntax för filter och sortering](query-odata-filter-orderby-syntax.md)   
-+ [Enkel frågesyntax i Azure Kognitiv sökning](query-simple-syntax.md)   
++ [Enkel frågesyntax i Azure Kognitiv sökning](query-simple-syntax.md)

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: ca6324bd27749d9be3f516dbcd8ff99eca39d1a6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/26/2020
+ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875463"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932958"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
 
@@ -22,7 +22,7 @@ För arbets flödes definitioner i [Azure Logic Apps](../logic-apps/logic-apps-o
 
 Du kan till exempel beräkna värden med hjälp av matematiska funktioner, till exempel funktionen [Lägg till ()](../logic-apps/workflow-definition-language-functions-reference.md#add) , när du vill beräkna summan från heltal eller flyttal. Här följer några exempel på uppgifter som du kan utföra med Functions:
 
-| Aktivitet | Syntax för funktion | Resultat |
+| Uppgift | Syntax för funktion | Resultat |
 | ---- | --------------- | ------ |
 | Returnera en sträng med gemener. | toLower (<*text*>) <p>Till exempel: toLower (' hello ') | Hello |
 | Returnera en globalt unik identifierare (GUID). | GUID () |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
@@ -40,7 +40,7 @@ För att visa hur du använder en funktion i ett uttryck visar det här exemplet
 
 Här följer några andra allmänna sätt som du kan använda funktioner i uttryck:
 
-| Aktivitet | Function-syntax i ett uttryck |
+| Uppgift | Function-syntax i ett uttryck |
 | ---- | -------------------------------- |
 | Utför arbetet med ett objekt genom att skicka det här objektet till en funktion. | " \@ < *functionname*> (<*objekt*>)" |
 | 1. Hämta *parameterName*värde genom att använda den kapslade `parameters()` funktionen. </br>2. utför arbetet med resultatet genom att skicka det värdet till *functionname*. | " \@ < *functionname*> (parametrar (' <*parameterName*> '))" |
@@ -77,7 +77,7 @@ I följande avsnitt organiseras funktioner baserat på deras generella syfte, el
 
 Om du vill arbeta med strängar kan du använda dessa sträng funktioner och även vissa [samlings funktioner](#collection-functions). Sträng funktioner fungerar bara för strängar.
 
-| Funktionen String | Aktivitet |
+| Funktionen String | Uppgift |
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Kombinera två eller fler strängar och returnera den kombinerade strängen. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Kontrol lera om en sträng slutar med den angivna under strängen. |
@@ -100,9 +100,9 @@ Om du vill arbeta med strängar kan du använda dessa sträng funktioner och äv
 
 Om du vill arbeta med samlingar, vanligt vis matriser, strängar och ibland kan du använda de här samlings funktionerna.
 
-| Samlings funktion | Aktivitet |
+| Samlings funktion | Uppgift |
 | ------------------- | ---- |
-| [innehåller](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
+| [ingår](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
 | [tomt](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrol lera om en samling är tom. |
 | [förstagångskörningen](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
 | [överlappning](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnera en samling som *endast* innehåller gemensamma objekt i de angivna samlingarna. |
@@ -124,7 +124,7 @@ Om du vill arbeta med villkor, jämföra värden och resultat eller utvärdera o
 > [!NOTE]
 > Om du använder logiska funktioner eller villkor för att jämföra värden, konverteras NULL-värden till tomma sträng `""` värden (). Beteendet för villkor skiljer sig när du jämför med en tom sträng i stället för ett null-värde. Mer information finns i [funktionen String ()](#string). 
 
-| Funktion för logisk jämförelse | Aktivitet |
+| Funktion för logisk jämförelse | Uppgift |
 | --------------------------- | ---- |
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Kontrol lera om alla uttryck är sanna. |
 | [lika med](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Kontrol lera om båda värdena är likvärdiga. |
@@ -146,14 +146,14 @@ Om du vill ändra ett värdes typ eller format kan du använda dessa konverterin
 > [!NOTE]
 > Azure Logic Apps konverterar automatiskt värden mellan vissa data typer, vilket innebär att du inte behöver utföra dessa konverteringar manuellt. Men om du gör det kan det uppstå oväntade visnings beteenden som inte påverkar de faktiska konverteringarna, bara hur de visas. Mer information finns i [implicita data typs konverteringar](#implicit-data-conversions).
 
-| Konverterings funktion | Aktivitet |
+| Konverterings funktion | Uppgift |
 | ------------------- | ---- |
 | [matris](../logic-apps/workflow-definition-language-functions-reference.md#array) | Returnera en matris från en angiven Indatatyp. För flera indata, se [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
 | [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Returnera Base64-kodad version för en sträng. |
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Returnera den binära versionen för en Base64-kodad sträng. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Returnera sträng versionen för en Base64-kodad sträng. |
 | [binär](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Returnera den binära versionen för ett indatavärde. |
-| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera den booleska versionen för ett indatavärde. |
+| [boolesk](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera den booleska versionen för ett indatavärde. |
 | [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Returnera en matris från flera indata. |
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Returnera data-URI: n för ett indatavärde. |
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Returnera den binära versionen för en data-URI. |
@@ -165,7 +165,7 @@ Om du vill ändra ett värdes typ eller format kan du använda dessa konverterin
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Returnera ett flytt ALS nummer för ett indatavärde. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Returnera heltals versionen för en sträng. |
 | [utgör](../logic-apps/workflow-definition-language-functions-reference.md#json) | Returnera värdet för JavaScript Object Notation (JSON) av typen eller objektet för en sträng eller XML. |
-| [sträng](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera sträng versionen för ett indatavärde. |
+| [nollängd](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera sträng versionen för ett indatavärde. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Returnera den URI-kodade versionen för ett indatavärde genom att ersätta URL-osäkra tecken med escape-tecken. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Returnera sträng versionen för en URI-kodad sträng. |
@@ -208,7 +208,7 @@ Logic Apps automatiskt eller implicit utföra base64-kodning eller avkodning, s�
 Du kan använda dessa matematiska funktioner för att arbeta med heltal och flyttal.
 Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Matematik funktion | Aktivitet |
+| Matematik funktion | Uppgift |
 | ------------- | ---- |
 | [skapa](../logic-apps/workflow-definition-language-functions-reference.md#add) | Returnera resultatet från att lägga till två tal. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Returnera resultatet från att dividera två tal. |
@@ -228,7 +228,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 Du kan använda dessa datum-och tids funktioner för att arbeta med datum och tider.
 Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Funktionen datum/tid | Aktivitet |
+| Funktionen datum/tid | Uppgift |
 | --------------------- | ---- |
 | [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Lägg till ett antal dagar i en tidstämpel. |
 | [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Lägg till ett antal timmar i en tidsstämpel. |
@@ -265,7 +265,7 @@ Dessa arbets flödes funktioner kan hjälpa dig att:
 Du kan till exempel referera till utdata från en åtgärd och använda dessa data i en senare åtgärd.
 Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Arbetsflödesfunktion | Aktivitet |
+| Arbetsflödesfunktion | Uppgift |
 | ----------------- | ---- |
 | [tgärd](../logic-apps/workflow-definition-language-functions-reference.md#action) | Returnera den aktuella åtgärdens utdata vid körning eller värden från andra JSON-namn-och värdepar. Se även [åtgärder](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Returnera en åtgärds `body` utdata vid körning. Se även [brödtext](../logic-apps/workflow-definition-language-functions-reference.md#body). |
@@ -299,7 +299,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 Om du vill arbeta med URI: er (Uniform Resource Identifier) och hämta olika egenskaps värden för dessa URI: er kan du använda dessa URI-parsningsfel.
 Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| URI-parsnings funktion | Aktivitet |
+| URI-parsnings funktion | Uppgift |
 | -------------------- | ---- |
 | [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Returnera `host` värdet för en URI (Uniform Resource Identifier). |
 | [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Returnera `path` värdet för en URI (Uniform Resource Identifier). |
@@ -316,7 +316,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 Du kan använda dessa modifierings funktioner för att arbeta med JSON-objekt och XML-noder.
 Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Manipulations funktion | Aktivitet |
+| Manipulations funktion | Uppgift |
 | --------------------- | ---- |
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Lägg till en egenskap och dess värde, eller namn-värde-par, till ett JSON-objekt och returnera det uppdaterade objektet. |
 | [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Returnera det första värdet som inte är null från en eller flera parametrar. |
@@ -352,7 +352,7 @@ action().outputs.body.<property>
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*immaterialrätt*> | Nej | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**, **StartTime** **, slut tid,** **indata**, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](/rest/api/logic/workflowrunactions/get). |
+| <*immaterialrätt*> | Inga | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**, **StartTime** **, slut tid,** **indata**, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -493,7 +493,7 @@ actions('<actionName>').outputs.body.<property>
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Ja | Sträng | Namnet på det åtgärds objekt vars utdata du vill ha  |
-| <*immaterialrätt*> | Nej | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**, **StartTime** **, slut tid,** **indata**, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](/rest/api/logic/workflowrunactions/get). |
+| <*immaterialrätt*> | Inga | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**, **StartTime** **, slut tid,** **indata**, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -509,7 +509,7 @@ Det här exemplet hämtar `status` egenskap svärdet från Twitter-åtgärden `G
 actions('Get_user').outputs.body.status
 ```
 
-Och returnerar följande resultat:`"Succeeded"`
+Och returnerar följande resultat: `"Succeeded"`
 
 <a name="add"></a>
 
@@ -539,7 +539,7 @@ I det här exemplet läggs de angivna talen till:
 add(1, 1.5)
 ```
 
-Och returnerar följande resultat:`2.5`
+Och returnerar följande resultat: `2.5`
 
 <a name="addDays"></a>
 
@@ -555,7 +555,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*antalet*> | Ja | Integer | Det positiva eller negativa antalet dagar som ska läggas till |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -571,7 +571,7 @@ I det här exemplet läggs 10 dagar till i den angivna tidsstämpeln:
 addDays('2018-03-15T13:00:00Z', 10)
 ```
 
-Och returnerar följande resultat:`"2018-03-25T00:00:0000000Z"`
+Och returnerar följande resultat: `"2018-03-25T00:00:0000000Z"`
 
 *Exempel 2*
 
@@ -581,7 +581,7 @@ Det här exemplet subtraherar fem dagar från den angivna tidsstämpeln:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-Och returnerar följande resultat:`"2018-03-10T00:00:0000000Z"`
+Och returnerar följande resultat: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
@@ -597,7 +597,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*timmarna*> | Ja | Integer | Det positiva eller negativa antalet timmar som ska läggas till |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -613,7 +613,7 @@ I det här exemplet läggs 10 timmar till i den angivna tidsstämpeln:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-Och returnerar följande resultat:`"2018-03-15T10:00:0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T10:00:0000000Z"`
 
 *Exempel 2*
 
@@ -623,7 +623,7 @@ Det här exemplet subtraherar fem timmar från den angivna tidsstämpeln:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-Och returnerar följande resultat:`"2018-03-15T10:00:0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -639,7 +639,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*fördröjning*> | Ja | Integer | Det positiva eller negativa antalet minuter att lägga till |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -655,7 +655,7 @@ I det här exemplet läggs 10 minuter till i den angivna tidsstämpeln:
 addMinutes('2018-03-15T00:10:00Z', 10)
 ```
 
-Och returnerar följande resultat:`"2018-03-15T00:20:00.0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T00:20:00.0000000Z"`
 
 *Exempel 2*
 
@@ -665,7 +665,7 @@ I det här exemplet subtraheras fem minuter från den angivna tidsstämpeln:
 addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
-Och returnerar följande resultat:`"2018-03-15T00:15:00.0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
@@ -780,7 +780,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*sekunder*> | Ja | Integer | Det positiva eller negativa antalet sekunder som ska läggas till |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -796,7 +796,7 @@ I det här exemplet läggs 10 sekunder till i den angivna tidsstämpeln:
 addSeconds('2018-03-15T00:00:00Z', 10)
 ```
 
-Och returnerar följande resultat:`"2018-03-15T00:00:10.0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T00:00:10.0000000Z"`
 
 *Exempel 2*
 
@@ -806,7 +806,7 @@ I det här exemplet subtraheras fem sekunder till den angivna tidsstämpeln:
 addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
-Och returnerar följande resultat:`"2018-03-15T00:00:25.0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
@@ -824,7 +824,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
 | <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -840,7 +840,7 @@ I det här exemplet läggs en dag till i den angivna tidsstämpeln:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-Och returnerar följande resultat:`"2018-01-02T00:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-01-02T00:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -850,7 +850,7 @@ I det här exemplet läggs en dag till i den angivna tidsstämpeln:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-Och returnerar resultatet med det valfria "D"-formatet:`"Tuesday, January 2, 2018"`
+Och returnerar resultatet med det valfria "D"-formatet: `"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
@@ -934,7 +934,7 @@ I det här exemplet skapas en matris från strängen "Hello":
 array('hello')
 ```
 
-Och returnerar följande resultat:`["hello"]`
+Och returnerar följande resultat: `["hello"]`
 
 <a name="base64"></a>
 
@@ -967,7 +967,7 @@ I det här exemplet konverteras "Hej"-strängen till en Base64-kodad sträng:
 base64('hello')
 ```
 
-Och returnerar följande resultat:`"aGVsbG8="`
+Och returnerar följande resultat: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
@@ -1035,7 +1035,7 @@ I det här exemplet konverteras base64-kodade strängen "aGVsbG8 =" till bara en
 base64ToString('aGVsbG8=')
 ```
 
-Och returnerar följande resultat:`"hello"`
+Och returnerar följande resultat: `"hello"`
 
 <a name="binary"></a>
 
@@ -1118,9 +1118,9 @@ Och returnerar följande resultat:
 
 <a name="bool"></a>
 
-### <a name="bool"></a>bool
+### <a name="bool"></a>boolesk
 
-Returnera den booleska versionen för ett värde.
+Returnera den booleska versionen av ett värde.
 
 ```
 bool(<value>)
@@ -1128,27 +1128,27 @@ bool(<value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*värde*> | Ja | Valfri | Värdet som ska konverteras |
+| <*värde*> | Ja | Valfri | Värdet som ska konverteras till Boolean. |
 |||||
+
+Om du använder `bool()` med ett objekt måste värdet för objektet vara en sträng eller ett heltal som kan konverteras till Boolean.
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolesk | Den booleska versionen för det angivna värdet |
+| `true` eller `false` | Boolesk | Den booleska versionen av det angivna värdet. |
 ||||
 
-*Exempel*
+*Utdata*
 
-I de här exemplen konverteras de angivna värdena till booleska värden:
+I de här exemplen visas de olika typerna av ininformation som stöds för `bool()` :
 
-```
-bool(1)
-bool(0)
-```
-
-Och returnerar följande resultat:
-
-* Första exemplet:`true`
-* Andra exempel:`false`
+| Indatavärde | Typ | Returvärde |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | Sträng | `true` |
+| `bool('false')` | Sträng | `false` |
 
 <a name="coalesce"></a>
 
@@ -1183,9 +1183,9 @@ coalesce(null, null, null)
 
 Och returnerar följande resultat:
 
-* Första exemplet:`true`
-* Andra exempel:`"hello"`
-* Tredje exempel:`null`
+* Första exemplet: `true`
+* Andra exempel: `"hello"`
+* Tredje exempel: `null`
 
 <a name="concat"></a>
 
@@ -1215,7 +1215,7 @@ I det här exemplet kombineras strängarna "Hello" och "World":
 concat('Hello', 'World')
 ```
 
-Och returnerar följande resultat:`"HelloWorld"`
+Och returnerar följande resultat: `"HelloWorld"`
 
 <a name="contains"></a>
 
@@ -1277,7 +1277,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1293,7 +1293,7 @@ I det här exemplet konverteras en tidstämpel till angiven tidszon:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-Och returnerar följande resultat:`"2018-01-01T00:00:00.0000000"`
+Och returnerar följande resultat: `"2018-01-01T00:00:00.0000000"`
 
 *Exempel 2*
 
@@ -1303,7 +1303,7 @@ I det här exemplet konverteras en tidstämpel till angiven tidszon och format:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
 
-Och returnerar följande resultat:`"Monday, January 1, 2018"`
+Och returnerar följande resultat: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
@@ -1320,7 +1320,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
 | <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1336,7 +1336,7 @@ I det här exemplet konverteras käll tids zonen till mål tids zonen:
 convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 ```
 
-Och returnerar följande resultat:`"2018-01-01T00:00:00.0000000"`
+Och returnerar följande resultat: `"2018-01-01T00:00:00.0000000"`
 
 *Exempel 2*
 
@@ -1346,7 +1346,7 @@ I det här exemplet konverteras en tidszon till angiven tidszon och format:
 convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
 ```
 
-Och returnerar följande resultat:`"Monday, January 1, 2018"`
+Och returnerar följande resultat: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
@@ -1362,7 +1362,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. För tids zons namn, se [index värden för Microsoft Time Zone](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tids zonens namn. |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1378,7 +1378,7 @@ I det här exemplet konverteras en tidsstämpel till UTC:
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 ```
 
-Och returnerar följande resultat:`"2018-01-01T08:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-01-01T08:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -1388,7 +1388,7 @@ I det här exemplet konverteras en tidsstämpel till UTC:
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 ```
 
-Och returnerar följande resultat:`"Monday, January 1, 2018"`
+Och returnerar följande resultat: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
@@ -1419,7 +1419,7 @@ I det här exemplet skapas en matris med följande indata:
 createArray('h', 'e', 'l', 'l', 'o')
 ```
 
-Och returnerar följande resultat:`["h", "e", "l", "l", "o"]`
+Och returnerar följande resultat: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
@@ -1449,7 +1449,7 @@ I det här exemplet skapas en data-URI för "Hej"-strängen:
 dataUri('hello')
 ```
 
-Och returnerar följande resultat:`"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+Och returnerar följande resultat: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
@@ -1516,7 +1516,7 @@ I det här exemplet skapas en sträng för denna data-URI:
 dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-Och returnerar följande resultat:`"hello"`
+Och returnerar följande resultat: `"hello"`
 
 <a name="dayOfMonth"></a>
 
@@ -1546,7 +1546,7 @@ Det här exemplet returnerar numret för dagen i månaden från den här tidsst�
 dayOfMonth('2018-03-15T13:27:36Z')
 ```
 
-Och returnerar följande resultat:`15`
+Och returnerar följande resultat: `15`
 
 <a name="dayOfWeek"></a>
 
@@ -1576,7 +1576,7 @@ Det här exemplet returnerar numret för vecko dagen från den här tidsstämpel
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-Och returnerar följande resultat:`4`
+Och returnerar följande resultat: `4`
 
 <a name="dayOfYear"></a>
 
@@ -1606,7 +1606,7 @@ Det här exemplet returnerar antalet dagar på året från den här tidsstämpel
 dayOfYear('2018-03-15T13:27:36Z')
 ```
 
-Och returnerar följande resultat:`74`
+Och returnerar följande resultat: `74`
 
 <a name="decodeBase64"></a>
 
@@ -1680,7 +1680,7 @@ I det här exemplet ersätts escape-tecknen i den här strängen med avkodade ve
 decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
 
-Och returnerar följande resultat:`"https://contoso.com"`
+Och returnerar följande resultat: `"https://contoso.com"`
 
 <a name="div"></a>
 
@@ -1705,7 +1705,7 @@ div(<dividend>, <divisor>)
 
 *Exempel 1*
 
-Båda exemplen returnerar detta värde med Integer-typ:`2`
+Båda exemplen returnerar detta värde med Integer-typ: `2`
 
 ```
 div(10,5)
@@ -1714,7 +1714,7 @@ div(11,5)
 
 *Exempel 2*
 
-Båda exemplen returnerar detta värde med typen Float:`2.2`
+Båda exemplen returnerar detta värde med typen Float: `2.2`
 
 ```
 div(11,5.0)
@@ -1752,7 +1752,7 @@ I det här exemplet skapas en URI-kodad version för den här strängen:
 encodeUriComponent('https://contoso.com')
 ```
 
-Och returnerar följande resultat:`"http%3A%2F%2Fcontoso.com"`
+Och returnerar följande resultat: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -1821,7 +1821,7 @@ I det här exemplet kontrol leras om strängen "Hello World" slutar med "World"-
 endsWith('hello world', 'world')
 ```
 
-Och returnerar följande resultat:`true`
+Och returnerar följande resultat: `true`
 
 *Exempel 2*
 
@@ -1831,7 +1831,7 @@ I det här exemplet kontrol leras om strängen "Hello World" slutar med stränge
 endsWith('hello world', 'universe')
 ```
 
-Och returnerar följande resultat:`false`
+Och returnerar följande resultat: `false`
 
 <a name="equals"></a>
 
@@ -1900,8 +1900,8 @@ first(createArray(0, 1, 2))
 
 Och returnerar följande resultat:
 
-* Första exemplet:`"h"`
-* Andra exempel:`0`
+* Första exemplet: `"h"`
+* Andra exempel: `0`
 
 <a name="float"></a>
 
@@ -1932,7 +1932,7 @@ I det här exemplet skapas en sträng version för det här flytt ALS numret:
 float('10.333')
 ```
 
-Och returnerar följande resultat:`10.333`
+Och returnerar följande resultat: `10.333`
 
 <a name="formatDateTime"></a>
 
@@ -1947,7 +1947,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1963,7 +1963,7 @@ I det här exemplet konverteras en tidstämpel till det angivna formatet:
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
-Och returnerar följande resultat:`"2018-03-15T12:00:00"`
+Och returnerar följande resultat: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
@@ -1994,7 +1994,7 @@ I det här exemplet skapas en matris från nyckeln "subject" i den angivna åtg�
 formDataMultiValues('Send_an_email', 'Subject')
 ```
 
-Och returnerar ämnes texten i en matris, till exempel:`["Hello world"]`
+Och returnerar ämnes texten i en matris, till exempel: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
@@ -2026,7 +2026,7 @@ I det här exemplet skapas en sträng från nyckeln "subject" i den angivna åtg
 formDataValue('Send_an_email', 'Subject')
 ```
 
-Och returnerar ämnes texten som en sträng, till exempel:`"Hello world"`
+Och returnerar ämnes texten som en sträng, till exempel: `"Hello world"`
 
 <a name="formatNumber"></a>
 
@@ -2042,7 +2042,7 @@ formatNumber(<number>, <format>, <locale>?)
 | --------- | -------- | ---- | ----------- |
 | <*många*> | Ja | Heltal eller dubbel | Det värde som du vill formatera. |
 | <*formatering*> | Ja | Sträng | En sammansatt format sträng som anger det format som du vill använda. För de numeriska format strängar som stöds, se [standard numeriska format strängar](/dotnet/standard/base-types/standard-numeric-format-strings)som stöds av `number.ToString(<format>, <locale>)` . |
-| <*språk*> | Nej | Sträng | Det språk som ska användas som stöds av `number.ToString(<format>, <locale>)` . Om inget värde anges är standardvärdet `en-us` . |
+| <*språk*> | Inga | Sträng | Det språk som ska användas som stöds av `number.ToString(<format>, <locale>)` . Om inget värde anges är standardvärdet `en-us` . |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2096,7 +2096,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
 | <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2113,7 +2113,7 @@ I det här exemplet läggs fem dagar till i tidsstämpeln:
 getFutureTime(5, 'Day')
 ```
 
-Och returnerar följande resultat:`"2018-03-06T00:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-03-06T00:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -2124,7 +2124,7 @@ Det här exemplet lägger till fem dagar och konverterar resultatet till "D"-for
 getFutureTime(5, 'Day', 'D')
 ```
 
-Och returnerar följande resultat:`"Tuesday, March 6, 2018"`
+Och returnerar följande resultat: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
@@ -2140,7 +2140,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
 | <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2157,7 +2157,7 @@ I det här exemplet subtraheras fem dagar från tidsstämpeln:
 getPastTime(5, 'Day')
 ```
 
-Och returnerar följande resultat:`"2018-01-27T00:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-01-27T00:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -2168,7 +2168,7 @@ Det här exemplet subtraherar fem dagar och konverterar resultatet till "D"-form
 getPastTime(5, 'Day', 'D')
 ```
 
-Och returnerar följande resultat:`"Saturday, January 27, 2018"`
+Och returnerar följande resultat: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
@@ -2204,8 +2204,8 @@ greater('apple', 'banana')
 
 Och returnerar följande resultat:
 
-* Första exemplet:`true`
-* Andra exempel:`false`
+* Första exemplet: `true`
+* Andra exempel: `false`
 
 <a name="greaterOrEquals"></a>
 
@@ -2241,8 +2241,8 @@ greaterOrEquals('apple', 'banana')
 
 Och returnerar följande resultat:
 
-* Första exemplet:`true`
-* Andra exempel:`false`
+* Första exemplet: `true`
+* Andra exempel: `false`
 
 <a name="guid"></a>
 
@@ -2262,7 +2262,7 @@ guid('<format>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*formatering*> | Nej | Sträng | En enkel [formats specifikation](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) för det returnerade GUID: t. Som standard är formatet "D", men du kan använda "N", "D", "B", "P" eller "X". |
+| <*formatering*> | Inga | Sträng | En enkel [formats specifikation](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) för det returnerade GUID: t. Som standard är formatet "D", men du kan använda "N", "D", "B", "P" eller "X". |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2278,7 +2278,7 @@ Det här exemplet genererar samma GUID, men som 32 siffror, avgränsade med bind
 guid('P')
 ```
 
-Och returnerar följande resultat:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
+Och returnerar följande resultat: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
@@ -2341,7 +2341,7 @@ I det här exemplet hittas start index svärdet för "World"-del strängen i str
 indexOf('hello world', 'world')
 ```
 
-Och returnerar följande resultat:`6`
+Och returnerar följande resultat: `6`
 
 <a name="int"></a>
 
@@ -2371,7 +2371,7 @@ I det här exemplet skapas en heltals version för strängen "10":
 int('10')
 ```
 
-Och returnerar följande resultat:`10`
+Och returnerar följande resultat: `10`
 
 <a name="item"></a>
 
@@ -2555,7 +2555,7 @@ I det här exemplet konverteras den här strängen till JSON-värdet:
 json('[1, 2, 3]')
 ```
 
-Och returnerar följande resultat:`[1, 2, 3]`
+Och returnerar följande resultat: `[1, 2, 3]`
 
 *Exempel 2*
 
@@ -2627,7 +2627,7 @@ I det här exemplet hittar du gemensamma objekt i dessa matriser:
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
-Och returnerar en matris med *endast* följande objekt:`[1, 2]`
+Och returnerar en matris med *endast* följande objekt: `[1, 2]`
 
 <a name="join"></a>
 
@@ -2658,7 +2658,7 @@ I det här exemplet skapas en sträng från alla objekt i matrisen med det angiv
 join(createArray('a', 'b', 'c'), '.')
 ```
 
-Och returnerar följande resultat:`"a.b.c"`
+Och returnerar följande resultat: `"a.b.c"`
 
 <a name="last"></a>
 
@@ -2692,8 +2692,8 @@ last(createArray(0, 1, 2, 3))
 
 Och returnerar följande resultat:
 
-* Första exemplet:`"d"`
-* Andra exempel:`3`
+* Första exemplet: `"d"`
+* Andra exempel: `3`
 
 <a name="lastindexof"></a>
 
@@ -2772,7 +2772,7 @@ length('abcd')
 length(createArray(0, 1, 2, 3))
 ```
 
-Och returnera följande resultat:`4`
+Och returnera följande resultat: `4`
 
 <a name="less"></a>
 
@@ -2808,8 +2808,8 @@ less('banana', 'apple')
 
 Och returnerar följande resultat:
 
-* Första exemplet:`true`
-* Andra exempel:`false`
+* Första exemplet: `true`
+* Andra exempel: `false`
 
 <a name="lessOrEquals"></a>
 
@@ -2845,8 +2845,8 @@ lessOrEquals('apply', 'apple')
 
 Och returnerar följande resultat:
 
-* Första exemplet:`true`
-* Andra exempel:`false`
+* Första exemplet: `true`
+* Andra exempel: `false`
 
 <a name="listCallbackUrl"></a>
 
@@ -2872,7 +2872,7 @@ I det här exemplet visas en exempel-callback-URL som den här funktionen kan re
 
 <a name="max"></a>
 
-### <a name="max"></a>bekräftat
+### <a name="max"></a>max
 
 Returnera det högsta värdet från en lista eller matris med värden som inkluderas i båda ändar.
 
@@ -2901,7 +2901,7 @@ max(1, 2, 3)
 max(createArray(1, 2, 3))
 ```
 
-Och returnera följande resultat:`3`
+Och returnera följande resultat: `3`
 
 <a name="min"></a>
 
@@ -2934,7 +2934,7 @@ min(1, 2, 3)
 min(createArray(1, 2, 3))
 ```
 
-Och returnera följande resultat:`1`
+Och returnera följande resultat: `1`
 
 <a name="mod"></a>
 
@@ -2966,7 +2966,7 @@ I det här exemplet delas det första talet med det andra talet:
 mod(3, 2)
 ```
 
-Och returnera följande resultat:`1`
+Och returnera följande resultat: `1`
 
 <a name="mul"></a>
 
@@ -3000,8 +3000,8 @@ mul(1.5, 2)
 
 Och returnerar följande resultat:
 
-* Första exemplet:`2`
-* Andra exempel`3`
+* Första exemplet: `2`
+* Andra exempel `3`
 
 <a name="multipartBody"></a>
 
@@ -3221,7 +3221,7 @@ I det här exemplet hämtas värdet för den angivna parametern:
 parameters('fullName')
 ```
 
-Och returnerar följande resultat:`"Sophia Owen"`
+Och returnerar följande resultat: `"Sophia Owen"`
 
 <a name="rand"></a>
 
@@ -3252,7 +3252,7 @@ Det här exemplet hämtar ett slumpmässigt heltal från det angivna intervallet
 rand(1, 5)
 ```
 
-Och returnerar ett av dessa tal som resultat: `1` , `2` , `3` eller`4`
+Och returnerar ett av dessa tal som resultat: `1` , `2` , `3` eller `4`
 
 <a name="range"></a>
 
@@ -3283,7 +3283,7 @@ I det här exemplet skapas en heltals mat ris som börjar från det angivna inde
 range(1, 4)
 ```
 
-Och returnerar följande resultat:`[1, 2, 3, 4]`
+Och returnerar följande resultat: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
@@ -3315,7 +3315,7 @@ Det här exemplet hittar den "gamla" del strängen i "den gamla strängen" och e
 replace('the old string', 'old', 'new')
 ```
 
-Och returnerar följande resultat:`"the new string"`
+Och returnerar följande resultat: `"the new string"`
 
 <a name="removeProperty"></a>
 
@@ -3656,7 +3656,7 @@ Det här exemplet tar bort ett objekt, siffran 0, från början av den angivna m
 skip(createArray(0, 1, 2, 3), 1)
 ```
 
-Och returnerar matrisen med återstående objekt:`[1,2,3]`
+Och returnerar matrisen med återstående objekt: `[1,2,3]`
 
 <a name="split"></a>
 
@@ -3687,7 +3687,7 @@ I det här exemplet skapas en matris med del strängar från den angivna sträng
 split('a_b_c', '_')
 ```
 
-Och returnerar denna matris som resultat:`["a","b","c"]`
+Och returnerar denna matris som resultat: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 
@@ -3702,7 +3702,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3718,7 +3718,7 @@ I det här exemplet hittas början på dagen för den här tidsstämpeln:
 startOfDay('2018-03-15T13:30:30Z')
 ```
 
-Och returnerar följande resultat:`"2018-03-15T00:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
@@ -3733,7 +3733,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3749,7 +3749,7 @@ I det här exemplet hittas början av timmen för den här tidsstämpeln:
 startOfHour('2018-03-15T13:30:30Z')
 ```
 
-Och returnerar följande resultat:`"2018-03-15T13:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
@@ -3764,7 +3764,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3780,7 +3780,7 @@ Det här exemplet returnerar början på månaden för den här tidsstämpeln:
 startOfMonth('2018-03-15T13:30:30Z')
 ```
 
-Och returnerar följande resultat:`"2018-03-01T00:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-03-01T00:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -3790,7 +3790,7 @@ Det här exemplet returnerar början på månaden i det angivna formatet för de
 startOfMonth('2018-03-15T13:30:30Z', 'yyyy-MM-dd')
 ```
 
-Och returnerar följande resultat:`"2018-03-01"`
+Och returnerar följande resultat: `"2018-03-01"`
 
 <a name="startswith"></a>
 
@@ -3823,7 +3823,7 @@ I det här exemplet kontrol leras om strängen "Hello World" börjar med under s
 startsWith('hello world', 'hello')
 ```
 
-Och returnerar följande resultat:`true`
+Och returnerar följande resultat: `true`
 
 *Exempel 2*
 
@@ -3833,7 +3833,7 @@ I det här exemplet kontrol leras om strängen "Hello World" börjar med under s
 startsWith('hello world', 'greetings')
 ```
 
-Och returnerar följande resultat:`false`
+Och returnerar följande resultat: `false`
 
 <a name="string"></a>
 
@@ -3867,7 +3867,7 @@ I det här exemplet skapas sträng versionen för det här talet:
 string(10)
 ```
 
-Och returnerar följande resultat:`"10"`
+Och returnerar följande resultat: `"10"`
 
 *Exempel 2*
 
@@ -3877,7 +3877,7 @@ Det här exemplet skapar en sträng för det angivna JSON-objektet och använder
 string( { "name": "Sophie Owen" } )
 ```
 
-Och returnerar följande resultat:`"{ \\"name\\": \\"Sophie Owen\\" }"`
+Och returnerar följande resultat: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
@@ -3908,7 +3908,7 @@ I det här exemplet subtraheras den andra siffran från det första talet:
 sub(10.3, .3)
 ```
 
-Och returnerar följande resultat:`10`
+Och returnerar följande resultat: `10`
 
 <a name="substring"></a>
 
@@ -3941,7 +3941,7 @@ I det här exemplet skapas en del sträng med fem tecken från den angivna strä
 substring('hello world', 6, 5)
 ```
 
-Och returnerar följande resultat:`"world"`
+Och returnerar följande resultat: `"world"`
 
 <a name="subtractFromTime"></a>
 
@@ -3959,7 +3959,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
 | <*intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
 | <*timeUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *Interval*: "sekund", "minut", "timme", "dag", "vecka", "månad", "år" |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3975,7 +3975,7 @@ Det här exemplet subtraherar en dag från den här tidsstämpeln:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-Och returnerar följande resultat:`"2018-01-01T00:00:00:0000000Z"`
+Och returnerar följande resultat: `"2018-01-01T00:00:00:0000000Z"`
 
 *Exempel 2*
 
@@ -3985,7 +3985,7 @@ Det här exemplet subtraherar en dag från den här tidsstämpeln:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 ```
 
-Och returnerar det här resultatet med det valfria "D"-formatet:`"Monday, January, 1, 2018"`
+Och returnerar det här resultatet med det valfria "D"-formatet: `"Monday, January, 1, 2018"`
 
 <a name="take"></a>
 
@@ -4020,8 +4020,8 @@ take(createArray(0, 1, 2, 3, 4), 3)
 
 Och returnerar följande resultat:
 
-* Första exemplet:`"abc"`
-* Andra exempel:`[0, 1, 2]`
+* Första exemplet: `"abc"`
+* Andra exempel: `[0, 1, 2]`
 
 <a name="ticks"></a>
 
@@ -4071,7 +4071,7 @@ I det här exemplet konverteras strängen till gemener:
 toLower('Hello World')
 ```
 
-Och returnerar följande resultat:`"hello world"`
+Och returnerar följande resultat: `"hello world"`
 
 <a name="toUpper"></a>
 
@@ -4101,7 +4101,7 @@ I det här exemplet konverteras strängen till versaler:
 toUpper('Hello World')
 ```
 
-Och returnerar följande resultat:`"HELLO WORLD"`
+Och returnerar följande resultat: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
@@ -4170,7 +4170,7 @@ Det här exemplet skapar en matris från nyckel värdet "feedUrl" i en RSS-utlö
 triggerFormDataMultiValues('feedUrl')
 ```
 
-Och returnerar denna matris som ett exempel resultat:`["http://feeds.reuters.com/reuters/topNews"]`
+Och returnerar denna matris som ett exempel resultat: `["http://feeds.reuters.com/reuters/topNews"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4201,7 +4201,7 @@ I det här exemplet skapas en sträng från nyckel värdet "feedUrl" i en RSS-ut
 triggerFormDataValue('feedUrl')
 ```
 
-Och returnerar strängen som ett exempel resultat:`"http://feeds.reuters.com/reuters/topNews"`
+Och returnerar strängen som ett exempel resultat: `"http://feeds.reuters.com/reuters/topNews"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4268,7 +4268,7 @@ I det här exemplet tas inledande och avslutande blank steg bort från strängen
 trim(' Hello World  ')
 ```
 
-Och returnerar följande resultat:`"Hello World"`
+Och returnerar följande resultat: `"Hello World"`
 
 <a name="union"></a>
 
@@ -4300,7 +4300,7 @@ Det här exemplet hämtar *alla* objekt från de här samlingarna:
 union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
-Och returnerar följande resultat:`[1, 2, 3, 10, 101]`
+Och returnerar följande resultat: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
@@ -4332,7 +4332,7 @@ I det här exemplet skapas en URI-kodad version för den här strängen:
 uriComponent('https://contoso.com')
 ```
 
-Och returnerar följande resultat:`"http%3A%2F%2Fcontoso.com"`
+Och returnerar följande resultat: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4397,7 +4397,7 @@ I det här exemplet skapas den avkodade sträng versionen för denna URI-kodade 
 uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
 
-Och returnerar följande resultat:`"https://contoso.com"`
+Och returnerar följande resultat: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
@@ -4427,7 +4427,7 @@ I det här exemplet hittas `host` värdet för denna URI:
 uriHost('https://www.localhost.com:8080')
 ```
 
-Och returnerar följande resultat:`"www.localhost.com"`
+Och returnerar följande resultat: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
@@ -4457,7 +4457,7 @@ I det här exemplet hittas `path` värdet för denna URI:
 uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-Och returnerar följande resultat:`"/catalog/shownew.htm"`
+Och returnerar följande resultat: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
@@ -4487,7 +4487,7 @@ I det här exemplet `path` hittas `query` värdena och för denna URI:
 uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-Och returnerar följande resultat:`"/catalog/shownew.htm?date=today"`
+Och returnerar följande resultat: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
@@ -4517,7 +4517,7 @@ Det här exemplet returnerar `port` värdet för denna URI:
 uriPort('http://www.localhost:8080')
 ```
 
-Och returnerar följande resultat:`8080`
+Och returnerar följande resultat: `8080`
 
 <a name="uriQuery"></a>
 
@@ -4547,7 +4547,7 @@ Det här exemplet returnerar `query` värdet för denna URI:
 uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-Och returnerar följande resultat:`"?date=today"`
+Och returnerar följande resultat: `"?date=today"`
 
 <a name="uriScheme"></a>
 
@@ -4577,7 +4577,7 @@ Det här exemplet returnerar `scheme` värdet för denna URI:
 uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-Och returnerar följande resultat:`"http"`
+Och returnerar följande resultat: `"http"`
 
 <a name="utcNow"></a>
 
@@ -4594,7 +4594,7 @@ Alternativt kan du ange ett annat format med parametern <*format*>.
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
+| <*formatering*> | Inga | Sträng | Antingen en [enskild format identifierare](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -4611,7 +4611,7 @@ Det här exemplet hämtar aktuell tidsstämpel:
 utcNow()
 ```
 
-Och returnerar följande resultat:`"2018-04-15T13:00:00.0000000Z"`
+Och returnerar följande resultat: `"2018-04-15T13:00:00.0000000Z"`
 
 *Exempel 2*
 
@@ -4622,7 +4622,7 @@ Det här exemplet hämtar den aktuella tidsstämpeln med det valfria "D"-formate
 utcNow('D')
 ```
 
-Och returnerar följande resultat:`"Sunday, April 15, 2018"`
+Och returnerar följande resultat: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
@@ -4653,7 +4653,7 @@ Det här exemplet hämtar heltal svärdet för den här variabeln:
 variables('numItems')
 ```
 
-Och returnerar följande resultat:`20`
+Och returnerar följande resultat: `20`
 
 <a name="workflow"></a>
 
@@ -4667,7 +4667,7 @@ workflow().<property>
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*immaterialrätt*> | Nej | Sträng | Namnet på den arbets flödes egenskap vars värde du vill ha <p>Ett arbets flödes objekt har följande egenskaper: **namn**, **typ**, **ID**, **plats**och **Kör**. Värdet **Kör** egenskap är också ett objekt som har dessa egenskaper: **namn**, **typ**och **ID**. |
+| <*immaterialrätt*> | Inga | Sträng | Namnet på den arbets flödes egenskap vars värde du vill ha <p>Ett arbets flödes objekt har följande egenskaper: **namn**, **typ**, **ID**, **plats**och **Kör**. Värdet **Kör** egenskap är också ett objekt som har dessa egenskaper: **namn**, **typ**och **ID**. |
 |||||
 
 *Exempel*
@@ -4781,7 +4781,7 @@ I följande exempel skickar det här exemplet i XPath-uttrycket, `'/produce/item
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Här är resultatet:`Gala`
+Här är resultatet: `Gala`
 
 *Exempel 3*
 
@@ -4789,7 +4789,7 @@ I följande exempel skickar det här exemplet i XPath-uttrycket, `'/produce/item
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-Här är resultatet:`Honeycrisp`
+Här är resultatet: `Honeycrisp`
 
 *Exempel 4*
 
@@ -4801,7 +4801,7 @@ Det här exemplet skickar i XPath-uttrycket, `'//name[@expired]'` för att hitta
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-Här är resultatet:`[ Gala, Honeycrisp ]`
+Här är resultatet: `[ Gala, Honeycrisp ]`
 
 *Exempel 5*
 
@@ -4813,7 +4813,7 @@ Det här exemplet skickar i XPath-uttrycket, `'//name[@expired = 'true']'` för 
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-Här är resultatet:`[ Gala ]`
+Här är resultatet: `[ Gala ]`
 
 *Exempel 6*
 
@@ -4828,7 +4828,7 @@ Det här exemplet skickar i XPath-uttrycket, `'//name[price>35]'` för att hitta
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-Här är resultatet:`Honeycrisp`
+Här är resultatet: `Honeycrisp`
 
 *Exempel 7*
 
@@ -4840,7 +4840,7 @@ Det här exemplet hittar noder som matchar `<count></count>` noden och lägger t
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Här är resultatet:`30`
+Här är resultatet: `30`
 
 *Exempel 8*
 
@@ -4863,9 +4863,9 @@ Här är den resulterande noden som matchar `<location></location>` noden:
 > Du måste till exempel använda escape-tecken när du serialiserar ett uttryck som en JSON-sträng. 
 > Men om du arbetar i Logic App Designer eller i uttrycks redigeraren, behöver du inte undanta det dubbla citat tecknet eftersom det omvända snedstrecket automatiskt läggs till i den underliggande definitionen, till exempel:
 > 
-> * Kodvy:`xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+> * Kodvy: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
-> * Uttrycks redigerare:`xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+> * Uttrycks redigerare: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 
 *Exempel 9*
 
@@ -4873,7 +4873,7 @@ Följande exempel använder ett XPath-uttryck för `'string(/*[name()="file"]/*[
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Här är resultatet:`Paris`
+Här är resultatet: `Paris`
 
 ## <a name="next-steps"></a>Nästa steg
 

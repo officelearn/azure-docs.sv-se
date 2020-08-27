@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201546"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934862"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>OData $filter-syntax i Azure Kognitiv sökning
 
@@ -67,7 +67,7 @@ Typerna av booleska uttryck är:
 - Anrop till booleska funktioner, inklusive:
   - `geo.intersects`, som testar om en viss punkt är inom en viss polygon. Mer information finns i [OData geo-spatial-funktioner i Azure kognitiv sökning](search-query-odata-geo-spatial-functions.md).
   - `search.in`, som jämför en fält-eller intervall variabel med varje värde i en lista med värden. Mer information finns [i OData- `search.in` funktionen i Azure kognitiv sökning](search-query-odata-search-in-function.md).
-  - `search.ismatch`och `search.ismatchscoring` , som kör full texts öknings åtgärder i en filter kontext. Mer information finns i [OData full text search-funktioner i Azure kognitiv sökning](search-query-odata-full-text-search-functions.md).
+  - `search.ismatch` och `search.ismatchscoring` , som kör full texts öknings åtgärder i en filter kontext. Mer information finns i [OData full text search-funktioner i Azure kognitiv sökning](search-query-odata-full-text-search-functions.md).
 - Fält Sök vägar eller intervall-variabler av typen `Edm.Boolean` . Om ditt index till exempel har ett Boolean-fält som heter `IsEnabled` och du vill returnera alla dokument där det här fältet är `true` , kan filter uttrycket bara vara namnet `IsEnabled` .
 - Booleska uttryck inom parentes. Med hjälp av parenteser kan du uttryckligen bestämma ordningen på åtgärderna i ett filter. Mer information om OData-operatörernas standard prioritet finns i nästa avsnitt.
 
@@ -75,7 +75,7 @@ Typerna av booleska uttryck är:
 
 Om du skriver ett filter uttryck utan parentes runt dess under uttryck, kommer Azure Kognitiv sökning att utvärdera det enligt en uppsättning av operatorernas prioritets regler. Dessa regler baseras på vilka operatorer som används för att kombinera under uttryck. I följande tabell visas en lista över operatorer i ordning från högsta till lägsta prioritet:
 
-| Grupp | Operator (er) |
+| Gruppera | Operator (er) |
 | --- | --- |
 | Logiska operatorer | `not` |
 | Jämförelseoperatorer | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |
@@ -142,7 +142,7 @@ Hitta alla hotell som har parkera och där alla rum är icke-rökning:
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 ```
 
- \-Eller  
+ \- Eller  
 
 ```odata-filter-expr
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
@@ -178,7 +178,7 @@ Hitta alla hotell inom 10 kilo meter från en viss referens punkt (där `Locatio
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där `Location` är ett fält av typen EDM. GeographyPoint). Polygonen måste vara stängd, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. Dessutom [måste punkterna visas i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Hitta alla hotell inom ett angivet visnings område som beskrivs som en polygon (där `Location` är ett fält av typen EDM. GeographyPoint). Polygonen måste vara stängd, vilket innebär att de första och sista punkt uppsättningarna måste vara desamma. Dessutom [måste punkterna visas i motsols ordning](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -214,7 +214,7 @@ Hitta en matchning på fraser i en samling, t. ex. "uppvärmd hand duks-rack" el
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 ```
 
-Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [search-begäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) med `search=waterfront` .
+Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [search-begäran](/rest/api/searchservice/search-documents) med `search=waterfront` .
 
 ```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
@@ -249,4 +249,4 @@ Hitta hotell där villkoren "hotell" och "flyg plats" inte innehåller fler än 
 - [Filter i Azure Kognitiv sökning](search-filters.md)
 - [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
 - [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)

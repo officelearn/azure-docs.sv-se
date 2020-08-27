@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
-ms.openlocfilehash: 58fa9361cc591f7d2b78a19f3db620112e288592
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 51b919c97a15946f57211cf8fe12d7c5efe435bf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284240"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934656"
 ---
 ## <a name="upload-the-audio"></a>Ladda upp ljudet
 
@@ -109,7 +110,7 @@ Installera **Microsoft. CognitiveServices. Speech. Remoteconversation version 1.
 
 ### <a name="sample-transcription-code"></a>Exempel kod för avskrift
 
-När du har gjort det `conversationId` kan du skapa en **RemoteConversationTranscriptionClient** för avskrifts avskrift i klient programmet för att fråga om status för den asynkrona avskriften. Skapa ett objekt av **RemoteConversationTranscriptionOperation** för att få ett tids krävande [Åtgärds](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) objekt. Du kan kontrol lera status för åtgärden eller vänta tills den är klar. 
+När du har gjort det `conversationId` kan du skapa en **RemoteConversationTranscriptionClient** för avskrifts avskrift i klient programmet för att fråga om status för den asynkrona avskriften. Skapa ett objekt av  **RemoteConversationTranscriptionOperation** för att få ett tids krävande [Åtgärds](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) objekt. Du kan kontrol lera status för åtgärden eller vänta tills den är klar. 
 
 ```csharp
 // Create the speech config

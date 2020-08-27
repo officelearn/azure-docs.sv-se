@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2211dbe8a5e336ec10562bb8a66ed0e8cc2a9e15
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208760"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935185"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
 
@@ -30,7 +30,7 @@ Några situationer där fält mappningar är användbara:
 * Du måste base64 koda eller avkoda dina data. Fält mappningar har stöd för flera **mappnings funktioner**, inklusive funktioner för base64-kodning och avkodning.
 
 > [!NOTE]
-> Fält mappningar i indexerare är ett enkelt sätt att mappa data fält till index fält, med viss möjlighet till låg data konvertering. Mer komplexa data kan kräva för bearbetning för att forma om den till ett formulär som är till för indexering. Ett alternativ som du kan överväga är [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
+> Fält mappningar i indexerare är ett enkelt sätt att mappa data fält till index fält, med viss möjlighet till låg data konvertering. Mer komplexa data kan kräva för bearbetning för att forma om den till ett formulär som är till för indexering. Ett alternativ som du kan överväga är [Azure Data Factory](../data-factory/index.yml).
 
 ## <a name="set-up-field-mappings"></a>Konfigurera fält mappningar
 
@@ -47,7 +47,7 @@ Fält mappningar läggs till i `fieldMappings` matrisen för index definition.
 
 ## <a name="map-fields-using-the-rest-api"></a>Mappa fält med hjälp av REST API
 
-Du kan lägga till fält mappningar när du skapar en ny indexerare med hjälp av API-förfrågan [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) . Du kan hantera fält mappningar för en befintlig indexerare med hjälp av API-begäran [Uppdatera indexerare](https://docs.microsoft.com/rest/api/searchservice/update-indexer) .
+Du kan lägga till fält mappningar när du skapar en ny indexerare med hjälp av API-förfrågan [skapa indexerare](/rest/api/searchservice/create-Indexer) . Du kan hantera fält mappningar för en befintlig indexerare med hjälp av API-begäran [Uppdatera indexerare](/rest/api/searchservice/update-indexer) .
 
 Så här mappar du till exempel ett käll fält till ett målfält med ett annat namn:
 
@@ -80,7 +80,7 @@ Det går att referera till ett käll fält i flera fält mappningar. I följande
 
 ## <a name="map-fields-using-the-net-sdk"></a>Mappa fält med hjälp av .NET SDK
 
-Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName` , och en valfri `MappingFunction` referens.
+Du definierar fält mappningar i .NET SDK med klassen [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , som har egenskaperna `SourceFieldName` och `TargetFieldName` , och en valfri `MappingFunction` referens.
 
 Du kan ange fält mappningar när du konstruerar indexeraren eller senare genom att ange egenskapen direkt `Indexer.FieldMappings` .
 
@@ -125,7 +125,7 @@ Utför *URL-säker base64-* kodning för Indatasträngen. Förutsätter att inda
 
 #### <a name="example---document-key-lookup"></a>Exempel – sökning efter dokument nyckel
 
-Endast URL-säkra tecken kan visas i en Azure Kognitiv sökning-dokument nyckel (eftersom kunderna måste kunna adressera dokumentet med [söknings-API: et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). Om käll fältet för nyckeln innehåller URL-osäkra tecken kan du använda `base64Encode` funktionen för att konvertera den vid indexerings tiden. Men en dokument nyckel (både före och efter konverteringen) får inte vara längre än 1 024 tecken.
+Endast URL-säkra tecken kan visas i en Azure Kognitiv sökning-dokument nyckel (eftersom kunderna måste kunna adressera dokumentet med [söknings-API: et](/rest/api/searchservice/lookup-document) ). Om käll fältet för nyckeln innehåller URL-osäkra tecken kan du använda `base64Encode` funktionen för att konvertera den vid indexerings tiden. Men en dokument nyckel (både före och efter konverteringen) får inte vara längre än 1 024 tecken.
 
 När du hämtar den kodade nyckeln vid sökning kan du använda `base64Decode` funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta käll dokumentet.
 
@@ -200,10 +200,10 @@ Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda sa
 
 Azure Kognitiv sökning stöder URL-säker base64-kodning och normal base64-kodning. En sträng som är Base64-kodad vid indexering ska avkodas senare med samma kodnings alternativ, eller annars matchar inte resultatet originalet.
 
-Om `useHttpServerUtilityUrlTokenEncode` -eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true` , `base64Encode` beter sig sedan som [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Om `useHttpServerUtilityUrlTokenEncode` -eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true` , `base64Encode` beter sig sedan som [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
 
 > [!WARNING]
-> Om `base64Encode` används för att skapa nyckel värden `useHttpServerUtilityUrlTokenEncode` måste anges till sant. Endast URL-säker base64-kodning kan användas för nyckel värden. Se [namngivnings regler &#40;Azure Kognitiv sökning&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) för att få en fullständig uppsättning begränsningar för tecken i nyckel värden.
+> Om `base64Encode` används för att skapa nyckel värden `useHttpServerUtilityUrlTokenEncode` måste anges till sant. Endast URL-säker base64-kodning kan användas för nyckel värden. Se [namngivnings regler &#40;Azure Kognitiv sökning&#41;](/rest/api/searchservice/naming-rules) för att få en fullständig uppsättning begränsningar för tecken i nyckel värden.
 
 .NET-biblioteken i Azure Kognitiv sökning antar den fullständiga .NET Framework, som innehåller inbyggd kodning. `useHttpServerUtilityUrlTokenEncode`Alternativen och `useHttpServerUtilityUrlTokenDecode` utnyttjar denna inbyggda funktion. Om du använder .NET Core eller ett annat ramverk rekommenderar vi att du ställer in de här alternativen till `false` och anropar ramverkets kodning och avkodnings funktioner direkt.
 

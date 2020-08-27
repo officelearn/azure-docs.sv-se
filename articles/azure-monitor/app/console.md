@@ -3,13 +3,14 @@ title: Azure Application insikter för konsol program | Microsoft Docs
 description: Övervaka webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
 ms.date: 05/21/2020
+ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 28f86e32dd73e25079ca685538fd0cb6f351b2d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310471"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933349"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
@@ -36,7 +37,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Telemetri skickas inte direkt. Telemetri-objekt grupperas och skickas av ApplicationInsights SDK. I-konsol program, som avslutas direkt efter anrops `Track()` metoder, kan telemetri inte skickas, såvida inte `Flush()` och `Sleep` / `Delay` utförs innan appen avslutas som i det [fullständiga exemplet](#full-example) senare i den här artikeln. `Sleep`krävs inte om du använder `InMemoryChannel` . Det finns ett aktivt problem som rör behovet av `Sleep` som spåras här: [ApplicationInsights-dotNet/Issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
+> Telemetri skickas inte direkt. Telemetri-objekt grupperas och skickas av ApplicationInsights SDK. I-konsol program, som avslutas direkt efter anrops `Track()` metoder, kan telemetri inte skickas, såvida inte `Flush()` och `Sleep` / `Delay` utförs innan appen avslutas som i det [fullständiga exemplet](#full-example) senare i den här artikeln. `Sleep` krävs inte om du använder `InMemoryChannel` . Det finns ett aktivt problem som rör behovet av `Sleep` som spåras här: [ApplicationInsights-dotNet/Issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Installera den senaste versionen av [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) -paketet – det spårar automatiskt http, SQL eller andra externa beroende anrop.

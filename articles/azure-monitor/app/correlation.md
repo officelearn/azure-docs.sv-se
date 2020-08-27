@@ -6,13 +6,13 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: devx-track-python
-ms.openlocfilehash: f2645cc76f6b1a59e84ee01cbc8d4c650cd6c789
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843632"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933366"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -34,7 +34,7 @@ I en miljö med mikrotjänster kan spår från komponenter gå till olika lagrin
 
 ## <a name="example"></a>Exempel
 
-Låt oss ta en titt på ett exempel. Ett program som kallas aktie kurser visar det aktuella marknads priset för en aktie genom att använda ett externt API som kallas lager. Programmet för aktie kurser har en sida som kallas lager sida som-klientens webbläsare öppnar med hjälp av `GET /Home/Stock` . Programmet skickar frågor till aktie-API: et genom att använda HTTP-anropet `GET /api/stock/value` .
+Vi tittar på ett exempel. Ett program som kallas aktie kurser visar det aktuella marknads priset för en aktie genom att använda ett externt API som kallas lager. Programmet för aktie kurser har en sida som kallas lager sida som-klientens webbläsare öppnar med hjälp av `GET /Home/Stock` . Programmet skickar frågor till aktie-API: et genom att använda HTTP-anropet `GET /api/stock/value` .
 
 Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
@@ -210,11 +210,11 @@ Den här funktionen finns i `Microsoft.ApplicationInsights.JavaScript` . Den är
 
 | Application Insights                   | Opentracing                                        |
 |------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span`för`span.kind = server`                    |
-| `Dependency`                           | `Span`för`span.kind = client`                    |
-| `Id`av `Request` och`Dependency`     | `SpanId`                                            |
+| `Request`, `PageView`                  | `Span` för `span.kind = server`                    |
+| `Dependency`                           | `Span` för `span.kind = client`                    |
+| `Id` av `Request` och `Dependency`     | `SpanId`                                            |
 | `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference`av typen `ChildOf` (det överordnade intervallet)     |
+| `Operation_ParentId`                   | `Reference` av typen `ChildOf` (det överordnade intervallet)     |
 
 Mer information finns i [Application Insights telemetri data Model](../../azure-monitor/app/data-model.md).
 
@@ -308,12 +308,12 @@ Du kan exportera loggdata med hjälp av `AzureLogHandler` . Mer information finn
 
 Med tiden har .NET definierat flera sätt att korrelera telemetri-och diagnostikloggar:
 
-- `System.Diagnostics.CorrelationManager`tillåter spårning av [LogicalOperationStack och ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
-- `System.Diagnostics.Tracing.EventSource`och ETW (Event Tracing for Windows) (ETW) definiera [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) -metoden.
-- `ILogger`använder [logg omfattningar](/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager` tillåter spårning av [LogicalOperationStack och ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.Tracing.EventSource` och ETW (Event Tracing for Windows) (ETW) definiera [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) -metoden.
+- `ILogger` använder [logg omfattningar](/aspnet/core/fundamentals/logging#log-scopes).
 - Kontext spridning för Windows Communication Foundation (WCF) och HTTP-kabelering.
 
-Men dessa metoder aktiverade inte stöd för automatisk Distributed spårning. `DiagnosticSource`stöder automatisk korrelation mellan datorer. .NET-bibliotek stöder `DiagnosticSource` och tillåter automatisk spridning mellan datorer av korrelations kontexten via transporten, till exempel http.
+Men dessa metoder aktiverade inte stöd för automatisk Distributed spårning. `DiagnosticSource` stöder automatisk korrelation mellan datorer. .NET-bibliotek stöder `DiagnosticSource` och tillåter automatisk spridning mellan datorer av korrelations kontexten via transporten, till exempel http.
 
 [Användar handboken](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för aktiviteten `DiagnosticSource` förklarar grunderna för spårning av aktiviteter.
 

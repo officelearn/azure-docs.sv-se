@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553146"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924137"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Konfigurera en Indexer-anslutning till Azure SQL Database med hjälp av en hanterad identitet (förhands granskning)
 
@@ -44,7 +44,7 @@ När du har valt **Spara** visas ett objekt-ID som har tilldelats till din Sök 
 
 När du ansluter till databasen i nästa steg måste du ansluta till ett Azure Active Directory (Azure AD)-konto som har administratörs åtkomst till databasen för att ge din Sök tjänst behörighet att komma åt databasen.
 
-Följ anvisningarna [här](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) för att ge din Azure AD-konto administratör åtkomst till databasen.
+Följ anvisningarna [här](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) för att ge din Azure AD-konto administratör åtkomst till databasen.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 – tilldela Sök tjänst behörigheter
 
@@ -97,9 +97,9 @@ I det här steget ska du ge Azure Kognitiv sökning-tjänstens behörighet att l
 
 ### <a name="5---create-the-data-source"></a>5 – skapa data källan
 
-[REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från en Azure SQL Database med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från en Azure SQL Database med hjälp av [REST API](/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
 
-När du skapar en data källa med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)måste data källan ha följande obligatoriska egenskaper:
+När du skapar en data källa med hjälp av [REST API](/rest/api/searchservice/create-data-source)måste data källan ha följande obligatoriska egenskaper:
 
 * **Name** är det unika namnet på data källan i Sök tjänsten.
 * **typ** är `azuresql`
@@ -109,7 +109,7 @@ När du skapar en data källa med hjälp av [REST API](https://docs.microsoft.co
         * *Initial katalog | Databas =**databas namn**; ResourceId =/Subscriptions/**ditt prenumerations-ID**/resourceGroups/**resurs gruppens namn**/providers/Microsoft.SQL/Servers/**ditt SQL Server namn**/; Timeout för anslutning =**anslutningens timeout-längd**;*
 * **container** anger namnet på den tabell eller vy som du vill indexera.
 
-Exempel på hur du skapar ett Azure SQL Data Source-objekt med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Exempel på hur du skapar ett Azure SQL Data Source-objekt med hjälp av [REST API](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-Mer information om hur du skapar index finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Mer information om hur du skapar index finns i [skapa index](/rest/api/searchservice/create-index)
 
 ### <a name="7---create-the-indexer"></a>7 – skapa indexeraren
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 Indexeraren körs varannan timme (schema intervall anges till "PT2H"). Om du vill köra en indexerare var 30: e minut anger du intervallet till "PT30M". Det kortaste intervall som stöds är 5 minuter. Schemat är valfritt – om det utelämnas körs en indexerare bara en gång när den skapas. Du kan dock köra en indexerare på begäran när du vill.   
 
-Mer information om API för att skapa index finns i [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Mer information om API för att skapa index finns i [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du får ett fel meddelande när indexeraren försöker ansluta till data källan som säger att klienten inte har behörighet att komma åt servern, kan du ta en titt på [vanliga index fel](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
+Om du får ett fel meddelande när indexeraren försöker ansluta till data källan som säger att klienten inte har behörighet att komma åt servern, kan du ta en titt på [vanliga index fel](./search-indexer-troubleshooting.md).
 
 ## <a name="see-also"></a>Se även
 

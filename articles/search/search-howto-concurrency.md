@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f22e69cbc625d21c398151e413574387a2587790
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 5171db64f931d59d4f5b66143072cfc8153e8775
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145274"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935202"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Hantera samtidighet i Azure Kognitiv sökning
 
@@ -28,8 +28,8 @@ Optimistisk samtidighet implementeras genom åtkomst villkors kontroller i API-a
 
 Alla resurser har en [*Entity-tagg (etag)*](https://en.wikipedia.org/wiki/HTTP_ETag) som tillhandahåller objekt versions information. Genom att först kontrol lera ETag kan du undvika samtidiga uppdateringar i ett typiskt arbets flöde (Hämta, ändra lokalt, uppdatera) genom att se till att resursens ETag matchar din lokala kopia.
 
-+ REST API använder en [etag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) i begär ande huvudet.
-+ .NET SDK anger ETag genom ett accessCondition-objekt, vilket anger [If-Match | If-Match-none-huvud](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) på resursen. Alla objekt som ärver från [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) har ett accessCondition-objekt.
++ REST API använder en [etag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) i begär ande huvudet.
++ .NET SDK anger ETag genom ett accessCondition-objekt, vilket anger [If-Match | If-Match-none-huvud](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) på resursen. Alla objekt som ärver från [IResourceWithETag (.NET SDK)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) har ett accessCondition-objekt.
 
 Varje gång du uppdaterar en resurs ändras dess ETag automatiskt. När du implementerar samtidiga hantering, kommer allt du gör att införa ett villkor för den uppdateringsbegäran som kräver att fjär resursen har samma ETag som kopian av resursen som du ändrade på klienten. Om en samtidig process redan har ändrat fjär resursen, stämmer inte ETagen överens med villkoret och begäran Miss fungerar med HTTP 412. Om du använder .NET SDK visas manifestet som en `CloudException` där `IsAccessConditionFailed()` tilläggs metoden returnerar true.
 
@@ -217,6 +217,6 @@ Försök att ändra något av följande exempel för att inkludera ETags-eller A
 
 ## <a name="see-also"></a>Se även
 
-[Vanliga HTTP-förfrågningar och svarshuvuden](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
- [HTTP-statuskod](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
- [Index åtgärder (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Vanliga HTTP-förfrågningar och svarshuvuden](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
+ [HTTP-statuskod](/rest/api/searchservice/http-status-codes) 
+ [Index åtgärder (REST API)](/rest/api/searchservice/index-operations)

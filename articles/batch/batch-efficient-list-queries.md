@@ -3,13 +3,13 @@ title: Utforma effektiva List frågor
 description: Öka prestanda genom att filtrera dina frågor när du begär information om batch-resurser som pooler, jobb, uppgifter och Compute-noder.
 ms.topic: how-to
 ms.date: 06/18/2020
-ms.custom: seodec18
-ms.openlocfilehash: bcf99dbc55d708af70a28155a3f98c20003e51f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960613"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933522"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista batch-resurser effektivt
 
@@ -88,8 +88,8 @@ I det här exemplet expanderas sträng anger du att statistik information ska re
 - Alla egenskaps namn är Skift läges känsliga, men egenskaps värden är Skift läges känsliga.
 - Datum-och tids strängar kan vara ett av två format och måste föregås av `DateTime` .
   
-  - Exempel på W3C-DTF format:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  - Exempel på RFC 1123-format:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  - Exempel på W3C-DTF format: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  - Exempel på RFC 1123-format: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 - Booleska strängar är antingen `true` eller `false` .
 - Om en ogiltig egenskap eller operator anges, uppstår ett `400 (Bad Request)` fel.
 
@@ -184,7 +184,7 @@ Därför blir filter strängen för att lista alla aktiviteter med en slutkod so
 
 Om du vill skapa [ODATADetailLevel. SelectClause](/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause)läser du tabellen ovan under "mappningar för Select Strings" och navigerar till REST API sidan som motsvarar den typ av enhet som du visar. Du hittar de valbara egenskaperna och de operatörer som stöds i den första multirow-tabellen på den sidan. Om du till exempel bara vill hämta ID och kommando rad för varje aktivitet i en lista, så hittar du till exempel raderna i den tillämpliga tabellen på [Hämta information om en aktivitet](/rest/api/batchservice/task/get):
 
-| Egenskap | Typ | Obs! |
+| Egenskap | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

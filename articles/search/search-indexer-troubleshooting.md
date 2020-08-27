@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 79db94298d190f646393410ec73ba1a25bb48270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05d0cba2a3751ac010dc26f68137a31dd04c62ce
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560401"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935151"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Felsöka vanliga indexerings problem i Azure Kognitiv sökning
 
@@ -30,7 +30,7 @@ Indexerare kan köra ett antal problem när de indexerar data i Azure Kognitiv s
 >
 > Du kan ta reda på IP-adressen för din Sök tjänst genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net` ).
 >
-> Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) genom att antingen använda [nedladdnings bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
+> Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) genom att antingen använda [nedladdnings bara JSON-filer](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
 
 ### <a name="configure-firewall-rules"></a>Konfigurera brandväggsregler
 
@@ -39,19 +39,19 @@ Azure Storage, CosmosDB och Azure SQL tillhandahåller en konfigurerbar brand v�
 Det finns två alternativ för att tillåta indexerare att få åtkomst till dessa resurser i en sådan instans:
 
 * Inaktivera brand väggen genom att tillåta åtkomst från **alla nätverk** (om möjligt).
-* Alternativt kan du tillåta åtkomst till IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i brand Väggs reglerna för din resurs (begränsning för IP-adressintervall).
+* Alternativt kan du tillåta åtkomst till IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) i brand Väggs reglerna för din resurs (begränsning för IP-adressintervall).
 
 Information om hur du konfigurerar begränsningar för IP-adressintervall för varje typ av data källa finns i följande länkar:
 
-* [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Azure Storage](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+* [Azure SQL](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
 
 **Begränsning**: som anges i dokumentationen ovan för Azure Storage fungerar begränsningarna för IP-adressintervall bara om Sök tjänsten och ditt lagrings konto finns i olika regioner.
 
-Azure Functions (som kan användas som en [anpassad webb-API-kunskap](cognitive-search-custom-skill-web-api.md)) stöder också [IP-adressbegränsningar](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). Listan med IP-adresser som ska konfigureras är IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` tjänst tag gen.
+Azure Functions (som kan användas som en [anpassad webb-API-kunskap](cognitive-search-custom-skill-web-api.md)) stöder också [IP-adressbegränsningar](../azure-functions/ip-addresses.md#ip-address-restrictions). Listan med IP-adresser som ska konfigureras är IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` tjänst tag gen.
 
 Information om hur du kommer åt data i SQL Server på en virtuell Azure-dator beskrivs [här](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
@@ -61,13 +61,13 @@ Vid åtkomst till data i en SQL-hanterad instans, eller när en virtuell Azure-d
 
 I sådana fall kan den virtuella Azure-datorn eller SQL-hanterade instansen konfigureras så att de finns i ett virtuellt nätverk. Sedan kan en nätverks säkerhets grupp konfigureras för att filtrera den typ av nätverks trafik som kan flöda in i och ut ur de virtuella nätverkets undernät och nätverks gränssnitt.
 
-`AzureCognitiveSearch`Service tag gen kan användas direkt i regler för inkommande [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) utan att behöva leta upp dess IP-adressintervall.
+`AzureCognitiveSearch`Service tag gen kan användas direkt i regler för inkommande [NSG](../virtual-network/manage-network-security-group.md#work-with-security-rules) utan att behöva leta upp dess IP-adressintervall.
 
 Mer information om hur du kommer åt data i en SQL-hanterad instans beskrivs [här](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ### <a name="cosmosdb-indexing-isnt-enabled"></a>CosmosDB "indexering" är inte aktive rad
 
-Azure Kognitiv sökning har ett implicit beroende av Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, returnerar Azure Kognitiv sökning ett lyckat tillstånd, men det går inte att indexera container innehåll. Instruktioner för hur du kontrollerar inställningar och aktiverar indexering finns i [Hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+Azure Kognitiv sökning har ett implicit beroende av Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, returnerar Azure Kognitiv sökning ett lyckat tillstånd, men det går inte att indexera container innehåll. Instruktioner för hur du kontrollerar inställningar och aktiverar indexering finns i [Hantera indexering i Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Fel vid dokument bearbetning
 
@@ -108,11 +108,11 @@ api-key: [admin key]
 
 ### <a name="missing-documents"></a>Dokument som saknas
 
-Indexerare hittar dokument från en [data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Ibland visas ett dokument från data källan som har indexerats för att saknas i ett index. Det finns några vanliga orsaker till att dessa fel inträffar:
+Indexerare hittar dokument från en [data källa](/rest/api/searchservice/create-data-source). Ibland visas ett dokument från data källan som har indexerats för att saknas i ett index. Det finns några vanliga orsaker till att dessa fel inträffar:
 
 * Dokumentet har inte indexerats. Kontrol lera portalen för att köra en lyckad indexerare.
-* Kontrol lera värdet för [ändrings spårning](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) . Om ditt högsta värde för vatten märket är ett datum som anges till en framtida tid, hoppas alla dokument som har ett datum som är mindre än detta att hoppas över av indexeraren. Du kan förstå indexeraren ändrings spårnings tillstånd med hjälp av fälten "initialTrackingState" och "finalTrackingState" i [indexerings status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status#indexer-execution-result).
-* Dokumentet uppdaterades när indexeraren kördes. Om indexeraren är enligt ett [schema](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), kommer den att köras igen och hämta dokumentet.
+* Kontrol lera värdet för [ändrings spårning](/rest/api/searchservice/create-data-source#data-change-detection-policies) . Om ditt högsta värde för vatten märket är ett datum som anges till en framtida tid, hoppas alla dokument som har ett datum som är mindre än detta att hoppas över av indexeraren. Du kan förstå indexeraren ändrings spårnings tillstånd med hjälp av fälten "initialTrackingState" och "finalTrackingState" i [indexerings status](/rest/api/searchservice/get-indexer-status#indexer-execution-result).
+* Dokumentet uppdaterades när indexeraren kördes. Om indexeraren är enligt ett [schema](/rest/api/searchservice/create-indexer#indexer-schedule), kommer den att köras igen och hämta dokumentet.
 * [Frågan](/rest/api/searchservice/create-data-source) som anges i data källan utesluter dokumentet. Indexerare kan inte indexera dokument som inte är en del av data källan.
-* [Fält mappningar](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) eller [AI-berikning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) har ändrat dokumentet och det ser annorlunda ut än förväntat.
-* Använd [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att hitta ditt dokument.
+* [Fält mappningar](/rest/api/searchservice/create-indexer#fieldmappings) eller [AI-berikning](./cognitive-search-concept-intro.md) har ändrat dokumentet och det ser annorlunda ut än förväntat.
+* Använd [Sök-API: et](/rest/api/searchservice/lookup-document) för att hitta ditt dokument.

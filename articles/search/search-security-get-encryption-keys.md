@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
-ms.openlocfilehash: f6e356f868cdb2107a19084070a85a0388ab4af7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 37ff94608e9756142f70a4f3c64d0a6f7eeea685
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554888"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932907"
 ---
 # <a name="get-customer-managed-key-information-from-indexes-and-synonym-maps"></a>Hämta kundhanterad viktig information från index och synonym kartor
 
@@ -66,6 +66,6 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
 Nu när du vet vilken krypterings nyckel och version som används kan du hantera nyckeln i Azure Key Vault eller kontrol lera andra konfigurations inställningar.
 
-+ [Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell)
++ [Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell](../key-vault/secrets/quick-create-powershell.md)
 
 + [Konfigurera Kundhanterade nycklar för data kryptering i Azure Kognitiv sökning](search-security-manage-encryption-keys.md)

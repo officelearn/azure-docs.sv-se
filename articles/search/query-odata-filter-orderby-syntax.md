@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165217"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923406"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språk översikt för `$filter` , `$orderby` och `$select` i Azure kognitiv sökning
 
@@ -76,8 +76,8 @@ Exempel på fält Sök vägar visas i följande tabell:
 | `Address/City` | Refererar till `City` under fältet för ett komplext fält i indexet, `Address` är av typen `Edm.ComplexType` i det här exemplet |
 | `Rooms/Type` | Refererar till `Type` under fältet för ett komplext samlings fält i indexet, `Rooms` är av typen `Collection(Edm.ComplexType)` i det här exemplet |
 | `Stores/Address/Country` | Refererar till `Country` under fältet för `Address` under fältet för ett komplext samlings fält i indexet, `Stores` är av typen `Collection(Edm.ComplexType)` och `Address` är av typen `Edm.ComplexType` i det här exemplet |
-| `room/Type` | Refererar till `Type` under fältet för `room` variabeln Range, till exempel i filter uttrycket`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Refererar till `Country` under fältet i `Address` under fältet för `store` variabeln Range, till exempel i filter uttrycket`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `room/Type` | Refererar till `Type` under fältet för `room` variabeln Range, till exempel i filter uttrycket `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refererar till `Country` under fältet i `Address` under fältet för `store` variabeln Range, till exempel i filter uttrycket `Stores/any(store: store/Address/Country eq 'Canada')` |
 
 Betydelsen av en fält Sök väg varierar beroende på kontexten. I filter refererar en fält Sök väg till värdet för en *enda instans* av ett fält i det aktuella dokumentet. I andra sammanhang, t. ex. **$OrderBy**, **$Select**eller i [fältet sökning i den fullständiga Lucene-syntaxen](query-lucene-syntax.md#bkmk_fields), refererar en fält Sök väg till själva fältet. Denna skillnad har vissa följder för hur du använder fält Sök vägar i filter.
 
@@ -91,25 +91,25 @@ I det här exemplet visas variabeln Range `room` i `room/Type` fält Sök vägen
 
 ### <a name="using-field-paths"></a>Använda fält Sök vägar
 
-Fält Sök vägar används i många parametrar för [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). I följande tabell visas alla platser där de kan användas, samt eventuella begränsningar för användningen:
+Fält Sök vägar används i många parametrar för [Azure KOGNITIV sökning REST-API: er](/rest/api/searchservice/). I följande tabell visas alla platser där de kan användas, samt eventuella begränsningar för användningen:
 
 | API | Parameternamn | Begränsningar |
 | --- | --- | --- |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Inget |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/text/weights` | Kan endast referera till **sökbara** fält |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/functions/fieldName` | Kan endast referera till **filter** bara fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`När `queryType` är`full` | Kan endast referera till **sökbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Kan endast referera till **fasettiska** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Kan endast referera till **sökbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Kan endast referera till **sökbara** fält |
-| [Föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Kan endast referera till fält som ingår i en [förslags ställare](index-add-suggesters.md) |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents), [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions)och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Kan endast referera till **filter** bara fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) och [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Kan endast referera till **sorterbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents), [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions)och [uppslag](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Kan endast referera till **hämtnings** bara fält |
+| [Skapa](/rest/api/searchservice/create-index) eller [Uppdatera](/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Inget |
+| [Skapa](/rest/api/searchservice/create-index) eller [Uppdatera](/rest/api/searchservice/update-index) index | `scoringProfiles/text/weights` | Kan endast referera till **sökbara** fält |
+| [Skapa](/rest/api/searchservice/create-index) eller [Uppdatera](/rest/api/searchservice/update-index) index | `scoringProfiles/functions/fieldName` | Kan endast referera till **filter** bara fält |
+| [Sök](/rest/api/searchservice/search-documents) | `search` När `queryType` är `full` | Kan endast referera till **sökbara** fält |
+| [Sök](/rest/api/searchservice/search-documents) | `facet` | Kan endast referera till **fasettiska** fält |
+| [Sök](/rest/api/searchservice/search-documents) | `highlight` | Kan endast referera till **sökbara** fält |
+| [Sök](/rest/api/searchservice/search-documents) | `searchFields` | Kan endast referera till **sökbara** fält |
+| [Föreslå](/rest/api/searchservice/suggestions) och [komplettera automatiskt](/rest/api/searchservice/autocomplete) | `searchFields` | Kan endast referera till fält som ingår i en [förslags ställare](index-add-suggesters.md) |
+| [Sök](/rest/api/searchservice/search-documents), [föreslå](/rest/api/searchservice/suggestions)och [komplettera automatiskt](/rest/api/searchservice/autocomplete) | `$filter` | Kan endast referera till **filter** bara fält |
+| [Sök](/rest/api/searchservice/search-documents) och [föreslå](/rest/api/searchservice/suggestions) | `$orderby` | Kan endast referera till **sorterbara** fält |
+| [Sök](/rest/api/searchservice/search-documents), [föreslå](/rest/api/searchservice/suggestions)och [uppslag](/rest/api/searchservice/lookup-document) | `$select` | Kan endast referera till **hämtnings** bara fält |
 
 ## <a name="constants"></a>Konstanter
 
-Konstanter i OData är litterala värden för en specifik EDM-typ ( [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) ). Se [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) för en lista över typer som stöds i Azure kognitiv sökning. Konstanter för samlings typer stöds inte.
+Konstanter i OData är litterala värden för en specifik EDM-typ ( [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) ). Se [data typer som stöds](/rest/api/searchservice/supported-data-types) för en lista över typer som stöds i Azure kognitiv sökning. Konstanter för samlings typer stöds inte.
 
 I följande tabell visas exempel på konstanter för var och en av de data typer som stöds av Azure Kognitiv sökning:
 
@@ -243,6 +243,6 @@ Parametrarna **$filter**, **$OrderBy**och **$Select** visas mer ingående i föl
 
 - [Fasettisk navigering i Azure Kognitiv sökning](search-faceted-navigation.md)
 - [Filter i Azure Kognitiv sökning](search-filters.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)
 - [Lucene-frågesyntax](query-lucene-syntax.md)
 - [Enkel frågesyntax i Azure Kognitiv sökning](query-simple-syntax.md)

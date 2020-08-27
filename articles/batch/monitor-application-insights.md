@@ -2,13 +2,14 @@
 title: Övervaka batch med Azure Application insikter
 description: Lär dig att instrumentera ett Azure Batch .NET-program med hjälp av Azure Application Insights-biblioteket.
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ms.date: 04/05/2018
-ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d06e2b61725f05d025acd8a2995ea041f138ae4f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723620"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933570"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -22,7 +23,7 @@ Ett exempel på en C#-lösning med kod som medföljer den här artikeln finns p�
 > Alternativt kan du konfigurera batch-lösningen så att den visar Application Insights data, till exempel prestanda räknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnads fritt, fristående klient verktyg med omfattande funktioner som hjälper dig att skapa, felsöka och övervaka Azure Batch program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se [batch-Insights-lagrings platsen](https://github.com/Azure/batch-insights) för snabb steg för att aktivera Application Insights data i batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs)
 
 * [Batch-konto och länkat lagrings konto](batch-account-create-portal.md)
@@ -48,7 +49,7 @@ Referens Application Insights från ditt .NET-program med hjälp av namn område
 
 ## <a name="instrument-your-code"></a>Instrumentera din kod
 
-För att kunna instrumentera din kod måste din lösning skapa en Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). I exemplet laddar TelemetryClient konfigurationen från [ApplicationInsights.configs](../azure-monitor/app/configuration-with-applicationinsights-config.md) filen. Se till att uppdatera ApplicationInsights.config i följande projekt med din Application Insights Instrumentation-nyckel: Microsoft.Azure.BatCH. Samples. TelemetryStartTask och TopNWordsSample.
+För att kunna instrumentera din kod måste din lösning skapa en Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). I exemplet laddar TelemetryClient konfigurationen från [ApplicationInsights.configs ](../azure-monitor/app/configuration-with-applicationinsights-config.md) filen. Se till att uppdatera ApplicationInsights.config i följande projekt med din Application Insights Instrumentation-nyckel: Microsoft.Azure.BatCH. Samples. TelemetryStartTask och TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
@@ -56,9 +57,9 @@ För att kunna instrumentera din kod måste din lösning skapa en Application In
 Lägg också till Instrumentation-nyckeln i filen TopNWords.cs.
 
 I exemplet i TopNWords.cs används följande [Instrumentation-anrop](../azure-monitor/app/api-custom-events-metrics.md) från Application Insights API:
-* `TrackMetric()`– Spårar hur lång tid det tar för en beräknings nod att ladda ned den nödvändiga text filen.
-* `TrackTrace()`– Lägger till fel söknings anrop till din kod.
-* `TrackEvent()`– Spårar intressanta händelser som ska fångas.
+* `TrackMetric()` – Spårar hur lång tid det tar för en beräknings nod att ladda ned den nödvändiga text filen.
+* `TrackTrace()` – Lägger till fel söknings anrop till din kod.
+* `TrackEvent()` – Spårar intressanta händelser som ska fångas.
 
 I det här exemplet används inte undantags hanteringen. I stället rapporterar Application Insights automatiskt ohanterade undantag, vilket avsevärt förbättrar fel söknings upplevelsen. 
 

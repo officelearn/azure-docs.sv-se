@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av fysiska s
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420795"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927382"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
@@ -40,6 +40,7 @@ Konfigurera Azure för att arbeta med Azure Migrate.
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att skapa ett projekt. 
 **Registrera resurs leverantörer (endast utvärdering)** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera datorer med Azure Migrate: Server utvärdering.<br/><br/> Under produkt registrering registreras resurs leverantörer med den prenumeration som valts i installationen. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
 **Skapa Azure AD-App (endast utvärdering)** | När du registrerar installationen skapar Azure Migrate en Azure Active Directory (Azure AD)-app som används för kommunikation mellan de agenter som körs på enheten med deras respektive tjänster som körs på Azure. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Du måste ha behörighet för att skapa Azure AD-appar (tillgängliga i rollen program utvecklare).
+**Skapa en Key Vault-lösning** | Key Vault skapas som en del av installations registreringen och används för hantering av det certifikat som laddats ned på enheten under konfigurationen.<br/><br/>För att Azure Migrate ska kunna skapa Key Vault måste ditt Azure-konto ha deltagar behörighet för resurs gruppen där Azure Migrate-projektet finns.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt 

@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d6c30cb7abffc7e25e78eeabf5fb43fc8c1f682
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3c8e44a3d57ee519ff792de97ed2b3d183bf666b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171966"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923372"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Uppgradera till Azure Search .NET SDK version 1,1
 
-Om du använder version 1.0.2 eller äldre av [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 1,1.
+Om du använder version 1.0.2 eller äldre av [Azure Search .NET SDK](/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 1,1.
 
 En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
@@ -53,9 +53,9 @@ Slutligen, när du har åtgärdat eventuella build-fel, kan du göra ändringar 
 I följande lista ordnas sannolikheten för att ändringen ska påverka program koden.
 
 ### <a name="indexbatch-and-indexaction-changes"></a>IndexBatch-och IndexAction-ändringar
-`IndexBatch.Create`har bytt namn till `IndexBatch.New` och har inte längre något `params` argument. Du kan använda `IndexBatch.New` för batchar som blandar olika typer av åtgärder (sammanslagningar, borttagningar osv.). Dessutom finns det nya statiska metoder för att skapa batchar där alla åtgärder är desamma: `Delete` , `Merge` , `MergeOrUpload` och `Upload` .
+`IndexBatch.Create` har bytt namn till `IndexBatch.New` och har inte längre något `params` argument. Du kan använda `IndexBatch.New` för batchar som blandar olika typer av åtgärder (sammanslagningar, borttagningar osv.). Dessutom finns det nya statiska metoder för att skapa batchar där alla åtgärder är desamma: `Delete` , `Merge` , `MergeOrUpload` och `Upload` .
 
-`IndexAction`har inte längre några offentliga konstruktorer och dess egenskaper är nu oföränderliga. Du bör använda de nya statiska metoderna för att skapa åtgärder för olika syfte: `Delete` ,, `Merge` `MergeOrUpload` och `Upload` . `IndexAction.Create`har tagits bort. Om du har använt överlagringen som bara tar ett dokument ska du se till att använda `Upload` i stället.
+`IndexAction` har inte längre några offentliga konstruktorer och dess egenskaper är nu oföränderliga. Du bör använda de nya statiska metoderna för att skapa åtgärder för olika syfte: `Delete` ,, `Merge` `MergeOrUpload` och `Upload` . `IndexAction.Create` har tagits bort. Om du har använt överlagringen som bara tar ett dokument ska du se till att använda `Upload` i stället.
 
 #### <a name="example"></a>Exempel
 Om din kod ser ut så här:
@@ -169,7 +169,7 @@ Från och med version 1,1 organiserar Azure Search .NET SDK olika åtgärds meto
 
 * Valfria parametrar modelleras nu som standard parametrar snarare än ytterligare metod överbelastningar. Detta minskar antalet metod överföringar, ibland dramatiskt.
 * Tilläggs metoderna döljer nu en stor del av den extra informationen om HTTP från anroparen. Till exempel returnerade äldre versioner av SDK ett Response-objekt med en HTTP-statuskod som du ofta inte behövde kontrol lera eftersom åtgärds metoder returnerar `CloudException` status kod som anger ett fel. De nya tilläggs metoderna returnerar bara modell objekt, och du slipper att packa upp dem i din kod.
-* Huvud gränssnitten visar nu metoder som ger dig mer kontroll på HTTP-nivå om du behöver det. Nu kan du skicka in anpassade HTTP-huvuden som ska ingå i begär Anden och den nya `AzureOperationResponse<T>` RETUR typen ger direkt åtkomst till `HttpRequestMessage` och `HttpResponseMessage` för åtgärden. `AzureOperationResponse`definieras i `Microsoft.Rest.Azure` namn området och ersätts `Hyak.Common.OperationResponse` .
+* Huvud gränssnitten visar nu metoder som ger dig mer kontroll på HTTP-nivå om du behöver det. Nu kan du skicka in anpassade HTTP-huvuden som ska ingå i begär Anden och den nya `AzureOperationResponse<T>` RETUR typen ger direkt åtkomst till `HttpRequestMessage` och `HttpResponseMessage` för åtgärden. `AzureOperationResponse` definieras i `Microsoft.Rest.Azure` namn området och ersätts `Hyak.Common.OperationResponse` .
 
 ### <a name="scoringparameters-changes"></a>ScoringParameters ändringar
 En ny klass med namnet `ScoringParameter` har lagts till i den senaste SDK: n för att göra det enklare att tillhandahålla parametrar för att lägga till profiler i en Sök fråga. Tidigare har `ScoringProfiles` egenskapen för `SearchParameters` klassen angetts som `IList<string>` ; Nu har den angetts som `IList<ScoringParameter>` .
@@ -197,12 +197,12 @@ sp.ScoringParameters =
 ```
 
 ### <a name="model-class-changes"></a>Ändringar i modell klass
-På grund av ändringar i signaturen som beskrivs i [Åtgärds metod ändringar](#OperationMethodChanges), har många klasser i `Microsoft.Azure.Search.Models` namn området bytt namn eller tagits bort. Exempel:
+På grund av ändringar i signaturen som beskrivs i [Åtgärds metod ändringar](#OperationMethodChanges), har många klasser i `Microsoft.Azure.Search.Models` namn området bytt namn eller tagits bort. Ett exempel:
 
-* `IndexDefinitionResponse`har ersatts av`AzureOperationResponse<Index>`
+* `IndexDefinitionResponse` har ersatts av `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` har bytt namn till `DocumentSearchResult`
 * `IndexResult` har bytt namn till `IndexingResult`
-* `Documents.Count()`returnerar nu en `long` med antalet dokument i stället för en`DocumentCountResponse`
+* `Documents.Count()` returnerar nu en `long` med antalet dokument i stället för en `DocumentCountResponse`
 * `IndexGetStatisticsResponse` har bytt namn till `IndexGetStatisticsResult`
 * `IndexListResponse` har bytt namn till `IndexListResult`
 
@@ -401,4 +401,3 @@ Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 Därför rekommenderar vi fortfarande att du använder Nullable-typer i dina modell klasser som bästa praxis.
 
 Mer information om det här felet och korrigeringen finns i [det här problemet på GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-

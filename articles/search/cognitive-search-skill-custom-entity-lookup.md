@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987481"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936120"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84987481"
 
 Den **anpassade Sök** kompetensen för entiteten söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer.  
 
-Den här kunskapen är inte kopplad till ett Cognitive Services-API och kan användas kostnads fritt under för hands perioden. Du bör fortfarande [bifoga en Cognitive Services resurs](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services), men för att åsidosätta den dagliga gränsen för anrikning. Den dagliga gränsen gäller för kostnads fri åtkomst till Cognitive Services vid åtkomst via Azure Kognitiv sökning.
+Den här kunskapen är inte kopplad till ett Cognitive Services-API och kan användas kostnads fritt under för hands perioden. Du bör fortfarande [bifoga en Cognitive Services resurs](./cognitive-search-attach-cognitive-services.md), men för att åsidosätta den dagliga gränsen för anrikning. Den dagliga gränsen gäller för kostnads fri åtkomst till Cognitive Services vid åtkomst via Azure Kognitiv sökning.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft. färdigheter. text. CustomEntityLookupSkill 
@@ -69,7 +69,7 @@ Om definitionen anges som infogad, ska den anges som infogad som innehåll i *in
 
 ### <a name="csv-format"></a>CSV-format
 
-Du kan ange definitionen av de anpassade entiteterna som ska sökas efter i en fil med kommaavgränsade värden (CSV) genom att ange sökvägen till filen och ange den i *entitiesDefinitionUri* -kunskaps parametern. Sökvägen ska vara på en https-plats. Definitions filen kan vara upp till 10 MB stor.
+Du kan ange definitionen av de anpassade entiteterna som ska sökas efter i en fil med kommaavgränsade värden (CSV) genom att ange sökvägen till filen och ange den i *entitiesDefinitionUri*  -kunskaps parametern. Sökvägen ska vara på en https-plats. Definitions filen kan vara upp till 10 MB stor.
 
 CSV-formatet är enkelt. Varje rad representerar en unik entitet, som du ser nedan:
 
@@ -231,7 +231,7 @@ Alternativt, om du bestämmer dig för att tillhandahålla en pekare till defini
 
 ```
 
-##    <a name="sample-input"></a>Exempel på inmatade
+##    <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -248,7 +248,7 @@ Alternativt, om du bestämmer dig för att tillhandahålla en pekare till defini
 }
 ```
 
-##    <a name="sample-output"></a>Exempel på utdata
+##    <a name="sample-output"></a>Exempelutdata
 
 ```json
   { 

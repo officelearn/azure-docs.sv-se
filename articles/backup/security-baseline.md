@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2951d0ee8719ec3b0f195a9abcd1af6f65f2c141
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761822"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890509"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Azures säkerhets bas linje för säkerhets kopiering
 
@@ -186,7 +186,7 @@ Dessutom skickar Azure Backup diagnostiska händelser som kan samlas in och anv�
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
 
-**Vägledning**: Azure Backup tillhandahåller inbyggda övervaknings-och aviserings funktioner i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan någon ytterligare hanterings infrastruktur. Du kan också öka skalan för övervakning och rapportering med hjälp av Azure Monitor.
+**Vägledning**: Azure Backup tillhandahåller inbyggda övervaknings-och aviserings funktioner i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan ytterligare hanteringsinfrastruktur. Du kan också öka skalan för övervakning och rapportering med hjälp av Azure Monitor.
 
 Aktivera diagnostiska inställningar för Azure aktivitets logg och skicka loggarna till en Log Analytics-arbetsyta. Utför frågor i Log Analytics till att söka efter termer, identifiera trender, analysera mönster och tillhandahålla många andra insikter baserat på de aktivitets logg data som kan ha samlats in för Recovery Services valv.
 
@@ -202,7 +202,7 @@ Aktivera diagnostiska inställningar för Azure aktivitets logg och skicka logga
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: aktivera aviseringar för avvikande aktivitet
 
-**Vägledning**: Azure Backup tillhandahåller inbyggda övervaknings-och aviserings funktioner i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan någon ytterligare hanterings infrastruktur. Du kan också öka skalan för övervakning och rapportering med hjälp av Azure Monitor.
+**Vägledning**: Azure Backup tillhandahåller inbyggda övervaknings-och aviserings funktioner i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan ytterligare hanteringsinfrastruktur. Du kan också öka skalan för övervakning och rapportering med hjälp av Azure Monitor.
 
 Aviseringar är främst scenarier där användare meddelas så att de kan vidta relevanta åtgärder. Avsnittet om säkerhets kopierings aviseringar visar aviseringar som genererats av tjänsten Azure Backup. De här aviseringarna definieras av tjänsten och du kan inte anpassa skapandet av aviseringar.
 
@@ -426,7 +426,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
-**Vägledning**: när du säkerhetskopierar virtuella datorer i Azure IaaS tillhandahåller Azure Backup oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig destruktion av ursprungliga data. Säkerhets kopior lagras i ett Recovery Services valv med inbyggd hantering av återställnings punkter.
+**Vägledning**: när du säkerhetskopierar virtuella datorer i Azure IaaS tillhandahåller Azure Backup oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig destruktion av ursprungliga data. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter.
 
 Implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion Recovery Services valv. Resurser bör åtskiljas av VNet/undernät, taggas på lämpligt sätt och skyddas av en NSG eller Azure-brandvägg. Resurser som lagrar eller bearbetar känsliga data bör vara tillräckligt isolerade. För Virtual Machines lagring eller bearbetning av känsliga data implementerar du principer och procedurer för att inaktivera dem när de inte används.
 
@@ -580,7 +580,7 @@ Underliggande plattform som genomsöks och korrigeras av Microsoft. Granska säk
 
 ### <a name="61-use-azure-asset-discovery"></a>6,1: Använd Azure Asset Discovery
 
-**Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk, portar och protokoll osv.) i din prenumeration (er).  Se till att du har rätt (Läs) behörigheter i din klient organisation och räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
+**Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk, portar och protokoll) i din prenumeration (er).  Se till att du har rätt (Läs) behörigheter i din klient organisation och räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
@@ -860,7 +860,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: Microsoft Antimalware är aktiverat på den underliggande värden som stöder Azure-tjänster (till exempel Azure Backup), men det körs inte på ditt innehåll.
 
-Genomsök alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage osv.
+Skanna alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage och Blob Storage.
 
 Använd Azure Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton.
 

@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 0fd7ba1723da77313407725ec676e69b0ef3bca1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496680"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917864"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
@@ -33,7 +33,7 @@ För att komma igång rekommenderar vi [hotell data uppsättningen](https://gith
 
 ## <a name="example-of-a-complex-structure"></a>Exempel på en komplex struktur
 
-Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält, till exempel `Address` och `Rooms` , har underordnade fält. `Address`har en enda uppsättning värden för de underordnade fälten, eftersom det är ett enda objekt i dokumentet. Däremot har det `Rooms` flera värde uppsättningar för de underordnade fälten, en för varje objekt i samlingen.
+Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält, till exempel `Address` och `Rooms` , har underordnade fält. `Address` har en enda uppsättning värden för de underordnade fälten, eftersom det är ett enda objekt i dokumentet. Däremot har det `Rooms` flera värde uppsättningar för de underordnade fälten, en för varje objekt i samlingen.
 
 ```json
 {
@@ -62,9 +62,9 @@ Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fäl
 
 ## <a name="creating-complex-fields"></a>Skapa komplexa fält
 
-Precis som med alla index definitioner kan du använda portalen, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) för att skapa ett schema som innehåller komplexa typer. 
+Precis som med alla index definitioner kan du använda portalen, [REST API](/rest/api/searchservice/create-index)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) för att skapa ett schema som innehåller komplexa typer. 
 
-I följande exempel visas ett index schema för JSON med enkla fält, samlingar och komplexa typer. Observera att varje under fält i en komplex typ har en typ och kan ha attribut, precis som fält på den översta nivån gör. Schemat motsvarar exempel data ovan. `Address`är ett komplext fält som inte är en samling (ett hotell har en adress). `Rooms`är ett komplext samlings fält (ett hotell har många rum).
+I följande exempel visas ett index schema för JSON med enkla fält, samlingar och komplexa typer. Observera att varje under fält i en komplex typ har en typ och kan ha attribut, precis som fält på den översta nivån gör. Schemat motsvarar exempel data ovan. `Address` är ett komplext fält som inte är en samling (ett hotell har en adress). `Rooms` är ett komplext samlings fält (ett hotell har många rum).
 
 ```json
 {

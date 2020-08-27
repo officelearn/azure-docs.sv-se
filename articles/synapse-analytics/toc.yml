@@ -34,8 +34,10 @@
       href: release-notes.md
 - name: Snabbstarter
   items:
-    - name: Skapa en Synapse-arbetsyta
+    - name: Skapa en Synapse-arbetsyta med hjälp av Azure-portalen
       href: quickstart-create-workspace.md
+    - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
+      href: quickstart-create-workspace-cli.md
     - name: Använda Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Länka en Power BI-arbetsyta

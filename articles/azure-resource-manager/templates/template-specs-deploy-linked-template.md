@@ -2,17 +2,17 @@
 title: Distribuera en mall specifikation som en länkad mall
 description: Lär dig hur du distribuerar en befintlig mall-specifikation i en länkad distribution.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099740"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918391"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Självstudie: Distribuera en mall specifikation som en länkad mall (förhands granskning)
 
-Lär dig hur du distribuerar en befintlig [mall-specifikation](template-specs.md) med hjälp av en [länkad distribution](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. När du har skapat en mall kan du distribuera mallens specifikation med hjälp av Azure PowerShell. Du kan också distribuera mal Lav specifikationen som en del av din lösning med hjälp av en länkad mall.
+Lär dig hur du distribuerar en befintlig [mall-specifikation](template-specs.md) med hjälp av en [länkad distribution](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. När du har skapat en mall-specifikation kan du distribuera mallen med hjälp av Azure PowerShell eller Azure CLI. Du kan också distribuera mal Lav specifikationen som en del av din lösning med hjälp av en länkad mall.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -117,9 +117,22 @@ Om du vill distribuera en malls specifikation i en ARM-mall lägger du till en [
 
 Mallens Specifikations-ID genereras med hjälp av [`resourceID()`](template-functions-resource.md#resourceid) funktionen. Resurs grupps argumentet i funktionen resourceID () är valfritt om templateSpec finns i samma resurs grupp för den aktuella distributionen.  Du kan också direkt skicka in resurs-ID som en parameter. Hämta ID: t genom att använda:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Det finns ett känt problem med att hämta ID för mallens specifikation och tilldela det till en variabel i Windows PowerShell.
+
+---
 
 Syntaxen för att skicka parametrar till specifikationen för mallen är:
 
@@ -138,6 +151,8 @@ Syntaxen för att skicka parametrar till specifikationen för mallen är:
 
 När du distribuerar den länkade mallen distribuerar den både webb programmet och lagrings kontot. Distributionen är samma som att distribuera andra ARM-mallar.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -147,6 +162,21 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

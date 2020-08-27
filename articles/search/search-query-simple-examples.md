@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3ea1c42234267bdbc5f8a7d35f0fd73bbb59b33c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553412"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918034"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Skapa en enkel fråga i Azure Kognitiv sökning
 
 I Azure Kognitiv sökning anropar den [enkla frågesyntaxen](query-simple-syntax.md) standardfrågans parser för att köra fullständiga texts öknings frågor mot ett index. Den här parsern är snabb och hanterar vanliga scenarier, inklusive full texts ökning, filtrerad och fasett-sökning och geo-sökning. 
 
-I den här artikeln använder vi exempel för att illustrera den enkla syntaxen, fylla i `search=` parametern för en [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) åtgärd.
+I den här artikeln använder vi exempel för att illustrera den enkla syntaxen, fylla i `search=` parametern för en [Sök dokument](/rest/api/searchservice/search-documents) åtgärd.
 
 En alternativ frågesyntax är [full Lucene](query-lucene-syntax.md)och stöder mer komplexa frågeuttryck, till exempel Fuzzy-och jokertecken, vilket kan ta ytterligare tid att bearbeta. Mer information och exempel som demonstrerar fullständig syntax finns i [använda fullständig Lucene-syntax](search-query-lucene-examples.md).
 
@@ -103,7 +103,7 @@ Du kanske har lagt märke till Sök poängen i svaret. Enhetliga resultat på 1 
 
 ## <a name="example-2-look-up-by-id"></a>Exempel 2: Sök efter ID
 
-Det här exemplet är en bit ovanlig, men när du utvärderar Sök beteenden kanske du vill granska hela innehållet i ett enskilt dokument för att förstå varför det togs med eller uteslöts från resultatet. Om du vill returnera ett enskilt dokument i sin helhet använder du en [Lookup-åtgärd](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att skicka in dokument-ID: t.
+Det här exemplet är en bit ovanlig, men när du utvärderar Sök beteenden kanske du vill granska hela innehållet i ett enskilt dokument för att förstå varför det togs med eller uteslöts från resultatet. Om du vill returnera ett enskilt dokument i sin helhet använder du en [Lookup-åtgärd](/rest/api/searchservice/lookup-document) för att skicka in dokument-ID: t.
 
 Alla dokument har en unik identifierare. Om du vill testa syntaxen för en uppslags fråga måste du först returnera en lista med dokument-ID: n så att du kan hitta en som ska användas. För NYC-jobb lagras identifierarna i `id` fältet.
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exempel 3: filtrera frågor
 
-[Filter-syntax](https://docs.microsoft.com/azure/search/search-query-odata-filter) är ett OData-uttryck som du kan använda med **Sök** eller av sig själv. Ett fristående filter, utan en Sök parameter, är användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng (alla poäng är 1) och ingen rangordning. Observera att Sök strängen är tom.
+[Filter-syntax](./search-query-odata-filter.md) är ett OData-uttryck som du kan använda med **Sök** eller av sig själv. Ett fristående filter, utan en Sök parameter, är användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng (alla poäng är 1) och ingen rangordning. Observera att Sök strängen är tom.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
@@ -147,7 +147,7 @@ Ett annat kraftfullt sätt att kombinera filter och Sök är genom **`search.ism
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Mer information om funktionen finns [i Search. ismatch i "Filtrera exempel"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
+Mer information om funktionen finns [i Search. ismatch i "Filtrera exempel"](./search-query-odata-full-text-search-functions.md#examples).
 
 ## <a name="example-4-range-filters"></a>Exempel 4: intervall filter
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 ## <a name="example-5-geo-search"></a>Exempel 5: Geo-search
 
-Exempel indexet innehåller ett geo_location fält med latitud-och longitud-koordinater. I det här exemplet används [geo. Distance-funktionen](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) som filtrerar dokument inom omkretsen för en start punkt, ut till ett godtyckligt avstånd (i kilo meter) som du anger. Du kan justera det sista värdet i frågan (4) för att minska eller förstora frågans yta.
+Exempel indexet innehåller ett geo_location fält med latitud-och longitud-koordinater. I det här exemplet används [geo. Distance-funktionen](./search-query-odata-geo-spatial-functions.md#examples) som filtrerar dokument inom omkretsen för en start punkt, ut till ett godtyckligt avstånd (i kilo meter) som du anger. Du kan justera det sista värdet i frågan (4) för att minska eller förstora frågans yta.
 
 Följande exempel är i formatet efter läsbarhet:
 
@@ -223,7 +223,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Term frågor är enskilda termer, kanske många av dem, som utvärderas oberoende av varandra. Fras frågor omges av citat tecken och utvärderas som en orda Grant-sträng. Precisionen för matchningen styrs av operatörer och searchMode.
 
-Exempel 1: **`&search=fire`** returnerar 150 resultat, där alla matchningar innehåller ordet brand någonstans i dokumentet.
+Exempel 1: **`&search=fire`**  returnerar 150 resultat, där alla matchningar innehåller ordet brand någonstans i dokumentet.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=fire
@@ -288,13 +288,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ## <a name="next-steps"></a>Nästa steg
 Försök att ange frågor i koden. Följande länkar förklarar hur du ställer in Sök frågor för både .NET och REST API med hjälp av den enkla standard syntaxen.
 
-* [Fråga ditt index med .NET SDK](search-query-dotnet.md)
-* [Fråga ditt index med hjälp av REST API](search-create-index-rest-api.md)
+* [Fråga ditt index med .NET SDK](./search-get-started-dotnet.md)
+* [Fråga ditt index med hjälp av REST API](./search-get-started-powershell.md)
 
 Ytterligare syntax-referens, fråga arkitektur och exempel finns i följande länkar:
 
 + [Exempel på Lucene-syntax för att skapa avancerade frågor](search-query-lucene-examples.md)
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Fullständig Lucene-fråga](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Filtrera och OrderBy-syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Fullständig Lucene-fråga](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Filtrera och OrderBy-syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search)

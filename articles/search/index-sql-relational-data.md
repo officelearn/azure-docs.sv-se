@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c70b42e7d0f647a3b2b60d29b5098a791e4975f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82117577"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924528"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Så här modellerar du Relations-SQL-data för import och indexering i Azure Kognitiv sökning
 
@@ -107,7 +107,7 @@ Lösningen är att samla in rums information som kapslad JSON och sedan infoga J
 Den här rad uppsättningen är nu redo att importeras till Azure Kognitiv sökning.
 
 > [!NOTE]
-> Den här metoden förutsätter att Embedded JSON är under den [maximala kolumn storleks gränsen på SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
+> Den här metoden förutsätter att Embedded JSON är under den [maximala kolumn storleks gränsen på SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
 
  ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Använd en komplex samling för "många"-sidan i en en-till-många-relation
 

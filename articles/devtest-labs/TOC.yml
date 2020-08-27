@@ -8,7 +8,7 @@
       href: lab-services-overview.md
 - name: Snabbstart
   items:
-    - name: Skapa ett labb – ARM-mall
+    - name: Skapa ett labb – Resource Manager-mall
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
 - name: Självstudier
@@ -75,6 +75,8 @@
       items:
         - name: Skapa ett labb
           href: devtest-lab-create-lab.md
+        - name: Skapa ett isolerat nätverkslabb
+          href: network-isolation.md
         - name: Skapa eller ändra labb med Resource Manager-mall
           href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
         - name: Ange resursgrupp för virtuella labbdatorer

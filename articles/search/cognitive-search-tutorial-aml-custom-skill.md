@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245338"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924596"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Självstudie: bygga och distribuera en anpassad kunskap med Azure Machine Learning 
 
-I den här självstudien använder du [data uppsättningen för hotell granskning](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuerad under Creative Commons License [CC by-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) för att skapa en [anpassad färdighet](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) med Azure Machine Learning för att extrahera aspektbaserade sentiment från granskningarna. Detta gör det möjligt för tilldelning av positiva och negativa sentiment i samma granskning att bli korrekt tilldelad till identifierade entiteter som personal, rum, lobbyn eller pooler.
+I den här självstudien använder du [data uppsättningen för hotell granskning](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuerad under Creative Commons License [CC by-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) för att skapa en [anpassad färdighet](./cognitive-search-aml-skill.md) med Azure Machine Learning för att extrahera aspektbaserade sentiment från granskningarna. Detta gör det möjligt för tilldelning av positiva och negativa sentiment i samma granskning att bli korrekt tilldelad till identifierade entiteter som personal, rum, lobbyn eller pooler.
 
 För att träna den aspektbaserade sentiment-modellen i Azure Machine Learning kommer du att använda [lagrings platsen NLP recept](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Modellen kommer sedan att distribueras som en slut punkt i ett Azure Kubernetes-kluster. När den har distribuerats läggs slut punkten till i pipeline för anrikning som en AML-färdighet som används av den Kognitiv sökning tjänsten.
 
@@ -33,13 +33,13 @@ Det finns två angivna data uppsättningar. Om du vill träna modellen själv, k
 > [!IMPORTANT] 
 > Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för .NET SDK.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – hämta en [kostnads fri prenumeration](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Kognitiv sökning tjänst](https://docs.microsoft.com/azure/search/search-get-started-arm)
-* [Cognitive Services resurs](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-* [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+* [Kognitiv sökning tjänst](./search-get-started-arm.md)
+* [Cognitive Services resurs](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
+* [Azure Storage konto](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Azure Machine Learning-arbetsyta](../machine-learning/how-to-manage-workspace.md)
 
 ## <a name="setup"></a>Installation
 
@@ -47,9 +47,9 @@ Det finns två angivna data uppsättningar. Om du vill träna modellen själv, k
 * Extrahera innehåll om hämtningen är en zip-fil. Kontrol lera att filerna är Läs-och skrivbara.
 * När du konfigurerar Azure-konton och-tjänster kopierar du namn och nycklar till en lätt åtkomlig textfil. Namn och nycklar läggs till i den första cellen i antecknings boken där variabler för åtkomst till Azure-tjänsterna definieras.
 * Om du inte känner till Azure Machine Learning och dess krav, ska du granska dessa dokument innan du börjar:
- * [Konfigurera en utvecklings miljö för Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
- * [Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
- * När du konfigurerar utvecklings miljön för Azure Machine Learning bör du överväga att använda den [molnbaserade beräknings instansen](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) för snabb och lätt att komma igång.
+ * [Konfigurera en utvecklings miljö för Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
+ * [Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal](../machine-learning/how-to-manage-workspace.md)
+ * När du konfigurerar utvecklings miljön för Azure Machine Learning bör du överväga att använda den [molnbaserade beräknings instansen](../machine-learning/how-to-configure-environment.md#compute-instance) för snabb och lätt att komma igång.
 * Överför data uppsättnings filen till en behållare i lagrings kontot. Den större filen är nödvändig om du vill utföra inlärnings steget i antecknings boken. Om du föredrar att hoppa över övnings steget rekommenderas den mindre filen.
 
 ## <a name="open-notebook-and-connect-to-azure-services"></a>Öppna antecknings boken och Anslut till Azure-tjänster
@@ -68,9 +68,9 @@ Avsnitt 2 innehåller sex celler som laddar ned assisterad inbäddnings filen fr
 
 Avsnitt 3 i Notebook kommer att träna de modeller som skapades i avsnitt 2, registrera dessa modeller och distribuera dem som en slut punkt i ett Azure Kubernetes-kluster. Om du inte är bekant med Azure Kubernetes rekommenderar vi starkt att du läser följande artiklar innan du försöker skapa ett utgångs kluster:
 
-* [Översikt över Azure Kubernetes service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* [Kubernetes Core-koncept för Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
-* [Kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
+* [Översikt över Azure Kubernetes service](../aks/intro-kubernetes.md)
+* [Kubernetes Core-koncept för Azure Kubernetes service (AKS)](../aks/concepts-clusters-workloads.md)
+* [Kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)](../aks/quotas-skus-regions.md)
 
 Det kan ta upp till 30 minuter att skapa och distribuera ett härlednings kluster. Om du testar webb tjänsten innan du går vidare till de sista stegen, rekommenderar vi att du uppdaterar din färdigheter och kör indexeraren.
 
@@ -108,5 +108,5 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Granska webb-API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api) 
->  för anpassad kompetens [Lär dig mer om att lägga till anpassade kunskaper i anriknings pipelinen](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+> [Granska webb-API](./cognitive-search-custom-skill-web-api.md) 
+>  för anpassad kompetens [Lär dig mer om att lägga till anpassade kunskaper i anriknings pipelinen](./cognitive-search-custom-skill-interface.md)

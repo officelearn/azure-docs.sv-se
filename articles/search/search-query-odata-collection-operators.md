@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146065"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934913"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData Collection-operatörer i Azure Kognitiv sökning – `any` och`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData Collection-operatörer i Azure Kognitiv sökning – `any` och `all`
 
 När du skriver ett [OData filter-uttryck](query-odata-filter-orderby-syntax.md) som ska användas med Azure kognitiv sökning är det ofta användbart att filtrera på samlings fält. Du kan åstadkomma detta med `any` `all` operatorerna och.
 
@@ -107,4 +107,4 @@ Mer information om dessa begränsningar och exempel finns i [Felsöka samlings f
 - [Filter i Azure Kognitiv sökning](search-filters.md)
 - [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
 - [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)

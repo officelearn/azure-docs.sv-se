@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496543"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932890"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Skapa ett Basic Search-index i Azure Kognitiv sökning
 
@@ -26,10 +26,10 @@ Den fysiska strukturen för ett index bestäms av schemat, med fält som har mar
 Du kan skapa ett index med följande verktyg och API: er:
 
 * I Azure Portal använder du guiden **Lägg till index** eller **Importera data**
-* Använda [create index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Använda [.NET SDK](search-create-index-dotnet.md)
+* Använda [create index (REST API)](/rest/api/searchservice/create-index)
+* Använda [.NET SDK](./search-get-started-dotnet.md)
 
-Det är lättare att lära dig med ett Portal verktyg. Portalen tillämpar krav och schema regler för särskilda data typer, t. ex. att tillåta full texts ökning på numeriska fält. När du har ett fungerande index kan du övergå till kod genom att hämta JSON-definitionen från tjänsten med hjälp av [Get index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) och lägga till den i din lösning.
+Det är lättare att lära dig med ett Portal verktyg. Portalen tillämpar krav och schema regler för särskilda data typer, t. ex. att tillåta full texts ökning på numeriska fält. När du har ett fungerande index kan du övergå till kod genom att hämta JSON-definitionen från tjänsten med hjälp av [Get index (REST API)](/rest/api/searchservice/get-index) och lägga till den i din lösning.
 
 ## <a name="recommended-workflow"></a>Rekommenderat arbets flöde
 
@@ -59,7 +59,7 @@ Den slutliga index designen är en iterativ process. Det är vanligt att börja 
 
    ![Sidan Lägg till index som visar attribut efter datatyp](media/search-what-is-an-index//field-definitions.png "Sidan Lägg till index som visar attribut efter datatyp")
 
-1. Hämta index schema med [Get index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) och ett webbtest-verktyg som [Postman](search-get-started-postman.md). Nu har du en JSON-representation av indexet som du kan anpassa efter kod.
+1. Hämta index schema med [Get index (REST API)](/rest/api/searchservice/get-index) och ett webbtest-verktyg som [Postman](search-get-started-postman.md). Nu har du en JSON-representation av indexet som du kan anpassa efter kod.
 
 1. [Läs in ditt index med data](search-what-is-data-import.md). Azure Kognitiv sökning accepterar JSON-dokument. Om du vill läsa in dina data program mässigt kan du använda Postman med JSON-dokument i nytto lasten för begäran. Om dina data inte är enkla att uttryckas som JSON, är det här steget det mest arbets krävande. 
 
@@ -169,7 +169,7 @@ Fält har ett namn, en typ som klassificerar lagrade data och attribut som anger
 
 ### <a name="data-types"></a>Datatyper
 
-| Typ | Description |
+| Typ | Beskrivning |
 |------|-------------|
 | Edm.String |Text som kan, om du vill, använda en token för full texts ökning (ord brytning, ord och så vidare). |
 | Collection(Edm.String) |En lista med strängar som kan tokeniseras för textsökning. Det finns ingen teoretisk övre gräns för antalet objekt i en samling, men den övre gränsen på 16 MB för nyttolasten gäller för samlingar. |
@@ -180,7 +180,7 @@ Fält har ett namn, en typ som klassificerar lagrade data och attribut som anger
 | Edm.DateTimeOffset |Datum/tid-värden som representeras i OData v4-formatet (till exempel `yyyy-MM-ddTHH:mm:ss.fffZ` eller `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
 | Edm.GeographyPoint |En punkt som representerar en geografisk plats i världen. |
 
-Mer information finns i [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Mer information finns i [data typer som stöds](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
@@ -195,14 +195,14 @@ Sträng fält markeras ofta som "sökbara" och "hämtnings bara". Fält som anv�
 |sökbara |Fulltextsökbart och omfattas av lexikal analys som radbrytning under indexering. Om du anger ett sökbart fält till ett värde som ”solig dag” delas det upp internt i två enskilda token, ”solig” och ”dag”. Mer information finns i [Hur fulltextsökning fungerar](search-lucene-query-architecture.md).|  
 |filtrerbara |Refereras till i $filter-frågor. Filtrerbara fält av typen `Edm.String` eller `Collection(Edm.String)` genomgår inte ordseparation, så jämförelserna gäller endast exakta matchningar. Om du till exempel anger ”solig dag” för ett sådant fält hittar inte `$filter=f eq 'sunny'` några matchningar, men det gör `$filter=f eq 'sunny day'`. |  
 |sorterbar |Som standard sorterar systemet resultaten efter bedömning, men du kan konfigurera sortering som baseras på fält i dokumenten. Fält av typen `Collection(Edm.String)` får inte vara "sorterbar". |  
-|fasettbar |Används vanligtvis i en presentation av sökresultat som innehåller ett antal träffar efter kategori (till exempel hotell på en viss ort). Det här alternativet kan inte användas med fält av typen `Edm.GeographyPoint`. Fält av typen `Edm.String` som kan filtreras, "sorterbar" eller "fasettable" kan vara högst 32 kilobyte långa. Mer information finns i [Skapa index (REST-API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|fasettbar |Används vanligtvis i en presentation av sökresultat som innehåller ett antal träffar efter kategori (till exempel hotell på en viss ort). Det här alternativet kan inte användas med fält av typen `Edm.GeographyPoint`. Fält av typen `Edm.String` som kan filtreras, "sorterbar" eller "fasettable" kan vara högst 32 kilobyte långa. Mer information finns i [Skapa index (REST-API)](/rest/api/searchservice/create-index).|  
 |knapp |Unik identifierare för dokument i indexet. Exakt ett fält måste väljas som nyckelfält, och det måste vara av typen `Edm.String`.|  
 |Hämtnings bar |Anger om fältet kan returneras i ett sökresultat. Detta är användbart om du vill använda ett fält (som *vinstmarginal*) som ett filter eller en sorterings- eller bedömningsmekanism, men inte vill att fältet ska visas för användaren. Det här attributet måste vara `true` för `key`-fält.|  
 
 Du kan visserligen lägga till nya fält när som helst, men befintliga fältdefinitioner är låsta under indexets hela livslängd. Av den anledningen använder många utvecklare portalen för att skapa enkla index, testa idéer och använda portalsidorna för att söka reda på en inställning. Frekvent upprepning av en indexdesign är mer effektiv om du följer en kodbaserad metod så att du enkelt kan återskapa indexet.
 
 > [!NOTE]
-> API: er som du använder för att bygga ett index har varierande standard beteenden. För [REST-API: erna](https://docs.microsoft.com/rest/api/searchservice/Create-Index)är de flesta attribut aktiverade som standard (till exempel "sökbara" och "hämtnings bara" är sanna för sträng fält) och du behöver ofta bara ange dem om du vill inaktivera dem. För .NET SDK är motsatsen sant. På alla egenskaper som du inte uttryckligen anger är standardvärdet att inaktivera motsvarande Sök beteende om du inte uttryckligen aktiverar det.
+> API: er som du använder för att bygga ett index har varierande standard beteenden. För [REST-API: erna](/rest/api/searchservice/Create-Index)är de flesta attribut aktiverade som standard (till exempel "sökbara" och "hämtnings bara" är sanna för sträng fält) och du behöver ofta bara ange dem om du vill inaktivera dem. För .NET SDK är motsatsen sant. På alla egenskaper som du inte uttryckligen anger är standardvärdet att inaktivera motsvarande Sök beteende om du inte uttryckligen aktiverar det.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ I elementet analyser anges namnet på den språk analys som ska användas för f
 
 ## `suggesters`
 
-En förslags ställare är en del av schemat som definierar vilka fält i ett index som används för att stödja automatisk fullständig eller typ av frågor i sökningar. Normalt skickas partiella Sök strängar till [förslagen (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) medan användaren skriver en Sök fråga och API: et returnerar en uppsättning föreslagna dokument eller fraser. 
+En förslags ställare är en del av schemat som definierar vilka fält i ett index som används för att stödja automatisk fullständig eller typ av frågor i sökningar. Normalt skickas partiella Sök strängar till [förslagen (REST API)](/rest/api/searchservice/suggestions) medan användaren skriver en Sök fråga och API: et returnerar en uppsättning föreslagna dokument eller fraser. 
 
 Fält som läggs till i en förslags lista används för att generera typ kommande Sök villkor. Alla Sök termer skapas vid indexering och lagras separat. Mer information om hur du skapar en förslags struktur finns i [lägga till förslag](index-add-suggesters.md).
 

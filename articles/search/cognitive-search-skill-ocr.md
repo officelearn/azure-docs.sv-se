@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 56e3c1e48df51cd24d70517ee23d47ef27d378d7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009247"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935338"
 ---
 # <a name="ocr-cognitive-skill"></a>Kunskap om OCR-kognitivhet
 
-Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
+Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](../cognitive-services/computer-vision/home.md) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
 
 + För engelska, spanska, tyska, franska, italienska, portugisiska och nederländska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
 + För alla andra språk används [OCR](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) -API: et.
@@ -212,4 +212,4 @@ Exemplet ovan färdigheter förutsätter att det finns ett normaliserat-avbildni
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
 + [TextMerger-kompetens](cognitive-search-skill-textmerger.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Skapa indexerare (REST)](/rest/api/searchservice/create-indexer)

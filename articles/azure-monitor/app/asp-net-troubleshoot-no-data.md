@@ -2,13 +2,14 @@
 title: Felsökning utan data, Application Insights för .NET
 description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: eeae4503111897d7a2fa64bc2a69c13381515157
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7cf3371dc60f97b8bba61012e87b7b4bd4899aa6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563083"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936477"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
 
@@ -66,7 +67,7 @@ Det verkar som om något gick fel när du installerade Application Insights elle
 
 I Solution Explorer högerklickar du på projektet och väljer **Application Insights > konfigurera Application Insights**. Du får en dialog ruta som bjuder in dig för att logga in på Azure och antingen skapa en Application Insights resurs eller att använda en befintlig.
 
-## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a>"NuGet-paket saknas" på min build-Server
+## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "NuGet-paket saknas" på min build-Server
 *Allt bygger på OK när jag felsöker på min utvecklings dator, men jag får ett NuGet-fel på Build-servern.*
 
 Se [NuGet Package Restore](https://docs.nuget.org/Consume/Package-Restore) och [Automatisk paket återställning](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -120,7 +121,7 @@ Löser
   Där visas några sammanfattnings diagram. Du kan klicka på dem för att se mer information.
 * I Visual Studio, medan du felsöker appen, klickar du på knappen Application Insights.
 
-## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a>Inga Server data (eller inga data alls)
+## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a> Inga Server data (eller inga data alls)
 *Jag körde appen och öppnade Application Insights tjänsten i Microsoft Azure, men i alla diagram visas "Lär dig mer om att samla in..." eller "inte konfigurerad".* Eller, *endast sid visning och användar data, men inga Server data.*
 
 * Kör programmet i fel söknings läge i Visual Studio (F5). Använd programmet så att du kan generera vissa telemetri. Kontrol lera att du kan se händelser som loggats i Visual Studio output-fönstret.  
@@ -185,7 +186,7 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av`Microsoft.ApplicationInsighs`
+1. Installera paketet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Versionen som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsighs`
 
 2. Ändra applicationinsights.config-filen så att den innehåller följande:
 
@@ -227,7 +228,7 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 4. Återställ ändringarna när du är färdig.
 
 
-## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a>Samla in loggar med PerfView
+## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a> Samla in loggar med PerfView
 [PerfView](https://github.com/Microsoft/perfview) är ett kostnads fritt verktyg för diagnostik och prestanda analys som hjälper till att isolera CPU, minne och andra problem genom att samla in och visualisera diagnostikinformation från många källor.
 
 Application Insights SDK-loggen EventSource själv fel söknings loggar som kan samlas in av PerfView.
@@ -249,7 +250,7 @@ Om du vill ha mer information läser du
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Samla in loggar med dotNet-trace
 
-En alternativ metod för att samla in loggar för fel sökning som kan vara särskilt användbart för Linux-baserade miljöer är[`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+En alternativ metod för att samla in loggar för fel sökning som kan vara särskilt användbart för Linux-baserade miljöer är [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 38db681655a839983ebf38e94ec28eb05ed65d1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 317f6a73812b0e4284564ca9b5593e09e22edf12
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808577"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048745"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera timeout-inställningar för TCP-inaktivitet för Azure Load Balancer
 
@@ -59,7 +59,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Ange TCP-tidsgräns för en belastningsutjämnad regel till 15 minuter
 
-Om du vill ange tids gräns för inaktivitet för en belastningsutjämnare anges "IdleTimeoutInMinutes" i den belastningsutjämnade regeln. Ett exempel:
+Om du vill ange tids gräns för inaktivitet för en belastningsutjämnare anges "IdleTimeoutInMinutes" i den belastningsutjämnade regeln. Exempel:
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
@@ -69,6 +69,6 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 
 [Översikt över intern belastnings utjämning](load-balancer-internal-overview.md)
 
-[Kom igång med att konfigurera en Internet-riktad belastningsutjämnare](quickstart-create-standard-load-balancer-powershell.md)
+[Kom igång med att konfigurera en Internet-riktad belastningsutjämnare](quickstart-load-balancer-standard-public-powershell.md)
 
 [Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)

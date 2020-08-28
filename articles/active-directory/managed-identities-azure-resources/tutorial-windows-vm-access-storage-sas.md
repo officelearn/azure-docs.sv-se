@@ -3,7 +3,7 @@ title: Självstudie `:` Använd hanterad identitet för att få åtkomst till Az
 description: En själv studie kurs som visar hur du använder en Windows VM-systemtilldelad hanterad identitet för att komma åt Azure Storage, med hjälp av SAS-autentiseringsuppgifter i stället för en åtkomst nyckel för lagrings konto.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ca5ec32e1f88572812b19cf08d4c6f9dc70af6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 92a7c9580d48f70d4bc2391e5c13c8571c38feae
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018584"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018594"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudie: Använd en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
@@ -31,7 +31,7 @@ Den här självstudien visar hur du använder en systemtilldelad identitet för 
 En tjänst-SAS ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagrings konto, för begränsad tid och en viss tjänst (i vårt exempel Blob-tjänsten) utan att exponera en åtkomst nyckel för kontot. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien demonstrerar vi överföring och hämtning av en blob med hjälp av Azure Storage PowerShell. Du lär dig hur du:
 
 > [!div class="checklist"]
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
 
@@ -41,7 +41,7 @@ En tjänst-SAS ger möjlighet att bevilja begränsad åtkomst till objekt i ett 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan också hoppa över det här steget och ge din VM-tilldelade hanterade identitet åtkomst till SAS-autentiseringsuppgiften för ett befintligt lagrings konto. 
 

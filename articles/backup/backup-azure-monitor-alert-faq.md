@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Azure Bac
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892566"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000727"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup övervaknings avisering – vanliga frågor och svar
 
@@ -50,13 +50,13 @@ Om du är en [Azure Lighthouse](https://azure.microsoft.com/services/azure-light
 
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hur lång tid tar det för jobb status för Azure Backup-agenten att avspeglas i portalen?
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hur lång tid tar det för jobb status för Azure Backup Agent att avspeglas i portalen?
 
-Det kan ta upp till 15 minuter för Azure Portal att avspegla jobb statusen för Azure Backup Agent.
+Det kan ta upp till 15 minuter för Azure Portal att återspegla jobb status för Azure Backup Agent.
 
 ### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Hur lång tid tar det innan en avisering utlöses när ett säkerhetskopieringsjobb misslyckas?
 
-En avisering aktive ras inom 20 minuter efter ett Azure Backup-haveri.
+En avisering aktive ras inom 20 minuter från Azure Backup-felen.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Finns det ett fall där ett e-postmeddelande inte skickas om meddelanden har kon figurer ATS?
 

@@ -8,12 +8,13 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: e30bee23b634db12def62e906183c6087c6613e6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044302"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017478"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med .NET Core och Azure Cosmos DB
 
@@ -30,7 +31,7 @@ Den här snabb starten visar hur du använder .NET Core och Azure Cosmos DB [API
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 

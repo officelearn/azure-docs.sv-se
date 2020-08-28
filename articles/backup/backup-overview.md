@@ -4,12 +4,12 @@ description: Ger en översikt över den Azure Backup tjänsten och hur den bidra
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611236"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017897"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Vad är Azure Backup-tjänsten?
 
@@ -32,13 +32,13 @@ Azure Backup tillhandahåller enkla, säkra och kostnadseffektiva lösningar fö
 Azure Backup ger följande viktiga fördelar:
 
 - **Avlastning av lokal säkerhets kopiering**: Azure Backup erbjuder en enkel lösning för att säkerhetskopiera lokala resurser till molnet. Du får både kort- och långsiktig kvarhållning av säkerhetskopior utan att behöva distribuera komplexa lokala lösningar.
-- **Säkerhetskopiera virtuella Azure IaaS-datorer**: Azure Backup tillhandahåller oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig destruktion av ursprungliga data. Säkerhets kopior lagras i ett Recovery Services valv med inbyggd hantering av återställnings punkter. Konfiguration och skalbarhet är enkla, säkerhets kopieringar optimeras och du kan enkelt återställa efter behov.
+- **Säkerhetskopiera virtuella Azure IaaS-datorer**: Azure Backup tillhandahåller oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig destruktion av ursprungliga data. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Konfiguration och skalbarhet är enkla, säkerhets kopieringar optimeras och du kan enkelt återställa efter behov.
 - **Enkel skalning** – Azure Backup använder Azure-molnets underliggande kraft och obegränsade storlek för att tillhandahålla hög tillgänglighet – utan underhåll och omkostnad för övervakning.
 - **Få obegränsad data överföring**: Azure Backup begränsar inte mängden inkommande eller utgående data som du överför eller debiteras för de data som överförs.
   - Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
   - Om du utför en inledande säkerhets kopiering offline med Azure import/export-tjänsten för att importera stora mängder data, finns det en kostnad för inkommande data.  [Läs mer](backup-azure-backup-import-export.md).
 - Skydda **data**: Azure Backup tillhandahåller lösningar för att skydda data [under överföring](backup-azure-security-feature.md) och [i vila](backup-azure-security-feature-cloud.md).
-- **Centraliserad övervakning och hantering**: Azure Backup tillhandahåller [inbyggda övervaknings-och aviserings funktioner](backup-azure-monitoring-built-in-monitor.md) i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan någon ytterligare hanterings infrastruktur. Du kan också öka skalan för övervakning och rapportering med [hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+- **Centraliserad övervakning och hantering**: Azure Backup tillhandahåller [inbyggda övervaknings-och aviserings funktioner](backup-azure-monitoring-built-in-monitor.md) i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan ytterligare hanteringsinfrastruktur. Du kan också öka skalan för övervakning och rapportering med [hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 - **Hämta programkonsekventa säkerhets kopieringar**: en programkonsekvent säkerhets kopiering innebär att en återställnings punkt har alla data som krävs för att återställa säkerhets kopian. Azure Backup ger programkonsekventa säkerhets kopieringar som säkerställer att ytterligare korrigeringar inte krävs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
 - **Behåll korta och långsiktiga data**: du kan använda [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) för kortsiktig och långsiktig data kvarhållning.
 - **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup kostar det inget att använda lokala lagrings enheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Så du betalar bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.

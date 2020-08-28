@@ -3,15 +3,15 @@ title: Konfigurera Azure-Multi-Factor Authentication för Windows Virtual Deskto
 description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009468"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017793"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
 
@@ -47,29 +47,36 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
 6. Under **Inkludera**väljer du **Välj användare och grupper**  >  **användare och grupper** > väljer den grupp som du skapade i [krav](#prerequisites) stadiet.
 7. Välj **Klar**.
 8. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
-9. Välj en av följande appars grupper baserat på vilken version av Windows Virtual Desktop som du använder.
-   - Om du använder Windows Virtual Desktop (klassisk) väljer du de två apparna:
+9. Välj en av följande appar baserat på vilken version av Windows Virtual Desktop som du använder.
+   - Om du använder Windows Virtual Desktop (klassisk) väljer du den här appen:
        - **Windows Virtual Desktop** (app-ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Windows Virtual Desktop-klient** (app-ID fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Om du använder Windows Virtual Desktop väljer du de här två apparna i stället:
+   - Om du använder Windows Virtual Desktop väljer du den här appen i stället:
        -  **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
-       -  **Windows Virtual Desktop-klient** (app-ID a85cf173-4192-42F8-81fa-777a763e6e2c)
 
    >[!IMPORTANT]
-   > Windows-klientens appar för virtuella skriv bord används för webb klienten. Men Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.
+   > Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.
 
-1. När du har valt din app väljer du **Välj**och väljer sedan **klar**.
+10. Gå till **villkor**  >  -**klient program**och välj sedan var du vill tillämpa principen på:
+    
+    - Välj **webbläsare** om du vill att principen ska tillämpas på webb klienten.
+    - Välj **mobilappar och skriv bords klienter** om du vill tillämpa principen på andra klienter.
+    - Markera båda kryss rutorna om du vill tillämpa principen på alla klienter.
+   
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan klient program. Användaren har markerat kryss rutan mobilappar och skriv bords klienter.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
+11. När du har valt din app väljer du **Välj**och väljer sedan **klar**.
 
-   >[!NOTE]
-   >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
+    > [!div class="mx-imgBorder"]
+    > ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
 
-10. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
-11. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
-12. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
-13. Välj **skapa** för att aktivera principen.
+    >[!NOTE]
+    >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
+
+12. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
+13. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
+14. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+15. Välj **skapa** för att aktivera principen.
 
 ## <a name="next-steps"></a>Nästa steg
 

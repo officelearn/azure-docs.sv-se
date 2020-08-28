@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref
-ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: d842974b0b53e0b0ce199334a07f11e5c998b18d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534234"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018815"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program
 
@@ -54,7 +54,7 @@ Ge sedan dina program behörigheter för att anropa Azure Storage API: er. Det h
 1. I avsnittet **API-behörigheter** väljer du **Lägg till en behörighet** och väljer **Microsoft API: er**.
 1. Välj **Azure Storage** i listan över resultat för att visa fönstret **begär API-behörigheter** .
 1. Under **vilken typ av behörighet kräver ditt program?**, Observera att den tillgängliga behörighets typen är **delegerad behörighet**. Det här alternativet är valt som standard.
-1. I avsnittet **Välj behörigheter** i rutan **begär API-behörigheter** markerar du kryss rutan bredvid **User_impersonation**och klickar sedan på **Lägg till behörigheter**.
+1. I avsnittet **Välj behörigheter** i rutan **begär API-behörigheter** markerar du kryss rutan bredvid **User_impersonation**och klickar sedan på  **Lägg till behörigheter**.
 
     ![Skärm bild som visar behörigheter för lagring](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
@@ -281,7 +281,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Aktivera implicit beviljande av flöde
 
-Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings flödet för din app-registrering. Gör så här:
+Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings flödet för din app-registrering. Följ de här stegen:
 
 1. Navigera till din app-registrering i Azure Portal.
 1. I avsnittet **Hantera** väljer du **autentiserings** inställningen.

@@ -3,12 +3,12 @@ title: Återställa filer till Windows Server med MARS-agenten
 description: I den här artikeln får du lära dig hur du återställer data som lagras i Azure till en Windows Server-eller Windows-dator med den Microsoft Azure Recovery Services MARS-agenten.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892515"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018917"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Återställa filer till Windows Server med MARS-agenten
 
@@ -89,7 +89,7 @@ Dessa steg omfattar följande terminologi:
 * *Exempel valv* – det Recovery Services valv som käll datorn och mål datorn är registrerade på.
 
 > [!NOTE]
-> Säkerhets kopieringar kan inte återställas till en måldator som kör en tidigare version av operativ systemet. Till exempel kan en säkerhets kopia som tas från en dator med Windows 7 återställas på en dator med Windows 7 (eller senare). En säkerhets kopia som tagits från en Windows 8-dator kan inte återställas till en dator med Windows 7.
+> Säkerhets kopieringar kan inte återställas till en måldator som kör en tidigare version av operativ systemet. Till exempel kan en säkerhets kopia som tas från en dator med Windows 7 återställas på en dator med Windows 7 (eller senare). En säkerhets kopia som tagits från en Windows 10-dator kan inte återställas till en dator med Windows 7.
 >
 >
 

@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3ac1855c0cc72a3c4afc20598d023f0adce2bd76
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 14a342e2b7b08113721527855b81a904c2a2e743
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034149"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001339"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Självstudie: Ladda upp bilddata i molnet med Azure Storage
 
@@ -34,7 +34,7 @@ I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
 
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Skapar en container och anger behörigheter
 > * Hämta en åtkomstnyckel
 > * Distribuera en webbapp till Azure
@@ -63,7 +63,7 @@ az group create --name myResourceGroup --location southeastasia
 az group create --name myResourceGroup --location southeastasia
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Exemplet överför avbildningar till en BLOB-behållare i ett Azure Storage-konto. Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account).
 

@@ -3,12 +3,12 @@ title: Data modell för Azure Backup Diagnostics-händelser
 description: Den här data modellen refererar till det resursbaserade läget för att skicka diagnostiska händelser till Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892532"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017591"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Data modell för Azure Backup Diagnostics-händelser
 
@@ -135,7 +135,7 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | JobUniqueId                    | Text          | Unikt ID för att identifiera jobbet                                |
 | ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är kopplad till jobbet |
 | RecoveryJobDestination         | Text          | Målet för ett återställnings jobb, där data återställs   |
-| RecoveryJobRPDateTime          | DateTime      | Datum och tid när återställnings punkten som återställs skapades |
+| RecoveryJobRPDateTime          | DateTime      | Datum, tid då återställnings punkten som återställdes skapades |
 | RecoveryJobLocation            | Text          | Platsen där återställnings punkten som återställdes har lagrats |
 | RecoveryLocationType           | Text          | Typ av återställnings plats                                |
 | Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |

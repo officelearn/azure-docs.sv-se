@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
-ms.openlocfilehash: 10c0d3d5f043d31454810b55e808cd6df01467a4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/27/2020
+ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448743"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018390"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Skapa och använda aktiv geo-replikering – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 För att säkerställa att ditt program omedelbart kan komma åt den nya primära efter redundansväxlingen, kontrollerar du att autentiseringskrav för den sekundära servern och databasen är korrekt konfigurerade. Mer information finns i [SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md). För att garantera efterlevnad efter redundansväxlingen, se till att säkerhets kopieringens bevarande princip på den sekundära databasen matchar den primära. De här inställningarna är inte en del av databasen och replikeras inte. Som standard kommer den sekundära att konfigureras med en standard period för PITR på sju dagar. Mer information finns i [SQL Database automatiska säkerhets kopieringar](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> Om databasen är medlem i en failover-grupp kan du inte initiera dess redundans med kommandot geo-replikering redundans. Använd kommandot redundans för gruppen. Om du behöver redundansväxla en enskild databas måste du först ta bort den från gruppen för redundans. Mer information finns i [failover-grupper](auto-failover-group-overview.md) .
+> Om databasen är medlem i en failover-grupp kan du inte initiera dess redundans med kommandot geo-replikering redundans. Använd kommandot redundans för gruppen. Om du behöver redundansväxla en enskild databas måste du först ta bort den från gruppen för redundans. Mer information finns i  [failover-grupper](auto-failover-group-overview.md) .
 
 ## <a name="configuring-secondary-database"></a>Konfigurerar sekundär databas
 
@@ -178,7 +178,8 @@ Klienten som utför ändringarna behöver nätverks åtkomst till den primära s
 
 ### <a name="on-the-master-of-the-secondary-server"></a>På den sekundära serverns huvud server
 
-1. Lägg till IP-adressen i listan över tillåtna klienter för klienten som utför ändringarna. Den måste ha samma exakta IP-adress som den primära servern.
+1. Lägg till klientens IP-adress i listan över tillåtna under brand Väggs regler för den sekundära servern. Kontrol lera att exakt samma klient-IP-adress som har lagts till på den primära servern också har lagts till i den sekundära. Detta är ett obligatoriskt steg att utföra innan du kör kommandot ALTER DATABASE ADD SECONDARY för att initiera geo-replikering.
+
 1. Skapa samma inloggning som på den primära servern med samma lösen ord för användar namn och SID:
 
    ```sql

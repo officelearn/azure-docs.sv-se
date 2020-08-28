@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 description: En introduktion till att säkerhetskopiera SQL Server databaser med hjälp av tjänsten Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e7877d9104fe1263368083eaabd99eae3bdc657b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876316"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017319"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 
@@ -38,7 +38,7 @@ Säkerhetskopiera en SQL Server-databas till Azure och återställa den från Az
   * DPM identifierar en redundans och fortsätter skydda databasen.
   * DPM stödjer klusterkonfigurationer för flera platser för en SQL Server-instans.
 * När du skyddar databaser som använder AlwaysOn-funktionen har DPM följande begränsningar:
-  * DPM följer säkerhetskopieringsprincipen för tillgänglighetsgrupper som anges i SQL Server baserat på inställningarna för säkerhetskopiering, enligt följande:
+  * DPM följer säkerhets kopierings principen för tillgänglighets grupper som anges i SQL Server baserat på inställningarna för säkerhets kopiering, enligt följande:
     * Föredra sekundär – Säkerhetskopieringar sker på en sekundär replik, förutom när den primära repliken är den enda repliken som är online. Om flera sekundära repliker är tillgängliga väljs den nod med högst prioritet för säkerhets kopiering för säkerhets kopiering. OM bara den primära repliken är tillgänglig ska säkerhets kopian ske på den primära repliken.
     * Endast sekundär – Säkerhetskopiering görs inte på den primära repliken. Om bara den primära repliken är online görs ingen säkerhetskopiering.
     * Primär – Säkerhetskopieringar görs alltid på den primära repliken.

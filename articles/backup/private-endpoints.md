@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 8e9fe46bf3f7528b3a6a08a7c8d90ea6f9117cdd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890900"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017676"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 

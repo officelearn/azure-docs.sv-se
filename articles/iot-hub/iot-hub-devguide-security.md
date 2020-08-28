@@ -15,12 +15,13 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Operations'
 - devx-track-javascript
-ms.openlocfilehash: 223ec01165922702f8f8fa17b09e530b16fa79e5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-csharp
+ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423481"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017693"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -79,7 +80,7 @@ För ytterligare information om hur du skapar och använder säkerhetstoken, se 
 
 Varje protokoll som stöds, till exempel MQTT, AMQP och HTTPS, transporterar token på olika sätt.
 
-När du använder MQTT har CONNECT-paketet deviceId som ClientId `{iothubhostname}/{deviceId}` i fältet username och en SAS-token i fältet lösen ord. `{iothubhostname}`bör vara den fullständiga CName-filen för IoT Hub (till exempel contoso.azure-devices.net).
+När du använder MQTT har CONNECT-paketet deviceId som ClientId `{iothubhostname}/{deviceId}` i fältet username och en SAS-token i fältet lösen ord. `{iothubhostname}` bör vara den fullständiga CName-filen för IoT Hub (till exempel contoso.azure-devices.net).
 
 När du använder [AMQP](https://www.amqp.org/)stöder IoT Hub [sasl Plain](https://tools.ietf.org/html/rfc4616) och [AMQP-baserad säkerhet](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
@@ -87,8 +88,8 @@ Om du använder AMQP-anspråksbaserad-säkerhet anger standarden hur du överfö
 
 För SASL PLAIN kan **användar namnet** vara:
 
-* `{policyName}@sas.root.{iothubName}`Om du använder token på IoT Hub-nivå.
-* `{deviceId}@sas.{iothubname}`Om du använder token med enhets omfång.
+* `{policyName}@sas.root.{iothubName}` Om du använder token på IoT Hub-nivå.
+* `{deviceId}@sas.{iothubname}` Om du använder token med enhets omfång.
 
 I båda fallen innehåller fältet lösen ord token, enligt beskrivningen i [IoT Hub säkerhetstoken](iot-hub-devguide-security.md#security-tokens).
 
@@ -96,7 +97,7 @@ HTTPS implementerar autentisering genom att inkludera en giltig token i begäran
 
 #### <a name="example"></a>Exempel
 
-Användar namn (DeviceId är Skift läges känsligt):`iothubname.azure-devices.net/DeviceId`
+Användar namn (DeviceId är Skift läges känsligt): `iothubname.azure-devices.net/DeviceId`
 
 Lösen ord (du kan skapa en SAS-token med kommandot CLI-tillägg [AZ IoT Hub generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)eller [Azure IoT-verktyg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
@@ -442,7 +443,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till IoT Hub.
 
-| Behörighet | Kommentarer |
+| Behörighet | Anteckningar |
 | --- | --- |
 | **RegistryRead** |Ger Läs behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **RegistryReadWrite** |Ger Läs-och Skriv behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |

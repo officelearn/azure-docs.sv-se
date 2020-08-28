@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930544"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017727"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
 
-Azure Active Directory (Azure AD) Mina appar är en webbaserad portal som hjälper till att sänka support kostnaderna, öka produktiviteten och säkerheten och minska användarnas besvär. Systemet innehåller detaljerad rapportering som spårar när du kommer åt systemet och meddelar administratörer om missbruk eller missbruk.
+Azure Active Directory (Azure AD) Mina appar är en webbaserad portal som hjälper till att sänka support kostnaderna, öka produktiviteten och säkerheten och minska användarnas besvär. Systemet innehåller detaljerad rapportering som spårar när du kommer åt systemet och meddelar administratörer om missbruk eller missbruk. Mer information om hur du använder Mina appar från en slut användar perspektiv finns i [hjälpen för min Apps-portalen](../user-help/my-apps-portal-end-user-access.md).
 
 Genom att använda Azure AD Mina appar kan du:
 
@@ -42,7 +42,7 @@ Azure AD Mina appar fördelar företag på följande sätt:
 
 **Ger intuitiv användar upplevelse**: Mina appar ger dig en enda plattform för alla dina Azure-anslutna program för enkel inloggning (SSO). Du har en enhetlig Portal för att hitta befintliga inställningar och nya funktioner, t. ex. grupp hantering och lösen ords återställning via självbetjäning, när de läggs till. Den intuitiva upplevelsen gör det möjligt för användarna att återgå till att arbeta snabbare och bli mer produktiva, samtidigt som de minskar sin syn.
 
-**Ökar produktiviteten**: alla användar program i Mina appar har SSO aktive rad. Att aktivera SSO över företags program och Microsoft 365 skapar en överlägsen inloggning genom att minska eller eliminera ytterligare prompter för inloggning. Mina appar använder självbetjäning och dynamiskt medlemskap och förbättrar den övergripande säkerheten för ditt identitets system. Det gör det genom att se till att rätt personer hanterar åtkomst till programmen. Mina appar fungerar som en enhetlig landnings sida så att du snabbt kan hitta resurser och fortsätta arbeta aktiviteter.
+**Ökar produktiviteten**: alla användar program i Mina appar har SSO aktive rad. Att aktivera SSO över företags program och Microsoft 365 skapar en överlägsen inloggning genom att minska eller eliminera ytterligare prompter för inloggning. Mina appar använder självbetjäning och dynamiskt medlemskap och förbättrar den övergripande säkerheten för ditt identitets system. Mina appar säkerställer att rätt personer hanterar åtkomst till programmen. Mina appar fungerar som en enhetlig landnings sida så att du snabbt kan hitta resurser och fortsätta arbeta aktiviteter.
 
 **Hanterar kostnad**: att aktivera Mina appar med Azure AD kan hjälpa dig med divestment av lokala infrastrukturer. Det minskar support kostnaderna genom att tillhandahålla en konsekvent Portal för att hitta alla dina appar, begära åtkomst till resurser och hantera konton.
 
@@ -89,6 +89,10 @@ I följande tabell beskrivs de viktigaste användnings fallen för distribution 
 | Användarupplevelse| Användare kan hantera sina konton. |
 | Användarupplevelse| Användarna är medvetna om webbläsarkompatibilitet. |
 | Support| Användare kan hitta support för mina apps-problem. |
+
+
+> [!TIP]
+> Mina appar kan användas med interna företags-URL: er vid fjärr anslutning med hjälp av programproxy. Mer information finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Metod tips för att distribuera Azure AD Mina appar
 
@@ -255,7 +259,7 @@ Se [tilldela användare och grupper till ett program i Active Directory](methods
 
 Om du under testning eller distribution vill lägga till grupperna, men ännu inte tillåta att programmen visas i Mina appar, se [Dölj ett program från användarens upplevelse i Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Distribuera Microsoft Microsoft 365-program till Mina appar
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Distribuera Microsoft 365 program till Mina appar
 
 För Microsoft 365 program får användarna en kopia av Office baserat på licenser som tilldelats dem. En förutsättning för att få åtkomst till Office-program är att användarna ska tilldelas rätt licenser knutna till Office-programmen. När du tilldelar en licens för en användare ser de automatiskt de program som är associerade med licensen på sidan Mina appar och i Microsoft 365 App Launcher.
 
@@ -303,15 +307,15 @@ Det är viktigt att planera vad som ska göras om distributionen inte fungerar s
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
 
-Du bör använda den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](../users-groups-roles/directory-assign-admin-roles.md) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
+Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](../users-groups-roles/directory-assign-admin-roles.md) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Inget |
+| Supportavdelningen-administratör| Nivå 1-stöd| Inga |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
 
 Du kan använda [Privileged Identity Management](../privileged-identity-management/pim-configure.md) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

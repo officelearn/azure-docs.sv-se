@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8f8b18d36453ac65300a5dd19fa7e07b1449bc28
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 1de363e66a4d5780258b75d777a95318f36333fd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538956"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000506"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Säkerhets ram: känsliga data | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -54,7 +54,7 @@ ms.locfileid: "87538956"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorns förtroende gränser | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -76,7 +76,7 @@ ms.locfileid: "87538956"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generiska, webb formulär, MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -129,7 +129,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Gör så [här: kryptera konfigurations avsnitt i ASP.NET 2,0 med DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Ange en skyddad Konfigurationsprovider](https://msdn.microsoft.com/library/68ze1hb2.aspx) [med hjälp av Azure Key Vault för att skydda program hemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
@@ -140,7 +140,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN: Autoavsluta-attribut](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [använda Autoavsluta i HTML](https://msdn.microsoft.com/library/ms533032.aspx), [sårbarhet för HTML-säkerhetsspråkning](https://technet.microsoft.com/security/bulletin/MS10-071), [Autoavsluta., igen?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
@@ -159,7 +159,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -170,10 +170,10 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | SQL-version – V12, SQL-version – MsSQL2016 |
-| **Referenser**              | [Dynamisk data maskning](https://msdn.microsoft.com/library/mt130841) |
+| **Referenser**              | [Dynamisk datamaskning](https://msdn.microsoft.com/library/mt130841) |
 | **Steg** | Syftet med dynamisk datamaskering är att begränsa exponeringen av känsliga data, vilket förhindrar användare som inte ska ha åtkomst till data från att visas. Dynamisk data maskning syftar inte till att hindra databas användare från att ansluta direkt till databasen och köra omfattande frågor som visar delar av känsliga data. Dynamisk data maskning kompletterar andra SQL Server säkerhetsfunktioner (granskning, kryptering och säkerhet på radnivå...) och vi rekommenderar att du använder den här funktionen tillsammans med dem för att bättre skydda känsliga data i databasen. Observera att den här funktionen endast stöds av SQL Server som börjar med 2016 och Azure SQL Database. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Se till att lösen ord lagras i saltat hash-format
@@ -181,7 +181,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Lösen ords hash med .NET-API för kryptering](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
@@ -192,7 +192,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | SQL-version – alla |
 | **Referenser**              | [Kryptera känsliga data i SQL Server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [så här: kryptera en data kolumn i SQL Server](https://msdn.microsoft.com/library/ms179331), [kryptera efter certifikat](https://msdn.microsoft.com/library/ms188061) |
@@ -203,7 +203,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Förstå SQL Server transparent datakryptering (TDE)](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
@@ -214,7 +214,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | SQL-version – V12, SQL-version – MsSQL2014 |
 | **Referenser**              | [Säkerhets kopierings kryptering i SQL Database](https://msdn.microsoft.com/library/dn449489) |
@@ -225,7 +225,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC 5, MVC 6 |
 | **Attribut**              | Identitetsprovider-ADFS, identitetsprovider – Azure AD |
 | **Referenser**              | Ej tillämpligt  |
@@ -249,7 +249,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -271,7 +271,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric förtroende gränser | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Miljö – Azure |
 | **Referenser**              | [Hantera hemligheter i Service Fabric program](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
@@ -282,7 +282,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -326,7 +326,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType-BLOB |
 | **Referenser**              | [Azure Storage tjänst kryptering för vilande data (för hands version)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
@@ -337,7 +337,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Självstudier: kryptera och dekryptera blobbar i Microsoft Azure Storage använda Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [lagra data på ett säkert sätt i Azure Blob Storage med Azure Encryption-tillägg](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
@@ -348,7 +348,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobil klient | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk, Xamarin  |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Hantera inställningar och funktioner på dina enheter med Microsoft Intune principer](https://docs.microsoft.com/mem/intune/configuration/), [nyckel Ring valet](https://components.xamarin.com/view/square.valet) |
@@ -398,7 +398,7 @@ Om programmet inte är ett företags program använder du plattforms oberoende n
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobil klient | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Krypto-döljande för .net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
@@ -409,7 +409,7 @@ Om programmet inte är ett företags program använder du plattforms oberoende n
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
@@ -428,7 +428,7 @@ Ange clientCredentialType till certifikat eller Windows.
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmän, .NET Framework 3 |
 | **Attribut**              | Säkerhets läge – transport, säkerhets läge – meddelande |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [grunderna i WCF Security CoDe Magazine](https://www.codemag.com/article/0611051) |

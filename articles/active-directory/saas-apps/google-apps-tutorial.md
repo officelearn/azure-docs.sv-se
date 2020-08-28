@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551531"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Google Cloud (G Suite)-anslutning
 
@@ -225,15 +225,18 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. I fältet **URL för inloggnings sidan** i Google Cloud (G Suite) Connector klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
-    c. I fältet utloggnings **sidans URL** i Google Cloud (G Suite) Connector klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure Portal.
+    c. I fältet **utloggnings sidans URL** i Google Cloud (G Suite) Connector klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
-    d. I fältet **ändra lösen ordets URL** i Google Cloud (G Suite)-anslutning klistrar du in värdet för **ändra lösen ordets URL** som du har kopierat från Azure Portal.
+    > [!NOTE]
+    > Google Cloud (G Suite) baseras på SAML-utloggnings protokoll. I **URL-** fältet för utloggnings sidan måste du därför använda SAML-utloggnings-URL: en, d.v.s. inloggnings-URL: en som värde för samma.
 
-    e. I Google Cloud (G Suite)-anslutning för **verifierings certifikatet**laddar du upp det certifikat som du har laddat ned från Azure Portal.
+    d. I Google Cloud (G Suite)-anslutning för **verifierings certifikatet**laddar du upp det certifikat som du har laddat ned från Azure Portal.   
 
-    f. Markera/avmarkera alternativet **Använd ett domänbaserat Issuer** -alternativ enligt kommentaren ovan i avsnittet **grundläggande SAML-konfiguration** i Azure AD.
+    e. Markera/avmarkera alternativet **Använd ett domänbaserat Issuer** -alternativ enligt kommentaren ovan i avsnittet **grundläggande SAML-konfiguration** i Azure AD.
 
-    ex. Klicka på **Spara ändringar**.
+    f. I fältet **ändra lösen ordets URL** i Google Cloud (G Suite)-anslutning klistrar du in värdet för **ändra lösen ordets URL** som du har kopierat från Azure Portal.
+
+    ex. Klicka på **Spara**.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Skapa Google Cloud (G Suite)-anslutnings test användare
 

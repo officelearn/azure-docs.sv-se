@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84887445"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018254"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installera program vara och konfigurera resurser för självstudien
 
@@ -30,7 +30,7 @@ I den här självstudien med tre delar skapar du en maskin inlärnings modell f�
 4. Installera [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Öppna Azure Data Studio och konfigurera python för antecknings böcker.Mer information finns i [Konfigurera python för notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Det här steget kan ta flera minuter.
 6. Installera den senaste versionen av [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Följande skript kräver att AZ PowerShell är den senaste versionen (3.5.0, feb 2020).
-7. Ladda ned [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) och [AMD/arm Docker-bildfilerna](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) som används i självstudien.
+7. Ladda ned [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) och [AMD/arm Docker-bildfilerna](https://www.docker.com/blog/multi-arch-images/) som används i självstudien.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Distribuera Azure-resurser med PowerShell-skript
 

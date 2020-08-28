@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6e34bd91a1deb5bbd28c11e8f23ea2b812333aaf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.custom: how-to, devx-track-python, devx-track-csharp
+ms.openlocfilehash: 56cd2117a352626cf59023d62ea8c931401389c5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652601"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018101"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,7 +179,7 @@ Information om hur du aktiverar CORS-stöd i tjänsten finns i [resurs delning m
 
 ## <a name="call-the-service-c"></a>Anropa tjänsten (C#)
 
-Det här exemplet visar hur du använder C# för att anropa webb tjänsten som skapats från [träna i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exempel:
+Det här exemplet visar hur du använder C# för att anropa webb tjänsten som skapats från [träna i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exempel:
 
 ```csharp
 using System;
@@ -268,7 +268,7 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-go"></a>Anropa tjänsten (go)
 
-Det här exemplet visar hur du använder Go för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exemplet:
+Det här exemplet visar hur du använder Go för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exemplet:
 
 ```go
 package main
@@ -360,7 +360,7 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-java"></a>Anropa tjänsten (Java)
 
-Det här exemplet visar hur du använder Java för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exemplet:
+Det här exemplet visar hur du använder Java för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exemplet:
 
 ```java
 import java.io.IOException;
@@ -440,7 +440,7 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="call-the-service-python"></a>Anropa tjänsten (python)
 
-Det här exemplet visar hur du använder python för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exemplet:
+Det här exemplet visar hur du använder python för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) -exemplet:
 
 ```python
 import requests

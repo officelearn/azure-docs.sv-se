@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: b6cb79c4310237e2052ff7eca59a5e2d356968a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543698"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000472"
 ---
 # <a name="security-frame-session-management"></a>Säkerhets ram: sessionshantering
 | Produkt/tjänst | Artikel |
@@ -39,7 +39,7 @@ ms.locfileid: "87543698"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -74,7 +74,7 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -85,7 +85,7 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -96,7 +96,7 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | ADFS | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -145,7 +145,7 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitets Server | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [IdentityServer3 – federerad utloggning](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
@@ -156,7 +156,7 @@ Den bör också förstöra användarens session genom att anropa session. Abando
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | EnvironmentType – OnPrem |
 | **Referenser**              | [httpCookies-element (ASP.net-inställnings schema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie. Secure-egenskap](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
@@ -175,7 +175,7 @@ Inställningen tillämpas även om HTTP används för att få åtkomst till prog
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär, MVC5 |
 | **Attribut**              | EnvironmentType – OnPrem |
 | **Referenser**              | Ej tillämpligt  |
@@ -197,7 +197,7 @@ Inställningen tillämpas även om HTTP används för att få åtkomst till prog
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Attribut för säker cookie](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
@@ -218,7 +218,7 @@ Alla HTTP-baserade program som använder cookies bör ange HttpOnly i cookie-def
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [FormsAuthentication. RequireSSL-egenskap](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
@@ -235,7 +235,7 @@ I följande kod exempel anges attributet requireSSL i Web.config-filen.
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5 |
 | **Attribut**              | EnvironmentType – OnPrem |
 | **Referenser**              | [Konfiguration av Windows Identity Foundation (WIF) – del II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
@@ -260,7 +260,7 @@ Följande konfiguration visar rätt konfiguration:
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -269,7 +269,7 @@ Följande konfiguration visar rätt konfiguration:
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [XSRF/CSRF-skydd i ASP.NET MVC och Web pages](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
@@ -292,7 +292,7 @@ Följande konfiguration visar rätt konfiguration:
 ```
 
 ### <a name="example"></a>Exempel
-Vid samma tillfälle ger HTML. AntiForgeryToken () en cookie som kallas __RequestVerificationToken, med samma värde som det slumpmässiga dolda värdet som visas ovan. För att validera ett inkommande formulär inlägg lägger du till [ValidateAntiForgeryToken]-filtret till mål åtgärds metoden. Ett exempel:
+Vid samma tillfälle ger HTML. AntiForgeryToken () en cookie som kallas __RequestVerificationToken, med samma värde som det slumpmässiga dolda värdet som visas ovan. För att validera ett inkommande formulär inlägg lägger du till [ValidateAntiForgeryToken]-filtret till mål åtgärds metoden. Exempel:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -355,7 +355,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Dra nytta av ASP.NET inbyggda funktioner för att Fend bort webb attacker](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
@@ -375,7 +375,7 @@ void Page_Init (object sender, EventArgs e) {
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [HttpSessionState. timeout-egenskap](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
@@ -395,7 +395,7 @@ void Page_Init (object sender, EventArgs e) {
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Formulär element för autentisering (ASP.NET Settings schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
@@ -410,7 +410,7 @@ void Page_Init (object sender, EventArgs e) {
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär, MVC5 |
 | **Attribut**              | EnvironmentType – OnPrem |
 | **Referenser**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
@@ -445,7 +445,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -456,7 +456,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -465,7 +465,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Förhindra förfalskning av CSRF-attacker (Cross-Site Request) i ASP.NET Web API](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
@@ -536,7 +536,7 @@ Exemplet ovan kommer att returnera något som liknar följande:
 ```
 
 ### <a name="example"></a>Exempel
-Vid samma tillfälle ger HTML. AntiForgeryToken () en cookie som kallas __RequestVerificationToken, med samma värde som det slumpmässiga dolda värdet som visas ovan. För att validera ett inkommande formulär inlägg lägger du till [ValidateAntiForgeryToken]-filtret till mål åtgärds metoden. Ett exempel:
+Vid samma tillfälle ger HTML. AntiForgeryToken () en cookie som kallas __RequestVerificationToken, med samma värde som det slumpmässiga dolda värdet som visas ovan. För att validera ett inkommande formulär inlägg lägger du till [ValidateAntiForgeryToken]-filtret till mål åtgärds metoden. Exempel:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -552,7 +552,7 @@ Synkroniseringsfilter som kontrollerar att:
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Identitetsprovider-ADFS, identitetsprovider – Azure AD |
 | **Referenser**              | [Skydda ett webb-API med enskilda konton och lokal inloggning i ASP.NET Web API 2,2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |

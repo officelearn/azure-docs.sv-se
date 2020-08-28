@@ -9,12 +9,13 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d00232d602ce7b2de0db4e06ef3c7456f552833e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387225"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018747"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabeller för delade metadata i Azure Synapse Analytics
 
@@ -73,12 +74,12 @@ Spark-tabeller tillhandahåller olika data typer än Synapse SQL-motorer. Följa
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | Med sortering`Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |    `varchar(max)`   | Med sortering `Latin1_General_CP1_CI_AS_UTF8` |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serialiserar till JSON med sortering`Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |    `varchar(max)`   | Serialiserar till JSON med sortering`Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |    `varchar(max)`   | Serialiserar till JSON med sortering`Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |    `varchar(max)`   | Serialiserar till JSON med sortering `Latin1_General_CP1_CI_AS_UTF8` |
+| `map`       |    `varchar(max)`   | Serialiserar till JSON med sortering `Latin1_General_CP1_CI_AS_UTF8` |
+| `struct`    |    `varchar(max)`   | Serialiserar till JSON med sortering `Latin1_General_CP1_CI_AS_UTF8` |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 

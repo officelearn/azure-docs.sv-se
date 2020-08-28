@@ -3,12 +3,12 @@ title: Hantering av VM-tillägg med Azure Arc-aktiverade servrar (förhands gran
 description: Azure Arc-aktiverade servrar (för hands version) kan hantera distribution av virtuella dator tillägg som tillhandahåller konfiguration och automatisering av virtuella datorer med icke-virtuella datorer i Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213109"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018169"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Hantering av virtuella dator tillägg med Azure Arc-aktiverade servrar (förhands granskning)
 
@@ -51,7 +51,7 @@ VM-tillägg kan köras med Azure Resource Manager mallar, från Azure Portal ell
 
 Mer information om paketet för Azure Connected Machine agent och information om tilläggs Agent komponenten finns i [agent översikt](agent-overview.md#agent-component-details).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här funktionen är beroende av följande Azure-resurs leverantörer i din prenumeration:
 
@@ -89,7 +89,7 @@ VM-tillägg kan tillämpas på den hanterade datorn för Server (för hands vers
 
     ![Installera Log Analytics VM-tillägg](./media/manage-vm-extensions/mma-extension-config.png)
 
-    För att slutföra installationen måste du ange arbetsyte-ID och primär nyckel. Om du inte är bekant med hur du hittar den här informationen kan du läsa [Hämta arbetsyte-ID och nyckel](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+    För att slutföra installationen måste du ange arbetsyte-ID och primär nyckel. Om du inte är bekant med hur du hittar den här informationen kan du läsa [Hämta arbetsyte-ID och nyckel](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 4. När du har bekräftat nödvändig information som har angetts väljer du **skapa**. En sammanfattning av distributionen visas och du kan granska distributionens status.
 

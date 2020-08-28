@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449058"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018866"
 ---
 # <a name="tutorial-manipulating-models"></a>Självstudie: ändra modeller
 
@@ -23,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Raycast med spatiala frågor
 > * Lägg till enkla animeringar för fjärrrenderade objekt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: gränssnitt och anpassade modeller](../custom-models/custom-models.md).
 
@@ -110,7 +111,7 @@ Gränserna för en modell definieras av den ruta som innehåller hela modellen, 
     > [!NOTE]
     > Om du ser ett fel i *funktionen "X" i Visual Studio är inte tillgängligt i C# 6. Använd språk version 7,0 eller senare*. det här felet kan ignoreras på ett säkert sätt. Detta är relaterat till lösning och projekt skapande.
 
-    Det här skriptet ska läggas till i samma GameObject som skriptet som implementerar **BaseRemoteRenderedModel**. I det här fallet innebär det **RemoteRenderedModel**. På samma sätt som för tidigare skript, hanterar den här inledande koden alla status ändringar, händelser och data som är relaterade till fjärrvärden.
+    Det här skriptet ska läggas till i samma GameObject som skriptet som implementerar  **BaseRemoteRenderedModel**. I det här fallet innebär det **RemoteRenderedModel**. På samma sätt som för tidigare skript, hanterar den här inledande koden alla status ändringar, händelser och data som är relaterade till fjärrvärden.
 
     Det finns två metoder kvar att implementera: **QueryBounds** och **ProcessQueryResult**. **QueryBounds** hämtar gränserna och **ProcessQueryResult** tar emot resultatet från frågan och tillämpar den på den lokala **BoxCollider**.
 

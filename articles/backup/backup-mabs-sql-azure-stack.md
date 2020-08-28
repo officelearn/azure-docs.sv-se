@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server arbets belastningar på Azure Stack
 description: I den här artikeln lär du dig hur du konfigurerar Microsoft Azure Backup Server (MABS) för att skydda SQL Server databaser på Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e56b29f886224617a9ae13d58c8b3dd8dda0dcf8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032654"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017979"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Säkerhetskopiera SQL Server på Azure Stack
 

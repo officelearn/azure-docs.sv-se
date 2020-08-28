@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 14472e84d425bf03a3c6a0c2dc558d4b8225caec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: ae145f5a1ce462edb28171a1f5bb6f3ebb72f538
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733403"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018220"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Ladda upp filer från enheten till molnet med IoT Hub (.NET)
 
@@ -27,7 +27,7 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 * Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Microsoft Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Ett exempel:
+[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Microsoft Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Exempel:
 
 * Stora filer som innehåller bilder
 
@@ -48,7 +48,7 @@ I slutet av den här självstudien kör du två .NET-konsol program:
 > [!NOTE]
 > IoT Hub stöder många enhets plattformar och språk, inklusive C, Java, python och Java Script, via SDK: er för Azure IoT-enheter. I [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) hittar du stegvisa instruktioner för hur du ansluter enheten till Azure IoT Hub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio
 

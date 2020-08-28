@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: 5760c574e64a3b3b4a1df12092cff44374790a90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733480"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018407"
 ---
 # <a name="get-started-with-device-management-net"></a>Kom igång med enhets hantering (.NET)
 
@@ -35,7 +35,7 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 * **TriggerReboot**. Den här appen anropar en direkt metod i den simulerade Device-appen, visar svaret och visar uppdaterade egenskaper som rapporteras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio.
 
@@ -154,7 +154,7 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
 
 1. I Solution Explorer högerklickar du på det nya **SimulateManagedDevice** -projektet och väljer sedan **Hantera NuGet-paket**.
 
-1. Välj **Bläddra**och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **installera**.
+1. Välj **Bläddra**och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **Install** (Installera).
 
     ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 

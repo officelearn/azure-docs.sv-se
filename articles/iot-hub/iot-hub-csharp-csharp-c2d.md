@@ -14,12 +14,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 0b4fbe4ab7accec18f48e6319e16d10f083a8709
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327454"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008351"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till din enhet med IoT Hub (.NET)
 
@@ -49,7 +50,7 @@ I slutet av den här självstudien kör du två .NET-konsol program.
 > IoT Hub har SDK-stöd för många enhets plattformar och språk, inklusive C, Java, python och Java Script, via SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md). Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio
 
@@ -116,7 +117,7 @@ I det här avsnittet skapar du en .NET-konsol app som skickar meddelanden från 
 
 1. I Solution Explorer högerklickar du på det nya projektet och väljer sedan **Hantera NuGet-paket**.
 
-1. I **Hantera NuGet-paket**väljer du **Bläddra**och söker efter och väljer **Microsoft. Azure. Devices**. Välj **Installera**.
+1. I **Hantera NuGet-paket**väljer du **Bläddra**och söker efter och väljer **Microsoft. Azure. Devices**. Välj  **Installera**.
 
    I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 

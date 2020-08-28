@@ -3,7 +3,7 @@ title: Visa tjänstens huvud namn för en hanterad identitet med PowerShell – 
 description: Stegvisa instruktioner för att Visa tjänstens huvud namn för en hanterad identitet med hjälp av PowerShell.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02750fc9f986b486deaf3c0d58ab538f9c634096
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d958ddf977d0f6926863fa661b25e76fe031822d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608338"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009312"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Visa tjänstens huvud namn för en hanterad identitet med hjälp av PowerShell
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du visar tjänstens huvud namn för en
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md).
 - Om du inte redan har ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).

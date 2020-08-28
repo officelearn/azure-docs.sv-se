@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757616"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017455"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 
@@ -39,7 +39,7 @@ Recovery Services-valvet är en logisk container som lagrar säkerhetskopierade 
 
     ![Aktivera säkerhetskopiering av virtuell dator i Azure Portal](./media/quick-backup-vm-portal/enable-backup.png)
 
-    Valvet är som standard inställt på geo-redundant lagring. Den här lagringsredundansnivån ger ett extra skydd genom att dina säkerhetskopierade data replikeras till en sekundär Azure-region som ligger hundratals kilometer från den primära regionen.
+    Valvet är som standard inställt på geo-redundant lagring. För att skydda dina data ytterligare säkerställer den här lagrings redundans nivån att dina säkerhetskopierade data replikeras till en sekundär Azure-region som är hundratals mil bort från den primära regionen.
 
     Du skapar och använder principer för att definiera när ett säkerhetskopieringsjobb ska köras och hur länge återställningspunkterna ska sparas. Med standardskyddsprincipen körs ett säkerhetskopieringsjobb varje dag och återställningspunkterna sparas i 30 dagar. Du kan använda standardvärdena för att snabbt skydda din virtuella dator.
 

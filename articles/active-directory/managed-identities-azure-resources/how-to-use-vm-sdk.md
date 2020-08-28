@@ -3,7 +3,7 @@ title: 'Använda hanterade identiteter på en virtuell Azure-dator med Azure-SDK
 description: 'Kod exempel för att använda Azure-SDK: er med en virtuell Azure-dator som har hanterade identiteter för Azure-resurser.'
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,21 +13,21 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8edcf144aceb96092bd92690533e1bdd03450896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecfb2fa5f45a23d387741d4865aa9707df960e86
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608440"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018424"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure SDK: er 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Den här artikeln innehåller en lista över SDK-exempel som demonstrerar användningen av deras respektive Azure SDK-stöd för hanterade identiteter för Azure-resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

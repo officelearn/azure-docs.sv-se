@@ -12,12 +12,13 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: d7bf31f7b16fa987bb9c710835d1a3aff8214604
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+- devx-track-csharp
+ms.openlocfilehash: 1c1e29d43fefa6be1586aefc28249fe2f0f9e9fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783271"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001033"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera säkerhet för X.509 i din Azure IoT Hub
 
@@ -101,7 +102,7 @@ Sedan visar vi dig hur du skapar ett C#-program för att simulera X. 509-enheten
 
 1. I Solution Explorer högerklickar du på projektet **SimulateX509Device** och väljer sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **Installera**.
+1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **Install** (Installera).
 
    ![Lägg till enhets-SDK NuGet-paketet i Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 

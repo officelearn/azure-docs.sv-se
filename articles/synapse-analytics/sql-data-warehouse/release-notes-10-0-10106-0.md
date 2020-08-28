@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075825"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001016"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="aug-2020"></a>Aug 2020
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+|**Arbets belastnings hantering – Portal upplevelse**|Användare kan konfigurera och hantera sina inställningar för hantering av arbets belastning via Azure Portal. Möjligheten att konfigurera [arbets belastnings grupper](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) och [klassificerare för arbets belastningar](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) med betydelse är möjliga.|
+|**Förbättrad katalogvy för tabell mappning**|Den nya katalog visningen [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mappar **object_ids** av permanenta användar tabeller till deras fysiska tabell namn. Den här vyn ger optimerade prestanda över aktuellt [sys. pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions).|
 
 ## <a name="july-2020"></a>Juli 2020
 
@@ -138,7 +145,7 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 |**Klassificering av data identifierings &**|Data identifierings & klassificering är nu tillgänglig i offentlig för hands version för Synapse SQL. Det är viktigt att skydda känsliga data och kundernas integritet. När dina affärs data till gångar växer blir de inte hanterbara för att identifiera, klassificera och skydda dina data. Funktionen för data identifiering och klassificering som vi introducerar internt med Synapse SQL hjälper till att skydda dina data mer hanterbara. De totala fördelarna med den här funktionen är:<br/>&bull;&nbsp;Mötes-och reglerings krav för data sekretess.<br/>&bull;&nbsp;Begränsa åtkomsten till och härdning av säkerheten för informations lager som innehåller mycket känsliga data.<br/>&bull;&nbsp;Övervakning och avisering om avvikande åtkomst till känsliga data.<br/>&bull;&nbsp;Visualisering av känsliga data på en central instrument panel på Azure Portal. </br></br>Data identifiering & klassificering är tillgänglig i alla Azure-regioner, den är en del av avancerad data säkerhet, inklusive sårbarhets bedömning och hot identifiering. Mer information om data identifiering & klassificering finns i [blogg inlägget](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) och i [onlinedokumentationen.](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)|
-|**GRUPPERA EFTER SAMMANSTÄLLNING**|Nu finns en grupp med alternativ som stöds.   Gruppera efter sammanslagning skapar en grupp för varje kombination av kolumn uttryck. Gruppera efter "summera" resultatet i del summor och total summor. GROUP BY-funktionen bearbetar från höger till vänster, vilket minskar antalet kolumn uttryck som skapar grupper och agg regeringar.  Kolumn ordningen påverkar upplyfta utdata och kan påverka antalet rader i resultat uppsättningen.<br/><br/>Mer information om gruppering efter sammanslagning finns i [Group by (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+|**GRUPPERA EFTER SAMMANSTÄLLNING**|Nu finns en grupp med alternativ som stöds.   Gruppera efter sammanslagning skapar en grupp för varje kombination av kolumn uttryck. Gruppera efter "summera" resultatet i del summor och total summor. GROUP BY-funktionen bearbetar från höger till vänster, vilket minskar antalet kolumn uttryck som skapar grupper och agg regeringar.  Kolumn ordningen påverkar upplyfta utdata och kan påverka antalet rader i resultat uppsättningen.<br/><br/>Mer information om gruppering efter sammanslagning finns i  [Group by (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 |**Förbättrad precision för DWU som används och CPU-portalens mått**|Synapse SQL förbättrar markant Mät precisionen i Azure Portal.  Den här versionen innehåller en korrigering av mått definitionen CPU och DWU som används för att korrekt återspegla din arbets belastning för alla Compute-noder. Före den här korrigeringen underdelades mått värden. Vi räknar med att se en ökning av de DWU som används och CPU-mått i Azure Portal. |
 |**Säkerhet på radnivå**|Vi introducerade säkerhetsfunktioner på radnivå i nov 2017. Vi har nu även utökat detta stöd till externa tabeller. Dessutom har vi lagt till stöd för anrop av icke-deterministiska funktioner i infogade tabell värdes funktioner (infogade TVFs) som krävs för att definiera ett predikat för säkerhets filter. Med det här tillägget kan du ange IS_ROLEMEMBER (), USER_NAME () osv. i säkerhets filtrets predikat. Mer information finns i exemplen i [säkerhets dokumentationen på radnivå](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).|
 |**Ytterligare T-SQL-support**|Språk ytan T-SQL för Synapse SQL har utökats till att omfatta stöd för [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

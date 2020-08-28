@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2bd3487e58f204ba7ada9320b50d4b87538ae987
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 98eff02dacb5b44839937f826cd676fe16670cbb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826573"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017489"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Säkerhetskopiera en virtuell dator i Azure med CLI
 
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Recovery Services-valvet är som standard inställt på geo-redundant lagring. Geo-redundant lagring ger ett extra skydd genom att dina säkerhetskopierade data replikeras till en sekundär Azure-region som ligger hundratals kilometer från den primära regionen. Om inställningen för lagring av lagrings utrymme behöver ändras, använder du [säkerhets kopiering av AZ säkerhets kopierings valv-egenskaper set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
+Recovery Services-valvet är som standard inställt på geo-redundant lagring. Geo-redundant lagring garanterar att dina säkerhets kopierings data replikeras till en sekundär Azure-region som är hundratals mil bort från den primära regionen. Om inställningen för lagring av lagrings utrymme behöver ändras, använder du [säkerhets kopiering av AZ säkerhets kopierings valv-egenskaper set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
 
 ```azurecli
 az backup vault backup-properties set \

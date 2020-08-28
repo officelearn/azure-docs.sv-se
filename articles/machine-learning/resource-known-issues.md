@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757293"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018730"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -184,6 +184,8 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
 * **Problem med att skapa AmlCompute**: det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan ga-versionen kanske inte kan skapa AmlCompute på arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
+
+* **Azure Container Registry stöder för närvarande inte Unicode-tecken i resurs grupp namn**: det är möjligt att ACR-begärandena inte kan utföras eftersom resurs gruppens namn innehåller Unicode-tecken. För att undvika det här problemet rekommenderar vi att du skapar en ACR i en resurs grupp med en annan resurs.
 
 ## <a name="work-with-data"></a>Arbeta med data
 

@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463088"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018662"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Händelse agg regering och insamling med EventFlow
 
@@ -24,12 +25,12 @@ EventFlow-binärfiler är tillgängliga som en uppsättning NuGet-paket. Om du v
 
 Du ser en lista över olika paket som visas, med etiketten "Inputs" och "outputs". EventFlow stöder olika typer av loggnings leverantörer och analys verktyg. Tjänstens värdbaserade EventFlow bör innehålla lämpliga paket beroende på källa och mål för program loggarna. Förutom kärnan ServiceFabric-paketet behöver du också minst en indata-och utdata-konfiguration. Du kan till exempel lägga till följande paket för att skicka EventSource-händelser till Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`för att samla in data från tjänstens EventSource-klass och från standard EventSources som *Microsoft-ServiceFabric-Services* och *Microsoft-ServiceFabric-aktörer*)
-* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`(vi ska skicka loggarna till en Azure Application Insights-resurs)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` för att samla in data från tjänstens EventSource-klass och från standard EventSources som *Microsoft-ServiceFabric-Services* och *Microsoft-ServiceFabric-aktörer*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vi ska skicka loggarna till en Azure Application Insights-resurs)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(aktiverar initiering av EventFlow-pipeline från Service Fabric tjänst konfiguration och rapporterar eventuella problem med att skicka diagnostikdata som Service Fabric hälso rapporter)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Inputs.EventSource`-paketet kräver att tjänst projektet är målet .NET Framework 4,6 eller senare. Se till att ange rätt mål ramverk i projekt egenskaper innan du installerar det här paketet.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` -paketet kräver att tjänst projektet är målet .NET Framework 4,6 eller senare. Se till att ange rätt mål ramverk i projekt egenskaper innan du installerar det här paketet.
 
 När alla paket har installerats är nästa steg att konfigurera och aktivera EventFlow i tjänsten.
 
@@ -39,7 +40,7 @@ EventFlow-pipeline som ansvarar för att skicka loggarna skapas från en specifi
 >[!NOTE]
 >Om din projekt fil har VisualStudio 2017-format `eventFlowConfig.json` kommer filen inte att läggas till automatiskt. Om du vill åtgärda detta skapar du filen i `Config` mappen och ställer in åtgärden skapa `Copy if newer` . 
 
-Här är ett exempel *påeventFlowConfig.js* baserat på de NuGet-paket som nämns ovan:
+Här är ett exempel * påeventFlowConfig.js* baserat på de NuGet-paket som nämns ovan:
 ```json
 {
   "inputs": [
@@ -139,7 +140,7 @@ EventFlow stöder användning av Service Fabric inställningar och program param
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`är namnet på avsnittet Service Fabric konfiguration och `<setting-name>` är konfigurations inställningen som tillhandahåller värdet som ska användas för att konfigurera en EventFlow-inställning. Om du vill läsa mer om hur du gör detta går du till [stöd för Service Fabric inställningar och program parametrar](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` är namnet på avsnittet Service Fabric konfiguration och `<setting-name>` är konfigurations inställningen som tillhandahåller värdet som ska användas för att konfigurera en EventFlow-inställning. Om du vill läsa mer om hur du gör detta går du till [stöd för Service Fabric inställningar och program parametrar](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Verifiering
 

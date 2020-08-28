@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 0a20a120f72c70cb50cae37cece54d5efad31f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58f807a5a036f14af9baede604debe9d577cdbf6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074818"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000693"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använda C# med MapReduce streaming på Apache Hadoop i HDInsight
 
@@ -169,7 +169,7 @@ Därefter måste du ladda upp *mapparna* och *minska* programmen till HDInsight-
 
     * För **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen *mapper.exe* -filen och välj sedan **Öppna**.
 
-    När *mapper.exe* uppladdning har avslut ATS upprepar du överförings processen för *reducer.exes* filen.
+    När *mapper.exe* uppladdning har avslut ATS upprepar du överförings processen för *reducer.exes * filen.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Köra ett jobb: använda en SSH-session
 

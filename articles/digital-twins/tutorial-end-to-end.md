@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0f4155c479151c5af64049e0cf9a6a1c4dc4a553
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: b12320213b28e6b07abe217bb509fd668a9ad997
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855903"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017532"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
 Om du vill konfigurera en fullständig lösning från slut punkt till slut punkt som drivs av real tids data från din miljö kan du ansluta din Azure Digital-instans till andra Azure-tjänster för hantering av enheter och data.
 
 I den här självstudien kommer du att...
-* Konfigurera en digital Azure-instans
-* Lär dig mer om hur du skapar ett exempel scenario och skapar en instans av de fördefinierade komponenterna
-* Använd en [Azure Functions](../azure-functions/functions-overview.md) app för att dirigera simulerad telemetri från en [IoT Hub](../iot-hub/about-iot-hub.md) -enhet till digitala dubbla egenskaper
-* Sprid ändringar via det **dubbla diagrammet**genom att bearbeta digitala dubbla aviseringar med Azure Functions, slut punkter och vägar
+> [!div class="checklist"]
+> * Konfigurera en digital Azure-instans
+> * Lär dig mer om hur du skapar ett exempel scenario och skapar en instans av de fördefinierade komponenterna
+> * Använd en [Azure Functions](../azure-functions/functions-overview.md) app för att dirigera simulerad telemetri från en [IoT Hub](../iot-hub/about-iot-hub.md) -enhet till digitala dubbla egenskaper
+> * Sprid ändringar via det **dubbla diagrammet**genom att bearbeta digitala dubbla aviseringar med Azure Functions, slut punkter och vägar
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -455,5 +456,6 @@ Slutligen tar du bort exempel mappen Project som du laddade ned från den lokala
 I den här självstudien har du skapat ett scenario från slut punkt till slut punkt som visar att Azure Digitals dubbla enheter drivs av direktsänd enhets data.
 
 Börja sedan titta på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien:
+
 > [!div class="nextstepaction"]
 > [*Begrepp: anpassade modeller*](concepts-models.md)

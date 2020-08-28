@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892770"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017744"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -56,7 +56,7 @@ Om du redan har konfigurerat säkerhets kopian och måste gå från GRS till LRS
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Kan jag göra en återställning på objektnivå (ILR) för virtuella datorer som har säkerhetskopierats till ett Recovery Services-valv?
 
 - ILR stöds för virtuella Azure-datorer som säkerhetskopieras av säkerhetskopiering av virtuella Azure-datorer. Mer information finns i [artikeln](backup-azure-restore-files-from-vm.md)
-- ILR stöds inte för online-återställnings punkter för lokala virtuella datorer som backas upp av Azure Backup Server eller System Center DPM.
+- ILR stöds inte för online-återställnings punkter för lokala virtuella datorer som säkerhets kopie ras av Azure Backup Server (MABS) eller System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 
@@ -218,7 +218,7 @@ Microsoft dekrypterar inte säkerhets kopierings data när som helst.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Vilken är den minsta längden på krypterings nyckeln som används för att kryptera säkerhetskopierade data?
 
-Krypterings nyckeln som används av Microsoft Azure Recovery Services (MARS)-agenten härleds från en lösen fras som måste vara minst 16 tecken lång. För virtuella Azure-datorer finns det ingen gräns för längden på de nycklar som används av Azure-valv.
+Krypterings nyckeln som används av Microsoft Azure Recovery Services (MARS)-agenten härleds från en lösen fras som måste vara minst 16 tecken lång. För virtuella Azure-datorer finns det ingen gräns för längden på nycklar som används av Azure-valv.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Vad händer om jag tappar bort krypteringsnyckeln? Kan jag återställa data? Kan Microsoft återställa data?
 

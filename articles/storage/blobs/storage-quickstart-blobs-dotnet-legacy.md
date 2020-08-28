@@ -7,12 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285296"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001424"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V11 för .NET
 
@@ -39,7 +40,7 @@ Ytterligare resurser:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -102,7 +103,7 @@ Från projekt katalogen:
 2. Ta bort `Console.WriteLine` instruktionen
 3. Lägg till `using` direktiv
 4. Skapa en `ProcessAsync` metod där huvud koden för exemplet kommer att finnas
-5. Anropa metoden asynkront `ProcessAsync` från`Main`
+5. Anropa metoden asynkront `ProcessAsync` från `Main`
 
 Här är koden:
 

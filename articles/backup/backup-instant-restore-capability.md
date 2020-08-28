@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892634"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000387"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -108,9 +108,9 @@ Om återställnings typen är "ögonblicks bild och valv" görs återställninge
 
 Den nya modellen tillåter inte borttagning av återställnings punkten (– nivå 2) om inte ögonblicks bilden (1) tas bort. Vi rekommenderar att du schemalägger – nivå 2-kvarhållning (schema för återställnings punkt) som är större än kvarhållningsperioden för ögonblicks bilder.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Varför är min ögonblicks bild befintlig även efter den angivna kvarhållningsperioden i säkerhets kopierings policyn?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Varför finns min ögonblicks bild fortfarande kvar, även efter den angivna kvarhållningsperioden i säkerhets kopierings policyn?
 
-Om återställnings punkten har ögonblicks bilder och det är den senaste tillgängliga RP-filen, behålls den tills nästa lyckade säkerhets kopiering. Detta sker i enlighet med den utgångna skräp insamlings principen (GC) idag som bestämmer att minst en senaste RP alltid är tillgänglig om alla säkerhets kopieringar sker på grund av ett problem på den virtuella datorn. I normala scenarier rensas RPs på högst 24 timmar efter att de gått ut.
+Om återställnings punkten har en ögonblicks bild och det är den senaste återställnings punkten finns den kvar tills nästa lyckade säkerhets kopiering. Detta sker enligt den angivna GC-principen (skräp insamlingen). Det innebär att det alltid finns minst en senaste återställnings punkt, vilket innebär att alla efterföljande säkerhets kopieringar inte kan utföras på grund av ett problem på den virtuella datorn. I normala fall rensas återställnings punkter högst 24 timmar efter att de gått ut.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Jag behöver inte omedelbar återställnings funktion. Kan den inaktive ras?
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp på Azure Stack
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data på Azure Stack. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319cf064ab2bab20e4140f8a208be843df7fa71
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538793"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017981"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Säkerhetskopiera en SharePoint-grupp på Azure Stack
 
@@ -84,7 +84,7 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
     När du expanderar MABS frågor för SharePoint Server VSS för att se vilka data MABS kan skydda.  Om SharePoint-databasen är fjärr anslutning MABS ansluts till den. Om SharePoint-datakällor inte visas kontrollerar du att VSS-skrivaren körs på SharePoint-servern och alla fjärrSQL Serverer och kontrollerar att MABS-agenten är installerad på både SharePoint-servern och fjärrSQL Server. Se också till att SharePoint-databaser inte skyddas på andra platser som SQL Server databaser.
 
-1. I **Välj data skydds metod**anger du hur du vill hantera kort och långsiktig \- säkerhets kopiering. Kortsiktig säkerhetskopiering görs alltid först på disk, med alternativet att säkerhetskopiera från disk till molnet med Azure Backup \(för kort och lång sikt\).
+1. I **Välj data skydds metod**anger du hur du vill hantera kort och långsiktig \- säkerhets kopiering. Kortsiktig \- säkerhets kopiering är alltid till disk först, med alternativet att säkerhetskopiera från disken till Azure-molnet med Azure Backup \( för kort eller lång \- sikt \) .
 
 1. I **Välj kortsiktiga \- mål**anger du hur du vill säkerhetskopiera till kortsiktig \- lagring på disk.   I **kvarhållningsintervall** anger du hur länge du vill behålla data på disken. I **Synkroniseringsfrekvens**anger du hur ofta du vill köra en stegvis säkerhets kopiering på disk. Om du inte vill ange ett intervall för säkerhets kopiering kan du kontrol lera precis innan en återställnings punkt så att MABS kör en fullständig snabb säkerhets kopiering precis innan varje återställnings punkt schemaläggs.
 
@@ -104,7 +104,7 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
 1. I **Välj online-replikering**, anger du hur den första fullständiga replikeringen av data ska ske. Du kan replikera via nätverket eller göra en offlinesäkerhetskopiering (offlineseeding). Vid offlinesäkerhetskopiering används funktionen Azure Import. [Läs mer](./backup-azure-backup-import-export.md).
 
-1. På sidan **Sammanfattning** granskar du inställningarna. När du klickar på **Skapa grupp**utförs inledande replikering av data. När den är klar visas skydds gruppens status som **OK** på sidan **status** . Säkerhetskopieringen sker sedan i enlighet med skyddsgruppens inställningar.
+1. På sidan  **Sammanfattning** granskar du inställningarna. När du klickar på **Skapa grupp**utförs inledande replikering av data. När den är klar visas skydds gruppens status som **OK** på sidan **status** . Säkerhetskopieringen sker sedan i enlighet med skyddsgruppens inställningar.
 
 ## <a name="monitoring"></a>Övervakning
 

@@ -4,19 +4,19 @@ description: Använd rollbaserad Access Control för att hantera åtkomst till s
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533469"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017812"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använd rollbaserad Access Control för att hantera Azure Backup återställnings punkter
 
 Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
 
 > [!IMPORTANT]
-> Roller som tillhandahålls av Azure Backup är begränsade till åtgärder som kan utföras i Azure Portal eller via REST API eller Recovery Services valv PowerShell-eller CLI-cmdletar. Åtgärder som utförs i användar gränssnittet för Azure Backup-agenten eller System Center-Data Protection Manager användar gränssnitt eller Azure Backup Server användar gränssnitt är inte längre kontroll över dessa roller.
+> Roller som tillhandahålls av Azure Backup är begränsade till åtgärder som kan utföras i Azure Portal eller via REST API eller Recovery Services valv PowerShell-eller CLI-cmdletar. Åtgärder som utförs i användar gränssnittet för Azure Backup Agent-klienten eller System Center Data Protection Manager UI eller Azure Backup Server användar gränssnittet är inte längre styrda av rollerna.
 
 Azure Backup innehåller tre inbyggda roller för att kontrol lera säkerhets kopierings hanterings åtgärder. Lär dig mer om [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md)
 

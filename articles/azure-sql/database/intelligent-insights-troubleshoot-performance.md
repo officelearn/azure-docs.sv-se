@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986396"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017285"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Felsök prestanda problem med Azure SQL Database och Azure SQL-hanterade instanser med Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -168,7 +168,7 @@ Eftersom en PAGELATCH är en intern kontroll mekanism bestämmer den automatiskt
 
 En metod för att hantera spärr konkurrens är att ersätta en sekventiell index nyckel med en insekventiell nyckel för att jämnt distribuera infogningar i ett index intervall. Normalt distribuerar en inledande kolumn i index arbets belastningen proportionellt. En annan metod att överväga är tabell partitionering. Att skapa ett hash-partitionerings schema med en beräknad kolumn på en partitionerad tabell är ett gemensamt tillvägagångs sätt för att minimera överdriven spärr-konkurrens. Om du använder PAGELATCH i/o-konkurrens hjälper indexen att hjälpa till att minimera det här prestanda problemet.
 
-Mer information finns i [diagnostisera och lösa låsnings konkurrens på SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (PDF-nedladdning).
+Mer information finns i [diagnostisera och lösa låsnings konkurrens på SQL Server](http://databaser.net/moniwiki/pds/PerformanceTuning/SQLServerLatchContention.pdf) (PDF-nedladdning).
 
 ## <a name="missing-index"></a>Index saknas
 

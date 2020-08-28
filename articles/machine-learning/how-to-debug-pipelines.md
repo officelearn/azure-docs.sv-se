@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950161"
+ms.locfileid: "89018067"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,6 +129,8 @@ Klicka på modulen för det aktuella steget. Gå till fliken **loggar** . Andra 
 
 > [!TIP]
 > Körningar för *publicerade pipelines* finns på fliken **slut punkter** i din arbets yta. Körningar för *icke-publicerade pipelines* kan hittas i **experiment** eller **pipeliner**.
+
+Mer information om loggning och spårning från en `ParallelRunStep` finns i [fel söknings-och fel söknings ParallelRunStep](how-to-debug-parallel-run-step.md).
 
 ## <a name="logging-in-azure-machine-learning-designer-preview"></a>Logga in Azure Machine Learning designer (förhands granskning)
 

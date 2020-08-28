@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892294"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001186"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892294"
 Den här artikeln förklarar hur du förbereder din miljö för att säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS). Med Azure Backup Server kan du skydda program arbets belastningar, till exempel virtuella Hyper-V-datorer, Microsoft SQL Server, SharePoint Server, Microsoft Exchange och Windows-klienter från en enda konsol.
 
 > [!NOTE]
-> Azure Backup Server kan nu skydda virtuella VMware-datorer och ger förbättrade säkerhetsfunktioner. Installera produkten enligt beskrivningen i avsnitten nedan och den senaste Azure Backup agenten. Mer information om hur du säkerhetskopierar VMware-servrar med Azure Backup Server finns i artikeln [använda Azure Backup Server för att säkerhetskopiera en VMware-Server](backup-azure-backup-server-vmware.md). Mer information om säkerhetsfunktioner finns i [dokumentationen om säkerhets funktioner i Azure Backup](backup-azure-security-feature.md).
+> Azure Backup Server kan nu skydda virtuella VMware-datorer och ger förbättrade säkerhetsfunktioner. Installera produkten enligt beskrivningen i avsnitten nedan och den senaste Azure Backup agenten. Mer information om hur du säkerhetskopierar VMware-servrar med Azure Backup Server finns i artikeln [använda Azure Backup Server för att säkerhetskopiera en VMware-Server](backup-azure-backup-server-vmware.md). Mer information om säkerhetsfunktioner finns i [dokumentationen för Azure Backup Security features](backup-azure-security-feature.md).
 >
 >
 
@@ -66,7 +66,7 @@ Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer 
 >
 > * En dator som körs som en domänkontrollant
 > * En dator där programserverrollen är installerad
-> * En dator som är en System Center Operations Manager-hanteringsserver
+> * En dator som är en System Center Operations Manager hanterings Server
 > * En dator som kör Exchange Server
 > * En dator som är en nod i ett kluster
 >
@@ -95,7 +95,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Om du redan har ett Recovery Services-valv öppet, Fortsätt till steg 3. Om du inte har ett Recovery Services-valv öppet, men är i Azure Portal väljer du **Bläddra**i huvud menyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -262,24 +262,24 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
   > [!IMPORTANT]
   >
   > * Det nya Server namnet måste ha samma namn som den ursprungliga Azure Backup Server-instansen. Du kan inte ändra namnet på den nya Azure Backup Server-instansen om du vill använda den tidigare lagringspoolen och MABS-databasen (DPMDB) för att behålla återställnings punkter.
-  > * Du måste ha en säkerhets kopia av MABS-databasen (DPMDB). Du måste återställa databasen.
+  > * Du måste ha en säkerhets kopia av MABS-databasen (DPMDB). Du behöver den för att återställa databasen.
 
 1. I visningsfönstret väljer du de klient datorer som du vill uppdatera skydds agenten för.
-2. Stäng av den ursprungliga Azure Backup-servern eller ta bort den från kabeln.
+2. Stäng av den ursprungliga Azure Backup servern eller ta den offline.
 3. Återställ dator kontot i Active Directory.
-4. Installera Server 2016 på den nya datorn och ge den namnet samma dator namn som den ursprungliga Azure Backup servern.
-5. Anslut till domänen
-6. Installera Azure Backup Server v3 eller senare (flytta MABS Storage pool disks från den gamla servern och importera)
+4. Installera Server 2016 på en ny dator och ge den samma dator namn som den ursprungliga Azure Backup servern.
+5. Anslut till domänen.
+6. Installera Azure Backup Server v3 eller senare (flytta MABS Storage pool disks från den gamla servern och importera).
 7. Återställ DPMDB som tagits i steg 1.
 8. Koppla lagringen från den ursprungliga säkerhets kopierings servern till den nya servern.
-9. Från SQL återställa DPMDB
-10. Från administratörs kommando rad på ny Server-CD till Microsoft Azure Backup installera plats och bin-mapp
+9. Från SQL återställer du DPMDB.
+10. Kör CMD (som administratör) på den nya servern. Gå till mappen Microsoft Azure Backup installations plats och bin
 
     Sökväg exempel: C:\Windows\System32>CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Till Azure Backup kör du DPMSYNC-SYNC
+11. Om du vill ansluta till Azure Backup kör du `DPMSYNC -SYNC`
 
-    Om du har lagt till nya diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du DPMSYNC-reallocateReplica
+    Om du har lagt till **nya** diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du `DPMSYNC -Reallocatereplica`
 
 ## <a name="network-connectivity"></a>Nätverksanslutningar
 

@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81481843"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017710"
 ---
 # <a name="multitenant-applications-in-azure"></a>Program med flera klienter i Azure
 Ett program för flera klient organisationer är en delad resurs som tillåter "användare i separata klienter" att visa programmet som om det var ett eget. Ett typiskt scenario som lånar sig själv till ett program med flera innehavare är ett där alla användare av programmet från olika klienter kanske vill anpassa användar upplevelsen, men på annat sätt har samma grundläggande affärs krav. Exempel på stora program med flera klient organisationer är Office 365, Outlook.com och visualstudio.com.
@@ -46,7 +47,7 @@ Mer information om ytterligare design aspekter av ett program med flera klienter
 
 Azure innehåller många funktioner som gör att du kan åtgärda de viktiga problem som uppstår när du utformar ett system med flera innehavare.
 
-**Isolering**
+**Gruppera**
 
 * Segmentera webbplats klienter efter värdhuvuden med eller utan TLS-kommunikation
 * Segmentera webbplats klienter efter frågeparametrar
@@ -67,7 +68,7 @@ Data hantering som Azure SQL Database eller Azure Storage tjänster som till exe
 
 * Azure Service Bus en infrastruktur för meddelanden som finns mellan program och som gör det möjligt för dem att utbyta meddelanden på ett löst sätt för förbättrad skalning och återhämtning.
 
-**Nätverks tjänster**
+**Nätverkstjänster**
 
 Azure tillhandahåller flera nätverks tjänster som stöder autentisering och förbättrar hanteringen av dina värdbaserade program. Dessa tjänster omfattar följande:
 

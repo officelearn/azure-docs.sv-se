@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med Azure Data Box för DPM och MABS
 description: Du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890033"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017608"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline med Azure Data Box för DPM och MABS (för hands version)
 

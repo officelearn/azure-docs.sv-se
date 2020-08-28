@@ -7,14 +7,14 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158154"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017863"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Utöka Azure IoT Central med anpassade regler med hjälp av Stream Analytics, Azure Functions och SendGrid
 
@@ -34,13 +34,13 @@ I den här instruktions guiden får du lära dig att:
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ### <a name="iot-central-application"></a>IoT Central program
 
 Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) med följande inställningar:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ------- | ----- |
 | Pris plan | Standard |
 | Programmall | In-Store Analytics – villkors övervakning |
@@ -62,40 +62,40 @@ Använd [Azure Portal för att skapa en resurs grupp](https://portal.azure.com/#
 
 Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.azure.com/#create/Microsoft.EventHub) med följande inställningar:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj namn på namn område |
-| Prisnivå | Basic |
+| Prisnivå | Grundläggande |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Location | USA, östra |
+| Plats | USA, östra |
 | Genomflödesenheter | 1 |
 
 ### <a name="stream-analytics-job"></a>Stream Analytics-jobb
 
-Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) med följande inställningar:
+Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  med följande inställningar:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj ditt jobb namn |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
-| Location | USA, östra |
-| Värdmiljö | Molnet |
+| Plats | USA, östra |
+| Värdmiljö | Moln |
 | Strömningsenheter | 3 |
 
 ### <a name="function-app"></a>Funktionsapp
 
 Använd [Azure Portal för att skapa en Function-app](https://portal.azure.com/#create/Microsoft.FunctionApp) med följande inställningar:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ------- | ----- |
 | Appnamn    | Välj namnet på din Function-app |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Operativsystem | Windows |
 | Värdplan | Förbrukningsplan |
-| Location | USA, östra |
+| Plats | USA, östra |
 | Körningsstack | .NET |
 | Storage | Skapa ny |
 
@@ -103,10 +103,10 @@ Använd [Azure Portal för att skapa en Function-app](https://portal.azure.com/#
 
 Använd [Azure Portal för att skapa ett SendGrid-konto](https://portal.azure.com/#create/Sendgrid.sendgrid) med följande inställningar:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj ditt SendGrid-konto namn |
-| lösenordsinställning | Skapa ett lösen ord |
+| Lösenord | Skapa ett lösen ord |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Prisnivå | F1 Kostnadsfri |
@@ -244,7 +244,7 @@ I den här lösningen används en Stream Analytics fråga för att identifiera n
 1. I Azure Portal navigerar du till ditt Stream Analytics-jobb, under **jobb sto pol Ogin** väljer **indata**, väljer **+ Lägg till Stream-indata**och väljer sedan **Event Hub**.
 1. Använd informationen i följande tabell för att konfigurera indata med händelsehubben som du skapade tidigare och välj sedan **Spara**:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Inmatat alias | centraltelemetry |
     | Prenumeration | Din prenumeration |
@@ -254,7 +254,7 @@ I den här lösningen används en Stream Analytics fråga för att identifiera n
 1. Under **jobb sto pol Ogin**väljer du **utdata**, väljer **+ Lägg till**och väljer sedan **Azure Function**.
 1. Använd informationen i följande tabell för att konfigurera utdata och välj sedan **Spara**:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Utdataalias | emailnotification |
     | Prenumeration | Din prenumeration |
@@ -314,7 +314,7 @@ På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentra
 1. Gå till sidan **data export** , Välj **+ ny**och sedan **Azure Event Hubs**.
 1. Använd följande inställningar för att konfigurera exporten och välj sedan **Spara**:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Visningsnamn | Exportera till Event Hubs |
     | Enabled | På |

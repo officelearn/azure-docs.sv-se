@@ -3,7 +3,7 @@ title: Tilldela en hanterad identitets åtkomst till en resurs med hjälp av Azu
 description: Stegvisa instruktioner för att tilldela en hanterad identitet till en resurs åtkomst till en annan resurs med hjälp av Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2af718c3555176167eb154b0a718218c42e93dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8126f6314044fc2ee816e9150e9595719d63eff
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608304"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009210"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Tilldela en hanterad identitets åtkomst till en resurs med hjälp av Azure Portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "85608304"
 
 När du har konfigurerat en Azure-resurs med en hanterad identitet kan du ge den hanterade identiteten åtkomst till en annan resurs, precis som alla säkerhets objekt. Den här artikeln visar hur du ger åtkomst till ett Azure Storage-konto med en virtuell Azure-dator eller skalnings uppsättning för virtuella datorer, med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

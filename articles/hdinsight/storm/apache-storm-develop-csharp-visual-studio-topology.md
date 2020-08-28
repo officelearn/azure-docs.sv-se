@@ -8,12 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082020"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000200"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Utveckla C#-topologier för Apache Storm med hjälp av Data Lake verktyg för Visual Studio
 
@@ -150,9 +151,9 @@ Lägg sedan till koden för kanalen, som används för att läsa data i en topol
 
    * `NextTuple`: Anropas av storm när kanalen får generera nya tupler.
 
-   * `Ack`(endast transaktionell topologi): hanterar bekräftelser som har startats av andra komponenter i topologin för tupler som skickats från kanalen. Genom att bekräfta en tupel vet kanalen att det har bearbetats av underordnade komponenter.
+   * `Ack` (endast transaktionell topologi): hanterar bekräftelser som har startats av andra komponenter i topologin för tupler som skickats från kanalen. Genom att bekräfta en tupel vet kanalen att det har bearbetats av underordnade komponenter.
 
-   * `Fail`(endast transaktionell topologi): hanterar tupler som inte kan bearbeta andra komponenter i topologin. `Fail`Genom att implementera en metod kan du skapa en ny tupel så att den kan bearbetas igen.
+   * `Fail` (endast transaktionell topologi): hanterar tupler som inte kan bearbeta andra komponenter i topologin. `Fail`Genom att implementera en metod kan du skapa en ny tupel så att den kan bearbetas igen.
 
 2. Ersätt innehållet i `Spout` klassen med följande text:
 
@@ -481,9 +482,9 @@ Tänk på följande när du skapar och skickar en hybrid topologi:
 
 SCP.NET version 0.9.4.203 introducerar en ny klass och metod för att arbeta med Event Hub-kanalen (ett Java-kanalen som läser från Event Hubs). När du skapar en topologi som använder en Event Hub-kanalen (till exempel med hjälp av exempel mal len **Storm EventHub-läsare** ) använder du följande API: er:
 
-* `EventHubSpoutConfig`klass: skapar ett objekt som innehåller konfigurationen för kanalen-komponenten.
+* `EventHubSpoutConfig` klass: skapar ett objekt som innehåller konfigurationen för kanalen-komponenten.
 
-* `TopologyBuilder.SetEventHubSpout`metod: lägger till Event Hub kanalen-komponenten i topologin.
+* `TopologyBuilder.SetEventHubSpout` metod: lägger till Event Hub kanalen-komponenten i topologin.
 
 > [!NOTE]  
 > Du måste fortfarande använda `CustomizedInteropJSONSerializer` för att serialisera data som produceras av kanalen.

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001016"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047460"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 |**Arbets belastnings hantering – Portal upplevelse**|Användare kan konfigurera och hantera sina inställningar för hantering av arbets belastning via Azure Portal. Möjligheten att konfigurera [arbets belastnings grupper](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) och [klassificerare för arbets belastningar](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) med betydelse är möjliga.|
-|**Förbättrad katalogvy för tabell mappning**|Den nya katalog visningen [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mappar **object_ids** av permanenta användar tabeller till deras fysiska tabell namn. Den här vyn ger optimerade prestanda över aktuellt [sys. pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions).|
+|**Förbättrad katalogvy för tabell mappning**|Den nya katalog visningen [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mappar **object_ids** av permanenta användar tabeller till deras fysiska tabell namn.|
 
 ## <a name="july-2020"></a>Juli 2020
 

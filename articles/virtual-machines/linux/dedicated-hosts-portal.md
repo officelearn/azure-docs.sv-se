@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 19bd7960c4a6a02566d86d51ff7e21f4e570c34d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6191b0959345e6e69c16890d755407af289ef03
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373648"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047777"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
+# <a name="deploy-linux-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella Linux-datorer till dedikerade värdar med hjälp av portalen 
 
 Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 

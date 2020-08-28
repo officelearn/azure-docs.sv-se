@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 252f38e289f7b40c673d9048119823348a30a546
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015449"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051310"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
@@ -43,7 +43,7 @@ Den här självstudiekursen omfattar:
 > [!TIP]
 > Den här självstudien förutsätter att du har tidigare erfarenhet av att använda ASP.NET Core MVC och Azure App Service. Om du är nybörjare på ASP.NET Core eller de [verktyg](#prerequisites)som krävs, rekommenderar vi att du hämtar det fullständiga exempelprojektet från [GitHub][GitHub], lägger till de nödvändiga NuGet-paketen och kör det. När du skapar projektet kan du läsa den här artikeln för att få information om koden i projektets sammanhang.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
@@ -117,36 +117,19 @@ Azure Cosmos DB använder JSON för att flytta och lagra data. Du kan använda `
 
 ### <a name="add-views"></a><a name="add-views"></a>Lägg till vyer
 
-Nu ska vi skapa följande tre vyer.
+Nu ska vi lägga till följande vyer.
 
-* Lägg till en vy för List objekt
-* Lägg till en ny objekts vy
-* Lägga till vyn Redigera objekt
+* Vyn skapa objekt
+* Vyn ta bort objekt
+* En vy för att hämta information om objektet
+* Vyn Redigera objekt
+* En vy för att visa en lista över alla objekt
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Lägg till en vy för List objekt
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Vyn skapa objekt
 
 1. I **Solution Explorer**högerklickar du på mappen **vyer** och väljer **Lägg till**  >  **ny mapp**. Namnge *objektet*Folder.
 
 1. Högerklicka på mappen tomt **objekt** och välj sedan **Lägg till**  >  **vy**.
-
-1. I **Lägg till MVC-vy**anger du följande värden:
-
-   * I **visnings namn**anger du *index*.
-   * I **mall**väljer du **lista**.
-   * I **modell klass**väljer du **objekt (att göra. Modeller)**.
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Skärm bild som visar dialog rutan Lägg till MVC-vy":::
-
-1. När du har lagt till de här värdena väljer du **Lägg till** och låter Visual Studio skapa en ny mallvy.
-
-När du är färdig öppnar Visual Studio den *cshtml* -fil som skapas. Du kan stänga filen i Visual Studio. Vi kommer tillbaka till den senare.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Lägg till en ny objekts vy
-
-På ett liknande sätt som du skapade en vy för listobjekt skapar du en ny vy för att skapa objekt med hjälp av följande steg:
-
-1. I **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
 
 1. I **Lägg till MVC-vy**gör du följande ändringar:
 
@@ -156,9 +139,44 @@ På ett liknande sätt som du skapade en vy för listobjekt skapar du en ny vy f
    * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
    * Välj **Lägg till**.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Lägga till vyn Redigera objekt
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Skärm bild som visar dialog rutan Lägg till MVC-vy":::
 
-Och slutligen lägger du till en vy för att redigera ett objekt med följande steg:
+1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Ta bort objekt-vy
+
+1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+
+1. I **Lägg till MVC-vy**gör du följande ändringar:
+
+   * I rutan **vynamn** skriver du *ta bort*.
+   * I rutan **mall** väljer du **ta bort**.
+   * I rutan **Modellklass** väljer du **Objekt (todo.Models)**.
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
+   * Välj **Lägg till**.
+
+1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Lägga till en vy för att hämta information om objektet
+
+1. I **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+
+1. I **Lägg till MVC-vy**anger du följande värden:
+
+   * I **namn på vy**anger du *information*.
+   * I **mall**väljer du **information**.
+   * I **modell klass**väljer du **objekt (att göra. Modeller)**.
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
+
+1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Lägga till vyn Redigera objekt
 
 1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
 
@@ -170,7 +188,29 @@ Och slutligen lägger du till en vy för att redigera ett objekt med följande s
    * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
    * Välj **Lägg till**.
 
-När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visual Studio när du går tillbaka till dessa vyer senare.
+1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>Lägg till en vy för att visa en lista över alla objekt
+
+Slutligen lägger du till en vy för att hämta alla objekt med följande steg:
+
+1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+
+1. I **Lägg till MVC-vy**gör du följande ändringar:
+
+   * I rutan **Vynamn** skriver du *Index*.
+   * I rutan**Mall** väljer du **Lista**.
+   * I rutan **Modellklass** väljer du **Objekt (todo.Models)**.
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
+   * Välj **Lägg till**.
+
+1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visual Studio.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Deklarera och initiera tjänster
 

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799119"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047487"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med hjälp av Azure Storage Explorer
 
 Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För tillfället stöder Azure Storage Explorer Cosmos-konton som kon figurer ATS för SQL-, MongoDB-, Graph-och table-API: er.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Cosmos-konto med SQL API eller Azure Cosmos DB s API för MongoDB. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: Skapa en SQL API-webbapp med .NET och Azure Portal](create-sql-api-dotnet.md).
 
@@ -95,7 +95,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 * Högerklicka på ett Azure Cosmos DB-konto eller en databas så kan du välja alternativet för att **öppna i portalen** och hantera resursen i Azure-portalen i webbläsaren.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Öppna i portalen":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Öppna i portalen":::
 
 * Du kan också lägga till Azure Cosmos DB-konto, databas och samling i **Snabbåtkomst**.
 * **Sök härifrån** aktiverar nyckelordssökning under den valda sökvägen.
@@ -106,25 +106,25 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 #### <a name="create-a-database"></a>Skapa en databas
 
--   Högerklicka Azure Cosmos DB-kontot, välj **Skapa databas** ange databasnamnet och slutför genom att trycka på **Retur**.
+- Högerklicka Azure Cosmos DB-kontot, välj **Skapa databas** ange databasnamnet och slutför genom att trycka på **Retur**.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Skapa en databas i ditt Azure Cosmos-konto":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Skapa en databas i ditt Azure Cosmos-konto":::
 
 #### <a name="delete-a-database"></a>Ta bort en databas
 
 - Högerklicka på databasen, Välj **ta bort databas**och välj **Ja** i popup-fönstret. Databasnoden tas bort och Azure Cosmos DB-konto uppdateras automatiskt.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Ta bort den första databasen":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Ta bort den första databasen":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Ta bort de andra databaserna":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Ta bort de andra databaserna":::
 
 #### <a name="create-a-collection"></a>Skapa en samling
 
 1. Högerklicka på din databas, Välj **skapa samling**och ange sedan följande information, t. ex. **samlings-ID**, **lagrings kapacitet**osv. Klicka på **OK** för att slutföra.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Skapa första samlingen i databasen":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Skapa första samlingen i databasen":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Skapa en andra samling i databasen":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Skapa en andra samling i databasen":::
 
 2. Välj **obegränsad** för att kunna ange partitionsnyckel och välj sedan **OK** för att slutföra.
 
@@ -146,7 +146,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 - Om du vill skapa ett nytt dokument öppnar du **dokument** i det vänstra fönstret, väljer **nytt dokument**, redigerar innehållet i den högra rutan och väljer sedan **Spara**. Du kan också uppdatera ett befintligt dokument och sedan välja **Spara**. Ändringar kan ignoreras genom att klicka på **Discard** (Ignorera).
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Skapa ett nytt dokument":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Skapa ett nytt dokument":::
 
 #### <a name="delete-a-document"></a>Ta bort ett dokument
 
@@ -156,7 +156,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 - Redigera dokument filtret genom att ange en [SQL-fråga](how-to-sql-query.md) och välj sedan **Använd**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Fråga efter vissa dokument":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Fråga efter vissa dokument":::
 
 ### <a name="graph-management"></a>Graph-hantering
 
@@ -165,7 +165,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 1. Om du vill skapa ett nytt hörn öppnar du **Graph** från det vänstra fönstret, väljer **nytt hörn**, redigerar innehållet och väljer **OK**.
 2. Om du vill ändra en befintlig topp markerar du Penn ikonen i den högra rutan.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Ändra ett diagrams hörn":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Ändra ett diagrams hörn":::
 
 #### <a name="delete-a-graph"></a>Ta bort en graf
 
@@ -175,7 +175,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 - Redigera graf-filtret genom att ange en [Gremlin-fråga](gremlin-support.md) och välj sedan **Använd filter**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Köra en graf-fråga":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Köra en graf-fråga":::
 
 ### <a name="table-management"></a>Tabellhantering
 
@@ -184,33 +184,34 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 1. För att skapa en ny tabell, öppna **entiteter** i det vänstra fönstret, Välj **Lägg till**, redigera innehållet i dialog rutan **Lägg till entitet** , Lägg till egenskap genom att klicka på knappen **Lägg till egenskap**och välj sedan **Infoga**.
 2. Om du vill ändra en tabell väljer du **Redigera**, ändrar innehållet och väljer sedan **Uppdatera**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Skapa och ändra en tabell":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Skapa och ändra en tabell":::
 
 #### <a name="import-and-export-table"></a>Importera och exportera tabell
 
 1. Importera genom att välja knappen **Importera** och välja en befintlig tabell.
 2. Om du vill exportera väljer du knappen **Exportera** och väljer ett mål.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importera eller exportera en tabell":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importera eller exportera en tabell":::
 
 #### <a name="delete-entities"></a>Ta bort entiteter
 
 - Välj entiteterna och välj **ta bort**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Ta bort en tabell":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Ta bort en tabell":::
 
 #### <a name="query-table"></a>Frågetabell
 
 - Klicka på knappen **fråga** , villkor för inmatad fråga och välj sedan **Kör fråga** . Stäng frågefönstret genom att klicka på knappen **Stäng fråga**.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Fråga efter data från tabellen":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Fråga efter data från tabellen":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Hantera lagrade procedurer, utlösare och UDF:er
 
 * Om du vill skapa en lagrad procedur högerklickar du på **lagrad procedur**i det vänstra trädet, väljer **skapa lagrad procedur**, anger ett namn till vänster, skriver skripten för lagrade procedurer i det högra fönstret och väljer sedan **skapa**.
 * Du kan också redigera befintliga lagrade procedurer genom att dubbelklicka, göra uppdateringen och sedan klicka på **Uppdatera** för att spara eller välja **Ignorera** för att avbryta ändringen.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Skapa och hantera lagrade procedurer":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Skapa och hantera lagrade procedurer":::
+
 * Åtgärderna för **Utlösare** och **UDF** liknar dem för **Lagrade procedurer**.
 
 ## <a name="troubleshooting"></a>Felsökning

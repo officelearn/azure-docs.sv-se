@@ -3,12 +3,12 @@ title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: f3ba5179ca7acc60042d23e88d42a504d4d05f08
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544595"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048490"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -95,7 +95,7 @@ Parameter värdets format skiljer sig från Azure CLI, Azure PowerShell eller RE
 
 Använd följande kommandon om du vill använda den här strängen med varje SDK:
 
-- Azure CLI: kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) med parameter **parametrar**
+- Azure CLI: kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment#az-policy-assignment-create) med parameter **parametrar**
 - Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) med parametern **PolicyParameter**
 - REST API: i åtgärden _Lägg_ till [skapa](/rest/api/resources/policyassignments/create) som en del av begär ande texten som värde för egenskapen **Properties. Parameters**
 
@@ -183,7 +183,7 @@ Ersätt med för varje villkors exempel `<field>` nedan `"field": "Microsoft.Sto
 
 Följande resultat är resultatet av kombinationen av villkoret och exempel princip regeln och matrisen med befintliga värden ovan:
 
-|Villkor |Resultat | Scenario |Förklaring |
+|Condition (Väderförhållanden) |Resultat | Scenario |Förklaring |
 |-|-|-|-|
 |`{<field>,"notEquals":"127.0.0.1"}` |Ingenting |Ingen matchning |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_ och effekterna utlöses inte. |
 |`{<field>,"notEquals":"10.0.4.1"}` |Princip påverkan |Ingen matchning |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_ och resultatet utlöses. |

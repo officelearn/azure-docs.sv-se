@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398cf947f0a2d250c3cd0ed73a75bc3c091e5f7a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561026"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047538"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur du använder de inbyggda Azure IoT Edg
 * **Azure IoT Edge-generera distributions manifestet** tar en deployment.template.jspå filen och variablerna och genererar sedan den slutliga IoT Edge distributions manifest filen.
 * **Azure IoT Edge-Deploy till IoT Edge-enheter** hjälper dig att skapa IoT Edge-distributioner till en eller flera IoT Edge enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md).
@@ -184,7 +184,7 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
     * **Standard plattform**: Välj samma värde när du skapar module-avbildningarna.
     * **Sökväg för utdata**: Lägg till sökvägen `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Den här sökvägen är den slutliga IoT Edge distributions manifest filen.
 
-    De här konfigurationerna ersätter modulens bild-URL: er i `deployment.template.json` filen. Med **generera distributions manifestet** kan du också ersätta variablerna med det exakta värdet som du definierade i `deployment.template.json` filen. I VS/VS Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeline ställer du in värdet i fliken release-pipeline variabler. flytta till fliken variabler och konfigurera namnet och värdet enligt följande.
+    De här konfigurationerna ersätter modulens bild-URL: er i `deployment.template.json` filen. Med **generera distributions manifestet** kan du också ersätta variablerna med det exakta värdet som du definierade i `deployment.template.json` filen. I VS/VS Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeliner ställer du in värdet på fliken släpp pipeline-variabler. Flytta till fliken variabler och konfigurera namnet och värdet enligt följande.
 
     * **ACR_ADDRESS**: din Azure Container Registry adress.
     * **ACR_PASSWORD**: ditt Azure Container Registry lösen ord.
@@ -204,6 +204,15 @@ Skapa en ny pipeline och Lägg till ett nytt stadium
       * Om du distribuerar till en enda enhet anger du **IoT Edge enhets-ID**.
       * Om du distribuerar till flera enheter anger du enhetens **mål villkor**. Mål villkoret är ett filter som matchar en uppsättning IoT Edge enheter i IoT Hub. Om du vill använda enhets koder som villkor måste du uppdatera motsvarande enhets koder med IoT Hub enhets-till-enhet. Uppdatera **IoT Edge distributions-ID** och **IoT Edge distributions prioritet** i de avancerade inställningarna. Mer information om hur du skapar en distribution för flera enheter finns i [förstå IoT Edge automatiska distributioner](module-deployment-monitoring.md).
     * Expandera avancerade inställningar, Välj **IoT Edge distributions-ID**, och Lägg variabeln `$(System.TeamProject)-$(Release.EnvironmentName)` . Detta mappar projektet och versions namnet med ditt IoT Edge-distributions-ID.
+
+>[!NOTE]
+>Om du vill använda **lager distributioner** i pipelinen stöds inte lager distributioner ännu i Azure IoT Edge uppgifter i Azure dataDevOpss.
+>
+>Du kan dock använda en [Azure CLI-uppgift i Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) för att skapa distributionen som en lager distribution. För det **infogade skript** svärdet kan du använda [kommandot AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>
+>   ```azurecli-interactive
+>   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>   ```
 
 12. Välj **Spara** för att spara ändringarna i den nya versions pipelinen. Gå tillbaka till vyn pipeline genom att välja **pipeline** på menyn.
 

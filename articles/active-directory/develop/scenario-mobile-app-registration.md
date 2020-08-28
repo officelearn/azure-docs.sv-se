@@ -1,7 +1,7 @@
 ---
 title: 'Registrera mobilappar som anropar webb-API: er | Azure'
 titleSuffix: Microsoft identity platform
-description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (appens kod konfiguration)'
+description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er (appens registrering)'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652646"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047681"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrera mobilappar som anropar webb-API: er
 
@@ -40,7 +40,7 @@ Du kan också logga in användare genom att använda sociala identiteter som ski
 
 Mer information finns i [scenarier och stödda autentiserings flöden](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) och [scenarier och plattformar och språk som stöds](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Plattforms konfiguration och omdirigering av URI: er  
+## <a name="platform-configuration-and-redirect-uris"></a>Plattforms konfiguration och omdirigering av URI: er
 
 ### <a name="interactive-authentication"></a>Interaktiv autentisering
 
@@ -72,20 +72,20 @@ När du slutför stegen beräknas omdirigerings-URI: n, som i följande bild.
 
 Om du föredrar att konfigurera omdirigerings-URI: n manuellt kan du göra det via applikations manifestet. Här är det rekommenderade formatet för manifestet:
 
-- **iOS**:`msauth.<BUNDLE_ID>://auth` 
+- **iOS**: `msauth.<BUNDLE_ID>://auth`
   - Ange till exempel `msauth.com.yourcompany.appName://auth`
-- **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Du kan generera Android-signaturens hash med hjälp av versions nyckeln eller fel söknings nyckeln via kommando kommandot.
 
 ### <a name="username-password-authentication"></a>Användar namn – lösenordsautentisering
 
-Om din app endast använder username-Password Authentication behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform version 2,0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI. 
+Om din app endast använder username-Password Authentication behöver du inte registrera en omdirigerings-URI för programmet. Det här flödet gör en tur och retur till Microsoft Identity Platform version 2,0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI.
 
 Du måste dock identifiera ditt program som ett offentligt klient program. Det gör du genom att börja i avsnittet **autentisering** i ditt program. I underavsnittet **Avancerade inställningar** , i stycket **standard klient typ** , för frågan **behandla programmet som en offentlig klient**väljer du **Ja**.
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Mobil program anropar API: er å den inloggade användarens vägnar. Appen måste begära delegerade behörigheter. Dessa behörigheter kallas även omfång. Beroende på vilken upplevelse du vill ha kan du begära delegerade behörigheter statiskt via Azure Portal. Eller så kan du begära dem dynamiskt vid körning. 
+Mobil program anropar API: er å den inloggade användarens vägnar. Appen måste begära delegerade behörigheter. Dessa behörigheter kallas även omfång. Beroende på vilken upplevelse du vill ha kan du begära delegerade behörigheter statiskt via Azure Portal. Eller så kan du begära dem dynamiskt vid körning.
 
 Genom att registrera behörigheter med statiskt tillstånd kan administratörer enkelt godkänna din app. Statisk registrering rekommenderas.
 

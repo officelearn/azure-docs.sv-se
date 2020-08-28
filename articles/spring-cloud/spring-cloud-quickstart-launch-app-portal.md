@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 09820da3fcebe3614852f36180a29f35505039b8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 163940095c4a3a25123706ca47a7d059897cad20
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496856"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046875"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal
 
 Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure. Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure. 
+
+Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
 
 Du hittar exempel koden som används i den här självstudien i vår [GitHub-exempel databas](https://github.com/Azure-Samples/PiggyMetrics). När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
 
@@ -29,7 +31,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) .
@@ -53,11 +55,11 @@ För att slutföra den här snabbstarten behöver du:
 
 3. Välj **Azure våren Cloud** från resultaten.
 
- ![ASC-ikon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+ ![ASC-start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
 4. På sidan Azure våren Cloud klickar du på **+ Lägg till**.
 
- ![ASC-ikon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+ ![ASC Lägg till](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
     - **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.  Se till att den här prenumerationen har lagts till i vår lista över tillåtna för Azure våren-molnet.
@@ -78,7 +80,7 @@ För att slutföra den här snabbstarten behöver du:
 9. Du kan ställa in **Aktivera spårning** till *Ja* eller *Nej* enligt dina krav.  Om du ställer in **Aktivera spårning** till Ja väljer du också en befintlig inblick i programmet eller skapar en ny. Utan den **Application Insights** specifikationen visas ett verifierings fel.
 
 
-    ![Spårning](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+    ![Spårnings visning](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
 
 10. Klicka på **Granska och skapa**.
 
@@ -98,7 +100,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 3. Tryck på **Apply** (Verkställ) för att spara ändringarna.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
@@ -164,11 +166,11 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 3. Välj **tilldela slut punkt** för att tilldela en offentlig slut punkt till gateway. Det kan ta några minuter.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+    ![ASC-portalens slut punkt](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
 4. Ange den tilldelade offentliga slut punkten (med etiketten **URL**) i webbläsaren för att visa programmet som körs.
 
-    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
+    ![Exempel program för ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)

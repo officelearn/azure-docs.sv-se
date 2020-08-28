@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9f0ba36abac045d1deb6b4179fbfb6aa32d4dc9a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f9f03c355e1e619d004c8ec8c1cc2f91932db744
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009784"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046841"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning
 
-Med den inbyggda övervaknings funktionen i Azure våren-molnet kan du enkelt felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen tillhandahåller kraftfulla loggar, mått och distribuerad spårnings funktion från Azure Portal. Vi går igenom hur du använder logg strömning, Log Analytics, statistik och distribuerad spårning med distribuerade PiggyMetrics-appar.
+Med den inbyggda övervaknings funktionen i Azure våren-molnet kan du felsöka och övervaka komplexa problem. Azure våren Cloud integrerar [våren Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) med azures [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Den här integrationen tillhandahåller kraftfulla loggar, mått och distribuerad spårnings funktion från Azure Portal. Följande procedurer beskriver hur du använder logg strömning, Log Analytics, mått och distribuerad spårning med distribuerade PiggyMetrics-appar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför föregående steg: 
 

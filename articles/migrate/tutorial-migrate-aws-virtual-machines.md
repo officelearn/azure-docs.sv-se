@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer 
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 386f5cbefe8ad6a375437eea7fea75b5fb5a7f65
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762427"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048541"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -20,6 +20,7 @@ I den här självstudien lär du dig att identifiera, utvärdera och migrera Ama
 
 I den här självstudien får du lära dig hur man:
 > [!div class="checklist"]
+>
 > * Verifiera krav för migrering.
 > * Förbered Azure-resurser med Azure Migrate: Server-migrering. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
 > * Förbered AWS EC2-instanser för migrering.
@@ -55,9 +56,9 @@ Konfigurera en utvärdering på följande sätt:
 
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
-- Se till att de virtuella AWS-datorerna som du vill migrera kör en operativ system version som stöds. Virtuella AWS-datorer behandlas som fysiska datorer för migreringen. Granska de [operativ system som stöds](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för migreringen av den fysiska servern. Vi rekommenderar att du utför en testmigrering (redundanstest) för att kontrol lera om den virtuella datorn fungerar som förväntat innan du fortsätter med den faktiska migreringen.
+- Se till att de virtuella AWS-datorerna som du vill migrera kör en operativ system version som stöds. Virtuella AWS-datorer behandlas som fysiska datorer för migreringen. Granska de [operativ system och kernel-versioner som stöds](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för migreringen av den fysiska servern. Du kan använda standard kommandon som *hostnamectl* eller *uname-a* för att kontrol lera operativ system och kernel-versioner för dina virtuella Linux-datorer.  Vi rekommenderar att du utför en testmigrering (redundanstest) för att kontrol lera om den virtuella datorn fungerar som förväntat innan du fortsätter med den faktiska migreringen.
 - Se till att dina virtuella AWS-datorer uppfyller de [konfigurationer som stöds](./migrate-support-matrix-physical-migration.md#physical-server-requirements) för migrering till Azure.
 - Kontrol lera att de virtuella AWS-datorerna som du replikerar till Azure uppfyller [kraven för virtuella Azure](./migrate-support-matrix-physical-migration.md#azure-vm-requirements) -datorer.
 - Vissa ändringar krävs på de virtuella datorerna innan du migrerar dem till Azure.
@@ -69,7 +70,7 @@ Granska de [Windows](prepare-for-migration.md#windows-machines) -och [Linux](pre
 
 Förbered Azure för migrering med Azure Migrate: Migreringsverktyg för Server.
 
-**Aktivitet** | **Information**
+**Uppgift** | **Information**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -253,7 +254,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 4. I **processerver**väljer du namnet på replikerings enheten. 
 5. I **autentiseringsuppgifter för gäst**väljer du det dummy-konto som skapades tidigare under [installationen av installations programmet för replikering](#download-the-replication-appliance-installer) för att installera mobilitets tjänsten manuellt (push-installation stöds inte). Klicka sedan på **Nästa: virtuella datorer**.   
  
-    ![Replikera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Replikera inställningar](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. I **Virtual Machines**, i **Importera migreringsjobb från en utvärdering?**, lämnar du standardinställningen **Nej, jag anger inställningarna för migrering manuellt**.
 7. Markera varje virtuell dator som du vill migrera. Klicka sedan på **Nästa: mål inställningar**.
 
@@ -382,11 +383,23 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 **Fråga:** Jag får felet "Det gick inte att hämta BIOS-GUID" vid försök att identifiera mina virtuella AWS-datorer   
 **Svar:** Använd alltid rot inloggning för autentisering och inte någon pseudo-användare. Granska även operativ system som stöds för virtuella AWS-datorer.  
 
-**Fråga:** Min replikeringsstatus fortlöper inte    
+**Fråga:** Min replikeringsstatus fortlöper inte   
 **Svar:** Kontrol lera om din replikeringsprincip uppfyller kraven. Kontrol lera att du har aktiverat de portar som krävs på replikerings enheten TCP-port 9443 och HTTPS 443 för data transport. Se till att det inte finns några inaktuella dubbletter av Replikerings enheten som är ansluten till samma projekt.   
 
 **Fråga:** Jag kan inte identifiera AWS-instanser med Azure Migrate på grund av HTTP-statuskod 504 från fjärrhanterings tjänsten för Windows    
-**Svar:** Se till att granska kraven för Azure Migrate-installationen och URL-åtkomst behoven. Kontrol lera att inga proxyinställningar blockerar installationen av enheten.   
+**Svar:** Se till att granska kraven för Azure Migrate-installationen och URL-åtkomst behoven. Kontrol lera att inga proxyinställningar blockerar installationen av enheten.
+
+**Fråga:** Måste jag göra några ändringar innan jag migrerar mina virtuella AWS-datorer till Azure   
+**Svar:** Du kan behöva göra dessa ändringar innan du migrerar dina virtuella EC2-datorer till Azure:
+
+- Om du använder Cloud-Init för VM-etableringen kanske du vill inaktivera Cloud-Init på den virtuella datorn innan du replikerar det till Azure. Etablerings stegen som utförs av Cloud-Init på den virtuella datorn kanske AWS Specific och kommer inte att vara giltiga efter migreringen till Azure. 
+- Om den virtuella datorn är en PV-VM (stycke-virtualiserad) och inte HVM VM, kanske du inte kan köra den som den är på Azure eftersom stycke virtualiserade virtuella datorer använder en anpassad startsekvens i AWS. Du kanske kan komma över denna utmaning genom att avinstallera PV-drivrutiner innan du utför en migrering till Azure.  
+- Vi rekommenderar alltid att du kör en testmigrering före den slutliga migreringen.  
+
+
+**Fråga:** Kan jag migrera virtuella AWS-datorer som kör Amazon Linux-operativsystemet  
+**Svar:** Virtuella datorer som kör Amazon Linux kan inte migreras eftersom Amazon Linux OS bara stöds på AWS.
+Om du vill migrera arbets belastningar som körs på Amazon Linux kan du skapa en virtuell dator med CentOS/RHEL i Azure och migrera arbets belastningen som körs på AWS Linux-datorn med en relevant metod för migrering av arbets belastning. Beroende på arbets belastningen kan det till exempel finnas arbets belastnings bara verktyg för att under lätta migreringen – till exempel för databaser eller distributions verktyg i händelse av webb servrar.
 
 ## <a name="next-steps"></a>Nästa steg
 

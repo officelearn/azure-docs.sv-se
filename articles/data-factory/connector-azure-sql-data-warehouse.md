@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/25/2020
-ms.openlocfilehash: 4890013fe584c49caa9e358c924911255a7f5d33
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 08/28/2020
+ms.openlocfilehash: cd14a183ae1434af83c96b7f8d6575186412b534
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815971"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051227"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory
 
@@ -504,7 +504,7 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
 
 3. Om din källa är en mapp `recursive` måste i kopierings aktiviteten vara inställd på sant.
 
-4. `wildcardFolderPath` , `wildcardFilename` , `modifiedDateTimeStart` , `modifiedDateTimeEnd` och `additionalColumns` har inte angetts.
+4. `wildcardFolderPath` , `wildcardFilename` ,,, `modifiedDateTimeStart` `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` och `additionalColumns` har inte angetts.
 
 >[!NOTE]
 >Om din källa är en mapp hämtas filer från mappen och alla dess undermappar, och data hämtas inte från filer vars fil namn börjar med en understrykning (_) eller en punkt (.), enligt beskrivningen [här – plats argument](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -684,7 +684,7 @@ Att använda COPY-instruktionen har stöd för följande konfiguration:
 
 3. Om din källa är en mapp `recursive` måste i kopierings aktiviteten vara inställt på sant och `wildcardFilename` måste vara `*` . 
 
-4. `wildcardFolderPath` , `wildcardFilename` (förutom `*` ), `modifiedDateTimeStart` `modifiedDateTimeEnd` och `additionalColumns` har inte angetts.
+4. `wildcardFolderPath` , `wildcardFilename` (förutom `*` ),, `modifiedDateTimeStart` , `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` och `additionalColumns` har inte angetts.
 
 Följande KOPIERINGs instruktions inställningar stöds under `allowCopyCommand` kopierings aktivitet:
 
@@ -814,7 +814,7 @@ När du kopierar data från eller till Azure Synapse Analytics används följand
 | DateTimeOffset                        | DateTimeOffset                 |
 | Decimal                               | Decimal                        |
 | FILESTREAM-attribut (varbinary (max)) | Byte []                         |
-| Flyttal                                 | Double                         |
+| Float                                 | Double                         |
 | image                                 | Byte []                         |
 | int                                   | Int32                          |
 | money                                 | Decimal                        |

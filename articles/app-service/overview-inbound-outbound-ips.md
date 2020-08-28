@@ -2,28 +2,34 @@
 title: Inkommande/utgående IP-adresser
 description: Lär dig hur inkommande och utgående IP-adresser används i Azure App Service när de ändras och hur du hittar adresserna för din app.
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537635"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050700"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Inkommande och utgående IP-adresser i Azure App Service
 
-[Azure App Service](overview.md) är en tjänst för flera innehavare, förutom [App Service miljöer](environment/intro.md). Appar som inte finns i en App Service miljö (inte på den [isolerade nivån](https://azure.microsoft.com/pricing/details/app-service/)) delar nätverks infrastruktur med andra appar. Därför kan inkommande och utgående IP-adresser för en app vara olika och kan till och med ändras i vissa situationer. 
+[Azure App Service](overview.md) är en tjänst för flera innehavare, förutom [App Service miljöer](environment/intro.md). Appar som inte finns i en App Service miljö (inte på den [isolerade nivån](https://azure.microsoft.com/pricing/details/app-service/)) delar nätverks infrastruktur med andra appar. Därför kan inkommande och utgående IP-adresser för en app vara olika och kan till och med ändras i vissa situationer.
 
 [App Service miljöer](environment/intro.md) använder dedikerade nätverks infrastrukturer, så appar som körs i en app service-miljö får statiska, dedikerade IP-adresser både för inkommande och utgående anslutningar.
+
+## <a name="how-ip-addresses-work-in-app-service"></a>Hur IP-adresser fungerar i App Service
+
+En App Service App körs i en App Service plan och App Service planer distribueras till en av distributions enheterna i Azure-infrastrukturen (internt kallat ett webb utrymme). Varje distributions enhet tilldelas upp till fem virtuella IP-adresser, som innehåller en offentlig inkommande IP-adress och fyra utgående IP-adresser. Alla App Service planer i samma distributions enhet och App-instanser som körs i dem, delar samma uppsättning virtuella IP-adresser. För en App Service-miljön (en App Service plan på [isolerad nivå](https://azure.microsoft.com/pricing/details/app-service/)) är App Service plan själva distributions enheten, så de virtuella IP-adresserna är avsedda som ett resultat.
+
+Eftersom du inte har behörighet att flytta en App Service plan mellan distributions enheter, förblir de virtuella IP-adresserna som tilldelas till din app samma, men det finns undantag.
 
 ## <a name="when-inbound-ip-changes"></a>När inkommande IP-ändringar
 
 Oavsett antalet utskalade instanser har varje app en enskild inkommande IP-adress. Den inkommande IP-adressen kan ändras när du utför någon av följande åtgärder:
 
-- Ta bort en app och återskapa den i en annan resurs grupp.
-- Ta bort den sista appen i en kombination av resurs grupp _och_ region och återskapa den.
-- Ta bort en befintlig TLS-bindning, till exempel vid certifikat förnyelse (se [Förnya certifikat](configure-ssl-certificate.md#renew-certificate)).
+- Ta bort en app och återskapa den i en annan resurs grupp (distributions enhet kan ändras).
+- Ta bort den sista appen i en resurs grupp _och_ regions kombination och återskapa den (distributions enheten kan ändras).
+- Ta bort en befintlig IP-baserad TLS/SSL-bindning, till exempel vid certifikat förnyelse (se [Förnya certifikat](configure-ssl-certificate.md#renew-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Hitta den inkommande IP-adressen
 
@@ -39,9 +45,13 @@ Ibland kanske du vill ha en dedikerad statisk IP-adress för din app. Om du vill
 
 ## <a name="when-outbound-ips-change"></a>När utgående IP-ändringar ändras
 
-Oavsett antalet utskalade instanser har varje app ett angivet antal utgående IP-adresser vid en angiven tidpunkt. Utgående anslutningar från App Service-appen, till exempel till en backend-databas, använder en av de utgående IP-adresserna som ursprungs-IP-adress. Du kan inte veta i förväg vilken IP-adress en specifik App-instans kommer att använda för att göra den utgående anslutningen, så din backend-tjänst måste öppna brand väggen till alla utgående IP-adresser för din app.
+Oavsett antalet utskalade instanser har varje app ett angivet antal utgående IP-adresser vid en angiven tidpunkt. Utgående anslutningar från App Service-appen, till exempel till en backend-databas, använder en av de utgående IP-adresserna som ursprungs-IP-adress. Vilken IP-adress som ska användas väljs slumpmässigt vid körning, så din backend-tjänst måste öppna brand väggen till alla utgående IP-adresser för din app.
 
-Uppsättningen utgående IP-adresser för din app ändras när du skalar appen mellan de lägre nivåerna (**Basic**, **standard**och **Premium**) och **Premium v2** -nivån.
+Uppsättningen utgående IP-adresser för din app ändras när du utför någon av följande åtgärder:
+
+- Ta bort en app och återskapa den i en annan resurs grupp (distributions enhet kan ändras).
+- Ta bort den sista appen i en resurs grupp _och_ regions kombination och återskapa den (distributions enheten kan ändras).
+- Skala din app mellan de lägre nivåerna (**Basic**, **standard**och **Premium**) och **Premium v2** -nivån (IP-adresser kan läggas till i eller subtraheras från uppsättningen).
 
 Du hittar uppsättningen med alla möjliga utgående IP-adresser som din app kan använda, oavsett pris nivå, genom att söka efter `possibleOutboundIpAddresses` egenskapen eller i fältet **ytterligare utgående IP-adresser** på bladet **Egenskaper** i Azure Portal. Se [hitta utgående IP-adresser](#find-outbound-ips).
 

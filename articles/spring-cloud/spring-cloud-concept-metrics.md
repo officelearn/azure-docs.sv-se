@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037737"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046858"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Förstå mått för Azure våren Cloud
 
@@ -89,13 +89,13 @@ I följande tabeller visas tillgängliga mått och information.
 
 ### <a name="error"></a>Fel
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
->| tomcat. global. error | tomcat. global. error | Antal | Antal fel som inträffade i bearbetade begär Anden |
+>| tomcat. global. error | tomcat. global. error | Count | Antal fel som inträffade i bearbetade begär Anden |
 
 ### <a name="performance"></a>Prestanda
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| system. CPU. Usage | system. CPU. Usage | Procent | Senaste CPU-användning för hela systemet. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att alla processorer var inaktiva under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer kördes aktivt 100% av tiden under den senaste perioden.|
 >| process. CPU. Usage | Procent andel CPU-användning för app | Procent | Senaste CPU-användning för Java Virtual Machine processen. Det här värdet är ett dubbelt i [0,0, 1,0]-intervallet. Värdet 0,0 innebär att ingen av processorerna körde trådar från JVM-processen under den senaste tids perioden, medan värdet 1,0 innebär att alla processorer aktivt körde trådar från JVM 100% av tiden under den senaste perioden. Trådar från JVM omfattar både program trådar och JVM interna trådar.|
@@ -106,30 +106,32 @@ I följande tabeller visas tillgängliga mått och information.
 >| JVM. gc. live. data. size | JVM. gc. live. data. size | Byte | Storleken på den gamla generationens lagringspool efter en fullständig GC. |
 >| JVM. gc. Memory. upphöjt | JVM. gc. Memory. upphöjt | Byte | Antalet positiva ökningar i storleken på den gamla generationens minnesallokering innan GC till efter GC. |
 >| JVM. gc. Memory. allokerat | JVM. gc. Memory. allokerat | Byte | Ökas för en ökning av storleken på den unga generationens minnesbuffert efter en GC till innan nästa. |
->| JVM. gc. Pause. total. Count | JVM. gc. PAUSE (totalt antal) | Antal | Totalt antal GC efter att denna JMV har startats, inklusive unga och gamla GC. |
+>| JVM. gc. Pause. total. Count | JVM. gc. PAUSE (totalt antal) | Count | Totalt antal GC efter att denna JMV har startats, inklusive unga och gamla GC. |
 >| JVM. gc. Pause. total. Time | JVM. gc. PAUSE (total tid) | Millisekunder | Totalt antal GC-tid som förbrukas efter att denna JMV startades, inklusive unga och gamla GC. |
 
-### <a name="request"></a>Begäran
+### <a name="request"></a>Förfrågan
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
 >| tomcat. global. skickat | tomcat. global. skickat | Byte | Mängden data Tomcat-webbserver som skickats |
 >| tomcat. global. mottagen | tomcat. global. mottagen | Byte | Mängden data Tomcat-webb servern tog emot |
->| tomcat. global. Request. total. Count | tomcat. global. Request (totalt antal) | Antal | Totalt antal behandlade Tomcat webb server begär Anden |
+>| tomcat. global. Request. total. Count | tomcat. global. Request (totalt antal) | Count | Totalt antal behandlade Tomcat webb server begär Anden |
 >| tomcat. global. Request. Max | tomcat. global. Request. Max | Millisekunder | Maximal tid som Tomcat webb server kan bearbeta en begäran |
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Namn | Mått namn för våren-motstånd | Enhet | Information |
+>| Name | Mått namn för våren-motstånd | Enhet | Information |
 >|----|----|----|------------|
->| tomcat. sessions. Active. Max | tomcat. sessions. Active. Max | Antal | Maximalt antal sessioner som har varit aktiva samtidigt |
+>| tomcat. sessions. Active. Max | tomcat. sessions. Active. Max | Count | Maximalt antal sessioner som har varit aktiva samtidigt |
 >| tomcat. sessions. Alive. Max | tomcat. sessions. Alive. Max | Millisekunder | Längsta tid (i sekunder) som en utgången session var Alive |
->| tomcat. sessions. created | tomcat. sessions. created | Antal | Antal sessioner som har skapats |
->| tomcat. sessions. har gått ut | tomcat. sessions. har gått ut | Antal | Antal sessioner som har upphört att gälla |
->| tomcat. sessions. avvisad | tomcat. sessions. avvisad | Antal | Antal sessioner som inte skapades eftersom det maximala antalet aktiva sessioner har uppnåtts. |
->| tomcat. sessions. Active. Current | tomcat. sessions. Active. Current | Antal | Aktivt antal Tomcat-sessioner |
+>| tomcat. sessions. created | tomcat. sessions. created | Count | Antal sessioner som har skapats |
+>| tomcat. sessions. har gått ut | tomcat. sessions. har gått ut | Count | Antal sessioner som har upphört att gälla |
+>| tomcat. sessions. avvisad | tomcat. sessions. avvisad | Count | Antal sessioner som inte skapades eftersom det maximala antalet aktiva sessioner har uppnåtts. |
+>| tomcat. sessions. Active. Current | tomcat. sessions. Active. Current | Count | Aktivt antal Tomcat-sessioner |
 
 ## <a name="see-also"></a>Se även
+* [Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Komma igång med Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analysera loggar och mått med diagnostikinställningar](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

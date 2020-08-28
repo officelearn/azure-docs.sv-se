@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en Apache Spark för en Azure Synapse Analytics-anteckningsbok'
-description: Den här snabb starten visar hur du använder webb verktygen för att skapa en Apache Spark pool (för hands version) i Azure Synapse Analytics och köra en Spark SQL-fråga.
+title: 'Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg'
+description: Den här snabb starten visar hur du använder webb verktygen för att skapa en Apache Spark-pool i Azure Synapse Analytics och köra en Spark SQL-fråga.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496255"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049816"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (f
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
@@ -98,7 +98,7 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
    SHOW TABLES
    ```
 
-   När du använder en bärbar dator med Azure Synapse Apache Spark-poolen får du en `sqlContext` för inställning som du kan använda för att köra frågor med Spark SQL. `%%sql`instruerar antecknings boken att använda för inställningen `sqlContext` för att köra frågan. Frågan hämtar de översta 10 raderna från en system tabell som ingår i alla Azure Synapse Apache Spark pooler som standard.
+   När du använder en bärbar dator med Azure Synapse Apache Spark-poolen får du en `sqlContext` för inställning som du kan använda för att köra frågor med Spark SQL. `%%sql` instruerar antecknings boken att använda för inställningen `sqlContext` för att köra frågan. Frågan hämtar de översta 10 raderna från en system tabell som ingår i alla Azure Synapse Apache Spark pooler som standard.
 
 2. Kör ytterligare en fråga för att visa data i `demo_df`.
 

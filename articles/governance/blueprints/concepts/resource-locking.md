@@ -1,14 +1,14 @@
 ---
 title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383595"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051510"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -28,7 +28,7 @@ Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstån
 |-|-|-|-|
 |Lås inte|*|Inte låst|Resurser skyddas inte av Azure-ritningar. Det här läget används också för resurser som läggs till i en **skrivskyddad** eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
 |Skrivskydd|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
-|Skrivskydd|Icke-resurs grupp|Skrivskydd|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
+|Skrivskydd|Icke-resurs grupp|Skrivskydd|Resursen kan inte ändras på något sätt. Inga ändringar och det går inte att ta bort den.|
 |Ta inte bort|*|Kan inte ta bort|Resurserna kan ändras, men de kan inte tas bort. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 
 ## <a name="overriding-locking-states"></a>Åsidosätter lås tillstånd
@@ -182,8 +182,8 @@ På samma sätt som du utesluter [ett huvud konto](#exclude-a-principal-from-a-d
 ## <a name="next-steps"></a>Nästa steg
 
 - Följ själv studie kursen [skydda nya resurser](../tutorials/protect-new-resources.md) .
-- Mer information om [livscykeln för en skiss](lifecycle.md).
-- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
+- Mer information om [livscykeln för en skiss](./lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](./parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](./sequencing-order.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
 - Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

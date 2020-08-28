@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835892"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049697"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -80,11 +80,8 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="AAD-tagg":::
 
-1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar mål platsen:
-
-   | Plats | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
-   | --- | --- | --- |
-   | Central US | 40.69.144.231 | 52.165.34.144 |
+1. På samma sätt som säkerhets regler, skapar du en utgående HTTPS (443) säkerhets regel för "EventHub. Central" på den NSG som motsvarar mål platsen. Detta ger åtkomst till Site Recovery övervakning.
+1. Skapa en utgående HTTPS (443) säkerhets regel för "AzureSiteRecovery" på NSG. Detta ger till gång till Site Recovery tjänst i vilken region som helst.
 
 #### <a name="nsg-rules---central-us"></a>NSG-regler – centrala USA
 
@@ -100,11 +97,8 @@ I det här exemplet krävs dessa NSG-regler för att replikeringen ska kunna akt
    - **Mål tjänst tag gen**: _AzureActiveDirectory_
    - **Mål Port intervall**: _443_
 
-1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar käll platsen:
-
-   | Plats | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
-   | --- | --- | --- |
-   | East US | 13.82.88.226 | 104.45.147.24 |
+1. På samma sätt som säkerhets regler, skapar du en utgående HTTPS (443) säkerhets regel för "EventHub. East" på den NSG som motsvarar käll platsen. Detta ger åtkomst till Site Recovery övervakning.
+1. Skapa en utgående HTTPS (443) säkerhets regel för "AzureSiteRecovery" på NSG. Detta ger till gång till Site Recovery tjänst i vilken region som helst.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery konfiguration misslyckades (151197)
 
@@ -127,8 +121,8 @@ Inställningarna för den anpassade proxyn är ogiltiga och Azure Site Recovery 
 1. Mobilitets tjänst agenten identifierar proxyinställningarna från IE i Windows och `/etc/environment` på Linux.
 1. Om du föredrar att bara ange proxy för Azure Site Recovery mobilitets tjänst kan du ange proxyinformation i _ProxyInfo. conf_ på:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _ProxyInfo. conf_ ska ha proxyinställningarna i följande _ini_ -format:
 

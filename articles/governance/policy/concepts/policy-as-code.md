@@ -1,14 +1,14 @@
 ---
 title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
-ms.date: 07/23/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131505"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047334"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -29,10 +29,10 @@ Innan du hämtar information om principen som kod arbets flöde kan du läsa fö
 - [Initiativ definition](./initiative-definition-structure.md)
 
 Fil namnen anpassas till delar av antingen principen eller initiativ definitionen:
-- `policy(set).json`– Hela definitionen
-- `policy(set).parameters.json`– `properties.parameters` Delen av definitionen
-- `policy.rules.json`– `properties.policyRule` Delen av definitionen
-- `policyset.definitions.json`– `properties.policyDefinitions` Delen av definitionen
+- `policy(set).json` – Hela definitionen
+- `policy(set).parameters.json` – `properties.parameters` Delen av definitionen
+- `policy.rules.json` – `properties.policyRule` Delen av definitionen
+- `policyset.definitions.json` – `properties.policyDefinitions` Delen av definitionen
 
 Exempel på dessa fil format finns i [Azure policy GitHub lagrings platsen](https://github.com/Azure/azure-policy/):
 
@@ -110,7 +110,8 @@ Tilldelningen ska använda [enforcementMode](./assignment-structure.md#enforceme
 > [!NOTE]
 > Även om tvingande läge är användbart, är det inte en ersättning för att noggrant testa en princip definition under olika förhållanden. Princip definitionen bör testas med `PUT` och `PATCH` REST API anrop, kompatibla och icke-kompatibla resurser och Edge-fall som en egenskap som saknas i resursen.
 
-När tilldelningen har distribuerats kan du använda princip-SDK: n för att [Hämta kompatibilitetsinformation](../how-to/get-compliance-data.md) för den nya tilldelningen. Den miljö som används för att testa principerna och tilldelningarna bör ha både kompatibla och icke-kompatibla resurser. Precis som ett bra enhets test för kod vill du testa att resurserna är som förväntat och att du inte har några falska positiva eller falska negativa negativa. Om du testar och validerar enbart för det du förväntar dig kan det uppstå oväntade och oidentifierade konsekvenser från principen. Mer information finns i [utvärdera effekten av en ny Azure policy-definition](./evaluate-impact.md).
+När tilldelningen har distribuerats kan du använda princip-SDK: n eller [åtgärden Azure policy GitHub för regelefterlevnad](https://github.com/marketplace/actions/azure-policy-compliance-scan) för att [Hämta efterföljare data](../how-to/get-compliance-data.md) för den nya tilldelningen. Den miljö som används för att testa principerna och tilldelningarna bör ha både kompatibla och icke-kompatibla resurser.
+Precis som ett bra enhets test för kod vill du testa att resurserna är som förväntat och att du inte har några falska positiva eller falska negativa negativa. Om du testar och validerar enbart för det du förväntar dig kan det uppstå oväntade och oidentifierade konsekvenser från principen. Mer information finns i [utvärdera effekten av en ny Azure policy-definition](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Aktivera reparations åtgärder
 

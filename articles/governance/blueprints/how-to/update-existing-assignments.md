@@ -1,14 +1,14 @@
 ---
 title: Uppdatera en befintlig tilldelning från portalen
 description: Lär dig mer om mekanismen för att uppdatera en befintlig skiss tilldelning från portalen i Azure-ritningar.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969472"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051431"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
 
@@ -24,12 +24,11 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera anledninga
 
 1. Välj **tilldelade skisser** från sidan till vänster.
 
-1. I listan över skisser vänsterklickar du på skiss tilldelningen. Klicka sedan på knappen **Uppdatera tilldelning** eller högerklicka på skiss tilldelningen och välj **Uppdatera tilldelning**.
+1. I listan över ritningar väljer du skiss tilldelningen. Använd sedan knappen **Uppdatera tilldelning** eller högerklicka på skiss tilldelningen och välj **Uppdatera tilldelning**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Uppdatera en befintlig skiss tilldelning" border="false":::
 
-1. Sidan **tilldela skiss** kommer att läsas in i förväg med alla värden från den ursprungliga tilldelningen.
-   Du kan ändra **skiss definitions versionen**, **Lås tilldelnings** status och alla dynamiska parametrar som finns i skiss definitionen. Klicka på **tilldela** när du är klar med ändringarna.
+1. Sidan **tilldela skisser** läser in ifyllda med alla värden från den ursprungliga tilldelningen. Du kan ändra **skiss definitions versionen**, **Lås tilldelnings** status och alla dynamiska parametrar som finns i skiss definitionen. Välj **tilldela** när du är klar med ändringarna.
 
 1. På sidan uppdaterad tilldelnings information, se den nya statusen. I det här exemplet har vi lagt till **låsning** till tilldelningen.
 

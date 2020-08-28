@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: dee6b0b1635880fb50b8d35f1f91ad2bce569cff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8797d17ac439882415a9f5360fded28cb55484d5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928487"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050547"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabb start: skapa ett chattrum med ASP.NET och SignalR-tjänsten
 
@@ -25,21 +25,27 @@ I den här snabb starten får du lära dig hur du kommer igång med ASP.NET och 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET-SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 Läge utan *Server* stöds inte för ASP.net SignalR-program. Använd alltid *standard* eller *klassisk* för Azure SignalR service-instansen.
 
 Du kan också skapa Azure-resurser som används i den här snabb starten med [skapa ett skript för signalering](scripts/signalr-cli-create-service.md).
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -52,6 +58,8 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
 
 ## <a name="configure-and-run-chat-room-web-app"></a>Konfigurera och kör chattrum-webbappen
 
@@ -97,6 +105,8 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
 
 1. Tryck på **F5** för att köra projektet i fel söknings läge. Du kan se att programmet körs lokalt. I stället för att vara värd för en signal körning av själva programmet ansluter den nu till Azure SignalR-tjänsten.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 
@@ -115,9 +125,14 @@ Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera eft
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten skapade du en ny Azure SignalR service-resurs och använde den med en ASP.NET-webbapp. Härnäst lär du dig hur du utvecklar real tids program med hjälp av Azure SignalR-tjänsten med ASP.NET Core.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR service med ASP.NET Core](./signalr-quickstart-dotnet-core.md)
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnet)
+

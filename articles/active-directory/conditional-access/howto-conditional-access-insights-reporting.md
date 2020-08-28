@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253281"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049425"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Villkorlig åtkomst insikter och rapportering
 
@@ -97,6 +97,22 @@ Visa nedbrytningen av användare eller inloggningar för varje villkor. Du kan f
 
 Du kan också undersöka inloggnings tilläggen för en speciell användare genom att söka efter inloggningar längst ned i instrument panelen. Frågan till vänster visar de vanligaste användarna. Om du väljer en användare filtreras frågan till höger.  
 
+> [!NOTE]
+> När du laddar ned inloggnings loggar väljer du JSON-format för att inkludera endast resultat data för rapporten villkorlig åtkomst.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurera en princip för villkorlig åtkomst i endast rapport läge
+
+Så här konfigurerar du en princip för villkorlig åtkomst i endast rapport läge:
+
+1. Logga in på **Azure Portal** som administratör för villkorlig åtkomst, säkerhets administratör eller global administratör.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
+1. Välj en befintlig princip eller skapa en ny princip.
+1. Under **Aktivera princip** ställer du in växla till **endast rapport** läge.
+1. Välj **Spara**
+
+> [!TIP]
+> Om du redigerar **aktiverings princip** läget för en befintlig princip från **på** till **endast rapporter** inaktive ras befintlig princip tillämpning. 
+
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Varför fungerar inte frågor på grund av ett behörighets fel?
@@ -111,6 +127,10 @@ För att du ska kunna komma åt arbets boken behöver du rätt Azure AD-behörig
 ![Felsöka misslyckade frågor](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Mer information om hur du strömmar inloggnings loggar i Azure AD till en Log Analytics arbets yta finns i artikeln [integrera Azure AD-loggar med Azure Monitor loggar](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Varför fungerar inte frågorna i arbets boken?
+
+Kunder har lagt märke till att frågor ibland inte fungerar om fel eller flera arbets ytor är associerade med arbets boken. Åtgärda problemet genom att klicka på **Redigera** överst i arbets boken och sedan på inställnings växeln. Välj och ta sedan bort arbets ytor som inte är associerade med arbets boken. Det får bara finnas en arbets yta som är kopplad till varje arbets bok.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Varför är parametern för villkorlig åtkomst tom?
 
@@ -134,4 +154,8 @@ Du kan redigera och anpassa arbets boken genom att gå till **Azure Active Direc
  
 ## <a name="next-steps"></a>Nästa steg
 
-[Endast rapport läge för villkorlig åtkomst](concept-conditional-access-report-only.md)
+- [Endast rapport läge för villkorlig åtkomst](concept-conditional-access-report-only.md)
+
+- Mer information om Azure AD-arbetsböcker finns i artikeln [så här använder du Azure Monitor-arbetsböcker för Azure Active Directory-rapporter](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)

@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 989c6464e45b95a276746b6d57e0ca08a345296c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c1a720e7e9bd9c71f925f104ca7fc70a1a5ef59
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931496"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051074"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Vad är API för handskriftsigenkänning?
 
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 Hand SKRIFTS tolken är en molnbaserad REST API för att analysera och identifiera digitalt bläck innehåll. Till skillnad från tjänster som använder optisk tecken igenkänning (OCR) kräver API: n digitala Penn strecks data som indata. Digitala penndrag är tidsordnade uppsättningar av 2D-punkter (X, Y-koordinater) som representerar rörelsen i inmatnings verktyg som digitala pennor eller fingrar. Den identifierar sedan formerna och det handskrivna innehållet från inmatarna och returnerar ett JSON-svar som innehåller alla identifierade entiteter.
 

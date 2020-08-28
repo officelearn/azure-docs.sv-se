@@ -3,12 +3,12 @@ title: Skapa principer programmässigt
 description: Den här artikeln vägleder dig genom program mässigt skapa och hantera principer för Azure Policy med Azure CLI, Azure PowerShell och REST API.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 7a72986d8ffe64953e68ff166de9a02a15fb9c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548319"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047064"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -16,7 +16,7 @@ Den här artikeln vägleder dig genom program mässigt skapa och hantera princip
 
 Information om kompatibilitet finns i [Hämta efterlevnadsprinciper](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att följande krav är uppfyllda innan du börjar:
 
@@ -235,7 +235,7 @@ Princip Definitions-ID: t för den princip definition som du skapade bör likna 
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-Mer information om hur du kan hantera resurs principer med Azure CLI finns i [resurs principer för Azure CLI](/cli/azure/policy?view=azure-cli-latest).
+Mer information om hur du kan hantera resurs principer med Azure CLI finns i [resurs principer för Azure CLI](/cli/azure/policy).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -243,6 +243,6 @@ Läs följande artiklar om du vill ha mer information om kommandon och frågor i
 
 - [Azure REST API-resurser](/rest/api/resources/)
 - [Azure PowerShell moduler](/powershell/module/az.resources/#policies)
-- [Azure CLI-princip kommandon](/cli/azure/policy?view=azure-cli-latest)
+- [Azure CLI-princip kommandon](/cli/azure/policy)
 - [Azure Policy insikter Resource Provider REST API referens](/rest/api/policy-insights)
 - [Organisera dina resurser i Azure-hanteringsgrupper](../../management-groups/overview.md).

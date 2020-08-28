@@ -7,21 +7,21 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d833c8f136a71d563ce10240f03e2c68e9131687
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: d8eee715a3ac2256838b37c1c6722aa1307f6dd0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951896"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046790"
 ---
 # <a name="introduction-to-piggy-metrics-sample-app"></a>Introduktion till Piggy Metrics exempel App
 
-I den här snabb starten kommer vi att använda ett proof-of-Concept-exempel på personlig ekonomi som kallas Piggy-mått för att visa hur du distribuerar en app till moln tjänsten Azure våren. Piggy-mått visar arkitektur mönstret för mikrotjänster och följande avsnitt visar analys av tjänster. Du får se hur det distribueras till Azure med kraftfulla Azure våren Cloud-funktioner från tjänst identifiering, konfigurations Server för loggar, statistik och distribuerad spårning.
+I den här snabb starten använder vi ett privat finans exempel som kallas Piggy-mått för att visa hur du distribuerar en app till moln tjänsten Azure våren. Piggy-mått visar arkitektur mönstret för mikrotjänster och fokuserar på tjänsternas uppdelning. Du kommer att se hur det distribueras till Azure med kraftfulla moln funktioner för Azure våren, inklusive tjänst identifiering, konfigurations Server, loggar, mått och distribuerad spårning.
 
 Om du vill följa moln distributions exemplen för Azure våren behöver du bara platsen för käll koden, som tillhandahålls vid behov.
 
 ## <a name="functional-services"></a>Funktionella tjänster
-Piggy-måtten sammanställs i tre kärn mikrotjänster. Alla är oberoende distributions bara program, ordnade runt företags domäner.
+Piggy-måtten sammanställs i tre kärn mikrotjänster. Alla är oberoende distributions bara program som organiseras av företags domäner.
 
 * **Konto tjänst (som ska distribueras)**: innehåller allmän logik för användar indata och validering: indata/utgifter, besparingar och konto inställningar.
 * **Statistik tjänst (används inte i den här snabb starten)**: utför beräkningar på viktiga statistik parametrar och fångar tids serier för varje konto. Datapoint innehåller värden, normaliserad till bas valuta och tids period. Dessa data används för att spåra kassa flödet Dynamics i kontots livs längd.
@@ -32,8 +32,8 @@ Det finns flera vanliga mönster i distribuerade system som hjälper till att ö
 
 * **Konfigurations tjänst (värd av Azure våren Cloud)**: Azure våren Cloud config är en vågrätt skalbar centraliserad konfigurations tjänst för distribuerade system. Den använder ett lagrings Bart lager som för närvarande stöder lokal lagring, git och under version.
 * **Tjänst identifiering (värd av Azure våren Cloud)**: den tillåter automatisk identifiering av nätverks platser för tjänst instanser, vilket kan ha dynamiskt tilldelade adresser på grund av automatisk skalning, problem och uppgraderingar.
-* **Auth service (kommer att distribueras)** Auktorisations ansvar extraheras fullständigt till en separat server, vilket ger OAuth2-token för Server dels resurs tjänsterna. Auth Server auktoriserar användarautentisering och skyddar maskin-till-dator-kommunikation inuti en perimeter.
-* **API-Gateway (kommer att distribueras)**: de tre kärn tjänsterna exponerar ett externt API för klienten. I verkliga system kan antalet funktioner växa mycket snabbt med system komplexitet. Hundratals tjänster kan vara inblandade i åter givning av en komplex webb sida. API-gatewayen är en enda start punkt i systemet, som används för att hantera begär Anden och dirigera dem till lämplig server dels tjänst eller för att anropa flera backend-tjänster, vilket aggregerar resultaten. 
+* **Auth service (som ska distribueras)** Auktorisations ansvar extraheras fullständigt till en separat server, vilket ger OAuth2-token för Server dels resurs tjänsterna. Auth Server auktoriserar användarautentisering och skyddar maskin-till-dator-kommunikation inuti en perimeter.
+* **API-Gateway (distribueras)**: de tre kärn tjänsterna exponerar ett externt API för klienten. I verkliga system kan antalet funktioner växa mycket snabbt med system komplexitet. Hundratals tjänster kan vara inblandade i åter givning av en komplex webb sida. API-gatewayen är en enda start punkt i systemet, som används för att hantera begär Anden och dirigera dem till lämplig server dels tjänst eller för att anropa flera backend-tjänster, vilket aggregerar resultaten. 
 
 ## <a name="sample-usage-of-piggy-metrics"></a>Exempel på användning av piggy-mått
 Fullständig implementerings information finns i [Piggy mått](https://github.com/Azure-Samples/piggymetrics). Exemplen refererar till käll koden vid behov.

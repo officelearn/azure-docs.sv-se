@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995317"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049272"
 ---
 # <a name="conditional-access-block-access"></a>Villkorlig åtkomst: blockera åtkomst
 
@@ -38,7 +38,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar förutom [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) om användarna inte är i ett betrott nätverk. Dessa principer sätts i [läget endast för rapporter](howto-conditional-access-report-only.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är van vid att principerna ska gälla som de ska, kan de byta till **på**.
+Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar förutom [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) om användarna inte är i ett betrott nätverk. Dessa principer sätts i [läget endast för rapporter](howto-conditional-access-insights-reporting.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är van vid att principerna ska gälla som de ska, kan de byta till **på**.
 
 Den första principen blockerar åtkomst till alla appar förutom Office 365-program om de inte finns på en betrodd plats.
 
@@ -84,6 +84,6 @@ En andra princip skapas nedan för att kräva Multi-Factor Authentication eller 
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-insights-reporting.md)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

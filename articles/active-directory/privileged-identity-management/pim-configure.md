@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 07/01/2020
+ms.date: 08/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c85f273a0b245d54b966a43d7a69abe761a2dcaf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023930"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047827"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) är en tjänst som du kan använda för att hantera, kontrollera och övervaka åtkomst till viktiga resurser i din organisation. Resurserna omfattar resurser i Azure AD, Azure och andra Microsoft Online-tjänster som Office 365 eller Microsoft Intune.
+ Privileged Identity Management (PIM) är en tjänst i Azure Active Directory (Azure AD) som gör att du kan hantera, kontrol lera och övervaka åtkomsten till viktiga resurser i din organisation. Resurserna omfattar resurser i Azure AD, Azure och andra Microsoft Online Services, till exempel Office 365 eller Microsoft Intune.
 
 ## <a name="reasons-to-use"></a>Skäl att använda
 
-Organisationer behöver minimera antalet personer som har åtkomst till skyddad information eller skyddade resurser för att därigenom minska risken för att användare som vill vålla skada får åtkomst till informationen eller att behöriga användare oavsiktligt påverkar känsliga resurser. Användare måste emellertid fortfarande kunna utföra privilegierade åtgärder i Azure AD, Azure, Office 365 och SaaS-appar. Organisationer kan ge användare privilegierad just-in-time-åtkomst (JIT) till Azure-resurser och Azure AD. Det finns ofta behov av att övervaka vad användarna gör med sina administratörsprivilegier.
+Organisationer behöver minimera antalet personer som har åtkomst till skyddad information eller skyddade resurser för att därigenom minska risken för att användare som vill vålla skada får åtkomst till informationen eller att behöriga användare oavsiktligt påverkar känsliga resurser. Användare måste emellertid fortfarande kunna utföra privilegierade åtgärder i Azure AD, Azure, Office 365 och SaaS-appar. Organisationer kan ge användare just-in-Time-privilegierad åtkomst till Azure-resurser och Azure AD. Det finns ofta behov av att övervaka vad användarna gör med sina administratörsprivilegier.
 
 ## <a name="what-does-it-do"></a>Vad gör det?
 
@@ -44,7 +44,7 @@ Privileged Identity Management tillhandahåller tidsbaserad och godkännande-bas
 
 ## <a name="what-can-i-do-with-it"></a>Vad kan jag göra med det?
 
-När du har konfigurerat Privileged Identity Management visas alternativ för **aktiviteter**, **hantering**och **aktivitet** på den vänstra navigerings menyn. Som administratör kan du välja mellan att hantera **Azure AD-roller** och **Azure-resurs**-roller. När du väljer vilken typ av roll du vill hantera visas en liknande uppsättning med alternativ för den rolltypen.
+När du har konfigurerat Privileged Identity Management visas alternativ för **aktiviteter**, **hantering**och **aktivitet** på den vänstra navigerings menyn. Som administratör väljer du mellan alternativ, till exempel hantering av **Azure AD-roller**, hantering av resurs roller i **Azure** eller privilegierade åtkomst grupper. När du väljer vad du vill hantera visas lämplig uppsättning alternativ för det alternativet.
 
 ![Skärm bild av Privileged Identity Management i Azure Portal](./media/pim-configure/pim-quickstart.png)
 

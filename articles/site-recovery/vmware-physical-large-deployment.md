@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131782"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047095"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera katastrof återställning i skala för virtuella VMware-datorer/fysiska servrar
 
@@ -83,7 +83,7 @@ Du kan använda dessa rekommendationer för att planera för Azure-resurser, nä
 
 Vi vill se till att tillgängliga kvoter i mål prenumerationen räcker för att hantera redundans.
 
-**Uppgift** | **Detaljer** | **Åtgärd**
+**Uppgift** | **Information** | **Åtgärd**
 --- | --- | ---
 **Kontrol lera kärnor** | Om kärnor i den tillgängliga kvoten inte är lika med eller överskrider det totala antalet mål vid tidpunkten för redundansväxlingen, kommer redundans att Miss Don. | För virtuella VMware-datorer kontrollerar du att det finns tillräckligt många kärnor i mål prenumerationen för att uppfylla distributions Planerarens kärn rekommendation.<br/><br/> För fysiska servrar kontrollerar du att Azure-kärnor uppfyller dina manuella uppskattningar.<br/><br/> Om du vill kontrol lera kvoterna klickar du på **användning + kvoter**i Azure Portal >- **prenumerationen**.<br/><br/> [Läs mer](../azure-portal/supportability/resource-manager-core-quotas-request.md) om att öka kvoterna.
 **Kontrol lera begränsningar för redundans** | Antalet redundanser får inte överskrider gränsen för Site Recovery redundans. |  Om redundans överskrider gränserna kan du lägga till prenumerationer och redundansväxla till flera prenumerationer eller öka kvoten för en prenumeration. 
@@ -100,8 +100,8 @@ Vad innebär detta? För att starta en virtuell Azure-dator kräver Azure att vi
 
 **Är datorn kompatibel med Azure?** | **Azure VM-gränser (hanterad diskdiagnostik)**
 --- | --- 
-Yes | 2000
-No | 1000
+Ja | 2000
+Inga | 1000
 
 - Begränsningar förutsätter att minimala andra jobb pågår i mål regionen för prenumerationen.
 - Vissa Azure-regioner är mindre och kan ha något lägre gränser.
@@ -205,7 +205,7 @@ Du kan förbereda i förväg för redundans på följande sätt:
     - Beräkna RTO från slut punkt till slut punkt för dina appar.
     - Beräkna slutpunkt till slut punkt för dina arbets belastningar.
     - Identifiera konflikter i IP-adressintervall.
-    - När du kör övningar rekommenderar vi att du inte använder produktions nätverk för att se om det går att använda samma undernäts namn i produktions-och test nätverk och rensa redundanstest efter varje detalj nivå.
+    - När du kör övningar rekommenderar vi att du inte använder produktions nätverk för att öka detalj nivån och rensa redundanstest efter varje detalj nivå.
 
 Vi rekommenderar följande för att köra en storskalig redundans:
 

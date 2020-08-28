@@ -7,17 +7,19 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 77b105fd5bbc6cc88411379e79522562ebce3677
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 587b26d821b9701df435b9ee0a1c5f9ba5602fc0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083760"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050938"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Använda IntelliJ för att distribuera Azure Spring Cloud-program
 IntelliJ-plugin-programmet för Azure våren Cloud stöder program distribution från IntelliJ-idén.  
 
-## <a name="prerequisites"></a>Förutsättningar
+Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
+
+## <a name="prerequisites"></a>Krav
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0 +](https://maven.apache.org/download.cgi)
 * [IntelliJ idé, community/Ultimate-utgåva, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
@@ -44,7 +46,7 @@ Följande procedurer distribuerar ett Hello World-program med hjälp av IntelliJ
 
 ## <a name="open-gs-spring-boot-project"></a>Öppna GS-våren-Boot-projekt
 
-1. Ladda ned och zippa upp käll databasen för den här själv studie kursen eller klona den med git: git-kloninghttps://github.com/spring-guides/gs-spring-boot.git 
+1. Ladda ned och zippa upp käll databasen för den här själv studie kursen eller klona den med git: git-kloning https://github.com/spring-guides/gs-spring-boot.git 
 1. CD till GS-Spring-boot\complete.
 1. Öppna dialog rutan **Välkommen** IntelliJ, Välj **Importera projekt** för att öppna import guiden.
 1. Välj `gs-spring-boot\complete` mapp.

@@ -134,6 +134,8 @@
           href: batch-sig-images.md
         - name: Skapa en pool med en hanterad avbildningsresurs
           href: batch-custom-images.md
+        - name: Skapa en pool med diskkryptering aktiverat
+          href: disk-encryption.md
         - name: Skapa en pool i ett virtuellt nätverk
           href: batch-virtual-network.md
         - name: Skapa en pool med offentliga IP-adresser

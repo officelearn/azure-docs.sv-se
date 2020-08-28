@@ -1,14 +1,14 @@
 ---
 title: Azure-ritningar fungerar
 description: Beskriver de funktioner som är tillgängliga för användning med skiss artefakter i definitioner och tilldelningar av Azure-modeller.
-ms.date: 05/22/2020
+ms.date: 08/27/2020
 ms.topic: reference
-ms.openlocfilehash: 7a52901060466692e7094cf74fa5acfcded5f1da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: fe984ee7664b0d50fb891d946f9f40a200ccce09
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422852"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050768"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure-ritningar
 
@@ -34,9 +34,9 @@ Returnerar ett objekt med egenskaper som har fyllts med den skiss artefaktens ut
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| artifactName |Yes |sträng |Namnet på skiss artefakten. |
+| artifactName |Ja |sträng |Namnet på skiss artefakten. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -123,10 +123,10 @@ Kombinerar flera sträng värden och returnerar den sammanfogade strängen.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| sträng1 |Yes |sträng |Det första värdet för sammanfogning. |
-| ytterligare argument |No |sträng |Ytterligare värden i sekventiell ordning för sammanfogning |
+| sträng1 |Ja |sträng |Det första värdet för sammanfogning. |
+| ytterligare argument |Inga |sträng |Ytterligare värden i sekventiell ordning för sammanfogning |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -148,9 +148,9 @@ Returnerar ett skiss parameter värde. Det angivna parameter namnet måste defin
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| parameterName |Yes |sträng |Namnet på den parameter som ska returneras. |
+| parameterName |Ja |sträng |Namnet på den parameter som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -269,9 +269,9 @@ Returnerar ett objekt som representerar den angivna resurs grupps artefakten. Ti
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Description |
+| Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| placeholderName |Yes |sträng |Plats hållarens namn för den resurs grupps artefakt som ska returneras. |
+| placeholderName |Ja |sträng |Plats hållarens namn för den resurs grupps artefakt som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 

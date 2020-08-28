@@ -1,14 +1,14 @@
 ---
 title: Använda parametrar för att skapa dynamiska modeller
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970645"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051567"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
@@ -55,11 +55,11 @@ Ett parameter värde som definieras i definitionen av en skiss kallas en **stati
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Klicka på en befintlig skiss och klicka sedan på **Redigera skiss** eller klicka på **+ skapa skiss** och fyll i informationen på fliken **grundläggande** .
+1. Välj en befintlig skiss och välj sedan **Redigera skiss** eller Välj **+ skapa skiss** och fyll i informationen på fliken **grundläggande** .
 
-1. Klicka på **Nästa: artefakter** eller klicka på fliken **artefakter** .
+1. Välj **Nästa: artefakter** eller Välj fliken **artefakter** .
 
-1. Artefakter som läggs till i skissen med parameter alternativ visar **X av Y-parametrar** som är ifyllda i kolumnen **parametrar** . Klicka på artefakt raden för att redigera artefakt parametrarna.
+1. Artefakter som läggs till i skissen med parameter alternativ visar **X av Y-parametrar** som är ifyllda i kolumnen **parametrar** . Välj artefakt raden för att redigera artefakt parametrarna.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Skiss parametrar i en skiss definition" border="false":::
 
@@ -172,7 +172,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Högerklicka på den skiss som du vill tilldela. Välj **tilldela skiss** eller klicka på den skiss som du vill tilldela och klicka sedan på knappen **tilldela skiss** .
+1. Högerklicka på den skiss som du vill tilldela. Välj **tilldela skiss** eller Välj den skiss som du vill tilldela och Använd sedan knappen **tilldela skiss** .
 
 1. På sidan **tilldela skiss** hittar du avsnittet **artefakt parametrar** . Varje artefakt med minst en **dynamisk parameter** visar artefakten och konfigurations alternativen. Ange de värden som krävs för parametrarna innan du tilldelar skissen. I exemplet nedan är _namn_ en **dynamisk parameter** som måste definieras för fullständig skiss tilldelning.
 
@@ -234,8 +234,8 @@ Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värd
 ## <a name="next-steps"></a>Nästa steg
 
 - Se listan över [skiss funktioner](../reference/blueprint-functions.md).
-- Mer information om [livscykeln för en skiss](lifecycle.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
+- Mer information om [livscykeln för en skiss](./lifecycle.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](./sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](./resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
 - Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

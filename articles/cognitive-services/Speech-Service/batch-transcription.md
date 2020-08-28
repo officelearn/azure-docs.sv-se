@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918952"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050190"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -41,7 +41,7 @@ Detta API kräver inte anpassade slut punkter och saknar samtidiga krav.
 Jobb för batch-avskrifter schemaläggs enligt bästa prestanda.
 Det går inte att beräkna när ett jobb ska ändras till körnings tillstånd, men det bör ske inom några minuter under normal system belastning. När den är i körnings tillstånd sker avskriften snabbare än uppspelnings hastigheten för ljud körningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md).
 
@@ -170,7 +170,7 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Valfri URL med [tjänstens SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet lagras i den här behållaren. Om detta inte anges lagrar Microsoft resultaten i en lagrings behållare som hanteras av Microsoft. När avskriften tas bort genom att anropar [ta bort avskrift](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)tas även resultat data bort.
+      Valfri URL med [service ad hoc SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet lagras i den här behållaren. SAS med lagrad åtkomst princip stöds **inte** . Om detta inte anges lagrar Microsoft resultaten i en lagrings behållare som hanteras av Microsoft. När avskriften tas bort genom att anropar [ta bort avskrift](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)tas även resultat data bort.
 :::row-end:::
 
 ### <a name="storage"></a>Storage

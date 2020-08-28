@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: skiss exempel till ny miljö'
 description: I den här självstudien använder du ett skiss exempel för att skapa en skiss definition som konfigurerar två resurs grupper och konfigurerar en roll tilldelning för var och en.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80677097"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048740"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudie: skapa en miljö från ett skiss exempel
 
@@ -23,7 +23,7 @@ I följande självstudie används **resurs grupper med RBAC** -skisser för att 
 > - Granska distribuerade resurser för tilldelningen
 > - Ta bort tilldelningen för att ta bort låsen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien krävs en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -100,11 +100,11 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för ProdRG|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resurs gruppen.|
-     |Resurs grupp för ProdRG|Resursgrupp|Plats|USA, västra 2|Anger platsen för den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Name|ProductionRG|Definierar namnet på den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Location|USA, västra 2|Anger platsen för den första resurs gruppen.|
      |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _deltagar_ roll tilldelningen i den första resurs gruppen.|
-     |Resurs grupp för PreProdRG|Resursgrupp|Namn|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
-     |Resurs grupp för PreProdRG|Resursgrupp|Plats|USA, västra|Anger platsen för den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Name|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Location|USA, västra|Anger platsen för den andra resurs gruppen.|
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _ägar_ roll tilldelningen i den andra resurs gruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska ge roll tilldelningen _läsare_ i den andra resurs gruppen.|
 
@@ -122,7 +122,7 @@ Skiss tilldelningen skapar och spårar de artefakter som definieras i skiss defi
 
 1. Välj sidan **tilldelade ritningar** till vänster. Använd filtren för att hitta _tilldelningen-två-RGS-med-roll tilldelningar_ och välj sedan den.
 
-   På den här sidan kan vi se att tilldelningen lyckades och listan över skapade resurser tillsammans med deras skiss lås status. Om tilldelningen uppdateras visas information om distributionen av varje definitions version i list rutan **tilldelnings åtgärd** . Varje resurs i listan som du har skapat kan klicka på och öppna egenskaps sidan för resurser.
+   På den här sidan kan vi se att tilldelningen lyckades och listan över skapade resurser tillsammans med deras skiss lås status. Om tilldelningen uppdateras visas information om distributionen av varje definitions version i list rutan **tilldelnings åtgärd** . Varje resurs i listan som har skapats kan väljas och öppnar egenskaps sidan för resurser.
 
 1. Välj resurs gruppen **ProductionRG** .
 

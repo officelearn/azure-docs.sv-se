@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853919"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047636"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Använd följande steg för att ändra standard alternativ för säkerhets kopie
 
    * **Kvarhållning av säkerhets kopior** – den representerar den period där varje säkerhets kopia behålls. Du kan konfigurera den i timmar eller dagar. Den minsta kvarhållningsperioden får inte vara mindre än två gånger intervallet för säkerhets kopiering (i timmar) och får inte vara större än 720 timmar.
 
-   * **Kopior av data som behålls** – som standard erbjuds två säkerhets kopior av dina data utan kostnad. Om du behöver ytterligare kopior måste du skapa en support förfrågan via Azure Portal så debiteras de ytterligare kopiorna. Se avsnittet förbrukat lagrings utrymme på [sidan prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för att lära dig det exakta priset för ytterligare kopior.
+   * **Kopior av data som behålls** – som standard erbjuds två säkerhets kopior av dina data utan kostnad. Du får ytterligare en avgift om du behöver fler än två kopior. Se avsnittet förbrukat lagrings utrymme på [sidan prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för att lära dig det exakta priset för ytterligare kopior.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Konfigurera intervall för säkerhets kopiering och kvarhållning för ett befintligt Azure Cosmos-konto" border="true":::
 

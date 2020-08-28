@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 79bc96f9ba8347a4dc220dd2424b11e86aa9e95e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 54a4c9374c064073620f2679e7c7511e30c45de6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922029"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050649"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med hjälp av C\#
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -27,13 +27,21 @@ Du kan också köra den här självstudien på kommando raden (macOS, Windows el
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
@@ -67,10 +75,15 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
         ```bash
         func start
         ```
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -78,3 +91,5 @@ I den här snabb starten har du skapat och kört ett program i real tid utan ser
 
 > [!div class="nextstepaction"]
 > [Utveckla Azure Functions med hjälp av Visual Studio](../azure-functions/functions-develop-vs.md)
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qscsharp)

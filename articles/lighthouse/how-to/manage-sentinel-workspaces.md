@@ -1,14 +1,14 @@
 ---
 title: Hantera Azure Sentinel-arbetsytor i skala
 description: Lär dig hur du effektivt hanterar Azure Sentinel på delegerade kund resurser.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511260"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050819"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Hantera Azure Sentinel-arbetsytor i skala
 
@@ -29,7 +29,7 @@ Den här centraliserade distributions modellen har följande fördelar:
 
 - Ägarskapet av data finns kvar med varje hanterad klient.
 - Stöder krav för att lagra data inom geografiska gränser.
-- Säkerställer data isolering eftersom data för flera kunder inte lagras i samma arbets yta. 
+- Säkerställer data isolering eftersom data för flera kunder inte lagras i samma arbets yta.
 - Förhindrar data exfiltrering från hanterade klienter, vilket hjälper till att säkerställa att data efterlevs.
 - Relaterade kostnader debiteras för varje hanterad klient i stället för att hantera klient organisationen.
 - Data från alla data källor och data anslutningar som är integrerade med Azure Sentinel (till exempel Azure AD-aktivitets loggar, Office 365-loggar eller Microsoft Threat Protection-aviseringar) förblir inom varje kund klient.
@@ -71,13 +71,21 @@ Du kan också distribuera arbets böcker direkt i en enskild klient som du hante
 
 ## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Kör Log Analytics-och jakt frågor i Azure Sentinel-arbetsytor
 
-Du kan skapa och spara Log Analytics frågor för att identifiera hot centralt i hanterings klienten, inklusive [jakt frågor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Dessa frågor kan sedan köras i alla dina kunders Azure Sentinel-arbetsytor med hjälp av operatorn union och arbetsyte (). Mer information finns i [frågor om flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Skapa och spara Log Analytics frågor för att identifiera hot centralt i hanterings klienten, inklusive [jakt frågor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Dessa frågor kan sedan köras i alla dina kunders Azure Sentinel-arbetsytor med hjälp av operatorn union och arbetsyte (). Mer information finns i [frågor om flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Använd Automation för hantering över arbets ytor
 
 Du kan använda Automation för att hantera flera Azure Sentinel-arbetsytor och konfigurera [jakt frågor](../../sentinel/hunting.md), spel böcker och arbets böcker. Mer information finns i [hantering av flera arbets ytor med hjälp av Automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
 Observera att vissa funktioner [inte stöds för närvarande i flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+
+## <a name="manage-security-of-office-365-environments"></a>Hantera säkerhet för Office 365-miljöer
+
+Använd Azure-Lighthouse tillsammans med Azure Sentinel för att hantera säkerheten för Office 365-miljöer mellan klienter. Först måste du vara inloggad [i box 365-data kopplingarna i den hanterade klienten](../../sentinel/connect-office-365.md) så att information om användar-och administratörs aktiviteter i Exchange och SharePoint (inklusive OneDrive) kan matas in till en Azure Sentinel-arbetsyta i den hanterade klienten. Detta omfattar information om åtgärder som fil hämtningar, åtkomst förfrågningar som skickats, ändringar av grupp händelser och post lådor, tillsammans med information om de användare som utförde åtgärderna. [Office 365 DLP-aviseringar](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) stöds också som en del av den inbyggda Office 365-anslutningen.
+
+Du kan aktivera [Microsoft Cloud App Security-anslutningen (MCAS)](../../sentinel/connect-cloud-app-security.md) för att strömma aviseringar och Cloud Discovery loggar i Azure Sentinel. På så sätt kan du få insyn i molnappar, få sofistikerade analyser för att identifiera och bekämpa cyberhot, samt styra hur data överförs. Aktivitets loggar för MCAS kan [förbrukas med hjälp av CEF (common Event format)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+
+När du har konfigurerat Office 365 data Connectors kan du använda funktioner för Azure-kontroll över flera klienter, till exempel Visa och analysera data i arbets böcker, använda frågor för att skapa anpassade aviseringar och konfigurera spel böcker för att svara på hot.
 
 ## <a name="next-steps"></a>Nästa steg
 

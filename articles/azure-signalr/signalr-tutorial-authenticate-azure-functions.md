@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 72f6cee18664f63e36c38499e77f4c0ba7177c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 45dc137141491938367fb57c6955e8e3145f8ff9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386868"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050462"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Självstudier: Azure SignalR Service-autentisering med Azure Functions
 
@@ -26,7 +26,7 @@ En stegvis självstudiekurs som beskriver hur du skapar ett chattrum med autenti
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Skicka nya meddelanden till anslutna chattklienter
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Lagra den statiska webbplatsen för chattklientens användargränssnitt
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Följande programvara krävs för den här självstudien.
 
@@ -38,9 +38,13 @@ Följande programvara krävs för den här självstudien.
   * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) – Arbeta med Azure Functions i VS Code
   * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) – Betjäna webbsidor lokalt för testning
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
+
 ## <a name="sign-into-the-azure-portal"></a>Logga in på Azure-portalen
 
 Gå till [Azure-portalen](https://portal.azure.com/) och logga in med dina autentiseringsuppgifter.
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-an-azure-signalr-service-instance"></a>Skapa en Azure SignalR Service-instans
 
@@ -58,7 +62,7 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
     |---|---|
     | Resursnamn | Ett unikt namn för SignalR Service-instansen |
     | Resursgrupp | Skapa en ny resurs grupp med ett unikt namn |
-    | Position | Välj en plats nära dig |
+    | Location | Välj en plats nära dig |
     | Prisnivå | Kostnadsfri |
 
 1. Klicka på **Skapa**.
@@ -66,7 +70,8 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
 1. När instansen har distribuerats öppnar du den i portalen och letar upp dess inställnings sida. Ändra inställningen för tjänst läge till *Server*lös.
 
     ![SignalR service läge](media/signalr-concept-azure-functions/signalr-service-mode.png)
-
+    
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
 
 ## <a name="initialize-the-function-app"></a>Initiera funktionsappen
 
@@ -131,7 +136,7 @@ När du kör och felsöker Azure Functions-körningsmiljön lokalt läser Azure 
 
 1. Spara filen.
 
-    
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>Skapa en funktion för att autentisera användare till SignalR Service
 
@@ -146,7 +151,7 @@ När chattappen öppnas i webbläsaren krävs giltiga autentiseringsuppgifter f�
 
 1. När du uppmanas att göra det anger du följande information.
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Mappen för funktionsappen | Välj den primära projektmappen |
     | Mall | HTTP-utlösare |
@@ -195,6 +200,8 @@ När chattappen öppnas i webbläsaren krävs giltiga autentiseringsuppgifter f�
 
     Den här funktionen hämtar SignalR-anslutningsinformationen från indatabindningen och returnerar den till klienten i HTTP-svarstexten. Signal klienten kommer att använda den här informationen för att ansluta till signal tjänst instansen.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
+
 ## <a name="create-a-function-to-send-chat-messages"></a>Skapa en funktion för att skicka chattmeddelanden
 
 Webbappen kräver också ett HTTP-API för att skicka chattmeddelanden. Du ska skapa en HTTP-utlöst funktion med namnet *SendMessage* som skickar meddelanden till alla anslutna klienter som använder SignalR Service.
@@ -205,7 +212,7 @@ Webbappen kräver också ett HTTP-API för att skicka chattmeddelanden. Du ska s
 
 1. När du uppmanas att göra det anger du följande information.
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Mappen för funktionsappen | Välj den primära projektmappen |
     | Mall | HTTP-utlösare |
@@ -276,6 +283,8 @@ Webbappen kräver också ett HTTP-API för att skicka chattmeddelanden. Du ska s
 
 1. Spara filen.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
+
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>Skapa och köra chattklientens webbaserade användargränssnitt
 
 Chattprogrammets användargränssnitt är en enkel ensidesapplikation (SPA) som skapas med Vue JavaScript-ramverket. Det lagras separat från funktionsappen. Lokalt kör du webbgränssnittet med VS Code-tillägget Live Server.
@@ -293,6 +302,8 @@ Chattprogrammets användargränssnitt är en enkel ensidesapplikation (SPA) som 
 1. När filen **index.html** är öppen startar du Live Server genom att öppna kommandopaletten i VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) och välja **Live Server: Open with Live Server** (Live servern: Öppna med Live Server). Live Server öppnar programmet i en webbläsare.
 
 1. Programmet öppnas. Ange ett meddelande i chattrutan och tryck på Retur. Uppdatera programmet för att se nya meddelanden. Eftersom ingen autentisering har konfigurerats skickas alla meddelanden som anonyma.
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Distribuera till Azure och aktivera autentisering
 
@@ -321,7 +332,7 @@ Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer o
     | Prenumeration | Välj den prenumeration som innehåller SignalR tjänst instansen |
     | Resursgrupp | Välj samma resurs grupp |
     | Resursnamn | Ett unikt namn för lagrings kontot |
-    | Position | Välj samma plats som dina andra resurser |
+    | Location | Välj samma plats som dina andra resurser |
     | Prestanda | Standard |
     | Typ av konto | StorageV2 (generell användning v2) |
     | Replikering | Lokalt redundant lagring (LRS) |
@@ -372,7 +383,7 @@ När ett meddelande skickas kan appen bestämma om det ska skickas till alla ans
 
 1. När du uppmanas att göra det anger du följande information.
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Mapp som ska distribueras | Välj den primära projektmappen |
     | Prenumeration | Välj din prenumeration |
@@ -490,9 +501,13 @@ Grattis! Du har distribuerat en serverlös realtidschattapp.
 
 ![Demo](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Rensa resurserna som skapats i den här självstudien genom att ta bort resursgruppen via Azure-portalen.
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -500,3 +515,6 @@ I den här självstudien har du lärt dig hur du använder Azure Functions med A
 
 > [!div class="nextstepaction"]
 > [Bygg appar i real tid med Azure Functions](signalr-concept-azure-functions.md)
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
+

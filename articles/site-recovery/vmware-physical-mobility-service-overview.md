@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19d6933497b469148687dc9c5012513ab7d0314b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604730"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047215"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
@@ -33,7 +33,7 @@ Om datorer som du vill replikera kör antivirus program, utesluter du mobilitets
 
 Push-installation är en integrerad del av jobbet som körs från Azure Portal för att [Aktivera replikering](vmware-azure-enable-replication.md#enable-replication). När du har valt den uppsättning med virtuella datorer som du vill skydda och aktivera replikering, skickar konfigurations servern mobilitets tjänst agenten till servrarna, installerar agenten och slutför agentens registrering med konfigurations servern.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Se till att alla [krav](vmware-azure-install-mobility-service.md) för push-installation är uppfyllda.
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
@@ -69,7 +69,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ## <a name="install-the-mobility-service-using-ui"></a>Installera mobilitets tjänsten med hjälp av användar gränssnittet
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
 - [Leta upp installations programmet](#locate-installer-files) för serverns operativ system.
@@ -97,7 +97,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Installera mobilitets tjänsten med hjälp av kommando tolken
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
 - [Leta upp installations programmet](#locate-installer-files) för serverns operativ system.
@@ -108,7 +108,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
   ```cmd
   cd C:\Temp
-  ren Microsoft-ASR_UA_version_Windows_GA_date_release.exe MobilityServiceInstaller.exe
+  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   ```

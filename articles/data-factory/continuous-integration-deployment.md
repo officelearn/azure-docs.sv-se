@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: f44c3ac51bfc509df0b8f2b82c2d6259bba0aa3c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815818"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047734"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -625,6 +625,8 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
 
     - Data Factory-entiteter är beroende av varandra. Utlösare är exempelvis beroende av pipeliner och pipeliner beror på data uppsättningar och andra pipeliner. Selektiv publicering av en del av resurser kan leda till oväntade beteenden och fel.
     - Vid sällsynta tillfällen när du behöver selektiv publicering bör du överväga att använda en snabb korrigering. Mer information finns i [snabb korrigerings produktions miljö](#hotfix-production-environment).
+
+- Azure Data Factorys teamet rekommenderar inte att du tilldelar RBAC-kontroller till enskilda entiteter (pipelines, data uppsättningar osv.) i en data fabrik. Om en utvecklare till exempel har åtkomst till en pipeline eller en data uppsättning, ska de kunna komma åt alla pipeliner eller data uppsättningar i data fabriken. Om du tycker att du behöver implementera många RBAC-roller i en data fabrik tittar du på att distribuera en andra data fabrik.
 
 -   Du kan inte publicera från privata grenar.
 

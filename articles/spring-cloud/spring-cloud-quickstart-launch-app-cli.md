@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 53e27e4fafaf4468c9c2f4a1ce24ace3d317dada
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 305a12de05ca934f5f8fd8b86746608d7fa32712
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503267"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046977"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Snabb start: starta ett Java våren-program med Azure CLI
 
-Med Azures våren Cloud kan du enkelt köra ett "våren Boot-baserat" mikrotjänster-program på Azure.
+Med Azures våren Cloud kan du enkelt köra ett "våren Boot-baserat" mikrotjänster-program på Azure.  Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
 
 Den här snabb starten visar hur du distribuerar ett befintligt Java våren Cloud-program till Azure. När du är klar kan du fortsätta att hantera programmet via Azure CLI eller växla till att använda Azure Portal.
 
@@ -29,7 +29,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) .
@@ -160,21 +160,21 @@ az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Gå till URL: en som tillhandahålls av föregående kommando för att köra PiggyMetrics-programmet.
-    ![Skärm bild av PiggyMetrics som körs](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+    ![PiggyMetrics körs](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 Du kan också navigera Azure Portal för att hitta URL: en. 
 1. Navigera till tjänsten
 2. Välj **appar**
 3. Välj **Gateway**
 
-    ![Skärm bild av PiggyMetrics som körs](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    ![PiggyMetrics-navigering](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
-4. Hitta URL: en på sidan **Gateway-översikt** ![ skärm bild av PiggyMetrics som körs](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+4. Hitta URL: en på **översikts** sidan för gateway  ![ PiggyMetrics navigera 2](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten har du distribuerat ett fjäder moln program från Azure CLI.  Om du vill veta mer om Azure våren Cloud fortsätter du till självstudien om att förbereda din app för distribution.
 

@@ -3,12 +3,12 @@ title: Stöd för Hyper-V-migrering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-migrering med Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871504"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051159"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Support mat ris för Hyper-V-migrering
 
@@ -26,7 +26,10 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 | **Distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. <br/>Azure Migrate Replication-programvara (Hyper-V-Replikeringsprovider) är installerad på Hyper-V-värdarna.|
 | **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. |
 | **Värd operativ system** | Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2 med de senaste uppdateringarna. Observera att Server Core-installation av dessa operativ system också stöds. |
+| **Andra program varu krav** | .NET Framework 4,7 eller senare |
 | **Port åtkomst** |  Utgående anslutningar på HTTPS-port 443 för att skicka data för VM-replikering.
+| **Ledigt disk utrymme (cache)** |  600 GB |
+| **Ledigt disk utrymme (kvarhållning av disk)** |  600 GB |
 
 
 ## <a name="hyper-v-vms"></a>Hyper-V:s virtuella datorer
@@ -39,6 +42,7 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 | **Nödvändiga ändringar för Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Gör justeringar manuellt innan migreringen. Relevanta artiklar innehåller instruktioner om hur du gör detta. |
 | **Linux-start**                 | Om/boot finns på en dedikerad partition bör den finnas på OS-disken och inte spridas över flera diskar.<br/> Om/Boot är en del av rot-partitionen (/) bör partitionen/-partitionen finnas på OS-disken och inte omfatta andra diskar. |
 | **UEFI-start**                  | Stöds. Se till att du väljer en VM-storlek som stöds av Azure generation 2 VM  |
+| **UEFI – säker start**         | Stöds inte för migrering.|
 | **Diskstorlek**                  | 2 TB för OS-disken, 4 TB för data diskar.|
 | **Disk nummer** | Högst 16 diskar per virtuell dator.|
 | **Krypterade diskar/volymer**    | Stöds inte för migrering.|

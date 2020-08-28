@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 770dd021a09e3ba0b1c2c6742ded3a73424b042f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8931c22c3656cf9708756153268ab1d9d87b8343
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951752"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050836"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Snabb start: bygga och distribuera appar till Azure våren Cloud
 
@@ -23,7 +23,7 @@ Det här dokumentet beskriver hur du skapar och distribuerar program för mikrot
 
 Innan du distribuerar med Azure CLI eller Maven ska du slutföra exemplen som [etablerar en instans av Azure våren Cloud](spring-cloud-quickstart-provision-service-instance.md) och [konfigurerar konfigurations servern](spring-cloud-quickstart-setup-config-server.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Installera JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
@@ -68,7 +68,7 @@ Kompilering av projektet tar cirka 5 minuter. När du är klar bör du ha enskil
     az spring-cloud app create --name account-service
     ```
 
-1. Vi måste faktiskt distribuera våra program till Azure. Använd följande kommandon för att distribuera alla tre programmen:
+1. Vi måste distribuera program som skapats i föregående steg till Azure. Använd följande kommandon för att distribuera alla tre programmen:
 
     ```azurecli
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
@@ -118,10 +118,10 @@ Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway
     ```
     
     Du uppmanas att välja:
-    * **Moduler:** Select `gateway` , `auth-service` och "konto-service" ")
-    * **Prenumeration:** din prenumeration med Azure våren Cloud-instansen har skapats
-    * **Tjänst instans:** namnet på den skapade Azure våren Cloud-instansen
-    * **Offentlig slut punkt:** I listan med tillhandahållna projekt anger du det nummer som motsvarar `gateway` för att ge IT-offentlig åtkomst.
+    * **Moduler:** Välj `gateway` , `auth-service` och `account-service` .
+    * **Prenumeration:** Det här är din prenumeration som används för att skapa en Azure våren Cloud-instans.
+    * **Tjänst instans:** Det här är namnet på din Azure våren Cloud-instans.
+    * **Offentlig slut punkt:** I listan med tillhandahållna projekt anger du det nummer som motsvarar `gateway` .  Detta ger IT-offentlig åtkomst.
 
 1. POM innehåller nu plugin-beroenden och konfigurationer. Distribuera apparna med hjälp av följande kommando. 
 
@@ -158,13 +158,13 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto me
 
     ![Distribuera till Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. I avsnittet **före start** i dialog rutan dubbelklickar du på * Kör maven mål * *.
+1. I avsnittet **före start** i dialog rutan dubbelklickar du på *Kör maven mål*.
 1. I text rutan **arbets katalog** navigerar du till mappen *piggymetrics/Gateway* .
 1. I text rutan **kommando rad** anger du *Package-DskipTests*. Klicka på **OK**.
 1. Starta distributionen genom att klicka på knappen **Kör** längst ned i dialog rutan **Distribuera Azure våren Cloud App** . Plugin-programmet kör kommandot `mvn package` på `gateway` appen och distribuerar jar som genereras av `package` kommandot.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Distribuera auth-service-och konto-service-appar till Azure våren Cloud
-Du kan upprepa stegen ovan för att distribuera `auth-service` och `account-service` apparna till Azure våren Cloud. Förvissa sig:
+Du kan upprepa stegen ovan för att distribuera `auth-service` och `account-service` apparna till Azure våren-molnet:
 
 1. Ändra **namnet** och **artefakten** för att identifiera `auth-service` appen.
 1. I text rutan **app:** väljer du **skapa app...** för att skapa `auth-service` appar.

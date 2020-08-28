@@ -1,24 +1,26 @@
 ---
 title: 'Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Node.js'
 titleSuffix: Azure Cognitive Services
-description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag i den här snabb starten.
+description: Använd pennan tecknings tolkens API och Java Script för att börja identifiera digitala penndrag i den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 59cd4711ec3604779e57434af72460534b378af4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b8d8464fb9defb64c039ef9026812de89436091c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407055"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050920"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java Script
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här JavaScript-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och visar svaret.
 
@@ -30,7 +32,7 @@ Normalt anropar du API: et från en digital intecknings app. I den här snabb st
 
 Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En webbläsare
 - Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
@@ -148,7 +150,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
         };
         ```
     
-    5. Skicka API-begäran. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken och ange `content-type` till`application/json`
+    5. Skicka API-begäran. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken och ange `content-type` till `application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

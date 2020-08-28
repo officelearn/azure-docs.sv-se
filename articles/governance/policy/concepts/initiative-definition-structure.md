@@ -3,12 +3,12 @@ title: Information om initiativ definitions strukturen
 description: Beskriver hur definitioner av policy initiativ används för att gruppera princip definitioner för distribution till Azure-resurser i din organisation.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544646"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048507"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Definitions struktur för Azure Policy initiativ
 
@@ -284,7 +284,7 @@ Den här informationen är:
 
 - Visas i Azure Portal i Översikt över en **kontroll** på ett reglerings initiativ för regelefterlevnad.
 - Tillgängligt via REST API. Se `Microsoft.PolicyInsights` resurs leverantören och policyMetadata- [Åtgärds gruppen](/rest/api/policy-insights/policymetadata/getresource).
-- Tillgängligt via Azure CLI. Se kommandot [metadata för AZ-princip](/cli/azure/policy/metadata?view=azure-cli-latest) .
+- Tillgängligt via Azure CLI. Se kommandot [metadata för AZ-princip](/cli/azure/policy/metadata) .
 
 > [!IMPORTANT]
 > Metadata-objekt för regelefterlevnad är _skrivskyddade_ och kan inte skapas av kunder.

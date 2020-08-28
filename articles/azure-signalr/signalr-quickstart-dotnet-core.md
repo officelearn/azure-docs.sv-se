@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c3a482dc1fa63b997b948cc3bc5cacefc9c2ad0a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c330b201c74a2ce56283e30be90cd117b1022f6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928538"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050537"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Snabb start: skapa ett chattrum med hjälp av signal tjänsten
 
@@ -29,14 +29,18 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Installera [.net Core SDK](https://www.microsoft.com/net/download/windows).
 * Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
+
 ## <a name="create-an-azure-signalr-resource"></a>Skapa en Azure SignalR-resurs
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
@@ -50,6 +54,7 @@ I det här avsnittet använder du [.net Core kommando rads gränssnitt (CLI)](ht
     dotnet new mvc
     ```
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 
 ## <a name="add-secret-manager-to-the-project"></a>Lägg till Secret Manager i projektet
 
@@ -72,6 +77,8 @@ I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.
     </ItemGroup>
     </Project>    
     ```
+    
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Lägg till Azure SignalR till webbappen
 
@@ -226,6 +233,7 @@ I det här avsnittet ska du lägga till en utvecklings körnings miljö för ASP
     }
     ```
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
@@ -255,7 +263,7 @@ I det här avsnittet ska du lägga till en utvecklings körnings miljö för ASP
 
     ![Exempel på en Azure SignalR-grupp Chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -280,7 +288,7 @@ Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på res
    
 Efter en liten stund tas resursgruppen och de resurser som finns i den bort.
 
-
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -289,4 +297,5 @@ I den här snabb starten skapade du en ny Azure SignalR service-resurs. Sedan an
 > [!div class="nextstepaction"]
 > [Azure SignalR Service-autentisering](./signalr-concept-authenticate-oauth.md)
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsnetcore)
 

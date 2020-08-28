@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815060"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047113"
 ---
 # <a name="what-is-risk"></a>Vad är risker?
 
@@ -39,7 +39,6 @@ Dessa risker beräknas offline med Microsofts interna och externa hot informatio
 | Identifiering av risker | Beskrivning |
 | --- | --- |
 | Läckta autentiseringsuppgifter | Den här typen av risk identifiering anger att användarens giltiga autentiseringsuppgifter har läckts. När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar de ofta dessa autentiseringsuppgifter. Den här delningen görs vanligt vis genom att publicera offentligt på den mörka webbplatsen, klistra in webbplatser eller genom handel och sälja autentiseringsuppgifterna på den svarta marknaden. När tjänsten Microsoft läcker autentiseringsuppgifter hämtar användarautentiseringsuppgifter från den mörka webben, klistra in webbplatser eller andra källor, kontrol leras de mot Azure AD-användares aktuella giltiga autentiseringsuppgifter för att hitta giltiga matchningar. Mer information om läckage av autentiseringsuppgifter finns i [vanliga frågor](#common-questions). |
-| Lösen ords sprayning | En attack för lösen ords spridning är att flera användar namn angrips med vanliga lösen ord i ett enhetligt brutet sätt för att få obehörig åtkomst. Den här identifieringen av risker utlöses när en attack för lösen ords spridning har utförts. |
 | Azure AD Threat Intelligence | Den här typen av risk identifiering indikerar användar aktivitet som är ovanlig för den aktuella användaren eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor. |
 
 ### <a name="sign-in-risk"></a>Inloggningsrisk
@@ -57,6 +56,7 @@ Dessa risker kan beräknas i real tid eller beräknas offline med hjälp av Micr
 | Administratören bekräftade att användaren har komprometterats | Offline | Den här identifieringen anger att en administratör har valt "bekräfta användare som har komprometterats" i användar gränssnittet för riskfyllda användare eller med riskyUsers-API. Om du vill se vilken administratör som har bekräftat att den här användaren har fått problem, kontrollerar du användarens risk historik (via UI eller API). |
 | Skadlig IP-adress | Offline | Den här identifieringen indikerar inloggning från en skadlig IP-adress. En IP-adress betraktas som skadlig baserat på hög fel frekvens på grund av ogiltiga autentiseringsuppgifter som tagits emot från IP-adressen eller andra IP-ryktes källor. |
 | Ändrings regler för misstänkt inkorg | Offline | Den här identifieringen upptäcks av [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Identifierings profilerna i din miljö och utlöser aviseringar när misstänkta regler som tar bort eller flyttar meddelanden eller mappar anges i en användares inkorg. Den här identifieringen kan tyda på att användarens konto har komprometterats, att meddelanden avsiktligt döljs och att post lådan används för att distribuera skräp post eller skadlig kod i din organisation. |
+| Lösen ords sprayning | Offline | En attack för lösen ords spridning är att flera användar namn angrips med vanliga lösen ord i ett enhetligt brutet sätt för att få obehörig åtkomst. Den här identifieringen av risker utlöses när en attack för lösen ords spridning har utförts. |
 | Omöjlig resa | Offline | Den här identifieringen upptäcks av [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Den här identifieringen identifierar två användar aktiviteter (är en eller flera sessioner) som härstammar från geografiskt avlägsna platser inom en tids period som är kortare än den tid då den skulle ha tagit användaren att resa från den första platsen till den andra, vilket indikerar att en annan användare använder samma autentiseringsuppgifter. |
 
 ### <a name="other-risk-detections"></a>Andra risk identifieringar

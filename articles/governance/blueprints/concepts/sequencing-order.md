@@ -1,14 +1,14 @@
 ---
 title: Förstå ordningen för distributions ordningen
 description: Lär dig mer om standard ordningen som skiss artefakter distribueras i under en skiss tilldelning och hur du anpassar distributions ordningen.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970628"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051482"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå distributions ordningen i Azure-ritningar
 
@@ -44,7 +44,7 @@ I varje **resurs grupps** artefakt används följande ordning för artefakter so
 
 När du skapar stora skiss definitioner kan det vara nödvändigt att resurser skapas i en speciell ordning. Det vanligaste användnings mönstret i det här scenariot är när en skiss definition innehåller flera ARM-mallar. Azure-ritningar hanterar det här mönstret genom att tillåta ordningsföljds ordning att definieras.
 
-Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss definitionen, för resurs grupper och artefakt objekt stöder den här egenskapen. `dependsOn`är en sträng mat ris med artefakt namn som den specifika artefakten måste skapas innan den skapas.
+Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss definitionen, för resurs grupper och artefakt objekt stöder den här egenskapen. `dependsOn` är en sträng mat ris med artefakt namn som den specifika artefakten måste skapas innan den skapas.
 
 > [!NOTE]
 > När du skapar skiss objekt hämtar varje artefakt resurs sitt namn från fil namnet, om du använder [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), eller URL-slutpunkten om du använder [REST API](/rest/api/blueprints/artifacts/createorupdate). _resourceGroup_ -referenser i artefakter måste matcha de som definierats i skiss definitionen.
@@ -141,8 +141,8 @@ Ett exempel är en resurs grupp som är beroende av en princip för en prenumera
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om [livscykeln för en skiss](lifecycle.md).
-- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
-- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
+- Mer information om [livscykeln för en skiss](./lifecycle.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](./parameters.md).
+- Lär dig hur du använder [resurslåsning för en skiss](./resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
 - Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

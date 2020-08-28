@@ -82,7 +82,7 @@
             - name: Kopiera en hanterad disk
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
             - name: Skapa en ögonblicksbild från en virtuell hårddisk
@@ -124,7 +124,7 @@
             - name: Kopiera en hanterad disk
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: Kopiera en ögonblicksbild

@@ -329,6 +329,28 @@
       items:
         - name: Regler för datainsamling
           href: platform/data-collection-rule-overview.md
+        - name: Agentdatakällor
+          items:
+            - name: Översikt
+              href: platform/agent-data-sources.md
+            - name: Windows-händelser
+              href: platform/data-sources-windows-events.md
+            - name: Anpassade JSON-data
+              href: platform/data-sources-json.md
+            - name: CollectD-prestandadata
+              href: platform/data-sources-collectd.md
+            - name: Syslog
+              href: platform/data-sources-syslog.md
+            - name: Prestandaräknare
+              href: platform/data-sources-performance-counters.md
+            - name: Programprestanda på Linux
+              href: platform/data-sources-linux-applications.md
+            - name: IIS-loggar
+              href: platform/data-sources-iis-logs.md
+            - name: Anpassade loggar
+              href: platform/data-sources-custom-logs.md
+            - name: Anpassade fält
+              href: platform/custom-fields.md
         - name: Anpassade mått
           items:
             - name: Anpassade mått
@@ -361,6 +383,24 @@
             - name: Datainsamling
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Log Analytics-agent
+          items:
+            - name: Översikt
+              href: platform/log-analytics-agent.md
+            - name: Windows-agenter
+              href: platform/agent-windows.md
+            - name: Linux-agenter
+              href: platform/agent-linux.md
+            - name: VM-tillägg för Windows
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: VM-tillägg för Linux
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Log Analytics-gatewayen
+              href: platform/gateway.md
+            - name: Agenthantering
+              href: platform/agent-manage.md
+            - name: Agenthälsa
+              href: insights/solution-agenthealth.md
         - name: Azure Diagnostics-tillägg
           items:
             - name: Översikt
@@ -403,46 +443,6 @@
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Samla in mått med Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: Log Analytics-agent
-          items:
-            - name: Översikt
-              href: platform/log-analytics-agent.md
-            - name: Windows-agenter
-              href: platform/agent-windows.md
-            - name: Linux-agenter
-              href: platform/agent-linux.md
-            - name: VM-tillägg för Windows
-              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-            - name: VM-tillägg för Linux
-              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-            - name: Log Analytics-gatewayen
-              href: platform/gateway.md
-            - name: Agenthantering
-              href: platform/agent-manage.md
-            - name: Agenthälsa
-              href: insights/solution-agenthealth.md
-            - name: Datakällor
-              items:
-                - name: Översikt
-                  href: platform/agent-data-sources.md
-                - name: Windows-händelser
-                  href: platform/data-sources-windows-events.md
-                - name: Anpassade JSON-data
-                  href: platform/data-sources-json.md
-                - name: CollectD-prestandadata
-                  href: platform/data-sources-collectd.md
-                - name: Syslog
-                  href: platform/data-sources-syslog.md
-                - name: Prestandaräknare
-                  href: platform/data-sources-performance-counters.md
-                - name: Programprestanda på Linux
-                  href: platform/data-sources-linux-applications.md
-                - name: IIS-loggar
-                  href: platform/data-sources-iis-logs.md
-                - name: Anpassade loggar
-                  href: platform/data-sources-custom-logs.md
-                - name: Anpassade fält
-                  href: platform/custom-fields.md
         - name: Felsöka
           items:
             - name: Log Analytics-tillägg för virtuella datorer

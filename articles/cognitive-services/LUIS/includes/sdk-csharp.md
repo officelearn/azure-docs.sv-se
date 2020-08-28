@@ -159,7 +159,7 @@ Skapande metoder för entiteter ingår i [modell](https://docs.microsoft.com/dot
 
 Entitetens skapande kod skapar en enhet för maskin inlärning med underentiteter och funktioner som tillämpas på `Quantity` underentiteterna.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Entiteten för skapande av entitet skapar en enhet för maskin inlärning med underentiteter och funktioner som används i underentiteterna "kvantitet".":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Entiteten för skapande av entitet skapar en enhet för maskin inlärning med underentiteter och funktioner som används i underentiteterna kvantitet.":::
 
 [!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddEntities)]
 

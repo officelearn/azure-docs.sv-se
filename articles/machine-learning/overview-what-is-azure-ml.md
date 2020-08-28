@@ -9,18 +9,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5d8dca091ef5bc039538903f07f46bc5d8ea262f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650119"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021586"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
 I den här artikeln får du lära dig mer om Azure Machine Learning, en molnbaserad miljö som du kan använda för att träna, distribuera, automatisera, hantera och spåra ML-modeller. 
 
-Azure Machine Learning kan användas för alla typer av Machine Learning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning. Oavsett om du föredrar att skriva python-eller R-kod eller koder med lägre kod, till exempel [designern](tutorial-designer-automobile-price-train-score.md), kan du skapa, träna och spåra mycket exakta maskin inlärnings-och djup inlärnings modeller i en Azure Machine Learning-arbetsyta. 
+Azure Machine Learning kan användas för alla typer av Machine Learning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning. Oavsett om du föredrar att skriva python eller R-kod med SDK eller arbeta med alternativ utan kod/låg kod i [Studio](#build-ml-models-in-the-studio), kan du skapa, träna och spåra maskin inlärnings-och djup inlärnings modeller i en Azure Machine Learning-arbetsyta. 
 
 Starta utbildningen på den lokala datorn och skala sedan ut till molnet. 
 
@@ -67,23 +67,27 @@ Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-tar
 
 Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-models.md) med hjälp av SDK.
 
-## <a name="build-ml-models-with-no-code-tools"></a>Bygg ML-modeller med verktyg utan kod
+## <a name="build-ml-models-in-the-studio"></a>Bygg ML-modeller i Studio
 
-För kod kostnads fri eller låg kod utbildning och distribution, försök:
+[Azure Machine Learning Studio](https://www.ml.azure.com) är en webb portal i Azure Machine Learning för alternativ med låg kod och ingen kod för modell utbildning, distribution och till gångs hantering. Studio integreras med Azure Machine Learning SDK för en sömlös upplevelse. Mer information finns i [Vad är Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning designer (för hands version)**
 
-  Använd designern för att prepare data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller utan att skriva någon kod. Det krävs ingen programmering, du ansluter visuellt data uppsättningar och moduler visuellt för att skapa din modell. Prova [själv studie kursen om designer](tutorial-designer-automobile-price-train-score.md).
+  Använd [designern](concept-designer.md) för att träna och distribuera Machine Learning-modeller utan att skriva någon kod. Försök att komma igång med [design guiden](tutorial-designer-automobile-price-train-score.md) . 
 
-  Läs mer i [artikeln Översikt över Azure Machine Learning designer](concept-designer.md). 
+  ![Animerad GIF av dra-och-släpp-gränssnittet i Azure Machine Learning designer](media/concept-designer/designer-drag-and-drop.gif)
 
-  ![Exempel på Azure Machine Learning designer](./media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
++ **Spåra experiment**
 
-+ **Automatiserat gränssnitt för Machine Learning**
+  Lär dig hur du [spårar och visualiserar data vetenskaps experiment](tutorial-first-experiment-automated-ml.md) i Studio. 
 
-  Lär dig hur du skapar [automatiserade ml-experiment](tutorial-first-experiment-automated-ml.md) i det lättanvända gränssnittet. 
+    ![Kör information i Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-  [![Navigerings fönstret i Azure Machine Learning Studio](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
++ **Och mycket annat...**
+
+  Besök Azure Machine Learning Studio på [ml.Azure.com](https://www.ml.azure.com). 
+
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Distribuera & livs cykel hantering
 När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).

@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: 64bc3921a606ab3211173b46b268ded53952c8bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75434666"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020940"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av C#
 
@@ -28,7 +28,7 @@ Den här snabb starten förväntar dig att du redan har skapat en IoT Hub-och De
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/).
 * Installera [.net Core SDK](https://www.microsoft.com/net/download/windows).
@@ -95,7 +95,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
 
    Det här steget hämtar, installerar och lägger till en referens till [klient-SDK NuGet-paketet för Azure IoT Provisioning-tjänsten](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) och dess beroenden.
 
-1. Lägg till följande `using` -satser efter de `using` andra-satserna överst `Program.cs`i:
+1. Lägg till följande- `using` satser efter de andra- `using` satserna överst i `Program.cs` :
 
    ```csharp
    using System.Security.Cryptography.X509Certificates;
@@ -103,7 +103,7 @@ I det här avsnittet visas hur du skapar en .NET Core-konsol som lägger till en
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Lägg till följande fält i- `Program` klassen och gör de listade ändringarna.  
+1. Lägg till följande fält i `Program` -klassen och gör de listade ändringarna.  
 
    ```csharp
    private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";

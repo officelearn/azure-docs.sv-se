@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718959"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003549"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planera och distribuera lokala Azure Active Directory lösen ords skydd
 
@@ -49,6 +49,8 @@ Det är också möjligt att använda starkare lösen ords verifiering för att p
 * [Degradering av domänkontrollanten Miss lyckas på grund av ett svagt lokalt administratörs lösen ord](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 När funktionen har körts i gransknings läge under en rimlig period, kan du växla konfigurationen från *granskning* *till att kräva säkrare* lösen ord. Ytterligare övervakning under den här tiden är en bra idé.
+
+Det är viktigt att Observera att Azure AD Password Protection bara kan verifiera lösen ord under ändring av lösen ord eller ange åtgärder. Lösen ord som har godkänts och lagrats i Active Directory före distributionen av Azure AD-lösenordet verifieras aldrig och fortsätter att fungera i befintligt skick. Med tiden kommer alla användare och konton att börja använda Azure AD Password Protection – verifierade lösen ord eftersom deras befintliga lösen ord upphör att gälla normalt. Konton som kon figurer ATS med "lösen ordet upphör aldrig att gälla" är undantagna från detta.
 
 ### <a name="multiple-forest-considerations"></a>Överväganden för flera skogar
 

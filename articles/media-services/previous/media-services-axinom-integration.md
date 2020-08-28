@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 147fecdd9777e06ce078e4ed1531d6d0a0da749c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c2dc90b84446917c4f06de707047b92e52cf7bc8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954629"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020991"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd Axinom för att leverera Widevine-licenser till Azure Media Services 
 > [!div class="op_single_selector"]
@@ -54,7 +55,7 @@ Du kan konfigurera dynamiskt CENC skydd med multi-DRM för streck strömning med
 
 Se avsnittet om [skapande av JWT-token](media-services-axinom-integration.md#jwt-token-generation) för varför Azure Active Directory inte kan användas som STS för Axinom-Widevine licens Server.
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 1. Du måste använda Axinom-8888000000000000000000000000000000000000 (Key frö) och det genererade eller valda nyckel-ID: t för att generera innehålls nyckeln för att konfigurera Key Delivery Service. Axinom licens Server utfärdar alla licenser som innehåller innehålls nycklar baserat på samma nyckel-utsäde, som är giltig för både testning och produktion.
 2. URL: en för hämtning av Widevine-licens för testning: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense) . Både HTTP och HTTS är tillåtna.
 
@@ -142,7 +143,7 @@ Axinom Widevine licens Server
 <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
 ```
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 1. Även om AMS PlayReady licens Delivery Service kräver "Bearer =" före en autentiseringstoken används den inte av Axinom Widevine licens Server.
 2. Axinom-kommunikations nyckeln används som signerings nyckel. Nyckeln är en hex-sträng, men den måste behandlas som en serie byte som inte är en sträng vid kodning. Detta uppnås av metoden ConvertHexStringToByteArray.
 
@@ -199,8 +200,8 @@ Följande parametrar krävs i den mini-lösning som utnyttjar Axinom Widevine Li
 | --- | --- |
 | ID för kommunikations nyckel |Måste inkluderas som värde för anspråket com_key_id i JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
 | Kommunikations nyckel |Måste användas som signerings nyckel för JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
-| Nyckel-Seed |Måste användas för att generera en innehålls nyckel med ett angivet innehålls nyckel-ID (se [det här](media-services-axinom-integration.md#content-protection) avsnittet). |
-| URL för hämtning av Widevine-licens |Måste användas för att konfigurera till gångs leverans princip för streck strömning (se [det här](media-services-axinom-integration.md#content-protection) avsnittet). |
+| Nyckel-Seed |Måste användas för att generera en innehålls nyckel med ett angivet innehålls nyckel-ID (se  [det här](media-services-axinom-integration.md#content-protection) avsnittet). |
+| URL för hämtning av Widevine-licens |Måste användas för att konfigurera till gångs leverans princip för streck strömning (se  [det här](media-services-axinom-integration.md#content-protection) avsnittet). |
 | Innehålls nyckel-ID |Måste ingå som en del av värdet för rättighets meddelande anspråk för JWT-token (se [det här](media-services-axinom-integration.md#jwt-token-generation) avsnittet). |
 
 ## <a name="additional-notes"></a>Ytterligare information
@@ -213,6 +214,6 @@ Följande parametrar krävs i den mini-lösning som utnyttjar Axinom Widevine Li
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>Tack
+### <a name="acknowledgments"></a>Tack till
 Vi vill bekräfta följande personer som bidragit till att skapa det här dokumentet: Kristjan Jõgi of Axinom, Mingfei Yan och Amit Rajput.
 

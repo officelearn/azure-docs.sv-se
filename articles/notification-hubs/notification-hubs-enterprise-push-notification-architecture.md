@@ -16,12 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084321"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003634"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Push-arkitekturvägledning för företag
 
@@ -89,7 +90,7 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
     }
     ```
 
-    c. `CreateTopic`används för att skapa Service Bus avsnittet.
+    c. `CreateTopic` används för att skapa Service Bus avsnittet.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -106,7 +107,7 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
     }
     ```
 
-    d. `SendMessage`används för att skicka meddelanden till den här Service Bus avsnittet. Den här koden skickar bara en uppsättning slumpmässiga meddelanden till ämnet med jämna mellanrum för exemplet. Normalt finns det ett Server dels system som skickar meddelanden när en händelse inträffar.
+    d. `SendMessage` används för att skicka meddelanden till den här Service Bus avsnittet. Den här koden skickar bara en uppsättning slumpmässiga meddelanden till ämnet med jämna mellanrum för exemplet. Normalt finns det ett Server dels system som skickar meddelanden när en händelse inträffar.
 
     ```csharp
     public static void SendMessage(string connectionString)
@@ -158,7 +159,7 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
     }
     ```
 
-    c. `CreateSubscription`används för att skapa en Service Bus-prenumeration för det avsnitt där backend-systemet skickar meddelanden. Beroende på affärs scenariot skapar den här komponenten en eller flera prenumerationer på motsvarande ämnen (till exempel vissa kan ta emot meddelanden från HR-system, vissa från ekonomi system och så vidare)
+    c. `CreateSubscription` används för att skapa en Service Bus-prenumeration för det avsnitt där backend-systemet skickar meddelanden. Beroende på affärs scenariot skapar den här komponenten en eller flera prenumerationer på motsvarande ämnen (till exempel vissa kan ta emot meddelanden från HR-system, vissa från ekonomi system och så vidare)
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -174,7 +175,7 @@ Den fullständiga exempel koden är tillgänglig i [Notification Hub-exempel]. D
     }
     ```
 
-    d. `ReceiveMessageAndSendNotification`används för att läsa meddelandet från avsnittet med hjälp av prenumerationen och om läsningen lyckas kan du skicka ett meddelande (i exempel scenariot ett Windows Native popup-meddelande) till det mobila programmet med Azure Notification Hubs.
+    d. `ReceiveMessageAndSendNotification` används för att läsa meddelandet från avsnittet med hjälp av prenumerationen och om läsningen lyckas kan du skicka ett meddelande (i exempel scenariot ett Windows Native popup-meddelande) till det mobila programmet med Azure Notification Hubs.
 
     ```csharp
     static void ReceiveMessageAndSendNotification(string connectionString)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717786"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003481"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Password Protection på plats
 
@@ -47,6 +47,14 @@ En lösen ords ändring är när en användare väljer ett nytt lösen ord när 
 En lösen ords uppsättning (kallas ibland återställning av lösen ord) är när en administratör ersätter lösen ordet för ett konto med ett nytt lösen ord, till exempel med hjälp av verktyget Active Directory användare och datorer hantering. Den här åtgärden kräver en hög behörighets nivå (vanligt vis domän administratören) och den person som utför åtgärden har vanligt vis inte kunskap om det gamla lösen ordet. Support scenarier utför ofta lösen ords uppsättningar, till exempel för att hjälpa en användare som har glömt sitt lösen ord. Du kan också se händelser för lösen ords uppsättning när ett helt nytt användar konto skapas för första gången med ett lösen ord.
 
 Principen för lösen ords verifiering beter sig på samma sätt oavsett om en ändring eller uppsättning av lösen ord görs. Azure AD Password Protection DC Agent-tjänsten loggar olika händelser för att meddela dig om ett lösen ords ändring eller en åtgärd har gjorts.  Se [övervakning och loggning av lösen ords skydd i Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
+
+**F: bekräftar Azure AD Password Protection befintliga lösen ord när de har installerats?**
+
+No – Azure AD Password Protection kan endast tillämpa lösen ords principen på lösen ord med klartext under en lösen ords ändring eller ange en åtgärd. När ett lösen ord har accepterats av Active Directory sparas endast autentiserings-protokoll-Specific hash-värden för lösen ordet. Lösen ordet för klartext sparas aldrig, och därför kan inte lösen ords skyddet i Azure AD validera befintliga lösen ord.
+
+Efter den första distributionen av lösen ords skyddet i Azure AD kommer alla användare och konton slutligen att börja använda ett lösen ord som verifierats i Azure AD, eftersom deras befintliga lösen ord upphör att gälla normalt över tid. Om du vill kan du påskynda den här processen genom att använda ett engångs manuellt förfallo datum för användar kontots lösen ord.
+
+Konton som kon figurer ATS med "lösen ordet upphör aldrig att gälla" kommer aldrig att tvingas att ändra sina lösen ord om inte manuell förfallo datum har gjorts.
 
 **F: Varför loggas dubbletter av lösen ords avvisande vid försök att ange ett svagt lösen ord med hjälp av snapin-modulen Active Directory användare och datorer hantering?**
 

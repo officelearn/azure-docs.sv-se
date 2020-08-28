@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1c5b008b9771e636201f95f3a56f81d4e75b7ea2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4365796a9d7f7b72687db19573c09ccfdf9ea8de
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831744"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020540"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Leverera Direktsänd strömning med Azure Media Services
 
@@ -32,7 +33,7 @@ Media Services .NET SDK innehåller API: er som skickar begäran och väntar på
 Det finns scenarier där ett program inte kan vänta på en tids krävande http-begäran och vill söka efter åtgärdens förlopp manuellt. Ett typiskt exempel är en webbläsare som interagerar med en tillstånds lös webb tjänst: när webbläsaren begär att skapa en kanal, initierar webb tjänsten en tids krävande åtgärd och returnerar åtgärds-ID: t till webbläsaren. Webbläsaren kan sedan be webb tjänsten att hämta åtgärds status baserat på ID. Media Services .NET SDK innehåller API: er som är användbara för det här scenariot. Dessa API: er kallas "icke-avsöknings metoder".
 "Icke-avsöknings metoder" har följande namn mönster: skicka*OperationName*-åtgärd (till exempel SendCreateOperation). Skicka*OperationName*-åtgärds metoder returnerar **IOperation** -objektet; det returnerade objektet innehåller information som kan användas för att spåra åtgärden. **Uppgiften \<IOperation> **skicka*OperationName*-OperationAsync metoder returneras.
 
-För närvarande stöder följande klasser icke-avsöknings metoder: **kanal**, **StreamingEndpoint**och **program**.
+För närvarande stöder följande klasser icke-avsöknings metoder:  **kanal**, **StreamingEndpoint**och **program**.
 
 Om du vill avsöka efter åtgärds status använder du **Get operation** -metoden i **OperationBaseCollection** -klassen. Använd följande intervall för att kontrol lera åtgärds status: för **kanal** -och **StreamingEndpoint** -åtgärder ska du använda 30 sekunder; Använd 10 sekunder för **program** åtgärder.
 

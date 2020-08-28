@@ -3,7 +3,7 @@ title: Konfigurera hanterade identiteter på virtuella datorers skalnings uppsä
 description: Stegvisa instruktioner för hur du konfigurerar ett system och användare som tilldelats hanterade identiteter på en virtuell dators skalnings uppsättning med hjälp av PowerShell.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d549d3b59eabbeab6b8a892cb6800f0088ece2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84d3142547babb780de7a442667fd3472a4ffdc0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609083"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021552"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser i skalnings uppsättningar för virtuella datorer med hjälp av PowerShell
 

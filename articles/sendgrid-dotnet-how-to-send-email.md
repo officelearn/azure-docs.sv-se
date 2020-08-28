@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: 82bcc61d06ac519447307c1e92784f33794d5817
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258016"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020600"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Skicka e-post med hjälp av SendGrid med Azure
 ## <a name="overview"></a>Översikt
@@ -276,7 +277,7 @@ SendGrid erbjuder flera API: er och Webhooks som du kan använda för att utnytt
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
 * SendGrid C \# -bibliotek lagrings platsen: [SendGrid-csharp][sendgrid-csharp]
-* SendGrid API-dokumentation:<https://sendgrid.com/docs>
+* SendGrid API-dokumentation: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
 [What is the SendGrid Email Service?]: #whatis

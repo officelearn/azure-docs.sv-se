@@ -1,54 +1,53 @@
 ---
-title: Anslut Windows-datorer till Azure Monitor | Microsoft Docs
+title: Installera Log Analytics agent på Windows-datorer
 description: Den här artikeln beskriver hur du ansluter Windows-datorer som finns i andra moln eller lokalt för att Azure Monitor med Log Analytics agent för Windows.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/07/2019
-ms.openlocfilehash: 80ece5b0704869c31ab0656eed922b3f21ba9928
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/03/2020
+ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505762"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003379"
 ---
-# <a name="connect-windows-computers-to-azure-monitor"></a>Anslut Windows-datorer till Azure Monitor
+# <a name="install-log-analytics-agent-on-windows-computers"></a>Installera Log Analytics agent på Windows-datorer
+Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Windows-datorer med följande metoder:
 
-För att övervaka och hantera virtuella datorer eller fysiska datorer i ditt lokala data Center eller annan moln miljö med Azure Monitor måste du distribuera Log Analytics agent (kallas även Microsoft Monitoring Agent (MMA)) och konfigurera den att rapportera till en eller flera Log Analytics arbets ytor. Agenten stöder också Hybrid Runbook Worker-rollen för Azure Automation.  
+* Manuell installation med [installations guiden](#install-agent-using-setup-wizard) eller [kommando raden](#install-agent-using-command-line).
+* [Azure Automation önskad tillstånds konfiguration (DSC)](#install-agent-using-dsc-in-azure-automation). 
 
-På en övervakad Windows-dator visas agenten som Microsoft Monitoring Agent-tjänst. Tjänsten Microsoft Monitoring Agent samlar in händelser från loggfiler och Windows händelse logg, prestanda data och annan telemetri. Även om agenten inte kan kommunicera med Azure Monitor den rapporterar till, fortsätter agenten att köra och köar insamlade data på den övervakade datorns disk. När anslutningen har återställts skickar tjänsten Microsoft Monitoring Agent insamlade data till tjänsten.
+>[!IMPORTANT]
+> Installations metoderna som beskrivs i den här artikeln används vanligt vis för virtuella datorer lokalt eller i andra moln. Se [installations alternativ](log-analytics-agent.md#installation-options) för mer effektiva alternativ som du kan använda för Azure Virtual Machines.
 
-Agenten kan installeras med hjälp av någon av följande metoder. De flesta installationer använder en kombination av dessa metoder för att installera olika uppsättningar datorer efter behov.  Information om hur du använder varje metod finns längre fram i artikeln.
+> [!NOTE]
+> Om du behöver konfigurera agenten för att rapportera till fler än en arbets yta, kan detta inte utföras under den första installationen, bara efteråt genom att uppdatera inställningarna från kontroll panelen eller PowerShell enligt beskrivningen i [lägga till eller ta bort en arbets yta](agent-manage.md#adding-or-removing-a-workspace).  
 
-* Manuell installation. Installations programmet körs manuellt på datorn med hjälp av installations guiden, från kommando raden eller distribueras med hjälp av ett befintligt program distributions verktyg.
-* Azure Automation önskad tillstånds konfiguration (DSC). Att använda DSC i Azure Automation med ett skript för Windows-datorer som redan har distribuerats i din miljö.  
-* PowerShell-skript.
-* Resource Manager-mall för virtuella datorer som kör Windows lokalt i Azure Stack. 
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
->[!NOTE]
->Azure Security Center (ASC) är beroende av Microsoft Monitoring Agent (kallas även för Log Analytics Windows-agent) och kommer att installera och konfigurera den så att den rapporterar till en Log Analytics arbets yta som en del av dess distribution. ASC innehåller ett automatiskt etablerings alternativ som aktiverar automatisk installation av Log Analytics Windows-agenten på alla virtuella datorer i din prenumeration och konfigurerar den att rapportera till en angiven arbets yta. Mer information om det här alternativet finns i [Aktivera automatisk etablering av Log Analytics agent](../../security-center/security-center-enable-data-collection.md#auto-provision-mma).
->
+Se [Översikt över Azure Monitor agenter](agents-overview.md#supported-operating-systems) för en lista över Windows-versioner som stöds av Log Analytics agenten.
 
-Om du behöver konfigurera agenten för att rapportera till fler än en arbets yta, kan detta inte utföras under den första installationen, bara efteråt genom att uppdatera inställningarna från kontroll panelen eller PowerShell enligt beskrivningen i [lägga till eller ta bort en arbets yta](agent-manage.md#adding-or-removing-a-workspace).  
+### <a name="sha-2-code-signing-support-requirement"></a>Support krav för SHA-2-kod signering 
+Windows-agenten börjar uteslutande använda SHA-2-signering den 17 augusti 2020. Den här ändringen påverkar kunder som använder Log Analytics agenten på ett äldre operativ system som en del av en Azure-tjänst (Azure Monitor, Azure Automation, Azure Uppdateringshantering, Azure Ändringsspårning, Azure Security Center, Azure Sentinel, Windows Defender ATP). Ändringen kräver ingen kund åtgärd om du inte kör agenten på en äldre OS-version (Windows 7, Windows Server 2008 R2 och Windows Server 2008). Kunder som kör på en äldre OS-version måste vidta följande åtgärder på sina datorer före den 17 augusti 2020, annars kommer deras agenter att sluta skicka data till sina Log Analytics arbets ytor:
 
-Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativsystem som stöds](log-analytics-agent.md#supported-windows-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-requirements).
+1. Installera den senaste Service Pack-versionen för ditt operativ system. De nödvändiga service pack versionerna är:
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
-Innan du installerar Log Analytics agent för Windows behöver du arbets ytans ID och nyckel för din Log Analytics-arbetsyta.  Den här informationen krävs under installationen från varje installations metod för att konfigurera agenten korrekt och se till att den kan kommunicera med Azure Monitor i Azures kommersiella och amerikanska myndighets moln. 
+2. Installera SHA-2-signering av Windows-uppdateringar för ditt operativ system enligt beskrivningen i [2019 SHA-2 kod signering support krav för Windows och WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)
+3. Uppdatera till den senaste versionen av Windows-agenten (version 10.20.18029).
+4. Vi rekommenderar att du konfigurerar agenten att [använda TLS 1,2](agent-windows.md#configure-agent-to-use-tls-12). 
 
-1. I Azure Portal söker du efter och väljer **Log Analytics arbets ytor**.
-2. I listan med Log Analytics arbets ytor väljer du den arbets yta som du vill konfigurera agenten att rapportera till.
-3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
-4. Välj **Anslutna källor** och välj sedan **Windows-servrar**.   
-5. Kopiera och klistra in i din favorit redigerare, **arbetsyte-ID** och **primär nyckel**.    
+## <a name="network-requirements"></a>Nätverkskrav
+Se [Log Analytics agent-översikt](log-analytics-agent.md#network-requirements) för nätverks kraven för Windows-agenten.
+
+
    
 ## <a name="configure-agent-to-use-tls-12"></a>Konfigurera agenten att använda TLS 1,2
-Om du vill konfigurera användningen av [TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) -protokollet för kommunikation mellan Windows-agenten och tjänsten Log Analytics, kan du följa stegen nedan för att aktivera innan agenten installeras på den virtuella datorn eller senare.
-
->[!NOTE]
->Om du konfigurerar en virtuell dator som kör Windows Server 2008 SP2 x64 för att använda TLS 1,2 måste du först installera följande [SHA-2-kod signerings uppdatering](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) innan du utför stegen nedan. 
->
+[TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12) -protokollet säkerställer säkerheten för data som överförs för kommunikation mellan Windows-agenten och tjänsten Log Analytics. Om du installerar på ett [operativ system utan TLS 1,2 aktiverat som standard](data-security.md#sending-data-securely-using-tls-12), bör du konfigurera TLS 1,2 med stegen nedan.
 
 1. Leta upp följande register under nyckel: **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols**
 2. Skapa en under nyckel under **protokoll** för TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**
@@ -66,7 +65,7 @@ Konfigurera .NET Framework 4,6 eller senare för att stödja säker kryptografi,
 4. Skapa DWORD-värdet **SchUseStrongCrypto** under den här under nyckeln med värdet **1**. 
 5. Starta om systemet för att inställningarna ska börja gälla. 
 
-## <a name="install-the-agent-using-setup-wizard"></a>Installera agenten med hjälp av installations guiden
+## <a name="install-agent-using-setup-wizard"></a>Installera agent med installations guiden
 Följande steg installerar och konfigurerar Log Analytics agenten i Azure och Azure Government molnet med hjälp av installations guiden för agenten på datorn. Om du vill lära dig hur du konfigurerar agenten så att den rapporterar till en System Center Operations Manager hanterings grupp läser du [distribuera Operations Manager agent med installations guiden för agenten](/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. På arbets ytan Log Analytics, på sidan **Windows-servrar** som du har navigerat till tidigare, väljer du den version av Windows **agent** som du vill ladda ned beroende på processor arkitekturen i Windows-operativsystemet.   
@@ -82,9 +81,9 @@ Följande steg installerar och konfigurerar Log Analytics agenten i Azure och Az
 8. På sidan **Klar att installera** kontrollerar du valen och klickar sedan på **Installera**.
 9. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
 
-När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. Om du vill bekräfta att den rapporterar till Log Analytics granskar du [Verifiera agent anslutningen till Log Analytics](#verify-agent-connectivity-to-log-analytics). 
+När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. Om du vill bekräfta att den rapporterar till Log Analytics granskar du [Verifiera agent anslutningen till Log Analytics](#verify-agent-connectivity-to-azure-monitor). 
 
-## <a name="install-the-agent-using-the-command-line"></a>Installera agenten med hjälp av kommando raden
+## <a name="install-agent-using-command-line"></a>Installera agent med hjälp av kommando raden
 Den hämtade filen för agenten är ett fristående installations paket.  Installations programmet för agenten och de filer som stöds finns i paketet och måste extraheras för att kunna installeras på rätt sätt med hjälp av kommando raden som visas i följande exempel.    
 
 >[!NOTE]
@@ -118,14 +117,14 @@ I följande tabell visas de olika parametrarna som stöds av installations progr
     >[!NOTE]
     >Sträng värden för parametrarna *OPINSIGHTS_WORKSPACE_ID* och *OPINSIGHTS_WORKSPACE_KEY* måste kapslas in i dubbla citat tecken för att instruera Windows Installer till interprit som giltiga alternativ för paketet. 
 
-## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installera agenten med DSC i Azure Automation
+## <a name="install-agent-using-dsc-in-azure-automation"></a>Installera agenten med DSC i Azure Automation
 
 Du kan använda följande skript exempel för att installera agenten med hjälp av Azure Automation DSC.   Om du inte har ett Automation-konto kan du läsa [komma igång med Azure Automation](../../automation/index.yml) för att förstå krav och anvisningar för att skapa ett Automation-konto som krävs innan du använder Automation DSC.  Om du inte är bekant med Automation DSC kan du läsa [komma igång med Automation DSC](../../automation/automation-dsc-getting-started.md).
 
 I följande exempel installeras 64-bitars agenten som identifieras av `URI` värdet. Du kan också använda 32-bitars versionen genom att ersätta URI-värdet. URI: erna för båda versionerna är:
 
-- Windows 64-bitars agent-https://go.microsoft.com/fwlink/?LinkId=828603
-- Windows 32-bitars agent-https://go.microsoft.com/fwlink/?LinkId=828604
+- Windows 64-bitars agent- https://go.microsoft.com/fwlink/?LinkId=828603
+- Windows 32-bitars agent- https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -133,7 +132,7 @@ I följande exempel installeras 64-bitars agenten som identifieras av `URI` vär
 
 32-bitars-och 64-bitars versionerna av agent paketet har olika produkt koder och nya versioner som släpps har också ett unikt värde.  Produkt koden är en GUID som är huvud-ID för ett program eller en produkt och representeras av egenskapen Windows Installer **ProductCode** .  `ProductId`Värdet i **MMAgent.ps1** -skriptet måste matcha produkt koden från installations paketet 32-bitars eller 64-bitars agent.
 
-Om du vill hämta produkt koden från agentens installations paket direkt kan du använda Orca.exe från [Windows SDK-komponenter för Windows Installer utvecklare](/windows/win32/msi/platform-sdk-components-for-windows-installer-developers) som är en komponent i Windows Software Development Kit eller använda PowerShell efter ett [exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera **MOMagent.msi** -filen från installations paketet för MMASetup.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-the-agent-using-the-command-line).  
+Om du vill hämta produkt koden från agentens installations paket direkt kan du använda Orca.exe från [Windows SDK-komponenter för Windows Installer utvecklare](/windows/win32/msi/platform-sdk-components-for-windows-installer-developers) som är en komponent i Windows Software Development Kit eller använda PowerShell efter ett [exempel skript](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)  som skrivits av en Microsoft Valuable Professional (MVP).  För båda metoderna måste du först extrahera **MOMagent.msi** -filen från installations paketet för MMASetup.  Detta visas tidigare i det första steget under avsnittet [Installera agenten med hjälp av kommando raden](#install-agent-using-command-line).  
 
 1. Importera xPSDesiredStateConfiguration DSC-modulen från [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) till Azure Automation.  
 2.    Skapa Azure Automation variabel till gångar för *OPSINSIGHTS_WS_ID* och *OPSINSIGHTS_WS_KEY*. Ange *OPSINSIGHTS_WS_ID* till ditt Log Analytics arbetsyte-ID och ange *OPSINSIGHTS_WS_KEY* till primär nyckeln för din arbets yta.
@@ -179,7 +178,7 @@ Configuration MMAgent
 5. [Importera konfigurations skriptet för MMAgent.ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) till ditt Automation-konto. 
 6. [Tilldela en Windows-dator eller-nod](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) till konfigurationen. Inom 15 minuter kontrollerar noden konfigurationen och agenten flyttas till noden.
 
-## <a name="verify-agent-connectivity-to-log-analytics"></a>Verifiera agent anslutningen till Log Analytics
+## <a name="verify-agent-connectivity-to-azure-monitor"></a>Verifiera agent anslutningen till Azure Monitor
 
 När installationen av agenten är klar kan du kontrol lera att den har anslutits och rapportering kan utföras på två sätt.  
 
@@ -197,7 +196,14 @@ Du kan också utföra en enkel logg fråga i Azure Portal.
     | where TimeGenerated > ago(30m)  
     ```
 
-I Sök resultaten som returneras bör du se pulsslags poster för datorn som indikerar att den är ansluten och rapporterar till tjänsten.   
+I Sök resultaten som returneras bör du se pulsslags poster för datorn som indikerar att den är ansluten och rapporterar till tjänsten.
+
+## <a name="cache-information"></a>Cachelagra information
+
+Data från Log Analytics agent cachelagras på den lokala datorn i *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* innan den skickas till Azure Monitor. Agenten försöker ladda upp var 20: e sekund. Om det Miss lyckas väntar det en exponentiellt ökande tid tills det lyckas. Det kommer att vänta 30 sekunder innan det andra försöket, 60 sekunder före nästa, 120 sekunder och så vidare till högst 8,5 timmar mellan försök tills den har anslutit igen. Den här vänte tiden är något slumpmässiga för att undvika att alla agenter försöker ansluta samtidigt. Äldsta data tas bort när den maximala bufferten nås.
+
+Standardcache-storleken är 50 MB men kan konfigureras mellan minst 5 MB och högst 1,5 GB. Den lagras i register nyckeln *HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\persistence cache maximum*. Värdet representerar antalet sidor, med 8 KB per sida.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

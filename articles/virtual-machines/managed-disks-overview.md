@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c7bef7fac23ab054810d7d27f99b773f6910f344
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749692"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021451"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed Disks
 
@@ -91,7 +91,7 @@ En datadisk är en hanterad disk som är ansluten till en virtuell dator för at
 
 Varje virtuell dator har en ansluten operativ system disk. Den OS-disken har ett förinstallerat operativ system som valdes när den virtuella datorn skapades. Den här disken innehåller start volymen.
 
-Den här disken har en maximal kapacitet på 2 048 GiB.
+Den här disken har en maximal kapacitet på 4 095 GiB.
 
 ### <a name="temporary-disk"></a>Tillfällig disk
 

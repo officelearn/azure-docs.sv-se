@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 9498c4a0e0dc5b528066ffadd6a9638fe99b1135
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: dbfb90abcf301cb22a84ba28359c6cb0bfaacfd6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874800"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021093"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Självstudie: Konfigurera Azure Cosmos DB global distribution med SQL-API: et
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver följande uppgifter:
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a>Ansluta till en önskad region med SQL-API: et
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a> Ansluta till en önskad region med SQL-API: et
 
 I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Utifrån Azure Cosmos DB-kontokonfigurationen, den aktuella regionala tillgängligheten och den angivna listan över inställningar, så väljs den mest optimala slutpunkten för genomförande av skriv- och läsåtgärder av SQL-SDK:n.
 
@@ -159,7 +159,7 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-preferred-locations"></a>Java v4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-preferred-locations"></a> Java v4 SDK
 
 Följande kod visar hur du ställer in önskade platser med Java SDK:
 
@@ -179,7 +179,7 @@ Följande kod visar hur du ställer in önskade platser med Java SDK:
 
 ## <a name="rest"></a>REST
 
-När ett databas konto har gjorts tillgängligt i flera regioner kan klienterna fråga dess tillgänglighet genom att utföra en GET-begäran på denna URI`https://{databaseaccount}.documents.azure.com/`
+När ett databas konto har gjorts tillgängligt i flera regioner kan klienterna fråga dess tillgänglighet genom att utföra en GET-begäran på denna URI `https://{databaseaccount}.documents.azure.com/`
 
 Tjänsten returnerar en lista med regioner och URI:erna för deras motsvarande Azure Cosmos DB-slutpunkter för replikerna. Den aktuella skrivregionen indikeras i svaret. Klienten kan sedan välja lämplig slutpunkt för alla ytterligare REST API-förfrågningar enligt följande.
 

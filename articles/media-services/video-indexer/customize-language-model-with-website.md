@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: d789d74f79fa691a2d5b374530450d966e0c40ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047250"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020464"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Anpassa en språk modell med Video Indexer webbplats
 
@@ -133,7 +133,9 @@ Video Indexer stöder automatisk anpassning av språk modeller baserat på de fa
 
     ![Anpassa språk modell redigera avskrift – Video Indexer](./media/customize-language-model/edits.png)
 
-    Video Indexer fångar alla rader som korrigeras av dig i avskriften av videon och lägger till dem automatiskt i en textfil med namnet "från avskrifts redigeringar". Dessa ändringar används för att omträna den specifika språk modell som användes för att indexera den här videon.
+    Video Indexer fångar alla rader som korrigeras av dig i avskriften av videon och lägger till dem automatiskt i en textfil med namnet "från avskrifts redigeringar". Dessa ändringar används för att omträna den specifika språk modell som användes för att indexera den här videon. 
+    
+    De ändringar som har gjorts i [widgetens](video-indexer-embed-widgets.md) tids linje ingår också.
     
     Om du inte angav någon språk modell vid indexering av den här videon, lagras alla redigeringar för videon i en standard språk modell som kallas "konto anpassning" på det identifierade språket för videon.
     

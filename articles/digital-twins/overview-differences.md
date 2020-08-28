@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fdd0cd6995a294be03640693fcca9fb814f3acbe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826831"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021705"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>Hur skiljer sig nya Azure Digital-dubblare från den tidigare versionen (2018)?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Vad är den nya digitala Azure-gruppen? Hur skiljer den sig från den tidigare versionen (2018)?
 
 Den första offentliga för hands versionen av Azure Digitals, släpptes i oktober 2018. Även om kärn begreppen från den tidigare versionen har överförts till den nya tjänsten i offentlig för hands version, har många av gränssnitten och implementerings detaljerna ändrats för att göra tjänsten mer flexibel och tillgänglig. Ändringarna har motiverats av kundfeedback.
 
@@ -44,5 +44,4 @@ En lista över gränserna för Azure Digitals dubbla gränser under den här off
 
 Börja sedan med att arbeta med Azure Digitals dubbla med den första självstudien:
 
-> [!div class="nextstepaction"]
-> [*Självstudie: koda en klient app*](tutorial-code.md)
+[*Självstudie: koda en klient app*](tutorial-code.md)

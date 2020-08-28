@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 39560966b542999b2c0c3472075c7497f2146455
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207353"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021076"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Självstudie: förfina material, belysning och effekter
 
@@ -514,7 +515,7 @@ Vi ska skapa ett **RemoteSky** -skript som innehåller en lista över de inbyggd
 
 1. Lägg till **RemoteSky** -skriptet till **SkyLight** -GameObject.
 
-    Det går att växla mellan luft rummets ljus genom att anropa `SetSky` med en av de sträng nycklar som definierats i `AvailableCubemaps` . Den vy som är inbyggd i **AppMenu** skapar automatiskt knappar och kopplar samman deras händelser så att de anropar `SetSky` sin respektive nyckel.
+    Det går att växla mellan luft rummets ljus genom att anropa `SetSky` med en av de sträng nycklar som definierats i `AvailableCubemaps` . Den vy som är inbyggd i  **AppMenu** skapar automatiskt knappar och kopplar samman deras händelser så att de anropar `SetSky` sin respektive nyckel.
 1. Tryck på Play i Unity-redigeraren och auktorisera en anslutning.
 1. När du har anslutit den lokala körnings miljön till en fjärrsession, navigera **AppMenu->-sessionsinställningar – > fjärr-himmelsblå** för att utforska de olika alternativen för luft rummet och se hur de påverkar **TestModel**.
 

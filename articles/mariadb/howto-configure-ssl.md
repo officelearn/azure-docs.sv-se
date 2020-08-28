@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
-ms.openlocfilehash: ca1129f0ef4f341773ebb7fea89ff9ec0881ca5b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d8f01d0b9ba3394d33b9bd6e9f0b3f13fff2f844
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143056"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021382"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure Database for MariaDB
 Azure Database for MariaDB stöder anslutning av Azure Database for MariaDB-servern till klient program med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
@@ -48,7 +49,7 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 > När du använder kommando rads gränssnittet MySQL i Windows kan du få ett fel meddelande `SSL connection error: Certificate signature check failed` . Om detta inträffar ersätter du `--ssl-mode=REQUIRED --ssl-ca={filepath}` parametrarna med `--ssl` .
 
 ## <a name="enforcing-ssl-connections-in-azure"></a>Tvinga SSL-anslutningar i Azure 
-### <a name="using-the-azure-portal"></a>Använda Azure-portalen
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
 Använd Azure Portalen, gå till Azure Database for MariaDB-servern och klicka sedan på **anslutnings säkerhet**. Använd växlings knappen för att aktivera eller inaktivera inställningen **tvinga SSL-anslutning** och klicka sedan på **Spara**. Microsoft rekommenderar att alltid aktivera inställningen **tvinga SSL-anslutning** för förbättrad säkerhet.
 ![Aktivera – SSL](./media/howto-configure-ssl/enable-ssl.png)
 
@@ -63,7 +64,7 @@ Kör kommandot MySQL **status** för att kontrol lera att du har anslutit till M
 ```sql
 status
 ```
-Bekräfta att anslutningen är krypterad genom att granska utdata som ska visas: **SSL: chiffrering som används är AES256-SHA** 
+Bekräfta att anslutningen är krypterad genom att granska utdata som ska visas:  **SSL: chiffrering som används är AES256-SHA** 
 
 ## <a name="sample-code"></a>Exempelkod
 Om du vill upprätta en säker anslutning till Azure Database for MariaDB via SSL från ditt program, se följande kod exempel:

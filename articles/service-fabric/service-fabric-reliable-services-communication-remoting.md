@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a3f19d1240c2dcf1e62d5723c40b4f7c8b2154f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253294"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022164"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Tjänst-Remoting i C# med Reliable Services
 
@@ -109,7 +110,7 @@ En användare kan konfigurera dessa värden genom att skicka OperationRetrySetti
 
 Från och med version 2,8 av NuGet Remoting-paketet har du möjlighet att använda fjärr kommunikation v2-stacken. Fjärr kommunikation v2-stacken fungerar bättre. Den innehåller också funktioner som anpassad serialisering och fler anslutnings bara API: er.
 Mallkod fortsätter att använda fjärr kommunikation v1-stacken.
-Fjärr kommunikation v2 är inte kompatibelt med v1 (föregående Remoting-stack). Följ anvisningarna i artikeln [Uppgradera från v1 till v2](#upgrade-from-remoting-v1-to-remoting-v2) för att undvika påverkan på tjänstens tillgänglighet.
+Fjärr kommunikation v2 är inte kompatibelt med v1 (föregående Remoting-stack). Följ anvisningarna i artikeln  [Uppgradera från v1 till v2](#upgrade-from-remoting-v1-to-remoting-v2) för att undvika påverkan på tjänstens tillgänglighet.
 
 Följande metoder är tillgängliga för att aktivera v2-stacken.
 
@@ -127,7 +128,7 @@ De här stegen ändrar mallkod för att använda v2-stacken med hjälp av ett As
    </Resources>
    ```
 
-2. Använd `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` tilläggs metoden för att skapa fjärrlyssnare för fjärrkommunikationer (samma för både v1 och v2).
+2. Använd `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners`  tilläggs metoden för att skapa fjärrlyssnare för fjärrkommunikationer (samma för både v1 och v2).
 
    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

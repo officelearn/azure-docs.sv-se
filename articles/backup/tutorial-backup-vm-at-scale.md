@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du skapar ett Recove
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6556731ed18bd591e930ed89264cd62893fe9ac6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757514"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022062"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure Portal till att säkerhetskopiera flera virtuella datorer
 
@@ -53,7 +53,7 @@ Recovery Services-valvet innehåller säkerhetsdata och säkerhetskopieringspoli
 
     ![Recovery Services valv värden](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Ett Recovery Services-valv måste vara på samma plats som de virtuella datorerna som skyddas. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. I den här självstudien skapas ett Recovery Services-valv i *Europa, västra* eftersom det är där som *myVM* (den virtuella datorn som skapades med snabbstarten) skapades.
+    Ett Recovery Services-valv måste vara på samma plats som de virtuella datorerna som skyddas. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. I den här självstudien skapar vi ett Recovery Services valv *i Västeuropa,* eftersom det är där *myVM* (den virtuella datorn som skapades med snabb starten) skapades.
 
 1. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
 

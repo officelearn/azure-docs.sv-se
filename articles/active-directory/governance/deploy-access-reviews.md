@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853030"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011352"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
 
@@ -182,7 +182,7 @@ Typiska mål för granskning är:
 
 * Grupp [medlemskap](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synkroniserat till Azure AD eller skapats i Azure AD eller Office 365, inklusive Microsoft Teams).
 
-* [Åtkomst paket](/entitlement-management-overview.md) som grupperar resurser (grupper, appar och platser) till ett enda paket för att hantera åtkomst.
+* [Åtkomst paket](/azure/active-directory/governance/entitlement-management-overview) som grupperar resurser (grupper, appar och platser) till ett enda paket för att hantera åtkomst.
 
 * [Azure AD-roller och Azure-resurs roller](../privileged-identity-management/pim-resource-roles-assign-roles.md) som definieras i Privileged Identity Management.
 
@@ -422,7 +422,7 @@ För att minska risken för föråldrad åtkomst kan administratörer aktivera r
 | Instruktionsartiklar| Beskrivning |
 | - | - |
 | [Skapa åtkomst granskningar](entitlement-management-access-reviews-create.md)| Aktivera granskningar av Access-paket. |
-| [Utför åtkomst granskningar](/entitlement-management-access-reviews-review-access.md)| Utför åtkomst granskningar för andra användare som är tilldelade till ett Access-paket. |
+| [Utför åtkomst granskningar](entitlement-management-access-reviews-review-access.md)| Utför åtkomst granskningar för andra användare som är tilldelade till ett Access-paket. |
 | [Själv granska tilldelade åtkomst paket](entitlement-management-access-reviews-self-review.md)| Själv granskning av tilldelade åtkomst paket |
 
 
@@ -496,7 +496,7 @@ När du skapar nya Graph API-frågor för Automation rekommenderar vi att du anv
 
 Åtkomst gransknings aktiviteter registreras och är tillgängliga från [Azure Ads gransknings loggar](../reports-monitoring/concept-audit-logs.md). Du kan filtrera gransknings data för kategorin, aktivitets typen och datum intervallet. Här är en exempel fråga:
 
-| Kategori| Policy |
+| Kategori| Princip |
 | - | - |
 | Aktivitetstyp| Skapa åtkomstgranskning |
 | | Uppdatera åtkomst granskning |

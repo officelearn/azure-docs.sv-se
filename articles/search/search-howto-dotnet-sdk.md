@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 9b08dff01ad125fb7e0a52674e25a4a973df7c16
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 394c87bcd3e4580289fbccc6a31b164f914dc8a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927059"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020804"
 ---
 # <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Använda Microsoft. Azure. search (v10) i ett .NET-program
 

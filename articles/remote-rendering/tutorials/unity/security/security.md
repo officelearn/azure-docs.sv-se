@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 36d8d6afde8b1178963b33b9514e53ce0ffccf6f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224466"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021331"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Självstudie: skydda Azure-fjärråter givning och modell lagring
 
@@ -22,7 +23,7 @@ I den här guiden får du lära dig att:
 > * Autentisera med Azure AD för att få åtkomst till din Azure Remote rendering-instans
 > * Använd Azure-autentiseringsuppgifter för Azure-fjärrrendering-autentisering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: förfina material, belysning och effekter](..\materials-lighting-effects\materials-lighting-effects.md).
 

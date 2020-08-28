@@ -3,13 +3,13 @@ title: Service Bus köer för obeställbara meddelanden | Microsoft Docs
 description: Beskriver köer för obeställbara meddelanden i Azure Service Bus. Service Bus köer och ämnes prenumerationer tillhandahåller en sekundär underkö som kallas kö för obeställbara meddelanden.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511219"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021688"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden
 
@@ -56,7 +56,7 @@ Det går inte att inaktivera det här beteendet, men du kan ange [MaxDeliveryCou
 
 ## <a name="exceeding-timetolive"></a>Överskrider TimeToLive
 
-När egenskapen [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har angetts till **True** (Standardvärdet är **false**) flyttas alla utgående meddelanden till DLQ och anger `TTLExpiredException` orsaks koden.
+När egenskapen [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har angetts till **True** (Standardvärdet är **false**) flyttas alla utgående meddelanden till DLQ och anger  `TTLExpiredException` orsaks koden.
 
 Förfallna meddelanden rensas och flyttas bara till DLQ när det finns minst en aktiv mottagare från huvud kön eller prenumerationen, och [uppskjutna meddelanden](./message-deferral.md) tas inte heller bort och flyttas till kön för obeställbara meddelanden när de har gått ut. Dessa beteenden är avsiktliga.
 
@@ -80,7 +80,7 @@ Om du vill hämta dessa meddelanden med obeställbara meddelanden kan du skapa e
 
 ## <a name="example"></a>Exempel
 
-Följande kodfragment skapar en meddelande mottagare. I mottagnings-loopen för huvud kön hämtar koden meddelandet med [receive (TimeSpan. Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), som uppmanar koordinatorn att omedelbart returnera eventuella meddelanden som är tillgängliga eller returnera utan resultat. Om koden tar emot ett meddelande överges det omedelbart, vilket ökar `DeliveryCount` . När systemet flyttar meddelandet till DLQ är huvud kön Tom och loopen avslutas, så som [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) returnerar **Null**.
+Följande kodfragment skapar en meddelande mottagare. I mottagnings-loopen för huvud kön hämtar koden meddelandet med [receive (TimeSpan. Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), som uppmanar koordinatorn att omedelbart returnera eventuella meddelanden som är tillgängliga eller returnera utan resultat. Om koden tar emot ett meddelande överges det omedelbart, vilket ökar  `DeliveryCount` . När systemet flyttar meddelandet till DLQ är huvud kön Tom och loopen avslutas, så som [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) returnerar **Null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

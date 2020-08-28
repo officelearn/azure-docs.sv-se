@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529309"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022198"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core i Azure Service Fabric Reliable Services
 
@@ -92,7 +93,7 @@ Både Kestrel-och HTTP.sys- `ICommunicationListener` implementeringar använder 
 Därför är både Kestrel-och HTTP.sys- `ICommunicationListener` implementeringar standardiserade på mellanprogram som tillhandahålls av `UseServiceFabricIntegration` tilläggs metoden. Klienterna behöver därför bara utföra en åtgärd för att lösa tjänst slut punkter på HTTP 410-svar.
 
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys i Reliable Services
-Du kan använda HTTP.sys i Reliable Services genom att importera paketet **Microsoft. ServiceFabric. AspNetCore. https** NuGet. Det här paketet innehåller `HttpSysCommunicationListener` en implementering av `ICommunicationListener` . `HttpSysCommunicationListener`gör att du kan skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda HTTP.sys som webb server.
+Du kan använda HTTP.sys i Reliable Services genom att importera paketet **Microsoft. ServiceFabric. AspNetCore. https** NuGet. Det här paketet innehåller `HttpSysCommunicationListener` en implementering av `ICommunicationListener` . `HttpSysCommunicationListener` gör att du kan skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda HTTP.sys som webb server.
 
 HTTP.sys bygger på API: [t för Windows HTTP-server](/windows/win32/http/http-api-start-page). Detta API använder **HTTP.sys** kernel-drivrutin för att bearbeta HTTP-begäranden och dirigera dem till processer som kör webb program. På så sätt kan flera processer på samma fysiska eller virtuella dator vara värd för webb program på samma port, disambiguated av antingen en unik URL-sökväg eller ett värdnamn. Dessa funktioner är användbara i Service Fabric för att vara värd för flera webbplatser i samma kluster.
 
@@ -129,7 +130,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys i en tillstånds känslig tjänst
 
-`HttpSysCommunicationListener`är för närvarande inte avsedd för användning i tillstånds känsliga tjänster på grund av komplikationer med den underliggande delnings funktionen för **HTTP.sys** -porten. Mer information finns i följande avsnitt om dynamisk port tilldelning med HTTP.sys. För tillstånds känsliga tjänster är Kestrel den föreslagna webb servern.
+`HttpSysCommunicationListener` är för närvarande inte avsedd för användning i tillstånds känsliga tjänster på grund av komplikationer med den underliggande delnings funktionen för **HTTP.sys** -porten. Mer information finns i följande avsnitt om dynamisk port tilldelning med HTTP.sys. För tillstånds känsliga tjänster är Kestrel den föreslagna webb servern.
 
 ### <a name="endpoint-configuration"></a>Slut punkts konfiguration
 
@@ -189,7 +190,7 @@ Om du vill använda en dynamiskt tilldelad port med HTTP.sys utelämnar du `Port
 En dynamisk port som tilldelas av en `Endpoint` konfiguration tillhandahåller bara en port *per värd process*. Den aktuella Service Fabric värd modellen gör att flera tjänst instanser och/eller repliker kan finnas i samma process. Det innebär att var och en delar samma port när den allokeras genom `Endpoint` konfigurationen. Flera **HTTP.sys** -instanser kan dela en port med hjälp av den underliggande delnings funktionen för **HTTP.sys** -porten. Men det stöds inte på `HttpSysCommunicationListener` grund av de komplikationer som den introducerar för klient begär Anden. För dynamisk port användning är Kestrel den föreslagna webb servern.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel i Reliable Services
-Du kan använda Kestrel i Reliable Services genom att importera paketet **Microsoft. ServiceFabric. AspNetCore. Kestrel** NuGet. Det här paketet innehåller `KestrelCommunicationListener` en implementering av `ICommunicationListener` . `KestrelCommunicationListener`gör att du kan skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda Kestrel som webb server.
+Du kan använda Kestrel i Reliable Services genom att importera paketet **Microsoft. ServiceFabric. AspNetCore. Kestrel** NuGet. Det här paketet innehåller `KestrelCommunicationListener` en implementering av `ICommunicationListener` . `KestrelCommunicationListener` gör att du kan skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda Kestrel som webb server.
 
 Kestrel är en plattforms oberoende webb server för ASP.NET Core. Till skillnad från HTTP.sys använder Kestrel inte en central slut punkts hanterare. Till skillnad från HTTP.sys stöder Kestrel inte port delning mellan flera processer. Varje instans av Kestrel måste använda en unik port. Mer information om Kestrel finns i [implementerings informationen](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
@@ -475,7 +476,7 @@ När de exponeras för Internet bör en tillstånds lös tjänst använda en vä
 | Webbserver | Kestrel | Kestrel är den önskade webb servern eftersom den stöds i Windows och Linux. |
 | Port konfiguration | statiskt | En välkänd statisk port bör konfigureras i `Endpoints` konfigurationen av ServiceManifest.xml, till exempel 80 för http eller 443 för https. |
 | ServiceFabricIntegrationOptions | Inga | Använd `ServiceFabricIntegrationOptions.None` alternativet när du konfigurerar Service Fabric integration mellanprogram, så att tjänsten inte försöker verifiera inkommande begär Anden för en unik identifierare. Externa användare av programmet vet inte den unika identifierings information som används i mellanprogram. |
-| Antal instanser | −1 | I vanliga användnings fall ska inställningen för instans antal anges till *-1*. Detta görs så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
+| Antal instanser | -1 | I vanliga användnings fall ska inställningen för instans antal anges till *-1*. Detta görs så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
 
 Om flera externt exponerade tjänster delar samma uppsättning noder, kan du använda HTTP.sys med en unik men stabil URL-sökväg. Du kan göra detta genom att ändra den URL som angavs när du konfigurerade IWebHost. Observera att detta endast gäller för HTTP.sys.
 

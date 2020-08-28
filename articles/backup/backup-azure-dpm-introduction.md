@@ -3,12 +3,12 @@ title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890815"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021042"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -97,7 +97,7 @@ Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgi
 
 Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande sätt:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna det valv där du vill registrera DPM-servern.
 3. I **Inställningar**väljer du **Egenskaper**.
 

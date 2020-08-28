@@ -3,12 +3,12 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890271"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020957"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -159,7 +159,7 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | DataTransferredInMB_s | Antal |Överförda data i MB för det här jobbet|
 | JobUniqueId_g |Text |Unikt ID för att identifiera jobbet |
 | RecoveryJobDestination_s |Text | Målet för ett återställnings jobb, där data återställs |
-| RecoveryJobRPDateTime_s |DateTime | Datum och tid när återställnings punkten som återställs skapades |
+| RecoveryJobRPDateTime_s |DateTime | Datum, tid då återställnings punkten som återställdes skapades |
 | RecoveryJobRPLocation_s |Text | Platsen där återställnings punkten som återställdes har lagrats|
 | SourceSystem |Text |Käll system för aktuella data – Azure |
 | ResourceId |Text |Resurs-ID för data som samlas in. Till exempel, Recovery Services valv resurs-ID|
@@ -168,7 +168,7 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | ResourceProvider |Text |Resurs leverantör för vilken data samlas in. Till exempel Microsoft. RecoveryServices |
 | ResourceType |Text |Resurs typ som data samlas in för. Till exempel valv |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Princip
 
 Den här tabellen innehåller information om principbaserad fält.
 
@@ -472,7 +472,7 @@ Referera till den tredje kolumnen Beskrivning i den [data modell](#using-azure-b
 
 Eftersom v1-schemat finns på en föråldrad sökväg rekommenderar vi att du bara använder v2-schemat i alla dina anpassade frågor på Azure Backup diagnostikdata. Nedan visas ett exempel på hur du uppdaterar dina frågor för att ta bort beroendet av v1-schemat:
 
-1. Identifiera om frågan använder ett fält som endast gäller v1-schema. Anta att du har en fråga om du vill visa en lista över alla säkerhets kopierings objekt och deras associerade skyddade servrar på följande sätt:
+1. Identifiera om frågan använder ett fält som endast gäller för v1-schemat. Anta att du har en fråga om du vill visa en lista över alla säkerhets kopierings objekt och deras associerade skyddade servrar på följande sätt:
 
     ````Kusto
     AzureDiagnostics

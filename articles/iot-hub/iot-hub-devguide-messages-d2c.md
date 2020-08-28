@@ -10,12 +10,13 @@ ms.date: 05/15/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327726"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021246"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -37,7 +38,6 @@ En IoT-hubb har en inbyggd standard slut punkt (**meddelanden/händelser**) som 
 
 Varje meddelande dirigeras till alla slut punkter vars vägvals frågor det matchar. Med andra ord kan ett meddelande dirigeras till flera slut punkter.
 
-
 Om din anpassade slut punkt har brand Väggs konfiguration, bör du överväga att använda Microsofts betrodda första part undantag för att ge din IoT Hub åtkomst till den aktuella slut punkten – [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) och [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Detta är tillgängligt i SELECT-regioner för IoT Hub med [hanterad tjänst identitet](./virtual-network-support.md).
 
 IoT Hub stöder för närvarande följande slut punkter:
@@ -47,19 +47,23 @@ IoT Hub stöder för närvarande följande slut punkter:
  - Service Bus köer och Service Bus ämnen
  - Event Hubs
 
-### <a name="built-in-endpoint"></a>Inbyggd slut punkt
+## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Inbyggd slut punkt som en cirkulations slut punkt
 
 Du kan använda standard [Event Hubs integration och SDK](iot-hub-devguide-messages-read-builtin.md) : er för att ta emot meddelanden från enheten till molnet från den inbyggda slut punkten (**meddelanden/händelser**). När en väg har skapats slutar data flöda till den inbyggda slut punkten om inte en väg skapas till den slut punkten.
 
-### <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage-as-a-routing-endpoint"></a>Azure Storage som en cirkulations slut punkt
 
 Det finns två lagrings tjänster IoT Hub kan dirigera meddelanden till-- [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) -och [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) -konton (ADLS Gen2). Azure Data Lake Storage-konton är [hierarkiska namn rymds](../storage/blobs/data-lake-storage-namespace.md)-aktiverade lagrings konton som byggts ovanpå Blob Storage. Båda använder blobbar för lagringen.
 
-IoT Hub stöder skrivning av data till Azure Storage i [Apache Avro](https://avro.apache.org/) -format samt i JSON-format. Standardvärdet är AVRO. Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. Det går inte att redigera formatet för en befintlig slut punkt. När du använder JSON-kodning måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa värden är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub. Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Följande diagram visar hur du väljer kodnings formatet i Azure Portal.
+IoT Hub stöder skrivning av data till Azure Storage i [Apache Avro](https://avro.apache.org/) -format samt i JSON-format. Standardvärdet är AVRO. När du använder JSON-kodning måste du ange contentType till **Application/JSON** och ContentEncoding till **UTF-8** i meddelande [systemets egenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Båda dessa värden är Skift läges känsliga. Om innehålls kodningen inte har angetts skrivs meddelandena i bas 64-kodat format IoT Hub.
+
+Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. den kan inte redige ras för en befintlig slut punkt. Om du vill byta kodnings format för en befintlig slut punkt måste du ta bort och återskapa den anpassade slut punkten med det format som du vill använda. En praktisk strategi kan vara att skapa en ny anpassad slut punkt med önskat kodnings format och lägga till en parallell väg till den slut punkten. På så sätt kan du verifiera dina data innan du tar bort den befintliga slut punkten.
+
+Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Följande bild visar hur du väljer kodnings formatet i Azure Portal.
 
 ![Slut punkts kodning för Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub batchar meddelanden och skriver data till lagring när batchen når en viss storlek eller en viss tid har förflutit. IoT Hub standardvärdet för följande fil namns konvention: 
+IoT Hub batchar meddelanden och skriver data till lagring när batchen når en viss storlek eller en viss tid har förflutit. IoT Hub standardvärdet för följande fil namns konvention:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -89,12 +93,11 @@ Om du vill skapa ett Azure Data Lake Gen2 lagrings konto skapar du ett nytt v2-l
 
 ![Välj Azure date Lake Gen2-lagring](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
-
-### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus köer och Service Bus ämnen
+## <a name="service-bus-queues-and-service-bus-topics-as-a-routing-endpoint"></a>Service Bus köer och Service Bus ämnen som en cirkulations slut punkt
 
 Service Bus köer och ämnen som används som IoT Hub slut punkter får inte ha **sessioner** eller **dubblettidentifiering** aktiverade. Om något av dessa alternativ är aktiverat visas slut punkten som **ej nåbar** i Azure Portal.
 
-### <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs-as-a-routing-endpoint"></a>Event Hubs som en cirkulations slut punkt
 
 Förutom den inbyggda-Event Hubs-kompatibla slut punkten kan du också dirigera data till anpassade slut punkter av typen Event Hubs. 
 

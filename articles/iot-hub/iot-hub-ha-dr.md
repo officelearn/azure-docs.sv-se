@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260165"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021440"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap för IoT Hub
 
@@ -57,12 +57,14 @@ Båda dessa alternativ för redundans erbjuder följande mål för återställni
 
 <sup>1</sup> Meddelanden från moln till enhet och överordnade jobb återställs inte som en del av manuell redundans.
 
-När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder från enhets-och backend-programmen fortsätta att fungera utan att det krävs någon manuell åtgärd. Det innebär att meddelanden från enhet till molnet bör fortsätta att fungera och hela enhets registret är intakt. Händelser som skickas via Event Grid kan förbrukas via samma prenumeration (er) som kon figurer ATS tidigare så länge som de Event Grid prenumerationerna fortsätter att vara tillgängliga.
+När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder från enhets-och backend-programmen fortsätta att fungera utan att det krävs någon manuell åtgärd. Det innebär att meddelanden från enhet till molnet bör fortsätta att fungera och hela enhets registret är intakt. Händelser som skickas via Event Grid kan förbrukas via samma prenumeration (er) som kon figurer ATS tidigare så länge som de Event Grid prenumerationerna fortsätter att vara tillgängliga. Ingen ytterligare hantering krävs för anpassade slut punkter.
 
 > [!CAUTION]
-> - Det Event Hub-kompatibla namnet och slut punkten för den IoT Hub inbyggda händelse slut punkten ändras efter redundansväxlingen. När du tar emot telemetri-meddelanden från den inbyggda slut punkten med hjälp av Event Hub-klienten eller händelse processor värden bör du [använda IoT Hub-anslutningssträngen](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) för att upprätta anslutningen. Detta säkerställer att dina backend-program fortsätter att fungera utan att behöva utföra manuella åtgärder efter redundansväxlingen. Om du använder det Event Hub-kompatibla namnet och slut punkten i ditt program direkt måste du [Hämta den nya Event Hub-kompatibla slut punkten](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) efter redundansväxlingen för att fortsätta åtgärder. Om du använder Azure Functions eller Azure Stream Analytics för att ansluta den inbyggda slut punkten kan du behöva utföra en **omstart**.
+> - Det Event Hub-kompatibla namnet och slut punkten för den IoT Hub inbyggda händelse slut punkten ändras efter redundansväxlingen. När du tar emot telemetri-meddelanden från den inbyggda slut punkten med hjälp av Event Hub-klienten eller händelse processor värden bör du [använda IoT Hub-anslutningssträngen](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) för att upprätta anslutningen. Detta säkerställer att dina backend-program fortsätter att fungera utan att behöva utföra manuella åtgärder efter redundansväxlingen. Om du använder det Event Hub-kompatibla namnet och slut punkten i ditt program direkt måste du [Hämta den nya Event Hub-kompatibla slut punkten](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) efter redundansväxlingen för att fortsätta åtgärder. 
 >
-> - Vid routning till lagring rekommenderar vi att du listar blobbar eller filer och sedan går över dem, så att alla blobbar eller filer läses utan att du behöver göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. 
+> - Om du använder Azure Functions eller Azure Stream Analytics för att ansluta den inbyggda slut punkten för händelser kan du behöva utföra en **omstart**. Detta beror på att under redundansväxlingen tidigare förskjutningar inte längre är giltiga.
+>
+> - Vid routning till lagring rekommenderar vi att du listar blobbar eller filer och sedan går över dem, så att alla blobbar eller filer läses utan att du behöver göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. Mer information finns i [Azure Storage som en Dirigerings slut punkt](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
 
@@ -134,7 +136,7 @@ Här är en sammanfattning av de HA/DR-alternativ som visas i den här artikeln 
 | --- | --- | --- | --- | --- | --- |
 | Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Inga|Inga|
 | Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
-| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Högt|> 1x kostnaden för 1 IoT Hub|
+| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Hög|> 1x kostnaden för 1 IoT Hub|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,13 @@ title: Azure Service Bus slut punkt till slut punkt för spårning och diagnosti
 description: Översikt över Service Bus-klientautentisering och spårning från slut punkt till slut punkt (klient genom alla tjänster som ingår i bearbetningen.)
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9b46f85e16370d15e3a8def98cdcdf8b3878208d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021637"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation genom Service Bus meddelanden
 
@@ -86,7 +87,7 @@ Om spårnings systemet inte stöder automatisk Service Bus samtals spårning kan
 
 Service Bus .NET-klienten instrumenteras med hjälp av .NET tracing primitiver [system. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) och [system. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
-`Activity`fungerar som en spårnings kontext medan `DiagnosticSource` är en meddelande funktion. 
+`Activity` fungerar som en spårnings kontext medan `DiagnosticSource` är en meddelande funktion. 
 
 Om det inte finns någon lyssnare för DiagnosticSource-händelserna, är instrumentering inaktiverat, och behåller inga instrument kostnader. DiagnosticSource ger all kontroll till lyssnaren:
 - lyssnare styr vilka källor och händelser som ska bevakas
@@ -142,8 +143,8 @@ För varje åtgärd skickas två händelser: "starta" och "stoppa". Förmodligen
 Händelse nytto Last tillhandahåller en lyssnare med åtgärdens kontext, den replikerar API-inkommande parametrar och retur värde. Händelse nytto lasten "stoppa" har alla egenskaper för "starta" händelse nytto Last, så att du kan ignorera "Start"-händelsen fullständigt.
 
 Alla händelser har även egenskaperna "entity" och "slut punkt", de utelämnas i tabellen nedan
-  * `string Entity`--Namn på entiteten (kö, ämne osv.)
-  * `Uri Endpoint`-Service Bus slut punkts-URL
+  * `string Entity` --Namn på entiteten (kö, ämne osv.)
+  * `Uri Endpoint` -Service Bus slut punkts-URL
 
 Varje "stopp"-händelse har en `Status` egenskap med en `TaskStatus` asynkron åtgärd slutfördes med, vilket också utelämnas i följande tabell för enkelhetens skull.
 
@@ -151,33 +152,33 @@ Här är en fullständig lista över instrumenterade åtgärder:
 
 | Åtgärds namn | Spårat API | Egenskaper för vissa nytto Last|
 |----------------|-------------|---------|
-| Microsoft. Azure. Service Bus. send | [MessageSender. SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages`– Lista över meddelanden som skickas |
-| Microsoft. Azure. Service Bus. ScheduleMessage | [MessageSender. ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message`– Meddelande som bearbetas<br/>`DateTimeOffset ScheduleEnqueueTimeUtc`-Schemalagd meddelande förskjutning<br/>`long SequenceNumber`-Ordnings nummer för schemalagt meddelande ("stoppa" händelse nytto Last) |
-| Microsoft. Azure. Service Bus. Cancel | [MessageSender. CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber`– Sekvensnummer för te-meddelande som ska avbrytas | 
-| Microsoft. Azure. Service Bus. Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount`-Det maximala antalet meddelanden som kan tas emot.<br/>`IList<Message> Messages`– Lista över mottagna meddelanden ("stoppa" händelse nytto Last) |
-| Microsoft. Azure. Service Bus. Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber`– Start punkten som du kan använda för att bläddra i en batch med meddelanden.<br/>`int RequestedMessageCount`– Antalet meddelanden som ska hämtas.<br/>`IList<Message> Messages`– Lista över mottagna meddelanden ("stoppa" händelse nytto Last) |
-| Microsoft. Azure. Service Bus. ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers`– Den lista som innehåller de ordnings nummer som ska tas emot.<br/>`IList<Message> Messages`– Lista över mottagna meddelanden ("stoppa" händelse nytto Last) |
-| Microsoft. Azure. Service Bus. Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens`– Den lista som innehåller de lock-token för motsvarande meddelanden som ska slutföras.|
-| Microsoft. Azure. Service Bus. Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken`– Lås-token för motsvarande meddelande att överge. |
-| Microsoft. Azure. Service Bus. Överlåt | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken`– Lås-token för motsvarande meddelande som ska skjutas upp. | 
-| Microsoft. Azure. Service Bus. obeställbara meddelanden kön | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken`– Lås-token för motsvarande meddelande till obeställbara meddelanden. | 
-| Microsoft. Azure. Service Bus. RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken`– Lås-token för motsvarande meddelande för att förnya låset.<br/>`DateTime LockedUntilUtc`– Nytt datum och tid för att låsa token upphör att gälla i UTC-format. ("Stoppa" händelse nytto Last)|
-| Microsoft. Azure. Service Bus. process | Meddelande hanteraren lambda-funktion som finns i [IReceiverClient. RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message`– Meddelande som bearbetas. |
-| Microsoft. Azure. Service Bus. ProcessSession | Lambda-funktionen för Message sessions handler finns i [IQueueClient. RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message`– Meddelande som bearbetas.<br/>`IMessageSession Session`-Sessionen som bearbetas |
-| Microsoft. Azure. Service Bus. AddRule | [SubscriptionClient. AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule`– Regel beskrivningen som innehåller den regel som ska läggas till. |
-| Microsoft. Azure. Service Bus. RemoveRule | [SubscriptionClient. RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName`-Namn på regeln som ska tas bort. |
-| Microsoft. Azure. Service Bus. GetRules | [SubscriptionClient. GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules`– Alla regler som är associerade med prenumerationen. (Stoppa endast nytto Last) |
-| Microsoft. Azure. Service Bus. AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId`– SessionId finns i meddelandena. |
-| Microsoft. Azure. Service Bus. GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId`– SessionId finns i meddelandena.<br/>`byte [] State`– Sessionstillstånd ("stoppa" händelse nytto Last) |
-| Microsoft. Azure. Service Bus. SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId`– SessionId finns i meddelandena.<br/>`byte [] State`– Sessionstillstånd |
-| Microsoft. Azure. Service Bus. RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId`– SessionId finns i meddelandena. |
-| Microsoft. Azure. Service Bus. Exception | alla instrumenterade API: er| `Exception Exception`– Undantags instans |
+| Microsoft. Azure. Service Bus. send | [MessageSender. SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` – Lista över meddelanden som skickas |
+| Microsoft. Azure. Service Bus. ScheduleMessage | [MessageSender. ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` – Meddelande som bearbetas<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Schemalagd meddelande förskjutning<br/>`long SequenceNumber` -Ordnings nummer för schemalagt meddelande ("stoppa" händelse nytto Last) |
+| Microsoft. Azure. Service Bus. Cancel | [MessageSender. CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` – Sekvensnummer för te-meddelande som ska avbrytas | 
+| Microsoft. Azure. Service Bus. Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` -Det maximala antalet meddelanden som kan tas emot.<br/>`IList<Message> Messages` – Lista över mottagna meddelanden ("stoppa" händelse nytto Last) |
+| Microsoft. Azure. Service Bus. Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` – Start punkten som du kan använda för att bläddra i en batch med meddelanden.<br/>`int RequestedMessageCount` – Antalet meddelanden som ska hämtas.<br/>`IList<Message> Messages` – Lista över mottagna meddelanden ("stoppa" händelse nytto Last) |
+| Microsoft. Azure. Service Bus. ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` – Den lista som innehåller de ordnings nummer som ska tas emot.<br/>`IList<Message> Messages` – Lista över mottagna meddelanden ("stoppa" händelse nytto Last) |
+| Microsoft. Azure. Service Bus. Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` – Den lista som innehåller de lock-token för motsvarande meddelanden som ska slutföras.|
+| Microsoft. Azure. Service Bus. Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` – Lås-token för motsvarande meddelande att överge. |
+| Microsoft. Azure. Service Bus. Överlåt | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` – Lås-token för motsvarande meddelande som ska skjutas upp. | 
+| Microsoft. Azure. Service Bus. obeställbara meddelanden kön | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` – Lås-token för motsvarande meddelande till obeställbara meddelanden. | 
+| Microsoft. Azure. Service Bus. RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` – Lås-token för motsvarande meddelande för att förnya låset.<br/>`DateTime LockedUntilUtc` – Nytt datum och tid för att låsa token upphör att gälla i UTC-format. ("Stoppa" händelse nytto Last)|
+| Microsoft. Azure. Service Bus. process | Meddelande hanteraren lambda-funktion som finns i [IReceiverClient. RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` – Meddelande som bearbetas. |
+| Microsoft. Azure. Service Bus. ProcessSession | Lambda-funktionen för Message sessions handler finns i [IQueueClient. RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` – Meddelande som bearbetas.<br/>`IMessageSession Session` -Sessionen som bearbetas |
+| Microsoft. Azure. Service Bus. AddRule | [SubscriptionClient. AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` – Regel beskrivningen som innehåller den regel som ska läggas till. |
+| Microsoft. Azure. Service Bus. RemoveRule | [SubscriptionClient. RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` -Namn på regeln som ska tas bort. |
+| Microsoft. Azure. Service Bus. GetRules | [SubscriptionClient. GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` – Alla regler som är associerade med prenumerationen. (Stoppa endast nytto Last) |
+| Microsoft. Azure. Service Bus. AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` – SessionId finns i meddelandena. |
+| Microsoft. Azure. Service Bus. GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` – SessionId finns i meddelandena.<br/>`byte [] State` – Sessionstillstånd ("stoppa" händelse nytto Last) |
+| Microsoft. Azure. Service Bus. SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` – SessionId finns i meddelandena.<br/>`byte [] State` – Sessionstillstånd |
+| Microsoft. Azure. Service Bus. RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` – SessionId finns i meddelandena. |
+| Microsoft. Azure. Service Bus. Exception | alla instrumenterade API: er| `Exception Exception` – Undantags instans |
 
 I varje händelse kan du komma åt `Activity.Current` som innehåller aktuell åtgärds kontext.
 
 #### <a name="logging-additional-properties"></a>Loggar ytterligare egenskaper
 
-`Activity.Current`innehåller en detaljerad kontext för den aktuella åtgärden och dess överordnade. Mer information finns i [aktivitets dokumentationen](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) .
+`Activity.Current` innehåller en detaljerad kontext för den aktuella åtgärden och dess överordnade. Mer information finns i [aktivitets dokumentationen](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) .
 Service Bus Instrumentation innehåller ytterligare information som de `Activity.Current.Tags` innehåller `MessageId` och `SessionId` när de är tillgängliga.
 
 Aktiviteter som spårar "Receive", "Peek" och "ReceiveDeferred"-händelsen kan också ha `RelatedTo` tagg. Den innehåller en distinkt lista över `Diagnostic-Id` meddelanden som tagits emot som ett resultat.
@@ -201,17 +202,17 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 #### <a name="filtering-and-sampling"></a>Filtrering och sampling
 
 I vissa fall är det önskvärt att endast logga en del av händelserna för att minska prestanda och lagrings förbrukning. Du kan endast logga "stoppa"-händelser (som i föregående exempel) eller en procentuell sampling av händelserna. 
-`DiagnosticSource`Ange ett sätt att åstadkomma det med `IsEnabled` predikatet. Mer information finns i [Sammanhangs beroende filtrering i DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
+`DiagnosticSource` Ange ett sätt att åstadkomma det med `IsEnabled` predikatet. Mer information finns i [Sammanhangs beroende filtrering i DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
 
-`IsEnabled`kan anropas flera gånger för en enskild åtgärd för att minimera prestanda påverkan.
+`IsEnabled` kan anropas flera gånger för en enskild åtgärd för att minimera prestanda påverkan.
 
-`IsEnabled`anropas i följande ordning:
+`IsEnabled` anropas i följande ordning:
 
-1. `IsEnabled(<OperationName>, string entity, null)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Observera att det inte finns någon start eller stoppa i slutet. Använd den för att filtrera bort specifika åtgärder eller köer. Om motringningen returnerar `false` skickas inte händelser för åtgärden
+1. `IsEnabled(<OperationName>, string entity, null)` till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Observera att det inte finns någon start eller stoppa i slutet. Använd den för att filtrera bort specifika åtgärder eller köer. Om motringningen returnerar `false` skickas inte händelser för åtgärden
 
    * För åtgärderna "process" och "ProcessSession" får du också `IsEnabled(<OperationName>, string entity, Activity activity)` motringning. Använd den för att filtrera händelser baserat på `activity.Id` eller Taggar egenskaper.
   
-2. `IsEnabled(<OperationName>.Start)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . Kontrollerar om start händelsen ska utlösas. Resultatet påverkar endast händelsen "starta", men ytterligare Instrumentation är inte beroende av det.
+2. `IsEnabled(<OperationName>.Start)` till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . Kontrollerar om start händelsen ska utlösas. Resultatet påverkar endast händelsen "starta", men ytterligare Instrumentation är inte beroende av det.
 
 Det finns inget `IsEnabled` för "stopp"-händelse.
 

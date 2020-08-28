@@ -5,13 +5,13 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-csharp
+ms.openlocfilehash: 876359b45daa280a1f5701f2490ce505327f309b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75351723"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011012"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Självstudie: Lär dig hur du uppgraderar ett Service Fabric program med hjälp av Visual Studio
 
@@ -31,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -61,7 +61,7 @@ Vi uppdaterar `WebFrontEnd_cpu` parametern för att uppdatera CPU-resurserna til
 > Som standard används parameter filen som är en peer i filen Profile. yaml för att ange värden för filen Profile. yaml.
 > Till exempel miljöer > Cloud > Parameters. yaml innehåller parameter värden för miljöer > Cloud > Profile. yaml.
 >
-> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml: till `parametersFilePath=”relative or full path to the parameters file”` exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller`parametersFilePath=”..\CommonParameters.yaml”`
+> Du kan åsidosätta detta genom att lägga till följande i filen Profile. yaml: till `parametersFilePath=”relative or full path to the parameters file”` exempel `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` eller `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Ändra modellen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494674"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020515"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics-tillägg för virtuella datorer för Windows
 
@@ -29,7 +29,7 @@ Azure Monitor-loggar innehåller övervaknings funktioner över molnbaserade och
 
 ### <a name="operating-system"></a>Operativsystem
 
-Mer information om Windows-operativsystem som stöds finns i artikeln [Log Analytics agent översikt](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) .
+Mer information om de Windows-operativsystem som stöds finns i artikeln [Översikt över Azure Monitors agenter](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Version för agent och VM-tillägg
 Följande tabell innehåller en mappning av versionen av Windows Log Analytics VM-tillägget och Log Analytics agent-paketet för varje version. 
@@ -86,7 +86,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 ```
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel |
+| Namn | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
@@ -95,7 +95,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 | workspaceId (t) * | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (t. ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
-\*WorkspaceId kallas för consumerId i Log Analytics-API: et.
+\* WorkspaceId kallas för consumerId i Log Analytics-API: et.
 
 > [!NOTE]
 > För ytterligare egenskaper, se Azure [Connect Windows-datorer för att Azure Monitor](../../azure-monitor/platform/agent-windows.md).

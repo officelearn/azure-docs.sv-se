@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2732781d32e92c8ec03116988e33ec4fbe0b2330
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021569"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 
@@ -90,15 +91,15 @@ I följande tabell sammanfattas de behållar åtgärder som accepterar villkorli
 
 | Åtgärd | Returnerar ETag-värde för behållare | Accepterar villkorliga rubriker |
 |:--- |:--- |:--- |
-| Skapa container |Ja |Inga |
-| Hämta egenskaper för behållare |Ja |Inga |
-| Hämta metadata för behållare |Ja |Inga |
+| Skapa container |Ja |Nej |
+| Hämta egenskaper för behållare |Ja |Nej |
+| Hämta metadata för behållare |Ja |Nej |
 | Ange metadata för behållare |Ja |Ja |
-| Hämta ACL för behållare |Ja |Inga |
-| Ange behållar-ACL |Yes |Ja (*) |
-| Ta bort container |Inga |Ja |
+| Hämta ACL för behållare |Ja |Nej |
+| Ange behållar-ACL |Ja |Ja (*) |
+| Ta bort container |Nej |Ja |
 | Lease container |Ja |Ja |
-| Lista blobbar |Inga |Inga |
+| Lista blobbar |Nej |Nej |
 
 (*) Behörigheterna som definieras av SetContainerACL cachelagras och uppdateringar av de här behörigheterna tar 30 sekunder att spridas under vilka period uppdateringar inte garanterat är konsekventa.  
 
@@ -114,12 +115,12 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 | Ange BLOB-metadata |Ja |Ja |
 | Låna BLOB (*) |Ja |Ja |
 | Ta ögonblicksbild av blob |Ja |Ja |
-| Kopiera blob |Yes |Ja (för käll-och mål-BLOB) |
-| Avbryt kopiering av BLOB |Inga |Inga |
-| Ta bort blob |Inga |Ja |
-| Spärra block |Inga |Inga |
+| Kopiera blob |Ja |Ja (för käll-och mål-BLOB) |
+| Avbryt kopiering av BLOB |Nej |Nej |
+| Ta bort blob |Nej |Ja |
+| Spärra block |Nej |Nej |
 | Lista över blockerade |Ja |Ja |
-| Hämta blockeringslistan |Ja |Inga |
+| Hämta blockeringslistan |Ja |Nej |
 | Placerings sida |Ja |Ja |
 | Hämta sid intervall |Ja |Ja |
 
@@ -244,13 +245,13 @@ I följande tabell sammanfattas hur tabell enhets åtgärder använder ETag-vär
 
 | Åtgärd | Returnerar ETag-värde | Kräver rubriken-match begär ande huvud |
 |:--- |:--- |:--- |
-| Fråga entiteter |Ja |Inga |
-| Infoga entitet |Ja |Inga |
+| Fråga entiteter |Ja |Nej |
+| Infoga entitet |Ja |Nej |
 | Uppdatera entitet |Ja |Ja |
 | Sammanfoga entitet |Ja |Ja |
-| Ta bort entitet |Inga |Ja |
-| Infoga eller Ersätt entitet |Ja |Inga |
-| Infoga eller sammanfoga entitet |Ja |Inga |
+| Ta bort entitet |Nej |Ja |
+| Infoga eller Ersätt entitet |Ja |Nej |
+| Infoga eller sammanfoga entitet |Ja |Nej |
 
 Observera att åtgärderna **Lägg till eller Ersätt entitet** och **Infoga eller sammanfoga entiteter** *inte* utför några samtidighets kontroller eftersom de inte skickar ett ETag-värde till tabell tjänsten.  
 
@@ -291,6 +292,6 @@ Mer information om Azure Storage finns i:
 
 * [Microsoft Azure Storage start sida](https://azure.microsoft.com/services/storage/)
 * [Introduktion till Azure Storage](storage-introduction.md)
-* Lagrings Komma igång för [BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabell](../../cosmos-db/table-storage-how-to-use-dotnet.md), [köer](../storage-dotnet-how-to-use-queues.md)och [filer](../storage-dotnet-how-to-use-files.md)
+* Lagrings Komma igång för [BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabell](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [köer](../storage-dotnet-how-to-use-queues.md)och [filer](../storage-dotnet-how-to-use-files.md)
 * Lagrings arkitektur – [Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
 

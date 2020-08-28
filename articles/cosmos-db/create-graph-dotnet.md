@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: f781018fc5fc832be92de34c3ef220517ad28d75
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118261"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020430"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett .NET Framework-eller kärn program med hjälp av Azure Cosmos DB Gremlin API-konto
 
@@ -30,7 +31,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](graph-introduction.md) -konto, databas och Graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -111,7 +112,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Kopiera slutpunkten":::
 
-   Om du vill köra det här exemplet kopierar du **slut punkt** svärdet för Gremlin, tar bort port numret i slutet, vilket är URI: n blir `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . Slut punkt svärdet bör se ut så här`testgraphacct.gremlin.cosmosdb.azure.com`
+   Om du vill köra det här exemplet kopierar du **slut punkt** svärdet för Gremlin, tar bort port numret i slutet, vilket är URI: n blir `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . Slut punkt svärdet bör se ut så här `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Gå sedan till fliken **nycklar** och kopiera värdet för **primär nyckel** från Azure Portal. 
 

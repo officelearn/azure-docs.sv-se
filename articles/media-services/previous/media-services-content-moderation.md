@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d30949327f3025c06d4c98670494809c486631a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954714"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022215"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Använd Azure Media Content Moderator för att identifiera eventuell vuxen och vågat innehåll 
 
@@ -31,7 +32,7 @@ Med **Azure Media Content moderator** Media-processorn (MP) kan du använda dato
 
 **Azure Media Content moderator** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Azure Media Content moderator** och visar hur du använder det med Media Services SDK för .net.
+Den här artikeln innehåller information om  **Azure Media Content moderator** och visar hur du använder det med Media Services SDK för .net.
 
 ## <a name="content-moderator-input-files"></a>Content Moderator indatafiler
 Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
@@ -54,7 +55,7 @@ Utdata-JSON innehåller följande element:
 | offset |Tidsförskjutningen för tidsstämplar. I version 1,0 av video-API: er, är det här värdet alltid 0. Det här värdet kan ändras i framtiden. |
 | ram |Bildrutor per sekund i videon. |
 | bredd |Bredden på video rutan för utdata i bild punkter.|
-| höjd |Höjden på video rutan för utdata i bild punkter.|
+| mankhöjd |Höjden på video rutan för utdata i bild punkter.|
 | totalDuration |Varaktigheten för inmatad video i "ticker". |
 | [fragment](#fragments-json-elements) |Metadata delas upp i olika segment som kallas fragment. Varje fragment är en automatiskt identifierad bild med start, varaktighet, intervall nummer och händelse (r). |
 
@@ -71,10 +72,10 @@ Utdata-JSON innehåller följande element:
 
 |Element|Beskrivning|
 |---|---|
-| reviewRecommended | `true`eller `false` beroende på om **AdultScore** eller **racyScore** överskrider de interna tröskelvärdena. |
+| reviewRecommended | `true` eller `false` beroende på om **AdultScore** eller **racyScore** överskrider de interna tröskelvärdena. |
 | adultScore | Tillförlitlighets poängen för potentiellt vuxen innehåll, på en skala på 0,00 till 0,99. |
 | racyScore | Tillförlitlighets poängen för möjligt vågat-innehåll, på en skala på 0,00 till 0,99. |
-| Tabbindex | index för ramen i en skala från det första ram indexet till det sista ram indexet. |
+| index | index för ramen i en skala från det första ram indexet till det sista ram indexet. |
 | timestamp | Placeringen av ramen i "ticker". |
 | shotIndex | Index för den överordnade bilden. |
 

@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1bfd83534bda6397983b0595acc089e901c473d6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892396"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021491"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -277,7 +277,7 @@ Följande villkor kan leda till att ögonblicks bild aktiviteten Miss kopierar:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från återställnings punkt resurs gruppen
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_ `<Geo>` _ _ `<number>` .
 3. I avsnittet **Inställningar** väljer du **Lås** för att Visa låsen.
 4. Om du vill ta bort låset väljer du ellipsen och väljer **ta bort**.
@@ -306,7 +306,7 @@ När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. 
 
 Om du vill rensa samlingen återställnings punkter manuellt, som inte avmarkeras på grund av resurs gruppens lås, kan du prova följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AZUREBACKUPRG_ `<Geo>` _ `<number>` där den virtuella datorn finns.
 
     ![Välj resurs grupp](./media/backup-azure-arm-vms-prepare/resource-group.png)

@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
-ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, devx-track-csharp
+ms.openlocfilehash: a10c8b21da1e4dc08a186ccb6ba6528b7a655943
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759780"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022079"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 
@@ -35,7 +35,7 @@ I den här kursen lär du dig:
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och Server delen av lösningen finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio.
 
@@ -93,7 +93,7 @@ Modulens identitet och modul är i offentlig för hands version. Den är endast 
 
 ### <a name="get-your-module-connection-string"></a>Hämta din anslutnings sträng för modul
 
-Du behöver modulens anslutnings sträng för konsol programmet. Följ de här stegen:
+Du behöver modulens anslutnings sträng för konsol programmet. Gör så här:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 

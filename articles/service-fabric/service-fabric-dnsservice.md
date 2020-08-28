@@ -3,12 +3,13 @@ title: Azure Service Fabric DNS-tjänsten
 description: Använd Service Fabricens DNS-tjänst för att identifiera mikrotjänster inifrån klustret.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258914"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021280"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
 DNS-tjänsten är en valfri system tjänst som du kan aktivera i klustret för att identifiera andra tjänster som använder DNS-protokollet. 
@@ -116,7 +117,7 @@ DNS-namnet för din tjänst kan matchas i hela klustret, så det är viktigt att
 Vi rekommenderar starkt att du använder ett namngivnings schema `<ServiceDnsName>.<AppInstanceName>` , till exempel `service1.application1` . Om ett program distribueras med hjälp av Docker Compos, tilldelas tjänster automatiskt DNS-namn med det här namngivnings schemat.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ange DNS-namnet för en standard tjänst i ApplicationManifest.xml
-Öppna projektet i Visual Studio eller din favorit redigerare och öppna ApplicationManifest.xml-filen. Gå till avsnittet standard tjänster och Lägg till attributet för varje tjänst `ServiceDnsName` . I följande exempel visas hur du anger tjänstens DNS-namn till`service1.application1`
+Öppna projektet i Visual Studio eller din favorit redigerare och öppna ApplicationManifest.xml-filen. Gå till avsnittet standard tjänster och Lägg till attributet för varje tjänst `ServiceDnsName` . I följande exempel visas hur du anger tjänstens DNS-namn till `service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -143,7 +144,7 @@ I följande exempel anges DNS-namnet för en tillstånds känslig tjänst till `
 ```
 
 ### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Ange DNS-namnet för en tjänst med hjälp av PowerShell
-Du kan ange DNS-namnet för en tjänst när du skapar den med `New-ServiceFabricService` PowerShell-kommandot. I följande exempel skapas en ny tillstånds lös tjänst med DNS-namnet`service1.application1`
+Du kan ange DNS-namnet för en tjänst när du skapar den med `New-ServiceFabricService` PowerShell-kommandot. I följande exempel skapas en ny tillstånds lös tjänst med DNS-namnet `service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -170,12 +171,12 @@ DNS-frågor som riktar sig mot en partition formateras enligt följande:
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Plats:
+Där:
 
 - Den första delen av *partitioned-service-DNSName* är den första delen av TJÄNSTens DNS-namn.
-- *PartitionPrefix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är "--". Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är "--". Mer information finns i  [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-partition-Name* är namnet på partitionen. 
-- *PartitionSuffix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är en tom sträng. Mer information finns i [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionSuffix* är ett värde som kan anges i avsnittet DNS service i kluster manifestet eller via klustrets Resource Manager-mall. Standardvärdet är en tom sträng. Mer information finns i  [Inställningar för DNS-tjänsten](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Återstående partitionerade service-DNSName* är den återstående delen av tjänstens DNS-namn.
 
 I följande exempel visas DNS-frågor om partitionerade tjänster som körs på ett kluster med standardinställningar för `PartitionPrefix` och `PartitionSuffix` : 
@@ -252,4 +253,4 @@ public class ValuesController : Controller
 * Det finns ännu inte stöd för DNS-tjänsten för Service Fabric-tjänster i Linux. DNS-tjänsten stöds för behållare i Linux. Manuell matchning med hjälp av Fabric client/ServicePartitionResolver är det tillgängliga alternativet.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om tjänst kommunikation i klustret med [Anslut och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md)
+Lär dig mer om tjänst kommunikation i klustret med  [Anslut och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md)

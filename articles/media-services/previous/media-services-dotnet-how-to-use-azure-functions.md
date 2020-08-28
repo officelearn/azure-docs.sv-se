@@ -14,16 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052822"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020617"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
-Den här artikeln visar hur du kommer igång med att skapa Azure Functions som använder Media Services. Azure-funktionen som definieras i den här artikeln övervakar en lagrings konto behållare med namnet **indata** för nya MP4-filer. När en fil har släppts i lagrings behållaren kör BLOB-utlösaren funktionen. Information om hur du granskar Azure Functions finns i [Översikt](../../azure-functions/functions-overview.md) och andra ämnen i avsnittet **Azure Functions** .
+Den här artikeln visar hur du kommer igång med att skapa Azure Functions som använder Media Services. Azure-funktionen som definieras i den här artikeln övervakar en lagrings konto behållare med namnet **indata** för nya MP4-filer. När en fil har släppts i lagrings behållaren kör BLOB-utlösaren funktionen. Information om hur du granskar Azure Functions finns i  [Översikt](../../azure-functions/functions-overview.md) och andra ämnen i avsnittet **Azure Functions** .
 
 Om du vill utforska och distribuera befintliga Azure Functions som använder Azure Media Services kan du kolla [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här lagrings platsen innehåller exempel som använder Media Services för att Visa arbets flöden som är relaterade till att mata in innehåll direkt från Blob Storage, kodning och skrivning av innehåll till Blob Storage. Den innehåller också exempel på hur du övervakar jobb meddelanden via Webhooks och Azure-köer. Du kan också utveckla dina funktioner baserat på exemplen i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) -lagringsplatsen. Distribuera funktionerna genom att trycka på knappen **distribuera till Azure** .
 
@@ -42,7 +43,7 @@ Om du vill utforska och distribuera befintliga Azure Functions som använder Azu
 
 ## <a name="configure-function-app-settings"></a>Konfigurera funktions program inställningar
 
-När du utvecklar Media Services funktioner är det praktiskt att lägga till miljövariabler som ska användas i dina funktioner. Om du vill konfigurera appinställningar klickar du på länken konfigurera app-inställningar. Mer information finns i [så här konfigurerar du inställningar för Azure Function-appar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+När du utvecklar Media Services funktioner är det praktiskt att lägga till miljövariabler som ska användas i dina funktioner. Om du vill konfigurera appinställningar klickar du på länken konfigurera app-inställningar. Mer information finns i  [så här konfigurerar du inställningar för Azure Function-appar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 Funktionen som definieras i den här artikeln förutsätter att du har följande miljövariabler i dina app-inställningar:
 

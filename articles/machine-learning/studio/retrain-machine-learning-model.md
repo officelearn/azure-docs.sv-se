@@ -7,14 +7,14 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 9acb9db0024ea1601f82b96376f084536fbbeabb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7ce7697b92df9c6bef61bbf9eccb9f4252ce957f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431871"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020702"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Omträna och distribuera en maskin inlärnings modell
 
@@ -35,7 +35,7 @@ Du följer de här stegen för att omträna och distribuera en ny webb tjänst f
 
 ## <a name="deploy-the-retraining-web-service"></a>Distribuera webb tjänsten för retraining
 
-Med en retraining-webbtjänst kan du träna om din modell med en ny uppsättning parametrar, t. ex. nya data och spara den för senare. När du ansluter en **webb tjänst utmatning** till en **tåg modell**, kommer övnings experimentet att generera en ny modell som du kan använda.
+Med en retraining-webbtjänst kan du träna om din modell med en ny uppsättning parametrar, t. ex. nya data och spara den för senare. När du ansluter en **webb tjänst utmatning**  till en **tåg modell**, kommer övnings experimentet att generera en ny modell som du kan använda.
 
 Använd följande steg för att distribuera en retraining-webb tjänst:
 

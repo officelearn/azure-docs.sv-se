@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594873"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021314"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klient Sidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klient sidan.
@@ -160,7 +161,7 @@ Inlineing-annonser anges också i ett- `<Creative>` element. I följande exempel
     </Creative>
 ```
 
-Det <**NonLinearAds**>-elementet kan innehålla ett eller flera <som inte är **linjära**> element, som var och en kan beskriva en som inte är linjär AD. <**Dislines**>-elementet anger resursen för den som inte är linjär AD. Resursen kan vara en <**StaticResource**>, ett <**IFrameResource**> eller en <**HTMLResource**>. \<**StaticResource**>beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
+Det <**NonLinearAds**>-elementet kan innehålla ett eller flera <som inte är **linjära**> element, som var och en kan beskriva en som inte är linjär AD. <**Dislines**>-elementet anger resursen för den som inte är linjär AD. Resursen kan vara en <**StaticResource**>, ett <**IFrameResource**> eller en <**HTMLResource**>. \<**StaticResource**> beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
 
 Bild/gif, bild/JPEG, bild/png – resursen visas i en HTML-<**img**>-tagg.
 
@@ -239,9 +240,9 @@ En VMAP-fil börjar med ett- `<VMAP>` element som innehåller ett eller flera `<
 
 Elementet <**AdSource**> ger spelaren ett infogat AD-svar eller en referens till ett AD-svar. Den kan innehålla något av följande element:
 
-* `<VASTAdData>`anger att ett stort AD-svar är inbäddat i VMAP-filen
-* `<AdTagURI>`en URI som refererar till ett AD-svar från ett annat system
-* `<CustomAdData>`– en godtycklig sträng som representerar ett icke-omfattande svar
+* `<VASTAdData>` anger att ett stort AD-svar är inbäddat i VMAP-filen
+* `<AdTagURI>` en URI som refererar till ett AD-svar från ett annat system
+* `<CustomAdData>` – en godtycklig sträng som representerar ett icke-omfattande svar
 
 I det här exemplet anges ett infogat AD-svar med ett- `<VASTAdData>` element som innehåller ett omfattande AD-svar. Mer information om de andra elementen finns i [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
@@ -276,7 +277,7 @@ I följande exempel visas en VMAP-fil som anger spårnings händelser
     </vmap:VMAP>
 ```
 
-Mer information om <- **TrackingEvents**>-elementet och dess underordnade finns ihttp://iab.net/VMAP.pdf
+Mer information om <- **TrackingEvents**>-elementet och dess underordnade finns i http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Använda en mall för medie abstrakta sekvenser (MAST)
 Med en delnings fil kan du ange utlösare som definierar när en annons visas. Följande är ett exempel på en samlings fil som innehåller utlösare för en för insamlad AD, en mellanliggande annons och en efter rulle-annons.
@@ -327,7 +328,7 @@ Med en delnings fil kan du ange utlösare som definierar när en annons visas. F
 
 En datamaste-fil börjar med ett **Datamast** -element som innehåller ett **trigger** -element. `<triggers>`Elementet innehåller ett eller flera **Utlös ande** element som definierar när en annons ska spelas upp.
 
-**Utlösar** -elementet innehåller ett **startConditions** -element som anger när en annons ska börja spelas upp. **StartConditions** -elementet innehåller ett eller flera `<condition>` element. När var och `<condition>` en av dem utvärderas till sant initieras eller återkallas en utlösare beroende på om den finns `<condition>` i ett **StartConditions** -eller **endConditions** -element. När flera `<condition>` element finns, behandlas de som ett implicit eller, vilket villkor som utvärderas till sant, gör att utlösaren initieras. `<condition>`element kan kapslas. När underordnade `<condition>` element är förinställda, behandlas de som ett implicit och alla villkor måste utvärderas till sant för att utlösaren ska initieras. `<condition>`Elementet innehåller följande attribut som definierar villkoret:
+**Utlösar** -elementet innehåller ett **startConditions** -element som anger när en annons ska börja spelas upp. **StartConditions** -elementet innehåller ett eller flera `<condition>` element. När var och `<condition>` en av dem utvärderas till sant initieras eller återkallas en utlösare beroende på om den finns `<condition>` i ett **StartConditions** -eller **endConditions** -element. När flera `<condition>` element finns, behandlas de som ett implicit eller, vilket villkor som utvärderas till sant, gör att utlösaren initieras. `<condition>` element kan kapslas. När underordnade `<condition>` element är förinställda, behandlas de som ett implicit och alla villkor måste utvärderas till sant för att utlösaren ska initieras. `<condition>`Elementet innehåller följande attribut som definierar villkoret:
 
 1. **Type** – anger typ av villkor, händelse eller egenskap
 2. **namn** – namnet på egenskapen eller händelsen som ska användas under utvärderingen

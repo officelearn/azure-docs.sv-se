@@ -14,13 +14,13 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
-ms.custom: devx-track-java
-ms.openlocfilehash: bace9130f87300585d1e7d90c6c1a30041171f4b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java, devx-track-csharp
+ms.openlocfilehash: 13b05c17cc621660576913c08a1fdbc389365a53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324666"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003974"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Kom igång med Notification Hubs genom att använda Baidu
 
@@ -30,7 +30,7 @@ Baidu Cloud Push är en kinesisk molntjänst som du kan använda för att skicka
 
 Eftersom Google Play och FCM (Firebase Cloud Messaging) inte är tillgängliga i Kina, är det nödvändigt att använda andra appbutiker och push-tjänster. Baidu är en av dem och den som för tillfället används av Notification Hub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här kursen behöver du:
 

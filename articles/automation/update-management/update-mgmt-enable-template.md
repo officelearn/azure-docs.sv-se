@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/10/2020
-ms.openlocfilehash: 37f4b7208d7c8fafcd3aa1d25106a2cd5e4949c6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c4b29db8bbcb741116fcd425b4489973228066e6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450605"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021603"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Aktivera Uppdateringshantering via en Azure Resource Manager-mall
 
@@ -150,7 +150,7 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "name": "[parameters('sku')]",
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -192,7 +192,7 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
                 "sku": {
                     "name": "Basic"
                 }
-            },
+            }
         },
         {
             "apiVersion": "2020-03-01-preview",

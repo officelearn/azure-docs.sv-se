@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4e485463f41cdfbadeb166ecbb3a86d4a32c1589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7552609fc4c85cdd5033e67b1bab7fb58cb6ebf1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75348927"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016571"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polymorfism i Reliable Actors Framework
 Med Reliable Actors Framework kan du skapa aktörer med många av de metoder som du kan använda i objektorienterad design. En av dessa tekniker är polymorfism, som gör att typer och gränssnitt kan ärvas från mer generaliserade föräldrar. Arv i Reliable Actors Framework följer i allmänhet .NET-modellen med några ytterligare begränsningar. I händelse av Java/Linux följer Java-modellen.

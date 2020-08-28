@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 621e325d0b549d2970180a5a40eb09260c1f2ee0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253481"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016622"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabrics plattformen
 I den här artikeln förklaras hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors köras i ett ramverk som är värd för en implementering av en tillstånds känslig tillförlitlig tjänst som kallas *aktörs tjänst*. Aktörs tjänsten innehåller alla komponenter som krävs för att hantera livs cykeln och meddelande sändning för dina aktörer:
@@ -61,7 +62,7 @@ Aktörs tjänster är partitionerade tillstånds känsliga tjänster. Varje part
 Reliable Services kan skapas med olika partitioner och partitionerings nyckel intervall. Aktörs tjänsten använder Int64 partitionerings schema med det fullständiga Int64-nyckel intervallet för att mappa aktörer till partitioner.
 
 ### <a name="actor-id"></a>Skådespelare-ID
-Varje aktör som skapas i tjänsten har ett unikt ID som är kopplat till den, som representeras av `ActorId` klassen. `ActorId`är ett ogenomskinligt ID-värde som kan användas för enhetlig distribution av aktörer över diskpartitioner genom att generera slumpmässiga ID: n:
+Varje aktör som skapas i tjänsten har ett unikt ID som är kopplat till den, som representeras av `ActorId` klassen. `ActorId` är ett ogenomskinligt ID-värde som kan användas för enhetlig distribution av aktörer över diskpartitioner genom att generera slumpmässiga ID: n:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());

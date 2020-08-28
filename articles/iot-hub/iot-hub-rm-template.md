@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 02e814a9da320d688fe57edf3a3fe0640b8f5a47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dcec1e40e9095c27abb1470e3739f65035a96834
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75976743"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007187"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Skapa en IoT-hubb med Azure Resource Manager mall (.NET)
 
@@ -23,7 +24,7 @@ ms.locfileid: "75976743"
 Du kan använda Azure Resource Manager för att skapa och hantera Azure IoT Hub program mässigt. Den här självstudien visar hur du använder en Azure Resource Manager mall för att skapa en IoT-hubb från ett C#-program.
 
 > [!NOTE]
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md).  Den här artikeln beskriver hur du använder Azure Resource Manager distributions modell.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser:  [Azure Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md).  Den här artikeln beskriver hur du använder Azure Resource Manager distributions modell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

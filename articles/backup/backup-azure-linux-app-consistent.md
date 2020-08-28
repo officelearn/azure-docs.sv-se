@@ -3,12 +3,12 @@ title: Programkonsekventa säkerhets kopieringar av virtuella Linux-datorer
 description: Skapa programkonsekventa säkerhets kopieringar av dina virtuella Linux-datorer till Azure. Den här artikeln förklarar hur du konfigurerar skript ramverket för att säkerhetskopiera virtuella Linux-datorer som distribueras i Azure. Den här artikeln innehåller också felsöknings information.
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407106"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999248"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekventa säkerhetskopior av virtuella Linux-datorer på Azure
 
@@ -58,7 +58,7 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
     - **timeoutInSeconds**: ange enskilda tids gränser för för skriptet och efter skriptet (maximalt värde kan vara 1800).
 
-    - **continueBackupOnFailure**: Ange det här värdet till **Sant** om du vill att Azure Backup ska återgå till en konsekvent eller kraschad fil system-konsekvent säkerhets kopiering om det inte går att använda skript eller efter skript. Om värdet är **false** Miss lyckas säkerhets kopieringen om det uppstår ett skript fel (förutom när du har en virtuell dator med en enda disk som går tillbaka till en kraschad säkerhets kopiering oberoende av den här inställningen). Om **continueBackupOnFailure** -värdet är inställt på False görs ett nytt försök att säkerhetskopiera, om säkerhets kopieringen Miss lyckas, baserat på en logik för återförsök i tjänsten (för det specificerade antalet försök).
+    - **continueBackupOnFailure**: Ange det här värdet till **Sant** om du vill att Azure Backup ska återgå till en konsekvent eller kraschad fil system-konsekvent säkerhets kopiering om det inte går att använda skript eller efter skript. Om värdet är **false** Miss lyckas säkerhets kopieringen om det finns ett skript fel (förutom när du har en virtuell dator med en enda disk som går tillbaka till en kraschad säkerhets kopiering oberoende av den här inställningen). Om **continueBackupOnFailure** -värdet är inställt på False görs ett nytt försök att säkerhetskopiera, om säkerhets kopieringen Miss lyckas, baserat på en logik för återförsök i tjänsten (för det specificerade antalet försök).
 
     - **fsFreezeEnabled**: Ange om Linux-fsfreeze ska anropas när du tar ögonblicks bilden av den virtuella datorn för att säkerställa fil systemets konsekvens. Vi rekommenderar att den här inställningen är **True** , om inte programmet har ett beroende vid inaktive ring av fsfreeze.
 

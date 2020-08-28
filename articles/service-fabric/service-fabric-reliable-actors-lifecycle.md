@@ -5,12 +5,13 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: db47a758d33c3ed6e861601285e7737514ab416d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260435"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016707"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktörs livs cykel, automatisk skräp insamling och manuell borttagning
 En aktör aktive ras första gången ett anrop görs till någon av dess metoder. En aktör inaktive ras (skräp insamlad av aktörernas körningar) om den inte används under en konfigurerbar tids period. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
@@ -40,7 +41,7 @@ När en aktör är inaktive rad släpps referenser till aktörs objekt och kan s
 Vad räknas som "används" för inaktive ring och skräp insamling?
 
 * Tar emot ett samtal
-* `IRemindable.ReceiveReminderAsync`anropad metod (gäller endast om aktören använder påminnelser)
+* `IRemindable.ReceiveReminderAsync` anropad metod (gäller endast om aktören använder påminnelser)
 
 > [!NOTE]
 > om aktören använder timers och dess timer-återanrop anropas, räknas den **inte** som "används".

@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du hanterar säkerhe
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 03e3f7450fd7282acde7988550df404656021961
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824176"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007306"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: hantera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -35,7 +35,7 @@ Om du har använt [säkerhetskopiera en SAP HANA databas i Azure med hjälp av C
 * säkerhetskopierade databasen/objektet med namnet *saphanadatabase; hxe; hxe*
 * resurser i regionen *westus2*
 
-Med Azure CLI är det enkelt att hantera en SAP HANA databas som körs på en virtuell Azure-dator som säkerhets kopie ras med Azure Backup. Den här självstudien beskriver var och en av hanterings åtgärderna.
+Med Azure CLI är det enkelt att hantera en SAP HANA databas som körs på en virtuell Azure-dator som har säkerhetskopierats med Azure Backup. Den här självstudien beskriver var och en av hanterings åtgärderna.
 
 ## <a name="monitor-backup-and-restore-jobs"></a>Övervaka säkerhets kopierings-och återställnings jobb
 

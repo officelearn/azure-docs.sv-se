@@ -3,12 +3,13 @@ title: Reliable Actors timers och påminnelser
 description: Introduktion till timers och påminnelser för Service Fabric Reliable Actors, inklusive vägledning om när du ska använda dem.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245956"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016554"
 ---
 # <a name="actor-timers-and-reminders"></a>Timers för aktör och påminnelser
 Aktörer kan schemalägga periodiska arbeten genom att registrera antingen timers eller påminnelser. Den här artikeln visar hur du använder timers och påminnelser och förklarar skillnaderna mellan dem.
@@ -204,7 +205,7 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-När en påminnelse aktive ras anropar Reliable Actors runtime `ReceiveReminderAsync` (C#) eller `receiveReminderAsync` (Java) metoden på aktören. En aktör kan registrera flera påminnelser, och `ReceiveReminderAsync` (C#) eller `receiveReminderAsync` (Java)-metoden anropas när någon av dessa påminnelser utlöses. Aktören kan använda påminnelse namnet som skickas till `ReceiveReminderAsync` (C#) eller `receiveReminderAsync` (Java)-metoden för att ta reda på vilken påminnelse som utlöstes.
+När en påminnelse aktive ras anropar Reliable Actors runtime  `ReceiveReminderAsync` (C#) eller `receiveReminderAsync` (Java) metoden på aktören. En aktör kan registrera flera påminnelser, och `ReceiveReminderAsync` (C#) eller `receiveReminderAsync` (Java)-metoden anropas när någon av dessa påminnelser utlöses. Aktören kan använda påminnelse namnet som skickas till `ReceiveReminderAsync` (C#) eller `receiveReminderAsync` (Java)-metoden för att ta reda på vilken påminnelse som utlöstes.
 
 Aktörs körningen sparar aktörens tillstånd när `ReceiveReminderAsync` anropet (C#) eller `receiveReminderAsync` (Java) har slutförts. Om ett fel inträffar när du sparar status inaktive ras aktörens objekt och en ny instans aktive ras.
 

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17b325ab15f55a8fc02729c6f5ed0cb0330ecca2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77913012"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016843"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure-medieanalys
 
@@ -34,7 +35,7 @@ Den här tekniken är riktad mot säkerhets video flöden och kan kategorisera r
 
 **Azure Media motion Detector** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Azure Media motion Detector** och visar hur du använder det med Media Services SDK för .net
+Den här artikeln innehåller information om  **Azure Media motion Detector** och visar hur du använder det med Media Services SDK för .net
 
 ## <a name="motion-detector-input-files"></a>Indatafiler för rörelse detektor
 Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
@@ -45,7 +46,7 @@ När du skapar en aktivitet med **Azure Media motion Detector**måste du ange en
 ### <a name="parameters"></a>Parametrar
 Du kan använda följande parametrar:
 
-| Name | Alternativ | Beskrivning | Default |
+| Namn | Alternativ | Beskrivning | Default |
 | --- | --- | --- | --- |
 | sensitivityLevel |Sträng: låg, medium, hög |Anger känslighets nivån då rörelserna rapporteras. Justera detta för att justera antalet falska positiva identifieringar. |säker |
 | frameSamplingValue |Positivt heltal |Anger med vilken frekvens algoritmen körs. 1 lika med varje bild ruta, 2 betyder varje andra ram och så vidare. |1 |

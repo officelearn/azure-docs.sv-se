@@ -3,12 +3,12 @@ title: Uppgradera Microsoft Azure Recovery Services-agenten (MARS)
 description: Lär dig hur du uppgraderar Microsoft Azure Recovery Services-agenten (MARS).
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 79abc877f102d83cdb3c72a571f2203984eb54e4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c822c75fa1232d2304b5bcb4a0afe4323e52287f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890244"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007374"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Uppgradera Microsoft Azure Recovery Services-agenten (MARS)
 
@@ -23,7 +23,7 @@ För installationer av Azure Backup Agent och Azure Backup Server:
 
 1. Navigera till Recovery Servicess valvet där du har registrerat servrar som kan säkerhets kopie ras av äldre versioner av agenten. Du kan hitta en representativ lista över valv med äldre Azure Backup agenter i Azure Backup uppdaterings aviseringar från Azure.
 1. I avsnittet **Inställningar** för den vänstra sidan i Recovery Services-valvet väljer du **säkerhets kopierings infrastruktur** under avsnittet **Hantera** .
-1. Om du vill identifiera vilka Azure Backup-agenter som installeras som en del av Azure Backup Server installationer går du till **säkerhets kopierings hanterings servrar** under **hanterings servrar** Detta visar de servrar som har Azure Backup Server installationer tillsammans med versions numret för den associerade Azure Backup agenten.
+1. Om du vill identifiera Azure Backup agenter som installerats som en del av Azure Backup Server installationer går du till **säkerhets kopierings hanterings servrar** under **hanterings servrar**. Detta visar de servrar som har Azure Backup Server installationer tillsammans med versions numret för den associerade Azure Backup agenten.
 
     ![Lista över MARS-agenter som installerats som en del av Azure Backup Server-installationer](./media/upgrade-mars-agent/backup-management-servers.png)
 
@@ -31,19 +31,19 @@ För installationer av Azure Backup Agent och Azure Backup Server:
 
     ![Lista över servrar med MARS-agenten installerad](./media/upgrade-mars-agent/protected-servers.png)
 
-1. Sortera kolumnen Azure Backup Agent version genom att välja kolumnen **agent version** för installation av mars-agenten eller **Azure Backup Agent versions** kolumn för Azure Backup Server-installationer.
+1. Sortera kolumnen Azure Backup Agent version genom att välja kolumnen **agent version** för installation av mars-agenten eller kolumnen **Azure Backup Agent version** för Azure Backup Server installationer.
 
 1. I föregående steg får du en lista över servrar med Azure Backup agenter som har lägre versioner än 2.0.9083.0 eller agent versioner som visas som tomma. Detta är de servrar där Azure Backup agenter behöver uppdateras.
 
 ## <a name="update-the-mars-agent-installation-on-the-server"></a>Uppdatera MARS Agent installationen på servern
 
-När du har identifierat de servrar som behöver en Azure Backup Agent uppdatering utför du följande steg för varje identifierad Server (med Azure Backup Server eller MARS-agenten). [Hämta den senaste versionen av Azure Backup-agenten](https://aka.ms/azurebackup_agent) innan du följer stegen nedan.
+När du har identifierat de servrar som behöver en Azure Backup Agent uppdatering utför du följande steg för varje identifierad Server (med hjälp av Azure Backup Server eller MARS-agenten). [Hämta den senaste versionen av Azure Backup agenten](https://aka.ms/azurebackup_agent) innan du följer stegen nedan.
 
 1. Välj en rad som har Azure Backup Agent som är lägre än 2.0.9083.0 eller tomt. Då öppnas skärmen Server information.
 
     ![Skyddade servrar med inaktuella agent versioner](./media/upgrade-mars-agent/old-agent-version.png)
 
-    ![Azure Backup-servrar med inaktuella agent versioner](./media/upgrade-mars-agent/backup-management-servers-old-versions.png)
+    ![Azure Backup servrar med inaktuella agent versioner](./media/upgrade-mars-agent/backup-management-servers-old-versions.png)
 
 1. Välj **Anslut** för att ta emot en fil för fjärr skrivbords anslutning för att ansluta till servern eller Anslut direkt till servern via fjärr skrivbords anslutningen på servern.
 
@@ -63,9 +63,9 @@ När du har identifierat de servrar som behöver en Azure Backup Agent uppdateri
     Azure US Government-molnet |   `https://login.microsoftonline.us`
     Azure tyskt-moln  |  `https://login.microsoftonline.de`
 
-1. Kopiera installations programmet för Azure Backup Agent-uppdateringen till-servern.
+1. Kopiera installations programmet för Azure Backup agents uppdatering till-servern.
 
-    ![Kopiera installations programmet för Azure Backup-agenten till servern](./media/upgrade-mars-agent/copy-agent-installer.png)
+    ![Kopiera Azure Backup Agent uppdatera installations programmet till servern](./media/upgrade-mars-agent/copy-agent-installer.png)
 
 1. Kör installationsprogrammet. Guiden uppgradera Microsoft Azure Recovery Services agent öppnas.
 
@@ -81,7 +81,7 @@ När du har identifierat de servrar som behöver en Azure Backup Agent uppdateri
 
 ## <a name="for-system-center-data-protection-manager-sc-dpm-customers"></a>För System Center Data Protection Manager (SC DPM)-kunder
 
-Om du har installerat Azure Backup-agenter på System Center Data Protection Manager-servrar (SC DPM) måste du följa stegen nedan för att identifiera om DPM-servrarna behöver en uppdatering av Azure Backup-agenten:
+Om du har installerat Azure Backup agenter på System Center Data Protection Manager-servrar (SC DPM) måste du följa stegen nedan för att identifiera om DPM-servrarna behöver en Azure Backup Agent uppdatering:
 
 1. Logga in på din SC DPM-server som administratör.
 2. Öppna DPM-konsolen.

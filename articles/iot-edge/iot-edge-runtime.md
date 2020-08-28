@@ -8,15 +8,13 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:
-- amqp
-- mqtt
-ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, mqtt, devx-track-csharp
+ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730911"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016962"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge Runtime och dess arkitektur
 
@@ -94,20 +92,20 @@ Varje objekt i distributions manifestet innehåller detaljerad information om en
   * Hämtning
   * Körs
   * Ohälsosamt
-  * Misslyckades
+  * Misslyckad
   * Stoppad
 
 * **restartPolicy** – hur den IoT Edge agenten startar om en modul. Möjliga värden är:
   
-  * `never`– IoT Edge agenten startar aldrig om modulen.
-  * `on-failure`– Om modulen kraschar startas den IoT Edge agenten om. Om modulen stängs av korrekt startar IoT Edge-agenten inte om den.
-  * `on-unhealthy`– Om modulen kraschar eller om den betraktas som ohälsosam, startar agenten IoT Edge.
-  * `always`– Om modulen kraschar, betraktas som ohälsosam eller stängs av på något sätt startas den IoT Edge agenten om.
+  * `never` – IoT Edge agenten startar aldrig om modulen.
+  * `on-failure` – Om modulen kraschar startas den IoT Edge agenten om. Om modulen stängs av korrekt startar IoT Edge-agenten inte om den.
+  * `on-unhealthy` – Om modulen kraschar eller om den betraktas som ohälsosam, startar agenten IoT Edge.
+  * `always` – Om modulen kraschar, betraktas som ohälsosam eller stängs av på något sätt startas den IoT Edge agenten om.
 
 * **imagePullPolicy** – om IoT Edge-agenten försöker hämta den senaste avbildningen för en modul automatiskt eller inte. Om du inte anger något värde är standardvärdet *onCreate*. Möjliga värden är:
 
-  * `on-create`– När en modul startas eller uppdateras baserat på ett nytt distributions manifest försöker IoT Edge-agenten Hämta modulens avbildning från behållar registret.
-  * `never`-IoT Edge agenten försöker inte hämta modulens avbildning från behållar registret. Med den här konfigurationen ansvarar du för att hämta modul avbildningen till enheten och hantera eventuella avbildnings uppdateringar.
+  * `on-create` – När en modul startas eller uppdateras baserat på ett nytt distributions manifest försöker IoT Edge-agenten Hämta modulens avbildning från behållar registret.
+  * `never` -IoT Edge agenten försöker inte hämta modulens avbildning från behållar registret. Med den här konfigurationen ansvarar du för att hämta modul avbildningen till enheten och hantera eventuella avbildnings uppdateringar.
 
 IoT Edge agenten skickar körnings svar till IoT Hub. Här är en lista över möjliga svar:
   

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b3cf2603dec7e921159824f565336cd91a575731
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8d222eca76f020703f89dd1bdd5848cec4bc52ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205660"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006541"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-drivrutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL
 I den här artikeln beskrivs de driv rutiner och hanterings verktyg som är kompatibla med Azure Database for MySQL.
@@ -34,7 +34,7 @@ Azure Database for MySQL använder världens mest populära community-version av
 | C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | MySQL Connector/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 och under | | 
-| C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
+| C++ | MySQL + +| https://github.com/tangentsoft/mysqlpp | 3.2.3 + | | |
 | Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
 | Swift | MySQL – Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |

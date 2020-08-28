@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498369"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020005"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
@@ -23,7 +23,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 ## <a name="create-a-container-using-azure-portal"></a>Skapa en container med hjälp av Azure-portalen
 
-### <a name="sql-api"></a><a id="portal-sql"></a>API för SQL
+### <a name="sql-api"></a><a id="portal-sql"></a>SQL-API
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 

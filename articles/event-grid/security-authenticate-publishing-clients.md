@@ -3,12 +3,13 @@ title: Autentisera klienter som publicerar händelser för att Event Grid anpass
 description: I den här artikeln beskrivs olika sätt att autentisera klienter som publicerar händelser för att Event Grid anpassade ämnen.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8b08c46fdeadccfad0471ddfa4f9ba2762a951a0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e934ce0d8f5e31dc8dd7592a2e553cd278af2b10
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837405"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019121"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autentisera publicerings klienter (Azure Event Grid)
 Den här artikeln innehåller information om hur du autentiserar klienter som publicerar händelser till Azure Event Grid ämnen eller domäner med hjälp av **åtkomst nycklar** eller **SAS-token (signatur för delad åtkomst)** . Vi rekommenderar att du använder SAS-token, men Key Authentication tillhandahåller enkel programmering och är kompatibel med många befintliga webhook-utgivare.  

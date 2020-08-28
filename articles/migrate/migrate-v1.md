@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836011"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001645"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -85,7 +85,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Stat** | **Information**
+**Beredskap** | **Tillstånd** | **Information**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -238,7 +238,7 @@ Så här installerar du agenten på en Windows-dator:
 4. I **installations alternativ för agent**väljer du **Azure Log Analytics**  >  **Nästa**.
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
-Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager. [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om att använda dessa metoder för att installera MMA-agenten.
+Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager. [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-options) om att använda dessa metoder för att installera MMA-agenten.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Installera MMA-agenten på en Linux-dator
 
@@ -249,7 +249,7 @@ Så här installerar du agenten på en Linux-dator:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Läs mer](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) om listan med stöd för Linux-operativsystem i MMA.
+[Läs mer](../azure-monitor/platform/agents-overview.md#supported-operating-systems) om listan med stöd för Linux-operativsystem i MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Installera MMA-agenten på en dator som övervakas av Operations Manager
 

@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322167"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020396"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
 [Azure Monitor](../overview.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabb starten visar hur du konfigurerar och samlar in data från Linux-servern med några enkla steg. Information om virtuella Azure Linux-datorer finns i [samla in data om Azure Virtual Machines](./quick-collect-azurevm.md).  
 
-Information om vilka konfigurationer som stöds finns i [Windows operativ system](../platform/log-analytics-agent.md#supported-linux-operating-systems) och [konfigurationen för nätverks brand väggen](../platform/log-analytics-agent.md#network-requirements).
+Information om vilka konfigurationer som stöds finns i konfiguration av [operativ system](../platform/agents-overview.md#supported-operating-systems) och [nätverks brand vägg](../platform/log-analytics-agent.md#network-requirements)som stöds.
  
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

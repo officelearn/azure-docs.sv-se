@@ -3,12 +3,12 @@ title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890084"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002019"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
 
@@ -192,7 +192,7 @@ Du kan övervaka statusen för ditt import jobb från Azure Portal genom att gå
 
 ### <a name="complete-the-workflow"></a>Slutför arbets flödet
 
-När import jobbet är klart är de första säkerhets kopierings data tillgängliga i ditt lagrings konto. Vid nästa schemalagda säkerhets kopiering kopierar Azure Backup innehållet i data från lagrings kontot till Recovery Services-valvet.
+När import jobbet är klart är de första säkerhets kopierings data tillgängliga i ditt lagrings konto. Vid nästa schemalagda säkerhets kopiering Azure Backup kopierar innehållet i data från lagrings kontot till Recovery Services-valvet.
 
 Vid tidpunkten för nästa schemalagda körning av repliken av online-replikering utför Data Protection Manager stegvis säkerhets kopiering över den första säkerhets kopian.
 

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff746b85142714c129c04e7f8a3d20ac4b6cb53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892583"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020175"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -390,7 +390,7 @@ För att köra skriptet krävs ett lösen ord som bara visas för den auktoriser
 
 #### <a name="browse-files-and-folders"></a>Bläddra bland filer och mappar
 
-För att bläddra bland filer och mappar använder skriptet iSCSI-initieraren på datorn och ansluter till den återställnings punkt som är konfigurerad som ett iSCSI-mål. Här kan du tänka på scenarier där en försöker imitera/manipulera antingen/alla komponenter.
+För att bläddra bland filer och mappar använder skriptet iSCSI-initieraren på datorn och ansluter till återställnings punkten som är konfigurerad som ett iSCSI-mål. Här kan du tänka på scenarier där en försöker imitera/manipulera antingen/alla komponenter.
 
 Vi använder en metod för ömsesidig CHAP-autentisering så att varje komponent autentiserar den andra. Det innebär att det är mycket svårt för en falsk initierare att ansluta till iSCSI-målet och att ett förfalskat mål måste vara anslutet till den dator där skriptet körs.
 

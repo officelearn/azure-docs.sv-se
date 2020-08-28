@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: b8f100d253dc5ecb321934eb49a1aba60595a5e8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a3bd50d23f2543c6efeb6297b4dbcba8293269c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232584"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019886"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera ansikts-och känslo med Azure-medieanalys
 
@@ -45,7 +46,7 @@ Med MP ( **Azure Media Face Detector** Media processor) kan du räkna, spåra f�
 
 **Azure Media Face Detector** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Azure Media Face Detector** och visar hur du använder det med Media Services SDK för .net.
+Den här artikeln innehåller information om  **Azure Media Face Detector** och visar hur du använder det med Media Services SDK för .net.
 
 ## <a name="face-detector-input-files"></a>Indatafiler för ansikts detektor
 Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.

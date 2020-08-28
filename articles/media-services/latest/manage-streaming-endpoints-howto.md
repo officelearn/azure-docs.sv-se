@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: d8b5f79d9c9050eeb7957ddcf28021e3c8b3dd94
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500563"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010655"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Hantera slut punkter för direkt uppspelning med Media Services v3
 
@@ -57,7 +57,7 @@ Mer information finns i:
  
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Gå till ditt Azure Media Services-konto.
-1. I det vänstra fönstret väljer du **slut punkter för direkt uppspelning**.
+1. I det vänstra fönstret väljer du  **slut punkter för direkt uppspelning**.
 1. Välj den slut punkt för direkt uppspelning som du vill starta och välj sedan **Starta**.
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI

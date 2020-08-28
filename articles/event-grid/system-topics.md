@@ -2,13 +2,13 @@
 title: System avsnitt i Azure Event Grid
 description: Beskriver system avsnitt i Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/27/2020
+ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119930"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019104"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>System avsnitt i Azure Event Grid
 Ett system avsnitt i Event Grid representerar en eller flera händelser som publicerats av Azure-tjänster som Azure Storage och Azure-Event Hubs. Ett system ämne kan till exempel representera **alla BLOB-händelser** eller bara **BLOB-skapade** och **borttagna BLOB** -händelser som har publicerats för ett **särskilt lagrings konto**. I det här exemplet, när en BLOB överförs till lagrings kontot, publicerar Azure Storages tjänsten en **BLOB-skapad** händelse i avsnittet system i Event Grid, som sedan vidarebefordrar händelsen till ämnes [prenumeranter](event-handlers.md) som tar emot och bearbetar händelsen. 
@@ -57,7 +57,7 @@ Det går inte att skapa system avsnittet om du har konfigurerat Azure-principer 
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Plats och resurs grupp för ett system ämne
 För Azure Event-källor som finns i en speciell region/plats skapas system ämne på samma plats som Azure-händelseloggen. Om du till exempel skapar en händelse prenumeration för en Azure Blob Storage i östra USA skapas avsnittet system i USA, östra. För globala Azure-händelseloggar som Azure-prenumerationer, resurs grupper eller Azure Maps, skapar Event Grid system-avsnittet i den **globala** platsen. 
 
-I allmänhet skapas system ämne i samma resurs grupp som Azures händelse källa. För händelse prenumerationer som skapats i Azure-prenumerationens omfattning skapas system avsnittet under resurs gruppens **standard-EventGrid**. Om resurs gruppen inte finns skapar Azure Event Grid den innan du skapar system avsnittet. 
+I allmänhet skapas system ämne i samma resurs grupp som Azures händelse källa. För händelse prenumerationer som skapats i Azure-prenumerationens omfattning skapas system avsnittet i resurs gruppen **standard-EventGrid** i regionen **USA, västra 2** . Om resurs gruppen inte finns skapar Azure Event Grid den innan du skapar system avsnittet. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 

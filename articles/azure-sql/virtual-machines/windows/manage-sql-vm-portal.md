@@ -12,31 +12,31 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f502183b8240515ee136ce27d99bd4b5d6277c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669009"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010179"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Hantera SQL Server virtuella datorer i Azure med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-I [Azure Portal](https://portal.azure.com)är resursen **SQL Virtual Machines** (VM) en oberoende hanterings tjänst. Du kan använda den för att visa alla dina SQL Server virtuella datorer samtidigt och ändra inställningarna som är reserverade för SQL Server: 
+I [Azure Portal](https://portal.azure.com)är resursen [**virtuella SQL-datorer**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) en oberoende hanterings tjänst för att hantera SQL Server på virtuella Azure-datorer. Du kan använda den för att visa alla dina SQL Server virtuella datorer samtidigt och ändra inställningarna som är reserverade för SQL Server: 
 
 ![Resurs för virtuella SQL-datorer](./media/manage-sql-vm-portal/sql-vm-manage.png)
 
 
 ## <a name="remarks"></a>Kommentarer
 
-- Vi rekommenderar att du använder resursen **SQL Virtual Machines** för att visa och hantera dina SQL Server virtuella datorer i Azure. Men för närvarande stöder inte resursen **SQL Virtual Machines** hanteringen av [support](sql-server-2008-extend-end-of-support.md) SQL Server virtuella datorer. Om du vill hantera inställningarna för support SQL Server virtuella datorer använder du fliken inaktuell [SQL Server konfiguration](#access-the-sql-server-configuration-tab) i stället. 
+- Vi rekommenderar att du använder resursen [**SQL Virtual Machines**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) för att visa och hantera dina SQL Server virtuella datorer i Azure. Men för närvarande stöder inte resursen **SQL Virtual Machines** hanteringen av [support](sql-server-2008-extend-end-of-support.md) SQL Server virtuella datorer. Om du vill hantera inställningarna för support SQL Server virtuella datorer använder du fliken inaktuell [SQL Server konfiguration](#access-the-sql-server-configuration-tab) i stället. 
 - Resursen **SQL Virtual Machines** är bara tillgänglig för SQL Server virtuella datorer som har [registrerats med PROVIDERN för SQL VM-resurs](sql-vm-resource-provider-register.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Åtkomst till resursen för virtuella SQL-datorer
 Gör så här för att få åtkomst till resursen för **virtuella SQL-datorer** :
 
-1. Öppna [Azure Portal](https://portal.azure.com). 
+1. Öppna [Azure-portalen](https://portal.azure.com). 
 1. Välj **alla tjänster**. 
 1. Ange **virtuella SQL-datorer** i sökrutan.
 1. (Valfritt): Välj stjärnan bredvid **virtuella datorer i SQL** för att lägga till det här alternativet i **Favoriter** -menyn. 
@@ -51,7 +51,7 @@ Gör så här för att få åtkomst till resursen för **virtuella SQL-datorer**
    När du väljer SQL Server VM öppnas resursen **SQL Virtual Machines** : 
 
 
-   ![Resurs för virtuella SQL-datorer](./media/manage-sql-vm-portal/sql-vm-resource.png)
+   ![Visa resursen för virtuella SQL-datorer](./media/manage-sql-vm-portal/sql-vm-resource.png)
 
 > [!TIP]
 > Resursen **SQL Virtual Machines** är avsedd för dedikerade SQL Server inställningar. Välj namnet på den virtuella datorn i rutan **virtuell dator** för att öppna inställningar som är unika för den virtuella datorn, men inte exklusiv för att SQL Server. 
@@ -61,7 +61,7 @@ Fliken **SQL Server konfiguration** är inaktuell. För närvarande är det den 
 
 Öppna den föråldrade **SQL Server fliken Konfiguration** genom att gå till resursen **virtuella datorer** . Gör så här:
 
-1. Öppna [Azure Portal](https://portal.azure.com). 
+1. Öppna [Azure-portalen](https://portal.azure.com). 
 1. Välj **alla tjänster**. 
 1. Ange **virtuella datorer** i sökrutan.
 1. (Valfritt): Välj stjärnan bredvid **virtuella datorer** för att lägga till det här alternativet i **Favoriter** -menyn. 

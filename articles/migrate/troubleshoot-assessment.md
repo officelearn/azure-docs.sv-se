@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685416"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020362"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -164,7 +164,7 @@ För virtuella Linux-datorer måste du kontrol lera att installations kommandona
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-- **MMS-agent**: granska de [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)-och [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) -operativsystem som stöds.
+- **MMS-agent**: granska de [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)-och [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) -operativsystem som stöds.
 - **Beroende agent**: de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualisera beroenden för > timme

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121909"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019750"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -20,7 +20,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-
 
 Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek har **inget** beroende av några Azure-bibliotek. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -54,7 +54,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="add-feature-management"></a>Lägg till funktions hantering
 
-1. När du har extraherat filerna i det lokala systemet är ditt våren Boot-program klart för redigering. Leta upp *pom.xml* i appens rot Katalog.
+1. När du har extraherat filerna i det lokala systemet är ditt våren Boot-program klart för redigering. Leta upp  *pom.xml* i appens rot Katalog.
 
 1. Öppna *pom.xml* -filen i en text redigerare och Lägg till följande i listan över `<dependencies>` :
 
@@ -97,7 +97,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     ```
 
 > [!Note]
-> Det finns ett bibliotek för funktions hantering utanför webben som inte är beroende av våren-webben. Läs mer om skillnaderna i GitHub- [dokumentationen](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) .
+> Det finns ett bibliotek för funktions hantering utanför webben som inte är beroende av våren-webben. Läs mer om skillnaderna i GitHub- [dokumentationen](https://github.com/microsoft/spring-cloud-azure) .
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
@@ -290,7 +290,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | Stat |
+    | Nyckel | Tillstånd |
     |---|---|
     | Beta | På |
 

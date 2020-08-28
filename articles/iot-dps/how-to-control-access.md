@@ -8,13 +8,13 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7ca1620c51640699fe8b31aef3504b8c67185253
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 5190ff2575f80a7c1c8c4fc9b386441497de23fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423498"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020328"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrol lera åtkomst till Azure IoT Hub Device Provisioning Service
 
@@ -80,7 +80,7 @@ Här är de förväntade värdena:
 | --- | --- |
 | signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry` . **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen.|
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
-| {URL-kodad – resourceURI} | Gemen URL-kodning för den nedre fall resurs-URI: n. URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Device Provisioning-tjänsten (inget protokoll). Exempelvis `mydps.azure-devices-provisioning.net`. |
+| {URL-kodad – resourceURI} | Gemen URL-kodning för den nedre fall resurs-URI: n. URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Device Provisioning-tjänsten (inget protokoll). Till exempel `mydps.azure-devices-provisioning.net`. |
 | PolicyName |Namnet på den princip för delad åtkomst som denna token refererar till. |
 
 **Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc` .
@@ -178,7 +178,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till din IoT Device Provisioning-tjänst.
 
-| Behörighet | Kommentarer |
+| Behörighet | Anteckningar |
 | --- | --- |
 | **ServiceConfig** |Beviljar åtkomst för att ändra tjänst konfigurationerna. <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **EnrollmentRead** |Ger Läs behörighet till enhets registreringar och registrerings grupper. <br/>Den här behörigheten används av Server dels moln tjänster. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7469d60095026c8a016fc1ecaa1a4f92361800f3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084015"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019387"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Snabb start: publicera dina Azure Stack virtuella datorer i Security Center
 När du har publicerat din Azure-prenumeration kan du aktivera Security Center för att skydda dina virtuella datorer som körs på Azure Stack genom att lägga till tillägget **Azure Monitor, uppdatering och konfigurations hantering** för virtuella datorer från Azure Stack Marketplace.
@@ -72,7 +72,7 @@ Nu måste du lägga till tillägget **Azure Monitor, uppdatering och konfigurati
 7. När du är färdig med nödvändiga konfigurations inställningar klickar du på **OK**.
 8. När tillägget har slutförts visas statusen som **etableringen har slutförts**. Det kan ta upp till en timme innan den virtuella datorn visas i Security Center portalen.
 
-Mer information om hur du installerar och konfigurerar agenten för Windows finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Mer information om hur du installerar och konfigurerar agenten för Windows finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Information om Linux-felsökning av agent problem finns i [Felsöka Azure Log Analytics Linux-agenten](../azure-monitor/platform/agent-linux-troubleshoot.md).
 

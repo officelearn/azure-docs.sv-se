@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 533990ef0ea88be7f1f06021d7aa398e89f6390b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f4f69904954286f15d2fda13ddd26ee64c81776f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060325"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019393"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Queue Storage för att övervaka Media Services jobb meddelanden med .NET 
 
@@ -64,7 +65,7 @@ Kod exemplet i det här avsnittet gör följande:
 > [!NOTE]
 > Det rekommenderade sättet att övervaka jobbets status är genom att lyssna på aviserings meddelanden, som du ser i följande exempel:
 >
-> Du kan också kontrol lera jobbets tillstånd med hjälp av egenskapen **IJob. State** .  Ett meddelande om slut för ande av jobb kan komma innan status för **IJob** har angetts till **slutfört**. Egenskapen **IJob. State** visar korrekt tillstånd med en liten fördröjning.
+> Du kan också kontrol lera jobbets tillstånd med hjälp av egenskapen **IJob. State** .  Ett meddelande om slut för ande av jobb kan komma innan status för **IJob** har angetts till **slutfört**. Egenskapen **IJob. State**  visar korrekt tillstånd med en liten fördröjning.
 >
 >
 

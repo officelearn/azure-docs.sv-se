@@ -6,14 +6,14 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
-ms.openlocfilehash: 93136286dc14a5c7c69fe8c17829eddabddbfacf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4ad6d16e4c6d91b44061d99ffa1c397fb0e0ec28
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080065"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019648"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>REST SDK för Apache Phoenix Query Server
 
@@ -54,7 +54,7 @@ Varje exempel anropar först ett anrop till `OpenConnectionRequestAsync` metoden
 
 ## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConnectionSyncRequest och dess ConnectionProperties
 
-För att anropa `ConnectionSyncRequestAsync` , skicka ett `ConnectionProperties` objekt.
+För att anropa  `ConnectionSyncRequestAsync` , skicka ett `ConnectionProperties` objekt.
 
 ```csharp
 ConnectionProperties connProperties = new ConnectionProperties

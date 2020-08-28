@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5348b4cfb1961bdada7c32f3c437cdb2819ef6d0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4ac0b0e0a9c372aebc51af1840491d0f53f9f8f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833036"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010332"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -371,7 +372,7 @@ Media Services REST-metadata är nu version 2,7. Mer information om de senaste R
 
 Media Services SDK för .NET är nu version 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Icke-bakåtkompatibla ändringar
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Bryta ändringar
 * Ursprungets namn ändrades till [StreamingEndpoint].
 * En ändring har gjorts i standard beteendet när du använder Azure Portal för att koda och sedan publicera MP4-filer.
 
@@ -462,16 +463,16 @@ Följande Media Services PowerShell-cmdletar ingår nu i [Azure SDK-verktyg](htt
 
 * Get-AzureMediaServices 
 
-    Exempel: `Get-AzureMediaServicesAccount`
+    Exempelvis: `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    Exempel: `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
+    Exempelvis: `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    Exempel: `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
+    Exempelvis: `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    Exempel: `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
+    Exempelvis: `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a name="june-2013-release"></a><a id="june_changes_13"></a>Version från juni 2013
 ### <a name="media-services-changes"></a><a name="june_13_general_changes"></a>Media Services ändringar

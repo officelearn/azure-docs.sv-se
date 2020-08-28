@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bab78d60e5007d9c3eb61afa7bc63a9b44e47aa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8ec35a651d4d3ef9e0877463329a654bc7491f4c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888035"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001884"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Överföra data med dataflyttbiblioteket
 
@@ -32,9 +33,9 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 - Kopiera filen från URL till Blob Storage.
 - Kopiera från Blob Storage till Blob Storage.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Visuell Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - Ett [Azure Storage-konto](storage-account-create.md)
 
 ## <a name="setup"></a>Installation
@@ -44,12 +45,12 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 3. Öppna den här katalogen i Visual Studio Code. Det här steget kan snabbt utföras via kommando raden genom att skriva `code .` i Windows.
 4. Installera [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) från Visual Studio Code Marketplace. Starta om Visual Studio Code.
 5. Nu bör du se två prompter. Ett är för att lägga till "nödvändiga till gångar för att skapa och felsöka". Klicka på Ja. En annan prompt är för att återställa olösta beroenden. Klicka på Återställ.
-6. Ändra `launch.json` under `.vscode` för att använda extern Terminal som en konsol. Den här inställningen bör läsas som`"console": "externalTerminal"`
+6. Ändra `launch.json` under `.vscode` för att använda extern Terminal som en konsol. Den här inställningen bör läsas som `"console": "externalTerminal"`
 7. Med Visual Studio Code kan du felsöka .NET Core-program. Tryck `F5` på för att köra programmet och kontrol lera att installationen fungerar. Du bör se "Hello World!" skrivs ut till-konsolen.
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>Lägg till data flyttnings biblioteket i projektet
 
-1. Lägg till den senaste versionen av data flyttnings biblioteket i `dependencies` avsnittet i `<project-name>.csproj` filen. Vid tidpunkten för skrivning skulle den här versionen vara`"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+1. Lägg till den senaste versionen av data flyttnings biblioteket i `dependencies` avsnittet i `<project-name>.csproj` filen. Vid tidpunkten för skrivning skulle den här versionen vara `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. En prompt ska visa för att återställa projektet. Klicka på knappen Återställ. Du kan också återställa projektet från kommando raden genom att skriva kommandot `dotnet restore` i rot katalogen för projekt katalogen.
 
 Ändra `<project-name>.csproj` :

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6c0abeedb1253c2561f2d435aa3fe5a428418a50
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052927"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019478"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard för inställningar  
 
@@ -32,7 +33,7 @@ Den här artikeln visar hur du anpassar en för inställning genom att ta H264,-
 > [!NOTE]
 > De anpassade för inställningar som beskrivs i den här artikeln kan inte användas i [Media Services v3](../latest/index.yml) -omvandlingar eller CLI-kommandon. Mer information finns i [vägledningen om migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md) .
 
-## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Anpassa en inställning för en inställning
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Anpassa en inställning för en inställning
 
 ### <a name="original-preset"></a>Ursprunglig för inställning
 

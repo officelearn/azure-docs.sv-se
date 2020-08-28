@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f22d2022ae095ea7178859b1c036f78e39c10152
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61465668"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019461"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Gör så här: leverera en till gång genom att ladda ned  
 Den här artikeln beskriver alternativ för att leverera media till gångar som har överförts till Media Services. Du kan leverera Media Services innehåll i flera olika program scenarier. Efter kodningen kan du hämta de genererade medie till gångarna eller komma åt dem med hjälp av en strömmande positionerare. För bättre prestanda och skalbarhet kan du även leverera innehåll med hjälp av en Content Delivery Network (CDN).

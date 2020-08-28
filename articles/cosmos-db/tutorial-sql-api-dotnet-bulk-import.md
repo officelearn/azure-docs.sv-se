@@ -7,12 +7,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b16402f809da18588b26995e7129d2f27575b48d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77587574"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019257"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
 
@@ -81,7 +82,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com/).
+1.  Logga in på [Azure-portalen](https://portal.azure.com/).
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 

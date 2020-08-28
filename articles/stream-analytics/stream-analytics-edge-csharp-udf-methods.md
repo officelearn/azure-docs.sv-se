@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.custom: seodec18
-ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: fff1a228e32f115c498678a654f6c8f028772161
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921863"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015687"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics jobb (för hands version)
 
@@ -20,8 +20,8 @@ Azure Stream Analytics erbjuder ett SQL-liknande frågespråk för att utföra o
 
 .NET-användardefinierad – funktion för moln jobb finns i:
 * USA, västra centrala
-* Europa, norra
-* USA, östra
+* Norra Europa
+* East US
 * USA, västra
 * USA, östra 2
 * Europa, västra
@@ -47,7 +47,7 @@ För Azure Stream Analytics värden som ska användas i C# måste de konverteras
 |**Azure Stream Analytics typ** |**C#-typ** |
 |---------|---------|
 |bigint | long |
-|float | double |
+|flyt | double |
 |nvarchar(max) | sträng |
 |datetime | DateTime |
 |Post | Ordlista\<string, object> |
@@ -58,7 +58,7 @@ Detsamma gäller om data måste konverteras från C# till Azure Stream Analytics
 |**C#-typ**  |**Azure Stream Analytics typ**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  float   |
+|double  |  flyt   |
 |sträng  |  nvarchar(max)   |
 |DateTime  |  dateTime   |
 |struct  |  Post   |
@@ -158,7 +158,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`skickas som en indataparameter till UDF-metoden och kan användas i UDF för att publicera anpassad logg information. I exemplet nedan `MyUdfMethod` definierar **data** inmatning, som tillhandahålls av frågan och en **Sammanhangs** inmatning som `StreamingContext` , som tillhandahålls av körnings motorn. 
+`StreamingContext` skickas som en indataparameter till UDF-metoden och kan användas i UDF för att publicera anpassad logg information. I exemplet nedan `MyUdfMethod` definierar **data** inmatning, som tillhandahålls av frågan och en **Sammanhangs** inmatning som `StreamingContext` , som tillhandahålls av körnings motorn. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)

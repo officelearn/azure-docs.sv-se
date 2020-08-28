@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004877"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019223"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Kör följande kommando för att ange prenumerationen. I följande exempel är p
 
 Innan du kan använda Windows PowerShell med Azure Resource Manager behöver du följande:
 
-* Windows PowerShell, version 3,0 eller 4,0. Du hittar versionen av Windows PowerShell genom att skriva: `$PSVersionTable` och kontrol lera värdet för `PSVersion` är 3,0 eller 4,0. Information om hur du installerar en kompatibel version finns i [Windows Management framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595) eller [windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, version 3,0 eller 4,0. Du hittar versionen av Windows PowerShell genom att skriva: `$PSVersionTable` och kontrol lera värdet för `PSVersion` är 3,0 eller 4,0. Information om hur du installerar en kompatibel version finns i [Windows Management Framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595).
 
 Om du vill ha mer information om en cmdlet som du ser i den här självstudien använder du cmdleten Get-Help.
 
@@ -139,7 +139,7 @@ Mer information om Microsoft Azure Tyskland finns i [Microsoft Azure Tyskland](h
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Egenskaper som används för Azure cache för Redis PowerShell
 Följande tabell innehåller egenskaper och beskrivningar för vanliga parametrar när du skapar och hanterar Azure-cache för Redis-instanser med hjälp av Azure PowerShell.
 
-| Parameter | Beskrivning | Standardvärde |
+| Parameter | Beskrivning | Default |
 | --- | --- | --- |
 | Namn |Namn på cacheminnet | |
 | Plats |Plats för cachen | |
@@ -358,7 +358,7 @@ Följande kommando uppdaterar maxmemory-principen för Azure-cachen för Redis m
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Skala en Azure-cache för Redis
-`Set-AzRedisCache`kan användas för att skala en Azure-cache för Redis-instansen när `Size` `Sku` egenskaperna, eller `ShardCount` ändras. 
+`Set-AzRedisCache` kan användas för att skala en Azure-cache för Redis-instansen när `Size` `Sku` egenskaperna, eller `ShardCount` ändras. 
 
 > [!NOTE]
 > Skalning av en cache med PowerShell omfattas av samma begränsningar och rikt linjer som skalning av en cache från Azure Portal. Du kan skala till en annan pris nivå med följande begränsningar.

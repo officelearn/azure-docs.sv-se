@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
-ms.openlocfilehash: df1f5e1c21c28fa8c1fcdef6b2278fb92014a3b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 90e7bafab3fb9658cd9e11d0417f84269adcfa13
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272567"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022351"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Ringa ett telefonsamtal med Twilio i en webbroll på Azure
 Den här guiden visar hur du använder Twilio för att ringa ett samtal från en webb sida som finns i Azure. Det resulterande programmet uppmanas användaren att ringa ett samtal med det angivna antalet och meddelandet, som visas i följande skärm bild.
 
 ![Anrops formulär för Azure med hjälp av Twilio och ASP.NET][twilio_dotnet_basic_form]
 
-## <a name="prerequisites"></a><a name="twilio-prereqs"></a>Krav
+## <a name="prerequisites"></a><a name="twilio-prereqs"></a>Förutsättningar
 Du måste göra följande för att använda koden i det här avsnittet:
 
 1. Hämta ett Twilio-konto och autentiseringstoken från [Twilio-konsolen][twilio_console]. Kom igång med Twilio genom att registrera dig på [https://www.twilio.com/try-twilio][try_twilio] . Du kan utvärdera priser på [https://www.twilio.com/pricing][twilio_pricing] . Information om det API som tillhandahålls av Twilio finns i [https://www.twilio.com/voice/api][twilio_api] .
@@ -150,7 +151,7 @@ Anropet görs och Twilio-slutpunkten, API-versionen och anrops status visas. Fö
 Mer information om TwiML finns på [https://www.twilio.com/docs/api/twiml][twiml] . Mer information om &lt; Säg &gt; och andra Twilio-verb finns på [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
 
 ## <a name="next-steps"></a><a id="nextsteps"></a>Nästa steg
-Den här koden angavs för att visa grundläggande funktioner med Twilio i en ASP.NET-webbroll på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Ett exempel:
+Den här koden angavs för att visa grundläggande funktioner med Twilio i en ASP.NET-webbroll på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Exempel:
 
 * I stället för att använda ett webb formulär kan du använda Azure Blob Storage eller en Azure SQL Database instans för att lagra telefonnummer och samtals text. Information om hur du använder blobbar i Azure finns i [så här använder du Azure Blob Storage-tjänsten i .net][howto_blob_storage_dotnet]. Information om hur du använder SQL Database finns i [så här använder du Azure SQL Database i .NET-program][howto_sql_azure_dotnet].
 * Du kan använda `RoleEnvironment.getConfigurationSettings` för att hämta Twilio-konto-ID och autentiseringstoken från distributionens konfigurations inställningar, i stället för att hårdkoda värdena i formuläret. Information om `RoleEnvironment` klassen finns i [namn området Microsoft. windowsazure. ServiceRuntime][azure_runtime_ref_dotnet].

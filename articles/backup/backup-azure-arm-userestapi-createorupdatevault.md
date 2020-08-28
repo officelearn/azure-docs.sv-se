@@ -4,16 +4,16 @@ description: I den här artikeln lär du dig att hantera säkerhets kopierings-o
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757259"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012610"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services Vault med REST API
 
-Stegen för att skapa ett Azure Recovery Services-valv med REST API beskrivs i [skapa valv REST API](/rest/api/recoveryservices/vaults/createorupdate) dokumentation. Låt oss använda det här dokumentet som referens för att skapa ett valv som heter "testVault" i "västra USA".
+Stegen för att skapa ett Azure Recovery Services-valv med REST API beskrivs i [skapa valv REST API](/rest/api/recoveryservices/vaults/createorupdate) dokumentation. Vi använder det här dokumentet som referens för att skapa ett valv som heter "testVault" i "västra USA".
 
 Använd *följande åtgärd* för att skapa eller uppdatera ett Azure Recovery Services-valv.
 

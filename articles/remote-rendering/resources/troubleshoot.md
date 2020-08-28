@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509288"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014599"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -34,6 +34,14 @@ Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar följ
 Kontrol lera att GPU: n stöder maskinvarubaserad video avkodning. Se [Development PC](../overview/system-requirements.md#development-pc).
 
 Om du arbetar på en bärbar dator med två GPU: er, är det möjligt att den GPU som du kör på som standard inte tillhandahåller funktioner för avkodning av maskin varu video. I så fall kan du försöka tvinga appen att använda den andra GPU: n. Detta är ofta möjligt i inställningarna för GPU-drivrutinen.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>Det går inte att hämta session/konverterings status
+
+Om du skickar REST API-kommandon för ofta kommer servern att kunna begränsas och returnera felet på ett tag. HTTP-statuskoden i begränsnings fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
+
+OBS! den här gränsen påverkar inte bara de REST API samtal som anropas direkt, utan även deras C#/C + +-motsvarigheter, till exempel, `Session.GetPropertiesAsync` `Session.RenewAsync` eller `Frontend.GetAssetConversionStatusAsync` .
+
+Om du upplever begränsning på Server sidan kan du ändra koden så att anropen blir mindre ofta. Servern kommer att återställa begränsnings statusen varje minut, så det är säkert att köra koden igen efter en minut.
 
 ## <a name="h265-codec-not-available"></a>H265-codec är inte tillgänglig
 

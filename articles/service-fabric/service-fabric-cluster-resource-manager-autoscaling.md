@@ -5,12 +5,13 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793099"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005521"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala dina tjänster baserat på den belastning som tjänsterna rapporterar, eller baserat på deras användning av resurser. Automatisk skalning ger bra elastiskhet och möjliggör etablering av ytterligare instanser eller partitioner för din tjänst på begäran. Hela processen för automatisk skalning automatiseras och är transparent, och när du har konfigurerat dina principer på en tjänst behöver du inte heller manuella skalnings åtgärder på service nivå. Automatisk skalning kan aktive ras antingen när tjänsten skapas, eller när som helst genom att uppdatera tjänsten.

@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 91cebee1196dc38af8ece4086b6e6ab66fdc14da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135560"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013766"
 ---
 # <a name="get-started-with-device-twins-net"></a>Kom igång med enhets dubbla (.NET)
 
@@ -65,7 +65,7 @@ I det här avsnittet skapar du en .NET-konsol app med C#, som lägger till plats
 
 1. I Solution Explorer högerklickar du på projektet **AddTagsAndQuery** och väljer sedan **Hantera NuGet-paket**.
 
-1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure. Devices**. Välj **installera**.
+1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure. Devices**. Välj **Install** (Installera).
 
     ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
@@ -145,7 +145,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
 
 1. I Solution Explorer högerklickar du på projektet **ReportConnectivity** och väljer sedan **Hantera NuGet-paket**.
 
-1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **installera**.
+1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure. devices. client**. Välj **Install** (Installera).
 
    I det här steget hämtas, installeras och läggs en referens till i [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
 
@@ -211,7 +211,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
     }
     ```
 
-   Koden ovan uppdaterar den rapporterade egenskapen för **myDeviceId** med anslutnings informationen.
+   Koden ovan uppdaterar den rapporterade egenskapen för  **myDeviceId** med anslutnings informationen.
 
 1. Slutligen lägger du till följande rader till **Main**-metoden:
 

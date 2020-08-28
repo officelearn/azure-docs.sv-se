@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c51081c4cf2225474353afcb3a6c0de9bc9c71f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506519"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014376"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
@@ -21,7 +21,10 @@ Azure Remote rendering innehåller följande två REST-API: er:
 
 [Plats exemplen för arr](https://github.com/Azure/azure-remote-rendering) innehåller exempel skript i mappen *skript* för att interagera med REST-API: erna för tjänsten. I den här artikeln beskrivs användningen.
 
-## <a name="prerequisites"></a>Krav
+> [!CAUTION]
+Om du anropar REST API Functions för ofta kommer servern att kunna begränsas och returnera felet på ett tag. ID för HTTP-felkod i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra exempel skripten behöver du en fungerande installation av [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 

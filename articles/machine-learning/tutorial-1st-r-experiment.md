@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bb2a7d8ef55e993726b185e5652c8dff9e96b23e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056371"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015993"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,8 @@ I den här självstudien använder du Azure Machine Learning R SDK (för hands v
 I den här självstudien utför du följande åtgärder:
 > [!div class="checklist"]
 > * Skapa en Azure Machine Learning-arbetsyta
-> * Klona en Notebook-mapp med de filer som krävs för att köra den här självstudien i din arbets yta
 > * Öppna RStudio från din arbets yta
+> * Klona https://github.com/Azure/azureml-sdk-for-r de filer som krävs för att köra den här självstudien i din arbets yta
 > * Läs in data och Förbered för utbildning
 > * Ladda upp data till ett data lager så att det är tillgängligt för fjärran sluten utbildning
 > * Skapa en beräknings resurs för att träna modellen på distans
@@ -38,7 +38,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -53,33 +53,11 @@ Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera 
 > Anteckna din **arbets yta** och din **prenumeration**. Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
 
 
-## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Klona en Notebook-mapp
-
-I det här exemplet används en moln antecknings server i din arbets yta för en installation utan kostnad och förkonfigurerad upplevelse. Använd [din egen miljö](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) om du vill ha kontroll över din miljö, dina paket och beroenden.
-
-Du har slutfört följande experiment med att ställa in och köra steg i Azure Machine Learning Studio, ett konsoliderat gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap.
-
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
-
-1. Välj din prenumeration och arbets ytan du skapade.
-
-1. Välj **antecknings böcker** till vänster.
-
-1. Öppna mappen **samples** .
-
-1. Öppna **R** -mappen.
-
-1. Öppna mappen med ett versions nummer.  Det här talet representerar den aktuella versionen för R SDK.
-
-1. Välj **"..."** till höger om mappen **vignettes** och välj sedan **klona**.
-
-    ![Klona mapp](media/tutorial-1st-r-experiment/clone-folder.png)
-
-1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona mappen **vignettes** där.
-
 ## <a name="open-rstudio"></a><a name="open"></a>Öppna RStudio
 
-Använd RStudio på en beräknings instans eller Notebook VM för att köra den här självstudien.  
+I det här exemplet används en beräknings instans i din arbets yta för en installations fri och förkonfigurerad upplevelse. Använd [din egen miljö](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) om du vill ha kontroll över din miljö, paket och beroenden på din egen dator.
+
+Använd RStudio på en beräknings instans i Azure ML för att köra den här självstudien.  
 
 1. Välj **Beräkna** till vänster.
 
@@ -87,10 +65,19 @@ Använd RStudio på en beräknings instans eller Notebook VM för att köra den 
 
 1. När beräkningen har körts använder du **RStudio** -länken för att öppna RStudio.
 
-1. I RStudio är din *vignettes* -mapp några nivåer ned från *användare* i avsnittet **filer** längst ned till höger.  Under *vignettes*väljer du mappen *träna-and-Deploy-to-ACI* för att hitta de filer som behövs i den här självstudien.
+
+## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Klona exempel vignettes 
+
+Klona https://github.com/azure/azureml-sdk-for-r GitHub-lagringsplatsen för en kopia av de Vignette-filer som ska köras i den här självstudien.
+
+1. I RStudio navigerar du till fliken "Terminal" och CD: n till den katalog där du vill klona lagrings platsen.
+
+1. Kör "git-kloning https://github.com/Azure/azureml-sdk-for-r.git " i terminalen för att klona lagrings platsen.
+
+1. I RStudio navigerar du till mappen *vignettes* i mappen klonad *azureml-SDK-for-r* .  Under *vignettes*väljer du *först modellen träna-och-Deploy-First. RMD* -fil för att hitta Vignette som används i den här självstudien. De ytterligare filer som används för Vignette finns i undermappen *träna-och-distribuera-First-Model* . När du har öppnat Vignette anger du arbets katalogen till filens plats via **Session > anger arbets katalog > till käll filens plats**. 
 
 > [!Important]
-> Resten av den här artikeln innehåller samma innehåll som du ser i *träna-and-Deploy-to-ACI. RMD* -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden.  
+> Resten av den här artikeln innehåller samma innehåll som du ser i "  *träna-and-Deploy-First-Model". RMD* -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden. 
 
 
 ## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
@@ -197,7 +184,7 @@ I den här självstudien får du anpassa en logistik Regressions modell på dina
 * Skicka jobbet
 
 ### <a name="prepare-the-training-script"></a>Förbereda övnings skriptet
-Ett utbildnings skript `accidents.R` som kallas har angetts för dig i samma katalog som den här självstudien. Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure Machine Learning för utbildning:
+Ett utbildnings skript kallat `accidents.R` har angetts för dig i katalogen *träna-och-distribuera-First-Model* . Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure Machine Learning för utbildning:
 
 * Övnings skriptet använder ett argument `-d` för att hitta den katalog som innehåller tränings data. När du definierar och skickar jobbet senare pekar du på data lagret för det här argumentet. Azure ML kommer att montera lagringsmappen till fjärrklusteret för utbildnings jobbet.
 * Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med `log_metric_to_run()` . Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()` .
@@ -216,7 +203,7 @@ Skapa en uppskattning genom att definiera:
 * Alla miljö beroenden som krävs för träning. Standard Docker-avbildningen som skapats för utbildning innehåller redan de tre paketen ( `caret` , `e1071` och `optparse` ) som krävs i övnings skriptet.  Så du behöver inte ange ytterligare information. Om du använder R-paket som inte ingår som standard använder du uppskattnings `cran_packages` parameterns parameter för att lägga till ytterligare cran-paket. Se [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) referensen för en fullständig uppsättning konfigurerbara alternativ.
 
 ```R
-est <- estimator(source_directory = ".",
+est <- estimator(source_directory = "train-and-deploy-first-model",
                  entry_script = "accidents.R",
                  script_params = list("--data_folder" = ds$path(target_path)),
                  compute_target = compute_target
@@ -225,7 +212,7 @@ est <- estimator(source_directory = ".",
 
 ### <a name="submit-the-job-on-the-remote-cluster"></a>Skicka jobbet till det fjärranslutna klustret
 
-Skicka slutligen jobbet som ska köras i klustret. `submit_experiment()`Returnerar ett körnings objekt som du sedan använder för att gränssnittet med körningen. Den första körningen tar totalt **cirka 10 minuter**. Men för senare körningar används samma Docker-avbildning igen så länge skript beroendena inte ändras.  I det här fallet cachelagras avbildningen och behållar start tiden är mycket snabbare.
+Skicka slutligen jobbet som ska köras i klustret. `submit_experiment()` Returnerar ett körnings objekt som du sedan använder för att gränssnittet med körningen. Den första körningen tar totalt **cirka 10 minuter**. Men för senare körningar används samma Docker-avbildning igen så länge skript beroendena inte ändras.  I det här fallet cachelagras avbildningen och behållar start tiden är mycket snabbare.
 
 ```R
 run <- submit_experiment(exp, est)
@@ -331,6 +318,7 @@ Nu har du allt du behöver för att skapa en **konfigurations härledning** för
 ```R
 inference_config <- inference_config(
   entry_script = "accident_predict.R",
+  source_directory = "train-and-deploy-first-model",
   environment = r_env)
 ```
 

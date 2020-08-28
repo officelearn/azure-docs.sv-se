@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75452005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005657"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
 *Mått* är de resurser som dina tjänster bryr sig om och som tillhandahålls av noderna i klustret. Ett mått är vad du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Du kan till exempel titta på minnes förbrukning för att veta om tjänsten är överbelastad. En annan användning är att ta reda på om tjänsten kan flyttas någon annan stans där minnet är mindre begränsat för att få bättre prestanda.
@@ -28,7 +29,7 @@ Anta att du vill komma igång med att skriva och distribuera tjänsten. I det h�
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Hög |
 | ReplicaCount |0 |1 |1 |Medium |
-| Antal |1 |1 |1 |Låg |
+| Count |1 |1 |1 |Låg |
 
 
 För grundläggande arbets belastningar tillhandahåller standard måtten en vettigt-distribution av arbetet i klustret. I följande exempel ska vi se vad som händer när vi skapar två tjänster och förlitar sig på standard måtten för balansering. Den första tjänsten är en tillstånds känslig tjänst med tre partitioner och en mål replik uppsättnings storlek på tre. Den andra tjänsten är en tillstånds lös tjänst med en partition och ett instans antal på tre.
@@ -134,8 +135,8 @@ Som en påminnelse: om du bara vill använda standard måtten behöver du inte t
 
 Nu ska vi gå igenom var och en av de här inställningarna i detalj och prata om det beteende som påverkar det.
 
-## <a name="load"></a>Läsa in
-Hela punkten med att definiera mått är att representera en del belastning. *Belastningen* är hur mycket av ett visst mått som används av en viss tjänst instans eller replik på en viss nod. Belastningen kan konfigureras nästan vilken punkt som helst. Ett exempel:
+## <a name="load"></a>Inläsning
+Hela punkten med att definiera mått är att representera en del belastning. *Belastningen* är hur mycket av ett visst mått som används av en viss tjänst instans eller replik på en viss nod. Belastningen kan konfigureras nästan vilken punkt som helst. Exempel:
 
   - Inläsning kan definieras när en tjänst skapas. Detta kallas för _standard inläsning_.
   - Mått informationen, inklusive standard belastningar, för en tjänst kan uppdateras när tjänsten har skapats. Detta kallas att _Uppdatera en tjänst_. 

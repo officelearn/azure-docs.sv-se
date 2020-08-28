@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050690"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012355"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller information om tekniska support principer och begr
 ## <a name="service-updates-and-releases"></a>Service uppdateringar och versioner
 
 * Versions information finns i [AKS-versions anteckningar](https://github.com/Azure/AKS/releases).
-* Information om funktioner i för hands version finns i [AKS Preview-funktioner och relaterade projekt](https://github.com/Azure/AKS/blob/master/previews.md).
+* Information om funktioner i för hands version finns i [AKS Preview-funktioner och relaterade projekt](https://awesomeopensource.com/projects/aks?categoryPage=11).
 
 ## <a name="managed-features-in-aks"></a>Hanterade funktioner i AKS
 
@@ -140,7 +140,7 @@ Om kunderna gör destruktiva ändringar eller gör att kontroll Plans komponente
 Som en hanterad tjänst har AKS särskilda nätverks-och anslutnings krav. Dessa krav är mindre flexibla än kraven för normala IaaS-komponenter. I AKS, åtgärder som att anpassa NSG-regler, blockera en speciell port (t. ex. genom att använda brand Väggs regler som blockerar utgående port 443) och att lägga till URL: er i en lista över tillåtna kan det göra att klustret inte stöds.
 
 > [!NOTE]
-> För närvarande tillåter AKS inte att du fullständigt låser ut utgående trafik från klustret. Om du vill kontrol lera listan över URL: er och portar som klustret kan använda för utgående trafik, se [begränsa utgående trafik](limit-egress-traffic.md).
+> För närvarande tillåter AKS inte att du fullständigt låser ut utgående trafik från klustret. Om du vill kontrol lera listan över URL: er och portar som klustret kan använda för utgående trafik, se  [begränsa utgående trafik](limit-egress-traffic.md).
 
 ## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Funktioner som inte stöds av alpha och beta Kubernetes
 
@@ -149,7 +149,7 @@ AKS stöder endast stabila funktioner i det överordnade Kubernetes-projektet. O
 I två scenarier kan alfa-eller beta funktioner distribueras innan de är allmänt tillgängliga:
 
 * Kunderna har uppfyllt AKS produkt, support eller teknik team och har blivit ombedd att testa de här nya funktionerna.
-* De här funktionerna har [Aktiver ATS av en funktions flagga](https://github.com/Azure/AKS/blob/master/previews.md). Kunderna måste uttryckligen välja att använda dessa funktioner.
+* De här funktionerna har [Aktiver ATS av en funktions flagga](https://awesomeopensource.com/projects/aks?categoryPage=11). Kunderna måste uttryckligen välja att använda dessa funktioner.
 
 ## <a name="preview-features-or-feature-flags"></a>Förhands gransknings funktioner eller funktions flaggor
 

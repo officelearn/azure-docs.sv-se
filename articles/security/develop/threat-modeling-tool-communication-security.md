@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543953"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004570"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Säkerhets ram: kommunikations säkerhet | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -45,7 +46,7 @@ ms.locfileid: "87543953"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Event Hub | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -56,7 +57,7 @@ ms.locfileid: "87543953"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -89,7 +90,7 @@ ms.locfileid: "87543953"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -100,7 +101,7 @@ ms.locfileid: "87543953"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | EnvironmentType – Azure |
 | **Referenser**              | [Aktivera HTTPS för en app i Azure App Service](../../app-service/configure-ssl-bindings.md) |
@@ -111,7 +112,7 @@ ms.locfileid: "87543953"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | EnvironmentType – Azure |
 | **Referenser**              | [Använd HTTPS på Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
@@ -144,7 +145,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [OWASP HTTP Strict Transport Security lathund blad](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) |
@@ -155,7 +156,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure  |
 | **Attribut**              | SQL-version – V12 |
 | **Referenser**              | [Metod tips för att skriva säkra anslutnings strängar för SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
@@ -166,7 +167,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | OnPrem |
 | **Attribut**              | SQL-version – MsSQL2016, SQL-version – MsSQL2012, SQL-version-MsSQL2014 |
 | **Referenser**              | [Aktivera krypterade anslutningar till databasmotorn](https://msdn.microsoft.com/library/ms191192)  |
@@ -188,7 +189,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType-BLOB |
 | **Referenser**              | [Översikt över Windows Azure Blob MD5](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) |
@@ -199,7 +200,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Mobil klient | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType – fil |
 | **Referenser**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure File Storage SMB-stöd för Windows-klienter](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
@@ -210,7 +211,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk, Windows Phone |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Certifikat och offentlig nyckel fäste](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) |
@@ -287,7 +288,7 @@ namespace CertificatePinningExample
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
@@ -298,7 +299,7 @@ namespace CertificatePinningExample
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
@@ -327,7 +328,7 @@ string GetData(int value);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
@@ -338,7 +339,7 @@ string GetData(int value);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Tvinga SSL i en webb-API-kontroll](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
@@ -379,7 +380,7 @@ public class ValuesController : ApiController
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Cache for Redis | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Stöd för Azure Redis TLS](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
@@ -392,7 +393,7 @@ Observera att Redis har utformats för att få åtkomst till betrodda klienter i
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -403,7 +404,7 @@ Observera att Redis har utformats för att få åtkomst till betrodda klienter i
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Välj kommunikations protokoll](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |

@@ -3,12 +3,13 @@ title: Partitionera Service Fabric tjänster
 description: Beskriver hur du partitionerar Service Fabric tillstånds känsliga tjänster. Partitioner möjliggör data lagring på de lokala datorerna så att data och data bearbetning kan skalas tillsammans.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045424"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005436"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera tillförlitliga Service Fabric-tjänster
 Den här artikeln innehåller en introduktion till de grundläggande begreppen för partitionering av Azure Service Fabric Reliable Services. Käll koden som används i artikeln är också tillgänglig på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -224,7 +225,7 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
     }
     ```
    
-    `ProcessInternalRequest`läser värdena för frågesträngparametern som används för att anropa partitionen och anropen för att `AddUserAsync` lägga till LastName i den tillförlitliga ord listan `dictionary` .
+    `ProcessInternalRequest` läser värdena för frågesträngparametern som används för att anropa partitionen och anropen för att `AddUserAsync` lägga till LastName i den tillförlitliga ord listan `dictionary` .
 10. Nu ska vi lägga till en tillstånds lös tjänst i projektet för att se hur du kan anropa en viss partition.
     
     Den här tjänsten fungerar som ett enkelt webb gränssnitt som accepterar LastName som en frågesträngparametern, fastställer partitionsnyckel och skickar den till den alfabetiska. bearbetnings tjänsten för bearbetning.
@@ -307,7 +308,7 @@ Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som lå
     ```
     
     Kom ihåg att vi använder 26 partitioner med en partitionsnyckel per partition i det här exemplet.
-    Därefter hämtar vi tjänstepartitionen `partition` för den här nyckeln genom att använda- `ResolveAsync` metoden på `servicePartitionResolver` objektet. `servicePartitionResolver`definieras som
+    Därefter hämtar vi tjänstepartitionen `partition` för den här nyckeln genom att använda- `ResolveAsync` metoden på `servicePartitionResolver` objektet. `servicePartitionResolver` definieras som
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();

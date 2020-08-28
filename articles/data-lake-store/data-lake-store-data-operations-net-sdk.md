@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515653"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022470"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Fil Systems åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK
 
@@ -27,7 +28,7 @@ I den här artikeln får du lära dig hur du utför fil Systems åtgärder på D
 
 Instruktioner för hur du utför konto hanterings åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK finns i [konto hanterings åtgärder på data Lake Storage gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Visual Studio 2013 eller senare**. Anvisningarna i den här artikeln använder Visual Studio 2019.
 
@@ -48,8 +49,8 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Sampl
    1. På fliken **NuGet Package Manager** ser du till att **paket källan** är inställd på **NuGet.org**. Kontrol lera också att kryss rutan **Inkludera för hands version** är markerad.
    1. Sök efter och installera följande NuGet-paket:
 
-      * `Microsoft.Azure.DataLake.Store`– Den här artikeln använder v-1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`– Den här artikeln använder v 2.3.1.
+      * `Microsoft.Azure.DataLake.Store` – Den här artikeln använder v-1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – Den här artikeln använder v 2.3.1.
 
       Stäng **NuGet Package Manager**.
 

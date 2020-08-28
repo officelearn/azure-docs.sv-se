@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539942"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004467"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Säkerhets ram: undantags hantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -34,7 +35,7 @@ ms.locfileid: "87539942"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
@@ -58,7 +59,7 @@ Inaktivera fel söknings information i tjänsten. Detta kan åstadkommas genom a
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Allmänt, NET Framework 3 |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
@@ -69,11 +70,11 @@ Inaktivera fel söknings information i tjänsten. Detta kan åstadkommas genom a
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC 5, MVC 6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Undantags hantering i ASP.net webb-API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [modell validering i ASP.net webb-API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Steg** | Som standard översätts de mest undantagna undantagen i ASP.NET webb-API till ett HTTP-svar med status kod`500, Internal Server Error`|
+| **Steg** | Som standard översätts de mest undantagna undantagen i ASP.NET webb-API till ett HTTP-svar med status kod `500, Internal Server Error`|
 
 ### <a name="example"></a>Exempel
 Om du vill kontrol lera status koden som returneras av API `HttpResponseException` : t kan du använda det som visas nedan: 
@@ -187,7 +188,7 @@ Se länkarna i avsnittet referenser om du vill ha mer information om exceptionel
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -198,7 +199,7 @@ Se länkarna i avsnittet referenser om du vill ha mer information om exceptionel
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Redigera dialogrutan för inställningar av ASP.NET-felsidor](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
@@ -220,7 +221,7 @@ Se länkarna i avsnittet referenser om du vill ha mer information om exceptionel
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Rapportera ett problem](https://owasp.org/www-community/Fail_securely) |

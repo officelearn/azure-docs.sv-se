@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0fc79cab5868ec7d676c956581407dce308d80ad
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891510"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022521"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
@@ -21,9 +21,10 @@ I den här självstudien introduceras ett exempel program som implementerar ett 
 Du kan använda det här exemplet för att utföra viktiga Azure Digital-åtgärder, till exempel överföra modeller, skapa och ändra dubbla och skapa relationer. Du kan också titta på koden för exemplet för att lära dig om Azures digitala dubbla API: er och öva på att implementera dina egna kommandon genom att ändra det exempel projekt som du vill.
 
 I den här självstudien kommer du att...
-1. Konfigurera en digital Azure-instans
-2. Konfigurera det exempel kommando rads program som ska samverka med instansen
-3. Använd kommando rads appen för att utforska Azures digitala dubbla, inklusive **modeller**, **digitala dubbla**, **relationer**och **frågor**
+> [!div class="checklist"]
+> * Konfigurera en digital Azure-instans
+> * Konfigurera det exempel kommando rads program som ska samverka med instansen
+> * Använd kommando rads appen för att utforska Azures digitala dubbla, inklusive **modeller**, **digitala dubbla**, **relationer**och **frågor**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 

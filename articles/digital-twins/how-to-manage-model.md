@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661562"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013012"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -165,6 +165,30 @@ API-anrop för att hämta modeller med alla retur `ModelData` objekt. `ModelData
 `RetrieveModelWithDependencies`Anropet returnerar inte bara den begärda modellen, utan även alla modeller som den begärda modellen är beroende av.
 
 Modeller returneras inte nödvändigt vis i exakt det dokument formulär de överfördes. Azure Digitals dubblare garanterar bara att RETUR formuläret kommer att vara semantiskt likvärdigt. 
+
+### <a name="update-models"></a>Uppdatera modeller
+
+När en modell har laddats upp till din instans, är hela modell gränssnittet oföränderligt. Det innebär att det inte finns någon traditionell "redigering" av modeller.
+
+Om du i stället vill göra ändringar i en modell i Azure Digitals, t. ex. genom att ändra `DisplayName` eller `Description` , så är det att ladda upp en **nyare version** av samma modell. Det åsidosätter den ursprungliga modellen.
+
+Det gör du genom att börja med DTDL i den ursprungliga modellen. Uppdatera de fält som du vill ändra.
+
+Markera sedan detta som en nyare version av modellen genom att uppdatera `id` fältet i modellen. Det sista avsnittet i modell-ID: t, efter `;` , representerar modell numret. Om du vill visa att det nu är en mer uppdaterad version av den här modellen ökar du talet i slutet av `id` värdet till ett tal som är större än det aktuella versions numret.
+
+Till exempel om ditt tidigare modell-ID såg ut så här:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+version 2 av den här modellen kan se ut så här:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Ladda sedan upp den nya versionen av modellen till din instans. Det kommer att ta platsen för den gamla versionen och nya, dubbla, som du skapar med den här modellen använder den uppdaterade versionen.
 
 ### <a name="remove-models"></a>Ta bort modeller
 

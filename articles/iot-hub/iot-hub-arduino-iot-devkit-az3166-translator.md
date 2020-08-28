@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: 8e840a1ae7161ea3e7b370889a1f0fb648ca120e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 412a3e78006d263858ff0e28af52cf11bf44c7bb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953362"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004348"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit-AZ3166 med Azure Functions och Cognitive Services för att göra en språk översättare
 
@@ -29,7 +30,7 @@ Utför stegen i den här självstudien genom att först utföra följande uppgif
 
 ## <a name="create-azure-cognitive-service"></a>Skapa Azure-tjänsten för inlärning
 
-1. Klicka på **skapa en resurs** i Azure Portal och Sök efter **tal**. Skapa röst tjänsten genom att fylla i formuläret.
+1. Klicka på **skapa en resurs** i Azure Portal och Sök efter **tal**. Fyll i formuläret för att skapa Speech Service.
   ![Tjänst för taligenkänning](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
 
 1. Gå till den Speech-tjänst som du precis har skapat och klicka på avsnittet **nycklar** för att kopiera och anteckna **KEY1** för DevKit som har åtkomst till den.
@@ -51,7 +52,7 @@ Utför stegen i den här självstudien genom att först utföra följande uppgif
 1. Följ stegen för att slutföra etableringen av Azure IoT Hub och Azure Functions.
    ![Etablerings steg](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
-   Anteckna namnet på Azure IoT Hub-enheten som du skapade.
+   Anteckna det Azure IoT Hub-enhetsnamn som du skapade.
 
 1. Öppna `Functions\DevKitTranslatorFunction.cs` och uppdatera följande rader med kod med enhets namnet och nyckeln för tal tjänsten som du har antecknat.
    ```csharp
@@ -68,7 +69,7 @@ Utför stegen i den här självstudien genom att först utföra följande uppgif
 1. Klicka på `F1` , skriv och välj **Azure IoT Device Workbench: distribuera till Azure.**... Om VS Code ber om bekräftelse för omdistribution klickar du på **Ja**.
    ![Distribuera varning](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-warning.png)
 
-1. Kontrol lera att distributionen har slutförts.
+1. Kontrollera att distributionen lyckas.
    ![Distributionen lyckades](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-success.png)
 
 1. I Azure Portal går du till avsnittet **Functions Apps** och letar rätt på Azure Function-appen som precis har skapats. Klicka på `devkit_translator` och klicka sedan på **</> Hämta funktions webb** adress för att kopiera URL: en.
@@ -101,17 +102,17 @@ Utför stegen i den här självstudien genom att först utföra följande uppgif
 
 ## <a name="test-the-project"></a>Testa projektet
 
-Efter initieringen av appen följer du anvisningarna på skärmen DevKit. Standard språket för källan är kinesiska.
+Efter appinitieringen följer du instruktionerna på DevKit-skärmen. Standardkällspråket är kinesiska.
 
 Så här väljer du ett annat språk för översättning:
 
-1. Tryck på knapp A för att ange installations läge.
+1. Tryck på A-knappen för att starta konfigurationsläget.
 
-2. Tryck på knappen B för att bläddra alla käll språk som stöds.
+2. Tryck på B-knappen för att rulla bland alla källspråk som stöds.
 
 3. Tryck på knapp A för att bekräfta valet av käll språk.
 
-4. Tryck på och håll ned knapp B medan du pratar, och sedan släpper du knappen B för att starta översättningen.
+4. Tryck på och håll ned B-knappen medan du talar, och släpp sedan B-knappen för att starta översättningen.
 
 5. Den översatta texten på engelska visas på skärmen.
 
@@ -119,11 +120,11 @@ Så här väljer du ett annat språk för översättning:
 
 ![Översättnings resultat](media/iot-hub-arduino-iot-devkit-az3166-translator/translation-result.jpg)
 
-På skärmen översättnings resultat kan du:
+På skärmen för översättningsresultat kan du:
 
-- Tryck på knapparna A och B för att bläddra och välja käll språk.
+- Trycka på A-knappen och B-knappen för att rulla och välja källspråk.
 
-- Tryck på knappen B för att prata. Om du vill skicka rösten och hämta översättnings texten släpper du knappen B.
+- Trycka på B-knappen för att tala. Skicka rösten och få översättningstext genom att släppa B-knappen.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 

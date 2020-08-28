@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f34a98ccbe069a5cb9e2c26a88e486b27f016fe1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9410f06298bd40fe6e0bf8f3fca1be4b87f793ed
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004501"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Säkerhets ram: konfigurations hantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -42,7 +42,7 @@ ms.locfileid: "87540027"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [En introduktion till innehålls säkerhets principer](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [referens för innehålls säkerhets principer](https://content-security-policy.com/), [säkerhetsfunktioner](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduktion till INNEHÅLLS säkerhets princip](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [kan jag använda CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
@@ -74,18 +74,18 @@ Example: var str="alert(1)"; eval(str);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Filter för XSS-skydd](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **Steg** | <p>Konfiguration av svars huvud för X-XSS-skydd styr webbläsarens skript filter mellan platser. Det här svars huvudet kan ha följande värden:</p><ul><li>`0:`Då inaktive ras filtret</li><li>`1: Filter enabled`Om en skript attack för Cross-Site identifieras, för att stoppa angreppet, kommer webbläsaren att sanera Sidan</li><li>`1: mode=block : Filter enabled`. I stället för att göra sidan sanerad kommer webbläsaren att förhindra åter givning av sidan när ett XSS-angrepp upptäcks.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Webbläsaren kommer att sanera sidan och rapportera överträdelsen.</li></ul><p>Det här är en krom funktion som använder CSP-överträdelse-rapporter för att skicka information till en valfri URI. De sista två alternativen betraktas som säkra värden.</p>|
+| **Steg** | <p>Konfiguration av svars huvud för X-XSS-skydd styr webbläsarens skript filter mellan platser. Det här svars huvudet kan ha följande värden:</p><ul><li>`0:` Då inaktive ras filtret</li><li>`1: Filter enabled` Om en skript attack för Cross-Site identifieras, för att stoppa angreppet, kommer webbläsaren att sanera Sidan</li><li>`1: mode=block : Filter enabled`. I stället för att göra sidan sanerad kommer webbläsaren att förhindra åter givning av sidan när ett XSS-angrepp upptäcks.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Webbläsaren kommer att sanera sidan och rapportera överträdelsen.</li></ul><p>Det här är en krom funktion som använder CSP-överträdelse-rapporter för att skicka information till en valfri URI. De sista två alternativen betraktas som säkra värden.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET-program måste inaktivera spårning och fel sökning före distribution
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Översikt över ASP.net-fel sökning](https://msdn.microsoft.com/library/ms227556.aspx), [Översikt över ASP.net spårning](https://msdn.microsoft.com/library/bb386420.aspx), [How to: Aktivera spårning för ett ASP.NET-program](https://msdn.microsoft.com/library/0x5wc973.aspx), [How to: Aktivera fel sökning för ASP.NET-program](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
@@ -96,7 +96,7 @@ Example: var str="alert(1)"; eval(str);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -107,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [OWASP Klicka-lathund blad](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE-skydd – bekämpa klickning-uttag med X-bildruta-alternativ](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
@@ -142,7 +142,7 @@ Web.config kod för platser som endast ska inramas av sidor i samma domän:
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär, MVC5 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -173,7 +173,7 @@ Observera att det är viktigt att se till att listan över ursprung i attributet
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Webb formulär, MVC5 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Begär validering-förhindra skript attacker](https://www.asp.net/whitepapers/request-validation) |
@@ -199,7 +199,7 @@ Observera att verifierings funktionen för begäran inte stöds och att den inte
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -210,7 +210,7 @@ Observera att verifierings funktionen för begäran inte stöds och att den inte
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [IE8, säkerhets del V: omfattande skydd](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME-typ](https://en.wikipedia.org/wiki/Mime_type) |
@@ -275,7 +275,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | EnvironmentType – Azure |
 | **Referenser**              | [Ta bort standard server rubriker på Windows Azure-webbplatser](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/) |
@@ -286,7 +286,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | Ej tillämpligt, SQL-version – V12 |
 | **Referenser**              | Konfigurera en [Azure SQL Database brand vägg](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/)genom att [Konfigurera en Windows-brandvägg för databas motor åtkomst](https://msdn.microsoft.com/library/ms175043) |
@@ -297,7 +297,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC 5 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Aktivera cross-origin-begäranden i ASP.net webb-API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.net Web API-CORS-stöd i ASP.net Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
@@ -393,7 +393,7 @@ public class ResourcesController : ApiController
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC 6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Aktivera cross-origin-begäranden (CORS) i ASP.NET Core 1,0](https://docs.asp.net/en/latest/security/cors.html) |
@@ -507,7 +507,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Aktivera säker start och enhets kryptering på enhets lås i Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
@@ -518,7 +518,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enhet | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -562,7 +562,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Gateway-val – Azure-IoT Hub |
 | **Referenser**              | [Översikt över IoT Hub enhets hantering](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [så här uppdaterar du enhetens inbyggda program vara](../../iot-hub/tutorial-firmware-update.md) |
@@ -595,7 +595,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [CORS-stöd för Azure Storage-tjänsterna](https://msdn.microsoft.com/library/azure/dn535601.aspx) |
@@ -606,7 +606,7 @@ Om du vill inaktivera CORS för en styrenhet eller åtgärd använder du attribu
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com) |
@@ -629,7 +629,7 @@ Följande är en exempel konfiguration med begränsning aktiverat:
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com) |

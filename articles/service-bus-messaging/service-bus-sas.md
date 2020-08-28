@@ -3,12 +3,13 @@ title: Azure Service Bus åtkomst kontroll med signaturer för delad åtkomst
 description: 'Översikt över Service Bus åtkomst kontroll med signaturer för delad åtkomst: översikt, information om SAS-auktorisering med Azure Service Bus.'
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066193"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012083"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -67,9 +68,9 @@ Alla klienter som har åtkomst till namnet på ett namn för auktoriseringsregel
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**-Token upphör att gälla omedelbart. Heltal som motsvarar sekunder sedan den `00:00:00 UTC` 1 januari 1970 (UNIX-epok) när token upphör att gälla.
-* **`skn`**– Namnet på auktoriseringsregeln.
-* **`sr`**-URI för resursen som används.
+* **`se`** -Token upphör att gälla omedelbart. Heltal som motsvarar sekunder sedan den `00:00:00 UTC` 1 januari 1970 (UNIX-epok) när token upphör att gälla.
+* **`skn`** – Namnet på auktoriseringsregeln.
+* **`sr`** -URI för resursen som används.
 * **`sig`** Signatur.
 
 `signature-string`Är SHA-256-hashen som beräknats över resurs-URI: n (**omfånget** enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med LF.

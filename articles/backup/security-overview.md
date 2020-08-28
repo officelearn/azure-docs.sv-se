@@ -3,12 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhets kopierings data och uppfylla verksamhetens säkerhets behov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890475"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012559"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -70,7 +70,7 @@ Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services
 
 * Borttagna säkerhets kopierings data behålls under ytterligare 14 dagar från borttagnings datumet. Detta säkerställer återhämtning av data inom en viss tids period, så det finns ingen data förlust även om ett angrepp sker. Dessutom behålls ett större antal lägsta återställnings punkter för att skydda mot skadade data. [Läs mer om hur du återställer borttagna säkerhets kopierings data](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
-* För data som har säkerhetskopierats med hjälp av Microsoft Azure Recovery Services (MARS)-agenten används en lösen fras för att säkerställa att data krypteras innan de överförs till Azure Backup och dekrypteras först efter nedladdning från Azure Backup. Lösen Frass informationen är bara tillgänglig för den användare som skapade lösen frasen och agenten som har kon figurer ATS med den. Inget överförs eller delas med tjänsten. Detta garanterar fullständig säkerhet för dina data eftersom data som exponeras oavsiktligt (till exempel en man-in-the-Middle-attack i nätverket) inte kan användas utan lösen frasen och lösen frasen inte skickas i nätverket.
+* För data som har säkerhetskopierats med hjälp av Microsoft Azure Recovery Services (MARS)-agenten används en lösen fras för att säkerställa att data krypteras innan de överförs till Azure Backup och dekrypteras först efter nedladdning från Azure Backup. Lösen Frass informationen är bara tillgänglig för den användare som skapade lösen frasen och agenten som har kon figurer ATS med den. Inget överförs eller delas med tjänsten. Detta garanterar fullständig säkerhet för dina data, eftersom alla data som exponeras oavsiktligt (till exempel en man-in-the-Middle-attack i nätverket) inte kan användas utan lösen frasen, och lösen frasen inte skickas över nätverket.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Kompatibilitet med standardiserade säkerhets krav
 

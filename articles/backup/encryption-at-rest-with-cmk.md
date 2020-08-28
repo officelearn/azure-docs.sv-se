@@ -3,12 +3,12 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892651"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022419"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
@@ -169,7 +169,7 @@ Så här tilldelar du nyckeln:
     ![Statusen lyckades](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
 >[!NOTE]
-> Den här processen är densamma när du vill uppdatera/ändra krypterings nyckeln. Om du vill uppdatera och använda en nyckel från en annan Key Vault (skiljer sig från den som används för närvarande) kontrollerar du att:
+> Den här processen är densamma när du vill uppdatera/ändra krypterings nyckeln. Om du vill uppdatera och använda en nyckel från en annan Key Vault (skiljer sig från den som för närvarande används) kontrollerar du att:
 >
 > - Key Vault finns i samma region som Recovery Services-valvet
 >
@@ -242,7 +242,7 @@ Nej, CMK-kryptering kan bara aktive ras för nya valv. Därför måste valvet al
 
 Nej, valvet får inte ha några försök att skydda några objekt tidigare.
 
-### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Jag har ett valv som använder CMK-kryptering. Kan jag senare återställa till kryptering med hjälp av plattforms hanterade nycklar även om jag har säkerhetskopierade objekt skyddade till valvet?
+### <a name="i-have-a-vault-thats-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Jag har ett valv som använder CMK-kryptering. Kan jag senare återställa till kryptering med hjälp av plattforms hanterade nycklar även om jag har säkerhetskopierade objekt skyddade till valvet?
 
 Nej, när du har aktiverat CMK-kryptering kan den inte återställas för att använda plattforms hanterade nycklar. Du kan ändra de nycklar som används enligt dina krav.
 

@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 252f38e289f7b40c673d9048119823348a30a546
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85118890"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015449"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
@@ -68,7 +69,7 @@ I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program.
 
 1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
-1. I **skapa ett nytt projekt**söker du efter och väljer **ASP.net Core webb program** för C#. Fortsätt genom att välja **Nästa**.
+1. I **skapa ett nytt projekt**söker du efter och väljer **ASP.net Core webb program** för C#. Välj **Nästa** för att fortsätta.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Skapa ett nytt ASP.NET Core webb program projekt":::
 
@@ -86,7 +87,7 @@ Nu när vi har flest den ASP.NET Core MVC Framework-kod som vi behöver för den
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**söker du efter och väljer **Microsoft. Azure. Cosmos**. Välj **Installera**.
+1. I **NuGet Package Manager**söker du efter och väljer **Microsoft. Azure. Cosmos**. Välj **Install** (Installera).
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Installera NuGet-paket":::
 

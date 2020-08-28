@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645641"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012797"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Åtkomst, Spara och ta bort Reliable Actors tillstånd
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) är entrådade objekt som kan kapsla in både logik och tillstånd och bevara tillstånd på ett tillförlitligt sätt. Varje aktörs instans har sin egen [tillstånds ansvarig](service-fabric-reliable-actors-state-management.md): en ord lista som är en data struktur som på ett tillförlitligt sätt lagrar nyckel/värde-par. Tillstånds hanteraren är en omslutning runt en tillstånds leverantör. Du kan använda den för att lagra data oavsett vilken [beständighets inställning](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) som används.

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 11158749f3cae222c0948286e7365b1629cebbf2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 65e680a14cfc878b6dc406a179a0aa3afe038563
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543987"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004722"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Säkerhets ram: autentisering | Åtgärder
 
@@ -46,7 +46,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -57,7 +57,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -68,7 +68,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -79,7 +79,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -90,7 +90,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -101,7 +101,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -112,7 +112,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -123,7 +123,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | OnPrem |
 | **Attribut**              | SQL-version – alla |
 | **Referenser**              | [SQL Server-Välj ett autentiseringsläge](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -134,7 +134,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | SQL Azure |
 | **Attribut**              | SQL-version – V12 |
 | **Referenser**              | [Ansluta till SQL Database med Azure Active Directory autentisering](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -145,7 +145,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [SQL Server lösen ords princip](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -156,7 +156,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | OnPrem, SQL Azure |
 | **Attribut**              | SQL-version – MSSQL2012, SQL-version – V12 |
 | **Referenser**              | [Rekommenderade säkerhets metoder med inneslutna databaser](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -167,7 +167,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Event Hub |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -233,7 +233,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitets Server |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [IdentityServer3 – stor bild](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -266,7 +266,7 @@ ms.locfileid: "87543987"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | Ej tillämpligt |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -306,7 +306,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Typ av klient behörighet – ingen |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
@@ -322,7 +322,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmän, .NET Framework 3 |
 | **Attribut**              | Typ av klient behörighet – ingen |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
@@ -338,7 +338,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Autentisering och auktorisering i ASP.net webb-API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [external Authentication Services med ASP.net Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -349,7 +349,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Autentiserings scenarier för Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory kod exempel](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory Developer ' s guide](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -360,7 +360,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webb program](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [med hjälp av Redis som ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -371,7 +371,7 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Modern autentisering med Azure Active Directory för webb program](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -425,14 +425,14 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-Observera att du kan testa effektiviteten för den här konfigurationen, logga in i det lokala OIDC-skyddade programmet och avbilda begäran till `"/signin-oidc"` slut punkten i Fiddler. När skyddet inte är på plats kan du spela upp den här begäran i Fiddler för att ange en ny cookie för session. När begäran spelas upp när TokenReplayCache-skyddet har lagts till, kommer programmet att utlösa ett undantag på följande sätt:`SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+Observera att du kan testa effektiviteten för den här konfigurationen, logga in i det lokala OIDC-skyddade programmet och avbilda begäran till `"/signin-oidc"` slut punkten i Fiddler. När skyddet inte är på plats kan du spela upp den här begäran i Fiddler för att ange en ny cookie för session. När begäran spelas upp när TokenReplayCache-skyddet har lagts till, kommer programmet att utlösa ett undantag på följande sätt: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
 ## <a name="use-adal-libraries-to-manage-token-requests-from-oauth2-clients-to-aad-or-on-premises-ad"></a><a id="adal-oauth2"></a>Använd ADAL-bibliotek för att hantera Tokenbegäran från OAuth2-klienter till AAD (eller lokalt AD)
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -443,7 +443,7 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -454,7 +454,7 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Generisk, C#, Node.JS,  |
 | **Attribut**              | Ej tillämpligt, Gateway-val – Azure IoT Hub |
 | **Referenser**              | Ej tillämpligt, [Azure IoT Hub med .net](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [komma igång med IoT Hub och Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), vilket [skyddar IoT med SAS och certifikat](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [git-lagringsplats](https://github.com/Azure/azure-iot-sdks/) |
@@ -494,7 +494,7 @@ await deviceClient.SendEventAsync(message);
     ```
   #### <a name="sas-token"></a>SAS-token
 * Skapas internt när symmetrisk nyckel används men vi kan generera och använda det explicit
-* Definiera ett protokoll:`var Http = require('azure-iot-device-http').Http;`
+* Definiera ett protokoll: `var Http = require('azure-iot-device-http').Http;`
 * Skapa en SAS-token:
     ```javascript
     resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
@@ -554,7 +554,7 @@ await deviceClient.SendEventAsync(message);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway  |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Gateway-val – Azure-IoT Hub |
 | **Referenser**              | [Azure IoT Hub säkerhetstoken](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -565,7 +565,7 @@ await deviceClient.SendEventAsync(message);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | StorageType-BLOB |
 | **Referenser**              | [Hantera anonym Läs åtkomst till behållare och blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -576,7 +576,7 @@ await deviceClient.SendEventAsync(message);
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage |
-| **SDL-fas**               | Build |
+| **SDL-fas**               | Skapa |
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt |
 | **Referenser**              | [Signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [signaturer för delad åtkomst, del 2: skapa och använda en SAS med Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

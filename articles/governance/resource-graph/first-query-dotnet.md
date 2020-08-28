@@ -3,12 +3,13 @@ title: 'Snabb start: din första .NET Core-fråga'
 description: I den här snabb starten följer du stegen för att aktivera resurs diagram NuGet-paket för .NET Core och köra din första fråga.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: b452329148f607b6a71c366c51745906247a43a1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0470f100b6323f760bc48af70e8a6c11b94dfb3c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802734"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005878"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Snabb start: kör din första resurs diagram fråga med .NET Core
 
@@ -16,9 +17,9 @@ Det första steget för att använda Azure Resource Graph är att kontrol lera a
 
 I slutet av den här processen har du lagt till paketen i .NET Core-installationen och kört din första resurs diagram fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 - Ett huvud namn för Azure-tjänsten, inklusive _clientId_ och _clientSecret_. Om du inte har ett huvud namn för tjänsten som ska användas med resurs diagram eller om du vill skapa en ny, se [Azure-hanterings bibliotek för .net-autentisering](/dotnet/azure/sdk/authentication#mgmt-auth).
   Hoppa över steget för att installera .NET Core-paketen som vi gör i nästa steg.
 
@@ -98,8 +99,8 @@ Med .NET Core Console-programmet byggt och publicerat är det dags att testa en 
 I varje anrop till finns `argQuery` det variabler som du måste ersätta med dina egna värden:
 
 - `{tenantId}` – Ersätt med ditt klientorganisations-ID
-- `{clientId}`-Ersätt med klient-ID: t för tjänstens huvud namn
-- `{clientSecret}`-Ersätt med klient hemligheten för tjänstens huvud namn
+- `{clientId}` -Ersätt med klient-ID: t för tjänstens huvud namn
+- `{clientSecret}` -Ersätt med klient hemligheten för tjänstens huvud namn
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 1. Ändra kataloger till den `{run-folder}` som du definierade med föregående `dotnet publish` kommando.

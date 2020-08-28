@@ -3,12 +3,12 @@ title: Återställa SAP HANA databaser på virtuella Azure-datorer
 description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763294"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006320"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
 
@@ -28,7 +28,7 @@ Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-d
 
 Observera följande innan du återställer en databas:
 
-* Du kan bara återställa databasen till en SAP HANA-instans i samma region
+* Du kan bara återställa databasen till en SAP HANA instans i samma region
 
 * Mål instansen måste registreras med samma valv som källan
 
@@ -138,7 +138,7 @@ Om du vill återställa säkerhets kopierings data som filer i stället för en 
 
     * Säkerhetskopieringsfiler för databas
     * Katalogfiler
-    * JSON-metadatafiler (för varje säkerhets kopierings fil som ingår)
+    * JSON-metadatafiler (för varje säkerhets kopierings fil som berörs)
 
     Normalt möjliggör en nätverks resurs Sök väg eller sökväg till en monterad Azure-filresurs när den anges som mål Sök väg, vilket ger enklare åtkomst till dessa filer av andra datorer i samma nätverk eller med samma Azure-filresurs som är monterad på dem.
 

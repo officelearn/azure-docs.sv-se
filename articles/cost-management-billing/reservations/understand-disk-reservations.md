@@ -4,20 +4,21 @@ description: Lär dig hur Azures rabatt för reserverade diskar tillämpas på d
 author: roygara
 ms.author: rogarana
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 3541e3f12a6d0b1beecdd67821d31f71b47f6c68
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: cd89c3ddc3c58de02f1104109ce7f243c4d1e6fd
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509473"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682458"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Förstå hur reservationsrabatten tillämpas på Azure-disklagring
 
 När du har köpt en reserverad Azure-diskkapacitet tillämpas en reservationsrabatt automatiskt på diskresurser som matchar reservationens villkor. Reservationsrabatten gäller endast för disk-SKU:er. Ögonblicksbilder av diskar debiteras enligt ”betala per användning”-modellen.
 
-Mer information om Azures diskreservation finns i [Spara kostnader med Azures diskreservation](../../virtual-machines/linux/disks-reserved-capacity.md). Information om priser för Azures diskreservation finns i [Priser för Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Mer information om Azures diskreservation finns i [Spara kostnader med Azures diskreservation](../../virtual-machines/disks-reserved-capacity.md). Information om priser för Azures diskreservation finns i [Priser för Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="how-the-reservation-discount-is-applied"></a>Så tillämpas reservationsrabatten
 
@@ -53,6 +54,5 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Minska kostnader med Azures diskreservation (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
-- [Minska kostnader med Azures diskreservation (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
+- [Minska kostnader med Azures diskreservation](../../virtual-machines/disks-reserved-capacity.md)
 - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)

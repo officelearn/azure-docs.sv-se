@@ -1,20 +1,21 @@
 ---
-title: Förstå dina avgifter för externa Azure-tjänster | Microsoft Docs
+title: Förstå dina kostnader för externa Azure-tjänster
 description: Lär dig mer om faktureringen av kostnaderna för externa tjänster, tidigare Marketplace, i Azure.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120f60698851bcdaf39f989b4d36c0436b716833
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8da85ec5781ff9575cf380092fea9e41d6af8786
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117873"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686130"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Förstå dina kostnader för externa Azure-tjänster
 Externa tjänster publiceras av tredjepartsleverantörer av programvara på Azure Marketplace. Till exempel är SendGrid en extern tjänst som du kan köpa i Azure, men som inte publiceras av Microsoft. Vissa Microsoft-produkter säljs dock via Azure Marketplace.

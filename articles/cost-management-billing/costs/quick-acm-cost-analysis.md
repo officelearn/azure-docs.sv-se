@@ -3,17 +3,18 @@ title: Snabbstart – Utforska Azure-kostnader med kostnadsanalys
 description: Den här snabbstarten hjälper dig att använda kostnadsanalys för att utforska och analysera dina Azure-organisationskostnader.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560570"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718534"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -161,6 +162,10 @@ Det finns tillfällen när du behöver hämta data för ytterligare analys, samm
 
 Om du behöver den fullständiga, icke-aggregerade datauppsättningen kan du ladda ned den från faktureringskontot. I listan över tjänster i portalens vänstra navigeringsfönster går du till **Kostnadshantering och fakturering**. Välj ditt faktureringskonto, om det är tillämpligt. Gå till **Användning och avgifter**och välj sedan **nedladdningsikonen** för önskad faktureringsperiod.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+- Om du har fäst en anpassad vy för kostnadsanalys och du inte längre behöver den, går du till instrumentpanelen där du fäste den och tar bort den fästa vyn.
+- Om du har laddat ned filer med användningsdata och inte längre behöver dem, måste du ta bort dem.
 
 ## <a name="next-steps"></a>Nästa steg
 

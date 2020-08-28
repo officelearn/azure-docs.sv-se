@@ -4,18 +4,19 @@ description: I den här självstudien skapar du .NET Core-konsolprogram för att
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cff2b8a8a0f6aefad43737aeb6fe63d40facac05
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337547"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021671"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
@@ -181,7 +182,7 @@ Välj namnet på din kö i **översikts** fönstret för namn området för att 
 
 Värdet för **Antal aktiva meddelanden** för kön är nu **10**. Varje gången du kör den här avsändar appen utan att hämta meddelandena ökar värdet med 10.
 
-Köns aktuella storlek ökar det **aktuella** värdet i **grunderna** varje gången appen lägger till meddelanden i kön.
+Köns aktuella storlek ökar det **aktuella** värdet i **grunderna**  varje gången appen lägger till meddelanden i kön.
 
 I nästa avsnitt beskrivs hur du hämtar dessa meddelanden.
 

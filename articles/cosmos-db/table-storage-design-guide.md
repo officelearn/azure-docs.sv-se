@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: seodec18
-ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027808"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002184"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabell design guide för Azure Table Storage: skalbara och genomförda tabeller
 
@@ -39,7 +39,7 @@ I följande exempel visas en enkel tabell design där du kan lagra personal-och 
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Tidsstämpel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -152,8 +152,8 @@ Följande tabell innehåller några av de viktigaste värdena som du bör känna
 | Antal partitioner i en tabell |Begränsas bara av lagrings kontots kapacitet. |
 | Antal entiteter i en partition |Begränsas bara av lagrings kontots kapacitet. |
 | Storlek på en enskild entitet |Upp till 1 MB, med högst 255 egenskaper (inklusive `PartitionKey` , `RowKey` och `Timestamp` ). |
-| Storlek på`PartitionKey` |En sträng som är upp till 1 KB stor. |
-| Storlek på`RowKey` |En sträng som är upp till 1 KB stor. |
+| Storlek på `PartitionKey` |En sträng som är upp till 1 KB stor. |
+| Storlek på `RowKey` |En sträng som är upp till 1 KB stor. |
 | Storlek på en enhets grupps transaktion |En transaktion kan innehålla högst 100 entiteter och nytto lasten måste vara mindre än 4 MB. En EGT kan bara uppdatera en entitet en gång. |
 
 Mer information finns i [förstå Table service data modell](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
@@ -195,8 +195,8 @@ I följande exempel förutsätts att Table Storage lagrar anställdas entiteter 
 
 | Kolumnnamn | Datatyp |
 | --- | --- |
-| `PartitionKey`(Avdelnings namn) |Sträng |
-| `RowKey`(Medarbetar-ID) |Sträng |
+| `PartitionKey` (Avdelnings namn) |Sträng |
+| `RowKey` (Medarbetar-ID) |Sträng |
 | `FirstName` |Sträng |
 | `LastName` |Sträng |
 | `Age` |Integer |
@@ -204,10 +204,10 @@ I följande exempel förutsätts att Table Storage lagrar anställdas entiteter 
 
 Här följer några allmänna rikt linjer för att utforma tabell lagrings frågor. Filter-syntaxen som används i följande exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
-* En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Exempel: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* Det andra bästa är en *Range-fråga*. Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* Det tredje bästa är en *partitions ökning*. Det använder och `PartitionKey` filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey`Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Exempel: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
-* En *tabells ökning* omfattar inte `PartitionKey` och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey` . Exempel: `$filter=LastName eq 'Jones'`.  
+* En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Till exempel: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
+* Det andra bästa är en *Range-fråga*. Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* Det tredje bästa är en *partitions ökning*. Det använder och `PartitionKey` filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey`Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* En *tabells ökning* omfattar inte `PartitionKey` och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey` . Till exempel: `$filter=LastName eq 'Jones'`.  
 * Azure Table Storage-frågor som returnerar flera entiteter sorterar dem i `PartitionKey` och `RowKey` ordning. Välj en `RowKey` som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används. Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Om du använder en "**eller**" för att ange ett filter baserat på `RowKey` värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Undvik därför frågor som använder filter som till exempel: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
@@ -222,7 +222,7 @@ Exempel på kod på klient sidan som kan hantera flera enhets typer som lagras i
 
 * [Arbeta med heterogena entitetstyper](#work-with-heterogeneous-entity-types)  
 
-### <a name="choose-an-appropriate-partitionkey"></a>Välj en lämplig`PartitionKey`
+### <a name="choose-an-appropriate-partitionkey"></a>Välj en lämplig `PartitionKey`
 Ditt val av `PartitionKey` bör balansera behovet av att möjliggöra användningen av EGTs (för att säkerställa konsekvens) mot kravet att distribuera dina entiteter över flera partitioner (för att säkerställa en skalbar lösning).  
 
 I ett extrema läge kan du lagra alla entiteter i en enda partition. Men detta kan begränsa din lösnings skalbarhet och förhindra att tabell lagring kan läsa in-balans-begäranden. Du kan lagra en entitet per partition på de andra extrema. Detta är mycket skalbart och möjliggör tabell lagring för belastnings Utjämnings begär Anden, men förhindrar att du använder enhets grupp transaktioner.  
@@ -664,7 +664,7 @@ I en Relations databas normaliserar du vanligt vis data för att ta bort dubblet
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Bild av avdelnings enhet och entitet för anställd":::
 
 #### <a name="solution"></a>Lösning
-I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Ett exempel:  
+I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Exempel:  
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Bild av avnormaliserad och kombinerad avdelnings enhet":::
 
@@ -1127,7 +1127,7 @@ Table Storage är ett *schema löst* tabell lager. Det innebär att en enskild t
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Tidsstämpel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1219,7 +1219,7 @@ Varje entitet måste fortfarande ha `PartitionKey` , `RowKey` -och- `Timestamp` 
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Tidsstämpel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1236,7 +1236,7 @@ Varje entitet måste fortfarande ha `PartitionKey` , `RowKey` -och- `Timestamp` 
 <th>E-post</th>
 </tr>
 <tr>
-<td>Anställd</td>
+<td>Medarbetare</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1258,7 +1258,7 @@ Varje entitet måste fortfarande ha `PartitionKey` , `RowKey` -och- `Timestamp` 
 <th>E-post</th>
 </tr>
 <tr>
-<td>Anställd</td>
+<td>Medarbetare</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1299,7 +1299,7 @@ Varje entitet måste fortfarande ha `PartitionKey` , `RowKey` -och- `Timestamp` 
 <th>E-post</th>
 </tr>
 <tr>
-<td>Anställd</td>
+<td>Medarbetare</td>
 <td></td>
 <td></td>
 <td></td>

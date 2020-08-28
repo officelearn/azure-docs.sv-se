@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825587"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000370"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -214,7 +214,7 @@ Den Azure Backup tjänstens funktioner ger flexibiliteten att effektivt hantera 
 
 * Azure Backup tar ögonblicks bilder av virtuella Azure-datorer och lagrar dem tillsammans med diskarna för att förbättra skapandet av återställnings punkter och påskynda återställnings åtgärder. Detta kallas för omedelbar återställning. Som standard behålls ögonblicks bilder av omedelbar återställning i två dagar. Med den här funktionen kan du utföra en återställning från dessa ögonblicks bilder genom att skära tillbaka återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Därför kan du se lagrings kostnader som motsvarar ögonblicks bilder som tas under den här perioden. [Läs mer här](backup-instant-restore-capability.md#configure-snapshot-retention).
 
-* Azure Backup valvets typ av lagrings replikering är som standard inställd på Geo-redundant (GRS). Det här alternativet kan inte ändras efter att objekten skyddats. Geo-redundant lagring (GRS) ger en högre nivå av data hållbarhet än lokalt redundant lagring (LRS), vilket gör det möjligt att välja att använda återställning och kostnader över flera regioner. Granska kompromisserna mellan lägre kostnader och högre data hållbarhet som passar ditt scenario. [Läs mer här](backup-create-rs-vault.md#set-storage-redundancy)
+* Azure Backup valvets typ av lagrings replikering är som standard inställd på Geo-redundant (GRS). Det här alternativet kan inte ändras efter att objekten skyddats. Geo-redundant lagring (GRS) ger en högre nivå av data hållbarhet än lokalt redundant lagring (LRS), vilket gör det möjligt att välja att använda återställning och kostnader över flera regioner. Granska kompromisserna mellan lägre kostnader och högre data hållbarhet och Bestäm vad som passar bäst för ditt scenario. [Läs mer här](backup-create-rs-vault.md#set-storage-redundancy)
 
 * Om du skyddar både arbets belastningen som körs i en virtuell dator och den virtuella datorn kan du kontrol lera om det här dubbla skyddet behövs.
 

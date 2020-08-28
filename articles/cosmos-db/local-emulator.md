@@ -6,16 +6,17 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 08/19/2020
-ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ece2fdf5c75decb9a2139b973ad4bbb3f0803a0b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607543"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011187"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
-Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar Azure Cosmos DB tjänst i utvecklings syfte. Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt, utan att du behöver skapa en Azure-prenumeration eller debitera några kostnader. När du är nöjd med hur ditt program fungerar i Azure Cosmos-emulatorn kan du växla till att använda ett Azure Cosmos-konto i molnet.
+Azure Cosmos-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i Azure Cosmos-emulatorn kan du växla till ett Azure Cosmos-konto i molnet.
 
 Du kan utveckla med Azure Cosmos-emulatorn med [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api)och [Table](local-emulator.md#table-api) API-konton. Men just nu stöder Datautforskaren vyn i emulatorn endast klienter för SQL API. 
 
@@ -539,7 +540,7 @@ Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmo
 
 - Om du ser ett meddelande om att **tjänsten inte är tillgänglig** kanske emulatorn misslyckas med att initiera nätverksstacken. Se efter om du har Pulse Secure-klienten eller Juniper-nätverksklienten installerad, eftersom deras nätverksfilterdrivrutiner kan orsaka problemet. Avinstallation av nätverksfilterdrivrutiner från tredje part åtgärdar vanligen problemet. Du kan också starta emulatorn med/DisableRIO, som växlar kommunikationen mellan emulatorn och den vanliga Winsock-anslutningen. 
 
-- Om du stöter på **"förbjuden", "meddelande": "begäran görs med en otillåten kryptering i överförings protokoll eller Cipher. Kontrol lera kontot SSL/TLS lägsta tillåtna protokoll inställning... "** anslutnings problem, detta kan bero på globala ändringar i operativ systemet (till exempel Insider Preview version 20170) eller webb läsar inställningarna som aktiverar TLS 1,3 som standard. Liknande fel kan uppstå när du använder SDK för att köra en begäran mot Cosmos-emulatorn, till exempel **Microsoft.Azure.Documents.DocumentClientException: begäran görs med en otillåten kryptering i överförings protokoll eller chiffer. Kontrol lera konto inställningen SSL/TLS lägsta tillåtna protokoll**. Detta förväntas för tillfället eftersom Cosmos-emulatorn bara accepterar och fungerar med TLS 1,2-protokollet. Det rekommenderade arbetet är att ändra inställningarna och standardvärdet för TLS 1,2; till exempel i IIS-hanteraren navigerar du till "platser"-> "standard webbplatser" och letar upp "webbplats bindningar" för port 8081 och redigerar dem för att inaktivera TLS 1,3. Liknande-åtgärden kan utföras för webbläsaren via alternativen "Inställningar".
+- Om du stöter på **"förbjuden", "meddelande": "begäran görs med en otillåten kryptering i överförings protokoll eller Cipher. Kontrol lera kontot SSL/TLS lägsta tillåtna protokoll inställning... "** anslutnings problem, detta kan bero på globala ändringar i operativ systemet (till exempel Insider Preview version 20170) eller webb läsar inställningarna som aktiverar TLS 1,3 som standard. Liknande fel kan uppstå när du använder SDK för att köra en begäran mot Cosmos-emulatorn, till exempel **Microsoft.Azure.Documents.DocumentClientException: begäran görs med en otillåten kryptering i överförings protokoll eller chiffer. Kontrol lera konto inställningen SSL/TLS lägsta tillåtna protokoll**. För närvarande är detta förväntat eftersom Cosmos-emulatorn bara accepterar och fungerar med TLS 1.2-protokollet. Det rekommenderade arbetet är att ändra inställningarna och standardvärdet för TLS 1,2; till exempel i IIS-hanteraren navigerar du till "platser"-> "standard webbplatser" och letar upp "webbplats bindningar" för port 8081 och redigerar dem för att inaktivera TLS 1,3. En liknande åtgärd kan utföras för webbläsaren via alternativen i Inställningar.
 
 - Om datorn försätts i viloläge eller om operativsystemet uppdateras när emulatorn körs kan du se meddelandet **Tjänsten är inte tillgänglig just nu**. Återställ emulatorns data genom att högerklicka på ikonen som visas i meddelande fältet i Windows och välj **Återställ data**.
 

@@ -4,12 +4,13 @@ description: Skriv ett C# .NET Core-konsolprogram som använder meddelandeämnen
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 7b2b8382c11f447237a8f49ee5be1f4989e3f906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bc7435fb46d5783cb487038a10709a9e40b0d136
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337515"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021654"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -20,7 +21,7 @@ Den här självstudien omfattar följande steg:
 1. Skriva ett .NET Core-konsolprogram för att skicka en uppsättning meddelanden till ämnet.
 2. Skriva ett .NET Core-konsolprogram för att ta emot meddelanden från prenumerationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:

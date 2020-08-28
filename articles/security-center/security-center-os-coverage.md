@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 3c8bf69b745f5dba8c08556908df4d4ae5b5769f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80521920"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998840"
 ---
 # <a name="supported-platforms"></a>Plattformar som stöds 
 
 På den här sidan visas de plattformar och miljöer som stöds av Azure Security Center.
 
-## <a name="combinations-of-environments"></a>Kombinationer av miljöer<a name="vm-server"></a>
+## <a name="combinations-of-environments"></a>Kombinationer av miljöer <a name="vm-server"></a>
 
 Azure Security Center stöder virtuella datorer och servrar på olika typer av hybrid miljöer:
 
@@ -39,19 +39,19 @@ För en Azure-miljö aktive rad på en Azure-prenumeration identifierar Azure Se
 
 Security Center är beroende av [Log Analytics agenten](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Se till att datorerna kör ett av de operativ system som stöds för den här agenten enligt beskrivningen på följande sidor:
 
-* [Log Analytics agent för operativ system som stöds av Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
-* [Log Analytics agent för operativ system som stöds av Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Log Analytics agent för operativ system som stöds av Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent för operativ system som stöds av Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Se också till att din Log Analytics-agent är [korrekt konfigurerad för att skicka data till Security Center](security-center-enable-data-collection.md#manual-agent)
 
 > [!TIP]
 > Mer information om de Security Center funktioner som är tillgängliga i Windows och Linux finns i [funktions täckning för datorer](security-center-services.md).
 
-## <a name="managed-virtual-machine-services"></a>Hanterade virtuella maskin tjänster<a name="virtual-machine"></a>
+## <a name="managed-virtual-machine-services"></a>Hanterade virtuella maskin tjänster <a name="virtual-machine"></a>
 
 Virtuella datorer skapas också i en kund prenumeration som en del av vissa Azure-hanterade tjänster, till exempel Azure Kubernetes (AKS), Azure Databricks med mera. Security Center identifierar de här virtuella datorerna så att Log Analytics-agenten kan installeras och konfigureras om ett operativ system som stöds är tillgängligt.
 
-## <a name="cloud-services"></a>Cloud Services<a name="cloud-services"></a>
+## <a name="cloud-services"></a>Cloud Services <a name="cloud-services"></a>
 
 Virtuella datorer som körs i en moln tjänst stöds också. Endast webb-och arbets roller för moln tjänster som körs i produktions platser övervakas. Mer information om moln tjänster finns i [Översikt över Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 

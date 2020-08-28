@@ -3,12 +3,13 @@ title: Utveckla enhets test för tillstånds känsliga tjänster
 description: Lär dig mer om enhets testning i Azure Service Fabric för tillstånds känsliga tjänster och särskilda överväganden som du bör tänka på under utvecklingen.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 287c0544daa3c44d91fd336b502c496b9b4bb266
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639844"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011403"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Skapa enhets test för tillstånds känsliga tjänster
 Enhets testning Service Fabric tillstånds känsliga tjänster avvisar vanliga misstag som inte nödvändigt vis fångas upp av konventionell program-eller domänbaserad enhets testning. När du utvecklar enhets test för tillstånds känsliga tjänster finns det några saker som bör tänkas vara i åtanke.

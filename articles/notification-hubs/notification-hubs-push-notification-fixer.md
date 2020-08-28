@@ -16,12 +16,13 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3bad65dbecd6e4a7d9bcb7fbdee6faafc31ead86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078022"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010791"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostisera ignorerade aviseringar i Azure Notification Hubs
 
@@ -128,7 +129,7 @@ Här följer sökvägar för att diagnosticera rotor saken till de borttagna med
 
 Verifiera autentiseringsuppgifter i respektive Push Notification Service Developer-portal (APN, FCM, Windows Notification Service osv.). Mer information finns i [Självstudier: skicka meddelanden till universell Windows-plattform appar med hjälp av Azure Notification Hubs](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 Om du vill granska och matcha autentiseringsuppgifterna med de som du fick från Push Notification Service Developer-portalen går du till fliken **åtkomst principer** i Azure Portal.
 
@@ -171,7 +172,7 @@ Många kunder använder [Service Bus Explorer](https://github.com/paolosalvatori
 
 ### <a name="verify-message-notifications"></a>Verifiera meddelande aviseringar
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 Om du vill skicka ett test meddelande till dina klienter utan att ha en tjänst Server del igång, går du till **support + fel sökning**och väljer **testa skicka**.
 
@@ -232,7 +233,7 @@ Sedan kan du använda den `EnableTestSend` booleska egenskapen. Använd `EnableT
     }
 ```
 
-#### <a name="sample-output"></a>Exempel på utdata
+#### <a name="sample-output"></a>Exempelutdata
 
 ```text
 DetailedStateAvailable
@@ -248,7 +249,7 @@ Det här meddelandet anger att autentiseringsuppgifterna som kon figurer ATS i N
 
 ### <a name="review-telemetry"></a>Granska telemetri
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 I portalen kan du få en snabb överblick över all aktivitet i Notification Hub.
 
@@ -288,7 +289,7 @@ Mer information om programmerings åtkomst finns i [program mässig åtkomst](/p
 <!-- LINKS -->
 [Översikt över Notification Hubs]: notification-hubs-push-notification-overview.md
 [Kom igång med Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Mallar]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
+[Onlinemallar]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APN-översikt]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Om FCM-meddelanden]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)

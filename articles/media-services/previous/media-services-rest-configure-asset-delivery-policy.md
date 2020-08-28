@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4c67866e55b49f37d7dbf94ddde9698f58b5300b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0704913bf3158067c96eeaa69729792cfe63bf37
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057066"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010262"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Konfigurera till gångs leverans principer
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -56,7 +57,7 @@ MPEG DASH
 
 Anvisningar för hur du publicerar en tillgång och skapar en strömnings-URL finns i [Skapa en strömnings-URL](media-services-deliver-streaming-content.md).
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 * Det går inte att ta bort en AssetDeliveryPolicy som är associerad med en till gång medan en OnDemand (streaming) Locator finns för denna till gång. Rekommendationen är att ta bort principen från till gången innan du tar bort principen.
 * Det går inte att skapa en strömmande lokaliserare på en lagrings krypterad till gång när ingen till gångs leverans princip har angetts.  Om till gången inte är krypterad kommer systemet att låta dig skapa en lokaliserare och strömma till gången i klartext utan en till gångs leverans princip.
 * Du kan ha flera till gångs leverans principer kopplade till en enda till gång, men du kan bara ange ett sätt att hantera en viss AssetDeliveryProtocol.  Innebär att du försöker länka två leverans principer som anger det AssetDeliveryProtocol. SmoothStreaming-protokoll som resulterar i ett fel, eftersom systemet inte vet vilket du vill att det ska gälla när en klient gör en Smooth Streaming begäran.
@@ -278,7 +279,7 @@ Host: media.windows.net
 
 Om du vill skydda ditt innehåll med Widevine DRM uppdaterar du AssetDeliveryConfiguration-värdena för att använda WidevineLicenseAcquisitionUrl (som har värdet 7) och anger URL: en för en licens leverans tjänst. Du kan använda följande AMS-partner för att få hjälp att leverera Widevine-licenser: [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
-Ett exempel: 
+Exempel: 
 
 ```console
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}

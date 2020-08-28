@@ -5,12 +5,13 @@ author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c193ef00d56b2d2fc7ad806cc795dcbe360db548
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645998"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022113"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera problem under tjänst arbets belastningar
 Med testnings scenarier i Azure Service Fabric kan utvecklare inte bekymra sig om att hantera enskilda fel. Det finns dock scenarier där det kan krävas en uttrycklig överta klient arbets belastning och-haverier. Genom att överlåta klientens arbets belastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. På grund av den kontroll nivå som testare tillhandahåller kan detta vara en exakt punkt för arbets belastnings körningen. Denna induktion av fel i olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
@@ -18,7 +19,7 @@ Med testnings scenarier i Azure Service Fabric kan utvecklare inte bekymra sig o
 ## <a name="sample-custom-scenario"></a>Exempel på anpassat scenario
 Det här testet visar ett scenario som överlåter affärs arbets belastningen med ett [korrekt och haveri avbrott](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Felen bör induceras i mitten av tjänst åtgärder eller beräkning för bästa resultat.
 
-Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbets belastningar: A, B, C och D. var och en motsvarar en uppsättning arbets flöden och kan vara beräkning, lagring eller en blandning. För enkelhetens skull kommer vi att sammansluta arbets belastningarna i vårt exempel. De olika felen som körs i det här exemplet är:
+Låt oss gå igenom ett exempel på en tjänst som visar fyra arbets belastningar: A, B, C och D. Var och en motsvarar en uppsättning arbets flöden och kan vara beräkning, lagring eller en blandning. För enkelhetens skull kommer vi att sammansluta arbets belastningarna i vårt exempel. De olika felen som körs i det här exemplet är:
 
 * RestartNode: ett fel som inte går att simulera en omstart av datorn.
 * RestartDeployedCodePackage: ett fel som inte går att simulera tjänstens värd process kraschar.

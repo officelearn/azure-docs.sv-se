@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584887"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998083"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Genom att skapa en [Azure Machine Learning data uppsättning](../machine-learnin
 
 Information om var data uppsättningar passar i Azure Machine Learning programmets övergripande data åtkomst arbets flöde finns i artikeln [säker åtkomst till data](../machine-learning/concept-data.md#data-workflow) .
 
-Azure Open-datauppsättningar är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner för att utöka dina förutsägelse lösningar och förbättra deras noggrannhet. Se [katalogen öppna data uppsättningar](https://azure.microsoft.com/services/op[en-datasets/catalog/) för offentliga domän data som kan hjälpa dig att träna Machine Learning-modeller, t. ex.:
+Azure Open-datauppsättningar är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner för att utöka dina förutsägelse lösningar och förbättra deras noggrannhet. Se [katalogen öppna data uppsättningar](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) för offentliga domän data som kan hjälpa dig att träna Machine Learning-modeller, t. ex.:
 
 * [baserad](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [räkning](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

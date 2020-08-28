@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a10dec01757fd344c9fa2bc92082082d2af085e9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539806"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000574"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Säkerhets ram: verifiering av Indatatyp | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -36,7 +37,7 @@ ms.locfileid: "87539806"
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [XSLT-säkerhet](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings. ENABLESCRIPT-egenskap](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
@@ -68,7 +69,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [IE8 säkerhets del V – omfattande skydd](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
@@ -137,7 +138,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Expandering av XML-enheter](https://capec.mitre.org/data/definitions/197.html), [XML-denial of Service-attacker och försvar](https://msdn.microsoft.com/magazine/ee335713.aspx), [MSXML-Säkerhetsöversikt](https://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [metod tips för att skydda MSXML-kod](https://msdn.microsoft.com/library/ms759188(VS.85).aspx), [NSXMLParserDelegate-protokoll referens](https://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [lösa externa referenser](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
@@ -183,7 +184,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Exempel
-Om du behöver lösa infogade entiteter, men inte behöver lösa externa entiteter, anger du egenskapen XmlReaderSettings.Xmlresolver till null. Ett exempel: 
+Om du behöver lösa infogade entiteter, men inte behöver lösa externa entiteter, anger du egenskapen XmlReaderSettings.Xmlresolver till null. Exempel: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -199,7 +200,7 @@ Observera att ProhibitDTD är inställt på sant (inaktive rad DTD-bearbetning) 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -210,7 +211,7 @@ Observera att ProhibitDTD är inställt på sant (inaktive rad DTD-bearbetning) 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Obegränsad fil uppladdning](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), [tabell för fil signering](https://www.garykessler.net/library/file_sigs.html) |
@@ -326,7 +327,7 @@ För den sista punkten angående verifiering av fil format, se nedanstående kla
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -356,7 +357,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Metadata-attribut](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [säkerhets risk för offentliga nycklar och skydds](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation)åtgärder, [fullständig vägledning för Mass tilldelning i ASP.NET MVC](https://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [komma igång med EF med MVC](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
@@ -367,7 +368,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generiska, webb formulär, MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Förhindra skript för Cross-Site i ASP.net](https://msdn.microsoft.com/library/ms998274.aspx), [Cross-Site Scripting](https://cwe.mitre.org/data/definitions/79.html), [XSS (Cross Site Scripting) förhindra lathund blad](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
@@ -392,7 +393,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk, MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Lägga till validering](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [validera modell data i ett MVC-program](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [guid-principer för dina ASP.NET MVC-program](https://msdn.microsoft.com/magazine/dd942822.aspx) |
@@ -403,7 +404,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Koda osäkra indatatyper](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML-språkspråks](https://github.com/mganss/HtmlSanitizer) skydd |
@@ -414,7 +415,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -436,7 +437,7 @@ Använd inte. `innerHtml` Använd i stället `innerText` . På samma sätt anvä
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [OAuth 2,0 Authorization Framework – öppna omdirigeringar](https://tools.ietf.org/html/rfc6749#section-10.15) |
@@ -447,7 +448,7 @@ Använd inte. `innerHtml` Använd i stället `innerText` . På samma sätt anvä
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk, MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Validera modell data i ett MVC-program](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [GUID-principer för dina ASP.NET MVC-program](https://msdn.microsoft.com/magazine/dd942822.aspx) |
@@ -458,7 +459,7 @@ Använd inte. `innerHtml` Använd i stället `innerText` . På samma sätt anvä
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generiska, webb formulär, MVC5, MVC6  |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [DefaultRegexMatchTimeout-egenskap](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
@@ -476,7 +477,7 @@ Följande konfiguration kommer till exempel att utlösa en RegexMatchTimeoutExce
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -494,14 +495,14 @@ Följande är ett osäkert exempel:
         </div>
 </div>
 ```
-Använd inte `Html.Raw()` om du inte behöver Visa pålägg. Den här metoden utför inte utgående kodning implicit. Använd andra ASP.NET-hjälpfiler, t. ex.,`@Html.DisplayFor()` 
+Använd inte `Html.Raw()` om du inte behöver Visa pålägg. Den här metoden utför inte utgående kodning implicit. Använd andra ASP.NET-hjälpfiler, t. ex., `@Html.DisplayFor()` 
 
 ## <a name="do-not-use-dynamic-queries-in-stored-procedures"></a><a id="stored-proc"></a>Använd inte dynamiska frågor i lagrade procedurer
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -561,7 +562,7 @@ AS
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Modell validering i ASP.NET webb-API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
@@ -618,7 +619,7 @@ namespace MyApi.Controllers
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Generisk, MVC 5, MVC 6 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Validera modell data i ett MVC-program](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [GUID-principer för dina ASP.NET MVC-program](https://msdn.microsoft.com/magazine/dd942822.aspx) |
@@ -629,7 +630,7 @@ namespace MyApi.Controllers
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | Ej tillämpligt  |
@@ -659,7 +660,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Vi presenterar SQL-Parameterisering i Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
@@ -670,7 +671,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
@@ -681,7 +682,7 @@ I föregående kod exempel får indatavärdet inte vara längre än 11 tecken. O
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Build |  
+| **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |

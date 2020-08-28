@@ -3,12 +3,13 @@ title: Status för Event Grid asynkrona åtgärder
 description: Beskriver hur du spårar Event Grid asynkrona åtgärder i Azure. Det visar de värden som du använder för att hämta status för en tids krävande åtgärd.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103338"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011692"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Spåra Event Grid asynkrona Azure-åtgärder
 Vissa Azure REST-åtgärder körs asynkront eftersom åtgärden inte kan slutföras snabbt. Den här artikeln beskriver hur du spårar statusen för asynkrona åtgärder genom värden som returneras i svaret.  
@@ -29,9 +30,9 @@ Läs REST API- [dokumentationen](/rest/api/) om du vill se svaren för den åtg�
 ## <a name="monitor-status-of-operation"></a>Övervaka status för åtgärd
 De asynkrona REST-åtgärderna returnerar huvud värden som du kan använda för att fastställa status för åtgärden. Det finns potentiellt tre huvud värden att undersöka:
 
-* `Azure-AsyncOperation`-URL för att kontrol lera den pågående statusen för åtgärden. Om åtgärden returnerar detta värde ska du alltid använda det (i stället för plats) för att spåra status för åtgärden.
-* `Location`-URL för att avgöra när en åtgärd har slutförts. Använd endast det här värdet när Azure-AsyncOperation inte returneras.
-* `Retry-After`-Antalet sekunder som ska förflyta innan den asynkrona åtgärdens status kontrol leras.
+* `Azure-AsyncOperation` -URL för att kontrol lera den pågående statusen för åtgärden. Om åtgärden returnerar detta värde ska du alltid använda det (i stället för plats) för att spåra status för åtgärden.
+* `Location` -URL för att avgöra när en åtgärd har slutförts. Använd endast det här värdet när Azure-AsyncOperation inte returneras.
+* `Retry-After` -Antalet sekunder som ska förflyta innan den asynkrona åtgärdens status kontrol leras.
 
 Men alla asynkrona åtgärder returnerar alla dessa värden. Du kan till exempel behöva utvärdera värdet för Azure-AsyncOperation-huvudet för en åtgärd och värdet för plats huvudet för en annan åtgärd. 
 
@@ -72,7 +73,7 @@ Endast `status` returneras för alla svar. Objektet Error returneras när status
 Åtgärder för att skapa, uppdatera eller ta bort (skicka, korrigera, ta bort) en resurs returnerar vanligt vis ett `provisioningState` värde. När en åtgärd har slutförts returneras något av följande tre värden: 
 
 * Lyckades
-* Misslyckades
+* Misslyckad
 * Avbrutna
 
 Alla andra värden anger att åtgärden fortfarande körs. Resurs leverantören kan returnera ett anpassat värde som anger dess tillstånd. Du kan till exempel ta emot **godkännande** när begäran tas emot och körs.

@@ -6,17 +6,15 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom:
-- mvc
-- amqp
+ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683992"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012338"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri med hjälp av Protocol buffrar
 
@@ -34,7 +32,7 @@ Stegen i den här instruktions guiden visar hur du:
 1. Generera protobuf-klasser
 1. Testa lokalt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa stegen i den här instruktions guiden behöver du:
 
@@ -176,7 +174,7 @@ När du har en **proto** -fil är nästa steg att generera de klasser som behöv
 
 1. [Ladda ned protobuf-kompilatorn från GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Kör kompilatorn, ange käll katalogen, mål katalogen och namnet på din **proto** -fil. Ett exempel:
+1. Kör kompilatorn, ange käll katalogen, mål katalogen och namnet på din **proto** -fil. Exempel:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -208,7 +206,7 @@ I det här avsnittet testar du den till gångs spårnings enhet som du skapade i
 
 Som standard kopieras inte dina nya enhets modell-JSON-och JS-filer till den färdiga lösningen. Du måste uttryckligen inkludera dem.
 
-Lägg till en post i **services\services.CSPROJ** -filen för varje fil som du vill inkludera. Ett exempel:
+Lägg till en post i **services\services.CSPROJ** -filen för varje fil som du vill inkludera. Exempel:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">

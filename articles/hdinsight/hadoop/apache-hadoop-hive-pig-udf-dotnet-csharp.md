@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: db49a3660d3f1aab6a8a9945751fed9461a6b8fd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086049"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000625"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C#-användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
 
@@ -56,7 +56,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 2. Välj **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
 
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
@@ -123,7 +123,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
 
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
 
@@ -190,7 +190,7 @@ Sedan laddar du upp Hive-och gris-UDF-programmen till lagringen i ett HDInsight-
 
     * Om du använder **Azure Data Lake Storage**högerklickar du på ett tomt utrymme i fil listan och väljer sedan **Ladda upp**. Välj slutligen *HiveCSharp.exe* -filen och välj **Öppna**.
 
-    När *HiveCSharp.exe* uppladdning har avslut ATS upprepar du överförings processen för *PigUDF.exes* filen.
+    När *HiveCSharp.exe* uppladdning har avslut ATS upprepar du överförings processen för *PigUDF.exes * filen.
 
 ## <a name="run-an-apache-hive-query"></a>Köra en Apache Hive fråga
 

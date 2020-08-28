@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392139"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008700"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera frågeprestanda med Azure Cosmos DB
 
@@ -136,7 +137,7 @@ Mer information om REST API begärandehuvuden och alternativ finns i [fråga res
 ## <a name="best-practices-for-query-performance"></a>Metod tips för frågans prestanda
 Följande är de vanligaste faktorer som påverkar Azure Cosmos DB frågans prestanda. Vi går djupare i vart och ett av de här avsnitten i den här artikeln.
 
-| Delas | Tips | 
+| Faktor | Tips | 
 | ------ | -----| 
 | Etablerat dataflöde | Mät RU per fråga och se till att du har det nödvändiga etablerade data flödet för dina frågor. | 
 | Partitionering och partitionerings nycklar | Prioritera frågor med värdet partition nyckel i filter satsen för låg latens. |
@@ -182,7 +183,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Maximal grad av parallellitet
-För frågor kan du justera `MaxDegreeOfParallelism` för att identifiera de bästa konfigurationerna för ditt program, särskilt om du utför frågor över olika partitioner (utan ett filter på partitionens nyckel värde). `MaxDegreeOfParallelism`styr det maximala antalet parallella aktiviteter, d.v.s. det högsta antalet partitioner som ska besökas parallellt. 
+För frågor kan du justera `MaxDegreeOfParallelism` för att identifiera de bästa konfigurationerna för ditt program, särskilt om du utför frågor över olika partitioner (utan ett filter på partitionens nyckel värde). `MaxDegreeOfParallelism`  styr det maximala antalet parallella aktiviteter, d.v.s. det högsta antalet partitioner som ska besökas parallellt. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -213,7 +214,7 @@ Se [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.md
 
 I avsnittet om körnings statistik för frågekörning förklaras hur du hämtar Server körnings tiden för frågor ( `totalExecutionTimeInMs` ), så att du kan skilja mellan hur lång tid som ägnats åt att köra frågor och tids åtgång för nätverks överföring.
 
-### <a name="indexing-policy"></a>Indexeringspolicy
+### <a name="indexing-policy"></a>Indexeringsprincip
 Se [Konfigurera indexerings princip](index-policy.md) för indexering av sökvägar, typer och lägen och hur de påverkar frågekörningen. Som standard använder indexerings principen hash-indexering för strängar som är effektiva för likhets frågor, men inte för intervall frågor/order by-frågor. Om du behöver intervall frågor för strängar rekommenderar vi att du anger intervallets index typ för alla strängar. 
 
 Som standard kommer Azure Cosmos DB att använda automatisk indexering för alla data. För scenarier med hög prestanda måste du överväga att utesluta sökvägar eftersom detta minskar RU-kostnaden för varje infognings åtgärd. 

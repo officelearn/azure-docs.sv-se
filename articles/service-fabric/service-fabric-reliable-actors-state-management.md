@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 9962d4333e458243670d1005ad2ccfbc0bb7c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75348921"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007799"
 ---
 # <a name="reliable-actors-state-management"></a>Hantering av Reliable Actors tillstånd
 Reliable Actors är entrådade objekt som kan kapsla in både logik och tillstånd. Eftersom aktörerna körs på Reliable Services kan de underhålla tillstånden på ett tillförlitligt sätt genom att använda samma beständiga och replikerade mekanismer. På så sätt förlorar aktörerna sina tillstånd efter fel, vid återaktivering efter skräp insamling, eller när de flyttas runt mellan noder i ett kluster på grund av resurs utjämning eller uppgraderingar.

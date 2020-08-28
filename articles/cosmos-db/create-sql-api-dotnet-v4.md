@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/11/2020
-ms.openlocfilehash: eabcc53c03b156088179d5ab7216d8a3409a7b3e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 6fec96d2fb70c0ccf6dc66690d5a61c76038fd74
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659139"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011131"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Snabb start: Bygg en konsol app med hjälp av .NET v4 SDK för att hantera Azure Cosmos DB SQL API-konto resurser.
 
@@ -36,7 +37,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 [Biblioteks käll kod](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/) eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. 
 * [Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Du kan kontrol lera vilken version som är tillgänglig i din miljö genom att köra `dotnet --version` .
@@ -145,7 +146,7 @@ Mer information om hierarkin för olika entiteter finns i [arbeta med databaser,
 * CreateItemAsync – den här metoden skapar ett objekt i behållaren.
 * UpsertItemAsync – den här metoden skapar ett objekt i behållaren om det inte redan finns eller ersätter objektet om det redan finns. 
 * GetItemQueryIterator – den här metoden skapar en fråga för objekt under en behållare i en Azure Cosmos-databas med hjälp av ett SQL-uttryck med parametriserade värden. 
-* DeleteAsync – tar bort den angivna databasen från ditt Azure Cosmos-konto. `DeleteAsync`metoden tar bara bort databasen.
+* DeleteAsync – tar bort den angivna databasen från ditt Azure Cosmos-konto. `DeleteAsync` metoden tar bara bort databasen.
 
  ## <a name="code-examples"></a><a id="code-examples"></a>Kodexempel
 

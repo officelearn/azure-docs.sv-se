@@ -7,12 +7,13 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089421"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001917"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling
 
@@ -327,10 +328,10 @@ Om du använder Azure-SDK: er startar du Azurite med `--oauth basic and --cert -
 
 ### <a name="well-known-storage-account-and-key"></a>Välkänt lagrings konto och nyckel
 
-Azurite accepterar samma välkända konto och nyckel som används av den äldre Azure Storage-emulatorn.
+Azurite accepterar samma välkända konto och nyckel som används av den äldre Azure Storage emulatorn.
 
-- Konto namn:`devstoreaccount1`
-- Konto nyckel:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+- Konto namn: `devstoreaccount1`
+- Konto nyckel: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### <a name="custom-storage-accounts-and-keys"></a>Anpassade lagrings konton och nycklar
 
@@ -508,12 +509,12 @@ Följ dessa steg om du vill lägga till Azurite HTTPS i Storage Explorer:
 
 Följande filer och mappar kan skapas på arbets ytans plats vid initiering av Azurite.
 
-- `__blobstorage__`– Katalog som innehåller Azurite BLOB service bestående binära data
-- `__queuestorage__`– Katalog som innehåller binära data för Azurite Queue Service
-- `__azurite_db_blob__.json`-Azurite BLOB service-metadatafil
-- `__azurite_db_blob_extent__.json`-Azurite BLOB service allokeringsutrymmet metadata-fil
-- `__azurite_db_queue__.json`-Azurite Queue Service-metadatafil
-- `__azurite_db_queue_extent__.json`-Azurite Queue Service allokeringsutrymmet metadata-fil
+- `__blobstorage__` – Katalog som innehåller Azurite BLOB service bestående binära data
+- `__queuestorage__` – Katalog som innehåller binära data för Azurite Queue Service
+- `__azurite_db_blob__.json` -Azurite BLOB service-metadatafil
+- `__azurite_db_blob_extent__.json` -Azurite BLOB service allokeringsutrymmet metadata-fil
+- `__azurite_db_queue__.json` -Azurite Queue Service-metadatafil
+- `__azurite_db_queue_extent__.json` -Azurite Queue Service allokeringsutrymmet metadata-fil
 
 Om du vill rensa Azurite tar du bort över filer och mappar och startar om emulatorn.
 
@@ -561,5 +562,5 @@ Bidrag och förslag för Azurite är välkommen. Gå till Azurite [GitHub Projec
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md) av dokument i den äldre Azure Storage-emulatorn, som ersätts av Azurite.
+- [Använd Azure Storage emulatorn för utveckling och testning](storage-use-emulator.md) av dokument i den äldre Azure Storage emulatorn som ersätts av Azurite.
 - [Konfigurera Azure Storage anslutnings strängar](storage-configure-connection-string.md) förklarar hur du sätter samman en giltig Azure Storage anslutnings sträng.

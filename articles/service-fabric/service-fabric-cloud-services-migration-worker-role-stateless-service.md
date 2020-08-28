@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463336"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002291"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb-och arbets roller till Service Fabric tillstånds lösa tjänster
 I den här artikeln beskrivs hur du migrerar Cloud Services Web-och Worker-roller till Service Fabric tillstånds lösa tjänster. Det här är den enklaste migreringen från Cloud Services till Service Fabric för program vars övergripande arkitektur kommer att stanna på samma sätt.
@@ -32,10 +33,10 @@ På samma sätt som arbets rollen representerar en webbroll även en tillstånds
 
 | **Program** | **Stöds** | **Sökväg för migrering** |
 | --- | --- | --- |
-| ASP.NET webb formulär |No |Konvertera till ASP.NET Core 1 MVC |
+| ASP.NET webb formulär |Nej |Konvertera till ASP.NET Core 1 MVC |
 | ASP.NET MVC |Med migrering |Uppgradera till ASP.NET Core 1 MVC |
 | ASP.NET Web API |Med migrering |Använd egen server eller ASP.NET Core 1 |
-| ASP.NET Core 1 |Ja |E.t. |
+| ASP.NET Core 1 |Ja |Ej tillämpligt |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API för start punkt och livs cykel
 Arbets rollen och Service Fabric tjänst-API: er erbjuder liknande start punkter: 
@@ -43,9 +44,9 @@ Arbets rollen och Service Fabric tjänst-API: er erbjuder liknande start punkter
 | **Start punkt** | **Arbets roll** | **Service Fabric tjänst** |
 | --- | --- | --- |
 | Bearbetar |`Run()` |`RunAsync()` |
-| VM-start |`OnStart()` |E.t. |
-| Stoppa virtuell dator |`OnStop()` |E.t. |
-| Öppna lyssnare för klient begär Anden |E.t. |<ul><li> `CreateServiceInstanceListener()`för tillstånds lös</li><li>`CreateServiceReplicaListener()`för tillstånds känslig</li></ul> |
+| VM-start |`OnStart()` |Ej tillämpligt |
+| Stoppa virtuell dator |`OnStop()` |Ej tillämpligt |
+| Öppna lyssnare för klient begär Anden |Ej tillämpligt |<ul><li> `CreateServiceInstanceListener()` för tillstånds lös</li><li>`CreateServiceReplicaListener()` för tillstånds känslig</li></ul> |
 
 ### <a name="worker-role"></a>Arbets roll
 ```csharp
@@ -113,9 +114,9 @@ API: et för Cloud Servicess miljön innehåller information och funktioner för
 | --- | --- | --- |
 | Konfigurations inställningar och ändrings meddelande |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokal lagring |`RoleEnvironment` |`CodePackageActivationContext` |
-| Slut punkts information |`RoleInstance` <ul><li>Aktuell instans:`RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instanser:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`för aktuell Node-adress</li><li>`FabricClient`och `ServicePartitionResolver` för tjänst slut punkts identifiering</li> |
-| Miljö emulering |`RoleEnvironment.IsEmulated` |E.t. |
-| Samtidig ändrings händelse |`RoleEnvironment` |E.t. |
+| Slut punkts information |`RoleInstance` <ul><li>Aktuell instans: `RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instanser: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` för aktuell Node-adress</li><li>`FabricClient` och `ServicePartitionResolver` för tjänst slut punkts identifiering</li> |
+| Miljö emulering |`RoleEnvironment.IsEmulated` |Ej tillämpligt |
+| Samtidig ändrings händelse |`RoleEnvironment` |Ej tillämpligt |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 Konfigurations inställningar i Cloud Services anges för en virtuell dator roll och tillämpas på alla instanser av den virtuella dator rollen. De här inställningarna är nyckel/värde-par som anges i ServiceConfiguration. *. cscfg-filer och kan nås direkt via RoleEnvironment. I Service Fabric gäller inställningarna individuellt för varje tjänst och för varje program, i stället för till en virtuell dator, eftersom en virtuell dator kan vara värd för flera tjänster och program. En tjänst består av tre paket:

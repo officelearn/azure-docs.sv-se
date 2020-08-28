@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141865"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000965"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -82,26 +82,7 @@ Det här avsnittet har flyttats till en separat artikel för bättre synlighet. 
 
 ## <a name="data-limits"></a>Databegränsningar
 
-Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktuella gränsen är 5 120 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre bitar.
-
-| Gräns | Värde |
-|------------------------|---------------|
-| Maximal storlek på ett enskilt dokument | 5 120 tecken som mäts av [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) . |
-| Maximal storlek på hela begäran | 1 MB |
-| Maximalt antal dokument i en begäran | Upp till 1 000 dokument ([varierar för varje funktion](concepts/data-limits.md)) |
-
-Din hastighets gräns varierar beroende på pris nivå.
-
-| Nivå          | Förfrågningar per sekund | Begär Anden per minut |
-|---------------|---------------------|---------------------|
-| S/multi-service | 1000                | 1000                |
-| S0/F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-Begär Anden mäts för varje Textanalys funktion separat. Du kan till exempel skicka maximalt antal begär Anden för din pris nivå till varje funktion på samma tillfälle.      
+Alla av slutpunkterna för API för textanalys accepterar råtextdata. Mer information finns i artikeln [data begränsningar](concepts/data-limits.md) .
 
 ## <a name="unicode-encoding"></a>Unicode-kodning
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8114a5e6db7b82b846d221471f41dbdf418ddd9d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77588526"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002002"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Anslut Azure Stack virtuella datorer till Azure Sentinel
 
@@ -49,7 +49,7 @@ Lägg till tillägget **Azure Monitor, uppdatering och konfigurations hantering*
 1. I fönstret Azure Stack **installations tillägg** klistrar du in dem i de angivna fälten och klickar på **OK**.
 1. När tilläggs installationen har slutförts visas statusen som **etableringen har slutförts**. Det kan ta upp till en timme innan den virtuella datorn visas i Azure Sentinel-portalen.
 
-Mer information om hur du installerar och konfigurerar agenten för Windows finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Mer information om hur du installerar och konfigurerar agenten för Windows finns i [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Information om Linux-felsökning av agent problem finns i [Felsöka Azure Log Analytics Linux-agenten](../azure-monitor/platform/agent-linux-troubleshoot.md).
 

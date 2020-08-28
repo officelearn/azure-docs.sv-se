@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836453"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020668"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET 
 
@@ -407,7 +408,7 @@ I följande kod exempel används Media Services .NET SDK för att utföra följa
 
 * Skapa ett kodnings jobb.
 * Hämta en referens till Media Encoder Standard Encoder.
-* Läs in den förinställda [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) eller [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) som innehåller kodnings för inställningen samt information som behövs för att generera miniatyrer. Du kan spara den här [XML-](media-services-dotnet-generate-thumbnail-with-mes.md#xml) filen eller [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) -filen i en fil och använda följande kod för att läsa in filen.
+* Läs in den förinställda [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) eller [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) som innehåller kodnings för inställningen samt information som behövs för att generera miniatyrer. Du kan spara den här  [XML-](media-services-dotnet-generate-thumbnail-with-mes.md#xml) filen eller [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) -filen i en fil och använda följande kod för att läsa in filen.
 
     ```csharp
     // Load the XML (or JSON) from the local file.

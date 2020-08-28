@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/15/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 27a254b664e2035cc66109f7a473a3e9ef4d730e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b20c97bf919073b01f564b59b3a55eccb7614005
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73612183"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89042976"
 ---
 <!-- This is the note explaining about the avro and json formats when routing to blob storage. -->
 > [!NOTE]
@@ -21,5 +21,5 @@ ms.locfileid: "73612183"
 >    
 > Funktionen för att koda JSON-format är i för hands version i alla regioner där IoT Hub är tillgänglig, förutom östra USA, västra USA och Västeuropa. Kodnings formatet kan bara anges när Blob Storage-slutpunkten konfigureras. Det går inte att ändra formatet för en slut punkt som redan har kon figurer ATS. När du använder JSON-kodning måste du ange contentType till JSON och contentEncoding till UTF-8 i meddelande systemets egenskaper. 
 >
-> Mer detaljerad information om hur du använder en Blob Storage-slutpunkt finns i [rikt linjer för routning till lagring](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage).
+> Mer detaljerad information om hur du använder en Blob Storage-slutpunkt finns i [rikt linjer för routning till lagring](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 >

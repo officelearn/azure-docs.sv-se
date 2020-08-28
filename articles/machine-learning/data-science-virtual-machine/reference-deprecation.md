@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: laobri
 ms.date: 07/17/2020
 ms.topic: reference
-ms.openlocfilehash: ac56e2e69cf62c8afae73e0a7616e7e7f80c0493
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d5f541dec14eebc944e4eac11dbe569b38cb277e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816328"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001628"
 ---
 # <a name="reference-retirements-of-dsvm-images"></a>Referens: borttagning av DSVM-avbildningar
 
@@ -50,18 +50,3 @@ Befintliga DSVM etablerade avbildningar i din prenumeration kommer att fortsätt
 >
 > ARM-mallar som inte har uppdaterats med den nya avbildnings informationen för DSVM kommer att kunna distribueras efter indragnings datumet.
 
-## <a name="mitigating-upcoming-retirements"></a>Minimera kommande pensioner
-
-I det här avsnittet diskuterar vi åtgärder för kommande pensioner.
-
-### <a name="upgrade-windows-2016-dsvm"></a>Uppgradera Windows 2016-DSVM
-
-Utför följande steg för att migrera en datadisk från din befintliga Windows 2016-DSVM till en Windows 2019-DSVM:
-
-1. Skapa en ny Windows 2019-DSVM genom att följa anvisningarna som visas [här](./provision-vm.md#create-your-dsvm).
-1. Koppla från befintliga data diskar från Windows 2016-avbildningen med hjälp av [de här anvisningarna](../../virtual-machines/windows/detach-disk.md).
-1. Koppla disken från föregående steg till Windows 2019-avbildningen med hjälp av [de här anvisningarna](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-
-### <a name="upgrade-ubuntu-1604-dsvm"></a>Uppgradera Ubuntu 16,04 DSVM
-
-Vi rekommenderar att du uppgraderar befintliga Ubuntu 16,04-Dsvm till [Ubuntu 18,04 DSVM Edition](./dsvm-ubuntu-intro.md).

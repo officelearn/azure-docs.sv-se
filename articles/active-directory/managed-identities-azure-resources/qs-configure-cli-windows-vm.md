@@ -3,7 +3,7 @@ title: Konfigurera hanterade identiteter på virtuella Azure-datorer med Azure C
 description: Stegvisa instruktioner för konfiguration av system-och användarspecifika hanterade identiteter på en virtuell Azure-dator med Azure CLI.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b50d64051c2ee5bba5bd6fad61e0e703b85aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b003c3362e2fb22a36985eb29b1a537bbffb28
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609199"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002410"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI
 

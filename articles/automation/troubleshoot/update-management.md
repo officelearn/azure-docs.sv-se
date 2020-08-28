@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: cb598f9a9b8d078c86e9911fa64d872788f47b4b
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447693"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003362"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -103,7 +103,7 @@ Det här problemet kan orsakas av lokala konfigurations problem eller av en fela
 
 1. Kör fel sökaren för [Windows](update-agent-issues.md#troubleshoot-offline) eller [Linux](update-agent-issues-linux.md#troubleshoot-offline), beroende på vilket operativ system du har.
 
-2. Kontrol lera att datorn rapporterar till rätt arbets yta. Anvisningar för hur du verifierar den här aspekten finns i [Verifiera agent anslutning till Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Kontrol lera också att arbets ytan är länkad till ditt Azure Automation-konto. Bekräfta genom att gå till ditt Automation-konto och välja **länkad arbets yta** under **relaterade resurser**.
+2. Kontrol lera att datorn rapporterar till rätt arbets yta. Anvisningar för hur du verifierar den här aspekten finns i [Verifiera agent anslutning till Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Kontrol lera också att arbets ytan är länkad till ditt Azure Automation-konto. Bekräfta genom att gå till ditt Automation-konto och välja **länkad arbets yta** under **relaterade resurser**.
 
 3. Se till att datorerna visas i Log Analytics arbets ytan som är länkad till ditt Automation-konto. Kör följande fråga i arbets ytan Log Analytics.
 
@@ -534,7 +534,7 @@ Om du ser ett HRESULT dubbelklickar du på undantaget som visas i rött för att
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Detta indikerar problem med nätverks anslutningen. Kontrol lera att datorn har nätverks anslutning till Uppdateringshantering. Se avsnittet [nätverks planering](../update-management/update-mgmt-overview.md#ports) för en lista över nödvändiga portar och adresser.        |
 |`0x8024001E`| Uppdaterings åtgärden slutfördes inte på grund av att tjänsten eller systemet stängdes av.|
 |`0x8024002E`| Windows Updates tjänsten är inaktive rad.|
-|`0x8024402C`     | Om du använder en WSUS-server kontrollerar du att register värden för `WUServer` och `WUStatusServer` under `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` register nyckeln anger rätt WSUS-server.        |
+|`0x8024402C`     | Om du använder en WSUS-server kontrollerar du att register värden för `WUServer` och `WUStatusServer` under  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` register nyckeln anger rätt WSUS-server.        |
 |`0x80072EE2`|Det finns ett problem med nätverks anslutningen eller ett problem med att prata med en konfigurerad WSUS-server. Kontrol lera inställningarna för WSUS och se till att tjänsten är tillgänglig från klienten.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Kontrol lera att Windows Updates tjänsten (wuauserv) körs och inte inaktive rad.        |
 |`0x80070005`| Ett fel vid nekad åtkomst kan orsakas av något av följande:<br> Infekterad dator<br> Windows Update inställningarna har inte kon figurer ATS korrekt<br> Fil behörighets fel med mappen%WinDir%\SoftwareDistribution<br> Det finns inte tillräckligt med disk utrymme på system enheten (C:).

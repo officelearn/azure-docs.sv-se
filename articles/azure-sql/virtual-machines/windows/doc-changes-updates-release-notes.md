@@ -10,23 +10,30 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/06/2020
-ms.openlocfilehash: df1e1e90b35c29678151d4f9159195f829022a62
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 08/20/2020
+ms.openlocfilehash: 5f0ba27a0964f08b32e1af19d6f578b3f41ee300
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236734"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006422"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Server inbyggd. Den här artikeln sammanfattar dokumentations ändringarna som är associerade med nya funktioner och förbättringar i de senaste versionerna av [SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## <a name="august-2020"></a>Augusti 2020
+
+| Ändringar | Information |
+| --- | --- |
+| **Konfigurera AG i portalen** | Nu kan du [Konfigurera din tillgänglighets grupp via Azure Portal](availability-group-azure-portal-configure.md). Den här funktionen är för närvarande en för hands version och distribueras så om din önskade region inte är tillgänglig, kom tillbaka snart. | 
+
+
 ## <a name="july-2020"></a>Juli 2020
 
 
-| Något | Information |
+| Ändringar | Information |
 | --- | --- |
 | **Migrera logg till Ultra disk** | Lär dig hur du kan [migrera logg filen till en extremt disk](storage-migrate-to-ultradisk.md) för att utnyttja hög prestanda och låg latens. | 
 | **Skapa AG med PowerShell** | Nu är det möjligt att förenkla skapandet av en tillgänglighets grupp med hjälp av [PowerShell](availability-group-az-commandline-configure.md) och Azure CLI. | 
@@ -34,7 +41,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="june-2020"></a>Juni 2020
 
-| Något | Information |
+| Ändringar | Information |
 | --- | --- |
 | **Distribuerat nätverks namn (DNN)** | SQL Server 2019 i Windows Server 2016 + för hands versions hantering av trafik till din FCI (failover Cluster instance) med hjälp av ett [distribuerat nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället för att använda Azure Load Balancer. Detta stöd fören klar och effektiviserar anslutningen till din lösning för hög tillgänglighet (HA) i Azure. | 
 | **FCI med Azure delade diskar** | Nu kan du distribuera din instans av [redundanskluster (FCI)](failover-cluster-instance-overview.md) med hjälp av [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
@@ -44,21 +51,21 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="may-2020"></a>Maj 2020 
 
-| Något | Information |
+| Ändringar | Information |
 | --- | --- |
 | **Azure SQL-serien** | SQL Server på Azure Virtual Machines är nu en del av [produkter i Azure SQL-serien](../../azure-sql-iaas-vs-paas-what-is-overview.md). Kolla vårt [nya utseende](../index.yml)! Ingenting har ändrats i produkten, men dokumentationen syftar till att göra Azure SQL-produktnyckeln enklare. | 
 
 
 ## <a name="january-2020"></a>Januari 2020
 
-| Något | Information |
+| Ändringar | Information |
 | --- | --- |
 | **Azure Government support** | Det är nu möjligt att registrera SQL Server virtuella datorer med resurs leverantören för SQL VM för virtuella datorer som finns i [Azure Government](https://azure.microsoft.com/global-infrastructure/government/) molnet. | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2019"></a>2019
 
-|Något | Information |
+|Ändringar | Information |
  --- | --- |
 | **Kostnads fri DR-replikering i Azure** | Du kan vara värd för en [kostnads fri passiv instans](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) för haveri beredskap i Azure för din lokala SQL Server instans om du har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
 | **Registrering av Mass resurs leverantör** | Nu kan du [Mass registrera](sql-vm-resource-provider-bulk-register.md) SQL Server virtuella datorer med resurs leverantören. | 
@@ -81,7 +88,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="2018"></a>2018 
 
- Något | Information |
+ Ändringar | Information |
 | --- | --- |
 |  **Ny resurs leverantör för ett SQL Server kluster** | En ny Resource Provider (Microsoft. SqlVirtualMachine/SqlVirtualMachineGroups) definierar metadata för Windows-redundansklustret. När du ansluter en SQL Server VM till *SqlVirtualMachineGroups* startar du WSFC-tjänsten (Windows Server failover Cluster) och ansluter den virtuella datorn till klustret.  |
 | **Automatiserad installation av en tillgänglighets grupps distribution med Azure snabb starts mallar** |Nu kan du skapa Windows-redundansklustret, ansluta SQL Server virtuella datorer till den, skapa lyssnaren och konfigurera den interna belastningsutjämnaren med hjälp av två Azure snabb starts mallar. Mer information finns i [använda Azures snabb starts mallar för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på en virtuell Azure-dator](availability-group-quickstart-template-configure.md). | 

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.custom: devx-track-python
-ms.openlocfilehash: 6c095083f88c00f706d19d1c652e19da007c6542
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876435"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019274"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Använd inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB C#-anteckningsböcker (för hands version)
 
@@ -59,7 +59,7 @@ Mer information finns i [.net v3 SDK-exempel](https://github.com/Azure/azure-cos
 > [!IMPORTANT]
 > Den inbyggda Azure Cosmos DB .NET SDK stöds endast för SQL (Core) API-konton. För andra API: er måste du [installera den relevanta .net-driv rutinen](#install-a-new-nuget-package) som motsvarar API: et. 
 
-## <a name="set-custom-options-using-cosmosclientoptions"></a>Ange anpassade alternativ med``CosmosClientOptions``
+## <a name="set-custom-options-using-cosmosclientoptions"></a>Ange anpassade alternativ med ``CosmosClientOptions``
 För större flexibilitet kan du ange den anpassade ``CosmosClientOptions`` egenskapen och skicka den till din ``CosmosClient`` instans. Du kan använda den här egenskapen för att:
 
 - Ange ett program namn i User Agent-suffixet för att inkludera det i varje begäran.

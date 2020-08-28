@@ -3,7 +3,7 @@ title: Använd hanterade identiteter på en virtuell dator för att få åtkomst
 description: Steg-för-steg-instruktioner och exempel för att använda hanterade identiteter för Azure-resurser på en virtuell dator för att skaffa en OAuth-åtkomsttoken.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608389"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016146"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att hämta en åtkomsttoken 
 
@@ -30,7 +30,7 @@ Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med e
 
 Den här artikeln innehåller olika kod-och skript exempel för hämtning av token, samt vägledning för viktiga ämnen som hantering av token för förfallo datum och HTTP-fel. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -373,15 +373,15 @@ I det här avsnittet dokumenteras möjliga fel svar. Statusen "200 OK" är ett l
 
 | Statuskod | Fel | Felbeskrivning | Lösning |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Felaktig begäran | invalid_resource | AADSTS50001: programmet med namnet *\<URI\>* hittades inte i klient organisationen med namnet *\<TENANT-ID\>* . Detta kan inträffa om programmet inte har installerats av administratören för klientorganisationen, eller om det har godkänts av någon användare i klientorganisationen. Du kanske har skickat din autentiseringsbegäran till fel klient. \ | (Endast Linux) |
-| 400 Felaktig begäran | bad_request_102 | Obligatoriskt metadata-huvud har inte angetts | Antingen `Metadata` saknas fältet begär ande huvud från din förfrågan eller så är det felaktigt formaterat. Värdet måste anges som `true` , i gemener/versaler. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel.|
-| 401 obehörig | unknown_source | Okänd källa*\<URI\>* | Verifiera att HTTP GET-begärans URI är korrekt formaterad. `scheme:host/resource-path`Delen måste anges som `http://localhost:50342/oauth2/token` . Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel.|
+| 400 – Felaktig begäran | invalid_resource | AADSTS50001: programmet med namnet *\<URI\>* hittades inte i klient organisationen med namnet *\<TENANT-ID\>* . Detta kan inträffa om programmet inte har installerats av administratören för klientorganisationen, eller om det har godkänts av någon användare i klientorganisationen. Du kanske har skickat din autentiseringsbegäran till fel klient. \ | (Endast Linux) |
+| 400 – Felaktig begäran | bad_request_102 | Obligatoriskt metadata-huvud har inte angetts | Antingen `Metadata` saknas fältet begär ande huvud från din förfrågan eller så är det felaktigt formaterat. Värdet måste anges som `true` , i gemener/versaler. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel.|
+| 401 – Ej behörig | unknown_source | Okänd källa *\<URI\>* | Verifiera att HTTP GET-begärans URI är korrekt formaterad. `scheme:host/resource-path`Delen måste anges som `http://localhost:50342/oauth2/token` . Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel.|
 |           | invalid_request | Begäran saknar en obligatorisk parameter, innehåller ett ogiltigt parameter värde, innehåller en parameter mer än en gång eller är i övrigt felaktig. |  |
 |           | unauthorized_client | Klienten har inte behörighet att begära en åtkomsttoken med den här metoden. | Orsakas av en begäran som inte använde lokal loopback för att anropa tillägget, eller på en virtuell dator som inte har hanterade identiteter för Azure-resurser korrekt konfigurerade. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen. |
 |           | access_denied | Resurs ägaren eller auktoriseringsservern nekade begäran. |  |
 |           | unsupported_response_type | Auktoriseringsservern har inte stöd för att hämta en åtkomsttoken med den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltigt, okänt eller felaktigt. |  |
-| 500 internt Server fel | okänd | Det gick inte att hämta token från Active Directory. Mer information finns i loggarna i*\<file path\>* | Kontrol lera att hanterade identiteter för Azure-resurser har Aktiver ATS på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen.<br><br>Kontrol lera också att HTTP GET-begärande-URI: n är korrekt formaterad, särskilt resurs-URI: n som anges i frågesträngen. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel, eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över tjänster och deras respektive resurs-ID.
+| 500 Internt serverfel | okänd | Det gick inte att hämta token från Active Directory. Mer information finns i loggarna i *\<file path\>* | Kontrol lera att hanterade identiteter för Azure-resurser har Aktiver ATS på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen.<br><br>Kontrol lera också att HTTP GET-begärande-URI: n är korrekt formaterad, särskilt resurs-URI: n som anges i frågesträngen. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel, eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över tjänster och deras respektive resurs-ID.
 
 ## <a name="retry-guidance"></a>Vägledning för nytt försök 
 

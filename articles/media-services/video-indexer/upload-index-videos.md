@@ -10,12 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904266"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011879"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -117,7 +118,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         
     - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>Obs!
+##### <a name="notes"></a>Anteckningar
 
 - Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
 - Den tillhandahållna webbadressen måste vara kodad.
@@ -127,7 +128,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
 
 - `AudioOnly` – Indexera och extrahera insikter med hjälp av endast ljud (video ignoreras)
-- `VideoOnly`– Indexera och extrahera insikter med endast video (ignorerar ljud)
+- `VideoOnly` – Indexera och extrahera insikter med endast video (ignorerar ljud)
 - `Default` – Indexera och extrahera insikter med hjälp av både ljud och video
 - `DefaultWithNoiseReduction` – Indexera och extrahera insikter från både ljud och video, samtidigt som algoritmer för brusreducering tillämpas på ljudströmmen
 

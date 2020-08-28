@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: b3a049d76f880f590060a999ddda00e3706bac94
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500222"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019733"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Självstudie: Använd Azure IoT Hub meddelande-anrikning
 
@@ -38,7 +38,7 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Du måste ha en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Installera [Visual Studio](https://www.visualstudio.com/).
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
@@ -77,7 +77,7 @@ Om du inte redan har gjort det öppnar du ett Azure [Cloud Shell-fönster](https
 
 Här följer resurserna som skapats av skriptet. *Förrikat* innebär att resursen är för meddelanden med anrikninger. *Original* innebär att resursen avser meddelanden som inte är berikade.
 
-| Name | Värde |
+| Namn | Värde |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | container namn | originalspråket  |
@@ -297,7 +297,7 @@ Du kan använda en Resource Manager-mall för att skapa och konfigurera resurser
 
    Här är de resurser som skapas genom att läsa in mallen. **Förrikat** innebär att resursen är för meddelanden med anrikninger. **Original** innebär att resursen avser meddelanden som inte är berikade. Detta är samma värden som används i Azure CLI-skriptet.
 
-   | Name | Värde |
+   | Namn | Värde |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | container namn | originalspråket  |

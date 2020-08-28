@@ -3,18 +3,18 @@ title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587505"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014651"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
 Den här artikeln beskriver hur [tjänsten Azure Backup](./backup-overview.md) säkerhetskopierar virtuella datorer i Azure.
 
-Azure Backup tillhandahåller oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig förstöring av data på dina virtuella datorer. Säkerhets kopior lagras i ett Recovery Services valv med inbyggd hantering av återställnings punkter. Konfiguration och skalning är enkla, säkerhets kopieringar optimeras och du kan enkelt återställa efter behov.
+Azure Backup tillhandahåller oberoende och isolerade säkerhetskopior för att skydda mot oavsiktlig förstöring av data på dina virtuella datorer. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Konfiguration och skalning är enkla, säkerhetskopieringar optimeras och du kan enkelt återställa efter behov.
 
 Som en del av säkerhets kopieringen [tas en ögonblicks bild](#snapshot-creation)och data överförs till Recovery Services valvet utan påverkan på produktions arbets belastningar. Ögonblicks bilden innehåller olika nivåer av konsekvens, enligt beskrivningen [här](#snapshot-consistency).
 
@@ -22,7 +22,7 @@ Azure Backup också har specialiserade erbjudanden för databas arbets belastnin
 
 ## <a name="backup-process"></a>Säkerhetskopieringsprocessen
 
-Så här gör Azure Backup slutföra en säkerhets kopiering för virtuella Azure-datorer:
+Så här slutför Azure Backup en säkerhetskopiering för virtuella Azure-datorer:
 
 1. För virtuella Azure-datorer som väljs för säkerhets kopiering startar Azure Backup ett säkerhets kopierings jobb enligt det schema som du anger.
 1. Under den första säkerhets kopieringen installeras ett säkerhets kopierings tillägg på den virtuella datorn om den virtuella datorn körs.
@@ -33,9 +33,9 @@ Så här gör Azure Backup slutföra en säkerhets kopiering för virtuella Azur
     - Om säkerhets kopieringen inte kan ta en programkonsekvent ögonblicks bild tar det en filkonsekvent ögonblicks bild av den underliggande lagringen (eftersom ingen program skrivning sker medan den virtuella datorn stoppas).
 1. För virtuella Linux-datorer tar säkerhets kopieringen en filkonsekvent säkerhets kopia. För programkonsekventa ögonblicks bilder måste du manuellt anpassa för-eller-post-skript.
 1. När säkerhets kopieringen tar ögonblicks bilden överförs data till valvet.
-    - Säkerhets kopieringen är optimerad genom att säkerhetskopiera varje virtuell dator disk parallellt.
-    - För varje disk som ska säkerhets kopie ras läser Azure Backup blocken på disken och identifierar och överför endast de data block som har ändrats (delta) sedan den tidigare säkerhets kopieringen.
-    - Ögonblicks bild data kan inte kopieras direkt till valvet. Det kan ta några timmar vid hög belastnings tider. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
+    - Säkerhetskopieringen optimeras genom att varje VM-disk säkerhetskopieras parallellt.
+    - För varje disk som ska säkerhetskopieras läser Azure Backup blocken på disken samt identifierar och överför endast de datablock som har ändrats (delta) sedan den tidigare säkerhetskopieringen.
+    - Ögonblicksbilddata kopieras kanske inte direkt till valvet. Det kan ta några timmar vid hög belastnings tider. Den totala säkerhetskopieringstiden för en virtuell dator blir mindre än 24 timmar för dagliga säkerhetskopieringsprinciper.
 1. Ändringar som görs i en virtuell Windows-dator efter Azure Backup har Aktiver ATS på följande:
     - Microsoft Visual C++ 2013 Redistributable (x64)-12.0.40660 har installerats på den virtuella datorn
     - Start typen för tjänsten Volume Shadow Copy (VSS) har ändrats till automatisk från manuell

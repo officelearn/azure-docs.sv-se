@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: 57366011c93065803162164c03c7878e1610af9f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp
+ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500393"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018883"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
 
@@ -34,7 +35,7 @@ Eftersom BLOB-indexet finns i en offentlig för hands version, släpps .NET Stor
 
 1. Skapa ett Visual Studio-projekt för att komma igång med Azure Blob Storage-V12 för .NET. Läs mer i [.net snabb start](storage-quickstart-blobs-dotnet.md)
 
-2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.5.0 – Preview. 6** eller senare i projektet. Du kan också köra kommandot```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
+2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.5.0 – Preview. 6** eller senare i projektet. Du kan också köra kommandot ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    Mer information finns i [hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 

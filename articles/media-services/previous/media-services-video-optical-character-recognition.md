@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 44d4e5b6d3e96d2bafa9a7e22f36c6544eaff151
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918350"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999554"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Använd Azure-medieanalys för att konvertera text innehåll i video filer till digital text  
 
@@ -33,7 +34,7 @@ När det används tillsammans med en sökmotor kan du enkelt indexera dina media
 
 **Azure Media** -processorn för OCR-media är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Azure Media OCR** och visar hur du använder den med Media Services SDK för .net. Mer information och exempel finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Den här artikeln innehåller information om  **Azure Media OCR** och visar hur du använder den med Media Services SDK för .net. Mer information och exempel finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>Filer med OCR-indatafiler
 Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
@@ -113,13 +114,13 @@ Utdata innehåller följande attribut:
 | Offset |tids förskjutning för tidsstämplar. I version 1,0 av video-API: er, är det alltid 0. |
 | Bildfrekvens |Bild rutor per sekund för videon |
 | bredd |videoklippets bredd i bild punkter |
-| höjd |videoklippets höjd i bild punkter |
+| mankhöjd |videoklippets höjd i bild punkter |
 | Fragment |matris med tidsbaserade segment med video som metadata segmenteras i |
 | start |Start tid för ett fragment i "ticks" |
 | varaktighet |längden på ett fragment i "tickas" |
 | interval |intervall för varje händelse inom det aktuella fragmentet |
 | händelser |matris som innehåller regioner |
-| regionen |objekt som representerar identifierade ord eller fraser |
+| region |objekt som representerar identifierade ord eller fraser |
 | language |språk för texten som identifieras inom en region |
 | orientering |orientering för text som identifieras inom en region |
 | operationsföljdsrader |matris med rader med text som har identifierats inom en region |

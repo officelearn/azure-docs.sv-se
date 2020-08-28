@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849734"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009618"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -69,6 +69,9 @@ Exempel på användnings scenarier för Arkiv åtkomst nivån är:
 - Ursprungliga rådata som måste bevaras, även efter att de har bearbetats till ett slutligt användbart format.
 - Efterlevnads- och arkiveringsdata som behöver lagras under en längre tid och som nästan aldrig används.
 
+> [!NOTE]
+> Arkiv nivån stöds för närvarande inte för ZRS-, GZRS-eller RA-GZRS-konton.
+
 ## <a name="account-level-tiering"></a>Skiktning på konto nivå
 
 Blobbar i alla tre åtkomst nivåer kan finnas i samma konto. Alla blobar som inte har en uttryckligen tilldelad nivå härleder nivån från kontots åtkomst nivå inställning. Om åtkomst nivån kommer från kontot ser du att egenskapen **åtkomst nivå härledd** BLOB har angetts till true och att **åtkomst nivåns** BLOB-egenskap matchar konto nivån. I Azure Portal visas egenskapen _härledd åtkomst nivå_ med BLOB-åtkomst nivån som **aktiv (härledd)** eller låg frekvent **(härledd)**.
@@ -118,8 +121,8 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Offline           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | E.t.                       | 99,99 %       | 99,9 %               | Offline           |
-| **Avgifter för användning**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Ej tillämpligt                       | 99,99 %       | 99,9 %               | Offline           |
+| **Användnings kostnader**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
 | **Minsta objektstorlek**                   | Saknas                       | Saknas          | Saknas                 | Saknas               |
 | **Minsta lagringstid**              | Saknas                       | Saknas          | 30 dagar<sup>1</sup> | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | Ensiffriga millisekunder | millisekunder | millisekunder        | timmar<sup>2</sup> |

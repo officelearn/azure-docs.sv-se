@@ -3,12 +3,12 @@ title: Introduktion
 description: Lär dig om funktionerna och fördelarna med Azure VMware-lösningen för att distribuera och hantera VMware-baserade arbets belastningar i Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752128"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005062"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>Vad är för hands versionen av Azure VMware-lösningen?
 
@@ -46,7 +46,7 @@ Vanliga uppgraderingar av Azure VMware-lösningen privat moln och VMware-program
 
 ## <a name="monitoring-your-private-cloud"></a>Övervaka ditt privata moln
 
-Du kan använda [loggar i Azure Monitor](../azure-monitor/overview.md) för att samla in loggar på dina virtuella datorer som körs i ditt privata moln i Azure VMware-lösningen. Du kan [Hämta och installera MMA-agenten](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) på virtuella Linux-och Windows-datorer som körs i dina privata moln i Azure VMware-lösningen med samma frågor som du kör på dina lokala virtuella datorer. Du kan köra samma frågor som du brukar köra på dina virtuella datorer på samma sätt. Mer information om hur du skapar frågor finns i [så här skriver du frågor](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Du kan använda [loggar i Azure Monitor](../azure-monitor/overview.md) för att samla in loggar på dina virtuella datorer som körs i ditt privata moln i Azure VMware-lösningen. Du kan [Hämta och installera MMA-agenten](../azure-monitor/platform/log-analytics-agent.md#installation-options) på virtuella Linux-och Windows-datorer som körs i dina privata moln i Azure VMware-lösningen med samma frågor som du kör på dina lokala virtuella datorer. Du kan köra samma frågor som du brukar köra på dina virtuella datorer på samma sätt. Mer information om hur du skapar frågor finns i [så här skriver du frågor](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## <a name="next-steps"></a>Nästa steg
 

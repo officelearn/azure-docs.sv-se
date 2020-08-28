@@ -3,12 +3,12 @@ title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvär
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: c41f8eb82cf912fc566975f833fc73589f17be98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829925"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022385"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
@@ -82,9 +82,9 @@ Så här installerar du agenten på en Windows-dator:
 5. Klicka på **Lägg** till för att lägga till en ny Log Analytics-arbetsyta. Klistra in det arbetsyte-ID och den nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
 Du kan installera agenten från kommando raden eller med en automatiserad metod som Configuration Manager eller [Intigua](https://www.intigua.com/intigua-for-azure-migration).
-- [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om att använda dessa metoder för att installera MMA-agenten.
+- [Lär dig mer](../azure-monitor/platform/log-analytics-agent.md#installation-options) om att använda dessa metoder för att installera MMA-agenten.
 - MMA-agenten kan också installeras med detta [skript](https://go.microsoft.com/fwlink/?linkid=2104394).
-- [Läs mer](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) om de Windows-operativsystem som stöds av MMA.
+- [Läs mer](../azure-monitor/platform/agents-overview.md#supported-operating-systems) om de Windows-operativsystem som stöds av MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Installera MMA på en Linux-dator
 
@@ -95,7 +95,7 @@ Så här installerar du MMA på en Linux-dator:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Läs mer](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) om listan med stöd för Linux-operativsystem i MMA. 
+[Läs mer](../azure-monitor/platform/agents-overview.md#supported-operating-systems) om listan med stöd för Linux-operativsystem i MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 
@@ -147,7 +147,7 @@ När du har skapat gruppen rekommenderar vi att du installerar agenter på alla 
 Du kan fråga beroende data som har registrerats av Tjänstkarta i arbets ytan Log Analytics som är associerad med Azure Migrate projektet. Log Analytics används för att skriva och köra Azure Monitor logg frågor.
 
 - [Lär dig hur du](../azure-monitor/insights/service-map.md#log-analytics-records) söker efter tjänstkarta data i Log Analytics.
-- [Få en översikt](../azure-monitor/log-query/get-started-queries.md) över att skriva logg frågor i [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Få en översikt](../azure-monitor/log-query/get-started-queries.md)  över att skriva logg frågor i [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 Kör en fråga för beroende data på följande sätt:
 

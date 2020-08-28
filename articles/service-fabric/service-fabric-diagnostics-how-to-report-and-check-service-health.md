@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241938"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020209"
 ---
 # <a name="report-and-check-service-health"></a>Rapportera och kontrollera hälsan hos tjänster
 När dina tjänster drabbas av problem kan din möjlighet att svara på och åtgärda incidenter och avbrott bero på din möjlighet att snabbt upptäcka problemen. Om du rapporterar problem och fel i Azure Service Fabric Health Manager från Service koden kan du använda standard verktyg för hälso övervakning som Service Fabric visar för att kontrol lera hälso statusen.
@@ -25,7 +26,7 @@ Det finns tre sätt som du kan rapportera hälsan från tjänsten:
 
 Den här artikeln vägleder dig genom ett exempel som rapporterar hälso tillstånd från Service koden. Exemplet visar också hur de verktyg som tillhandahålls av Service Fabric kan användas för att kontrol lera hälso statusen. Den här artikeln är avsedd att vara en snabb introduktion till hälso övervaknings funktionerna i Service Fabric. Mer detaljerad information finns i serien med djupgående artiklar om hälsa som börjar med länken i slutet av den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande installerat:
 
 * Visual Studio 2015 eller Visual Studio 2019
@@ -131,7 +132,7 @@ HealthInformation healthInformation = new HealthInformation("ServiceCode", "Stat
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-Om du vill rapportera hälsa på `Application` , `DeployedApplication` , och `DeployedServicePackage` , använder du `CodePackageActivationContext` .
+Om du vill rapportera hälsa på `Application` , `DeployedApplication` , och `DeployedServicePackage` , använder du  `CodePackageActivationContext` .
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);

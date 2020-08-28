@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3753c809d8222030a885693ede800fe17c08b14b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ebadaf51a7dfbb286dac0bbdb0c3c8437ae2356f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224551"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022232"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Självstudie: gränssnitt och anpassade modeller
 
@@ -23,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera Azure-Blob Storage för modell inmatning
 > * Ladda upp och bearbeta modeller för åter givning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: Visa en fjärrrenderad modell](../view-remote-models/view-remote-models.md).
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79f85473f4eb1839a283ce4fc0d3311defaa741e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439609"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999631"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagrings kryptering 
 
@@ -44,7 +45,7 @@ När du använder entiteter i Media Services måste du ange vissa huvud fält oc
 
 ### <a name="storage-side-encryption"></a>Kryptering på lagrings Sidan
 
-|Krypterings alternativ|Description|Media Services v2|Media Services v3|
+|Krypterings alternativ|Beskrivning|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services lagrings kryptering|AES-256-kryptering, nyckel som hanteras av Media Services|Stöds<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
 |[Kryptering för lagringstjänst för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden|Stöds|Stöds|
@@ -111,11 +112,11 @@ Följande är allmänna steg för att skapa innehålls nycklar som du associerar
 
     För lagrings kryptering ska följande egenskaper tas med i begär ande texten.
 
-    Egenskap för begär ande brödtext    | Description
+    Egenskap för begär ande brödtext    | Beskrivning
     ---|---
     Id | ContentKey-ID: t genereras med följande format: "OBS: barn: UUID: \<NEW GUID> ".
     ContentKeyType | Innehålls nyckel typen är ett heltal som definierar nyckeln. För lagrings krypterings format är värdet 1.
-    EncryptedContentKey | Vi skapar ett nytt nyckel värde för innehåll som är 256-bitars (32 byte)-värde. Nyckeln krypteras med hjälp av det lagrings krypterings-X. 509-certifikat som vi hämtar från Microsoft Azure Media Services genom att köra en HTTP GET-begäran för GetProtectionKeyId-och GetProtectionKey-metoderna. Exempel finns i följande .NET-kod: **EncryptSymmetricKeyData** -metoden som definieras [här](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Vi skapar ett nytt nyckel värde för innehåll som är 256-bitars (32 byte)-värde. Nyckeln krypteras med hjälp av det lagrings krypterings-X. 509-certifikat som vi hämtar från Microsoft Azure Media Services genom att köra en HTTP GET-begäran för GetProtectionKeyId-och GetProtectionKey-metoderna. Exempel finns i följande .NET-kod:  **EncryptSymmetricKeyData** -metoden som definieras [här](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Detta är skydds nyckel-ID: t för det lagrings krypterings-X. 509-certifikat som användes för att kryptera vår innehålls nyckel.
     ProtectionKeyType | Detta är krypterings typen för den skydds nyckel som användes för att kryptera innehålls nyckeln. Det här värdet är StorageEncryption (1) för vårt exempel.
     Kontrollsumma |Den beräknade MD5-kontroll summan för innehålls nyckeln. Den beräknas genom att du krypterar innehålls-ID: t med innehålls nyckeln. Exempel koden visar hur du beräknar kontroll summan.

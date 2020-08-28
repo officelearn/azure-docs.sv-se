@@ -3,7 +3,7 @@ title: Självstudie `:` Använd en hanterad identitet för att få åtkomst till
 description: En självstudiekurs som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator för åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: df59d556edb6faea221e2afd799e95796d74648e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75888523"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007408"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
 

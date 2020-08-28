@@ -3,12 +3,12 @@ title: Hantera säkerhetskopierade SAP HANA databaser på virtuella Azure-datore
 description: I den här artikeln lär du dig vanliga uppgifter för att hantera och övervaka SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826709"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006573"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Hantera och övervaka säkerhetskopierade SAP HANA-databaser
 
@@ -32,7 +32,7 @@ Om du vill veta mer om övervakning går du till [övervakning i Azure Portal](.
 
 Aviseringar är ett enkelt sätt att övervaka säkerhets kopieringar av SAP HANA databaser. Aviseringar hjälper dig att fokusera på de händelser du bryr dig om utan att förlora antalet händelser som en säkerhets kopia genererar. Med Azure Backup kan du ange aviseringar och de kan övervakas på följande sätt:
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 * På instrument panelen för valv väljer du **säkerhets kopierings aviseringar**.
 
   ![Säkerhets kopierings aviseringar på valv instrument panel](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
@@ -84,7 +84,7 @@ Dessa säkerhets kopior på begäran visas också i listan över återställning
 
 Återställningar som utlöses från HANA-ursprungliga klienter (med **Backint**) för att återställa till samma dator kan [övervakas](#monitor-manual-backup-jobs-in-the-portal) från sidan **säkerhets kopierings jobb** .
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Kör SAP HANA inbyggd klient säkerhets kopiering på en databas med Azure Backup aktiverat
+### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Kör SAP HANA intern klient säkerhets kopiering på en databas med Azure Backup aktiverat
 
 Om du vill ta en lokal säkerhets kopia (med HANA Studio/cockpit) för en databas som säkerhets kopie ras med Azure Backup gör du följande:
 

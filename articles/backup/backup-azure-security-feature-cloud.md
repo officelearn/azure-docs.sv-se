@@ -3,12 +3,12 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a23d9d1e2ceeb767784490ba65542a5e91b6785b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892481"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004926"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
@@ -164,7 +164,7 @@ Ja.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Hur kan jag aktivera schemalagda säkerhets kopieringar igen för en mjuk borttagen resurs?
 
-Undelete följt av en återuppta-åtgärd kommer att skydda resursen igen. Åtgärden återuppta associerar en säkerhets kopierings princip för att utlösa de schemalagda säkerhets kopieringarna med den valda kvarhållningsperioden. Dessutom körs skräp insamlaren så fort återställnings åtgärden har slutförts. Om du vill utföra en återställning från en återställnings punkt som har passerat förfallo datumet, rekommenderar vi att du gör det innan du utlöser återställnings åtgärden.
+Undelete följt av en återuppta-åtgärd kommer att skydda resursen igen. Åtgärden återuppta associerar en säkerhets kopierings princip för att utlösa de schemalagda säkerhets kopieringarna med den valda kvarhållningsperioden. Dessutom körs skräp insamlaren så fort återställnings åtgärden har slutförts. Om du vill utföra en återställning från en återställnings punkt som har passerat förfallo datumet, uppmanas du att göra det innan du utlöser återställnings åtgärden.
 
 ### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Kan jag ta bort mitt valv om det finns mjuka borttagna objekt i valvet?
 

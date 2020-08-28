@@ -3,13 +3,13 @@ title: Skapa en .NET-app på Service Fabric i Azure
 description: I den här självstudien får du se hur du skapar ett program med en ASP.NET Core-klientdel och en tillförlitlig serverdel med en tillståndskänslig tjänst, och hur du distribuerar programmet till ett kluster.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 03320fe41bcac8b99a3475b52fcf1b41ea5aed89
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: mvc, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 847bd2e30977c5a14f8294f6709cbd6d376a8211
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428362"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016282"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 När klientdelstjänsten VotingWeb skapas väljer Visual Studio slumpmässigt en port där tjänsten ska lyssna.  VotingWeb-tjänsten fungerar som klientdel för det här programmet och godkänner extern trafik, så vi kopplar den tjänsten till en fast och välkänd port.  I [tjänstmanifestet](service-fabric-application-and-service-manifests.md) anges tjänstens slutpunkter.
 
-I Solution Explorer öppnar du *VotingWeb/PackageRoot/ServiceManifest.xml*.  Leta rätt på elementet **Endpoint** i avsnittet **Resources** och ändra värdet för **Port** till **8080**. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
+I Solution Explorer öppnar du  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Leta rätt på elementet **Endpoint** i avsnittet **Resources** och ändra värdet för **Port** till **8080**. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
 
 ```xml
 <Resources>

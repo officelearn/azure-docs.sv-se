@@ -1,31 +1,91 @@
 ---
-title: Anslut Linux-datorer till Azure Monitor | Microsoft Docs
+title: Installera Log Analytics agent på Linux-datorer
 description: Den här artikeln beskriver hur du ansluter Linux-datorer som finns i andra moln eller lokalt för att Azure Monitor med Log Analytics-agenten för Linux.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/21/2020
-ms.openlocfilehash: 965d5dd558d0da7a758db77330c9129ea0e8247c
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+author: bwren
+ms.author: bwren
+ms.date: 08/21/2020
+ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543868"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998942"
 ---
-# <a name="connect-linux-computers-to-azure-monitor"></a>Anslut Linux-datorer till Azure Monitor
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
+Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Linux-datorer med följande metoder:
 
-För att kunna övervaka och hantera virtuella datorer eller fysiska datorer i ditt lokala data Center eller i annan moln miljö med Azure Monitor måste du distribuera Log Analytics agent och konfigurera den så att den rapporterar till en Log Analytics-arbetsyta. Agenten stöder också Hybrid Runbook Worker-rollen för Azure Automation.
-
-Log Analytics-agenten för Linux kan installeras med någon av följande metoder. Information om hur du använder varje metod finns längre fram i artikeln.
-
-* [Hämta och installera](#install-the-agent-manually) agenten manuellt. Detta krävs när Linux-datorn inte har åtkomst till Internet och kommer att kommunicera med Azure Monitor eller Azure Automation via [Log Analytics Gateway](gateway.md). 
 * [Installera agenten för Linux med hjälp av ett omslutnings skript som](#install-the-agent-using-wrapper-script) finns på GitHub. Detta är den rekommenderade metoden för att installera och uppgradera agenten när datorn har anslutning till Internet, direkt eller via en proxyserver.
+* [Hämta och installera](#install-the-agent-manually) agenten manuellt. Detta krävs när Linux-datorn inte har åtkomst till Internet och kommer att kommunicera med Azure Monitor eller Azure Automation via [Log Analytics Gateway](gateway.md). 
 
-Om du vill förstå konfigurationen som stöds, så granska [de Linux-operativsystem som stöds](log-analytics-agent.md#supported-linux-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-requirements).
+>[!IMPORTANT]
+> Installations metoderna som beskrivs i den här artikeln används vanligt vis för virtuella datorer lokalt eller i andra moln. Se [installations alternativ](log-analytics-agent.md#installation-options) för mer effektiva alternativ som du kan använda för Azure Virtual Machines.
+
+
+
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
+
+Se [Översikt över Azure Monitor agenter](agents-overview.md#supported-operating-systems) för en lista över Linux-distributioner som stöds av log Analyticss agenten.
 
 >[!NOTE]
->Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics-arbetsyta. Den kan bara konfigureras att rapportera till både en System Center Operations Manager hanterings grupp och Log Analytics arbets yta samtidigt, eller för någon enskild.
+>OpenSSL 1.1.0 stöds endast på x86_x64 plattformar (64-bitars) och OpenSSL tidigare än 1. x stöds inte på någon plattform.
+>
+Från och med versioner som publicerats efter 2018 augusti gör vi följande ändringar i vår support modell:  
+
+* Endast Server versionerna stöds, inte klienten.  
+* Fokusera på en [Azure Linux-distributioner som har bekräftats](../../virtual-machines/linux/endorsed-distros.md). Observera att det kan uppstå en fördröjning mellan en ny distribution/version som är godkänd i Azure Linux och stöds för Log Analytics Linux-agenten.
+* Alla mindre versioner stöds för varje huvud version som anges.
+* Versioner som har passerat support datumet stöds inte.  
+* Nya versioner av AMI stöds inte.  
+* Endast versioner som kör SSL 1. x stöds som standard.
+
+>[!NOTE]
+>Om du använder en distribution eller version som inte stöds och inte justeras till vår support modell, rekommenderar vi att du förlitar dig på den här lagrings platsen, vilket erkänner att Microsoft Support inte kommer att ge hjälp med förgrenade agent versioner.
+
+### <a name="python-2-requirement"></a>Python 2-krav
+
+ Den Log Analytics agenten kräver python 2. Om den virtuella datorn använder en distribution som inte innehåller python 2 som standard måste du installera den. Följande exempel kommandon kommer att installera python 2 på olika distributioner.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE `zypper install -y python2`
+
+Den körbara filen python2 måste ha ett alias till python med följande kommando:
+
+```
+alternatives --set python `which python2`
+```
+
+## <a name="supported-linux-hardening"></a>Linux-härdning som stöds
+OMS-agenten har begränsat anpassnings stöd för Linux. 
+
+Följande stöds för närvarande: 
+- FIPs
+
+Följande planeras men stöds ännu inte:
+- CIS-SELINUX
+
+Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OMS-agenten.  
+
+## <a name="agent-prerequisites"></a>Krav för agent
+
+I följande tabell visas de paket som krävs för [Linux-distributioner som stöds](#supported-operating-systems) av-agenten som agenten ska installeras på.
+
+|Nödvändigt paket |Beskrivning |Lägsta version |
+|-----------------|------------|----------------|
+|Glibc |    GNU C-bibliotek | 2.5-12 
+|Openssl    | OpenSSL-bibliotek | 1.0. x eller 1.1. x |
+|Curl | webb klient för sväng | 7.15.5 |
+|Python | | 2.6 + eller 3.3 +
+|Python – ctypes | | 
+|PAM | Pluggable Authentication Modules | | 
+
+>[!NOTE]
+>Antingen rsyslog eller syslog-ng krävs för att samla in syslog-meddelanden. Standard syslog-daemonen på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för händelse insamling i syslog. Om du vill samla in syslog-data från den här versionen av dessa distributioner ska rsyslog daemon installeras och konfigureras för att ersätta sysklog.
+
+## <a name="network-requirements"></a>Nätverkskrav
+Se [Översikt över Log Analytics agent](log-analytics-agent.md#network-requirements) för Linux-agentens nätverks krav.
 
 ## <a name="agent-install-package"></a>Agent installations paket
 
@@ -49,73 +109,7 @@ När du har installerat Log Analytics agent för Linux-paket tillämpas följand
 * En sudoers *include* -fil skapas i `/etc/sudoers.d/omsagent` . Detta ger tillstånd `omsagent` att starta om syslog-och omsagent-daemonarna. Om sudo *include* -direktiv inte stöds i den installerade versionen av sudo skrivs dessa poster till `/etc/sudoers` .
 * Syslog-konfigurationen ändras för att vidarebefordra en delmängd av händelser till agenten. Mer information finns i [Konfigurera syslog-datainsamling](data-sources-syslog.md).
 
-På en övervakad Linux-dator visas agenten som `omsagent` . `omsconfig`är Log Analytics agent för konfigurations agenten för Linux som söker efter ny portal konfiguration var 5: e minut. Den nya och uppdaterade konfigurationen tillämpas på konfigurationsfilerna för agenten som finns på `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
-
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
-
-Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan. Den här informationen krävs under installationen av agenten för att konfigurera den korrekt och se till att den kan kommunicera med Azure Monitor.
-
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
-
-1. I det övre vänstra hörnet av Azure Portal väljer du **alla tjänster**. I rutan Sök anger du **Log Analytics**. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Log Analytics arbets ytor**.
-
-2. I listan med Log Analytics arbets ytor väljer du den arbets yta som du skapade tidigare. (Du kan ha namngett det **DefaultLAWorkspace**.)
-
-3. Välj **Avancerade inställningar**:
-
-    ![Menyn Avancerade inställningar för Log Analytics i Azure Portal](../learn/media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
- 
-4. Välj **Anslutna källor** och välj sedan **Linux-servrar**.
-
-5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
-
-## <a name="install-the-agent-manually"></a>Installera agenten manuellt
-
-Log Analytics agenten för Linux finns i ett självextraherande och installerbart gränssnitts skript paket. Paketet innehåller Debian och RPM-paket för varje agent komponent och kan installeras direkt eller extraheras för att hämta de enskilda paketen. Ett paket tillhandahålls för x64 och ett för x86-arkitekturer. 
-
-> [!NOTE]
-> För virtuella Azure-datorer rekommenderar vi att du installerar agenten på dem med hjälp av [Azure Log Analytics VM-tillägget](../../virtual-machines/extensions/oms-linux.md) för Linux. 
-
-1. [Hämta](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) och överför lämpligt paket (x64 eller x86) till din virtuella Linux-dator eller fysiska dator med hjälp av SCP/SFTP.
-
-2. Installera paketet med hjälp av `--install` argumentet. Om du vill publicera till en Log Analytics arbets yta under installationen anger du `-w <WorkspaceID>` parametrarna och som du `-s <workspaceKey>` kopierade tidigare.
-
-    >[!NOTE]
-    >Du måste använda `--upgrade` argumentet om ett beroende paket som OMI, SCX, omsconfig eller deras äldre versioner är installerade, som skulle vara fallet om System Center Operations Manager-agenten för Linux redan har installerats. 
-
-    ```
-    sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
-    ```
-
-3. Om du vill konfigurera Linux-agenten att installera och ansluta till en Log Analytics-arbetsyta via en Log Analytics Gateway kör du följande kommando som anger proxy, arbetsyte-ID och arbets ytans nyckel parametrar. Den här konfigurationen kan anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]` . Egenskapen *ProxyHost* accepterar ett fullständigt kvalificerat domän namn eller en IP-adress för Log Analytics Gateway-servern.  
-
-    ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
-    ```
-
-    Om autentisering krävs måste du ange användar namn och lösen ord. Ett exempel: 
-    
-    ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
-    ```
-
-4. Om du vill konfigurera Linux-datorn för att ansluta till en Log Analytics arbets yta i Azure Government molnet kör du följande kommando som tillhandahåller arbetsyte-ID och primär nyckel som kopierats tidigare.
-
-    ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
-    ```
-
-Om du vill installera agent paketen och konfigurera det att rapportera till en speciell Log Analytics arbets yta vid ett senare tillfälle kör du följande kommando:
-
-```
-sudo sh ./omsagent-*.universal.x64.sh --upgrade
-```
-
-Om du vill extrahera agent paketen från paketet utan att installera agenten kör du följande kommando:
-
-```
-sudo sh ./omsagent-*.universal.x64.sh --extract
-```
+På en övervakad Linux-dator visas agenten som `omsagent` . `omsconfig` är Log Analytics agent för konfigurations agenten för Linux som söker efter ny portal konfiguration var 5: e minut. Den nya och uppdaterade konfigurationen tillämpas på konfigurationsfilerna för agenten som finns på `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
 
 ## <a name="install-the-agent-using-wrapper-script"></a>Installera agenten med hjälp av omslutnings skript
 
@@ -123,9 +117,9 @@ Följande steg konfigurerar installationen av agenten för Log Analytics i Azure
 
 Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics, kan den här konfigurationen anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]` . *Protokoll* egenskapen accepterar `http` eller `https` , och egenskapen *ProxyHost* accepterar ett fullständigt KVALIFICERAt domän namn eller en IP-adress för proxyservern. 
 
-Exempel: `https://proxy01.contoso.com:30443`
+Exempelvis: `https://proxy01.contoso.com:30443`
 
-Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempel: `https://user01:password@proxy01.contoso.com:30443`
+Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Kör följande kommando för att ange arbetsyte-ID och primär nyckel för att konfigurera Linux-datorn för att ansluta till en Log Analytics-arbetsyta. Med följande kommando laddar du ned agenten, verifierar dess kontrollsumma och installerar den.
     
@@ -156,22 +150,66 @@ Om autentisering krävs i båda fallen måste du ange användar namn och lösen 
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
 
-## <a name="supported-linux-hardening"></a>Linux-härdning som stöds
-OMS-agenten har begränsat anpassnings stöd för Linux. 
 
-Följande stöds för närvarande: 
-- FIPs
+## <a name="install-the-agent-manually"></a>Installera agenten manuellt
 
-Följande planeras men stöds ännu inte:
-- CIS
-- SELINUX
+Log Analytics agenten för Linux finns i ett självextraherande och installerbart gränssnitts skript paket. Paketet innehåller Debian och RPM-paket för varje agent komponent och kan installeras direkt eller extraheras för att hämta de enskilda paketen. Ett paket tillhandahålls för x64 och ett för x86-arkitekturer. 
 
-Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OMS-agenten.  
+> [!NOTE]
+> För virtuella Azure-datorer rekommenderar vi att du installerar agenten på dem med hjälp av [Azure Log Analytics VM-tillägget](../../virtual-machines/extensions/oms-linux.md) för Linux. 
 
+1. [Hämta](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) och överför lämpligt paket (x64 eller x86) till din virtuella Linux-dator eller fysiska dator med hjälp av SCP/SFTP.
+
+2. Installera paketet med hjälp av `--install` argumentet. Om du vill publicera till en Log Analytics arbets yta under installationen anger du `-w <WorkspaceID>` parametrarna och som du `-s <workspaceKey>` kopierade tidigare.
+
+    >[!NOTE]
+    >Du måste använda `--upgrade` argumentet om ett beroende paket som OMI, SCX, omsconfig eller deras äldre versioner är installerade, som skulle vara fallet om System Center Operations Manager-agenten för Linux redan har installerats. 
+
+    ```
+    sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
+    ```
+
+3. Om du vill konfigurera Linux-agenten att installera och ansluta till en Log Analytics-arbetsyta via en Log Analytics Gateway kör du följande kommando som anger proxy, arbetsyte-ID och arbets ytans nyckel parametrar. Den här konfigurationen kan anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]` . Egenskapen *ProxyHost* accepterar ett fullständigt kvalificerat domän namn eller en IP-adress för Log Analytics Gateway-servern.  
+
+    ```
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+    ```
+
+    Om autentisering krävs måste du ange användar namn och lösen ord. Exempel: 
+    
+    ```
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+    ```
+
+4. Om du vill konfigurera Linux-datorn för att ansluta till en Log Analytics arbets yta i Azure Government molnet kör du följande kommando som tillhandahåller arbetsyte-ID och primär nyckel som kopierats tidigare.
+
+    ```
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+    ```
+
+Om du vill installera agent paketen och konfigurera det att rapportera till en speciell Log Analytics arbets yta vid ett senare tillfälle kör du följande kommando:
+
+```
+sudo sh ./omsagent-*.universal.x64.sh --upgrade
+```
+
+Om du vill extrahera agent paketen från paketet utan att installera agenten kör du följande kommando:
+
+```
+sudo sh ./omsagent-*.universal.x64.sh --extract
+```
 
 ## <a name="upgrade-from-a-previous-release"></a>Uppgradera från en tidigare version
 
 Att uppgradera från en tidigare version, från och med version 1.0.0-47, stöds i varje version. Utför installationen med- `--upgrade` parametern för att uppgradera alla komponenter i agenten till den senaste versionen.
+
+## <a name="cache-information"></a>Cachelagra information
+Data från Log Analytics agent för Linux cachelagras på den lokala datorn på *% STATE_DIR_WS%/out_oms_common*. Buffer * innan den skickas till Azure Monitor. Anpassade loggdata buffras i *% STATE_DIR_WS%/out_oms_blob*. Buffer *. Sökvägen kan vara olika för vissa [lösningar och data typer](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
+
+Agenten försöker ladda upp var 20: e sekund. Om det Miss lyckas väntar det en exponentiellt ökande tid tills det lyckas. Det kommer att vänta 30 sekunder innan det andra försöket, 60 sekunder före nästa, 120 sekunder och så vidare till högst 9 minuter mellan återförsök tills den har anslutit igen. Agenten kommer bara att försöka igen 10 gånger för ett angivet data segment innan det tas bort och flyttas till nästa. Detta fortsätter tills agenten kan laddas upp igen. Innebär att data kan buffras upp till 8,5 timmar innan de tas bort.
+
+Standardvärdet för cacheminnet är 10 MB men kan ändras i [filen omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

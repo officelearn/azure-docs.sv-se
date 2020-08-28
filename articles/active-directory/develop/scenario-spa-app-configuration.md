@@ -11,25 +11,26 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882343"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003035"
 ---
 # <a name="single-page-application-code-configuration"></a>Program med en sida: kod konfiguration
 
 Lär dig hur du konfigurerar koden för en Enkels Ides applikation (SPA).
 
-## <a name="msal-libraries-that-support-implicit-flow"></a>MSAL-bibliotek som stöder implicit flöde
+## <a name="msal-libraries-for-spas-and-supported-authentication-flows"></a>MSAL-bibliotek för SPAs och stödda autentiserings flöden
 
-Microsoft Identity Platform tillhandahåller följande bibliotek för Microsoft Authentication Library (MSAL) för att stödja implicit flöde med hjälp av bransch rekommenderade säkerhets metoder:
+Microsoft Identity Platform tillhandahåller följande Microsoft-autentiseringspaket för Java Script (MSAL.js) som stöd för implicit flödes-och auktoriseringskod med PKCE med hjälp av bransch rekommenderade säkerhets metoder:
 
-| MSAL-bibliotek | Beskrivning |
-|--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue.js och React.js. |
-| ![MSAL-vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL-vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslutningen av kärn MSAL.jss biblioteket för att förenkla användningen av appar på en sida som är byggda genom ram-ramverket. |
+| MSAL-bibliotek | Flöden | Beskrivning |
+|--------------|------|-------------|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Authorization Code Flow (PKCE) | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue.js och React.js. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1. x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Implicit flöde | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue.js och React.js. |
+| ![MSAL-vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL-vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Implicit flöde | Omslutningen av kärn MSAL.jss biblioteket för att förenkla användningen av appar på en sida som är byggda genom ram-ramverket. |
 
 ## <a name="application-code-configuration"></a>Program kod konfiguration
 
@@ -41,10 +42,9 @@ I ett MSAL-bibliotek skickas programmets registrerings information som konfigura
 // Configuration object constructed.
 const config = {
     auth: {
-        clientId: 'your_app_id',
-        redirectUri: "your_app_redirect_uri" //defaults to application start page
+        clientId: 'your_client_id'
     }
-}
+};
 
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);

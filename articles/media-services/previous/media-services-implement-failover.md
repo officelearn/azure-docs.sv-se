@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78939227"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008972"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementera redundans med Media Services v2
 
@@ -50,7 +51,7 @@ Följande gäller:
 * Storage-krypterade till gångar (AssetCreationOptions. StorageEncrypted) stöds inte för replikering (eftersom krypterings nyckeln är annorlunda i båda Media Services-kontona). 
 * Om du vill dra nytta av dynamisk paketering kontrollerar du att den strömnings slut punkt som du vill strömma ditt innehåll från är **igång** .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Två Media Services konton i en ny eller befintlig Azure-prenumeration. Se [så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Operativ system: Windows 7, Windows 2008 R2 eller Windows 8.

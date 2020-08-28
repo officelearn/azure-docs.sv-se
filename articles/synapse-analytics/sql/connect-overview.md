@@ -9,12 +9,13 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a9a9b8b9ed3e65ae9b8500017b838dc320ecbaac
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198506"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005028"
 ---
 # <a name="connect-to-synapse-sql"></a>Anslut till Synapse SQL
 Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
@@ -35,7 +36,7 @@ Server namnet för SQL på begäran i följande exempel är: showdemoweu-ondeman
 
 För att hitta det fullständigt kvalificerade servernamnet:
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Klicka på **Synapse-arbetsytor**.
 3. Klicka på den arbets yta som du vill ansluta till.
 4. Gå till översikt.

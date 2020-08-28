@@ -2,21 +2,21 @@
 title: Azure-tjänster som har stöd för hanterade identiteter – Azure AD
 description: Lista över tjänster som stöder hanterade identiteter för Azure-resurser och Azure AD-autentisering
 services: active-directory
-author: MarkusVi
-ms.author: markvi
+author: barclayn
+ms.author: barclayn
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: markvi
+manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 13521017076c609c2fadb4362d5cccdf12d94098
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1d9bd6ccc0f92ab28088e886c5bd17d79bc6cea3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873593"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007635"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -39,7 +39,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure API Management (i regioner där det är tillgängligt):
 
-- [Azure Resource Manager mall](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Azure Resource Manager-mall](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 
 ### <a name="azure-app-service"></a>Azure App Service
@@ -54,7 +54,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure App Service (
 - [Azure-portalen](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc-aktiverade Kubernetes
 
@@ -65,7 +65,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure App Service (
 
 Azure Arc-aktiverade Kubernetes [stöder för närvarande systemtilldelad identitet](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#azure-arc-agents-for-kubernetes). Det hanterade tjänst identitets certifikatet används av alla Azure Arc-aktiverade Kubernetes-agenter för kommunikation med Azure.
 
-### <a name="azure-blueprints"></a>Azure Blueprint
+### <a name="azure-blueprints"></a>Azure Blueprints
 
 |Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -103,7 +103,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 I följande lista kan du konfigurera hanterad identitet för Azure Container Instances (i regioner där det finns tillgängligt):
 
 - [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
-- [Azure Resource Manager mall](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Azure Resource Manager-mall](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
@@ -168,7 +168,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Functions (i 
 - [Azure-portalen](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Azure Resource Manager mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT Hub
 
@@ -210,7 +210,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 I följande lista kan du konfigurera hanterad identitet för Azure Logic Apps (i regioner där det finns tillgängligt):
 
 - [Azure-portalen](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Azure Resource Manager mall](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Azure Resource Manager-mall](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
 ### <a name="azure-policy"></a>Azure Policy
@@ -240,7 +240,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 Se följande lista för att konfigurera hanterad identitet för Azure Service Fabric-program i alla regioner:
 
-- [Azure Resource Manager mall](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+- [Azure Resource Manager-mall](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ### <a name="azure-spring-cloud"></a>Azure Spring Cloud
 
@@ -303,7 +303,7 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 I följande lista kan du konfigurera hanterad identitet för Azure SignalR service (i regioner där det finns):
 
-- [Azure Resource Manager mall](../../azure-signalr/howto-use-managed-identity.md)
+- [Azure Resource Manager-mall](../../azure-signalr/howto-use-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-tjänster som stöder Azure AD-autentisering
 
@@ -318,7 +318,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 - [Tilldela åtkomst via Azure CLI](howto-assign-access-CLI.md)
 - [Tilldela åtkomst via Azure Resource Manager mall](../../role-based-access-control/role-assignments-template.md)
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://management.azure.com/`| ![Tillgänglig][check] |
 | Azure Government | `https://management.usgovcloudapi.net/` | ![Tillgänglig][check] |
@@ -327,7 +327,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://vault.azure.net`| ![Tillgänglig][check] |
 | Azure Government | `https://vault.usgovcloudapi.net` | ![Tillgänglig][check] |
@@ -336,7 +336,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://datalake.azure.net/` | ![Tillgänglig][check] |
 | Azure Government |  | Inte tillgängligt |
@@ -345,7 +345,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-sql"></a>Azure SQL
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://database.windows.net/` | ![Tillgänglig][check] |
 | Azure Government | `https://database.usgovcloudapi.net/` | ![Tillgänglig][check] |
@@ -354,7 +354,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://eventhubs.azure.net` | ![Tillgänglig][check] |
 | Azure Government |  | Inte tillgängligt |
@@ -363,7 +363,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://servicebus.azure.net`  | ![Tillgänglig][check] |
 | Azure Government |  | ![Tillgänglig][check] |
@@ -380,7 +380,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-storage-blobs-and-queues"></a>Azure Storage blobbar och köer
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Tillgänglig][check] |
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Tillgänglig][check] |
@@ -389,7 +389,7 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Molnet | Resurs-ID | Status |
+| Moln | Resurs-ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://*.asazure.windows.net` | ![Tillgänglig][check] |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Tillgänglig][check] |

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 8b9f0e824352126204c7a6f1cfe08d3e7c6c29a9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 39cbfebcf34ef47ae93972a11be44ef3bcec0d66
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826066"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008955"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
 
@@ -240,7 +241,7 @@ Om inte alla indatafiler indexeras korrekt kommer indexerings jobbet att Miss ly
 
 Samma utdata (som slutförda jobb) skapas. Du kan referera till manifest filen för utdata för att ta reda på vilka indatafiler som har misslyckats, enligt värdena i fel kolumnen. De resulterande TTML, WebVTT och keywords-filerna kommer inte att genereras för indatafiler som misslyckades.
 
-### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a>Uppgifts för inställning för Azure Media Indexer
+### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Uppgifts för inställning för Azure Media Indexer
 Bearbetningen från Azure Media Indexer kan anpassas genom att tillhandahålla en valfri aktivitets för inställning tillsammans med aktiviteten.  I följande avsnitt beskrivs formatet för den här konfigurations-XML-filen.
 
 | Namn | Kräver | Beskrivning |
@@ -263,7 +264,7 @@ Om ett fel uppstår bör Azure Media Indexer rapportera tillbaka en av följande
 | 2006 |För många indatafiler |Det finns fler än 10 filer i manifestet för indatamängden. |
 | 3000 |Det gick inte att avkoda medie filen |Medie-codec som inte stöds <br/>eller<br/> Skadad medie fil <br/>eller<br/> Ingen ljud ström i indata-mediet. |
 | 4000 |Batch-indexering delvis genomförd |Det gick inte att indexera några av medierna med indatafiler. Mer information finns i <a href="#output_files">utdatafiler</a>. |
-| övrigt |Interna fel |Kontakta support teamet. indexer@microsoft.com |
+| other |Interna fel |Kontakta support teamet. indexer@microsoft.com |
 
 ## <a name="supported-languages"></a><a id="supported_languages"></a>Språk som stöds
 För närvarande stöds de engelska och spanska språken.  

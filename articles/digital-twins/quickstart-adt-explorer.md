@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: c3230294fd9d5761433b4507ff054bcaae7a11ad
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 6b0a024dde1c96610a637ec51fd29e4a23dadc53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959821"
+ms.locfileid: "89008564"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Utforska ett exempel på Azure Digitals sammanflätade scenario med ADT Explorer
 
@@ -98,7 +98,7 @@ Tryck på knappen *Logga in* överst i fönstret för att konfigurera ADT Explor
 Ange viktig information som du samlade in tidigare i avsnittet [krav](#prerequisites) :
 * Program-ID (klient)
 * Katalog-ID (klient)
-* ADT-URL, i formatet *https:// <instance host name> *
+* ADT-URL, i formatet *https://{instans värd namn}*
 
 >[!NOTE]
 > Du kan gå tillbaka och redigera informationen när som helst genom att välja samma ikon för att hämta inloggnings rutan igen. Den behåller de värden som du har skickat.

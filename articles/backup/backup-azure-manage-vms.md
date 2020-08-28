@@ -3,12 +3,12 @@ title: Hantera och övervaka virtuella Azure-säkerhetskopieringar
 description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopieringar med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 707558b8ad28f7a8a17e24e57f97fda064d0f238
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892175"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999350"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -29,7 +29,7 @@ Du kan hantera säkerhets kopior med hjälp av instrument panelen och genom att 
 
 Visa virtuella datorer på valv-instrument panelen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. På menyn till vänster väljer du **Alla tjänster**.
 
     ![Välj Alla tjänster](./media/backup-azure-manage-vms/select-all-services.png)
@@ -63,7 +63,7 @@ Visa virtuella datorer på valv-instrument panelen:
 
 Så här ändrar du en befintlig säkerhets kopierings princip:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). Öppna instrument panelen för valvet.
+1. Logga in på [Azure-portalen](https://portal.azure.com/). Öppna instrument panelen för valvet.
 2. Välj säkerhets kopierings policyn för den **virtuella Azure-datorns**typ i **hantera principer för > säkerhets kopiering**.
 3. Välj **ändra** och ändra inställningarna.
 
@@ -71,7 +71,7 @@ Så här ändrar du en befintlig säkerhets kopierings princip:
 
 Så här hanterar du en säkerhets kopierings princip:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). Öppna instrument panelen för valvet.
+1. Logga in på [Azure-portalen](https://portal.azure.com/). Öppna instrument panelen för valvet.
 2. På panelen **säkerhets kopierings objekt** väljer du **virtuell Azure-dator**.
 
     ![Öppna panelen säkerhets kopierings objekt](./media/backup-azure-manage-vms/azure-virtual-machine.png)
@@ -186,7 +186,7 @@ För att skydda dina data innehåller Azure Backup funktionen för mjuk borttagn
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Säkerhets kopierings objekt där den primära data källan inte längre finns
 
-* Om virtuella Azure-datorer som kon figurer ATS för Azure Backup tas bort eller flyttas utan att skyddet stoppas, kommer de båda schemalagda säkerhets kopierings jobben och säkerhets kopierings jobben på begäran (ad hoc) att Miss sen UserErrorVmNotFoundV2. Säkerhets kopierings kontrollen visas som kritisk endast för misslyckade säkerhets kopierings jobb på begäran (misslyckade schemalagda jobb visas inte).
+* Om de virtuella Azure-datorerna som kon figurer ATS för Azure Backup antingen tas bort eller flyttas utan att skyddet stoppas, kommer de båda schemalagda säkerhets kopierings jobben och säkerhets kopierings jobben på begäran (ad hoc) att Miss sen Säkerhets kopierings kontrollen visas som kritisk endast för misslyckade säkerhets kopierings jobb på begäran (misslyckade schemalagda jobb visas inte).
 * Dessa säkerhets kopierings objekt förblir aktiva i systemet som följer säkerhets kopierings-och bevarande principen som angetts av användaren. Säkerhetskopierade data för de här virtuella Azure-datorerna kommer att behållas enligt bevarande principen. De utgångna återställnings punkterna (förutom den sista återställnings punkten) rensas enligt det kvarhållningsintervall som anges i säkerhets kopierings principen.
 * Vi rekommenderar att du tar bort de säkerhets kopierings objekt där den primära data källan inte längre finns för att undvika eventuell ytterligare kostnad, om säkerhets kopierings objekt/data för borttagnings resurserna inte längre krävs eftersom den sista återställnings punkten kvarhålls för alltid och användaren debiteras enligt gällande säkerhets kopierings prissättning.
 

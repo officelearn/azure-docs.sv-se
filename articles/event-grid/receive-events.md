@@ -3,13 +3,13 @@ title: Ta emot händelser från Azure Event Grid till en HTTP-slutpunkt
 description: Beskriver hur du verifierar en HTTP-slutpunkt och sedan tar emot och deserialiserar händelser från Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3e79d292dfcbed9f572c88e913bc76d47e6ee37f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9e89c6920c76914ccab6298b1404b0cae698b532
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415116"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006082"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -360,7 +360,7 @@ Testa slutligen att din funktion nu kan hantera din anpassade händelse typ:
 }]
 ```
 
-Du kan också testa den här funktionen Live genom att [skicka en anpassad händelse med en sväng från portalen](./custom-event-quickstart-portal.md) eller genom [att publicera till ett anpassat ämne](./post-to-custom-topic.md) med valfri tjänst eller program som kan publicera till en slut punkt, till exempel [Postman](https://www.getpostman.com/). Skapa ett anpassat ämne och en händelse prenumeration med slut punkten som angetts som funktions webb adress.
+Du kan också testa den här funktionen Live genom att [skicka en anpassad händelse med en sväng från portalen](./custom-event-quickstart-portal.md) eller genom [att publicera till ett anpassat ämne](./post-to-custom-topic.md)  med valfri tjänst eller program som kan publicera till en slut punkt, till exempel [Postman](https://www.getpostman.com/). Skapa ett anpassat ämne och en händelse prenumeration med slut punkten som angetts som funktions webb adress.
 
 ## <a name="next-steps"></a>Nästa steg
 

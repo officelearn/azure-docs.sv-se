@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 03c17fa5e90e4e9bded6df77cb6c25ec7294b302
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 6ee21f2b261e7f01f819d91d2b998ca52ee1e0bc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439767"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999120"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Linux-enheter
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur du utvecklar en modul i **C#** med hjälp av **
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C#-moduler till Linux:
 
-| C# | Visual Studio Code | Visual Studio |
+| C# | Visual Studio-koden | Visual Studio |
 | -- | ------------------ | ------------- |
 | **Linux AMD64** | ![C#-moduler för LinuxAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![C#-moduler för LinuxAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![C#-moduler för LinuxARM32 i VS Code](./media/tutorial-c-module/green-check.png) | ![C#-moduler för LinuxARM64 i Visual Studio](./media/tutorial-c-module/green-check.png) |

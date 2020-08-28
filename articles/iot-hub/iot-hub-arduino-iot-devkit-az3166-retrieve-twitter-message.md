@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560980"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004331"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka om för en tweet--hämta ett Twitter-meddelande med Azure Functions
 
 I det här projektet får du lära dig hur du använder rörelse sensorn för att utlösa en händelse med hjälp av Azure Functions. Appen hämtar en slumpmässig tweet med en #hashtag som du konfigurerar i din Arduino-skiss. Tweeten visas på DevKit-skärmen.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 Slutför [komma igång guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) för att:
 
@@ -92,7 +93,7 @@ Sedan skapar du och laddar upp enhets koden.
 
 1. Används `Ctrl+P` för att köra `task device-upload` .
 
-2. Terminalen anger att du vill ange konfigurations läge. Gör så här:
+2. Terminalen anger att du vill ange konfigurations läge. Så här gör du:
 
    * Håll ned knapp A
 
@@ -116,7 +117,7 @@ Nu har anslutnings strängen angetts, den verifierar och laddar upp appen och k�
 
    ![enhet – Ladda upp](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
-2. DevKit startar om och börjar köra koden.
+2. DevKit startas om och börjar köra koden.
 
 Du kan få fel meddelandet "Error: AZ3166: unknowed Package". Det här felet uppstår när tavla-paketets index inte uppdateras korrekt. Lös problemet genom att kontrol lera ["okänt paket" i vanliga frågor och svar om IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 

@@ -3,12 +3,12 @@ title: Hantera säkerhets kopior av Azure-filresurser med PowerShell
 description: Lär dig hur du använder PowerShell för att hantera och övervaka Azure-filresurser som har säkerhetskopierats av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: bb400c25ca6b1deebaef6af6fe4b322951dfcdcc
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e2f07e56fb9a8715b1b53165ab5f4b45b4e20ccb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826760"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000234"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Hantera säkerhets kopior av Azure-filresurser med PowerShell
 
@@ -87,7 +87,7 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-Jobb-ID-attributet i utdata motsvarar jobb-ID: t för jobbet som skapas av säkerhets kopierings tjänsten för åtgärden "stoppa skydd". Använd cmdleten [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) för att spåra jobbets status.
+Jobb-ID-attributet i utdata motsvarar jobb-ID: t för jobbet som skapats av säkerhets kopierings tjänsten för åtgärden "stoppa skydd". Använd cmdleten [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) för att spåra jobbets status.
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>Stoppa skyddet utan att behålla återställnings punkter
 

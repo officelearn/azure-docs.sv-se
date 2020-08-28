@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003855"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
 
@@ -105,5 +105,4 @@ Om du har arbetat med den tidigare för hands versionen av Azure Digitals, lär 
 
 Eller så kan du gå vidare och komma igång med Azure Digitals dubbla med den första självstudien:
 
-> [!div class="nextstepaction"]
-> [*Självstudie: koda en klient app*](tutorial-code.md)
+[*Självstudie: koda en klient app*](tutorial-code.md)

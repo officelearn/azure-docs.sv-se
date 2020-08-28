@@ -1,9 +1,9 @@
 ---
-title: Snabb`:` start använder en hanterad identitet för att få åtkomst Azure Resource Manager – Azure AD
+title: Snabb start `:` använder en hanterad identitet för att få åtkomst Azure Resource Manager – Azure AD
 description: En snabbstart som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: bryanla
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ffcdbe01ec3bdd49d0238f3fb8741a3e94306d62
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74326323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007659"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Resource Manager
 
@@ -32,7 +32,7 @@ Den här snabbstarten visar hur du kommer åt Azure Resource Manager-API:et med 
 > * Ge den virtuella datorn åtkomst till en resursgrupp i Azure Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -81,7 +81,7 @@ Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder W
     "token_type":"Bearer"} 
     ```
     
-    Du kan använda den här åtkomsttoken för att komma åt Azure Resource Manager, till exempel för att läsa information om den resursgrupp som du tidigare gav den här virtuella datorn åtkomst till.Ersätt värdena för \<PRENUMERATIONS-ID\>, \<RESURSGRUPP\> och \<ÅTKOMSTTOKEN\> med dem som du skapade tidigare. 
+    Du kan använda den här åtkomsttoken för att komma åt Azure Resource Manager, till exempel för att läsa information om den resursgrupp som du tidigare gav den här virtuella datorn åtkomst till.Ersätt värdena för \<SUBSCRIPTION ID\> , \<RESOURCE GROUP\> och \<ACCESS TOKEN\> med de som du skapade tidigare. 
     
     > [!NOTE]
     > Eftersom URL:en är skiftlägeskänslig måste du använda exakt samma skiftläge som du använde tidigare när du namngav resursgruppen samt versalt ”G” i ”resourceGroup”.  
@@ -100,5 +100,5 @@ Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder W
 I den här snabbstarten har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
->[skapa, lista eller ta bort en tilldelad hanterad identitet med hjälp av Azure PowerShell](how-to-manage-ua-identity-powershell.md)
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) 
+> [Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](how-to-manage-ua-identity-powershell.md)

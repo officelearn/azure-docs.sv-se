@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799289"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004909"
 ---
 # <a name="business-card-concepts"></a>Koncept för visitkort
 
-Azure formulär tolken kan analysera och extrahera nyckel värdes par från visitkort med en av de förinställda modellerna. Visitkorts-API: t kombinerar kraftfulla OCR-funktioner (optisk tecken läsning) med vårt affärskorts förståelse för modell för att extrahera viktig information från visitkort på engelska. Den extraherar personlig kontakt information, företags namn, befattning med mera. Det inbyggda API: t för visitkortet är offentligt tillgängligt i för hands versionen av formulär igenkänning v 2.1. 
+Azure formulär tolken kan analysera och extrahera kontakt information från visitkorten med hjälp av en av dess förinställda modeller. Visitkorts-API: t kombinerar kraftfulla OCR-funktioner (optisk tecken läsning) med vårt affärskorts förståelse för modell för att extrahera viktig information från visitkort på engelska. Den extraherar personlig kontakt information, företags namn, befattning med mera. Det inbyggda API: t för visitkortet är offentligt tillgängligt i för hands versionen av formulär igenkänning v 2.1. 
 
 ## <a name="what-does-the-business-card-api-do"></a>Vad gör Business Card-API: et?
 
@@ -27,10 +27,11 @@ Visitkorts-API: n extraherar nyckel fält från visitkort och returnerar dem i e
 
 ![Contoso-specificerad bild från FOTT + JSON-utdata](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>Extraherade fält: 
+### <a name="fields-extracted"></a>Extraherade fält:
+
 * Kontakt namn 
-* Förnamn 
-* Efternamn 
+  * Förnamn
+  * Efter namn
 * Företags namn 
 * Avdelningar 
 * Jobb titlar 
@@ -43,7 +44,7 @@ Visitkorts-API: n extraherar nyckel fält från visitkort och returnerar dem i e
   * Telefon, arbete 
   * Andra telefoner 
 
-Visitkorts-API: et returnerar också all identifierad text från visitkortet. Denna OCR-utdata ingår i JSON-svaret.  
+Visitkorts-API: et kan också returnera all identifierad text från visitkortet. Denna OCR-utdata ingår i JSON-svaret.  
 
 ### <a name="input-requirements"></a>Krav för indatamängd 
 
@@ -51,7 +52,7 @@ Visitkorts-API: et returnerar också all identifierad text från visitkortet. De
 
 ## <a name="the-analyze-business-card-operation"></a>Åtgärden analysera visitkort
 
-På [affärs kortet analyseras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) en bild eller en PDF-fil för ett visitkort som indata och extraherar värdena för ränta och text. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
+På [kortet analysera](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) får du en bild eller en PDF-fil med ett visitkort som indata och utvärderar intressena. Anropet returnerar ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det resultat-ID som ska användas i nästa steg.
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
@@ -63,18 +64,15 @@ Det andra steget är att anropa åtgärden för att [analysera visitkorts result
 
 |Fält| Typ | Möjliga värden |
 |:-----|:----:|:----|
-|status | sträng | notStarted: analys åtgärden har inte startats. |
-| |  | körs: analys åtgärden pågår. |
-| |  | misslyckades: det gick inte att utföra analysen. |
-| |  | lyckades: analys åtgärden har slutförts. |
+|status | sträng | notStarted: analys åtgärden har inte startats.<br /><br />körs: analys åtgärden pågår.<br /><br />misslyckades: det gick inte att utföra analysen.<br /><br />lyckades: analys åtgärden har slutförts.|
 
-När fältet **status** har värdet **lyckades** innehåller JSON-svaret affärs korts förståelse och text igenkännings resultat. Resultatet av visitkorten är ordnat som en ord lista med namngivna fält värden där varje värde innehåller den extraherade texten, normaliserade värdet, avgränsnings rutan, relevansen och motsvarande Word-element. Resultatet av text igenkänningen är ordnat som en hierarki med rader och ord, med text, avgränsnings ram och information om säkerhet.
+När fältet **status** har värdet **lyckades** , inkluderar JSON-svaret affärs korts förståelse och valfria text igenkännings resultat om det behövs. Resultatet av visitkorten är ordnat som en ord lista med namngivna fält värden där varje värde innehåller den extraherade texten, normaliserade värdet, avgränsnings rutan, relevansen och motsvarande Word-element. Resultatet av text igenkänningen är ordnat som en hierarki med rader och ord, med text, avgränsnings ram och information om säkerhet.
 
 ![exempel på visitkorts resultat](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Exempel på JSON-utdata
 
-Se följande exempel på ett lyckat JSON-svar: noden "readResults" innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. Noden "documentResults" innehåller de affärskort-specifika värden som modellen identifierade. Här hittar du användbara nyckel/värde-par som förnamn, efter namn, företags namn med mera.
+Se följande exempel på ett lyckat JSON-svar: noden "readResults" innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. Noden "documentResults" innehåller de affärskort-specifika värden som modellen identifierade. Här hittar du användbar kontakt information, t. ex. förnamn, efter namn, företags namn med mera.
 
 ```json
 {
@@ -394,5 +392,4 @@ Visitkorts-API: t ger också [AIBuilder för affärs korts bearbetning](https://
 - Följ snabb starten för att komma igång [Business Cards API python snabb start](./quickstarts/python-business-cards.md)
 - Lär dig mer om [formulär tolken REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Läs mer om [formulär igenkänning](overview.md)
-
 

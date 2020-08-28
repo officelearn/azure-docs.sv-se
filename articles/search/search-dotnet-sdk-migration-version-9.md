@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: db2017a3bb1a8910049527796f422227b741b960
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923202"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002716"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uppgradera till Azure Search .NET SDK version 9
 
@@ -151,7 +152,7 @@ Egenskaper som hålls valfria värden av dessa typer skrivs nu explicit som null
 
 ### <a name="removed-facetresults-and-hithighlights"></a>Tog bort FacetResults och HitHighlights
 
-`FacetResults` `HitHighlights` Klasserna och har tagits bort. Fasett-resultatet skrivs nu som `IDictionary<string, IList<FacetResult>>` och träffen visas som `IDictionary<string, IList<string>>` . Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Ett exempel:
+`FacetResults` `HitHighlights` Klasserna och har tagits bort. Fasett-resultatet skrivs nu som `IDictionary<string, IList<FacetResult>>` och träffen visas som `IDictionary<string, IList<string>>` . Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Exempel:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

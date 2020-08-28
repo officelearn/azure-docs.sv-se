@@ -3,12 +3,13 @@ title: Vägledning för begränsade begäranden
 description: Lär dig att gruppera, sprida, ta sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
 ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541846"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006014"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -27,8 +28,8 @@ Azure Resource Graph allokerar ett kvot nummer för varje användare baserat på
 
 I varje fråge svar lägger Azure Resource Graph till två begränsnings rubriker:
 
-- `x-ms-user-quota-remaining`(int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
-- `x-ms-user-quota-resets-after`(hh: mm: SS): tids perioden tills en användares kvot användning återställs.
+- `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot användning återställs.
 
 När ett säkerhets objekt har åtkomst till fler än 5000 prenumerationer inom [frågans omfång](./query-language.md#query-scope)för klient organisation eller hanterings grupp, är svaret begränsat till de första 5000 prenumerationerna och `x-ms-tenant-subscription-limit-hit` huvudet returneras som `true` .
 

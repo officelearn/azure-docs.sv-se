@@ -1,18 +1,19 @@
 ---
-title: Server storlekar
+title: Serverstorlekar
 description: Beskriver de distinkta Server storlekar som kan tilldelas
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8843f24f27f8973ad99989f743d1b3fae568679e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511193"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997157"
 ---
-# <a name="server-sizes"></a>Server storlekar
+# <a name="server-sizes"></a>Serverstorlekar
 
 Azure Remote rendering är tillgängligt i två serverkonfigurationer: `Standard` och `Premium` .
 

@@ -9,12 +9,13 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8c1f13449c8ee5152e4e5b48af87f41004e599dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 42a1110b089d5edf9793bf2bb2c699a717a4b1a4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424561"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004977"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Anslutnings strängar för Synapse SQL (för hands version)
 

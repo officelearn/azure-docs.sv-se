@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77a5b634b035b7cc1142645d355fe6c3756226b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73605623"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004076"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Fråga Avro data med hjälp av Azure Data Lake Analytics
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du frågar Avro-data för att effektivt dirigera
 
 Utmaningen har varit att när Azure IoT Hub dirigerar meddelanden till Azure Blob Storage, som standard IoT Hub skriver innehållet i Avro-format, som har både en meddelande text egenskap och en meddelande egenskap. Avro-formatet används inte för andra slut punkter. Även om Avro-formatet är bra för data och meddelande bevarat, är det en utmaning att använda den för att fråga efter data. I jämförelse är JSON-eller CSV-formatet mycket enklare för att fråga efter data. IoT Hub stöder nu skrivning av data till Blob Storage i JSON samt AVRO.
 
-Mer information finns i [använda Azure Storage som en Dirigerings slut punkt](iot-hub-devguide-messages-d2c.md#azure-storage).
+Mer information finns i [använda Azure Storage som en Dirigerings slut punkt](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 Du kan använda många av de stora data mönstren för att hantera data som inte är relationella för stora data och format och lösa detta genom att använda många av de stora data mönstren för båda omvandlings-och skalnings data. Ett av mönstren, "betala per fråga", är Azure Data Lake Analytics, vilket är fokus för den här artikeln. Även om du enkelt kan köra frågan i Hadoop eller andra lösningar är Data Lake Analytics ofta bättre lämpad för den här metoden "betala per fråga".
 

@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: f415402d45532ade2777cd534659e0f302a550f8
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 7592bc9badd1f27f0d24feffe916242981492209
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590157"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998381"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK v2 för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@ ms.locfileid: "88590157"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Våren data v2](sql-api-sdk-java-spring-v2.md)
 > * [Våren data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark-anslutning](sql-api-sdk-java-spark.md)
+> * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * FLESTA (/rest/api
 > * [REST-resursprovider](/azure/azure-resource-manager/management/azure-services-resource-providers)

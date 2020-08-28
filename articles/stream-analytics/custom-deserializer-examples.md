@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873044"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008394"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
 
@@ -22,7 +23,7 @@ Med anpassade deserialiserade .NET kan ditt Azure Stream Analytics jobb läsa da
 
 Följande kod exempel är de gränssnitt som definierar den anpassade deserialiseraren och implementera `StreamDeserializer<T>` .
 
-`UserDefinedOperator`är Bask Lassen för alla anpassade streaming-operatörer. Den initieras `StreamingContext` , som innehåller en kontext som omfattar mekanismen för att publicera diagnostik för vilken du behöver felsöka eventuella problem med deserialiseraren.
+`UserDefinedOperator` är Bask Lassen för alla anpassade streaming-operatörer. Den initieras `StreamingContext` , som innehåller en kontext som omfattar mekanismen för att publicera diagnostik för vilken du behöver felsöka eventuella problem med deserialiseraren.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -35,7 +36,7 @@ Följande kodfragment är deserialiseringen för strömmande data.
 
 Överhoppade fel ska genereras med hjälp av `IStreamingDiagnostics` `UserDefinedOperator` initierings metoden. Alla undantag behandlas som fel och deserialiseraren kommer att återskapas. Efter ett visst antal fel, kommer jobbet att hamna i fel tillstånd.
 
-`StreamDeserializer<T>`deserialiserar en data ström till objekt av typen `T` . Följande villkor måste vara uppfyllda:
+`StreamDeserializer<T>` deserialiserar en data ström till objekt av typen `T` . Följande villkor måste vara uppfyllda:
 
 1. T är en klass eller en struktur.
 1. Alla offentliga fält i T är antingen
@@ -45,7 +46,7 @@ Följande kodfragment är deserialiseringen för strömmande data.
     1. IList `T2` där T2 följer samma regler.
     1. Saknar rekursiva typer.
 
-Parametern `stream` är den data ström som innehåller det serialiserade objektet. `Deserialize`Returnerar en instans samling `T` .
+Parametern `stream` är den data ström som innehåller det serialiserade objektet. `Deserialize` Returnerar en instans samling `T` .
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -54,7 +55,7 @@ Parametern `stream` är den data ström som innehåller det serialiserade objekt
     }
 ```
 
-`StreamingContext`innehåller en kontext som innehåller mekanismen för att publicera diagnostik för användar operatörer.
+`StreamingContext` innehåller en kontext som innehåller mekanismen för att publicera diagnostik för användar operatörer.
 
 ```csharp
     public abstract class StreamingContext
@@ -63,13 +64,13 @@ Parametern `stream` är den data ström som innehåller det serialiserade objekt
     }
 ```
 
-`StreamingDiagnostics`är diagnostiken för användardefinierade operatorer, inklusive serialiserare, deserialiserare och användardefinierade funktioner.
+`StreamingDiagnostics` är diagnostiken för användardefinierade operatorer, inklusive serialiserare, deserialiserare och användardefinierade funktioner.
 
-`WriteError`skriver ett fel meddelande till resurs loggar och skickar felet till diagnostik.
+`WriteError` skriver ett fel meddelande till resurs loggar och skickar felet till diagnostik.
 
-`briefMessage`är ett kort fel meddelande. Det här meddelandet visas i diagnostik och används av produkt teamet för fel sökning. Ta inte med känslig information och se till att meddelandet innehåller färre än 200 tecken
+`briefMessage` är ett kort fel meddelande. Det här meddelandet visas i diagnostik och används av produkt teamet för fel sökning. Ta inte med känslig information och se till att meddelandet innehåller färre än 200 tecken
 
-`detailedMessage`är ett detaljerat fel meddelande som bara läggs till i dina resurs loggar i din lagring. Det här meddelandet bör innehålla färre än 2000 tecken.
+`detailedMessage` är ett detaljerat fel meddelande som bara läggs till i dina resurs loggar i din lagring. Det här meddelandet bör innehålla färre än 2000 tecken.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -219,15 +220,15 @@ Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när 
 }  
 ```
 
-`serializationClassName`ska vara en klass som implementerar `StreamDeserializer<T>` . Detta beskrivs i följande avsnitt.
+`serializationClassName` ska vara en klass som implementerar `StreamDeserializer<T>` . Detta beskrivs i följande avsnitt.
 
 ## <a name="region-support"></a>Stöd för regioner
 
 Den här funktionen är tillgänglig i följande regioner:
 
 * USA, västra centrala
-* Europa, norra
-* USA, östra
+* Norra Europa
+* East US
 * USA, västra
 * USA, östra 2
 * Europa, västra

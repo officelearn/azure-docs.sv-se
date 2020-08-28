@@ -3,12 +3,13 @@ title: Azure Service Fabric-distribution med FabricClient
 description: 'Använd FabricClient-API: er för att distribuera och ta bort program i Service Fabric.'
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75376978"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009309"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med FabricClient
 > [!div class="op_single_selector"]
@@ -122,7 +123,7 @@ Se [förstå anslutnings strängen för avbildnings arkivet](service-fabric-imag
 
 ### <a name="deploy-large-application-package"></a>Distribuera stort programpaket
 Problem: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API nådde tids gränsen för ett stort programpaket (GB GB).
-Pröva
+Prova:
 - Ange en större tids gräns för metoden [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) med `timeout` parameter. Som standard är tids gränsen 30 minuter.
 - Kontrol lera nätverks anslutningen mellan käll datorn och klustret. Om anslutningen är långsam bör du överväga att använda en dator med en bättre nätverks anslutning.
 Om klient datorn finns i en annan region än klustret, bör du överväga att använda en klient dator i en närmare eller samma region som klustret.
@@ -135,7 +136,7 @@ Komprimeringen minskar storleken och antalet filer, vilket i sin tur minskar mä
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuera programpaket med många filer
 Problem: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) nådde tids gränsen för ett programpaket med många filer (ordning på tusental).
-Pröva
+Prova:
 - [Komprimera paketet](service-fabric-package-apps.md#compress-a-package) innan du kopierar det till avbildnings arkivet. Komprimeringen minskar antalet filer.
 - Ange en större tids gräns för [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) med `timeout` parameter.
 

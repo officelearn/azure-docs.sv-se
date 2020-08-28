@@ -5,16 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: 699344f9343c17d449fa48e05b2c3474b524d695
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891478"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003532"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Använda Azure Frontend-API:er för autentisering
 
-I det här avsnittet beskriver vi hur du använder C# API för autentisering.
+I det här avsnittet beskriver vi hur du använder API: et för autentisering och hantering av sessioner.
+
+> [!CAUTION]
+De funktioner som beskrivs i det här kapitlet utfärdar REST-anrop på servern internt. För alla REST-anrop kommer att skicka dessa kommandon för ofta att orsaka att servern begränsar och returnerar fel. Värdet för `SessionGeneralContext.HttpResponseCode` medlemmen i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
+
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo
 

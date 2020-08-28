@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
-ms.openlocfilehash: d16082ed9c7a78cfd02afc1e89ec002a5743d675
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085760"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000319"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)
 
@@ -96,7 +97,7 @@ topologyBuilder.SetJavaBolt(
 
 Du kan ladda ned en fullständig version av projektet som skapats i den här artikeln från [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Du måste dock fortfarande ange konfigurations inställningar genom att följa stegen i den här artikeln.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
@@ -123,7 +124,7 @@ Event Hubs är data källan för det här exemplet. Använd informationen i avsn
 
 1. När händelsehubben har skapats visar du inställningarna för **EventHub** i Azure Portal och väljer **principer för delad åtkomst**. Välj **+ Lägg** till för att skapa följande principer:
 
-   | Name | Behörigheter |
+   | Namn | Behörigheter |
    | --- | --- |
    | skrivare |Skicka |
    | Acrobat |Lyssna |
@@ -148,7 +149,7 @@ Event Hubs är data källan för det här exemplet. Använd informationen i avsn
    | EventHubName |Ditt Event Hub-namn. |
    | EventHubPartitionCount |Antalet partitioner i händelsehubben. |
 
-4. Spara och Stäng **App.configs** filen.
+4. Spara och Stäng **App.configs ** filen.
 
 ## <a name="configure-the-eventhubreader"></a>Konfigurera EventHubReader
 
@@ -164,7 +165,7 @@ Event Hubs är data källan för det här exemplet. Använd informationen i avsn
    | EventHubName |Ditt Event Hub-namn. |
    | EventHubPartitionCount |Antalet partitioner i händelsehubben. |
 
-3. Spara och Stäng **App.configs** filen.
+3. Spara och Stäng **App.configs ** filen.
 
 ## <a name="deploy-the-topologies"></a>Distribuera topologierna
 

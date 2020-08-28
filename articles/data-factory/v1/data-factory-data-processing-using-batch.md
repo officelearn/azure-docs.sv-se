@@ -11,12 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321413"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998092"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta data uppsättningar i stor skala med hjälp av Data Factory och batch
 > [!NOTE]
@@ -86,7 +87,7 @@ Exempel lösningen är avsiktligt enkel. Den är utformad för att visa hur du a
 
 **Tid:** Om du är van att lära dig grunderna i Azure, Data Factory och batch och har slutfört följande krav, tar den här lösningen en till två timmar att slutföra.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 #### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har någon Azure-prenumeration kan du snabbt skapa ett kostnads fritt utvärderings konto. Mer information finns i den [kostnads fria utvärderings versionen](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -130,7 +131,7 @@ Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.co
 
    ![Mappstruktur för mappar och undermappar](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`och `outputfolder` är mappar på den översta nivån i `mycontainer` . `inputfolder`Mappen innehåller undermappar med datum-och tidsstämplar (åååå-mm-dd-HH).
+   `Inputfolder` och `outputfolder` är mappar på den översta nivån i `mycontainer` . `inputfolder`Mappen innehåller undermappar med datum-och tidsstämplar (åååå-mm-dd-HH).
 
    Om du använder Storage Explorer, i nästa steg, laddar du upp filer med följande namn: `inputfolder/2015-11-16-00/file.txt` , `inputfolder/2015-11-16-01/file.txt` och så vidare. I det här steget skapas automatiskt mapparna.
 
@@ -960,7 +961,7 @@ Du kan utöka det här exemplet för att lära dig mer om Data Factory-och batch
 När du har bearbetat data kan du använda det med online-verktyg som Power BI. Här följer länkar som hjälper dig att förstå Power BI och hur du använder det i Azure:
 
 * [Utforska en data uppsättning i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Komma igång med Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
+* [Kom igång med Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Uppdatera data i Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure och Power BI: grundläggande översikt](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 

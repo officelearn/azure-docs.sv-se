@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082462"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000149"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Programmerings guide för SCP för Apache Storm i Azure HDInsight
 
@@ -72,7 +72,7 @@ Din plugin-kod implementerar något av följande gränssnitt. Vilket gränssnitt
 
 ### <a name="iscpplugin"></a>ISCPPlugin
 
-**ISCPPlugin** är det vanligaste gränssnittet för många plugin-program. för närvarande är det ett dummy-gränssnitt.
+**ISCPPlugin** är det vanligaste gränssnittet för många plugin-program. För närvarande är det ett dummy-gränssnitt.
 
 ```csharp
 public interface ISCPPlugin
@@ -434,7 +434,7 @@ Du kan skicka Topology-specifikationer direkt till ett Storm-kluster för körni
 
 SCP.NET har lagt till följande funktioner för att definiera transaktionella topologier:
 
-| Ny funktion | Parametrar | Description |
+| Ny funktion | Parametrar | Beskrivning |
 | --- | --- | --- |
 | **TX-topolopy** |*topologi-namn*<br />*kanalen – mappa*<br />*bult-karta* |Definierar en transaktionell topologi med topologins namn, kanaler definitions karta och bult. |
 | **SCP-TX-kanalen** |*exec-namn*<br />*args*<br />*fält* |Definierar en transaktionell kanalen. Funktionen kör programmet som anges av *exec-Name* och använder *argument*.<br /><br />*Fält* parametern anger utmatnings fälten för kanalen. |
@@ -446,7 +446,7 @@ SCP.NET har lagt till följande funktioner för att definiera transaktionella to
 
 SCP.NET definierar följande nyckelord:
 
-| Följt | Description |
+| Följt | Beskrivning |
 | --- | --- |
 | **: namn** |Topology-namn |
 | **: topologi** |Topologin med hjälp av funktionerna i föregående tabell och inbyggda funktioner |
@@ -539,9 +539,9 @@ SCP.NET lägger till en anpassad grupperingstyp och använder innehållet i obje
 
 I föregående Specifikations fil:
 
-* `scp-field-group`anger att gruppering är en anpassad fält grupp som implementeras av SCP.
-* `:tx`eller `:non-tx` anger om topologin är transaktionell. Du behöver den här informationen eftersom start indexet skiljer sig åt mellan transaktionella och inte transaktionella topologier.
-* `[0,1]`anger en hash-uppsättning för fält-ID: n som börjar med noll.
+* `scp-field-group` anger att gruppering är en anpassad fält grupp som implementeras av SCP.
+* `:tx` eller `:non-tx` anger om topologin är transaktionell. Du behöver den här informationen eftersom start indexet skiljer sig åt mellan transaktionella och inte transaktionella topologier.
+* `[0,1]` anger en hash-uppsättning för fält-ID: n som börjar med noll.
 
 ### <a name="hybrid-topology"></a>Hybrid topologi
 

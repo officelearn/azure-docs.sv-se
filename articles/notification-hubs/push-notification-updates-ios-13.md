@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: df8560bec3671a9f05628ee6ed8ea95c31e9b16f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529717"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998058"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Azure Notification Hubs-uppdateringar för iOS 13
 
@@ -64,7 +65,7 @@ För att hjälpa dig under över gången, när Azure Notification Hubs identifie
 
 En annan mindre förändring, men en som kräver en ändring i Server dels programmet som skickar meddelanden, är kravet på att `apns-priority` rubriken måste anges till 5 för bakgrunds meddelanden. Många program ställer in `apns-priority` sidhuvudet på 10 (indikerar omedelbar leverans) eller anger inte det och hämtar standardvärdet (som också är 10).
 
-Att ställa in det här värdet på 10 tillåts inte längre för bakgrunds meddelanden och du måste ange värdet för varje begäran. Apple levererar inte bakgrunds meddelanden om detta värde saknas. Till exempel:
+Att ställa in det här värdet på 10 tillåts inte längre för bakgrunds meddelanden och du måste ange värdet för varje begäran. Apple levererar inte bakgrunds meddelanden om detta värde saknas. Exempel:
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);

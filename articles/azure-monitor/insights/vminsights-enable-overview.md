@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/27/2020
+ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824774"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998415"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -78,86 +78,25 @@ Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av r
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
+Azure Monitor for VMs stöder alla operativ system som stöder Log Analytics agent och beroende agent. Se [Översikt över Azure Monitor agenter ](../platform/agents-overview.md#supported-operating-systems) för en fullständig lista.
 
-|OS-version |Prestanda |Maps |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8,1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18,04, 16,04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9,4, 8 | X<sup>1</sup> | |
+Se följande lista över överväganden för Linux-stöd för den beroende agent som stöder Azure Monitor for VMs:
 
-<sup>1</sup> prestanda funktionen i Azure Monitor for VMS är bara tillgänglig från Azure Monitor. Den är inte tillgänglig direkt från den vänstra rutan i den virtuella Azure-datorn.
+- Endast standardversioner och SMP Linux-kernelversioner stöds.
+- Icke-standardutgåvor av kernel, till exempel PAE (Physical Address Extension) och Xen, stöds inte för någon Linux-distribution. Till exempel stöds inte ett system med versions strängen *2.6.16.21-0,8-xen* .
+- Anpassade kärnor, inklusive omkompileringar av standard kärnor, stöds inte.
+- För Debian-distributioner som inte är version 9,4 stöds inte kart funktionen och prestanda funktionen är bara tillgänglig på Azure Monitor-menyn. Den är inte tillgänglig direkt från den vänstra rutan i den virtuella Azure-datorn.
+- CentOSPlus-kärnan stöds.
+- Linux-kärnan måste korrigeras för SPECTRE-problemet. Kontakta din leverantör av Linux-distribution för mer information.
 
->[!NOTE]
->I Linux-operativ systemet:
-> - Endast standardversioner och SMP Linux-kernelversioner stöds.
-> - Icke-standardutgåvor av kernel, till exempel PAE (Physical Address Extension) och Xen, stöds inte för någon Linux-distribution. Till exempel stöds inte ett system med versions strängen *2.6.16.21-0,8-xen* .
-> - Anpassade kärnor, inklusive omkompileringar av standard kärnor, stöds inte.
-> - CentOSPlus-kärnan stöds.
-> - Linux-kärnan måste korrigeras för SPECTRE-problemet. Kontakta din leverantör av Linux-distribution för mer information.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| OS-version | Kernelversion |
-|:--|:--|
-| 7,6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| OS-version | Kernelversion |
-|:--|:--|
-| 6,10 | 2.6.32-754 |
-| 6,9 | 2.6.32 – 696 |
-
-#### <a name="centosplus"></a>CentOSPlus
-
-| OS-version | Kernelversion |
-|:--|:--|
-| 6,10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6,9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### <a name="ubuntu-server"></a>Ubuntu Server
-
-| OS-version | Kernelversion |
-|:--|:--|
-| 18,04 | 5.3.0 – 1020<br>5,0 (inkluderar Azure-justerad kernel)<br>4,18* <br> 4,15* |
-| 16.04.3 | 4,15. * |
-| 16,04 | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
-
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| OS-version | Kernelversion |
-|:--|:--|
-|12 SP4 | 4,12. * (innehåller Azure-justerad kernel) |
-|12 SP3 | 4,4. * |
-|12 SP2 | 4,4. * |
-
-#### <a name="debian"></a>Debian 
-
-| OS-version | Kernelversion |
-|:--|:--|
-| 9 | 4,9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Azure Arc-datorer som stöds
 Azure Monitor for VMs är tillgängligt för Azure Arc-aktiverade servrar i regioner där Arc-tillägget är tillgängligt. Du måste köra version 0,9 eller senare av Arc-agenten.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](../platform/agents-overview.md#supported-operating-systems). |
 | Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
 | System Center Operations Manager-hanteringsgrupp | Nej | |
 
@@ -175,7 +114,7 @@ Följande är flera metoder för att distribuera dessa agenter.
 | Metod | Beskrivning |
 |:---|:---|
 | [Azure-portalen](./vminsights-enable-portal.md) | Installera båda agenterna på en enskild virtuell dator, skalnings uppsättning för virtuella datorer eller hybrid virtuella datorer som är anslutna till Azure-bågen. |
-| [Resource Manager-mallar](vminsights-enable-powershell.md) | Installera båda agenterna med någon av de metoder som stöds för att distribuera en Resource Manager-mall, inklusive CLI och PowerShell. |
+| [Mallar för Resurshanteraren](vminsights-enable-powershell.md) | Installera båda agenterna med någon av de metoder som stöds för att distribuera en Resource Manager-mall, inklusive CLI och PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Tilldela Azure Policy initiativ för att automatiskt installera agenterna när en virtuell dator eller skalnings uppsättning för virtuell dator skapas. |
 | [Manuell installation](./vminsights-enable-hybrid.md) | Installera agenterna i gäst operativ systemet på datorer som ligger utanför Azure, inklusive i ditt data Center eller i andra moln miljöer. |
 

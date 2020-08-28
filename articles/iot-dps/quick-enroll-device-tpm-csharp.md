@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 6176ff91029817e6891f0ee1e043cc3a827c2d6c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74976850"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999061"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med C#-tjänst-SDK
 
@@ -63,14 +63,14 @@ Det här avsnittet visar hur du skapar en .NET Core-webbapp som lägger till en 
 
    Det här steget hämtar, installerar och lägger till en referens till [klient-SDK NuGet-paketet för Azure IoT Provisioning-tjänsten](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) och dess beroenden.
 
-1. Lägg till följande `using` -satser efter de `using` andra-satserna överst `Program.cs`i:
+1. Lägg till följande- `using` satser efter de andra- `using` satserna överst i `Program.cs` :
   
    ```csharp
    using System.Threading.Tasks;
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Lägg till följande fält i- `Program` klassen och gör ändringarna i listan nedan.
+1. Lägg till följande fält i `Program` -klassen och gör ändringarna i listan nedan.
 
    ```csharp
    private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";

@@ -4,12 +4,13 @@ description: 'Självstudie: den här själv studie kursen visar hur du samlar in
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1a7030014a8926b1db11ad99ba031e51194ddfd9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b6b6466675c8fa258af8370798cadd88e3b25a83
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833733"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997837"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
 
@@ -113,7 +114,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Publicera funktionsapp](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. Välj **Azure-funktionsapp** och **Välj befintlig**. Välj **Publicera**.
+1. Välj **Azure-funktionsapp** och **Välj befintlig**. Välj **Publish** (Publicera).
 
    ![Målfunktionsapp](./media/store-captured-data-data-warehouse/pick-target.png)
 
@@ -130,7 +131,7 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Skapa en Event Grid-prenumeration från Functions-appen
  
-1. Öppna [Azure-portalen](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
+1. Gå till [Azure-portalen](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
 
    ![Visa funktionsapp](./media/store-captured-data-data-warehouse/view-function-app.png)
 

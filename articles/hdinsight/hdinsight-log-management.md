@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 14634fac5d4501572a54f80f01a37e440d69d09b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075543"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997565"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -67,7 +67,7 @@ Det är viktigt att förstå de arbets belastnings typer som körs på dina HDIn
 
 * Överväg hur du kan samla in loggar från klustret eller från fler än ett kluster och sortera dem för exempelvis granskning, övervakning, planering och aviseringar. Du kan använda en anpassad lösning för att komma åt och hämta loggfilerna regelbundet och kombinera och analysera dem för att ange en instrument panels visning. Du kan också lägga till ytterligare funktioner för aviseringar om säkerhets-eller haveri identifiering. Du kan bygga dessa verktyg med PowerShell, HDInsight SDK: er eller kod som använder den klassiska Azure-distributions modellen.
 
-* Överväg om en övervaknings lösning eller tjänst är en användbar förmån. Microsoft System Center tillhandahåller ett [hanterings paket för HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Du kan också använda verktyg från tredje part som Apache Chukwa och ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade Big data-lösningar, till exempel: CenterY, CompuWare APM, Sematext SPM och Zettaset Orchestrator.
+* Överväg om en övervaknings lösning eller tjänst är en användbar förmån. Microsoft System Center tillhandahåller ett [hanterings paket för HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). Du kan också använda verktyg från tredje part som Apache Chukwa och ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade Big data-lösningar, till exempel: CenterY, CompuWare APM, Sematext SPM och Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Steg 2: Hantera kluster tjänst versioner och Visa loggar
 
@@ -173,8 +173,8 @@ Du kan använda .NET SDK för Hadoop för att undersöka de loggfiler som genere
 
 Om du vill kontrol lera storleken på och antalet loggfiler, anger du följande egenskaper för `RollingFileAppender` :
 
-* `maxFileSize`är filens kritiska storlek, ovanför vilken filen har registrerats. Standardvärdet är 10 MB.
-* `maxBackupIndex`anger det antal säkerhets kopierings filer som ska skapas, standard 1.
+* `maxFileSize` är filens kritiska storlek, ovanför vilken filen har registrerats. Standardvärdet är 10 MB.
+* `maxBackupIndex` anger det antal säkerhets kopierings filer som ska skapas, standard 1.
 
 ### <a name="other-log-management-techniques"></a>Andra logg hanterings tekniker
 

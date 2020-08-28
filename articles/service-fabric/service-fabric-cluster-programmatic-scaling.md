@@ -5,12 +5,13 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261129"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005844"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric kluster program mässigt 
 
@@ -25,9 +26,9 @@ En utmaning att skriva en tjänst för att hantera skalning är att tjänsten m�
 Du kan skapa ett huvud namn för tjänsten med följande steg:
 
 1. Logga in på Azure CLI ( `az login` ) som en användare med åtkomst till den virtuella datorns skal uppsättning
-2. Skapa tjänstens huvud namn med`az ad sp create-for-rbac`
+2. Skapa tjänstens huvud namn med `az ad sp create-for-rbac`
     1. Anteckna appId (kallas "klient-ID" någon annan stans), namn, lösen ord och klient organisation för senare användning.
-    2. Du kommer också att behöva ditt prenumerations-ID, som kan visas med`az account list`
+    2. Du kommer också att behöva ditt prenumerations-ID, som kan visas med `az account list`
 
 I Fluent Compute-biblioteket kan du logga in med dessa autentiseringsuppgifter på följande sätt (Observera att de viktigaste Fluent `IAzure` -typerna i Azure som finns i [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) -paketet):
 
@@ -59,7 +60,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-En skalnings uppsättnings storlek för virtuell dator kan också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)kan hämta objektet för skalnings uppsättning för virtuella datorer. Den aktuella kapaciteten är tillgänglig via `.sku.capacity` egenskapen. När du har ändrat kapaciteten till det önskade värdet kan du uppdatera den virtuella datorns skalnings uppsättning i Azure med [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) kommandot.
+En skalnings uppsättnings storlek för virtuell dator kan också hanteras med PowerShell-cmdletar. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) kan hämta objektet för skalnings uppsättning för virtuella datorer. Den aktuella kapaciteten är tillgänglig via `.sku.capacity` egenskapen. När du har ändrat kapaciteten till det önskade värdet kan du uppdatera den virtuella datorns skalnings uppsättning i Azure med [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) kommandot.
 
 När du lägger till en nod manuellt bör du lägga till en skalnings uppsättnings instans som behövs för att starta en ny Service Fabric nod eftersom mallen för skalnings uppsättning innehåller tillägg för att automatiskt ansluta nya instanser till Service Fabric klustret. 
 

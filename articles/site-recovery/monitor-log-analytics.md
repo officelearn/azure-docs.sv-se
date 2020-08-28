@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495071"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006949"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du övervakar datorer som replikeras av Azure [S
 
 Azure Monitor loggar tillhandahåller en logg data plattform som samlar in aktivitets-och resurs loggar, tillsammans med andra övervaknings data. I Azure Monitor loggar använder du Log Analytics för att skriva och testa logg frågor och för att interaktivt analysera loggdata. Du kan visualisera och fråga logg resultat och konfigurera aviseringar för att vidta åtgärder baserat på övervakade data.
 
-För Site Recovery kan du Azure Monitor loggar som hjälper dig att göra följande:
+För Site Recovery kan du använda Azure Monitors loggar för att hjälpa dig att göra följande:
 
 - **Övervaka Site Recovery hälsa och status**. Du kan till exempel övervaka replikeringsstatus, redundanstest, Site Recovery händelser, återställnings punkt mål (återställnings punkter) för skyddade datorer och ändrings takt för disk/data.
 - **Konfigurera aviseringar för Site Recovery**. Du kan till exempel konfigurera aviseringar för maskin hälso status, redundanstest eller Site Recovery jobb status.
@@ -62,9 +62,9 @@ Du kan samla in information om data omsättnings taxa och information om överf�
 1. Gå till arbets ytan Log Analytics och klicka på **Avancerade inställningar**.
 2. Klicka på sidan **anslutna källor** och välj ytterligare **Windows-servrar**.
 3. Hämta Windows-agenten (64-bitars) på processervern. 
-4. [Hämta arbetsyte-ID och nyckel](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+4. [Hämta arbetsyte-ID och nyckel](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [Konfigurera agenten att använda TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Slutför Agent installationen](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) genom att ange ID och nyckel för den hämtade arbets ytan.
+6. [Slutför Agent installationen](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) genom att ange ID och nyckel för den hämtade arbets ytan.
 7. När installationen är klar går du till Log Analytics arbets yta och klickar på **Avancerade inställningar**. Gå till sidan **data** och klicka på Windows- **prestandaräknare**. 
 8. Klicka på **+** om du vill lägga till följande två räknare med exempel intervallet 300 sekunder:
 

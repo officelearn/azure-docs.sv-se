@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029101"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999826"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -36,7 +36,7 @@ Azure Monitor-loggar tillhandahåller funktioner för övervakning, avisering oc
 
 ### <a name="operating-system"></a>Operativsystem
 
-Mer information om Linux-distributioner som stöds finns i artikeln [Log Analytics agent översikt](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
+Mer information om Linux-distributioner som stöds finns i artikeln [Översikt över Azure Monitors agenter](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Version för agent och VM-tillägg
 Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillägget och Log Analytics agent-paketet för varje version. En länk till versions informationen för Log Analytics agents paketets version ingår. Versions information innehåller information om fel korrigeringar och nya funktioner som är tillgängliga för en specifik agent version.  
@@ -109,7 +109,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 | apiVersion | 2018-06-01 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
 | typ | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
+| typeHandlerVersion | 1,7 |
 | workspaceId (t. ex.) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (t. ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
@@ -186,7 +186,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 

@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826998"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004178"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -22,7 +22,7 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Fel meddelande**      | <span style="font-weight:normal">Azure Backup har inte de roll behörigheter som krävs för att utföra säkerhets kopiering</span>    |
+| **Fel meddelande**      | <span style="font-weight:normal">Azure Backup saknar de roll behörigheter som krävs för att utföra säkerhets kopiering</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | Rollen kan ha skrivits över.                          |
 | **Rekommenderad åtgärd** | Lös problemet genom att köra skriptet från rutan för att **hitta databas** eller ladda ned det [här](https://aka.ms/scriptforpermsonhana). Du kan också lägga till rollen SAP_INTERNAL_HANA_SUPPORT till säkerhets kopierings användaren för arbets belastningen (AZUREWLBACKUPHANAUSER). |
@@ -31,7 +31,7 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 
 | Felmeddelande      | <span style="font-weight:normal">Det gick inte att ansluta till HANA-systemet</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | SAP HANA-instansen kan vara avstängd.<br/>De behörigheter som krävs för Azure Backup för att interagera med HANA-databasen har inte angetts. |
+| **Möjliga orsaker**    | SAP HANA-instansen kan vara avstängd.<br/>De behörigheter som krävs för att Azure Backup interagera med HANA-databasen har inte angetts. |
 | **Rekommenderad åtgärd** | Kontrol lera om SAP HANA databasen är igång. Om databasen är igång kontrollerar du om alla nödvändiga behörigheter är inställda. Om någon av behörigheterna saknas kör du för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) för att lägga till de behörigheter som saknas. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -73,7 +73,7 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 
 | Felmeddelande      | <span style="font-weight:normal">En ogiltig backint-konfiguration upptäcktes</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | De sekundära parametrarna har angetts felaktigt för Azure Backup |
+| **Möjliga orsaker**    | De här säkerhets parametrarna har angetts felaktigt för Azure Backup |
 | **Rekommenderad åtgärd** | Kontrol lera om följande (backint) parametrar har angetts:<br/>\* [catalog_backup_using_backint: sant]<br/>\* [enable_accumulated_catalog_backup: falskt]<br/>\* [parallel_data_backup_backint_channels: 1]<br/>\* [log_backup_timeout_s: 900)]<br/>\* [backint_response_timeout: 7200]<br/>Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore

@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: be18718513e8624db00d502228a3e5af6076d9d7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080240"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007085"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
@@ -278,7 +279,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Lägg till de här raderna före `app.UseEndpoints` anropet, och uppdatera URI: n för att avspegla `vaultUri` nyckel valvet. I koden nedan används ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) för autentisering till Key Vault, som använder token från Programhanterad identitet för att autentisera. Den använder också exponentiell backoff för återförsök om nyckel valvet begränsas.
+Lägg till de här raderna före `app.UseEndpoints` anropet, och uppdatera URI: n för att avspegla `vaultUri` nyckel valvet. I koden nedan används  ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) för autentisering till Key Vault, som använder token från Programhanterad identitet för att autentisera. Den använder också exponentiell backoff för återförsök om nyckel valvet begränsas.
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()

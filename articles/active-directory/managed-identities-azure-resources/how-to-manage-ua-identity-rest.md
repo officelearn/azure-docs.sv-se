@@ -3,7 +3,7 @@ title: Hantera användare som tilldelats hanterade identiteter med REST-Azure AD
 description: Stegvisa instruktioner för hur du skapar, visar och tar bort en användardefinierad hanterad identitet för att göra REST API-anrop.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608474"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014334"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Skapa, Visa eller ta bort en användardefinierad hanterad identitet med hjälp av REST API-anrop
 
@@ -30,7 +30,7 @@ Hanterade identiteter för Azure-resurser ger Azure-tjänster möjlighet att aut
 
 I den här artikeln får du lära dig hur du skapar, visar och tar bort en användardefinierad hanterad identitet med hjälp av sväng för att göra REST API-anrop.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
@@ -63,11 +63,11 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
 |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-|*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
 
 **Brödtext i begäran**
 
-|Name  |Beskrivning  |
+|Namn  |Beskrivning  |
 |---------|---------|
 |location     | Krävs. Resurs plats.        |
 
@@ -86,7 +86,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
 |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-|*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en användare som tilldelats en hanterad identitet
 
@@ -106,7 +106,7 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
 |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-|*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
 
 ## <a name="next-steps"></a>Nästa steg
 

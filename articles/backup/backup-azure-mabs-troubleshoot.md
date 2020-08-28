@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893025"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999231"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/valv autentiseringsuppgifter fel: 100110 <br/> <br/>**Fel meddelande**: de ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv | **Orsak**: det här problemet uppstår när du försöker återställa filer till den alternativa servern från den ursprungliga servern med hjälp av alternativet extern DPM-återställning och om servern som återställs och den ursprungliga servern från vilken data säkerhets kopie ras inte är kopplad till samma Recovery Services-valv.<br/> <br/>**Lösning** För att lösa det här problemet ser du till att både den ursprungliga och den alternativa servern är registrerad i samma valv.|
+| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/valv autentiseringsuppgifter fel: 100110 <br/> <br/>**Fel meddelande**: de ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv | **Orsak**: det här problemet uppstår när du försöker återställa filer till den alternativa servern från den ursprungliga servern med hjälp av alternativet för extern DPM-återställning, och om servern som återställs och den ursprungliga servern från vilken data säkerhets kopie ras inte är kopplad till samma Recovery Services-valv.<br/> <br/>**Lösning** För att lösa det här problemet kontrollerar du att både den ursprungliga och den alternativa servern är registrerade i samma valv.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Det gick inte att skapa jobb för onlineåterställningspunkt för VMware VM
 

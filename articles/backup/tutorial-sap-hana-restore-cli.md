@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du återställer SAP
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a1dbf0593c7c9b65c4e285b7162411de6c01bbbf
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 3887b8e7333b6c581887fcfde7e1bd99200e72ef
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007272"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: återställa SAP HANA-databaser på en virtuell Azure-dator med Azure CLI
 
@@ -63,7 +63,7 @@ Som du kan se innehåller listan ovan tre återställnings punkter: en för full
 
 Kontrol lera att följande krav är uppfyllda innan du återställer en databas:
 
-* Du kan bara återställa databasen till en SAP HANA-instans i samma region
+* Du kan bara återställa databasen till en SAP HANA instans i samma region
 * Mål instansen måste registreras med samma valv som källan
 * Azure Backup kan inte identifiera två olika SAP HANAs instanser på samma virtuella dator. Därför går det inte att återställa data från en instans till en annan på samma virtuella dator.
 
@@ -273,7 +273,7 @@ Filerna som dumpas till mål behållaren är:
 
 * Säkerhetskopieringsfiler för databas
 * Katalogfiler
-* JSON-metadatafiler (för varje säkerhets kopierings fil som ingår)
+* JSON-metadatafiler (för varje säkerhets kopierings fil som berörs)
 
 Normalt möjliggör en nätverks resurs Sök väg eller sökväg till en monterad Azure-filresurs när den anges som mål Sök väg, vilket ger enklare åtkomst till dessa filer av andra datorer i samma nätverk eller med samma Azure-filresurs som är monterad på dem.
 

@@ -8,12 +8,13 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75750509"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008411"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check lista för prestanda och skalbarhet för Queue Storage
 
@@ -185,7 +186,7 @@ För uppdaterad kostnads information, se [Azure Storage prissättning](https://a
 
 Du kan använda åtgärden **Uppdatera meddelande** för att öka tids gränsen för insikter eller uppdatera statusinformation för ett meddelande. Att använda **uppdaterings meddelandet** kan vara en mer effektiv metod än att ha ett arbets flöde som skickar ett jobb från en kö till nästa, eftersom varje steg i jobbet har slutförts. Ditt program kan spara jobb status i meddelandet och sedan fortsätta att arbeta, i stället för att köa om meddelandet för nästa steg i jobbet varje gång ett steg slutförs. Tänk på att varje **uppdaterings meddelande** åtgärd räknas mot skalbarhets målet.
 
-## <a name="application-architecture"></a>Programarkitektur
+## <a name="application-architecture"></a>Programmets arkitektur
 
 Använd köer för att göra din program arkitektur skalbar. Nedan visas några exempel på hur du kan använda köer för att göra programmet mer skalbart:  
 

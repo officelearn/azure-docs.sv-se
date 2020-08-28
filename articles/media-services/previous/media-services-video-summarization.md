@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a0e342e5509aaba05228c7d1032023a6f4710f1f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231853"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999520"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning  
 
@@ -33,7 +34,7 @@ Med **Azure Media Video thumbnails** Media processor (MP) kan du skapa en samman
 
 **Azure Media Video thumbnail** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **miniatyr av Azure Media Video** och visar hur du använder den med Media Services SDK för .net.
+Den här artikeln innehåller information om  **miniatyr av Azure Media Video** och visar hur du använder den med Media Services SDK för .net.
 
 ## <a name="limitations"></a>Begränsningar
 

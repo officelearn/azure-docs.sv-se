@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236615"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047300"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -26,10 +26,12 @@ En hanterad avbildning har stöd för upp till 20 samtidiga distributioner. Om d
 
 Sysprep tar bort allt ditt personliga konto och din säkerhets information och förbereder sedan datorn som ska användas som en avbildning. Information om Sysprep finns i [Översikt över Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) och [scenarier som inte stöds](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep kräver att enheterna avkrypteras fullständigt innan de körs. Om du har aktiverat kryptering på den virtuella datorn inaktiverar du kryptering innan du kör Sysprep.
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) och [scenarier som inte stöds](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
 > När du har kört Sysprep på en virtuell dator betraktas den virtuella datorn som *generaliserad* och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du behöver behålla den ursprungliga virtuella datorn bör du skapa en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera dess kopia. 
+>
+>För Sysprep krävs att enheterna är helt dekrypterade. Om du har aktiverat kryptering på den virtuella datorn inaktiverar du kryptering innan du kör Sysprep.
 >
 > Om du planerar att köra Sysprep innan du laddar upp den virtuella hård disken (VHD) till Azure för första gången ser du till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)datorn.  
 > 

@@ -1,14 +1,14 @@
 ---
 title: Faser i en skissdistribution
 description: Lär dig mer om säkerhets-och artefakt relaterade steg som Azure Forms-tjänsterna går igenom när du skapar en skiss tilldelning.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970662"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049782"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Faser i en skissdistribution
 
@@ -56,8 +56,8 @@ När distributionen har slutförts återkallar Azure-ritningar rättigheterna f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](./parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](./sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](./resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
 - Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

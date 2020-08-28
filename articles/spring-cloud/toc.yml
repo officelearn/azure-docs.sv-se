@@ -10,14 +10,21 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Starta en Spring Cloud-app – portalen
-      href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Starta en Spring Cloud-app – Azure CLI
-      href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Starta en Spring Cloud-app – källan
-      href: spring-cloud-launch-from-source.md
-    - name: Starta en Spring Cloud-app – Maven
-      href: spring-cloud-quickstart-launch-app-maven.md
+    - name: Lansera din första app
+      href: spring-cloud-quickstart.md
+    - name: Skapa och köra mikrotjänster
+      expanded: true
+      items:
+        - name: Introduktion till exempelappar
+          href: spring-cloud-quickstart-sample-app-introduction.md
+        - name: Tillhandahålla Azure Spring Cloud-tjänsten
+          href: spring-cloud-quickstart-provision-service-instance.md
+        - name: Konfigurera konfigurationsserver
+          href: spring-cloud-quickstart-setup-config-server.md
+        - name: Skapa och distribuera appar
+          href: spring-cloud-quickstart-deploy-apps.md
+        - name: 'Använda loggar, mått och spårning'
+          href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Självstudier
   items:
     - name: Skala en app manuellt

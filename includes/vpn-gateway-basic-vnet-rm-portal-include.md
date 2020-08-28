@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/03/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78301968"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89052506"
 ---
 Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen genom att följa stegen nedan. Mer information om virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -46,7 +46,6 @@ Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen
 
    ![Fliken IP-adresser](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Fliken IP-adresser")  
    - **IPv4-adress utrymme**: som standard skapas ett adress utrymme automatiskt. Du kan klicka på adress utrymmet för att justera det så att det motsvarar dina egna värden. Du kan också lägga till ytterligare adress utrymmen.
-   - **IPv6**: om konfigurationen kräver IPv6-adress utrymme markerar du kryss rutan **Lägg till IPv6-adressutrymme** för att ange den informationen.
    - **Undernät**: om du använder standard adress utrymmet skapas ett standard under nät automatiskt. Om du ändrar adress utrymmet måste du lägga till ett undernät. Välj **+ Lägg till undernät** för att öppna fönstret **Lägg till undernät** . Konfigurera följande inställningar och välj sedan **Lägg** till för att lägga till värdena:
       - **Under näts namn**: i det här exemplet heter vi under nätet "FrontEnd".
       - **Adress intervall för under nätet**: adress intervallet för det här under nätet.

@@ -986,9 +986,11 @@
                 - name: Licensmodell
                   displayName: 'ahb, ahub, payg, change, modify, update'
                   href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-                - name: Utgåva
+                - name: Ändra utgåva
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Ändra version
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: Storage
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Azure Key Vault-integrering
@@ -1024,6 +1026,8 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Always On-tillgänglighetsgrupp
                   items:
+                    - name: Azure Portal
+                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
                     - name: PowerShell eller Az CLI
                       href: virtual-machines/windows/availability-group-az-commandline-configure.md
                     - name: Azure-snabbstartsmallar

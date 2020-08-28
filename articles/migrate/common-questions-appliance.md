@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530125"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050683"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -39,10 +39,14 @@ Enheten kan distribueras på följande sätt:
 - Om du inte vill använda en mall eller om du är i Azure Government kan du distribuera-installationen för VMware eller Hyper-V med hjälp av ett PowerShell-skript.
 - För fysiska servrar distribuerar du alltid enheten med hjälp av ett skript.
 
-
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Hur ansluter-enheten till Azure?
 
-Enheten kan ansluta via Internet eller med hjälp av Azure ExpressRoute med offentlig/Microsoft-peering.
+Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute.
+
+- För att kunna använda Azure ExpressRoute för Azure Migrate replikeringstrafik krävs Microsoft-peering eller en befintlig offentlig peering (offentlig peering är föråldrad för nya återställnings skapande).
+- Replikering över Azure-ExpressRoute med endast aktive rad privat peering stöds inte.
+
+Azure-ExpressRoute med konfigurerad Microsoft-peering är den rekommenderade routningsdomänen för replikeringstrafik.
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Påverkar enhets analysen prestanda?
 
@@ -53,7 +57,6 @@ Azure Migrate utrustnings profiler lokalt för att mäta prestanda data kontinue
 När du använder den nedladdade mallen för att skapa den virtuella datorns dator kan du lägga till komponenter (till exempel) till mallen om du lämnar de kommunikations-och brand Väggs regler som krävs för Azure Migrates enheten.
 
 ## <a name="what-network-connectivity-is-required"></a>Vilken nätverks anslutning krävs?
-
 
 Enheten behöver åtkomst till Azure-URL: er. [Granska](migrate-appliance.md#url-access) URL-listan.
 
@@ -99,9 +102,11 @@ De här stegen beskriver hur installationen ansluter till VMware vCenter Server:
 Nej. Det finns en en-till-en-mappning mellan en [Azure Migrate-apparat](migrate-appliance.md) och vCenter Server. För att identifiera virtuella datorer på flera vCenter Server instanser måste du distribuera flera enheter. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Kan ett Azure Migrate projekt ha flera anordningar?
+
 Ett projekt kan ha flera anslutna enheter. En installation kan dock bara kopplas till ett projekt. 
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Kan Azure Migrate utrustning/-replikering ansluta till samma vCenter?
+
 Ja. Du kan lägga till både Azure Migrate-installationen (som används för utvärdering och agent lös VMware-migrering) och replikeringstjänsten (som används för agentbaserade migrering av virtuella VMware-datorer) till samma vCenter-Server.
 
 

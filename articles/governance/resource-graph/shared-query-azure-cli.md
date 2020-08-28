@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en delad fråga med Azure CLI'
 description: I den här snabb starten följer du stegen för att aktivera resurs diagram tillägget för Azure CLI och skapa en delad fråga.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc03339c50316516301901d84d2c5a3ba2ab287d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570106"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050972"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Snabb start: skapa en resurs diagram delad fråga med Azure CLI
 
@@ -18,7 +18,7 @@ I slutet av den här processen har du lagt till tillägget till din Azure CLI-in
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 Om du vill att Azure CLI ska fungera med Azure Resource Graph måste tillägget läggas till. Det här tillägget fungerar överallt där Azure CLI kan användas, inklusive [bash i Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (både fristående och i portalen), [Azure CLI-dockeravbildningen](https://hub.docker.com/r/microsoft/azure-cli/) och där det är lokalt installerat.
 
-1. Kontrol lera att den senaste versionen av Azure CLI är installerad (minst **2.8.0**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Kontrol lera att den senaste versionen av Azure CLI är installerad (minst **2.8.0**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows).
 
 1. I den Azure CLI-miljö du väljer använder du [tillägget AZ Add](/cli/azure/extension#az-extension-add) för att importera resurs diagram tillägget med följande kommando:
 

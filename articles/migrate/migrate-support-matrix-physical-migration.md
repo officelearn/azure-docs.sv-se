@@ -4,12 +4,12 @@ description: Läs mer om stöd för migrering av fysiska servrar i Azure Migrate
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770347"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051142"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Support mat ris för fysisk server-migrering
 
@@ -35,15 +35,16 @@ Du kan välja upp till 10 datorer på en gång för replikering. Om du vill migr
 
 Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjälp av en agent-baserad migrering.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
-**Operativ system** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate ger samma stöd för operativ system.
+**Operativsystem** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate ger samma stöd för operativ system.
 **Linux-filsystem/gäst lagring** | Du hittar den senaste informationen i [Linux-filsystemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för Linux-filsystem.
 **Nätverk/lagring** | För den senaste informationen granskar du kraven för [nätverk](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagring](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för Site Recovery. Azure Migrate tillhandahåller identiska nätverks-/lagrings krav.
 **Krav för Azure** | Du hittar den senaste informationen i [Azure-nätverket](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagrings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)-och [beräknings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) kraven för Site Recovery. Azure Migrate har identiska krav för migrering av fysiska servrar.
-**Mobilitetstjänsten** | Mobilitets tjänst agenten måste vara installerad på varje dator som du vill migrera.
+**Mobilitets tjänst** | Mobilitets tjänst agenten måste vara installerad på varje dator som du vill migrera.
 **UEFI-start** | Den migrerade datorn i Azure kommer automatiskt att konverteras till en BIOS-startvm. Endast server som kör Windows Server 2012 och senare stöds.<br/><br/> OS-disken bör ha upp till fyra partitioner och volymer ska formateras med NTFS.
+**UEFI – säker start**         | Stöds inte för migrering.
 **Mål disk** | Datorer kan bara migreras till Managed disks (standard-HDD, Premium SSD) i Azure.
 **Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per dator.
@@ -72,7 +73,7 @@ Om du konfigurerar replikeringen manuellt på en fysisk server kontrollerar du a
 
 Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav för virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery kör en krav kontroll för replikering kommer kontrollen att Miss klar om några av kraven inte uppfylls.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 Gästoperativsystem | Verifierar att operativ system som stöds.<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.

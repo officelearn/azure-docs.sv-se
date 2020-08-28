@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530414"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050785"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -47,7 +47,7 @@ En princip kan inkluderas som en av många _artefakter_ i en skiss definition. M
 
 En skiss består av _artefakter_. Azure-ritningar stöder för närvarande följande resurser som artefakter:
 
-|Resurs  | Hierarkialternativ| Description  |
+|Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
 |Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Dessa resurs grupper för plats hållare gör det möjligt att organisera resurser exakt som du vill att de ska vara strukturerade och ger en omfattnings gräns för inkluderade principer och roll tilldelnings artefakter och ARM-mallar. |
 |ARM-mall | Prenumeration, resursgrupp | Mallar, inklusive kapslade och länkade mallar, används för att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
@@ -103,7 +103,7 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 
 Följande inbyggda roller är tillgängliga:
 
-|Azure-roll | Description |
+|Azure-roll | Beskrivning |
 |-|-|
 |[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter innehåller alla Azure Blueprint-relaterade behörigheter. |
 |[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan skapa och ta bort skiss definitioner, men har inte behörighet för skiss tilldelning. |

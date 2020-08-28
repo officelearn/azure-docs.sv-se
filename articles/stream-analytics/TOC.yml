@@ -186,6 +186,8 @@
               displayName: 'managed identity, identities, authenticate'
         - name: Kryptera dina data
           href: data-protection.md
+        - name: Geo-redundans
+          href: geo-redundancy.md
     - name: Skapa lösningar
       items:
         - name: Twitter-attitydanalys

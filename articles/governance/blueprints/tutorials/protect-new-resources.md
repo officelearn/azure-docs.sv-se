@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: skydda nya resurser med lås'
 description: I den här självstudien använder du alternativen för resurs lås för Azure-ritningar skrivskyddade och tar inte bort för att skydda nyligen distribuerade resurser.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85969650"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048578"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
 
@@ -153,8 +153,8 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
 
      |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för RGtoLock|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
-     |Resurs grupp för RGtoLock|Resursgrupp|Plats|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Name|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Location|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
      |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|SKU för lagring. Standardvärdet är _Standard_LRS_.|
 
 1. När du har angett alla parametrar väljer du **tilldela** längst ned på sidan.

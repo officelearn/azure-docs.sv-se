@@ -1,24 +1,26 @@
 ---
 title: 'Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java'
 titleSuffix: Azure Cognitive Services
-description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag i den här snabb starten.
+description: Använd pennan tecknings tolkens API och Java för att börja identifiera digitala penndrag i den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371557"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051584"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här Java-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och hämtar svaret.
 

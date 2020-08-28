@@ -1,14 +1,14 @@
 ---
 title: Exempel på NIST SP 800-53 R4-skiss – översikt
 description: Översikt över NIST SP 800-53 R4-skissexempel. Det här skissexemplet hjälper kunderna att utvärdera specifika NIST SP 800-53 R4-kontroller.
-ms.date: 05/14/2020
+ms.date: 08/27/2020
 ms.topic: sample
-ms.openlocfilehash: 20ea6e81746a07db85a00a0881744340b2a24d1f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86042670"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048779"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>NIST SP 800-53 R4 skiss-exempel
 

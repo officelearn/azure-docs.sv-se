@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 707547cb39487111e2e9353de7e82c2409638324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13e11bb6064888ac36a2d2801fee3db1e9e9fcba
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045007"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050513"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
 
@@ -19,7 +19,7 @@ Azure SignalR Service har [REST API](https://github.com/Azure/azure-signalr/blob
 
 I den här snabbstarten får du lära dig hur du sänder meddelanden från en kommandoradsapp till anslutna klientappar i C#.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -28,11 +28,17 @@ Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -45,6 +51,7 @@ Medan tjänsten distribueras ska vi förbereda koden. Klona [exempelappen från 
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
@@ -81,6 +88,8 @@ cd bin/Release/netcoreapp2.1/osx.10.13-x64/
 Serverless server -c "<ConnectionString>" -h <HubName>
 ```
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+
 ## <a name="run-the-sample-without-publishing"></a>Kör exemplet utan att publicera
 
 Du kan även köra kommandot nedan för att starta en server eller klient
@@ -97,6 +106,8 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 Du kan köra `dotnet user-secrets set Azure:SignalR:ConnectionString "<ConnectionString>"` i exemplets rotkatalog. Efter det behöver du inte alternativet `-c "<ConnectionString>"` längre.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+
 ## <a name="usage"></a>Användning
 
 När servern har startats använder du kommandot för att skicka meddelandet:
@@ -110,6 +121,8 @@ broadcast
 ```
 
 Du kan starta flera klienter med olika klientnamn.
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
 
 ## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integrering med tjänster från tredje part
 
@@ -244,7 +257,11 @@ Statuskod för svar | Beskrivning
 `200` | Tjänsten är felfri
 `5xx` | Tjänst fel
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -252,3 +269,5 @@ I den här snabb starten har du lärt dig hur du använder REST API för att sä
 
 > [!div class="nextstepaction"]
 > [Utveckla Azure Functions med hjälp av Azure SignalR service-bindningar](signalr-quickstart-azure-functions-csharp.md)
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsapi)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814251"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049882"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV-partner
 
@@ -31,6 +31,7 @@ Vårt ISV partner Network utökar våra lösnings funktioner som hjälper dig at
 | :--- | :--- |
 | ![Microsofts](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) är en provider för bedrägeri förebyggande lösningar som hjälper organisationer att skydda mot bot-attacker, konto upptagnings attacker och bedrägligt konto öppningar.
 | ![Microsofts](./media/partner-gallery/experian-logo.png) | [Experian:](./partner-experian.md) är en identitets verifiering och en kontroll leverantör som utför riskbedömningar baserat på användarattribut för att förhindra bedrägerier.|
+| ![Microsofts](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) är en äkta autentiseringsprovider för lösen ords kryptering, som ersätter lösen ord med offentlig nyckel krypteringar som eliminerar bedrägerier, nätfiske och åter användning av autentiseringsuppgifter.|
 | ![Microsofts](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) är en identitets verifiering och en språkprovider med ID-verifierings lösningar, bedrägeri förebyggande lösningar, lösningar för efterlevnad och andra.|
 | ![Microsofts](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) är en eiDAS-kompatibel (Electronic Identification, Authentication and Trust Services) Digital ID-lösning som gör att användarna kan logga in på ett säkert sätt utan kort läsare, lösen ord, tvåfaktorautentisering och flera PIN-koder. |
 | ![Microsofts](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) är en tjänst för ID-verifiering som möjliggör verifiering av AUTOMATISERAt ID i real tid, vilket skyddar kund information. |

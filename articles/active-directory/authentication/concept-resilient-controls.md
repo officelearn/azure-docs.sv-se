@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716307"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049578"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
 
@@ -92,7 +92,7 @@ Den här exempel princip uppsättningen beviljar valda användare i **AppUsers**
 
 ### <a name="contingencies-for-user-lockout"></a>Eventualförpliktelser/eventualtillgångar för användar utelåsning
 
-Alternativt kan din organisation också skapa katastrof principer. För att skapa katastrof principer måste du definiera kompromiss kriterier mellan affärs kontinuitet, drifts kostnader, ekonomisk kostnad och säkerhets risker. Du kan till exempel bara aktivera en katastrof princip för en delmängd av användare, för en delmängd av appar, för en delmängd av klienter eller från en delmängd av platser. Katastrof principer ger administratörer och slutanvändare åtkomst till appar och resurser under ett avbrott när ingen minsknings metod implementerades. Microsoft rekommenderar att du aktiverar katastrof principer i [endast rapport läge](../conditional-access/howto-conditional-access-report-only.md) när de inte används så att administratörer kan övervaka den potentiella effekten av principerna om de måste vara påslagna.
+Alternativt kan din organisation också skapa katastrof principer. För att skapa katastrof principer måste du definiera kompromiss kriterier mellan affärs kontinuitet, drifts kostnader, ekonomisk kostnad och säkerhets risker. Du kan till exempel bara aktivera en katastrof princip för en delmängd av användare, för en delmängd av appar, för en delmängd av klienter eller från en delmängd av platser. Katastrof principer ger administratörer och slutanvändare åtkomst till appar och resurser under ett avbrott när ingen minsknings metod implementerades. Microsoft rekommenderar att du aktiverar katastrof principer i [endast rapport läge](../conditional-access/howto-conditional-access-insights-reporting.md) när de inte används så att administratörer kan övervaka den potentiella effekten av principerna om de måste vara påslagna.
 
  Att förstå exponeringen under ett avbrott bidrar till att minska risken och är en viktig del av planerings processen. För att skapa en katastrof plan måste du först fastställa följande affärs krav för din organisation:
 
@@ -120,7 +120,7 @@ En princip för villkorlig åtkomst är en **säkerhets kopierings princip** som
 * Konfigurera en uppsättning återställnings principer om ett avbrott i en typ av autentiseringsuppgift eller en mekanism för åtkomst kontroll påverkar åtkomsten till dina appar. Konfigurera en princip i endast rapport tillstånd som kräver domän anslutning som en kontroll, som en säkerhets kopia för en aktiv princip som kräver en MFA-provider från tredje part.
 * Minska risken för dåliga aktörer som gissar lösen ord, om MFA inte krävs, genom att följa anvisningarna i guiden för [lösen Ords vägledning](https://aka.ms/passwordguidance) White Paper.
 * Distribuera [Azure AD-SSPR (Self-Service Password rereset)](./tutorial-enable-sspr.md) och [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) för att se till att användarna inte använder vanliga lösen ord och villkor som du väljer att förbjuda.
-* Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Ett exempel:
+* Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Exempel:
   * Konfigurera en säkerhets kopierings princip som skickar anspråk för begränsad session till Exchange och SharePoint.
   * Om din organisation använder Microsoft Cloud App Security bör du överväga att återgå till en princip som samverkar med MCAS och sedan MCAS tillåter skrivskyddad åtkomst men inte uppladdning.
 * Namnge dina principer för att se till att det är enkelt att hitta dem under ett avbrott. Inkludera följande element i princip namnet:

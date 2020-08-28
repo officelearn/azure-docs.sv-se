@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207551"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051363"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -95,7 +95,7 @@ Vilka protokoll som är tillgängliga beror på vilken Load Balancer SKU som anv
 | **Standard-SKU** |    &#9989; |   &#9989; |   &#9989; |
 | **Grundläggande SKU** |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcp-probe"></a><a name="tcpprobe"></a>TCP-avsökning
+### <a name="tcp-probe"></a><a name="tcpprobe"></a> TCP-avsökning
 
 TCP-avsökningar initierar en anslutning genom att utföra en tre-vägs öppen TCP-handskakning med den definierade porten.  TCP-avsökningar avslutar en anslutning med en fyra vägs stängnings-TCP-handskakning.
 
@@ -223,7 +223,7 @@ Utöver Load Balancer hälso avsökningar [använder följande åtgärder följa
 - Möjliggör kommunikation med den virtuella DNS-servern för att tillhandahålla filtrerad namn matchning till kunder som inte definierar anpassade DNS-servrar.  Den här filtreringen säkerställer att kunderna bara kan lösa värd namnen för deras distribution.
 - Gör det möjligt för den virtuella datorn att hämta en dynamisk IP-adress från DHCP-tjänsten i Azure.
 
-## <a name="design-guidance"></a><a name="design"></a>Design vägledning
+## <a name="design-guidance"></a><a name="design"></a> Design vägledning
 
 Hälso avsökningar används för att göra tjänsten elastisk och kan skalas. En felaktig konfiguration eller ett dåligt design mönster kan påverka tjänstens tillgänglighet och skalbarhet. Granska hela dokumentet och fundera över vad som påverkar ditt scenario när avsöknings svaret är markerat eller markerat och hur det påverkar tillgängligheten för ditt program scenario.
 
@@ -263,6 +263,6 @@ Grundläggande offentliga Load Balancer visar status för hälso avsökningar so
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [standard Load Balancer](load-balancer-standard-overview.md)
-- [Kom igång med att skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Kom igång med att skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API för hälso avsökningar](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Begär nya hälso avsöknings möjligheter med [Load Balancer UserVoice](https://aka.ms/lbuservoice)

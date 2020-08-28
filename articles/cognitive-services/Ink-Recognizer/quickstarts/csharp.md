@@ -1,24 +1,26 @@
 ---
 title: 'Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och C #'
 titleSuffix: Azure Cognitive Services
-description: 'Den här snabb starten visar hur du kan använda pennan tecknings-API: t för att börja känna igen digitala penndrag.'
+description: Den här snabb starten visar hur du använder hand SKRIFTS igenkännings-API och C# för att börja identifiera digitala penndrag.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25360ec1b5e8cd79c21da426a293c148ac0b1932
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931462"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051601"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och C #
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Använd den här snabb starten för att börja skicka digitala penndrag till färg igenkännings-API: et. Det här C#-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och hämtar svaret.
 
@@ -30,7 +32,7 @@ Normalt anropar du API: et från en digital intecknings app. I den här snabb st
 
 Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Valfri version av [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)

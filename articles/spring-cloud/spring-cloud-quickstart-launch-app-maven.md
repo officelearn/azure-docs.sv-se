@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7496ffcc365a3e9178bcc3293b518ea790e56c78
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 95ae9c596742b075b5d78d22b925b3adf9285a7d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607056"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048065"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
 Med hjälp av Azure våren Cloud maven-plugin-programmet kan du enkelt skapa och uppdatera dina Azure våren Cloud-program. Genom att fördefiniera en konfiguration kan du distribuera program till din befintliga Azure våren Cloud-tjänst. I den här artikeln använder du ett exempel program som heter PiggyMetrics för att demonstrera den här funktionen.
+
+Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
 
 Efter den här snabb starten får du lära dig att:
 

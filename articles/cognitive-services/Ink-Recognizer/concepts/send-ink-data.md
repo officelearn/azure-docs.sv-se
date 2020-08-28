@@ -3,21 +3,23 @@ title: Skicka pennanteckning till API:et för handskriftsigenkänning
 titleSuffix: Azure Cognitive Services
 description: Läs mer om hur du anropar Ink Analyzer API för olika program
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/24/2020
+ms.author: aahi
+ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221110"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051108"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Skicka pennanteckning till API:et för handskriftsigenkänning 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. Detta uppnås vanligt vis med en digitaliserare som samlar in ingångs enheter, till exempel en penna. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. Med pennan tecknings-API kan du skicka penndrag och få detaljerad information om dem. 
 
@@ -90,6 +92,6 @@ Med igenkännings resultatet får du information om egenskaperna för penndrag n
 * [Referens för hand SKRIFTS igenkänning REST API](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 * Börja skicka digitala Penn strecks data med:
-    * [C #](../quickstarts/csharp.md)
+    * [C#](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)
     * [JavaScript](../quickstarts/javascript.md)

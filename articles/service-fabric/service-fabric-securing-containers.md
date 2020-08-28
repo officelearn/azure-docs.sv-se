@@ -4,14 +4,17 @@ description: Lär dig nu att importera certifikatfiler till en Service Fabric co
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 949cc642572bfbf6ebe297d3ffba16939561ac8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012729"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050751"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importera en certifikat fil till en behållare som körs på Service Fabric
+
+> [!NOTE]
+> För Service Fabric kluster som körs på Azure rekommenderar vi att du använder [Service Fabric program hanterad identitet](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) för att etablera program certifikat inifrån en behållare. Hanterad identitet ger isolering av hemligheter och certifikat på tjänst nivå, och gör att Application Certificate-etableringen kan ingå i programmets arbets flöde i stället för infrastrukturens arbets flöde. CertificateRef-mekanismen är inaktuell i en framtida version.
 
 Du kan skydda behållar tjänsterna genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som är installerat på noderna i ett Windows-eller Linux-kluster (version 5,7 eller senare). Certifikatet måste installeras i ett certifikat Arkiv under LocalMachine på alla noder i klustret. Den privata nyckeln som motsvarar certifikatet måste vara tillgänglig, tillgänglig och Windows-exporter bar. Certifikat informationen finns i program manifestet under `ContainerHostPolicies` taggen som följande fragment visar:
 
@@ -30,6 +33,8 @@ För Linux-kluster kopieras certifikaten (PEM) från det lager som anges av X509
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Observera att både- `PEM` och- `PrivateKey` filen innehåller certifikatet och den okrypterade privata nyckeln.
 
 Alternativt, om du redan har certifikaten i det obligatoriska formuläret och vill komma åt det i behållaren, kan du skapa ett data paket i ditt appaket och ange följande i program manifestet:
 

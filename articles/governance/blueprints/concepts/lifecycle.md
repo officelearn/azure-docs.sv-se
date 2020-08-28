@@ -1,14 +1,14 @@
 ---
 title: Förstå en skisss livs cykel
 description: Lär dig mer om livs cykeln som en skiss definition går igenom och information om varje steg, inklusive uppdatering och borttagning av skiss uppgifter.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864036"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049714"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livs cykeln för en Azure Blueprint
 
@@ -81,14 +81,14 @@ Ta bort en skiss med [Azure Portal](../create-blueprint-portal.md#delete-a-bluep
 
 Det finns flera punkter i livs cykeln som en skiss kan tilldelas till en prenumeration. När läget i en version av skissen **publiceras**, kan den versionen tilldelas till en prenumeration. Den här livs cykeln gör det möjligt att använda versioner av en skiss och aktivt tilldelas medan en nyare version utvecklas.
 
-När versioner av ritningar tilldelas är det viktigt att förstå var de är tilldelade och med vilka parametrar de har tilldelats. Parametrarna kan antingen vara statiska eller dynamiska. Läs mer i [statiska och dynamiska parametrar](parameters.md).
+När versioner av ritningar tilldelas är det viktigt att förstå var de är tilldelade och med vilka parametrar de har tilldelats. Parametrarna kan antingen vara statiska eller dynamiska. Läs mer i [statiska och dynamiska parametrar](./parameters.md).
 
 ### <a name="updating-assignments"></a>Uppdaterar tilldelningar
 
 När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera anledningar till att uppdatera en befintlig tilldelning, inklusive:
 
-- Lägg till eller ta bort [resurs låsning](resource-locking.md)
-- Ändra värdet för [dynamiska parametrar](parameters.md#dynamic-parameters)
+- Lägg till eller ta bort [resurs låsning](./resource-locking.md)
+- Ändra värdet för [dynamiska parametrar](./parameters.md#dynamic-parameters)
 - Uppgradera tilldelningen till en nyare **publicerad** version av skissen
 
 Mer information finns i [Uppdatera befintliga tilldelningar](../how-to/update-existing-assignments.md).
@@ -97,7 +97,7 @@ Mer information finns i [Uppdatera befintliga tilldelningar](../how-to/update-ex
 
 Om skissen inte längre behövs kan den tas bort från hanterings gruppen eller prenumerationen. Följande inträffar under skiss tilldelningen:
 
-- Borttagning av [skiss resurs låsning](resource-locking.md)
+- Borttagning av [skiss resurs låsning](./resource-locking.md)
 - Borttagning av skiss tilldelnings objekt
 - Före Om en **systemtilldelad hanterad identitet** användes, tas den också bort
 
@@ -106,8 +106,8 @@ Om skissen inte längre behövs kan den tas bort från hanterings gruppen eller 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
+- Förstå hur du använder [statiska och dynamiska parametrar](./parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](./sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](./resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
 - Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

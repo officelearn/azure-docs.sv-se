@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: b67480f2b6de37822d74162f46caa4d7e50dc193
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 544f200e749b1b125e8077ee65f20a06779fb13d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321793"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050581"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
 
@@ -37,13 +37,21 @@ Med Azure SignalR service kan du enkelt lägga till real tids funktioner i ditt 
 > [!NOTE]
 > Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto.
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
@@ -79,10 +87,15 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     ```bash
     mvn azure-functions:run
     ```
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -90,3 +103,5 @@ I den här snabb starten har du skapat och kört ett program utan server i real 
 
 > [!div class="nextstepaction"]
 > [Skapa din första funktion med Java och Maven](../azure-functions/functions-create-first-java-maven.md)
+
+[Har du problem? Berätta för oss.](https://aka.ms/asrs/qsjava)

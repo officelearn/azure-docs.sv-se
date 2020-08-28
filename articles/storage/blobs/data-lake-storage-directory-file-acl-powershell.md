@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e80db84789ab5c8b0f07bc6a76ae99f8db3c8b80
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923882"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051040"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -125,6 +125,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> Utelämna parametern om du vill hämta behållarens rot Katalog `-Path` .
 
 ## <a name="rename-or-move-a-directory"></a>Byta namn på eller flytta en katalog
 
@@ -202,7 +204,8 @@ $properties.Group
 $properties.Owner
 ```
 
-Om du vill visa innehållet i en behållare utelämnar du `-Path` parametern från kommandot.
+> [!NOTE]
+> Om du vill visa innehållet i rot katalogen för behållaren utelämnar du `-Path` parametern.
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
@@ -227,6 +230,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> Om du vill överföra en fil till rot katalogen för behållaren utelämnar du `-Path` parametern.
 
 ## <a name="show-file-properties"></a>Visa fil egenskaper
 

@@ -3,12 +3,12 @@ title: Media Graph-koncept – Azure
 description: Med ett medie diagram kan du definiera var mediet ska samlas in, hur det ska bearbetas och var resultatet ska levereras. Den här artikeln innehåller en detaljerad beskrivning av media Graph-konceptet.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798847"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048438"
 ---
 # <a name="media-graph"></a>Mediegraf
 
@@ -37,19 +37,28 @@ Värdena för parametrarna i topologin anges när du skapar diagram instanser so
 
 ## <a name="media-graph-states"></a>Medie diagram status  
 
-Ett medie diagram kan vara i något av följande tillstånd:
+Diagrammets livs cykel och diagram instanser visas i följande tillstånds diagram.
 
-* Inaktiv – representerar det tillstånd där ett medie diagram är konfigurerat men inte aktivt.
-* Aktivering – tillståndet när ett medie diagram instansieras (det vill säga över gångs tillståndet mellan inaktiv och aktiv).
-* Aktiv – statusen när ett medie diagram är aktivt. 
+![Graf-topologi och diagram instansen livs cykel](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  Media Graph kan vara aktiv utan data som flödar genom den (till exempel att video källan för indata är offline).
-* Inaktive ring – det här är tillståndet när ett medie diagram övergår från aktiv till inaktiv.
+Du börjar med att [skapa en diagram sto pol Ogin](direct-methods.md#graphtopologyset). För varje direktsända video flöde som du vill bearbeta med den här topologin [skapar du en diagram instans](direct-methods.md#graphinstanceset). 
 
-Diagrammet nedan illustrerar tillstånds datorn för media Graph.
+Graf-instansen är i `Inactive` tillståndet (inaktiv).
 
-![Dator för media Graph-tillstånd](./media/media-graph/media-graph-state-machine.png)
+När du är redo att skicka Live-videofeeden till graf-instansen [aktiverar](direct-methods.md#graphinstanceactivate) du det. Graf-instansen går kort genom ett över gångs `Activating` tillstånd. om det lyckas går du till ett `Active` tillstånd. I `Active` läget kommer mediet att bearbetas (om graf-instansen tar emot indata).
+
+> [!NOTE]
+>  En diagram instans kan vara aktiv utan att data flödar genom den (till exempel kameran är offline).
+> Din Azure-prenumeration kommer att faktureras när graf-instansen är i aktivt läge.
+
+Du kan upprepa processen för att skapa och aktivera andra diagram instanser för samma topologi, om du har andra direktsända video flöden att bearbeta.
+
+När du är färdig med bearbetningen av direktsänd video-inmatningen kan du [inaktivera](direct-methods.md#graphinstancedeactivate) graf-instansen. Graf-instansen går kort genom ett över gångs `Deactivating` tillstånd, tömmer alla data som de har och återgår sedan till `Inactive` statusen.
+
+Du kan bara [ta bort](direct-methods.md#graphinstancedelete) en diagram instans när den är i ett `Inactive` tillstånd.
+
+När alla graf-instanser som refererar till en speciell diagram sto pol Ogin har tagits bort, kan du [ta bort graf-topologin](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Källor, processorer och mottagare  
 

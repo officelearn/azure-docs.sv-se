@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar och visar loggarna för Kubernetes-huvudn
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250744"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048286"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnodloggar i Azure Kubernetes Service (AKS)
 
@@ -30,12 +30,8 @@ Azure Monitor loggar aktive ras och hanteras i Azure Portal. Om du vill aktivera
 1. Välj ditt AKS-kluster, till exempel *myAKSCluster*, och välj sedan att **lägga till diagnostikinställningar**.
 1. Ange ett namn, till exempel *myAKSClusterLogs*, och välj sedan alternativet att **Skicka till Log Analytics**.
 1. Välj en befintlig arbets yta eller skapa en ny. Om du skapar en arbets yta anger du ett namn på arbets ytan, en resurs grupp och en plats.
-1. I listan över tillgängliga loggar väljer du de loggar som du vill aktivera. Vanliga loggar omfattar *Kube-apiserver*, *Kube-Controller-Manager*och *Kube-Scheduler*. Du kan aktivera ytterligare loggar som *Kube-audit* och *cluster-autoscaler*. Du kan returnera och ändra de insamlade loggarna när Log Analytics arbets ytor har Aktiver ATS.
+1. I listan över tillgängliga loggar väljer du de loggar som du vill aktivera. I det här exemplet aktiverar du *Kube-gransknings* loggarna. Vanliga loggar omfattar *Kube-apiserver*, *Kube-Controller-Manager*och *Kube-Scheduler*. Du kan returnera och ändra de insamlade loggarna när Log Analytics arbets ytor har Aktiver ATS.
 1. När du är klar väljer du **Spara** för att aktivera insamling av de valda loggarna.
-
-Följande exempel på en portal visar fönstret *diagnostikinställningar* :
-
-![Aktivera Log Analytics arbets yta för Azure Monitor loggar för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägg en test-Pod på AKS-klustret
 
@@ -71,30 +67,25 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visa insamlade loggar
 
-Det kan ta några minuter innan diagnostikloggar är aktiverade och visas i arbets ytan Log Analytics. I Azure Portal väljer du resurs gruppen för arbets ytan Log Analytics, till exempel *myResourceGroup*, och väljer sedan din Log Analytics-resurs, till exempel *myAKSLogs*.
+Det kan ta några minuter innan diagnostikloggar är aktiverade och visas. I Azure Portal navigerar du till ditt AKS-kluster och väljer **loggar** på den vänstra sidan. Stäng fönstret *exempel frågor* om det visas.
 
-![Välj Log Analytics arbets yta för ditt AKS-kluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-På den vänstra sidan väljer du **loggar**. Om du vill visa *Kube-apiserver*anger du följande fråga i text rutan:
-
-```
-AzureDiagnostics
-| where Category == "kube-apiserver"
-| project log_s
-```
-
-Många loggar returneras sannolikt för API-servern. Om du vill begränsa frågan till att visa loggarna om NGINX-Pod som skapades i föregående steg, lägger du till ytterligare en *WHERE* -instruktion för att söka efter *poddar/nginx* som visas i följande exempel fråga:
+På den vänstra sidan väljer du **loggar**. Om du vill visa *Kube-gransknings* loggar anger du följande fråga i text rutan:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-De speciella loggarna för dina NGINX-Pod visas, som du ser i följande exempel skärm bild:
+Många loggar returneras troligt vis. Om du vill begränsa frågan till att visa loggarna om NGINX-Pod som skapades i föregående steg, lägger du till ytterligare en *WHERE* -instruktion för att söka efter *nginx* som visas i följande exempel fråga:
 
-![Log Analytics-frågeresultat för exempel NGINX Pod](media/view-master-logs/log-analytics-query-results.png)
+```
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
+```
 
 Om du vill visa fler loggar kan du uppdatera frågan för *kategori* namnet till *Kube-Controller-Manager* eller *Kube-Scheduler*, beroende på vilka ytterligare loggar du aktiverar. Ytterligare *WHERE* -instruktioner kan sedan användas för att begränsa de händelser som du söker efter.
 

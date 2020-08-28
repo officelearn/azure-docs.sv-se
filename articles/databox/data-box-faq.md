@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823989"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051176"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -61,7 +61,7 @@ A. Data Box-enhet stöds för alla regioner i USA, västra Europa, norra Europa,
 
 Data Box-enhet har stöd för data inmatning eller utgående data inom samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där data rutor kan levereras till och från ett EU-land/-region.
 
-I import scenariot kan du till exempel uppnå det på följande sätt om du hade lokala data i Kanada som du ville flytta till ett lagrings konto i Azure väst.
+I import scenariot kan du till exempel göra det på följande sätt om du hade de källdata i Kanada som du ville flytta till ett lagrings konto i Azure väst.
 
 1. Beställ Data Box-enhet i Kanada genom att välja ett lagrings konto i Cananda. Enheten levereras från ett Azure-datacenter i Kanada till leverans adressen (i Kanada) som angavs när ordern skapades.
 

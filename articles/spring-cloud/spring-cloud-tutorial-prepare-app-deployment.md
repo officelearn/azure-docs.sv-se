@@ -7,16 +7,18 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2ae94da3d9b2dee62bc031c4a32d17b43be00a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021281"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046739"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
 
 Det här avsnittet visar hur du förbereder ett befintligt Java våren-program för distribution till Azure våren Cloud. Om Azure våren Cloud har kon figurer ATS korrekt tillhandahåller robusta tjänster för att övervaka, skala och uppdatera ditt Java våren Cloud-program.
+
+Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
 
 Andra exempel beskriver hur du distribuerar ett program till Azure våren Cloud när POM-filen har kon figurer ATS. 
 * [Starta appen med hjälp av Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
@@ -39,7 +41,7 @@ Azure våren Cloud stöder bara våren Boot-appar, antingen våren Boot version 
 Start version för våren | Våren Cloud-version
 ---|---
 2.1 | Greenwich. RELEASE
-2.2 | Hoxton. RELEASE
+2,2 | Hoxton. RELEASE
 2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Beroenden för vår start version 2,1
@@ -127,7 +129,7 @@ I följande tabell visas rätt Azure våren Cloud-versioner för din app som anv
 Start version för våren | Våren Cloud-version | Azure våren Cloud-version
 ---|---|---
 2.1 | Greenwich. RELEASE | 2.1
-2.2 | Hoxton. RELEASE | 2.2
+2,2 | Hoxton. RELEASE | 2,2
 2.3 | Hoxton.SR5 | 2.3
 
 Inkludera något av följande beroenden i pom.xml-filen. Välj det beroende vars Azure våren Cloud-version matchar din egen.

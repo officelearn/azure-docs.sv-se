@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381afdbb57e2de41382a10c1912abac980e89cbd
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948478"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049544"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -35,7 +35,7 @@ Alex Weinert, chef för identitets säkerhet på Microsoft, i den 12 mars 2020 b
 
 Om din miljö är redo att blockera äldre autentisering för att förbättra din klients skydd kan du uppnå det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med: 
 
@@ -85,7 +85,7 @@ Innan du kan blockera äldre autentisering i din katalog måste du först först
 
 1. Navigera till **Azure Portal**  >  **Azure Active Directory**  >  **inloggningar**.
 1. Lägg till kolumnen klient program om den inte visas genom att klicka på **kolumner**  >  **klient program**.
-1. **Lägg till filter**  >  **Klient program** > väljer alla bakåtkompatibla autentiseringsprotokoll. Välj utanför filter dialog Blox för att tillämpa dina val och stänga dialog rutan.
+1. **Lägg till filter**  >  **Klient program** > väljer alla bakåtkompatibla autentiseringsprotokoll. Välj utanför filtrerings dialog rutan för att tillämpa dina val och stänga dialog rutan.
 
 Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet **klient app** på fliken **grundläggande information** visar vilket äldre autentiseringsprotokoll som användes.
 
@@ -122,7 +122,7 @@ Du kan välja alla tillgängliga beviljade kontroller för villkoret **andra kli
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
+- [Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-insights-reporting.md)
 - Om du inte är bekant med att konfigurera principer för villkorlig åtkomst ännu kan du läsa [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../authentication/tutorial-enable-azure-mfa.md) för ett exempel.
 - Mer information om stöd för modern autentisering finns i [så här fungerar modern autentisering för office 2013 och office 2016-klient program](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
 - [Konfigurera en multifunktions enhet eller ett program för att skicka e-post med Office 365 och Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

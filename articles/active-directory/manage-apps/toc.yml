@@ -246,7 +246,7 @@
               href: application-types.md
             - name: Oväntad tilldelad användare
               href: ways-users-get-assigned-to-applications.md
-        - name: Felsöka åtkomstpanelen
+        - name: Felsöka Mina appar
           items:
             - name: Hantera webbläsartillägg
               href: manage-access-panel-browser-extension.md
@@ -256,8 +256,6 @@
               href: access-panel-troubleshoot-unexpected-application.md
             - name: Det går inte att logga in
               href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Fel vid installation av webbläsartillägg
-              href: access-panel-extension-problem-installing.md
             - name: Fel vid användning av appåtkomst via självbetjäning
               href: access-panel-troubleshoot-self-service-access.md
         - name: Felsöka lokala appar

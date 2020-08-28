@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0a0f501f56f7537923f301ed41e4c044cf6ec71c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc5b0d05dc1e9e7c09781dba63c2031c72da73ff
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936884"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050279"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Snabb start: Använd Visuellt innehåll klient bibliotek
 
@@ -26,7 +26,7 @@ Kom igång med Visuellt innehåll klient biblioteket. Följ de här stegen för 
 Använd Visuellt innehåll klient bibliotek för att:
 
 * Analysera en bild för taggar, text beskrivning, ansikten, vuxen innehåll med mera.
-* Identifiera skriven text skriven och handskriven text med API: t batch Read.
+* Skriv ut och handskriven text med Read API.
 
 ::: zone pivot="programming-language-csharp"
 

@@ -167,7 +167,11 @@
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Felsöka
-  href: ./troubleshoot/general.md
+  items:
+    - name: Vanliga problem
+      href: ./troubleshoot/general.md
+    - name: Kända problem
+      href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Referens
   items:
     - name: Azure CLI
@@ -189,9 +193,9 @@
     - name: Azure SDK för Java
       items:
         - name: Tilldelningar
-          href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.policyassignment
         - name: Principdefinitioner
-          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
     - name: Azure SDK för Java Script
       items:
         - name: Princip
@@ -234,31 +238,45 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resurser
   items:
-    - name: Kända problem
-      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub – Azure Policy-exempel
       href: 'https://github.com/Azure/azure-policy'
-    - name: GitHub – Lagringsplatsen Community Policy
-      href: 'https://github.com/Azure/Community-Policy'
-    - name: Frågor och svar från Microsoft – Azure Policy
-      href: /answers/topics/azure-policy.html
-    - name: Styrning av YouTube-kanal
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Gästkonfigurationsvideor
+    - name: Communityverktyg
       items:
-        - name: Komma igång
-          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-        - name: Förstå initiativ
-          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-        - name: Tilldela princip
-          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-        - name: Reparationsåtgärd
-          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: Video – Ignite 2019
-      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: GitHub – Lagringsplatsen Community Policy
+          href: 'https://github.com/Azure/Community-Policy'
+        - name: GitHub Action för efterlevnadsgenomsökning i Azure Policy
+          href: 'https://github.com/marketplace/actions/azure-policy-compliance-scan'
+        - name: Instrumentpanel för styrning för CCO Azure
+          href: 'https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages'
+        - name: AzAdvertizer
+          href: 'https://www.azadvertizer.net/'
+        - name: Visualiserare för styrning i Azure
+          href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+    - name: Feedback och support
+      items:
+        - name: Frågor och svar från Microsoft – Azure Policy
+          href: /answers/topics/azure-policy.html
+        - name: Azure-supportärende
+          href: 'https://azure.microsoft.com/support/create-ticket/'
+        - name: UserVoice
+          href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'
+    - name: Videoklipp
+      items:
+        - name: Styrning av YouTube-kanal
+          href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+        - name: Video – Ignite 2019
+          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: Gästkonfigurationsvideor
+          items:
+            - name: Komma igång
+              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+            - name: Förstå initiativ
+              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+            - name: Tilldela princip
+              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+            - name: Reparationsåtgärd
+              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

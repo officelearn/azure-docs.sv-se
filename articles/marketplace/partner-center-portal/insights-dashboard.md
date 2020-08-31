@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607144"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055676"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Marketplace insikter-instrument panel i Partner Center
 
@@ -67,6 +67,9 @@ Visa mått på kommersiell Marketplace på flera olika sätt:
 ## <a name="marketplace-insights-summary"></a>Sammanfattning av marknads insikter
 
 I avsnittet Översikt över marknads insikter visas ett antal **sid besök**, **anrop till åtgärd**och **unika besökare** för det valda datum intervallet.
+
+>[!NOTE]
+>Marketplace insikter-instrument panelen tillhandahåller klick Ströms-data som inte bör korreleras med leads som genereras i mål slut punkten för målet.
 
 ### <a name="page-visits"></a>Sid besök
 

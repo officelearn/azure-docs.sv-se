@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: befab4dfb8d414743b70c535d041112bd9ccb700
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964174"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055149"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Skapa en FCI med en Premium-filresurs (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Premium-filresurser är Lagringsdirigering (SSD)-backade, konsekventa fil resurs
 
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -51,7 +51,7 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 1. Använd Remote Desktop Protocol (RDP) för att ansluta till SQL Server VM med det konto som din SQL Server-FCI kommer att använda för tjänst kontot.
 1. Öppna en administrativ PowerShell-kommandorad.
 1. Kör de kommandon som du sparade tidigare när du arbetade i portalen.
-1. Gå till resursen med hjälp av antingen Utforskaren eller dialog rutan **Kör** (Välj Windows + R). Använd Nätverks Sök vägen `\\storageaccountname.file.core.windows.net\filesharename` . Till exempel, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Gå till resursen med hjälp av antingen Utforskaren eller dialog rutan **Kör** (Välj Windows + R). Använd Nätverks Sök vägen `\\storageaccountname.file.core.windows.net\filesharename` . Till exempel `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Skapa minst en mapp på den nyligen anslutna fil resursen för att placera dina SQL-datafiler i.
 1. Upprepa de här stegen på varje SQL Server VM som ska ingå i klustret.
@@ -204,7 +204,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurera anslutning 
 
-Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 och Windows Server 2019, kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
+Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 och Windows Server 2016 (eller senare), kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
 
 ## <a name="limitations"></a>Begränsningar
 

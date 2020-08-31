@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020515"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067696"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics-tillägg för virtuella datorer för Windows
 
 Azure Monitor-loggar innehåller övervaknings funktioner över molnbaserade och lokala till gångar. Tillägget för virtuell dator med Log Analytics agent för Windows publiceras och stöds av Microsoft. Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Log Analytics virtuell dator tillägg för Windows.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -36,6 +36,7 @@ Följande tabell innehåller en mappning av versionen av Windows Log Analytics V
 
 | Log Analytics Windows agent-paket version | Log Analytics version av Windows VM-tillägg | Lanserings datum | Viktig information |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18040.2 | Augusti 2020   | <ul><li>Löser ett problem på Azure-bågen</li></ul> |
 | 10.20.18038 | 1.0.18038 | April 2020   | <ul><li>Aktiverar anslutning via privat länk med Azure Monitor privata länk omfång</li><li>Lägger till inmatnings begränsning för att undvika plötslig, oavsiktligt inflöde vid inmatning till en arbets yta</li><li>Lägger till stöd för ytterligare Azure Government moln och regioner</li><li>Löser ett fel där HealthService.exe kraschat</li></ul> |
 | 10.20.18029 | 1.0.18029 | Mars 2020   | <ul><li>Lägger till stöd för SHA-2-kod signering</li><li>Förbättrar installation och hantering av VM-tillägg</li><li>Löser ett fel i Azure Arc for servers-integrering</li><li>Lägger till ett inbyggt fel söknings verktyg för kund support</li><li>Lägger till stöd för ytterligare Azure Government regioner</li> |
 | 10.20.18018 | 1.0.18018 | Oktober 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li></ul> |

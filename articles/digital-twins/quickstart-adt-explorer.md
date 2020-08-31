@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 6b0a024dde1c96610a637ec51fd29e4a23dadc53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008564"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055472"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Utforska ett exempel på Azure Digitals sammanflätade scenario med ADT Explorer
 
@@ -26,6 +26,10 @@ Snabb starten innehåller följande viktiga steg:
 1. Ladda upp färdiga modeller och diagram data för att skapa exempel scenariot
 1. Utforska scenario diagrammet som skapas
 1. Gör ändringar i grafen
+
+Det exempel diagram som du kommer att arbeta med representerar en byggnad med två golv och två rum. Diagrammet kommer att se ut så här:
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet "Floor1" är kopplad till en cirkel med etiketten "Room1". en cirkel med etiketten "Floor0" är kopplad till en cirkel med etiketten "Room0". ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -137,7 +141,7 @@ I rutan *modell* visas trycker du på ikonen *Ladda upp en modell* .
 3. Följ dialog rutan för att be dig att logga in på ditt Azure-konto.
 
 >[!NOTE]
->Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. med knappen Stäng längst ned" border="false"::: 
+>Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. "med knappen Stäng längst ned" border="false"::: 
 > Försök inaktivera blockering av popup-fönster eller använda en annan webbläsare.
 
 ADT Explorer kommer nu att ladda upp de här projektfilerna till din Azure Digital-instansen. De bör visas i rutan *modell* och visar sina egna namn och fullständiga modell-ID: n. Du kan klicka på *Visa modell* informations bubblor för att se DTDL-koden bakom dem.
@@ -188,7 +192,7 @@ ADT Explorer kommer nu att använda den överförda filen för att skapa de beg�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 49 dubbla importer. 50 relationer har importer ATS." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 49 dubbla importer. 50 relationer har importer ATS. "" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -206,7 +210,7 @@ Det här kör standard frågan för att välja och Visa alla digitala dubbla. AD
 
 Nu kan du se det överförda diagrammet i exempel scenariot:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av rutan diagramvy med en dubbel graf inuti. En cirkel med namnet floor1 är kopplad till en cirkel med etiketten room1. en cirkel med etiketten floor0 är kopplad till en cirkel med etiketten room0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av rutan diagramvy med en dubbel graf inuti. En cirkel med namnet "floor1" är kopplad till en cirkel med etiketten "room1". en cirkel med etiketten "floor0" är kopplad till en cirkel med etiketten "room0".":::
 
 Cirklarna (graf "Nodes") representerar digitala dubbla och linjerna representerar relationer. Du kommer att se att *Floor0* -den dubbla innehåller *Room0*och att *Floor1* -filen innehåller *Room1*.
 
@@ -220,7 +224,7 @@ Här följer egenskaperna för *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Markera i rutan egenskaps Utforskaren som visar egenskaper för Room0, inklusive (bland annat) ett $dtId fält för Room0, ett temperatur fält på 70 och ett fuktighets fält på 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Markera i rutan "egenskaps Utforskaren" som visar egenskaper för Room0, inklusive (bland annat) ett $dtId fält för "Room0", ett temperatur fält på 70 och ett fuktighets fält på 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -232,7 +236,7 @@ Här följer egenskaperna för *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Markera i rutan egenskaps Utforskaren som visar egenskaper för Room1, inklusive (bland annat) ett $dtId fält för Room1, ett temperatur fält på 80 och ett fuktighets fält på 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Markera i rutan "egenskaps Utforskaren" som visar egenskaper för Room1, inklusive (bland annat) ett $dtId fält för "Room1", ett temperatur fält på 80 och ett fuktighets fält på 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -271,7 +275,7 @@ Egenskaperna i den här listan kan redige ras. Välj temperatur svärdet **70** 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Rutan egenskaps Utforskaren som visar egenskaper för Room0. Temperatur svärdet är en redigerings bar ruta som visar 76 och det finns en markering runt ikonen Spara." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Rutan "egenskaps Utforskaren" som visar egenskaper för Room0. Temperatur svärdet är en redigerings bar ruta som visar 76 och det finns en markering runt ikonen Spara." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::

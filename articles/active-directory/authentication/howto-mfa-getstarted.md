@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: da9a0fe30721a2f55db2c4771f54716868f9972f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717038"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055081"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi-Factor Authentication-distribution
 
@@ -110,7 +110,7 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
 Administratörer kan välja de [autentiseringsmetoder](../authentication/concept-authentication-methods.md) som de vill göra tillgängliga för användare. Det är viktigt att tillåta mer än en enda autentiseringsmetod så att användare har en säkerhets kopierings metod som är tillgänglig om deras primära metod inte är tillgänglig. Följande metoder är tillgängliga för administratörer att aktivera:
 
 > [!TIP]
-> Microsoft rekommenderar att du använder mobilappen som den primära metoden för Azure Multi-Factor Authentication för bästa möjliga säkerhet och användar upplevelse.
+> Microsoft rekommenderar att du använder Microsoft Authenticator (mobilappen) som den primära metoden för Azure Multi-Factor Authentication för en säkrare och bättre användar upplevelse. Microsoft Authenticator-appen [uppfyller](https://azure.microsoft.com/resources/microsoft-nist/) även National Institute of Standards och Technology Authentication Assurance-nivåerna. 
 
 ### <a name="notification-through-mobile-app"></a>Meddelande via mobilapp
 
@@ -287,7 +287,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Tangent | Värde | Standardvärde |
+| Tangent | Värde | Default |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -357,7 +357,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Plats | Beskrivning |
+| Rapport | Location | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

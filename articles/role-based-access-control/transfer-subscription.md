@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029985"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055659"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)
 
@@ -28,12 +28,15 @@ Organisationer kan ha flera Azure-prenumerationer. Varje prenumeration är assoc
 
 I den här artikeln beskrivs de grundläggande steg som du kan följa för att överföra en prenumeration till en annan Azure AD-katalog och återskapa några av resurserna efter överföringen.
 
+> [!NOTE]
+> För Azure CSP-prenumerationer stöds inte ändring av Azure AD-katalogen för prenumerationen.
+
 ## <a name="overview"></a>Översikt
 
 Överföring av en Azure-prenumeration till en annan Azure AD-katalog är en komplex process som måste planeras noggrant och köras. Många Azure-tjänster kräver säkerhets objekt (identiteter) för att kunna användas normalt eller till och med hantera andra Azure-resurser. Den här artikeln försöker omfatta de flesta Azure-tjänster som är beroende av säkerhets objekt, men är inte omfattande.
 
 > [!IMPORTANT]
-> Att överföra en prenumeration kräver stillestånds tid för att slutföra processen.
+> I vissa fall kan överföring av en prenumeration kräva avbrott för att slutföra processen. Noggrann planering krävs för att bedöma om stillestånds tiden kommer att krävas för migreringen.
 
 Följande diagram visar de grundläggande steg som du måste följa när du överför en prenumeration till en annan katalog.
 
@@ -66,22 +69,23 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 
 | Tjänst eller resurs | Påverkas | Återställnings bara | Påverkas du? | Det här kan du göra |
 | --------- | --------- | --------- | --------- | --------- |
-| Rolltilldelningar | Ja | Yes | [Visa lista över rolltilldelningar](#save-all-role-assignments) | Alla roll tilldelningar tas bort permanent. Du måste mappa användare, grupper och tjänstens huvud namn till motsvarande objekt i mål katalogen. Du måste återskapa roll tilldelningarna. |
-| Anpassade roller | Ja | Yes | [Lista anpassade roller](#save-custom-roles) | Alla anpassade roller tas bort permanent. Du måste återskapa de anpassade rollerna och eventuella roll tilldelningar. |
-| Systemtilldelade hanterade identiteter | Ja | Yes | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
-| Användare som tilldelats hanterade identiteter | Ja | Yes | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
-| Azure Key Vault | Ja | Yes | [Visa lista Key Vault åtkomst principer](#list-other-known-resources) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
-| Azure SQL-databaser med Azure AD-autentisering | Yes | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-other-known-resources) |  |  |
-| Azure Storage och Azure Data Lake Storage Gen2 | Ja | Yes |  | Du måste återskapa alla ACL: er. |
-| Azure Data Lake Storage Gen1 | Ja |  |  | Du måste återskapa alla ACL: er. |
-| Azure Files | Ja | Yes |  | Du måste återskapa alla ACL: er. |
-| Azure File Sync | Ja | Yes |  |  |
-| Azure Managed Disks | Yes | Ej tillämpligt |  |  |
-| Azure Container Services för Kubernetes | Ja | Yes |  |  |
-| Azure Active Directory Domain Services | Yes | Inga |  |  |
+| Rolltilldelningar | Ja | Ja | [Visa lista över rolltilldelningar](#save-all-role-assignments) | Alla roll tilldelningar tas bort permanent. Du måste mappa användare, grupper och tjänstens huvud namn till motsvarande objekt i mål katalogen. Du måste återskapa roll tilldelningarna. |
+| Anpassade roller | Ja | Ja | [Lista anpassade roller](#save-custom-roles) | Alla anpassade roller tas bort permanent. Du måste återskapa de anpassade rollerna och eventuella roll tilldelningar. |
+| Systemtilldelade hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
+| Användare som tilldelats hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
+| Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-other-known-resources) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
+| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure Storage och Azure Data Lake Storage Gen2 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
+| Azure Data Lake Storage Gen1 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
+| Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
+| Azure File Sync | Ja | Ja |  |  |
+| Azure Managed Disks | Ja | Ej tillämpligt |  |  |
+| Azure Container Services för Kubernetes | Ja | Ja |  |  |
+| Azure Active Directory Domain Services | Ja | Inga |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
-Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som inte finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
+> [!IMPORTANT]
+> Om du använder kryptering i vila för en resurs som ett lagrings konto eller en SQL-databas och resursen har ett beroende av ett nyckel valv som *inte* finns i prenumerationen som överförs, kan du få ett oåterkalleligt fel. I den här situationen använder du ett annat nyckel valv eller inaktiverar tillfälligt Kundhanterade nycklar för att undvika ett oåterkalleligt fel.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -199,9 +203,9 @@ Hanterade identiteter uppdateras inte när en prenumeration överförs till en a
 
     | Kriterie | Hanterad identitets typ |
     | --- | --- |
-    | `alternativeNames`egenskapen innehåller`isExplicit=False` | Systemtilldelad |
-    | `alternativeNames`Egenskapen omfattar inte`isExplicit` | Systemtilldelad |
-    | `alternativeNames`egenskapen innehåller`isExplicit=True` | Tilldelade användare |
+    | `alternativeNames` egenskapen innehåller `isExplicit=False` | Systemtilldelad |
+    | `alternativeNames` Egenskapen omfattar inte `isExplicit` | Systemtilldelad |
+    | `alternativeNames` egenskapen innehåller `isExplicit=True` | Tilldelade användare |
 
     Du kan också använda [AZ Identity List](https://docs.microsoft.com/cli/azure/identity#az-identity-list) för att bara lista användare tilldelade hanterade identiteter. Mer information finns i [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
@@ -217,8 +221,8 @@ Hanterade identiteter uppdateras inte när en prenumeration överförs till en a
 
 När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active Directory klient-ID: t för den prenumeration som den skapas i. Alla åtkomstprincipposter knyts också till detta klient-ID. Mer information finns i [flytta en Azure Key Vault till en annan prenumeration](../key-vault/general/move-subscription.md).
 
-> [!WARNING]
-> Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som inte finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
+> [!IMPORTANT]
+> Om du använder kryptering i vila för en resurs som ett lagrings konto eller en SQL-databas och resursen har ett beroende av ett nyckel valv som *inte* finns i prenumerationen som överförs, kan du få ett oåterkalleligt fel. I den här situationen använder du ett annat nyckel valv eller inaktiverar tillfälligt Kundhanterade nycklar för att undvika ett oåterkalleligt fel.
 
 - Om du har ett nyckel valv ska du använda [AZ Key Vault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) för att visa en lista över åtkomst principerna. Mer information finns i [tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -228,7 +232,7 @@ När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Visa en lista över Azure SQL-databaser med Azure AD-autentisering
 
-- Använd [AZ SQL Server AD-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) och [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) -tillägget för att se om du använder Azure SQL-databaser med Azure AD-autentisering. Mer information finns i [Konfigurera och hantera Azure Active Directory autentisering med SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Använd [AZ SQL Server AD-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) och [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) -tillägget för att se om du använder Azure SQL-databaser med Azure AD-autentisering. Mer information finns i [Konfigurera och hantera Azure Active Directory autentisering med SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)

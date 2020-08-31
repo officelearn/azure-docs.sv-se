@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422087"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055049"
 ---
-# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd på virtuella Azure-datorer till den primära regionen
+# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
 
 När du [växlar över](site-recovery-failover.md) virtuella Azure-datorer från en region till en annan med hjälp av [Azure Site Recovery](site-recovery-overview.md), startar de virtuella datorerna i den sekundära regionen i **oskyddat** tillstånd. Om du vill återställa de virtuella datorerna till den primära regionen gör du följande:
 
@@ -44,7 +44,7 @@ Du kan anpassa följande egenskaper för den virtuella mål datorn under skyddet
 
 ![Anpassa](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Egenskap |Kommentarer  |
+|Egenskap |Anteckningar  |
 |---------|---------|
 |Mål resurs grupp | Ändra mål resurs gruppen som den virtuella datorn skapas i. Som en del av återskyddet tas den virtuella mål datorn bort. Du kan välja en ny resurs grupp under vilken du vill skapa den virtuella datorn efter redundansväxlingen. |
 |Virtuellt mål nätverk | Det går inte att ändra mål nätverket under återskydds jobbet. Om du vill ändra nätverket gör du om nätverks mappningen. |
@@ -90,8 +90,8 @@ Följande villkor avgör hur mycket data som replikeras:
 |Käll regionen har 1 virtuell dator med 1 TB standard disk.<br/>Endast 127 GB data används och resten av disken är tom.<br/>Disk typen är standard med 60 Mbit/s-genomflöde.<br/>Ingen data ändring efter redundans.| Ungefärlig tid: 60-90 minuter.<br/> Vid återskydd fyller Site Recovery kontroll summan för alla data. Detta fungerar på 45MBps, så den totala tiden det tar är 127 GB/45 MBps, ungefär 45 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
 |Käll regionen har 1 virtuell dator med 1 TB standard disk.<br/>Endast 127 GB data används och resten av disken är tom.<br/>Disk typen är standard med 60 Mbit/s-genomflöde.<br/>45 GB data ändringar efter redundans.| Ungefärlig tid: 2,5 – 3 timmar.<br/> Vid återskydd fyller Site Recovery kontroll summan för alla data. Detta fungerar på 45MBps, så den totala tiden det tar är 127 GB/45 MBps, ungefär 45 minuter.<br/>Överföringshastigheten är cirka 16% av genomflödet eller 9,6 MBps. Därför överförs tiden för att tillämpa ändringar på 45 GB som är 45 GB/9,6 MBps, ungefär 80 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
 |Käll regionen har 1 virtuell dator med 1 TB standard disk.<br/>Endast 20 GB data används och resten av disken är tom.<br/>Disk typen är standard med 60 Mbit/s-genomflöde.<br/>De inledande data på disken omedelbart efter redundansväxlingen var 15 GB. Det fanns 5 GB data ändring efter redundansväxlingen. Det totala antalet fyllda data är därför 20 GB.| Ungefärlig tid: 1 – 1,5 timmar.<br/>Eftersom de data som är ifyllda på disken är mindre än 10% av disk storleken utför vi en fullständig inledande replikering.<br/> Överföringshastigheten är cirka 16% av genomflödet eller 9,6 MBps. Därför kan överförings tiden för att tillämpa ändringar på 20 GB som är 20 GB/9,6 MBps, ungefär 36 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
-|Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 127 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>Ingen data ändring efter redundans.| Ungefärlig tid: 45-60 minuter.<br/>Vid återskydd fyller Site Recovery kontroll summan för alla data. Detta fungerar på 80MBps, så den totala tiden det tar är 127 GB/80 MBps, ungefär 27 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
-|Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 127 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>45 GB data ändringar efter redundans.| Ungefärlig tid: 1,5 – 2 timmar.<br/>Vid återskydd fyller Site Recovery kontroll summan för alla data. Detta fungerar på 80MBps, så den totala tiden det tar är 127 GB/80 MBps, ungefär 27 minuter.</br>Överföringshastigheten är cirka 16% av genomflödet eller 32MBps. Därför överförs tiden för att tillämpa ändringar på 45 GB som är 45 GB/32 Mbit/s, ungefär 24 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
+|Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 127 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>Ingen data ändring efter redundans.| Ungefärlig tid: 2 timmar.<br/>Vid återskydd fyller Site Recovery kontroll summan för alla data. Detta fungerar på 25MBps (upp till 16% av disk data flödet), så den totala tiden det tar är 127 GB/25 MBps, ungefär 87 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
+|Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 127 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>45 GB data ändringar efter redundans.| Ungefärlig tid: 2,5 – 3 timmar.<br/>Vid återskydd fyller Site Recovery kontroll summan för alla data. Detta fungerar på 25MBps (upp till 16% av disk data flödet), så den totala tiden det tar är 127 GB/25 MBps, ungefär 87 minuter.</br>Överföringshastigheten är cirka 16% av genomflödet eller 32MBps. Därför överförs tiden för att tillämpa ändringar på 45 GB som är 45 GB/32 Mbit/s, ungefär 24 minuter.<br/>En del omkostnader krävs för att Site Recovery ska autoskalas, ungefär 20-30 minuter. |
 |Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 20 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>De inledande data på disken omedelbart efter redundansväxlingen var 15 GB. Det fanns 5 GB data ändring efter redundansväxlingen. Totalt antal fyllda data är därför 20 GB| Ungefärlig tid: 30-45 minuter.<br/>Eftersom de data som är ifyllda på disken är mindre än 10% av disk storleken utför vi en fullständig inledande replikering.<br/>Överföringshastigheten är cirka 16% av genomflödet eller 32MBps. Därför ska överförings tiden för att tillämpa ändringar på 20 GB som är 20 GB/32 MBps, ungefär 11 minuter.<br/>Det krävs en del omkostnader för Site Recovery för automatisk skalning, ungefär 20-30 minuter |
 
 När den virtuella datorn skyddas igen efter att ha växlat tillbaka till den primära regionen (dvs. om den virtuella datorn skyddas från primär region till DR-region) tas den virtuella mål datorn och de associerade NIC: erna bort.

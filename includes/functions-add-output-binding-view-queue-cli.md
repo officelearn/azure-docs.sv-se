@@ -11,9 +11,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673377"
 ---
-Du kan visa kön i [Azure Portal](../articles/storage/queues/storage-quickstart-queues-portal.md) eller i [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Du kan också visa kön i Azure CLI enligt beskrivningen i följande steg:
+Du kan visa kön i [Azure Portal](../articles/storage/queues/storage-quickstart-queues-portal.md) eller i  [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Du kan också visa kön i Azure CLI enligt beskrivningen i följande steg:
 
-1. Öppna funktions projektets *lokala. Ange. JSON* -fil och kopiera värdet för anslutnings strängen. Kör följande kommando i ett terminalfönster-eller kommando fönster för att skapa en miljö variabel med namnet `AZURE_STORAGE_CONNECTION_STRING` , och klistra in din aktuella anslutnings sträng i stället för `<MY_CONNECTION_STRING>` . (Denna miljö variabel innebär att du inte behöver ange anslutnings strängen för varje efterföljande kommando med hjälp av `--connection-string` argumentet.)
+1. Öppna funktions projektets *local.setting.jspå* fil och kopiera värdet för anslutnings strängen. Kör följande kommando i ett terminalfönster-eller kommando fönster för att skapa en miljö variabel med namnet `AZURE_STORAGE_CONNECTION_STRING` , och klistra in din aktuella anslutnings sträng i stället för  `<MY_CONNECTION_STRING>` . (Denna miljö variabel innebär att du inte behöver ange anslutnings strängen för varje efterföljande kommando med hjälp av `--connection-string` argumentet.)
 
     # <a name="bash"></a>[bash](#tab/bash)
     

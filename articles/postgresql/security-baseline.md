@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 475933bcc9219808087671d49778cc3696d8c815
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 46aae2acb1f35eb22259e1e648fb869c23f26c9c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500801"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067679"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL enskild server
 
@@ -34,11 +34,11 @@ Du kan också använda Virtual Network tjänstens slut punkter för att skydda o
 
 Du kan också skydda Azure Database for PostgreSQL-servern med brand Väggs regler. Server brand väggen förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brand Väggs regler på server nivå.
 
-Så här konfigurerar du en privat länk för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
+Så här konfigurerar du en privat länk för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
-Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
+Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
 
-Så här konfigurerar du Azure Database for PostgreSQL brand Väggs regler:https://docs.microsoft.com/azure/postgresql/howto-manage-firewall-using-portal
+Så här konfigurerar du Azure Database for PostgreSQL brand Väggs regler: https://docs.microsoft.com/azure/postgresql/howto-manage-firewall-using-portal
 
 **Azure Security Center övervakning**: Ja
 
@@ -48,11 +48,11 @@ Så här konfigurerar du Azure Database for PostgreSQL brand Väggs regler:https
 
 **Vägledning**: när din Azure Database for PostgreSQL-instans är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan använda en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här konfigurerar du en privat länk för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
+Så här konfigurerar du en privat länk för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
-Så här aktiverar du NSG Flow-loggar:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Azure Security Center övervakning**: Ja
 
@@ -72,9 +72,9 @@ Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azur
 
 Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Azure Database for PostgreSQL instanser för att skydda mot DDoS-attacker. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Så här konfigurerar du Avancerat skydd för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Så här konfigurerar du DDoS-skydd: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
 **Azure Security Center övervakning**: Ja
 
@@ -84,9 +84,9 @@ Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-net
 
 **Vägledning**: när din Azure Database for PostgreSQL-instans är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan sedan konfigurera en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här aktiverar du NSG Flow-loggar:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Azure Security Center övervakning**: Ja
 
@@ -96,7 +96,7 @@ Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azur
 
 **Vägledning**: Använd avancerat skydd för Azure Database for PostgreSQL. Avancerat skydd identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Så här konfigurerar du Avancerat skydd för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
 **Azure Security Center övervakning**: Ja
 
@@ -116,9 +116,9 @@ Så här konfigurerar du Avancerat skydd för Azure Database for PostgreSQL:http
 
 Obs: Azure Database for PostgreSQL använder service tag gen "Microsoft. SQL".
 
-Mer information om att använda service märken:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Mer information om att använda service märken: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-Förstå användningen av service tag i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet#terminology-and-description
+Förstå användningen av service tag i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet#terminology-and-description
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -132,11 +132,11 @@ Förstå användningen av service tag i Azure Database for PostgreSQL:https://do
 
 - Framtvinga TLS-anslutning ska vara aktiverat för PostgreSQL-databas servrar
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Policy exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/
+Azure Policy exempel för nätverk: https://docs.microsoft.com/azure/governance/policy/samples/
 
-Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -150,7 +150,7 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -160,9 +160,9 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Database for PostgreSQL-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
 
-Så här visar och hämtar du Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -185,11 +185,11 @@ Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/
 
 **Vägledning**: Aktivera diagnostikinställningar och Server loggar och mata in loggar för att samla in säkerhets data som genereras av Azure Database for PostgreSQL instanser. I Azure Monitor använder du Log Analytics arbets ytor för att fråga och utföra analyser och använda Azure Storage konton för långsiktig lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
 
-Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -199,11 +199,11 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 **Vägledning**: Aktivera diagnostikinställningar på Azure Database for PostgreSQL instanser för åtkomst till gransknings-, säkerhets-och resurs loggar. Se till att du specifikt aktiverar gransknings loggen för PostgreSQL. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element. Du kan också aktivera inställningar för Azure aktivitets loggs diagnostik och skicka loggarna till samma Log Analytics-arbetsyta eller lagrings konto.
 
-Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -222,9 +222,9 @@ Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen:h
 
 **Vägledning**: i Azure Monitor för arbets ytan Log Analytics som används för att hålla dina Azure Database for PostgreSQL loggar, anger du kvarhållningsperioden enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
 
-Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-Lagra resurs loggar i ett Azure Storage-konto:https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+Lagra resurs loggar i ett Azure Storage-konto: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -234,11 +234,11 @@ Lagra resurs loggar i ett Azure Storage-konto:https://docs.microsoft.com/azure/a
 
 **Vägledning**: analysera och övervaka loggar från Azure Database for PostgreSQL instanser för avvikande beteende. Använd Azure Monitor Log Analytics för att granska loggar och köra frågor om loggdata. Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part.
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Mer information om Log Analytics:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Mer information om Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Så här utför du anpassade frågor i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Så här utför du anpassade frågor i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -250,15 +250,15 @@ Så här utför du anpassade frågor i Azure Monitor:https://docs.microsoft.com/
 
 Dessutom kan du aktivera server loggar och diagnostiska inställningar för PostgreSQL och skicka loggar till en Log Analytics-arbetsyta. Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem.
 
-Så här aktiverar du Avancerat skydd för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Så här aktiverar du Avancerat skydd för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: Ja
 
@@ -298,11 +298,11 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 Azure Database for PostgreSQL stöder inte inbyggd rollbaserad åtkomst kontroll, men du kan skapa anpassade roller baserat på vissa resurs leverantörs åtgärder.
 
-Förstå anpassade roller för Azure-prenumerationen:https://docs.microsoft.com/azure/role-based-access-control/custom-roles 
+Förstå anpassade roller för Azure-prenumerationen: https://docs.microsoft.com/azure/role-based-access-control/custom-roles 
 
-Förstå Azure Database for PostgreSQL Resource Provider-åtgärder:https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql 
+Förstå Azure Database for PostgreSQL Resource Provider-åtgärder: https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql 
 
-Förstå åtkomst hantering för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-security#access-management
+Förstå åtkomst hantering för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-security#access-management
 
 **Azure Security Center övervakning**: Ja
 
@@ -314,9 +314,9 @@ Förstå åtkomst hantering för Azure Database for PostgreSQL:https://docs.micr
 
 När du skapar själva Azure Database for PostgreSQL resursen tvingar Azure dig att skapa en administrativ användare med ett starkt lösen ord. När PostgreSQL-instansen har skapats kan du dock använda det första server administratörs konto som du skapade för att skapa ytterligare användare och ge administrativ åtkomst till dem. När du skapar dessa konton bör du se till att konfigurera ett annat, starkt lösen ord för varje konto.
 
-Så här skapar du ytterligare konton för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-create-users
+Så här skapar du ytterligare konton för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users
 
-Så här uppdaterar du administratörs lösen ord:https://docs.microsoft.com/azure/postgresql/howto-create-manage-server-portal#update-admin-password
+Så här uppdaterar du administratörs lösen ord: https://docs.microsoft.com/azure/postgresql/howto-create-manage-server-portal#update-admin-password
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -326,9 +326,9 @@ Så här uppdaterar du administratörs lösen ord:https://docs.microsoft.com/azu
 
 **Vägledning**: skapa standard procedurer för användning av dedikerade administrativa konton som har åtkomst till dina Azure Database for PostgreSQL-instanser. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton. 
 
-Förstå Azure Security Center identitet och åtkomst:https://docs.microsoft.com/azure/security-center/security-center-identity-access 
+Förstå Azure Security Center identitet och åtkomst: https://docs.microsoft.com/azure/security-center/security-center-identity-access 
 
-Lär dig hur du skapar administratörs användare i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account
+Lär dig hur du skapar administratörs användare i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -341,11 +341,11 @@ Lär dig hur du skapar administratörs användare i Azure Database for PostgreSQ
 
 Separat, kontroll Plans åtkomst för PostgreSQL är tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
 
-Använd Azure Active Directory för autentisering med Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
+Använd Azure Active Directory för autentisering med Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
 
-Förstå Azure Database for PostgreSQL REST API:https://docs.microsoft.com/rest/api/postgresql/
+Förstå Azure Database for PostgreSQL REST API: https://docs.microsoft.com/rest/api/postgresql/
 
-Förstå SSO med Azure AD:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Förstå SSO med Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -355,11 +355,11 @@ Förstå SSO med Azure AD:https://docs.microsoft.com/azure/active-directory/mana
 
 **Vägledning**: aktivera Azure Active Directory Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering. När du använder Azure AD-token för att logga in i databasen kan du kräva Multi-Factor Authentication för databas inloggningar.
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Använd Azure Active Directory för autentisering med Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
+Använd Azure Active Directory för autentisering med Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
 
-Övervaka identitet och åtkomst i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Övervaka identitet och åtkomst i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center övervakning**: Ja
 
@@ -369,9 +369,9 @@ Använd Azure Active Directory för autentisering med Azure Database for Postgre
 
 **Vägledning**: Använd Paw (Privileged Access Workstation) med Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-Lär dig mer om arbets stationer med privilegie rad åtkomst:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Lär dig mer om arbets stationer med privilegie rad åtkomst: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -385,11 +385,11 @@ Dessutom kan du använda Azure Active Directory (AD) Privileged Identity Managem
 
 Använd identifieringar av Azure AD-risker för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-Konfigurera Avancerat skydd för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Konfigurera Avancerat skydd för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Så här distribuerar du Privileged Identity Management (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Så här distribuerar du Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Förstå identifieringar av Azure AD-risker: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Azure Security Center övervakning**: Ja
 
@@ -399,7 +399,7 @@ Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/act
 
 **Vägledning**: använda villkorlig åtkomst med namngivna platser för att tillåta portal och Azure Resource Manager åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -413,7 +413,7 @@ För att logga in på Azure Database for PostgreSQL rekommenderar vi att du anv�
 
 Autentiseringsuppgifter för Azure AD kan också användas för administration på hanterings Plans nivån (t. ex. Azure Portal) för att styra PostgreSQL-administratörskonton.
 
-Använd Azure Active Directory för autentisering med Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
+Använd Azure Active Directory för autentisering med Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-sign-in-aad-authentication
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -423,11 +423,11 @@ Använd Azure Active Directory för autentisering med Azure Database for Postgre
 
 **Vägledning**: granska Azure Active Directory loggar för att identifiera inaktuella konton som kan omfatta de med Azure Database for PostgreSQL administrativa roller. Använd dessutom Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program som kan användas för att få åtkomst till Azure Database for PostgreSQL och roll tilldelningar. Användar åtkomsten bör granskas regelbundet, till exempel var 90: e dag och se till att endast rätt användare har fortsatt åtkomst.
 
-Förstå Azure AD-rapportering:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Förstå Azure AD-rapportering: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-Så här använder du granskningar av Azure Identity Access:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Så här använder du granskningar av Azure Identity Access: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-Granska PostgreSQL-användare och tilldelade roller:https://www.postgresql.org/docs/current/database-roles.html
+Granska PostgreSQL-användare och tilldelade roller: https://www.postgresql.org/docs/current/database-roles.html
 
 **Azure Security Center övervakning**: Ja
 
@@ -437,11 +437,11 @@ Granska PostgreSQL-användare och tilldelade roller:https://www.postgresql.org/d
 
 **Vägledning**: Aktivera diagnostikinställningar för Azure Database for PostgreSQL och Azure Active Directory och skicka alla loggar till en Log Analytics-arbetsyta. Konfigurera önskade aviseringar (t. ex. misslyckade autentiseringsförsök) i Log Analytics.
 
-Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
+Konfigurera och få åtkomst till Server loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-audit
+Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-audit
 
-Så här integrerar du Azure-aktivitets loggar i Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Så här integrerar du Azure-aktivitets loggar i Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -455,13 +455,13 @@ Använd Azure Active Directoryens identitets skydds-och risk identifierings funk
 
 Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
-Konfigurera Avancerat skydd för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
+Konfigurera Avancerat skydd för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-database-threat-protection-portal
 
-Översikt över Azure AD Identity Protection:https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
+Översikt över Azure AD Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
 
-Så här visar du Azure AD-riskfyllda inloggningar:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Så här visar du Azure AD-riskfyllda inloggningar: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: Ja
 
@@ -471,7 +471,7 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 **Vägledning**: inte tillgänglig för tillfället. Customer Lockbox stöds ännu inte för Azure Database for PostgreSQL.
 
-Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -485,7 +485,7 @@ Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azu
 
 **Vägledning**: Använd taggar för att spåra Azure Database for PostgreSQL instanser eller relaterade resurser som lagrar eller bearbetar känslig information.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -495,15 +495,15 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Använd en kombination av privata länkar, tjänst slut punkter och/eller brand Väggs regler för att isolera och begränsa nätverks åtkomsten till dina Azure Database for PostgreSQL-instanser.
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Så här konfigurerar du en privat länk för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
+Så här konfigurerar du en privat länk för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal
 
-Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
+Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-manage-vnet-using-portal
 
-Så här konfigurerar du Azure Database for PostgreSQL brand Väggs regler:https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules
+Så här konfigurerar du Azure Database for PostgreSQL brand Väggs regler: https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -515,9 +515,9 @@ Så här konfigurerar du Azure Database for PostgreSQL brand Väggs regler:https
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Database for PostgreSQL och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Så här minskar du data exfiltrering för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link
+Så här minskar du data exfiltrering för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: Ja
 
@@ -529,7 +529,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 TLS-versionen som stöds för Azure Database for PostgreSQL är TLS 1,0, TLS 1,1, TLS 1,2.
 
-Konfigurera kryptering i överföring för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security
+Konfigurera kryptering i överföring för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security
 
 **Azure Security Center övervakning**: Ja
 
@@ -541,7 +541,7 @@ Konfigurera kryptering i överföring för Azure Database for PostgreSQL:https:/
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -549,11 +549,11 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure Database for PostgreSQL kontroll planet (t. ex. Azure Portal). För data Plans åtkomst (i själva databasen) använder du SQL-frågor för att skapa användare och konfigurera användar behörigheter. RBAC påverkar inte användar behörigheter i databasen.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure Database for PostgreSQL kontroll planet (t. ex. Azure Portal). För data Plans åtkomst (i själva databasen) använder du SQL-frågor för att skapa användare och konfigurera användar behörigheter. Azure RBAC påverkar inte användar behörigheter i databasen.
 
-Konfigurera RBAC i Azure:https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Så här konfigurerar du Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-Så här konfigurerar du användar åtkomst med SQL för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-create-users
+Så här konfigurerar du användar åtkomst med SQL för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -565,7 +565,7 @@ Så här konfigurerar du användar åtkomst med SQL för Azure Database for Post
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Database for PostgreSQL och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -579,7 +579,7 @@ Med hjälp av data kryptering med Kundhanterade nycklar (CMK) för Azure Databas
 
 AskAzureDBforPostgreSQL@service.microsoft.com.
 
-Förstå kryptering i vila för Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-security
+Förstå kryptering i vila för Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-security
 
 Förstå kryptering i vila för Azure Database for PostgreSQL att använda Kundhanterade nycklar:https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql
 
@@ -592,7 +592,7 @@ Förstå kryptering i vila för Azure Database for PostgreSQL att använda Kundh
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i produktions instanser av Azure Database for PostgreSQL och andra kritiska eller relaterade resurser.
 
-Så här skapar du aviseringar för Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar för Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -606,7 +606,7 @@ Så här skapar du aviseringar för Azure aktivitets logg händelser:https://doc
 
 **Vägledning**: inte tillgänglig för tillfället. Azure Security Center har ännu inte stöd för sårbarhets bedömning av Azure Database for PostgreSQL.
 
-Funktions täckning för Azure PaaS Services i Azure Security Center:https://docs.microsoft.com/azure/security-center/features-paas
+Funktions täckning för Azure PaaS Services i Azure Security Center: https://docs.microsoft.com/azure/security-center/features-paas
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -652,11 +652,11 @@ Funktions täckning för Azure PaaS Services i Azure Security Center:https://doc
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive Azure Database for PostgreSQL instanser) i dina prenumerationer. Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
-Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Förstå Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/overview
+Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -666,7 +666,7 @@ Förstå Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/o
 
 **Vägledning**: Använd taggar för att Azure Database for PostgreSQL instanser och andra relaterade resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -676,11 +676,11 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att ordna och spåra Azure Database for PostgreSQL instanser och relaterade resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -704,9 +704,9 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -744,9 +744,9 @@ Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/gove
 
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -764,7 +764,7 @@ Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft
 
 **Vägledning**: Använd den villkorliga Azure-åtkomsten för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering". Detta kan förhindra att resurser skapas och ändras i en hög säkerhets miljö, till exempel instanser av Azure Database for PostgreSQL som innehåller känslig information.
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -798,9 +798,9 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 - Logg anslutningar ska vara aktiverade för PostgreSQL-databas servrar
 
-Så här visar du tillgängliga Azure Policy alias:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -818,9 +818,9 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -838,9 +838,9 @@ Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/poli
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för dina Azure Database for PostgreSQL-instanser och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Så här lagrar du kod i Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Dokumentation om Azure databaser:https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -858,7 +858,7 @@ Dokumentation om Azure databaser:https://docs.microsoft.com/azure/devops/repos/i
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforPostgreSQL" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -876,7 +876,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforPostgreSQL" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Database for PostgreSQL-instanser och relaterade resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -894,11 +894,11 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: för Azure-Virtual Machines eller-webb program som körs på Azure App Service används för att få åtkomst till dina Azure Database for PostgreSQL-instanser använder du hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda Azure Database for PostgreSQL hemlig hantering. Se till att Key Vault mjuk borttagning har Aktiver ATS.
 
-Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Så här skapar du en Key Vault:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Så här ger Key Vault autentisering med en hanterad identitet:https://docs.microsoft.com/azure/key-vault/managed-identity
+Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Azure Security Center övervakning**: Ja
 
@@ -912,9 +912,9 @@ För Azure-Virtual Machines eller-webb program som körs på Azure App Service a
 
 Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
 
-Så här konfigurerar du hanterade identiteter:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Så här konfigurerar du hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 **Azure Security Center övervakning**: Ja
 
@@ -924,7 +924,7 @@ Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/a
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcredscan.html
+Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -973,9 +973,9 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 **Vägledning**: Azure Database for PostgreSQL tar säkerhets kopior av datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständig och differentiell säkerhets kopiering (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
-Så här säkerhetskopierar du en server i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
+Så här säkerhetskopierar du en server i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
 
-Förstå Azure Database for PostgreSQL inledande konfiguration:https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal
+Förstå Azure Database for PostgreSQL inledande konfiguration: https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -987,9 +987,9 @@ Förstå Azure Database for PostgreSQL inledande konfiguration:https://docs.micr
 
 Om du använder Azure Key Vault för att lagra autentiseringsuppgifter för dina Azure Database for PostgreSQL-instanser bör du se till att vanliga automatiserade säkerhets kopieringar av nycklar används.
 
-Så här säkerhetskopierar du en server i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
+Så här säkerhetskopierar du en server i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
 
-Så här säkerhetskopierar du Key Vault nycklar:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Så här säkerhetskopierar du Key Vault nycklar: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1003,7 +1003,7 @@ Den uppskattade återställnings tiden beror på flera faktorer, till exempel da
 
 Testa regelbundet återställning av Azure Database for PostgreSQL instanser.
 
-Så här säkerhetskopierar du en server i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
+Så här säkerhetskopierar du en server i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1013,7 +1013,7 @@ Så här säkerhetskopierar du en server i Azure Database for PostgreSQL:https:/
 
 **Vägledning**: Azure Database for PostgreSQL tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
-Förstå säkerhets kopiering och återställning i Azure Database for PostgreSQL:https://docs.microsoft.com/azure/postgresql/concepts-backup
+Förstå säkerhets kopiering och återställning i Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-backup
 
 **Azure Security Center övervakning**: Ja
 
@@ -1027,13 +1027,13 @@ Förstå säkerhets kopiering och återställning i Azure Database for PostgreSQ
 
 **Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
 
-Konfigurera automatisering av arbets flöden i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+Konfigurera automatisering av arbets flöden i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Vägledning om hur du skapar en egen svars process för säkerhets incident:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Vägledning om hur du skapar en egen svars process för säkerhets incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Microsoft Security Response Center: s uppbyggnad av en incident:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Microsoft Security Response Center: s uppbyggnad av en incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer:https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1053,7 +1053,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1063,7 +1063,7 @@ Se NIST: guide för test, utbildning och övnings program för IT-planer och fun
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part.  Granska incidenter när du är säker på att problemen är lösta.
 
-Så här ställer du in Azure Security Center säkerhets kontakt:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Så här ställer du in Azure Security Center säkerhets kontakt: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Azure Security Center övervakning**: Ja
 
@@ -1073,9 +1073,9 @@ Så här ställer du in Azure Security Center säkerhets kontakt:https://docs.mi
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviserings indikatorn.
 
-Så här konfigurerar du kontinuerlig export:https://docs.microsoft.com/azure/security-center/continuous-export
+Så här konfigurerar du kontinuerlig export: https://docs.microsoft.com/azure/security-center/continuous-export
 
-Strömma aviseringar till Azure Sentinel:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+Strömma aviseringar till Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1085,7 +1085,7 @@ Strömma aviseringar till Azure Sentinel:https://docs.microsoft.com/azure/sentin
 
 **Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer.
 
-Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsoft.com/azure/security-center/workflow-automation
+Konfigurera automatisering av arbets flöde och Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1097,9 +1097,9 @@ Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsof
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att alla kritiska säkerhets brister upptäcks inom 60 dagar
 
-**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center övervakning**: inte tillämpligt
 

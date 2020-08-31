@@ -80,7 +80,7 @@
             - name: Skapa en hanterad disk från en ögonblicksbild
               href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
             - name: Kopiera en hanterad disk
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
@@ -88,7 +88,7 @@
             - name: Skapa en ögonblicksbild från en virtuell hårddisk
               href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
             - name: Kopiera en ögonblicksbild
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Skydda
           items:
             - name: Kryptera en virtuell dator och dess datadiskar
@@ -122,13 +122,13 @@
             - name: Skapa en hanterad disk från en ögonblicksbild
               href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
             - name: Kopiera en hanterad disk
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: Kopiera en ögonblicksbild
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Nätverk
           items:
             - name: Skydda nätverkstrafik mellan virtuella datorer
@@ -222,7 +222,7 @@
             - name: Mv2-serien
               href: ../mv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 'Begränsade vCPU:er'
-              href: ../constrained-vcpu.md
+              href: ../constrained-vcpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Lagringsoptimerad
           items:
             - name: Översikt
@@ -279,7 +279,7 @@
             - name: Vad är Azure-reservationer?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: Flexibilitet för VM-instansstorlek
-              href: ../reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Virtuella Spot-datorer
           displayName: 'pre-empt, preempt'
           href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -305,7 +305,7 @@
             - name: Vad är Azure-reservationer?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilitet för VM-instansstorlek
-              href: ../reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Dedikerade värdar
       href: dedicated-hosts.md
     - name: Underhåll och uppdateringar
@@ -313,21 +313,21 @@
     - name: Disklagring
       items:
         - name: Introduktion till hanterade diskar
-          href: ../managed-disks-overview.md
+          href: ../managed-disks-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Välja en disktyp för virtuella IaaS-datorer
-          href: ../disks-types.md
+          href: ../disks-types.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Kryptering
           href: disk-encryption.md
         - name: Disklagringsreservationer
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Designa för höga prestanda
-          href: ../premium-storage-performance.md
+          href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Diskutvidgning
           href: disk-bursting.md
         - name: Skalbarhetsmål för diskar
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar
-          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Delade diskar
           href: disks-shared.md
         - name: Tillfälliga operativsystemdiskar
@@ -341,7 +341,7 @@
     - name: Säkerhet
       items:
         - name: Säkerhet och principer
-          href: ../security-policy.md
+          href: ../security-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Säkerhetskontroller av Azure Policy
@@ -354,7 +354,7 @@
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Tillstånd och livscykel
-      href: ../states-lifecycle.md
+      href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Övervakning
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Startdiagnostik
@@ -423,7 +423,7 @@
         - name: Översikt över migrering
           href: migration-classic-resource-manager-overview.md
         - name: Djupgående om migrering
-          href: ../migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Planera för migrering
           href: migration-classic-resource-manager-plan.md
         - name: Migrera med hjälp av PowerShell
@@ -433,7 +433,7 @@
         - name: Community-verktyg för migrering
           href: migration-classic-resource-manager-community-tools.md
         - name: VANLIGA FRÅGOR OCH SVAR
-          href: ../migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Använda avbildningar
       displayName: 'SIG, AMI, image'
       items:
@@ -853,9 +853,9 @@
           href: detach-disk.md
         - name: Distribuera diskar med ARM-mall
           displayName: Azure Resource Manager
-          href: ../using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Aktivera delade diskar
-          href: ../disks-shared-enable.md
+          href: ../disks-shared-enable.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Ladda upp en virtuell hårddisk till en disk – PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Importera/exportera en disk på säkert sätt – portalen
@@ -863,11 +863,11 @@
         - name: Ändra storlek på en disk
           href: expand-os-disk.md
         - name: Använda Storage Explorer för att hantera diskar
-          href: ../disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
         - name: Reservera disklagring
-          href: ../disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Skapa en inkrementell ögonblicksbild – PowerShell
           href: disks-incremental-snapshots.md
         - name: Skapa en inkrementell ögonblicksbild – portalen
@@ -901,9 +901,9 @@
         - name: Prestanda
           items:
             - name: Aktivera Write Accelerator
-              href: ../how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Använda ultradiskar
-              href: ../disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Beräkna benchmark för en disk
               href: disks-benchmarks.md
         - name: Hitta icke anslutna diskar – PowerShell

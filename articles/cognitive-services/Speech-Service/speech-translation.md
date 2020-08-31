@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/27/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934505"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055540"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
@@ -30,25 +30,14 @@ Idag använder Microsoft NMT för översättning till de flesta populära språk
 
 ## <a name="core-features"></a>Kärn funktioner
 
-Här är de funktioner som är tillgängliga via API: er för tal-SDK och REST:
+* Översättning av tal till text med igenkännings resultat.
+* Översättning av tal till tal.
+* Stöd för översättning till flera mål språk.
+* Resultat av löpande igenkänning och översättning.
 
-| Användningsfall | SDK | REST |
-|----------|-----|------|
-| Översättning av tal till text med igenkännings resultat. | Ja | Inga |
-| Översättning av tal till tal. | Ja | Inga |
-| Resultat av löpande igenkänning och översättning. | Ja | Inga |
+## <a name="get-started"></a>Kom igång 
 
-## <a name="get-started-with-speech-translation"></a>Kom igång med tal Översättning
-
-Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på mindre än 10 minuter. Den här tabellen innehåller en lista över tal översättnings snabb starter ordnade efter språk.
-
-| Snabbstart | Plattform | API-referens |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Bläddra](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Bläddra](https://aka.ms/csspeech/javaref) |
+Se [snabb start](get-started-speech-translation.md) för att komma igång med tal översättning. Röst översättnings tjänsten är tillgänglig via [talet SDK](speech-sdk.md) och tal- [CLI](spx-overview.md).
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -72,5 +61,6 @@ Om dina program, verktyg eller produkter använder [Translator Speech API](https
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Slutför [snabb](get-started-speech-translation.md) starten för tal omvandling
 * [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 * [Hämta tal-SDK](speech-sdk.md)

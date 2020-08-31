@@ -6,12 +6,12 @@ ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654284"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055693"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uppgradering av noden Azure Kubernetes service (AKS)
 
@@ -20,6 +20,10 @@ AKS stöder uppgradering av avbildningar på en nod så att du är uppdaterad me
 Om du är intresse rad av att lära dig om de senaste avbildningarna som tillhandahålls av AKS kan du läsa mer i [AKS-versions informationen](https://github.com/Azure/AKS/releases) .
 
 Information om hur du uppgraderar Kubernetes-versionen för klustret finns i [uppgradera ett AKS-kluster][upgrade-cluster].
+
+## <a name="limitations"></a>Begränsningar
+
+* AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 
 ## <a name="install-the-aks-cli-extension"></a>Installera AKS CLI-tillägget
 

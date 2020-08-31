@@ -27,8 +27,8 @@ Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [
 | `authEnabled` | `auth_enabled` | Huruvida nyckel autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` och `authEnabled` kan inte vara `True` . Standard, `True` . |
 | `tokenAuthEnabled` | `token_auth_enabled` | Huruvida token-autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` och `authEnabled` kan inte vara `True` . Standard, `False` . |
 | `containerResourceRequirements` | NA | Behållare för processor-och minnes enheterna. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Appar`0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt`0.5` |
+| &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Appar `0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Objekt `0.5` |
 | `appInsightsEnabled` | `enable_app_insights` | Om Application Insights loggning ska aktive ras för webb tjänsten. Standard, `False` . |
 | `scoringTimeoutMs` | `scoring_timeout_ms` | En tids gräns för att genomdriva för Poäng anrop till webb tjänsten. Standard, `60000` . |
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maximalt antal samtidiga förfrågningar per nod för den här webb tjänsten. Standard, `1` . |

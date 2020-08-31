@@ -19,8 +19,8 @@ func new --name HttpExample --template "HTTP trigger"
 ```  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-`func new`skapar en HttpExample.cs-kod fil.
+`func new` skapar en HttpExample.cs-kod fil.
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
-`func new`skapar en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
+`func new` skapar en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 ::: zone-end

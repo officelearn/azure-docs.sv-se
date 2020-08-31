@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131862"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055319"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Speech service: Nyheter i dokument
 
@@ -48,9 +48,6 @@ Om du vill veta mer om uppdateringar av tal-tjänsten, tal-SDK, tal enheter SDK 
 * [Snabb start: Konfigurera utvecklings miljö](quickstarts/setup-platform.md) – har lagt till JavaScript-instruktioner i dokumentationen.
 * [Snabb start: syntetisera tal i en ljudfil](quickstarts/text-to-speech-audio-file.md) som har lagt till JavaScript-instruktioner till dokumentationen.
 * [Snabb start: syntetisera tal till en talare](quickstarts/text-to-speech.md) -tillagda JavaScript-instruktioner i dokumentationen.
-* [Snabb start: Översätt tal-till-tal](quickstarts/translate-speech-to-speech.md) -tillagda JavaScript-instruktioner till dokumentation.
-* [Snabb start: Översätt tal till flera språk](quickstarts/translate-speech-to-text-multiple-languages.md) – JavaScript-instruktioner har lagts till i dokumentationen.
-* [Snabb start: Översätt](quickstarts/translate-speech-to-text.md) instruktioner för att lägga till JavaScript-instruktioner från tal till text i dokumentationen.
 * [Vad är ett nyckelord?](custom-keyword-overview.md) -Uppdaterat kom igång med innehåll och länkar.
 * [Ange käll språk för](how-to-specify-source-language.md) Java Script-och mål-C-instruktioner som har lagts till av tal till text i dokumentationen.
 
@@ -77,7 +74,7 @@ Den här tabellen uppdateras varje månad och visar bara problem som har öppnat
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Körning av tal tjänst behållare fungerar inte|2020-05-13|Öppna|Problem|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|Manish – 95|Exempel på uttals fil|2020-05-11|Öppna|Problem|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java-exemplet är felaktigt.|2020-05-10|Öppna|Problem|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Det går inte att hämta uttal Poäng|2020-05-08|Stängda|Problem|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Det går inte att hämta uttal-Poäng|2020-05-08|Stängda|Problem|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Mall för YAML-fil|2020-05-07|Stängda|Problem|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C#-exempel koden meddelar inte användaren att tala.|2020-05-06|Stängda|Problem|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Uppgradera TTS från v 1.3 till v 1.4|2020-05-05|Stängda|Pull-begäran|

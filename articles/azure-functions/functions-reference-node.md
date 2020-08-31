@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810124"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055336"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -183,15 +183,38 @@ Använd egenskapen i bindnings definitionen för att definiera data typen för e
 Alternativen för `dataType` är: `binary` , `stream` och `string` .
 
 ## <a name="context-object"></a>kontext objekt
-Körningen använder ett `context` objekt för att skicka data till och från din funktion och för att kommunicera med körningen. Context-objektet kan användas för att läsa och ställa in data från bindningar, skriva loggar och använda `context.done` motringning när den exporterade funktionen är synkron.
 
-`context`Objektet är alltid den första parametern för en funktion. Den bör inkluderas eftersom den har viktiga metoder som `context.done` och `context.log` . Du kan namnge objektet oavsett om du vill (till exempel `ctx` eller `c` ).
+Körningen använder ett- `context` objekt för att skicka data till och från din funktion och körnings miljön. Används för att läsa och ange data från bindningar och för att skriva till loggar, `context` är objektet alltid den första parametern som skickas till en funktion.
+
+För funktioner med synkron kod inkluderar kontext objektet det `done` återanrop som du anropar när funktionen utförs. Explicit anrop `done` är onödig vid skrivning av asynkron kod. `done` återanropet anropas implicit.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+Kontexten som skickas till funktionen exponerar en `executionContext` egenskap, som är ett objekt med följande egenskaper:
+
+| Egenskapsnamn  | Typ  | Beskrivning |
+|---------|---------|---------|
+| `invocationId` | Sträng | Innehåller en unik identifierare för det specifika funktions anropet. |
+| `functionName` | Sträng | Anger namnet på den aktiva funktionen |
+| `functionDirectory` | Sträng | Innehåller app-katalogen functions. |
+
+I följande exempel visas hur du returnerar `invocationId` .
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -201,7 +224,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Returnerar ett namngivet objekt som används för att läsa eller tilldela data bindnings data. Du kan få åtkomst till indata och utlösnings bindnings data genom att läsa egenskaper på `context.bindings` . Data för utgående bindning kan tilldelas genom att lägga till data i`context.bindings`
+Returnerar ett namngivet objekt som används för att läsa eller tilldela data bindnings data. Du kan få åtkomst till indata och utlösnings bindnings data genom att läsa egenskaper på `context.bindings` . Data för utgående bindning kan tilldelas genom att lägga till data i `context.bindings`
 
 Följande bindnings definitioner i din function.jspå kan till exempel komma åt innehållet i en kö från `context.bindings.myInput` och tilldela utdata till en kö med hjälp av `context.bindings.myOutput` .
 
@@ -395,7 +418,7 @@ När du arbetar med HTTP-utlösare kan du komma åt HTTP-begäran och svars obje
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Endast svar]_ Genom att anropa `context.res.send(body?: any)` .** Ett HTTP-svar skapas med inkommande `body` som svars text. `context.done()`har implicit namn.
++ **_[Endast svar]_ Genom att anropa `context.res.send(body?: any)` .** Ett HTTP-svar skapas med inkommande `body` som svars text. `context.done()` har implicit namn.
 
 + **_[Endast svar]_ Genom att anropa `context.done()` .** En särskild typ av HTTP-bindning returnerar svaret som skickas till `context.done()` metoden. Följande HTTP-utgående bindning definierar en `$return` utdataparameter:
 
@@ -500,7 +523,7 @@ När du kör lokalt läses AppData in från [local.settings.jsi](functions-run-l
 
 Som standard körs en JavaScript-funktion från `index.js` en fil som delar samma överordnade katalog som dess motsvarande `function.json` .
 
-`scriptFile`kan användas för att hämta en mappstruktur som ser ut som i följande exempel:
+`scriptFile` kan användas för att hämta en mappstruktur som ser ut som i följande exempel:
 
 ```
 FunctionApp
@@ -647,7 +670,7 @@ När du utvecklar Azure Functions i den serverbaserade värd modellen är kall s
 
 När du använder en tjänstespecifik klient i ett Azure Functions program ska du inte skapa en ny klient med varje funktions anrop. Skapa i stället en enda statisk klient i det globala omfånget. Mer information finns i [hantera anslutningar i Azure Functions](manage-connections.md).
 
-### <a name="use-async-and-await"></a>Använda `async` och`await`
+### <a name="use-async-and-await"></a>Använda `async` och `await`
 
 När du skriver Azure Functions i Java Script ska du skriva kod med hjälp av `async` `await` nyckelorden och. Att skriva kod med hjälp av `async` och `await` i stället för återanrop eller `.then` och `.catch` med löfte bidrar till att undvika två vanliga problem:
  - Utlöser ej fångade undantag som [kraschar Node.js processen](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), vilket kan påverka körningen av andra funktioner.

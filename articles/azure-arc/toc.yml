@@ -3,7 +3,7 @@
 - name: Översikt
   items:
     - name: Om Azure Arc
-      href: arc-overview.md
+      href: overview.md
 - name: Arc-aktiverade servrar >
   href: ./servers/overview.md
 - name: Arc-aktiverat Kubernetes >

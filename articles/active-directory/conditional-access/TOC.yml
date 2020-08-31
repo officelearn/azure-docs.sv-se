@@ -33,8 +33,6 @@
           href: concept-conditional-access-grant.md
         - name: Session
           href: concept-conditional-access-session.md
-    - name: Insikter och rapportering
-      href: howto-conditional-access-insights-reporting.md
     - name: Läget Endast rapport
       href: concept-conditional-access-report-only.md
     - name: Tjänstberoenden
@@ -78,6 +76,8 @@
           href: howto-conditional-access-policy-block-access.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
+    - name: Konfigurera läget endast rapport
+      href: howto-conditional-access-insights-reporting.md
     - name: Kräva godkända klientappar
       href: app-based-conditional-access.md
     - name: Kräva appskyddsprincip
@@ -88,12 +88,8 @@
       href: untrusted-networks.md
     - name: Kräva användningsvillkor
       href: terms-of-use.md
-    - name: Läget Konfigurera endast rapport
-      href: howto-conditional-access-report-only.md
     - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
       href: howto-conditional-access-session-lifetime.md
-    - name: Migrera klassiska principer
-      href: policy-migration-mfa.md
     - name: Felsökning
       items:
         - name: Felsöka inloggningsproblem
@@ -102,6 +98,8 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: faqs.md
+    - name: Migrera klassiska principer
+      href: policy-migration-mfa.md
 - name: Referens
   items:
     - name: 'Beta Graph-API:er'

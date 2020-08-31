@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673260"
 ---
-I ett Java-projekt definieras bindningarna som bindnings anteckningar i funktions metoden. Filen *Function. JSON* genereras sedan automatiskt baserat på dessa anteckningar.
+I ett Java-projekt definieras bindningarna som bindnings anteckningar i funktions metoden. *function.js* filen skapas sedan automatiskt baserat på dessa anteckningar.
 
 Bläddra till platsen för funktions koden under _src/main/Java_, öppna filen *Function. java* -projekt och Lägg till följande parameter i `run` metod definitionen:
 

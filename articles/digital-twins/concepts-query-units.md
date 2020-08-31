@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615118"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067713"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Fråga enheter i digitala Azure-enheter 
 
@@ -20,7 +20,9 @@ En Azure Digitals **qu-enhet (** Digital enhets fråga) är en enhet med beräkn
 
 Den sammanfattar de system resurser som processor, IOPS och minne som krävs för att utföra frågor som stöds av digitala Azure-enheter, så att du kan spåra användningen i Query units i stället.
 
-Frågans komplexitet påverkar hur många QUs som används för att köra frågan. 
+Mängden fråge enheter som används för att köra en fråga påverkas av...
+* frågans komplexitet 
+* storleken på resultat uppsättningen (så att en fråga returnerar 10 resultat förbrukar mer QUs än en fråga av liknande komplexitet som bara returnerar ett resultat)
 
 Den här artikeln förklarar hur du förstår enhets enheter och hur du spårar användning av frågekörning.
 

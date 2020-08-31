@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 74fd89633e4add1c577e44b822f1f90a86b3f498
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: 17cc7914c8e02d3b38e2527e1c0bff3afb885b0b
+  ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88167784"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89055104"
 highlightedContent:
   items:
   - title: Vad är Speech Service?
@@ -65,15 +65,12 @@ conceptualContent:
       url: index-text-to-speech.yml
   - title: Talöversättning
     links:
+    - itemType: overview
+      text: Om talöversättning
+      url: speech-translation.md
     - itemType: quickstart
-      text: Översätta tal till text
-      url: quickstarts/translate-speech-to-text.md
-    - itemType: quickstart
-      text: Översätta tal till flera språk
-      url: quickstarts/translate-speech-to-text-multiple-languages.md
-    - itemType: how-to-guide
-      text: Grundläggande om talöversättning
-      url: speech-translation-basics.md
+      text: Komma igång med talöversättning
+      url: get-started-speech-translation.md
     footerLink:
       text: Mer
       url: index-speech-translation.yml
@@ -141,7 +138,7 @@ conceptualContent:
     - itemType: overview
       text: Om Speech Studio (anpassningar)
       url: https://speech.microsoft.com
-  - title: Värd
+  - title: Hosting
     links:
     - itemType: how-to-guide
       text: Speech Service-containrar

@@ -3,12 +3,12 @@ title: Vanliga frågor om katastrof återställning i VMware med Azure Site Reco
 description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086157"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054979"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
@@ -114,7 +114,7 @@ Site Recovery replikerar lokala virtuella VMware-datorer och fysiska servrar til
 
 Nej. Från och med mars 2019 kan du bara replikera till Azure Managed disks i Azure Portal.
 
-Det går bara att replikera nya virtuella datorer till ett lagrings konto med hjälp av PowerShell eller REST API (version 2018-01-10 eller 2016-08-10).
+Det går bara att replikera nya virtuella datorer till ett lagrings konto med hjälp av PowerShell ([AZ. RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) eller REST API (version 2018-01-10 eller 2016-08-10). [Lär dig](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) att konfigurera replikering med hjälp av PowerShell-kommandon.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Vilka är fördelarna med att replikera till Managed disks?
 

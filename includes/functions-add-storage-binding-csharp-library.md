@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190931"
 ---
-I ett C#-klass biblioteks projekt definieras bindningarna som binding-attribut i funktions metoden. *Function. JSON* -filen som krävs av Functions genereras sedan automatiskt baserat på dessa attribut.
+I ett C#-klass biblioteks projekt definieras bindningarna som binding-attribut i funktions metoden. Den *function.js* filen som krävs av Functions genereras sedan automatiskt baserat på dessa attribut.
 
 Öppna projekt filen *HttpExample.cs* och Lägg till följande parameter i `Run` metod definitionen:
 

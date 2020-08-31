@@ -234,13 +234,23 @@
       href: custom-disaster-recovery.md
     - name: Spåra asynkrona REST-åtgärder
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Flytta
+      items:
+        - name: Flytta systemämnen mellan regioner
+          href: move-system-topics-across-regions.md
+        - name: Flytta anpassade ämnen mellan regioner
+          href: move-custom-topics-across-regions.md
+        - name: Flytta domäner mellan regioner
+          href: move-domains-across-regions.md
+        - name: Flytta partnernamnområden mellan regioner
+          href: move-partner-namespaces-across-regions.md
     - name: Skydda
       items:
         - name: Konfigurera privata slutpunkter
           href: configure-private-endpoints.md
         - name: Konfigurera IP-brandvägg
           href: configure-firewall.md
-        - name: Säker webhook med AAD
+        - name: Skydda en webhook med Azure Active Directory
           href: secure-webhook-delivery.md
         - name: Händelseleverans med hanterad identitet
           href: managed-service-identity.md

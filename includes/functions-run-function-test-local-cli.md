@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 06/04/2020
 ms.locfileid: "84436194"
 ---
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Kör din funktion genom att starta den lokala Azure Functions runtime-värden från mappen *LocalFunctionProj* :
 

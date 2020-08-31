@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358301"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071439"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -113,7 +113,7 @@ Kommunikationen mellan varje direktautentisering och Azure AD skyddas med certif
 
 Så länge en direktautentisering körs förblir den aktiv och hanterar ständigt användar inloggnings begär Anden. Om du vill avinstallera en autentiseringsnyckel går du till **kontroll panelen-> program-> program och funktioner** och avinstallerar både **Microsoft Azure AD Connect Authentication agent** och **Microsoft Azure AD Connect agent Updater** -program.
 
-Om du markerar bladet direkt autentisering i [Azure Active Directory administrations Center](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du att Autentiseringstjänsten visas som **inaktiv**. Detta är _förväntat_. Autentiseringstjänsten tas automatiskt bort från listan efter några dagar.
+Om du markerar bladet direkt autentisering i [Azure Active Directory administrations Center](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du att Autentiseringstjänsten visas som **inaktiv**. Detta är _förväntat_. Autentiseringstjänsten tas automatiskt bort från listan efter 10 dagar.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur gör jag för att växlar det till genom strömning?
 

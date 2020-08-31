@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019
-ms.openlocfilehash: 0c03eb9d30d204cbfb7fcd8971dd84f2ba5a7737
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bce1f00603d9304fc544fb92d4cc5f1a429504ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039185"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069008"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Starta ett Azure Stream Analytics jobb
 
@@ -32,7 +33,7 @@ Den första möjliga utdata-händelsen skulle ha en tidsstämpel som är lika me
 
 Gå till jobbet i Azure Portal och välj **Starta** på översikts sidan. Välj en **Start tid för jobb utdata** och välj sedan **Starta**.
 
-Välj ett av alternativen för **Start tid för jobb utskrift**. Alternativen är *nu* *anpassade*och, om jobbet kördes tidigare, *när det senast stoppades*. Se ovan för mer information om de här alternativen.
+Välj ett av alternativen för **Start tid för jobb utskrift**. Alternativen är *nu* *anpassade*och, om jobbet kördes tidigare,  *när det senast stoppades*. Se ovan för mer information om de här alternativen.
 
 ## <a name="visual-studio"></a>Visual Studio
 

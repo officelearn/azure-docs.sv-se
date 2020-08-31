@@ -16,7 +16,7 @@ ms.locfileid: "80673356"
 Även om en funktion bara kan ha en utlösare, kan den ha flera indata-och utgående bindningar, vilket gör att du kan ansluta till andra Azure-tjänster och-resurser utan att skriva anpassad integrerings kod. 
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Du deklarerar dessa bindningar i *Function. JSON* -filen i mappen function. I den tidigare snabb starten innehåller din *Function. JSON* -fil i mappen *HttpExample* två bindningar i `bindings` samlingen:  
+Du deklarerar dessa bindningar i *function.js* filen i mappen function. I den tidigare snabb starten innehåller *function.js* filen i *HttpExample* -mappen två bindningar i `bindings` samlingen:  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -60,5 +60,5 @@ Om du vill skriva till en Azure Storage kö från den här funktionen lägger du
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-I det här fallet `msg` anges funktionen som ett argument för utdata. För en `queue` typ måste du också ange namnet på kön i `queueName` och ange *namnet* på Azure Storage anslutning (från *Local. Settings. JSON*) i `connection` . 
+I det här fallet `msg` anges funktionen som ett argument för utdata. För en `queue` typ måste du också ange namnet på kön i `queueName` och ange *namnet* på den Azure Storage anslutningen (från *local.settings.jspå*) i `connection` . 
 ::: zone-end  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ea46a42fa8063aaf1d67c4f5ae0d2eef3a83fd5a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e22e7c1295747725cf40f1fd1b84b49ab6d6fbb2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242719"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071201"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Azures säkerhets bas linje för Azure cache för Redis
 
@@ -158,7 +158,7 @@ Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 
 DDoS Protection standard ska vara aktive rad
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager ARM-mallar, rollbaserad åtkomst kontroll (RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager ARM-mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
 
 Så här konfigurerar och hanterar du Azure Policy:
 
@@ -216,7 +216,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Vägledning**: Aktivera diagnostiska inställningar i Azure aktivitets logg och skicka loggarna till en Log Analytics-arbetsyta, Azure Event Hub eller Azure Storage-konto för arkivering. Aktivitets loggar ger insikt i de åtgärder som utfördes på Azure-cachen för Redis-instanser på kontroll planet nivå. Med hjälp av Azures aktivitets logg data kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, skicka och ta bort) på kontroll Plans nivån för Azure cache för Redis-instanser.
 
-Så här aktiverar du diagnostikinställningar för Azure aktivitets logg:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Så här aktiverar du diagnostikinställningar för Azure aktivitets logg: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -228,7 +228,7 @@ Så här aktiverar du diagnostikinställningar för Azure aktivitets logg:https:
 
 Även om mått är tillgängliga genom att aktivera diagnostikinställningar, är gransknings loggning på data planet ännu inte tillgängligt för Azure cache för Redis.
 
-Så här aktiverar du diagnostikinställningar för Azure aktivitets logg:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Så här aktiverar du diagnostikinställningar för Azure aktivitets logg: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -262,9 +262,9 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 
 Observera att gransknings loggning på data planet ännu inte är tillgängligt för Azure cache för Redis.
 
-Så här aktiverar du diagnostikinställningar för Azure aktivitets logg:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Så här aktiverar du diagnostikinställningar för Azure aktivitets logg: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-Samla in och analysera Azure-aktivitets loggar i Log Analytics arbets yta i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect
+Samla in och analysera Azure-aktivitets loggar i Log Analytics arbets yta i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -276,7 +276,7 @@ Samla in och analysera Azure-aktivitets loggar i Log Analytics arbets yta i Azur
 
 Även om mått är tillgängliga genom att aktivera diagnostikinställningar, är gransknings loggning på data planet ännu inte tillgängligt för Azure cache för Redis.
 
-Så här konfigurerar du aviseringar för Azure cache för Redis:https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts
+Så här konfigurerar du aviseringar för Azure cache för Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -314,9 +314,9 @@ Så här konfigurerar du aviseringar för Azure cache för Redis:https://docs.mi
 
 **Vägledning**: Azure Active Directory (AD) har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-Så här hämtar du en katalog roll i Azure AD med PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Så här hämtar du en katalog roll i Azure AD med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
 **Azure Security Center övervakning**: Ja
 
@@ -330,7 +330,7 @@ Data Plans åtkomst till Azure cache för Redis kontrol leras via åtkomst nyckl
 
 Vi rekommenderar inte att du skapar standard lösen ord i ditt program. I stället kan du lagra dina lösen ord i Azure Key Vault och sedan använda Azure Active Directory för att hämta dem.
 
-Återskapa Azure cache för Redis-åtkomst nycklar:https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings
+Återskapa Azure cache för Redis-åtkomst nycklar: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -348,9 +348,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 
-Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version):https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version): https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Använda Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Använda Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 **Azure Security Center övervakning**: Ja
@@ -361,9 +361,9 @@ Använda Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutoria
 
 **Vägledning**: Azure cache för Redis använder åtkomst nycklar för att autentisera användare och stöder inte enkel inloggning på data planet nivå. Åtkomst till kontroll planet för Azure cache för Redis är tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
 
-Förstå Azure cache för Redis REST API:https://docs.microsoft.com/rest/api/redis/
+Förstå Azure cache för Redis REST API: https://docs.microsoft.com/rest/api/redis/
 
-Förstå SSO med Azure AD:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Förstå SSO med Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -374,9 +374,9 @@ Förstå SSO med Azure AD:https://docs.microsoft.com/azure/active-directory/mana
 
 **Vägledning**: Aktivera Azure Active Directory (AD) Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Övervaka identitet och åtkomst i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Övervaka identitet och åtkomst i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center övervakning**: Ja
 
@@ -404,9 +404,9 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-Så här distribuerar du Privileged Identity Management (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Så här distribuerar du Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Förstå identifieringar av Azure AD-risker: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Azure Security Center övervakning**: Ja
 
@@ -416,7 +416,7 @@ Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/act
 
 **Vägledning**: Konfigurera namngivna platser i Azure Active Directory (AD) villkorlig åtkomst för att tillåta åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -437,9 +437,9 @@ Azure AD-autentisering kan inte användas för direkt åtkomst till Azure cache 
 
 **Vägledning**: Azure Active Directory (AD) innehåller loggar för att hjälpa dig att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-Förstå Azure AD-rapportering:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Förstå Azure AD-rapportering: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-Så här använder du granskningar av Azure Identity Access:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Så här använder du granskningar av Azure Identity Access: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Azure Security Center övervakning**: Ja
 
@@ -451,9 +451,9 @@ Så här använder du granskningar av Azure Identity Access:https://docs.microso
 
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för Azure AD-användarkonton och skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Du kan konfigurera önskade logg aviseringar i Log Analytics.
 
-Så här integrerar du Azure-aktivitets loggar i Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Så här integrerar du Azure-aktivitets loggar i Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-Så här gör du Azure-kontroll på kort:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Så här gör du Azure-kontroll på kort: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -463,11 +463,11 @@ Så här gör du Azure-kontroll på kort:https://docs.microsoft.com/azure/sentin
 
 **Vägledning**: för konto inloggning beteende avvikelse i kontroll planet använder du Azure Active Directory (AD) identitets skydd och funktioner för identifiering av risker för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
 
-Så här visar du Azure AD-riskfyllda inloggningar:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+Så här visar du Azure AD-riskfyllda inloggningar: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Så här konfigurerar och aktiverar du principer för identitets skydds risker:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Så här konfigurerar och aktiverar du principer för identitets skydds risker: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -535,7 +535,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Microsoft hanterar den underliggande infrastrukturen för Azure cache för Redis och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -563,7 +563,7 @@ https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -571,9 +571,9 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: använda Azure Active Directory (AAD) rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten till Azure-cache för kontroll planet för Redis (t. ex. Azure Portal). 
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure-cachen för Redis kontroll plan (d.v.s. Azure Portal). 
 
-Konfigurera RBAC i Azure:
+Så här konfigurerar du Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -603,11 +603,11 @@ Om du använder Azure cache för Redis-funktionen "Redis data Persistes" skickas
 
 Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering, en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Azure Storage kryptering kan inte inaktive ras. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av ditt lagrings konto, eller så kan du hantera kryptering med dina egna nycklar.
 
-Så här konfigurerar du persistence i Azure cache för Redis:https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
+Så här konfigurerar du persistence i Azure cache för Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
 
-Förstå kryptering för Azure Storage-konton:https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+Förstå kryptering för Azure Storage-konton: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
-Förstå Azures data skydd för kunder:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå Azures data skydd för kunder: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -635,7 +635,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 Microsoft utför sårbarhets hantering på de underliggande systemen som stöder Azure cache för Redis.
 
-Förstå Azure Security Center rekommendationer:https://docs.microsoft.com/azure/security-center/recommendations-reference
+Förstå Azure Security Center rekommendationer: https://docs.microsoft.com/azure/security-center/recommendations-reference
 
 **Azure Security Center övervakning**: Ja
 
@@ -683,11 +683,11 @@ Förstå Azure Security Center rekommendationer:https://docs.microsoft.com/azure
 
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Förstå Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/overview
+Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -715,11 +715,11 @@ Använd dessutom Azure Policy för att ange begränsningar för den typ av resur
 
 - Tillåtna resurstyper
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -845,9 +845,9 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 
-Så här visar du tillgängliga Azure Policy alias:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -865,9 +865,9 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -885,9 +885,9 @@ Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/poli
 
 **Vägledning**: om du använder anpassade Azure policys definitioner eller Azure Resource Manager mallar för Azure cache för Redis-instanser och relaterade resurser använder du Azure databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Så här lagrar du kod i Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Dokumentation om Azure databaser:https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -905,7 +905,7 @@ Dokumentation om Azure databaser:https://docs.microsoft.com/azure/devops/repos/i
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. cache" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -923,7 +923,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. cache" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt genomdriva konfigurationer för Azure cache för Redis-instanser och relaterade resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -979,7 +979,7 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcredscan.html
+Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1087,7 +1087,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Vägledning**: Azure cache för Redis-säkerhetskopieringar från Redis export och Redis persistence lagras i det valda Azure Storage kontot. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering, en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Azure Storage kryptering kan inte inaktive ras. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av ditt lagrings konto, eller så kan du hantera kryptering med dina egna nycklar.
 
-Förstå kryptering för Azure Storage-konton:https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+Förstå kryptering för Azure Storage-konton: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
 **Azure Security Center övervakning**: Ja
 

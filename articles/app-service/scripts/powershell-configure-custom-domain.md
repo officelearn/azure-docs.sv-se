@@ -7,13 +7,13 @@ ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: d70e765cb4e83a89a660a8e6fa1ba91271531fae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 749250f4ee5e1a0a39c9dc36795fa07e9da743a0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083369"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072239"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>Tilldela en anpassad domän till en webbapp med PowerShell
 
@@ -39,7 +39,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |

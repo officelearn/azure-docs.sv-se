@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Fel vid användarmedgivande
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problem vid inloggning från den anpassade portalen
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problem vid inloggning från åtkomstpanelen
+            - name: Problem vid inloggning från Mina appar
               href: application-sign-in-other-problem-access-panel.md
             - name: Fel på inloggningssidan för programmet
               href: application-sign-in-problem-application-error.md
-            - name: Problem med enkel inloggning med lösenord – inte galleriapp
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: Problem med enkel inloggning med lösenord – galleriapp
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problem med att logga in i en Microsoft-app
               href: application-sign-in-problem-first-party-microsoft.md
             - name: Problem med extern enkel inloggning – inte galleriapp
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Felsöka enkel inloggning
           items:
+            - name: Felsöka lösenordsbaserad enkel inloggning
+              href: troubleshoot-password-based-sso.md
             - name: Vanliga problem vid konfiguration av externa – galleriappar
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Vanliga problem vid konfiguration av externa – inte galleriappar
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: Vanliga problem vid konfiguration av lösenord – galleriappar
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: Vanliga problem vid konfiguration av lösenord – inte galleriappar
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Felsöka applistor och tilldelning
           items:
             - name: Hantera listan med program för klientorganisationen
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: Felsöka Mina appar
           items:
-            - name: Hantera webbläsartillägg
-              href: manage-access-panel-browser-extension.md
             - name: Appen visas inte
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: Oväntad app visas
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: Det går inte att logga in
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Fel vid användning av appåtkomst via självbetjäning
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Felsöka lokala appar
           items:
             - name: Felsökning av programproxy

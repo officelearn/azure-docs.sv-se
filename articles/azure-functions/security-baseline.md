@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 32905383b046148893492640fe42fc721d1944dd
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4d4f6ff7819ef3cd0cf8e6a4c504a9b89dd5fda9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810249"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070674"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azures säkerhets bas linje för Azure Functions
 
@@ -179,7 +179,7 @@ Alternativt finns det flera Marketplace-alternativ som Barracuda-WAF för Azure 
 - Funktionsapp bör endast vara tillgängligt via HTTPS
 - Den senaste TLS-versionen ska användas i Funktionsapp
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -595,9 +595,9 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: använda Azure Active Directory (AD) rollbaserad åtkomst kontroll (RBAC) för att styra åtkomsten till Azure Function Control-planet (Azure Portal). 
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra åtkomsten till Azure Function Control-planet (Azure Portal). 
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

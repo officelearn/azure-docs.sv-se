@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049255"
+ms.locfileid: "89068634"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -37,7 +37,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 1. Under **molnappar eller åtgärder**väljer du **alla molnappar**.
    1. Välj **Klar**.
 1. **Conditions**  >  Ange **Konfigurera** till **Ja**under villkor för**klient program**.
-   1. Kontrol lera bara rutorna **Exchange ActiveSync-klienter** och **andra klienter**.
+   1. Kontrol lera bara rutorna **Exchange ActiveSync-klienter** och **andra klienter**. Om du vill distribuera principen för villkorlig åtkomst för Exchange ActiveSync i Azure måste användaren också vara global administratör.
    1. Välj **Klar**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **blockera åtkomst**.
    1. Välj **Välj**.

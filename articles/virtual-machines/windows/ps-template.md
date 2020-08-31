@@ -7,16 +7,20 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d0d3e6836e2f87c503ac5154a54aeb0dd1c0e26
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ddd8166dd29d2210fecdd72d5be446df47a6c5df
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266307"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072306"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en virtuell Windows-dator från en Resource Manager-mall
 
 Lär dig hur du skapar en virtuell Windows-dator med hjälp av en Azure Resource Manager-mall och Azure PowerShell från Azure Cloud Shell. Mallen som används i den här artikeln distribuerar en enskild virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät. Information om hur du skapar en virtuell Linux-dator finns i [så här skapar du en virtuell Linux-dator med Azure Resource Manager mallar](../linux/create-ssh-secured-vm-from-template.md).
+
+Ett alternativ är att distribuera mallen från Azure Portal. Öppna mallen i portalen genom att välja knappen **distribuera till Azure** .
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 

@@ -12,12 +12,12 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853593"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068734"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Gör så här: Ange valfria anspråk för din app
 
@@ -37,7 +37,7 @@ Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id
 
 | Kontotyp               | v 1.0-token | v 2.0-token |
 |----------------------------|-------------|-------------|
-| Personlig Microsoft-konto | Saknas         | Stöds   |
+| Personlig Microsoft-konto | Ej tillämpligt         | Stöds   |
 | Azure AD-konto           | Stöds   | Stöds   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v 1.0 och v 2.0 valfria anspråks uppsättningar
@@ -49,7 +49,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 
 **Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Name                       |  Beskrivning   | Tokentyp | Användar typ | Anteckningar  |
+| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Anteckningar  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
@@ -58,7 +58,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 | `verified_secondary_email` | Källan från användarens SecondaryAuthoritativeEmail   | JWT        |           |        |
 | `vnet`                     | Information om VNET-specifikation. | JWT        |           |      |
 | `fwd`                      | IP-adress.| JWT    |   | Lägger till den ursprungliga IPv4-adressen för den begär ande klienten (i ett VNET) |
-| `ctry`                     | Användarens land/region | JWT |  | Azure AD returnerar det `ctry` valfria anspråket om det finns och värdet för fältet är en vanlig lands-/regionkod i två bokstäver, till exempel fr, JP, sz och så vidare. |
+| `ctry`                     | Användarens land/region | JWT, SAML |  | Azure AD returnerar det `ctry` valfria anspråket om det finns och värdet för fältet är en vanlig lands-/regionkod i två bokstäver, till exempel fr, JP, sz och så vidare. |
 | `tenant_ctry`              | Resurs innehavarens land | JWT | | Samma som `ctry` förutom set på klient nivå av en administratör.  Måste också vara ett standard värde på två bokstäver. |
 | `xms_pdl`             | Önskad data plats   | JWT | | För flera geo-klienter är den önskade data platsen den tre bokstavs koden som visar den geografiska region som användaren är i. Mer information finns i Azure AD Connect- [dokumentationen om önskad data plats](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Exempel: `APC` för Asien och Stillahavsområdet. |
 | `xms_pl`                   | Användarens prioriterade språk  | JWT ||Användarens önskade språk, om det är inställt. Från hem klienten, i scenarier med gäst åtkomst. Formaterat lla-CC ("en-US"). |
@@ -76,7 +76,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 **Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT-anspråk     | Name                            | Beskrivning                                | Anteckningar |
+| JWT-anspråk     | Namn                            | Beskrivning                                | Anteckningar |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
@@ -398,7 +398,7 @@ I exemplet nedan använder du användar gränssnittet för **token-konfiguration
 
 **Manifest konfiguration:**
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. När du har autentiserat väljer du din Azure AD-klient genom att välja den från det övre högra hörnet på sidan.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. Hitta det program som du vill konfigurera valfria anspråk för i listan och markera det.

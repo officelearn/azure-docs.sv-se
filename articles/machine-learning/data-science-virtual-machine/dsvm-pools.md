@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: cc0efc0a076ddc3fc9425999f1e38b4a32dec7a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46572853cf882df4d6909297dd058d5ccaf782e1
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477348"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144778"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Skapa en delad pool av data vetenskaps Virtual Machines
 
 I den här artikeln får du lära dig hur du skapar en delad pool med data vetenskaps Virtual Machines (Dsvm) för ett team. Fördelarna med att använda en delad pool är bättre resursutnyttjande, enklare delning och samarbete och effektivare hantering av DSVM-resurser.
 
-Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den här artikeln fokuserar på pooler för interaktiva virtuella datorer (VM). En alternativ hanterad beräknings infrastruktur är Azure Machine Learning beräkning. Mer information finns i [Konfigurera Compute-mål](../how-to-set-up-training-targets.md#amlcompute).
+Du kan använda många metoder och tekniker för att skapa en pool med Dsvm. Den här artikeln fokuserar på pooler för interaktiva virtuella datorer (VM). En alternativ hanterad beräknings infrastruktur är Azure Machine Learning beräkning. Mer information finns i [skapa Compute-mål med python SDK](../how-to-create-attach-compute-sdk.md).
 
 ## <a name="interactive-vm-pool"></a>Interaktiv VM-pool
 

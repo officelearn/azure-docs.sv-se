@@ -1,0 +1,116 @@
+---
+title: Översikt över Kubernetes-kluster på Microsoft Azure Stack Edge-enhet | Microsoft Docs
+description: Beskriver hur Kubernetes implementeras på din Azure Stack Edge-enhet.
+services: databox
+author: alkohli
+ms.service: databox
+ms.subservice: edge
+ms.topic: conceptual
+ms.date: 08/28/2020
+ms.author: alkohli
+ms.openlocfilehash: b85586a431a20102035e253537fc45c8a8a54796
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89085404"
+---
+# <a name="kubernetes-on-your-azure-stack-edge-device"></a>Kubernetes på din Azure Stack Edge-enhet
+
+Kubernetes är en populär plattform med öppen källkod för att dirigera program i behållare. Den här artikeln innehåller en översikt över Kubernetes och en beskrivning av hur Kubernetes fungerar på din Azure Stack Edge-enhet. 
+
+## <a name="about-kubernetes"></a>Om Kubernetes 
+
+Kubernetes tillhandahåller en enkel och tillförlitlig plattform för att hantera behållarebaserade program och deras associerade nätverks-och lagrings komponenter. Du kan snabbt skapa, leverera och skala appar i behållare med Kubernetes.
+
+Som en öppen plattform kan du använda Kubernetes för att skapa program med önskat programmeringsspråk, OS-bibliotek eller meddelande buss. Om du vill schemalägga och distribuera versioner kan Kubernetes integrera med befintliga kontinuerliga integrerings-och kontinuerliga leverans verktyg.
+
+Mer information finns i [så här fungerar Kubernetes](https://www.youtube.com/watch?v=q1PcAawa4Bg&list=PLLasX02E8BPCrIhFrc_ZiINhbRkYMKdPT&index=2&t=0s).
+
+## <a name="kubernetes-on-azure-stack-edge"></a>Kubernetes på Azure Stack Edge
+
+På din Azure Stack Edge-enhet kan du skapa ett Kubernetes-kluster genom att konfigurera data bearbetningen. När Compute-rollen har kon figurer ATS distribueras och konfigureras Kubernetes-klustret, inklusive huvud-och arbetsnoderna. Klustret används sedan för arbets belastnings distribution via `kubectl` , IoT Edge eller Azure-båge.
+
+Azure Stack Edge-enheten är tillgänglig som en konfiguration med 1 nod som utgör infrastruktur klustret. Kubernetes-klustret är skilt från infrastruktur klustret och distribueras ovanpå infrastruktur klustret. Infrastruktur klustret ger den beständiga lagringen för Azure Stack Edge-enheten medan Kubernetes-klustret endast är ansvarigt för programdirigering. 
+
+Kubernetes-klustret i det här fallet har en huvud-nod och en arbetsnoden. Kubernetes-noderna i ett kluster är virtuella datorer som kör dina program och moln arbets flöden. 
+
+Huvudnoden Kubernetes ansvarar för att underhålla det önskade läget för klustret. Huvudnoden styr också arbetsnoden som i sin tur kör program i behållare. 
+
+I följande diagram illustreras implementeringen av Kubernetes på en Edge-enhet med 1 nod Azure Stack. 1-nodens enhet är inte hög tillgänglig och om den enskilda noden kraschar, stängs enheten av. Kubernetes-klustret försvinner också.
+
+![Kubernetes-arkitektur för en 1-nods Azure Stack Edge-enhet](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
+
+Mer information om Kubernetes-kluster arkitekturen finns i [Kubernetes Core-koncept](https://kubernetes.io/docs/concepts/architecture/).
+
+
+<!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
+
+- *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.
+- *etcd* that is a highly available key value store that backs up all the Kubernetes cluster data.
+- *kube-scheduler* that makes scheduling decisions.
+- *kube-controller-manager* that runs controller processes such as those for node controllers, replications controllers, endpoint controllers, and service account and token controllers. -->
+
+## <a name="storage-volume-provisioning"></a>Lagrings volym etablering
+
+För att stödja arbets belastningar för program kan du montera lagrings volymer för beständiga data på dina Azure Stack gräns enhets resurser. Du kan använda både statiska och dynamiska volymer. 
+
+Mer information finns i lagrings etablerings alternativ för program i [Kubernetes-lagring för din Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md).
+
+## <a name="networking"></a>Nätverk
+
+Med Kubernetes Networking kan du konfigurera kommunikation i ditt Kubernetes-nätverk, inklusive behållare-till-container-nätverk, Pod-till-Pod-nätverk, Pod-till-tjänst-nätverk och Internet-till-tjänst-nätverk. Mer information finns i nätverks modellen i Kubernetes- [nätverk för din Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-networking.md).
+
+## <a name="updates"></a>Uppdateringar
+
+När nya Kubernetes-versioner blir tillgängliga kan klustret uppgraderas med de standard uppdateringar som är tillgängliga för din Azure Stack Edge-enhet. Anvisningar om hur du uppgraderar finns i [tillämpa uppdateringar för Azure Stack Edge](azure-stack-edge-gpu-install-update.md).
+
+## <a name="access-monitoring"></a>Åtkomst, övervakning
+
+Kubernetes-klustret på din Azure Stack Edge-enhet tillåter rollbaserad åtkomst kontroll (RBAC). Mer information finns i [rollbaserad åtkomst kontroll för Kubernetes-kluster på din Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-rbac.md).
+
+Du kan också övervaka hälso tillståndet för klustret och resurserna via Kubernetes-instrumentpanelen. Behållar loggar är också tillgängliga. Mer information finns i [använda Kubernetes-instrumentpanelen för att övervaka Kubernetes-klustrets hälso tillstånd på din Azure Stack Edge-enhet](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+
+Azure Monitor är också tillgängligt som ett tillägg för att samla in hälso data från behållare, noder och styrenheter. Mer information finns i [Azure Monitor översikt](../azure-monitor/overview.md)
+
+<!--## Private container registry
+
+Kubernetes on Azure Stack Edge device allows for the private storage of your images by providing a local container registry.-->
+
+## <a name="application-management"></a>Programhantering
+
+När ett Kubernetes-kluster har skapats på din Azure Stack Edge-enhet kan du hantera de program som distribueras i det här klustret via någon av följande metoder:
+
+- Inbyggd åtkomst via `kubectl`
+- IoT Edge 
+- Azure Arc
+
+Dessa metoder beskrivs i följande avsnitt.
+
+
+### <a name="kubernetes-and-kubectl"></a>Kubernetes och kubectl
+
+När Kubernetes-klustret har distribuerats kan du hantera de program som distribueras i klustret lokalt från en klient dator. Du använder ett inbyggt verktyg som *kubectl* via kommando raden för att interagera med programmen. 
+
+Mer information om hur du distribuerar Kubernetes-kluster finns i [distribuera ett Kubernetes-kluster på din Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md). Mer information om hantering finns i [använda kubectl för att hantera Kubernetes-kluster på din Azure Stack Edge-enhet](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+
+
+### <a name="kubernetes-and-iot-edge"></a>Kubernetes och IoT Edge
+
+Kubernetes kan också integreras med IoT Edge arbets belastningar på Azure Stack Edge-enhet där Kubernetes tillhandahåller skalning och eko systemet och IoT tillhandahåller IoT-det koncentriska eko systemet. Kubernetes-skiktet används som ett infrastruktur lager för att distribuera Azure IoT Edge-arbetsbelastningar. Modulens livs längd och utjämning av nätverks belastning hanteras av Kubernetes medan gräns programmets plattform hanteras av IoT Edge.
+
+Om du vill ha mer information om hur du distribuerar program i ditt Kubernetes-kluster via IoT Edge går du till: 
+
+- [Exponera tillstånds lösa program på Azure Stack Edge-enhet via IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+
+
+### <a name="kubernetes-and-azure-arc"></a>Kubernetes och Azure-båge
+
+Azure Arc är ett hybrid hanterings verktyg som gör att du kan distribuera program i Kubernetes-kluster. Med Azure ARC kan du också använda Azure Monitor för behållare för att visa och övervaka dina kluster. Mer information finns i [Vad är Azure-Arc-aktiverade Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Information om priser för Azure Arc finns i [priser för Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om Kubernetes Storage på [Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md).
+- Förstå Kubernetes Network Model på [Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-networking.md).
+- Distribuera [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) i Azure Portal.

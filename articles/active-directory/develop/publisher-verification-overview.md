@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120787"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068481"
 ---
 # <a name="publisher-verification-preview"></a>Verifiering av utgivare (förhandsversion)
 
@@ -42,13 +42,13 @@ Det finns några krav för utgivar verifiering, varav vissa redan har slutförts
 
 -  Ett MPN-ID för ett giltigt [Microsoft Partner Network](https://partner.microsoft.com/membership) -konto som har slutfört [verifierings](/partner-center/verification-responses) processen. Det här MPN-kontot måste vara [partnerns globala konto (pga)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) för din organisation. 
 
--  En Azure AD-klient med en DNS-verifierad [domän](../fundamentals/add-custom-domain.md). Den anpassade domänen måste matcha domänen för den e-postadress som användes vid verifieringen i föregående steg. 
+-  En app som är registrerad i en Azure AD-klient med en [Publisher-domän](howto-configure-publisher-domain.md) konfigurerad.
 
--  En app som är registrerad i en Azure AD-klient, med en [Publisher-domän](howto-configure-publisher-domain.md) konfigurerad med samma domän som tidigare användes. 
+-  Domänen för e-postadressen som används vid verifiering av MPN-kontot måste antingen matcha utgivarens domän som har kon figurer ATS på appen eller en DNS-verifierad [domän](../fundamentals/add-custom-domain.md) som lagts till i Azure AD-klienten. 
 
 -  Den användare som utför verifieringen måste ha behörighet att göra ändringar i både appens registrering i Azure AD och MPN-kontot i Partner Center. 
 
-    -  I Azure AD måste användaren antingen vara ägare till appen eller ha en av följande [roller](../users-groups-roles/directory-assign-admin-roles.md): program administratör, Cloud program admin, global administratör. 
+    -  I Azure AD måste den här användaren vara medlem i någon av följande [roller](../users-groups-roles/directory-assign-admin-roles.md): program administratör, moln program administratör eller global administratör. 
 
     -  Den här användaren måste ha följande [roller](/partner-center/permissions-overview)i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD).
     

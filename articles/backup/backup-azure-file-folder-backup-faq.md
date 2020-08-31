@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och sv
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: ca2753e4d6da7e2e3079f234a3facac27fd5f098
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874630"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144472"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
@@ -22,7 +22,7 @@ Den senaste MARS-agenten som används för att säkerhetskopiera Windows Server-
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Var kan jag hämta filen med autentiseringsuppgifter för valvet?
 
-I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering**markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Hämta**.
+I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering**markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Download** (Ladda ned).
 
 ![Hämta autentiseringsuppgifter](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -109,7 +109,7 @@ Storleken på cache-mappen avgör mängden data som du säkerhetskopierar.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Så här kontrollerar du om mappen Scratch är giltig och tillgänglig?
 
-1. Som standard finns en Scratch-mapp på`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Som standard finns en Scratch-mapp på `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Kontrol lera att sökvägen till din startmapp-plats matchar värdena i de register nyckel poster som visas nedan:
 
     | Sökväg i registret | Registernyckel | Värde |
@@ -123,7 +123,7 @@ Storleken på cache-mappen avgör mängden data som du säkerhetskopierar.
 
     ```Net stop obengine```
 2. Om du har konfigurerat säkerhets kopiering av system tillstånd öppnar du disk hantering och avmonterar diskarna med namn i formatet `"CBSSBVol_<ID>"` .
-3. Som standard finns mappen Scratch i`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+3. Som standard finns mappen Scratch i `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Kopiera hela `\Scratch` mappen till en annan enhet som har tillräckligt med utrymme. Se till att innehållet kopieras och inte flyttas.
 5. Uppdatera följande register poster med sökvägen till den nyligen flyttade Scratch-mappen.
 
@@ -199,7 +199,7 @@ Om du har samma lösen fras (som du angav under registreringen) på den ursprung
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mina säkerhets kopierings jobb har misslyckats eller inte körs under en längre tid. Jag har gått förbi kvarhållningsperioden. Kan jag fortfarande återställa?
 
-Som säkerhets åtgärd bevarar Azure Backup den senaste återställnings punkten, även om den överskrider kvarhållningsperioden. När säkerhets kopiorna återupptas och nya återställnings punkter blir tillgängliga tas den äldre återställnings punkten bort enligt den angivna kvarhållning.
+Som en säkerhets åtgärd kommer Azure Backup att bevara den senaste återställnings punkten, även om den har gått förbi kvarhållningsperioden. När säkerhets kopiorna återupptas och nya återställnings punkter blir tillgängliga tas den äldre återställnings punkten bort enligt den angivna kvarhållning.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter ett pågående återställnings jobb?
 

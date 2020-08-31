@@ -36,7 +36,7 @@ För att slutföra del 1 och 2 av den här självstudien utför du följande upp
 > * ...i lagringskontot.
 > * ...i Power BI-visualiseringen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * I del 1 av den här självstudien:
   - Du måste ha en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.

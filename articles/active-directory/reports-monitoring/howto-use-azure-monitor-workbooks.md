@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608958"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226989"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -42,13 +42,13 @@ Vill du:
 
 - Få djupare insikter om inloggnings logg frågor, arbets boken rapporterar hur många användare som har beviljats eller nekats åtkomst, samt hur många användare som ignorerade principer för villkorlig åtkomst vid åtkomst till resurser.
 
-- För att hjälpa dig att åtgärda de här frågorna innehåller Azure Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
+- För att hjälpa dig att åtgärda de här frågorna innehåller Azure Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
 
 
 
 Den här artikeln:
 
-- Förutsätter att du är bekant med hur du [skapar interaktiva rapporter med hjälp av övervaka arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+- Förutsätter att du är bekant med hur du [skapar interaktiva rapporter med hjälp av övervaka arbets böcker](../../azure-monitor/platform/workbooks-overview.md).
 
 - Förklarar hur du använder övervaknings arbets böcker för att förstå effekterna av dina principer för villkorlig åtkomst, för att felsöka inloggnings fel och för att identifiera äldre autentiseringar.
  
@@ -58,11 +58,11 @@ Den här artikeln:
 
 Om du vill använda övervaknings arbets böcker behöver du:
 
-- En Azure Active Directory klient med en Premium-licens (P1 eller P2). Lär dig hur du [skaffar en Premium-licens](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- En Azure Active Directory klient med en Premium-licens (P1 eller P2). Lär dig hur du [skaffar en Premium-licens](../fundamentals/active-directory-get-started-premium.md).
 
-- En [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- En [Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md).
 
-- [Åtkomst](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
+- [Åtkomst](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
 - Följande roller i Azure Active Directory (om du får åtkomst till Log Analytics via Azure Active Directory Portal)
     - Säkerhetsadministratör
     - Säkerhetsläsare
@@ -70,7 +70,7 @@ Om du vill använda övervaknings arbets böcker behöver du:
     - Global administratör
 
 ## <a name="roles"></a>Roller
-Du måste vara i någon av följande roller och ha [åtkomst till underliggande Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) arbets yta för att hantera arbets böckerna:
+Du måste vara i någon av följande roller och ha [åtkomst till underliggande Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) arbets yta för att hantera arbets böckerna:
 -   Global administratör
 -   Säkerhetsadministratör
 -   Säkerhetsläsare
@@ -116,7 +116,7 @@ Du kan filtrera varje trend enligt följande kategorier:
 
 För varje trend får du en uppdelning med följande kategorier:
 
-- Location
+- Plats
 
     ![Inloggningar efter plats](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -204,9 +204,9 @@ Effekt sammanfattningen visar antalet användare eller inloggningar för vilka d
 I den här arbets boken visas även effekten av de valda principerna uppdelade efter vart och ett av sex villkor: 
 - **Enhets tillstånd**
 - **Enhetsplattform**
-- **Klientappar**
-- **Inloggnings risk**
-- **Position**
+- **Klient program**
+- **Inloggningsrisk**
+- **Plats**
 - **Program**
 
 ![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/device-platform.png)
@@ -302,4 +302,4 @@ För att hjälpa dig att felsöka inloggningar ger Azure Monitor en uppdelning e
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa interaktiva rapporter med hjälp av övervaka arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Skapa interaktiva rapporter med hjälp av övervaka arbets böcker](../../azure-monitor/platform/workbooks-overview.md).

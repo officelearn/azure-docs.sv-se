@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1bfd83534bda6397983b0595acc089e901c473d6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021491"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182045"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -59,7 +59,7 @@ Azure Backup använder VM Snapshot-tillägget för att göra en programkonsekven
 
 - **Kontrol lera om nätverks åtkomst krävs**: tilläggen laddas ned från Azure Storage tilläggets lagrings plats och tilläggets status för överföring skickas till Azure Storage. [Läs mer](../virtual-machines/extensions/features-windows.md#network-access).
   - Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
-  - Om du har blockerat åtkomst till `168.63.129.16` med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen inte att fungera oavsett ovan. Portarna 80, 443 och 32526 krävs, [Läs mer](../virtual-machines/extensions/features-windows.md#network-access).
+  - Om du har blockerat åtkomst till `168.63.129.16` med hjälp av gäst brand väggen eller med en proxy kommer tilläggen att Miss klaras oavsett ovan. Portarna 80, 443 och 32526 krävs, [Läs mer](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Se till att DHCP är aktiverat i den virtuella gäst datorn**: detta krävs för att hämta värden eller infrastruktur resursen från DHCP för att IaaS VM-säkerhetskopiering ska fungera. Om du behöver en statisk privat IP-adress bör du konfigurera den via Azure Portal eller PowerShell och kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat, [Läs mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 

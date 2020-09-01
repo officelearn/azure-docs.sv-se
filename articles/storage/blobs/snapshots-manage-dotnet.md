@@ -1,27 +1,27 @@
 ---
 title: Skapa och hantera en BLOB-ögonblicksbild i .NET
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en skrivskyddad ögonblicks bild av en BLOB för att säkerhetskopiera BLOB-data vid en specifik tidpunkt.
+description: Lär dig hur du använder .NET-klient biblioteket för att skapa en skrivskyddad ögonblicks bild av en BLOB för att säkerhetskopiera BLOB-data vid en specifik tidpunkt.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020821"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226139"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Skapa och hantera en BLOB-ögonblicksbild i .NET
 
 En ögonblicks bild är en skrivskyddad version av en blob som tas vid en tidpunkt. Den här artikeln visar hur du skapar och hanterar BLOB-ögonblicksbilder med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Mer information om BLOB-ögonblicksbilder i Azure Storage finns i [skapa och hantera en BLOB-ögonblicksbild i .net](snapshots-overview.md).
+Mer information om BLOB-ögonblicksbilder i Azure Storage finns i [BLOB-ögonblicksbilder](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -162,5 +162,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>Nästa steg
 
 - [BLOB-ögonblicksbilder](snapshots-overview.md)
-- [BLOB-versioner (för hands version)](versioning-overview.md)
+- [BLOB-versioner](versioning-overview.md)
 - [Mjuk borttagning för blobar](storage-blob-soft-delete.md)

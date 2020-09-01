@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc921e319b5ac16cb39001b5ffba5de48727d84
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607125"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181943"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -35,7 +35,7 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Ursprunglig sårbarhets bedömning](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -45,9 +45,9 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
-|Disk krypterings bedömning|✔|✔|-|Ingenting|
-|Sårbarhets bedömning från tredje part|✔|-|-|Ingenting|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Ingenting|
+|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 
 ### <a name="linux-machines"></a>[**Linux-datorer**](#tab/features-linux)
@@ -59,7 +59,7 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Ursprunglig sårbarhets bedömning](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Ursprunglig sårbarhets bedömning](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -68,10 +68,10 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Standard|
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: kostnads fri<br><br>Icke-Azure: standard|
-|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Ingenting|
-|Disk krypterings bedömning|✔|✔|-|Ingenting|
-|Sårbarhets bedömning från tredje part|✔|-|-|Ingenting|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Ingenting|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Kostnadsfri|
+|Disk krypterings bedömning|✔|✔|-|Kostnadsfri|
+|Sårbarhets bedömning från tredje part|✔|-|-|Kostnadsfri|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 --- 
 
@@ -91,13 +91,13 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 
 | Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
-| Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Ja |
-| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
+| Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Yes |
+| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Yes |
 | Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
 | Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
 | McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Nej | Ja  **\***  |
+| McAfee v10 + | Linux Server-serien  | No | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | No | Ja  **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 

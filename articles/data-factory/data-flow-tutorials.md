@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 3400bc8799a7db966b5d6adc79a196932bd01eaa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067859"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226275"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Videokurser för dataflödesmappning
 
@@ -106,8 +106,6 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 ## <a name="optimizing-mapping-data-flows"></a>Optimerar mappnings data flöden
 
 [Dataursprung](https://www.youtube.com/watch?v=5KvqYF-y93s)
-
-[Optimeringstips](https://www.youtube.com/watch?v=a2KtwUJngHo)
 
 [Iterera filer med parametrar](http://youtu.be/uEgz0ptYRDM?hd=1)
 

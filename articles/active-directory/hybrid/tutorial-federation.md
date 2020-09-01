@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 200cc996acddecbfc1424ff24295d1373cdb3c23
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80673707"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226666"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: federera en enda AD-skogs miljö i molnet
 
@@ -27,7 +27,7 @@ ms.locfileid: "80673707"
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med federation.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
@@ -140,7 +140,7 @@ Nu när vi har skapat den virtuella datorn och den har bytt namn och har en stat
 $DatabasePath = "c:\windows\NTDS"
 $DomainMode = "WinThreshold"
 $DomainName = "contoso.com"
-$DomaninNetBIOSName = "CONTOSO"
+$DomainNetBIOSName = "CONTOSO"
 $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
@@ -287,7 +287,7 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Anpassade inställningar](how-to-connect-install-custom.md)

@@ -1,152 +1,147 @@
 ---
 title: Ledger-konsortiet i Azure Kubernetes service (AKS)
-description: Så här distribuerar och konfigurerar du nätverk för huvud konto för infrastruktur resurser i Azure Kubernetes service
+description: Så här distribuerar och konfigurerar du ett huvud nätverk för ett huvud nätverk i Azure Kubernetes service
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d23a0120aafb4dc3e6952b40959a20f9a3456614
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184218"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226886"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
 
-Du kan använda HLF (Ledger) i Azure Kubernetes service (AKS)-mallen för att distribuera och konfigurera ett huvud nätverk för ett huvud nätverk i Azure.
+Du kan använda huvud strukturen i Kubernetes-mallen (AKS) för att distribuera och konfigurera ett huvud nätverk för ett huvud nätverk i Azure.
 
 När du har läst den här artikeln, kommer du att:
 
-- Få kunskaper om huvud infrastruktur resurser och de olika komponenterna som utgör Bygg stenarna i blockchain-nätverket i huvud boken.
-- Lär dig hur du distribuerar och konfigurerar ett Ledger-konsortium i Azure Kubernetes service för dina produktions scenarier.
+- Ha en fungerande kunskap om huvud struktur och de komponenter som utgör Bygg stenarna i ett blockchain nätverk i ett huvud nätverk.
+- Lär dig hur du distribuerar och konfigurerar ett huvud nätverk i Kubernetes i Azure service för dina produktions scenarier.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="choose-an-azure-blockchain-solution"></a>Välj en Azure blockchain-lösning
 
-Innan du väljer att använda en lösnings mall bör du jämföra scenariot med vanliga användnings fall av tillgängliga alternativ för Azure-blockchain.
+Innan du väljer att använda en lösnings mall, jämför ditt scenario med vanliga användnings fall av tillgängliga alternativ för Azure-blockchain:
 
 Alternativ | Tjänst modell | Vanligt användnings fall
 -------|---------------|-----------------
-Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en specifik nätverks typ för blockchain. Solution templates tillhandahålls utan något service nivå avtal. Använd [sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html) för support.
+Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar som du kan använda för att etablera en helt konfigurerad blockchain-nätverkstopologi. Mallarna distribuerar och konfigurerar Microsoft Azure beräknings-, nätverks-och lagrings tjänster för en blockchain-nätverks typ. Solution templates tillhandahålls utan ett service nivå avtal. Använd [Microsoft Q&en sida](/answers/topics/azure-blockchain-workbench.html) för support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | För hands versionen av Azure blockchain service fören klar investeringen, hanteringen och styrningen av konsortiet blockchain-nätverk. Använd Azure blockchain-tjänsten för lösningar som kräver PaaS, konsortiets hantering eller kontrakt och transaktions sekretess.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html) för support.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som hjälper dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept bevis för ett blockchain-program. Azure blockchain Workbench tillhandahålls utan ett service nivå avtal. Använd [Microsoft Q&en sida](/answers/topics/azure-blockchain-workbench.html) för support.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arkitektur för mikroredovisningens Fabric-konsortiet
 
-Om du vill bygga ett huvud företags nätverk på Azure måste du distribuera beställnings tjänsten och organisationen med peer-noder. Med hjälp av den här mallen för huvud lösningar för Kubernetes i Azure kan du skapa databasnoder eller peer-noder. Du måste distribuera mallen för varje nod som du vill skapa.
+Om du vill bygga ett huvud nätverk i ett huvud nätverk på Azure måste du distribuera en beställnings tjänst och organisation med peer-noder. Genom att använda huvud mal len för huvud boken i Azure Kubernetes service kan du skapa order noder eller peer-noder. Du måste distribuera mallen för varje nod som du vill skapa.
 
-De olika grundläggande komponenterna som skapas som en del av mall distributionen är:
+De grundläggande komponenter som skapas som en del av mall distributionen är:
 
-- **Order, noder**: en nod som ansvarar för transaktions sortering i redovisningen. Tillsammans med andra noder utgör de beställda noderna beställnings tjänsten för det högliggande Fabric-nätverket.
+- **Beställnings noder**: en nod som ansvarar för transaktions sortering i redovisningen. Tillsammans med andra noder utgör de beställda noderna beställnings tjänsten för det högliggande Fabric-nätverket.
 
-- **Peer-noder**: en nod som främst är värd för redovisning och smarta kontrakt, dessa grundläggande delar av nätverket.
+- **Peer-noder**: en nod som främst är värd för redovisning och smarta kontrakt, som är grundläggande element i nätverket.
 
-- **Infrastruktur certifikat utfärdare**: Fabric ca är certifikat utfärdare (ca) för redovisnings infrastruktur resurser. Med infrastruktur certifikat utfärdaren kan du initiera och starta Server process som är värd för certifikat utfärdaren. Med den kan du hantera identiteter och certifikat. Varje AKS-kluster som distribueras som en del av mallen kommer att ha en POD för Fabric-certifikat som standard.
+- **Infrastruktur certifikat utfärdare**: certifikat utfärdare (ca) för huvud-Fabric. Med infrastruktur certifikat utfärdaren kan du initiera och starta en server process som är värd för certifikat utfärdaren. Med den kan du hantera identiteter och certifikat. Varje AKS-kluster som distribueras som en del av mallen kommer att ha en POD för Fabric-certifikat som standard.
 
-- **Couchdb eller LevelDB**: världs tillstånds databas för peer-noder kan lagras antingen i LevelDB eller couchdb. LevelDB är standard läges databasen inbäddad i peer-noden och lagrar chaincode-data som enkla nyckel/värde-par och stöder nyckel-, nyckel intervall och sammansatta nyckel frågor. CouchDB är en valfri alternativ tillstånds databas som stöder omfattande frågor när chaincode-datavärden modelleras som JSON.
+- **Couchdb eller LevelDB**: världs tillstånds databaser för peer-noderna. LevelDB är standard läges databasen som är inbäddad i peer-noden. Den lagrar chaincode-data som enkla nyckel/värde-par och stöder nyckel-, nyckel intervall och sammansatta nyckel frågor. CouchDB är en valfri alternativ tillstånds databas som stöder omfattande frågor när chaincode-datavärden modelleras som JSON.
 
-Mallen för distributioner snurrar upp olika Azure-resurser i din prenumeration. De olika Azure-resurser som distribueras är:
+Mallen för distributioner snurrar upp olika Azure-resurser i din prenumeration. De distribuerade Azure-resurserna är:
 
-- **AKS-kluster**: Azure Kubernetes-kluster som har kon figurer ATS enligt de indataparametrar som angetts av kunden. AKS-klustret har olika poddar som har kon figurer ATS för att köra de olika nätverks komponenterna i huvud boks infrastrukturen. De olika poddar som skapats är:
+- **AKS-kluster**: Azure Kubernetes service Cluster som är konfigurerat enligt de indataparametrar som tillhandahålls av kunden. AKS-klustret har olika poddar som har kon figurer ATS för att köra de olika nätverks komponenterna i huvud boks infrastrukturen. De skapade poddar är:
 
-  - **Infrastruktur verktyg**: Fabric-verktyget ansvarar för konfigurering av de båda komponenterna i huvud boken.
-  - **Ordnings-/peer-poddar**: noderna i HLF-nätverket.
-  - **Proxy**: en ngnix proxy-Pod genom vilken klient programmen kan gränssnitts med AKS-klustret.
+  - **Infrastruktur verktyg**: verktyg som ansvarar för att konfigurera de båda komponenterna i huvud boken.
+  - **Ordnings-/peer-poddar**: noderna i det mikroredovisningen i Fabric-nätverket.
+  - **Proxy**: en ngnix proxy-Pod som klient programmen kan kommunicera med AKS-klustret.
   - **Infrastruktur certifikat utfärdare**: Pod som kör Fabric ca: n.
-- **Postgresql**: en instans av postgresql distribueras för att underhålla Fabric-certifikatens ca-identiteter.
+- **Postgresql**: databas instans som underhåller Fabric ca-identiteter.
 
-- **Azure Key Vault**: en Key Vault-instans distribueras för att spara autentiseringsuppgifterna för Fabric-certifikat utfärdare och de rot certifikat som tillhandahålls av kunden, vilket används vid omförsök för mal Lav drift för att hantera Mechanics för mallen.
-- **Azure-hanterad disk**: Azure Managed disk är till för beständigt lagrings utrymme för Ledger-och peer Node-tillstånds databas.
-- **Offentlig IP**: en offentlig IP-slutpunkt för det AKS-kluster som har distribuerats för samverkan med klustret.
+- **Key Vault**: en instans av den Azure Key Vault tjänst som har distribuerats för att spara autentiseringsuppgifterna för Fabric-certifikat utfärdare och de rot certifikat som tillhandahålls av kunden. Valvet används vid försök att distribuera mallar för att hantera Mechanics för mallen.
+- **Hanterad disk**: instans av Azure Managed disks-tjänsten som tillhandahåller ett beständigt arkiv för redovisningen och för peer-nodens databas för världs tillstånd.
+- **Offentlig IP**: slut punkt för det AKS-kluster som har distribuerats för kommunikation med klustret.
 
-## <a name="deploy-the-ordererpeer-organization"></a>Distribuera ordnings-/peer-organisationen
+## <a name="deploy-the-orderer-and-peer-organization"></a>Distribuera beställnings-och peer-organisationen
 
 För att börja måste du ha en Azure-prenumeration som har stöd för distribution av flera virtuella datorer och standard lagrings konton. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-Kom igång med distributionen av HLF-nätverks komponenter genom att navigera till [Azure Portal](https://portal.azure.com).
+Gå till [Azure Portal](https://portal.azure.com)om du vill komma igång med distributionen av nätverks komponenter för huvud nätverk.
 
-1. Välj **skapa en resurs > Blockchain** > söka efter **Ledger Fabric på Azure Kubernetes service (för hands version)**.
+1. Välj **skapa en resurs**  >  **blockchain**och Sök sedan efter **Ledger Fabric på Azure Kubernetes service (för hands version)**.
 
-2. Ange projekt informationen på sidan **grundläggande** information.
+2. Ange projekt informationen på fliken **grundläggande** .
 
-    ![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
+    ![Skärm bild som visar fliken grundläggande.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
 
 3. Ange följande uppgifter:
-    - **Prenumeration**: Välj namnet på den prenumeration där du vill distribuera HLF-nätverks komponenterna.
-    - **Resurs grupp**: skapa en ny resurs grupp eller Välj en befintlig tom resurs grupp, resurs gruppen innehåller alla resurser som distribueras som en del av mallen.
-    - **Region**: Välj den Azure-region där du vill distribuera Azure Kubernetes-klustret för HLF-komponenterna. Mallen är tillgänglig i alla regioner där AKS är tillgänglig se till att välja en region där din prenumeration inte når kvot gränsen för den virtuella datorn (VM).
-    - **Resource prefix**: prefix för namngivning av resurser som har distribuerats. Resource prefix måste vara kortare än sex tecken och kombinationen av tecken måste innehålla både siffror och bokstäver.
-4. Välj fliken **infrastruktur inställningar** om du vill definiera de HLF nätverks komponenter som ska distribueras.
+    - **Prenumeration**: Välj namnet på den prenumeration där du vill distribuera nätverks komponenterna för huvud nätverket.
+    - **Resurs grupp**: skapa en ny resurs grupp eller Välj en befintlig tom resurs grupp. Resurs gruppen innehåller alla resurser som distribueras som en del av mallen.
+    - **Region**: Välj den Azure-region där du vill distribuera Azure Kubernetes service-klustret för de båda komponenterna i huvud strukturen. Mallen är tillgänglig i alla regioner där AKS är tillgänglig. Välj en region där din prenumeration inte når kvot gränsen för den virtuella datorn (VM).
+    - **Resource prefix**: Ange ett prefix för namngivning av resurser som har distribuerats. Det måste innehålla färre än sex tecken och kombinationen av tecken måste innehålla både siffror och bokstäver.
+4. Välj fliken **infrastruktur inställningar** om du vill definiera de nätverks komponenter för huvud nätverk som ska distribueras.
 
-    ![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
+    ![Skärm bild som visar fliken infrastruktur inställningar.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Ange följande uppgifter:
-    - **Organisations namn**: namnet på Fabric-organisationen, vilket krävs för olika data Plans åtgärder. Organisations namnet måste vara unikt för varje distribution.
-    - **Nätverks komponent för infrastruktur resurser**: Välj antingen beställnings tjänst eller peer-noder baserat på blockchain nätverks komponent som du vill konfigurera.
-    - **Antal noder** – följande är två typer av noder:
-        - Beställ tjänst – Välj antalet noder för att tillhandahålla fel tolerans till nätverket. Endast 3, 5 och 7 är antalet noder som stöds för order.
-        - Peer-noder – du kan välja 1-10-noder baserat på ditt krav.
-    - **Peer-nodens världs tillstånds databas**: Välj mellan LevelDB och CoucbDB. Det här fältet visas när användaren väljer noden peer-nod i nätverks komponenten för infrastruktur resursen.
-    - **Användar namn för infrastruktur resurs**: Ange det användar namn som används för Fabric ca-autentisering.
+    - **Organisations namn**: Ange namnet på den huvud organisations organisation som krävs för olika data Plans åtgärder. Organisations namnet måste vara unikt för varje distribution.
+    - **Nätverks komponent för infrastruktur resurser**: Välj antingen **beställnings tjänst** eller **peer-noder**baserat på den blockchain nätverks komponent som du vill konfigurera.
+    - **Antal noder**: följande två typer av noder:
+        - **Beställnings tjänst**: Välj antalet noder för att ge fel tolerans till nätverket. Antalet noder som stöds är 3, 5 och 7.
+        - **Peer-noder**: du kan välja 1 till 10 noder baserat på ditt krav.
+    - **Peer-nodens världs tillstånds databas**: Välj mellan LevelDB och couchdb. Det här fältet visas när du väljer **peer-noder** i list rutan för **nätverks komponent för infrastruktur resurser** .
+    - **Fabric ca-användarnamn**: Ange det användar namn som används för Fabric ca-autentisering.
     - **Lösen ord för infrastruktur certifikat utfärdare**: Ange lösen ordet för Fabric-ca-autentisering.
     - **Bekräfta lösen ord**: bekräfta lösen ordet för infrastruktur certifikat utfärdaren.
-    - **Certifikat**: om du vill använda dina egna rot certifikat för att INITIERA Fabric ca: n väljer du alternativet för att ladda upp rot certifikat för certifikat utfärdare, annars skapas självsignerade certifikat med standard certifikat utfärdare.
-    - **Rot certifikat**: Ladda upp rot certifikat (offentlig nyckel) med vilken Fabric-certifikatutfärdare måste initieras. Certifikat av. pem-format stöds, certifikaten bör vara giltiga i UTC-tidszonen.
-    - **Privat nyckel för rot certifikat**: Ladda upp den privata nyckeln för rot certifikatet. Om du har ett. PEM-certifikat, som har både offentlig och privat nyckel sammansatt, laddar du upp det här även.
+    - **Certifikat**: om du vill använda dina egna rot certifikat för att initiera Fabric-ca: n väljer du alternativet **för att ladda upp rot certifikat för infrastruktur certifikat utfärdare** . Annars skapar Fabric CA: n självsignerade certifikat som standard.
+    - **Rot certifikat**: Ladda upp rot certifikatet (offentlig nyckel) som Fabric-certifikatutfärdare måste initieras med. Certifikat av. pem-format stöds. Certifikaten ska vara giltiga och i en UTC-tidszon.
+    - **Privat nyckel för rot certifikat**: Ladda upp den privata nyckeln för rot certifikatet. Om du har ett. PEM-certifikat, som har en kombinerad offentlig och privat nyckel, laddar du upp det här även.
 
 
-6. Välj fliken **kluster inställningar för AKS** om du vill definiera den underliggande infrastruktur som är den underliggande infrastruktur där infrastruktur resursens nätverks komponenter ska konfigureras.
+6. Välj fliken **AKS Cluster Settings** för att definiera Azure Kubernetes service Cluster-konfigurationen som är den underliggande infrastruktur där nätverks komponenterna för huvud nätverket ska konfigureras.
 
-    ![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
+    ![Skärm bild som visar fliken A K S kluster inställningar.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
 7. Ange följande uppgifter:
-    - **Kubernetes-kluster namn**: namnet på det AKS-kluster som skapas. Det här fältet fylls i automatiskt baserat på det resurs-prefix som du har angett, men du kan ändra om det behövs.
-    - **Kubernetes-version**: den version av Kubernetes som ska distribueras i klustret. Baserat på den region som valts i fliken **grundläggande** , kan de tillgängliga versioner som stöds ändras.
-    - **DNS-prefix**: Domain Name System (DNS) namn prefix för AKS-kluster. Du använder DNS för att ansluta till Kubernetes-API: et när du hanterar behållare när du har skapat klustret.
-    - **Node-storlek**: Kubernetes-nodens storlek kan du välja från listan med SKU: er (VM lagerhållning Unit) i Azure. För bästa prestanda rekommenderar vi standard DS3 v2.
-    - **Antal noder**: antalet Kubernetes-noder som ska distribueras i klustret. Vi rekommenderar att du behåller antalet noder minst lika med eller mer än antalet HLF-noder som anges i Fabric-inställningarna.
-    - **Klient-ID för tjänstens huvud namn**: Ange klient-ID för ett befintligt huvud namn för tjänsten eller skapa ett nytt, vilket krävs för AKS-autentiseringen. Se steg för att [skapa tjänstens huvud namn](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Kubernetes-kluster namn**: ändra namnet på AKS-klustret, om det behövs. Det här fältet fylls i automatiskt baserat på det resurs prefix som anges.
+    - **Kubernetes-version**: Välj den version av Kubernetes som ska distribueras i klustret. Utifrån den region som du valde på fliken **grundläggande** kan de tillgängliga versionerna ändras.
+    - **DNS-prefix**: Ange ett namn för Domain Name System (DNS) för AKS-klustret. Du använder DNS för att ansluta till Kubernetes-API: et när du hanterar behållare när du har skapat klustret.
+    - **Node-storlek**: för Kubernetes-nodens storlek kan du välja från listan över virtuella dator enheter (SKU: er) som är tillgängliga i Azure. För bästa prestanda rekommenderar vi standard DS3 v2.
+    - **Antal noder**: Ange antalet Kubernetes-noder som ska distribueras i klustret. Vi rekommenderar att du behåller antalet noder som är lika med eller större än antalet noder i den infrastruktur resurs som anges på fliken **infrastruktur inställningar** .
+    - **Klient-ID för tjänstens huvud namn**: Ange klient-ID för ett befintligt huvud namn för tjänsten eller skapa ett nytt. Ett huvud namn för tjänsten krävs för AKS-autentisering. Se [stegen för att skapa ett huvud namn för tjänsten](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
     - **Tjänstens huvud namn**: Ange klient hemligheten för tjänstens huvud namn som anges i klient-ID: t för tjänstens huvud namn.
-    - **Bekräfta klient hemligheten**: bekräfta den klient hemlighet som tillhandahålls i tjänstens huvud namn klient hemlighet.
-    - **Aktivera övervakning av behållare**: Välj att aktivera övervakning av AKS, vilket gör att AKS-loggarna kan push-överföras till den Log Analytics arbets ytan som angetts.
-    - **Log Analytics arbets yta**: Log Analytics-arbetsyta fylls med standard arbets ytan som skapas om övervakning har Aktiver ATS.
+    - **Bekräfta klient hemlighet**: bekräfta klient hemligheten för tjänstens huvud namn.
+    - **Aktivera övervakning av behållare**: Välj att aktivera AKS-övervakning, vilket gör att AKS-loggarna kan push-överföras till den angivna Log Analytics-arbetsytan.
+    - **Log Analytics arbets yta**: arbets ytan Log Analytics fylls i med standard arbets ytan som skapas om övervakning har Aktiver ATS.
 
-8. När du har angett all information ovan väljer du **Granska och skapa** fliken. Granska och skapa utlöser verifieringen för de värden du har angett.
-9. När verifieringen har passerat kan du välja **skapa**.
-Distributionen tar vanligt vis 10-12 minuter, kan variera beroende på storleken på och antalet AKS-noder som anges.
-10. När distributionen har slutförts meddelas du via Azure-meddelanden i det övre högra hörnet.
-11. Välj **gå till resurs grupp** för att kontrol lera alla resurser som skapats som en del av mall distributionen. Alla resurs namn kommer att börja med det prefix som anges i inställningen **grundläggande** .
+8. Välj fliken **Granska och skapa** . Det här steget utlöser verifieringen för de värden som du har angett.
+9. När verifieringen har godkänts väljer du **skapa**.
+
+    Distributionen tar vanligt vis 10 till 12 minuter. Tiden kan variera beroende på de angivna storlekarna och antalet AKS-noder.
+10. När distributionen är klar får du ett meddelande via Azure-meddelanden i det övre högra hörnet.
+11. Välj **gå till resurs grupp** för att kontrol lera alla resurser som skapats som en del av mall distributionen. Alla resurs namn börjar med det prefix som visas på fliken **grundläggande** .
 
 ## <a name="build-the-consortium"></a>Bygg konsortiet
 
-Om du vill bygga blockchain-konsortiet efter att du distribuerar beställnings tjänsten och peer-noderna, måste du utföra stegen nedan i följd. Azure HLF-skript (azhlf), som hjälper dig att konfigurera konsortiet, skapa kanal-och chaincode-åtgärder.
+För att bygga blockchain-konsortiet när du har distribuerat beställnings tjänsten och peer-noder, utför du följande steg i följd. Med Azures azhlf (Azures Fabric-skript) kan du konfigurera konsortiet, skapa kanalen och utföra chaincode-åtgärder.
 
 > [!NOTE]
-> Det finns en uppdatering i skriptet, den här uppdateringen är till för att ge fler funktioner med Azure HLF-skript. Om du vill referera till det gamla skriptet, [Se här](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md). Det här skriptet är kompatibelt med huvud strukturen i Azure Kubernetes Service Template version 2.0.0 och senare. Följ anvisningarna i [fel sökning](#troubleshoot)för att kontrol lera distributions versionen.
+> Azhlf-skriptet (Azures) har uppdaterats för att ge fler funktioner. Om du vill referera till det gamla skriptet går du till [README på GitHub](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md). Det här skriptet är kompatibelt med huvud strukturen i Azure Kubernetes Service Template version 2.0.0 och senare. Följ anvisningarna i [fel sökning](#troubleshoot)för att kontrol lera distributions versionen.
 
 > [!NOTE]
-> Azure HLF (azhlf)-skript som tillhandahålls är att hjälpa till med demo-och DevTest scenarier. Kanalen och konsortiet som skapats av det här skriptet har grundläggande HLF-principer för att förenkla demo-/DevTest-scenariot. För produktions konfigurationen rekommenderar vi att du uppdaterar HLF-principer för Channel/Consortium i enlighet med organisationens krav på efterlevnad med hjälp av interna HLF-API: er.
+> Skriptet tillhandahålls för att hjälpa till med demonstration, utveckling och testnings scenarier. Den kanal och det konsortium som det här skriptet skapar har grundläggande principer för att förenkla demo-, utvecklings-och test scenarier. För produktions konfigurationen rekommenderar vi att du uppdaterar principer för den virtuella datorn i kanal/konsortiet i enlighet med organisationens krav för att använda inbyggda API: er för huvud boken.
 
 
-Alla kommandon för att köra Azure HLF-skriptet kan köras via Azure bash-kommandoraden. Gränssnitt (CLI). Du kan logga in på Azure Shell Web-versionen via   ![ huvud strukturen för Azure Kubernetes i ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) det övre högra hörnet av Azure Portal. I kommando tolken skriver du bash och anger för att växla till bash CLI eller väljer *bash* från verktygsfältet Shell.
+Alla kommandon för att köra Azures Fabric-skript kan köras via Azure bash kommando rads gränssnitt (CLI). Du kan logga in på Azure Cloud Shell via det ![ inbyggda Kubernetes i det ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) övre högra hörnet i Azure Portal. I kommando tolken skriver du `bash` och väljer nyckeln Enter för att växla till bash CLI eller väljer **bash** i verktygsfältet Cloud Shell.
 
-Mer information finns i [Azure Shell](../../cloud-shell/overview.md) .
+Se [Azure Cloud Shell](../../cloud-shell/overview.md) för mer information.
 
-![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
+![Skärm bild som visar kommandon i Azure Cloud Shell.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
 
-Följande bild visar steg för steg-processen för att bygga konsortiet mellan en ordnings organisation och en peer-organisation. Detaljerade kommandon för att utföra de här stegen samlas in i följande avsnitt.
+Följande bild visar steg för steg-processen för att bygga ett konsortium mellan en ordnings organisation och en peer-organisation. I följande avsnitt visas detaljerade kommandon för att utföra de här stegen.
 
-![Mall för redovisnings infrastruktur resurser i Azure Kubernetes service-mall](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
+![Diagram över processen för att bygga ett konsortium.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Slutför avsnitten för den första installationen av klient programmet: 
-
-1. Hämta filer för klient program
-1. Konfigurera miljövariabler
-1. Importera organisations anslutnings profil, administratörs användare och MSP
-
-När du har slutfört den inledande installationen använder du klient programmet för att uppnå följande åtgärder:  
+När du har slutfört den första installationen använder du klient programmet för att uppnå följande åtgärder:  
 
 - Kanal hantering
 - Hantering av konsortiet
@@ -154,7 +149,7 @@ När du har slutfört den inledande installationen använder du klient programme
 
 ### <a name="download-client-application-files"></a>Hämta filer för klient program
 
-Den första installationen är att ladda ned klient program filerna. Kör följande kommando för att ladda ned alla filer och paket som krävs:
+Den första installationen är att ladda ned klient program filerna. Kör följande kommandon för att ladda ned alla filer och paket som krävs:
 
 ```bash-interactive
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/azhlfToolSetup.sh | bash
@@ -163,14 +158,13 @@ npm install
 npm run setup
 ```
 
-De här kommandona kommer att klona klient program koden för Azure HLF från offentliga GitHub-lagrings platsen och genom att läsa in alla beroende NPM-paket. När kommandot har körts kan du se en node_modules-mapp i den aktuella katalogen. Alla nödvändiga paket läses in i mappen node_modules.
+De här kommandona kommer att klona kod för Azures Fabric-klientprogram från den offentliga GitHub-lagrings platsen och sedan läsa in alla beroende NPM-paket. När kommandot har körts kan du se en node_modules-mapp i den aktuella katalogen. Alla nödvändiga paket läses in i mappen node_modules.
 
-### <a name="setup-environment-variables"></a>Konfigurera miljövariabler
+### <a name="set-up-environment-variables"></a>Konfigurera miljövariabler
 
-> [!NOTE]
-> Alla miljövariabler följer namngivnings konventionen för Azure-resurser.
+Alla miljövariabler följer namngivnings konventionen för Azure-resurser.
 
-#### <a name="set-environment-variables-for-orderer-organization-client"></a>Ange miljövariabler för beställnings organisations klient
+#### <a name="set-environment-variables-for-the-orderer-organizations-client"></a>Ange miljövariabler för beställnings organisationens klient
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -180,7 +174,7 @@ ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
 
-#### <a name="set-the-environment-variables-for-peer-organization-client"></a>Ange miljövariabler för peer-organisationens klient
+#### <a name="set-environment-variables-for-the-peer-organizations-client"></a>Ange miljövariabler för peer-organisationens klient
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -190,10 +184,9 @@ PEER_ADMIN_IDENTITY="admin.$PEER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
 
-> [!NOTE]
-> Baserat på antalet peer-organisationer i konsortiet kan du behöva upprepa peer-kommandona och ställa in miljövariabeln på motsvarande sätt.
+Baserat på antalet peer-organisationer i konsortiet kan du behöva upprepa peer-kommandona och ställa in miljövariabeln enligt detta.
 
-#### <a name="set-the-environment-variables-for-setting-up-azure-storage-account"></a>Ange miljövariabler för att ställa in Azure Storage konto
+#### <a name="set-environment-variables-for-an-azure-storage-account"></a>Ange miljövariabler för ett Azure Storage-konto
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -203,7 +196,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Använd följande steg för att skapa Azure Storage-konto. Om du redan har skapat Azure Storage konto kan du hoppa över de här stegen.
+Använd följande kommandon för att skapa ett Azure Storage-konto. Hoppa över det här steget om du redan har ett Azure Storage-konto.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -211,14 +204,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Använd följande steg för att skapa en fil resurs i Azure Storage konto. Hoppa över de här stegen om du redan har skapat en fil resurs
+Använd följande kommandon för att skapa en fil resurs i Azure Storage-kontot. Hoppa över det här steget om du redan har en fil resurs.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Använd följande steg för att skapa en anslutnings sträng för Azure-filresursen.
+Använd följande kommandon för att skapa en anslutnings sträng för en Azure-filresurs.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -227,11 +220,11 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 
 ```
 
-### <a name="import-organization-connection-profile-admin-user-identity-and-msp"></a>Importera organisations anslutnings profil, administratörs användarens identitet och MSP
+### <a name="import-an-organization-connection-profile-admin-user-identity-and-msp"></a>Importera en organisations anslutnings profil, administratörs användarens identitet och MSP
 
-Problem nedan visar hur du hämtar organisationens anslutnings profil, administratörs identitet och MSP från Azure Kubernetes-kluster och lagrar dessa identiteter i katalogen för lokala klient program, t. ex. i katalogen "azhlfTool/Store".
+Använd följande kommandon för att hämta organisationens anslutnings profil, administratörs användarens identitet och hanterad tjänst leverantör (MSP) från Azure Kubernetes service-klustret och lagra dessa identiteter i klient programmets lokala arkiv. Ett exempel på ett lokalt Arkiv är katalogen *azhlfTool/* Store.
 
-För ordnings organisation:
+För ordnings organisationen:
 
 ```bash
 ./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
@@ -239,7 +232,7 @@ För ordnings organisation:
 ./azhlf msp import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ```
 
-För peer-organisation:
+För peer-organisationen:
 
 ```bash
 ./azhlf adminProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
@@ -247,26 +240,27 @@ För peer-organisation:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### <a name="create-channel-command"></a>Kommandot Skapa kanal
+### <a name="create-a-channel"></a>Skapa en kanal
 
-Från ordnings organisationens klient, kommandot utfärdande för att skapa en ny kanal. Med det här kommandot skapas en kanal med endast ordnings organisation i den.  
+Använd följande kommando från orderns organisations klient för att skapa en kanal som bara innehåller order organisationen.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
-### <a name="consortium-management-commands"></a>Kommandon för hantering av konsortier
+### <a name="add-a-peer-organization-for-consortium-management"></a>Lägg till en peer-organisation för hantering av konsortiet
 
 >[!NOTE]
-> Innan du börjar med en konsortiums åtgärd bör du kontrol lera att den första installationen av klient programmet är färdig.  
+> Innan du börjar med en konsortiums åtgärd bör du kontrol lera att du har slutfört den första installationen av klient programmet.  
 
-Kör följande kommandon i angiven ordning för att lägga till en peer-organisation i en kanal och konsortiet
-1.  Från peer-organisationens klient, ladda upp peer-organisationens MSP på Azure Storage
+Kör följande kommandon i angiven ordning för att lägga till en peer-organisation i en kanal och konsortiet: 
+
+1.  Ladda upp peer-organisationens MSP på Azure Storage från peer-organisationens klient.
 
       ```bash
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.  Från ordnings organisations klienten laddar du ned peer-organisationens MSP från Azure Storage och utfärdar sedan kommandot för att lägga till peer-organisation i kanal/konsortium.
+2.  Från beställnings organisationens klient hämtar du peer-organisationens MSP från Azure Storage. Utfärda sedan kommandot för att lägga till peer-organisationen i kanalen och konsortiet.
 
       ```bash
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
@@ -274,27 +268,27 @@ Kör följande kommandon i angiven ordning för att lägga till en peer-organisa
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.  Från ordnings organisationens klient, ladda upp anslutnings profil för beställare på Azure Storage så att peer-organisationen kan ansluta till beställnings noder med den här anslutnings profilen
+3.  Från beställnings organisationens klient laddar du upp orderns anslutnings profil på Azure Storage så att peer-organisationen kan ansluta till beställnings noderna med hjälp av den här anslutnings profilen.
 
       ```bash
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.  Från peer-organisationens klient, hämta anslutnings profil för beställare från Azure Storage och sedan utfärda kommando för att lägga till peer-noder i kanalen
+4.  Från peer-organisationens klient hämtar du orderns anslutnings profil från Azure Storage. Kör sedan kommandot för att lägga till peer-noder i kanalen.
 
       ```bash
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
       ```
 
-På samma sätt kan du lägga till fler peer-organisationer i kanalen genom att uppdatera variablerna för peer-miljön enligt den nödvändiga peer-organisationen och utföra steg 1 till 4.
+På samma sätt kan du lägga till fler peer-organisationer i kanalen genom att uppdatera peer-miljövariabler enligt den nödvändiga peer-organisationen och göra om steg 1 till 4.
 
-### <a name="set-anchor-peers-command"></a>Kommandot Set Anchor peer (s)
+### <a name="set-anchor-peers"></a>Ange Anchor-peers
 
-Från peer-organisationens klient skickar du kommandot för att ställa in Anchor-peer (a) för peer-organisationen på den angivna kanalen.
+Från peer-organisationens klient kör du kommandot för att ange Anchor-peers för peer-organisationen i den angivna kanalen.
 
 >[!NOTE]
-> Innan du kör det här kommandot bör du se till att peer-organisationen läggs till i kanalen med hjälp av konsortiet hanterings kommandon.
+> Innan du kör det här kommandot måste du se till att peer-organisationen läggs till i kanalen med hjälp av hanterings kommandon för konsortiet.
 
 ```bash
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
@@ -302,86 +296,86 @@ Från peer-organisationens klient skickar du kommandot för att ställa in Ancho
 
 `<anchorPeersList>` är en blankstegsavgränsad lista med peer-noder som ska anges som en Anchor-peer. Exempel:
 
-  - Ange `<anchorPeersList>` som "peer1" om du bara vill ange peer1 Node som Anchor-peer.
-  - Ange `<anchorPeersList>` som "peer1" "peer3" om du vill ställa in både peer1-och peer3-noden som Anchor-peer.
+  - Ange `<anchorPeersList>` som `"peer1"` om du bara vill ange peer1-noden som en Anchor-peer.
+  - Ange `<anchorPeersList>` som `"peer1" "peer3"` om du vill ange både peer1-och peer3-noder som Anchor-peer-datorer.
 
 ## <a name="chaincode-management-commands"></a>Chaincode hanterings kommandon
 
 >[!NOTE]
-> Innan du börjar med en chaincode-åtgärd kontrollerar du att den första installationen av klient programmet är färdig.  
+> Innan du börjar med en chaincode-åtgärd bör du kontrol lera att du har gjort den första installationen av klient programmet.  
 
-### <a name="set-the-below-chaincode-specific-environment-variables"></a>Ange de nedan chaincode-företagsspecifika miljövariablerna
+### <a name="set-the-chaincode-specific-environment-variables"></a>Ange de chaincode miljövariablerna
 
 ```bash
-# peer organization name where chaincode operation is to be performed
+# Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
 # If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
 CC_NAME=<chaincodeName>  
 # If you are using chaincode_example02 then set CC_VERSION=“1” for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which chaincode is written. Supported languages are 'node', 'golang' and 'java'  
+# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is place.
+# CC_PATH contains the path where your chaincode is placed.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
-# Channel on which chaincode is to be instantiated/invoked/queried  
+# Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
 
 ### <a name="install-chaincode"></a>Installera chaincode  
 
-Kör kommandot nedan för att installera chaincode i peer-organisationen.  
+Kör följande kommando för att installera chaincode på peer-organisationen.  
 
 ```bash
 ./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
 
 ```
-Den kommer att installera chaincode på alla peer-noder i peer-organisationen som anges i ORGNAMN-miljövariabeln. Om det finns två eller flera peer-organisationer i din kanal och du vill installera chaincode på alla, kör du kommandot separat för varje peer-organisation.  
+Kommandot installerar chaincode på alla peer-noder i peer-organisationen som anges i `ORGNAME` miljö variabeln. Om två eller flera peer-organisationer finns i din kanal och du vill installera chaincode på alla, kör du kommandot separat för varje peer-organisation.  
 
-Följ stegen:  
+Följ de här stegen:  
 
-1.  Set `ORGNAME` och `USER_IDENTITY` as per peerOrg1 och Issue- `./azhlf chaincode install` kommando.  
-2.  Set `ORGNAME` och `USER_IDENTITY` as per peerOrg2 och Issue- `./azhlf chaincode install` kommando.  
+1.  Ange `ORGNAME` och `USER_IDENTITY` enligt `peerOrg1` och kör `./azhlf chaincode install` kommandot.  
+2.  Ange `ORGNAME` och `USER_IDENTITY` enligt `peerOrg2` och kör `./azhlf chaincode install` kommandot.  
 
 ### <a name="instantiate-chaincode"></a>Instansiera chaincode  
 
-Från peer-klientprogrammet kör du kommandot nedan för att instansiera chaincode i kanalen.  
+Kör följande kommando från peer-klient programmet för att instansiera chaincode på kanalen.  
 
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
-Skicka en lista över argument för instansiering av funktions namn och blank steg `<instantiateFunc>` `<instantiateFuncArgs>` . Till exempel, i chaincode_example02. go-chaincode, för att instansiera chaincode inställt `<instantiateFunc>` på `init` och `<instantiateFuncArgs>` till "a" "2000" "b" "1000".
+Överför de Instansierings funktions namn och blankstegsavgränsad listan med argument i respektive `<instantiateFunc>` `<instantiateFuncArgs>` . Om du till exempel vill instansiera chaincode_example02. go-chaincode, ange `<instantiateFunc>` till `init` och `<instantiateFuncArgs>` till `"a" "2000" "b" "1000"` .
 
-Du kan också skicka JSON-filen för samlings konfiguration med- `--collections-config` flaggan. Eller ange de tillfälliga argumenten med hjälp av `-t` flaggan när du instansierar ett chaincode som används för privata transaktioner.
+Du kan också skicka samlingens konfigurations-JSON-fil med hjälp av `--collections-config` flaggan. Eller ange de tillfälliga argumenten med hjälp av `-t` flaggan när du instansierar chaincode som används för privata transaktioner.
 
-Till exempel:
+Exempel:
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
 
-\<collectionConfigJSONFilePath\>Är sökvägen till den JSON-fil som innehåller samlingarna som definierats för instansiering av en privat data chaincode. Du hittar en JSON-fil med exempel samlingar i relation till katalogen azhlfTool på följande sökväg: `./samples/chaincode/src/private_marbles/collections_config.json` .
-Skicka \<transientArgs\> som giltig JSON i sträng format. Undanta specialtecken. Exempel: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+`<collectionConfigJSONFilePath>`Delen är sökvägen till JSON-filen som innehåller de samlingar som definierats för instansiering av privata data chaincode. Du kan hitta en exempel samlings konfigurations-JSON-fil i förhållande till *azhlfTool* -katalogen på följande sökväg: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Skicka `<transientArgs>` som giltig JSON i sträng format. Undanta specialtecken. Exempelvis: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> Kör kommandot för en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Därför instansieras chaincode på alla peer-noder på alla peer-organisationer i kanalen.  
+> Kör kommandot en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Chaincode instansieras sedan på alla peer-noder på alla peer-organisationer i kanalen.  
 
 ### <a name="invoke-chaincode"></a>Anropa chaincode  
 
-Kör kommandot nedan från peer-organisationens klient för att anropa funktionen chaincode:  
+Kör följande kommando från peer-organisationens klient för att anropa funktionen chaincode:  
 
 ```bash
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Skicka anrops funktions namn och blank stegs lista med argument i respektive  `<invokeFunction>`    `<invokeFuncArgs>`   . Om du fortsätter med chaincode_example02. go chaincode-exemplet för att utföra Invoke-åtgärden  `<invokeFunction>`   till  `invoke`   och  `<invokeFuncArgs>`   till "a" "b" "10".  
+Överför anrops funktions namnet och den blankstegsavgränsad listan med argument i respektive  `<invokeFunction>`    `<invokeFuncArgs>`   . Fortsätt med chaincode_example02. go-chaincode för att utföra en Invoke-åtgärd, ange  `<invokeFunction>`   till  `invoke`   och  `<invokeFuncArgs>`   till `"a" "b" "10"` .  
 
 >[!NOTE]
-> Kör kommandot för en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Därför uppdateras världs läget på alla peer-noder i alla peer-organisationer i kanalen.  
+> Kör kommandot en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Världs delstaten uppdateras sedan på alla peer-noder för alla peer-organisationer i kanalen.  
 
 
 ### <a name="query-chaincode"></a>Fråga chaincode  
@@ -391,19 +385,17 @@ Kör följande kommando för att fråga chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Stödjande-peer-datorer är peer-datorer där chaincode är installerat och kallas för körning av transaktioner. Du måste ange \<endorsingPeers\> namnen på peer-noderna från den aktuella peer-organisationen. Visa en lista över stödjande-peer-datorer för den aktuella chaincode och kanal kombinationen åtskilda med blank steg. Till exempel `-p "peer1" "peer3"`.
+Stödjande-peer-datorer är peer-datorer där chaincode är installerat och kallas för körning av transaktioner. Du måste ange `<endorsingPeers>` att innehåller peer-nodnamn från den aktuella peer-organisationen. Visa en lista över stödjande-peer-datorer för en angiven chaincode och kanal kombination åtskilda med blank steg. Till exempel: `-p "peer1" "peer3"`.
 
-Om du använder azhlfTool för att installera chaincode skickar du alla peer-nodnamn som ett värde till stödjande-peer-argumentet. Chaincode installeras på alla peer-noder för den organisationen. 
+Om du använder *azhlfTool* för att installera chaincode skickar du alla peer-nodnamn som ett värde till stödjande-peer-argumentet. Chaincode installeras på alla peer-noder för den organisationen. 
 
-Skicka fråge funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs läget inställt  `<queryFunction>`   på  `query` och  `<queryArgs>` till "a".  
+Överför frågans funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Försök att ta chaincode_example02. go-chaincode som referens, för att fråga värdet "a" i världs delstaten, anges  `<queryFunction>`   till  `query` och  `<queryArgs>` till `"a"` .  
 
 ## <a name="troubleshoot"></a>Felsöka
 
-**Så här verifierar du den mall version som körs**
+Kör följande kommandon för att hitta versionen av mall distributionen.
 
-Kör kommandona nedan för att hitta versionen av mall distributionen.
-
-Ange under miljövariabler enligt resurs gruppen där mallen har distribuerats.
+Ange miljövariabler enligt resurs gruppen där mallen har distribuerats.
 
 ```bash
 
@@ -412,7 +404,8 @@ AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
 AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
 AKS_CLUSTER_NAME=<AKSClusterName>
 ```
-Kör följande kommando för att skriva ut mall versionen
+Kör följande kommando för att skriva ut versionen av mallen.
+
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
@@ -421,14 +414,16 @@ kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ## <a name="support-and-feedback"></a>Support och feedback
 
-För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
+För att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azure blockchain Engineering-teamet går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/).
 
 För att ge feedback på produkter eller för att begära nya funktioner, post eller rösta för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Community-support
 
-Engagera med Microsoft-tekniker och Azure blockchain community-experter.
+Engagera med Microsoft-tekniker och Azure blockchain community-experter:
 
-- [Sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html). Teknisk support för blockchain-mallar är begränsad till distributions problem.
-- [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Microsoft Q&en sida](/answers/topics/azure-blockchain-workbench.html) 
+   
+  Teknisk support för blockchain-mallar är begränsad till distributions problem.
+- [Microsofts Tech-community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

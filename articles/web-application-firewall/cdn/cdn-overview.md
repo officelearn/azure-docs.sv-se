@@ -4,15 +4,15 @@ description: Lär dig hur Azure WebApplication-brandväggen i Azure CDN service 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6949c1e8f83ebf47878a3d449796ccc03920756a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87278632"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225160"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Web Application-brandvägg på Azure Content Delivery Network
 
@@ -25,7 +25,7 @@ WAF på Azure CDN är en global och centraliserad lösning. Den distribueras på
 
 En WAF-princip länkar enkelt till en CDN-slutpunkt i din prenumeration. Nya regler kan distribueras inom några minuter, så du kan snabbt svara på att ändra hot mönster.
 
-![Brand vägg för Azure-webbprogram](../media/cdn-overview/waf-cdn-overview.png)
+![Azure-brandvägg för webbaserade program](../media/cdn-overview/waf-cdn-overview.png)
 
 ## <a name="waf-policy-and-rules"></a>WAF princip och regler
 

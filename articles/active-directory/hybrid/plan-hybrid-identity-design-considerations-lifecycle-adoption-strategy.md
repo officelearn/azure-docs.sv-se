@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbbc86b44c95219677b520cc54fbad51be06104a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109320"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182419"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställ livs cykel för införande av hybrid identitet
 I den här uppgiften definierar du identitets hanterings strategin för din hybrid identitets lösning som uppfyller de affärs krav som du definierade i [fastställa uppgifter för Hybrid identitets hantering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -36,13 +36,13 @@ Med en bra konto åtkomst hanterings lösning kan din organisation spåra exakt 
 
 Konton i avancerade IT-företag innehåller hundratals parametrar som definierar myndigheterna, och dessa uppgifter kan styras av ditt etablerings system. Nya användare kan identifieras med de data som du anger från den auktoritativa källan. Funktionen för godkännande av åtkomst begär Anden initierar de processer som godkänner (eller avvisar) resurs etablering för dem.
 
-| Fas för livs cykel hantering | Lokalt | Molnet | Hybrid |
+| Fas för livs cykel hantering | Lokalt | Moln | Hybrid |
 | --- | --- | --- | --- |
 | Konto hantering och etablering |Med hjälp av serverrollen Active Directory® Domain Services (AD DS) kan du skapa en skalbar, säker och hanterbar infrastruktur för användare och resurshantering och erbjuda stöd för katalogaktiverade applikationer som Microsoft® Exchange Server. <br><br> [Du kan etablera grupper i AD DS via en identitets hanterare](https://technet.microsoft.com/library/ff686261.aspx) <br>[Du kan etablera användare i AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Administratörer kan använda åtkomst kontroll för att hantera användar åtkomst till delade resurser av säkerhets synpunkt. I Active Directory administreras åtkomst kontrollen på objekt nivå genom att ange olika åtkomst nivåer eller behörigheter till objekt, till exempel fullständig behörighet, skriva, läsa eller ingen åtkomst. Åtkomst kontroll i Active Directory definierar hur olika användare kan använda Active Directory objekt. Som standard är behörigheter för objekt i Active Directory inställda på den säkraste inställningen. |Du måste skapa ett konto för varje användare som ska ha åtkomst till en moln tjänst från Microsoft. Du kan också ändra användar konton eller ta bort dem när de inte längre behövs. Som standard har användare inte administratörs behörighet, men du kan välja att tilldela dem. <br><br> I Azure Active Directory är en av de viktigaste funktionerna möjligheten att hantera åtkomst till resurser. Dessa resurser kan vara en del av katalogen, som i fallet med behörigheter för att hantera objekt via roller i katalogen, eller resurser som är externa för katalogen såsom SaaS-program, Azure-tjänster och SharePoint-webbplatser eller lokala resurser. <br><br> I mitten av Azure Active Directorys åtkomst hanterings lösning är säkerhets gruppen. Resursägaren (eller administratören för katalogen) kan tilldela en grupp för att ge en viss åtkomsträtt till resurser som ägaren äger. Medlemmarna i gruppen får åtkomst och resurs ägaren kan delegera rätten att hantera medlemmarnas lista över en grupp till någon annan – till exempel en avdelnings chef eller en supportavdelningen-administratör<br> <br> Avsnittet hantera grupper i Azure AD innehåller mer information om hur du hanterar åtkomst via grupper. |Utöka Active Directory identiteter i molnet genom synkronisering och Federation |
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
-Rollbaserad åtkomst kontroll (RBAC) använder roller och etablerings principer för att utvärdera, testa och genomdriva affärs processer och regler för att bevilja åtkomst till användare. Nyckel administratörer skapar etablerings principer och tilldelar användare till roller och definierar uppsättningar av rättigheter till resurser för dessa roller. RBAC utökar identitets hanterings lösningen så att den använder programvarubaserade processer och minskar användar handskrivna åtgärder i etablerings processen.
-Azure AD RBAC gör det möjligt för företaget att begränsa antalet åtgärder som en enskild person kan göra när de har åtkomst till Azure Portal. Genom att använda RBAC för att kontrol lera åtkomsten till portalen, har IT-administratörerna ombuds åtkomst med hjälp av följande metoder för åtkomst hantering:
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) använder roller och etablerings principer för att utvärdera, testa och tillämpa affärs processer och regler för att bevilja åtkomst till användare. Nyckel administratörer skapar etablerings principer och tilldelar användare till roller och definierar uppsättningar av rättigheter till resurser för dessa roller. Azure RBAC utökar identitets hanterings lösningen så att den använder programvarubaserade processer och minskar användar handskrivna åtgärder i etablerings processen.
+Med Azure RBAC kan företaget begränsa antalet åtgärder som en enskild person kan göra när de har åtkomst till Azure Portal. Genom att använda Azure RBAC för att kontrol lera åtkomsten till portalen, har IT-administratörerna ombuds åtkomst med hjälp av följande metoder för åtkomst hantering:
 
 * **Gruppbaserad roll tilldelning**: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja de befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda funktionen delegerad grupp hantering i Azure AD Premium.
 * Använd **inbyggda roller i Azure**: du kan använda tre roller – ägare, deltagare och läsare för att säkerställa att användare och grupper har behörighet att bara utföra de uppgifter som de behöver för att utföra sina jobb.

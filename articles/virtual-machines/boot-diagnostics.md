@@ -7,16 +7,24 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: e2ba5d909a3aa43921f52295d2f7216aac76bc32
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: aca41edeb159a65b27ecbbc27ae568f8bc94cebe
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067094"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181875"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure Boot-diagnostik
 
 Startdiagnostik är en fel söknings funktion för Azure Virtual Machines (VM) som gör det möjligt att diagnostisera VM-startfel. Med startdiagnostik kan en användare se statusen för den virtuella datorn när den startas genom att samla in information om seriell logg information och skärm dum par.
+
+## <a name="boot-diagnostics-storage-account"></a>Lagrings konto för startdiagnostik
+När du skapar en virtuell dator i Azure Portal aktive ras startdiagnostik som standard. Den rekommenderade versionen av startdiagnostik är att använda ett hanterat lagrings konto, eftersom det ger avsevärda prestanda förbättringar i tiden för att skapa en virtuell Azure-dator. Detta beror på att ett Azure-hanterat lagrings konto kommer att användas och tar bort den tid det tar att skapa ett nytt användar lagrings konto för att lagra startdiagnostikens data.
+
+En alternativ starts upplevelse är att använda ett hanterat lagrings konto för användare. En användare kan antingen skapa ett nytt lagrings konto eller använda ett befintligt.
+
+> [!IMPORTANT]
+> Azure-kunder debiteras inte för lagrings kostnaderna associted med startdiagnostik med ett hanterat lagrings konto till och med oktober 2020.
 
 ## <a name="boot-diagnostics-view"></a>Vyn Boot Diagnostics
 Alternativet startdiagnostik finns på bladet för den virtuella datorn under avsnittet *support och fel sökning* i Azure Portal. Om du väljer Boot Diagnostics visas en skärm bild och information om serie loggen. Serie loggen innehåller kernel-meddelanden och skärm bilden är en ögonblicks bild av den virtuella datorns aktuella tillstånd. Baserat på om den virtuella datorn kör Windows eller Linux bestämmer vad den förväntade skärm bilden skulle se ut. För Windows ser användarna en Skriv bords bakgrund och för Linux visas en inloggnings tolk.

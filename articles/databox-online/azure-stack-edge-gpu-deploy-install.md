@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 905229cde0d2b3dde7f0f2192860c33fc69e5fb2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 401b7c7a44e2f8009baca96862817b3d14f35c94
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088239"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181824"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Självstudie: installera Azure Stack Edge med GPU
 
@@ -37,7 +37,7 @@ De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
 Innan du börjar ska du kontrollera att:
 
-* Du har slutfört alla steg i [förbereda för att distribuera Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md).
+* Du har slutfört alla steg i [förbereda för att distribuera Azure Stack Edge med GPU](azure-stack-edge-gpu-deploy-prep.md).
     * Du har skapat en Azure Stack Edge-resurs för att distribuera enheten.
     * Du har genererat aktiverings nyckeln för att aktivera din enhet med Azure Stack Edge-resursen.
 
@@ -48,11 +48,11 @@ Innan du distribuerar en enhet:
 
 - Kontrollera att enheten på ett säkert sätt vilar på en plan, stabil och jämn arbetsyta.
 - Kontrollera att den plats där du ska konfigurera har:
-    - Vanlig nätström från en oberoende källa
+    - Standard växel ström från en oberoende källa.
 
         ELLER
-    - En strömfördelare (PDU) för rack med en avbrottsfri strömkälla (UPS)
-    - En tillgänglig 1U-plats på det rack där du ska montera enheten
+    - En strömfördelare (PDU) för rack med en avbrottsfri strömkälla (UPS).
+    - En tillgänglig 1U-plats på racket som du tänker montera enheten på.
 
 ### <a name="for-the-network-in-the-datacenter"></a>För nätverket i datacentret
 
@@ -75,7 +75,7 @@ Den här enheten levereras i en enda låda. Slutför följande steg för att pac
     - En järn vägs pakets sammansättning
     - En broschyr om säkerhet, miljö och reglerande information
 
-Kontakta Azure Stack Edge support om du inte fick alla objekt som anges här. Nästa steg är att rackmontera enheten.
+[Kontakta Microsoft Support](azure-stack-edge-contact-microsoft-support.md)om du inte har fått alla objekt som anges här. Nästa steg är att rackmontera enheten.
 
 
 ## <a name="rack-the-device"></a>Rackmontera enheten
@@ -166,7 +166,7 @@ Innan du börjar kabelansluta enheten behöver du följande:
 - Minst en 1-GbE RJ-45-nätverkskabel för att ansluta till hanteringsgränssnittet. Det finns två 1-GbE-nätverksgränssnitt på enheten, ett för hantering och ett för data.
 - En 25-GbE SFP+-kopparkabel för varje datanätverksgränssnitt som ska konfigureras. Minst ett datanätverksgränssnitten PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (med anslutning till Azure).  
 - Åtkomst till två strömfördelare (rekommenderas).
-- Minst en 1 – GbE-nätverks växel för att ansluta ett 1-GbE-nätverkskort till Internet för data. Om du använder 25/10 GbE-gränssnitt för data behöver du en 25-GbE-eller 10-GbE-växel. 
+- Minst en 1 – GbE-nätverks växel för att ansluta ett 1-GbE-nätverkskort till Internet för data. Det lokala webb gränssnittet kan inte nås om den anslutna växeln inte är minst 1-GbE. Om du använder 25/10 GbE-gränssnitt för data behöver du en 25-GbE-eller 10-GbE-växel. 
 
 > [!NOTE]
 > - Om du bara ansluter ett data nätverks gränssnitt rekommenderar vi att du använder ett 25/10-GbE-nätverkskort, till exempel PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 

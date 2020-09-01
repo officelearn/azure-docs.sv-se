@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007768"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226122"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Ansluta till virtuella Windows-datorer med Android-klienten
 
@@ -36,6 +36,7 @@ Så här prenumererar du på en feed:
 2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
    - Om du använder en URL kan du använda den som din administratör har gett dig, vanligt vis <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Ange din e-postadress om du vill använda e-post. Klienten söker efter en URL som är kopplad till din e-postadress om din administratör har konfigurerat servern på det sättet.
+   - Använd om du vill ansluta via US Gov-portalen <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Tryck på **NÄSTA**.
 4. Ange dina autentiseringsuppgifter när du uppmanas till det.
    - Ge användar namnet behörighet att komma åt resurser för **användar namn**.

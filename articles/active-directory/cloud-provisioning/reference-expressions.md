@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201859"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226581"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriver uttryck för mappningar av attribut i Azure Active Directory
 När du konfigurerar moln etablering, är en av de typer av mappningar av attribut som du kan ange en uttrycks mappning. 
@@ -41,13 +41,13 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 ## <a name="list-of-functions"></a>Lista över funktioner
 | Lista över funktioner | Beskrivning |
 |-----|----|
-|[Lägg till](#append)|Tar ett käll sträng värde och lägger till suffixet i slutet av det.|
+|[Append](#append) (Lägg till)|Tar ett käll sträng värde och lägger till suffixet i slutet av det.|
 |[BitAnd](#bitand)|Funktionen BitAnd anger angivna bitar i ett värde.|
 |[CBool](#cbool)|Funktionen CBool returnerar ett booleskt värde baserat på det utvärderade uttrycket|
 |[ConvertFromBase64](#convertfrombase64)|Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.|
 |[ConvertToBase64](#converttobase64)|Funktionen ConvertToBase64 konverterar en sträng till en Unicode base64-sträng. |
 |[ConvertToUTF8Hex](#converttoutf8hex)|Funktionen ConvertToUTF8Hex konverterar en sträng till ett hexadecimalt värde för UTF8-kodning.|
-|[Reparationer](#count)|Funktionen COUNT returnerar antalet element i ett multi-värde-attribut|
+|[Antal](#count)|Funktionen COUNT returnerar antalet element i ett multi-värde-attribut|
 |[Cstr](#cstr)|Funktionen CStr konverterar till en sträng data typ.|
 |[DateFromNum](#datefromnum)|Funktionen DateFromNum konverterar ett värde i ADs datum format till en DateTime-typ.|
 |[DNComponent](#dncomponent)|Funktionen DNComponent returnerar värdet för en angiven DN-komponent som går från vänster.|
@@ -73,7 +73,7 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 |[Del](#split)|Delar upp en sträng i en Multivärdes mat ris med hjälp av det angivna avgränsnings tecken.|
 |[StringFromSID](#stringfromsid)|Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhets identifierare till en sträng.| 
 |[StripSpaces](#stripspaces) |Tar bort alla blank steg ("") från käll strängen.| 
-|[Växel](#switch)|Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. | 
+|[Switch](#switch)|Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. | 
 |[ToLower](#tolower)|Tar ett *käll* sträng värde och konverterar det till gemener med de angivna kultur reglerna.| 
 |[ToUpper](#toupper)|Tar ett *käll* sträng värde och konverterar det till versaler med de angivna kultur reglerna.|
 |[Reducera](#trim)|Funktionen trim tar bort inledande och avslutande blank steg från en sträng.|
@@ -87,7 +87,7 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
    | **huvudnamnssuffix** |Obligatorisk |Sträng |Strängen som du vill lägga till i slutet av source-värdet. |
@@ -138,7 +138,7 @@ Returnerar true om båda attributen har samma värde.
 Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.
 
 **Uttryck**  
-`str ConvertFromBase64(str source)`– antar Unicode för kodning  
+`str ConvertFromBase64(str source)` – antar Unicode för kodning  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Källa: Base64-kodad sträng  
@@ -250,10 +250,10 @@ Om attributet accountName inte finns genererar du ett fel på objektet.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
-   | **inputFormat** |Obligatorisk |Sträng |Förväntat format för Source-värdet. För format som stöds, se [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
+   | **inputFormat** |Obligatorisk |Sträng |Förväntat format för Source-värdet. För format som stöds, se [/dotNet/Standard/Base-types/Custom-date-and-Time-format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Obligatorisk |Sträng |Formatet för datum för utdata. |
 
 ---
@@ -392,7 +392,7 @@ Om ett av käll värdena är ett flervärdesattribut, kopplas alla värden i det
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **brytning** |Obligatorisk |Sträng |Sträng som används för att avgränsa käll värden när de sammanfogas till en sträng. Kan vara "" om ingen avgränsare krävs. |
    | **source1 ... Källa** |Obligatoriskt, variabel antal gånger |Sträng |Sträng värden som ska sammanfogas tillsammans. |
@@ -429,7 +429,7 @@ Returnerar `Joh` .
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet. |
    | **har** |Obligatorisk |heltal |Index i **käll** strängen där under strängen ska starta. Det första alfabetet i strängen kommer att ha indexet 1, andra tecken kommer att ha index 2 och så vidare. |
@@ -443,7 +443,7 @@ Returnerar `Joh` .
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng | Vanligt vis attributet förnamn eller efter namn. |
 
@@ -455,7 +455,7 @@ Returnerar `Joh` .
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Boolesk sträng |Förväntade **käll** värden är "true" eller "false". |
 
@@ -480,7 +480,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 * När **OldValue** och **replacementValue** anges:
   
-  * Ersätter alla förekomster av **OldValue** i **källan** med **replacementValue**
+  * Ersätter alla förekomster av **OldValue** i **källan**  med **replacementValue**
 * När **OldValue** och **mall** tillhandahålls:
   
   * Ersätter alla förekomster av **OldValue** i **mallen** med **käll** värde
@@ -497,12 +497,12 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från **källobjektet** . |
    | **Gammalt** |Valfritt |Sträng |Värdet som ska ersättas i **källa** eller **mall**. |
    | **regexPattern** |Valfritt |Sträng |Regex-mönster för värdet som ska ersättas i **källan**. Eller, när **replacementPropertyName** används, mönster för att extrahera värdet från **replacementPropertyName**. |
-   | **regexGroupName** |Valfritt |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
+   | **regexGroupName** |Valfritt |Sträng |Namnet på gruppen inuti **regexPattern**. Endast när  **replacementPropertyName** används kommer vi att extrahera värdet för den här gruppen som **replacementValue** från **replacementPropertyName**. |
    | **replacementValue** |Valfritt |Sträng |Nytt värde som ersätter det gamla ett med. |
    | **replacementAttributeName** |Valfritt |Sträng |Namnet på attributet som ska användas för ersättnings värde |
    | **webbplatsmall** |Valfritt |Sträng |När ett **mallnamn** anges söker vi efter **OldValue** i mallen och ersätter det med **käll** värde. |
@@ -522,7 +522,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **uniqueValueRule1 ... uniqueValueRuleN** |Minst 2 krävs, ingen övre bindning |Sträng | Lista med regler för generering av unika värden som ska utvärderas. |
 
@@ -535,7 +535,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-  | Name | Krävs/upprepas | Typ | Kommentarer |
+  | Name | Krävs/upprepas | Typ | Anteckningar |
   |--- | --- | --- | --- |
   | **AppRoleAssignments** |Obligatorisk |Sträng |**[appRoleAssignments]** -objekt. |
 
@@ -547,7 +547,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |**käll** värde att uppdatera. |
    | **avgränsare** |Obligatorisk |Sträng |Anger det tecken som ska användas för att dela strängen (exempel: ",") |
@@ -568,19 +568,19 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |**käll** värde att uppdatera. |
 
 ---
-### <a name="switch"></a>Växel
+### <a name="switch"></a>Switch
 **Funktioner**<br> Switch (källa, defaultValue, KEY1, värde1, key2, värde2,...)
 
 **Beskrivning:**<br> Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. Om **käll** värde inte matchar några nycklar returnerar **DefaultValue**.  **Nyckel** -och **värde** parametrar måste alltid komma in i par. Funktionen förväntar sig alltid ett jämnt antal parametrar.
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |**Käll** värde att kontrol lera. |
    | **Standar** |Valfritt |Sträng |Standardvärdet som ska användas när källan inte matchar några nycklar. Kan vara en tom sträng (""). |
@@ -595,7 +595,7 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-   | Name | Krävs/upprepas | Typ | Kommentarer |
+   | Name | Krävs/upprepas | Typ | Anteckningar |
    | --- | --- | --- | --- |
    | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet |
    | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|
@@ -609,7 +609,7 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 
 **Komponentparametrar**<br> 
 
-  | Name | Krävs/upprepas | Typ | Kommentarer |
+  | Name | Krävs/upprepas | Typ | Anteckningar |
   | --- | --- | --- | --- |
   | **källicensservern** |Obligatorisk |Sträng |Vanligt vis namnet på attributet från källobjektet. |
   | **substrat** |Valfritt |Sträng |Formatet för kultur namnet baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språk koden för två bokstäver och *land/regioncode2* är under kultur koden med två bokstäver. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I de fall där en språkkod med två bokstäver inte är tillgänglig används en kod med tre bokstäver härledd från ISO 639-2.|

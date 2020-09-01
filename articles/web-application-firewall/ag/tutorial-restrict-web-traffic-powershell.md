@@ -5,15 +5,15 @@ description: Lär dig hur du begränsar webb trafik med en brand vägg för webb
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: 1e2fb98d83d1246c54ccb37d68d9b4282701677e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74046276"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225194"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Aktivera brand vägg för webbaserade program med Azure PowerShell
 
@@ -21,17 +21,16 @@ Du kan begränsa trafiken på en Programgateway med en [brand vägg för webbase
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway med WAF aktiverat
-> * Skapa en VM-skalningsuppsättning
-> * Skapa ett lagringskonto och konfigurera diagnostik
+* Konfigurera nätverket
+* Skapa en programgateway med WAF aktiverat
+* Skapa en VM-skalningsuppsättning
+* Skapa ett lagringskonto och konfigurera diagnostik
 
 ![Exempel på brandvägg för webbaserade program](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
 Om du vill kan du slutföra den här artikeln med hjälp av [Azure Portal](application-gateway-web-application-firewall-portal.md) eller [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

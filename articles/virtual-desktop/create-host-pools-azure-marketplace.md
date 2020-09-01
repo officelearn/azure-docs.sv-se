@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 466180535b3fe7c7d0155c8b19ac287930341ee7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755491"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226105"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -22,7 +22,7 @@ Lagringspooler är en samling av en eller flera identiska virtuella datorer (VM)
 
 Den här artikeln vägleder dig genom installations processen för att skapa en adresspool för en Windows Virtual Desktop-miljö via Azure Portal. Den här metoden ger ett webbläsarbaserat användar gränssnitt för att skapa en adresspool i Windows Virtual Desktop, skapa en resurs grupp med virtuella datorer i en Azure-prenumeration, ansluta de virtuella datorerna till den Azure Active Directory AD-domänen och registrera de virtuella datorerna med Windows Virtual Desktop.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ange följande parametrar för att skapa en värdbaserad pool:
 
@@ -47,6 +47,8 @@ Om du inte redan har en Azure-prenumeration kan du se till att [skapa ett konto]
 För att börja skapa den nya poolen:
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
+   
+   >! Lägg Om du loggar in på US Gov portal går du till [https://portal.azure.us/](https://portal.azure.us/) i stället.
 
 2. Ange det **virtuella Windows-skrivbordet** i Sök fältet och Sök sedan efter och välj **Windows Virtual Desktop** under tjänster.
 
@@ -72,7 +74,7 @@ För att börja skapa den nya poolen:
       > [!div class="mx-imgBorder"]
       > ![En skärm bild av list rutan tilldelnings typ fält. Användaren har valt automatisk.](media/assignment-type-field.png)
 
-9. Om du väljer **pool**, anger du följande information:
+9.  Om du väljer **pool**, anger du följande information:
 
      - För **högsta antal sessioner**anger du det maximala antalet användare som du vill belastningsutjämna till en värd för en enda session.
      - För **belastnings Utjämnings algoritm**väljer du antingen bredd-första eller djup-först, baserat på ditt användnings mönster.

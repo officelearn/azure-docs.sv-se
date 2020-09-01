@@ -1,25 +1,25 @@
 ---
-title: Blob-version (för hands version)
+title: BLOB-versioner
 titleSuffix: Azure Storage
-description: Blob Storage-versioner (för hands version) behåller automatiskt tidigare versioner av ett objekt och identifierar dem med tidsstämplar. Du kan återställa tidigare versioner av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
+description: Blob Storage-versioner hanterar automatiskt tidigare versioner av ett objekt och identifierar dem med tidsstämplar. Du kan återställa tidigare versioner av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074542"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226271"
 ---
-# <a name="blob-versioning-preview"></a>Blob-version (för hands version)
+# <a name="blob-versioning"></a>BLOB-versioner
 
-Du kan aktivera Blob Storage-version (för hands version) för att automatiskt underhålla tidigare versioner av ett objekt.  När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
+Du kan aktivera Blob Storage-versioner för att automatiskt underhålla tidigare versioner av ett objekt.  När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
 
 BLOB-versioner aktive ras på lagrings kontot och gäller för alla blobar i lagrings kontot. När du har aktiverat BLOB-versioner för ett lagrings konto behåller Azure Storage automatiskt versioner för varje BLOB i lagrings kontot.
 
@@ -41,6 +41,10 @@ När du skapar en blob med versions hantering aktive rad är den nya blobben den
 När du tar bort en blob med versions hantering aktive rad skapar Azure Storage en version som fångar upp status för blobben innan den tas bort. Den aktuella versionen av blobben tas sedan bort, men blobens versioner kvarstår, så att den kan skapas på nytt om det behövs. 
 
 BLOB-versioner är oföränderliga. Du kan inte ändra innehållet eller metadata för en befintlig blob-version.
+
+BLOB-versioner är tillgängligt för General-Purpose v2-, Block Blob-och Blob Storage-konton. Lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2 stöds inte för närvarande.
+
+Version 2019-10-10 och senare av Azure Storage REST API stöder BLOB-versioner.
 
 ### <a name="version-id"></a>Versions-ID
 
@@ -108,7 +112,7 @@ Om du vill automatisera processen med att flytta block blobbar till lämplig niv
 
 ## <a name="enable-or-disable-blob-versioning"></a>Aktivera eller inaktivera BLOB-versioner
 
-Information om hur du aktiverar eller inaktiverar BLOB-versioner finns i [Aktivera eller inaktivera BLOB-versioner](versioning-enable.md).
+Information om hur du aktiverar eller inaktiverar BLOB-versioner finns i [Aktivera och hantera BLOB-versioner](versioning-enable.md).
 
 Inaktive ring av BLOB-versioner tar inte bort befintliga blobbar, versioner eller ögonblicks bilder. När du inaktiverar BLOB-versioner är alla befintliga versioner tillgängliga i ditt lagrings konto. Inga nya versioner skapas senare.
 
@@ -196,134 +200,95 @@ I följande tabell visas den behörighet som krävs för en SAS för att ta bort
 |----------------|----------------|------------------------|
 | Ta bort         | x              | Ta bort en blob-version. |
 
-## <a name="about-the-preview"></a>Om för hands versionen
-
-BLOB-versioner är tillgängliga i för hands versionen i följande regioner:
-
-- USA, östra 2
-- Central US
-- Norra Europa
-- Europa, västra
-- Frankrike, centrala
-- Kanada, östra
-- Kanada, centrala
-
-> [!IMPORTANT]
-> För hands versionen av BLOB-versioner är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
-
-Version 2019-10-10 och senare av Azure Storage REST API stöder BLOB-versioner.
-
-### <a name="storage-account-support"></a>Stöd för lagrings konto
-
-BLOB-versioner är tillgänglig för följande typer av lagrings konton:
-
-- Allmänna-syfte v2-lagrings konton
-- Blockera Blob Storage-konton
-- Blob Storage-konton
-
-Om ditt lagrings konto är ett allmänt v1-konto använder du Azure Portal för att uppgradera till ett allmänt-syfte v2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
-
-Lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2 stöds inte för närvarande.
-
-### <a name="register-for-the-preview"></a>Registrera dig för för hands versionen
-
-Om du vill registrera dig för för hands versionen av BLOB-versionen använder du PowerShell eller Azure CLI för att skicka en begäran om att registrera funktionen med din prenumeration. När din begäran har godkänts kan du aktivera BLOB-versioner med alla nya eller befintliga General-Purpose v2-, BLOB-lagrings-eller Premium Block-Blob Storage-konton.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Registrera med PowerShell genom att anropa kommandot [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
-
-```powershell
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Om du vill registrera dig med Azure CLI anropar du kommandot [AZ funktions register](/cli/azure/feature#az-feature-register) .
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Kontrol lera status för registreringen
-
-Använd PowerShell eller Azure CLI för att kontrol lera status för registreringen.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Om du vill kontrol lera status för registreringen med PowerShell anropar du kommandot [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Om du vill kontrol lera statusen för registreringen med Azure CLI anropar du kommandot [AZ Feature](/cli/azure/feature#az-feature-show) .
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
-
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
 Att aktivera BLOB-versioner kan resultera i ytterligare avgifter för data lagring till ditt konto. När du designar ditt program är det viktigt att vara medveten om hur dessa avgifter kan påföras så att du kan minimera kostnaderna.
 
-BLOB-versioner, t. ex. blob-ögonblicksbilder, faktureras enligt samma taxa som aktiva data. Om en version delar block eller sidor med dess bas-BLOB betalar du bara för ytterligare block eller sidor som inte delas mellan versionen och bas-bloben.
+BLOB-versioner, t. ex. blob-ögonblicksbilder, faktureras enligt samma taxa som aktiva data. Hur versioner faktureras beror på om du uttryckligen har angett nivån för bas-bloben eller för någon av dess versioner (eller ögonblicks bilder). Mer information om BLOB-nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md)lag rings nivåer.
+
+Om du inte har ändrat en BLOB-eller versions nivå debiteras du för unika data block över denna BLOB, dess versioner och eventuella ögonblicks bilder som den kan ha. Mer information finns i [fakturering när BLOB-nivån inte har angetts explicit](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Om du har ändrat en BLOB-eller versions nivå debiteras du för hela objektet, oavsett om bloben och versionen slutligen är på samma nivå igen. Mer information finns i [fakturera när BLOB-nivån uttryckligen har ställts in](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > Om du aktiverar versions hantering för data som ofta skrivs över kan det leda till ökade kapacitets kostnader för lagring och ökad fördröjning under List åtgärder. För att undvika dessa problem kan du lagra ofta skrivna data i ett separat lagrings konto med versions inaktiverat.
 
-### <a name="important-billing-considerations"></a>Viktiga fakturerings överväganden
+Mer information om fakturerings information för BLOB-ögonblicksbilder finns i [BLOB-ögonblicksbilder](snapshots-overview.md).
 
-Se till att tänka på följande när du aktiverar BLOB-versioner:
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Fakturera när BLOB-nivån inte har angetts explicit
 
-- Ditt lagrings konto debiteras för unika block eller sidor, oavsett om de finns i blobben eller i en tidigare version av blobben. Ditt konto debiterar inte ytterligare avgifter för versioner som är kopplade till en BLOB förrän du uppdaterar den blob som de baseras på. När du har uppdaterat blobben avviker den från tidigare versioner. När detta inträffar debiteras du för unika block eller sidor i varje BLOB eller version.
-- När du ersätter ett block i en Block-Blob debiteras det här blocket som ett unikt block. Detta gäller även om blocket har samma block-ID och samma data som i versionen. När blocket har allokerats igen skiljer den sig från sin motsvarighet i vilken version som helst, och du debiteras för data. Samma undantag gäller för en sida i en sid-blob som uppdateras med identiska data.
-- Blob Storage har inget sätt att avgöra om två block innehåller identiska data. Varje block som överförs och bekräftas behandlas som unikt, även om det har samma data och samma block-ID. Eftersom avgifterna börjar med unika block, är det viktigt att överväga att uppdatera en BLOB när versions hantering är aktive rad, vilket leder till ytterligare unika block och ytterligare kostnader.
-- När BLOB-versioner har Aktiver ATS kan du utforma uppdaterings åtgärder på block-blobbar så att de uppdaterar det minsta möjliga antalet block. Skriv åtgärder som tillåter detaljerad kontroll över [block är att blockera och blockera](/rest/api/storageservices/put-block) [listor](/rest/api/storageservices/put-block-list). Åtgärden för att [lägga till BLOB](/rest/api/storageservices/put-blob) ersätter å andra sidan hela innehållet i en blob och kan leda till ytterligare kostnader.
+Om du inte uttryckligen anger BLOB-nivån för en bas-BLOB eller någon av dess versioner debiteras du för unika block eller sidor över bloben, dess versioner och eventuella ögonblicks bilder som den kan ha. Data som delas i en blob och dess versioner debiteras bara en gång. När en BLOB uppdateras avviker data i en bas-BLOB från de data som lagras i dess versioner, och unika data debiteras per block eller sida.
 
-### <a name="versioning-billing-scenarios"></a>Fakturerings scenarier för versioner
+När du ersätter ett block i en Block-Blob debiteras det här blocket som ett unikt block. Detta gäller även om blocket har samma block-ID och samma data som i den tidigare versionen. När blocket har allokerats igen avviker det från dess motsvarighet i den tidigare versionen och du debiteras för data. Samma undantag gäller för en sida i en sid-blob som uppdateras med identiska data.
 
-Följande scenarier visar hur avgifterna påförs för en Block-Blob och dess versioner.
+Blob Storage har inget sätt att avgöra om två block innehåller identiska data. Varje block som överförs och bekräftas behandlas som unikt, även om det har samma data och samma block-ID. Eftersom avgifterna ska vara för unika block, är det viktigt att komma ihåg att om du uppdaterar en BLOB när versions hantering är aktive rad kommer ytterligare unika block och ytterligare kostnader att uppstå.
+
+När BLOB-versioner är aktive rad anropar du uppdaterings åtgärder på block-blobbar så att de uppdaterar det minsta möjliga antalet block. Skriv åtgärder som tillåter detaljerad kontroll över [block är att blockera och blockera](/rest/api/storageservices/put-block) [listor](/rest/api/storageservices/put-block-list). Åtgärden för att [lägga till BLOB](/rest/api/storageservices/put-blob) ersätter å andra sidan hela innehållet i en blob och kan leda till ytterligare kostnader.
+
+Följande scenarier visar hur avgifterna påförs för en Block-Blob och dess versioner när BLOB-nivån inte har angetts explicit.
 
 #### <a name="scenario-1"></a>Scenario 1
 
 I Scenario 1 har blobben en tidigare version. Bloben har inte uppdaterats sedan versionen skapades, så kostnader uppkommer bara för unika block 1, 2 och 3.
 
-![Azure Storage resurser](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagram 1 som visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenario 2
 
 I scenario 2 har ett block (Block 3 i diagrammet) i blobben uppdaterats. Även om det uppdaterade blocket innehåller samma data och samma ID, är det inte samma som för Block 3 i den tidigare versionen. Det innebär att kontot debiteras för fyra block.
 
-![Azure Storage resurser](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagram 2 visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenario 3
 
 I scenario 3 har blobben uppdaterats, men versionen har inte det. Block 3 har ersatts med block 4 i bas-blobben, men den tidigare versionen visar fortfarande Block 3. Det innebär att kontot debiteras för fyra block.
 
-![Azure Storage resurser](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagram 3 som visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenario 4
 
-I Scenario 4 har bas-bloben uppdaterats helt och innehåller inget av de ursprungliga blocken. Det innebär att kontot debiteras för alla åtta unika block &mdash; fyra i bas-blobben och fyra i den tidigare versionen. Det här scenariot kan inträffa om du skriver till en blob med åtgärden för att skicka BLOB, eftersom den ersätter hela innehållet i bas-bloben.
+I Scenario 4 har bas-bloben uppdaterats helt och innehåller inget av de ursprungliga blocken. Det innebär att kontot debiteras för alla åtta unika block &mdash; fyra i bas-blobben och fyra i den tidigare versionen. Det här scenariot kan inträffa om du skriver till en blob med åtgärden för att [Skicka BLOB](/rest/api/storageservices/put-blob) , eftersom den ersätter hela innehållet i bas-bloben.
 
-![Azure Storage resurser](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagram 4 som visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Fakturera när BLOB-nivån uttryckligen har angetts
+
+Om du uttryckligen har angett BLOB-nivån för en BLOB eller version (eller ögonblicks bild) debiteras du för objektets fullständiga innehålls längd på den nya nivån, oavsett om den delar block med ett objekt på den ursprungliga nivån. Du debiteras också för den äldsta versionen av innehålls längden på den ursprungliga nivån. Alla tidigare versioner eller ögonblicks bilder som finns kvar på den ursprungliga nivån debiteras för unika block som de kan dela, enligt beskrivningen i [fakturering när BLOB-nivån inte har angetts explicit](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Flytta en blob till en ny nivå
+
+I följande tabell beskrivs fakturerings beteendet för en BLOB eller version när den flyttas till en ny nivå.
+
+| När BLOB-nivån uttryckligen anges... | Sedan faktureras du för... |
+|-|-|
+| En bas-BLOB med en tidigare version | Bas-bloben på den nya nivån och den äldsta versionen på den ursprungliga nivån samt eventuella unika block i andra versioner. <sup>1</sup> |
+| En bas-BLOB med en tidigare version och en ögonblicks bild | Bas-bloben på den nya nivån, den äldsta versionen på den ursprungliga nivån och den äldsta ögonblicks bilden på den ursprungliga nivån samt eventuella unika block i andra versioner eller ögonblicks bilder<sup>1</sup>. |
+| En tidigare version | Versionen på den nya nivån och bas-bloben på den ursprungliga nivån samt eventuella unika block i andra versioner. <sup>1</sup> |
+
+<sup>1</sup> Om det finns andra tidigare versioner eller ögonblicks bilder som inte har flyttats från ursprungs nivån debiteras dessa versioner eller ögonblicks bilder utifrån antalet unika block som de innehåller, enligt beskrivningen i [fakturering när BLOB-nivån inte har angetts explicit](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Det går inte att göra en återställning av nivån för en BLOB, version eller ögonblicks bild. Om du flyttar en blob till en ny nivå och sedan flyttar tillbaka den till den ursprungliga nivån debiteras du för objektets fullständiga innehålls längd även om det delar block med andra objekt på den ursprungliga nivån.
+
+Åtgärder som uttryckligen anger nivån för en BLOB, version eller ögonblicks bild är:
+
+- [Ange blobnivå](/rest/api/storageservices/set-blob-tier)
+- [Lägg till BLOB](/rest/api/storageservices/put-blob) med angiven nivå
+- [Lägg till blockeringslistan](/rest/api/storageservices/put-block-list) med den angivna nivån
+- [Kopiera BLOB](/rest/api/storageservices/copy-blob) med angiven nivå
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Att ta bort en BLOB när mjuk borttagning har Aktiver ATS
+
+Om du har aktiverat BLOB-mjuk borttagning, och om du tar bort eller skriver över en bas-blob som har haft nivån explicit angiven, faktureras alla tidigare versioner av den mjuk-borttagna blobben med full innehålls längd. Mer information om hur BLOB-versioner och mjuk borttagning fungerar tillsammans finns i [BLOB-versioner och mjuk borttagning](#blob-versioning-and-soft-delete).
+
+I följande tabell beskrivs fakturerings beteendet för en blob som är mjuk borttagning, beroende på om versions hantering har Aktiver ATS eller inaktiverats. När versions hantering har Aktiver ATS skapas en version när en BLOB är mjuk-borttagen. När versions hantering är inaktive rad skapar mjuk borttagning av en BLOB en ögonblicks bild av mjuk borttagning.
+
+| När du skriver över en bas-BLOB med dess nivå explicit anges... | Sedan faktureras du för... |
+|-|-|
+| Om både BLOB-mjuk borttagning och versions hantering är aktiverade | Alla befintliga versioner med full innehålls längd oavsett nivå. |
+| Om mjuk borttagning av BLOB är aktiverat men versions hantering är inaktive rad | Alla befintliga ögonblicks bilder av mjuk borttagning med full innehålls längd oavsett nivå. |
 
 ## <a name="see-also"></a>Se även
 
-- [Aktivera blobversionshantering](versioning-enable.md)
+- [Aktivera och hantera BLOB-versioner](versioning-enable.md)
 - [Skapa en ögonblicks bild av en BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Mjuk borttagning för Azure Storage blobbar](storage-blob-soft-delete.md)

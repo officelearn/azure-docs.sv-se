@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286639"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226437"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http-utlösaren eller åtgärden kan du skapa automatiserade uppgifter och arbets flöden som skickar begär anden till tjänstens slut punkter via http eller https. Du kan till exempel övervaka tjänst slut punkten för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När den angivna händelsen inträffar i slut punkten, till exempel om din webbplats går nedåt, utlöser händelsen din Logic app-arbetsflöde och kör åtgärderna i det arbets flödet. Om du vill ta emot och svara på inkommande HTTPS-anrop i stället använder du den inbyggda [begär ande utlösaren eller svars åtgärden](../connectors/connectors-native-reqres.md).
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http-utlösaren eller åtgärden kan du skapa automatiserade uppgifter och arbets flöden som kan skicka utgående förfrågningar till slut punkter på andra tjänster och system via http eller https. Använd den inbyggda [åtgärden utlösare och svar](../connectors/connectors-native-reqres.md)för att ta emot och svara på inkommande https-anrop i stället.
+
+Du kan till exempel övervaka en tjänst slut punkt för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När den angivna händelsen inträffar i slut punkten, till exempel om din webbplats går nedåt, utlöser händelsen din Logic app-arbetsflöde och kör åtgärderna i det arbets flödet.
 
 * Om du vill kontrol lera eller *polla* en slut punkt i ett återkommande schema [lägger du till http-utlösaren](#http-trigger) som det första steget i arbets flödet. Varje gången som utlösaren kontrollerar slut punkten anropar utlösaren eller skickar en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren skickar allt innehåll från slut punktens svar till åtgärder i din Logic app.
 
 * [Lägg till HTTP-åtgärden](#http-action)om du vill anropa en slut punkt från någon annan plats i arbets flödet. Svaret på slut punkten avgör hur arbets flödets återstående åtgärder ska köras.
 
-Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i din Logic app-arbetsflöde.
+Den här artikeln visar hur du använder HTTP-utlösare och HTTP-åtgärder så att din Logi Kap par kan skicka utgående anrop till andra tjänster och system.
 
-## <a name="prerequisites"></a>Förutsättningar
+Information om kryptering, säkerhet och auktorisering för utgående samtal från din Logic app, t. ex. [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), självsignerade certifikat eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för utgående anrop till andra tjänster och system](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Krav
+
+* Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * URL: en för den mål slut punkt som du vill anropa
 
@@ -96,21 +100,27 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
 1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Utlösare och åtgärds utdata
 
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+Här är mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar denna information:
 
-Baserat på mål slut punktens kapacitet, stöder utgående anrop Transport Layer Security (TLS), som tidigare Secure Sockets Layer (SSL), version 1,0, 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds.
+| Egenskap | Typ | Beskrivning |
+|----------|------|-------------|
+| `headers` | JSON-objekt | Huvudena från begäran |
+| `body` | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| `status code` | Integer | Status koden från begäran |
+|||
 
-Om slut punkten till exempel stöder 1,2 använder HTTP-anslutaren 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Självsignerade certifikat
-
-* För logi Kap par i den globala Azure-miljön för flera klienter tillåter HTTP-anslutaren inte självsignerade TLS/SSL-certifikat. Om din Logic app gör ett HTTP-anrop till en server och visar ett certifikat för TLS/SSL, kan HTTP-anropet Miss lyckas med ett `TrustFailure` fel.
-
-* För logi Kap par i en [integration service Environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)tillåts http-anslutningen självsignerade certifikat för TLS/SSL-handskakning. Du måste dock först [Aktivera stöd för självsignerade certifikat](../logic-apps/create-integration-service-environment-rest-api.md#request-body) för en befintlig ISE eller ny ISE med hjälp av Logic Apps REST API och installera det offentliga certifikatet på `TrustedRoot` platsen.
+| Statuskod | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Har godkänts |
+| 400 | Felaktig begäran |
+| 401 | Behörighet saknas |
+| 403 | Förbjudet |
+| 404 | Hittades inte |
+| 500 | Internt serverfel. Ett okänt fel uppstod. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Innehåll med multipart/form-datatyp
 
@@ -231,7 +241,7 @@ Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bor
 
 * `Accept-*`
 * `Allow`
-* `Content-*`med dessa undantag: `Content-Disposition` , `Content-Encoding` och`Content-Type`
+* `Content-*` med dessa undantag: `Content-Disposition` , `Content-Encoding` och `Content-Type`
 * `Cookie`
 * `Expires`
 * `Host`
@@ -249,29 +259,8 @@ Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
 * [Parametrar för HTTP-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parametrar för HTTP-åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Information om utdata
-
-Här är mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar denna information:
-
-| Egenskap | Typ | Beskrivning |
-|----------|------|-------------|
-| `headers` | JSON-objekt | Huvudena från begäran |
-| `body` | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| `status code` | Heltal | Status koden från begäran |
-|||
-
-| Statuskod | Beskrivning |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Har godkänts |
-| 400 | Felaktig begäran |
-| 401 | Behörighet saknas |
-| 403 | Förbjudet |
-| 404 | Hittades inte |
-| 500 | Internt serverfel. Ett okänt fel uppstod. |
-|||
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+* [Säker åtkomst och data åtkomst för utgående anrop till andra tjänster och system](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Anslutningsappar för Logic Apps](../connectors/apis-list.md)
 

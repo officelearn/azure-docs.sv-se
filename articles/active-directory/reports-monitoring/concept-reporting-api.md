@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf2e3f98bd96c09fe741a24a1332443c876e2e61
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83647408"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225918"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med API: et för Azure Active Directory rapportering
 
@@ -32,7 +32,7 @@ Genom att använda Microsoft Graph-API för Azure AD-rapporter kan du få progra
 
 Den här artikeln ger en översikt över rapporterings-API: t, inklusive sätt att komma åt den.
 
-Om du stöter på problem, se [hur du får support för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+Om du stöter på problem, se [hur du får support för Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,9 +47,9 @@ Detaljerade anvisningar finns i [krav för att komma åt Azure Active Directory 
 
 ## <a name="api-endpoints"></a>API-slutpunkter 
 
-Microsoft Graph API-slutpunkten för gransknings loggar är `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` och Microsoft Graph-API-slutpunkten för inloggningar är `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Mer information finns i API- [referens för granskning](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) och [INLOGGNINGs-API-referens](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn).
+Microsoft Graph API-slutpunkten för gransknings loggar är `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` och Microsoft Graph-API-slutpunkten för inloggningar är `https://graph.microsoft.com/v1.0/auditLogs/signIns` . Mer information finns i API- [referens för granskning](/graph/api/resources/directoryaudit?view=graph-rest-1.0) och [INLOGGNINGs-API-referens](/graph/api/resources/signIn?view=graph-rest-1.0).
 
-Dessutom kan du använda [identitets skyddets identifierings-API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för att få program mässig åtkomst till säkerhets identifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
+Dessutom kan du använda [identitets skyddets identifierings-API](/graph/api/resources/identityriskevent?view=graph-rest-beta) för att få program mässig åtkomst till säkerhets identifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
 ## <a name="apis-with-microsoft-graph-explorer"></a>API: er med Microsoft Graph Explorer
 
@@ -70,5 +70,3 @@ Detaljerade anvisningar finns i [Hämta data med hjälp av Azure AD repor ting A
  * [Krav för att få åtkomst till rapporterings-API](howto-configure-prerequisites-for-reporting-api.md) 
  * [Hämta data med hjälp av Azure AD Reporting-API:et med certifikat](tutorial-access-api-with-certificates.md)
  * [Felsöka fel i Azure AD repor ting API](troubleshoot-graph-api.md)
-
-

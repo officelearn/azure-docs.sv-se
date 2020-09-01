@@ -16,15 +16,15 @@
       href: tutorial-existing-forest.md
     - name: Styr molnetablering för en befintlig synkroniserad AD-skog
       href: tutorial-pilot-aadc-aadccp.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Vad är hash-synkronisering av lösenord?
-      href: /azure/active-directory/hybrid/whatis-phs?context=azure/active-directory/cloud-provisioning/context/cloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Förstå Azure AD-schemat, attribut och uttryck'
       href: concept-attributes.md
     - name: Skriva uttryck för attributmappningar i Azure Active Directory
       href: reference-expressions.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Installation och uppgradering
       items:
@@ -36,7 +36,7 @@
           href: how-to-configure.md
         - name: Använd enkel inloggning
           href: how-to-sso.md
-    - name: Planera och designa
+    - name: Planera och utforma
       items:
         - name: Topologier och scenarier för Azure AD Connect-molnetablering
           href: plan-cloud-provisioning-topologies.md
@@ -46,23 +46,23 @@
           href: how-to-automatic-upgrade.md
     - name: Utveckla
       items:
-        - name: Transformationer
+        - name: Transformeringar
           href: how-to-transformation.md
         - name: API för synkronisering med Azure AD
-          href: 'https://docs.microsoft.com/graph/api/resources/synchronization-overview'
+          href: /graph/api/resources/synchronization-overview
     - name: Felsöka
       items:
         - name: Felsöka molnetablering
           href: how-to-troubleshoot.md
         - name: Dubblettattribut
-          href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
+          href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
 - name: Referens
   items:
     - name: Versionshistorik för agent för Azure AD Connect-molnetablering
-      href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Vanliga frågor och svar om Azure AD Connect-molnetablering
       href: reference-cloud-provisioning-faq.md
     - name: Attribut som har synkroniserats
-      href: /azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=azure/active-directory/cloud-provisioning/context/cp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Basic Active Directory och Azure AD-miljöer
       href: tutorial-basic-ad-azure.md

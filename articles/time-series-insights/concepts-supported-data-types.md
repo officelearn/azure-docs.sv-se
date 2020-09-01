@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997871"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226751"
 ---
 # <a name="supported-data-types"></a>Datatyper som stöds
 
@@ -34,9 +34,10 @@ I följande tabell visas de data typer som stöds av Azure Time Series Insights 
 
 > [!NOTE]
 > **Sträng** typen kan inte ha värdet null:
->   * Ett [Time Series-uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) uttryckt i en [Time Series-fråga](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) som jämför värdet för en tom**sträng (') mot** **Null** fungerar på samma sätt: `$event.siteid.String = NULL` motsvarar `$event.siteid.String = ''` .
->   * API: et kan returnera **Null** -värden även om ursprungliga händelser innehöll tomma strängar.
->   * Ta inte beroende av **Null** -värden i **sträng** kolumner om du vill göra jämförelser eller utvärderingar, behandla dem på samma sätt som tomma strängar.
+>
+> * Ett [Time Series-uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) uttryckt i en [Time Series-fråga](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) som jämför värdet för en tom**sträng (') mot** **Null** fungerar på samma sätt: `$event.siteid.String = NULL` motsvarar `$event.siteid.String = ''` .
+> * API: et kan returnera **Null** -värden även om ursprungliga händelser innehöll tomma strängar.
+> * Ta inte beroende av **Null** -värden i **sträng** kolumner om du vill göra jämförelser eller utvärderingar, behandla dem på samma sätt som tomma strängar.
 
 ## <a name="sending-mixed-data-types"></a>Skicka blandade data typer
 

@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/31/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a729d470cccd4121523c767ada9077a51361c061
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007459"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181992"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Översikt över Azure Data Factory anslutning
 
@@ -25,6 +25,17 @@ Azure Data Factory stöder följande data lager och format via kopiera, data fl�
 ## <a name="supported-data-stores"></a>Datalager som stöds
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+
+## <a name="integrate-with-more-data-stores"></a>Integrera med fler data lager
+
+Azure Data Factory kan uppnå en bredare uppsättning data lager än den lista som anges ovan. Om du behöver flytta data till/från ett data lager som inte finns i listan Azure Data Factory inbyggd koppling, finns här några utöknings bara alternativ:
+- För databasen och informations lagret kan du vanligt vis hitta en motsvarande ODBC-drivrutin, med vilken du kan använda [allmän ODBC-anslutning](connector-odbc.md).
+- För SaaS-program:
+    - Om den tillhandahåller RESTful-API: er kan du använda [Generic rest Connector](connector-rest.md).
+    - Om den innehåller OData-feed kan du använda [allmän OData-anslutning](connector-odata.md).
+    - Om det innehåller SOAP-API: er kan du använda [allmän HTTP-anslutning](connector-http.md).
+    - Om den har ODBC-drivrutin kan du använda [allmän ODBC-anslutning](connector-odbc.md).
+- För andra kan du kontrol lera om du kan läsa in data eller visa data som alla data lager som stöds av ADF, t. ex. Azure Blob/File/FTP/SFTP/etc, och sedan låta ADF Hämta därifrån. Du kan anropa anpassad data inläsnings funktion via [Azure Function](control-flow-azure-function-activity.md), [anpassad aktivitet](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md) / [HDInsight](transform-data-using-hadoop-hive.md), [webb aktivitet](control-flow-web-activity.md)osv.
 
 ## <a name="supported-file-formats"></a>Filformat som stöds
 

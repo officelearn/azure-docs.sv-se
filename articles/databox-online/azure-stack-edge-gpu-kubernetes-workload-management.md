@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 21845b51fdd108221d5e1bce50e953b79084d17d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085357"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182062"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Kubernetes arbets belastnings hantering på din Azure Stack Edge-enhet
 
@@ -33,40 +33,13 @@ De två vanligaste typerna av arbets belastningar som du kan distribuera på din
 
     Du kan skapa en Kubernetes-distribution för att distribuera ett tillstånds känsligt program. 
 
-## <a name="namespaces-types"></a>Typer av namn områden
+## <a name="deployment-flow"></a>Distributions flöde
 
-Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i ett namn område. Dessa grupperingar ger ett sätt att logiskt dela upp ett Kubernetes-kluster och begränsa åtkomsten till att skapa, Visa eller hantera resurser. Användare kan bara interagera med resurser inom de tilldelade namn områdena.
-
-Namn områden är avsedda att användas i miljöer med många användare som sprids över flera team eller projekt. För kluster med några få till användare behöver du inte skapa eller tänka på namn områden alls. Börja använda namnrum när du behöver de funktioner som de tillhandahåller.
-
-Mer information finns i [Kubernetes-namnområden](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
-
-Din Azure Stack Edge-enhet har följande namn rymder:
-
-- **System namn område** – det här namn området är där kärn resurser finns, till exempel nätverks funktioner som DNS och proxy eller Kubernetes-instrumentpanelen. Du distribuerar vanligt vis inte dina egna program till det här namn området. Använd det här namn området för att felsöka problem med Kubernetes-kluster. 
-
-    Det finns flera system namn rymder på enheten och namnen som motsvarar dessa system namn rymder är reserverade. Här är en lista över reserverade system namn rymder: 
-    - Kube-system
-    - metallb-system
-    - DBE – namnrymd
-    - standard
-    - Kubernetes-instrument panel
-    - standard
-    - Kube-nod-Lease
-    - Kube – offentlig
-    - iotedge
-    - Azure-båg
-
-    Se till att inte använda reserverade namn för användar namn rymder som du skapar. 
-<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
-
-- **Användar namn område** – det här är de namn områden som du kan skapa via **kubectl** för att distribuera program lokalt.
+Om du vill distribuera program på en Azure Stack Edge-enhet följer du dessa steg: 
  
-- **IoT Edge namnrymd** – du ansluter till det här `iotedge` namn området för att distribuera program via IoT Edge.
-
-- **Azure Arc-namnrymd** – du ansluter till det här `azure-arc` namn området för att distribuera program via Azure Arc.
-
+1. **Konfigurera åtkomst**: först ska du använda PowerShell-körnings utrymme för att skapa en användare, skapa ett namn område och bevilja användar åtkomst till namn området.
+2. **Konfigurera lagring**: härnäst ska du använda Azure Stack Edge-resursen i Azure Portal för att skapa beständiga volymer med antingen statisk eller dynamisk etablering för de tillstånds känsliga program som du ska distribuera.
+3. **Konfigurera nätverk**: Slutligen ska du använda tjänsterna för att exponera program externt och i Kubernetes-klustret.
  
 ## <a name="deployment-types"></a>Distributions typer
 
@@ -78,7 +51,7 @@ Det finns tre huvudsakliga sätt att distribuera dina arbets belastningar. Med v
 
 - **IoT Edge distribution**: det här är via IoT Edge, som ansluter till Azure-IoT Hub. Du ansluter till K8-klustret på din Azure Stack Edge-enhet via `iotedge` namn området. De IoT Edge agenter som distribueras i det här namn området ansvarar för anslutning till Azure. Du tillämpar `IoT Edge deployment.json` konfigurationen med Azure DEVOPS CI/CD. Hantering av namn områden och IoT Edge görs via moln operatören.
 
-- **Azure/Arc-distribution**: Azure Arc är ett hybrid hanterings verktyg som gör att du kan distribuera program i K8-kluster. Du ansluter K8-klustret på din Azure Stack Edge-enhet via `azure-arc namespace` .  Agenter distribueras i det här namn området som ansvarar för anslutning till Azure. Du tillämpar distributions konfigurationen med hjälp av GitOps konfigurations hantering. Med Azure-bågen kan du också använda Azure Monitor för behållare för att visa och övervaka dina kluster. Mer information finns i [Vad är Azure-Arc-aktiverade Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Azure/Arc-distribution**: Azure Arc är ett hybrid hanterings verktyg som gör att du kan distribuera program i K8-kluster. Du ansluter K8-klustret på din Azure Stack Edge-enhet via `azure-arc namespace` . Agenter distribueras i det här namn området som ansvarar för anslutning till Azure. Du tillämpar distributions konfigurationen med hjälp av GitOps konfigurations hantering. Med Azure-bågen kan du också använda Azure Monitor för behållare för att visa och övervaka dina kluster. Mer information finns i [Vad är Azure-Arc-aktiverade Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Välj distributions typ
 

@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90b79dfa412102b139f2f094fb9ca07a6361cab0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019580"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182011"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 

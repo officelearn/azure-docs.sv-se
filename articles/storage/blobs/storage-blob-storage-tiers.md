@@ -3,17 +3,17 @@ title: Frekventa, låg frekventa och Arkiv åtkomst nivåer för blobbar – Azu
 description: Läs om åtkomst nivåer för frekvent åtkomst, låg frekvent åtkomst och arkivering för Azure Blob Storage. Granska lagrings konton som stöder skiktning. Jämför Block Blob Storage-alternativ.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009618"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226190"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -121,7 +121,7 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Offline           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Ej tillämpligt                       | 99,99 %       | 99,9 %               | Offline           |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | E.t.                       | 99,99 %       | 99,9 %               | Offline           |
 | **Användnings kostnader**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
 | **Minsta objektstorlek**                   | Saknas                       | Saknas          | Saknas                 | Saknas               |
 | **Minsta lagringstid**              | Saknas                       | Saknas          | 30 dagar<sup>1</sup> | 180 dagar
@@ -156,7 +156,7 @@ I det här avsnittet visas följande scenarier med hjälp av Azure Portal och Po
 
 1. Klicka på **Spara** högst upp.
 
-![Ändra lagrings konto nivå](media/storage-tiers/account-tier.png)
+![Ändra standard konto nivå i Azure Portal](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Följande PowerShell-skript kan användas för att ändra konto nivån. `$rgName`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn. 
@@ -186,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Välj **Spara** längst ned.
 
-![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
+![Ändra BLOB-nivå i Azure Portal](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Följande PowerShell-skript kan användas för att ändra BLOB-nivån. `$rgName`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn. `$containerName`Variabeln måste initieras med ditt container namn. `$blobName`Variabeln måste initieras med ditt BLOB-namn. 
@@ -219,6 +219,8 @@ Alla lagrings konton använder en pris modell för Block-Blob-lagring baserat p�
 - **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
 - **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
 - Om **du ändrar åtkomst nivån**: om du ändrar kontots åtkomst nivå ändras kostnader för nivå ändringar för _åtkomst nivå härledda_ blobbar lagrade i kontot som inte har en explicit nivå uppsättning. Information om hur du ändrar åtkomst nivå för en enskild BLOB finns på [nivå fakturering på BLOB-nivå](#blob-level-tiering-billing).
+
+    Om du ändrar åtkomst nivån för en BLOB när versions hantering har Aktiver ATS, eller om bloben har ögonblicks bilder, kan ytterligare kostnader uppstå. Mer information om hur du faktureras när BLOB-versioner aktive ras och du uttryckligen ändrar en blobs nivå finns i [priser och fakturering](versioning-overview.md#pricing-and-billing) i dokumentationen för BLOB-versioner. Mer information om hur du faktureras när en BLOB har ögonblicks bilder och du uttryckligen ändrar blobens nivå finns i [priser och fakturering](snapshots-overview.md#pricing-and-billing) i dokumentationen för BLOB-ögonblicksbilder.
 
 > [!NOTE]
 > Mer information om priser för block blobbar finns [Azure Storage prissättnings](https://azure.microsoft.com/pricing/details/storage/blobs/) sida. Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).

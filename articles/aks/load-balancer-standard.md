@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056802"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182130"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en offentlig Standard Load Balancer i Azure Kubernetes service (AKS)
 
@@ -267,16 +267,15 @@ Om du förväntar dig att ha flera kort periodiska anslutningar, och det inte fi
 *outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Om du till exempel har 3 *nodeVMs*och 50 000 *desiredAllocatedOutboundPorts*måste du ha minst 3 *outboundIPs*. Vi rekommenderar att du införlivar ytterligare utgående IP-kapacitet utöver det du behöver. Dessutom måste du ha ett konto för den automatiska skalnings tjänsten för klustret och möjligheten att uppgradera noder i noden när du beräknar utgående IP-kapacitet. Granska antalet aktuella noder och maximalt antal noder och Använd det högre värdet för klustrets autoskalning. För att uppgradera måste du konto för en ytterligare virtuell nod för varje nod som tillåter uppgradering.
- 
+
 - När du anger *IdleTimeoutInMinutes* till ett annat värde än standardvärdet på 30 minuter bör du fundera på hur länge dina arbets belastningar behöver en utgående anslutning. Tänk också på att standardvärdet för timeout för en *standard* -SKU-belastningsutjämnare som används utanför AKS är 4 minuter. Ett *IdleTimeoutInMinutes* -värde som bättre återspeglar din speciella AKS-arbetsbelastning kan minska SNAT-belastningen som orsakas av att de kopplings anslutningar som inte längre används.
 
 > [!WARNING]
 > Att ändra värdena för *AllocatedOutboundPorts* och *IdleTimeoutInMinutes* kan märkbart ändra beteendet för den utgående regeln för belastningsutjämnaren och bör inte göras lätt, utan att förstå kompromisserna och programmets anslutnings mönster, se [avsnittet om fel sökning av SNAT nedan][troubleshoot-snat] och granska [Load Balancer utgående regler][azure-lb-outbound-rules-overview] och [utgående anslutningar i Azure][azure-lb-outbound-connections] innan du uppdaterar dessa värden för att helt förstå effekten av dina ändringar.
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Begränsa inkommande trafik till vissa IP-intervall
 
-Nätverks säkerhets gruppen (NSG) som är associerad med det virtuella nätverket för belastningsutjämnaren har som standard en regel för att tillåta all inkommande extern trafik. Du kan uppdatera den här regeln för att endast tillåta vissa IP-intervall för inkommande trafik. I följande manifest används *loadBalancerSourceRanges* för att ange ett nytt IP-intervall för inkommande extern trafik:
+I följande manifest används *loadBalancerSourceRanges* för att ange ett nytt IP-intervall för inkommande extern trafik:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +291,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> Inkommande, extern trafik flödar från belastningsutjämnaren till det virtuella nätverket för ditt AKS-kluster. Det virtuella nätverket har en nätverks säkerhets grupp (NSG) som tillåter all inkommande trafik från belastningsutjämnaren. I den här NSG används ett [service tag][service-tags] av typen *Loadbalancer* för att tillåta trafik från belastningsutjämnaren.
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Behåll klientens IP på inkommande anslutningar
 
@@ -322,7 +324,7 @@ Nedan visas en lista över anteckningar som stöds för Kubernetes-tjänster med
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Namnet på DNS-etiketten på offentliga IP-adresser   | Ange namnet på DNS-etiketten för den **offentliga** tjänsten. Om den är inställd på en tom sträng kommer DNS-posten i den offentliga IP-adressen inte att användas.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` eller `false`                     | Ange att tjänsten ska exponeras med hjälp av en Azure-säkerhetsregel som kan delas med en annan tjänst, handels specificitet för regler för en ökning av antalet tjänster som kan exponeras. Den här anteckningen förlitar sig på funktionen Azure- [förstärkta säkerhets regler](../virtual-network/security-overview.md#augmented-security-rules) i nätverks säkerhets grupper. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Namnet på resurs gruppen            | Ange resurs gruppen för offentliga IP-adresser i belastningsutjämnaren som inte finns i samma resurs grupp som kluster infrastrukturen (resurs grupp för resurs).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista över tillåtna service märken          | Ange en lista över tillåtna [service märken](../virtual-network/security-overview.md#service-tags) avgränsade med kommatecken.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista över tillåtna service märken          | Ange en lista över tillåtna [service märken][service-tags] avgränsade med kommatecken.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Timeout för TCP-inaktivitet på några minuter          | Ange efter hur lång tid i minuter som TCP-anslutningens tids gräns ska ske i belastningsutjämnaren. Standard och minimalt värde är 4. Högsta värdet är 30. Måste vara ett heltal.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Inaktivera `enableTcpReset` för SLB
 
@@ -424,3 +426,4 @@ Läs mer om hur du använder interna Load Balancer för inkommande trafik i [AKS
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags

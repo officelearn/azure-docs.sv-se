@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256874"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226955"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Fel sökning av moln etablering
 
@@ -22,7 +22,7 @@ Moln etablering vidrör många olika saker och har många olika beroenden. Detta
 
 ## <a name="common-troubleshooting-areas"></a>Vanliga fel söknings områden
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |-----|-----|
 |[Agent problem](#agent-problems)|Kontrol lera att agenten har installerats korrekt och att den kommunicerar med Azure Active Directory (Azure AD).|
 |[Problem med synkronisering av objekt](#object-synchronization-problems)|Använd etablerings loggar för att felsöka problem med synkronisering av objekt.|
@@ -120,7 +120,7 @@ Du kan få ett fel meddelande när du installerar Cloud Provisioning-agenten.
 
 Det här problemet orsakas vanligt vis av att agenten inte kan köra PowerShell-registrerings skripten på grund av lokala PowerShell-körnings principer.
 
-Lös problemet genom att ändra körnings principerna för PowerShell på-servern. Du måste ha dator-och användar principer inställda som *odefinierade* eller *RemoteSigned*. Om de är inställda som *obegränsade*visas det här felet. Mer information finns i [körnings principer för PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Lös problemet genom att ändra körnings principerna för PowerShell på-servern. Du måste ha dator-och användar principer inställda som *odefinierade* eller *RemoteSigned*. Om de är inställda som *obegränsade*visas det här felet. Mer information finns i [körnings principer för PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### <a name="log-files"></a>Loggfiler
 
@@ -195,7 +195,7 @@ Genom att välja status kan du se ytterligare information om karantänen. Du kan
 
   ![Starta om etablering](media/how-to-troubleshoot/quarantine3.png)
 
-- Använd Microsoft Graph för att [starta om etablerings jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa:
+- Använd Microsoft Graph för att [starta om etablerings jobbet](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa:
   - Escrows för att starta om depositions-räknaren som påförs till karantäns status.
   - Karantän för att ta bort programmet från karantänen.
   - Vattenstämplar. 
@@ -208,6 +208,3 @@ Genom att välja status kan du se ytterligare information om karantänen. Du kan
 
 - [Vad är etablering?](what-is-provisioning.md)
 - [Vad är Azure AD Connect-molnetablering?](what-is-cloud-provisioning.md)
-
-
-

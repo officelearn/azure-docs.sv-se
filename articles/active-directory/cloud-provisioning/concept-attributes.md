@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78299337"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226938"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Förstå Azure AD-schemat
 Ett objekt i Azure Active Directory (Azure AD), som vilken katalog som helst, är en program mässig data konstruktion på hög nivå som representerar till exempel användare, grupper och kontakter. När du skapar en ny användare eller kontakt i Azure AD skapar du en ny instans av objektet. Dessa instanser kan särskiljas baserat på deras egenskaper.
@@ -51,7 +51,7 @@ Om du till exempel har e-postattributet " john.smith@contoso.com " och som behö
 * **Inmatad** (e-post): " john.smith@contoso.com "
 * **Utdata**: "John. Svensson"
 
-Mer information om hur du skriver anpassade uttryck och syntaxen finns i [skriva uttryck för mappningar av attribut i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Mer information om hur du skriver anpassade uttryck och syntaxen finns i [skriva uttryck för mappningar av attribut i Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
 I följande tabell visas vanliga attribut och hur de synkroniseras till Azure AD.
 

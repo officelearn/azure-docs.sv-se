@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 300a11c36b11230d2bd75534f152a0a5955743ed
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235000"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181805"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -107,7 +107,7 @@ Börja med att navigera till [Azure Active Directory](https://portal.azure.com/#
 På sidan *Registrera en program* som följer fyller du i de begärda värdena:
 * **Namn**: ett visnings namn för Azure AD-program som ska associeras med registreringen
 * **Konto typer som stöds**: Välj *konton endast i den här organisations katalogen (endast standard katalog-en klient)*
-* **Omdirigerings-URI**: en *Azure AD Application svars-URL* för Azure AD-programmet. Du kan använda `http://localhost` .
+* **Omdirigerings-URI**: en *Azure AD Application svars-URL* för Azure AD-programmet. Lägg till en *offentlig klient/ursprunglig (mobile & Desktop)* URI för `http://localhost` .
 
 Tryck på knappen *Registrera* när du är färdig.
 

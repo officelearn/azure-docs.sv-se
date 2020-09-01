@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bef7de68084ac3084c0b0179a7bbf6b1c9ca951
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109361"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182453"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera data skydds strategi för din hybrid identitets lösning
 I den här uppgiften definierar du data skydds strategin för din hybrid identitets lösning som uppfyller de affärs krav som du definierade i:
@@ -121,7 +121,7 @@ Varje interaktion i diagrammet som förtecknas i bild X representerar ett scenar
 
 1. Villkorlig åtkomst till program som finns lokalt: du kan använda registrerade enheter med åtkomst principer för program som har kon figurer ATS för att använda AD FS med Windows Server 2012 R2.
 
-2. Access Control till Azure Portal: Azure låter dig också kontrol lera åtkomsten till portalen med rollbaserad åtkomst kontroll (RBAC)). Den här metoden gör det möjligt för företaget att begränsa antalet åtgärder som en enskild person kan göra i Azure Portal. Genom att använda RBAC för att kontrol lera åtkomsten till portalen kan IT-administratörer Delegera åtkomst med hjälp av följande metoder för åtkomst hantering:
+2. Access Control till Azure Portal: Azure låter dig också kontrol lera åtkomsten till portalen med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC)). Den här metoden gör det möjligt för företaget att begränsa antalet åtgärder som en enskild person kan göra i Azure Portal. Genom att använda Azure RBAC för att kontrol lera åtkomsten till portalen kan IT-administratörer Delegera åtkomst med hjälp av följande metoder för åtkomst hantering:
 
    - Gruppbaserad roll tilldelning: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja de befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda funktionen delegerad grupp hantering i Azure AD Premium.
    - Använd inbyggda roller i Azure: du kan använda tre roller – ägare, deltagare och läsare för att säkerställa att användare och grupper har behörighet att bara utföra de uppgifter som de behöver för att utföra sina jobb.

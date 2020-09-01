@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718092"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226683"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -114,6 +114,8 @@ En säkerhets nyckel **måste** implementera följande funktioner och tillägg f
 | 2 | Klientens PIN-kod | Med den här funktionen kan du skydda dina autentiseringsuppgifter med en andra faktor och gälla säkerhets nycklar som inte har något användar gränssnitt. |
 | 3 | HMAC-hemlighet | Det här tillägget garanterar att du kan logga in på enheten när den är offline eller i flyg Plans läge. |
 | 4 | Flera konton per RP | Den här funktionen garanterar att du kan använda samma säkerhets nyckel för flera tjänster som Microsoft-konto och Azure Active Directory. |
+
+### <a name="fido2-security-key-providers"></a>FIDO2 säkerhets nyckel leverantörer
 
 Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer som är kända för att vara kompatibla med den lösen ords fri upplevelsen. Vi rekommenderar att du utvärderar säkerhets egenskaperna för dessa nycklar genom att kontakta leverantören och FIDO Alliance.
 

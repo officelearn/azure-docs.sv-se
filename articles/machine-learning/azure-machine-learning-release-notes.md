@@ -9,18 +9,63 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 648a1ab7eac05e42a2d3ae292cccef8c0833a84d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652074"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226819"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-08-31"></a>2020-08-31
+
+### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK för python v-1.13.0
++ **Förhandsgranskningsfunktioner**
+  + **azureml-core**
+  
+    Med den nya funktionen för data uppsättnings data uppsättningar kan du skriva tillbaka till moln lagring, inklusive BLOB, ADLS gen 1, ADLS gen 2 och FileShare. Du kan konfigurera var data ska matas ut, hur de ska matas ut (via montering eller uppladdning), om utdata ska registreras för framtida åter användning och delning och överföring av mellanliggande data mellan pipeline-steg sömlöst. Detta möjliggör reproducerbarhet, delning, förhindrar duplicering av data och ger kostnads effektivitet och produktivitets vinster. [Lär dig hur du använder den](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py)
+    
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-core**
+    + Lade till validated_ {Platform} _requirements.txt fil för att fästa alla pip-beroenden för AutoML.
+    + Den här versionen stöder modeller som är större än 4 GB.
+    + Uppgraderade AutoML-beroenden: `scikit-learn` (nu 0.22.1), `pandas` (nu 0.25.1), `numpy` (nu 1.18.2).
+  + **azureml-automl-runtime**
+    + Ange horovod för text hyperoptimerade att alltid använda FP16-komprimering.
+    + Den här versionen stöder modeller som är större än 4 GB.
+    + Ett problem har åtgärd ATS där AutoML Miss lyckas med ImportError: det går inte att importera namn `RollingOriginValidator` .
+    + Uppgraderade AutoML-beroenden: `scikit-learn` (nu 0.22.1), `pandas` (nu 0.25.1), `numpy` (nu 1.18.2).
+  + **azureml-contrib-automl-DNN-Forecasting**
+    + Uppgraderade AutoML-beroenden: `scikit-learn` (nu 0.22.1), `pandas` (nu 0.25.1), `numpy` (nu 1.18.2).
+  + **azureml-contrib-skälighet**
+    + Ange en kort beskrivning för azureml-contrib-skälighet.
+  + **azureml-contrib-pipeline-steps**
+    + Tillagt meddelande som anger att det här paketet är föråldrat och användaren bör använda azureml-pipeline – steg i stället.
+  + **azureml-core**
+    + En lista med nyckel kommando har lagts till för arbets ytan.
+    + Lägg till taggar-parameter i SDK för arbets yta och CLI.
+    + Det gick inte att skicka en underordnad körning med data uppsättning på grund av ett fel `TypeError: can't pickle _thread.RLock objects` .
+    + Lägga till page_count standard/dokumentation för modell lista ().
+    + Ändra CLI-&SDK för att ta adbworkspace-parametern och Lägg till arbets ytans ADB-/Unlink-löpare.
+    + Korrigera fel i data uppsättning. uppdatera som gjorde att den senaste data uppsättnings versionen uppdaterades, men versionen av data uppsättnings uppdateringen anropades. 
+    + Åtgärda fel i data uppsättningen. get_by_name som visar taggar för den senaste data uppsättnings versionen, även när en tidigare version hämtades.
+  + **azureml – tolka**
+    + Har lagt till sannolikhets utmatningar för att Shap bedömnings förklaringar i azureml-tolkning baserat på shap_values_output parameter från den ursprungliga förklaringen.
+  + **azureml – pipeline – kärna**
+    + Förbättrad `PipelineOutputAbstractDataset.register` dokumentation.
+  + **azureml-train-automl-client**
+    + Uppgraderade AutoML-beroenden: `scikit-learn` (nu 0.22.1), `pandas` (nu 0.25.1), `numpy` (nu 1.18.2).
+  + **azureml-train-automl-runtime**
+    + Uppgraderade AutoML-beroenden: `scikit-learn` (nu 0.22.1), `pandas` (nu 0.25.1), `numpy` (nu 1.18.2).
+  + **azureml-train-core**
+    + Användarna måste nu ange ett giltigt hyperparameter_sampling arg när de skapar en HyperDriveConfig. Dessutom har dokumentationen för HyperDriveRunConfig redigerats för att informera användarna om utfasningen av HyperDriveRunConfig.
+    + Återställer standard versionen av PyTorch till 1,4.
+    + Lägga till PyTorch 1,6 & Tensorflow 2,2-bilder och granskad miljö.
 
 ## <a name="2020-08-17"></a>2020-08-17
 
@@ -52,7 +97,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Markera create_from_model API i DataDriftDetector som inaktuellt.
   + **azureml-dataprep**
     + Förbättrat fel meddelande vid försök att ladda ned eller montera en felaktig data uppsättnings typ.
-  + **azureml-pipeline-core**
+  + **azureml – pipeline – kärna**
     + Åtgärdat fel vid avserialisering av Pipeline-diagram som innehåller registrerade data uppsättningar.
   + **azureml-pipeline-steps**
     + RScriptStep stöder RSection från azureml. Core. Environment.
@@ -184,7 +229,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
   + **azureml-train-automl-runtime**
     + Begränsad tillgänglighet för multi-nodeed, multi-GPU distribuerade funktionalisering med BERT har lagts till.
     + Fel hantering lades till för inkompatibla paket i ADB-baserade automatiserade maskin inlärnings körningar.
-  + **azureml – widgetar**
+  + **azureml-widgets**
     + Doc-uppdateringar av azureml-widgetar.
 
   
@@ -231,12 +276,12 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Bättre minnes hantering i händelse av OutOfMemory-problem för to_pandas_dataframe.
   + **azureml – tolka**
     + Uppgraderade azureml – tolka för att använda tolka-community version 0,12. *
-  + **azureml-mlflow**
+  + **azureml – mlflow**
     + Dokument förbättringar av azureml-mlflow.
     + Lägger till stöd för AML-modell registret med MLFlow.
   + **azureml-opendatasets**
     + Stöd har lagts till för python 3,8
-  + **azureml-pipeline-core**
+  + **azureml – pipeline – kärna**
     + Uppdaterade `PipelineDataset` dokumentationen för att göra det tydligt att det är en intern klass.
     + ParallelRunStep uppdateringar för att acceptera flera värden för ett argument, till exempel: "--group_column_names", "Col1", "Col2", "Col3"
     + Passthru_automl_configs kravet för användning av mellanliggande data med AutoMLStep i pipelines har tagits bort.
@@ -341,7 +386,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
       + Standardvärdet för process_count_per_node ändras till 1. Användaren bör justera det här värdet för bättre prestanda. Bästa praxis är att ange som antalet GPU-eller CPU-noder.
       + ParallelRunStep matar inte in några paket, användaren måste inkludera **azureml-Core-** och **azureml-nu [Pandas, säkring]** -paket i miljö definitionen. Om anpassad Docker-avbildning används med user_managed_dependencies måste användaren installera Conda på avbildningen.
       
-+ **Bryta ändringar**
++ **Icke-bakåtkompatibla ändringar**
   + **azureml-pipeline-steps**
     + Föråldrad användning av azureml. dprep. data flöde som en giltig typ av indata för AutoMLConfig
   + **azureml-train-automl-client**
@@ -490,7 +535,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Förbättra hanteringen av Skriv begränsade python-miljöer när du säkerställer att .NET-beroenden krävs för data leverans.
     + Ett fast data flöde skapas i filen med inledande tomma poster.
     + Fel hanterings alternativ har lagts till på `to_partition_iterator` liknande sätt `to_pandas_dataframe` .
-  + **azureml-interpret**
+  + **azureml – tolka**
     + Minskad förklarings Sök väg längd gränser för att minska sannolikheten för att gå över Windows-gränsen
     + Bugfix för sparse-förklaringar som skapats med härma-förklaringen med en linjär surrogat modell.
   + **azureml-opendatasets**
@@ -545,7 +590,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + AmlCompute-kluster har nu stöd för att konfigurera en hanterad identitet i klustret vid tidpunkten för etablering. Ange bara om du vill använda en tilldelad identitet eller en tilldelad identitet, och skicka en identityId i fallet med den senare. Du kan sedan konfigurera behörigheter för att få åtkomst till olika resurser, t. ex. lagrings-eller ACR på ett sätt som data bearbetningen används för säker åtkomst till data, i stället för en tokenbaserad metod som AmlCompute använder idag. Kolla in vår SDK-referens för mer information om parametrarna.
   
 
-+ **Bryta ändringar**
++ **Icke-bakåtkompatibla ändringar**
   + AmlCompute-kluster har stöd för en förhands gransknings funktion med körnings skapande, som vi planerar om föråldrade i två veckor. Du kan fortsätta att skapa fasta beräknings mål som alltid genom att använda klassen Amlcompute, men den specifika metoden för att ange identifieraren "Amlcompute" som beräknings mål i Run config stöds inte inom en snar framtid. 
 
 + **Fel korrigeringar och förbättringar**
@@ -556,7 +601,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Förbättrad dokumentation för- `grant_workspace_msi` parametern för `Datastore.register_azure_blob_store` .
     + Åtgärdat fel med `datastore.upload` som stöd för `src_dir` argumentet som slutar med en `/` eller `\` .
     + Ett åtgärds bara fel meddelande har lagts till vid överföring till ett Azure Blob Storage-datalager som inte har någon åtkomst nyckel eller SAS-token.
-  + **azureml-interpret**
+  + **azureml – tolka**
     + En övre bindning till fil storleken för visualiserings data har lagts till vid uppladdade förklaringar.
   + **azureml-train-automl-client**
     + Söker uttryckligen efter label_column_name & weight_column_name parametrar för AutoMLConfig vara av typen sträng.
@@ -616,7 +661,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK för python v-1.2.0
 
-+ **Bryta ändringar**
++ **Icke-bakåtkompatibla ändringar**
   + Släpp stöd för python 2,7
 
 + **Fel korrigeringar och förbättringar**
@@ -651,7 +696,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **Python 2,7**
     + Senaste versionen som stöd för python 2,7
 
-+ **Bryta ändringar**
++ **Icke-bakåtkompatibla ändringar**
   + **Semantisk versionshantering 2.0.0**
     + Från och med version 1,1 Azure ML python SDK antar 2.0.0 för semantisk versions hantering. [Läs mer här](https://semver.org/). Alla efterföljande versioner kommer att följa det nya numreringsschema och det semantiska versions kontraktet. 
 
@@ -707,12 +752,12 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Åtgärdat fel där versaler inte kan användas som data uppsättnings namn.
   + **azureml – standardvärden**
     + `azureml-dataprep` kommer nu att installeras som en del av `azureml-defaults` . Du behöver inte längre installera data prepare [säkring] manuellt på beräknings mål för att montera data mängder.
-  + **azureml – tolka**
+  + **azureml-interpret**
     + Uppdaterade azureml-tolkning till tolkning – community 0,6. *
     + Uppdaterad azureml-tolkning till är beroende av 0.5.0 för tolka-community
     + Azureml-undantag har lagts till i azureml-tolka
     + Fast DeepScoringExplainer-serialisering för keras-modeller
-  + **azureml-mlflow**
+  + **azureml – mlflow**
     + Lägg till stöd för suveräna moln till azureml. mlflow
   + **azureml-pipeline-core**
     + I pipeline för batch-Poäng för batch används nu ParallelRunStep
@@ -759,7 +804,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     +  Utfasnings meddelanden har lagts till i det gamla profilerings flödet. Fast profilering av processor-och minnes gränser
   + **azureml – tolka**
     + uppdatera azureml – tolka till tolka – community 0,6. *
-  + **azureml – mlflow**
+  + **azureml-mlflow**
     + Lägg till stöd för suveräna moln till azureml. mlflow
   + **azureml-pipeline-steps**
     + Flyttade `AutoMLStep` till `azureml-pipeline-steps package` . Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
@@ -814,7 +859,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK för python v 1.1.0 RC0 (för hands version)
 
-+ **Bryta ändringar**
++ **Icke-bakåtkompatibla ändringar**
   + **Semantisk versionshantering 2.0.0**
     + Från och med version 1,1 Azure ML python SDK antar 2.0.0 för semantisk versions hantering. [Läs mer här](https://semver.org/). Alla efterföljande versioner kommer att följa det nya numreringsschema och det semantiska versions kontraktet. 
   
@@ -824,9 +869,9 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Fast frekvens kontrollen under poängsättningen är nu i prognos uppgifterna att vi inte kräver strikt frekvens mellan tåg och test uppsättning.
   + **azureml-core**
     + Användaren kan nu ange ett värde för auth-nyckeln när nycklar för webtjänster återskapas.
-  + **azureml – tolka**
+  + **azureml-interpret**
     + Uppdaterad azureml-tolkning till är beroende av 0.5.0 för tolka-community
-  + **azureml-pipeline-core**
+  + **azureml – pipeline – kärna**
     + Ett fel har åtgärd ATS där PythonScriptStep resultat kan återanvändas felaktigt trots att argument listan ändrades
   + **azureml-pipeline-steps**
     + Exempel på dokumentation som lagts till för data uppsättning som PythonScriptStep-indata
@@ -944,7 +989,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK för python v-1.0.76
 
-+ **Bryta ändringar**
++ **Icke-bakåtkompatibla ändringar**
   + Azureml-träna-AutoML uppgraderings problem
     + Uppgradering till azureml-träna-automl>= 1.0.76 från azureml-träna-automl<1.0.76 kan orsaka partiella installationer, vilket gör att vissa AutoML-importer inte kan köras. Du kan lösa detta genom att köra installations skriptet som finns på https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Eller om du använder pip direkt kan du:
       + "pip install--Upgrade azureml-träna-automl"
@@ -969,7 +1014,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Har lagt till möjligheten att registrera Azure SQL Database data lager med hjälp av användar namn och lösenordsautentisering
     + Korrigering för inläsning av RunConfigurations från relativa sökvägar.
     + När du anropar `keep_columns` eller `drop_columns` som resulterar i en Time Series-kolumn som släpps, tas även motsvarande funktioner bort för data uppsättningen.
-  + **azureml-interpret**
+  + **azureml – tolka**
     + uppdaterad version av tolka-community till 0.2.0
   + **azureml-pipeline-steps**
     + Dokumenterade värden för `runconfig_pipeline_params` i pipeline-steg för Azure Machine Learning.
@@ -1267,7 +1312,7 @@ Azure Machine Learning är nu en resurs leverantör för Event Grid kan du konfi
     + Byter namn på AzureML-förklara-Model-paket till AzureML-tolka, och behåller det gamla paketet för bakåtkompatibilitet.
     + fast AutoML-bugg med obehandlade förklaringar har angetts till klassificerings uppgift i stället för regression som standard vid hämtning från ExplanationClient.
     + Lägg till stöd för [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) som ska skapas direkt med MimicWrapper
-  + **[azureml – pipeline – kärna](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
+  + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Bättre prestanda för att skapa stora pipeliner.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
     + Stöd för TensorFlow 2,0 har lagts till i [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow) -uppskattningen.
@@ -1344,7 +1389,7 @@ Fliken experiment i den [nya arbets ytans Portal](https://ml.azure.com) har uppd
     + Förbättrad dokumentation för förklarings resultat i klassificerings scenariot.
     + Har lagt till möjligheten att överföra de förutsagda y-värdena i förklaringen till utvärderings exemplen. Låser upp användbara visualiseringar.
     + Har lagt till förklarings egenskapen till MimicWrapper för att aktivera hämtning av underliggande MimicExplainer.
-  + **azureml – pipeline – kärna**
+  + **azureml-pipeline-core**
     + En antecknings bok har lagts till för att beskriva modulen, ModuleVersion och ModuleStep
   + **azureml-pipeline-steps**
     + RScriptStep har lagts till för R-skript som körs via AML-pipeline.
@@ -1352,7 +1397,7 @@ Fliken experiment i den [nya arbets ytans Portal](https://ml.azure.com) har uppd
   + **azureml-träna-automl**
     + Stöd för training_data, validation_data, label_column_name weight_column_name som indata-utdataformat
     + Ett utfasnings meddelande har lagts till för explain_model () och retrieve_model_explanations ()
-  + **[azureml – pipeline – kärna](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
+  + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + En [antecknings bok](https://aka.ms/pl-modulestep) har lagts till för att beskriva [modulen](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion och [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) har lagts till för R-skript som körs via AML-pipeline.
@@ -1489,7 +1534,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + En versions kontroll har lagts till i lightgbm med den utskrivna varningen om lägre version
     + Optimerad minnes användning vid batch-förklaring
     + AutoML-modeller returnerar nu AutoMLExceptions
-  + **azureml-pipeline-core**
+  + **azureml – pipeline – kärna**
     + Stöd har lagts till för att skapa, uppdatera och använda PipelineDrafts – kan användas för att underhålla föränderligt-pipeline-definitioner och använda dem interaktivt för att köra
   + **azureml-träna-automl**
     + Funktionen har skapats för att installera vissa versioner av GPU-kompatibel pytorch v 1.1.0, :::no-loc text="cuda"::: toolkit 9,0, pytorch-transformatorer, vilket krävs för att aktivera Bert/XLNet i fjärrkörnings miljön för python.
@@ -1510,10 +1555,6 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
   + Aktive rad `TabularDataset` för användning av AutomatedML. Om du vill veta mer om `TabularDataset` kan du besöka https://aka.ms/azureml/howto/createdatasets .
 
 + **Fel korrigeringar och förbättringar**
-  + **automl-client-core-nativeclient**
-    + Korrigerade felet, utlöses när inlärnings-och/eller verifierings etiketter (y och y_valid) har angetts i formatet Pandas dataframe, men inte som numpy-matris.
-    + Gränssnittet har uppdaterats för att skapa ett `RawDataContext` för att endast kräva data och `AutoMLBaseSettings` objektet.
-    +  Tillåt AutoML-användare att släppa inlärnings serier som inte är tillräckligt långa vid prognoser. – Tillåt AutoML-användare att släppa kärnor från den test uppsättning som inte finns i träningen när du skapar prognoser.
   + **Azure-CLI-ml**
     + Nu kan du uppdatera TLS/SSL-certifikatet för poängsättnings slut punkten som distribueras i AKS-kluster både för Microsoft-genererade och kund certifikat.
   + **azureml-automl-core**
@@ -1567,7 +1608,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + AutoML data Guardrail finns nu som offentlig för hands version. Användaren ser en data Guardrail-rapport (för klassificerings-och Regressions aktiviteter) efter utbildning och kan också komma åt den via SDK-API.
   + **azureml-train-core**
     + Stöd för Torch 1,2 har lagts till i PyTorch-uppskattningen.
-  + **azureml-widgets**
+  + **azureml – widgetar**
     + Förbättrade diagram för förvirrings mat ris för klassificerings träning.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning data prep SDK v 1.1.12
@@ -1650,9 +1691,6 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Lär dig hur du [använder uppskattningar för att återuppta inlärningen från en tidigare körning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Fel korrigeringar och förbättringar**
-  + **automl-client-core-nativeclient**
-    + Åtgärda felet om återfick kolumn typer efter transformeringen (fel länkad);
-    + Tillåt y_query vara en objekt typ som inte innehåller några (s) i början (#459519).
   + **Azure-CLI-ml**
     + CLI-kommandon "modell distribution" och "tjänst uppdatering" accepterar nu parametrar, konfigurationsfiler eller en kombination av de två. Parametrar har företräde framför attribut i filer.
     + Modell beskrivningen kan nu uppdateras efter registreringen
@@ -1787,7 +1825,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Förbättrad resursutnyttjande för fjärrkörningar som använder azureml. mlflow.
     + Förbättrad dokumentation av azureml-mlflow-paketet.
     + Ett problem har åtgärd ATS där mlflow. log_artifacts ("my_dir") sparar artefakter under "my_dir/Artifact-Paths" i stället för "artefakt Sök vägar".
-  + **azureml-pipeline-core**
+  + **azureml – pipeline – kärna**
     + Parametern hash_paths för alla steg i pipeline är föråldrad och kommer att tas bort i framtiden. Som standard är innehållet i source_directory hash-kodat (förutom filer som anges i. amlignore eller. gitignore)
     + Fortsatte att förbättra modul-och ModuleStep för att stödja beräknings-/regionsspecifika moduler, för att förbereda för RunConfiguration-integrering och andra ändringar för att låsa upp beräkning av beräknings typens modul i pipelines.
   + **azureml-pipeline-steps**

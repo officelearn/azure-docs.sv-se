@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659491"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226734"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Självstudie: hantera program grupper med Azure Portal
 
@@ -31,6 +31,8 @@ I den här självstudiekursen får du lära du dig att:
 Om du redan har skapat en adresspool och en session som är värd för en virtuell dator med hjälp av Azure Portal eller PowerShell kan du lägga till program grupper från Azure Portal med följande process:
 
 1.  Logga in på [Azure-portalen](https://portal.azure.com/).
+   
+   >! Lägg Om du loggar in på US Gov portal går du till [https://portal.azure.us/](https://portal.azure.us/) i stället.
 
 2.  Sök efter och välj **virtuellt skriv bord i Windows**.
 

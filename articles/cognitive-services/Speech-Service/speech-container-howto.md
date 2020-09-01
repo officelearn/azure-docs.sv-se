@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518330"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182402"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -26,16 +26,16 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 > [!IMPORTANT]
 > Alla tal behållare erbjuds för närvarande som en del av en [offentlig "gated"-förhands granskning](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Ett meddelande kommer att göras när tal behållare förloppet till allmän tillgänglighet (GA).
 
-| Funktion | Funktioner | Nya |
+| Funktion | Funktioner | Senast |
 |--|--|--|
-| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.3.1 |
-| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.3.1 |
-| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.5.0 |
-| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.5.0 |
+| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.4.0 |
+| Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.4.0 |
+| Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.6.0 |
+| Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.6.0 |
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller innan du använder tal behållare:
 
@@ -165,7 +165,7 @@ Alla Taggar, förutom `latest` i, är i följande format och är Skift läges k�
 Följande tagg är ett exempel på formatet:
 
 ```
-2.3.1-amd64-en-us-preview
+2.4.0-amd64-en-us-preview
 ```
 
 För alla språk som stöds av **tal-till-text-** behållaren, se [taggar till text-Taggar](../containers/container-image-tags.md#speech-to-text).
@@ -207,7 +207,7 @@ Alla Taggar, förutom `latest` i, är i följande format och är Skift läges k�
 Följande tagg är ett exempel på formatet:
 
 ```
-1.5.0-amd64-en-us-ariarus-preview
+1.6.0-amd64-en-us-ariarus-preview
 ```
 
 För alla språk som stöds och motsvarande röster för **text till tal** -behållaren, se [taggar för text till tal-bilder](../containers/container-image-tags.md#text-to-speech).
@@ -411,7 +411,7 @@ Det här kommandot:
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.
 
-| Containrar | SDK-värd-URL | Protokoll |
+| Containers | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
 | Text till tal och anpassad text till tal | `http://localhost:5000` | HTTP |
@@ -423,6 +423,8 @@ Mer information om hur du använder WSS-och HTTPS-protokoll finns i [behållar s
 #### <a name="analyze-sentiment"></a>Analysera sentiment
 
 Om du har angett dina API för textanalys autentiseringsuppgifter [för behållaren](#analyze-sentiment-on-the-speech-to-text-output)kan du använda tal-SDK för att skicka tal igenkännings begär Anden med sentiment-analys. Du kan konfigurera API-svar för att använda antingen ett *enkelt* eller *detaljerat* format.
+> [!NOTE]
+> v-1.13 av Speech service python SDK har ett identifierat problem med sentiment-analys. Använd v-1.12. x eller tidigare om du använder sentiment-analys i röst tjänsten python SDK.
 
 # <a name="simple-format"></a>[Enkelt format](#tab/simple-format)
 

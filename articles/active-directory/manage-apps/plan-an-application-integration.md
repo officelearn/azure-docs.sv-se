@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763099"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182334"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Att integrera Azure Active Directory med program komma igång-guide
 
@@ -45,7 +45,7 @@ Innan du integrerar program med Azure AD är det viktigt att veta var du är och
   * Azure AD
   * I en separat program databas som du äger
   * I program som inte är sanktionerade
-  * Samtliga av ovanstående
+  * Alla alternativ ovan
 * Vilka behörigheter och roll tilldelningar har enskilda användare för närvarande? Behöver du granska åtkomsten eller är du säker på att användarnas åtkomst-och roll tilldelningar är lämpliga nu?
 * Är grupper redan etablerade i din lokala Active Directory?
   * Hur organiseras dina grupper?
@@ -54,7 +54,7 @@ Innan du integrerar program med Azure AD är det viktigt att veta var du är och
 * Behöver du rensa användare/grupp-databaser innan du integrerar?  (Det här är en ganska viktig fråga. Skräp in, skräp ut.)
 
 ### <a name="access-management-inventory"></a>Åtkomst hanterings inventering
-* Hur hanterar du användar åtkomst för program? Vill du ändra?  Har du funderat på andra sätt att hantera åtkomst, t. ex. med [RBAC](../../role-based-access-control/role-assignments-portal.md) till exempel?
+* Hur hanterar du användar åtkomst för program? Vill du ändra?  Har du funderat på andra sätt att hantera åtkomst, t. ex. med [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) till exempel?
 * Vem behöver åtkomst till vad?
 
 Du kanske inte har svar på alla dessa frågor fram, men det är OK.  Den här guiden hjälper dig att besvara några av dessa frågor och fatta några välgrundade beslut.

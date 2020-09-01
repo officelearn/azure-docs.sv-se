@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Lär dig mer om strömnings innehåll med CDN-integrering samt för hämtning och ursprung – hjälp CDN-prefetch.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: inhenkel
+ms.openlocfilehash: abf4b8dffc69cfee9332d18e59d0a2852fa7617e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799357"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226156"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Strömma innehåll med CDN-integrering
 
@@ -29,14 +29,19 @@ Det populära innehållet kommer att betjänas direkt från CDN-cachen så läng
 
 Du måste också fundera över hur anpassningsbar strömning fungerar. Varje enskilt video fragment cachelagras som sin egen entitet. Anta till exempel att en viss video är bevakad första gången. Om visnings programmet hoppar över att titta bara några sekunder här och där finns det bara videofragment som är associerade med vad den person som bevakar cachelagrar i CDN. Med anpassningsbar strömning har du normalt 5 till 7 olika bit hastigheter för video. Om en person tittar på en bit hastighet och en annan person tittar på en annan bit hastighet, är de båda cachelagrade separat i CDN. Även om två personer tittar på samma bit hastighet kan de strömmas över olika protokoll. Varje protokoll (HLS, MPEG-streck, Smooth Streaming) cachelagras separat. Varje bit hastighet och protokoll cachelagras separat och endast de video fragment som har begärts cachelagras.
 
-När du bestämmer om du vill aktivera CDN på [slut punkten](streaming-endpoint-concept.md)för Media Services-direktuppspelning bör du tänka på antalet förväntade visnings program. CDN bidrar bara till om du förväntar dig många visnings program för ditt innehåll. Om den maximala samtidigheten för visnings program är lägre än 500 rekommenderar vi att du inaktiverar CDN eftersom CDN skalar bäst med samtidighet.
+Förutom test miljön rekommenderar vi att CDN aktive ras för både standard-och Premium-slutpunkter för direkt uppspelning. Varje typ av slut punkt för direkt uppspelning har en annan data flödes gräns som stöds.
+Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Exempel på dessa är:
+
+- Högsta antal bit hastigheter som används för strömning
+- Beteende för förbuffring och växling i spelaren. Spelarna försöker överföra segment från ett ursprung och använda belastnings hastigheten för att beräkna den anpassade bit hastighets växlingen. Om en strömmande slut punkt blir nära mättnad kan svars tiderna variera och spelarna börjar växla till lägre kvalitet. Eftersom detta minskar belastningen på de strömmande slut punkts spelarna kan du skala tillbaka till högre kvalitet och skapa oönskade växlings utlösare.
+Generellt är det säkert att uppskatta maximalt antal samtidiga data strömmar genom att dra det maximala data flödet för strömnings slut punkt och dividera detta med den maximala bit hastigheten (förutsatt att alla spelare använder den högsta bit hastigheten.) Du kan till exempel ha en standard slut punkt för direkt uppspelning som är begränsad till 600 Mbit/s och den högsta bit hastigheten i 3Mbp. I det här fallet stöds cirka 200 samtidiga strömmar med den högsta bit hastigheten. Kom även ihåg att faktor i kraven för ljud bandbredd. Även om en ljud ström bara kan strömmas vid 128 KPS, ökar den totala direkt uppspelningen snabbt när du multiplicerar den med antalet samtidiga data strömmar.
 
 I det här avsnittet beskrivs hur du aktiverar [CDN-integrering](#enable-azure-cdn-integration). Den förklarar också för hämtning (aktiv cachelagring) och [ursprunget-Assist CDN-prefetch](#origin-assist-cdn-prefetch) .
 
 ## <a name="considerations"></a>Överväganden
 
-* [Slut punkten för direkt uppspelning](streaming-endpoint-concept.md) `hostname` och STRÖMNINGS-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
-* Om du behöver kunna testa ditt innehåll med eller utan CDN, skapar du en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.
+- [Slut punkten för direkt uppspelning](streaming-endpoint-concept.md) `hostname` och STRÖMNINGS-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
+- Om du behöver kunna testa ditt innehåll med eller utan CDN, skapar du en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.
 
 ## <a name="enable-azure-cdn-integration"></a>Aktivera Azure CDN-integrering
 

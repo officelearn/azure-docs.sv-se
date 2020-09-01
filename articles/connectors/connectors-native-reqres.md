@@ -5,18 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289444"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226522"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda åtgärden begär ande utlösare och svar kan du skapa automatiserade uppgifter och arbets flöden som tar emot och svarar på inkommande HTTPS-begäranden. Du kan till exempel ha din Logic-app:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda åtgärden begär ande utlösare och svar kan du skapa automatiserade uppgifter och arbets flöden som kan ta emot inkommande begär Anden via https. Använd den inbyggda [http-utlösaren eller HTTP-åtgärden](../connectors/connectors-native-http.md)för att skicka utgående begär anden i stället.
+
+Du kan till exempel ha din Logic-app:
 
 * Ta emot och svara på en HTTPS-begäran om data i en lokal databas.
 
@@ -24,47 +26,28 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda å
 
 * Ta emot och svara på ett HTTPS-anrop från en annan Logic app.
 
-Begär ande utlösare stöder [Azure Active Directory öppen autentisering](../active-directory/develop/index.yml) (Azure AD OAuth) för att auktorisera inkommande samtal till din Logic app. Mer information om hur du aktiverar den här autentiseringen finns i [skydda åtkomst och data i Azure Logic Apps – aktivera Azure AD OAuth-autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Den här artikeln visar hur du använder begäran om utlösare och åtgärder så att din Logi Kap par kan ta emot och svara på inkommande samtal.
 
-## <a name="prerequisites"></a>Förutsättningar
+Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Krav
 
-* Grundläggande kunskaper om [Logic Apps](../logic-apps/logic-apps-overview.md). Lär dig [hur du skapar din första Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)om du inte har använt Logic Apps igen.
+* Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
-
-* Inkommande anrop stöder *endast* Transport Layer Security (TLS) 1,2. Om du får TLS-handskakning, se till att du använder TLS 1,2. Mer information finns i [lösa problemet med TLS 1,0](/security/solving-tls1-problem). Utgående anrop stöder TLS 1,0, 1,1 och 1,2, baserat på mål slut punktens funktion.
-
-* Inkommande anrop stöder dessa chiffersviter:
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 <a name="add-request"></a>
 
 ## <a name="add-request-trigger"></a>Lägg till begär ande utlösare
 
-Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i [begäran om utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med https-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Den här inbyggda utlösaren skapar en manuellt anropad slut punkt som *bara* kan hantera inkommande begär Anden via https. När en anropare skickar en begäran till den här slut punkten utlöses [utlösaren för begäran](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och kör Logic-appen. Mer information om hur du anropar den här utlösaren finns i [anropa, utlösa eller kapsla arbets flöden med https-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+Din Logi Kap par ser till att en inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#request-limits). Förutsatt att din Logic app innehåller en [svars åtgärd](#add-response), om din Logi Kap par inte skickar tillbaka ett svar till anroparen efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` status till anroparen. Om din Logic app inte innehåller någon svars åtgärd 
+> din Logic app returnerar omedelbart en `202 ACCEPTED` status till anroparen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
-1. När Logic App Designer öppnas går du till rutan Sök och anger `http request` som filter. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** , vilket är det första steget i ditt Logic app-arbetsflöde.
+1. När Logic App Designer öppnas går du till rutan Sök och anger `http request` som filter. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** .
 
    ![Välj begär utlösare](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -74,8 +57,8 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
+   | **HTTP POST-URL** | alternativet | Yes | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
+   | **Begär ande text JSON-schema** | `schema` | No | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
 1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
@@ -144,11 +127,11 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    1. I utlösaren för begäran väljer **du Använd exempel nytto last för att generera schemat**.
 
-      ![Generera schema från nytto Last](./media/connectors-native-reqres/generate-from-sample-payload.png)
+      ![Skärm bild med "Använd exempel nytto last för att skapa schema" valt](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
    1. Ange exempel nytto lasten och välj **färdig**.
 
-      ![Generera schema från nytto Last](./media/connectors-native-reqres/enter-payload.png)
+      ![Ange exempel nytto last för att generera schemat](./media/connectors-native-reqres/enter-payload.png)
 
       Här är exempel på nytto last:
 
@@ -181,8 +164,8 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Metod** | `method` | Nej | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
-   | **Relativ sökväg** | `relativePath` | Nej | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
+   | **Metod** | `method` | No | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
+   | **Relativ sökväg** | `relativePath` | No | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
    |||||
 
    I det här exemplet läggs egenskapen **metod** till:
@@ -206,15 +189,13 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    ![URL som ska användas för att utlösa din Logic app](./media/connectors-native-reqres/generated-url.png)
 
    > [!NOTE]
-   > Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n när du gör ett anrop till utlösaren för begäran använder du den här kodade versionen i stället:`%25%23`
+   > Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n när du gör ett anrop till utlösaren för begäran använder du den här kodade versionen i stället: `%25%23`
 
 1. Om du vill utlösa din Logic-App skickar du ett HTTP-inlägg till den genererade URL: en.
 
-   Du kan till exempel använda ett verktyg som [Postman](https://www.getpostman.com/) för att skicka http-inlägget. Om du har [aktiverat Azure Active Directory öppna autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) för att auktorisera inkommande anrop till begär ande utlösaren anropar du utlösaren med hjälp av en [URL för delad åtkomst (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) eller genom att använda en autentiseringstoken, men du kan inte använda båda. Autentiseringstoken måste ange `Bearer` typen i Authorization-huvudet. Mer information finns i [skydda åtkomst och data i Azure Logic Apps-åtkomst till begär ande-baserade-utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Du kan till exempel använda ett verktyg som [Postman](https://www.getpostman.com/) för att skicka http-inlägget. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i följande avsnitt, [begär utlösnings typ](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i följande avsnitt, [begär utlösnings typ](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
-### <a name="trigger-outputs"></a>Utlös utdata
+## <a name="trigger-outputs"></a>Utlös utdata
 
 Här är mer information om utdata från begär ande utlösare:
 
@@ -228,15 +209,13 @@ Här är mer information om utdata från begär ande utlösare:
 
 ## <a name="add-a-response-action"></a>Lägg till en svars åtgärd
 
-Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTPS-begäran, men endast i en Logic-app som utlöses av en HTTPS-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
-
-Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#request-limits). Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
+När du använder begär ande utlösare för att hantera inkommande begär Anden kan du modellera svaret och skicka tillbaka nytto Last resultatet till anroparen med hjälp av den inbyggda [svars åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action). Du kan *bara* använda svars åtgärden med utlösaren för förfrågningar. Den här kombinationen med åtgärden begär utlösare och svar skapar ett [mönster för förfrågan svar](https://en.wikipedia.org/wiki/Request%E2%80%93response). Förutom i framtidens slingor och fram till slingor, och parallella grenar, kan du lägga till svars åtgärden var som helst i arbets flödet.
 
 > [!IMPORTANT]
 > Om en svars åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade svarsmeddelandet utan att visa någon varning eller ett fel meddelande:
 >
 > * `Allow`
-> * `Content-*`med dessa undantag: `Content-Disposition` , `Content-Encoding` och`Content-Type`
+> * `Content-*` med dessa undantag: `Content-Disposition` , `Content-Encoding` och `Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`
@@ -253,7 +232,7 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begr�
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**i sökrutan anger du "Response" som filter och väljer **svars** åtgärden.
+1. Under **Välj en åtgärd**i sökrutan anger du `response` som filter och väljer åtgärden **svar** .
 
    ![Välj åtgärden svars åtgärd](./media/connectors-native-reqres/select-response-action.png)
 
@@ -275,9 +254,9 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begr�
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Status kod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
-   | **Rubriker** | `headers` | Nej | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
-   | **Brödtext** | `body` | Nej | Svars texten |
+   | **Status kod** | `statusCode` | Yes | Status koden som ska returneras i svaret |
+   | **Sidhuvuden** | `headers` | No | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
+   | **Brödtext** | `body` | No | Svars texten |
    |||||
 
 1. Om du vill ange ytterligare egenskaper, till exempel ett JSON-schema för svars texten, öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.
@@ -286,5 +265,5 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begr�
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Anslutningsappar för Logic Apps](../connectors/apis-list.md)
-

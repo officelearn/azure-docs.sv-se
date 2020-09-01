@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373870"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226904"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -27,7 +27,7 @@ Den här artikeln innehåller rikt linjer för hur du väljer och använder Azur
 Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
     
 - Ett administratörs konto med hybrid identitet för din Azure AD-klient som inte är en gäst användare.
-- En lokal server för etablerings agenten med Windows 2012 R2 eller senare.  Den här servern måste vara en nivå 0-server som baseras på [Active Directory administratörs nivå modell](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- En lokal server för etablerings agenten med Windows 2012 R2 eller senare.  Den här servern måste vara en nivå 0-server som baseras på [Active Directory administratörs nivå modell](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Konfigurationer för lokala brand väggar.
 
 >[!NOTE]
@@ -37,12 +37,12 @@ Resten av dokumentet innehåller steg-för-steg-instruktioner för dessa krav.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
-1. Skapa ett hybrid identitets administratörs konto med enbart moln på din Azure AD-klient. På så sätt kan du hantera konfigurationen av din klient om dina lokala tjänster inte fungerar eller blir otillgängliga. Lär dig mer om hur du [lägger till ett moln med Hybrid identiteter som endast är moln](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
-1. Lägg till ett eller flera [anpassade domän namn](../active-directory-domains-add-azure-portal.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
+1. Skapa ett hybrid identitets administratörs konto med enbart moln på din Azure AD-klient. På så sätt kan du hantera konfigurationen av din klient om dina lokala tjänster inte fungerar eller blir otillgängliga. Lär dig mer om hur du [lägger till ett moln med Hybrid identiteter som endast är moln](../fundamentals/add-users-azure-active-directory.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
+1. Lägg till ett eller flera [anpassade domän namn](../fundamentals/add-custom-domain.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
 
 ### <a name="in-your-directory-in-active-directory"></a>I din katalog i Active Directory
 
-Kör [IdFix-verktyget](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) för att förbereda katalog-attributen för synkronisering.
+Kör [IdFix-verktyget](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) för att förbereda katalog-attributen för synkronisering.
 
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 
@@ -96,4 +96,3 @@ Följ dessa steg om du vill aktivera TLS 1,2.
 
 - [Vad är etablering?](what-is-provisioning.md)
 - [Vad är Azure AD Connect-molnetablering?](what-is-cloud-provisioning.md)
-

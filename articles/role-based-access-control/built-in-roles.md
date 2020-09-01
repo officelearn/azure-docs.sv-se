@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/16/2020
+ms.date: 08/31/2020
 ms.custom: generated
-ms.openlocfilehash: 44b4134404d5af3a8dde7028ffa1b43258df7558
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: b58316cf5a56eae46c81056a78446dc6c3d10764
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271999"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226768"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -153,7 +153,15 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Azure Sentinel-deltagare](#azure-sentinel-contributor) | Azure Sentinel-deltagare | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Azure Sentinel-läsare](#azure-sentinel-reader) | Azure Sentinel-läsare | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel-svarare](#azure-sentinel-responder) | Azure Sentinel-svarare | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Key Vault deltagare](#key-vault-contributor) | Låter dig hantera nyckel valv, men inte åtkomst till dem. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Key Vault administratör (förhands granskning)](#key-vault-administrator-preview) | Utför alla data Plans åtgärder på ett nyckel valv och alla objekt, inklusive certifikat, nycklar och hemligheter. Det går inte att hantera Key Vault-resurser eller hantera roll tilldelningar. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault certifikat ansvarig (förhands granskning)](#key-vault-certificates-officer-preview) | Utföra alla åtgärder för certifikaten för ett nyckel valv, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Key Vault deltagare](#key-vault-contributor) | Hantera nyckel valv, men tillåt inte att du tilldelar roller i Azure RBAC och ger dig inte åtkomst till hemligheter, nycklar eller certifikat. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Key Vault kryptografi utanordnare (förhands granskning)](#key-vault-crypto-officer-preview) | Utföra alla åtgärder för nycklarna i ett nyckel valv, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Key Vault kryptering av krypterings tjänst (för hands version)](#key-vault-crypto-service-encryption-preview) | Läs metadata för nycklar och utför figursatta/unwrap-åtgärder. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault krypto-användare (förhands granskning)](#key-vault-crypto-user-preview) | Utföra kryptografiska åtgärder med hjälp av nycklar. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Key Vault läsare (förhands granskning)](#key-vault-reader-preview) | Läs metadata för nyckel valv och dess certifikat, nycklar och hemligheter. Det går inte att läsa känsliga värden, till exempel hemligt innehåll eller nyckel material. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Key Vault hemligheter (förhands granskning)](#key-vault-secrets-officer-preview) | Utföra alla åtgärder för ett nyckel valvs hemligheter, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Key Vault hemligheter, användare (förhands granskning)](#key-vault-secrets-user-preview) | Läsa hemligt innehåll. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Säkerhets administratör](#security-admin) | Visa och uppdatera behörigheter för Security Center. Samma behörigheter som säkerhets läsar rollen och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Säkerhets utvärderings deltagare](#security-assessment-contributor) | Gör att du kan skicka utvärderingar till Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Säkerhets hanterare (bakåtkompatibelt)](#security-manager-legacy) | Detta är en äldre roll. Använd säkerhets administratör i stället. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
@@ -2776,7 +2784,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -4064,7 +4072,7 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
 }
 ```
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 
 ### <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs data ägare
@@ -6276,9 +6284,129 @@ Azure Sentinel-svarare [Lär dig mer](../sentinel/roles.md)
 }
 ```
 
+### <a name="key-vault-administrator-preview"></a>Key Vault administratör (förhands granskning)
+
+Utför alla data Plans åtgärder på ett nyckel valv och alla objekt, inklusive certifikat, nycklar och hemligheter. Det går inte att hantera Key Vault-resurser eller hantera roll tilldelningar. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read för nyckel valv | Kontrollerar att nyckel valvets namn är giltigt och inte används |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read för nyckel valv | Visa egenskaperna för mjuka borttagna nyckel valv |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/locations/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Operations/Read för nyckel valv | Visar en lista över åtgärder som är tillgängliga på Microsoft. valv resurs leverantör |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on certificates, keys and secrets of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483",
+  "name": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Administrator (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-certificates-officer-preview"></a>Key Vault certifikat ansvarig (förhands granskning)
+
+Utföra alla åtgärder för certifikaten för ett nyckel valv, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read för nyckel valv | Kontrollerar att nyckel valvets namn är giltigt och inte används |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read för nyckel valv | Visa egenskaperna för mjuka borttagna nyckel valv |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/locations/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Operations/Read för nyckel valv | Visar en lista över åtgärder som är tillgängliga på Microsoft. valv resurs leverantör |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/certificatecas/* |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/certificates/* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the certificates of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a4417e6f-fecd-4de8-b567-7b0420556985",
+  "name": "a4417e6f-fecd-4de8-b567-7b0420556985",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/certificatecas/*",
+        "Microsoft.KeyVault/vaults/certificates/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="key-vault-contributor"></a>Key Vault deltagare
 
-Låter dig hantera nyckel valv, men inte åtkomst till dem. [Läs mer](../key-vault/general/secure-your-key-vault.md)
+Hantera nyckel valv, men tillåt inte att du tilldelar roller i Azure RBAC och ger dig inte åtkomst till hemligheter, nycklar eller certifikat. [Läs mer](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -6324,6 +6452,324 @@ Låter dig hantera nyckel valv, men inte åtkomst till dem. [Läs mer](../key-va
     }
   ],
   "roleName": "Key Vault Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-officer-preview"></a>Key Vault kryptografi utanordnare (förhands granskning)
+
+Utföra alla åtgärder för nycklarna i ett nyckel valv, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read för nyckel valv | Kontrollerar att nyckel valvets namn är giltigt och inte används |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read för nyckel valv | Visa egenskaperna för mjuka borttagna nyckel valv |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/locations/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Operations/Read för nyckel valv | Visar en lista över åtgärder som är tillgängliga på Microsoft. valv resurs leverantör |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the keys of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
+  "name": "14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-service-encryption-preview"></a>Key Vault kryptering av krypterings tjänst (för hands version)
+
+Läs metadata för nycklar och utför figursatta/unwrap-åtgärder. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read för nyckel valv | Lista nycklar i det angivna valvet, eller Läs egenskaper och offentligt material i en nyckel. För asymmetriska nycklar exponerar den här åtgärden offentliga nycklar och inkluderar möjlighet att utföra algoritmer för offentliga nycklar, till exempel kryptera och verifiera signatur. Privata nycklar och symmetriska nycklar exponeras aldrig. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/wrap/action för nyckel valv | Radbryt en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/unwrap/action för nyckel valv | Packa upp symmetrisk nyckel med en Key Vault nyckel. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read metadata of keys and perform wrap/unwrap operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e147488a-f6f5-4113-8e2d-b22465e65bf6",
+  "name": "e147488a-f6f5-4113-8e2d-b22465e65bf6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/read",
+        "Microsoft.KeyVault/vaults/keys/wrap/action",
+        "Microsoft.KeyVault/vaults/keys/unwrap/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto Service Encryption (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-user-preview"></a>Key Vault krypto-användare (förhands granskning)
+
+Utföra kryptografiska åtgärder med hjälp av nycklar. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read för nyckel valv | Lista nycklar i det angivna valvet, eller Läs egenskaper och offentligt material i en nyckel. För asymmetriska nycklar exponerar den här åtgärden offentliga nycklar och inkluderar möjlighet att utföra algoritmer för offentliga nycklar, till exempel kryptera och verifiera signatur. Privata nycklar och symmetriska nycklar exponeras aldrig. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Update/action för nyckel valv | Uppdaterar angivna attribut som är associerade med den angivna nyckeln. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/backup/action för nyckel valv | Skapa säkerhets kopierings filen för en nyckel. Filen kan användas för att återställa nyckeln i en Key Vault av samma prenumeration. Begränsningar kan tillkomma. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Encrypt/action för nyckel valv | Kryptera klartext med en nyckel. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Decrypt/action för nyckel valv | Dekryptera chiffertexten med en nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/wrap/action för nyckel valv | Radbryt en symmetrisk nyckel med en Key Vault nyckel. Observera att om Key Vault nyckeln är asymmetrisk, kan den här åtgärden utföras med Läs behörighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/unwrap/action för nyckel valv | Packa upp symmetrisk nyckel med en Key Vault nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Sign/action för nyckel valv | Signera en hash med en nyckel. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/verify/action för nyckel valv | Verifiera en hash. Observera att om nyckeln är asymmetrisk kan den här åtgärden utföras av huvud konton med Läs behörighet. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform cryptographic operations on keys and certificates.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/12338af0-0e69-4776-bea7-57ae8d297424",
+  "name": "12338af0-0e69-4776-bea7-57ae8d297424",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/read",
+        "Microsoft.KeyVault/vaults/keys/update/action",
+        "Microsoft.KeyVault/vaults/keys/backup/action",
+        "Microsoft.KeyVault/vaults/keys/encrypt/action",
+        "Microsoft.KeyVault/vaults/keys/decrypt/action",
+        "Microsoft.KeyVault/vaults/keys/wrap/action",
+        "Microsoft.KeyVault/vaults/keys/unwrap/action",
+        "Microsoft.KeyVault/vaults/keys/sign/action",
+        "Microsoft.KeyVault/vaults/keys/verify/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto User (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-reader-preview"></a>Key Vault läsare (förhands granskning)
+
+Läs metadata för nyckel valv och dess certifikat, nycklar och hemligheter. Det går inte att läsa känsliga värden, till exempel hemligt innehåll eller nyckel material. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read för nyckel valv | Kontrollerar att nyckel valvets namn är giltigt och inte används |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read för nyckel valv | Visa egenskaperna för mjuka borttagna nyckel valv |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/locations/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Operations/Read för nyckel valv | Visar en lista över åtgärder som är tillgängliga på Microsoft. valv resurs leverantör |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/readMetadata/action för nyckel valv | Visa eller visa egenskaperna för en hemlighet, men inte dess värde. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
+  "name": "21090545-7ca7-4776-b22c-e363652d74d2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Reader (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-secrets-officer-preview"></a>Key Vault hemligheter (förhands granskning)
+
+Utföra alla åtgärder för ett nyckel valvs hemligheter, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read för nyckel valv | Kontrollerar att nyckel valvets namn är giltigt och inte används |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read för nyckel valv | Visa egenskaperna för mjuka borttagna nyckel valv |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/locations/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Operations/Read för nyckel valv | Visar en lista över åtgärder som är tillgängliga på Microsoft. valv resurs leverantör |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the secrets of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+  "name": "b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/secrets/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-secrets-user-preview"></a>Key Vault hemligheter, användare (förhands granskning)
+
+Läsa hemligt innehåll. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll".
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/getSecret/action för nyckel valv | Hämta värdet för en hemlighet. |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/readMetadata/action för nyckel valv | Visa eller visa egenskaperna för en hemlighet, men inte dess värde. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read secret contents.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+  "name": "4633458b-17de-408a-b874-0445c86b69e6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/secrets/getSecret/action",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Secrets User (preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -6694,7 +7140,7 @@ Gör att du kan skapa nya labb under dina Azure Lab-konton. [Läs mer](../lab-se
 }
 ```
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Application Insights komponent deltagare

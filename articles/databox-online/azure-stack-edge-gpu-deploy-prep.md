@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1e95f635cfb354487298b340f8f25b15c3ca146a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 004702d52245893f4746ce8e4b4a2cc36aad6a67
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088248"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181858"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Självstudie: förbereda för att distribuera Azure Stack Edge  
+# <a name="tutorial-prepare-to-deploy-azure-stack-edge-with-gpu"></a>Självstudie: förbereda för att distribuera Azure Stack Edge med GPU 
 
-Det här är den första självstudien i serien med distributions kurser som krävs för att distribuera Azure Stack Edge fullständigt. I den här självstudien beskrivs hur du förbereder Azure Portal för att distribuera en Azure Stack Edge-resurs.
+Det här är den första självstudien i serien med distributions kurser som krävs för att helt Distribuera Azure Stack Edge med GPU. I den här självstudien beskrivs hur du förbereder Azure Portal för att distribuera en Azure Stack Edge-resurs.
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
@@ -46,8 +46,9 @@ För Azure Stack Edge-distribution måste du först förbereda din miljö. När 
 |**[5. Konfigurera enhets inställningar för Azure Stack Edge](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |Tilldela ett enhets namn och en DNS-domän, konfigurera uppdaterings Server och enhets tid. |
 |**[6. Konfigurera säkerhets inställningar för Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Konfigurera certifikat för din enhet. Använd enhets genererade certifikat eller ta med dina egna certifikat.   |
 |**[7. Aktivera Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md)** |Använd aktiverings nyckeln från tjänsten för att aktivera enheten. Enheten är redo att konfigurera SMB-eller NFS-resurser eller ansluta via REST. |
-|**[8. Överföra data med gräns resurser](azure-stack-edge-j-series-deploy-add-shares.md)** |Lägg till resurser och anslut till resurser via SMB eller NFS. |
-|**[8B. Överföra data med gräns lagrings konton](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Lägg till lagrings konton och Anslut till Blob Storage via REST-API: er. |
+|**[8. Konfigurera Compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Konfigurera beräknings rollen på enheten. Detta kommer också att skapa ett Kubernetes-kluster. |
+|**[9a. Överföra data med gräns resurser](azure-stack-edge-j-series-deploy-add-shares.md)** |Lägg till resurser och anslut till resurser via SMB eller NFS. |
+|**[9b. Överföra data med gräns lagrings konton](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Lägg till lagrings konton och Anslut till Blob Storage via REST-API: er. |
 
 
 Nu kan du börja samla in information om program varu konfigurationen för Azure Stack Edge-enheten.
@@ -104,7 +105,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 1. Använd dina Microsoft Azure autentiseringsuppgifter för att logga in på Azure Portal på denna URL: [https://portal.azure.com](https://portal.azure.com) .
 
-2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter och välj **Azure Stack gräns/data Box Gateway**. Välj **Skapa**.
+2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter och välj **Azure Stack gräns/data Box Gateway**. Välj **Skapa**. Om du ser några problem går du till [Felsöka beställnings problem](azure-stack-edge-troubleshoot-ordering.md).
 
 3. Välj den prenumeration som du vill använda för Azure Stack Edge-enheten. Välj det land där du vill skicka den här fysiska enheten. Välj **Visa enheter**.
 
@@ -118,7 +119,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
     ![Skapa en resurs 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
-5. När prenumerationen har Aktiver ATS bör du kunna fortsätta med att skapa en resurs. På bladet **Välj typ av enhet** väljer du **Välj**. 
+5. När prenumerationen har Aktiver ATS bör du kunna fortsätta med att skapa en resurs. På bladet **Välj typ av enhet** väljer du **Välj**.
 
     ![Skapa en resurs 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
@@ -165,6 +166,8 @@ Det tar några minuter att skapa resursen. När resursen har skapats och distrib
 När ordern har placerats, granskar Microsoft ordern och når dig (via e-post) med leverans information.
 
 ![Meddelande om granskning av Azure Stack Edge-beställning](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+Om du stöter på problem under beställnings processen går du till [Felsöka beställnings problem](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Hämta aktiveringsnyckeln
 

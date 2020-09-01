@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server med Azure Backup Server
 description: I den här artikeln får du lära dig hur du säkerhetskopierar SQL Server databaser med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: caf3d49c9b921cab97054a97ece271e484a734bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b47cb74c6e5dbb868c03f8f7b79c00b0c4ce7886
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005215"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182317"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Säkerhetskopiera SQL Server till Azure med Azure Backup Server
 
@@ -50,7 +50,7 @@ Säkerhetskopiera en SQL Server-databas och återställa den från Azure:
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du börjar bör du kontrol lera att du har [installerat och för berett Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+Innan du börjar ska du kontrol lera att du har [installerat och för berett Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
 

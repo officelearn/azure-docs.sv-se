@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: ab316d7b101a05dd9b6bba2e11bfe77239619126
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146767"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226802"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -80,10 +80,10 @@ Python-paketen installeras i **python 3,6-azureml-** miljön.
 
 ### <a name="installing-packages"></a>Installera paket
 
-Du kan installera paket direkt i en Jupyter Notebook eller RStudio:
+Du kan installera paket direkt i Jupyter Notebook eller RStudio:
 
 * RStudio Använd fliken **paket** längst ned till höger eller fliken **konsol** längst upp till vänster.  
-* Python: Lägg till installations kod och kör i en Jupyter Notebook-cell.
+* Python: Lägg till installations kod och kör i en Jupyter Notebook cell.
 
 Eller så kan du komma åt ett terminalfönster på något av följande sätt:
 

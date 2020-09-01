@@ -1,7 +1,7 @@
 ---
 title: Rikt linjer för anpassning av appar | Azure
 titleSuffix: Microsoft identity platform
-description: En heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory
+description: Lär dig mer om program anpassnings rikt linjer för Microsoft Identity Platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117302"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226649"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
-När du utvecklar program med Azure Active Directory (Azure AD) behöver du dirigera kunderna när de vill använda sitt arbets- eller skolkonto (hanteras i Azure AD) eller sitt personliga konto när de registrerar sig och loggar in i ditt program.
+När du utvecklar program med Microsoft Identity Platform måste du dirigera dina kunder när de vill använda sitt arbets-eller skol konto (hanteras i Azure AD) eller ett personligt konto för registrering och inloggning i ditt program.
 
 I den här artikeln kommer du att:
 
 - Lära dig om de två typer av användarkonton som hanteras av Microsoft och hur du refererar till Azure AD-konton i ditt program
-- Ta reda på vad du behöver göra för att lägga till Microsoft-logotypen för användning i din app
+- Ta reda på vad du behöver göra för att lägga till Microsofts logo typ för användning i din app
 - Ladda ned de officiella bilderna för **Logga in** eller **Logga in med Microsoft** för användning i din app
 - Läs mer om vad du behöver göra och tänka på när det gäller varumärkesanpassning och navigering
 
@@ -38,7 +38,7 @@ Microsoft hanterar två typer av användarkonton:
 - **Personliga konton** (kallades tidigare Windows Live ID). De här kontona sätts upp mellan *enskilda* användare och Microsoft. De ger åtkomst till konsumentenheter och konsumenttjänster från Microsoft. De här kontona är avsedda för personligt bruk.
 - **Arbets- eller skolkonton.** De här kontona hanteras av Microsoft, åt organisationer som använder Azure Active Directory. De är avsedda för att logga in på Office 365 och andra företagstjänster från Microsoft.
 
-Microsofts arbets- eller skolkonton tilldelas vanligtvis till slutanvändare (anställda, studenter, myndighetsanställda) av organisationerna (företag, skola/universitet, myndighet). De hanteras direkt i molnet (via Azure AD-plattformen) eller synkroniseras till Azure AD från en lokal katalog, t.ex. Windows Server Active Directory. Microsoft *övervakar* arbets- och skolkonton, men de ägs och kontrolleras av organisationen.
+Microsofts arbets- eller skolkonton tilldelas vanligtvis till slutanvändare (anställda, studenter, myndighetsanställda) av organisationerna (företag, skola/universitet, myndighet). Dessa konton är hanterade direkt i molnet (i Azure AD-plattformen) eller synkroniseras till Azure AD från en lokal katalog, t. ex. Windows Server Active Directory. Microsoft *övervakar* arbets- och skolkonton, men de ägs och kontrolleras av organisationen.
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Referenser till Azure AD-konton i programmet
 
@@ -67,7 +67,7 @@ När administratörer har godkänt din app kan de välja att lägga till den i s
 
 ![Knapp som visar text för Microsoft-logotypen och "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Till exempel:
+Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Exempel:
 
 > *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja <your_app_name> åtkomst till din organisations data. Detta gör att användarna kan komma åt <your_app_name> med sina befintliga arbets konton.*
 

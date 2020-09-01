@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959909"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226037"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Utveckla och distribuera WebJobs med Visual Studio
 
@@ -53,7 +53,7 @@ Distribuera ett projekt som ett webb jobb eller länka det till ett webb projekt
 
 ![Diagram över projekt för webb jobb som länkar till webb projekt](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Installera Visual Studio 2017 eller Visual Studio 2019 med [arbets belastningen Azure Development](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
@@ -184,9 +184,9 @@ Distributions information för webbjobb:
 
 Typen av ett webbjobb kan antingen *utlösas* eller vara *kontinuerlig*:
 
-- Utlöst (standard): ett utlöst webb jobb startar baserat på en bindnings händelse, enligt ett [schema](#scheduling-a-triggered-webjob)eller när du utlöser det manuellt (på begäran). Den körs på alla instanser som webbappen körs på, men du kan också begränsa webbplatsens webb jobb till en enda instans.
+- Utlöst (standard): ett utlöst webb jobb startar baserat på en bindnings händelse, enligt ett [schema](#scheduling-a-triggered-webjob)eller när du utlöser det manuellt (på begäran). Den körs på en enda instans som webbappen körs på.
 
-- Kontinuerlig: ett [kontinuerligt](#continuous-execution) webbjobb startar omedelbart när webb jobbet skapas. Den här typen av webb jobb är bäst för obundna eller långvariga jobb. Om jobbet har slutförts kan du starta om det.  
+- Kontinuerlig: ett [kontinuerligt](#continuous-execution) webbjobb startar omedelbart när webb jobbet skapas. Den körs på alla skalbara instanser av webb program som standard, men kan konfigureras att köras som en enskild instans via *Inställningar. job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

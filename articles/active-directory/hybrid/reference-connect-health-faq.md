@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718551"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182385"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (Azure AD) Connect Health. Vanliga frågor och svar om hur du använder tjänsten, inklusive fakturerings modellen, funktioner, begränsningar och support.
@@ -70,10 +70,10 @@ Azure AD Connect Health stöds inte i Tyskland-molnet, förutom [rapport funktio
 
 | Roller | Funktioner | Stöds i tyskt moln |
 | ------ | --------------- | --- |
-| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | Inga |
-|  | Fel rapport för synkronisering | Ja |
-| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | Inga |
-| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | Inga |
+| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | No |
+|  | Fel rapport för synkronisering | Yes |
+| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | No |
+| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | No |
 
 Konfigurera [installations kravet](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) enligt detta för att säkerställa att agent anslutningen för Connect Health för synkronisering är korrekt.
 
@@ -137,7 +137,7 @@ Hälso agenten kan inte registreras på grund av följande möjliga orsaker:
 
 * Agenten kan inte kommunicera med nödvändiga slut punkter eftersom en brand vägg blockerar trafik. Detta är särskilt vanligt på Web Application Proxy-servrar. Kontrol lera att du har tillåtit utgående kommunikation till nödvändiga slut punkter och portar. Mer information finns i [avsnittet om krav](how-to-connect-health-agent-install.md#requirements) .
 * Utgående kommunikation utsätts för en TLS-kontroll av nätverks lagret. Detta gör att certifikatet som agenten använder ersätts av inspektions servern/entiteten och att de steg som krävs för att slutföra Agent registreringen Miss lyckas.
-* Användaren har inte åtkomst för att utföra registreringen av agenten. Globala administratörer har åtkomst som standard. Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) för att delegera åtkomst till andra användare.
+* Användaren har inte åtkomst för att utföra registreringen av agenten. Globala administratörer har åtkomst som standard. Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) för att delegera åtkomst till andra användare.
 
 **F: Jag får ett meddelande om att "Hälsotjänst data inte är aktuella." Hur gör jag för att felsöka problemet?**
 

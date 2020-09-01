@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271271"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226215"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Självstudie: Konfigurera Log Analytics-guiden
 
@@ -41,15 +41,15 @@ I den här guiden får du lära dig att:
 
 Bekanta dig med de här artiklarna:
 
-- [Självstudie: samla in och analysera resurs loggar från en Azure-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Självstudie: samla in och analysera resurs loggar från en Azure-resurs](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [Så här integrerar du aktivitets loggar med Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du aktivitets loggar med Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Hantera konto för nöd åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Hantera konto för nöd åtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md)
 
-- [Snabbreferens för KQL](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [Snabbreferens för KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md)
 
 
 

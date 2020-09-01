@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690701"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182368"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Användar sekretess och Azure AD Connect Health 
 
@@ -41,7 +41,7 @@ Servrar med aktiva **hälso tjänst data är inte uppdaterade** **fel** aviserin
 Med Azure AD Connect Health kan du stoppa data insamling för varje övervakad Server eller en instans av en övervakad tjänst. Du kan till exempel stoppa data insamling för enskilda ADFS-servrar (Active Directory Federation Services (AD FS)) som övervakas med hjälp av Azure AD Connect Health. Du kan också stoppa data insamlingen för hela ADFS-instansen som övervakas med hjälp av Azure AD Connect Health. När du väljer att göra det tas motsvarande servrar bort från Azure AD Connect Health Portal efter att data insamlingen stoppats. 
 
 >[!IMPORTANT]
-> Du behöver antingen global administratörs behörighet för Azure AD eller deltagar rollen i RBAC för att ta bort övervakade servrar från Azure AD Connect Health.
+> Du behöver antingen global administratörs behörighet för Azure AD eller deltagar rollen i Azure RBAC för att ta bort övervakade servrar från Azure AD Connect Health.
 >
 > Det går inte att ångra en åtgärd för att ta bort en server eller tjänst instans från Azure AD Connect Health. 
 

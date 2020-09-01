@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cfafb47e6d5fcde2858e7329b5b8ef3a0e0b241e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c0581a79bda4ae4e311390f5b2d929073e0833d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088228"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182028"
 ---
 # <a name="tutorial-configure-device-settings-for-azure-stack-edge-with-gpu"></a>Självstudie: Konfigurera enhets inställningar för Azure Stack Edge med GPU
 
@@ -59,16 +59,17 @@ Följ dessa steg om du vill konfigurera inställningar för enheten.
 
         ![Sidan enhet för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
-        Om du har ändrat enhets namnet och DNS-domänen kommer de automatiskt genererade självsignerade certifikaten på enheten inte att fungera. Du måste välja något av följande alternativ: 
+        Om du har ändrat enhets namnet och DNS-domänen kommer de automatiskt genererade självsignerade certifikaten på enheten inte att fungera. Du måste välja något av följande alternativ när du konfigurerar certifikat.: 
         
         - Generera och hämta enhets certifikaten. 
         - Ta med dina egna certifikat för enheten, inklusive signerings kedjan.
+    
 
         ![Sidan enhet för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
 
-    4. När enhets namnet och DNS-domänen ändras, skapas SMB-och NFS-slutpunkterna. 
+    4. När enhets namnet och DNS-domänen ändras, skapas SMB-och NFS-slutpunkterna.  
 
-    4. När inställningarna har tillämpats går du tillbaka till **Kom igång**.
+    5. När inställningarna har tillämpats går du tillbaka till **Kom igång**.
 
 ## <a name="configure-update"></a>Konfigurera uppdatering
 

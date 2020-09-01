@@ -3,12 +3,12 @@ title: Använda PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 7b4e63e94599b1445a7244018e00999df8365cd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4f0364ef218d346149191e168540eed4827001de
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014684"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182470"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -262,7 +262,7 @@ Varje DPM-agent känner till listan över data källor på den server som den ä
 3. Hämta en lista över alla data källor på servern.
 4. Välj en eller flera data källor och Lägg till dem i skydds gruppen
 
-Listan över servrar där DPM-agenten är installerad och hanteras av DPM-servern erhålls med cmdleten [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . I det här exemplet ska vi filtrera och konfigurera endast PowerShell med namnet *productionserver01* för säkerhets kopiering.
+Listan över servrar där DPM-agenten är installerad och hanteras av DPM-servern erhålls med cmdleten [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . I det här exemplet ska vi filtrera och konfigurera PowerShell med namnet *productionserver01* för säkerhets kopiering.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}

@@ -3,12 +3,12 @@ title: Använda diagnostikinställningar för Recovery Services valv
 description: Den här artikeln beskriver hur du använder de gamla och nya diagnostiska händelserna för Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826675"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182606"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services valv
 

@@ -4,12 +4,12 @@ description: Förstå tjänster och händelse schema som stöds för Azures resu
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: acd661467e90b4915daa2f3eb31f34fd350dc9f5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782132"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226471"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Gemensamt och tjänstspecifikt schema för Azure-resurs loggar
 
@@ -23,7 +23,7 @@ En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `cat
 
 ## <a name="top-level-common-schema"></a>Gemensamt schema på översta nivån
 
-| Namn | Obligatorisk/valfri | Beskrivning |
+| Name | Obligatorisk/valfri | Beskrivning |
 |---|---|---|
 | time | Obligatorisk | Tids stämplingen (UTC) för händelsen. |
 | resourceId | Obligatorisk | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
@@ -54,9 +54,6 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Programgateways |[Loggning för Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch loggning](../../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL loggar](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure-datautforskaren | [Azure Datautforskaren-loggar](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Loggning för Azure-Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Loggning för Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Azure-loggar för CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -64,14 +61,18 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Data Factory | [Övervaka data fabriker med hjälp av Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Åtkomst till loggar för Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Åtkomst till loggar för Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure-datautforskaren | [Azure Datautforskaren-loggar](/azure/data-explorer/using-diagnostic-logs) |
+| Azure Database for MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL loggar](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Diagnostisk loggning i Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
+| Digital Twins | [Konfigurera Digitals dubblare-diagnostik](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs-loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat är inte tillgängligt. |
 | Azure Firewall | Schemat är inte tillgängligt. |
 | IoT Hub | [IoT Hub åtgärder](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault loggning](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes-loggning](../../aks/view-master-logs.md#log-event-schema) |
-| Lastbalanserare |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
@@ -86,7 +87,8 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Virtuella nätverksgatewayer | Schemat är inte tillgängligt. |
 
 
-## <a name="next-steps"></a>Nästa steg
+
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Se resurs loggs kategorierna som du kan samla in](resource-logs-categories.md)
 * [Läs mer om resurs loggar](./platform-logs-overview.md)

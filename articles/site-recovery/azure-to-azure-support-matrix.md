@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5fc01efc386a950cdc53e7928009c67a355962e4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815376"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182272"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Supportmatris för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -125,7 +125,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 16,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.4.0 – 21-genered to 4.4.0-178-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-99-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1082 – Azure </br> 4.15.0-101-genered & 4.4.0-179-Generic till 9,33 snabb korrigering av snabb korrigering * *|
 16,04 LTS | 9,32 | 4.4.0-21-genered to 4.4.0-171-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-74-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1066-Azure|
 |||
-18,04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-Generic to 4.15.0-112-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-58-generic </br> 5.3.0-19-genered to 5.3.0-65-generic </br> 5.4.0 – 37-generisk till 5.4.0-42-generic</br> 4.15.0-1009 – Azure till 4.15.0-1092 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1032 – Azure </br> 5.4.0-1020 – Azure till 5.4.0 – 1022 – Azure|
+18,04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-Generic to 4.15.0-112-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-58-generic </br> 5.3.0-19-genered to 5.3.0-65-generic </br> 5.4.0 – 37-generisk till 5.4.0-42-generic</br> 4.15.0-1009 – Azure till 4.15.0-1092 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1032 – Azure </br> 5.4.0-1020 – Azure till 5.4.0 – 1022 – Azure </br> 5.0.0-60-genered & 5.3.0-1035 – Azure till 9,36 snabb korrigerings korrigering * *|
 18,04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-Generic to 4.15.0-108-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-Generic to 5.0.0-52-generic </br> 5.3.0-19-genered to 5.3.0-61-generic </br> 4.15.0-1009 – Azure till 4.15.0-1089 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1031-Azure </br> 4.15.0-109-Generic, 5.0.0-53-Generic, 5.3.0-62-Generic, 4.15.0-1091-Azure & 5.3.0-1032-Azure till 9,35 snabb korrigerings korrigering * *|
 18,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-Generic to 4.15.0-99-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-47-generic </br> 5.3.0-19-genered to 5.3.0-51-generic </br> 4.15.0-1009 – Azure till 4.15.0-1082 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1020-Azure </br> 4.15.0-101-Generic, 5.0.0-48-genered, 5.3.0-1022-Azure & 5.3.0-53-Generic till 9,33 snabb korrigering * *|
 18,04 LTS | 9,32| 4.15.0-20-Generic to 4.15.0-74-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-37-generisk </br> 5.3.0-19-Generic to 5.3.0-24-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1028 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1009 – Azure|

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 310fde15a850214aa1741c9cb587c0edcf570a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085381"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182198"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Kubernetes rollbaserade Access Control på din Azure Stack Edge-enhet
 
@@ -26,9 +26,43 @@ De här artiklarna ger en översikt över RBAC-systemet som tillhandahålls av K
 
 Med Kubernetes RBAC kan du tilldela användare eller grupper av användare behörighet att göra saker som att skapa eller ändra resurser, eller Visa loggar från att köra program arbets belastningar. Dessa behörigheter kan begränsas till ett enda namn område eller beviljas i hela klustret. 
 
-När du konfigurerar Kubernetes-klustret skapas en enskild användare som motsvarar det här klustret och kallas för kluster administratörs användaren.  En `kubeconfig` fil är kopplad till kluster administratörs användaren. `kubeconfig`Filen är en textfil som innehåller all konfigurations information som krävs för att ansluta till klustret för att autentisera användaren. 
+När du konfigurerar Kubernetes-klustret skapas en enskild användare som motsvarar det här klustret och kallas för kluster administratörs användaren.  En `kubeconfig` fil är kopplad till kluster administratörs användaren. `kubeconfig`Filen är en textfil som innehåller all konfigurations information som krävs för att ansluta till klustret för att autentisera användaren.
 
-### <a name="namespaces-and-users"></a>Namn områden och användare
+## <a name="namespaces-types"></a>Typer av namn områden
+
+Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i ett namn område. Dessa grupperingar ger ett sätt att logiskt dela upp ett Kubernetes-kluster och begränsa åtkomsten till att skapa, Visa eller hantera resurser. Användare kan bara interagera med resurser inom de tilldelade namn områdena.
+
+Namn områden är avsedda att användas i miljöer med många användare som sprids över flera team eller projekt. För kluster med några få till användare behöver du inte skapa eller tänka på namn områden alls. Börja använda namnrum när du behöver de funktioner som de tillhandahåller.
+
+Mer information finns i [Kubernetes-namnområden](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+
+
+Din Azure Stack Edge-enhet har följande namn rymder:
+
+- **System namn område** – det här namn området är där kärn resurser finns, till exempel nätverks funktioner som DNS och proxy eller Kubernetes-instrumentpanelen. Du distribuerar vanligt vis inte dina egna program till det här namn området. Använd det här namn området för att felsöka problem med Kubernetes-kluster. 
+
+    Det finns flera system namn rymder på enheten och namnen som motsvarar dessa system namn rymder är reserverade. Här är en lista över reserverade system namn rymder: 
+    - Kube-system
+    - metallb-system
+    - DBE – namnrymd
+    - standard
+    - Kubernetes-instrument panel
+    - standard
+    - Kube-nod-Lease
+    - Kube – offentlig
+    - iotedge
+    - Azure-båg
+
+    Se till att inte använda reserverade namn för användar namn rymder som du skapar. 
+<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
+
+- **Användar namn område** – det här är de namn områden som du kan skapa via **kubectl** för att distribuera program lokalt.
+ 
+- **IoT Edge namnrymd** – du ansluter till det här `iotedge` namn området för att distribuera program via IoT Edge.
+
+- **Azure Arc-namnrymd** – du ansluter till det här `azure-arc` namn området för att distribuera program via Azure Arc. 
+
+## <a name="namespaces-and-users"></a>Namn områden och användare
 
 I den verkliga världen är det viktigt att dela upp klustret i flera namn områden. 
 
@@ -43,7 +77,6 @@ Kubernetes har begreppet roll-och roll bindning som gör att du kan ge behörigh
 - **RoleBindings**: när du har definierat rollerna kan du använda **RoleBindings** för att tilldela roller för en viss namnrymd. 
 
 Med den här metoden kan du logiskt särskilja ett enda Kubernetes-kluster, där användare bara kan komma åt program resurserna i sitt tilldelade namn område. 
-
 
 ## <a name="rbac-on-azure-stack-edge"></a>RBAC på Azure Stack Edge
 
@@ -92,14 +125,6 @@ När du arbetar med namn områden och användare på dina Azure Stack Edge-enhet
 - Du får inte skapa några användar namn rymder med namn som redan används av andra användar namn områden. Om du till exempel har skapat en `test-ns` som du har skapat kan du inte skapa en annan `test-ns` namnrymd.
 - Du får inte skapa användare med namn som redan har reserver ATS. Till exempel `aseuser` är en reserverad kluster administratör och kan inte användas.
 
-Mer information om Azure Stack Edge-namnområden finns i [namn områdes typer](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types).
-
-
-<!--To deploy applications on an Azure Stack Edge device, use the following :
- 
-- First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
-- Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
-- Finally, you will use the services to expose applications externally and within the Kubernetes cluster.-->
 
 ## <a name="next-steps"></a>Nästa steg
 

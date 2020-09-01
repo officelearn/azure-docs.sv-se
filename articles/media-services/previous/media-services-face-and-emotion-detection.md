@@ -16,14 +16,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a3bd50d23f2543c6efeb6297b4dbcba8293269c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ac27fa5773e266d546b6511a24c6a5e14c5fda7f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019886"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257848"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera ansikts-och känslo med Azure-medieanalys
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > **Azure Media Face Detector** medie processorn kommer att dras tillbaka. Information om återställnings datumet finns i avsnittet [äldre komponenter](legacy-components.md) .

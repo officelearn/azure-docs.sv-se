@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180345"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259378"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Mer information om hur du använder Azure RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
 
-- [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Lägg till eller ta bort Azure Role-tilldelningar med Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Lägg till eller ta bort Azure Role-tilldelningar med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Använda villkorlig åtkomst
 
@@ -339,7 +339,7 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 
 ![Autentiseringsuppgifterna fungerade inte](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Kontrol lera att den Windows 10-dator som du använder för att initiera fjärr skrivbords anslutningen är antingen en Azure AD-ansluten eller en hybrid Azure AD som är ansluten till samma Azure AD-katalog som den virtuella datorn är ansluten till. Mer information om enhets identitet finns i artikeln [Vad är en enhets identitet](/azure/active-directory/devices/overview).
+Kontrol lera att den Windows 10-dator som du använder för att initiera fjärr skrivbords anslutningen är antingen en Azure AD-ansluten eller en hybrid Azure AD som är ansluten till samma Azure AD-katalog som den virtuella datorn är ansluten till. Mer information om enhets identitet finns i artikeln [Vad är en enhets identitet](./overview.md).
 
 > [!NOTE]
 > Windows 10 build-20H1 har lagt till stöd för en registrerad Azure AD-dator för att initiera RDP-anslutning till den virtuella datorn. När du använder en Azure AD-registrerad (inte Azure AD-ansluten eller hybrid Azure AD-ansluten) som RDP-klient för att initiera anslutningar till den virtuella datorn, måste du ange autentiseringsuppgifter i formatet AzureAD\UPn (t. ex. AzureAD\john@contoso.com ).
@@ -367,4 +367,4 @@ Dela din feedback om den här för hands versions funktionen eller rapportera pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Active Directory finns i [Vad är Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+Mer information om Azure Active Directory finns i [Vad är Azure Active Directory](../fundamentals/active-directory-whatis.md)

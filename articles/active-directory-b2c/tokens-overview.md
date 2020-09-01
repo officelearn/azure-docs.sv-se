@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482591"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258443"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över tokens i Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Anspråk i ID-token returneras inte i någon särskild ordning. Nya anspråk kan
 
 I följande tabell visas de anspråk som du kan förväntar dig i ID-token och åtkomsttoken som utfärdats av Azure AD B2C.
 
-| Name | Begär | Exempelvärde | Description |
+| Name | Begär | Exempelvärde | Beskrivning |
 | ---- | ----- | ------------- | ----------- |
 | Målgrupp | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifierar den avsedda mottagaren för token. För Azure AD B2C är mål gruppen program-ID: t. Programmet bör validera det här värdet och avvisa token om det inte matchar. Mål gruppen är synonym med resursen. |
 | Utfärdare | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifierar säkerhetstokentjänst som konstruerar och returnerar token. Den identifierar även den katalog där användaren autentiserades. Ditt program bör verifiera utfärdarens anspråk för att se till att token kommer från lämplig slut punkt. |
@@ -119,7 +119,7 @@ Rubriken för token innehåller information om nyckeln och krypterings metoden s
 }
 ```
 
-Värdet för **alg** -anspråket är algoritmen som användes för att signera token. Värdet för **barn** -anspråket är den offentliga nyckel som användes för att signera token. Vid en angiven tidpunkt kan Azure AD B2C signera en token med hjälp av någon av en uppsättning offentliga privata nyckel par. Azure AD B2C roterar den möjliga uppsättningen nycklar med jämna mellanrum. Programmet ska skrivas för att hantera dessa nycklar automatiskt. En rimlig frekvens för att söka efter uppdateringar av de offentliga nycklar som används av Azure AD B2C är var 24: e timme.
+Värdet för **alg** -anspråket är algoritmen som användes för att signera token. Värdet för **barn** -anspråket är den offentliga nyckel som användes för att signera token. Vid en angiven tidpunkt kan Azure AD B2C signera en token med hjälp av någon av en uppsättning offentliga privata nyckel par. Azure AD B2C roterar den möjliga uppsättningen nycklar med jämna mellanrum. Programmet ska skrivas för att hantera dessa nycklar automatiskt. En rimlig frekvens för att söka efter uppdateringar av de offentliga nycklar som används av Azure AD B2C är var 24: e timme. Om du vill hantera oväntade nyckel ändringar ska programmet skrivas för att hämta de offentliga nycklarna igen om det får ett oväntat **barn** värde.
 
 Azure AD B2C har en slut punkt för OpenID Connect-metadata. Med den här slut punkten kan program begära information om Azure AD B2C vid körning. Den här informationen omfattar slut punkter, token innehåll och signerings nycklar för token. Din Azure AD B2C klient innehåller ett JSON-Metadatadokumentet för varje princip. Metadatadokumentet är ett JSON-objekt som innehåller flera användbara informations delar. Metadata innehåller **jwks_uri**, vilket ger platsen för den uppsättning offentliga nycklar som används för att signera token. Platsen finns här, men det är bäst att hämta platsen dynamiskt med hjälp av Metadatadokumentet och parsa **jwks_uri**:
 

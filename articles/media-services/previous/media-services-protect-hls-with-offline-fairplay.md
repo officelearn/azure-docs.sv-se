@@ -16,14 +16,16 @@ ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df84761edf605f1dda087569f95749e5b9c5c7b6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5e003e17490c2e35ef3f8adfdef6de0377cda7d5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021110"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259718"
 ---
-# <a name="offline-fairplay-streaming-for-ios"></a>FairPlay-direktuppspelning offline för iOS 
+# <a name="offline-fairplay-streaming-for-ios"></a>FairPlay-direktuppspelning offline för iOS
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Välj den version av Media Services som du använder:"]
 > * [Version 3](../latest/offline-fairplay-for-ios.md)
@@ -202,7 +204,7 @@ Tre test exempel i Media Services som tar upp följande tre scenarier:
 Du hittar dessa exempel på [den här demo webbplatsen](https://aka.ms/poc#22), med motsvarande program certifikat som finns i en Azure-webbapp.
 Med version 3 eller version 4-exemplet på Server-SDK: n för FPS, om en Master-spelnings lista innehåller alternativ ljud, i offlineläge spelar den bara ljud. Därför måste du randig det alternativa ljudet. De andra och tredje exemplen som listas tidigare fungerar med andra ord i onlineläge och offline-läge. Exemplet som visas först spelar bara ljud i offlineläge, medan direkt uppspelningen fungerar som den ska.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 Följande vanliga frågor ger hjälp med fel sökning:
 
 - **Varför spelas bara ljud upp men inte video i offlineläge?** Det här beteendet verkar vara avsiktligt av exempel appen. När ett alternativt ljud spår finns (vilket är fallet för HLS) under offlineläge, är både iOS 10 och iOS 11 standardvärdet för det alternativa ljud spåret. För att kompensera det här beteendet för offline-läge för FPS tar du bort det alternativa ljud spåret från data strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifest filtret "ljud-Only = false". Med andra ord slutar en HLS-URL med. ISM/manifest (format = M3U8-AAPL, endast ljud = falskt). 

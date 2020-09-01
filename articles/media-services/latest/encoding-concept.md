@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Den här artikeln förklarar hur du kodar video och ljud med Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: a54f86081774ffb9ac2fe23a72c8ba83e3d6845c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2e4db27f268d0d49696fd2a7dacc200942fa4477
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053333"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258987"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Koda video och ljud med Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Termen encoding i Media Services gäller för processen att konvertera filer som innehåller digital video och/eller ljud från ett standardformat till en annan, med syftet att (a) minska storleken på filerna och/eller (b) som producerar ett format som är kompatibelt med ett brett utbud av enheter och appar. Den här processen kallas även video komprimering eller kodning. Se [data komprimeringen](https://en.wikipedia.org/wiki/Data_compression) och [vad som är kodning och omkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) för att få ytterligare information om begreppen.
 

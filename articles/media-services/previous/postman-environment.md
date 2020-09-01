@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8254d121c62a20de0a1593920b7793195f8eb50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ccc765a3fb0063d92382edcec260808183f27a2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926716"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259259"
 ---
-# <a name="import-the-postman-environment"></a>Importera Postman-miljön  
+# <a name="import-the-postman-environment"></a>Importera Postman-miljön
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 Den här artikeln innehåller en definition av de **Postman** -miljövariabler som används i [Postman-samlingen](postman-collection.md) som innehåller grupperade HTTP-begäranden som anropar Media Services REST-API: er. Miljö-och samlings filerna används av själv studie kursen [Konfigurera PostMan för Media Services REST API samtal](media-rest-apis-with-postman.md) .
 

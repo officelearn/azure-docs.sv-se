@@ -1,17 +1,17 @@
 ---
 title: 'Självstudie: dela utanför din organisation – Azure-Dataresurs'
 description: Självstudie – dela data med kunder och partner med Azure Data Share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: d78e9c11ef0c70730fedc0ea9ef4b5a61f7d29c6
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.date: 08/28/2020
+ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072170"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259072"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudie: dela data med Azure Data Share  
 
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig att:
 > * Aktivera ett ögonblicks bild schema för data resursen. 
 > * Lägg till mottagare i dataresursen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
@@ -60,7 +60,7 @@ I den här självstudien får du lära dig att:
     1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
     1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall. 
 
-### <a name="share-from-azure-data-explorer"></a>Dela från Azure Datautforskaren
+### <a name="share-from-azure-data-explorer"></a>Dela från Azure Data Explorer
 * Ett Azure Datautforskaren-kluster med databaser som du vill dela.
 * Behörighet att skriva till Azure Datautforskaren-kluster, som finns i *Microsoft. Kusto/kluster/Write*. Den här behörigheten finns i deltagar rollen.
 * Behörighet att lägga till roll tilldelning till Azure Datautforskaren-klustret, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen.
@@ -93,7 +93,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. När distributionen är klar väljer du **Gå till resurs**.
 
-## <a name="create-a-data-share"></a>Skapa en data resurs
+## <a name="create-a-share"></a>Skapa en resurs
 
 1. Gå till översikts sidan för data delning.
 
@@ -103,15 +103,15 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. Välj **Skapa**.   
 
-1. Fyll i informationen för din data resurs. Ange ett namn, resurs typ, en beskrivning av delnings innehåll och användnings villkor (valfritt). 
+1. Fyll i informationen för din resurs. Ange ett namn, resurs typ, en beskrivning av delnings innehåll och användnings villkor (valfritt). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Ange resurs information") 
 
 1. Välj **Fortsätt**.
 
-1. Om du vill lägga till data uppsättningar till din data resurs väljer du **Lägg till data uppsättningar**. 
+1. Om du vill lägga till data uppsättningar i din resurs väljer du **Lägg till data uppsättningar**. 
 
-    ![Datauppsättningar](./media/datasets.png "Datauppsättningar")
+    ![Lägg till data uppsättningar till din resurs](./media/datasets.png "Datauppsättningar")
 
 1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure SQL Data Warehouse kommer du att uppmanas att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
 

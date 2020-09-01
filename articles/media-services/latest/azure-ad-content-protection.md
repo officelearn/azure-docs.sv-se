@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 006e312e67f5f4014248c44a799c2dde826801c2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422104"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258851"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Självstudie: innehålls skydd från slut punkt till slut punkt med hjälp av Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med den här självstudien och det tillhandahållna Player-exemplet kan du konfigurera ett Azure Active Directory AMS-undersystem Azure Media Services från slut punkt till slut punkt till slut punkt till slut punkt för att strömma medie innehåll med alla AMS som stöder DRM/AES-128, strömmande protokoll, codec och behållar format. Exemplet är allmänt nog för säker åtkomst till alla REST API som skyddas av OAuth 2 via auktoriseringskod-flöde med bevis nyckel för Code Exchange (PKCE). (Azure Media Services licens leverans tjänst är bara en av dem.) Det fungerar också med Microsoft Graph-API eller anpassade utvecklade REST API som skyddas med OAuth 2 Authorization Code Flow. Detta är det medföljande dokumentet till [exempel koden](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
@@ -64,7 +66,7 @@ Det är valfritt men vi rekommenderar att du är bekant med följande begrepp in
 * En installation av Node.js. Hämta Node.js här [https://nodejs.org](https://nodejs.org) . NPM levereras med installationen.
 * En [Azure-prenumeration](https://azure.microsoft.com/free/).
 * Ett Azure Media Services-konto (AMS).
-* @azure/msal-browserv 2.0, en av medlemmarna i [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK-serien för olika klient plattformar
+* @azure/msal-browser v 2.0, en av medlemmarna i [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK-serien för olika klient plattformar
 * Den senaste versionen av [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(ingår i exemplet.)
 * Autentiseringsuppgifter för FPS från Apple om du vill inkludera FairPlay DRM och det program certifikat som är värd för CORS som är tillgängligt via Java Script på klient sidan.
 
@@ -106,7 +108,7 @@ Läs [design av ett innehålls skydds system med flera DRM med åtkomst kontroll
 Player-appen är ett program med en enda sida (SPA) som utvecklats i Visual Studio Code med:
 
 * Node.js med ES 6 java script
-* @azure/msal-browser2,0 beta version
+* @azure/msal-browser 2,0 beta version
 * Azure Media Player SDK
 * OAuth 2-flöde mot Azure AD v2-slutpunkter (Microsoft Identity Platform)
 
@@ -163,7 +165,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 1. Välj **exponera ett API** från menyn. Vyn Lägg till en omfattning visas. (Azure tillhandahåller en program-ID-URI, men om du vill ändra det kan du redigera i fältet program-ID URI.)
 1. Klicka på **Spara och fortsätt**. Vyn kommer att ändras. För var och en av inställningarna i kolumnen inställning i tabellen nedan anger du värdet i kolumnen värde och klickar sedan på **Lägg till omfång**.
 
-| Inställningen | Värde | Beskrivning |
+| Inställning | Värde | Beskrivning |
 | ------- | ----- | ----------- |
 | Namn på sökomfång | *Rights. Licens. Delivery* | Hur omfånget visas när åtkomst till detta API begärs och i åtkomsttoken när omfattningen har beviljats till ett klient program. Detta måste vara unikt i det här programmet. Vi rekommenderar att du använder "Resource. operation. constraint" som ett mönster för att generera namnet. |
 | Vem kan godkänna? | *Administratörer och användare* | Anger om användare kan godkänna det här omfånget i kataloger där användar medgivande har Aktiver ATS. |
@@ -171,7 +173,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 | Beskrivning av administratörs medgivande * * | *Resurs omfång för leverans Server del för DRM-Licens* | En detaljerad beskrivning av det omfång som visas när klient administratörer utökar ett omfång på medgivande skärmen. |
 | Visningsnamn för användarmedgivande | *Rights. Licens. Delivery* | Vad scopet kommer att anropas på skärmen för medgivande när användare godkänner det här omfånget. |
 | Beskrivning av användarmedgivande | *Resurs omfång för leverans Server del för DRM-Licens* | Det här är en detaljerad beskrivning av det omfång som visas när användarna utökar ett omfång på medgivande skärmen. |
-| Tillstånd | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
+| Status | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
 
 ## <a name="register-the-client-app"></a>Registrera klient programmet
 
@@ -305,7 +307,7 @@ Om du planerar att använda en annan IDE/webb plattform och/eller en webb server
 1. Kopiera *mapparna* som finns i den *offentliga* mappen till roten i den nya katalogen.
 1. Ändra fil namns tilläggen `.ejs` till `.html` . (Ingen variabel på Server sidan används så att du kan ändra den på ett säkert sätt.)
 1. Öppna *index.html* i VSC (eller annan kod redigerare) och ändra `<script>` `<link>` Sök vägarna så att de återspeglar var filerna finns.  Om du har följt de föregående stegen behöver du bara ta bort `\` i sökvägen.  Till exempel `<script type="text/javascript" src="/javascript/constants.js"></script>` blir `<script type="text/javascript" src="javascript/constants.js"></script>` .
-1. Anpassa konstanterna i *Java Script/constants.js-* filen som i alternativ 1.
+1. Anpassa konstanterna i *Java Script/constants.js- * filen som i alternativ 1.
 
 ## <a name="common-customer-scenarios"></a>Vanliga kund scenarier
 

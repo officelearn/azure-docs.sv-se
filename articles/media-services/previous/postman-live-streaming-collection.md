@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 69b5e8721b320e799fbdfb31ff83f2e78e513b40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13a82aaa31734e98377d9f68c59c25c83a5d5f8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047514"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259140"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importera en Postman-samling med Live streaming-åtgärder 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importera en Postman-samling med Live streaming-åtgärder
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Den här artikeln innehåller en definition av **Postman** -samlingen som innehåller grupperade HTTP-förfrågningar som anropar **Live streaming** Azure Media Services REST-API: er. Information om hur du konfigurerar **Postman** så att den kan användas för att anropa Media Services REST-API: er finns i avsnittet [Konfigurera postman för Media Services REST API anrop](media-rest-apis-with-postman.md) .
 

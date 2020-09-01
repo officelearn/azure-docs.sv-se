@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258603"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259021"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Data lager som stöds i Azure Data Share
 
@@ -50,19 +50,22 @@ Tabellen nedan innehåller information om olika kombinationer och alternativ som
 ## <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto
 Azure data sharing stöder delning av filer, mappar och fil system från Azure Data Lake gen1 och Azure Data Lake Gen2. Det stöder också delning av blobbar, mappar och behållare från Azure Blob Storage. Endast Block-Blob stöds för närvarande. När fil system, behållare eller mappar delas i ögonblicks bilds-baserad delning, kan data konsumenten välja att göra en fullständig kopia av delnings data eller utnyttja en stegvis ögonblicks bilds kapacitet för att bara kopiera nya eller uppdaterade filer. En stegvis ögonblicks bild baseras på filernas senaste ändrings tid. Befintliga filer med samma namn kommer att skrivas över.
 
+Mer information finns i [dela och ta emot data från Azure Blob Storage och Azure Data Lake Storage](how-to-share-from-storage.md) .
+
 ## <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad källa
-Azure Data Share stöder delning av tabeller eller vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW). Data konsumenter kan välja att acceptera data till Azure Data Lake Store Gen2 eller Azure Blob Storage som CSV-eller Parquet-fil. Observera att fil formaten som standard är CSV. Data konsumenten kan välja att ta emot data i Parquet-format om du vill. Detta kan göras i inställningarna för data uppsättnings mappning när data tas emot. 
+Azure Data Share stöder delning av tabeller eller vyer från Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL DW). Data konsumenter kan välja att acceptera data till Azure Data Lake Storage Gen2 eller Azure-Blob Storage som CSV-eller Parquet-fil, samt till Azure SQL Database och Azure Synapse Analytics som tabeller.
 
-När du accepterar data i Azure Data Lake Store Gen2 eller Azure Blob Storage skrivs innehållet i målfilen över av fullständiga ögonblicks bilder. 
+När du accepterar data i Azure Data Lake Store Gen2 eller Azure Blob Storage skrivs innehållet i mål filen över om det redan finns en fullständig ögonblicks bild.
+När data tas emot i tabellen och om mål tabellen inte redan finns, skapar Azure Data Share SQL-tabellen med käll schemat. Om det redan finns en mål tabell med samma namn kommer den att tas bort och skrivas över med den senaste fullständiga ögonblicks bilden. Stegvisa ögonblicks bilder stöds inte för närvarande.
 
-En data konsument kan välja att ta emot data i en valfri tabell. I det här scenariot skapar Azure Data Share SQL-tabellen med käll schemat om mål tabellen inte redan finns. Om det redan finns en mål tabell med samma namn kommer den att tas bort och skrivas över med den senaste fullständiga ögonblicks bilden. När du mappar mål tabellen kan ett alternativt schema och tabell namn anges. Stegvisa ögonblicks bilder stöds inte för närvarande. 
+Mer information finns i [dela och ta emot data från Azure SQL Database och Azure Synapse Analytics](how-to-share-from-sql.md) .
 
-Att dela från SQL-baserade källor har krav som rör brand Väggs regler och-behörigheter. Mer information finns i avsnittet krav i artikeln [dela din data](share-your-data.md) .
-
-## <a name="share-from-azure-data-explorer"></a>Dela från Azure Datautforskaren
+## <a name="share-from-azure-data-explorer"></a>Dela från Azure Data Explorer
 Azure Data Share stöder möjligheten att dela databaser på plats från Azure Datautforskaren-kluster. Data leverantören kan dela på databas-eller kluster nivå. Vid delning på databas nivå kommer data konsumenten bara att kunna komma åt de enskilda databaserna som delas av data leverantören. Vid delning på kluster nivå kan data konsumenten komma åt alla databaser från leverantörens kluster, inklusive alla framtida databaser som skapats av data leverantören.
 
 För att få åtkomst till delade databaser måste data konsumenten ha ett eget Azure Datautforskaren-kluster. Data konsumentens Azure Datautforskaren-kluster måste hitta i samma Azure-datacenter som data leverantörens Azure Datautforskaren-kluster. När du har upprättat relationen skapas en symbolisk länk mellan providern och användarens Azure Datautforskaren-kluster vid Azure-dataresursen. Data som matas in med batch-läge i Azure Datautforskaren-klustret visas i mål klustret inom några sekunder till några minuter.
+
+Mer information finns i [dela och ta emot data från Azure datautforskaren](/azure/data-explorer/data-share) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

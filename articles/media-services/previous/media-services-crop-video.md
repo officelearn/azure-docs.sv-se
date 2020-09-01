@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 87348899a70d45fbfbce805bf2169f9f5e4e3f3e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4264d1c0d83f14da02b26107d336521250fcf13b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956771"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257865"
 ---
-# <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard  
+# <a name="crop-videos-with-media-encoder-standard"></a>Beskär videoklipp med Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 Du kan använda Media Encoder Standard (en gång) för att beskära din InVideo. Beskärning är en process där du väljer ett rektangulärt fönster i video ramen och bara kodar pixlarna i det fönstret. Följande diagram hjälper dig att illustrera processen.
 

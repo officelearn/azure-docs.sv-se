@@ -3,7 +3,7 @@ title: Koda videor med standard-kodare i Media Services-Azure | Microsoft Docs
 description: Det här avsnittet visar hur du använder standard-kodaren i Media Services för att koda en indataport med en automatiskt genererad bit hastighets steg, baserat på inlösningen för inläsning och bit hastighet.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60733325"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258834"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koda med en automatiskt genererad bit hastighets steg
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -40,7 +42,7 @@ Det här avsnittet innehåller tre exempel på de video lager för utdata som pr
 ### <a name="example-1"></a>Exempel 1
 Källa med höjden "1080" och RAM hastighet "29,970" producerar 6 video lager:
 
-|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
+|Skikt|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -52,7 +54,7 @@ Källa med höjden "1080" och RAM hastighet "29,970" producerar 6 video lager:
 ### <a name="example-2"></a>Exempel 2
 Källa med höjden "720" och RAM hastighet "23,970" producerar 5 video lager:
 
-|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
+|Skikt|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -63,7 +65,7 @@ Källa med höjden "720" och RAM hastighet "23,970" producerar 5 video lager:
 ### <a name="example-3"></a>Exempel 3
 Källa med höjden "360" och RAM hastighet "29,970" producerar 3 video lager:
 
-|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
+|Skikt|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

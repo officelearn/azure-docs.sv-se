@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9da87f3b5f7cb513b4b5d51c93a59d1703d401d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001357"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258664"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i Global Azure, Azure Government, Azure Germany, Azure Kina 21Vianet. Alla Media Services funktioner är dock inte tillgängliga i alla Azure-moln. Det här dokumentet beskriver tillgänglighet av Main Media Services v3-komponenter.
 
@@ -27,9 +29,9 @@ Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i 
 
 | Funktion|Globala Azure-regioner | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
 | [StandardEncoderPreset](encoding-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
 | [LiveEvents](live-streaming-overview.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
 | [Strömnings slut punkter](streaming-endpoint-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |

@@ -3,21 +3,21 @@ title: Strömmande positionerare i Azure Media Services | Microsoft Docs
 description: Den här artikeln innehåller en förklaring av vad som finns i strömmande positionerare och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b4ba1bf63c1b8ebe6b7e294f416eb528ce444c5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005793"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257627"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 

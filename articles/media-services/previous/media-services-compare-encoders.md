@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: f42361df438a434548b3bc9394c007ef8d4c6eb0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9f9124568144efba6aa7d715c2e33aaa32e2baf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038978"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258137"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>Jämförelse av media-kodare för Azure på begäran  
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Jämförelse av media-kodare för Azure på begäran
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 I det här avsnittet jämförs kodnings funktionerna i **Media Encoder Standard** och **Media Encoder Premium Workflow**.
 
@@ -30,15 +32,15 @@ I det här avsnittet jämförs kodnings funktionerna i **Media Encoder Standard*
 
 I följande tabell jämförs funktionerna mellan Media Encoder Standard (status) och Media Encoder Premium Workflow (MEPW). 
 
-|Funktion|Media Encoder Standard|Arbetsflöde för Media Encoder Premium|
+|Kapacitet|Media Encoder Standard|Arbetsflöde för Media Encoder Premium|
 |---|---|---|
-|Använd villkorsstyrd logik vid kodning<br/>(om indata till exempel är HD, koda 5,1-ljud)|Inga|Yes|
-|Textning|No|[Ja](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Loudness-korrigering för Dolby &reg; Professional](https://professional.dolby.com/product/broadcast/vm600/)<br/> med dialog intelligens&trade;|Inga|Yes|
-|De-sammanflätning, inverse telecine|Basic|Sändnings kvalitet|
-|Identifiera och ta bort svarta kant linjer <br/>(pillarboxes, letterboxes)|Inga|Yes|
+|Använd villkorsstyrd logik vid kodning<br/>(om indata till exempel är HD, koda 5,1-ljud)|Inga|Ja|
+|Textning|Inga|[Ja](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
+|[Loudness-korrigering för Dolby &reg; Professional](https://professional.dolby.com/product/broadcast/vm600/)<br/> med dialog intelligens&trade;|Inga|Ja|
+|De-sammanflätning, inverse telecine|Grundläggande|Sändnings kvalitet|
+|Identifiera och ta bort svarta kant linjer <br/>(pillarboxes, letterboxes)|Inga|Ja|
 |Skapa miniatyr|[Ja](media-services-dotnet-generate-thumbnail-with-mes.md)|[Ja](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
-|Urklipp/trimning och häftning av videor|[Ja](media-services-advanced-encoding-with-mes.md#trim_video)|Yes|
+|Urklipp/trimning och häftning av videor|[Ja](media-services-advanced-encoding-with-mes.md#trim_video)|Ja|
 |Överlägg med ljud eller video|[Ja](media-services-advanced-encoding-with-mes.md#overlay)|[Ja](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |Överlägg med bilder|Från avbildnings källor|Från bild-och text källor|
 |Flera ljud språks spår|Begränsad|[Ja](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
@@ -60,85 +62,85 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (status)
 | MPEG-4/MP4 |Ja |Ja |
 | Windows Media/ASF |Ja |Ja |
 | AVI (okomprimerad 8bit/10bit) |Ja |Ja |
-| 3GPP/3GPP2 |Yes |Inga |
-| Smooth Streaming fil format (PIFF 1,3) |Yes |Inga |
-| [Microsoft Digital Video inspelning (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |Yes |Inga |
-| Matroska/WebM |Yes |Inga |
-| QuickTime (.mov) |Yes |Inga |
+| 3GPP/3GPP2 |Ja |Inga |
+| Smooth Streaming fil format (PIFF 1,3) |Ja |Inga |
+| [Microsoft Digital Video inspelning (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |Ja |Inga |
+| Matroska/WebM |Ja |Inga |
+| QuickTime (.mov) |Ja |Inga |
 
 ## <a name="input-video-codecs"></a>Codec för inspelning av video
 | Codec för indatavideo | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
-| AVC 8-/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |Yes |
+| AVC 8-/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |Ja |
 | Avid DNxHD (i MXF) |Ja |Ja |
 | DVCPro/DVCProHD (i MXF) |Ja |Ja |
 | JPEG2000 |Ja |Ja |
-| MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; och D10) |Upp till 422-profil |Yes |
+| MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; och D10) |Upp till 422-profil |Ja |
 | MPEG-1 |Ja |Ja |
 | Windows Media Video/VC-1 |Ja |Ja |
 | Canopus HQ/HQX |Inga |Inga |
-| MPEG-4, del 2 |Yes |No |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |Yes |No |
-| Apple ProRes 422 |Yes |No |
-| Apple ProRes 422 LT |Yes |No |
-| Apple ProRes 422 HQ |Yes |No |
-| Apple ProRes Proxy |Yes |No |
-| Apple ProRes 4444 |Yes |No |
-| Apple ProRes 4444 XQ |Yes |No |
+| MPEG-4, del 2 |Ja |Inga |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |Ja |Inga |
+| Apple ProRes 422 |Ja |Inga |
+| Apple ProRes 422 LT |Ja |Inga |
+| Apple ProRes 422 HQ |Ja |Inga |
+| Apple ProRes Proxy |Ja |Inga |
+| Apple ProRes 4444 |Ja |Inga |
+| Apple ProRes 4444 XQ |Ja |Inga |
 | HEVC/H. 265|Huvud profil|Main-och main 10-profil|
 
 ## <a name="input-audio-codecs"></a>Inmatade ljud-codec
 | Codec för indataljud | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
-| AES (SMPTE 331M och 302M, AES3-2003) |No |Yes |
-| Dolby &reg; E |No |Yes |
-| Dolby &reg; digital (AC3) |No |Yes |
-| Dolby &reg; Digital Plus (E-AC3) |No |Yes |
+| AES (SMPTE 331M och 302M, AES3-2003) |Inga |Ja |
+| Dolby &reg; E |Inga |Ja |
+| Dolby &reg; digital (AC3) |Inga |Ja |
+| Dolby &reg; Digital Plus (E-AC3) |Inga |Ja |
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |Ja |
 | MPEG Layer 2 |Ja |Ja |
 | MP3 (MPEG-1 Audio Layer 3) |Ja |Ja |
 | Windows Media Audio |Ja |Ja |
 | WAV/PCM |Ja |Ja |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Yes |No |
-| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Yes |No |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |No |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Ja |Inga |
+| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Ja |Inga |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Ja |Inga |
 
 ## <a name="output-containerfile-formats"></a>Utmatnings behållare/fil format
 | Utmatnings behållare/fil format | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
-| Adobe &reg; Flash- &reg; F4V |No |Yes |
-| MXF (OP1a, XDCAM och AS02) |No |Yes |
-| DPP (inklusive AS11) |Inga |Yes |
-| GXF |Inga |Yes |
+| Adobe &reg; Flash- &reg; F4V |Inga |Ja |
+| MXF (OP1a, XDCAM och AS02) |Inga |Ja |
+| DPP (inklusive AS11) |Inga |Ja |
+| GXF |Inga |Ja |
 | MPEG-4/MP4 |Ja |Ja |
 | MPEG – TS |Ja |Ja |
-| Windows Media/ASF |Inga |Yes |
-| AVI (okomprimerad 8bit/10bit) |Inga |Yes |
-| Smooth Streaming fil format (PIFF 1,3) |Inga |Yes |
+| Windows Media/ASF |Inga |Ja |
+| AVI (okomprimerad 8bit/10bit) |Inga |Ja |
+| Smooth Streaming fil format (PIFF 1,3) |Inga |Ja |
 
 ## <a name="output-video-codecs"></a>Codec för video utgång
 | Codec för video utgång | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
-| AVC (H. 264; 8-bitars, upp till hög profil, nivå 5,2; 4K Ultra HD; AVC Intra) |Endast 8-bitars 4:2:0 |Yes |
-| HEVC (H. 265; 8-bitars och 10-bitars;)  |Inga |Yes |
-| Avid DNxHD (i MXF) |Inga |Yes |
-| MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; och D10) |Inga |Yes |
-| MPEG-1 |Inga |Yes |
-| Windows Media Video/VC-1 |Inga |Yes |
+| AVC (H. 264; 8-bitars, upp till hög profil, nivå 5,2; 4K Ultra HD; AVC Intra) |Endast 8-bitars 4:2:0 |Ja |
+| HEVC (H. 265; 8-bitars och 10-bitars;)  |Inga |Ja |
+| Avid DNxHD (i MXF) |Inga |Ja |
+| MPEG-2 (upp till 422 profil och hög nivå, inklusive varianter som XDCAM, XDCAM HD, XDCAM IMX, CableLabs &reg; och D10) |Inga |Ja |
+| MPEG-1 |Inga |Ja |
+| Windows Media Video/VC-1 |Inga |Ja |
 | Skapa JPEG-miniatyr |Ja |Ja |
 | Skapa miniatyr av PNG |Ja |Ja |
-| BMP-miniatyren skapas |Yes |Inga |
+| BMP-miniatyren skapas |Ja |Inga |
 
 ## <a name="output-audio-codecs"></a>Ljud-codec för utdata
 | Ljud-codec för utdata | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
-| AES (SMPTE 331M och 302M, AES3-2003) |Inga |Yes |
-| Dolby &reg; digital (AC3) |Inga |Yes |
-| Dolby &reg; Digital Plus (E-AC3) upp till 7,1 |Inga |Yes |
+| AES (SMPTE 331M och 302M, AES3-2003) |Inga |Ja |
+| Dolby &reg; digital (AC3) |Inga |Ja |
+| Dolby &reg; Digital Plus (E-AC3) upp till 7,1 |Inga |Ja |
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |Ja |
-| MPEG Layer 2 |Inga |Yes |
-| MP3 (MPEG-1 Audio Layer 3) |Inga |Yes |
-| Windows Media Audio |Inga |Yes |
+| MPEG Layer 2 |Inga |Ja |
+| MP3 (MPEG-1 Audio Layer 3) |Inga |Ja |
+| Windows Media Audio |Inga |Ja |
 
 >[!NOTE]
 >Om du kodar till Dolby &reg; digital (AC3) kan utdata bara skrivas till en ISO MP4-fil.

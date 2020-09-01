@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2368108ab2a6c6799254e2846f566d71882ad1b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 591f69855204c4489eb3e9c6edb3900044dda2db
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021497"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258409"
 ---
-# <a name="monitor-job-progress-using-net"></a>Övervaka jobb förloppet med hjälp av .NET 
+# <a name="monitor-job-progress-using-net"></a>Övervaka jobb förloppet med hjälp av .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)

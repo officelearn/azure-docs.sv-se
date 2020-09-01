@@ -14,14 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab73b22e927ad1bbcc8a07173e1548157de03cdd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641684"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258103"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Haivision KB Live Encoder för att skicka en enda bit Ströms bit ström  
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Haivision KB Live Encoder för att skicka en enda bit Ströms bit ström
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
@@ -30,7 +33,7 @@ Det här avsnittet visar hur du konfigurerar [HAVISION KB Live Encoder](https://
 
 I den här självstudien visas hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer-verktyget (AMSE). Det här verktyget körs bara på Windows-datorer. Om du använder Mac eller Linux använder du Azure Portal för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 *   Åtkomst till en Haivision KB-kodare som kör SW v 5.01 eller senare.
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
 * Se till att en slut punkt för direkt uppspelning körs. Mer information finns i [Hantera strömnings slut punkter i ett Media Services konto](media-services-portal-manage-streaming-endpoints.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604391"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259361"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
 
@@ -52,12 +52,12 @@ Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du b
 |   |   | Windows-aktuell | Icke-beständig | Ja<sup>5</sup> |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja<sup>6</sup> |
 |   | Hanterad<sup>4</sup> | Windows aktuella och Windows-äldre | Permanent | Ja |
-|   |   | Windows-aktuell | Icke-beständig | Nej |
+|   |   | Windows-aktuell | Icke-beständig | Inga |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja<sup>6</sup> |
-| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Nej |
-|   |   |   | Icke-beständig | Nej |
-|   | Hanterade | Windows-aktuell | Permanent | Nej |
-|   |   |   | Icke-beständig | Nej |
+| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Inga |
+|   |   |   | Icke-beständig | Inga |
+|   | Hanterade | Windows-aktuell | Permanent | Inga |
+|   |   |   | Icke-beständig | Inga |
 | Azure AD-registrerad | Federerad/hanterad | Windows aktuella/Windows-äldre | Beständiga/icke-beständiga | Ej tillämpligt |
 
 <sup>1</sup> **Windows aktuella** enheter representerar Windows 10, Windows Server 2016 och Windows Server 2019.
@@ -68,7 +68,7 @@ Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du b
 
 <sup>4</sup> en **hanterad** identitets infrastruktur miljö representerar en miljö med Azure AD som identitets leverantören distribuerad med antingen [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> **icke-beständiga stöd för Windows aktuell** kräver ytterligare överväganden som dokumenteras nedan i avsnittet om vägledning.
+<sup>5</sup> **icke-beständiga stöd för Windows aktuell** kräver ytterligare överväganden som dokumenteras nedan i avsnittet om vägledning. Det här scenariot kräver Windows 10 1803, Windows Server 2019 eller Windows Server (halvårs kanal) som startar version 1803
 
 <sup>6</sup> **beständigt stöd för Windows-äldre** versioner kräver ytterligare överväganden som dokumenteras nedan i avsnittet om vägledning.
 

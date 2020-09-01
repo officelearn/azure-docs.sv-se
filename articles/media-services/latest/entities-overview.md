@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Lär dig mer om filtrering, sortering och växling av Azure Media Services v3-entiteter.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4fbd587b99875690a8c95952ce6b11d41e402726
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96f08f75d0921fdf88b71c8e8dd2398a6b85ec6d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009890"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258477"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 I det här avsnittet beskrivs OData-frågealternativen och sid brytnings stöd som är tillgängligt när du visar Azure Media Services v3-entiteter.
 
@@ -45,7 +47,7 @@ Intervall operatorer:
 - `ge`: Testa om ett fält är *större än eller lika* med ett konstant värde.
 - `le`: Testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
-## <a name="filter"></a>Filter
+## <a name="filter"></a>Filtrera
 
 Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
@@ -156,7 +158,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
-|Entitetsnamn|Egenskapsnamn|Filter|Beställa|
+|Entitetsnamn|Egenskapsnamn|Filtrera|Beställa|
 |---|---|---|---|
 |[Tillgångar](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
 ||egenskaper. alternateId |`eq`||

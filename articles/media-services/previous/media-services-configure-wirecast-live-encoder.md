@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7b11d7f577f0a2ceb7284d9f78ccf83a64c72fd3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954985"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258120"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använda Wirecast-kodaren för att skicka en enda bit hastighet i real tid 
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använda Wirecast-kodaren för att skicka en enda bit hastighet i real tid
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
@@ -34,7 +37,7 @@ I den här självstudien visas hur du hanterar Azure Media Services (AMS) med Az
 > [!NOTE]
 > Kodare måste ha stöd för TLS 1,2 när du använder RTMP-protokoll. Använd Wirecast version 13.0.2 eller högre på grund av kraven för TLS 1,2.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
 * Se till att en slut punkt för direkt uppspelning körs. Mer information finns i [Hantera strömnings slut punkter i ett Media Services konto](media-services-portal-manage-streaming-endpoints.md)
 * Installera den senaste versionen av [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) -verktyget.

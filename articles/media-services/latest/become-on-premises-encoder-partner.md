@@ -5,17 +5,19 @@ services: media-services
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 03/02/2020
+ms.date: 08/31/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5af6a7fc988271fc350ecc6e8be19742ede8ecee
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79298639"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258647"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Så här verifierar du din lokala Live streaming-kodare
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Som en Azure Media Services lokal Encoder-partner Media Services befordrar din produkt genom att rekommendera din kodare till företags kunder. För att bli en lokal Encoder-partner måste du kontrol lera kompatibiliteten för din lokala kodare med Media Services. Det gör du genom att utföra följande verifieringar.
 

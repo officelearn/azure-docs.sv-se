@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d3bf8b43bc12a2a8a193ea2708ab1668235edde
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f7a40cb72e1ae58f7962c4c8b80195a82ebdc5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047571"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259276"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importera en Postman-samling med åtgärder för strömning på begäran 
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importera en Postman-samling med åtgärder för strömning på begäran
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Den här artikeln innehåller en definition av **Postman** -samlingen som innehåller grupperade HTTP-begäranden som anropar Azure Media Services REST-API: er. Information om hur du konfigurerar **Postman** så att den kan användas för att anropa Media Services REST-API: er finns i avsnittet [Konfigurera postman för Media Services REST API anrop](media-rest-apis-with-postman.md) .
 

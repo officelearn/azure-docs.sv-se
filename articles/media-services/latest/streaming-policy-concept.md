@@ -3,20 +3,20 @@ title: Strömmande principer i Azure Media Services | Microsoft Docs
 description: Den här artikeln innehåller en förklaring av vilka strömmande principer som är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
-ms.author: juliako
-ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: inhenkel
+ms.openlocfilehash: 529d27a831945123e1d2eda225e40864a81ee18e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544021"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257576"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
@@ -48,7 +48,7 @@ Om du har särskilda krav (till exempel om du vill ange olika protokoll, behöve
 
 ## <a name="get-a-streaming-policy-definition"></a>Hämta en definition för strömnings princip  
 
-Om du vill se definitionen av en strömmande princip använder du [Get](/rest/api/media/streamingpolicies/get) och anger namnet på principen. Ett exempel:
+Om du vill se definitionen av en strömmande princip använder du [Get](/rest/api/media/streamingpolicies/get) och anger namnet på principen. Exempel:
 
 ### <a name="rest"></a>REST
 

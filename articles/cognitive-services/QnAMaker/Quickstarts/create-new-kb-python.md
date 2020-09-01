@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: eea54d493a27373a682b361ab7138ae1fa527362
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: afee82b66f9803333e27f029ecb487a47ba5dd9e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873066"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259735"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Python
 
@@ -37,7 +37,7 @@ Skapa en fil som heter `create-new-knowledge-base-3x.py`.
 
 Längst upp i `create-new-knowledge-base-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
-[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Lägga till nödvändiga konstanter
 När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs för åtkomst till QnA Maker. Ersätt värdet för `<your-qna-maker-subscription-key>` och `<your-resource-name>` med din egen QNA Maker nyckel och resurs namn.
@@ -46,29 +46,29 @@ Lägg till de konstanter som krävs för att få åtkomst till QnA Maker överst
 
 Ställ in följande värden:
 
-* `<your-qna-maker-subscription-key>`– **Nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal på den QNA Maker resursen på snabb starts sidan. Detta är inte samma som för förutsägelse slut punkts nyckel.
-* `<your-resource-name>`– Ditt **resurs namn** används för att skapa slut punkts-URL: en för redigering, i formatet `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
+* `<your-qna-maker-subscription-key>` – **Nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal på den QNA Maker resursen på snabb starts sidan. Detta är inte samma som för förutsägelse slut punkts nyckel.
+* `<your-resource-name>` – Ditt **resurs namn** används för att skapa slut punkts-URL: en för redigering, i formatet `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
 
-[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="constants":::
 
 ## <a name="add-the-kb-model-definition"></a>Lägga till KB-modelldefinitionen
 
 Efter konstanterna lägger du till följande KB-modelldefinition. Modellen konverteras till en sträng efter definitionen.
 
-[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=15-41 "Add the KB model definition")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="model":::
 
 ## <a name="add-supporting-function"></a>Lägga till stödfunktion
 
 Lägg till följande funktioner för att skriva ut JSON i ett lättläst format:
 
-[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=43-45 "Add supporting function")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="pretty":::
 
 ## <a name="add-function-to-create-kb"></a>Lägga till funktioner för att skapa KB
 
 Lägg till följande funktioner för att göra en HTTP POST-begäran för att skapa kunskapsbasen.
 Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID i rubrikfältet **Plats**. Använd åtgärds-ID:t för att fastställa om KB har skapats. `Ocp-Apim-Subscription-Key` är QnA Maker-tjänstenyckeln, som används för autentisering.
 
-[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="create_kb":::
 
 Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats.
 
@@ -86,7 +86,7 @@ Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Använd åtg
 
 Följande funktion kontrollerar skapandestatusen som skickar åtgärds-ID i slutet av URL-vägen. Anropet till `check_status` är inuti _huvudwhileloopen_.
 
-[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="get_status":::
 
 Det här API-anropet returnerar ett JSON-svar som innehåller åtgärdsstatus:
 
@@ -116,7 +116,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 ## <a name="add-main-code-block"></a>Lägg till huvudsakligt kodblock
 Följande loop söker efter statusen för skapandeåtgärden regelbundet tills åtgärden har slutförts.
 
-[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/create-kb.py" id="main":::
 
 ## <a name="build-and-run-the-program"></a>Skapa och köra programmet
 

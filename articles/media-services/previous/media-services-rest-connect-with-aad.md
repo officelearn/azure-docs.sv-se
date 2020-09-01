@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: be7ac4073bb332a7595dcf211feb7087d0734854
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 958bfa605e0195b5f4fde2c0ff53a8ce567f50a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082740"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257151"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att ansluta till API:et för Media Services med REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
@@ -67,7 +69,7 @@ Du måste samla in följande data punkter för att få åtkomst till Media Servi
 |Azure Active Directory klient domän|microsoft.onmicrosoft.com|Azure AD som en STS-slutpunkt (Secure token service) skapas med följande format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> . Azure AD utfärdar en JWT för att få åtkomst till resurser (en åtkomsttoken).|
 |Slutpunkt för REST-API:t|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Detta är den slut punkt mot vilken alla Media Services REST API samtal i ditt program görs.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID för Azure AD-program (klient). Klient-ID krävs för att hämta åtkomsttoken. |
-|Klienthemlighet|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD-programnycklar (klient hemlighet). Klient hemligheten krävs för att få åtkomst-token.|
+|Client Secret (Klienthemlighet)|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD-programnycklar (klient hemlighet). Klient hemligheten krävs för att få åtkomst-token.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Hämta AAD-auth-information från Azure Portal
 
@@ -168,7 +170,7 @@ Det här avsnittet visar hur du kommer åt **till gångs** -API: et med **Postma
 
 1. Öppna **Postman**.
 2. Välj **GET**.
-3. Klistra in REST API slut punkten (till exempelhttps://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Klistra in REST API slut punkten (till exempel https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Välj fliken **auktorisering** . 
 5. Välj **Bearer-token**.
 6. Klistra in token som skapades i föregående avsnitt.

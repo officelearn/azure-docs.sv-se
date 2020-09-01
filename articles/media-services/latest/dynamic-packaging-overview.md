@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 18d6331c666e547c06a573dc970cf05aba8fbea1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604573"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258601"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Microsoft Azure Media Services kan användas för att koda många fil format för medie källan. Den skickar dem via olika strömnings protokoll, med eller utan innehålls skydd, för att komma åt alla större enheter (t. ex. iOS-och Android-enheter). Dessa klienter förstår olika protokoll. Till exempel kräver iOS att strömmar levereras i HTTP Live Streaming-format (HLS) och Android-enheter stöder HLS samt MPEG-streck.
 

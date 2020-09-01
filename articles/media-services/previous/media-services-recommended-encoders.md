@@ -9,14 +9,16 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 3c42070525fc60e45b976620513929c3d5a32341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91ccc4395bf328d14698e7fe5db634a773197660
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535102"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259531"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 När Live streaming med Azure Media Services kan du ange hur du vill att din kanal ska ta emot indataströmmen. Om du väljer att använda en lokal kodare med en Live encoding-kanal bör kodaren skicka en högkvalitativ data ström med hög kvalitet som utdata. Om du väljer att använda en lokal kodare med en genom strömnings kanal, bör kodaren skicka en data ström med flera bit hastigheter som utdata med alla önskade utgångs kvaliteter. Mer information finns i [Direktsänd strömning med lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 

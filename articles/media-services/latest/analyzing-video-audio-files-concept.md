@@ -4,22 +4,24 @@ titleSuffix: Azure Media Services
 description: Lär dig hur du analyserar ljud-och video innehåll med AudioAnalyzerPreset och VideoAnalyzerPreset i Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/30/2020
-ms.author: juliako
-ms.openlocfilehash: 4c0eb626b827656a478e02a43b98ed15e7469f92
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 78ac75566eac120db4527b2e04324e7e6d40808c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053469"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258902"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analysera video-och ljudfiler med Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med Azure Media Services v3 kan du extrahera insikter från dina video-och ljudfiler med Video Indexer. I den här artikeln beskrivs de Media Services v3 Analyzer-för hands inställningarna som används för att extrahera dessa insikter. Använd Video Indexer direkt för att indexera mer detaljerad information. Om du vill veta när du ska använda Video Indexer jämfört med Media Services Analyzer-för inställningar, kan du läsa [jämförelse dokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
@@ -36,7 +38,7 @@ Som en viktig påminnelse måste du följa alla tillämpliga lagar i din använd
 
 Media Services stöder för närvarande följande inbyggda Analyzer-för hands inställningar:  
 
-|**Förvals namn**|**Scenario**|**Detaljer**|
+|**Förvals namn**|**Scenario**|**Information**|
 |---|---|---|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|För inställningen används en fördefinierad uppsättning av AI-baserade analys åtgärder, inklusive tal avskrifter. För närvarande stöder för inställningen bearbetning av innehåll med ett enda ljud spår som innehåller tal på ett och samma språk. Du kan ange språket för ljud nytto lasten i indata med BCP-47-formatet för ' language tag-region '. Språk som stöds är engelska ("en-US" och "en-GB"), spanska (' es-ES ' och ' es-MX '), franska (fr-FR), italienska ("IT-IT"), japanska (' ja-JP '). portugisiska ("pt-BR"), kinesiska (' zh-CN '), tyska ("de-DE"), arabiska (' ar-tex ' och ' ar-SY '), ryska (' ru-RU '), hindi (' Hi-IN ') och koreanska (' ko-KR ').<br/><br/> Om språket inte har angetts eller är inställt på null väljer automatisk språk identifiering det första språket som identifieras och fortsätter med det valda språket under filens varaktighet. Funktionen för automatisk språk identifiering stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Den stöder inte dynamisk växling mellan språk när det första språket har identifierats. Funktionen för automatisk språk identifiering fungerar bäst med ljud inspelningar med tydligt discernible tal. Om automatisk språk identifiering inte kan hitta språket, går avskriften tillbaka till engelska.|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
@@ -67,7 +69,7 @@ Utdata innehåller en JSON-fil (insights.jspå) med alla insikter som finns i vi
 
 ### <a name="transcript"></a>avskrifts
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|
@@ -105,7 +107,7 @@ Exempel:
 
 ### <a name="ocr"></a>stöd
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|ID för OCR-linje.|
 |text|OCR-text.|
@@ -148,7 +150,7 @@ Exempel:
 
 ### <a name="faces"></a>ytor
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
 |name|Ansikts namnet. Det kan vara okänt #0, ett identifierat kändis eller en kundutbildad person.|
@@ -193,7 +195,7 @@ Exempel:
 
 ### <a name="shots"></a>bilder
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Bild-ID.|
 |Nyckel rutor|En lista över nyckel bild rutor i instansen (var och en har ett ID och en lista över instanser av instans intervallet). Nyckel bilds instanser har ett thumbnailId-fält med nyckel rutans miniatyr-ID.|
@@ -250,7 +252,7 @@ Exempel:
 
 ### <a name="statistics"></a>uppgifterna
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal korrespondens i videon.|
 |WordCount|Antalet ord per talare.|
@@ -263,7 +265,7 @@ Exempel:
 
 Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). Till exempel 0-0,1, 0,1-0,2.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
@@ -298,7 +300,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="labels"></a>Etiketter
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Etikett-ID: t.|
 |name|Etikett namnet (till exempel "dator", "TV").|
@@ -356,7 +358,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="keywords"></a>nyckelord
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|Nyckelords-ID: t.|
 |text|Nyckelords texten.|
@@ -407,7 +409,7 @@ VisualContentModeration-blocket innehåller tidsintervall som Video Indexer hitt
 
 Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgängliga för privat vy. Användare kan skicka en begäran om en mänsklig granskning av innehållet, vilket innebär att `IsAdult` attributet innehåller resultatet av mänsklig granskning.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |id|ID för moderator för visuellt innehåll.|
 |adultScore|Den vuxen poängen (från Content moderator).|

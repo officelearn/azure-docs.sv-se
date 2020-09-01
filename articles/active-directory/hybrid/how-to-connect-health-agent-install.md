@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4183ed7343434b575015e94afb4111b3d14c5e3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b51eb7e59e32985363d83c3d515fa7f54babac1f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071558"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179462"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
@@ -35,7 +35,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | Krav | Beskrivning |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health är en Azure AD Premium-funktion som kräver Azure AD Premium. <br /><br />Mer information finns i [Komma igång med Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Information om hur du startar en kostnadsfri 30-dagars utvärderingsversion finns i [Starta en utvärderingsversion.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Du måste vara en global administratör i din Azure AD för att komma igång med Azure AD Connect Health |Som standard kan endast globala administratörer installera och konfigurera hälsoagenter för att sätta igång, få åtkomst till portalen och utföra åtgärder i Azure AD Connect Health. Mer information finns i [Administrera Azure AD-katalogen](../fundamentals/active-directory-administer.md). <br /><br /> Med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du tillåta åtkomst till Azure AD Connect Health till andra användare i din organisation. Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto. Det kan inte vara ett Microsoft-konto. Mer information finns i [Registrera dig för Azure som en organisation](../fundamentals/sign-up-organization.md) |
+| Du måste vara en global administratör i din Azure AD för att komma igång med Azure AD Connect Health |Som standard kan endast globala administratörer installera och konfigurera hälsoagenter för att sätta igång, få åtkomst till portalen och utföra åtgärder i Azure AD Connect Health. Mer information finns i [Administrera Azure AD-katalogen](../fundamentals/active-directory-administer.md). <br /><br /> Med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du tillåta åtkomst till Azure AD Connect Health till andra användare i din organisation. Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-azure-rbac) <br /><br />**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto. Det kan inte vara ett Microsoft-konto. Mer information finns i [Registrera dig för Azure som en organisation](../fundamentals/sign-up-organization.md) |
 | Azure AD Connect Health Agent installeras på varje målserver | Azure AD Connect Health kräver att hälsotillståndsagenterna är installerade och konfigurerade på målservrarna för att kunna ta emot data och tillhandahålla funktioner för övervakning och analys. <br /><br />För att exempelvis få data från AD FS-infrastrukturen måste agenten installeras på AD FS och proxyservrarna för webbappen. På samma sätt måste agenten installeras på domänkontrollanterna för att hämta data i din lokala AD DS-infrastruktur. <br /><br /> |
 | Utgående anslutning till Azure-tjänstens slutpunkter | Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om du har blockerat utgående anslutningar med Brandväggar kontrollerar du att följande slutpunkter finns med i listan över tillåtna anslutningar. Se [Utgående anslutning för webbadresser](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Utgående anslutningar baserat på IP-adresser | Information om IP-adressbaserad filtrering för brandväggar finns i [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).|
@@ -82,15 +82,15 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 Kontrollera att ditt AD FS-värdnamn är unikt och att det inte finns i AD FS-tjänsten innan du installerar.
 Starta agentinstallationen genom att dubbelklicka på EXE-filen som du laddade ned. Klicka på Installera på den första skärmen.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install1.png)
+![Azure AD Connect Health AD FS installera start](./media/how-to-connect-health-agent-install/install1.png)
 
 Klicka på Konfigurera nu när installationen är klar.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install2.png)
+![Slutför Azure AD Connect Health AD FS installationen](./media/how-to-connect-health-agent-install/install2.png)
 
 Detta startar ett PowerShell-fönster för att initiera agentregistreringsprocessen. När du uppmanas loggar du in med ett Azure AD-konto som har behörighet att utföra agentregistreringen. Som standard har det globala administratörskontot åtkomst.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install3.png)
+![Azure AD Connect Health AD FS konfigurera inloggning](./media/how-to-connect-health-agent-install/install3.png)
 
 PowerShell fortsätter efter inloggningen. När den är klar kan du stänga PowerShell så är konfigurationen klar.
 
@@ -98,7 +98,7 @@ I det här läget bör agenttjänsterna startas automatiskt så att agenten öve
 
 Tänk på att du ser varningar i PowerShell-fönstret om du inte uppfyller alla krav som beskrevs i föregående avsnitt. Kontrollera att du uppfyller kraven [här](how-to-connect-health-agent-install.md#requirements) innan du installerar agenten. Skärmbilden nedan är ett exempel på dessa fel.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install4.png)
+![Azure AD Connect Health AD FS konfigurera skript](./media/how-to-connect-health-agent-install/install4.png)
 
 Kontrollera att agenten har installerats genom att leta efter följande tjänster på servern. Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar de inte förrän konfigurationen är klar.
 
@@ -106,7 +106,7 @@ Kontrollera att agenten har installerats genom att leta efter följande tjänste
 * Azure AD Connect Health AD FS Insights Service
 * Azure AD Connect Health AD FS Monitoring Service
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
+![Azure AD Connect Health AD FS tjänster](./media/how-to-connect-health-agent-install/install5.png)
 
 ### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Agentinstallation på Windows Server 2008 R2-servrar
 
@@ -231,21 +231,21 @@ När du uppmanas att autentisera använder du samma globala administratörskonto
 
 Starta agentinstallationen genom att dubbelklicka på EXE-filen som du laddade ned. Klicka på Installera på den första skärmen.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
+![Starta Azure AD Connect Health Agent för AD DS-installation](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
 
 Klicka på Konfigurera nu när installationen är klar.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
+![Slutför Azure AD Connect Health Agent för installation av AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
 
 En kommandotolk öppnas följt av PowerShell-kod som kör Register-AzureADConnectHealthADFSAgent. När du får ett meddelande att du ska logga in på Azure ska du logga in.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
+![Azure AD Connect Health Agent för AD DS konfigurera inloggning](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
 
 PowerShell fortsätter efter inloggningen. När den är klar kan du stänga PowerShell så är konfigurationen klar.
 
 Nu bör tjänsterna starta automatiskt och agenten övervakar och samlar in data. Tänk på att du ser varningar i PowerShell-fönstret om du inte uppfyller alla krav som beskrevs i föregående avsnitt. Kontrollera att du uppfyller kraven [här](how-to-connect-health-agent-install.md#requirements) innan du installerar agenten. Skärmbilden nedan är ett exempel på dessa fel.
 
-![Verifiera Azure AD Connect Health för AD DS](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
+![Azure AD Connect Health Agent för AD DS-konfiguration av skript](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
 
 Kontrollera att agenten har installerats genom att leta efter följande tjänster på domänkontrollanten.
 
@@ -254,12 +254,12 @@ Kontrollera att agenten har installerats genom att leta efter följande tjänste
 
 Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar de inte förrän konfigurationen är klar.
 
-![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
+![Azure AD Connect Health Agent för AD DS-tjänster](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>Snabb agent installation på flera servrar
 
 1. Skapa ett användar konto i Azure AD med ett lösen ord.
-2. Tilldela **ägar** rollen för det här lokala AAD-kontot i Azure AD Connect Health via portalen. Följ stegen [här](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Tilldela rollen till alla tjänst instanser. 
+2. Tilldela **ägar** rollen för det här lokala AAD-kontot i Azure AD Connect Health via portalen. Följ stegen [här](how-to-connect-health-operations.md#manage-access-with-azure-rbac). Tilldela rollen till alla tjänst instanser. 
 3. Hämta MSI-filen för. exe i den lokala domänkontrollanten för installation.
 4. Kör följande skript för att registrera dig. Ersätt parametrarna med det nya användar kontot som skapats och lösen ordet. 
 
@@ -295,7 +295,7 @@ När du har installerat lämplig agent-setup.exe, kan du utföra steget agentreg
 De här kommandona accepterar ”Autentiseringsuppgift” som en parameter för att slutföra registreringen på ett icke-interaktivt sätt eller på en Server-Core-dator.
 * Autentiseringsuppgiften kan registreras i en PowerShell-variabel som skickas som en parameter.
 * Du kan ange en Azure AD-identitet som har åtkomst för att registrera agenterna och INTE har aktiverat MFA.
-* Som standard har globala administratörer behörighet att utföra registrering av agenten. Du kan även låta andra mindre privilegierade identiteter utföra det här steget. Läs mer om [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control).
+* Som standard har globala administratörer behörighet att utföra registrering av agenten. Du kan även låta andra mindre privilegierade identiteter utföra det här steget. Läs mer om [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac).
 
 ```powershell
     $cred = Get-Credential

@@ -2,13 +2,13 @@
 title: Skapa parameterfil
 description: Skapa parameter fil för att överföra värden under distributionen av en Azure Resource Manager-mall
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082944"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179631"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Skapa parameter fil för Resource Manager
 
@@ -184,10 +184,30 @@ I följande exempel visas formaten för olika parameter typer.
 
 ## <a name="deploy-template-with-parameter-file"></a>Distribuera mall med parameter fil
 
-Se:
+Om du vill skicka en lokal parameter fil med Azure CLI använder du @ och namnet på parameter filen.
 
-- [Distribuera resurser med ARM-mallar och Azure CLI](./deploy-cli.md#parameters)
-- [Distribuera resurser med ARM-mallar och Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Mer information finns i [distribuera resurser med ARM-mallar och Azure CLI](./deploy-cli.md#parameters).
+
+Om du vill skicka en lokal parameter fil med Azure PowerShell använder du `TemplateParameterFile` parametern.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Mer information finns i [distribuera resurser med ARM-mallar och Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> Det går inte att använda en parameter fil med bladet anpassad mall i portalen.
 
 ## <a name="file-name"></a>Filnamn
 
@@ -199,7 +219,7 @@ Om du vill distribuera till olika miljöer skapar du mer än en parameter fil. N
 
 Du kan använda infogade parametrar och en lokal parameter fil i samma distributions åtgärd. Du kan till exempel ange vissa värden i den lokala parameter filen och lägga till andra värden i den under distributionen. Om du anger värden för en parameter i både den lokala parameter filen och den infogade värdet, prioriteras det infogade värdet.
 
-Det går att använda en extern parameter fil, genom att tillhandahålla URI: n till filen. När du gör detta kan du inte skicka andra värden antingen infogade eller från en lokal fil. Alla infogade parametrar ignoreras. Ange alla parameter värden i den externa filen.
+Det går att använda en extern parameter fil, genom att tillhandahålla URI: n till filen. När du använder en extern parameter fil kan du inte skicka andra värden antingen infogade eller från en lokal fil. Alla infogade parametrar ignoreras. Ange alla parameter värden i den externa filen.
 
 ## <a name="parameter-name-conflicts"></a>Parameter namns konflikter
 

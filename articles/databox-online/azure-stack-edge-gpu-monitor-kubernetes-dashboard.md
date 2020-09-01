@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9224888a38c86e35df9ad516c761fd7012824c15
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085284"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180685"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Använd Kubernetes-instrumentpanelen för att övervaka Azure Stack Edge-GPU-enhet
 
@@ -26,6 +26,7 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 >
 > * Öppna Kubernetes-instrumentpanelen på din enhet
+> * Ladda ned `aseuser` konfiguration
 > * Visa moduler som har distribuerats på din enhet
 > * Hämta IP-adress för program som distribuerats på din enhet
 > * Visa behållar loggar för moduler som har distribuerats på din enhet
@@ -33,13 +34,13 @@ I den här artikeln kan du se hur du:
 
 ## <a name="about-kubernetes-dashboard"></a>Om Kubernetes-instrumentpanel
 
-Kubernetes-instrumentpanelen är ett webbaserat användar gränssnitt som du kan använda för att felsöka dina program i behållare. Kubernetes-instrumentpanelen är ett UI-baserat alternativ till Kubernetes- `kubectl` kommandoraden. 
+Kubernetes-instrumentpanelen är ett webbaserat användar gränssnitt som du kan använda för att felsöka dina program i behållare. Kubernetes-instrumentpanelen är ett UI-baserat alternativ till Kubernetes- `kubectl` kommandoraden. Mer information finns i [Kubernetes-instrumentpanelen](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-På din Azure Stack Edge-enhet kan du använda Kubernetes-instrumentpanelen i skrivskyddat läge för att få en översikt över de program som körs på din Azure Stack Edge-enhet, Visa status för Kubernetes kluster resurser och se eventuella fel som har inträffat på enheten.
+På din Azure Stack Edge-enhet kan du använda Kubernetes-instrumentpanelen i *skrivskyddat* läge för att få en översikt över de program som körs på din Azure Stack Edge-enhet, Visa status för Kubernetes kluster resurser och se eventuella fel som har inträffat på enheten.
 
 ## <a name="access-dashboard"></a>Åtkomst instrument panel
 
-Kubernetes-instrumentpanelen är skrivskyddad och körs på den Kubernetes huvud noden på port 31000. Följ de här stegen för att få åtkomst till instrument panelen: 
+Kubernetes-instrumentpanelen är *skrivskyddad* och körs på den Kubernetes huvud noden på port 31000. Följ de här stegen för att få åtkomst till instrument panelen: 
 
 1. I enhetens lokala användar gränssnitt, gå till **enhet** och gå sedan till **enhetens slut punkter**. Välj instrument panelens URL för Kubernetes för att öppna instrument panelen i en webbläsare.
 

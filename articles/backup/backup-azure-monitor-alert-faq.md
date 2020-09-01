@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Azure Bac
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000727"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181501"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup övervaknings avisering – vanliga frågor och svar
 
@@ -19,7 +19,7 @@ I den här artikeln besvaras vanliga frågor om Azure Backup övervakning och ra
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Hur gör jag för att kontrol lera om rapport data har börjat flöda till en arbets yta för Log Analytics (LA)?
 
-Navigera till den LA arbets yta som du har konfigurerat, navigera till meny alternativet **loggar** och kör frågan CoreAzureBackup | ta 1. Om du ser en post som returneras innebär det att data har börjat flöda till arbets ytan. Det kan ta upp till 24 timmar innan den första data-push.
+Navigera till den LA-arbets yta som du har konfigurerat. Navigera till meny alternativet **loggar** och kör frågan `CoreAzureBackup | take 1` . Om du ser en post som returneras innebär det att data har börjat flöda till arbets ytan. Det kan ta upp till 24 timmar innan den första data-push.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Vad är frekvensen för data-push till en LA-arbetsyta?
 

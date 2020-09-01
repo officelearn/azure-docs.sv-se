@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87bb20d23f773997addd170da09ca8f20d2a8ce7
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949991"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180090"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -1980,6 +1980,6 @@ Anslutning till arbets plats enhet | Inaktuell | [Dokumentation om föråldrade 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du tilldelar en användare som administratör för en Azure-prenumeration finns i [Hantera åtkomst med hjälp av Azure-roller (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Mer information om hur du tilldelar en användare som administratör för en Azure-prenumeration finns i [lägga till eller ta bort Azure Role-tilldelningar (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Mer information om hur resurs åtkomsten styrs i Microsoft Azure finns i [förstå de olika rollerna](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om relationen mellan prenumerationer och en Azure AD-klient, eller för instruktioner för att associera eller lägga till en prenumeration, finns i [associera eller lägga till en Azure-prenumeration i Azure Active Directory klient organisationen](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

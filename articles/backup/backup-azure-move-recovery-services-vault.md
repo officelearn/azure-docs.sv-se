@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar ett Recovery Services valv över Az
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827128"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181518"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -17,7 +17,7 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services valv som kon f
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Flytt av resurser för Recovery Services valv stöds i östra Australien, sydöstra Australien, Östra Kanada, centrala Kanada, Asien, sydöstra, Asien, östra, centrala USA, norra centrala USA, östra USA, östra USA 2, södra centrala USA, västra centrala USA, västra USA, västra USA, västra USA, västra USA 2, centrala Indien, södra Indien, Östra Japan, västra Japan, centrala Korea, södra Japan, norra Europa , Västeuropa, södra Afrika, sydöstra Sydafrika, västra Sydafrika, Storbritannien, södra och Storbritannien, västra.
+Flytt av resurser för Recovery Services valv stöds i östra Australien, Australien, Östra Kanada, centrala Kanada, östra USA, Asien, sydöstra, Asien, östra, centrala USA, norra centrala USA, östra USA, östra USA 2, södra centrala USA, västra centrala USA, västra USA, västra USA, västra USA, västra USA, centrala Indien, södra Indien, Östra Japan, västra Japan, Korea, centrala, södra Brasilien , Norra Europa, Västeuropa, Sydafrika, norra, södra Afrika, västra Storbritannien, södra och Storbritannien, västra.
 
 ## <a name="unsupported-regions"></a>Regioner som inte stöds
 
@@ -52,7 +52,7 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 
 Så här flyttar du ett Recovery Services valv och dess associerade resurser till en annan resurs grupp:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna listan över **Recovery Services valv** och välj det valv som du vill flytta. När instrument panelen för valvet öppnas visas den som på bilden nedan.
 
    ![Öppna Recovery Services valv](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -81,7 +81,7 @@ Så här flyttar du ett Recovery Services valv och dess associerade resurser til
 
 Du kan flytta ett Recovery Services valv och dess associerade resurser till en annan prenumeration
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna listan över Recovery Services valv och välj det valv som du vill flytta. När instrument panelen för valvet öppnas visas följande bild.
 
     ![Öppna Recovery Services valv](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 1204435a5f1d7a48fceb654df10b8394d6f5df50
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: db3bfddd3376a013cc8921f9e0b94bd30bfe041f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146648"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181535"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -29,7 +29,8 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom f
 
 * [B-serien](../sizes-b-series-burstable.md)
 * [DCsv2-serien](../dcv2-series.md)
-* [DSv2-serien](../dv2-dsv2-series.md) och [Dsv3-serien](../dv3-dsv3-series.md)
+* [DSv2-serien](../dv2-dsv2-series.md) 
+* [Dsv3-serien](../dv3-dsv3-series.md)
 * [Dsv4-serien](../dv4-dsv4-series.md)
 * [Ddsv4-serien](../ddv4-ddsv4-series.md)
 * [Dasv4-serien](../dav4-dasv4-series.md)
@@ -39,10 +40,12 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom f
 * [GS-serien](../sizes-previous-gen.md#gs-series)
 * [HB-serien](../hb-series.md)
 * [HC-serien](../hc-series.md)
-* [Ls-serien](../sizes-previous-gen.md#ls-series) och [Lsv2-serien](../lsv2-series.md)
+* [LS-serien](../sizes-previous-gen.md#ls-series) 
+* [Lsv2-serien](../lsv2-series.md)
 * [M-serien](../m-series.md)
 * [Mv2-serie](../mv2-series.md)<sup>1</sup>
-* [NCv2-serien](../ncv2-series.md) och [NCv3-serien](../ncv3-series.md)
+* [NCv2-serien](../ncv2-series.md) 
+* [NCv3-serien](../ncv3-series.md)
 * [ND-serien](../nd-series.md)
 * [NVv3-serien](../nvv3-series.md)
 
@@ -84,7 +87,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 |---------|--------------|--------------|
 | Start             | PCAT                      | UEFI                               |
 | Disk styrenheter | IDE                       | SCSI                               |
-| VM-storlekar         | Alla VM-storlekar | Endast virtuella datorer som stöder Premium Storage |
+| VM-storlekar         | Alla VM-storlekar | [Se tillgängliga storlekar](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 

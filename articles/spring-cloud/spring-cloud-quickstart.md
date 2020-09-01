@@ -1,5 +1,5 @@
 ---
-title: Snabb start – distribuera ditt första Azure våren Cloud-program
+title: Snabbstart – distribuera ditt första Azure Spring Cloud-program
 description: I den här snabb starten distribuerar vi ett våren Cloud Hello-program till Azure våren-molnet.
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 067195cfef35863a7bcc314a55b4bf1ff8a3ccd7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6a7a489367aa7348a3449a72de6889476e5d38db
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146992"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177607"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -46,17 +46,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
 
   ![Sidan Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
 
-1. Klicka på **generera** när alla beroenden har angetts. Ladda ned och packa upp paketet och Lägg sedan till följande beroende i program `pom.xml` filen.
-
-    ```xml
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-    ```
-
-1. Skapa en webb styrenhet för ett enkelt webb program genom att lägga till följande `src/main/java/com/example/hellospring/HelloController.java` :
+1. Klicka på **generera** när alla beroenden har angetts. Ladda ned och packa upp paketet och skapa sedan en webb styrenhet för ett enkelt webb program genom att lägga till följande `src/main/java/com/example/hellospring/HelloController.java` :
 
     ```java
     package com.example.hellospring;

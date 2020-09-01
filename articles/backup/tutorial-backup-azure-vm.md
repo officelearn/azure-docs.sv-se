@@ -4,12 +4,12 @@ description: Den här självstudien beskriver hur du säkerhetskopierar flera vi
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 8d798b594fe28ad6a1a3924406493841ab661ca7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075687"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181739"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Säkerhetskopiera virtuella Azure-datorer med PowerShell
 
@@ -27,7 +27,7 @@ I den här guiden får du lära du dig hur man:
 > * Utlös ett säkerhets kopierings jobb på begäran för de skyddade virtuella datorerna innan du kan säkerhetskopiera (eller skydda) en virtuell dator måste du slutföra [kraven](backup-azure-arm-vms-prepare.md) för att förbereda din miljö för att skydda dina virtuella datorer.
 
 > [!IMPORTANT]
-> Den här självstudien förutsätter att du redan har skapat en resursgrupp och en virtuell Azure-dator.
+> Den här självstudien förutsätter att du redan har skapat en resurs grupp och en virtuell Azure-dator.
 
 ## <a name="sign-in-and-register"></a>Logga in och registrera
 

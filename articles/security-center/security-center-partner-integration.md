@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519282"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180855"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -35,10 +35,7 @@ För närvarande omfattar integrerade säkerhetslösningar sårbarhets bedömnin
 > [!NOTE]
 > Security Center installerar inte Log Analytics-agenten på virtuella partner enheter eftersom de flesta säkerhets leverantörer förhindrar att externa agenter körs på sina enheter.
 
-Om du vill veta mer om integrering av verktyg för sårbarhets sökning från Qualys, inklusive en inbyggd skanner som är tillgänglig för kunder på standard nivå, se: 
-
-- [Integrerad sårbarhets-skanner för virtuella datorer](built-in-vulnerability-assessment.md).
-- [Distribuera en lösning för genomsökning av partner problem](partner-vulnerability-assessment.md).
+Om du vill veta mer om integrering av sårbarhets sökverktyg från Qualys, inklusive en inbyggd skanner som är tillgänglig för kunder på standard nivå, se [sårbarhets bedömningar för Azure-Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 Security Center erbjuder även sårbarhets analys för din:
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6d95cb938a341b94a32989e82c42d37956c0a80
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792536"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179852"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Hantera EDIFACT-dokument med UNH 2.5-segment i Azure Logic Apps
 
@@ -56,8 +56,6 @@ Om du vill koda det inkommande meddelandet konfigurerar du schemat i EDIFACT-avt
 1. Lägg till schemat i integrations kontot.
 
 1. Konfigurera schemat i EDIFACT-avtalets sändnings inställningar.
-
-1. Välj EDIFACT-avtal och klicka på **Redigera som JSON**.  Lägg till UNH 2.5-värdet i **schemaReferences** för att skicka avtal
 
 1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH 2.5-värdet i avsnittet om sändnings avtal `schemaReferences` :
 

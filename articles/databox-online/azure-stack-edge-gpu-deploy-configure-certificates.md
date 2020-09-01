@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: fcaac4c1efe6507d4f69acd897e456400b1f61f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1f8e0464eb7f513149dd1cfa2ec5dcdc0f193417
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088332"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181229"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-with-gpu"></a>Självstudie: Konfigurera certifikat för din Azure Stack Edge med GPU
 
 I den här självstudien beskrivs hur du kan konfigurera certifikat för din Azure Stack Edge-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
 
-Hur lång tid det tar för det här steget kan variera beroende på vilket alternativ du väljer, hur certifikat flödet upprättas i din miljö. 
+Den tid det tar för det här steget kan variera beroende på vilket alternativ du väljer och hur certifikat flödet upprättas i din miljö.
 
 I den här självstudien lär du dig:
 
@@ -36,8 +36,8 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste
 * Du har installerat den fysiska enheten enligt beskrivningen i [installera Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
 * Om du planerar att ta med dina egna certifikat:
     - Du bör ha dina certifikat klara i rätt format, inklusive signerings kedjans certifikat.
-    - Om enheten har distribuerats i Azure Government eller Azure Government Secret eller Azure Government Top Secret och inte distribueras i det offentliga Azure-molnet krävs ett certifikat för signerings kedjan innan du kan aktivera enheten. 
-    Mer information om certifikat finns i [Hantera certifikat](azure-stack-edge-j-series-manage-certificates.md).
+<!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
+    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Konfigurera certifikat för enheten
@@ -55,9 +55,9 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste
 
     - Om du har ändrat enhets namnet eller DNS-domänen kan du välja något av följande alternativ för att aktivera enheten: 
     
-        - Generera alla enhets certifikat. **Enhets certifikaten bör endast användas för testning och används inte med produktions arbets belastningar.** Mer information finns i [skapa enhets certifikat på Azure Stack Edge](#generate-device-certificates).
+        - **Generera alla enhets certifikat**. Enhets certifikaten bör endast användas för testning och används inte med produktions arbets belastningar. * * mer information finns i [skapa enhets certifikat på Azure Stack Edge](#generate-device-certificates).
 
-        - Ta med dina egna certifikat. Du kan ta med dina egna signerade slut punkts certifikat och motsvarande signerings kedjor. Du lägger först till signerings kedjan och laddar sedan upp slut punkts certifikaten. **Vi rekommenderar att du alltid använder dina egna certifikat för produktions arbets belastningar.** Mer information finns i ta med [dina egna certifikat på din Azure Stack Edge-enhet](#bring-your-own-certificates).
+        - **Ta med dina egna certifikat**. Du kan ta med dina egna signerade slut punkts certifikat och motsvarande signerings kedjor. Du lägger först till signerings kedjan och laddar sedan upp slut punkts certifikaten. **Vi rekommenderar att du alltid använder dina egna certifikat för produktions arbets belastningar.** Mer information finns i ta med [dina egna certifikat på din Azure Stack Edge-enhet](#bring-your-own-certificates).
     
         - Du kan ta med några av dina egna certifikat och generera vissa enhets certifikat. Alternativet för att **Skapa certifikat** återskapar bara enhets certifikaten.
 

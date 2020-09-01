@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496060"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180787"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -24,7 +24,7 @@ Idag Enterprise Analytics kräver en enorm skala på alla typer av data, både R
 
 Lösningar som detta är svåra att bygga, konfigurera, skydda och underhålla, vilket fördröjer Swift-extraktionen av intelligenta insikter.
 
-**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden till insikter från alla data i alla skalor, i informations lager och Big data analys system. Det kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används i Big data Analytics och **pipelines** för att samordna aktiviteter och data förflyttning.
+**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden till insikter från alla data i alla skalor, i informations lager och Big data analys system. Det kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används i Big data Analytics och **pipelines** för data integrering och ETL/ELT.
 
 Azure Synapse levereras med en webbaserad **Studio** -användar upplevelse som ger en enda upplevelse och modell för hantering, övervakning, kodning och säkerhet.
 
@@ -59,13 +59,13 @@ Azure Synapse tar bort de traditionella teknik barriärerna mellan att använda 
 * SQL och Spark kan direkt utforska och analysera Parquet-, CSV-, TSV-och JSON-filer som lagras i data Lake.
 * Snabb skalbar belastning och borttagning av data som går mellan SQL-och Spark-databaser
 
-### <a name="built-in-orchestration-via-pipelines"></a>Inbyggd dirigering via pipelines
+### <a name="built-in-data-integration-via-pipelines"></a>Inbyggd data integrering via pipelines
 
-Azure Synapse levereras med samma data integrerings motor och upplevelser som Azure Data Factory, så att du kan skapa omfattande datapipeliner utan att använda en separat Orchestration-motor.
+Azure Synapse levereras med samma data integrerings motor och upplevelser som Azure Data Factory, så att du kan skapa omfattande ETL-pipelines utan att lämna Synapse Analytics.
 
-* Flytta data mellan Azure Synapse och 90 + lokala data källor
-* Dirigera antecknings böcker, pipeliner, Spark-jobb, SQL-skript, lagrade procedurer
+* Mata in data från 90 + data källor
 * Kod fri ETL med data flödes aktiviteter
+* Dirigera antecknings böcker, Spark-jobb, lagrade procedurer, SQL-skript med mera
 
 ### <a name="unified-management-monitoring-and-security"></a>Enhetlig hantering, övervakning och säkerhet
 

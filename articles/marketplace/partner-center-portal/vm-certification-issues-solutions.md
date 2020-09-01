@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225398"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181450"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problem och lösningar under certifiering av virtuella datorer 
 
@@ -84,7 +84,7 @@ Om du försöker installera Visual Studio eller någon Office-licensierad produk
 
 Mer information om hur du väljer en godkänd bas finns i [skapa tekniska till gångar för virtuella Azure-datorer](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Det gick inte att köra test väska för verktygs paket
+## <a name="tool-kit-test-case-execution-failed"></a>Det gick inte att köra test väska för verktygs paket 
 
 Microsoft Certificate Toolkit kan hjälpa dig att köra test ärenden och kontrol lera att den virtuella hård disken eller avbildningen är kompatibel med Azure-miljön.
 
@@ -113,7 +113,7 @@ I följande tabell visas vanliga fel som påträffas vid körning av föregåend
  
 |Scenario|Testfall|Fel|Lösning|
 |---|---|---|---|
-|1|Test fall för Linux-agentens version|Den lägsta Linux-agentens version är 2,241 eller senare. Detta krav har varit obligatoriskt sedan den 1 maj 2020.|Avbildningen måste uppdateras med den version som krävs för att [skicka begäran](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Test fall för Linux-agentens version|Den lägsta Linux-agentens version är 2.2.41 eller senare. Detta krav har varit obligatoriskt sedan den 1 maj 2020.|Uppdatera Linux-agentens version och bör vara 2,241 eller senare. Mer information finns på sidan med [versions uppdateringar för Linux-agenten](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Test väska för bash-historik|Du får ett fel meddelande om storleken på bash-historiken i den skickade avbildningen är större än 1 KB. Storleken är begränsad till 1 KB för att säkerställa att all potentiellt känslig information inte samlas in i din bash-historik fil.|Lös problemet genom att montera den virtuella hård disken till någon annan fungerande virtuell dator och göra eventuella ändringar (till exempel ta bort historikfilerna *. bash* ) för att minska storleken till mindre än eller lika med 1 KB.|
 |3|Nödvändigt test fall för kernel-parameter|Du får det här felet när värdet för- **konsolen** inte är inställt på **ttyS0**. Kontrol lera genom att köra följande kommando:<br>`cat /proc/cmdline`|Ange värdet för- **konsolen** till **ttyS0**och skicka begäran på nytt.|
 |4|Test fall för ClientAlive-intervall|Om verktygs resultatet ger dig ett misslyckat resultat för det här test fallet finns det ett olämpligt värde för **ClientAliveInterval**.|Ange värdet för **ClientAliveInterval** till mindre än eller lika med 235 och skicka sedan begäran igen.|
@@ -213,7 +213,7 @@ Om avbildningen inte är installerad med någon av följande kernel-versioner up
 |RHEL och% OS|6,10|2.6.32-754.15.3|
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
-||7.4|3.10.0-693.50.3|
+||7,4|3.10.0-693.50.3|
 ||7.5|3.10.0-862.34.2|
 ||7,6|3.10.0-957.21.3|
 ||7,7|3.10.0-1062.1.1|
@@ -363,7 +363,8 @@ Utgivare måste kontakta supporten på [Marketplace Publisher-stöd](https://aka
    4.    Version – den version av VM-erbjudandet för vilket undantag begärs
    5.   Undantags typ – test, låst virtuell dator, anpassade mallar
    6.   Orsak till begäran – orsak till detta undantag och information om test som ska undantas 
-   7.   Bifogade filer – bifoga alla dokument med viktig bevisning. För låsta virtuella datorer, koppla test rapporten och för anpassade mallar, anger du den anpassade ARM-mallen som bilaga. Det gick inte att bifoga rapporten för låsta virtuella datorer och en anpassad ARM-mall för anpassade mallar, vilket leder till att begäran nekas
+   7. Tids linje – datum till vilket detta undantag har begärts 
+   8.   Bifogade filer – bifoga alla dokument med viktig bevisning. För låsta virtuella datorer, koppla test rapporten och för anpassade mallar, anger du den anpassade ARM-mallen som bilaga. Det gick inte att bifoga rapporten för låsta virtuella datorer och en anpassad ARM-mall för anpassade mallar, vilket leder till att begäran nekas
 
 
 ## <a name="next-steps"></a>Nästa steg

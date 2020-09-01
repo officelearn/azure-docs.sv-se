@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 673bd211f3271eceacb18e7fabfcc6ace2ded42c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 36d331de3a93e04932c4bce4d14704b33f69fab6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088268"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181552"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Självstudie: Konfigurera nätverk för Azure Stack Edge med GPU
 
@@ -84,7 +84,7 @@ Följ dessa steg om du vill konfigurera nätverket för enheten.
      >[!NOTE]
      >
      > * Vi rekommenderar att du inte byter lokal IP-adress för nätverks gränssnittet från statisk till DCHP, om du inte har en annan IP-adress för att ansluta till enheten. Om du använder ett nätverks gränssnitt och växlar till DHCP, kan det vara något sätt att fastställa DHCP-adressen. Om du vill ändra till en DHCP-adress väntar du tills enheten har Aktiver ATS med tjänsten och ändrar sedan. Du kan sedan Visa IP-adresserna för alla nätverkskort i **enhets egenskaperna** i Azure Portal för din tjänst.
-     > * Om du aktiverar beräknings-och användnings IoT Edge modul på Azure Stack Edge-enhet rekommenderar vi att du ställer in webbproxy-autentisering som **ingen**. NTLM stöds inte.
+
 
     När du har konfigurerat och tillämpat nätverks inställningarna går du tillbaka för att **komma igång**.
 
@@ -120,7 +120,11 @@ Följ dessa steg om du vill aktivera Compute och konfigurera Compute Network.
 
 Detta är en valfri konfiguration.
 
-1. Gå till sidan kom igång i enhetens lokala webb gränssnitt.
+> [!IMPORTANT]
+> * Om du aktiverar beräknings-och användnings IoT Edge modul på Azure Stack Edge-enhet rekommenderar vi att du ställer in webbproxy-autentisering som **ingen**. NTLM stöds inte.
+>* PAC-filer (Proxy-Auto config) stöds inte. En PAC-fil definierar hur webbläsare och andra användar agenter automatiskt kan välja rätt proxyserver (åtkomst metod) för att hämta en viss URL. Proxyservrar som försöker avlyssna och läsa all trafik (och sedan signera om allting med sin egen certifiering) är inte kompatibelt eftersom proxyns certifikat inte är betrott. Oftast fungerar transparenta proxyservrar bra med Azure Stack Edge. Icke-transparenta webb-proxyservrar stöds inte.
+
+1. Gå till sidan **Kom igång** i enhetens lokala webb gränssnitt.
 2. Konfigurera inställningarna för webbproxyservern på panelen **nätverk** . Även om webbproxy-konfigurationen är valfri, kan du bara konfigurera den på den här sidan om du använder en webbproxy.
 
    ![Sidan Web Proxy-inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)

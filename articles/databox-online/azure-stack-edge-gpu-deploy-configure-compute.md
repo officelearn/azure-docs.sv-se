@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 9fd940ec5cfb3eac9d0072c8554ca6bd295a50ec
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8ba460168edc03b1cb491d69010acd03f4a84ae3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088296"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181615"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Självstudie: Konfigurera Compute på Azure Stack Edge GPU-enhet
 
@@ -80,7 +80,7 @@ Det kan ta 20-30 minuter för dig att konfigurera Compute sedan bakgrunden, de v
 
 När du har konfigurerat beräkningen i Azure Portal finns ett Kubernetes-kluster och en standard användare som är associerad med IoT-namnrymden (ett system namn område som styrs av Azure Stack Edge). 
 
-## <a name="get-kubernetes-api-endpoint"></a>Hämta Kubernetes API-slutpunkt
+## <a name="get-kubernetes-endpoints"></a>Hämta Kubernetes-slutpunkter
 
 Om du vill konfigurera en klient för åtkomst till Kubernetes-kluster behöver du Kubernetes-slutpunkten. Följ dessa steg för att hämta Kubernetes API-slutpunkt från det lokala användar gränssnittet för din Azure Stack Edge-enhet.
 
@@ -91,13 +91,21 @@ Om du vill konfigurera en klient för åtkomst till Kubernetes-kluster behöver 
 
 3. Spara slut punkts strängen. Du kommer att använda detta senare när du konfigurerar en-klient för åtkomst till Kubernetes-klustret via kubectl.
 
-4. När du är i det lokala webb gränssnittet väljer du **Avancerade inställningar** och laddar ned en konfigurations fil. 
+4. När du är i det lokala webb gränssnittet kan du:
 
-    ![Enhets sida i lokalt användar gränssnitt](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-1.png)
+    - Gå till Kubernetes-API, Välj **Avancerade inställningar** och ladda ned en avancerad konfigurations fil för Kubernetes. 
 
-    Om du har fått en nyckel från Microsoft (Välj användare kan ha detta) kan du använda den här konfigurations filen.
+        ![Enhets sida i lokalt användar gränssnitt 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-    ![Enhets sida i lokalt användar gränssnitt](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-2.png)
+        Om du har fått en nyckel från Microsoft (Välj användare kan ha detta) kan du använda den här konfigurations filen.
+
+        ![Enhets sida i lokalt användar gränssnitt 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
+
+    - Du kan också gå till **Kubernetes Dashboard** -slutpunkt och ladda ned en `aseuser` konfigurations fil. 
+    
+        ![Enhets sida i lokalt användar gränssnitt 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
+
+        Med `aseuser` konfigurations filen kan du felsöka eventuella problem som rör `iotedge` namn området i ditt Kubernetes-kluster. Mer information finns i [fel sökning av problem med Kubernetes](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge). 
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -106,7 +114,7 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
-> * Hämta Kubernetes API-slutpunkt
+> * Hämta Kubernetes-slutpunkter
 
 
 Information om hur du administrerar Azure Stack Edge-enheten finns i:

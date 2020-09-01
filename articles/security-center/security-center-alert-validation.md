@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791188"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180481"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Aviseringsverifiering (EICAR-testfil) i Azure Security Center
+# <a name="alert-validation-in-azure-security-center"></a>Aviserings validering i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
 
 ## <a name="what-are-security-alerts"></a>Vad är säkerhetsaviseringar?
@@ -33,12 +33,12 @@ Mer information finns i [säkerhets aviseringar i Security Center](security-cent
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## <a name="validate-alerts-on-windows-vms"></a>Verifiera aviseringar på virtuella Windows-datorer<a name="validate-windows"></a>
+## <a name="validate-alerts-on-windows-vms"></a>Verifiera aviseringar på virtuella Windows-datorer <a name="validate-windows"></a>
 
 När Security Center agent har installerats på datorn följer du de här stegen från den dator där du vill bli den angripna resursen för aviseringen:
 
 1. Kopiera en körbar fil (till exempel **calc.exe**) till datorns skriv bord eller någon annan katalog och Byt namn på den som **ASC_AlertTest_662jfi039N.exe**.
-1. Öppna kommando tolken och kör den här filen med ett argument (bara ett falsk argument namn), till exempel:```ASC_AlertTest_662jfi039N.exe -foo```
+1. Öppna kommando tolken och kör den här filen med ett argument (bara ett falsk argument namn), till exempel: ```ASC_AlertTest_662jfi039N.exe -foo```
 1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering ska visas.
 
 > [!NOTE]
@@ -46,7 +46,7 @@ När Security Center agent har installerats på datorn följer du de här stegen
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>Verifiera aviseringar på virtuella Linux-datorer<a name="validate-linux"></a>
+## <a name="validate-alerts-on-linux-vms"></a>Verifiera aviseringar på virtuella Linux-datorer <a name="validate-linux"></a>
 
 När Security Center agent har installerats på datorn följer du de här stegen från den dator där du vill bli den angripna resursen för aviseringen:
 1. Kopiera en körbar fil till en lämplig plats och Byt namn på den till **./asc_alerttest_662jfi039n**, till exempel:
@@ -60,7 +60,7 @@ När Security Center agent har installerats på datorn följer du de här stegen
 1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering ska visas.
 
 
-## <a name="validate-alerts-on-kubernetes"></a>Verifiera aviseringar på Kubernetes<a name="validate-kubernetes"></a>
+## <a name="validate-alerts-on-kubernetes"></a>Verifiera aviseringar på Kubernetes <a name="validate-kubernetes"></a>
 
 Om du använder Security Center för hands versions funktionen i integrera Azure Kubernetes-tjänsten kör du följande kubectl-kommando för att testa att dina aviseringar fungerar:
 

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 7fab15ae4e9e58af58a4490beb2d512379976d1c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264007"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181121"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Utforska och hantera dina resurser med till gångs inventering och hanterings verktyg
 
@@ -38,9 +38,9 @@ Till gångs hanterings möjligheterna för det här verktyget är väsentliga oc
 |Aspekt|Information|
 |----|:----|
 |Versions tillstånd:|Förhandsgranskning|
-|Priset|Ingenting|
+|Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|Alla användare|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -102,6 +102,9 @@ Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data
 1. Om du vill använda **säkerhets resultaten innehåller** filter anger du FRITEXT från ID, säkerhets kontroll eller CVE namn på ett säkerhets problem som söker efter filter till de berörda resurserna:
 
     !["Säkerhets resultaten innehåller" filter](./media/asset-inventory/security-findings-contain-elements.png)
+
+    > [!TIP]
+    > **Säkerhets resultaten innehåller** och **taggarna** filtrerar bara ett enda värde. Om du vill filtrera efter mer än ett använder du **Lägg till filter**.
 
 1. Om du vill använda filtret för **pris nivå** väljer du ett eller flera alternativ (ledig, delvis eller standard):
 

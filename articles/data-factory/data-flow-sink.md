@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 49cfc4899379698cab78a5e22fcffacb60636052
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/18/2020
+ms.openlocfilehash: b2a356f8ee6c8e3d11548a3c7c17a868e4c057c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223643"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179189"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -36,7 +36,7 @@ Om du vill använda en infogad data uppsättning väljer du önskat format i typ
 
 ![Infogad data uppsättning](media/data-flow/inline-selector.png "Infogad data uppsättning")
 
-##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Mottagar typer som stöds
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Mottagar typer som stöds
 
 Genom att mappa data flödet följer du metoden extrahera, läsa in, transformera (ELT) och arbetar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling:
 
@@ -48,8 +48,9 @@ Genom att mappa data flödet följer du metoden extrahera, läsa in, transformer
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure-CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-Inställningar som är aktuella för dessa anslutningar finns på fliken **Inställningar** . exempel på information och data flödes skript i dessa inställningar finns i anslutnings dokumentationen. 
+Inställningar som är aktuella för dessa anslutningar finns på fliken **Inställningar** . Skript exempel för information och data flöde i dessa inställningar finns i anslutnings dokumentationen. 
 
 Azure Data Factory har åtkomst till över [90 inbyggda anslutningsprogram](connector-overview.md). Om du vill skriva data till de andra källorna från ditt data flöde använder du kopierings aktiviteten för att läsa in data från en mottagare som stöds.
 

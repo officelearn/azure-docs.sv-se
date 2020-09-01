@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589511"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181773"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Användarinitierade manuell redundans på SQL-hanterad instans
 
@@ -36,6 +36,15 @@ Du kan överväga att köra en [manuell redundansväxling](../database/high-avai
 > Att se till att dina program är redundanta innan du distribuerar till produktion bidrar till att minska risken för program fel i produktionen och kommer att bidra till programmets tillgänglighet för dina kunder.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Initiera manuell redundans på SQL-hanterad instans
+
+### <a name="rbac-permissions-required"></a>RBAC-behörigheter krävs
+
+Användaren som initierar en redundansväxling måste ha någon av följande RBAC-roller:
+
+- Prenumerations ägarens roll eller
+- Rollen hanterad instans deltagare eller
+- Anpassad roll med följande behörighet:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>Använda PowerShell
 

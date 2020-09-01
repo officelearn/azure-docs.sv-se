@@ -5,22 +5,26 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/31/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919683"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179359"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) har flera inställningar som avgör hur ofta användare behöver autentiseras igen. Denna omautentisering kan vara en första faktor, till exempel lösen ord, FIDO eller lösen ords lös Microsoft Authenticator, eller för att utföra Multi-Factor Authentication (MFA). Du kan konfigurera de här inställningarna för autentisering efter behov för din egen miljö och den användar upplevelse som du vill använda.
+
+Standard konfigurationen för användar inloggnings frekvens i Azure AD är ett rullande fönster på 90 dagar. Att be användare om autentiseringsuppgifter verkar ofta vara lämpligat att göra, men det kan vara refire. Om användarna tränas att ange sina autentiseringsuppgifter utan att tänka på, kan de oavsiktligt ange dem till en fråga om obehöriga autentiseringsuppgifter.
+
+Det kan bero på att användaren inte uppmanas att logga in igen, trots att eventuella överträdelser av IT-principerna återkallar sessionen. Några exempel är en lösen ords ändring, en inkompatibel enhet eller en åtgärd för att inaktivera kontot. Du kan även uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
 Den här artikeln beskriver rekommenderade konfigurationer och hur olika inställningar fungerar och interagerar med varandra.
 
@@ -35,6 +39,7 @@ För att ge användarna rätt balans mellan säkerhet och enkel användning geno
 * Om du har licenser för Office 365-appar eller den kostnads fria Azure AD-nivån:
     * Aktivera enkel inloggning (SSO) i alla program med [hanterade enheter](../devices/overview.md) eller [sömlös SSO](../hybrid/how-to-connect-sso.md).
     * Se till att alternativet *förbli inloggat* är aktiverat och hjälper användarna att godkänna det.
+* För scenarier med mobila enheter kontrollerar du att användarna använder appen Microsoft Authenticator. Den här appen används som en Broker för andra Azure AD-federerade appar och minskar autentiseringen på enheten.
 
 Vår forskning visar att de här inställningarna är rätt för de flesta klienter. Vissa kombinationer av dessa inställningar, t. ex. att *komma ihåg MFA* och *förbli*inbyggda, kan leda till att användarna autentiseras för ofta. Vanliga omautentiserings-prompter är felaktiga för användar produktivitet och kan göra dem mer sårbara för attacker.
 
@@ -71,11 +76,11 @@ Mer information om hur du konfigurerar alternativet att låta användarna förbl
 
 ### <a name="remember-multi-factor-authentication"></a>Kom ihåg Multi-Factor Authentication  
 
-Med den här inställningen kan du konfigurera värden mellan 1-60 dagar och ange en beständig cookie i webbläsaren när en användare väljer alternativet **fråga inte igen om X dagar** vid inloggning.
+Med den här inställningen kan du konfigurera värden mellan 1-365 dagar och ange en beständig cookie i webbläsaren när en användare väljer alternativet **fråga inte igen om X dagar** vid inloggning.
 
 ![Skärm bild av exempel fråga om att godkänna en inloggningsbegäran](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/approve-sign-in-request.png)
 
-Medan den här inställningen minskar antalet autentiseringar i webbappar, ökar antalet autentiseringar för moderna autentiserings klienter, till exempel Office-klienter. De här klienterna visas normalt bara efter lösen ords återställning eller inaktivitet på 90 dagar. Det högsta värdet för att *komma ihåg MFA* är dock 60 dagar. När det används tillsammans med **fortfarande inloggade** eller villkorliga åtkomst principer kan det öka antalet autentiseringsbegäranden.
+Medan den här inställningen minskar antalet autentiseringar i webbappar, ökar antalet autentiseringar för moderna autentiserings klienter, till exempel Office-klienter. De här klienterna visas normalt bara efter lösen ords återställning eller inaktivitet på 90 dagar. Om du ställer in det här värdet på mindre än 90 dagar förkortas dock förvalda MFA-prompter för Office-klienter och ökar frekvensen för omautentisering. När det används tillsammans med **fortfarande inloggade** eller villkorliga åtkomst principer kan det öka antalet autentiseringsbegäranden.
 
 Om du använder *kom ihåg MFA* och har Azure AD Premium 1-licenser bör du överväga att migrera de här inställningarna till inloggnings frekvensen för villkorlig åtkomst. Annars kan du överväga att använda *Håll mig inloggad?* i stället.
 

@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001186"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181705"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -275,11 +275,11 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
 9. Från SQL återställer du DPMDB.
 10. Kör CMD (som administratör) på den nya servern. Gå till mappen Microsoft Azure Backup installations plats och bin
 
-    Sökväg exempel: C:\Windows\System32>CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Exempel på sökväg: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
 11. Om du vill ansluta till Azure Backup kör du `DPMSYNC -SYNC`
 
-    Om du har lagt till **nya** diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du `DPMSYNC -Reallocatereplica`
+    Om du har lagt till **nya** diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör `DPMSYNC -Reallocatereplica` .
 
 ## <a name="network-connectivity"></a>Nätverksanslutningar
 

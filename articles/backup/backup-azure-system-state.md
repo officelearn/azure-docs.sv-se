@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows system State till Azure
 description: Lär dig hur du säkerhetskopierar system tillstånd för Windows Server-datorer till Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013443"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181637"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Säkerhetskopiera Windows system State till Azure
 
@@ -80,7 +80,7 @@ Nu när du har skapat ett valv konfigurerar du det för att säkerhetskopiera Wi
 
     ![MARS-installationsprogrammet har slutförts](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    Du behöver inte installera agenten än. Du kan installera agenten när du har hämtat valvautentiseringsuppgifterna.
+    Du behöver inte installera agenten än. Du kan installera agenten när du har hämtat autentiseringsuppgifterna för valvet.
 
 6. I fönstret **Förbered infrastruktur** väljer du **Hämta**.
 

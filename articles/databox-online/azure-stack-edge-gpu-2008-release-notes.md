@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 6c29240aa3267cd93ba0c3de1f0c797ce1a1483c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: de0847beb92ebc95e1998d88cae93dbc19c3fb27
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087192"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180056"
 ---
 # <a name="azure-stack-edge-with-gpu-preview-release-notes"></a>Viktig information om Azure Stack Edge med GPU Preview
 
@@ -46,7 +46,7 @@ Följande tabell innehåller en sammanfattning av kända problem för Azure Stac
 |**11.3.**|Kubernetes |Kubernetes tillåter för närvarande inte Multi-Protocol LoadBalancer-tjänster. Till exempel en DNS-tjänst som måste lyssna på både TCP och UDP. |För att undvika den här begränsningen av Kubernetes med MetalLB kan två tjänster (en för TCP, en för UDP) skapas på samma Pod-selektor. Dessa tjänster använder samma delnings nyckel och spec. loadBalancerIP för att dela samma IP-adress. IP-adresser kan också delas om du har fler tjänster än tillgängliga IP-adresser. <br> Mer information finns i [IP-adress delning](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.5.**|Kubernetes-kluster|Befintliga Azure IoT Edge Marketplace-moduler kan inte köras på Kubernetes-klustret som värd plattform för IoT Edge på Azure Stack Edge-enhet.|Modulerna måste ändras innan de distribueras på Azure Stack Edge-enheten. Mer information finns i ändra Azure IoT Edge moduler från Marketplace till att köra på Azure Stack Edge-enhet.<!-- insert link-->|
 |**13.4.**|Kubernetes |Filbaserade bind-monteringar stöds inte med Azure IoT Edge på Kubernetes på Azure Stack Edge-enhet.|IoT Edge använder ett översättnings lager för att översätta `ContainerCreate` alternativ till Kubernetes-konstruktioner. Att skapa `Binds` kartor till hostpath-katalogen eller skapa och därmed kan filbaserade bindnings monteringar inte vara bundna till sökvägar i IoT Edge behållare.|
-
+|**längre.**|Kubernetes |Om du tar med dina egna certifikat för IoT Edge och lägger till dem på din Azure Stack Edge-enhet, hämtas inte de nya certifikaten som en del av Helm-diagrammets uppdatering.|Du kan lösa det här problemet genom att [ansluta till enhetens PowerShell-gränssnitt](azure-stack-edge-gpu-connect-powershell-interface.md). Starta om `iotedged` och `edgehub` poddar.|
 
 ## <a name="next-steps"></a>Nästa steg
 

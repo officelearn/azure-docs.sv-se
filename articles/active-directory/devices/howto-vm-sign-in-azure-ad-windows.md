@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005018"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180345"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -274,7 +274,7 @@ Den här avslutnings koden översätts till DSREG_E_MSI_TENANTID_UNAVAILABLE eft
 
    - RDP till den virtuella datorn som lokal administratör och kontrol lera att slut punkten returnerar giltigt klient-ID genom att köra det här kommandot från en upphöjd kommando rad på den virtuella datorn:
       
-      - klammer – H metadata: truehttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - klammer – H metadata: true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. Den virtuella dator administratören försöker installera AADLoginForWindows-tillägget, men en systemtilldelad hanterad identitet har inte aktiverat den virtuella datorn först. Gå till den virtuella datorns identitets blad. Från fliken systemtilldelad kontrollerar du att status är växlad till på.
 
@@ -329,7 +329,7 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 
 ![Ditt konto har kon figurer ATS för att förhindra att du använder den här enheten.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Kontrol lera att du har [KONFIGURERAT RBAC-principer](../../virtual-machines/linux/login-using-aad.md) för den virtuella datorn som ger användaren antingen Administratörs inloggning för den virtuella datorn eller användar inloggnings rollen för den virtuella datorn:
+Kontrol lera att du har [konfigurerat Azure RBAC-principer](../../virtual-machines/linux/login-using-aad.md) för den virtuella datorn som ger användaren antingen Administratörs inloggning för den virtuella datorn eller användar inloggnings rollen för den virtuella datorn:
  
 #### <a name="unauthorized-client"></a>Obehörig klient
 

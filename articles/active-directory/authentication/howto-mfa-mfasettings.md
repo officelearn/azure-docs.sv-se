@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027707"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179411"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Följande Azure Multi-Factor Authentication-inställningar är tillgängliga i A
 | [Konto utelåsning](#account-lockout) | Lås tillfälligt konton från att använda Azure Multi-Factor Authentication om det finns alltför många nekade autentiseringsförsök i en rad. Den här funktionen gäller endast för användare som anger en PIN-kod för autentisering. (MFA-Server) |
 | [Blockera/avblockera användare](#block-and-unblock-users) | Blockera vissa användare från att kunna ta emot Azure Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är fortfarande blockerade i 90 dagar från den tid som de är blockerade eller har avblockerats manuellt. |
 | [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar som tillåter att användare rapporterar falska verifierings begär Anden. |
-| [Meddelanden](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
+| [Aviseringar](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
 | [OATH-token](concept-authentication-methods.md#oath-tokens) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
 | [Telefonsamtals inställningar](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för moln miljöer och lokala miljöer. |
 | Leverantörer | Då visas befintliga autentiseringsproviders som du kan ha associerat med ditt konto. Nya autentiseringsproviders får inte skapas från den 1 september 2018 |
@@ -102,7 +102,7 @@ Utför följande steg för att aktivera och konfigurera bedrägeri aviseringar:
 
 Välj **Azure Active Directory**  >  **Sign-ins**  >  **information om**Azure Active Directory inloggningar. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar och visas i **"resultat information"** som MFA nekad, bedrägeri kod angiven.
  
-## <a name="notifications"></a>Meddelanden
+## <a name="notifications"></a>Aviseringar
 
 E-postaviseringar kan konfigureras när användare rapporterar bedrägeri aviseringar. Dessa meddelanden skickas vanligt vis till identitets administratörer, eftersom användarens konto uppgifter sannolikt komprometteras. I följande exempel visas hur ett meddelande om bedrägeri aviseringar ser ut så här:
 
@@ -195,7 +195,7 @@ Följande exempel skript kan användas för att skapa egna anpassade meddelanden
 
 | Meddelande namn | Skript |
 | --- | --- |
-| Autentiseringen lyckades | Inloggningen har verifierats. Hej då. |
+| Autentiseringen lyckades | Din inloggning har verifierats. Hej då. |
 | Tilläggs varning | Tack för att du använder Microsofts inloggnings verifierings system. Fortsätt genom att trycka på fyrkant. |
 | Bekräfta bedrägeri | En bedrägeri avisering har skickats. Om du vill häva blockeringen av ditt konto kontaktar du ditt företags IT-supportavdelning. |
 | Bedrägeri meddelande (standard) | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. Om du inte har initierat den här verifieringen kan någon försöka komma åt ditt konto. Skicka en bedrägeri avisering genom att trycka på noll. Detta kommer att meddela ditt företags IT-team och blockera ytterligare verifierings försök. |
@@ -220,7 +220,7 @@ Utför följande steg för att använda dina egna anpassade meddelanden:
 
 1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  Inställningar för**MFA**-  >  **telefonsamtal**.
 1. Välj **Lägg till hälsning**.
-1. Välj **typ** av hälsning, till exempel *hälsning (standard)* eller *autentiseringen lyckades*.
+1. Välj **typ** av hälsning, till exempel *hälsning (standard)* eller  *autentiseringen lyckades*.
 1. Välj **språk**, baserat på föregående avsnitt om funktioner för [anpassat meddelande språk](#custom-message-language-behavior).
 1. Bläddra efter och välj en *. mp3* -eller *. wav* -ljudfil som ska överföras.
 1. När du är klar väljer du **Lägg till**och sedan **Spara**.
@@ -242,12 +242,9 @@ Funktionen _betrodda_ IP-adresser i Azure Multi-Factor Authentication kringgår 
 
 Om din organisation distribuerar NPS-tillägget för att tillhandahålla MFA till lokala program, ser käll-IP-adressen alltid vara den NPS-server som autentiseringen försöker flöda genom.
 
-| Typ av Azure AD-klient | Alternativ för betrodda IP-funktioner |
-|:--- |:--- |
-| Hanterade |Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras.|
-| Federerade |**Alla federerade användare**: alla federerade användare som loggar in från i organisationen kan kringgå tvåstegsverifiering. Användarna kringgår verifieringen genom att använda ett anspråk som utfärdats av Active Directory Federation Services (AD FS) (AD FS).<br/>Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. |
+| Typ av Azure AD-klient | Alternativ för betrodda IP-funktioner | |:---|:---| två steg | Hanterad | Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå Multi-Factor Authentication för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras. | | Federerad | **Alla federerade användare**: alla federerade användare som loggar in från i organisationen kan kringgå Multi-Factor Authentication. Användarna kringgår verifieringen genom att använda ett anspråk som utfärdats av Active Directory Federation Services (AD FS) (AD FS).<br/>Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå Multi-Factor Authentication för användare som loggar in från företagets intranät. |
 
-Överanvändning av betrodda IP-arbeten är bara inifrån företagets intranät. Om du väljer alternativet **alla federerade användare** och en användare loggar in utanför företagets intranät, måste användaren autentisera med hjälp av tvåstegsverifiering. Processen är densamma även om användaren presenterar ett AD FS-anspråk.
+Överanvändning av betrodda IP-arbeten är bara inifrån företagets intranät. Om du väljer alternativet **alla federerade användare** och en användare loggar in utanför företagets intranät, måste användaren autentisera med hjälp av Multi-Factor Authentication. Processen är densamma även om användaren presenterar ett AD FS-anspråk.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Slut användar upplevelse i Corpnet
 
@@ -278,14 +275,14 @@ Utför följande steg för att aktivera betrodda IP-adresser med villkorliga åt
 1. Välj **Konfigurera MFA-betrodda IP-adresser**.
 1. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du något av följande två alternativ:
 
-   * **För förfrågningar från federerade användare som kommer från mitt intranät**: Markera kryss rutan om du vill välja det här alternativet. Alla federerade användare som loggar in från företags nätverket kringgår tvåstegsverifiering genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
+   * **För förfrågningar från federerade användare som kommer från mitt intranät**: Markera kryss rutan om du vill välja det här alternativet. Alla federerade användare som loggar in från företags nätverket kringgår Multi-Factor Authentication genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **För förfrågningar från ett särskilt utbud av offentliga IP-adresser**: om du vill välja det här alternativet anger du IP-adresserna i text rutan med CIDR-notering.
       * För IP-adresser som ligger inom intervallet xxx. xxx. xxx. 1 till xxx. xxx. xxx. 254 använder du notation som **xxx. xxx. xxx. 0/24**.
       * Använd notation som **xxx.xxx.xxx.xxx/32**för en enskild IP-adress.
-      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser hoppar över tvåstegsverifiering.
+      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgår Multi-Factor Authentication.
 
 1. Välj **Spara**.
 
@@ -298,20 +295,20 @@ Om du inte vill använda principer för villkorlig åtkomst för att aktivera be
 1. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 1. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du ett (eller båda) av följande två alternativ:
 
-   * **För förfrågningar från federerade användare i mitt intranät**: om du vill välja det här alternativet markerar du kryss rutan. Alla federerade användare som loggar in från företags nätverket kringgår tvåstegsverifiering genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
+   * **För förfrågningar från federerade användare i mitt intranät**: om du vill välja det här alternativet markerar du kryss rutan. Alla federerade användare som loggar in från företags nätverket kringgår Multi-Factor Authentication genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **För förfrågningar från ett angivet intervall IP-adressundernät**: om du vill välja det här alternativet anger du IP-adresserna i text rutan med CIDR-notering.
       * För IP-adresser som ligger inom intervallet xxx. xxx. xxx. 1 till xxx. xxx. xxx. 254 använder du notation som **xxx. xxx. xxx. 0/24**.
       * Använd notation som **xxx.xxx.xxx.xxx/32**för en enskild IP-adress.
-      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser hoppar över tvåstegsverifiering.
+      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgår Multi-Factor Authentication.
 
 1. Välj **Spara**.
 
 ## <a name="verification-methods"></a>Verifierings metoder
 
-Du kan välja de verifierings metoder som är tillgängliga för dina användare i tjänst inställnings portalen. När dina användare registrerar sina konton för Azure Multi-Factor Authentication väljer de den önskade verifierings metoden från de alternativ som du har aktiverat. Vägledning för användar registrerings processen finns i [Konfigurera mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md).
+Du kan välja de verifierings metoder som är tillgängliga för dina användare i tjänst inställnings portalen. När dina användare registrerar sina konton för Azure Multi-Factor Authentication väljer de den önskade verifierings metoden från de alternativ som du har aktiverat. Vägledning för användar registrerings processen finns i [Konfigurera mitt konto för Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Följande verifierings metoder är tillgängliga:
 
@@ -336,25 +333,25 @@ Utför följande steg för att aktivera eller inaktivera verifierings metoder:
 
 ## <a name="remember-multi-factor-authentication"></a>Kom ihåg Multi-Factor Authentication
 
-Med funktionen _kom ihåg Multi-Factor Authentication_ kan användarna kringgå efterföljande verifieringar under ett visst antal dagar efter att de har loggat in på en enhet med hjälp av Multi-Factor Authentication. Funktionen förbättrar användbarhet genom att minimera antalet gånger som en användare måste utföra MFA på samma enhet.
+Med funktionen _kom ihåg Multi-Factor Authentication_ kan användarna kringgå efterföljande verifieringar under ett visst antal dagar efter att de har loggat in på en enhet med hjälp av Multi-Factor Authentication. För att förbättra användbarhet och minimera antalet gånger som en användare måste utföra MFA på samma enhet väljer du en varaktighet på 90 dagar eller mer.
 
 > [!IMPORTANT]
 > Om ett konto eller en enhet komprometteras kan det påverka säkerheten genom att komma ihåg Multi-Factor Authentication för betrodda enheter. Om ett företags konto blir komprometterat eller om en betrodd enhet tappas bort eller blir stulen, bör du [återkalla MFA-sessioner](howto-mfa-userdevicesettings.md).
 >
-> Återställnings åtgärden återkallar betrodd status från alla enheter och användaren måste utföra tvåstegsverifiering igen. Du kan också instruera användarna att återställa Multi-Factor Authentication på sina egna enheter enligt vad som anges i [Hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> Återställnings åtgärden återkallar betrodd status från alla enheter och användaren måste utföra Multi-Factor Authentication igen. Du kan också instruera användarna att återställa Multi-Factor Authentication på sina egna enheter enligt vad som anges i [Hantera dina inställningar för Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Så här fungerar funktionen
 
 Funktionen kom ihåg Multi-Factor Authentication anger en permanent cookie i webbläsaren när användaren väljer alternativet **fråga inte igen om X dagar** vid inloggning. Användaren tillfrågas inte igen för Multi-Factor Authentication från samma webbläsare tills cookien upphör att gälla. Om användaren öppnar en annan webbläsare på samma enhet eller rensar sina cookies uppmanas de att verifiera.
 
-Alternativet **fråga inte igen om X dagar** visas inte i program som inte är webbläsare, oavsett om appen stöder modern autentisering eller inte. De här apparna använder _uppdateringstoken_ som ger nya åtkomsttoken varje timma. När en uppdateringstoken verifieras kontrollerar Azure AD att den senaste tvåstegsverifiering har inträffat inom det angivna antalet dagar.
+Alternativet **fråga inte igen om X dagar** visas inte i program som inte är webbläsare, oavsett om appen stöder modern autentisering eller inte. De här apparna använder _uppdateringstoken_ som ger nya åtkomsttoken varje timma. När en uppdateringstoken verifieras kontrollerar Azure AD att den senaste Multi-Factor Authentication har inträffat inom det angivna antalet dagar.
 
-Funktionen minskar antalet autentiseringar i Web Apps, som normalt frågas varje gång. Funktionen ökar antalet autentiseringar för moderna autentiserings klienter som normalt uppmanas var 90: e dag. Kan också öka antalet autentiseringar när de kombineras med villkorliga åtkomst principer.
+Funktionen minskar antalet autentiseringar i Web Apps, som normalt frågas varje gång. Funktionen kan öka antalet autentiseringar för moderna autentiserings klienter som normalt uppmanas var 90: e dag, om en lägre varaktighet har kon figurer ATS. Kan också öka antalet autentiseringar när de kombineras med villkorliga åtkomst principer.
 
 > [!IMPORTANT]
-> Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med funktionen **Håll mig inloggad i** AD FS, när användare utför tvåstegsverifiering för AD FS via Azure Multi-Factor Authentication-Server eller en Multi-Factor Authentication-lösning från tredje part.
+> Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med funktionen **Håll mig inloggad i** AD FS när användare utför Multi-factor authentication för AD FS via Azure Multi-Factor Authentication-Server eller en Multi-Factor Authentication-lösning från tredje part.
 >
-> Om användarna väljer att **låta mig vara inloggad** på AD FS och även markera enheten som betrodd för Multi-Factor Authentication, kontrol leras inte användaren automatiskt när det **sparade Multi-Factor Authentication** -antalet dagar upphör att gälla. Azure AD begär en ny tvåstegsverifiering, men AD FS returnerar en token med den ursprungliga Multi-Factor Authentication anspråket och datumet, i stället för att utföra tvåstegsverifiering igen. **Den här reaktionen anger en verifierings slinga mellan Azure AD och AD FS.**
+> Om användarna väljer att **låta mig vara inloggad** på AD FS och även markera enheten som betrodd för Multi-Factor Authentication, kontrol leras inte användaren automatiskt när det **sparade Multi-Factor Authentication** -antalet dagar upphör att gälla. Azure AD begär en ny Multi-Factor Authentication, men AD FS returnerar en token med den ursprungliga Multi-Factor Authentication-anspråket och det aktuella datumet, i stället för att utföra Multi-Factor Authentication igen. **Den här reaktionen anger en verifierings slinga mellan Azure AD och AD FS.**
 >
 > Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med B2B-användare och kommer inte att vara synlig för B2B-användare när de loggar in på inbjudna klienter.
 >
@@ -366,8 +363,8 @@ Gör så här för att aktivera och konfigurera alternativet för användarna at
 1. I Azure Portal söker du efter och väljer **Azure Active Directory**och väljer sedan **användare**.
 1. Välj **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-1. På sidan **tjänst inställningar** hanterar du **kom ihåg Multi-Factor Authentication**och väljer alternativet **Tillåt användare att komma ihåg Multi-Factor Authentication på enheter som de litar på** .
-1. Ange antalet dagar att tillåta att betrodda enheter kringgår tvåstegsverifiering. Standardvärdet är 14 dagar.
+1. På sidan **tjänst inställningar** under **kom ihåg Multi-Factor Authentication**väljer du alternativet **Tillåt användare att komma ihåg Multi-Factor Authentication på enheter som de litar på** .
+1. Ange antalet dagar att tillåta att betrodda enheter kringgår Multi-Factor Authentication. För den bästa användar upplevelsen kan du förlänga varaktigheten till *90* eller flera dagar.
 1. Välj **Spara**.
 
 ### <a name="mark-a-device-as-trusted"></a>Markera en enhet som betrodd

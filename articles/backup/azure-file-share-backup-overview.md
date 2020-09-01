@@ -3,12 +3,12 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892260"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180022"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
@@ -50,7 +50,13 @@ Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets k
 
 ## <a name="backup-costs"></a>Kostnader för säkerhets kopiering
 
-För närvarande debiteras du bara för ögonblicks bilder eftersom Azure File Share-säkerhetskopiering är en ögonblicks bilds lösning. Lagrings avgifter som skapas för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen som anges [här](https://azure.microsoft.com/pricing/details/storage/files/).
+Det finns två kostnader som är associerade med säkerhets kopierings lösningen för Azure File Share:
+
+1. **Kostnad för ögonblicks bild lagring**: de lagrings kostnader som uppstår för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen [här](https://azure.microsoft.com/pricing/details/storage/files/) 
+
+2. **Skyddad instans avgift** : från och med 1 september 2020 debiteras kunderna en skyddad instans avgift enligt pris informationen som anges [här](https://azure.microsoft.com/en-in/pricing/details/backup/) . Den skyddade instans avgiften beror på den totala storleken på skyddade fil resurser i ett lagrings konto.
+
+Om du vill få detaljerade uppskattningar för säkerhets kopiering av Azure-filresurser kan du ladda ned den detaljerade [Azure Backup pris uppskattningen](https://aka.ms/AzureBackupCostEstimates).  
 
 ## <a name="next-steps"></a>Nästa steg
 

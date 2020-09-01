@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: c789a5fdd2aed7a904dc71065340b3c921ac9abb
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146614"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181722"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Använda självbetjäning för program åtkomst
 
@@ -28,7 +28,7 @@ Mer information om hur du använder Mina appar från en slut användar perspekti
 
 Med den här funktionen kan du:
 
--   Låt användare själv identifiera program från [program åtkomst panelen](https://myapps.microsoft.com/) utan att bry dig om IT-gruppen.
+-   Låt användare själv identifiera program från [Mina appar](https://myapps.microsoft.com/) utan att bry sig om IT-gruppen.
 -   Lägg till dessa användare i en förkonfigurerad grupp så att du kan se vem som har begärt åtkomst, ta bort åtkomst och hantera de roller som har tilldelats dem.
 -   Du kan också låta någon godkänna förfrågningar om app-åtkomst så att IT-gruppen inte behöver.
 -   Du kan också konfigurera upp till 10 personer som kan godkänna åtkomst till det här programmet.
@@ -57,14 +57,14 @@ Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till e
 13. **Valfritt:** **för program som visar roller**, om du vill tilldela självbetjänings godkända användare till en roll, väljer du väljaren bredvid **rollen till vilken roll ska användare tilldelas i det här programmet?** Välj den roll som användarna ska tilldelas till.
 14. Välj knappen **Spara** längst upp för att avsluta.
 
-När du har slutfört självbetjänings program konfigurationen kan användarna navigera till sin [program åtkomst panel](https://myapps.microsoft.com/) och välja knappen **+ Lägg** till för att hitta appar som du har aktiverat självbetjänings åtkomst till. Affärs god kännare ser också ett meddelande i sin [program åtkomst panel](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande som meddelar dem när en användare har begärt åtkomst till ett program som kräver godkännande. 
+När du har slutfört självbetjänings program konfigurationen kan användarna navigera till [Mina appar](https://myapps.microsoft.com/) och välja knappen **+ Lägg** till för att hitta appar som du har aktiverat självbetjänings åtkomst till. Affärs god kännare ser också ett meddelande på sidan [Mina appar](https://myapps.microsoft.com/) . Du kan aktivera ett e-postmeddelande som meddelar dem när en användare har begärt åtkomst till ett program som kräver godkännande. 
 
 Dessa godkännanden stöder endast enskilda godkännande arbets flöden, vilket innebär att om du anger flera god kännare kan en enskild god kännare godkänna åtkomst till programmet.
 
 ## <a name="things-to-check-if-self-service-isnt-working"></a>Saker att kontrol lera om självbetjäningen inte fungerar
 -   Se till att användaren eller gruppen har Aktiver ATS för att begära åtkomst till självbetjänings program.
--   Se till att användaren besöker rätt plats för självbetjänings program åtkomst. användare kan navigera till sin [program åtkomst panel](https://myapps.microsoft.com/) och välja knappen **+ Lägg** till för att hitta appar som du har aktiverat självbetjänings åtkomst till.
--   Om självbetjänings program åtkomsten nyligen har kon figurer ATS kan du försöka logga in och ut igen i användarens åtkomst panel efter några minuter, för att se om självbetjänings åtkomst ändringarna har visats.
+-   Se till att användaren besöker rätt plats för självbetjänings program åtkomst. användarna kan gå till sidan [Mina appar](https://myapps.microsoft.com/) och välja knappen **+ Lägg** till för att hitta appar som du har aktiverat självbetjänings åtkomst till.
+-   Om självbetjänings program åtkomsten nyligen har kon figurer ATS kan du försöka logga in och ut igen i användarens Mina appar efter några minuter för att se om självbetjänings åtkomsten har ändrats.
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera Azure Active Directory för grupphantering via självbetjäning](../users-groups-roles/groups-self-service-management.md)

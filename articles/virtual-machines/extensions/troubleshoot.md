@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ad3197f20428ec751b4e3520af72dc5f8eb9ad28
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187565"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180363"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Felsöka problem med Azure Windows VM-tillägg
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -63,6 +63,7 @@ Extensions:  {
 ```
 
 ## <a name="troubleshooting-extension-failures"></a>Felsöka tilläggs fel
+
 ### <a name="rerun-the-extension-on-the-vm"></a>Kör tillägget på den virtuella datorn igen
 Om du kör skript på den virtuella datorn med ett anpassat skript tillägg kan du ibland stöta på ett fel där den virtuella datorn skapades men skriptet har misslyckats. Under dessa förhållanden är det rekommenderade sättet att återställa från det här felet att ta bort tillägget och köra mallen igen.
 Obs! i framtiden skulle den här funktionen förbättras för att ta bort behovet av att avinstallera tillägget.
@@ -74,3 +75,28 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 
 När tillägget har tagits bort kan mallen köras igen för att köra skripten på den virtuella datorn.
 
+### <a name="trigger-a-new-goalstate-to-the-vm"></a>Utlös en ny GoalState för den virtuella datorn
+Du kanske märker att ett tillägg inte har körts eller inte kan köras på grund av ett saknat "Windows Azure CRP Certificate Generator" (det certifikatet används för att skydda transporten av tilläggets skyddade inställningar).
+Certifikatet kommer automatiskt att återskapas genom att starta om Windows gäst agenten från den virtuella datorn:
+- Öppna aktivitets hanteraren
+- Gå till fliken information
+- Hitta WindowsAzureGuestAgent.exes processen
+- Högerklicka på och välj "Avsluta aktivitet". Processen kommer att startas om automatiskt
+
+
+Du kan också utlösa en ny GoalState för den virtuella datorn genom att köra en "Tom uppdatering":
+
+Azure PowerShell:
+
+```azurepowershell
+$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
+Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+```
+
+Azure CLI:
+
+```azurecli
+az vm update -g <rgname> -n <vmname>
+```
+
+Om en "Tom uppdatering" inte fungerade kan du lägga till en ny tom datadisk till den virtuella datorn från Azure-Hanteringsportal och sedan ta bort den senare när certifikatet har lagts till igen.

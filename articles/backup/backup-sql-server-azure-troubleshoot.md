@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 53e97e768dc13c32f6c174d01dfb222e0de61e43
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b462ebd25a7dac4f215d599aa0dfa8665965fb2f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017880"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180957"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -160,7 +160,7 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-Åtgärden blockeras eftersom du har nått gränsen för antalet tillåtna åtgärder inom 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar visas det här felet. <br> Exempel: om du har nått gränsen för antalet konfigurations säkerhets kopierings jobb som kan utlösas per dag och du försöker konfigurera säkerhets kopiering för ett nytt objekt visas det här felet. | Vanligt vis åtgärdar du problemet igen efter 24 timmar. Men om problemet kvarstår kan du kontakta Microsoft-supporten om du behöver hjälp.
+Åtgärden blockeras eftersom du har nått gränsen för antalet tillåtna åtgärder inom 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar visas det här felet. <br> Exempel: om du har nått gränsen för antalet konfigurations säkerhets kopierings jobb som kan utlösas per dag och du försöker konfigurera säkerhets kopiering för ett nytt objekt, visas det här felet. | Vanligt vis åtgärdar du problemet igen efter 24 timmar. Men om problemet kvarstår kan du kontakta Microsoft-supporten om du behöver hjälp.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 

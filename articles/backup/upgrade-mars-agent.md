@@ -3,12 +3,12 @@ title: Uppgradera Microsoft Azure Recovery Services-agenten (MARS)
 description: Lär dig hur du uppgraderar Microsoft Azure Recovery Services-agenten (MARS).
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: c822c75fa1232d2304b5bcb4a0afe4323e52287f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a1ee26db962781643e9599069282647658301bac
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007374"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181484"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Uppgradera Microsoft Azure Recovery Services-agenten (MARS)
 
@@ -81,7 +81,7 @@ När du har identifierat de servrar som behöver en Azure Backup Agent uppdateri
 
 ## <a name="for-system-center-data-protection-manager-sc-dpm-customers"></a>För System Center Data Protection Manager (SC DPM)-kunder
 
-Om du har installerat Azure Backup agenter på System Center Data Protection Manager-servrar (SC DPM) måste du följa stegen nedan för att identifiera om DPM-servrarna behöver en Azure Backup Agent uppdatering:
+Om du har installerat Azure Backup agenter på System Center Data Protection Manager-servrar (SC DPM) måste du följa stegen nedan för att identifiera om DPM-servrarna behöver en uppdatering av Azure Backup agenten:
 
 1. Logga in på din SC DPM-server som administratör.
 2. Öppna DPM-konsolen.

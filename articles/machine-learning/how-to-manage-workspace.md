@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: e2f13cbdca9d6372677bbba24d60f4a73436cfd7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659763"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179312"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbe
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
 
@@ -51,7 +51,7 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
     ![Konfigurera din arbets yta](./media/how-to-manage-workspace/select-edition.png)
 
-1. När du är klar med konfigurationen av arbets ytan väljer du **Granska + skapa**.
+1. När du är klar med konfigurationen av arbets ytan väljer du **Granska + skapa**. Du kan också använda avsnitten [nätverk](#networking) och [Avancerat](#advanced) för att konfigurera fler inställningar för arbets ytan.
 2. Granska inställningarna och gör eventuella ytterligare ändringar eller korrigeringar. När du är nöjd med inställningarna väljer du **skapa**.
 
    > [!Warning] 
@@ -61,15 +61,65 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
  
  1. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
 
-### <a name="download-a-configuration-file"></a>Hämta en konfigurations fil
 
-1. Om du kommer att skapa en [beräknings instans](tutorial-1st-experiment-sdk-setup.md#azure)hoppar du över det här steget.
+### <a name="networking"></a>Nätverk
 
-1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du  **hämta config.jspå** i **översikts** avsnittet i arbets ytan.  
+> [!IMPORTANT]
+> Mer information om hur du använder en privat slut punkt och ett virtuellt nätverk med din arbets yta finns i [nätverks isolering och sekretess](how-to-enable-virtual-network.md).
 
-   ![Ladda ned config.jspå](./media/how-to-manage-workspace/configure.png)
-   
-   Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
+1. Standard nätverks konfigurationen är att använda en __offentlig slut punkt__som är tillgänglig på det offentliga Internet. Om du vill begränsa åtkomsten till din arbets yta till en Azure-Virtual Network du har skapat, kan du i stället välja __privat slut punkt__ (för hands version) som __anslutnings metod__och sedan använda __+ Lägg__ till för att konfigurera slut punkten.
+
+   > [!IMPORTANT]
+   > Att använda en privat slut punkt med Azure Machine Learning arbets ytan är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Val av privat slut punkt":::
+
+1. I formuläret __skapa privat slut punkt__ anger du den plats, det namn och det virtuella nätverk som ska användas. Om du vill använda slut punkten med en Privat DNS zon väljer du __integrera med privat DNS-zon__ och väljer zonen i fältet __privat DNS zon__ . Välj __OK__ för att skapa slut punkten. 
+
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Skapa privat slut punkt":::
+
+1. När du är färdig med konfigurationen av nätverk kan du välja __Granska + skapa__eller gå vidare till den valfria __avancerade__ konfigurationen.
+
+    > [!WARNING]
+    > När du skapar en privat slut punkt skapas en ny Privat DNS zon med namnet __privatelink.API.azureml.MS__ . Innehåller en länk till det virtuella nätverket. Om du skapar flera arbets ytor med privata slut punkter i samma resurs grupp, kan endast det virtuella nätverket för den första privata slut punkten läggas till i DNS-zonen. Använd följande steg för att lägga till poster för de virtuella nätverk som används av ytterligare arbets ytor/privata slut punkter:
+    > 
+    > 1. I [Azure Portal](https://portal.azure.com)väljer du den resurs grupp som innehåller arbets ytan. Välj sedan Privat DNS zon resurs med namnet __privatelink.API.azureml.MS__.
+    > 2. I __inställningarna__väljer du __virtuella nätverks länkar__.
+    > 3. Välj __Lägg till__. På sidan __Lägg till virtuell nätverks länk__ anger du ett unikt __länk namn__och väljer sedan det __virtuella nätverk__ som ska läggas till. Välj __OK__ för att lägga till nätverks länken.
+    >
+    > Mer information finns i [Azures DNS-konfiguration för privat slut punkt](/azure/private-link/private-endpoint-dns).
+
+### <a name="advanced"></a>Avancerat
+
+Som standard lagras mått och metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar. 
+
+Om du vill begränsa de data som Microsoft samlar in på din arbets yta väljer du __arbets ytan hög affärs påverkan__.
+
+> [!IMPORTANT]
+> Du kan bara välja hög påverkan på verksamheten när du skapar en arbets yta. Du kan inte ändra den här inställningen när du har skapat arbets ytan.
+
+Om du använder __Enterprise__ -versionen av Azure Machine Learning kan du i stället ange en egen nyckel. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration. Använd följande steg för att använda din egen nyckel:
+
+> [!IMPORTANT]
+> Innan du följer de här stegen måste du först utföra följande åtgärder:
+>
+> 1. Auktorisera __Machine Learning-appen__ (i identitets-och åtkomst hantering) med deltagar behörigheter för din prenumeration.
+> 1. Följ stegen i [Konfigurera Kundhanterade nycklar](/azure/cosmos-db/how-to-setup-cmk) för att:
+>     * Registrera Azure Cosmos DB-providern
+>     * Skapa och konfigurera en Azure Key Vault
+>     * Generera en nyckel
+>
+>     Du behöver inte skapa Azure Cosmos DB-instansen manuellt, en skapas automatiskt när du skapar arbets ytan. Den här Azure Cosmos DB-instansen skapas i en separat resurs grupp med hjälp av ett namn baserat på det här mönstret: `<your-resource-group-name>_<GUID>` .
+>
+> Du kan inte ändra den här inställningen när du har skapat arbets ytan. Om du tar bort Azure Cosmos DB som används av din arbets yta, måste du också ta bort arbets ytan som använder den.
+
+1. Välj __Kundhanterade nycklar__och välj sedan __knappen Klicka för att välja nyckel__.
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Kundhanterade nycklar":::
+
+1. I formuläret __Välj nyckel från Azure Key Vault__ väljer du en befintlig Azure Key Vault, en nyckel som den innehåller och nyckelns version. Den här nyckeln används för att kryptera data som lagras i Azure Cosmos DB. Använd slutligen knappen __Välj__ för att använda den här nyckeln.
+
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Välj nyckeln":::
 
 ## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Uppgradera till Enterprise Edition
 
@@ -87,7 +137,17 @@ Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition fö
 
 
 > [!IMPORTANT]
-> Du kan inte nedgradera en Enterprise Edition-arbetsyta till en Basic Edition-arbetsyta. 
+> Du kan inte nedgradera en Enterprise Edition-arbetsyta till en Basic Edition-arbetsyta.
+
+### <a name="download-a-configuration-file"></a>Hämta en konfigurations fil
+
+1. Om du kommer att skapa en [beräknings instans](tutorial-1st-experiment-sdk-setup.md#azure)hoppar du över det här steget.
+
+1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du  **hämta config.jspå** i **översikts** avsnittet i arbets ytan.  
+
+   ![Ladda ned config.jspå](./media/how-to-manage-workspace/configure.png)
+   
+   Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Hitta en arbets yta
 

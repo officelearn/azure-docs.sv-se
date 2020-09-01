@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588011"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181382"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -55,7 +55,7 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
     * För instansen: ett *resurs grupp* namn. Du kan använda en befintlig resurs grupp eller ange ett nytt namn på en som ska skapas.
     * För-instansen: ett *namn* för din Azure Digital-instansen. Namnet på den nya instansen måste vara unikt inom regionen för din prenumeration (vilket innebär att om din prenumeration har en annan Azure Digital-instans i den region som redan använder det namn du väljer, blir du ombedd att välja ett annat namn).
     * För app-registreringen: ett *visnings namn för Azure AD-program* som ska associeras med registreringen. Den här appens registrering är den plats där du konfigurerar åtkomst behörigheter till [Azure Digitals dubbla API: er](how-to-use-apis-sdks.md). Senare kommer klient programmet att autentiseras mot appens registrering och därför beviljas de konfigurerade åtkomst behörigheterna till API: erna.
-    * För app-registreringen: en *Azure AD Application svars-URL* för Azure AD-programmet. Du kan använda `http://localhost` .
+    * För app-registreringen: en *Azure AD Application svars-URL* för Azure AD-programmet. Använd `http://localhost`. Skriptet konfigurerar en *offentlig klient/ursprunglig-URI (mobile & Desktop)* för den.
 
 Skriptet skapar en Azure Digital-instansen, tilldelar din Azure-användare rollen *Azure Digitals-ägare (för hands version)* på instansen och konfigurerar en Azure AD-App-registrering för din klient app som ska användas.
 

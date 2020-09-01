@@ -4,12 +4,12 @@ description: Lär dig hur du kan använda mjuk borttagning för att skydda dina 
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282712"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179920"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Oavsiktligt borttagnings skydd för Azure-filresurser med hjälp av Azure Backup
 
@@ -53,7 +53,7 @@ Om du har minst en skyddad fil resurs i ett lagrings konto innebär det att mjuk
 >Du bör utföra steg 2 innan nästa schemalagda säkerhets kopierings jobb körs mot den skyddade fil resursen i ditt lagrings konto. Eftersom när säkerhets kopierings jobbet körs återaktiverar den mjuk borttagning för alla fil resurser i lagrings kontot.
 
 >[!WARNING]
->När du har inaktiverat mjuk borttagning i steg 2, är alla borttagnings åtgärder som utförts mot fil resurserna en permanent borttagnings åtgärd. Det innebär att om du av misstag tar bort den säkerhetskopierade fil resursen när du har inaktiverat mjuk borttagning förlorar du alla ögonblicks bilder och kan inte återställa dina data.
+>När du har inaktiverat mjuk borttagning i steg 2, är alla borttagnings åtgärder som utförts mot fil resurserna en permanent borttagnings åtgärd. Om du av misstag tar bort den säkerhetskopierade fil resursen när du har inaktiverat mjuk borttagning förlorar du alla ögonblicks bilder och kan inte återställa dina data.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Vilka ändringar Azure Backup när jag avregistrerar ett lagrings konto i kontexten för en fil resurss inställning för mjuk borttagning?
 

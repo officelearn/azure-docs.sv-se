@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795923"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179580"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -310,11 +310,11 @@ Om din Azure Active Directory är ansluten till den lokala Active Directory föl
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Inventera dina privilegierade konton i värd Virtual Machines
 
-Du behöver vanligt vis inte ge användare obegränsade behörigheter till alla dina Azure-prenumerationer eller-resurser. Använd administratörs roller i Azure AD för att endast ge åtkomst till de användare som behöver utföra sina jobb. Du kan använda administratörs roller i Azure AD för att låta en administratör hantera virtuella datorer i en prenumeration, medan en annan kan hantera SQL-databaser inom samma prenumeration. Mer information finns i [Kom igång med rollbaserad Access Control i Azure Portal](../../role-based-access-control/overview.md).
+Du behöver vanligt vis inte ge användare obegränsade behörigheter till alla dina Azure-prenumerationer eller-resurser. Använd administratörs roller i Azure AD för att endast ge åtkomst till de användare som behöver utföra sina jobb. Du kan använda administratörs roller i Azure AD för att låta en administratör hantera virtuella datorer i en prenumeration, medan en annan kan hantera SQL-databaser inom samma prenumeration. Mer information finns i [Vad är rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implementera PIM för administratörs roller i Azure AD
 
-Använd Privileged Identity Management med administratörs roller i Azure AD för att hantera, kontrol lera och övervaka åtkomst till Azure-resurser. Att använda PIM skyddar genom att minska exponerings tiden för privilegier och öka din insyn i användningen genom rapporter och aviseringar. Mer information finns i [hantera RBAC-åtkomst till Azure-resurser med Privileged Identity Management](../../role-based-access-control/best-practices.md).
+Använd Privileged Identity Management med administratörs roller i Azure AD för att hantera, kontrol lera och övervaka åtkomst till Azure-resurser. Att använda PIM skyddar genom att minska exponerings tiden för privilegier och öka din insyn i användningen genom rapporter och aviseringar. Mer information finns i [Vad är Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Använd Azures logg integrering för att skicka relevanta Azure-loggar till dina SIEM-system
 

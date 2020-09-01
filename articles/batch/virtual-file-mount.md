@@ -4,23 +4,23 @@ description: Lär dig hur du monterar ett virtuellt fil system i en batch-pool.
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921638"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145492"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montera ett virtuellt fil system i en batch-pool
 
 Azure Batch stöder nu montering av moln lagring eller ett externt fil system på Windows-eller Linux-datornoder i dina batch-pooler. När en Compute-nod ansluter till en pool monteras det virtuella fil systemet och behandlas som en lokal enhet på den noden. Du kan montera fil system som Azure Files, Azure Blob Storage, NFS (Network File System), inklusive ett [AVERT vFXT-cache](../avere-vfxt/avere-vfxt-overview.md)eller CIFS (common Internet File System).
 
-I den här artikeln får du lära dig hur du monterar ett virtuellt fil system på en pool av datornoder med hjälp av [batch Management-biblioteket för .net](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+I den här artikeln får du lära dig hur du monterar ett virtuellt fil system på en pool av datornoder med hjälp av [batch Management-biblioteket för .net](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > Det finns stöd för att montera ett virtuellt fil system på batch-pooler som skapats på eller efter 2019-08-19. Batch-pooler som skapats före 2019-08-19 har inte stöd för den här funktionen.
 > 
-> API: erna för att montera fil system på en Compute-nod är en del av [batch .net](/dotnet/api/microsoft.azure.batch?view=azure-dotnet) -biblioteket.
+> API: erna för att montera fil system på en Compute-nod är en del av [batch .net](/dotnet/api/microsoft.azure.batch) -biblioteket.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Fördelar med att montera i en pool
 
@@ -160,7 +160,7 @@ Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch
 
 ## <a name="supported-skus"></a>SKU: er som stöds
 
-| Publisher | Erbjudande | SKU | Azure Files resurs | Blobfuse | NFS-montering | CIFS-montering |
+| Utgivare | Erbjudande | SKU | Azure Files resurs | Blobfuse | NFS-montering | CIFS-montering |
 |---|---|---|---|---|---|---|
 | batch | rendering – centos73 | Render | :heavy_check_mark: <br>Obs: kompatibel med CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04-LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

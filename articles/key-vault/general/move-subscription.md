@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782727"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145373"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Flytta en Azure Key Vault till en annan prenumeration
 
@@ -51,15 +51,13 @@ Du har ett program anslutet till nyckel valv som skapar certifikat som är gilti
 
 Se till att gå till Azure Policy sidan på Azure Portal och titta på princip tilldelningarna för din aktuella prenumeration samt den prenumeration som du flyttar till och se till att det inte finns några fel matchningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Deltagar nivå åtkomst eller högre till den aktuella prenumerationen där nyckel valvet finns.
 * Deltagar nivå åtkomst eller högre till den prenumeration där du vill flytta nyckel valvet.
 * En resurs grupp i den nya prenumerationen.
 
 ## <a name="procedure"></a>Procedur
-
-Om du 
 
 ### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Flytta Key Vault till en ny prenumeration inom samma klient organisation
 

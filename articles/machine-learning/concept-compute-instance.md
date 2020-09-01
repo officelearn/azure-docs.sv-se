@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ab316d7b101a05dd9b6bba2e11bfe77239619126
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651923"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146767"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -24,7 +24,7 @@ Med beräknings instanser är det enkelt att komma igång med Azure Machine Lear
 
 Använd en beräknings instans som din fullständigt konfigurerade och hanterade utvecklings miljö i molnet för Machine Learning. De kan också användas som beräknings mål för utbildning och inferencing för utvecklings-och testnings ändamål.  
 
-För modell träning för produktions klasser använder du ett [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder. För modell distribution av produktions klass använder du [Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
+För modell träning för produktions klasser använder du ett [Azure Machine Learning beräknings kluster](how-to-create-attach-compute-sdk.md#amlcompute) med skalnings funktioner för flera noder. För modell distribution av produktions klass använder du [Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>Varför ska man använda en beräknings instans?
 
@@ -138,18 +138,7 @@ De här åtgärderna kan styras av RBAC:
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Skapa en beräknings instans
 
-I arbets ytan i Azure Machine Learning Studio skapar du en ny beräknings instans från antingen **Compute** -avsnittet eller i avsnittet **antecknings böcker** när du är redo att köra en av dina antecknings böcker.
-
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Skapa en ny beräknings instans":::
-
-
-|Fält  |Beskrivning  |
-|---------|---------|
-|Namn på beräkning     |  <li>Namnet måste vara mellan 3 och 24 tecken långt.</li><li>Giltiga tecken är gemener och versaler, siffror och  **-** tecken.</li><li>Namnet måste börja med en bokstav</li><li>Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt</li><li>Om **-**  tecknet används måste det följas av minst en bokstav senare i namnet</li>     |
-|Typ av virtuell dator |  Välj processor eller GPU. Det går inte att ändra den här typen när den har skapats     |
-|Storlek för virtuell dator     |  Storleken på virtuella datorer som stöds kan vara begränsad i din region. Kontrol lera [tillgänglighets listan](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-|Aktivera/inaktivera SSH-åtkomst     |   SSH-åtkomst är inaktive rad som standard.  SSH-åtkomst får inte vara. ändras efter att den har skapats. Se till att aktivera åtkomst om du planerar att felsöka interaktivt med [vs Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Avancerade inställningar     |  Valfritt. Konfigurera ett virtuellt nätverk. Ange **resurs gruppen**, det **virtuella nätverket**och **under nätet** för att skapa beräknings instansen i ett Azure-Virtual Network (VNet). Mer information finns i [nätverks kraven](how-to-enable-virtual-network.md#compute-instance) för VNet.        |
+I arbets ytan i Azure Machine Learning Studio [skapar du en ny beräknings instans](how-to-create-attach-compute-studio.md#compute-instance) från antingen **Compute** -avsnittet eller i avsnittet **antecknings böcker** när du är redo att köra en av dina antecknings böcker. 
 
 Du kan också skapa en instans
 * Direkt från den [integrerade Notebook-upplevelsen](tutorial-1st-experiment-sdk-setup.md#azure)
@@ -158,7 +147,7 @@ Du kan också skapa en instans
 * Med Azure Machine Learning SDK
 * Från [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Dedikerade kärnor per region per VM-tullkvot och den totala regionala kvoten som gäller för skapande av beräknings instanser. är enhetlig och delas med Azure Machine Learning utbildnings kluster kvot för beräkning. Att stoppa beräknings instansen frigör inte kvoten för att se till att du kommer att kunna starta om beräknings instansen.
+De dedikerade kärnorna per region per VM-tullkvot och den totala regionala kvoten som gäller för skapande av beräknings instanser, är enhetliga och delade med Azure Machine Learning inlärnings kluster kvot. Att stoppa beräknings instansen frigör inte kvoten för att se till att du kommer att kunna starta om beräknings instansen.
 
 ## <a name="compute-target"></a>Beräkningsmål
 

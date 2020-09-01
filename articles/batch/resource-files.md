@@ -3,12 +3,12 @@ title: Skapa och använda resursfiler
 description: Lär dig hur du skapar batch-resursfiler från olika ingångs källor. Den här artikeln beskriver några vanliga metoder för hur du skapar och placerar dem på en virtuell dator.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964030"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146308"
 ---
 # <a name="creating-and-using-resource-files"></a>Skapa och använda resursfiler
 
@@ -50,7 +50,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > För att få åtkomst till behållare måste du ha både `Read` och `List` -behörigheterna, och med BLOB-åtkomst behöver du bara `Read` behörighet.
 
-När behörigheterna har kon figurer ATS skapar du SAS-token och formaterar SAS-URL: en för åtkomst till lagrings behållaren. Använd den formaterade SAS-URL: en för lagrings behållaren och generera en resurs fil med [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet) .
+När behörigheterna har kon figurer ATS skapar du SAS-token och formaterar SAS-URL: en för åtkomst till lagrings behållaren. Använd den formaterade SAS-URL: en för lagrings behållaren och generera en resurs fil med [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl) .
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -99,7 +99,7 @@ Om varje aktivitet har många filer som är unika för aktiviteten, är resursfi
 
 Om det finns flera hundra resursfiler angivna för en aktivitet kan batchen avvisa uppgiften som för stor. Det är bäst att hålla dina uppgifter små genom att minimera antalet resursfiler i själva aktiviteten.
 
-Om det inte finns något sätt att minimera antalet filer som aktiviteten behöver, kan du optimera aktiviteten genom att skapa en enda resurs fil som refererar till en lagrings behållare för resursfiler. Om du vill göra det lägger du till dina resursfiler i en Azure Storage behållare och använder de olika "container"- [metoderna](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) för resursfiler. Använd alternativen för BLOB-prefix för att ange samlingar av filer som ska laddas ned för dina aktiviteter.
+Om det inte finns något sätt att minimera antalet filer som aktiviteten behöver, kan du optimera aktiviteten genom att skapa en enda resurs fil som refererar till en lagrings behållare för resursfiler. Om du vill göra det lägger du till dina resursfiler i en Azure Storage behållare och använder de olika "container"- [metoderna](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) för resursfiler. Använd alternativen för BLOB-prefix för att ange samlingar av filer som ska laddas ned för dina aktiviteter.
 
 ## <a name="next-steps"></a>Nästa steg
 

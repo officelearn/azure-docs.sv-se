@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163517"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146920"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -35,7 +35,7 @@ Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i p
 
 [Cmdleten Azure PowerShell get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) visar `HomeTenantId` och `ManagedByTenantIds` attributen för varje prenumeration, så att du kan identifiera om en returnerad prenumeration tillhör en hanterad klient eller till din hanterings klient.
 
-På samma sätt visar Azure CLI-kommandon som [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) `homeTenantId` `managedByTenants` attributen och.
+På samma sätt visar Azure CLI-kommandon som [AZ Account List](/cli/azure/account#az-account-list) `homeTenantId` `managedByTenants` attributen och.
 
 > [!TIP]
 > Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 1ebba13de14935d931d5d21ab786889d9a3755da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1204435a5f1d7a48fceb654df10b8394d6f5df50
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500318"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146648"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -30,6 +30,8 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom f
 * [B-serien](../sizes-b-series-burstable.md)
 * [DCsv2-serien](../dcv2-series.md)
 * [DSv2-serien](../dv2-dsv2-series.md) och [Dsv3-serien](../dv3-dsv3-series.md)
+* [Dsv4-serien](../dv4-dsv4-series.md)
+* [Ddsv4-serien](../ddv4-ddsv4-series.md)
 * [Dasv4-serien](../dav4-dasv4-series.md)
 * [Esv3-serien](../ev3-esv3-series.md)
 * [Easv4-serien](../eav4-easv4-series.md)
@@ -86,7 +88,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 
-| Funktion | Generation 1 | Generation 2 |
+| Kapacitet | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
 | OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |

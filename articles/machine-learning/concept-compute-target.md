@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141933"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146748"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -27,13 +27,13 @@ I en typisk modell utvecklings livs cykel kan du:
 
 De beräknings resurser som du använder för beräknings målen är kopplade till en [arbets yta](concept-workspace.md). Andra beräknings resurser än den lokala datorn delas av användare av arbets ytan.
 
-## <a name="training-compute-targets"></a><a name="train"></a>Inlärnings mål
+## <a name="training-compute-targets"></a><a name="train"></a> Inlärnings mål
 
 Azure Machine Learning har varierande stöd för olika beräknings resurser.  Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Läs mer om hur du [konfigurerar och använder ett beräknings mål för modell träning](how-to-set-up-training-targets.md).
+Läs mer om hur du [använder ett beräknings mål för modell träning](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Distributionsmål
 
@@ -46,10 +46,10 @@ Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning Compute (hanterad)
 
-En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. Ytterligare hanterade beräknings resurser kan läggas till i framtiden.
+En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. 
 
 Du kan skapa Azure Machine Learning beräknings instanser eller beräknings kluster från:
-* Azure Machine Learning-studio
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Azure Portal
 * Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) -klasser
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (för hands version)
@@ -68,7 +68,7 @@ När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, 
 
 
 > [!NOTE]
-> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) när du inte använder den för att undvika extra kostnader.
+> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) när du inte använder den för att undvika extra kostnader. 
 
 ### <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
 
@@ -82,19 +82,19 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Inget |
-| Dv2 | Inget |  
-| DSv2 | Inget |  
-| FSv2 | Inget | 
+| D | Inga |
+| Dv2 | Inga |  
+| DSv2 | Inga |  
+| FSv2 | Inga | 
 | HBv2 | Godkännande krävs |  
 | HCS UPPDATERINGSKLIENTEN | Godkännande krävs |  
 | M | Godkännande krävs |
-| NC | Inget |    
+| NC | Inga |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Inget |
+| NV | Inga |
 | NVv3 | Godkännande krävs | 
 
 
@@ -107,5 +107,5 @@ Ett ohanterat beräknings mål hanteras *inte* av Azure Machine Learning. Du ska
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig att:
-* [Konfigurera ett beräknings mål för att träna din modell](how-to-set-up-training-targets.md)
+* [Använd ett beräknings mål för att träna din modell](how-to-set-up-training-targets.md)
 * [Distribuera din modell till ett beräknings mål](how-to-deploy-and-where.md)

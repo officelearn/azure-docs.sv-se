@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f037ea30a1507d4736db7f837e5286701db030e0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611772"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146714"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplet
 
 ## <a name="prerequisites"></a>Krav
 
-* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -150,15 +150,49 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
 
     Mer information finns i [AZ ml computetarget Attach AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
-+ Skapa ett nytt AMLcompute-mål.
+### <a name="compute-clusters"></a>Beräknings kluster
+
++ Skapa ett nytt hanterat beräknings kluster.
 
     ```azurecli-interactive
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
 
-    Mer information finns i [AZ ml computetarget Create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-+ <a id="computeinstance"></a>Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings instansen **CPU**
+
++ Skapa ett nytt hanterat beräknings kluster med hanterad identitet
+
+  + Användartilldelad hanterad identitet
+
+    ```azurecli
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+    ```
+
+  + Systemtilldelad hanterad identitet
+
+    ```azurecli
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
+    ```
++ Lägg till en hanterad identitet i ett befintligt kluster:
+
+    + Användartilldelad hanterad identitet
+        ```azurecli
+        az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+        ```
+    + Systemtilldelad hanterad identitet
+
+        ```azurecli
+        az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
+        ```
+
+Mer information finns i [AZ ml computetarget Create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
+
+<a id="computeinstance"></a>
+
+### <a name="compute-instance"></a>Beräkninsinstans
+Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings instansen **CPU**
 
     + Skapa en ny computeinstance.
 
@@ -226,6 +260,36 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
 
     Mer information finns i [AZ ml experiment List](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
 
+### <a name="hyperdrive-run"></a>HyperDrive körning
+
+Du kan använda HyperDrive med Azure CLI för att utföra parameter justerings körningar. Börja med att skapa en HyperDrive-konfigurations fil i följande format. Se [Justera egenskaper för en modell](how-to-tune-hyperparameters.md) artikel för information om parametrar för parameter justering.
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Lägg till den här filen tillsammans med konfigurationsfilerna för körning. Skicka sedan en HyperDrive-körning med:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Observera avsnittet *argument* i runconfig och *parameter utrymme* i HyperDrive config. De innehåller kommando rads argument som ska skickas till övnings skriptet. Värdet i runconfig förblir detsamma för varje iteration, medan intervallet i HyperDrive-config upprepas. Ange inte samma argument i båda filerna.
+
 ## <a name="dataset-management"></a>Hantering av data uppsättningar
 
 Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine Learning:
@@ -264,7 +328,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
 
     Mer information finns i [avregistrering av AZ ml-datauppsättning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 
-## <a name="environment-management"></a>Miljö hantering
+## <a name="environment-management"></a>Miljöhantering
 
 Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Learning [miljöer](how-to-configure-environment.md) för din arbets yta:
 

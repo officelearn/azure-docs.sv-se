@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810096"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144931"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -144,14 +144,16 @@ I följande tabell visas aktuella Java-versioner som stöds för varje huvud ver
 
 | Funktions version | Java-versioner (Windows) | Java-versioner (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (för hands version)<br/>7,8<sup>\*</sup> | 11 (för hands version)<br/>8 |
+| 3.x | 11 (för hands version)<br/>8 | 11 (för hands version)<br/>8 |
 | 2x | 8 | saknas |
 
-<sup>\*</sup>Detta är den aktuella standardinställningen för den pom.xml som genereras av maven-archetype.
+Om du inte anger en Java-version för distributionen kommer maven archetype att standardvärdet Java 8 under distributionen till Azure.
 
 ### <a name="specify-the-deployment-version"></a>Ange distributions version
 
-För närvarande genererar maven-archetype en pom.xml som är riktad mot Java 8. Följande element i pom.xml måste uppdateras för att skapa en Function-app som kör Java 11.
+Du kan kontrol lera vilken version av Java som är mål för maven-archetype med hjälp av `-DjavaVersion` parametern. Värdet för den här parametern kan vara eter `8` eller `11` . Java 11-stöd är för närvarande en för hands version. 
+
+Maven-archetype genererar en pom.xml som är riktad mot den angivna Java-versionen. Följande element i pom.xml visar vilken Java-version som ska användas:
 
 | Element |  Java 8-värde | Java 11-värde | Beskrivning |
 | ---- | ---- | ---- | --- |
@@ -320,7 +322,7 @@ Om du vill ta emot en batch med indata kan du binda till `String[]` ,, `POJO[]` 
 
 ```
 
-Den här funktionen utlöses när det finns nya data i den konfigurerade händelsehubben. Eftersom `cardinality` är inställt på `MANY` , tar funktionen emot en batch med meddelanden från händelsehubben. `EventData`från Event Hub konverteras till `TestEventData` för att köra funktionen.
+Den här funktionen utlöses när det finns nya data i den konfigurerade händelsehubben. Eftersom `cardinality` är inställt på `MANY` , tar funktionen emot en batch med meddelanden från händelsehubben. `EventData` från Event Hub konverteras till `TestEventData` för att köra funktionen.
 
 ### <a name="output-binding-example"></a>Exempel på utgående bindning
 

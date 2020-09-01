@@ -3,12 +3,12 @@ title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826641"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146529"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -34,7 +34,7 @@ Eftersom säkerhets kopiering av loggar sker var 15: e minut, kan det vara omst�
 
 Övervaka aviseringar om säkerhets kopiering av databas:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. På instrument panelen för valv väljer du **aviseringar och händelser**.
 
@@ -55,7 +55,7 @@ Om du väljer att lämna återställnings punkter bör du tänka på följande:
 
 - Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp skydd med kvarhållning av data.
 - Du debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
-- Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas. De gamla återställnings punkterna upphör att gälla enligt principen, men en sista återställnings punkt kommer alltid att finnas kvar tills du stoppar säkerhets kopieringarna och tar bort data.
+- Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas. De gamla återställnings punkterna upphör att gälla enligt principen, men den senaste återställnings punkten kommer alltid att behållas tills du stoppar säkerhets kopieringarna och tar bort data.
 
 Så här stoppar du skydd för en databas:
 

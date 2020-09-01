@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012696"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144999"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -69,7 +69,7 @@ Med ständigt föränderliga data behöver du snabb och strömlinjeformad modell
 
 Azure Machine Learning användare kan använda det hanterade Azure Machine Learning Compute Cluster, även kallat AmlCompute. AmlCompute stöder olika GPU-och CPU-alternativ. AmlCompute är internt värd för prenumerations uppdrag genom Azure Machine Learning. Det ger samma säkerhet, efterlevnad och styrning i företags klass med Azure IaaS Cloud Scale.
 
-Eftersom dessa Compute-pooler finns inuti Azures IaaS-infrastruktur kan du distribuera, skala och hantera din utbildning med samma krav på säkerhet och efterlevnad som resten av infrastrukturen.  Dessa distributioner sker i din prenumeration och följer dina styrnings regler. Läs mer om [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
+Eftersom dessa Compute-pooler finns inuti Azures IaaS-infrastruktur kan du distribuera, skala och hantera din utbildning med samma krav på säkerhet och efterlevnad som resten av infrastrukturen.  Dessa distributioner sker i din prenumeration och följer dina styrnings regler. Läs mer om [Azure Machine Learning Compute](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Konfigurera utbildnings kluster för automatisk skalning
 
@@ -105,9 +105,9 @@ I vissa fall bör du konfigurera dina utbildnings körningar för att begränsa 
 Här följer några alternativ som du har:
 * Definiera en parameter som anropas `max_run_duration_seconds` i din RunConfiguration för att styra den längsta tid som en körning kan utökas till den beräkning du väljer (antingen lokal eller fjärrstyrd moln beräkning).
 * För [justering](how-to-tune-hyperparameters.md#early-termination)av den här inställningen definierar du en princip för tidig avslutning från en bandit-princip, en princip för att stoppa en median eller en princip för avtrunkering. Om du vill kontrol lera om det finns ytterligare kontroller av de flesta parametrar använder du parametrar som `max_total_runs` eller `max_duration_minutes` .
-* För [Automatisk maskin inlärning](how-to-configure-auto-train.md#exit)ställer du in liknande avslutnings principer med hjälp av `enable_early_stopping` flaggan. Använd också egenskaper som `iteration_timeout_minutes` och `experiment_timeout_minutes` för att kontrol lera maximal varaktighet för en körning eller för hela experimentet.
+* För [Automatisk maskin inlärning](how-to-configure-auto-train.md#exit)ställer du in liknande avslutnings principer med hjälp av  `enable_early_stopping` flaggan. Använd också egenskaper som `iteration_timeout_minutes` och `experiment_timeout_minutes` för att kontrol lera maximal varaktighet för en körning eller för hela experimentet.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Använd virtuella datorer med låg prioritet
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Använd virtuella datorer med låg prioritet
 
 Med Azure kan du använda outnyttjad kapacitet för virtuella datorer med låg prioritet över virtuella datorers skalnings uppsättningar, batch och tjänsten Machine Learning. Dessa allokeringar är emptible men kommer till ett reducerat pris jämfört med dedikerade virtuella datorer. I allmänhet rekommenderar vi att du använder virtuella datorer med låg prioritet för batch-arbetsbelastningar. Du bör också använda dem där avbrott kan återskapas antingen via omsändningar (för batch-Inferencing) eller genom omstarter (för djup inlärnings utbildning med kontroll punkt).
 
@@ -127,4 +127,4 @@ Azure Machine Learning Compute har stöd för reserverade instanser. Om du köpe
 Läs mer om:
 * [Hantera och öka resurs kvoter](how-to-manage-quotas.md)
 * [Hantera kostnader med kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
+* Skapa Azure Machine Learning Compute med [SDK](how-to-create-attach-compute-sdk.md#amlcompute) eller i [Studio](how-to-create-attach-compute-studio.md#amlcompute).

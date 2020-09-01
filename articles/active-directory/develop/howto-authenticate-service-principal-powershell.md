@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 63d3bd0ec321dbcba8e50aed68b972a2e1987bfc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068753"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178815"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 
@@ -43,7 +43,7 @@ För att slutföra den här artikeln måste du ha tillräcklig behörighet i bå
 Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Tilldela programmet till en roll
-Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen *läsare* för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller. Om du vill tillåta att programmet kör åtgärder som starta om, starta och stoppa instanser väljer du *deltagar* rollen.
 

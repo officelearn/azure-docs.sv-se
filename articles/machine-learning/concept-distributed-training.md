@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c2867fc5d57cf9ad6eb6bf2d90e02c61e320120
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995019"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146665"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Distribuerad utbildning med Azure Machine Learning
 
@@ -50,7 +50,7 @@ I modell parallellt behöver arbetsnoder bara synkronisera de delade parametrarn
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [konfigurerar utbildnings miljöer](how-to-set-up-training-targets.md) med python SDK.
+* Lär dig hur du [använder beräknings mål för modell utbildning](how-to-set-up-training-targets.md) med python SDK.
 * Ett tekniskt exempel finns i [referens arkitektur scenariot](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
 * [Träna ml-modeller med TensorFlow](how-to-train-tensorflow.md).
 * [Träna ml-modeller med PyTorch](how-to-train-pytorch.md). 

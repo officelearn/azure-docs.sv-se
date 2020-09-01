@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892413"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178139"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -474,7 +474,7 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Återställa hanterade diskar
 
 > [!NOTE]
-> Om den virtuella datorn har hanterade diskar och du vill återställa dem som Managed disks, har vi introducerat kapaciteten från Azure PowerShell RM-modul v-6.7.0. och senare
+> Om den virtuella datorn har Managed disks och du vill återställa dem som Managed disks, har vi introducerat kapaciteten från Azure PowerShell RM-modul v-6.7.0. och senare.
 >
 >
 

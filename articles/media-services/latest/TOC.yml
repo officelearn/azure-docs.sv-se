@@ -7,6 +7,8 @@
     - name: Nyheter i Media Services
       displayName: release notes
       href: release-notes.md
+    - name: Media Services-efterlevnad
+      href: concept-compliance.md
 - name: Snabbstarter
   items:
     - name: Konfigurera din miljö
@@ -45,33 +47,34 @@
           href: encrypt-content-quickstart.md
 - name: Självstudier
   items:
-    - name: Koda fjärrfiler och strömma videor
+    - name: .NET
       items:
-        - name: Med REST
-          displayName: 'encoding, job, transform'
+        - name: Koda och strömma en fjärrfil – REST
           href: stream-files-tutorial-with-rest.md
-        - name: Med CLI
-          href: stream-files-cli-quickstart.md
-        - name: Med .NET
+        - name: Koda och strömma en fjärrfil – .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Med Node.js
+        - name: Koda och strömma en uppladdad fil
+          href: stream-files-tutorial-with-api.md
+        - name: Strömma live
+          href: stream-live-tutorial-with-api.md
+        - name: Analysera din video
+          href: analyze-videos-tutorial-with-api.md
+        - name: Kryptera dynamiskt med AES-128
+          href: protect-with-aes128.md
+        - name: Kryptera dynamiskt med DRM
+          href: protect-with-drm.md
+    - name: CLI
+      items:
+        - name: Koda och strömma en fjärrfil – CLI
+          href: stream-files-cli-quickstart.md
+    - name: Node.js
+      items:
+        - name: Koda och strömma en fjärrfil – Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Lagra AMS-händelser i Azure Log Analytics
-      href: tutorial-events-log-analytics.md
-    - name: Koda uppladdade filer och strömma video
-      displayName: 'encode, encoding, job, transform'
-      href: stream-files-tutorial-with-api.md
-    - name: Strömma live
-      href: stream-live-tutorial-with-api.md
-      displayName: 'Live Events, Live Outputs, ingest'
-    - name: Analysera din video
-      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-      href: analyze-videos-tutorial-with-api.md
-    - name: Kryptera dynamiskt med AES-128
-      href: protect-with-aes128.md
-    - name: Kryptera dynamiskt med DRM
-      displayName: 'PlayReady, Widevine, FairPlay'
-      href: protect-with-drm.md
+    - name: Azure Portal
+      items:
+        - name: Lagra AMS-händelser i Azure Log Analytics
+          href: tutorial-events-log-analytics.md
 - name: Exempel
   items:
     - name: Media Services v3-exempel

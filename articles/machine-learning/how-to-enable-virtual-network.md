@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 343063c74912b234268757c36384ea876c068c21
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824210"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146834"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -438,7 +438,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-När du har skapat processen tränar du din modell genom att använda klustret i ett experiment. Mer information finns i [Välj och använda ett beräknings mål för utbildning](how-to-set-up-training-targets.md).
+När du har skapat processen tränar du din modell genom att använda klustret i ett experiment. Mer information finns i [använda ett beräknings mål för utbildning](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -667,7 +667,7 @@ Information om hur du använder Azure Machine Learning med Azure-brandväggen fi
 > * Din Azure Machine Learning regions region måste vara [privat länk aktive rad](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Din Azure Container Registry måste vara en Premium version. Mer information om hur du uppgraderar finns i [ändra SKU: er](/azure/container-registry/container-registry-skus#changing-skus).
 > * Ditt Azure Container Registry måste finnas i samma virtuella nätverk och undernät som lagrings kontot och beräknings målen som används för utbildning eller härledning.
-> * Din Azure Machine Learning-arbetsyta måste innehålla ett [Azure Machine Learning Compute-kluster](how-to-set-up-training-targets.md#amlcompute).
+> * Din Azure Machine Learning-arbetsyta måste innehålla ett [Azure Machine Learning Compute-kluster](how-to-create-attach-compute-sdk.md#amlcompute).
 >
 >     När ACR ligger bakom ett virtuellt nätverk kan Azure Machine Learning inte använda det för att direkt bygga Docker-avbildningar. I stället används beräknings klustret för att bygga avbildningarna.
 
@@ -828,14 +828,15 @@ Använd följande steg om du vill använda en virtuell dator eller ett Azure HDI
 
     Behåll standard reglerna för utgående trafik för nätverks säkerhets gruppen. Mer information finns i standard säkerhets regler i [säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
+
     Om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk kan du läsa avsnittet [begränsa utgående anslutningar från det virtuella nätverket](#limiting-outbound-from-vnet) .
 
-1. Anslut den virtuella datorn eller HDInsight-klustret till din Azure Machine Learning-arbetsyta. Mer information finns i [Konfigurera beräknings mål för modell träning](how-to-set-up-training-targets.md).
+1. Anslut den virtuella datorn eller HDInsight-klustret till din Azure Machine Learning-arbetsyta. Mer information finns i [använda Compute-mål för modell träning](how-to-set-up-training-targets.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera miljöer för utbildning](how-to-set-up-training-targets.md)
+* [Använda beräknings mål för modell träning](how-to-set-up-training-targets.md)
 * [Konfigurera privata slut punkter](how-to-configure-private-link.md)
 * [Välj var du vill distribuera modeller](how-to-deploy-and-where.md)
 * [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)

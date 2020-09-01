@@ -11,17 +11,17 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fe7210ad52c756f140144f04e3b747c0bfcd00c3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 70e965e26d3b82cdc63a3c0e147919b8b40585af
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650323"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146597"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Med Azure Machine Learning kan du enkelt skicka ditt utbildnings skript till [olika beräknings mål](how-to-set-up-training-targets.md#compute-targets-for-training), med hjälp av ett [RunConfiguration-objekt](how-to-set-up-training-targets.md#whats-a-run-configuration) och ett ScriptRunConfig- [objekt](how-to-set-up-training-targets.md#submit). Det här mönstret ger dig mycket flexibilitet och maximal kontroll.
+Med Azure Machine Learning kan du enkelt skicka ditt utbildnings skript till [olika beräknings mål](how-to-set-up-training-targets.md), med hjälp av ett [RunConfiguration-objekt](how-to-set-up-training-targets.md#whats-a-run-configuration) och ett ScriptRunConfig- [objekt](how-to-set-up-training-targets.md#submit). Det här mönstret ger dig mycket flexibilitet och maximal kontroll.
 
 
 Klassen uppskattning gör det enklare att träna modeller med djup inlärning och förstärknings inlärning. Det ger en abstraktion på hög nivå som gör att du enkelt kan skapa körnings konfiguration. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript med hjälp av valfritt ramverk som du väljer (till exempel scikit-information) på alla beräknings mål du väljer, oavsett om det är en lokal dator, en enskild virtuell dator i Azure eller ett GPU-kluster i Azure. För PyTorch-, TensorFlow-, kedje-och förstärknings aktiviteter Azure Machine Learning tillhandahåller även de olika [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)-, [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)-, [kedje](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)-och [förstärknings inlärnings](how-to-use-reinforcement-learning.md) uppskattningarna för att förenkla användningen av dessa ramverk.
@@ -29,7 +29,7 @@ Klassen uppskattning gör det enklare att träna modeller med djup inlärning oc
 ## <a name="train-with-an-estimator"></a>Träna med en uppskattning
 
 När du har skapat din [arbets yta](concept-workspace.md) och konfigurerat [utvecklings miljön](how-to-configure-environment.md)kan du träna en modell i Azure Machine Learning följande steg:  
-1. Skapa ett [fjärran slutet beräknings mål](how-to-set-up-training-targets.md) (Observera att du även kan använda lokal dator som beräknings mål)
+1. Skapa ett [fjärrberäknings mål](how-to-create-attach-compute-sdk.md) (eller också kan du använda lokal dator som beräknings mål)
 2. Ladda upp dina [utbildnings data](how-to-access-data.md) till data lagret (valfritt)
 3. Skapa ett [utbildnings skript](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Skapa ett `Estimator`-objekt
@@ -39,7 +39,7 @@ Den här artikeln fokuserar på steg 4-5. Steg 1-3 finns i [självstudierna trä
 
 ### <a name="single-node-training"></a>Utbildning med en nod
 
-Använd en `Estimator` för en utbildning med en enda nod på fjärrberäkning i Azure för en scikit-modell. Du bör redan ha skapat [Compute Target](how-to-set-up-training-targets.md#amlcompute) -objektet `compute_target` och [FileDataset](how-to-create-register-datasets.md) -objektet `ds` .
+Använd en `Estimator` för en utbildning med en enda nod på fjärrberäkning i Azure för en scikit-modell. Du bör redan ha skapat [Compute Target](how-to-create-attach-compute-sdk.md#amlcompute) -objektet `compute_target` och [FileDataset](how-to-create-register-datasets.md) -objektet `ds` .
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -63,7 +63,7 @@ Parameter | Beskrivning
 --|--
 `source_directory`| Lokal katalog som innehåller all kod som behövs för utbildnings jobbet. Den här mappen kopieras från den lokala datorn till fjärrdatorn.
 `script_params`| Ord lista som anger de kommando rads argument som ska skickas till ditt utbildnings skript `entry_script` i form av `<command-line argument, value>` par. Om du vill ange en utförlig flagga i `script_params` använder du `<command-line argument, "">` .
-`compute_target`| Fjärrberäknings mål som ditt utbildnings skript ska köras på, i det här fallet ett Azure Machine Learning Compute-kluster ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Observera även om AmlCompute-kluster är det vanligaste målet, är det också möjligt att välja andra beräknings mål typer, till exempel virtuella Azure-datorer eller till och med lokal dator.)
+`compute_target`| Fjärrberäknings mål som ditt utbildnings skript ska köras på, i det här fallet ett Azure Machine Learning Compute-kluster ([AmlCompute](how-to-create-attach-compute-sdk.md#amlcompute)). (Observera även om AmlCompute-kluster är det vanligaste målet, är det också möjligt att välja andra beräknings mål typer, till exempel virtuella Azure-datorer eller till och med lokal dator.)
 `entry_script`| Sökväg (relativ till `source_directory` ) för det utbildnings skript som ska köras på fjärrdatorn. Den här filen och eventuella ytterligare filer som den är beroende av bör finnas i den här mappen.
 `conda_packages`| Lista över python-paket som ska installeras via Conda som krävs av ditt utbildnings skript.  
 
@@ -93,7 +93,7 @@ Det finns två ytterligare utbildnings scenarier som du kan utföra med `Estimat
 
 Följande kod visar hur du utför distribuerad utbildning för en keras-modell. I stället för att använda standard Azure Machine Learning avbildningar anges dessutom en anpassad Docker-avbildning från Docker Hub `continuumio/miniconda` för träning.
 
-Du bör redan ha skapat ditt [Compute Target](how-to-set-up-training-targets.md#amlcompute) -objekt `compute_target` . Du skapar uppskattningen enligt följande:
+Du bör redan ha skapat ditt [Compute Target](how-to-create-attach-compute-sdk.md#amlcompute) -objekt `compute_target` . Du skapar uppskattningen enligt följande:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -111,7 +111,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Koden ovan visar följande nya parametrar för `Estimator` konstruktorn:
 
-Parameter | Beskrivning | Standardvärde
+Parameter | Beskrivning | Default
 --|--|--
 `custom_docker_image`| Namnet på den avbildning som du vill använda. Ange bara avbildningar som är tillgängliga i offentliga Docker-databaser (i det här fallet Docker Hub). Använd konstruktorns parameter i stället om du vill använda en avbildning från en privat Docker-lagringsplats `environment_definition` .| `None`
 `node_count`| Antal noder som ska användas för ditt utbildnings jobb. | `1`

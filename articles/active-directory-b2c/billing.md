@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f9adf6ce4559234eec74c92f09aa752eb1f9ab51
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386070"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177337"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Fakturerings modell för Azure Active Directory B2C
 
@@ -58,7 +59,7 @@ Så här gör du för att växla till MAU fakturering för en befintlig Azure AD
 
 MAU-baserad avläsning aktive ras så snart du, prenumerationen/resurs ägaren, bekräftar ändringen. Din månads faktura visar de enheter med autentisering som faktureras tills ändringen och nya enheter av MAU börjar med ändringen.
 
-Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Ett exempel:
+Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Exempel:
 
 * Contoso B2C-klienten har 1 000 användare. 250 användare är aktiva under en månad. Prenumerations administratören ändras från per autentisering till månatliga aktiva användare (MAU) den 10: a i månaden.
 * Faktureringen för 1 – 10 – 10 faktureras med modellen per autentisering.
@@ -132,11 +133,24 @@ Hanteringen av Azure AD B2C med hjälp av rollbaserad åtkomst kontroll påverka
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Ändra Azure AD B2C klient fakturerings prenumeration
 
-Azure AD B2C klienter kan flyttas till en annan prenumeration om käll-och mål prenumerationerna finns inom samma Azure Active Directory klient.
+### <a name="move-using-azure-resource-manager"></a>Flytta med Azure Resource Manager
+
+Azure AD B2C klienter kan flyttas till en annan prenumeration med Azure Resource Manager om käll-och mål prenumerationer finns inom samma Azure Active Directory klient organisation.
 
 Information om hur du flyttar Azure-resurser som din Azure AD B2C-klient till en annan prenumeration finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Innan du börjar flytta måste du läsa hela artikeln för att kunna förstå begränsningarna och kraven för en sådan flytt. Förutom instruktioner för att flytta resurser innehåller den viktig information, till exempel en check lista för förflyttning och hur du verifierar flytt åtgärden.
+
+### <a name="move-by-un-linking-and-re-linking"></a>Flytta genom att ångra länkning och omlänka
+
+Om käll-och mål prenumerationerna är kopplade till olika Azure Active Directory klienter kan du inte utföra flytten via Azure Resource Manager enligt beskrivningen ovan. Du kan dock fortfarande få samma resultat genom att avbryta länkningen av Azure AD B2C klient från käll prenumerationen och länka om den till mål prenumerationen. Den här metoden är säker eftersom det enda objekt du tar bort är *fakturerings länken*, inte själva Azure AD B2C själva klienten. Ingen av användarna, apparna, användar flödena, etc. kommer att påverkas.
+
+1. I själva katalogen Azure AD B2C kan du [bjuda in en gäst användare](user-overview.md#guest-user) från Azure AD-klienten (det som är mål Azure-prenumerationen länkad till) och se till att användaren har rollen **Global administratör** i Azure AD B2C.
+1. Gå till *Azure-resursen* som representerar Azure AD B2C i din käll Azure-prenumeration enligt beskrivningen i avsnittet [Hantera Azure AD B2C klient resurser](#manage-your-azure-ad-b2c-tenant-resources) ovan. Växla inte till den faktiska Azure AD B2C-klienten.
+1. Klicka på knappen **ta bort** på sidan **Översikt** . Detta tar *inte* bort relaterade Azure AD B2C klientens användare eller program. Den tar bara bort fakturerings länken från käll prenumerationen.
+1. Logga in på Azure Portal med det användar konto som har lagts till som administratör i Azure AD B2C i steg 1. Gå sedan till mål Azure-prenumerationen, som är länkad till mål Azure Active Directory klient organisationen. 
+1. Återupprätta fakturerings länken i mål prenumerationen genom att följa anvisningarna för att [Skapa länken](#create-the-link) ovan.
+1. Din Azure AD B2C-resurs har nu flyttats till mål Azure-prenumerationen (länkad till mål Azure Active Directory) och debiteras via den här prenumerationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

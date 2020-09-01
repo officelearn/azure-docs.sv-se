@@ -1,19 +1,19 @@
 ---
-title: Distribuera virtuella datorer på din Azure Stack Edge-enhet via Azure CLI och python
-description: 'Beskriver hur du skapar och hanterar virtuella datorer (VM: ar) på en Azure Stack Edge-enhet med hjälp av Azure CLI och python.'
+title: Distribuera virtuella datorer på Azure Stack Edge-enhetens GPU via Azure CLI och python
+description: Beskriver hur du skapar och hanterar virtuella datorer på en Azure Stack Edge-GPU-enhet med hjälp av Azure CLI och python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 898e10f4cc6d1e85a5d44fff41bede885b914a18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 77251148bed76f672adc2fffe2db688b33786022
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088407"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147124"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på din Azure Stack Edge-enhet med Azure CLI och python
 

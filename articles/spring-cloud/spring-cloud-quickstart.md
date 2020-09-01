@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e4813f5c8c156fdf381a55ae450cf0ee35cedfa7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 067195cfef35863a7bcc314a55b4bf1ff8a3ccd7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048217"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146992"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -147,23 +147,24 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto oc
 
 1. Högerklicka på projektet i IntelliJ Project Explorer och välj **Azure**  ->  **Deploy till Azure våren Cloud**.
 
-    ![Distribuera till Azure 1](media/spring-cloud-quickstart-java/intellij-deploy-azure.png)
+    [![Distribuera till Azure 1 ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. Godkänn namnet på appen i fältet **namn** . **Namnet** avser konfigurationen, inte appens namn. Användarna behöver vanligt vis inte ändra det.
 1. I text rutan **artefakt** väljer du *hellospring-0.0.1-Snapshot. jar*.
 1. I text rutan **prenumeration** verifierar du din prenumeration.
 1. I text rutan **fjäder moln** väljer du instansen av Azure våren-molnet som du skapade i [etablera Azure våren Cloud-instansen](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Ange den **offentliga slut punkten** som ska *aktive ras*.
 1. I text rutan **app:** väljer du **skapa app...**.
 1. Ange *hellospring*och klicka sedan på **OK**.
 
-    ![Distribuera till Azure OK](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)
+    [![Distribuera till Azure OK ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
 
 1. Starta distributionen genom att klicka på knappen **Kör** längst ned i dialog rutan **Distribuera Azure våren Cloud App** . Plugin-programmet kör kommandot `mvn package` på `hellospring` appen och distribuerar jar som genereras av `package` kommandot.
 ---
 
 När distributionen är klar kan du komma åt appen på `https://<service instance name>-hellospring.azuremicroservices.io/` .
 
-  ![Öppna appen från webbläsare](media/spring-cloud-quickstart-java/access-app-browser.png)
+  [![Öppna appen från webbläsare ](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 
 ## <a name="streaming-logs-in-real-time"></a>Strömmande loggar i real tid
 
@@ -187,16 +188,13 @@ Loggarna visas i resultatet:
 1. Välj **Azure Explorer**och sedan **våren Cloud**.
 1. Högerklicka på appen som körs.
 1. Välj **strömmande loggar** från den nedrullningsbara listan.
-
-    ![Välj strömmande loggar](media/spring-cloud-intellij-howto/streaming-logs.png)
-
 1. Välj instans.
 
-    ![Välj instans](media/spring-cloud-intellij-howto/select-instance.png)
+    [![Välj strömmande loggar ](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)
 
 1. Direkt uppspelnings loggen visas i fönstret utdata.
 
-    ![Strömmande logg utdata](media/spring-cloud-intellij-howto/streaming-log-output.png)
+    [![Strömmande logg utdata ](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
 ---
 
 För avancerade loggar analys funktioner går du till fliken **loggar** på menyn för [Azure Portal](https://portal.azure.com/). Loggarna här har en fördröjning på några minuter.

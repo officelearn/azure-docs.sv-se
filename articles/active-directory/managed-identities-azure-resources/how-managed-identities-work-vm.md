@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5355d4c83961d87ad4b880f6b3758b212e74dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014357"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178679"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Hur hanterade identiteter för Azure-resurser fungerar med virtuella Azure-datorer
 
@@ -55,7 +55,7 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 3. Azure Resource Manager konfigurerar identiteten på den virtuella datorn genom att uppdatera Azure Instance Metadata Service Identity-slutpunkten med klient-ID och certifikat för tjänstens huvud namn.
 
-4. När den virtuella datorn har fått en identitet använder du informationen om tjänstens huvudnamn för att ge den virtuella datorn åtkomst till Azure-resurser. Använd rollbaserad åtkomstkontroll (RBAC) i Azure AD när du anropar Azure Resource Manager för att tilldela lämplig roll till tjänstens huvudnamn för den virtuella datorn. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
+4. När den virtuella datorn har fått en identitet använder du informationen om tjänstens huvudnamn för att ge den virtuella datorn åtkomst till Azure-resurser. Om du vill anropa Azure Resource Manager använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) och tilldelar den aktuella rollen till tjänstens huvud namn för den virtuella datorn. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
 
 5. Din kod som körs på den virtuella datorn kan begära en token från Azure instance metadata service-slutpunkt, som endast kan nås från den virtuella datorn: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
@@ -73,7 +73,7 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 3. Azure Resource Manager tar emot en begäran om att konfigurera den tilldelade hanterade identiteten på en virtuell dator och uppdaterar slut punkten för Azure Instance Metadata Service-identiteten med klient-ID och certifikat för den användardefinierade hanterade identitets tjänstens huvud namn.
 
-4. När den användartilldelade hanterade identiteten har skapats använder du informationen om tjänstens huvudnamn för att ge identiteten åtkomst till Azure-resurser. Använd rollbaserad åtkomstkontroll (RBAC) i Azure AD när du anropar Azure Resource Manager för att tilldela lämplig roll till tjänstens huvudnamn för den användartilldelade identiteten. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
+4. När den användartilldelade hanterade identiteten har skapats använder du informationen om tjänstens huvudnamn för att ge identiteten åtkomst till Azure-resurser. Om du vill anropa Azure Resource Manager använder du Azure RBAC för att tilldela lämplig roll till tjänstens huvud namn för den användardefinierade identiteten. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
 
    > [!Note]
    > Du kan även utföra det här steget före steg 3.

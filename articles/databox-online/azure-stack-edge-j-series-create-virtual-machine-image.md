@@ -1,19 +1,19 @@
 ---
-title: Skapa avbildningar av virtuella datorer för din Azure Stack Edge-enhet
-description: Beskriver hur du skapar virtuella Linux-eller Windows-avbildningar som ska användas med din Azure Stack Edge-enhet.
+title: Skapa avbildningar av virtuella datorer för Azure Stack Edge GPU-enhet
+description: Beskriver hur du skapar virtuella Linux-eller Windows-avbildningar som ska användas med Azure Stack Edge GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 41f94b8f500656f75831970baa4437607fe911f7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c7730b776ef1d7e1d5e372049395492641b839ff
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088411"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146019"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Skapa anpassade VM-avbildningar för din Azure Stack Edge-enhet
 
@@ -56,7 +56,7 @@ Utför följande steg för att skapa en virtuell Linux-avbildning.
 
 Använd den här virtuella hård disken för att skapa och distribuera en virtuell dator på din Azure Stack Edge-enhet. Du kan använda följande två Azure Marketplace-avbildningar för att skapa anpassade Linux-avbildningar:
 
-|Objekt namn  |Beskrivning  |Publisher  |
+|Objekt namn  |Beskrivning  |Utgivare  |
 |---------|---------|---------|
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu-servern är världens mest populära Linux för moln miljöer.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux är en av de mest populära Linux-distributionerna.     |credativ|

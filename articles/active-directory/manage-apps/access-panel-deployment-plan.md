@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017727"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146631"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
 
@@ -55,11 +55,8 @@ Azure AD Mina appar fördelar företag på följande sätt:
 Mina appar är kostnads fria och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Grupp-baserat medlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Återställning av lösenord för självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Identitetsskydd för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 Se den [fullständiga licens guiden för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -69,7 +66,6 @@ Se den [fullständiga licens guiden för Azure AD](https://azure.microsoft.com/p
 Slutför följande krav innan du påbörjar det här projektet:
 
 * [Integrera Application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Hantera Azure AD-användare och-grupp-infrastruktur](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planera distributionen av Azure AD Mina appar
@@ -139,7 +135,6 @@ Användare eller administratörer måste godkänna användnings villkoren och se
 Om du vill använda administratörs medgivande måste du vara global administratör för organisationen och programmen måste vara antingen:
 
 * Registrerad i din organisation
-
 * Registreras i en annan Azure AD-organisation och har tidigare godkänts av minst en användare
 
 Mer information finns i Konfigurera hur slutanvändare [godkänner ett program i Azure Active Directory](configure-user-consent.md).
@@ -180,9 +175,7 @@ När användarna loggar in på lösenordsbaserade SSO-program måste de installe
 Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekanism för att distribuera tillägget i skala med webbläsare som [stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
 
 * [grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager för Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Användare som inte använder lösenordsbaserade SSO-program drar också nytta av tillägget. De här fördelarna är möjligheten att starta alla appar från Sök fältet, hitta åtkomst till nyligen använda program och att ha en länk till sidan Mina appar.
@@ -294,7 +287,6 @@ Följande tester bör utföras med både företagsägda enheter och personliga e
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Exempel på test fall för program självbetjänings funktioner
 
-
 | Affärs ärende| Förväntat resultat |
 | - | - |
 | Användaren kan hantera medlemskap för programmet| Användare kan lägga till/ta bort medlemmar som har åtkomst till appen |
@@ -319,22 +311,5 @@ Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift
 
 Du kan använda [Privileged Identity Management](../privileged-identity-management/pim-configure.md) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
-### <a name="troubleshoot-my-apps-issues"></a>Felsök problem med mina appar
-
-Skapa fel söknings guider för support organisationen med vanliga scenarier, som pekar på Microsofts dokumentation i sina resolutioner. Du kanske vill skapa guider som bryter supporten till de nivåer som används av din organisation.
-
-Se följande fel söknings guider för referens:
-
-[Program som inte visas](access-panel-troubleshoot-application-not-appearing.md)
-
-[Oväntade program visas](access-panel-troubleshoot-unexpected-application.md)
-
-[Användaren kan inte logga in till Mina appar](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problem med självbetjäning för program åtkomst](access-panel-troubleshoot-self-service-access.md)
-
-[Problem med webb läsar tillägget](manage-access-panel-browser-extension.md)
-
 ## <a name="next-steps"></a>Nästa steg
-
 [Planera en distribution av Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

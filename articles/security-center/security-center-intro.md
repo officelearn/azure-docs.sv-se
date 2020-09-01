@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c42009f5e02180dc5e4c5e3e4b43f00277d7bf58
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529360"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177901"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -63,39 +63,36 @@ Med Azure Security Center kan du förbättra din säkerhet. Du får hjälp med a
 
 Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center bygger på Azure Policy kontroller får du full räckvidd och flexibilitet i en **princip lösning i världs klass**. Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
 
-![Instrumentpanelen i Security Center](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Sidan princip hantering":::
 
 Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer**. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
 
-![Principinstrumentpanelen i Security Center](media/security-center-intro/sc-policy-dashboard.png)
-
-Med de avancerade övervakningsfunktionerna i Security Center kan du också **spåra och hantera efterlevnad och styrning över tid**. Den **övergripande kompatibiliteten** ger dig ett mått på hur mycket dina prenumerationer är kompatibla med principer som är kopplade till din arbets belastning. 
-
-![Principer över tid i Security Center](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Principinstrumentpanelen i Security Center":::
 
 ### <a name="continuous-assessments"></a>Kontinuerliga utvärderingar
 
 Security Center identifierar nya resurser som distribueras till dina arbetsbelastningar och utvärderar om de har konfigurerats enligt rekommenderade säkerhetsmetoder. Om så inte är fallet flaggas de och du får en prioriterad lista med rekommendationer om vad du måste åtgärda för att skydda dina datorer.
 
+För att hjälpa dig att förstå hur viktiga varje rekommendation är för din övergripande säkerhets position, kan Security Center gruppera rekommendationerna i säkerhets kontroller och lägga till ett **säkert Poäng** värde för varje kontroll. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center-säkerhetspoäng":::
+
+### <a name="network-map"></a>Nätverks karta
+
 Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan**. Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
 
-![Security Center-nätverkskarta](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center-nätverkskarta":::
 
-Security Center minimerar dina säkerhets varningar ett steg enklare genom att lägga till en **säker Poäng**. De säkra poängen är nu kopplade till varje rekommendation som du får för att hjälpa dig att förstå hur viktiga varje rekommendation är för den övergripande säkerhets position. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
-
-![Security Center säkra Poäng](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimera och förbättra säkerheten genom att konfigurera rekommenderas kontroller
 
 Den avgörande faktorn för värdet av Azure Security Center ligger i dess rekommendationer. Rekommendationerna skräddarsys för varje enskilt säkerhetsproblem som finns i dina arbetsbelastningar och Security Center gör det administrativa säkerhetsarbetet för dig, inte bara genom att söka efter dina säkerhetsrisker, utan även genom att ge dig specifika anvisningar för hur du tar bort dem.
 
-![Security Center-rekommendationer](media/security-center-intro/sc-recommendations.png)
-
 På så sätt gör Security Center det möjligt för dig att inte bara ställa in säkerhetsprinciper, utan även att tillämpa säkra konfigurationsstandarder för alla dina resurser.
 
 Rekommendationerna hjälper dig att minska risken för angrepp för alla dina resurser. Detta omfattar Azure-datorer, icke-Azure-servrar och Azure PaaS-tjänster, som SQL- och Storage-konton och mycket mer, där varje resurstyp bedöms på olika sätt och har sin egen standarder.
 
-![Security Center-rekommendationsexempel](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center-rekommendationsexempel":::
 
 ## <a name="protect-against-threats"></a>Skydda dig mot risker
 
@@ -103,9 +100,7 @@ Med Security Centers hotskydd kan du upptäcka och förebygga hot mot infrastruk
 
 Security Centers hotskydd innehåller fusionsattackkedjeanalys, som automatiskt korrelerar aviseringar i din miljö, baserat på cyberattackkedjeanalysen, så att du bättre ska förstå en attackkampanjs i dess helhet, var den startade och vilken typ av effekt den haft på dina resurser.
 
-
-
-![Security Center-attackrekommendationer](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Säkerhetsaviseringar":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrering med Microsoft Defender Avancerat skydd
 
@@ -120,8 +115,6 @@ Security Center hjälpa dig att upptäcka hot mot dina Azure PaaS-tjänster. Du 
 ### <a name="block-brute-force-attacks"></a>Blockera råstyrkeattackerare
 
 Security Center hjälper dig att begränsa exponeringen för råstyrkeattacker. Genom att minska åtkomsten till VM-portar med hjälp av just-in-time-VM-åtkomst kan du skydda ditt nätverk genom att förhindra onödig åtkomst. Du kan ange principer för säker åtkomst på valda portar enbart för behöriga användare, tillåtna käll-IP-adressintervall eller IP-adresser under en begränsad tidsperiod.
-
-![Security Center-råstyrka](media/security-center-intro/sc-brute-force.png)
 
 ### <a name="protect-data-services"></a>Skydda datatjänster
 

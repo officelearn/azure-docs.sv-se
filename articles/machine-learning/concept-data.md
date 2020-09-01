@@ -1,7 +1,7 @@
 ---
 title: Skydda data åtkomst i molnet
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du ansluter säkert till dina data på ett säkert sätt från Azure Machine Learning och hur du använder data uppsättningar och data lager för ML-aktiviteter. Data lager kan lagra data från en Azure-Blob, Azure Data Lake gen 1 & 2, SQL DB, Databricks,...
+description: Lär dig hur du ansluter säkert till dina data på ett säkert sätt från Azure Machine Learning och hur du använder data uppsättningar och data lager för ML-aktiviteter. Data lager kan lagra data från en Azure-Blob, Azure Data Lake gen 1 & 2, SQL DB och Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/24/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651802"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146697"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
 Azure Machine Learning gör det enkelt att ansluta till dina data i molnet.  Det ger ett abstraktions lager över den underliggande lagrings tjänsten, så att du kan komma åt och arbeta med dina data på ett säkert sätt utan att behöva skriva kod som är unik för din lagrings typ. Azure Machine Learning tillhandahåller även följande data funktioner:
 
+*    Samverkan med Pandas och Spark DataFrames
 *    Versions hantering och spårning av data härkomst
 *    Data etiketter 
 *    Övervakning av dataavvikelser
-*    Samverkan med Pandas och Spark DataFrames
-
+    
 ## <a name="data-workflow"></a>Data arbets flöde
 
 När du är redo att använda data i din molnbaserade lagrings lösning rekommenderar vi följande data leverans arbets flöde. Det här arbets flödet förutsätter att du har ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) och data i en molnbaserad lagrings tjänst i Azure. 
@@ -67,13 +67,19 @@ Molnbaserade lagrings tjänster som stöds i Azure och som kan registreras som d
 
 ## <a name="datasets"></a>Datauppsättningar
 
-Azure Machine Learning data uppsättningar är referenser som pekar på data i lagrings tjänsten. De är inte kopior av dina data, så ingen extra lagrings kostnad uppstår och integriteten hos dina ursprungliga data källor är inte utsatt för risk.
+Azure Machine Learning data uppsättningar är referenser som pekar på data i lagrings tjänsten. De är inte kopior av dataBy som skapar en Azure Machine Learning data uppsättning. du skapar en referens till data källans plats, tillsammans med en kopia av dess metadata. 
 
- Om du vill interagera med dina data i lagring [skapar du en data uppsättning](how-to-create-register-datasets.md) för att paketera dina data i ett förbruknings Bart objekt för Machine Learning-uppgifter. Registrera data uppsättningen på din arbets yta för att dela och återanvända den över olika experiment utan komplexa data inmatningar.
+Eftersom data uppsättningar är Lazy utvärderas och data finns kvar på sin befintliga plats,
 
-Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna data uppsättningar i Azure](https://azure.microsoft.com/services/open-datasets/)eller Azure Storage-tjänster via data lager. Om du vill skapa en data uppsättning från en i minnet Pandas dataframe skriver du data till en lokal fil, t. ex. en Parquet och skapar din data uppsättning från den filen.  
+* Det kostar ingen extra lagrings kostnad.
+* Riskerar inte att oavsiktligt ändra dina ursprungliga data källor.
+* Förbättra prestanda hastigheten i ML-arbetsflöde.
 
-Vi stöder 2 typer av data uppsättningar: 
+Om du vill interagera med dina data i lagring [skapar du en data uppsättning](how-to-create-register-datasets.md) för att paketera dina data i ett förbruknings Bart objekt för Machine Learning-uppgifter. Registrera data uppsättningen på din arbets yta för att dela och återanvända den över olika experiment utan komplexa data inmatningar.
+
+Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna data uppsättningar i Azure](https://azure.microsoft.com/services/open-datasets/)eller Azure Storage-tjänster via data lager. 
+
+Det finns två typer av data uppsättningar: 
 
 + En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Om dina data redan har rensats och är redo att användas i övnings experiment, kan du [Hämta eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets till ditt beräknings mål.
 

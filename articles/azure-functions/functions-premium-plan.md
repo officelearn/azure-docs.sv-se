@@ -3,15 +3,15 @@ title: Azure Functions Premium-plan
 description: Information och konfigurations alternativ (VNet, ingen kall start, obegränsad körnings tid) för Azure Functions Premium-planen.
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506204"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145765"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -36,21 +36,42 @@ När planen har skapats kan du använda [AZ functionapp Create](/cli/azure/funct
 
 Följande funktioner är tillgängliga för Function-appar som distribueras till en Premium-plan.
 
-### <a name="pre-warmed-instances"></a>Förvärmade instanser
+### <a name="always-ready-instances"></a>Alltid färdiga instanser
 
 Om inga händelser och körningar inträffar idag i förbruknings planen kan din app skalas upp till noll instanser. När nya händelser kommer in måste en ny instans vara anpassad med din app som körs på den.  Det kan ta lite tid att utföra särskilda nya instanser beroende på appen.  Den ytterligare svars tiden för det första anropet kallas ofta app kall start.
 
-I Premium-planen kan du ha din app förvärmad på ett angivet antal instanser, upp till din minsta schema storlek.  Förvärmade instanser gör det också möjligt för dig att förskala en app innan hög belastning. När appen skalas ut skalas den först till de förvärmade instanserna. Ytterligare instanser fortsätter att buffras och värmas omedelbart i förberedelser inför nästa skalnings åtgärd. Genom att ha en buffert för förvärmade instanser kan du effektivt förhindra kall start fördröjning.  Förvärmade instanser är en funktion i Premium-planen och du måste behålla minst en instans som körs och som är tillgänglig hela tiden när planen är aktiv.
+I Premium-planen kan du låta appen alltid vara klar på ett angivet antal instanser.  Det maximala antalet alltid färdiga instanser är 20.  När händelser börjar utlösa appen dirigeras de till de alltid färdiga instanserna först.  När funktionen blir aktiv kommer ytterligare instanser att värmas som en buffert.  Den här bufferten förhindrar kall start för nya instanser som krävs under skalning.  Dessa buffrade instanser kallas [för förvärmade instanser](#pre-warmed-instances).  Med kombinationen av alltid färdiga instanser och en förvärmad buffert kan din app effektivt eliminera kall start.
 
-Du kan konfigurera antalet förvärmade instanser i Azure Portal genom att välja **Funktionsapp**, gå till fliken **plattforms funktioner** och välja alternativen för **skala ut** . I redigerings fönstret för Function-appen är de förvärmade instanserna speciella för den appen, men minimi-och Max instanserna gäller hela planen.
+> [!NOTE]
+> Varje Premium-plan har alltid minst en aktiv och fakturerad instans.
+
+Du kan konfigurera antalet alltid färdiga instanser i Azure Portal genom att välja **Funktionsapp**, gå till fliken **plattforms funktioner** och välja alternativen för **skala ut** . I redigerings fönstret för Function-appen är alltid färdiga instanser speciella för den appen.
 
 ![Inställningar för elastisk skalning](./media/functions-premium-plan/scale-out.png)
 
-Du kan också konfigurera förvärmade instanser för en app med Azure CLI.
+Du kan också konfigurera alltid färdiga instanser för en app med Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
 ```
+
+#### <a name="pre-warmed-instances"></a>Förvärmade instanser
+
+Förvärmade instanser är antalet instanser som värmas som en buffert vid skalnings-och aktiverings händelser.  Förvärmade instanser fortsätter att buffra tills den maximala skalnings gränsen har uppnåtts.  Standard antalet förvärmade instanser är 1 och för de flesta scenarier ska de vara 1.  Om en app har lång uppvärmning (som en anpassad behållar avbildning) kanske du vill öka den här bufferten.  En förvärmad instans blir endast aktiv efter att alla aktiva instanser har utnyttjats tillräckligt.
+
+Tänk på det här exemplet på hur alltid färdiga instanser och förvärmade instanser fungerar tillsammans.  En Premium Function-app har fem alltid färdiga instanser konfigurerade och standardvärdet för en förvärmd instans.  När appen är inaktiv och inga händelser utlöses, kommer appen att tillhandahållas och köras på fem instanser.  
+
+Så snart den första utlösaren kommer in blir de fem alltid färdiga instanserna aktiva och ytterligare en förvärmad instans allokeras.  Appen körs nu med sex etablerade instanser: de fem nu aktiva, alltid aktiva instanserna och den sjätte förvärmade och inaktiva bufferten.  Om körnings frekvensen fortsätter att öka kommer de fem aktiva instanserna att användas.  När plattformen bestämmer sig för att skala bortom fem instanser, kommer den att skalas till den förvärmade instansen.  När detta inträffar kommer det nu att finnas sex aktiva instanser och en sjunde instans kommer genast att etableras och fylla den förvärmade bufferten.  Den här sekvensen av skalning och för uppvärmning fortsätter tills det maximala antalet instanser för appen har nåtts.  Inga instanser kommer att förvärmas eller aktive ras utöver det högsta antalet.
+
+Du kan ändra antalet förvärmade instanser för en app med hjälp av Azure CLI.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+```
+
+#### <a name="maximum-instances-for-an-app"></a>Maximalt antal instanser för en app
+
+Förutom det [högsta antalet instanser av planen](#plan-and-sku-settings)kan du konfigurera ett maximum per app.  Appens Max värde kan konfigureras med [program skalnings gränsen](./functions-scale.md#limit-scale-out).
 
 ### <a name="private-network-connectivity"></a>Anslutning till privat nätverk
 
@@ -68,16 +89,13 @@ Mer information om hur skalning fungerar finns i [funktions skala och värd](./f
 
 ### <a name="longer-run-duration"></a>Varaktighet för längre körning
 
-Azure Functions i en förbruknings plan är begränsad till 10 minuter för en enda körning.  I Premium-planen är varaktigheten för körningen standardvärdet 30 minuter för att förhindra överkörningar. Du kan dock [ändra host.jsi konfigurationen](./functions-host-json.md#functiontimeout) för att göra detta obundet för appar för Premium plan (garanterat 60 minuter).
+Azure Functions i en förbruknings plan är begränsad till 10 minuter för en enda körning.  I Premium-planen är varaktigheten för körningen standardvärdet 30 minuter för att förhindra överkörningar. Du kan dock [ändra host.jsi konfigurationen](./functions-host-json.md#functiontimeout) för att göra varaktigheten obegränsad för appar för Premium plan (garanterat 60 minuter).
 
 ## <a name="plan-and-sku-settings"></a>Planera och SKU-inställningar
 
-När du skapar planen konfigurerar du två inställningar: det minsta antalet instanser (eller plan storlek) och den maximala burst-gränsen.  Minimi instanserna är reserverade och körs alltid.
+När du skapar planen finns det två inställningar för schema storlek: det minsta antalet instanser (eller plan storlek) och den maximala burst-gränsen.
 
-> [!IMPORTANT]
-> Du debiteras för varje instans som allokeras i minsta instans antal oavsett om funktionerna körs eller inte.
-
-Om din app kräver instanser som ligger utanför din plan storlek, kan den fortsätta att skala ut tills antalet instanser träffar den maximala burst-gränsen.  Du debiteras för instanser utöver din plan storlek bara när de är igång och hyr till dig.  Vi kommer att få bästa möjliga prestanda när du skalar din app till den definierade Max gränsen, medan de minsta plan instanserna är garanterade för din app.
+Om din app kräver instanser utöver de alltid färdiga instanserna, kan den fortsätta att skala ut tills antalet instanser träffar den maximala burst-gränsen.  Du debiteras för instanser utöver din plan storlek bara när de är igång och hyr till dig.  Vi kommer att göra bästa möjliga för att skala din app till den definierade Max gränsen.
 
 Du kan konfigurera plan storlek och Max belopp i Azure Portal genom att välja alternativen för **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner**).
 
@@ -85,6 +103,19 @@ Du kan också öka den maximala burst-gränsen från Azure CLI:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+```
+
+Minimi kravet för varje plan är minst en instans.  Det faktiska minsta antalet instanser konfigureras automatiskt för dig baserat på de alltid färdiga instanser som begärs av appar i planen.  Om till exempel en app begär fem alltid färdiga instanser och app B begär två alltid färdiga instanser i samma plan, beräknas den minsta schema storleken som fem.  App A körs på alla 5, och app B körs bara på 2.
+
+> [!IMPORTANT]
+> Du debiteras för varje instans som allokeras i minsta instans antal oavsett om funktionerna körs eller inte.
+
+I de flesta fall bör det här autoberäknade minimivärdet vara tillräckligt.  Att skala bortom det lägsta antalet inträffar dock på bästa möjliga sätt.  Det är möjligt, men troligen, att vid en bestämd tids skala kan fördröjas om ytterligare instanser inte är tillgängliga.  Genom att ställa in ett minimum som är högre än det autoberäknade minimivärdet reserverar du instanser i förväg av utskalning.
+
+Att öka det beräknade minimivärdet för en plan kan göras med hjälp av Azure CLI.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
 ```
 
 ### <a name="available-instance-skus"></a>Tillgängliga instanser SKU: er
@@ -116,7 +147,7 @@ Se den fullständiga regionala tillgängligheten för funktioner här: [Azure.co
 |Australien, sydöstra | 100 | 20 |
 |Brasilien, södra| 60 | 20 |
 |Kanada, centrala| 100 | 20 |
-|USA, centrala| 100 | 20 |
+|Central US| 100 | 20 |
 |Asien, östra| 100 | 20 |
 |East US | 100 | 20 |
 |USA, östra 2| 100 | 20 |

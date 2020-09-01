@@ -3,12 +3,12 @@ title: Hantera och övervaka virtuella Azure-säkerhetskopieringar
 description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopieringar med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 707558b8ad28f7a8a17e24e57f97fda064d0f238
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999350"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145441"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -121,7 +121,7 @@ Det finns två sätt att sluta skydda en virtuell dator:
 * **Stoppa skyddet och ta bort säkerhetskopierade data**. Med det här alternativet stoppas alla framtida säkerhets kopierings jobb från att skydda din virtuella dator och ta bort alla återställnings punkter. Du kommer inte att kunna återställa den virtuella datorn eller använda alternativet *återuppta säkerhets kopiering* .
 
 >[!NOTE]
->Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas. De gamla återställnings punkterna upphör att gälla enligt principen, men en sista återställnings punkt kommer alltid att finnas kvar tills du stoppar säkerhets kopieringarna och tar bort data.
+>Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas. De gamla återställnings punkterna upphör att gälla enligt principen, men den senaste återställnings punkten kommer alltid att behållas tills du stoppar säkerhets kopieringarna och tar bort data.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Stoppa skyddet och behåll säkerhets kopierings data
@@ -187,8 +187,8 @@ För att skydda dina data innehåller Azure Backup funktionen för mjuk borttagn
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Säkerhets kopierings objekt där den primära data källan inte längre finns
 
 * Om de virtuella Azure-datorerna som kon figurer ATS för Azure Backup antingen tas bort eller flyttas utan att skyddet stoppas, kommer de båda schemalagda säkerhets kopierings jobben och säkerhets kopierings jobben på begäran (ad hoc) att Miss sen Säkerhets kopierings kontrollen visas som kritisk endast för misslyckade säkerhets kopierings jobb på begäran (misslyckade schemalagda jobb visas inte).
-* Dessa säkerhets kopierings objekt förblir aktiva i systemet som följer säkerhets kopierings-och bevarande principen som angetts av användaren. Säkerhetskopierade data för de här virtuella Azure-datorerna kommer att behållas enligt bevarande principen. De utgångna återställnings punkterna (förutom den sista återställnings punkten) rensas enligt det kvarhållningsintervall som anges i säkerhets kopierings principen.
-* Vi rekommenderar att du tar bort de säkerhets kopierings objekt där den primära data källan inte längre finns för att undvika eventuell ytterligare kostnad, om säkerhets kopierings objekt/data för borttagnings resurserna inte längre krävs eftersom den sista återställnings punkten kvarhålls för alltid och användaren debiteras enligt gällande säkerhets kopierings prissättning.
+* Dessa säkerhets kopierings objekt förblir aktiva i systemet som följer säkerhets kopierings-och bevarande principen som angetts av användaren. Säkerhetskopierade data för de här virtuella Azure-datorerna kommer att behållas enligt bevarande principen. De utgångna återställnings punkterna (förutom den senaste återställnings punkten) rensas enligt det kvarhållningsintervall som anges i säkerhets kopierings principen.
+* Vi rekommenderar att du tar bort de säkerhets kopierings objekt där den primära data källan inte längre finns, för att undvika eventuell ytterligare kostnad, om säkerhets kopierings objekt/data för borttagnings resurserna inte längre krävs eftersom den senaste återställnings punkten kvarhålls för alltid och användaren debiteras enligt gällande säkerhets kopierings prissättning.
 
 ## <a name="next-steps"></a>Nästa steg
 

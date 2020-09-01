@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852165"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144795"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ I följande exempel visas hur du:
 * Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objekt
 * Köra förutsägelser med Time Series-data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här artikeln behöver du 
 
@@ -248,7 +248,6 @@ automl_config = AutoMLConfig(task='forecasting',
 Om du vill aktivera DNN för ett AutoML-experiment som skapats i Azure Machine Learning Studio kan du läsa [uppgifts typ inställningarna i Studio instruktion](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 Med automatisk ML får användare både interna Time-och djup inlärnings modeller som en del av rekommendations systemet. 
-
 
 Modeller| Beskrivning | Fördelar
 ----|----|---

@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ddf4336015ad172cdf13e224b10ca2536e8f6a25
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018084"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144081"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -30,9 +30,9 @@ De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learnin
 
 ML pipelines körs på beräknings mål (se [Vad är beräknings mål i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)). Pipelines kan läsa och skriva data till och från [Azure Storage](https://docs.microsoft.com/azure/storage/) platser som stöds.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
@@ -111,7 +111,8 @@ output_data1 = PipelineData(
 
 ## <a name="set-up-a-compute-target"></a>Konfigurera ett beräknings mål
 
-I Azure Machine Learning syftar termen __Compute__ (eller __Compute Target__) på de datorer eller kluster som utför beräknings stegen i din Machine Learning-pipeline. Se [Konfigurera och använda beräknings mål för modell utbildning](how-to-set-up-training-targets.md) för en fullständig lista över beräknings mål och hur du skapar och kopplar dem till din arbets yta. Processen för att skapa och eller koppla ett beräknings mål är detsamma oavsett om du tränar en modell eller kör ett pipeline-steg. När du har skapat och kopplat ditt beräknings mål använder du `ComputeTarget` objektet i ditt [pipeline-steg](#steps).
+
+I Azure Machine Learning syftar termen __Compute__ (eller __Compute Target__) på de datorer eller kluster som utför beräknings stegen i din Machine Learning-pipeline.   Se [Compute-mål för modell utbildning](concept-compute-target.md#train) för en fullständig lista över beräknings mål och [skapa beräknings mål](how-to-create-attach-compute-sdk.md) för att skapa och koppla dem till din arbets yta.   Processen för att skapa och eller koppla ett beräknings mål är detsamma oavsett om du tränar en modell eller kör ett pipeline-steg. När du har skapat och kopplat ditt beräknings mål använder du `ComputeTarget` objektet i ditt [pipeline-steg](#steps).
 
 > [!IMPORTANT]
 > Det finns inte stöd för att utföra hanterings åtgärder på beräknings mål inifrån Fjärrjobb. Eftersom Machine Learning-pipelines skickas som ett Fjärrjobb använder du inte hanterings åtgärder på beräknings mål inifrån pipelinen.

@@ -3,12 +3,12 @@ title: Återställa filer till Windows Server med MARS-agenten
 description: I den här artikeln får du lära dig hur du återställer data som lagras i Azure till en Windows Server-eller Windows-dator med den Microsoft Azure Recovery Services MARS-agenten.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018917"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178565"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Återställa filer till Windows Server med MARS-agenten
 

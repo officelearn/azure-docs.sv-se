@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117234"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178951"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
 
@@ -87,7 +87,7 @@ Du har skapat ditt Azure AD-program och tjänstens huvud namn.
 
 ## <a name="assign-a-role-to-the-application"></a>Tilldela en roll till programmet
 
-Du måste tilldela en roll till programmet för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+Du måste tilldela en roll till programmet för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen *läsare* för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
 
@@ -163,7 +163,7 @@ För att ladda upp certifikatet:
 
 När du har registrerat certifikatet med ditt program i program registrerings portalen måste du aktivera klient program koden för att använda certifikatet.
 
-### <a name="create-a-new-application-secret"></a>Skapa en ny program hemlighet
+### <a name="create-a-new-application-secret"></a>Skapa en ny programhemlighet
 
 Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlighet.
 

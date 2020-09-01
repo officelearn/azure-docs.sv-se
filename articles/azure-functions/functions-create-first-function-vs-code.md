@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b5f3a6b8b8a04cca9543a5343d4496524a166c39
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: db5b28ae0bffa16b17cb63471b8d5ba6b5ac94ed
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919615"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146580"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Snabbstart: Skapa en funktion i Azure med hjälp av Visual Studio Code
 
@@ -120,6 +120,8 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
 
     ::: zone pivot="programming-language-java"  
     + **Välj ett språk för ditt funktions projekt**: Välj `Java` .
+
+    + **Välj en version av Java**: Välj `Java 8` eller `Java 11 (preview)` , där dina funktioner körs i Azure. Välj en Java-version som du har verifierat lokalt.
 
     + **Ange ett grupp-ID**: Välj `com.function` .
 

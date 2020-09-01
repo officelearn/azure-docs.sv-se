@@ -1,19 +1,19 @@
 ---
-title: C# IoT Edge modul för Azure Stack Edge | Microsoft Docs
-description: Lär dig hur du utvecklar en C# IoT Edge-modul som kan distribueras på Azure Stack Edge.
+title: C# IoT Edge modul för Azure Stack Edge med GPU | Microsoft Docs
+description: Lär dig hur du utvecklar en C# IoT Edge-modul som kan distribueras på din Azure Stack Edge-GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: a6fb02033d7f242649907eaed8bf01aa23b3cbbe
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: cef6524bd228d5fed342cabfb2959e5d8ab8954e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084989"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146240"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack kant
 

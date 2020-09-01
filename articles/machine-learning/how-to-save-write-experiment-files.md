@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319583"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144047"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig var du sparar indatafiler och var du kan skriva utdatafiler från experimenten för att förhindra lagrings gräns fel och experiment svars tid.
 
-När du startar utbildning körs på ett [beräknings mål](how-to-set-up-training-targets.md), är de isolerade från externa miljöer. Syftet med den här designen är att säkerställa experimentets reproducerbarhet och portabilitet. Om du kör samma skript två gånger, på samma eller något annat beräknings mål, får du samma resultat. Med den här designen kan du behandla beräknings mål som tillstånds lösa beräknings resurser, var och en som inte har någon tillhörighet till de jobb som körs när de är klara.
+När du startar utbildning körs på ett [beräknings mål](concept-compute-target.md), är de isolerade från externa miljöer. Syftet med den här designen är att säkerställa experimentets reproducerbarhet och portabilitet. Om du kör samma skript två gånger, på samma eller något annat beräknings mål, får du samma resultat. Med den här designen kan du behandla beräknings mål som tillstånds lösa beräknings resurser, var och en som inte har någon tillhörighet till de jobb som körs när de är klara.
 
 ## <a name="where-to-save-input-files"></a>Var indatafiler ska sparas
 
@@ -79,4 +79,4 @@ Om du inte behöver ett data lager, skriver du filer till `./outputs` mappen och
 
 * Lär dig mer om [att komma åt data från dina data lager](how-to-access-data.md).
 
-* Läs mer om [hur du ställer in utbildnings mål](how-to-set-up-training-targets.md).
+* Lär dig mer om att skapa beräknings mål med [python SDK](how-to-create-attach-compute-sdk.md) eller med [Studio](how-to-create-attach-compute-studio.md).

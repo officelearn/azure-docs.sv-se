@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799374"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177099"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsöka PowerShell Azure Functions lokalt
 
@@ -65,6 +65,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## <a name="set-the-attach-point"></a>Ange kopplings punkt
 
 Om du vill felsöka en PowerShell-funktion måste funktionen stoppa för att fel söknings programmet ska kopplas. `Wait-Debugger`Cmdleten slutar att köras och väntar på fel sökning.
+
+>[!NOTE]
+>När du använder PowerShell 7 behöver du inte lägga till `Wait-Debugger` anropet i din kod.
 
 Allt du behöver göra är att lägga till ett anrop till `Wait-Debugger` cmdleten strax ovanför `if` instruktionen, enligt följande:
 
@@ -247,7 +250,7 @@ Om den här rasten inträffar kör du `continue` eller- `c` kommandot för att h
 
 Om du har problem under fel sökningen bör du kontrol lera följande:
 
-| Markera | Åtgärd |
+| Markera | Action |
 |------|------|
 | Kör `func --version` från terminalen. Om du får ett fel som `func` inte går att hitta, kan det saknas kärn verktyg (func.exe) från den lokala `path` variabeln.| [Installera om kärn verktyg](functions-run-local.md#v2).|  
 | I Visual Studio Code måste standard terminalen ha åtkomst till func.exe. Kontrol lera att du inte använder en standard-Terminal som inte har några installerade verktyg, till exempel Windows-undersystemet för Linux (WSL).  | Ange standard gränssnittet i Visual Studio Code till antingen PowerShell 7 (rekommenderas) eller Windows PowerShell 5,1.|

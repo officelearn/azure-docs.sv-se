@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 298c5b96951ed616b324535cf3fe2585180789a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117251"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178832"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ord lista för Microsoft Identity Platform-utvecklare
 
@@ -164,7 +164,7 @@ Precis som [omfång](#scopes)ger roller ett sätt för en [resurs Server](#resou
 
 Roller är resurs definierade strängar (till exempel "utgifts god kännare", "skrivskyddad", "Directory. ReadWrite. all"), som hanteras i [Azure Portal][AZURE-portal] via resursens [program manifest](#application-manifest)och lagras i resursens [appRoles-egenskap][Graph-Sp-Resource]. Azure Portal används också för att tilldela användare till "User"-roller och konfigurera klient [program behörigheter](#permissions) för åtkomst till en "program"-roll.
 
-En detaljerad beskrivning av de program roller som exponeras av Microsoft Graph API finns i [Graph API behörighets omfattningar][Graph-Perm-Scopes]. Ett steg-för-steg-implementerings exempel finns i [Hantera åtkomst med RBAC och Azure Portal][AAD-RBAC].
+En detaljerad beskrivning av de program roller som exponeras av Microsoft Graph API finns i [Graph API behörighets omfattningar][Graph-Perm-Scopes]. Ett steg-för-steg-implementerings exempel finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure Portal][AAD-RBAC].
 
 ## <a name="scopes"></a>scopes
 

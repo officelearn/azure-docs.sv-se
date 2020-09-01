@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167019"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177320"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Vill du arkivera vad som är nytt i Azure Security Center?
 
@@ -141,7 +141,7 @@ De nya funktionerna i den här offentliga för hands versionen omfattar:
 
 Program som installeras på virtuella datorer kan ofta ha sårbarheter som kan leda till en överträdelse av den virtuella datorn. Vi presenterar att Security Center standard nivån innehåller inbyggd sårbarhets bedömning för virtuella datorer utan extra avgift. Med en sårbarhets bedömning, som drivs av Qualys i den offentliga för hands versionen, kan du kontinuerligt genomsöka alla installerade program på en virtuell dator för att hitta sårbara program och visa resultaten i Security Center portalens upplevelse. Security Center tar hand om alla distributions åtgärder så att inget extra arbete krävs från användaren. Vi planerar att tillhandahålla alternativ för sårbarhets bedömning för att stödja kundernas unika affärs behov.
 
-[Lär dig mer om sårbarhets bedömningar för Azure-Virtual Machines](security-center-vulnerability-assessment-recommendations.md).
+[Lär dig mer om sårbarhets bedömningar för Azure-Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Avancerad data säkerhet för SQL-servrar på Azure Virtual Machines (för hands version)

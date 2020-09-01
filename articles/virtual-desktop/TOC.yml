@@ -94,6 +94,8 @@
       href: configure-automatic-updates.md
     - name: Installera språkpaket
       href: language-packs.md
+    - name: Use Azure Advisor
+      href: azure-advisor.md
     - name: Omvandla rekommendationer
       href: azure-advisor-recommendations.md
 - name: Begrepp

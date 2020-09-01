@@ -1,7 +1,7 @@
 ---
-title: Experiment uppföljning och distribuera modeller
+title: Experiment spårning och distribution av modeller
 titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig att spåra och logga experiment från DSVM med Azure Machine Learning-tjänsten och/eller MLFlow.
+description: Lär dig hur du spårar och loggar experiment från DSVM med Azure Machine Learning och/eller MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817965"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146903"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Spåra experiment och distribuera modeller i AzureML
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Spåra experiment och distribuera modeller i Azure Machine Learning
 
 Förbättra skapande processen för modeller genom att spåra experiment och övervaka körnings mått. I den här artikeln lär du dig att lägga till loggnings kod i ditt utbildnings skript med [MLflow](https://mlflow.org/) -API: et och spåra experimentet i Azure Machine Learning.
 
@@ -24,7 +24,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 
 ![spåra experiment](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du måste [etablera en Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565731"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177751"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -52,6 +52,8 @@ Följande prestanda indikatorer för frågor är tillgängliga för alla frågor
 
 ## <a name="total-cpu"></a>Total CPU
 Den faktiska beräknings processor som investerats för att bearbeta den här frågan över alla noder för bearbetning av frågor. Eftersom de flesta frågor körs på ett stort antal noder blir detta vanligt vis mycket större än den tid som frågan faktiskt tog att köra. 
+
+Frågor som använder mer än 100 sekunders processor betraktas som en fråga som förbrukar för mycket resurser. Frågan som använder mer än 1 000 sekunders processor betraktas som en grov fråga och kan vara begränsad.
 
 Tid för bearbetning av fråga har lagts på:
 - Data hämtning – det tar längre tid att hämta gamla data än att hämta senaste data.
@@ -177,6 +179,8 @@ SecurityEvent
 
 En kritisk faktor vid bearbetningen av frågan är den data volym som genomsöks och används för bearbetningen av frågan. Azure Datautforskaren använder aggressiva optimeringar som dramatiskt minskar data volymen jämfört med andra data plattformar. Det finns fortfarande kritiska faktorer i frågan som kan påverka den data volym som används.
 
+Frågan som bearbetar fler än 2 000KB betraktas som en fråga som förbrukar för mycket resurser. Frågan som bearbetar mer än 20 000KB data betraktas som en grov fråga och kan vara begränsad.
+
 I Azure Monitor loggar används kolumnen **TimeGenerated** som ett sätt att indexera data. Genom att begränsa **TimeGenerated** -värdena till så smala ett intervall som möjligt kommer att göra en betydande förbättring av frågans prestanda genom att avsevärt begränsa mängden data som ska bearbetas.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Undvik onödig användning av Sök-och Union-operatörer
@@ -300,6 +304,8 @@ SecurityEvent
 
 Alla loggar i Azure Monitor loggar partitioneras enligt kolumnen **TimeGenerated** . Antalet partitioner som nås är direkt relaterat till tidsintervallet. Att minska tidsintervallet är det mest effektiva sättet att säkerställa en fråga om att köra frågor.
 
+Frågan med en tids period på mer än 15 dagar betraktas som en fråga som förbrukar för mycket resurser. Frågan med en tids period på mer än 90 dagar betraktas som en grov fråga och kan vara begränsad.
+
 Tidsintervallet kan anges med hjälp av tidsintervalls väljaren på Log Analytics skärmen enligt beskrivningen i [logg frågans omfång och tidsintervall i Azure Monitor Log Analytics](scope.md#time-range). Detta är den rekommenderade metoden eftersom det valda tidsintervallet skickas till Server delen med hjälp av metadata för frågan. 
 
 En alternativ metod är att uttryckligen inkludera ett [WHERE](/azure/kusto/query/whereoperator) -villkor för **TimeGenerated** i frågan. Du bör använda den här metoden som försäkrar att tidsintervallet är fast, även om frågan används från ett annat gränssnitt.
@@ -389,6 +395,9 @@ Det finns flera fall där systemet inte kan tillhandahålla en korrekt mätning 
 ## <a name="age-of-processed-data"></a>Ålder på bearbetade data
 Azure Datautforskaren använder flera lagrings nivåer: minnes intern, lokal SSD-diskar och mycket långsammare Azure-blobbar. Ju högre data, desto högre är chansen att den lagras på en mer presterande nivå med mindre latens, vilket minskar frågans varaktighet och CPU. Förutom själva data, innehåller systemet också en cache för metadata. De äldre data, som är mindre chansen att cachelagra metadata.
 
+Frågor som bearbetar data som är mer än 14 dagar gamla betraktas som en fråga som förbrukar för mycket resurser.
+
+
 Även om vissa frågor kräver användning av gamla data finns det fall där gamla data används av misstag. Detta händer när frågor körs utan att tillhandahålla tidsintervall i sina meta-data och inte alla tabell referenser inkluderar filter i kolumnen **TimeGenerated** . I dessa fall kommer systemet att söka igenom alla data som lagras i tabellen. När data kvarhållning är lång kan det avse långa tidsintervall och därmed är data som är så gamla som data lagrings perioden.
 
 Sådana fall kan till exempel vara:
@@ -408,6 +417,8 @@ Det finns flera situationer där en enskild fråga kan köras i olika regioner:
 Fråga om flera regioner kräver att systemet serialiseras och överförs i Server delens stora delar av mellanliggande data som vanligt vis är mycket större än resultatet av den slutliga frågan. Det begränsar också systemets möjlighet att utföra optimeringar, heuristik och använda cacheminnen.
 Om det inte finns någon verklig anledning att söka igenom alla dessa regioner bör du justera omfattningen så att den täcker färre regioner. Om resurs omfånget är minimerat men fortfarande många regioner används kan det bero på en felaktig konfiguration. Till exempel skickas gransknings loggar och diagnostikinställningar till olika arbets ytor i olika regioner eller så finns det flera konfigurationer för diagnostiska inställningar. 
 
+Frågan som omfattar mer än tre regioner betraktas som en fråga som förbrukar för mycket resurser. Frågor som omfattar mer än 6 regioner betraktas som en grov fråga och kan begränsas.
+
 > [!IMPORTANT]
 > När en fråga körs i flera regioner är processor-och data mätningarna inte korrekta och kommer endast att representera måttet på en av regionerna.
 
@@ -420,6 +431,8 @@ Användning av flera arbets ytor kan resultera i följande:
 - När en fråga för resurs omfång hämtar data och data lagras i flera arbets ytor.
  
 Körning av frågor mellan regioner och flera kluster kräver att systemet kan serialiseras och överföras i Server delens stora delar av mellanliggande data som vanligt vis är mycket större än resultatet av den slutliga frågan. Det begränsar också systemets möjlighet att utföra optimeringar, heuristik och användning av cacheminnen.
+
+Frågan som omfattar fler än 5 arbets ytor betraktas som en fråga som förbrukar för mycket resurser. Frågor kan inte omfatta fler än 100 arbets ytor.
 
 > [!IMPORTANT]
 > I vissa scenarier med flera arbets ytor är processor-och data mätningarna inte korrekta och kommer endast att representera mätningarna till några av arbets ytorna.

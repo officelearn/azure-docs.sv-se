@@ -8,22 +8,18 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513068"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145934"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Så här konfigurerar du routning för en virtuell hubb
 
 En virtuell hubb kan innehålla flera gatewayer som en plats-till-plats-VPN-gateway, ExpressRoute-Gateway, punkt-till-plats-gateway och Azure-brandvägg. Routningsfunktioner i den virtuella hubben tillhandahålls av en router som hanterar all routning, inklusive transit routning, mellan de gatewayer som använder Border Gateway Protocol (BGP). Den här routern tillhandahåller även överförings anslutning mellan virtuella nätverk som ansluter till en virtuell hubb och har stöd för upp till ett sammanställt data flöde på 50 Gbit/s. Dessa routningsfunktioner gäller för virtuella standard WAN-kunder.
 
 Mer information finns i [om routning av virtuell hubb](about-virtual-hub-routing.md).
-
-> [!NOTE]
-> Vissa av dessa funktioner kan fortfarande distribueras. Detta förväntas slutföras av 17 augusti.
->
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Skapa en routningstabell
 

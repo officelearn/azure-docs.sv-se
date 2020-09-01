@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c1db5bb8cd49fb45f1d34b5748d820a16724372e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 07b82e166b0ec6f0d3a29de50584158b67750e8e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892498"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146563"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig att:
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss på [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 
@@ -193,6 +193,8 @@ Säkerhets kopieringar körs enligt princip schemat. Du kan köra en säkerhets 
 2. I **säkerhets kopierings objekt**väljer du den virtuella dator som kör SAP HANA databasen och klickar sedan på **Säkerhetskopiera nu**.
 3. I **Säkerhetskopiera nu**väljer du vilken typ av säkerhets kopiering du vill utföra. Klicka sedan på **OK**. Den här säkerhets kopian kommer att behållas enligt principen som är kopplad till det här säkerhets kopierings objektet.
 4. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb**  >  **pågår**. Det kan ta en stund att skapa den första säkerhets kopieringen, beroende på databasens storlek.
+
+Som standard är kvarhållning av säkerhets kopior på begäran 45 dagar.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Köra säkerhets kopiering av SAP HANA Studio på en databas med Azure Backup aktiverat
 

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bdcf5ded2f2cf49048b70dedb11f25e67766e938
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828803"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177626"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health åtgärder
 I det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (Azure AD) Connect Health.
@@ -103,13 +103,13 @@ Tänk på följande när du tar bort en tjänst instans:
    <br><br>
 
 [//]: # (Avsnittet börjar med RBAC)
-## <a name="manage-access-with-role-based-access-control"></a>Hantera åtkomst med rollbaserad åtkomstkontroll
-[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) för Azure AD Connect Health ger åtkomst till användare och grupper som inte är globala administratörer. RBAC tilldelar roller till avsedda användare och grupper och tillhandahåller en mekanism för att begränsa globala administratörer i din katalog.
+## <a name="manage-access-with-azure-rbac"></a>Hantera åtkomst med Azure RBAC
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) för Azure AD Connect Health ger åtkomst till användare och grupper som inte är globala administratörer. Azure RBAC tilldelar roller till avsedda användare och grupper och tillhandahåller en mekanism för att begränsa globala administratörer i din katalog.
 
 ### <a name="roles"></a>Roller
 Azure AD Connect Health stöder följande inbyggda roller:
 
-| Role | Behörigheter |
+| Roll | Behörigheter |
 | --- | --- |
 | Ägare |Ägare kan *Hantera åtkomst* (till exempel tilldela en roll till en användare eller grupp), *Visa all information* (till exempel Visa aviseringar) från portalen och *ändra inställningar* (till exempel e-postaviseringar) i Azure AD Connect Health. <br>Som standard tilldelas globala Azure AD-administratörer den här rollen och kan inte ändras. |
 | Deltagare |Deltagare kan *Visa all information* (till exempel Visa aviseringar) från portalen och *ändra inställningar* (till exempel e-postmeddelanden) i Azure AD Connect Health. |
@@ -135,12 +135,12 @@ Om du vill ge en användare åtkomst på nivån *Alla tjänste instanser* i Azur
    ![Skärm bild av Azure AD Connect Health resurs marginal List](./media/how-to-connect-health-operations/startRBAC.png)
 2. Välj **Lägg till**.
 3. I fönstret **Välj en roll** väljer du en roll (till exempel **ägare**).<br>
-   ![Skärm bild av fönstret Azure AD Connect Health RBAC-användare](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Skärm bild av Azure AD Connect Health och Azure RBAC-konfigurations meny](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Ange namnet eller identifieraren för mål användaren eller gruppen. Du kan välja en eller flera användare eller grupper samtidigt. Klicka på **Välj**.
-   ![Skärm bild av fönstret Azure AD Connect Health RBAC-användare](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Skärm bild av Azure AD Connect Health och Azure RBAC-roll lista](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Välj **OK**.<br>
 6. När roll tilldelningen är klar visas användare och grupper i listan.<br>
-   ![Skärm bild av fönstret Azure AD Connect Health RBAC-användare med nya användare markerade](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Skärm bild av Azure AD Connect Health och Azure RBAC och nya användare markerade](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Nu har listan över användare och grupper åtkomst, enligt de tilldelade rollerna.
 
@@ -153,7 +153,7 @@ Nu har listan över användare och grupper åtkomst, enligt de tilldelade roller
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Steg 3: dela bladet med användare eller grupper
 1. När du har tilldelat behörigheter kan en användare komma åt Azure AD Connect Health genom att gå [hit](https://aka.ms/aadconnecthealth).
 2. På bladet kan användaren fästa bladet eller olika delar av det på instrument panelen. Klicka bara på ikonen **Fäst på instrument panelen** .<br>
-   ![Skärm bild av bladet för Azure AD Connect Health RBAC-fästa med PIN-ikonen markerat](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Skärm bild av bladet för Azure AD Connect Health och Azure RBAC-fästa med PIN-ikonen markerad](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > En användare med den tilldelade läsar rollen kan inte hämta Azure AD Connect Health-tillägget från Azure Marketplace. Användaren kan inte utföra den nödvändiga "skapa"-åtgärden för att göra det. Användaren kan fortfarande komma åt bladet genom att gå till föregående länk. För efterföljande användning kan användaren fästa bladet på instrument panelen.
@@ -161,8 +161,8 @@ Nu har listan över användare och grupper åtkomst, enligt de tilldelade roller
 >
 
 ### <a name="remove-users-or-groups"></a>Ta bort användare eller grupper
-Du kan ta bort en användare eller en grupp som lagts till i Azure AD Connect Health RBAC. Högerklicka bara på användaren eller gruppen och välj **ta bort**.<br>
-![Skärm bild av fönstret Azure AD Connect Health RBAC-användare, med ta bort markerat](./media/how-to-connect-health-operations/RBAC_remove.png)
+Du kan ta bort en användare eller en grupp som lagts till Azure AD Connect Health och Azure RBAC. Högerklicka bara på användaren eller gruppen och välj **ta bort**.<br>
+![Skärm bild av Azure AD Connect Health och Azure RBAC med ta bort markerade](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Slutet av RBAC-avsnittet)
 

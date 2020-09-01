@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475200"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144625"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -135,12 +135,12 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 
 |  K8s-version | Överordnad version  | AKS för hands version  | AKS GA  | Uttjänta |
 |--------------|-------------------|--------------|---------|-------------|
-| 1,17  | Dec-09-19  | 19 Jan   | Jul 20  | 1,20 GA | 
-| 1,18  | Mar – 23-20  | 20 maj   | Aug 20  | 1,21 GA | 
-| 1,19  | Aug – 04-20  | Aug 20   | 20 nov  | 1,22 GA | 
-| 1,20  | * Nov 20    | * Dec 20   | * Jan 21  | 1,23 GA | 
+| 1,17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1,20 GA | 
+| 1,18  | Mar – 23-20  | Maj 2020   | Aug 2020  | 1,21 GA | 
+| 1,19  | Aug – 04-20  | Aug 2020   | Nov 2020  | 1,22 GA | 
+| 1,20  | * Nov 2020    | * Dec 2020   | * Jan 2021  | 1,23 GA | 
 
-\*Datum bekräftelse för väntande lansering av uppladdning.
+\* Datum bekräftelse för väntande lansering av uppladdning.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

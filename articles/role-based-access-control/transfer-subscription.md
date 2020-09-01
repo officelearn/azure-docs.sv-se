@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055659"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177286"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)
 
@@ -29,14 +29,14 @@ Organisationer kan ha flera Azure-prenumerationer. Varje prenumeration är assoc
 I den här artikeln beskrivs de grundläggande steg som du kan följa för att överföra en prenumeration till en annan Azure AD-katalog och återskapa några av resurserna efter överföringen.
 
 > [!NOTE]
-> För Azure CSP-prenumerationer stöds inte ändring av Azure AD-katalogen för prenumerationen.
+> För Azure Cloud Service Providers (CSP)-prenumerationer stöds inte att ändra Azure AD-katalogen för prenumerationen.
 
 ## <a name="overview"></a>Översikt
 
 Överföring av en Azure-prenumeration till en annan Azure AD-katalog är en komplex process som måste planeras noggrant och köras. Många Azure-tjänster kräver säkerhets objekt (identiteter) för att kunna användas normalt eller till och med hantera andra Azure-resurser. Den här artikeln försöker omfatta de flesta Azure-tjänster som är beroende av säkerhets objekt, men är inte omfattande.
 
 > [!IMPORTANT]
-> I vissa fall kan överföring av en prenumeration kräva avbrott för att slutföra processen. Noggrann planering krävs för att bedöma om stillestånds tiden kommer att krävas för migreringen.
+> I vissa fall kan överföring av en prenumeration kräva avbrott för att slutföra processen. Noggrann planering krävs för att bedöma om stillestånds tiden kommer att krävas för överföringen.
 
 Följande diagram visar de grundläggande steg som du måste följa när du överför en prenumeration till en annan katalog.
 
@@ -73,21 +73,21 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 | Anpassade roller | Ja | Ja | [Lista anpassade roller](#save-custom-roles) | Alla anpassade roller tas bort permanent. Du måste återskapa de anpassade rollerna och eventuella roll tilldelningar. |
 | Systemtilldelade hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
 | Användare som tilldelats hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
-| Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-other-known-resources) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
-| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-key-vaults) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
+| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Nej | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage och Azure Data Lake Storage Gen2 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Data Lake Storage Gen1 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure File Sync | Ja | Ja |  |  |
-| Azure Managed Disks | Ja | Ej tillämpligt |  |  |
+| Azure Managed Disks | Yes | E.t. |  |  |
 | Azure Container Services för Kubernetes | Ja | Ja |  |  |
-| Azure Active Directory Domain Services | Ja | Inga |  |  |
+| Azure Active Directory Domain Services | Ja | Nej |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
-> [!IMPORTANT]
-> Om du använder kryptering i vila för en resurs som ett lagrings konto eller en SQL-databas och resursen har ett beroende av ett nyckel valv som *inte* finns i prenumerationen som överförs, kan du få ett oåterkalleligt fel. I den här situationen använder du ett annat nyckel valv eller inaktiverar tillfälligt Kundhanterade nycklar för att undvika ett oåterkalleligt fel.
+> [!WARNING]
+> Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som **inte** finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra de här stegen:
 
@@ -221,8 +221,8 @@ Hanterade identiteter uppdateras inte när en prenumeration överförs till en a
 
 När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active Directory klient-ID: t för den prenumeration som den skapas i. Alla åtkomstprincipposter knyts också till detta klient-ID. Mer information finns i [flytta en Azure Key Vault till en annan prenumeration](../key-vault/general/move-subscription.md).
 
-> [!IMPORTANT]
-> Om du använder kryptering i vila för en resurs som ett lagrings konto eller en SQL-databas och resursen har ett beroende av ett nyckel valv som *inte* finns i prenumerationen som överförs, kan du få ett oåterkalleligt fel. I den här situationen använder du ett annat nyckel valv eller inaktiverar tillfälligt Kundhanterade nycklar för att undvika ett oåterkalleligt fel.
+> [!WARNING]
+> Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som **inte** finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
 
 - Om du har ett nyckel valv ska du använda [AZ Key Vault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) för att visa en lista över åtkomst principerna. Mer information finns i [tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -232,7 +232,7 @@ När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Visa en lista över Azure SQL-databaser med Azure AD-autentisering
 
-- Använd [AZ SQL Server AD-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) och [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) -tillägget för att se om du använder Azure SQL-databaser med Azure AD-autentisering. Mer information finns i [Konfigurera och hantera Azure Active Directory autentisering med SQL](../azure-sql/database/authentication-aad-configure.md).
+- Använd [AZ SQL Server AD-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) och [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) -tillägget för att se om du använder Azure SQL-databaser med Azure AD-autentisering aktive rad. Mer information finns i [Konfigurera och hantera Azure Active Directory autentisering med SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -262,16 +262,21 @@ När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active 
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Steg 2: överför fakturerings ägarskap
+## <a name="step-2-transfer-the-subscription"></a>Steg 2: överför prenumerationen
 
-I det här steget överför du fakturerings ägarskapet för prenumerationen från käll katalogen till mål katalogen.
+I det här steget överför du prenumerationen från käll katalogen till mål katalogen. Stegen är olika beroende på om du även vill överföra fakturerings ägandet.
 
 > [!WARNING]
-> När du överför prenumerationens fakturerings ägarskap tas alla roll tilldelningar i käll katalogen bort **permanent** och kan inte återställas. Du kan inte gå tillbaka när du har överfört fakturerings ägarskapet för prenumerationen. Se till att slutföra de föregående stegen innan du utför det här steget.
+> När du överför prenumerationen tas alla roll tilldelningar i käll katalogen bort **permanent** och kan inte återställas. Du kan inte gå tillbaka när du har överfört prenumerationen. Se till att slutföra de föregående stegen innan du utför det här steget.
 
-1. Följ stegen i [överföra fakturerings ägarskapet för en Azure-prenumeration till ett annat konto](../cost-management-billing/manage/billing-subscription-transfer.md). Om du vill överföra prenumerationen till en annan Azure AD-katalog måste du markera kryss rutan **prenumeration för Azure AD-klient** .
+1. Avgör om du även vill överföra fakturerings ägarskapet.
 
-1. När du har överfört ägarskapet går du tillbaka till den här artikeln för att återskapa resurserna i mål katalogen.
+1. Överför prenumerationen till en annan katalog.
+
+    - Om du vill behålla den aktuella fakturerings äganden följer du stegen i [associera eller lägga till en Azure-prenumeration i Azure Active Directory klient organisationen](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Om du även vill överföra fakturerings ägarskapet följer du stegen i [överföra fakturerings ägandet för en Azure-prenumeration till ett annat konto](../cost-management-billing/manage/billing-subscription-transfer.md). Om du vill överföra prenumerationen till en annan katalog måste du markera kryss rutan **prenumeration för Azure AD-klient** .
+
+1. När du har överfört prenumerationen kan du gå tillbaka till den här artikeln och återskapa resurserna i mål katalogen.
 
 ## <a name="step-3-re-create-resources"></a>Steg 3: återskapa resurser
 

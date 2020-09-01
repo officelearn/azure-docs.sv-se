@@ -41,6 +41,8 @@
       href: location-condition.md
     - name: Konsekvensverktyg
       href: what-if-tool.md
+    - name: Utvärdering av kontinuerlig åtkomst
+      href: concept-continuous-access-evaluation.md
     - name: Anpassade kontroller
       href: controls.md
     - name: Klassisk policymigrering

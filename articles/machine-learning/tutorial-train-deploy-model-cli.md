@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543409"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144038"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Läs hur du vidtar följande åtgärder:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -300,7 +300,7 @@ Runconfig-filen innehåller också information som används för att konfigurera
 > [!TIP]
 > Även om det är möjligt att skapa en runconfig-fil manuellt, skapades den i det här exemplet med den `generate-runconfig.py` fil som ingår i lagrings platsen. Den här filen hämtar en referens till den registrerade data uppsättningen, skapar en körnings konfigurations program mässigt och sparar den sedan i filen.
 
-Mer information om att köra konfigurationsfiler finns i [Konfigurera och använda Compute-mål för modell träning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). En fullständig JSON-referens finns i [runconfigschema.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Mer information om att köra konfigurationsfiler finns i [använda beräknings mål för modell träning](how-to-set-up-training-targets.md#whats-a-run-configuration). En fullständig JSON-referens finns i [runconfigschema.jspå](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Skicka in utbildnings körningen
 

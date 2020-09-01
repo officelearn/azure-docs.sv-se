@@ -1,6 +1,6 @@
 ---
 title: Återkalla användar åtkomst i nödfall i Azure Active Directory | Microsoft Docs
-description: Lägg till användare i grupp i Azure AD administrations Center i Azure Active Directory
+description: Så här återkallar du all åtkomst till en användare i Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798422"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147141"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Återkalla användar åtkomst i Azure Active Directory
 
@@ -38,7 +38,7 @@ För att minimera riskerna måste du förstå hur tokens fungerar. Det finns må
 
 Azure AD utvärderar sedan sina Auktoriseringsprinciper. Om användaren fortfarande har behörighet utfärdar Azure AD en ny åtkomsttoken och en uppdaterad token.
 
-Åtkomst-token kan vara ett säkerhets problem om åtkomst måste återkallas inom en tid som är kortare än token för token, som vanligt vis ligger runt en timme. Av den anledningen arbetar Microsoft aktivt med att göra en [utvärdering av kontinuerlig åtkomst](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) till Office 365-program, vilket hjälper till att säkerställa ogiltighet av åtkomsttoken i nära real tid.  
+Åtkomst-token kan vara ett säkerhets problem om åtkomst måste återkallas inom en tid som är kortare än token för token, som vanligt vis ligger runt en timme. Av den anledningen arbetar Microsoft aktivt med att göra en [utvärdering av kontinuerlig åtkomst](../conditional-access/concept-continuous-access-evaluation.md) till Office 365-program, vilket hjälper till att säkerställa ogiltighet av åtkomsttoken i nära real tid.  
 
 ## <a name="session-tokens-cookies"></a>Token för sessioner (cookies)
 

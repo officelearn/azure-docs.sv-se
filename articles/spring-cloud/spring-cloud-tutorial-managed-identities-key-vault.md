@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2b68c4857d3d688c42779be9b5f5fa6e43e0403e
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: c960a4aeaeea41f23c7f29351b9205c4bbf21454
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116892"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177235"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Självstudie: använda en hanterad identitet för att ansluta Key Vault till en Azure våren Cloud-App
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar en hanterad identitet för en Azure våren
 
 Azure Key Vault kan användas för säker lagring och strikt kontroll av åtkomst till token, lösen ord, certifikat, API-nycklar och andra hemligheter för din app. Du kan skapa en hanterad identitet i Azure Active Directory (AAD) och autentisera till en tjänst som stöder AAD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
 * [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -114,13 +114,13 @@ Den här appen kommer att ha åtkomst till att hämta hemligheter från Azure Ke
 
     @SpringBootApplication
     @RestController
-    public class SecretsApplication implements CommandLineRunner {
+    public class DemoApplication implements CommandLineRunner {
 
         @Value("${connectionString}")
         private String connectionString;
 
         public static void main(String[] args) {
-          SpringApplication.run(SecretsApplication.class, args);
+          SpringApplication.run(DemoApplication.class, args);
         }
 
         @GetMapping("get")
@@ -149,7 +149,7 @@ Den här appen kommer att ha åtkomst till att hämta hemligheter från Azure Ke
     mvn clean package
     ```
 
-5. Nu kan du distribuera din app till Azure med Azure CLI-kommandot `az spring-cloud app deploy` . 
+5. Nu kan du distribuera din app till Azure med Azure CLI-kommandot  `az spring-cloud app deploy` . 
 
     ```azurecli
     az spring-cloud app deploy -n "springapp" -s "myspringcloud" -g "myResourceGroup" --jar-path target/demo-0.0.1-SNAPSHOT.jar
@@ -201,7 +201,7 @@ Med Azure Key Vault Secrets klient bibliotek kan du lagra och kontrol lera åtko
     mvn clean package
     ```
 
-5. Distribuera nu appen till Azure med Azure CLI-kommandot `az spring-cloud app deploy` . 
+5. Distribuera nu appen till Azure med Azure CLI-kommandot  `az spring-cloud app deploy` . 
 
     ```azurecli
     az spring-cloud app deploy -n "springapp" -s "myspringcloud" -g "myResourceGroup" --jar-path target/asc-managed-identity-keyvault-sample-0.1.0.jar

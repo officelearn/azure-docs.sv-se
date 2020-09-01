@@ -154,7 +154,7 @@
         - name: Felsöka
           items:
             - name: Enhetsproblem
-              href: azure-stack-edge-troubleshoot.md
+              href: azure-stack-edge-gpu-troubleshoot.md
             - name: Beställningsproblem
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Kontakta Microsoft Support

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723970"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177252"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -159,11 +159,11 @@ När du distribuerar en lösning för sårbarhets bedömning Security Center tid
 
 Från den här uppdateringen har kontrollen tagits bort och nu kan du distribuera verktyg för sårbarhets bedömning till anpassade Windows-och Linux-datorer. Anpassade avbildningar är de som du har ändrat från Marketplace-standardvärden.
 
-Även om du nu kan distribuera det integrerade tillägget för sårbarhets bedömning (drivs av Qualys) på många fler datorer, är stödet bara tillgängligt om du använder ett operativ system som anges i [distribuera den inbyggda säkerhets luckan för Qualys](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+Även om du nu kan distribuera det integrerade tillägget för sårbarhets bedömning (drivs av Qualys) på många fler datorer, är support endast tillgängligt om du använder ett operativ system som anges i [distribuera den integrerade säkerhets luckan till virtuella datorer med standard nivå](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms) .
 
-Lär dig mer om den [integrerade säkerhets genomsökningen för virtuella datorer (endast standard-nivå)](built-in-vulnerability-assessment.md).
+Lär dig mer om den [integrerade säkerhets genomsökningen för virtuella datorer (endast standard-nivå)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Lär dig mer om att använda en egen privat licensierad lösning för sårbarhets bedömning från Qualys eller Rapid7 i [distribuera en lösning för genomsökning av partner problem](partner-vulnerability-assessment.md).
+Lär dig mer om att använda en egen privat licensierad lösning för sårbarhets bedömning från Qualys eller Rapid7 i [distribuera en lösning för genomsökning av partner problem](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)
@@ -415,7 +415,7 @@ Använd den nya säkerhets rekommendationen för att distribuera lösningen:
 
 "Aktivera den inbyggda lösningen för sårbarhets bedömning på virtuella datorer (drivs av Qualys)"
 
-Lär dig mer om [Security Center s integrerade sårbarhets bedömning för virtuella datorer](built-in-vulnerability-assessment.md).
+Lär dig mer om [Security Center s integrerade sårbarhets bedömning för virtuella datorer](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 
 

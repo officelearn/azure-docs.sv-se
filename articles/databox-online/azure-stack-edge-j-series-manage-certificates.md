@@ -1,19 +1,19 @@
 ---
-title: Använda certifikat med Azure Stack Edge | Microsoft Docs
-description: Beskriver hur du använder certifikat med Azure Stack Edge-enhet, inklusive varför du ska använda, vilka typer och hur du laddar upp certifikat på enheten.
+title: Använda certifikat med Azure Stack Edge-GPU | Microsoft Docs
+description: Beskriver hur du använder certifikat med Azure Stack Edge GPU-enhet, inklusive varför du ska använda, vilka typer och hur du laddar upp certifikat på enheten.
 services: Azure Stack Edge
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e257ecbcc608dfc6ecb9aedae69eeef083395836
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7742d036857525ce6be64a53234f7aa717d4bdca
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087265"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147090"
 ---
 # <a name="use-certificates-with-azure-stack-edge-series"></a>Använda certifikat med Azure Stack Edge-serien 
 

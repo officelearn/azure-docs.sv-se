@@ -2,23 +2,23 @@
 title: 'Snabb start: skapa en profil för HA med program – Azure CLI – Azure Traffic Manager'
 description: Den här snabb starten beskriver hur du skapar en Traffic Manager-profil för att skapa ett webb program med hög tillgänglighet.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491212"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178090"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Snabb start: skapa en Traffic Manager profil för ett webb program med hög tillgänglighet med hjälp av Azure CLI
 
@@ -93,7 +93,7 @@ az appservice plan create \
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Skapa en webbapp i App Service-planen
 Skapa två instanser webb programmet med [AZ webapp skapa](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i App Service-planer i Azure-regionerna *USA, östra* *och Västeuropa.*
 
-I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope>** med ett unikt namn på appen och ersätter **<appspname_eastus**>och<**appspname_westeurope>med** det namn som användes för att skapa app Services planer i föregående avsnitt.
+I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope>** med ett unikt namn på appen och ersätter **<appspname_eastus **>och<** appspname_westeurope>med ** det namn som användes för att skapa app Services planer i föregående avsnitt.
 
 ```azurecli-interactive
 
@@ -117,7 +117,7 @@ Lägg till de två Web Apps som Traffic Manager slut punkter med [AZ Network Tra
 
 När den primära slutpunkten inte är tillgänglig dirigeras trafiken automatiskt till redundansslutpunkten.
 
-I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope**>med de app-namn som skapats för varje region i föregående avsnitt, ersätter **<appspname_eastus** **>och<appspname_westeurope>med** det namn som användes för att skapa App Services planer i föregående avsnitt och ersätter **<** profile_name>med det profil namn som användes i föregående avsnitt. 
+I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope>** med de app-namn som skapats för varje region i föregående avsnitt. Ersätt sedan **<profile_name>** med det profil namn som användes i föregående avsnitt. 
 
 **Östra USA-slutpunkt**
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 I det här avsnittet kontrollerar domännamnet för Traffic Manager-profilen. Du kan även konfigurera den primära slutpunkten till att inte vara tillgänglig. Slutligen ser du att webbappen fortfarande är tillgänglig. Det beror på att Traffic Manager skickar trafiken till redundansslutpunkten.
 
-I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope**>med de app-namn som skapats för varje region i föregående avsnitt, ersätter **<appspname_eastus** **>och<appspname_westeurope>med** det namn som användes för att skapa App Services planer i föregående avsnitt och ersätter **<** profile_name>med det profil namn som användes i föregående avsnitt.
+I följande exempel ersätter du **<app1name_eastus>** och **<app2name_westeurope>** med de app-namn som skapats för varje region i föregående avsnitt. Ersätt sedan **<profile_name>** med det profil namn som användes i föregående avsnitt.
 
 ### <a name="determine-the-dns-name"></a>Bestämma DNS-namnet
 

@@ -35,8 +35,6 @@
           href: identity-secure-score.md
         - name: Säkra distansarbetare
           href: concept-secure-remote-workers.md
-        - name: Utvärdering av kontinuerlig åtkomst
-          href: concept-fundamentals-continuous-access-evaluation.md
     - name: Grupper och användare
       items:
         - name: Grupper och åtkomsthantering

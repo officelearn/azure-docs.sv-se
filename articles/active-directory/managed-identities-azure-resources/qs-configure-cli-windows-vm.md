@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b003c3362e2fb22a36985eb29b1a537bbffb28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994fe7e711210d9eb676b41cb70ff695c6456006
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002410"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145390"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI
 
@@ -33,7 +33,7 @@ I den här artikeln använder du Azure CLI för att lära dig hur du utför föl
 - Aktivera och inaktivera den systemtilldelade hanterade identiteten på en virtuell Azure-dator
 - Lägga till och ta bort en användardefinierad hanterad identitet på en virtuell Azure-dator
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
@@ -113,6 +113,10 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 I det här avsnittet får du lära dig hur du lägger till och tar bort en användardefinierad hanterad identitet från en virtuell Azure-dator med hjälp av Azure CLI.
 
+      > [!NOTE]
+      > If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
+      >i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Tilldela en användardefinierad hanterad identitet när en virtuell Azure-dator skapas
 
 För att tilldela en användardefinierad identitet till en virtuell dator när den skapas, måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
@@ -182,7 +186,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    }
    ```
 
-2. Tilldela den användarspecifika identiteten till den virtuella datorn med [AZ VM Identity Assign](/cli/azure/vm). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. `<USER ASSIGNED IDENTITY NAME>`Är resurs egenskapen för den användare som tilldelats den hanterade identiteten `name` som skapades i föregående steg:
+2. Tilldela den användarspecifika identiteten till den virtuella datorn med [AZ VM Identity Assign](/cli/azure/vm). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VM NAME>` med dina egna värden. `<USER ASSIGNED IDENTITY NAME>`Är resurs egenskapen för den användare som tilldelats den hanterade identiteten `name` som skapades i föregående steg. Om du har skapat din användarspecifika hanterade identitet i en annan RG än den virtuella datorn. Du måste använda URL: en för din hanterade identitet.
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

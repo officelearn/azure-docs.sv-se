@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145270"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146427"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -28,8 +28,8 @@ I det här exemplet ska vi skapa en pipeline för build och release för att dis
 
 För att följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett grup projekt.
 
-* [Skapa en Azure DevOps-organisation](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Skapa ett projekt i Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Skapa en Azure DevOps-organisation](/azure/devops/organizations/accounts/create-organization)
+* [Skapa ett projekt i Azure DevOps](/azure/devops/organizations/projects/create-projects)
 
 ### <a name="source-control-for-your-environment"></a>Käll kontroll för din miljö
 
@@ -48,7 +48,7 @@ Kodbas-strukturen som används i det här exemplet liknar följande:
 
 Det här avsnittet förutsätter att du är bekant med versions kontroll och hur du utformar Resource Manager-mallar. Om du inte är bekant med dessa begrepp kan du se följande sidor för mer information.
 
-* [Vad är käll kontroll?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [Vad är käll kontroll?](/azure/devops/user-guide/source-control)
 * [Förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
@@ -309,7 +309,7 @@ Nu när käll koden har kon figurer ATS kan vi börja den första versionen.
 
 ## <a name="continuous-integration"></a>Kontinuerlig integrering
 
-[Azure-pipeliner](/azure/devops/pipelines/get-started/?view=azure-devops), inom Azure DevOps Services, hjälper dig att implementera en pipeline för build, test och distribution för dina program.
+[Azure-pipeliner](/azure/devops/pipelines/get-started/), inom Azure DevOps Services, hjälper dig att implementera en pipeline för build, test och distribution för dina program.
 
 I det här steget av din pipeline körs testerna vanligt vis för att validera kod och bygga lämpliga delar av program varan. Antalet och typerna av tester och eventuella ytterligare aktiviteter som du kör beror på din bredare version av version och version.
 
@@ -323,9 +323,9 @@ I det här exemplet ska vi fokusera på mappen **HPC-Application** . Mappen **HP
 
 1. Det finns två alternativ för att skapa en pipeline för bygge:
 
-    a. [Använda den visuella designern](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Om du vill använda detta klickar du på "Använd den visuella designern" på sidan **ny pipeline** .
+    a. [Använda den visuella designern](/azure/devops/pipelines/get-started-designer). Om du vill använda detta klickar du på "Använd den visuella designern" på sidan **ny pipeline** .
 
-    b. [Använda yaml-versioner](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Du kan skapa en ny YAML-pipeline genom att klicka på alternativet Azure databaser eller GitHub på sidan ny pipeline. Du kan också lagra exemplet nedan i käll kontrollen och referera till en befintlig YAML-fil genom att klicka på Visual designer och sedan använda YAML-mallen.
+    b. [Använda yaml-versioner](/azure/devops/pipelines/get-started-yamls). Du kan skapa en ny YAML-pipeline genom att klicka på alternativet Azure databaser eller GitHub på sidan ny pipeline. Du kan också lagra exemplet nedan i käll kontrollen och referera till en befintlig YAML-fil genom att klicka på Visual designer och sedan använda YAML-mallen.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,7 +357,7 @@ I det här exemplet ska vi fokusera på mappen **HPC-Application** . Mappen **HP
     ![Visa Live-utdata från din version](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Om du använder ett klient program för att köra ditt HPC-batchjobb måste du skapa en separat build-definition för programmet. Du kan hitta ett antal instruktions guider i dokumentationen för [Azure pipeline](/azure/devops/pipelines/get-started/index?view=azure-devops) .
+> Om du använder ett klient program för att köra ditt HPC-batchjobb måste du skapa en separat build-definition för programmet. Du kan hitta ett antal instruktions guider i dokumentationen för [Azure pipeline](/azure/devops/pipelines/get-started/index) .
 
 ## <a name="continuous-deployment"></a>Kontinuerlig distribution
 
@@ -440,7 +440,7 @@ Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi 
     * **Resurs grupp**: $ (resourceGroupName)
     * **Plats**: $ (plats)
     * **Mall**: $ (system. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.jspå
-    * **Åsidosätt mallparametrar**:```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **Åsidosätt mallparametrar**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud namn (anslutning till din Azure-prenumeration) har rätt åtkomst principer, kan den Hämta hemligheter från en Azure Key Vault och användas som variabler i din pipeline. Namnet på hemligheten kommer att anges med det associerade värdet. Till exempel kan en hemlighet för sshPassword refereras till $ (sshPassword) i versions definitionen.
 
@@ -450,7 +450,7 @@ En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud 
     * **Visnings namn:** Skapa program i Azure Batch konto
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
     * **Skript plats**: infogat skript
-    * **Infogat skript**:```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Infogat skript**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. Det andra steget används för att överföra associerade paket till programmet. I vårt fall, ffmpeg-filerna.
 
@@ -458,7 +458,7 @@ En vanlig metod är att använda Azure Key Vault uppgifter. Om tjänstens huvud 
     * **Visnings namn:** Ladda upp paket till Azure Batch konto
     * **Azure-prenumeration:** Välj lämplig Azure-prenumeration
     * **Skript plats**: infogat skript
-    * **Infogat skript**:```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Infogat skript**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > Programpaketets versions nummer har angetts till en variabel. Detta är praktiskt om du skriver över tidigare versioner av paketet som passar dig, och om du vill styra paketets versions nummer manuellt till Azure Batch.
@@ -476,7 +476,7 @@ När miljön har kon figurer ATS bekräftar du att följande test kan slutföras
 Anslut till det nya Azure Batch kontot med hjälp av Azure CLI från en PowerShell-kommandotolk.
 
 * Logga in på ditt Azure-konto med `az login` och följ instruktionerna för att autentisera.
-* Autentisera nu batch-kontot:`az batch account login -g <resourceGroup> -n <batchAccount>`
+* Autentisera nu batch-kontot: `az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Visa en lista över tillgängliga program
 

@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e5b7211ffc72c4752008f36ebb266373c919025b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076029"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146869"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
@@ -81,17 +81,19 @@ Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifr�
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 # <a name="cmd"></a>[Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 ---
+
+`-DjavaVersion`Parametern visar de funktioner som används för att använda Java-versionen. Använd `-DjavaVersion=11` om du vill att funktionerna ska köras på Java 11, som finns i för hands version. När du inte anger `-DjavaVersion` maven standardvärdet Java 8. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions).
 
 Maven ber dig om värden som behövs för att slutföra genereringen av projektet vid distribution.   
 Ange följande värden när du uppmanas till det:
@@ -106,8 +108,6 @@ Ange följande värden när du uppmanas till det:
 Skriv `Y` eller tryck på RETUR för att bekräfta.
 
 Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions` . 
-
-Om du vill köra på Java 11 i Azure måste du ändra värdena i pom.xml-filen. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions).
 ::: zone-end
 `--docker`Alternativet genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
 
@@ -159,14 +159,6 @@ Använd **CTRL** - **C** för att stoppa värden.
 ## <a name="build-the-container-image-and-test-locally"></a>Bygg behållar avbildningen och testa lokalt
 
 Valfritt Granska *Dockerfile* i roten för projektmappen. Dockerfile beskriver den miljö som krävs för att köra Function-appen på Linux.  Den fullständiga listan med bas avbildningar som stöds för Azure Functions finns på [sidan för Azure Functions Base-avbildning](https://hub.docker.com/_/microsoft-azure-functions-base).
-
-::: zone pivot="programming-language-java"  
-Om du kör på Java 11 (för hands version) ändrar du `JAVA_VERSION` argumentet build i den genererade Dockerfile till följande: 
-
-```docker
-ARG JAVA_VERSION=11
-```
-::: zone-end
     
 Kör kommandot [Docker build](https://docs.docker.com/engine/reference/commandline/build/) i rotmappen för rotmappen och ange ett namn, och en `azurefunctionsimage` tagg `v1.0.0` . Ersätt `<DOCKER_ID>` med ditt konto-ID för Docker Hub. Det här kommandot skapar Docker-avbildningen för containern.
 
@@ -311,17 +303,17 @@ Med den avbildning som distribueras till Function-appen på Azure kan du nu anro
 
     1. Välj **funktioner**i den vänstra navigerings panelen och välj sedan den funktion som du vill verifiera.
 
-        ![URL-kommandot Hämta funktion på Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+        ![Välj din funktion i Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
     1. Välj **Hämta funktions webb adress**.
 
-        ![URL-kommandot Hämta funktion på Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+        ![Hämta funktions webb adressen från Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
     1. I popup-fönstret väljer du **Standard (funktions nyckel)** och kopierar sedan webb adressen till Urklipp. Nyckeln är en sträng med tecken som följer `?code=` .
 
-        ![URL-kommandot Hämta funktion på Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+        ![Välj standard åtkomst nyckel för funktionen](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
 
     > [!NOTE]  

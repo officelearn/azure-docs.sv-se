@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826318"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145662"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -151,11 +151,11 @@ Jobbets status kan variera beroende på följande scenarier:
 Slutförd | Pågår | Pågår
 Slutförd | Överhoppad | Slutförd
 Slutförd | Slutförd | Slutförd
-Slutförd | Misslyckad | Slutfört med varning
-Misslyckad | Misslyckad | Misslyckad
+Slutförd | Misslyckades | Slutfört med varning
+Misslyckades | Misslyckades | Misslyckades
 
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I scenarier där en pågående säkerhets kopiering resulterade i att säkerhets kopieringen av nästa dag Miss Miss kan det undvikas med den här kopplings funktionen. De efterföljande dagarnas säkerhets kopieringar kan göra att ögonblicks bilden slutförs, medan **överföring av data till valvet** hoppas över om en tidigare daglig säkerhets kopierings jobb pågår.
-Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättningen från den senaste återställnings punkten som skapades i valvet. Det kostar inget att påverka användaren.
+Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättningen från den senaste återställnings punkten som skapats i valvet. Det kostar inget att påverka användaren.
 
 ## <a name="optional-steps"></a>Valfria steg
 

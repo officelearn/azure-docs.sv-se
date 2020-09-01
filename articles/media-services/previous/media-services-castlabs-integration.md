@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74969148"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264495"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd castLabs för att leverera Widevine-licenser till Azure Media Services 
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd castLabs för att leverera Widevine-licenser till Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -33,7 +36,7 @@ ms.locfileid: "74969148"
 
 I den här artikeln beskrivs hur du kan använda Azure Media Services (AMS) för att leverera en ström som är dynamiskt krypterad av AMS med både PlayReady-och Widevine-DRM: er. PlayReady-licensen kommer från Media Services PlayReady licens Server och Widevine-licensen levereras av **castLabs** -licensservern.
 
-Om du vill spela upp strömmande innehåll som skyddas av CENC (PlayReady och/eller Widevine) kan du använda [Azure Media Player](https://aka.ms/azuremediaplayer). Mer information finns i [amp Document](https://amp.azure.net/libs/amp/latest/docs/) .
+Om du vill spela upp strömmande innehåll som skyddas av CENC (PlayReady och/eller Widevine) kan du använda  [Azure Media Player](https://aka.ms/azuremediaplayer). Mer information finns i [amp Document](https://amp.azure.net/libs/amp/latest/docs/) .
 
 Följande diagram visar en övergripande Azure Media Services-och castLabs integrerings arkitektur.
 

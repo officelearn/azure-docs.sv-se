@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30808a46b5cecfaf2e761b3f7a611020cd2cdfb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042839"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263685"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-felkoder
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 När du använder Microsoft Azure Media Services kan du få HTTP-felkoder från tjänsten, beroende på problem som token för autentisering som går ut till åtgärder som inte stöds i Media Services. Följande är en lista över **http-felkoder** som kan returneras av Media Services och möjliga orsaker till dem.  
 
 ## <a name="400-bad-request"></a>400 – Felaktig begäran
@@ -51,7 +54,7 @@ Det gick inte att autentisera begäran (innan den kan auktoriseras) på grund av
   * Token har upphört att gälla. 
   * Token innehåller en ogiltig signatur.
 
-## <a name="403-forbidden"></a>403 – Förbjuden
+## <a name="403-forbidden"></a>403 förbud
 Begäran tillåts inte på grund av en av följande orsaker:
 
 * Det går inte att hitta Media Services kontot eller så har det tagits bort.

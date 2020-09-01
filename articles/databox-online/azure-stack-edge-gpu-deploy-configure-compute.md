@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att filtrera, analysera data med beräkning på Azure Stack Edge | Microsoft Docs
-description: Lär dig hur du konfigurerar Compute-rollen på Azure Stack Edge och använder den för att transformera data innan du skickar dem till Azure.
+title: Självstudie för att filtrera, analysera data med beräkning på Azure Stack Edge-GPU | Microsoft Docs
+description: Lär dig hur du konfigurerar Compute-rollen på Azure Stack Edge-GPU och använder den för att transformera data innan du skickar dem till Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 8ba460168edc03b1cb491d69010acd03f4a84ae3
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: a5e0817050f8411dfc7fc64edae21f1b927e4e5c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181615"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262999"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Självstudie: Konfigurera Compute på Azure Stack Edge GPU-enhet
 
@@ -29,10 +29,10 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
-> * Hämta Kubernetes API-slutpunkt
+> * Hämta Kubernetes-slutpunkter
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du ställer in en beräknings roll på Azure Stack Edge-enhet ser du till att:
 

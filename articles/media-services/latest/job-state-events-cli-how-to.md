@@ -3,23 +3,25 @@ title: Övervaka Azure Media Services händelser med Event Grid med CLI | Micros
 description: Den här artikeln visar hur du prenumererar på Event Grid för att övervaka Azure Media Services händelser.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/09/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5292318d2e5432ec7c0a2df7306011c3dea5147
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 6aac37b354275539bfc5374a170c348b8ce993b0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542135"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265532"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Skapa och övervaka Media Services händelser med Event Grid med Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Event Grid är en händelsetjänst för molnet. Den här tjänsten använder [händelse prenumerationer](../../event-grid/concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Media Services händelser innehåller all information du behöver för att svara på ändringar i dina data. Du kan identifiera en Media Services-händelse eftersom egenskapen eventType börjar med "Microsoft. Media.". Mer information finns i [Media Services händelse scheman](media-services-event-schemas.md).
 
@@ -27,7 +29,7 @@ I den här artikeln använder du Azure CLI för att prenumerera på händelser f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- En aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
     För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
@@ -70,7 +72,7 @@ Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenum
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -85,7 +87,7 @@ Ersätt `<event_subscription_name>` med ett unikt namn för din händelse prenum
     --endpoint <endpoint_URL>
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```
     az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

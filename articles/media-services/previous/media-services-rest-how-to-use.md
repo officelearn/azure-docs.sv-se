@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000055"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264291"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
+# <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
@@ -60,12 +62,12 @@ Följande överväganden gäller när du använder REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard-HTTP-begärandehuvuden som stöds av Media Services
 För varje anrop du gör i Media Services finns det en uppsättning obligatoriska huvuden som du måste inkludera i din begäran och även en uppsättning valfria huvuden som du kanske vill inkludera. I tabellen nedan visas de huvuden som krävs:
 
-| Huvud | Typ | Värde |
+| Sidhuvud | Typ | Värde |
 | --- | --- | --- |
 | Auktorisering |Bearer |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-MS-version |Decimal |2,17 (eller senaste versionen)|
-| DataServiceVersion |Decimal |3.0 |
-| MaxDataServiceVersion |Decimal |3.0 |
+| DataServiceVersion |Decimal |3,0 |
+| MaxDataServiceVersion |Decimal |3,0 |
 
 > [!NOTE]
 > Eftersom Media Services använder OData för att exponera REST-API: erna, ska DataServiceVersion-och MaxDataServiceVersion-huvuden tas med i alla begär Anden. men om de inte är det antar Media Services det DataServiceVersion-värde som används är 3,0.
@@ -74,7 +76,7 @@ För varje anrop du gör i Media Services finns det en uppsättning obligatorisk
 
 Följande är en uppsättning valfria huvuden:
 
-| Huvud | Typ | Värde |
+| Sidhuvud | Typ | Värde |
 | --- | --- | --- |
 | Datum |RFC 1123-datum |Tidsstämpel för begäran |
 | Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
@@ -88,7 +90,7 @@ Följande är en uppsättning valfria huvuden:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standard-HTTP-svarshuvuden som stöds av Media Services
 Följande är en uppsättning huvuden som kan returneras till dig, beroende på vilken resurs du begärde och vilka åtgärder du avsåg att utföra.
 
-| Huvud | Typ | Värde |
+| Sidhuvud | Typ | Värde |
 | --- | --- | --- |
 | begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
 | klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |

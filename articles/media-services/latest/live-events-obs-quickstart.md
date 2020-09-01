@@ -6,15 +6,17 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 04/16/2020
-ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 08/31/2020
+ms.openlocfilehash: 04b0ef0d6a480270b1f0a3546319b2608d638677
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147825"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265515"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Skapa en Azure Media Services Live Stream med ONLINEBANKSYSTEM
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Den här snabb starten hjälper dig att skapa en Azure Media Services Live Stream med hjälp av Azure Portal och öppna sändning Studio (ONLINEBANKSYSTEM). Det förutsätter att du har en Azure-prenumeration och har skapat ett Media Services-konto.
 
@@ -26,9 +28,9 @@ I den här snabb starten tar vi upp:
 - Kör en standard slut punkt för direkt uppspelning.
 - Använd Azure Media Player för att Visa Live Stream och utdata på begäran.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

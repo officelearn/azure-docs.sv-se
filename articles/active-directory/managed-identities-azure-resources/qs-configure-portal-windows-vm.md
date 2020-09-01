@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf423599d39d30ead953aa389380bf603f80bcd1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022045"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263220"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal
 
@@ -41,7 +41,7 @@ I det här avsnittet får du lära dig hur du aktiverar och inaktiverar den syst
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Aktivera systemtilldelad hanterad identitet när en virtuell dator skapas
 
-För att aktivera systemtilldelad hanterad identitet på en virtuell dator när den skapas, måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+För att aktivera systemtilldelad hanterad identitet på en virtuell dator när den skapas, måste ditt konto ha roll tilldelningen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
 - På fliken **hantering** i avsnittet **identitet** växlar du till **på för** **hanterad tjänst identitet** .  
 
@@ -55,7 +55,7 @@ Använd följande snabb starter för att skapa en virtuell dator:
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Aktivera systemtilldelad hanterad identitet på en befintlig virtuell dator
 
-Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som ursprungligen etablerades utan den, måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som ursprungligen etablerades utan den, måste ditt konto ha roll tilldelningen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till den Azure-prenumeration som innehåller den virtuella datorn.
 
@@ -67,7 +67,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Ta bort systemtilldelad hanterad identitet från en virtuell dator
 
-För att ta bort systemtilldelad hanterad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+För att ta bort systemtilldelad hanterad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
 Om du har en virtuell dator som inte längre behöver systemtilldelad hanterad identitet:
 
@@ -85,7 +85,7 @@ Om du har en virtuell dator som inte längre behöver systemtilldelad hanterad i
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Tilldela en användardefinierad identitet när en virtuell dator skapas
 
-För att tilldela en användardefinierad identitet till en virtuell dator måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+För att tilldela en användardefinierad identitet till en virtuell dator måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) och [hanterad identitets operatör](../../role-based-access-control/built-in-roles.md#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
 För närvarande stöder Azure Portal inte tilldelning av en användardefinierad hanterad identitet när en virtuell dator skapas. Läs i stället någon av följande snabb starts artiklar för virtuella datorer för att först skapa en virtuell dator och fortsätt sedan till nästa avsnitt för information om hur du tilldelar en användardefinierad hanterad identitet till den virtuella datorn:
 
@@ -94,7 +94,7 @@ För närvarande stöder Azure Portal inte tilldelning av en användardefinierad
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>Tilldela en användardefinierad hanterad identitet till en befintlig virtuell dator
 
-För att tilldela en användardefinierad identitet till en virtuell dator måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+För att tilldela en användardefinierad identitet till en virtuell dator måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) och [hanterad identitets operatör](../../role-based-access-control/built-in-roles.md#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till den Azure-prenumeration som innehåller den virtuella datorn.
 2. Navigera till önskad VM och klicka på **identitet**, **tilldelad användare** och ** \+ Lägg sedan till**.
@@ -107,7 +107,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-vm"></a>Ta bort en användare som tilldelats en hanterad identitet från en virtuell dator
 
-För att ta bort en tilldelad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+För att ta bort en tilldelad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till den Azure-prenumeration som innehåller den virtuella datorn.
 2. Gå till önskad VM och klicka på **identitet**, **tilldelad användare**, namnet på den användare som tilldelats den hanterade identitet som du vill ta bort och klicka sedan på **ta bort** (klicka på **Ja** i bekräftelse fönstret).
@@ -117,4 +117,3 @@ För att ta bort en tilldelad identitet från en virtuell dator måste ditt kont
 ## <a name="next-steps"></a>Nästa steg
 
 - Med hjälp av Azure Portal ger du en Azure VM-hanterad identitets [åtkomst till en annan Azure-resurs](howto-assign-access-portal.md).
-

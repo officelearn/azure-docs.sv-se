@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 698aa849a82e7c9f9a630ca7040f9d449b3765b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765020"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264971"
 ---
 # <a name="live-transcription-preview"></a>Direkt avskrift (för hands version)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media service levererar video, ljud och text i olika protokoll. När du publicerar din Live Stream med MPEG-streck eller HLS/CMAF, tillsammans med video och ljud, levererar vår tjänst den inskrivna texten i IMSC 1.1-kompatibla TTML. Leveransen är paketerad i MPEG-4 del 30 (ISO/IEC 14496-30) fragment. Om du använder leverans via HLS/TS levereras texten som segmenterad VTT.
 
@@ -35,9 +37,9 @@ Direkt avskrift är tillgängligt i följande regioner:
 
 - Sydostasien
 - Europa, västra
-- Europa, norra
-- USA, östra
-- USA, centrala
+- Norra Europa
+- East US
+- Central US
 - USA, södra centrala
 - USA, västra 2
 - Brasilien, södra
@@ -135,7 +137,7 @@ Om du vill aktivera Live-avskrifter eller uppdatera avskrifts språket, korriger
 
 Det här är exempel anropet för att aktivera Live-avskrifter.
 
-9.0a```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+9.0a ```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
 
 ```
 {

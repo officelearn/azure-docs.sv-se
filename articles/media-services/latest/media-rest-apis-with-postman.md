@@ -3,7 +3,7 @@ title: Konfigurera PostMan för Azure Media Services v3 REST API-anrop
 description: 'Den här artikeln visar hur du konfigurerar Postman så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS).'
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,22 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2019
-ms.author: juliako
-ms.openlocfilehash: e35a5fe2243c3a9880359900c63f74c6dc90e586
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1232c47040a5577731121ee0bb17eb264240e765
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654369"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264886"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Konfigurera PostMan för Media Services v3 REST API-anrop
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Den här artikeln visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS). Artikeln visar hur du importerar miljö-och samlings filer till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST-API: er. Miljöfilen innehåller variabler som används av samlingen.
 
 Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](./create-account-howto.md). Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 - Hämta information som krävs för att [få åtkomst till API: er](./access-api-howto.md)

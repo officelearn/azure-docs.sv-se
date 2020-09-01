@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 074d518d3c0f45c7377d2c146bffbd60dee2498a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009193"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263169"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage 
 
@@ -29,7 +29,7 @@ ms.locfileid: "89009193"
 I den här självstudien lär du dig hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att komma åt Azure Storage. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa ett lagringskonto
+> * skapar ett lagringskonto
 > * Skapa en blobcontainer i ett lagringskonto
 > * Ge en hanterade identitet på en virtuell Linux-dator åtkomst till en Azure Storage-container
 > * Hämta en åtkomsttoken och använda den för att anropa Azure Storage
@@ -44,9 +44,9 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 Om du vill köra CLI-exempelskripten i den här självstudien har du två alternativ:
 
 - Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) antingen från Azure Portal eller via knappen **Prova**, som du hittar i det övre högra hörnet av varje kodblock.
-- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda en lokal CLI-konsol.
+- [Installera den senaste versionen av CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda en lokal CLI-konsol.
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 I det här avsnittet skapar du ett lagringskonto. 
 
@@ -95,7 +95,7 @@ Du kan använda den hanterade identiteten på den virtuella datorn till att häm
 
 Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av Azure Storages integrering med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-För att kunna utföra följande steg måste du arbeta från den virtuella datorn som du skapade tidigare och du behöver en SSH-klient för att ansluta till den. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+För att kunna utföra följande steg måste du arbeta från den virtuella datorn som du skapade tidigare och du behöver en SSH-klient för att ansluta till den. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
 1. Gå till **Virtuella datorer** i Azure-portalen och sedan till den virtuella Linux-datorn. På sidan **Överblick** klickar du på **Anslut**. Kopiera strängen för anslutning till din virtuella dator.
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
@@ -121,4 +121,4 @@ För att kunna utföra följande steg måste du arbeta från den virtuella dator
 I den här självstudien har du lärt dig hur du aktiverar en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Storage.  Läs mer om Azure Storage här:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Azure Storage](../../storage/common/storage-introduction.md)

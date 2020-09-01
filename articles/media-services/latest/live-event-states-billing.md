@@ -3,7 +3,7 @@ title: LiveEvent-tillstånd och fakturering i Azure Media Services | Microsoft D
 description: Det här avsnittet ger en översikt över Azure Media Services LiveEvent-tillstånd och fakturering.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/24/2019
-ms.author: juliako
-ms.openlocfilehash: dd63152776e0268b8f9e3e0ce116fea897cdf4e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 37098b8268d5a451935c925114fb762c574fa55c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000881"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265317"
 ---
 # <a name="live-event-states-and-billing"></a>Live händelse tillstånd och fakturering
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 I Azure Media Services börjar en Live-händelse att faktureras så fort dess tillstånds över gångar **körs**. Du debiteras även om det inte finns någon video som går igenom tjänsten. Om du vill stoppa direkt sändningen från fakturering måste du stoppa Live-händelsen. Direkt avskrift debiteras på samma sätt som direkt sändningen.
 

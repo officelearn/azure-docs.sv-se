@@ -3,7 +3,7 @@ title: Ansluta till Azure Media Services v3 API-Java
 description: Den här artikeln beskriver hur du ansluter till Azure Media Services v3 API med Java.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,23 +11,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 08/31/2020
 ms.custom: devx-track-java
-ms.author: juliako
-ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: inhenkel
+ms.openlocfilehash: dc667a46d9802332d0f8c8dc673b28a9aeab96ea
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319838"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265634"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ansluta till Media Services v3 API-Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 Java SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
 I den här artikeln används Visual Studio Code för att utveckla exempel appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Följ [Skriv Java med Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) för att installera:
 
@@ -59,7 +61,7 @@ När du kör kommandot `pom.xml` `App.java` skapas,, och andra filer.
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
 1. Öppna mappen där projektet finns i Visual Studio Code
-1. Hitta och öppna`pom.xml`
+1. Hitta och öppna `pom.xml`
 1. Lägg till nödvändiga beroenden
 
     ```xml

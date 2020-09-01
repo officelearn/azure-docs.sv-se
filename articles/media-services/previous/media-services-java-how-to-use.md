@@ -15,21 +15,23 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dfa45361f2c111934ee7b938c44824112c6c8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a95ee631797c4dcca87f3506a6cf29245328159
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322694"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263475"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services  
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här självstudien beskriver steg för steg hur du implementerar en enkel leveranstjänst för videoinnehåll med Azure Media Services med hjälp av Java-klientens SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra kursen:
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att installera – packa upp, rack, kabel Azure Stack Edge fysisk enhet | Microsoft Docs
-description: Den andra själv studie kursen om att installera Azure Stack Edge innebär att packa upp, racka och kabelansluta den fysiska enheten.
+title: Självstudie för att installera-UNPACK, rack, kabel Azure Stack Edge GPU fysisk enhet | Microsoft Docs
+description: Den andra själv studie kursen om hur du installerar Azure Stack Edge-GPU omfattar att packa upp, racka och kabelansluta den fysiska enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 401b7c7a44e2f8009baca96862817b3d14f35c94
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181824"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262863"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Självstudie: installera Azure Stack Edge med GPU
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -86,7 +86,7 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 > Azure Stack gräns enheter måste vara rack montering för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
 - Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.

@@ -6,19 +6,21 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/25/2020
-ms.openlocfilehash: 459f11844f873a911b3e5702e8c768b1cd22e504
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/31/2020
+ms.openlocfilehash: 76bbb980b6430f7cffc23ec078e2c932128dc637
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985005"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265277"
 ---
 # <a name="create-an-azure-media-services-live-stream"></a>Skapa en Azure Media Services Live Stream
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 Den här snabb starten hjälper dig att skapa en Azure Media Services Live Stream med hjälp av Azure Portal-och Wirecast. Det förutsätter att du har en Azure-prenumeration och har skapat ett Media Services-konto.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -125,7 +127,7 @@ Den här delen konfigurerar dina utdata och gör att du kan spara en inspelning 
 
 ## <a name="start-the-broadcast"></a>Starta sändningen
 
-1. I Wirecast väljer du **utdata** > **Starta/stoppa sändning** > **Start Azure Media Services: Azure Media Services** från huvud menyn.
+1. I Wirecast väljer du **utdata**  >  **Starta/stoppa sändning**  >  **Start Azure Media Services: Azure Media Services** från huvud menyn.
 
    ![Starta meny alternativ för sändning](media/live-events-wirecast-quickstart/start-broadcast.png)
 

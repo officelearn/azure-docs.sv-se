@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Den här artikeln beskriver hur du använder Time-Shift och Live-utdata för att registrera Live-strömmar och skapa uppspelning på begäran.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2020
-ms.author: juliako
-ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f188d959bf702a2907fe34805b41fa62cae7ee40
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001000"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265396"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Använd tids växling och Live-utdata för att skapa video uppspelning på begäran
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 I Azure Media Services är ett [Live-utmatnings](/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen (](/rest/api/media/assets) behållaren är i det Azure Storage konto som är kopplat till ditt konto). Med Live-utdata kan du också styra vissa egenskaper för utgående Live-dataström, t. ex. hur mycket av data strömmen som behålls i Arkiv registreringen (till exempel kapaciteten för moln-DVR) eller när läsarna kan börja titta på den aktiva strömmen. Arkivet på disken är ett cirkulärt Arkiv "fönster" som endast innehåller den mängd innehåll som anges i egenskapen **archiveWindowLength** för Live-utdata. Innehåll som faller utanför det här fönstret tas automatiskt bort från lagrings behållaren och går inte att återskapa. ArchiveWindowLength-värdet representerar en varaktighet för ISO-8601 TimeSpan (till exempel PTHH: MM: SS), som anger kapaciteten för DVR. Värdet kan anges från minst en minut till högst 25 timmar.
 

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8c15883f4e2a515e8c6015a39951a8729cf77274
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c21ddd0aacde277f4cf796f133a3169a69798dda
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544004"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264478"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
@@ -351,7 +353,7 @@ När du har angett Access policy och lokaliseraren laddas den faktiska filen upp
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="update-the-assetfile"></a>Uppdatera AssetFile
-Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Ett exempel:
+Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Exempel:
 
 ```console
 MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
@@ -871,7 +873,7 @@ När du har angett Access policy och lokaliseraren kan du hämta filer med hjäl
 
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
-Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Ett exempel:    
+Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Exempel:    
 
 * `https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z`
 

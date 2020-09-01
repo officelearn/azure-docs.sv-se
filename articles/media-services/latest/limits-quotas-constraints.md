@@ -3,23 +3,25 @@ title: Kvoter och gränser i Azure Media Services
 description: I det här avsnittet beskrivs kvoter och begränsningar i Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2020
-ms.author: juliako
-ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446336"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265498"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure Media Services kvoter och begränsningar
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Den här artikeln innehåller några av de vanligaste Microsoft Azure Media Servicess gränserna, som ibland kallas kvoter.
 

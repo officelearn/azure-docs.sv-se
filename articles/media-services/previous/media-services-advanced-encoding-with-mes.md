@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018033"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264818"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utför avancerad kodning genom att anpassa inställningarna för efter var 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utför avancerad kodning genom att anpassa inställningarna för efter var
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -51,7 +53,7 @@ När du skapar miniatyrer behöver du inte alltid ange utgångs bredd och höjd 
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Skapa miniatyrbilder
+## <a name="generate-thumbnails"></a>Skapa miniatyrbilder
 
 I det här avsnittet visas hur du anpassar en för inställning som genererar miniatyrer. Den för inställning som definierats nedan innehåller information om hur du vill koda filen samt information som behövs för att generera miniatyrer. Du kan ta något av de förvalda för inställningarna för de [här](media-services-mes-presets-overview.md) avsnitten och lägga till kod som genererar miniatyrer.  
 
@@ -64,7 +66,7 @@ Information om schema finns i [det här](media-services-mes-schema.md) avsnittet
 
 Se till att gå igenom avsnittet [överväganden](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>JSON-förinställning
+### <a name="json-preset"></a>JSON-förinställning
 
 ```json
 {
@@ -166,7 +168,7 @@ Se till att gå igenom avsnittet [överväganden](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>XML-förinställd
+### <a name="xml-preset"></a>XML-förinställd
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

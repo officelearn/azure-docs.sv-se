@@ -13,14 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 29753759af341f82429f12b6710ae9c32dcb4103
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8daa25239b935a9e0092c6bf2e388c7cc3c6789
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896027"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264767"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Uppgifts för inställning för Azure Media Indexer 
+# <a name="task-preset-for-azure-media-indexer"></a>Uppgifts för inställning för Azure Media Indexer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Azure Media Indexer är en medie processor som du använder för att utföra följande uppgifter: gör mediefiler och innehåll sökbart, generera textning för dold textning och nyckelord, index till gångs filer som är en del av din till gång.
 

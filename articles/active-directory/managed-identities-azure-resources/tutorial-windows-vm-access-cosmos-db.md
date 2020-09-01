@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f6f59c94f8167b700208036c16cc4c948376e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019835"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263084"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Cosmos DB
 
@@ -84,7 +84,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 Det här avsnittet visar hur du anropar Azure Resource Manager med hjälp av en åtkomsttoken för den hanterade identiteten för den virtuella Windows-datorn. Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare. 
 
-Du måste installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella Windows-dator.
+Du måste installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) på din virtuella Windows-dator.
 
 
 
@@ -204,6 +204,4 @@ Det här CLI-kommandot returnerar information om samlingen:
 I den här självstudien har du lärt dig hur du använder en systemtilldelad identitet för en virtuell Windows-dator för att få åtkomst till Cosmos DB.  Mer information om Cosmos DB finns här:
 
 > [!div class="nextstepaction"]
->[Översikt över Azure Cosmos DB](/azure/cosmos-db/introduction)
-
-
+>[Översikt över Azure Cosmos DB](../../cosmos-db/introduction.md)

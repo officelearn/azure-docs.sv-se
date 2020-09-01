@@ -11,14 +11,14 @@ author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3e10841852b8a89b344d3bfd9311db8abe15642a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0afb7906e102e4f0fb49245949b08618da1693ec
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319549"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265685"
 ---
-# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använd TLS för att skydda en webb tjänst via Azure Machine Learning
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använda TLS för att skydda en webbtjänst via Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Den här artikeln visar hur du skyddar en webb tjänst som distribueras via Azure Machine Learning.
@@ -28,7 +28,7 @@ Du använder [https](https://en.wikipedia.org/wiki/HTTPS) för att begränsa åt
 > [!TIP]
 > Azure Machine Learning SDK använder termen "SSL" för egenskaper som är relaterade till säker kommunikation. Detta innebär inte att din webb tjänst inte använder *TLS*. SSL är bara en oftare erkänd term.
 >
-> Mer specifikt distribuerade webb tjänster via Azure Machine Learning stöder endast TLS version 1,2.
+> Mer specifikt distribuerade webb tjänster via Azure Machine Learning stöder endast TLS version 1,1
 
 TLS och SSL är beroende av *digitala certifikat*, som hjälper till med kryptering och identitets verifiering. Mer information om hur digitala certifikat fungerar finns i avsnittet om infrastrukturen för [offentliga nycklar](https://en.wikipedia.org/wiki/Public_key_infrastructure)i Wikipedia-ämnet.
 
@@ -71,7 +71,7 @@ När du begär ett certifikat måste du ange det fullständiga domän namnet fö
 > [!WARNING]
 > Använd endast *självsignerade* certifikat för utveckling. Använd dem inte i produktions miljöer. Självsignerade certifikat kan orsaka problem i dina klient program. Mer information finns i dokumentationen för de nätverks bibliotek som används av klient programmet.
 
-## <a name="enable-tls-and-deploy"></a><a id="enable"></a>Aktivera TLS och distribuera
+## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Aktivera TLS och distribuera
 
 Om du vill distribuera (eller distribuera om) tjänsten med TLS aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 

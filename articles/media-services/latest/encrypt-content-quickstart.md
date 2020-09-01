@@ -2,15 +2,17 @@
 title: Kryptera innehåll med Azure Portal
 description: Den här snabb starten visar hur du konfigurerar kryptering för ditt innehåll med hjälp av Azure Media Services i Azure Portal.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988978"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263645"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Snabb start: Använd portalen för att kryptera innehåll
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Använd Azure Media Services för att skydda dina medier från den tid det lämnar datorn hela vägen genom lagring, bearbetning och leverans. Med Media Services kan du leverera direktsänd och innehåll på begäran som krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser (PlayReady, Widevine och FairPlay) till auktoriserade klienter. 
  
@@ -19,7 +21,7 @@ Om du vill ange krypterings alternativ (om sådana finns) i data strömmen anvä
 > [!NOTE]
 > Innehålls nyckel principen behövs inte för att rensa strömma eller ladda ned.
 
-När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt Kryptera ditt innehåll med hjälp av AES Clear Key eller DRM-kryptering. För att dekryptera data strömmen begär spelaren nyckeln från Media Services Key Delivery Service eller den nyckel leverans tjänst som du har angett. För att avgöra om användaren har behörighet att hämta nyckeln, utvärderar tjänsten den **innehålls nyckel princip** som du har angett för nyckeln.
+När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt Kryptera ditt innehåll med hjälp av AES Clear Key eller DRM-kryptering. För att dekryptera data strömmen begär spelaren nyckeln från Media Services Key Delivery Service eller den nyckel leverans tjänst som du har angett. För att avgöra om användaren har behörighet att hämta nyckeln, utvärderar tjänsten den  **innehålls nyckel princip** som du har angett för nyckeln.
 
 Den här snabb starten visar hur du skapar en princip för innehålls nycklar där du anger vilken kryptering som ska användas för din till gång när den strömmas. Snabb starten visar också hur du ställer in den konfigurerade krypteringen på din till gång.
 
@@ -30,7 +32,7 @@ Den här snabb starten visar hur du skapar en princip för innehålls nycklar d�
 * [Principer för direktuppspelning](streaming-policy-concept.md)
 * [Principer för innehållsnycklar](content-key-policy-concept.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ladda upp och bearbeta ditt innehåll på det sätt som beskrivs i [Hantera till gångar i Azure Portal](manage-assets-quickstart.md)
 

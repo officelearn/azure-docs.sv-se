@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4aa523c6f2fe1e833fa7dfe99cc870bf6014eb7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc1ac986ffb8e15df5dab14403aac5eca05c5b5d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009924"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263730"
 ---
 # <a name="download-the-results-of-a-job"></a>Hämta resultatet av ett jobb
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 I Azure Media Services, när du bearbetar dina videor (till exempel kodning eller analys), måste du skapa en utgående [till gång](assets-concept.md) för att lagra resultatet av [jobbet](transforms-jobs-concept.md). Du kan sedan hämta dessa resultat till en lokal mapp med hjälp av media service och Storage-API: er. 
 

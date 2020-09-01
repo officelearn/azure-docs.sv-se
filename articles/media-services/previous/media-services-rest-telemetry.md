@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9409b340e8c1bd06b689acb849a9f47d24ed0391
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7fec4a958e730c485c998d1f0591b8e4d61df050
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170776"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264206"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurera Azure Media Services telemetri med REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 I det här avsnittet beskrivs allmänna steg som du kan vidta när du konfigurerar telemetri för Azure Media Services (AMS) med hjälp av REST API. 
 
@@ -88,7 +90,7 @@ Authorization: (redacted)
 Host: wamsbnp1clus001rest-hs.cloudapp.net
 ```
 
-### <a name="response"></a>Åtgärd
+### <a name="response"></a>Svarsåtgärder
 
 ```console
 HTTP/1.1 200 OK
@@ -137,7 +139,7 @@ Content-Length: 115
 > [!NOTE]
 > Glöm inte att ändra värdet "https: \/ /telemetryvalidationstore.Table.Core.Windows.net" till ditt lagrings konto.
 
-### <a name="response"></a>Åtgärd
+### <a name="response"></a>Svarsåtgärder
 
 ```console
 HTTP/1.1 201 Created
@@ -172,7 +174,7 @@ Authorization: (redacted)
 Host: wamsbnp1clus001rest-hs.cloudapp.net
 ```
 
-### <a name="response"></a>Åtgärd
+### <a name="response"></a>Svarsåtgärder
 
 ```console  
 HTTP/1.1 200 OK
@@ -218,7 +220,7 @@ Content-Length: 133
 }
 ```
 
-### <a name="response"></a>Åtgärd
+### <a name="response"></a>Svarsåtgärder
 
 ```console
 HTTP/1.1 201 Created

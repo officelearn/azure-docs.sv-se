@@ -3,7 +3,7 @@ title: Ansluta till Azure Media Services v3 API – Node.js
 description: Den här artikeln visar hur du ansluter till Media Services v3-API med Node.js.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8e54fec584f8961dfc44a7c93f95772ea03e1259
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95059710ce759a1536bcaacd35c0d2cf6497269b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424434"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265600"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ansluta till Media Services v3 API – Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3-node.js SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
@@ -55,7 +57,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3-node.js SDK
 
 Följande paket ska anges:
 
-|Paket|Description|
+|Paket|Beskrivning|
 |---|---|
 |`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Kontrol lera att du använder det senaste Azure Media Servicess paketet genom att markera [NPM installera Azure-arm-Media Services](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|Storage SDK. Används vid överföring av filer till till gångar.|

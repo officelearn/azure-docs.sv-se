@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021314"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263594"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klient Sidan
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klient sidan.
 
 Information om dold textning och stöd för AD i direktsända strömmande videor finns i [stöd för dold textning och AD-infogning](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).

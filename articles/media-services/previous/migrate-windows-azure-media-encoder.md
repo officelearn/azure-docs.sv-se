@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c1a9f98373ac872bb315c1ae621b3895760dc18
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a4a5f2f448cc5e954cf21f9785f788925d5a461e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013392"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263951"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrera från Windows Azure Media Encoder till Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Den här artikeln beskriver stegen för att migrera från den äldre Windows Azure Media Encoder (WAME) medie processorn (som dras tillbaka) till Media Encoder Standard medie processor. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen.
 

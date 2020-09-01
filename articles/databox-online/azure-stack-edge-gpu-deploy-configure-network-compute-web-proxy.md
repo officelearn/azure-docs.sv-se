@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att konfigurera nätverks inställningar för Azure Stack Edge-enhet med GPU i Azure Portal | Microsoft Docs
-description: Självstudier för att distribuera Azure Stack Edge instruerar dig att konfigurera inställningar för nätverk, beräknings nätverk och webbproxy för den fysiska enheten.
+description: Självstudie för att distribuera Azure Stack Edge GPU gör att du kan konfigurera inställningar för nätverk, beräknings nätverk och webbproxy för den fysiska enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 36d331de3a93e04932c4bce4d14704b33f69fab6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6e7dbc2b96a53d220554e07228a5e30857d12d9c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181552"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262987"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Självstudie: Konfigurera nätverk för Azure Stack Edge med GPU
 
@@ -26,13 +26,13 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Konfigurera nätverk
 > * Aktivera beräknings nätverk
 > * Konfigurera webbproxy
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste du kontrol lera att:
 
@@ -149,7 +149,7 @@ Detta är en valfri konfiguration.
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Konfigurera nätverk
 > * Aktivera beräknings nätverk
 > * Konfigurera webbproxy

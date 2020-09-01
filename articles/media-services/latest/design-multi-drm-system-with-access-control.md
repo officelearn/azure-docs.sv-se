@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dba0f82ced5500dc85c3254bea6a2a0066770b1e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039199"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265668"
 ---
-# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll 
+# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Att utforma och skapa ett DRM-undersystem (Digital Rights Management) för en över-och OTT-eller direkt uppspelnings lösning är en komplex uppgift. Operatörer/video leverantörer tar vanligt vis ut den här uppgiften till specialiserade DRM-tjänstleverantörer. Målet med det här dokumentet är att presentera en referens design och en referens implementering av ett DRM-undersystem från slut punkt till slut punkt i en OTT-eller direkt uppspelnings lösning.
 

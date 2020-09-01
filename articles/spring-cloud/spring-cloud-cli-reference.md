@@ -7,19 +7,16 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 07e7b8db3bf7e1131ec8892a69223eaf4505e8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 10f3856a7c0c0a98ab8b23e20342d745b1966b9b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037754"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263203"
 ---
 # <a name="az-spring-cloud"></a>AZ fjäder – moln
 
 ## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Hantera Azure våren Cloud med Azure CLI
-
->[!Note]
-> Azure våren Cloud är för närvarande en för hands version.  De här kommandona kan ändras eller tas bort i en framtida version.
 
 | AZ fjäder – moln | Kommandon |
 |------|------:|
@@ -93,11 +90,11 @@ az spring-cloud create  --name -n
 | Obligatoriska parametrar | Beskrivning |
 | --- | :--- |
 | --Name-n | Namnet på den här Azure våren Cloud-instansen. |
-| --resurs-grupp-g | Anger resurs gruppen för den här appen.  Konfigurera standard gruppen med`az configure --defaults group=<name>` |
+| --resurs-grupp-g | Anger resurs gruppen för den här appen.  Konfigurera standard gruppen med `az configure --defaults group=<name>` |
 
 | Valfria parametrar | Beskrivning |
 | --- | :--- |
-| --plats-l | Anger serverns plats för den här appen.  Hitta giltiga platser med hjälp av`az account list-locations` |
+| --plats-l | Anger serverns plats för den här appen.  Hitta giltiga platser med hjälp av `az account list-locations` |
 | --No-wait | Utför inte länge drift åtgärder för att slutföras.
 
 ### <a name="examples"></a>Exempel
@@ -254,7 +251,7 @@ az spring cloud app deploy  --name -n
 | --kuvert | Blankstegsavgränsad miljövariabler i formatet nyckel [= värde]. |
 | --antal instanser | Antal instanser. |
 | --jar-sökväg | Om det anges distribuerar du jar från den angivna sökvägen. Annars distribuerar du den aktuella mappen som en tar. |
-| --JVM – alternativ | En sträng som innehåller JVM-alternativ.  Använd ' = ' i stället för ' ' för att undvika gränssnitts tolknings fel. T. ex., `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --JVM – alternativ | En sträng som innehåller JVM-alternativ.  Använd ' = ' i stället för ' ' för att undvika gränssnitts tolknings fel. T. ex.,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --minne | Antal GB minne per instans. |
 | --No-wait | Vänta inte tills tids krävande åtgärder har slutförts. |
 | --runtime-version | Körnings version av språket som används i appen.  Tillåtna värden: `Java_11` , `Java_8` . |
@@ -504,7 +501,7 @@ az spring-cloud app update --name -n
 | --Aktivera-beständig lagring | Booleskt.  Om värdet är true monterar du en 50 GB disk med standard Sök vägen. |
 | --kuvert | Blankstegsavgränsad miljövariabler i formatet nyckel [= värde]. |
 | --är-offentlig | Booleskt.  Om det här värdet är sant tilldelar du en offentlig domän till appen. |
-| --JVM – alternativ | En sträng som innehåller JVM-alternativ.  Använd ' = ' i stället för ' ' för att undvika gränssnitts tolknings fel. T. ex., `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --JVM – alternativ | En sträng som innehåller JVM-alternativ.  Använd ' = ' i stället för ' ' för att undvika gränssnitts tolknings fel. T. ex.,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --No-wait | Vänta inte på att tids krävande åtgärder ska slutföras. |
 | --runtime-version | Körnings version av språket som används i appen.  Tillåtna värden: `Java_11` , `Java_8` . |
 
@@ -739,7 +736,7 @@ Om du vill distribuera kod eller uppdatera inställningarna till en befintlig di
 | --kuvert | Blankstegsavgränsad miljövariabler i formatet nyckel [= värde]. |
 | --antal instanser | Antal instanser. Standard: 1. |
 | --jar-sökväg | Distribuera jar om det har tillhandahållits.  Annars distribuerar du den aktuella mappen som en tar. |
-| --JVM – alternativ | En sträng som innehåller JVM-alternativ.  Använd ' = ' i stället för ' ' för att undvika gränssnitts tolknings fel. T. ex., `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --JVM – alternativ | En sträng som innehåller JVM-alternativ.  Använd ' = ' i stället för ' ' för att undvika gränssnitts tolknings fel. T. ex.,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --minne | Antal GB minne per instans. |
 | --No-wait | Vänta inte tills tids krävande åtgärder har slutförts. |
 | --runtime-version | Körnings version av språket som används i appen.  Tillåtna värden: `Java_11` , `Java_8` . |

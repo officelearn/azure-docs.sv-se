@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe584e7215a666ba554b30cad0869fb6dcca939
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 646be410cceb214efad19757378c74f086e58578
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018696"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263079"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Resource Manager
 
@@ -51,7 +51,7 @@ Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtko
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns systemtilldelade hanterade identitet och använd den för att anropa Azure Resource Manager 
 
-Du måste använda **PowerShell** i den här delen.  Om du inte har installerat **PowerShell** kan du hämta det [här](https://docs.microsoft.com/powershell/azure/). 
+Du måste använda **PowerShell** i den här delen.  Om du inte har installerat **PowerShell** kan du hämta det [här](/powershell/azure/). 
 
 1.  Gå till **Virtuella datorer** på portalen och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**. 
 2.  Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
@@ -95,5 +95,4 @@ Du måste använda **PowerShell** i den här delen.  Om du inte har installerat 
 I den här snabbstarten har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

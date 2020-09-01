@@ -17,14 +17,14 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261031"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229862"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD-aktivitets loggar i Azure Monitor
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD-aktivitetsloggar i Azure Monitor
 
 Du kan dirigera Azure Active Directory (Azure AD)-aktivitets loggar till flera slut punkter för långsiktig kvarhållning och data insikter. Med den här funktionen kan du:
 
@@ -50,7 +50,7 @@ Du kan skicka Azure AD audit-loggar och inloggnings loggar till ditt Azure Stora
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda den här funktionen behöver du:
+För att använda funktionen behöver du:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [registrera dig för en kostnadsfri utvärdering](https://azure.microsoft.com/free/).
 * [Licens](https://azure.microsoft.com/pricing/details/active-directory/) för Azure AD Free, Basic, Premium 1 eller Premium 2 för åtkomst till Azure AD-granskningsloggar på Azure Portal. 
@@ -60,7 +60,7 @@ Om du vill använda den här funktionen behöver du:
 
 Beroende på vart du vill dirigera spårningsloggdata behöver du något av följande:
 
-* Ett Azure-lagringskonto som du har *ListKeys*-behörigheter för. Vi rekommenderar att du använder ett allmänt lagringskonto och inte ett blob-lagringskonto. Prisinformation för lagring finns i [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* Ett Azure-lagringskonto som du har *ListKeys*-behörigheter för. Vi rekommenderar att du använder ett allmänt lagringskonto och inte ett blob-lagringskonto. Information om lagringspriser hittar du i [Priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * En Azure Event Hubs-namnrymd för att integrera med lösningar från tredje part.
 * En Azure Log Analytics-arbetsyta för att skicka loggar till Azure Monitor loggar.
 
@@ -70,7 +70,7 @@ Om du redan har en Azure AD-licens behöver du en Azure-prenumeration för att k
 
 ### <a name="storage-size-for-activity-logs"></a>Lagringsstorlek för aktivitetsloggar
 
-Varje spårningslogghändelse använder cirka 2 KB datalagring. Logga in händelse loggar är cirka 4 KB data lagring. I en klientorganisation med 100 000 användare skulle det ske ungefär 1,5 miljoner händelser per dag, vilket skulle kräva ungefär 3 GB datalagring per dag. Eftersom skrivningar sker i batchar om cirka fem minuter kan du förvänta dig ungefär 9 000 skrivåtgärder per månad. 
+Varje granskningslogghändelse använder cirka 2 KB datalagring. Logga in händelse loggar är cirka 4 KB data lagring. I en klientorganisation med 100 000 användare skulle det ske ungefär 1,5 miljoner händelser per dag, vilket skulle kräva ungefär 3 GB datalagring per dag. Eftersom skrivningar sker i batchar om cirka fem minuter kan du förvänta dig ungefär 9 000 skrivåtgärder per månad. 
 
 
 Följande tabell innehåller en uppskattning av kostnaden, beroende på klientorganisationens storlek, för ett GPv2-lagringskonto i USA, västra för minst ett års kvarhållning. För att skapa en mer tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -79,8 +79,8 @@ Följande tabell innehåller en uppskattning av kostnaden, beroende på klientor
 | Loggkategori | Antal användare | Händelser per dag | Datavolym per månad (uppskattad) | Kostnad per månad (uppskattad) | Kostnad per år (uppskattad) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Granska | 100 000 | 1,5&nbsp;miljoner | 90 GB | 1,93 USD | 23,12 USD |
-| Granska | 1,000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
-| Inloggningar | 1,000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
+| Granska | 1 000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
+| Inloggningar | 1 000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
 | Inloggningar | 100 000 | 15&nbsp;miljoner | 1,7 TB | 35,41 USD | 424,92 USD |
  
 
@@ -103,9 +103,9 @@ Följande tabell innehåller uppskattade kostnader per månad för en grundlägg
 | Loggkategori | Antal användare | Händelser per sekund | Händelser per femminutsintervall | Volym per intervall | Meddelanden per intervall | Meddelanden per månad | Kostnad per månad (uppskattad) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Granska | 100 000 | 18 | 5 400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
-| Granska | 1,000 | 0.1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
+| Granska | 1 000 | 0,1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
 | Inloggningar | 100 000 | 18000 | 5 400 000 | 10,8 GB | 42188 | 364 504 320 | $23,9 |  
-| Inloggningar | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
+| Inloggningar | 1 000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor loggar kostnads överväganden
 
@@ -126,7 +126,7 @@ Följande tabell innehåller uppskattade kostnader per månad för en grundlägg
 
 
 
-Om du vill granska kostnader som rör hantering av Azure Monitor loggar, se [hantera kostnader genom att kontrol lera data volymer och kvarhållning i Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Om du vill granska kostnader som rör hantering av Azure Monitor loggar, se [hantera kostnader genom att kontrol lera data volymer och kvarhållning i Azure Monitor loggar](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -180,13 +180,13 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Vilka SIEM-verktyg stöds för närvarande?** 
 
-**A**: **a**: Azure Monitor stöds för närvarande av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm och Logz.io. Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**A**: **a**: Azure Monitor stöds för närvarande av [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm och Logz.io. Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
 **F: Hur integrerar jag Azure AD-aktivitetsloggar med min Splunk-instans?**
 
-**S**: [Dirigera Azure AD-aktivitetsloggarna till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md) och följ sedan stegen för att [integrera aktivitetsloggar med Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**S**: [Dirigera Azure AD-aktivitetsloggarna till en händelsehubb](./tutorial-azure-monitor-stream-logs-to-event-hub.md) och följ sedan stegen för att [integrera aktivitetsloggar med Splunk](./howto-integrate-activity-logs-with-splunk.md).
 
 ---
 
@@ -198,7 +198,7 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Kan jag komma åt data från en händelsehubb utan att använda ett externt SIEM-verktyg?** 
 
-**A**: Ja. Om du vill komma åt loggarna från ditt anpassade program kan du använda [Event Hub API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**A**: Ja. Om du vill komma åt loggarna från ditt anpassade program kan du använda [Event Hub API](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). 
 
 ---
 
@@ -206,5 +206,5 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 ## <a name="next-steps"></a>Nästa steg
 
 * [Arkivera aktivitetsloggar till ett lagringskonto](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Dirigera aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Dirigera aktivitetsloggar till en händelsehubb](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrera aktivitets loggar med Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

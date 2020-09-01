@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856820"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229233"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
@@ -85,18 +85,11 @@ I det här avsnittet konfigurerar du Data Lake Storage Gen1 åtkomst från HDIns
 Från Azure Portal kan du antingen använda ett befintligt huvud namn för tjänsten eller skapa ett nytt.
 
 Så här skapar du ett huvud namn för tjänsten från Azure Portal:
-
-1. Välj **data Lake Store åtkomst** från bladet lagring.
-1. På bladet **data Lake Storage gen1 åtkomst** väljer du **Skapa nytt**.
-1. Välj **tjänstens huvud namn**och följ sedan anvisningarna för att skapa ett huvud namn för tjänsten.
-1. Hämta certifikatet om du bestämmer dig för att använda det igen i framtiden. Att ladda ned certifikatet är användbart om du vill använda samma huvud namn för tjänsten när du skapar ytterligare HDInsight-kluster.
-
-    ![Lägg till tjänstens huvud namn i HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Lägg till tjänstens huvud namn i HDInsight-kluster")
-
-1. Välj **åtkomst** för att konfigurera åtkomst till mappen.  Se [Konfigurera fil behörigheter](#configure-file-permissions).
+1. Se [skapa tjänstens huvud namn och certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) med hjälp av Azure Active Directory.
 
 Så här använder du ett befintligt huvud namn för tjänsten från Azure Portal:
 
+1. Tjänstens huvud namn ska ha ägar behörigheter för lagrings kontot. Se [Konfigurera behörigheter för tjänstens huvud namn som ägare på lagrings kontot](#configure-serviceprincipal-permissions)
 1. Välj **data Lake Store åtkomst**.
 1. På bladet **data Lake Storage gen1 åtkomst** väljer du **Använd befintlig**.
 1. Välj **tjänstens huvud namn**och välj sedan ett huvud namn för tjänsten.
@@ -105,6 +98,10 @@ Så här använder du ett befintligt huvud namn för tjänsten från Azure Porta
     ![Lägg till tjänstens huvud namn i HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Lägg till tjänstens huvud namn i HDInsight-kluster")
 
 1. Välj **åtkomst** för att konfigurera åtkomst till mappen.  Se [Konfigurera fil behörigheter](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Ställ in behörigheter för tjänstens huvud namn som ägare på lagrings kontot
+1. På bladet Access Control (IAM) i lagrings kontot klickar du på Lägg till en roll tilldelning. 
+2. På bladet Lägg till en roll tilldelning väljer du roll som ägare och väljer SPN och klickar på Spara.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Konfigurera fil behörigheter
 
@@ -176,9 +173,9 @@ CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.a
 
 Förklaringar
 
-* `adl://hdiadlsg1storage.azuredatalakestore.net/`är roten för det Data Lake Storage Gen1 kontot.
-* `/clusters/myhdiadlcluster`är roten för de kluster data som du angav när du skapade klustret.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`är platsen för den exempel fil som du använde i frågan.
+* `adl://hdiadlsg1storage.azuredatalakestore.net/` är roten för det Data Lake Storage Gen1 kontot.
+* `/clusters/myhdiadlcluster` är roten för de kluster data som du angav när du skapade klustret.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` är platsen för den exempel fil som du använde i frågan.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-storage-gen1-account-as-additional-storage"></a>Köra en Hive-fråga mot data i ett Data Lake Storage Gen1 konto (som ytterligare lagrings utrymme)
 

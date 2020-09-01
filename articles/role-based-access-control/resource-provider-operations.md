@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/16/2020
+ms.date: 08/31/2020
 ms.custom: generated
-ms.openlocfilehash: 5809a2325b825bde74c7a8859c3a96f94c05b170
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 685fdf8180f54c87fe6677268bd289ee00912c96
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272051"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227771"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -797,6 +797,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Read | Hämtar Application Gateway PrivateEndpoint-anslutningar |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Write | Uppdateringar Application Gateway PrivateEndpoint-anslutning |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Delete | Tar bort Application Gateway PrivateEndpoint-anslutning |
+> | Microsoft. Network/applicationGateways/privateLinkConfigurations/Read | Hämtar Application Gateway konfigurationer för privat länk |
 > | Microsoft. Network/applicationGateways/privateLinkResources/Read | Hämtar ApplicationGateway PrivateLink-resurser |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Read | Hämtar en Application Gateway WAF-princip |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Write | Skapar en Application Gateway WAF-princip eller uppdaterar en Application Gateway WAF-princip |
@@ -880,6 +881,9 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/dnszones/TXT/Read | Hämta post uppsättningen av typen ' TXT ' i JSON-format. Post uppsättningen innehåller en lista med poster samt TTL, taggar och etag. |
 > | Microsoft. Network/dnszones/TXT/Write | Skapa eller uppdatera en post uppsättning av typen ' TXT ' i en DNS-zon. De angivna posterna ersätter de aktuella posterna i post uppsättningen. |
 > | Microsoft. Network/dnszones/TXT/Delete | Ta bort post uppsättningen med ett angivet namn och skriv TXT från en DNS-zon. |
+> | Microsoft. Network/dscpConfiguration/Write | Åtgärd för att ställa in DSCP-konfigurationen |
+> | Microsoft. Network/dscpConfiguration/Read | Åtgärd för att ställa in DSCP-konfigurationen |
+> | Microsoft. Network/dscpConfiguration/JOIN/åtgärd | Ansluter till DSCP-konfiguration |
 > | Microsoft. Network/expressRouteCircuits/Read | Hämta en ExpressRouteCircuit |
 > | Microsoft. Network/expressRouteCircuits/Write | Skapar eller uppdaterar en befintlig ExpressRouteCircuit |
 > | Microsoft. Network/expressRouteCircuits/JOIN/åtgärd | Ansluter till en Express Route-krets. Det går inte att avisera. |
@@ -916,6 +920,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/expressRoutePorts/Write | Skapar eller uppdaterar ExpressRoutePorts |
 > | Microsoft. Network/expressRoutePorts/JOIN/åtgärd | Ansluter till Express Route-portar. Det går inte att avisera. |
 > | Microsoft. Network/expressRoutePorts/Delete | Tar bort ExpressRoutePorts |
+> | Microsoft. Network/expressRoutePorts/generateloa/Action | Genererar LOA för ExpressRoutePorts |
 > | Microsoft. Network/expressRoutePorts/Links/Read | Hämtar ExpressRouteLink |
 > | Microsoft. Network/expressRoutePortsLocations/Read | Hämta platser för Express Route-portar |
 > | Microsoft. Network/expressRouteServiceProviders/Read | Hämtar Express Route Service-leverantörer |
@@ -2041,6 +2046,10 @@ Azure-tjänst: [Azure Search](../search/index.yml)
 > | Microsoft. search/searchServices/privateEndpointConnectionProxies/Write | Skapar en anslutning till en privat slutpunkt med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna proxyn för privat slut punkt anslutning |
 > | Microsoft. search/searchServices/privateEndpointConnectionProxies/Read | Returnerar listan över anslutnings-proxy för privata slut punkter eller hämtar egenskaperna för den angivna anslutningen till den privata slut punkten |
 > | Microsoft. search/searchServices/privateEndpointConnectionProxies/Delete | Tar bort en befintlig anslutning till en privat slut punkt |
+> | Microsoft. search/searchServices/sharedPrivateLinkResources/Write | Skapar en ny delad privat länk resurs med de angivna parametrarna eller uppdaterar egenskaperna för den angivna delade privata länk resursen |
+> | Microsoft. search/searchServices/sharedPrivateLinkResources/Read | Returnerar listan över delade privata länk resurser eller hämtar egenskaperna för den angivna delade privata länk resursen |
+> | Microsoft. search/searchServices/sharedPrivateLinkResources/Delete | Tar bort en befintlig delad privat länk resurs |
+> | Microsoft. search/searchServices/sharedPrivateLinkResources/operationStatuses/Read | Hämta information om en tids krävande delad privat länkad resurs åtgärd |
 
 ### <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 
@@ -2075,9 +2084,18 @@ Azure-tjänst: [Azure SignalR service](../azure-signalr/index.yml)
 > | Microsoft. SignalRService/SignalR/privateEndpointConnections/Read | Läs en privat slut punkts anslutning |
 > | Microsoft. SignalRService/SignalR/privateLinkResources/Read | Visa en lista över alla signaler för privata Länkar för signaler |
 > | **DataAction** | **Beskrivning** |
-> | Microsoft. SignalRService/SignalR/serverConnection/Write | Starta en server anslutning. |
+> | Microsoft. SignalRService/SignalR/serverConnection/åtgärd | Starta en server anslutning. |
+> | Microsoft. SignalRService/SignalR/clientConnection/åtgärd | Lägg till/ta bort klient anslutningar från grupper eller Stäng en klient anslutning. |
+> | Microsoft. SignalRService/SignalR/användare/åtgärd | Lägg till/ta bort användare från grupper. |
+> | Microsoft. SignalRService/SignalR/clientConnection/Read | Kontrol lera anslutnings förekomsten. |
+> | Microsoft. SignalRService/SignalR/clientConnection/Write | Skicka meddelanden direkt till en klient anslutning. |
+> | Microsoft. SignalRService/SignalR/Group/Read | Kontrol lera grupp förekomst. |
+> | Microsoft. SignalRService/SignalR/-grupp/Skriv | Broadcast-meddelanden till klient anslutningar i en grupp/vissa grupper. |
+> | Microsoft. SignalRService/SignalR/Hub/Write | Broadcast-meddelanden till alla klient anslutningar som är kopplade till den här hubben. |
 > | Microsoft. SignalRService/SignalR/service/accessKey/åtgärd | Hämta en tillfällig AccessKey för signering av ClientTokens. |
 > | Microsoft. SignalRService/SignalR/service/clientToken/åtgärd | Hämta en ClientToken för att starta en klient anslutning. |
+> | Microsoft. SignalRService/SignalR/användare/läsning | Kontrol lera användar förekomst och om det var i en grupp. |
+> | Microsoft. SignalRService/SignalR/User/Write | Skicka meddelanden till en användare, som kan ha flera klient anslutningar. |
 
 ### <a name="microsoftweb"></a>Microsoft. Web
 
@@ -2561,7 +2579,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -4188,7 +4206,7 @@ Azure-tjänst: [SQL Server på azure Virtual Machines](../azure-sql/virtual-mach
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Skapa en ny eller ändra egenskaper för befintlig virtuell SQL-dator |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Ta bort befintlig virtuell SQL-dator |
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 ### <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
@@ -4386,6 +4404,12 @@ Azure-tjänst: [Event Hubs](../event-hubs/index.yml)
 > | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
 > | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
 > | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
+> | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/operationstatus/Read | Hämta status för en asynkron privat slut punkts åtgärd |
+> | Microsoft. EventHub/Namespaces/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. EventHub/Namespaces/privateEndpointConnections/Write | Skapa eller uppdatera privat slut punkts anslutning |
+> | Microsoft. EventHub/Namespaces/privateEndpointConnections/Delete | Tar bort anslutning till privat slutpunkt |
+> | Microsoft. EventHub/Namespaces/privateEndpointConnections/operationstatus/Read | Hämta status för en asynkron privat slut punkts åtgärd |
+> | Microsoft. EventHub/Namespaces/privateLinkResources/Read | Hämtar de resurs typer som stöder privata slut punkts anslutningar |
 > | Microsoft. EventHub/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Microsoft. EventHub/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Microsoft. EventHub/Namespaces/providers/Microsoft. Insights/logDefinitions/Read | Hämta lista över namn rymds loggar resurs beskrivningar |
@@ -5082,6 +5106,15 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/arbets ytor/experiment/kör/Läs | Körs i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/experiment/kör/Skriv | Skapar eller uppdaterar körs i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/funktioner/läsa | Hämtar alla aktiverade funktioner för en Machine Learning Services arbets yta |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Read | Hämtar härlednings slut punkter i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Write | Skapar eller uppdaterar en slut punkt för slut punkten i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Delete | Tar bort härlednings slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/checkNameAvailability/Read | Kontrollerar namn för slut punkts slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/läsning | Hämtar distributioner i en härlednings slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/skrivning | Skapar eller uppdaterar distribution i slut punkts slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/Delete | Tar bort distribution i distributions slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/checkNameAvailability/Read | Kontrollerar namn för distribution i en härlednings slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Deployments/SKU/Read | Hämtar SKU-inställningar för distribution i härlednings slut punkt i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/märkning/export/åtgärd | Exportera etiketter för att märka projekt i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/etiketter/etiketter/läsa | Hämtar etiketter för att märka projekt i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/etiketter/etiketter/Skriv | Skapar etiketter för att märka projekt i Machine Learning Services arbets ytor |
@@ -5307,6 +5340,9 @@ Azure-tjänst: [Notification Hubs](../notification-hubs/index.yml)
 > | Microsoft. NotificationHubs/Namespaces/authorizationRules/Delete | Ta bort auktoriseringsregel för namnrymd. Det går inte att ta bort standard regeln för att tillåta namnrymd.  |
 > | Microsoft. NotificationHubs/Namespaces/authorizationRules/listnycklar/åtgärd | Hämta anslutnings strängen till namn området |
 > | Microsoft. NotificationHubs/Namespaces/authorizationRules/regenerateKeys/åtgärd | Auktoriseringsregel för namnrymd återskapa primär-SecondaryKey, ange den nyckel som måste återskapas |
+> | Microsoft. NotificationHubs/namnrymder/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
+> | Microsoft. NotificationHubs/namnrymder/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
+> | Microsoft. NotificationHubs/namnrymder/logDefinitions/Read | Hämta lista över namn rymds loggar resurs beskrivningar |
 > | Microsoft. NotificationHubs/namnrymder/NotificationHubs/Write | Skapa en Notification Hub och uppdatera dess egenskaper. Egenskaperna omfattar huvudsakligen PNS-autentiseringsuppgifter. Auktoriseringsregler och TTL |
 > | Microsoft. NotificationHubs/namnrymder/NotificationHubs/Read | Hämta lista över resurs beskrivningar för Notification Hub |
 > | Microsoft. NotificationHubs/Namespaces/NotificationHubs/Delete | Ta bort Notification Hub-resurs |
@@ -6006,6 +6042,12 @@ Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 > | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
 > | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
 > | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
+> | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/operationstatus/Read | Hämta status för en asynkron privat slut punkts åtgärd |
+> | Microsoft. Relay/namnrymder/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. Relay/namnrymder/privateEndpointConnections/Write | Skapa eller uppdatera privat slut punkts anslutning |
+> | Microsoft. Relay/namnrymder/privateEndpointConnections/Delete | Tar bort anslutning till privat slutpunkt |
+> | Microsoft. Relay/namnrymder/privateEndpointConnections/operationstatus/Read | Hämta status för en asynkron privat slut punkts åtgärd |
+> | Microsoft. Relay/namnrymder/privateLinkResources/Read | Hämtar de resurs typer som stöder privata slut punkts anslutningar |
 > | Microsoft. Relay/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Microsoft. Relay/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Microsoft. Relay/Namespaces/providers/Microsoft. Insights/logDefinitions/Read | Hämta lista över namn rymds loggar resurs beskrivningar |
@@ -6077,6 +6119,12 @@ Azure-tjänst: [Service Bus](../service-bus/index.md)
 > | Microsoft. Service Bus/namnrymder/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
 > | Microsoft. Service Bus/namnrymder/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
 > | Microsoft. Service Bus/Namespaces/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
+> | Microsoft. Service Bus/Namespaces/privateEndpointConnectionProxies/operationstatus/Read | Hämta status för en asynkron privat slut punkts åtgärd |
+> | Microsoft. Service Bus/namnrymder/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. Service Bus/namnrymder/privateEndpointConnections/Write | Skapa eller uppdatera privat slut punkts anslutning |
+> | Microsoft. Service Bus/Namespaces/privateEndpointConnections/Delete | Tar bort anslutning till privat slutpunkt |
+> | Microsoft. Service Bus/Namespaces/privateEndpointConnections/operationstatus/Read | Hämta status för en asynkron privat slut punkts åtgärd |
+> | Microsoft. Service Bus/namnrymder/privateLinkResources/Read | Hämtar de resurs typer som stöder privata slut punkts anslutningar |
 > | Microsoft. Service Bus/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Microsoft. Service Bus/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Microsoft. Service Bus/Namespaces/providers/Microsoft. Insights/logDefinitions/Read | Hämta lista över namn rymds loggar resurs beskrivningar |
@@ -6511,6 +6559,9 @@ Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/threatintelligence/Metrics/Action | Samla in hot informations mått |
 > | Microsoft. SecurityInsights/threatintelligence/bulkDelete/Action | Mass borttagning Hot information |
 > | Microsoft. SecurityInsights/threatintelligence/bulkTag/Action | Hot information för bulk-Taggar |
+> | Microsoft. SecurityInsights/Watchlists/Read | Hämtar Watchlists |
+> | Microsoft. SecurityInsights/Watchlists/Write | Skapa Watchlists |
+> | Microsoft. SecurityInsights/Watchlists/Delete | Tar bort Watchlists |
 
 ## <a name="devops"></a>DevOps
 
@@ -7062,7 +7113,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -7213,14 +7264,85 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/LogProfiles/Delete | Ta bort en logg profil för aktivitets logg |
 > | Microsoft. Insights/LogProfiles/Read | Läs logg profil för aktivitets logg |
 > | Microsoft. Insights/loggar/läsa | Läser data från alla loggar |
+> | Microsoft. Insights/logs/AADDomainServicesAccountLogon/Read | Läsa data från tabellen AADDomainServicesAccountLogon |
+> | Microsoft. Insights/logs/AADDomainServicesAccountManagement/Read | Läsa data från tabellen AADDomainServicesAccountManagement |
+> | Microsoft. Insights/logs/AADDomainServicesDirectoryServiceAccess/Read | Läsa data från tabellen AADDomainServicesDirectoryServiceAccess |
+> | Microsoft. Insights/logs/AADDomainServicesLogonLogoff/Read | Läsa data från tabellen AADDomainServicesLogonLogoff |
+> | Microsoft. Insights/logs/AADDomainServicesPolicyChange/Read | Läsa data från tabellen AADDomainServicesPolicyChange |
+> | Microsoft. Insights/logs/AADDomainServicesPrivilegeUse/Read | Läsa data från tabellen AADDomainServicesPrivilegeUse |
+> | Microsoft. Insights/logs/AADDomainServicesSystemSecurity/Read | Läsa data från tabellen AADDomainServicesSystemSecurity |
+> | Microsoft. Insights/logs/AADManagedIdentitySignInLogs/Read | Läsa data från tabellen AADManagedIdentitySignInLogs |
+> | Microsoft. Insights/logs/AADNonInteractiveUserSignInLogs/Read | Läsa data från tabellen AADNonInteractiveUserSignInLogs |
+> | Microsoft. Insights/logs/AADServicePrincipalSignInLogs/Read | Läsa data från tabellen AADServicePrincipalSignInLogs |
 > | Microsoft. Insights/logs/ADAssessmentRecommendation/Read | Läsa data från tabellen ADAssessmentRecommendation |
+> | Microsoft. Insights/logs/AddonAzureBackupAlerts/Read | Läsa data från tabellen AddonAzureBackupAlerts |
+> | Microsoft. Insights/logs/AddonAzureBackupJobs/Read | Läsa data från tabellen AddonAzureBackupJobs |
+> | Microsoft. Insights/logs/AddonAzureBackupPolicy/Read | Läsa data från tabellen AddonAzureBackupPolicy |
+> | Microsoft. Insights/logs/AddonAzureBackupProtectedInstance/Read | Läsa data från tabellen AddonAzureBackupProtectedInstance |
+> | Microsoft. Insights/logs/AddonAzureBackupStorage/Read | Läsa data från tabellen AddonAzureBackupStorage |
+> | Microsoft. Insights/logs/ADFActivityRun/Read | Läsa data från tabellen ADFActivityRun |
+> | Microsoft. Insights/logs/ADFPipelineRun/Read | Läsa data från tabellen ADFPipelineRun |
+> | Microsoft. Insights/logs/ADFSSISIntegrationRuntimeLogs/Read | Läsa data från tabellen ADFSSISIntegrationRuntimeLogs |
+> | Microsoft. Insights/logs/ADFSSISPackageEventMessageContext/Read | Läsa data från tabellen ADFSSISPackageEventMessageContext |
+> | Microsoft. Insights/logs/ADFSSISPackageEventMessages/Read | Läsa data från tabellen ADFSSISPackageEventMessages |
+> | Microsoft. Insights/logs/ADFSSISPackageExecutableStatistics/Read | Läsa data från tabellen ADFSSISPackageExecutableStatistics |
+> | Microsoft. Insights/logs/ADFSSISPackageExecutionComponentPhases/Read | Läsa data från tabellen ADFSSISPackageExecutionComponentPhases |
+> | Microsoft. Insights/logs/ADFSSISPackageExecutionDataStatistics/Read | Läsa data från tabellen ADFSSISPackageExecutionDataStatistics |
+> | Microsoft. Insights/logs/ADFTriggerRun/Read | Läsa data från tabellen ADFTriggerRun |
 > | Microsoft. Insights/logs/ADReplicationResult/Read | Läsa data från tabellen ADReplicationResult |
 > | Microsoft. Insights/logs/ADSecurityAssessmentRecommendation/Read | Läsa data från tabellen ADSecurityAssessmentRecommendation |
+> | Microsoft. Insights/logs/ADTDigitalTwinsOperation/Read | Läsa data från tabellen ADTDigitalTwinsOperation |
+> | Microsoft. Insights/logs/ADTEventRoutesOperation/Read | Läsa data från tabellen ADTEventRoutesOperation |
+> | Microsoft. Insights/logs/ADTModelsOperation/Read | Läsa data från tabellen ADTModelsOperation |
+> | Microsoft. Insights/logs/ADTQueryOperation/Read | Läsa data från tabellen ADTQueryOperation |
+> | Microsoft. Insights/logs/AegDeliveryFailureLogs/Read | Läsa data från tabellen AegDeliveryFailureLogs |
+> | Microsoft. Insights/logs/AegPublishFailureLogs/Read | Läsa data från tabellen AegPublishFailureLogs |
 > | Microsoft. Insights/loggar/varna/läsa | Läsa data från aviserings tabellen |
 > | Microsoft. Insights/logs/AlertHistory/Read | Läsa data från tabellen AlertHistory |
+> | Microsoft. Insights/logs/AmlComputeClusterEvent/Read | Läsa data från tabellen AmlComputeClusterEvent |
+> | Microsoft. Insights/logs/AmlComputeClusterNodeEvent/Read | Läsa data från tabellen AmlComputeClusterNodeEvent |
+> | Microsoft. Insights/logs/AmlComputeCpuGpuUtilization/Read | Läsa data från tabellen AmlComputeCpuGpuUtilization |
+> | Microsoft. Insights/logs/AmlComputeJobEvent/Read | Läsa data från tabellen AmlComputeJobEvent |
+> | Microsoft. Insights/logs/AmlRunStatusChangedEvent/Read | Läsa data från tabellen AmlRunStatusChangedEvent |
+> | Microsoft. Insights/logs/ApiManagementGatewayLogs/Read | Läsa data från tabellen ApiManagementGatewayLogs |
+> | Microsoft. Insights/logs/AppAvailabilityResults/Read | Läsa data från tabellen AppAvailabilityResults |
+> | Microsoft. Insights/logs/AppBrowserTimings/Read | Läsa data från tabellen AppBrowserTimings |
+> | Microsoft. Insights/logs/AppCenterError/Read | Läsa data från tabellen AppCenterError |
+> | Microsoft. Insights/logs/AppDependencies/Read | Läsa data från tabellen AppDependencies |
+> | Microsoft. Insights/logs/AppEvents/Read | Läsa data från tabellen AppEvents |
+> | Microsoft. Insights/logs/AppExceptions/Read | Läsa data från tabellen AppExceptions |
 > | Microsoft. Insights/logs/ApplicationInsights/Read | Läsa data från tabellen ApplicationInsights |
+> | Microsoft. Insights/logs/AppMetrics/Read | Läsa data från tabellen AppMetrics |
+> | Microsoft. Insights/logs/AppPageViews/Read | Läsa data från tabellen AppPageViews |
+> | Microsoft. Insights/logs/AppPerformanceCounters/Read | Läsa data från tabellen AppPerformanceCounters |
+> | Microsoft. Insights/logs/AppPlatformLogsforSpring/Read | Läsa data från tabellen AppPlatformLogsforSpring |
+> | Microsoft. Insights/logs/AppPlatformSystemLogs/Read | Läsa data från tabellen AppPlatformSystemLogs |
+> | Microsoft. Insights/logs/AppRequests/Read | Läsa data från tabellen AppRequests |
+> | Microsoft. Insights/logs/AppServiceAntivirusScanLogs/Read | Läsa data från tabellen AppServiceAntivirusScanLogs |
+> | Microsoft. Insights/logs/AppServiceAppLogs/Read | Läsa data från tabellen AppServiceAppLogs |
+> | Microsoft. Insights/logs/AppServiceAuditLogs/Read | Läsa data från tabellen AppServiceAuditLogs |
+> | Microsoft. Insights/logs/AppServiceConsoleLogs/Read | Läsa data från tabellen AppServiceConsoleLogs |
+> | Microsoft. Insights/logs/AppServiceEnvironmentPlatformLogs/Read | Läsa data från tabellen AppServiceEnvironmentPlatformLogs |
+> | Microsoft. Insights/logs/AppServiceFileAuditLogs/Read | Läsa data från tabellen AppServiceFileAuditLogs |
+> | Microsoft. Insights/logs/AppServiceHTTPLogs/Read | Läsa data från tabellen AppServiceHTTPLogs |
+> | Microsoft. Insights/logs/AppServicePlatformLogs/Read | Läsa data från tabellen AppServicePlatformLogs |
+> | Microsoft. Insights/logs/AppSystemEvents/Read | Läsa data från tabellen AppSystemEvents |
+> | Microsoft. Insights/logs/AppTraces/Read | Läsa data från tabellen AppTraces |
+> | Microsoft. Insights/logs/AuditLogs/Read | Läsa data från tabellen AuditLogs |
+> | Microsoft. Insights/logs/AutoscaleEvaluationsLog/Read | Läsa data från tabellen AutoscaleEvaluationsLog |
+> | Microsoft. Insights/logs/AutoscaleScaleActionsLog/Read | Läsa data från tabellen AutoscaleScaleActionsLog |
+> | Microsoft. Insights/logs/AWSCloudTrail/Read | Läsa data från tabellen AWSCloudTrail |
 > | Microsoft. Insights/logs/AzureActivity/Read | Läsa data från tabellen AzureActivity |
+> | Microsoft. Insights/logs/AzureAssessmentRecommendation/Read | Läsa data från tabellen AzureAssessmentRecommendation |
+> | Microsoft. Insights/logs/AzureDevOpsAuditing/Read | Läsa data från tabellen AzureDevOpsAuditing |
+> | Microsoft. Insights/logs/AzureDiagnostics/Read | Läsa data från tabellen AzureDiagnostics |
 > | Microsoft. Insights/logs/AzureMetrics/Read | Läsa data från tabellen AzureMetrics |
+> | Microsoft. Insights/logs/BaiClusterEvent/Read | Läsa data från tabellen BaiClusterEvent |
+> | Microsoft. Insights/logs/BaiClusterNodeEvent/Read | Läsa data från tabellen BaiClusterNodeEvent |
+> | Microsoft. Insights/logs/BaiJobEvent/Read | Läsa data från tabellen BaiJobEvent |
+> | Microsoft. Insights/logs/BehaviorAnalytics/Read | Läsa data från tabellen BehaviorAnalytics |
+> | Microsoft. Insights/logs/BlockchainApplicationLog/Read | Läsa data från tabellen BlockchainApplicationLog |
+> | Microsoft. Insights/logs/BlockchainProxyLog/Read | Läsa data från tabellen BlockchainProxyLog |
 > | Microsoft. Insights/logs/BoundPort/Read | Läsa data från tabellen BoundPort |
 > | Microsoft. Insights/logs/CommonSecurityLog/Read | Läsa data från tabellen CommonSecurityLog |
 > | Microsoft. Insights/logs/ComputerGroup/Read | Läsa data från tabellen ComputerGroup |
@@ -7229,7 +7351,22 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/ContainerImageInventory/Read | Läsa data från tabellen ContainerImageInventory |
 > | Microsoft. Insights/logs/ContainerInventory/Read | Läsa data från tabellen ContainerInventory |
 > | Microsoft. Insights/logs/ContainerLog/Read | Läsa data från tabellen ContainerLog |
+> | Microsoft. Insights/logs/ContainerNodeInventory/Read | Läsa data från tabellen ContainerNodeInventory |
+> | Microsoft. Insights/logs/ContainerRegistryLoginEvents/Read | Läsa data från tabellen ContainerRegistryLoginEvents |
+> | Microsoft. Insights/logs/ContainerRegistryRepositoryEvents/Read | Läsa data från tabellen ContainerRegistryRepositoryEvents |
 > | Microsoft. Insights/logs/ContainerServiceLog/Read | Läsa data från tabellen ContainerServiceLog |
+> | Microsoft. Insights/logs/CoreAzureBackup/Read | Läsa data från tabellen CoreAzureBackup |
+> | Microsoft. Insights/logs/DatabricksAccounts/Read | Läsa data från tabellen DatabricksAccounts |
+> | Microsoft. Insights/logs/DatabricksClusters/Read | Läsa data från tabellen DatabricksClusters |
+> | Microsoft. Insights/logs/DatabricksDBFS/Read | Läsa data från tabellen DatabricksDBFS |
+> | Microsoft. Insights/logs/DatabricksInstancePools/Read | Läsa data från tabellen DatabricksInstancePools |
+> | Microsoft. Insights/logs/DatabricksJobs/Read | Läsa data från tabellen DatabricksJobs |
+> | Microsoft. Insights/logs/DatabricksNotebook/Read | Läsa data från tabellen DatabricksNotebook |
+> | Microsoft. Insights/logs/DatabricksSecrets/Read | Läsa data från tabellen DatabricksSecrets |
+> | Microsoft. Insights/logs/DatabricksSQLPermissions/Read | Läsa data från tabellen DatabricksSQLPermissions |
+> | Microsoft. Insights/logs/DatabricksSSH/Read | Läsa data från tabellen DatabricksSSH |
+> | Microsoft. Insights/logs/DatabricksTables/Read | Läsa data från tabellen DatabricksTables |
+> | Microsoft. Insights/logs/DatabricksWorkspace/Read | Läsa data från tabellen DatabricksWorkspace |
 > | Microsoft. Insights/logs/DeviceAppCrash/Read | Läsa data från tabellen DeviceAppCrash |
 > | Microsoft. Insights/logs/DeviceAppLaunch/Read | Läsa data från tabellen DeviceAppLaunch |
 > | Microsoft. Insights/logs/DeviceCalendar/Read | Läsa data från tabellen DeviceCalendar |
@@ -7244,6 +7381,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/DeviceSleepState/Read | Läsa data från tabellen DeviceSleepState |
 > | Microsoft. Insights/logs/DHAppFailure/Read | Läsa data från tabellen DHAppFailure |
 > | Microsoft. Insights/logs/DHAppReliability/Read | Läsa data från tabellen DHAppReliability |
+> | Microsoft. Insights/logs/DHCPActivity/Read | Läsa data från tabellen DHCPActivity |
 > | Microsoft. Insights/logs/DHDriverReliability/Read | Läsa data från tabellen DHDriverReliability |
 > | Microsoft. Insights/logs/DHLogonFailures/Read | Läsa data från tabellen DHLogonFailures |
 > | Microsoft. Insights/logs/DHLogonMetrics/Read | Läsa data från tabellen DHLogonMetrics |
@@ -7252,15 +7390,28 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/DHWipAppLearning/Read | Läsa data från tabellen DHWipAppLearning |
 > | Microsoft. Insights/logs/DnsEvents/Read | Läsa data från tabellen DnsEvents |
 > | Microsoft. Insights/logs/DnsInventory/Read | Läsa data från tabellen DnsInventory |
+> | Microsoft. Insights/logs/Dynamics365Activity/Read | Läsa data från tabellen Dynamics365Activity |
 > | Microsoft. Insights/logs/ETWEvent/Read | Läsa data från tabellen ETWEvent |
 > | Microsoft. Insights/loggar/händelse/läsa | Läsa data från händelse tabellen |
 > | Microsoft. Insights/logs/ExchangeAssessmentRecommendation/Read | Läsa data från tabellen ExchangeAssessmentRecommendation |
 > | Microsoft. Insights/logs/ExchangeOnlineAssessmentRecommendation/Read | Läsa data från tabellen ExchangeOnlineAssessmentRecommendation |
+> | Microsoft. Insights/logs/FailedIngestion/Read | Läsa data från tabellen FailedIngestion |
+> | Microsoft. Insights/logs/FunctionAppLogs/Read | Läsa data från tabellen FunctionAppLogs |
 > | Microsoft. Insights/loggar/pulsslag/läsning | Läsa data från pulsslags tabellen |
+> | Microsoft. Insights/logs/HuntingBookmark/Read | Läsa data från tabellen HuntingBookmark |
 > | Microsoft. Insights/logs/IISAssessmentRecommendation/Read | Läsa data från tabellen IISAssessmentRecommendation |
 > | Microsoft. Insights/logs/InboundConnection/Read | Läsa data från tabellen InboundConnection |
+> | Microsoft. Insights/logs/InsightsMetrics/Read | Läsa data från tabellen InsightsMetrics |
+> | Microsoft. Insights/logs/IntuneAuditLogs/Read | Läsa data från tabellen IntuneAuditLogs |
+> | Microsoft. Insights/logs/IntuneDeviceComplianceOrg/Read | Läsa data från tabellen IntuneDeviceComplianceOrg |
+> | Microsoft. Insights/logs/IntuneOperationalLogs/Read | Läsa data från tabellen IntuneOperationalLogs |
+> | Microsoft. Insights/logs/IoTHubDistributedTracing/Read | Läsa data från tabellen IoTHubDistributedTracing |
+> | Microsoft. Insights/logs/KubeEvents/Read | Läsa data från tabellen KubeEvents |
+> | Microsoft. Insights/logs/KubeHealth/Read | Läsa data från tabellen KubeHealth |
+> | Microsoft. Insights/logs/KubeMonAgentEvents/Read | Läsa data från tabellen KubeMonAgentEvents |
 > | Microsoft. Insights/logs/KubeNodeInventory/Read | Läsa data från tabellen KubeNodeInventory |
 > | Microsoft. Insights/logs/KubePodInventory/Read | Läsa data från tabellen KubePodInventory |
+> | Microsoft. Insights/logs/KubeServices/Read | Läsa data från tabellen KubeServices |
 > | Microsoft. Insights/logs/LinuxAuditLog/Read | Läsa data från tabellen LinuxAuditLog |
 > | Microsoft. Insights/logs/MAApplication/Read | Läsa data från tabellen MAApplication |
 > | Microsoft. Insights/logs/MAApplicationHealth/Read | Läsa data från tabellen MAApplicationHealth |
@@ -7271,6 +7422,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/MAApplicationReadiness/Read | Läsa data från tabellen MAApplicationReadiness |
 > | Microsoft. Insights/logs/MADeploymentPlan/Read | Läsa data från tabellen MADeploymentPlan |
 > | Microsoft. Insights/logs/MADevice/Read | Läsa data från tabellen MADevice |
+> | Microsoft. Insights/logs/MADeviceNotEnrolled/Read | Läsa data från tabellen MADeviceNotEnrolled |
+> | Microsoft. Insights/logs/MADeviceNRT/Read | Läsa data från tabellen MADeviceNRT |
 > | Microsoft. Insights/logs/MADevicePnPHealth/Read | Läsa data från tabellen MADevicePnPHealth |
 > | Microsoft. Insights/logs/MADevicePnPHealthAlternativeVersions/Read | Läsa data från tabellen MADevicePnPHealthAlternativeVersions |
 > | Microsoft. Insights/logs/MADevicePnPHealthIssues/Read | Läsa data från tabellen MADevicePnPHealthIssues |
@@ -7278,19 +7431,27 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/MADriverInstanceReadiness/Read | Läsa data från tabellen MADriverInstanceReadiness |
 > | Microsoft. Insights/logs/MADriverReadiness/Read | Läsa data från tabellen MADriverReadiness |
 > | Microsoft. Insights/logs/MAOfficeAddin/Read | Läsa data från tabellen MAOfficeAddin |
+> | Microsoft. Insights/logs/MAOfficeAddinEntityHealth/Read | Läsa data från tabellen MAOfficeAddinEntityHealth |
 > | Microsoft. Insights/logs/MAOfficeAddinHealth/Read | Läsa data från tabellen MAOfficeAddinHealth |
+> | Microsoft. Insights/logs/MAOfficeAddinHealthEventNRT/Read | Läsa data från tabellen MAOfficeAddinHealthEventNRT |
 > | Microsoft. Insights/logs/MAOfficeAddinHealthIssues/Read | Läsa data från tabellen MAOfficeAddinHealthIssues |
 > | Microsoft. Insights/logs/MAOfficeAddinInstance/Read | Läsa data från tabellen MAOfficeAddinInstance |
 > | Microsoft. Insights/logs/MAOfficeAddinInstanceReadiness/Read | Läsa data från tabellen MAOfficeAddinInstanceReadiness |
 > | Microsoft. Insights/logs/MAOfficeAddinReadiness/Read | Läsa data från tabellen MAOfficeAddinReadiness |
 > | Microsoft. Insights/logs/MAOfficeApp/Read | Läsa data från tabellen MAOfficeApp |
+> | Microsoft. Insights/logs/MAOfficeAppCrashesNRT/Read | Läsa data från tabellen MAOfficeAppCrashesNRT |
 > | Microsoft. Insights/logs/MAOfficeAppHealth/Read | Läsa data från tabellen MAOfficeAppHealth |
 > | Microsoft. Insights/logs/MAOfficeAppInstance/Read | Läsa data från tabellen MAOfficeAppInstance |
+> | Microsoft. Insights/logs/MAOfficeAppInstanceHealth/Read | Läsa data från tabellen MAOfficeAppInstanceHealth |
 > | Microsoft. Insights/logs/MAOfficeAppReadiness/Read | Läsa data från tabellen MAOfficeAppReadiness |
+> | Microsoft. Insights/logs/MAOfficeAppSessionsNRT/Read | Läsa data från tabellen MAOfficeAppSessionsNRT |
 > | Microsoft. Insights/logs/MAOfficeBuildInfo/Read | Läsa data från tabellen MAOfficeBuildInfo |
 > | Microsoft. Insights/logs/MAOfficeCurrencyAssessment/Read | Läsa data från tabellen MAOfficeCurrencyAssessment |
 > | Microsoft. Insights/logs/MAOfficeCurrencyAssessmentDailyCounts/Read | Läsa data från tabellen MAOfficeCurrencyAssessmentDailyCounts |
 > | Microsoft. Insights/logs/MAOfficeDeploymentStatus/Read | Läsa data från tabellen MAOfficeDeploymentStatus |
+> | Microsoft. Insights/logs/MAOfficeDeploymentStatusNRT/Read | Läsa data från tabellen MAOfficeDeploymentStatusNRT |
+> | Microsoft. Insights/logs/MAOfficeMacroErrorNRT/Read | Läsa data från tabellen MAOfficeMacroErrorNRT |
+> | Microsoft. Insights/logs/MAOfficeMacroGlobalHealth/Read | Läsa data från tabellen MAOfficeMacroGlobalHealth |
 > | Microsoft. Insights/logs/MAOfficeMacroHealth/Read | Läsa data från tabellen MAOfficeMacroHealth |
 > | Microsoft. Insights/logs/MAOfficeMacroHealthIssues/Read | Läsa data från tabellen MAOfficeMacroHealthIssues |
 > | Microsoft. Insights/logs/MAOfficeMacroIssueInstanceReadiness/Read | Läsa data från tabellen MAOfficeMacroIssueInstanceReadiness |
@@ -7303,7 +7464,16 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/MAWindowsCurrencyAssessment/Read | Läsa data från tabellen MAWindowsCurrencyAssessment |
 > | Microsoft. Insights/logs/MAWindowsCurrencyAssessmentDailyCounts/Read | Läsa data från tabellen MAWindowsCurrencyAssessmentDailyCounts |
 > | Microsoft. Insights/logs/MAWindowsDeploymentStatus/Read | Läsa data från tabellen MAWindowsDeploymentStatus |
+> | Microsoft. Insights/logs/MAWindowsDeploymentStatusNRT/Read | Läsa data från tabellen MAWindowsDeploymentStatusNRT |
 > | Microsoft. Insights/logs/MAWindowsSysReqInstanceReadiness/Read | Läsa data från tabellen MAWindowsSysReqInstanceReadiness |
+> | Microsoft. Insights/logs/McasShadowItReporting/Read | Läsa data från tabellen McasShadowItReporting |
+> | Microsoft. Insights/logs/MicrosoftAzureBastionAuditLogs/Read | Läsa data från tabellen MicrosoftAzureBastionAuditLogs |
+> | Microsoft. Insights/logs/MicrosoftDataShareReceivedSnapshotLog/Read | Läsa data från tabellen MicrosoftDataShareReceivedSnapshotLog |
+> | Microsoft. Insights/logs/MicrosoftDataShareSentSnapshotLog/Read | Läsa data från tabellen MicrosoftDataShareSentSnapshotLog |
+> | Microsoft. Insights/logs/MicrosoftDataShareShareLog/Read | Läsa data från tabellen MicrosoftDataShareShareLog |
+> | Microsoft. Insights/logs/MicrosoftDynamicsTelemetryPerformanceLogs/Read | Läsa data från tabellen MicrosoftDynamicsTelemetryPerformanceLogs |
+> | Microsoft. Insights/logs/MicrosoftDynamicsTelemetrySystemMetricsLogs/Read | Läsa data från tabellen MicrosoftDynamicsTelemetrySystemMetricsLogs |
+> | Microsoft. Insights/logs/MicrosoftHealthcareApisAuditLogs/Read | Läsa data från tabellen MicrosoftHealthcareApisAuditLogs |
 > | Microsoft. Insights/logs/NetworkMonitoring/Read | Läsa data från tabellen NetworkMonitoring |
 > | Microsoft. Insights/logs/OfficeActivity/Read | Läsa data från tabellen OfficeActivity |
 > | Microsoft. Insights/loggar/åtgärd/Läs | Läs data från åtgärds tabellen |
@@ -7319,18 +7489,33 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/SecurityBaselineSummary/Read | Läsa data från tabellen SecurityBaselineSummary |
 > | Microsoft. Insights/logs/SecurityDetection/Read | Läsa data från tabellen SecurityDetection |
 > | Microsoft. Insights/logs/SecurityEvent/Read | Läsa data från tabellen SecurityEvent |
+> | Microsoft. Insights/logs/säkerhets incident/Read | Läsa data från tabellen säkerhets incident |
+> | Microsoft. Insights/logs/SecurityIoTRawEvent/Read | Läsa data från tabellen SecurityIoTRawEvent |
+> | Microsoft. Insights/logs/SecurityNestedRecommendation/Read | Läsa data från tabellen SecurityNestedRecommendation |
+> | Microsoft. Insights/logs/SecurityRecommendation/Read | Läsa data från tabellen SecurityRecommendation |
 > | Microsoft. Insights/logs/ServiceFabricOperationalEvent/Read | Läsa data från tabellen ServiceFabricOperationalEvent |
 > | Microsoft. Insights/logs/ServiceFabricReliableActorEvent/Read | Läsa data från tabellen ServiceFabricReliableActorEvent |
 > | Microsoft. Insights/logs/ServiceFabricReliableServiceEvent/Read | Läsa data från tabellen ServiceFabricReliableServiceEvent |
 > | Microsoft. Insights/logs/SfBAssessmentRecommendation/Read | Läsa data från tabellen SfBAssessmentRecommendation |
 > | Microsoft. Insights/logs/SfBOnlineAssessmentRecommendation/Read | Läsa data från tabellen SfBOnlineAssessmentRecommendation |
 > | Microsoft. Insights/logs/SharePointOnlineAssessmentRecommendation/Read | Läsa data från tabellen SharePointOnlineAssessmentRecommendation |
+> | Microsoft. Insights/logs/SignalRServiceDiagnosticLogs/Read | Läsa data från tabellen SignalRServiceDiagnosticLogs |
+> | Microsoft. Insights/logs/SigninLogs/Read | Läsa data från tabellen SigninLogs |
 > | Microsoft. Insights/logs/SPAssessmentRecommendation/Read | Läsa data från tabellen SPAssessmentRecommendation |
 > | Microsoft. Insights/logs/SQLAssessmentRecommendation/Read | Läsa data från tabellen SQLAssessmentRecommendation |
+> | Microsoft. Insights/logs/SqlDataClassification/Read | Läsa data från tabellen SqlDataClassification |
 > | Microsoft. Insights/logs/SQLQueryPerformance/Read | Läsa data från tabellen SQLQueryPerformance |
+> | Microsoft. Insights/logs/SqlVulnerabilityAssessmentResult/Read | Läsa data från tabellen SqlVulnerabilityAssessmentResult |
+> | Microsoft. Insights/logs/StorageBlobLogs/Read | Läsa data från tabellen StorageBlobLogs |
+> | Microsoft. Insights/logs/StorageFileLogs/Read | Läsa data från tabellen StorageFileLogs |
+> | Microsoft. Insights/logs/StorageQueueLogs/Read | Läsa data från tabellen StorageQueueLogs |
+> | Microsoft. Insights/logs/StorageTableLogs/Read | Läsa data från tabellen StorageTableLogs |
+> | Microsoft. Insights/logs/SucceededIngestion/Read | Läsa data från tabellen SucceededIngestion |
 > | Microsoft. Insights/loggar/syslog/Read | Läsa data från syslog-tabellen |
 > | Microsoft. Insights/logs/SysmonEvent/Read | Läsa data från tabellen SysmonEvent |
 > | Microsoft. Insights/loggar/tabeller. anpassad/läst | Läser data från valfri anpassad logg |
+> | Microsoft. Insights/logs/ThreatIntelligenceIndicator/Read | Läsa data från tabellen ThreatIntelligenceIndicator |
+> | Microsoft. Insights/logs/TSIIngress/Read | Läsa data från tabellen TSIIngress |
 > | Microsoft. Insights/logs/UAApp/Read | Läsa data från tabellen UAApp |
 > | Microsoft. Insights/logs/UAComputer/Read | Läsa data från tabellen UAComputer |
 > | Microsoft. Insights/logs/UAComputerRank/Read | Läsa data från tabellen UAComputerRank |
@@ -7347,6 +7532,12 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/UpdateRunProgress/Read | Läsa data från tabellen UpdateRunProgress |
 > | Microsoft. Insights/logs/UpdateSummary/Read | Läsa data från tabellen UpdateSummary |
 > | Microsoft. Insights/loggar/användning/läsa | Läsa data från användnings tabellen |
+> | Microsoft. Insights/logs/UserAccessAnalytics/Read | Läsa data från tabellen UserAccessAnalytics |
+> | Microsoft. Insights/logs/UserPeerAnalytics/Read | Läsa data från tabellen UserPeerAnalytics |
+> | Microsoft. Insights/logs/VMBoundPort/Read | Läsa data från tabellen VMBoundPort |
+> | Microsoft. Insights/logs/VMComputer/Read | Läsa data från tabellen VMComputer |
+> | Microsoft. Insights/logs/VMConnection/Read | Läsa data från tabellen VMConnection |
+> | Microsoft. Insights/logs/VMProcess/Read | Läsa data från tabellen VMProcess |
 > | Microsoft. Insights/logs/W3CIISLog/Read | Läsa data från tabellen W3CIISLog |
 > | Microsoft. Insights/logs/WaaSDeploymentStatus/Read | Läsa data från tabellen WaaSDeploymentStatus |
 > | Microsoft. Insights/logs/WaaSInsiderStatus/Read | Läsa data från tabellen WaaSInsiderStatus |
@@ -7354,11 +7545,19 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/logs/WDAVStatus/Read | Läsa data från tabellen WDAVStatus |
 > | Microsoft. Insights/logs/WDAVThreat/Read | Läsa data från tabellen WDAVThreat |
 > | Microsoft. Insights/logs/WindowsClientAssessmentRecommendation/Read | Läsa data från tabellen WindowsClientAssessmentRecommendation |
+> | Microsoft. Insights/logs/WindowsEvent/Read | Läsa data från tabellen WindowsEvent |
 > | Microsoft. Insights/logs/WindowsFirewall/Read | Läsa data från tabellen WindowsFirewall |
 > | Microsoft. Insights/logs/WindowsServerAssessmentRecommendation/Read | Läsa data från tabellen WindowsServerAssessmentRecommendation |
 > | Microsoft. Insights/logs/WireData/Read | Läsa data från tabellen WireData |
+> | Microsoft. Insights/logs/WorkloadMonitoringPerf/Read | Läsa data från tabellen WorkloadMonitoringPerf |
 > | Microsoft. Insights/logs/WUDOAggregatedStatus/Read | Läsa data från tabellen WUDOAggregatedStatus |
 > | Microsoft. Insights/logs/WUDOStatus/Read | Läsa data från tabellen WUDOStatus |
+> | Microsoft. Insights/logs/WVDCheckpoints/Read | Läsa data från tabellen WVDCheckpoints |
+> | Microsoft. Insights/logs/WVDConnections/Read | Läsa data från tabellen WVDConnections |
+> | Microsoft. Insights/logs/WVDErrors/Read | Läsa data från tabellen WVDErrors |
+> | Microsoft. Insights/logs/WVDFeeds/Read | Läsa data från tabellen WVDFeeds |
+> | Microsoft. Insights/logs/WVDHostRegistrations/Read | Läsa data från tabellen WVDHostRegistrations |
+> | Microsoft. Insights/logs/WVDManagement/Read | Läsa data från tabellen WVDManagement |
 > | Microsoft. Insights/MetricAlerts/Write | Skapa eller uppdatera en måtta-avisering |
 > | Microsoft. Insights/MetricAlerts/Delete | Ta bort en måtta avisering |
 > | Microsoft. Insights/MetricAlerts/Read | Läs en måtta-varning |
@@ -7576,9 +7775,18 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceCleanup/läsa | Läsa data från tabellen DeviceCleanup |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceConnectSession/läsa | Läsa data från tabellen DeviceConnectSession |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceEtw/läsa | Läsa data från tabellen DeviceEtw |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceEvents/läsa | Läsa data från tabellen DeviceEvents |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceFileEvents/läsa | Läsa data från tabellen DeviceFileEvents |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceHardwareHealth/läsa | Läsa data från tabellen DeviceHardwareHealth |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceHealth/läsa | Läsa data från tabellen DeviceHealth |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceHeartbeat/läsa | Läsa data från tabellen DeviceHeartbeat |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceImageLoadEvents/läsa | Läsa data från tabellen DeviceImageLoadEvents |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceInfo/läsa | Läsa data från tabellen DeviceInfo |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceLogonEvents/läsa | Läsa data från tabellen DeviceLogonEvents |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceNetworkEvents/läsa | Läsa data från tabellen DeviceNetworkEvents |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceNetworkInfo/läsa | Läsa data från tabellen DeviceNetworkInfo |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceProcessEvents/läsa | Läsa data från tabellen DeviceProcessEvents |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceRegistryEvents/läsa | Läsa data från tabellen DeviceRegistryEvents |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceSkypeHeartbeat/läsa | Läsa data från tabellen DeviceSkypeHeartbeat |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceSkypeSignIn/läsa | Läsa data från tabellen DeviceSkypeSignIn |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/DeviceSleepState/läsa | Läsa data från tabellen DeviceSleepState |
@@ -7629,6 +7837,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/HDInsightStormLogs/läsa | Läsa data från tabellen HDInsightStormLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/HDInsightStormMetrics/läsa | Läsa data från tabellen HDInsightStormMetrics |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/HDInsightStormTopologyMetrics/läsa | Läsa data från tabellen HDInsightStormTopologyMetrics |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/HealthStateChangeEvent/läsa | Läsa data från tabellen HealthStateChangeEvent |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/pulsslag/läsa | Läsa data från pulsslags tabellen |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/HuntingBookmark/läsa | Läsa data från tabellen HuntingBookmark |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/IISAssessmentRecommendation/läsa | Läsa data från tabellen IISAssessmentRecommendation |
@@ -7712,6 +7921,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/åtgärd/läsa | Läs data från åtgärds tabellen |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/OutboundConnection/läsa | Läsa data från tabellen OutboundConnection |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/perf/läsa | Läs data från tabellen perf |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/PowerBIDatasetsTenantPreview/läsa | Läsa data från tabellen PowerBIDatasetsTenantPreview |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/PowerBIDatasetsWorkspacePreview/läsa | Läsa data från tabellen PowerBIDatasetsWorkspacePreview |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ProtectionStatus/läsa | Läsa data från tabellen ProtectionStatus |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/begär Anden/läsa | Läsa data från tabellen med begär Anden |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SCCMAssessmentRecommendation/läsa | Läsa data från tabellen SCCMAssessmentRecommendation |
@@ -7919,9 +8130,6 @@ Azure-tjänst: [Azure policy](../governance/policy/overview.md), [azure RBAC](ov
 > | Microsoft. Authorization/policyDefinitions/Read | Hämta information om en princip definition. |
 > | Microsoft. Authorization/policyDefinitions/Write | Skapa en anpassad princip definition. |
 > | Microsoft. Authorization/policyDefinitions/Delete | Ta bort en princip definition. |
-> | Microsoft. Authorization/policyExemptions/Read | Hämta information om ett princip undantag. |
-> | Microsoft. Authorization/policyExemptions/Write | Skapa ett princip undantag i det angivna omfånget. |
-> | Microsoft. Authorization/policyExemptions/Delete | Ta bort ett princip undantag i det angivna omfånget. |
 > | Microsoft. Authorization/policySetDefinitions/Read | Hämta information om en princip uppsättnings definition. |
 > | Microsoft. Authorization/policySetDefinitions/Write | Skapa en anpassad princip uppsättnings definition. |
 > | Microsoft. Authorization/policySetDefinitions/Delete | Ta bort en princip uppsättnings definition. |
@@ -9076,12 +9284,14 @@ Azure-tjänst: Core
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
-> | Microsoft. prenumeration/CreateSubscription/åtgärd | Skapa en Azure-prenumeration |
-> | Microsoft. Subscription/registrera/åtgärd | Registrerar prenumeration med Microsoft. Subscription-resurs leverantör |
 > | Microsoft. Subscription/Avbryt/åtgärd | Avbryter prenumerationen |
 > | Microsoft. Subscription/Byt namn/åtgärd | Byter namn på prenumerationen |
-> | Microsoft. prenumeration/SubscriptionDefinitions/Read | Hämta en Azure-prenumerations definition i en hanterings grupp. |
-> | Microsoft. prenumeration/SubscriptionDefinitions/Write | Skapa en Azure-prenumerations definition |
+> | Microsoft. Subscription/aktivera/åtgärd | Aktiverar prenumerationen |
+> | Microsoft. prenumeration/CreateSubscription/åtgärd | Skapa en Azure-prenumeration |
+> | Microsoft. Subscription/registrera/åtgärd | Registrerar prenumeration med Microsoft. Subscription-resurs leverantör |
+> | Microsoft. prenumeration/updateTenant/åtgärd | Uppdatera klient organisationen för prenumerationen |
+> | Microsoft. prenumeration/alias/Skriv | Skapa ett prenumerations-alias |
+> | Microsoft. prenumeration/prenumerationer/Skriv | Skapa eller uppdatera en prenumeration |
 
 ## <a name="intune"></a>Intune
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177286"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227040"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)
 
@@ -42,7 +42,7 @@ Följande diagram visar de grundläggande steg som du måste följa när du öve
 
 1. Förbered för överföring
 
-1. Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
+1. Överför Azure-prenumerationen till en annan katalog
 
 1. Återskapa resurser i mål katalogen, till exempel roll tilldelningar, anpassade roller och hanterade identiteter
 
@@ -264,12 +264,12 @@ När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active 
 
 ## <a name="step-2-transfer-the-subscription"></a>Steg 2: överför prenumerationen
 
-I det här steget överför du prenumerationen från käll katalogen till mål katalogen. Stegen är olika beroende på om du även vill överföra fakturerings ägandet.
+I det här steget överför du prenumerationen från käll katalogen till mål katalogen. Stegen är olika beroende på om du vill överföra fakturerings ägarskapet.
 
 > [!WARNING]
 > När du överför prenumerationen tas alla roll tilldelningar i käll katalogen bort **permanent** och kan inte återställas. Du kan inte gå tillbaka när du har överfört prenumerationen. Se till att slutföra de föregående stegen innan du utför det här steget.
 
-1. Avgör om du även vill överföra fakturerings ägarskapet.
+1. Avgör om du även vill överföra fakturerings ägandet till ett annat konto.
 
 1. Överför prenumerationen till en annan katalog.
 

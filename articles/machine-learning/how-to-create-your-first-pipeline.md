@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144081"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228927"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -56,10 +56,8 @@ Skapa de resurser som krävs för att köra en ML-pipeline:
 * Konfigurera ett `Dataset` objekt så att det pekar på beständiga data som finns i, eller är tillgängliga i, ett data lager. Konfigurera ett `PipelineData` objekt för temporära data som skickas mellan pipeline-steg. 
 
     > [!TIP]
-    > En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klassen  `OutputFileDatasetConfig` .  Den här klassen är en experimentell förhands gransknings funktion och kan ändras när som helst.
-    > 
-    >Mer information om experimentella funktioner finns i https://aka.ms/azuremlexperimental .
-    
+    > En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klassen  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  Den här klassen är en [experimentell](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) förhands gransknings funktion och kan ändras när som helst.
+
 * Konfigurera [beräknings målen](concept-azure-machine-learning-architecture.md#compute-targets) som dina pipeline-steg ska köras på.
 
 ### <a name="set-up-a-datastore"></a>Konfigurera ett data lager

@@ -1,6 +1,6 @@
 ---
-title: Visualisera data i Gen2 Explorer – Azure Time Series Insights Gen2 | Microsoft Docs
-description: Lär dig mer om funktioner och alternativ som är tillgängliga i Azure Time Series Insights Gen2 Explorer.
+title: Visualisera data i TSD-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Lär dig mer om funktioner och alternativ som är tillgängliga i Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,22 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164163"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227057"
 ---
-# <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Gen2 Explorer
+# <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
 I den här artikeln beskrivs de olika funktionerna och alternativen som är tillgängliga i Azure Time Series Insights Gen2 [demo Environment](https://insights.timeseries.azure.com/preview/demo).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att komma igång med Azure Time Series Insights Gen2 Explorer måste du:
+För att komma igång med Azure Time Series Insights Explorer måste du:
 
 * Ha en Azure Time Series Insights Gen2-miljö etablerad. Läs mer om hur du konfigurerar en instans genom att läsa självstudien om [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
 * [Ge data åtkomst](./time-series-insights-data-access.md) till den Azure Time Series Insights Gen2-miljö som du skapade för kontot. Du kan ge åtkomst till andra och dig själv.
@@ -31,11 +31,11 @@ För att komma igång med Azure Time Series Insights Gen2 Explorer måste du:
   * Lär dig [hur du ansluter till en Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Lär dig [hur du ansluter till en IoT-hubb](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Utforska Azure Time Series Insights Gen2 Explorer
+## <a name="explore-the-azure-time-series-insights-explorer"></a>Utforska Azure Time Series Insights Explorer
 
-Azure Time Series Insights Gen2 Explorer består av följande sju element:
+Azure Time Series Insights Explorer består av följande sju element:
 
-[![Översikt över Azure Time Series Insights Gen2 Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Översikt över Azure Time Series Insights Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Miljö panel](#1-environment-panel): visar alla dina Azure Time Series Insights Gen2-miljöer.
 1. [Navigerings fält](#2-navigation-bar): låter dig växla mellan sidorna **analysera** och **modeller** .
@@ -193,7 +193,7 @@ Välj din profil ikon som finns i det övre högra hörnet för att välja ett n
 > [!TIP]
 > Val av språk är också tillgängligt genom att välja din profil ikon.
 
-Azure Time Series Insights Gen2 Explorer stöder två teman:
+Azure Time Series Insights Explorer stöder två teman:
 
 * **Ljust tema**: standard temat visas i det här dokumentet.
 * **Mörkt tema**: återger Utforskaren så som visas här:
@@ -204,7 +204,7 @@ Azure Time Series Insights Gen2 Explorer stöder två teman:
 
 ### <a name="gen2-terms-panel"></a>Gen2 villkors panel
 
-Det här avsnittet gäller endast för befintliga gen 1-miljöer som försöker använda Utforskaren i det uppdaterade användar gränssnittet. Du kanske vill använda gen 1-produkten och Gen2-produkten i kombination. Vi har lagt till vissa funktioner från det befintliga användar gränssnittet i den uppdaterade Utforskaren, men du kan få den fullständiga användar gränssnitts upplevelsen för en gen 1-miljö i den nya Azure Time Series Insights Gen2 Explorer.
+Det här avsnittet gäller endast för befintliga gen 1-miljöer som försöker använda Utforskaren i det uppdaterade användar gränssnittet. Du kanske vill använda gen 1-produkten och Gen2-produkten i kombination. Vi har lagt till vissa funktioner från det befintliga användar gränssnittet i den uppdaterade Utforskaren, men du kan få den fullständiga användar gränssnitts upplevelsen för en gen 1-miljö i den nya Azure Time Series Insights Explorer.
 
 I stället för-hierarkin visas panelen för Azure Time Series Insights Gen2-villkor. På panelen villkor kan du definiera frågor i din miljö. Använd den för att även filtrera data baserat på ett predikat.
 
@@ -214,7 +214,7 @@ Azure Time Series Insights Gen2 terms Editor-panelen tar följande parametrar:
 
 **Där**: Använd WHERE-satsen för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja en operand uppdateras predikatet automatiskt baserat på den sökningen. De operands typer som stöds är följande:
 
-| Åtgärd    | Typer som stöds    | Kommentarer |
+| Åtgärd    | Typer som stöds    | Anteckningar |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Sträng, bool, Double, DateTime, TimeSpan, NULL |

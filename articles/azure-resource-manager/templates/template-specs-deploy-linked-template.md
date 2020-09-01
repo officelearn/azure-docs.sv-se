@@ -2,19 +2,19 @@
 title: Distribuera en mall specifikation som en länkad mall
 description: Lär dig hur du distribuerar en befintlig mall-specifikation i en länkad distribution.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: dd1bb00c1cfd737478a8d5f6ebffdb57e5e1640e
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.date: 08/31/2020
+ms.openlocfilehash: 799dac2bb553983b16f734d1d1abc2ad9281fb58
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959212"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228026"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Självstudie: Distribuera en mall specifikation som en länkad mall (förhands granskning)
 
 Lär dig hur du distribuerar en befintlig [mall-specifikation](template-specs.md) med hjälp av en [länkad distribution](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. När du har skapat en mall-specifikation kan du distribuera mallen med hjälp av Azure PowerShell eller Azure CLI. Du kan också distribuera mal Lav specifikationen som en del av din lösning med hjälp av en länkad mall.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -126,7 +126,7 @@ $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateS
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
 ```
 
 > [!NOTE]

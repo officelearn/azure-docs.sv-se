@@ -10,12 +10,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85360528"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227873"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Självstudie: grundläggande Active Directory miljö
 
@@ -26,10 +26,10 @@ Den här självstudien vägleder dig genom att skapa en grundläggande Active Di
 Du kan använda den miljö som du skapar i självstudien för att testa olika aspekter av hybrid identitets scenarier och är ett krav för några av de här självstudierna.  Om du redan har en befintlig Active Directory miljö kan du använda den som en ersättning.  Den här informationen tillhandahålls för personer som mitt börjar från ingenting.
 
 Den här självstudien består av
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
-- En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
+- En dator med [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- Ett [externt nätverkskort](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
 - En kopia av Windows Server 2016
 - [Microsoft .NET Framework-4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)

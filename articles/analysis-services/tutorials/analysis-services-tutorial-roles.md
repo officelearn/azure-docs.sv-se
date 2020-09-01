@@ -1,18 +1,18 @@
 ---
 title: Självstudie – konfigurera Azure Analysis Services roller | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure Analysis Services administratör och användar roller med hjälp av Azure Portal eller SQL Server Management Studio.
+description: I den här självstudien får du lära dig hur du konfigurerar Azure Analysis Services administratör och användar roller med hjälp av Azure Portal eller SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84016397"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229369"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
@@ -27,7 +27,7 @@ ms.locfileid: "84016397"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -52,7 +52,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 1. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
 
-    ![Anslut](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Ansluta](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. I **Server name** (Servernamn) i dialogrutan **Connect to Server** (Anslut till server) klistrar du in servernamnet som du kopierade från Portal. I **Authentication** (Autentisering) väljer du **Active Directory Universal with MFA Support** (Active Directory Universal med MFA-stöd). Ange ditt användarkonto och tryck sedan på **Connect** (Anslut).
    
@@ -63,7 +63,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 3. Expandera i **Object Explorer** så att serverobjekt visas. Högerklicka om du vill se serveregenskaperna.
    
-    ![Ansluta i SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![Object Explorer i SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Lägga till ett användarkonto i serveradministratörsrollen
 

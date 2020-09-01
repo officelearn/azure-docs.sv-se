@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146427"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229403"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -24,12 +24,12 @@ I det här exemplet ska vi skapa en pipeline för build och release för att dis
 
 ![Diagram över distributions flödet i vår pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 För att följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett grup projekt.
 
 * [Skapa en Azure DevOps-organisation](/azure/devops/organizations/accounts/create-organization)
-* [Skapa ett projekt i Azure DevOps](/azure/devops/organizations/projects/create-projects)
+* [Skapa ett projekt i Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### <a name="source-control-for-your-environment"></a>Käll kontroll för din miljö
 
@@ -325,7 +325,7 @@ I det här exemplet ska vi fokusera på mappen **HPC-Application** . Mappen **HP
 
     a. [Använda den visuella designern](/azure/devops/pipelines/get-started-designer). Om du vill använda detta klickar du på "Använd den visuella designern" på sidan **ny pipeline** .
 
-    b. [Använda yaml-versioner](/azure/devops/pipelines/get-started-yamls). Du kan skapa en ny YAML-pipeline genom att klicka på alternativet Azure databaser eller GitHub på sidan ny pipeline. Du kan också lagra exemplet nedan i käll kontrollen och referera till en befintlig YAML-fil genom att klicka på Visual designer och sedan använda YAML-mallen.
+    b. [Använda yaml-versioner](/azure/devops/pipelines/get-started-yaml). Du kan skapa en ny YAML-pipeline genom att klicka på alternativet Azure databaser eller GitHub på sidan ny pipeline. Du kan också lagra exemplet nedan i käll kontrollen och referera till en befintlig YAML-fil genom att klicka på Visual designer och sedan använda YAML-mallen.
 
     ```yml
     # To publish an application into Azure Batch, we need to

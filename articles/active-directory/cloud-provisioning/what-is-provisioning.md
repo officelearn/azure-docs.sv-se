@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76712549"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228247"
 ---
 # <a name="what-is-identity-provisioning"></a>Vad är identitetsetablering?
 
@@ -50,7 +50,7 @@ Det vanligaste scenariot är att när en ny medarbetare ansluts till företaget 
 
 ![moln etablering](media/what-is-provisioning/cloud3.png)
 
-I Azure Active Directory (Azure AD), avser termen **[app-etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** att automatiskt skapa användar identiteter och roller i de moln program som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat.
+I Azure Active Directory (Azure AD), avser termen **[app-etablering](../app-provisioning/user-provisioning.md)** att automatiskt skapa användar identiteter och roller i de moln program som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
 
 ## <a name="directory-provisioning"></a>Katalog etablering
 

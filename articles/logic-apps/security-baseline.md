@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 263f018155aa6effada3d509c907d825b65a8d45
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079650"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228400"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azures säkerhets bas linje för Logic Apps
 
@@ -94,9 +94,9 @@ Använd Azure Security Center just-in-Time Network Access för att konfigurera N
 
 Använd Azure Security Center anpassad nätverks härdning för att rekommendera NSG-konfigurationer som begränsar portar och käll-IP-adresser baserat på faktisk trafik och hot information.
 
-* [Så här säkrar du inkommande anrop till Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [Så här säkrar du inkommande anrop till Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
-* [Så här begränsar du inkommande IP-adresser](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+* [Så här begränsar du inkommande IP-adresser](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 * [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
 
@@ -368,7 +368,7 @@ Varje begär ande slut punkt i en Logic app har en signatur för delad åtkomst 
 
 * [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 **Azure Security Center övervakning**: ej tillämpligt
 
@@ -382,7 +382,7 @@ Om grundläggande autentisering används måste du ange ett användar namn och l
 
 Om du använder infrastruktur som kod bör du undvika att lagra lösen ord i kod och i stället använda Azure Key Vault för att lagra och hämta autentiseringsuppgifter.
 
-* [Skydda och komma åt data i Logic Apps](./logic-apps-securing-a-logic-app.md)
+* [Skydda och komma åt data i Logic Apps](logic-apps-securing-a-logic-app.md)
 
 * [Så här ställer du in och hämtar en hemlighet från Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
 
@@ -473,7 +473,7 @@ Dessutom har varje begär ande slut punkt i en Logic app en signatur för delad 
 
 * [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-* [Förstå hur du begränsar inkommande IP-adresser i Logic Apps](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+* [Förstå hur du begränsar inkommande IP-adresser i Logic Apps](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 **Azure Security Center övervakning**: ej tillämpligt
 
@@ -611,11 +611,11 @@ Begär ande utlösare stöder endast Transport Layer Security (TLS) 1,2 för ink
 
 Följ Azure Security Center rekommendationer för kryptering i vila och kryptering under överföring, i förekommande fall.
 
-* [Säker åtkomst och data i Azure Logic Apps](./logic-apps-securing-a-logic-app.md)
+* [Säker åtkomst och data i Azure Logic Apps](logic-apps-securing-a-logic-app.md)
 
-* [Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps](../connectors/connectors-native-reqres.md#tls-support)
+* [Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
-* [Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps](../connectors/connectors-native-http.md#tls-support)
+* [Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 * [Förstå kryptering i överföring med Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -633,7 +633,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-* [Säker åtkomst för körning av historik data](./logic-apps-securing-a-logic-app.md#access-to-run-history-data)
+* [Säker åtkomst för körning av historik data](logic-apps-securing-a-logic-app.md#access-to-run-history-data)
 
 * [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -649,7 +649,7 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och h
 
 Om du vill hindra andra från att ändra eller ta bort din Logic app kan du använda Azure Resource lock. Den här funktionen förhindrar andra från att ändra eller ta bort produktions resurser.
 
-* [Säker åtkomst till Azure Logic Apps åtgärder](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Säker åtkomst till Azure Logic Apps åtgärder](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center övervakning**: ej tillämpligt
 
@@ -885,7 +885,7 @@ Logic Apps som krävs för affärs åtgärder, men kan ådra sig högre risk fö
 
 * [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
 
-* [Skydda åtkomsten till Logic Apps via Azure RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Skydda åtkomsten till Logic Apps via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center övervakning**: ej tillämpligt
 
@@ -911,9 +911,9 @@ Använd också skyddade parametrar för att skydda känsliga data och hemlighete
 
 * [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](./logic-apps-deploy-azure-resource-manager-templates.md)
+* [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Förstå säkra åtgärds parametrar](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
+* [Förstå säkra åtgärds parametrar](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 * [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
@@ -947,11 +947,11 @@ Se också till att du skyddar data i körnings historiken med hjälp av döljand
 
 * [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](./logic-apps-deploy-azure-resource-manager-templates.md)
+* [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Säker åtkomst för att köra tidigare indata och utdata](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Säker åtkomst för att köra tidigare indata och utdata](logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Säker åtkomst till parameter indata](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
+* [Säker åtkomst till parameter indata](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 * [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
@@ -1033,11 +1033,11 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi Kap par, och du vill ha mer kontroll över de krypterings nycklar som används av Azure Storage, kan du konfigurera, använda och hantera din egen nyckel med hjälp av Azure Key Vault. Den här funktionen kallas även "Bring Your Own Key" (BYOK) och din nyckel kallas för "kundhanterad nyckel".
 
-* [Skydda indata och utdata i körnings historiken i Azure Logic Apps](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Skydda indata och utdata i körnings historiken i Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
 
 * [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Säker åtkomst till parameter indata i Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+* [Säker åtkomst till parameter indata i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
 * [Överför säkra parameter värden under distributionen med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -1069,11 +1069,11 @@ För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för h
 
 Du kan också implementera autentiseringsuppgifterna för autentisering för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-* [Skydda indata och utdata i körnings historiken i Azure Logic Apps](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Skydda indata och utdata i körnings historiken i Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
 
 * [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Säker åtkomst till parameter indata i Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+* [Säker åtkomst till parameter indata i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
 * [Överför säkra parameter värden under distributionen med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -1133,7 +1133,7 @@ Dessutom bör du expandera din Logic Apps-underliggande arbets flödes definitio
 
 * [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](./logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
 
 **Azure Security Center övervakning**: ej tillämpligt
 
@@ -1151,9 +1151,9 @@ Varje begär ande slut punkt i en Logic app har en signatur för delad åtkomst 
 
 * [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](./logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
 
-* [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 * [Säkerhetskopiera Key Vault nycklar](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 

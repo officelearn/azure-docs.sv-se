@@ -1,21 +1,21 @@
 ---
-title: Introduktion till Azure Web Application-brandvägg
+title: Vad är Azure Web Application-brandvägg på Azure Application Gateway?
 titleSuffix: Azure Web Application Firewall
 description: Den här artikeln innehåller en översikt över brand vägg för webbaserade program (WAF) på Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.topic: conceptual
+ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142845"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227006"
 ---
-# <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandvägg på Azure Application Gateway
+# <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Vad är Azure Web Application-brandvägg på Azure Application Gateway?
 
 Azure Web Application Firewall (WAF) på Azure Application Gateway tillhandahåller centraliserat skydd av dina webb program mot vanliga sårbarheter och sårbarheter. Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. SQL-inmatning och Cross-Site-skript är bland de vanligaste angrepp.
 
@@ -98,7 +98,7 @@ Mer information om anpassade regler finns i [anpassade regler för Application G
 
 ### <a name="bot-mitigation-preview"></a>Bot-minskning (för hands version)
 
-En regel uppsättning för hanterad bot-skydd kan aktive ras för WAF för att blockera eller logga förfrågningar från kända skadliga IP-adresser, tillsammans med den hanterade ruleset. IP-adresserna har en källa från Microsoft Threat Intelligence-flödet. Intelligent Security Graphs befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.
+En regel uppsättning för hanterad bot-skydd kan aktive ras för WAF för att blockera eller logga förfrågningar från kända skadliga IP-adresser, tillsammans med den hanterade ruleset. IP-adresserna hämtas från Microsoft Threat Intelligence-flödet. Microsoft Threat Intelligence bygger på Intelligent Security Graph och används av flera tjänster som Azure Security Center.
 
 > [!NOTE]
 > Regel uppsättningen för bot-skydd är för närvarande en offentlig för hands version och tillhandahålls med ett service nivå avtal för för hands versionen. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -125,7 +125,7 @@ I avvikande bedömnings läge blockeras inte trafik som matchar någon regel dir
 
 |Allvarlighetsgrad  |Värde  |
 |---------|---------|
-|Kritisk     |5|
+|Kritiskt     |5|
 |Fel        |4|
 |Varning      |3|
 |anslagstavlan,       |2|
@@ -158,7 +158,7 @@ Microsoft Azure Sentinel är en skalbar, molnbaserad, molnbaserad, SIEM (Securit
 Med den inbyggda arbets boken för Azure WAF Firewall-händelser kan du få en översikt över säkerhets händelserna på din WAF. Detta inkluderar händelser, matchade och blockerade regler och allt annat som loggas i brand Väggs loggarna. Läs mer om loggning nedan. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Arbets bok för Azure WAF Firewall-händelser](../media/ag-overview/sentinel.png)
 
 #### <a name="logging"></a>Loggning
 
@@ -206,10 +206,12 @@ Application Gateway WAF innehåller detaljerad rapportering om varje hot som ide
 
 Pris modellerna är olika för WAF_v1 och WAF_v2 SKU: er. Mer information finns på sidan med [Application Gateway prissättning](https://azure.microsoft.com/pricing/details/application-gateway/) . 
 
+## <a name="whats-new"></a>Nyheter
+
+Information om vad som är nytt med Azure Web Application-brandväggen finns i [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Kom igång genom att [skapa en WAF-princip](create-waf-policy-ag.md)
 - Läs mer om [WAF-hanterade regler](application-gateway-crs-rulegroups-rules.md)
 - Läs mer om [anpassade regler](custom-waf-rules-overview.md)
 - Lär dig mer om [brand vägg för webbaserade program på Azures front dörr](../afds/afds-overview.md)
-

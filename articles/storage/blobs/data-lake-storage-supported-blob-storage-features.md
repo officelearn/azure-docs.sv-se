@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 55a4f06b93aafbd1e94a3bf6573ba39dc25022b5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f84298c2c43afbb9e0379516be1e83002a7e3926
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077015"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228689"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -45,7 +45,6 @@ I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azu
 |Ögonblicksbilder|Förhandsgranskning|Stöds inte ännu|[BLOB-ögonblicksbilder](snapshots-overview.md)|
 |Statiska webbplatser|Förhandsgranskning|Stöds inte ännu|[Hantering av statisk webbplats i Azure Storage](storage-blob-static-website.md)|
 |Oåterkalleligt lagrings utrymme|Förhandsgranskning|Stöds inte ännu|[Lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md)|
-|Principer för livs cykel hantering|Förhandsgranskning|Stöds inte ännu|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
 |Mjuk borttagning av behållare|Förhandsgranskning|Förhandsgranskning|[Mjuk borttagning för behållare (förhands granskning)](soft-delete-container-overview.md)|
 |BLOB-mjuk borttagning|Stöds inte ännu|Stöds inte ännu|[Mjuk borttagning för blobar](storage-blob-soft-delete.md)|
 |Blobfuse|Förhandsgranskning|Stöds inte ännu|[Montera Blob Storage som ett fil system med blobfuse](storage-how-to-mount-container-linux.md)|

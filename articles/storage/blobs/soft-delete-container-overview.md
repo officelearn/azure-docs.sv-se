@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854546"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228638"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Mjuk borttagning för behållare (förhands granskning)
 
@@ -25,7 +25,7 @@ För slut punkt till slut punkts skydd för dina BLOB-data rekommenderar Microso
 
 - Mjuk borttagning av behållare, för att skydda mot oavsiktlig borttagning eller överskrivning av en behållare. Information om hur du aktiverar mjuk borttagning av behållare finns i [Aktivera och hantera mjuk borttagning för behållare](soft-delete-container-enable.md).
 - BLOB-mjuk borttagning, för att skydda mot oavsiktlig borttagning eller överskrivning av en enskild blob. Information om hur du aktiverar mjuk borttagning av BLOB finns i [mjuk borttagning för blobbar](soft-delete-blob-overview.md).
-- BLOB-versioner (för hands version) för att automatiskt underhålla tidigare versioner av en blob. När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort. Information om hur du aktiverar BLOB-versioner finns i [Aktivera och hantera BLOB-versioner](versioning-enable.md).
+- BLOB-versioner för att automatiskt underhålla tidigare versioner av en blob. När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort. Information om hur du aktiverar BLOB-versioner finns i [Aktivera och hantera BLOB-versioner](versioning-enable.md).
 
 > [!WARNING]
 > Det går inte att ångra borttagningen av ett lagrings konto. Mjuk borttagning skyddar inte borttagningen av ett lagrings konto. För att förhindra oavsiktlig borttagning av ett lagrings konto konfigurerar du ett **CannotDelete** -lås på lagrings konto resursen. Mer information om hur du låser Azure-resurser finns i [låsa resurser för att förhindra oväntade ändringar](../../azure-resource-manager/management/lock-resources.md).
@@ -123,4 +123,4 @@ Det finns ingen ytterligare avgift för att aktivera mjuk borttagning av behåll
 
 - [Konfigurera mjuk borttagning av behållare](soft-delete-container-enable.md)
 - [Mjuk borttagning för blobar](soft-delete-blob-overview.md)
-- [Blob-version (för hands version)](versioning-overview.md)
+- [BLOB-versioner](versioning-overview.md)

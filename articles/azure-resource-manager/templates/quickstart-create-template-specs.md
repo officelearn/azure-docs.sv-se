@@ -2,21 +2,21 @@
 title: Skapa och distribuera mall-specifikation
 description: Lär dig hur du skapar en mall-specifikation från ARM-mallen. Distribuera sedan mallen till en resurs grupp i din prenumeration.
 author: tfitzmac
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 84422862cfa73c2cbb27411bf0c1a7fb3fab9b35
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 47791455c63852bfc6f8a7e3152fabe18d303ecb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962663"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227737"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Snabb start: skapa och distribuera mall specifikation (för hands version)
 
 Den här snabb starten visar hur du paketerar en Azure Resource Manager-mall (ARM-mall) i en [mall-specifikation](template-specs.md) och sedan distribuerar mallen. Din Template-specifikation innehåller en ARM-mall som distribuerar ett lagrings konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -75,7 +75,7 @@ Dessa alternativ visas nedan.
 1. Skapa sedan mallen specifikation i den resurs gruppen. Du ger den nya mallen specifikation av namnet **storageSpec**.
 
     ```azurecli
-    az template-specs create \
+    az ts create \
       --name storageSpec \
       --version "1.0" \
       --resource-group templateSpecRG \
@@ -205,7 +205,7 @@ Dessa alternativ visas nedan.
 
 ## <a name="deploy-template-spec"></a>Specifikation för att distribuera mall
 
-Nu kan du distribuera mallen för mallen. distributionen av mallen är precis som att distribuera mallen den innehåller, förutom att du skickar in resurs-ID: t för mallen. Du använder samma distributions kommandon och skickar vid behov parameter värden för mallen specifikation.
+Nu kan du distribuera mallens specifikation. Att distribuera mallens specifikation är precis som att distribuera mallen den innehåller, förutom att du skickar in resurs-ID: t för mallens specifikation. Du använder samma distributions kommandon och skickar vid behov parameter värden för mallen specifikation.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -253,7 +253,7 @@ Nu kan du distribuera mallen för mallen. distributionen av mallen är precis so
 1. Hämta resurs-ID för mallens specifikation.
 
     ```azurecli
-    id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
     ```
 
     > [!NOTE]

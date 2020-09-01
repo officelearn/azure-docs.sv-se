@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843716"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228893"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps för en pipeline för data inmatning
 
@@ -64,7 +64,7 @@ Koden skulle till exempel lagras i en Azure-DevOps, GitHub-eller GitLab-lagrings
 Data tekniker fungerar med käll koden för python Notebook antingen lokalt i en IDE (till exempel [Visual Studio Code](https://code.visualstudio.com)) eller direkt i arbets ytan Databricks. När kod ändringarna har slutförts slås de samman till lagrings platsen efter en förgrenings princip.
 
 > [!TIP] 
-> Vi rekommenderar att du lagrar koden i `.py` filer i stället för i `.ipynb` formatet Jupyter Notebook. Det förbättrar kodens läsbarhet och aktiverar automatisk kod kvalitets kontroller i CI-processen.
+> Vi rekommenderar att du lagrar koden i `.py` filer i stället för i `.ipynb` Jupyter Notebook format. Det förbättrar kodens läsbarhet och aktiverar automatisk kod kvalitets kontroller i CI-processen.
 
 ### <a name="azure-data-factory-source-code"></a>Azure Data Factory käll kod
 

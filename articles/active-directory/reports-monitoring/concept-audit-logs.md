@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846968"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229930"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -34,8 +34,8 @@ Rapporterings arkitekturen består av följande komponenter:
     - **Inloggningar** – [inloggnings rapporten](concept-sign-ins.md) innehåller information om användningen av hanterade program och användar inloggnings aktiviteter.
     - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på gransknings loggar är ändringar som har gjorts i alla resurser i Azure AD, till exempel att lägga till eller ta bort användare, appar, grupper, roller och principer.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är en legitim ägare till ett användar konto. 
-    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användar konto som kan ha komprometterats.
+    - **Riskfyllda inloggningar** – en [riskfylld inloggning](../identity-protection/overview-identity-protection.md) är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är en legitim ägare till ett användar konto. 
+    - **Användare som har flaggats för risk** – en [riskfylld användare](../identity-protection/overview-identity-protection.md) är en indikator för ett användar konto som kan ha komprometterats.
 
 Den här artikeln ger en översikt över gransknings rapporten.
  
@@ -127,14 +127,14 @@ Med filtret **kategori** kan du välja något av följande filter:
 - Etikett
 - Övrigt
 - PermissionGrantPolicy
-- Princip
+- Policy
 - ResourceManagement
 - RoleManagement
 - UserManagement
 
 **Aktivitets** filtret baseras på resurs typs valet kategori och aktivitet som du gör. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
 
-Du kan hämta listan över alla gransknings aktiviteter med hjälp av Graph API:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Du kan hämta listan över alla gransknings aktiviteter med hjälp av Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 Med **status** filtret kan du filtrera baserat på status för en gransknings åtgärd. Statusen kan vara något av följande:
 
@@ -210,9 +210,9 @@ Om du vill granska gransknings data som är relaterade till dina program kan du 
 
 ## <a name="office-365-activity-logs"></a>Office 365-aktivitets loggar
 
-Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Även om Office 365-aktivitet och Azure AD-aktivitets loggar delar mycket av katalog resurserna, ger endast Microsoft 365 administrations Center en fullständig översikt över aktivitets loggarna för Office 365. 
+Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](/office365/admin/admin-overview/about-the-admin-center). Även om Office 365-aktivitet och Azure AD-aktivitets loggar delar mycket av katalog resurserna, ger endast Microsoft 365 administrations Center en fullständig översikt över aktivitets loggarna för Office 365. 
 
-Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

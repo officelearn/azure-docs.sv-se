@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949362"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227924"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform och OAuth 2,0 SAML Bearer-försäkrat flöde
 Med det försäkrade flödet av OAuth 2,0 SAML-Bearer kan du begära en OAuth-åtkomsttoken med en SAML-kontroll när en klient behöver använda en befintlig förtroende relation. Signaturen som används för SAML Assertion ger autentisering av den auktoriserade appen. En SAML-kontroll är en XML-säkerhetstoken som utfärdas av en identitetsprovider och som används av en tjänst leverantör. Tjänste leverantören förlitar sig på sitt innehåll för att identifiera kontrollens ämne för säkerhetsrelaterade orsaker.
@@ -27,14 +27,14 @@ SAML Bearer-kontroll flöde är användbart när du hämtar data från Microsoft
 
 För program som har interaktiv webbläsarbaserad inloggning för att få en SAML-kontroll och sedan vill lägga till åtkomst till ett OAuth-skyddat API (till exempel Microsoft Graph) kan du göra en OAuth-begäran för att få en åtkomsttoken för API: et. När webbläsaren omdirigeras till Azure AD för att autentisera användaren, kommer webbläsaren att hämta sessionen från SAML-inloggningen och användaren behöver inte ange sina autentiseringsuppgifter.
 
-Det beskrivande flödet för OAuth SAML-Bearer stöds också för användare som autentiseras med identitets leverantörer som Active Directory Federation Services (AD FS) (ADFS) federerad för att Azure Active Directory.  SAML-kontrollen som hämtades från ADFS kan användas i ett OAuth-flöde för att autentisera användaren.
+Det försäkrade OAuth SAML-flödet stöds bara för användare som autentiseras med identitets leverantörer som Active Directory Federation Services (AD FS) (ADFS) federerad till Azure Active Directory.  SAML-kontrollen som hämtades från ADFS kan användas i ett OAuth-flöde för att autentisera användaren.
 
 ![OAuth-flöde](./media/v2-saml-bearer-assertion/1.png)
 
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Anropa graf med SAML Bearer-kontroll
 Nu ska vi lära oss hur vi faktiskt kan hämta SAML Assertion program mässigt. Den här metoden har testats med ADFS. Detta fungerar dock med alla identitets leverantörer som har stöd för att returnera SAML Assertion program mässigt. Den grundläggande processen är: Hämta en SAML-kontroll, hämta en åtkomsttoken och få åtkomst Microsoft Graph.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Upprätta en förtroende relation mellan auktoriseringsservern/miljön (Microsoft 365) och identitets leverantören, eller utfärdaren av SAML 2,0 Bearer Assertion (ADFS). Om du vill konfigurera ADFS för enkel inloggning och som identitets leverantör kan du se [den här artikeln](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 

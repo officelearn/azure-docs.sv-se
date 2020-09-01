@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816090"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228774"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -32,12 +32,12 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
     - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
     - **Gransknings loggar**  -  [Gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
-    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användar konto som kan ha komprometterats.
+    - **Riskfyllda inloggningar** – en [riskfylld inloggning](../identity-protection/overview-identity-protection.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
+    - **Användare som har flaggats för risk** – en [riskfylld användare](../identity-protection/overview-identity-protection.md) är en indikator för ett användar konto som kan ha komprometterats.
 
 Den här artikeln ger en översikt över inloggnings rapporten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
@@ -149,7 +149,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 |Exchange ActiveSync| |Det här filtret visar alla inloggnings försök där EAS-protokollet har gjorts.|
 |Webbläsare|![Markera](./media/concept-sign-ins/check.png)|Visar alla inloggnings försök från användare som använder webbläsare|
 |Exchange ActiveSync| | Visar alla inloggnings försök från användare med klient program som använder Exchange-ActiceSync för att ansluta till Exchange Online|
-|Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Online PowerShell| |Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange-webbtjänster| |Ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.|
 |IMAP| |En äldre e-postklient som använder IMAP för att hämta e-post.|
 |MAPI över HTTP| |Används av Outlook 2010 och senare.|
@@ -271,13 +271,12 @@ Alternativet **Inloggningar** ger dig en fullständig översikt över alla inlog
 
 ## <a name="office-365-activity-logs"></a>Office 365-aktivitets loggar
 
-Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Betrakta den punkt som, Office 365-aktivitet och Azure AD-aktivitets loggar som delar ett stort antal katalog resurser. Endast Microsoft 365 administrations Center innehåller en fullständig vy över aktivitets loggarna för Office 365. 
+Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](/office365/admin/admin-overview/about-the-admin-center). Betrakta den punkt som, Office 365-aktivitet och Azure AD-aktivitets loggar som delar ett stort antal katalog resurser. Endast Microsoft 365 administrations Center innehåller en fullständig vy över aktivitets loggarna för Office 365. 
 
-Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Felkoder för inloggnings aktivitet](reference-sign-ins-error-codes.md)
 * [Principer för data lagring i Azure AD](reference-reports-data-retention.md)
 * [Azure AD-rapportens fördröjning](reference-reports-latencies.md)
-

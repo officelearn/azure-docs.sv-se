@@ -3,31 +3,33 @@ title: Vänta och svara på händelser
 description: Automatisera arbets flöden som utlöser, pausar och återupptar baserat på händelser på en tjänst slut punkt med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656286"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227907"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiska händelsebaserade arbets flöden genom att använda HTTP-webhookar i Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http webhook-anslutningen kan du automatisera arbets flöden som väntar och körs baserat på vissa händelser som inträffar på en http-eller HTTPS-slutpunkt genom att skapa Logi Kap par. Du kan till exempel skapa en Logic-app som övervakar en tjänst slut punkt genom att vänta på en viss händelse innan du utlöser arbets flödet och kör de angivna åtgärderna, i stället för att regelbundet kontrol lera eller *avsöka* den slut punkten.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http webhook-anslutningen kan du skapa automatiserade uppgifter och arbets flöden som prenumererar på en tjänst slut punkt, vänta på vissa händelser och köra baserat på dessa händelser, i stället för att regelbundet kontrol lera eller *avsöka* den slut punkten.
 
-Här följer några exempel på händelsebaserade arbets flöden:
+Här följer några exempel på webhook-baserade arbets flöden:
 
 * Vänta tills ett objekt tas emot från en [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) innan du utlöser en Logic app-körning.
 * Vänta på ett godkännande innan du fortsätter med ett arbets flöde.
 
+Den här artikeln visar hur du använder webhook-utlösaren och webhook-åtgärden så att din Logi Kap par kan ta emot och svara på händelser på en tjänst slut punkt.
+
 ## <a name="how-do-webhooks-work"></a>Hur fungerar Webhooks?
 
-En HTTP-webhook-utlösare är event-baserad, som inte är beroende av att kontrol lera eller avsökningar regelbundet för nya objekt. När du sparar en Logic app som börjar med en webhook-utlösare, eller när du ändrar din Logi Kap par från inaktive rad till aktive rad, utlöser webhooken *prenumerationer* på en viss tjänst eller slut punkt genom att registrera en *callback-URL* med den tjänsten eller slut punkten Utlösaren väntar sedan på att tjänsten eller slut punkten ska anropa URL: en, som börjar köra Logic app. I likhet med [begär ande utlösaren](connectors-native-reqres.md)utlöses Logic app omedelbart när den angivna händelsen inträffar. Utlösaren *avbryter prenumerationen* på tjänsten eller slut punkten om du tar bort utlösaren och sparar din Logic app, eller när du ändrar din Logi Kap par från aktive rad till inaktive rad.
+En webhook-utlösare är händelse-baserad, som inte är beroende av att kontrol lera eller avsökningar regelbundet för nya objekt. När du sparar en Logic-app som börjar med en webhook-utlösare, eller när du ändrar din Logi Kap par från inaktive rad till aktive rad, utlöses en återanrops-URL till den angivna tjänst slut punkten *genom att en* *återanrops-URL* registreras Utlösaren väntar sedan på att tjänst slut punkten ska anropa URL: en, som börjar köra Logic app. I likhet med [begär ande utlösaren](connectors-native-reqres.md)utlöses Logic app omedelbart när den angivna händelsen inträffar. Webhook-utlösaren *avbryter prenumerationen* från tjänst slut punkten om du tar bort utlösaren och sparar din Logic app, eller när du ändrar din Logi Kap par från aktive rad till inaktive rad.
 
-En HTTP webhook-åtgärd är också händelse-baserad och *prenumererar* på en viss tjänst eller slut punkt genom att registrera en *återanrops-URL* med den tjänsten eller slut punkten. Webhook-åtgärden pausar Logic app-arbetsflöde och väntar tills tjänsten eller slut punkten anropar URL: en innan Logic-appen återupptas. Åtgärds logik appen *avbryter prenumerationen* på tjänsten eller slut punkten i följande fall:
+En webhook-åtgärd är också händelse-baserad och *prenumererar* på den angivna tjänst slut punkten genom att registrera en *återanrops-URL* med den slut punkten. Webhook-åtgärden pausar Logi Kap parns arbets flöde och väntar tills tjänst slut punkten anropar URL: en innan Logic-appen återupptar körningen. Webhook-åtgärden *avbryter prenumerationen* på tjänst slut punkten i följande fall:
 
 * När webhook-åtgärden har slutförts
 * Om körningen av Logic app avbryts under väntan på svar
@@ -35,27 +37,16 @@ En HTTP webhook-åtgärd är också händelse-baserad och *prenumererar* på en 
 
 Till exempel är Office 365 Outlook Connector [**-e-**](connectors-create-api-office365-outlook.md) poståtgärden skicka godkännande ett exempel på en webhook-åtgärd som följer det här mönstret. Du kan utöka det här mönstret till vilken tjänst som helst med hjälp av webhook-åtgärden.
 
-> [!NOTE]
-> Logic Apps tillämpar Transport Layer Security (TLS) 1,2 när anropet tas emot till HTTP webhook-utlösaren eller åtgärden. Om du ser fel i TLS-handskakning kontrollerar du att du använder TLS 1,2. För inkommande samtal är följande chiffersviter som stöds:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-
 Mer information finns i de här ämnena:
 
-* [Parametrar för utlösare för HTTP-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks och prenumerationer](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Skapa anpassade API: er som stöder en webhook](../logic-apps/logic-apps-create-api-app.md)
 
+Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * URL: en för en redan distribuerad slut punkt eller API som har stöd för webhook-prenumerationen och prenumerations mönstret för [webhook-utlösare i Logic Apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) eller [webhook-åtgärder i Logic Apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) efter behov
 
@@ -83,8 +74,8 @@ Den här inbyggda utlösaren anropar prenumerations slut punkten på mål tjäns
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerations metod** | Yes | Den metod som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-URI** | Yes | Den URL som ska användas för att prenumerera på mål slut punkten |
    | **Prenumerera-brödtext** | No | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
    | **Avbryt prenumeration – metod** | No | Den metod som ska användas vid avbetalning från mål slut punkten |
    | **Avbryt prenumeration – URI** | No | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
@@ -129,8 +120,8 @@ Den här inbyggda åtgärden anropar prenumerations slut punkten på mål tjäns
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerations metod** | Yes | Den metod som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-URI** | Yes | Den URL som ska användas för att prenumerera på mål slut punkten |
    | **Prenumerera-brödtext** | No | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
    | **Avbryt prenumeration – metod** | No | Den metod som ska användas vid avbetalning från mål slut punkten |
    | **Avbryt prenumeration – URI** | No | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
@@ -147,22 +138,18 @@ Den här inbyggda åtgärden anropar prenumerations slut punkten på mål tjäns
 
    När den här åtgärden körs anropar din Logic app prenumerations slut punkten på mål tjänsten och registrerar återanrops-URL: en. Logic app pausar sedan arbets flödet och väntar på att mål tjänsten ska skicka en `HTTP POST` begäran till återanrops-URL: en. När den här händelsen inträffar skickar åtgärden alla data i begäran till arbets flödet. Om åtgärden slutförs, avbryts åtgärden från slut punkten och din Logic app fortsätter att köra det återstående arbets flödet.
 
-## <a name="connector-reference"></a>Referens för anslutningsapp
-
-Mer information om utlösare och åtgärds parametrar, som liknar varandra, finns i [Parametrar för http-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-### <a name="output-details"></a>Information om utdata
+## <a name="trigger-and-action-outputs"></a>Utlösare och åtgärds utdata
 
 Här är mer information om utdata från en HTTP-webhook-utlösare eller åtgärd som returnerar denna information:
 
-| Egenskapsnamn | Typ | Description |
+| Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
 | body | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
 | statuskod | int | Status koden från begäran |
 |||
 
-| Statuskod | Beskrivning |
+| Statuskod | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Har godkänts |
@@ -173,6 +160,11 @@ Här är mer information om utdata från en HTTP-webhook-utlösare eller åtgär
 | 500 | Internt serverfel. Ett okänt fel uppstod. |
 |||
 
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Mer information om utlösare och åtgärds parametrar, som liknar varandra, finns i [Parametrar för http-webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+* [Säker åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Anslutningsappar för Logic Apps](../connectors/apis-list.md)

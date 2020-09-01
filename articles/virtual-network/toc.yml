@@ -97,7 +97,11 @@
     - name: Säkerhet
       items:
         - name: Nätverkssäkerhetsgrupper
-          href: security-overview.md
+          items:
+            - name: Översikt
+              href: security-overview.md
+            - name: Så här fungerar det
+              href: network-security-group-how-it-works.md
         - name: Programsäkerhetsgrupper
           href: application-security-groups.md
         - name: Tjänsttaggar

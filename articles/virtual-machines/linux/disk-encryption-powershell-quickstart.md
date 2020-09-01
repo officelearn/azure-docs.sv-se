@@ -7,18 +7,19 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: b78ef71c63448653cab24ccea25e53f64490fa2f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 32387ed6c124798155b912bc88cd717a30cb264c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655828"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074329"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Snabb start: skapa och kryptera en virtuell Linux-dator i Azure med Azure PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabb starten visar hur du använder modulen Azure PowerShell för att skapa en virtuell Linux-dator (VM), skapar en Key Vault för lagringen av krypterings nycklar och krypterar den virtuella datorn. I den här snabb starten används Ubuntu 16,04 LTS Marketplace-avbildningen från kanoniskt format och en VM Standard_D2S_V3 storlek. 
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

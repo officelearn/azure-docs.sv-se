@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 1ca0dda046329e95c649540fd42f96ca43838c85
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e744423e00377ef763824f6e39865e6b3e8ee475
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086713"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073547"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker kryptering av data i vila
 
@@ -22,7 +22,7 @@ QnA Maker krypterar dina data automatiskt när de sparas i molnet, vilket hjälp
 
 ## <a name="about-encryption-key-management"></a>Om hantering av krypterings nyckel
 
-Som standard använder din prenumeration Microsoft-hanterade krypterings nycklar. Det finns också ett alternativ för att hantera din prenumeration med dina egna nycklar. Kundhanterade nycklar (CMK) ger större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.
+Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Det finns också möjlighet att hantera din prenumeration med dina egna nycklar som kallas Kundhanterade nycklar (CMK). CMK erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data. Om CMK har kon figurer ATS för din prenumeration tillhandahålls dubbla kryptering, vilket ger ett sekundärt skydds lager, samtidigt som du kan kontrol lera krypterings nyckeln via din Azure Key Vault.
 
 QnA Maker använder CMK-stöd från Azure Search. Du måste skapa [CMK i Azure Search med Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). Den här Azure-instansen bör vara kopplad till QnA Maker tjänst för att göra den CMK aktive rad.
 
@@ -35,17 +35,17 @@ Tjänsten QnA Maker använder CMK från tjänsten Azure Search. Följ de här st
 
 1. Skapa en ny Azure Search-instans och aktivera de krav som anges i de [Kundhanterade nyckel kraven för Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
 
-   ![Visa krypterings inställningar](../media/cognitive-services-encryption/qna-encryption-1.png)
+   ![Visa krypterings inställningar 1](../media/cognitive-services-encryption/qna-encryption-1.png)
 
 2. När du skapar en QnA Maker resurs associeras den automatiskt med en Azure Search instans. Detta kan inte användas med CMK. Om du vill använda CMK måste du associera den nyligen skapade instansen av Azure Search som skapades i steg 1. Mer specifikt måste du uppdatera `AzureSearchAdminKey` och `AzureSearchName` i QNA Maker-resursen.
 
-   ![Visa krypterings inställningar](../media/cognitive-services-encryption/qna-encryption-2.png)
+   ![Visa krypterings inställningar 2](../media/cognitive-services-encryption/qna-encryption-2.png)
 
 3. Skapa sedan en ny program inställning:
-   * **Namn**: ange detta till`CustomerManagedEncryptionKeyUrl`
+   * **Namn**: ange detta till `CustomerManagedEncryptionKeyUrl`
    * **Värde**: det här är det värde som du fick i steg 1 när du skapade din Azure Search-instans.
 
-   ![Visa krypterings inställningar](../media/cognitive-services-encryption/qna-encryption-3.png)
+   ![Visa krypterings inställningar 3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
 4. Starta om körningen när du är färdig. Nu är QnA Makers tjänsten CMK-aktiverad.
 

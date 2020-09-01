@@ -3,12 +3,13 @@ title: PowerShell-skript – hitta valv för lagrings konto
 description: Lär dig hur du använder ett Azure PowerShell-skript för att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 1e12f1472b8141d06a1b3c1c9049e057f100d0e4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 40859c1ea05210d27fcdcf33ba9d4f961965ea22
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757531"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075706"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>PowerShell-skript för att hitta Recovery Services valv där ett lagrings konto registreras
 
@@ -62,7 +63,7 @@ I följande exempel försöker hitta Recovery Servicess valvet där lagrings kon
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
 ```
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 I utdata visas den fullständiga sökvägen till Recovery Services valvet där lagrings kontot är registrerat. Här är exempel på utdata:
 

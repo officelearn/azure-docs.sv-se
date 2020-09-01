@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086610"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075315"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Använd ID-Broker (för hands version) för hantering av autentiseringsuppgifter
 
@@ -98,13 +98,21 @@ När ID-Broker har Aktiver ATS behöver du fortfarande en lösen ords-hash som l
 
 SSH-autentisering kräver att hash är tillgängligt i Azure AD DS. Om du bara vill använda SSH i administrativa scenarier kan du skapa ett enda moln konto och använda det för SSH till klustret. Andra användare kan fortfarande använda Ambari-eller HDInsight-verktyg (t. ex. IntelliJ-plugin-programmet) utan att lösen ordet hash är tillgängligt i Azure AD DS.
 
+Information om hur du felsöker problem med autentisering finns i den här [guiden](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+
 ## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Klienter som använder OAuth för att ansluta till HDInsight Gateway med ID Broker-installation
 
 I installationen av ID-Broker kan anpassade appar och klienter som ansluter till gatewayen uppdateras för att först hämta den begärda OAuth-token. Du kan följa stegen i det här [dokumentet](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) för att hämta token med följande information:
 
-*   URI för OAuth-resurs:`https://hib.azurehdinsight.net` 
+*   URI för OAuth-resurs: `https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Behörighet: (namn: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+
+När du har hämtar OAuth-token kan du använda den i Authorization-huvudet för HTTP-begäran till kluster-gatewayen (t. ex. <clustername> -int.azurehdinsight.net). Till exempel kan ett exempel på en spiral-kommando till livy-API: t se ut så här:
+    
+```bash
+curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+``` 
 
 ## <a name="next-steps"></a>Nästa steg
 

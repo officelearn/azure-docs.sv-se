@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001067"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074414"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Aktivera och hantera BLOB-versioner (för hands version)
 
@@ -24,6 +24,8 @@ Du kan aktivera Blob Storage-version (för hands version) för att automatiskt u
 Den här artikeln visar hur du aktiverar eller inaktiverar BLOB-versioner för lagrings kontot med hjälp av Azure Portal eller en Azure Resource Manager mall.
 
 Du måste registrera dig för för hands versionen innan du aktiverar BLOB-versioner. Om du vill veta mer om BLOB-versioner, inklusive hur du registrerar dig för för hands versionen, se [BLOB-versioner (för hands version)](versioning-overview.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Aktivera blobversionshantering
 

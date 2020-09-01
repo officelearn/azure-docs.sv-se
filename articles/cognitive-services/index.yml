@@ -10,13 +10,14 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/24/2020
-  ms.openlocfilehash: 938d54981a8605b28f745c1ae3d6722a644c0320
-  ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+  ms.custom: custom-portals-hub
+  ms.date: 08/28/2020
+  ms.openlocfilehash: fac52ac6cc7018d2ddcaedd663abf26275f4929e
+  ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88869923"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89074703"
 highlightedContent:
   items:
   - title: Vad är Cognitive Services?
@@ -28,19 +29,19 @@ highlightedContent:
   - title: Cognitive Services och Machine Learning
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
-  - title: Språkstöd i Cognitive Services
+  - title: Stöd för språk
     itemType: reference
     url: ./language-support.md
-  - title: Skapa en -resurs för Cognitive Services
+  - title: Skapa en resurs
     itemType: how-to-guide
     url: ./cognitive-services-apis-create-account.md
-  - title: Använda Cognitive Services i containrar
+  - title: Använda i containrar
     itemType: concept
     url: ./cognitive-services-container-support.md
-  - title: Virtuella nätverk för Cognitive Services
+  - title: Virtuella nätverk
     itemType: architecture
     url: cognitive-services-virtual-networks.md
-  - title: Cognitive Services-säkerhet
+  - title: Säkerhet
     itemType: concept
     url: cognitive-services-security.md
 conceptualContent:
@@ -62,7 +63,7 @@ conceptualContent:
       text: Formigenkänning
     - url: ./ink-recognizer/index.yml
       itemType: overview
-      text: Handskriftsigenkänning (förhandsversion)
+      text: Handskriftsigenkänning (tas ut bruk)
     - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: Video Indexer
@@ -90,6 +91,9 @@ conceptualContent:
     - url: ./speech-service/index.yml
       itemType: overview
       text: Tjänst för taligenkänning
+    - url: https://speech.microsoft.com/
+      itemType: overview
+      text: " - Anpassa med Speech Studio"
   - title: Beslut
     summary: Skapa appar som ger rekommendationer för välinformerade och effektiva beslut.
     links:
@@ -129,38 +133,41 @@ conceptualContent:
     - url: ./containers/container-faq.md
       itemType: reference
       text: Vanliga frågor och svar om containrar för Cognitive Services
-tools:
-  title: Software Development Kits (SDK:er)
-  summary: Kom igång med Cognitive Services SDK i ditt favoritdatorspråk.
-  items:
-  - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
-  - title: Go
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
-  - title: R
-    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
-    url: https://github.com/Azure/AzureCognitive
 additionalContent:
   sections:
-  - items:
-    - title: Ytterligare resurser
+  - title: Ytterligare resurser
+    items:
+    - title: Portaler för anpassning
+      links:
+      - text: Custom Translator
+        url: https://portal.customtranslator.azure.ai/
+      - text: Custom Vision
+        url: https://www.customvision.ai/
+      - text: Language Understanding (LUIS)
+        url: https://luis.ai
+      - text: QnA Maker
+        url: https://www.qnamaker.ai/
+      - text: Speech Studio
+        url: https://speech.microsoft.com/
+    - title: SDK:er och REST-API:er
+      links:
+      - text: C#
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+      - text: Go
+        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+      - text: Java
+        url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+      - text: JavaScript
+        url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+      - text: Python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+      - text: R
+        url: https://github.com/Azure/AzureCognitive
+      - text: Cognitive Services Management REST-API
+        url: https://docs.microsoft.com/rest/api/cognitiveservices/
+    - title: Verktyg
       links:
       - text: Azure CLI
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
         url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
-    - title: REST API:er
-      links:
-      - text: Cognitive Services Management
-        url: https://docs.microsoft.com/rest/api/cognitiveservices/

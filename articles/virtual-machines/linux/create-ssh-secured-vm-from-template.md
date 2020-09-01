@@ -6,16 +6,20 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ef9650690435a3770e59326e757ab1c783fa7b23
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 184e856636a74ce5b7ac72b2e8cab3d1f19c4e17
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372764"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074397"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager mallar
 
 Lär dig hur du skapar en virtuell Linux-dator med hjälp av en Azure Resource Manager-mall och Azure CLI från Azure Cloud Shell. Information om hur du skapar en virtuell Windows-dator finns i [skapa en virtuell Windows-dator från en Resource Manager-mall](../windows/ps-template.md).
+
+Ett alternativ är att distribuera mallen från Azure Portal. Öppna mallen i portalen genom att välja knappen **distribuera till Azure** .
+
+[![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-sshkey%2Fazuredeploy.json)
 
 ## <a name="templates-overview"></a>Översikt över mallar
 

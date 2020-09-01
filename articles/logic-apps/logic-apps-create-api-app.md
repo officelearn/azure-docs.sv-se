@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080838"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073224"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -37,7 +37,7 @@ Du kan vara värd för dina API: er på [Azure App Service](../app-service/overv
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
-> För API-AppData som skapats för Logic Apps, besök [Azure Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio) eller [bloggen](https://aka.ms/logicappsblog).
+> För API-AppData som skapats för Logic Apps, besök [Azure Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hur skiljer sig anpassade API: er från anpassade anslutningar?
 
@@ -72,7 +72,7 @@ För en standard åtgärd kan du skriva en HTTP-metod för begäran i ditt API o
 
 ![Standard åtgärds mönster](./media/logic-apps-create-api-app/standard-action.png)
 
-<a name="pattern-overview"></a>Om du vill göra en logisk app vänta medan ditt API Slutför längre aktiviteter som körs kan ditt API följa det [asynkrona avsöknings mönstret](#async-pattern) eller det [asynkrona webhook-mönstret](#webhook-actions) som beskrivs i det här avsnittet. För en analog som hjälper dig att visualisera dessa mönster med olika beteenden kan du föreställa dig processen för att beställa en anpassad tårta från en bageri. Avsöknings mönstret speglar beteendet där du ringer bak sidan var 20: e minut för att kontrol lera om tårtan är klar. Webhook-mönstret speglar beteendet där bagerien ber dig om ditt telefonnummer så att de kan anropa dig när tårtan är klar.
+<a name="pattern-overview"></a> Om du vill göra en logisk app vänta medan ditt API Slutför längre aktiviteter som körs kan ditt API följa det [asynkrona avsöknings mönstret](#async-pattern) eller det [asynkrona webhook-mönstret](#webhook-actions) som beskrivs i det här avsnittet. För en analog som hjälper dig att visualisera dessa mönster med olika beteenden kan du föreställa dig processen för att beställa en anpassad tårta från en bageri. Avsöknings mönstret speglar beteendet där du ringer bak sidan var 20: e minut för att kontrol lera om tårtan är klar. Webhook-mönstret speglar beteendet där bagerien ber dig om ditt telefonnummer så att de kan anropa dig när tårtan är klar.
 
 Exempel finns på [Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio). Lär dig även mer om [användnings mätning för åtgärder](logic-apps-pricing.md).
 
@@ -88,7 +88,7 @@ Här är det allmänna mönstret:
 2. När motorn gör efterföljande begär Anden om jobb status, så låt motorn se när ditt API Slutför aktiviteten.
 3. Returnera relevanta data till motorn så att Logic app-arbetsflödet kan fortsätta.
 
-<a name="bakery-polling-action"></a>Använd nu den tidigare bagerien till avsöknings mönstret och Föreställ dig att du kallar en bageri och beställer en anpassad tårta för leverans. Processen för att göra tårtan tar tid och du vill inte vänta på telefonen medan bagerien fungerar på tårtan. Bagerien bekräftar din beställning och har du ringt var 20: e minut för Tårtans status. Efter 20 minuter kan du kalla bagerien, men de talar om att din tårta inte är klar och att du bör ringa in en till 20 minuter. Den här processen fortsätter tills du ringer, och bagerien visar att din beställning är klar och levererar din tårta. 
+<a name="bakery-polling-action"></a> Använd nu den tidigare bagerien till avsöknings mönstret och Föreställ dig att du kallar en bageri och beställer en anpassad tårta för leverans. Processen för att göra tårtan tar tid och du vill inte vänta på telefonen medan bagerien fungerar på tårtan. Bagerien bekräftar din beställning och har du ringt var 20: e minut för Tårtans status. Efter 20 minuter kan du kalla bagerien, men de talar om att din tårta inte är klar och att du bör ringa in en till 20 minuter. Den här processen fortsätter tills du ringer, och bagerien visar att din beställning är klar och levererar din tårta. 
 
 Därför ska vi mappa detta avsöknings mönster tillbaka. Bagerien representerar ditt anpassade API, medan du, tårta-kunden, representerar Logic Apps motor. När motorn anropar API: et med en begäran, bekräftar ditt API begäran och svarar med tidsintervallet när motorn kan kontrol lera jobb status. Motorn fortsätter att kontrol lera jobb status tills ditt API svarar på att jobbet görs och returnerar data till din Logi Kap par, som sedan fortsätter arbets flödet. 
 
@@ -123,16 +123,16 @@ När ditt API följer det här mönstret behöver du inte göra något i Logic a
 
 Alternativt kan du använda webhook-mönstret för långvariga uppgifter och asynkron bearbetning. Det här mönstret har en paus för logi Kap par och väntar på ett "återanrop" från ditt API för att slutföra bearbetningen innan arbets flödet fortsätter. Detta återanrop är ett HTTP-inlägg som skickar ett meddelande till en URL när en händelse inträffar. 
 
-<a name="bakery-webhook-action"></a>Använd nu den tidigare bagerien för webhook-mönstret och Föreställ dig att du kallar en bageri och beställer en anpassad tårta för leverans. Processen för att göra tårtan tar tid och du vill inte vänta på telefonen medan bagerien fungerar på tårtan. Bagerien bekräftar din beställning, men den här gången ger du dem ditt telefonnummer så att de kan ringa dig när tårtan är färdig. Den här gången visar bagerien när din beställning är klar och levererar din tårta.
+<a name="bakery-webhook-action"></a> Använd nu den tidigare bagerien för webhook-mönstret och Föreställ dig att du kallar en bageri och beställer en anpassad tårta för leverans. Processen för att göra tårtan tar tid och du vill inte vänta på telefonen medan bagerien fungerar på tårtan. Bagerien bekräftar din beställning, men den här gången ger du dem ditt telefonnummer så att de kan ringa dig när tårtan är färdig. Den här gången visar bagerien när din beställning är klar och levererar din tårta.
 
 När vi mappar detta webhook-mönster, representerar bagerien ditt anpassade API, medan du, tårta-kunden, representerar Logic Apps motor. Motorn anropar API: et med en begäran och innehåller en "återanrops-URL".
 När jobbet är färdigt använder ditt API URL: en för att meddela motorn och returnera data till din Logi Kap par, som sedan fortsätter arbets flödet. 
 
-För det här mönstret ställer du in två slut punkter på din styrenhet: `subscribe` och`unsubscribe`
+För det här mönstret ställer du in två slut punkter på din styrenhet: `subscribe` och `unsubscribe`
 
-*  `subscribe`slut punkt: när körningen når ditt API: s åtgärd i arbets flödet anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar och väntar sedan på motringning från ditt API när arbetet är slutfört. Ditt API anropar sedan med ett HTTP-inlägg till URL: en och skickar tillbaka innehåll och rubriker som indata till Logic-appen.
+*  `subscribe` slut punkt: när körningen når ditt API: s åtgärd i arbets flödet anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar och väntar sedan på motringning från ditt API när arbetet är slutfört. Ditt API anropar sedan med ett HTTP-inlägg till URL: en och skickar tillbaka innehåll och rubriker som indata till Logic-appen.
 
-* `unsubscribe`slut punkt: om Logic app-körningen avbryts anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
+* `unsubscribe` slut punkt: om Logic app-körningen avbryts anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
 
 ![Åtgärds mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -173,7 +173,7 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 
 | Förfrågan ingår `triggerState` ? | API-svar | 
 | -------------------------------- | -------------| 
-| No | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
+| Inga | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
 | Ja | Kontrol lera om det finns filer som har lagts till efter for i-tjänsten `DateTime` `triggerState` . | 
 ||| 
 
@@ -194,9 +194,9 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 En webhook-utlösare är en *push-utlösare* som väntar och lyssnar efter nya data eller händelser på tjänstens slut punkt. Om nya data eller en händelse uppfyller det angivna villkoret utlöses utlösaren och skapar en Logic App-instans, som sedan bearbetar data som indata.
 Webhook-utlösare fungerar ungefär som [webhook-åtgärder](#webhook-actions) som tidigare beskrivs i det här avsnittet och har kon figurer ATS med `subscribe` och `unsubscribe` slut punkter. 
 
-* `subscribe`slut punkt: när du lägger till och sparar en webhook-utlösare i din Logic app anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar. När det finns nya data eller en händelse som uppfyller det angivna villkoret, anropar API: et igen med ett HTTP-inlägg till URL: en. Innehålls nytto lasten och huvudena skickas som inmatade i Logic-appen.
+* `subscribe` slut punkt: när du lägger till och sparar en webhook-utlösare i din Logic app anropar Logic Apps-motorn `subscribe` slut punkten. Det här steget gör att Logic app skapar en återanrops-URL som din API lagrar. När det finns nya data eller en händelse som uppfyller det angivna villkoret, anropar API: et igen med ett HTTP-inlägg till URL: en. Innehålls nytto lasten och huvudena skickas som inmatade i Logic-appen.
 
-* `unsubscribe`slut punkt: om webhook-utlösaren eller hela Logic-appen tas bort anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
+* `unsubscribe` slut punkt: om webhook-utlösaren eller hela Logic-appen tas bort anropar Logic Apps-motorn `unsubscribe` slut punkten. Ditt API kan sedan avregistrera återanrops-URL: en och stoppa eventuella processer vid behov.
 
 ![Utlösnings mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

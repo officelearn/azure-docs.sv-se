@@ -7,17 +7,18 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2f2aac6dd7e073634d4114d33fae6bebd51fe176
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 801032e3df9dcb778fa4e591ef37eabc317e997a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736330"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073344"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med PowerShell (klassisk)
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
@@ -123,7 +124,7 @@ Din krets kommer nu att ha ExpressRoute Premium-funktionerna aktiverade. När ko
 >
 >
 
-#### <a name="considerations"></a>Att tänka på
+#### <a name="considerations"></a>Överväganden
 
 * Kontrol lera att antalet virtuella nätverk som är länkade till kretsen är mindre än 10 innan du degraderar från Premium till standard. Om du inte gör det Miss lyckas din uppdateringsbegäran och du debiteras premie priserna.
 * Du måste ta bort länken mellan alla virtuella nätverk i andra politiska regioner. Om du inte gör det Miss lyckas uppdateringsbegäran och du debiteras premie priserna.
@@ -191,7 +192,7 @@ At line:1 char:1
 
 ## <a name="deprovision-and-delete-a-circuit"></a>Avetablera och ta bort en krets
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Du måste ta bort länken mellan alla virtuella nätverk från ExpressRoute-kretsen för att åtgärden ska lyckas. Kontrol lera om det finns några virtuella nätverk som är länkade till kretsen om den här åtgärden Miss lyckas.
 * Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.

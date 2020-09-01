@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c51081c4cf2225474353afcb3a6c0de9bc9c71f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fbac172952c9feea92341dbc028567235b9250bc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014376"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075281"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
@@ -24,7 +25,7 @@ Azure Remote rendering innehåller följande två REST-API: er:
 > [!CAUTION]
 Om du anropar REST API Functions för ofta kommer servern att kunna begränsas och returnera felet på ett tag. ID för HTTP-felkod i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra exempel skripten behöver du en fungerande installation av [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 

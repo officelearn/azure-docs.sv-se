@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602643"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075434"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuera och konfigurera Azure-brandväggen med Azure CLI
 
@@ -35,17 +35,16 @@ I den här artikeln skapar du ett förenklat enda VNet med tre undernät för en
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * konfigurera en testnätverksmiljö
-> * distribuera en brandvägg
-> * Skapa en standardväg
-> * Konfigurera en program regel för att tillåta åtkomst till www.google.com
-> * Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
-> * testa brandväggen.
+* konfigurera en testnätverksmiljö
+* distribuera en brandvägg
+* Skapa en standardväg
+* Konfigurera en program regel för att tillåta åtkomst till www.google.com
+* Konfigurera en nätverksregel för att tillåta åtkomst till externa DNS-servrar
+* testa brandväggen.
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure Portal](tutorial-firewall-deploy-portal.md) eller [Azure PowerShell](deploy-ps.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

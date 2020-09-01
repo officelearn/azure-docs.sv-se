@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: edbce017b1090a029d49c9f2f8812e7e65133fcb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495173"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073139"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Objekt replikering för block-blobar (för hands version)
 
@@ -31,6 +31,8 @@ Följande diagram visar hur objekt replikeringen replikerar block blobbar från 
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram som visar hur objekt replikering fungerar":::
 
 Information om hur du konfigurerar objekt replikering finns i [Konfigurera objekt replikering (för hands version)](object-replication-configure.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="object-replication-policies-and-rules"></a>Principer och regler för objekt replikering
 
@@ -77,7 +79,7 @@ Under för hands versionen finns det inga ytterligare kostnader för replikering
 ### <a name="prerequisites-for-object-replication"></a>Förhandskrav för objektreplikering
 
 Objekt replikering kräver att följande Azure Storage funktioner är aktiverade: 
-- [Ändra feed](storage-blob-change-feed.md)
+- [Ändringsfeed](storage-blob-change-feed.md)
 - [Versionshantering](versioning-overview.md)
 
 Innan du konfigurerar objekt replikering måste du aktivera dess krav. Ändra feed måste vara aktiverat på käll kontot och blob-versioner måste vara aktiverade på både käll-och mål kontot. Mer information om hur du aktiverar de här funktionerna finns i följande artiklar:

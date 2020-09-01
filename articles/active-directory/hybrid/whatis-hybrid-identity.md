@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68779855"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278657"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Vad är hybrid identitet med Azure Active Directory?
 
@@ -36,7 +36,7 @@ För att uppnå hybrid identitet med Azure AD kan en av tre autentiseringsmetode
 
 Dessa autentiseringsmetoder ger även funktioner för [enkel inloggning](how-to-connect-sso.md).  Enkel inloggning loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket.
 
-Mer information finns i avsnittet om att [välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+Mer information finns i avsnittet om att [välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning](./choose-ad-authn.md). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Vanliga scenarier och rekommendationer 
 
@@ -60,18 +60,17 @@ Här följer några vanliga scenarier med hybrididentitet och åtkomsthantering 
 > 
 > <sup>3</sup> federerad enkel inloggning med AD FS.  
 >  
-> <sup>4</sup> AD FS kan integreras med din företags-PKI för att tillåta inloggning med certifikat. Dessa certifikat kan vara mjuka certifikat som distribueras via betrodda etableringskanaler, till exempel MDM, GPO eller smartkortscertifikat (inklusive PIV/CAC-kort) eller Hello för företag (cert-förtroende). Mer information om stöd för smartkortsautentisering finns på [den här bloggen](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> AD FS kan integreras med din företags-PKI för att tillåta inloggning med certifikat. Dessa certifikat kan vara mjuka certifikat som distribueras via betrodda etableringskanaler, till exempel MDM, GPO eller smartkortscertifikat (inklusive PIV/CAC-kort) eller Hello för företag (cert-förtroende). Mer information om stöd för smartkortsautentisering finns på [den här bloggen](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## <a name="license-requirements-for-using-azure-ad-connect"></a>Licens krav för att använda Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Efterföljande moment 
 
 - [Vad är Azure AD Connect och Connect Health?](whatis-azure-ad-connect.md) 
 - [Vad är synkronisering av lösenordshash (PHS)?](whatis-phs.md) 
 - [Vad är direktautentisering (PTA)?](how-to-connect-pta.md) 
 - [Vad är federation?](whatis-fed.md) 
-- [Vad är enkel inloggning?](how-to-connect-sso.md) 
-
+- [Vad är enkel inloggning?](how-to-connect-sso.md)

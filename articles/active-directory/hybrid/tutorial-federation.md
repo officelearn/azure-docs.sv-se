@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 200cc996acddecbfc1424ff24295d1373cdb3c23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3a68c3719ea742a5c02f8be167fc1989ae4683c0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226666"
+ms.locfileid: "89279201"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: federera en enda AD-skogs miljö i molnet
 
@@ -27,11 +27,11 @@ ms.locfileid: "89226666"
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med federation.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
-- En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- En dator med [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
-- - Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
+- - Ett [externt nätverkskort](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
 - En kopia av Windows Server 2016
 - En [anpassad domän](../../active-directory/fundamentals/add-custom-domain.md) som kan verifieras
 
@@ -292,4 +292,3 @@ Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Anpassade inställningar](how-to-connect-install-custom.md)
 - [Azure AD Connect och federation](how-to-connect-fed-whatis.md)
-

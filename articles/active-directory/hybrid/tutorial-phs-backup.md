@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "64918997"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279014"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Självstudie: Konfigurera PHS som säkerhets kopiering för AD FS i Azure AD Connect
 
@@ -33,7 +33,7 @@ Följande självstudie vägleder dig genom att ställa in synkronisering av lös
 Den här självstudien bygger på [självstudien: federera en enda AD-skogs miljö till molnet](tutorial-federation.md) och är ett krav som krävs innan du provar den här kursen.  Om du inte har slutfört den här kursen kan du göra det innan du provar att utföra stegen i det här dokumentet.
 
 >[!IMPORTANT]
->Innan du växlar till PHS bör du skapa en säkerhets kopia av din AD FSs miljö.  Detta kan göras med hjälp av [AD FS Rapid Restore-verktyget](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Innan du växlar till PHS bör du skapa en säkerhets kopia av din AD FSs miljö.  Detta kan göras med hjälp av [AD FS Rapid Restore-verktyget](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Aktivera PHS i Azure AD Connect
 Det första steget, nu när vi har en Azure AD Connect-miljö som använder federation, är att aktivera lösenordshashsynkronisering och låta Azure AD Connect synkronisera hashvärdena.
@@ -119,4 +119,4 @@ Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)
-- [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md)
+- [Hash-synkronisering av lösen ord](how-to-connect-password-hash-synchronization.md)

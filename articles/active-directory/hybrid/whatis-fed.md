@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7a5b186ebc98babe1baacc9f56f39dc8fbc093
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb1c3bc9f89db3f4b694803a63293a5537d4b98b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80049378"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278760"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Vad är federation med Azure AD?
 
@@ -33,9 +33,9 @@ Du kan federera din lokala miljö med Azure AD och använda den här federations
 > Om du bestämmer dig för att använda federation med Active Directory Federation Services (AD FS) kan du även konfigurera synkronisering av hashlösenord som en reservåtgärd för de fall då det inte går att nå AD FS-infrastrukturen.
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-- [Vad är hybrididentitet?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [Vad är hybrididentitet?](./whatis-hybrid-identity.md)
 - [Vad är Azure AD Connect och Connect Health?](whatis-azure-ad-connect.md)
 - [Vad är synkronisering av lösenordshash?](whatis-phs.md)
 - [Vad är federation?](whatis-fed.md)

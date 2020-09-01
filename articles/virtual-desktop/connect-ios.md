@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79db3db5a46700f55c1dc759443cae194660372d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007649"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230049"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Ansluta till virtuella Windows-datorer med iOS-klienten
 
@@ -36,6 +36,7 @@ Så här prenumererar du på en feed:
 2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
    - Om du använder en URL kan du använda den som din administratör fick. Normalt är URL: en <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Ange din e-postadress om du vill använda e-post. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
+   - Använd om du vill ansluta via US Gov-portalen <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Tryck på **nästa**.
 4. Ange dina autentiseringsuppgifter när du uppmanas till det.
    - Ge användar namnet behörighet att komma åt resurser för **användar namn**.

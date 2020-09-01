@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7315ef68b3562a28ee2515077c1e7d2f23c3803f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041327"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230440"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azures säkerhets bas linje för HDInsight
 
@@ -32,9 +32,9 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 För att minska risken för data förlust via exfiltrering begränsar du utgående nätverks trafik för Azure HDInsight-kluster med hjälp av Azure-brandväggen.
 
-Så här distribuerar du Azure HDInsight i en Virtual Network och skyddar med en nätverks säkerhets grupp:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Så här distribuerar du Azure HDInsight i en Virtual Network och skyddar med en nätverks säkerhets grupp: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Så här begränsar du utgående trafik för Azure HDInsight-kluster med Azure-brand väggen:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Så här begränsar du utgående trafik för Azure HDInsight-kluster med Azure-brand väggen: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Azure Security Center övervakning**: Ja
 
@@ -108,11 +108,11 @@ Det finns flera beroenden för Azure HDInsight som kräver inkommande trafik. In
 
 För att minska risken för data förlust via exfiltrering begränsar du utgående nätverks trafik för Azure HDInsight-kluster med hjälp av Azure-brandväggen.
 
-Så här distribuerar du HDInsight i en Virtual Network och skyddar med en nätverks säkerhets grupp:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Så här distribuerar du HDInsight i en Virtual Network och skyddar med en nätverks säkerhets grupp: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Förstå HDInsight-beroenden och brand Väggs användning:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Förstå HDInsight-beroenden och brand Väggs användning: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-HDInsight-hantering IP-adresser:https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
+HDInsight-hantering IP-adresser: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -192,7 +192,7 @@ Så här visar och hämtar du Azure aktivitets logg händelser:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -526,7 +526,7 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 
 **Vägledning**: inte tillgänglig; Customer Lockbox ännu inte stöd för Azure HDInsight.
 
-Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 
@@ -840,9 +840,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 
@@ -887,9 +887,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
@@ -909,7 +909,7 @@ Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft
 
 **Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
@@ -1290,7 +1290,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud Infrastructure, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud Infrastructure, tjänster och program, här: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center övervakning**: inte tillämpligt
 

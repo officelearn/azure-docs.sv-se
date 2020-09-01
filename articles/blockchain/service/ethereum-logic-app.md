@@ -1,23 +1,24 @@
 ---
 title: Använda Ethereum blockchain Connector med Azure Logic Apps-Azure blockchain-tjänsten
 description: Använd Ethereum blockchain-anslutningen med Azure Logic Apps för att utlösa smarta kontrakts funktioner och reagera på smarta kontrakt händelser.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077035"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230542"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Använd Ethereum blockchain-anslutningen med Azure Logic Apps
 
-Använd [Ethereum blockchain-anslutningen](/connectors/blockchainethereum/) med [Azure Logic Apps](../../logic-apps/index.yml) för att utföra åtgärder för smarta kontrakt och reagera på smarta kontrakt händelser. Anta till exempel att du vill skapa en REST-baserad mikrotjänst som returnerar information från en blockchain-redovisning. Genom att använda en Logic app kan du godkänna HTTP-begäranden som efterfrågar information som lagras i en blockchain-redovisning.
+Använd [Ethereum blockchain-anslutningen](/connectors/blockchainethereum/) med [Azure Logic Apps](../../logic-apps/index.yml) för att utföra åtgärder för smarta kontrakt och reagera på smarta kontrakt händelser. Den här artikeln förklarar hur du kan använda Ethereum blockchain-anslutningen för att skicka blockchain information till en annan tjänst eller anropa en blockchain-funktion. Anta till exempel att du vill skapa en REST-baserad mikrotjänst som returnerar information från en blockchain-redovisning. Genom att använda en Logic app kan du godkänna HTTP-begäranden som efterfrågar information som lagras i en blockchain-redovisning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför den valfria snabb starten [: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig när du installerar [Azure blockchain Development Kit för Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) och ställer in din blockchain Development-miljö.
+- Slutför den valfria snabb starten [: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig när du installerar [Azure blockchain Development Kit för Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) och ställer in din blockchain Development-miljö.
+- Om du är nybörjare på Azure Logic Apps bör du granska Microsoft Learn modulerna [Introduktion till Azure Logic Apps](/learn/modules/intro-to-logic-apps/) och [anropa ett API från ett Logic Apps arbets flöde med hjälp av en anpassad anslutning](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp
 
@@ -33,7 +34,7 @@ Azure Logic Apps hjälper dig att schemalägga och automatisera affärs processe
 
 Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde.
 
-Ethereum blockchain-anslutningen har en utlösare och flera åtgärder. Vilken utlösare eller åtgärd du använder beror på ditt scenario.
+Ethereum blockchain-anslutningen har en utlösare och flera åtgärder. Vilken utlösare eller åtgärd du använder beror på ditt scenario. Följ avsnittet i den här artikeln som bäst matchar ditt scenario.
 
 Om arbets flödet:
 

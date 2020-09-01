@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6aff48844f42286de1d30368288b83e5356a36bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0daa094a6d804cd8a40c4ba76b696e3c9b580f8a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016894"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230355"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du u
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  
 
@@ -41,9 +41,7 @@ Det bästa sättet att flytta data _till_ en ml-pipeline är med `Dataset` objek
 
 
 > [!TIP]
-> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klasser  `OutputFileDatasetConfig` och `OutputTabularDatasetConfig` .  Dessa klasser är experimentella för hands versions funktioner och kan ändras när som helst.
-> 
->Mer information om experimentella funktioner finns i https://aka.ms/azuremlexperimental .
+> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg finns i den offentliga för hands versions klasser  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) och [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  Dessa klasser är [experimentella](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) för hands versions funktioner och kan ändras när som helst.
 
 `AutoMLStep`Konfigureras via ett- `AutoMLConfig` objekt. `AutoMLConfig` är en flexibel klass som beskrivs i [Konfigurera automatiserade ml-experiment i python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -272,7 +270,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 I kodfragmentet ovan skapas en högkvalitativ `PipelineOutputTabularDataset` `PipelineOutputFileDataset` åtgärd från utmatningen av steget data förberedelse.
 
 > [!TIP]
-> Den offentliga för hands versions klassen `OutputFileDatasetConfig` har också möjlighet att konvertera en `OutputFileDatasetConfig` till en `OutputTabularDatasetConfig` för förbrukning i AutoML-körningar. Lär dig mer om `OutputFileDatasetConfig` design mönster och metoder i [referens dokumentationen för SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> Den offentliga för hands versions klassen `OutputFileDatasetConfig` har också möjlighet att konvertera en `OutputFileDatasetConfig` till en [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) för förbrukning i AutoML-körningar. Lär dig mer om `OutputFileDatasetConfig` design mönster och metoder i [referens dokumentationen för SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
 Ett annat alternativ är att använda `Dataset` objekt som registrerats i arbets ytan:
 
@@ -522,7 +520,7 @@ Varje- `Run` objekt innehåller `StepRun` objekt som innehåller information om 
 
 Slutligen hämtas faktiska mått och modell till din lokala dator, enligt beskrivningen i avsnittet "Undersök resultat från pipelines" ovan.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Kör den här Jupyter Notebook som visar ett [komplett exempel på automatiserad ml i en pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) som använder regression för att förutsäga taxi-priser
 - [Skapa automatiserade ML-experiment utan att skriva kod](how-to-use-automated-ml-for-ml-models.md)

@@ -3,12 +3,12 @@ title: Skapa och använda resursfiler
 description: Lär dig hur du skapar batch-resursfiler från olika ingångs källor. Den här artikeln beskriver några vanliga metoder för hur du skapar och placerar dem på en virtuell dator.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146308"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230950"
 ---
 # <a name="creating-and-using-resource-files"></a>Skapa och använda resursfiler
 
@@ -99,7 +99,7 @@ Om varje aktivitet har många filer som är unika för aktiviteten, är resursfi
 
 Om det finns flera hundra resursfiler angivna för en aktivitet kan batchen avvisa uppgiften som för stor. Det är bäst att hålla dina uppgifter små genom att minimera antalet resursfiler i själva aktiviteten.
 
-Om det inte finns något sätt att minimera antalet filer som aktiviteten behöver, kan du optimera aktiviteten genom att skapa en enda resurs fil som refererar till en lagrings behållare för resursfiler. Om du vill göra det lägger du till dina resursfiler i en Azure Storage behållare och använder de olika "container"- [metoderna](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) för resursfiler. Använd alternativen för BLOB-prefix för att ange samlingar av filer som ska laddas ned för dina aktiviteter.
+Om det inte finns något sätt att minimera antalet filer som aktiviteten behöver, kan du optimera aktiviteten genom att skapa en enda resurs fil som refererar till en lagrings behållare för resursfiler. Om du vill göra det lägger du till dina resursfiler i en Azure Storage behållare och använder de olika "container"- [metoderna](/dotnet/api/microsoft.azure.batch.resourcefile#methods) för resursfiler. Använd alternativen för BLOB-prefix för att ange samlingar av filer som ska laddas ned för dina aktiviteter.
 
 ## <a name="next-steps"></a>Nästa steg
 

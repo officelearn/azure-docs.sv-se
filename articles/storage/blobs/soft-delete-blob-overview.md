@@ -1,5 +1,5 @@
 ---
-title: Mjuk borttagning för blobbar
+title: Mjuk borttagning för blobar
 titleSuffix: Azure Storage
 description: Mjuk borttagning för blobbar skyddar dina data så att du enkelt kan återställa dina data när de är felaktigt ändrade eller borttagna av ett program eller en annan lagrings konto användare.
 services: storage
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057421"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230117"
 ---
-# <a name="soft-delete-for-blobs"></a>Mjuk borttagning för blobbar
+# <a name="soft-delete-for-blobs"></a>Mjuk borttagning för blobar
 
-Mjuk borttagning för blobbar skyddar dina data från att oavsiktligt eller felaktigt ändras eller tas bort. När mjuk borttagning för blobbar har Aktiver ATS för ett lagrings konto kan blobbar, BLOB-versioner (för hands version) och ögonblicks bilder i det lagrings kontot återställas när de har tagits bort, inom en kvarhållningsperiod som du anger.
+Mjuk borttagning för blobbar skyddar dina data från att oavsiktligt eller felaktigt ändras eller tas bort. När mjuk borttagning för blobbar är aktiverat för ett lagrings konto kan blobbar, BLOB-versioner och ögonblicks bilder i det lagrings kontot återställas när de har tagits bort, inom en kvarhållningsperiod som du anger.
 
 Om det finns en risk att dina data av misstag kan ändras eller tas bort av ett program eller en annan lagrings konto användare, rekommenderar Microsoft att du aktiverar mjuk borttagning. Mer information om hur du aktiverar mjuk borttagning finns i [Aktivera och hantera mjuk borttagning för blobbar](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ Om det finns en risk att dina data av misstag kan ändras eller tas bort av ett 
 
 När mjuk borttagning för blobbar är aktiverat på ett lagrings konto kan du återställa objekt när de har tagits bort, inom den angivna data lagrings perioden. Det här skyddet utökar till alla blobbar (block-blobbar, tillägg av blobbar eller sidfel) som raderas som ett resultat av en överskrivning.
 
-Om data i en befintlig BLOB eller ögonblicks bild tas bort medan BLOB-mjuk borttagning är aktiverat men BLOB-versioner (för hands version) inte är aktive rad genereras en mjuk borttagen ögonblicks bild för att spara statusen för de överskrivna data. När den angivna kvarhållningsperioden har upphört att gälla tas objektet bort permanent.
+Om data i en befintlig BLOB eller ögonblicks bild tas bort när BLOB-mjuk borttagning har Aktiver ATS men BLOB-versioner inte är aktive rad genereras en mjuk borttagen ögonblicks bild för att spara statusen för de överskrivna data. När den angivna kvarhållningsperioden har upphört att gälla tas objektet bort permanent.
 
 Om BLOB-versioner och mjuk borttagning av BLOB både är aktiverade på lagrings kontot, skapar en BLOB en ny version i stället för en mjuk borttagen ögonblicks bild. Den nya versionen är inte mjuk och tas inte bort när kvarhållningsperioden för mjuk borttagning upphör att gälla. Borttagnings bara versioner av en BLOB kan återställas inom kvarhållningsperioden genom att anropa åtgärden [ta bort BLOB](/rest/api/storageservices/undelete-blob) . Blobben kan sedan återställas från en av dess versioner genom att anropa åtgärden [Kopiera BLOB](/rest/api/storageservices/copy-blob) . Mer information om hur du använder BLOB-versioner och mjuk borttagning finns i [BLOB-versioner och mjuk borttagning](versioning-overview.md#blob-versioning-and-soft-delete).
 
@@ -159,7 +159,7 @@ När du först aktiverar mjuk borttagning rekommenderar Microsoft att du använd
 
 Om du aktiverar mjuk borttagning för ofta överskrivna data kan det leda till ökade kapacitets kostnader för lagring och ökad fördröjning vid registrering av blobbar. Du kan minimera denna ytterligare kostnad och svars tid genom att lagra ofta skrivna data i ett separat lagrings konto där mjuk borttagning har inaktiverats.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Kan jag använda API-API: et för att ta bort blobar med mjuk borttagna ögonblicks bilder?
 
@@ -193,5 +193,5 @@ Det är möjligt att dra nytta av mjuk borttagning oavsett vilken API-version du
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera mjuk borttagning för blobbar](soft-delete-enable.md)
-- [Blob-version (för hands version)](versioning-overview.md)
+- [Aktivera mjuk borttagning för blobar](soft-delete-enable.md)
+- [BLOB-versioner](versioning-overview.md)

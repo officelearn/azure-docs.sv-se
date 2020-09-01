@@ -1,29 +1,27 @@
 ---
-title: Aktivera och hantera BLOB-versioner (för hands version)
+title: Aktivera och hantera BLOB-versioner
 titleSuffix: Azure Storage
-description: Lär dig hur du aktiverar BLOB-versioner (för hands version) i Azure Portal eller genom att använda en Azure Resource Manager mall.
+description: Lär dig hur du aktiverar BLOB-versioner i Azure Portal eller genom att använda en Azure Resource Manager mall.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074414"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230678"
 ---
-# <a name="enable-and-manage-blob-versioning-preview"></a>Aktivera och hantera BLOB-versioner (för hands version)
+# <a name="enable-and-manage-blob-versioning"></a>Aktivera och hantera BLOB-versioner
 
-Du kan aktivera Blob Storage-version (för hands version) för att automatiskt underhålla tidigare versioner av ett objekt.  När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
+Du kan aktivera Blob Storage-versioner för att automatiskt underhålla tidigare versioner av ett objekt.  När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
 
-Den här artikeln visar hur du aktiverar eller inaktiverar BLOB-versioner för lagrings kontot med hjälp av Azure Portal eller en Azure Resource Manager mall.
-
-Du måste registrera dig för för hands versionen innan du aktiverar BLOB-versioner. Om du vill veta mer om BLOB-versioner, inklusive hur du registrerar dig för för hands versionen, se [BLOB-versioner (för hands version)](versioning-overview.md).
+Den här artikeln visar hur du aktiverar eller inaktiverar BLOB-versioner för lagrings kontot med hjälp av Azure Portal eller en Azure Resource Manager mall. Mer information om BLOB-versioner finns i [BLOB-versioner](versioning-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -75,7 +73,7 @@ Mer information om hur du distribuerar resurser med mallar i Azure Portal finns 
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Ändra en BLOB för att utlösa en ny version
 
-Följande kod exempel visar hur du utlöser skapandet av en ny version med Azure Storage-klient biblioteket för .NET, version [12.5.0-Preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) eller senare. Kontrol lera att du har aktiverat versions hantering för ditt lagrings konto innan du kör det här exemplet.
+Följande kod exempel visar hur du utlöser skapandet av en ny version med Azure Storage-klient biblioteket för .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) eller senare. Kontrol lera att du har aktiverat versions hantering för ditt lagrings konto innan du kör det här exemplet.
 
 Exemplet skapar en Block-Blob och uppdaterar sedan blobens metadata. Uppdatering av blobens metadata utlöser skapandet av en ny version. Exemplet hämtar den ursprungliga versionen och den aktuella versionen och visar att endast den aktuella versionen innehåller metadata.
 
@@ -161,5 +159,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Blob-version (för hands version)](versioning-overview.md)
+- [BLOB-versioner](versioning-overview.md)
 - [Mjuk borttagning för Azure Storage-blobar](soft-delete-overview.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 2a57c5244630c2328320d7d99eed98c892d49897
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722576"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230763"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
 
@@ -29,7 +29,7 @@ Behållar avbildningen för [avvikelse detektor][ad-containers] finns i `mcr.mic
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 
@@ -39,7 +39,7 @@ Du kan hitta avbildningen [visuellt innehåll][cv-containers] Read OCR-behållar
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest ( (2.0.013250001-amd64-preview)` | • Öka minnes användningen ytterligare för containern. |
 |                                          | • Extern cache krävs för installation av multi-poddar. Du kan till exempel konfigurera Redis för cachelagring. |
@@ -68,7 +68,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -86,7 +86,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -99,7 +99,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -117,9 +117,11 @@ Behållar avbildningen [Custom Speech till text][sp-cstt] finns i `containerprev
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Kommentarer |
+| Bildtaggar            | Anteckningar |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.3.1-amd64-preview` |       | 
+| `2.3.0-amd64-preview` |       |
 | `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
@@ -132,20 +134,141 @@ Du hittar den [anpassade text till tal-][sp-ctts] behållar avbildningen i `cont
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Kommentarer |
+| Bildtaggar            | Anteckningar |
 |-----------------------|:------|
 | `latest`              |       |
+| `1.6.0-amd64-preview` |       |
+| `1.5.0-amd64-preview` |       |
+| `1.4.0-amd64-preview` |       |
 | `1.3.0-amd64-preview` |       |
 
 ## <a name="speech-to-text"></a>Tal till text
 
 Du hittar en behållar avbildning från [tal till text][sp-stt] i `containerpreview.azurecr.io` behållar registret. Den finns i `microsoft` lagrings platsen och får namnet `cognitive-services-speech-to-text` . Det fullständigt kvalificerade namnet på behållar avbildningen är, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` .
+Den *amerikanska regeringen i Virginia* -versionen av tal-till-text-bilder stöds i v-2.4.0 och finns på `containerpreview.azurecr.io/microsoft/fairfax/cognitive-services-speech-to-text` .
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                  | Kommentarer                                    |
+| Bildtaggar                  | Anteckningar                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Behållar avbildning med `en-US` språkvarianten. |
+| `2.4.0-amd64-ar-ae-preview` | Behållar avbildning med `ar-AE` språkvarianten. |
+| `2.4.0-amd64-ar-eg-preview` | Behållar avbildning med `ar-EG` språkvarianten. |
+| `2.4.0-amd64-ar-kw-preview` | Behållar avbildning med `ar-KW` språkvarianten. |
+| `2.4.0-amd64-ar-qa-preview` | Behållar avbildning med `ar-QA` språkvarianten. |
+| `2.4.0-amd64-ar-sa-preview` | Behållar avbildning med `ar-SA` språkvarianten. |
+| `2.4.0-amd64-ca-es-preview` | Behållar avbildning med `ca-ES` språkvarianten. |
+| `2.4.0-amd64-da-dk-preview` | Behållar avbildning med `da-DK` språkvarianten. |
+| `2.4.0-amd64-de-de-preview` | Behållar avbildning med `de-DE` språkvarianten. |
+| `2.4.0-amd64-en-au-preview` | Behållar avbildning med `en-AU` språkvarianten. |
+| `2.4.0-amd64-en-ca-preview` | Behållar avbildning med `en-CA` språkvarianten. |
+| `2.4.0-amd64-en-gb-preview` | Behållar avbildning med `en-GB` språkvarianten. |
+| `2.4.0-amd64-en-in-preview` | Behållar avbildning med `en-IN` språkvarianten. |
+| `2.4.0-amd64-en-nz-preview` | Behållar avbildning med `en-NZ` språkvarianten. |
+| `2.4.0-amd64-en-us-preview` | Behållar avbildning med `en-US` språkvarianten. |
+| `2.4.0-amd64-es-es-preview` | Behållar avbildning med `es-ES` språkvarianten. |
+| `2.4.0-amd64-es-mx-preview` | Behållar avbildning med `es-MX` språkvarianten. |
+| `2.4.0-amd64-fi-fi-preview` | Behållar avbildning med `fi-FI` språkvarianten. |
+| `2.4.0-amd64-fr-ca-preview` | Behållar avbildning med `fr-CA` språkvarianten. |
+| `2.4.0-amd64-fr-fr-preview` | Behållar avbildning med `fr-FR` språkvarianten. |
+| `2.4.0-amd64-gu-in-preview` | Behållar avbildning med `gu-IN` språkvarianten. |
+| `2.4.0-amd64-hi-in-preview` | Behållar avbildning med `hi-IN` språkvarianten. |
+| `2.4.0-amd64-it-it-preview` | Behållar avbildning med `it-IT` språkvarianten. |
+| `2.4.0-amd64-ja-jp-preview` | Behållar avbildning med `ja-JP` språkvarianten. |
+| `2.4.0-amd64-ko-kr-preview` | Behållar avbildning med `ko-KR` språkvarianten. |
+| `2.4.0-amd64-mr-in-preview` | Behållar avbildning med `mr-IN` språkvarianten. |
+| `2.4.0-amd64-nb-no-preview` | Behållar avbildning med `nb-NO` språkvarianten. |
+| `2.4.0-amd64-nl-nl-preview` | Behållar avbildning med `nl-NL` språkvarianten. |
+| `2.4.0-amd64-pl-pl-preview` | Behållar avbildning med `pl-PL` språkvarianten. |
+| `2.4.0-amd64-pt-br-preview` | Behållar avbildning med `pt-BR` språkvarianten. |
+| `2.4.0-amd64-pt-pt-preview` | Behållar avbildning med `pt-PT` språkvarianten. |
+| `2.4.0-amd64-ru-ru-preview` | Behållar avbildning med `ru-RU` språkvarianten. |
+| `2.4.0-amd64-sv-se-preview` | Behållar avbildning med `sv-SE` språkvarianten. |
+| `2.4.0-amd64-ta-in-preview` | Behållar avbildning med `ta-IN` språkvarianten. |
+| `2.4.0-amd64-te-in-preview` | Behållar avbildning med `te-IN` språkvarianten. |
+| `2.4.0-amd64-th-th-preview` | Behållar avbildning med `th-TH` språkvarianten. |
+| `2.4.0-amd64-tr-tr-preview` | Behållar avbildning med `tr-TR` språkvarianten. |
+| `2.4.0-amd64-zh-cn-preview` | Behållar avbildning med `zh-CN` språkvarianten. |
+| `2.4.0-amd64-zh-hk-preview` | Behållar avbildning med `zh-HK` språkvarianten. |
+| `2.4.0-amd64-zh-tw-preview` | Behållar avbildning med `zh-TW` språkvarianten. |
+| `2.3.1-amd64-ar-ae-preview` | Behållar avbildning med `ar-AE` språkvarianten. |
+| `2.3.1-amd64-ar-eg-preview` | Behållar avbildning med `ar-EG` språkvarianten. |
+| `2.3.1-amd64-ar-kw-preview` | Behållar avbildning med `ar-KW` språkvarianten. |
+| `2.3.1-amd64-ar-qa-preview` | Behållar avbildning med `ar-QA` språkvarianten. |
+| `2.3.1-amd64-ar-sa-preview` | Behållar avbildning med `ar-SA` språkvarianten. |
+| `2.3.1-amd64-ca-es-preview` | Behållar avbildning med `ca-ES` språkvarianten. |
+| `2.3.1-amd64-da-dk-preview` | Behållar avbildning med `da-DK` språkvarianten. |
+| `2.3.1-amd64-de-de-preview` | Behållar avbildning med `de-DE` språkvarianten. |
+| `2.3.1-amd64-en-au-preview` | Behållar avbildning med `en-AU` språkvarianten. |
+| `2.3.1-amd64-en-ca-preview` | Behållar avbildning med `en-CA` språkvarianten. |
+| `2.3.1-amd64-en-gb-preview` | Behållar avbildning med `en-GB` språkvarianten. |
+| `2.3.1-amd64-en-in-preview` | Behållar avbildning med `en-IN` språkvarianten. |
+| `2.3.1-amd64-en-nz-preview` | Behållar avbildning med `en-NZ` språkvarianten. |
+| `2.3.1-amd64-en-us-preview` | Behållar avbildning med `en-US` språkvarianten. |
+| `2.3.1-amd64-es-es-preview` | Behållar avbildning med `es-ES` språkvarianten. |
+| `2.3.1-amd64-es-mx-preview` | Behållar avbildning med `es-MX` språkvarianten. |
+| `2.3.1-amd64-fi-fi-preview` | Behållar avbildning med `fi-FI` språkvarianten. |
+| `2.3.1-amd64-fr-ca-preview` | Behållar avbildning med `fr-CA` språkvarianten. |
+| `2.3.1-amd64-fr-fr-preview` | Behållar avbildning med `fr-FR` språkvarianten. |
+| `2.3.1-amd64-gu-in-preview` | Behållar avbildning med `gu-IN` språkvarianten. |
+| `2.3.1-amd64-hi-in-preview` | Behållar avbildning med `hi-IN` språkvarianten. |
+| `2.3.1-amd64-it-it-preview` | Behållar avbildning med `it-IT` språkvarianten. |
+| `2.3.1-amd64-ja-jp-preview` | Behållar avbildning med `ja-JP` språkvarianten. |
+| `2.3.1-amd64-ko-kr-preview` | Behållar avbildning med `ko-KR` språkvarianten. |
+| `2.3.1-amd64-mr-in-preview` | Behållar avbildning med `mr-IN` språkvarianten. |
+| `2.3.1-amd64-nb-no-preview` | Behållar avbildning med `nb-NO` språkvarianten. |
+| `2.3.1-amd64-nl-nl-preview` | Behållar avbildning med `nl-NL` språkvarianten. |
+| `2.3.1-amd64-pl-pl-preview` | Behållar avbildning med `pl-PL` språkvarianten. |
+| `2.3.1-amd64-pt-br-preview` | Behållar avbildning med `pt-BR` språkvarianten. |
+| `2.3.1-amd64-pt-pt-preview` | Behållar avbildning med `pt-PT` språkvarianten. |
+| `2.3.1-amd64-ru-ru-preview` | Behållar avbildning med `ru-RU` språkvarianten. |
+| `2.3.1-amd64-sv-se-preview` | Behållar avbildning med `sv-SE` språkvarianten. |
+| `2.3.1-amd64-ta-in-preview` | Behållar avbildning med `ta-IN` språkvarianten. |
+| `2.3.1-amd64-te-in-preview` | Behållar avbildning med `te-IN` språkvarianten. |
+| `2.3.1-amd64-th-th-preview` | Behållar avbildning med `th-TH` språkvarianten. |
+| `2.3.1-amd64-tr-tr-preview` | Behållar avbildning med `tr-TR` språkvarianten. |
+| `2.3.1-amd64-zh-cn-preview` | Behållar avbildning med `zh-CN` språkvarianten. |
+| `2.3.1-amd64-zh-hk-preview` | Behållar avbildning med `zh-HK` språkvarianten. |
+| `2.3.1-amd64-zh-tw-preview` | Behållar avbildning med `zh-TW` språkvarianten. |
+| `2.3.0-amd64-ar-ae-preview` | Behållar avbildning med `ar-AE` språkvarianten. |
+| `2.3.0-amd64-ar-eg-preview` | Behållar avbildning med `ar-EG` språkvarianten. |
+| `2.3.0-amd64-ar-kw-preview` | Behållar avbildning med `ar-KW` språkvarianten. |
+| `2.3.0-amd64-ar-qa-preview` | Behållar avbildning med `ar-QA` språkvarianten. |
+| `2.3.0-amd64-ar-sa-preview` | Behållar avbildning med `ar-SA` språkvarianten. |
+| `2.3.0-amd64-ca-es-preview` | Behållar avbildning med `ca-ES` språkvarianten. |
+| `2.3.0-amd64-da-dk-preview` | Behållar avbildning med `da-DK` språkvarianten. |
+| `2.3.0-amd64-de-de-preview` | Behållar avbildning med `de-DE` språkvarianten. |
+| `2.3.0-amd64-en-au-preview` | Behållar avbildning med `en-AU` språkvarianten. |
+| `2.3.0-amd64-en-ca-preview` | Behållar avbildning med `en-CA` språkvarianten. |
+| `2.3.0-amd64-en-gb-preview` | Behållar avbildning med `en-GB` språkvarianten. |
+| `2.3.0-amd64-en-in-preview` | Behållar avbildning med `en-IN` språkvarianten. |
+| `2.3.0-amd64-en-nz-preview` | Behållar avbildning med `en-NZ` språkvarianten. |
+| `2.3.0-amd64-en-us-preview` | Behållar avbildning med `en-US` språkvarianten. |
+| `2.3.0-amd64-es-es-preview` | Behållar avbildning med `es-ES` språkvarianten. |
+| `2.3.0-amd64-es-mx-preview` | Behållar avbildning med `es-MX` språkvarianten. |
+| `2.3.0-amd64-fi-fi-preview` | Behållar avbildning med `fi-FI` språkvarianten. |
+| `2.3.0-amd64-fr-ca-preview` | Behållar avbildning med `fr-CA` språkvarianten. |
+| `2.3.0-amd64-fr-fr-preview` | Behållar avbildning med `fr-FR` språkvarianten. |
+| `2.3.0-amd64-gu-in-preview` | Behållar avbildning med `gu-IN` språkvarianten. |
+| `2.3.0-amd64-hi-in-preview` | Behållar avbildning med `hi-IN` språkvarianten. |
+| `2.3.0-amd64-it-it-preview` | Behållar avbildning med `it-IT` språkvarianten. |
+| `2.3.0-amd64-ja-jp-preview` | Behållar avbildning med `ja-JP` språkvarianten. |
+| `2.3.0-amd64-ko-kr-preview` | Behållar avbildning med `ko-KR` språkvarianten. |
+| `2.3.0-amd64-mr-in-preview` | Behållar avbildning med `mr-IN` språkvarianten. |
+| `2.3.0-amd64-nb-no-preview` | Behållar avbildning med `nb-NO` språkvarianten. |
+| `2.3.0-amd64-nl-nl-preview` | Behållar avbildning med `nl-NL` språkvarianten. |
+| `2.3.0-amd64-pl-pl-preview` | Behållar avbildning med `pl-PL` språkvarianten. |
+| `2.3.0-amd64-pt-br-preview` | Behållar avbildning med `pt-BR` språkvarianten. |
+| `2.3.0-amd64-pt-pt-preview` | Behållar avbildning med `pt-PT` språkvarianten. |
+| `2.3.0-amd64-ru-ru-preview` | Behållar avbildning med `ru-RU` språkvarianten. |
+| `2.3.0-amd64-sv-se-preview` | Behållar avbildning med `sv-SE` språkvarianten. |
+| `2.3.0-amd64-ta-in-preview` | Behållar avbildning med `ta-IN` språkvarianten. |
+| `2.3.0-amd64-te-in-preview` | Behållar avbildning med `te-IN` språkvarianten. |
+| `2.3.0-amd64-th-th-preview` | Behållar avbildning med `th-TH` språkvarianten. |
+| `2.3.0-amd64-tr-tr-preview` | Behållar avbildning med `tr-TR` språkvarianten. |
+| `2.3.0-amd64-zh-cn-preview` | Behållar avbildning med `zh-CN` språkvarianten. |
+| `2.3.0-amd64-zh-hk-preview` | Behållar avbildning med `zh-HK` språkvarianten. |
+| `2.3.0-amd64-zh-tw-preview` | Behållar avbildning med `zh-TW` språkvarianten. |
 | `2.2.0-amd64-ar-ae-preview` | Behållar avbildning med `ar-AE` språkvarianten. |
 | `2.2.0-amd64-ar-eg-preview` | Behållar avbildning med `ar-EG` språkvarianten. |
 | `2.2.0-amd64-ar-kw-preview` | Behållar avbildning med `ar-KW` språkvarianten. |
@@ -465,9 +588,252 @@ Du hittar [text till tal-][sp-tts] behållar avbildningen i `containerpreview.az
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                                  | Kommentarer                                                                      |
+| Bildtaggar                                  | Anteckningar                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-JessaRUS` rösten.        |
+| `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.         |
+| `1.6.0-amd64-ar-eg-hoda-preview`            | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
+| `1.6.0-amd64-ar-sa-naayf-preview`           | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           |
+| `1.6.0-amd64-bg-bg-ivan-preview`            | Behållar avbildning med `bg-BG` språket och `bg-BG-Ivan` rösten.            |
+| `1.6.0-amd64-ca-es-herenarus-preview`       | Behållar avbildning med `ca-ES` språket och `ca-ES-HerenaRUS` rösten.       |
+| `1.6.0-amd64-cs-cz-jakub-preview`           | Behållar avbildning med `cs-CZ` språket och `cs-CZ-Jakub` rösten.           |
+| `1.6.0-amd64-da-dk-hellerus-preview`        | Behållar avbildning med `da-DK` språket och `da-DK-HelleRUS` rösten.        |
+| `1.6.0-amd64-de-at-michael-preview`         | Behållar avbildning med `de-AT` språket och `de-AT-Michael` rösten.         |
+| `1.6.0-amd64-de-ch-karsten-preview`         | Behållar avbildning med `de-CH` språket och `de-CH-Karsten` rösten.         |
+| `1.6.0-amd64-de-de-hedda-preview`           | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.6.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.6.0-amd64-de-de-stefan-apollo-preview`   | Behållar avbildning med `de-DE` språket och `de-DE-Stefan-Apollo` rösten.   |
+| `1.6.0-amd64-el-gr-stefanos-preview`        | Behållar avbildning med `el-GR` språket och `el-GR-Stefanos` rösten.        |
+| `1.6.0-amd64-en-au-catherine-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-Catherine` rösten.       |
+| `1.6.0-amd64-en-au-hayleyrus-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-HayleyRUS` rösten.       |
+| `1.6.0-amd64-en-ca-heatherrus-preview`      | Behållar avbildning med `en-CA` språket och `en-CA-HeatherRUS` rösten.      |
+| `1.6.0-amd64-en-ca-linda-preview`           | Behållar avbildning med `en-CA` språket och `en-CA-Linda` rösten.           |
+| `1.6.0-amd64-en-gb-george-apollo-preview`   | Behållar avbildning med `en-GB` språket och `en-GB-George-Apollo` rösten.   |
+| `1.6.0-amd64-en-gb-hazelrus-preview`        | Behållar avbildning med `en-GB` språket och `en-GB-HazelRUS` rösten.        |
+| `1.6.0-amd64-en-gb-susan-apollo-preview`    | Behållar avbildning med `en-GB` språket och `en-GB-Susan-Apollo` rösten.    |
+| `1.6.0-amd64-en-ie-sean-preview`            | Behållar avbildning med `en-IE` språket och `en-IE-Sean` rösten.            |
+| `1.6.0-amd64-en-in-heera-apollo-preview`    | Behållar avbildning med `en-IN` språket och `en-IN-Heera-Apollo` rösten.    |
+| `1.6.0-amd64-en-in-priyarus-preview`        | Behållar avbildning med `en-IN` språket och `en-IN-PriyaRUS` rösten.        |
+| `1.6.0-amd64-en-in-ravi-apollo-preview`     | Behållar avbildning med `en-IN` språket och `en-IN-Ravi-Apollo` rösten.     |
+| `1.6.0-amd64-en-us-benjaminrus-preview`     | Behållar avbildning med `en-US` språket och `en-US-BenjaminRUS` rösten.     |
+| `1.6.0-amd64-en-us-guy24krus-preview`       | Behållar avbildning med `en-US` språket och `en-US-Guy24kRUS` rösten.       |
+| `1.6.0-amd64-en-us-aria24krus-preview`      | Behållar avbildning med `en-US` språket och `en-US-Aria24kRUS` rösten.     |
+| `1.6.0-amd64-en-us-ariarus-preview`         | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.        |
+| `1.6.0-amd64-en-us-zirarus-preview`         | Behållar avbildning med `en-US` språket och `en-US-ZiraRUS` rösten.         |
+| `1.6.0-amd64-es-es-helenarus-preview`       | Behållar avbildning med `es-ES` språket och `es-ES-HelenaRUS` rösten.       |
+| `1.6.0-amd64-es-es-laura-apollo-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-Laura-Apollo` rösten.    |
+| `1.6.0-amd64-es-es-pablo-apollo-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-Pablo-Apollo` rösten.    |
+| `1.6.0-amd64-es-mx-hildarus-preview`        | Behållar avbildning med `es-MX` språket och `es-MX-HildaRUS` rösten.        |
+| `1.6.0-amd64-es-mx-raul-apollo-preview`     | Behållar avbildning med `es-MX` språket och `es-MX-Raul-Apollo` rösten.     |
+| `1.6.0-amd64-fi-fi-heidirus-preview`        | Behållar avbildning med `fi-FI` språket och `fi-FI-HeidiRUS` rösten.        |
+| `1.6.0-amd64-fr-ca-caroline-preview`        | Behållar avbildning med `fr-CA` språket och `fr-CA-Caroline` rösten.        |
+| `1.6.0-amd64-fr-ca-harmonierus-preview`     | Behållar avbildning med `fr-CA` språket och `fr-CA-HarmonieRUS` rösten.     |
+| `1.6.0-amd64-fr-ch-guillaume-preview`       | Behållar avbildning med `fr-CH` språket och `fr-CH-Guillaume` rösten.       |
+| `1.6.0-amd64-fr-fr-hortenserus-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-HortenseRUS` rösten.     |
+| `1.6.0-amd64-fr-fr-julie-apollo-preview`    | Behållar avbildning med `fr-FR` språket och `fr-FR-Julie-Apollo` rösten.    |
+| `1.6.0-amd64-fr-fr-paul-apollo-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-Paul-Apollo` rösten.     |
+| `1.6.0-amd64-he-il-asaf-preview`            | Behållar avbildning med `he-IL` språket och `he-IL-Asaf` rösten.            |
+| `1.6.0-amd64-hi-in-hemant-preview`          | Behållar avbildning med `hi-IN` språket och `hi-IN-Hemant` rösten.          |
+| `1.6.0-amd64-hi-in-kalpana-apollo-preview`  | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana-Apollo` rösten.  |
+| `1.6.0-amd64-hi-in-kalpana-preview`         | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana` rösten.         |
+| `1.6.0-amd64-hr-hr-matej-preview`           | Behållar avbildning med `hr-HR` språket och `hr-HR-Matej` rösten.           |
+| `1.6.0-amd64-hu-hu-szabolcs-preview`        | Behållar avbildning med `hu-HU` språket och `hu-HU-Szabolcs` rösten.        |
+| `1.6.0-amd64-id-id-andika-preview`          | Behållar avbildning med `id-ID` språket och `id-ID-Andika` rösten.          |
+| `1.6.0-amd64-it-it-cosimo-apollo-preview`   | Behållar avbildning med `it-IT` språket och `it-IT-Cosimo-Apollo` rösten.   |
+| `1.6.0-amd64-it-it-luciarus-preview`        | Behållar avbildning med `it-IT` språket och `it-IT-LuciaRUS` rösten.        |
+| `1.6.0-amd64-ja-jp-ayumi-apollo-preview`    | Behållar avbildning med `ja-JP` språket och `ja-JP-Ayumi-Apollo` rösten.    |
+| `1.6.0-amd64-ja-jp-harukarus-preview`       | Behållar avbildning med `ja-JP` språket och `ja-JP-HarukaRUS` rösten.       |
+| `1.6.0-amd64-ja-jp-ichiro-apollo-preview`   | Behållar avbildning med `ja-JP` språket och `ja-JP-Ichiro-Apollo` rösten.   |
+| `1.6.0-amd64-ko-kr-heamirus-preview`        | Behållar avbildning med `ko-KR` språket och `ko-KR-HeamiRUS` rösten.        |
+| `1.6.0-amd64-ms-my-rizwan-preview`          | Behållar avbildning med `ms-MY` språket och `ms-MY-Rizwan` rösten.          |
+| `1.6.0-amd64-nb-no-huldarus-preview`        | Behållar avbildning med `nb-NO` språket och `nb-NO-HuldaRUS` rösten.        |
+| `1.6.0-amd64-nl-nl-hannarus-preview`        | Behållar avbildning med `nl-NL` språket och `nl-NL-HannaRUS` rösten.        |
+| `1.6.0-amd64-pl-pl-paulinarus-preview`      | Behållar avbildning med `pl-PL` språket och `pl-PL-PaulinaRUS` rösten.      |
+| `1.6.0-amd64-pt-br-daniel-apollo-preview`   | Behållar avbildning med `pt-BR` språket och `pt-BR-Daniel-Apollo` rösten.   |
+| `1.6.0-amd64-pt-br-heloisarus-preview`      | Behållar avbildning med `pt-BR` språket och `pt-BR-HeloisaRUS` rösten.      |
+| `1.6.0-amd64-pt-pt-heliarus-preview`        | Behållar avbildning med `pt-PT` språket och `pt-PT-HeliaRUS` rösten.        |
+| `1.6.0-amd64-ro-ro-andrei-preview`          | Behållar avbildning med `ro-RO` språket och `ro-RO-Andrei` rösten.          |
+| `1.6.0-amd64-ru-ru-ekaterinarus-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-EkaterinaRUS` rösten.    |
+| `1.6.0-amd64-ru-ru-irina-apollo-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-Irina-Apollo` rösten.    |
+| `1.6.0-amd64-ru-ru-pavel-apollo-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-Pavel-Apollo` rösten.    |
+| `1.6.0-amd64-sk-sk-filip-preview`           | Behållar avbildning med `sk-SK` språket och `sk-SK-Filip` rösten.           |
+| `1.6.0-amd64-sl-si-lado-preview`            | Behållar avbildning med `sl-SI` språket och `sl-SI-Lado` rösten.            |
+| `1.6.0-amd64-sv-se-hedvigrus-preview`       | Behållar avbildning med `sv-SE` språket och `sv-SE-HedvigRUS` rösten.       |
+| `1.6.0-amd64-ta-in-valluvar-preview`        | Behållar avbildning med `ta-IN` språket och `ta-IN-Valluvar` rösten.        |
+| `1.6.0-amd64-te-in-chitra-preview`          | Behållar avbildning med `te-IN` språket och `te-IN-Chitra` rösten.          |
+| `1.6.0-amd64-th-th-pattara-preview`         | Behållar avbildning med `th-TH` språket och `th-TH-Pattara` rösten.         |
+| `1.6.0-amd64-tr-tr-sedarus-preview`         | Behållar avbildning med `tr-TR` språket och `tr-TR-SedaRUS` rösten.         |
+| `1.6.0-amd64-vi-vn-an-preview`              | Behållar avbildning med `vi-VN` språket och `vi-VN-An` rösten.              |
+| `1.6.0-amd64-zh-cn-huihuirus-preview`       | Behållar avbildning med `zh-CN` språket och `zh-CN-HuihuiRUS` rösten.       |
+| `1.6.0-amd64-zh-cn-kangkang-apollo-preview` | Behållar avbildning med `zh-CN` språket och `zh-CN-Kangkang-Apollo` rösten. |
+| `1.6.0-amd64-zh-cn-yaoyao-apollo-preview`   | Behållar avbildning med `zh-CN` språket och `zh-CN-Yaoyao-Apollo` rösten.   |
+| `1.6.0-amd64-zh-hk-danny-apollo-preview`    | Behållar avbildning med `zh-HK` språket och `zh-HK-Danny-Apollo` rösten.    |
+| `1.6.0-amd64-zh-hk-tracy-apollo-preview`    | Behållar avbildning med `zh-HK` språket och `zh-HK-Tracy-Apollo` rösten.    |
+| `1.6.0-amd64-zh-hk-tracyrus-preview`        | Behållar avbildning med `zh-HK` språket och `zh-HK-TracyRUS` rösten.        |
+| `1.6.0-amd64-zh-tw-hanhanrus-preview`       | Behållar avbildning med `zh-TW` språket och `zh-TW-HanHanRUS` rösten.       |
+| `1.6.0-amd64-zh-tw-yating-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Yating-Apollo` rösten.   |
+| `1.6.0-amd64-zh-tw-zhiwei-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Zhiwei-Apollo` rösten.   |
+| `1.5.0-amd64-ar-eg-hoda-preview`            | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
+| `1.5.0-amd64-ar-sa-naayf-preview`           | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           |
+| `1.5.0-amd64-bg-bg-ivan-preview`            | Behållar avbildning med `bg-BG` språket och `bg-BG-Ivan` rösten.            |
+| `1.5.0-amd64-ca-es-herenarus-preview`       | Behållar avbildning med `ca-ES` språket och `ca-ES-HerenaRUS` rösten.       |
+| `1.5.0-amd64-cs-cz-jakub-preview`           | Behållar avbildning med `cs-CZ` språket och `cs-CZ-Jakub` rösten.           |
+| `1.5.0-amd64-da-dk-hellerus-preview`        | Behållar avbildning med `da-DK` språket och `da-DK-HelleRUS` rösten.        |
+| `1.5.0-amd64-de-at-michael-preview`         | Behållar avbildning med `de-AT` språket och `de-AT-Michael` rösten.         |
+| `1.5.0-amd64-de-ch-karsten-preview`         | Behållar avbildning med `de-CH` språket och `de-CH-Karsten` rösten.         |
+| `1.5.0-amd64-de-de-hedda-preview`           | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.5.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.5.0-amd64-de-de-stefan-apollo-preview`   | Behållar avbildning med `de-DE` språket och `de-DE-Stefan-Apollo` rösten.   |
+| `1.5.0-amd64-el-gr-stefanos-preview`        | Behållar avbildning med `el-GR` språket och `el-GR-Stefanos` rösten.        |
+| `1.5.0-amd64-en-au-catherine-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-Catherine` rösten.       |
+| `1.5.0-amd64-en-au-hayleyrus-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-HayleyRUS` rösten.       |
+| `1.5.0-amd64-en-ca-heatherrus-preview`      | Behållar avbildning med `en-CA` språket och `en-CA-HeatherRUS` rösten.      |
+| `1.5.0-amd64-en-ca-linda-preview`           | Behållar avbildning med `en-CA` språket och `en-CA-Linda` rösten.           |
+| `1.5.0-amd64-en-gb-george-apollo-preview`   | Behållar avbildning med `en-GB` språket och `en-GB-George-Apollo` rösten.   |
+| `1.5.0-amd64-en-gb-hazelrus-preview`        | Behållar avbildning med `en-GB` språket och `en-GB-HazelRUS` rösten.        |
+| `1.5.0-amd64-en-gb-susan-apollo-preview`    | Behållar avbildning med `en-GB` språket och `en-GB-Susan-Apollo` rösten.    |
+| `1.5.0-amd64-en-ie-sean-preview`            | Behållar avbildning med `en-IE` språket och `en-IE-Sean` rösten.            |
+| `1.5.0-amd64-en-in-heera-apollo-preview`    | Behållar avbildning med `en-IN` språket och `en-IN-Heera-Apollo` rösten.    |
+| `1.5.0-amd64-en-in-priyarus-preview`        | Behållar avbildning med `en-IN` språket och `en-IN-PriyaRUS` rösten.        |
+| `1.5.0-amd64-en-in-ravi-apollo-preview`     | Behållar avbildning med `en-IN` språket och `en-IN-Ravi-Apollo` rösten.     |
+| `1.5.0-amd64-en-us-benjaminrus-preview`     | Behållar avbildning med `en-US` språket och `en-US-BenjaminRUS` rösten.     |
+| `1.5.0-amd64-en-us-guy24krus-preview`       | Behållar avbildning med `en-US` språket och `en-US-Guy24kRUS` rösten.       |
+| `1.5.0-amd64-en-us-aria24krus-preview`      | Behållar avbildning med `en-US` språket och `en-US-Aria24kRUS` rösten.     |
+| `1.5.0-amd64-en-us-ariarus-preview`         | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.        |
+| `1.5.0-amd64-en-us-zirarus-preview`         | Behållar avbildning med `en-US` språket och `en-US-ZiraRUS` rösten.         |
+| `1.5.0-amd64-es-es-helenarus-preview`       | Behållar avbildning med `es-ES` språket och `es-ES-HelenaRUS` rösten.       |
+| `1.5.0-amd64-es-es-laura-apollo-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-Laura-Apollo` rösten.    |
+| `1.5.0-amd64-es-es-pablo-apollo-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-Pablo-Apollo` rösten.    |
+| `1.5.0-amd64-es-mx-hildarus-preview`        | Behållar avbildning med `es-MX` språket och `es-MX-HildaRUS` rösten.        |
+| `1.5.0-amd64-es-mx-raul-apollo-preview`     | Behållar avbildning med `es-MX` språket och `es-MX-Raul-Apollo` rösten.     |
+| `1.5.0-amd64-fi-fi-heidirus-preview`        | Behållar avbildning med `fi-FI` språket och `fi-FI-HeidiRUS` rösten.        |
+| `1.5.0-amd64-fr-ca-caroline-preview`        | Behållar avbildning med `fr-CA` språket och `fr-CA-Caroline` rösten.        |
+| `1.5.0-amd64-fr-ca-harmonierus-preview`     | Behållar avbildning med `fr-CA` språket och `fr-CA-HarmonieRUS` rösten.     |
+| `1.5.0-amd64-fr-ch-guillaume-preview`       | Behållar avbildning med `fr-CH` språket och `fr-CH-Guillaume` rösten.       |
+| `1.5.0-amd64-fr-fr-hortenserus-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-HortenseRUS` rösten.     |
+| `1.5.0-amd64-fr-fr-julie-apollo-preview`    | Behållar avbildning med `fr-FR` språket och `fr-FR-Julie-Apollo` rösten.    |
+| `1.5.0-amd64-fr-fr-paul-apollo-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-Paul-Apollo` rösten.     |
+| `1.5.0-amd64-he-il-asaf-preview`            | Behållar avbildning med `he-IL` språket och `he-IL-Asaf` rösten.            |
+| `1.5.0-amd64-hi-in-hemant-preview`          | Behållar avbildning med `hi-IN` språket och `hi-IN-Hemant` rösten.          |
+| `1.5.0-amd64-hi-in-kalpana-apollo-preview`  | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana-Apollo` rösten.  |
+| `1.5.0-amd64-hi-in-kalpana-preview`         | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana` rösten.         |
+| `1.5.0-amd64-hr-hr-matej-preview`           | Behållar avbildning med `hr-HR` språket och `hr-HR-Matej` rösten.           |
+| `1.5.0-amd64-hu-hu-szabolcs-preview`        | Behållar avbildning med `hu-HU` språket och `hu-HU-Szabolcs` rösten.        |
+| `1.5.0-amd64-id-id-andika-preview`          | Behållar avbildning med `id-ID` språket och `id-ID-Andika` rösten.          |
+| `1.5.0-amd64-it-it-cosimo-apollo-preview`   | Behållar avbildning med `it-IT` språket och `it-IT-Cosimo-Apollo` rösten.   |
+| `1.5.0-amd64-it-it-luciarus-preview`        | Behållar avbildning med `it-IT` språket och `it-IT-LuciaRUS` rösten.        |
+| `1.5.0-amd64-ja-jp-ayumi-apollo-preview`    | Behållar avbildning med `ja-JP` språket och `ja-JP-Ayumi-Apollo` rösten.    |
+| `1.5.0-amd64-ja-jp-harukarus-preview`       | Behållar avbildning med `ja-JP` språket och `ja-JP-HarukaRUS` rösten.       |
+| `1.5.0-amd64-ja-jp-ichiro-apollo-preview`   | Behållar avbildning med `ja-JP` språket och `ja-JP-Ichiro-Apollo` rösten.   |
+| `1.5.0-amd64-ko-kr-heamirus-preview`        | Behållar avbildning med `ko-KR` språket och `ko-KR-HeamiRUS` rösten.        |
+| `1.5.0-amd64-ms-my-rizwan-preview`          | Behållar avbildning med `ms-MY` språket och `ms-MY-Rizwan` rösten.          |
+| `1.5.0-amd64-nb-no-huldarus-preview`        | Behållar avbildning med `nb-NO` språket och `nb-NO-HuldaRUS` rösten.        |
+| `1.5.0-amd64-nl-nl-hannarus-preview`        | Behållar avbildning med `nl-NL` språket och `nl-NL-HannaRUS` rösten.        |
+| `1.5.0-amd64-pl-pl-paulinarus-preview`      | Behållar avbildning med `pl-PL` språket och `pl-PL-PaulinaRUS` rösten.      |
+| `1.5.0-amd64-pt-br-daniel-apollo-preview`   | Behållar avbildning med `pt-BR` språket och `pt-BR-Daniel-Apollo` rösten.   |
+| `1.5.0-amd64-pt-br-heloisarus-preview`      | Behållar avbildning med `pt-BR` språket och `pt-BR-HeloisaRUS` rösten.      |
+| `1.5.0-amd64-pt-pt-heliarus-preview`        | Behållar avbildning med `pt-PT` språket och `pt-PT-HeliaRUS` rösten.        |
+| `1.5.0-amd64-ro-ro-andrei-preview`          | Behållar avbildning med `ro-RO` språket och `ro-RO-Andrei` rösten.          |
+| `1.5.0-amd64-ru-ru-ekaterinarus-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-EkaterinaRUS` rösten.    |
+| `1.5.0-amd64-ru-ru-irina-apollo-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-Irina-Apollo` rösten.    |
+| `1.5.0-amd64-ru-ru-pavel-apollo-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-Pavel-Apollo` rösten.    |
+| `1.5.0-amd64-sk-sk-filip-preview`           | Behållar avbildning med `sk-SK` språket och `sk-SK-Filip` rösten.           |
+| `1.5.0-amd64-sl-si-lado-preview`            | Behållar avbildning med `sl-SI` språket och `sl-SI-Lado` rösten.            |
+| `1.5.0-amd64-sv-se-hedvigrus-preview`       | Behållar avbildning med `sv-SE` språket och `sv-SE-HedvigRUS` rösten.       |
+| `1.5.0-amd64-ta-in-valluvar-preview`        | Behållar avbildning med `ta-IN` språket och `ta-IN-Valluvar` rösten.        |
+| `1.5.0-amd64-te-in-chitra-preview`          | Behållar avbildning med `te-IN` språket och `te-IN-Chitra` rösten.          |
+| `1.5.0-amd64-th-th-pattara-preview`         | Behållar avbildning med `th-TH` språket och `th-TH-Pattara` rösten.         |
+| `1.5.0-amd64-tr-tr-sedarus-preview`         | Behållar avbildning med `tr-TR` språket och `tr-TR-SedaRUS` rösten.         |
+| `1.5.0-amd64-vi-vn-an-preview`              | Behållar avbildning med `vi-VN` språket och `vi-VN-An` rösten.              |
+| `1.5.0-amd64-zh-cn-huihuirus-preview`       | Behållar avbildning med `zh-CN` språket och `zh-CN-HuihuiRUS` rösten.       |
+| `1.5.0-amd64-zh-cn-kangkang-apollo-preview` | Behållar avbildning med `zh-CN` språket och `zh-CN-Kangkang-Apollo` rösten. |
+| `1.5.0-amd64-zh-cn-yaoyao-apollo-preview`   | Behållar avbildning med `zh-CN` språket och `zh-CN-Yaoyao-Apollo` rösten.   |
+| `1.5.0-amd64-zh-hk-danny-apollo-preview`    | Behållar avbildning med `zh-HK` språket och `zh-HK-Danny-Apollo` rösten.    |
+| `1.5.0-amd64-zh-hk-tracy-apollo-preview`    | Behållar avbildning med `zh-HK` språket och `zh-HK-Tracy-Apollo` rösten.    |
+| `1.5.0-amd64-zh-hk-tracyrus-preview`        | Behållar avbildning med `zh-HK` språket och `zh-HK-TracyRUS` rösten.        |
+| `1.5.0-amd64-zh-tw-hanhanrus-preview`       | Behållar avbildning med `zh-TW` språket och `zh-TW-HanHanRUS` rösten.       |
+| `1.5.0-amd64-zh-tw-yating-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Yating-Apollo` rösten.   |
+| `1.5.0-amd64-zh-tw-zhiwei-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Zhiwei-Apollo` rösten.   |
+| `1.4.0-amd64-ar-eg-hoda-preview`            | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
+| `1.4.0-amd64-ar-sa-naayf-preview`           | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           |
+| `1.4.0-amd64-bg-bg-ivan-preview`            | Behållar avbildning med `bg-BG` språket och `bg-BG-Ivan` rösten.            |
+| `1.4.0-amd64-ca-es-herenarus-preview`       | Behållar avbildning med `ca-ES` språket och `ca-ES-HerenaRUS` rösten.       |
+| `1.4.0-amd64-cs-cz-jakub-preview`           | Behållar avbildning med `cs-CZ` språket och `cs-CZ-Jakub` rösten.           |
+| `1.4.0-amd64-da-dk-hellerus-preview`        | Behållar avbildning med `da-DK` språket och `da-DK-HelleRUS` rösten.        |
+| `1.4.0-amd64-de-at-michael-preview`         | Behållar avbildning med `de-AT` språket och `de-AT-Michael` rösten.         |
+| `1.4.0-amd64-de-ch-karsten-preview`         | Behållar avbildning med `de-CH` språket och `de-CH-Karsten` rösten.         |
+| `1.4.0-amd64-de-de-hedda-preview`           | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.4.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.4.0-amd64-de-de-stefan-apollo-preview`   | Behållar avbildning med `de-DE` språket och `de-DE-Stefan-Apollo` rösten.   |
+| `1.4.0-amd64-el-gr-stefanos-preview`        | Behållar avbildning med `el-GR` språket och `el-GR-Stefanos` rösten.        |
+| `1.4.0-amd64-en-au-catherine-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-Catherine` rösten.       |
+| `1.4.0-amd64-en-au-hayleyrus-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-HayleyRUS` rösten.       |
+| `1.4.0-amd64-en-ca-heatherrus-preview`      | Behållar avbildning med `en-CA` språket och `en-CA-HeatherRUS` rösten.      |
+| `1.4.0-amd64-en-ca-linda-preview`           | Behållar avbildning med `en-CA` språket och `en-CA-Linda` rösten.           |
+| `1.4.0-amd64-en-gb-george-apollo-preview`   | Behållar avbildning med `en-GB` språket och `en-GB-George-Apollo` rösten.   |
+| `1.4.0-amd64-en-gb-hazelrus-preview`        | Behållar avbildning med `en-GB` språket och `en-GB-HazelRUS` rösten.        |
+| `1.4.0-amd64-en-gb-susan-apollo-preview`    | Behållar avbildning med `en-GB` språket och `en-GB-Susan-Apollo` rösten.    |
+| `1.4.0-amd64-en-ie-sean-preview`            | Behållar avbildning med `en-IE` språket och `en-IE-Sean` rösten.            |
+| `1.4.0-amd64-en-in-heera-apollo-preview`    | Behållar avbildning med `en-IN` språket och `en-IN-Heera-Apollo` rösten.    |
+| `1.4.0-amd64-en-in-priyarus-preview`        | Behållar avbildning med `en-IN` språket och `en-IN-PriyaRUS` rösten.        |
+| `1.4.0-amd64-en-in-ravi-apollo-preview`     | Behållar avbildning med `en-IN` språket och `en-IN-Ravi-Apollo` rösten.     |
+| `1.4.0-amd64-en-us-benjaminrus-preview`     | Behållar avbildning med `en-US` språket och `en-US-BenjaminRUS` rösten.     |
+| `1.4.0-amd64-en-us-guy24krus-preview`       | Behållar avbildning med `en-US` språket och `en-US-Guy24kRUS` rösten.       |
+| `1.4.0-amd64-en-us-aria24krus-preview`      | Behållar avbildning med `en-US` språket och `en-US-Aria24kRUS` rösten.     |
+| `1.4.0-amd64-en-us-ariarus-preview`         | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.        |
+| `1.4.0-amd64-en-us-zirarus-preview`         | Behållar avbildning med `en-US` språket och `en-US-ZiraRUS` rösten.         |
+| `1.4.0-amd64-es-es-helenarus-preview`       | Behållar avbildning med `es-ES` språket och `es-ES-HelenaRUS` rösten.       |
+| `1.4.0-amd64-es-es-laura-apollo-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-Laura-Apollo` rösten.    |
+| `1.4.0-amd64-es-es-pablo-apollo-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-Pablo-Apollo` rösten.    |
+| `1.4.0-amd64-es-mx-hildarus-preview`        | Behållar avbildning med `es-MX` språket och `es-MX-HildaRUS` rösten.        |
+| `1.4.0-amd64-es-mx-raul-apollo-preview`     | Behållar avbildning med `es-MX` språket och `es-MX-Raul-Apollo` rösten.     |
+| `1.4.0-amd64-fi-fi-heidirus-preview`        | Behållar avbildning med `fi-FI` språket och `fi-FI-HeidiRUS` rösten.        |
+| `1.4.0-amd64-fr-ca-caroline-preview`        | Behållar avbildning med `fr-CA` språket och `fr-CA-Caroline` rösten.        |
+| `1.4.0-amd64-fr-ca-harmonierus-preview`     | Behållar avbildning med `fr-CA` språket och `fr-CA-HarmonieRUS` rösten.     |
+| `1.4.0-amd64-fr-ch-guillaume-preview`       | Behållar avbildning med `fr-CH` språket och `fr-CH-Guillaume` rösten.       |
+| `1.4.0-amd64-fr-fr-hortenserus-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-HortenseRUS` rösten.     |
+| `1.4.0-amd64-fr-fr-julie-apollo-preview`    | Behållar avbildning med `fr-FR` språket och `fr-FR-Julie-Apollo` rösten.    |
+| `1.4.0-amd64-fr-fr-paul-apollo-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-Paul-Apollo` rösten.     |
+| `1.4.0-amd64-he-il-asaf-preview`            | Behållar avbildning med `he-IL` språket och `he-IL-Asaf` rösten.            |
+| `1.4.0-amd64-hi-in-hemant-preview`          | Behållar avbildning med `hi-IN` språket och `hi-IN-Hemant` rösten.          |
+| `1.4.0-amd64-hi-in-kalpana-apollo-preview`  | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana-Apollo` rösten.  |
+| `1.4.0-amd64-hi-in-kalpana-preview`         | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana` rösten.         |
+| `1.4.0-amd64-hr-hr-matej-preview`           | Behållar avbildning med `hr-HR` språket och `hr-HR-Matej` rösten.           |
+| `1.4.0-amd64-hu-hu-szabolcs-preview`        | Behållar avbildning med `hu-HU` språket och `hu-HU-Szabolcs` rösten.        |
+| `1.4.0-amd64-id-id-andika-preview`          | Behållar avbildning med `id-ID` språket och `id-ID-Andika` rösten.          |
+| `1.4.0-amd64-it-it-cosimo-apollo-preview`   | Behållar avbildning med `it-IT` språket och `it-IT-Cosimo-Apollo` rösten.   |
+| `1.4.0-amd64-it-it-luciarus-preview`        | Behållar avbildning med `it-IT` språket och `it-IT-LuciaRUS` rösten.        |
+| `1.4.0-amd64-ja-jp-ayumi-apollo-preview`    | Behållar avbildning med `ja-JP` språket och `ja-JP-Ayumi-Apollo` rösten.    |
+| `1.4.0-amd64-ja-jp-harukarus-preview`       | Behållar avbildning med `ja-JP` språket och `ja-JP-HarukaRUS` rösten.       |
+| `1.4.0-amd64-ja-jp-ichiro-apollo-preview`   | Behållar avbildning med `ja-JP` språket och `ja-JP-Ichiro-Apollo` rösten.   |
+| `1.4.0-amd64-ko-kr-heamirus-preview`        | Behållar avbildning med `ko-KR` språket och `ko-KR-HeamiRUS` rösten.        |
+| `1.4.0-amd64-ms-my-rizwan-preview`          | Behållar avbildning med `ms-MY` språket och `ms-MY-Rizwan` rösten.          |
+| `1.4.0-amd64-nb-no-huldarus-preview`        | Behållar avbildning med `nb-NO` språket och `nb-NO-HuldaRUS` rösten.        |
+| `1.4.0-amd64-nl-nl-hannarus-preview`        | Behållar avbildning med `nl-NL` språket och `nl-NL-HannaRUS` rösten.        |
+| `1.4.0-amd64-pl-pl-paulinarus-preview`      | Behållar avbildning med `pl-PL` språket och `pl-PL-PaulinaRUS` rösten.      |
+| `1.4.0-amd64-pt-br-daniel-apollo-preview`   | Behållar avbildning med `pt-BR` språket och `pt-BR-Daniel-Apollo` rösten.   |
+| `1.4.0-amd64-pt-br-heloisarus-preview`      | Behållar avbildning med `pt-BR` språket och `pt-BR-HeloisaRUS` rösten.      |
+| `1.4.0-amd64-pt-pt-heliarus-preview`        | Behållar avbildning med `pt-PT` språket och `pt-PT-HeliaRUS` rösten.        |
+| `1.4.0-amd64-ro-ro-andrei-preview`          | Behållar avbildning med `ro-RO` språket och `ro-RO-Andrei` rösten.          |
+| `1.4.0-amd64-ru-ru-ekaterinarus-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-EkaterinaRUS` rösten.    |
+| `1.4.0-amd64-ru-ru-irina-apollo-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-Irina-Apollo` rösten.    |
+| `1.4.0-amd64-ru-ru-pavel-apollo-preview`    | Behållar avbildning med `ru-RU` språket och `ru-RU-Pavel-Apollo` rösten.    |
+| `1.4.0-amd64-sk-sk-filip-preview`           | Behållar avbildning med `sk-SK` språket och `sk-SK-Filip` rösten.           |
+| `1.4.0-amd64-sl-si-lado-preview`            | Behållar avbildning med `sl-SI` språket och `sl-SI-Lado` rösten.            |
+| `1.4.0-amd64-sv-se-hedvigrus-preview`       | Behållar avbildning med `sv-SE` språket och `sv-SE-HedvigRUS` rösten.       |
+| `1.4.0-amd64-ta-in-valluvar-preview`        | Behållar avbildning med `ta-IN` språket och `ta-IN-Valluvar` rösten.        |
+| `1.4.0-amd64-te-in-chitra-preview`          | Behållar avbildning med `te-IN` språket och `te-IN-Chitra` rösten.          |
+| `1.4.0-amd64-th-th-pattara-preview`         | Behållar avbildning med `th-TH` språket och `th-TH-Pattara` rösten.         |
+| `1.4.0-amd64-tr-tr-sedarus-preview`         | Behållar avbildning med `tr-TR` språket och `tr-TR-SedaRUS` rösten.         |
+| `1.4.0-amd64-vi-vn-an-preview`              | Behållar avbildning med `vi-VN` språket och `vi-VN-An` rösten.              |
+| `1.4.0-amd64-zh-cn-huihuirus-preview`       | Behållar avbildning med `zh-CN` språket och `zh-CN-HuihuiRUS` rösten.       |
+| `1.4.0-amd64-zh-cn-kangkang-apollo-preview` | Behållar avbildning med `zh-CN` språket och `zh-CN-Kangkang-Apollo` rösten. |
+| `1.4.0-amd64-zh-cn-yaoyao-apollo-preview`   | Behållar avbildning med `zh-CN` språket och `zh-CN-Yaoyao-Apollo` rösten.   |
+| `1.4.0-amd64-zh-hk-danny-apollo-preview`    | Behållar avbildning med `zh-HK` språket och `zh-HK-Danny-Apollo` rösten.    |
+| `1.4.0-amd64-zh-hk-tracy-apollo-preview`    | Behållar avbildning med `zh-HK` språket och `zh-HK-Tracy-Apollo` rösten.    |
+| `1.4.0-amd64-zh-hk-tracyrus-preview`        | Behållar avbildning med `zh-HK` språket och `zh-HK-TracyRUS` rösten.        |
+| `1.4.0-amd64-zh-tw-hanhanrus-preview`       | Behållar avbildning med `zh-TW` språket och `zh-TW-HanHanRUS` rösten.       |
+| `1.4.0-amd64-zh-tw-yating-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Yating-Apollo` rösten.   |
+| `1.4.0-amd64-zh-tw-zhiwei-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Zhiwei-Apollo` rösten.   |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
 | `1.3.0-amd64-ar-sa-naayf-preview`           | Behållar avbildning med `ar-SA` språket och `ar-SA-Naayf` rösten.           |
 | `1.3.0-amd64-bg-bg-ivan-preview`            | Behållar avbildning med `bg-BG` språket och `bg-BG-Ivan` rösten.            |
@@ -477,7 +843,6 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | `1.3.0-amd64-de-at-michael-preview`         | Behållar avbildning med `de-AT` språket och `de-AT-Michael` rösten.         |
 | `1.3.0-amd64-de-ch-karsten-preview`         | Behållar avbildning med `de-CH` språket och `de-CH-Karsten` rösten.         |
 | `1.3.0-amd64-de-de-hedda-preview`           | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
 | `1.3.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-HeddaRUS` rösten.        |
 | `1.3.0-amd64-de-de-stefan-apollo-preview`   | Behållar avbildning med `de-DE` språket och `de-DE-Stefan-Apollo` rösten.   |
 | `1.3.0-amd64-el-gr-stefanos-preview`        | Behållar avbildning med `el-GR` språket och `el-GR-Stefanos` rösten.        |
@@ -511,8 +876,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Behållar avbildning med `fr-FR` språket och `fr-FR-Paul-Apollo` rösten.     |
 | `1.3.0-amd64-he-il-asaf-preview`            | Behållar avbildning med `he-IL` språket och `he-IL-Asaf` rösten.            |
 | `1.3.0-amd64-hi-in-hemant-preview`          | Behållar avbildning med `hi-IN` språket och `hi-IN-Hemant` rösten.          |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana-Apollo` rösten.  |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana` rösten.         |
+| `1.3.0-amd64-hi-in-kalpana-preview`         | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana` rösten.         |
 | `1.3.0-amd64-hi-in-kalpana-preview`         | Behållar avbildning med `hi-IN` språket och `hi-IN-Kalpana` rösten.         |
 | `1.3.0-amd64-hr-hr-matej-preview`           | Behållar avbildning med `hr-HR` språket och `hr-HR-Matej` rösten.           |
 | `1.3.0-amd64-hu-hu-szabolcs-preview`        | Behållar avbildning med `hu-HU` språket och `hu-HU-Szabolcs` rösten.        |
@@ -551,7 +915,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Behållar avbildning med `zh-TW` språket och `zh-TW-HanHanRUS` rösten.       |
 | `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Yating-Apollo` rösten.   |
 | `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Behållar avbildning med `zh-TW` språket och `zh-TW-Zhiwei-Apollo` rösten.   |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
+| `1.2.0-amd64-de-de-hedda-preview`           | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
 | `1.2.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-HeddaRUS` rösten.        |
 | `1.2.0-amd64-de-de-stefan-apollo-preview`   | Behållar avbildning med `de-DE` språket och `de-DE-Stefan-Apollo` rösten.   |
 | `1.2.0-amd64-en-au-catherine-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-Catherine` rösten.       |
@@ -589,7 +953,6 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Behållar avbildning med `zh-CN` språket och `zh-CN-Kangkang-Apollo` rösten. |
 | `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Behållar avbildning med `zh-CN` språket och `zh-CN-Yaoyao-Apollo` rösten.   |
 | `1.1.0-amd64-de-de-hedda-preview`           | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-Hedda` rösten.           |
 | `1.1.0-amd64-de-de-heddarus-preview`        | Behållar avbildning med `de-DE` språket och `de-DE-HeddaRUS` rösten.        |
 | `1.1.0-amd64-de-de-stefan-apollo-preview`   | Behållar avbildning med `de-DE` språket och `de-DE-Stefan-Apollo` rösten.   |
 | `1.1.0-amd64-en-au-catherine-preview`       | Behållar avbildning med `en-AU` språket och `en-AU-Catherine` rösten.       |
@@ -641,7 +1004,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -656,7 +1019,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Kommentarer |
+| Bildtaggar                    | Anteckningar |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -671,7 +1034,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar | Kommentarer                                         |
+| Bildtaggar | Anteckningar                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
 | `3.0-en`   | Attitydanalys v3 (engelska)               |

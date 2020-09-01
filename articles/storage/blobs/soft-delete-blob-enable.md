@@ -10,16 +10,16 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020855"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230237"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Aktivera och hantera mjuk borttagning för blobbar
 
-BLOB-mjuk borttagning skyddar dina data från att oavsiktligt eller felaktigt ändras eller tas bort. När BLOB Soft Delete är aktiverat för ett lagrings konto kan blobbar, BLOB-versioner (för hands version) och ögonblicks bilder i det lagrings kontot återställas när de har tagits bort, inom en kvarhållningsperiod som du anger.
+BLOB-mjuk borttagning skyddar dina data från att oavsiktligt eller felaktigt ändras eller tas bort. När BLOB Soft Delete är aktiverat för ett lagrings konto kan blobbar, BLOB-versioner och ögonblicks bilder i det lagrings kontot återställas efter att de har tagits bort, inom en kvarhållningsperiod som du anger.
 
 Om det finns en risk att dina data av misstag kan ändras eller tas bort av ett program eller en annan lagrings konto användare rekommenderar Microsoft att du aktiverar BLOB-mjuk borttagning. Den här artikeln visar hur du aktiverar mjuk borttagning för blobbar. Mer information om BLOB-mjuk borttagning finns i [mjuk borttagning för blobbar](soft-delete-blob-overview.md).
 
@@ -195,4 +195,4 @@ blockBlob.StartCopy(copySource);
 ## <a name="next-steps"></a>Nästa steg
 
 - [Mjuk borttagning för Blob Storage](soft-delete-overview.md)
-- [Blob-version (för hands version)](versioning-overview.md)
+- [BLOB-versioner](versioning-overview.md)

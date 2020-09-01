@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb3ea568d35ca1ad489fea3cd910c0e1e5dc9722
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071422"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231137"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
 > [!NOTE] 
-> Dessa PowerShell-cmdletar fungerar för närvarande bara med [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) -modulen. Observera att för hands versions modulen inte föreslås för produktions användning. 
+> Dessa PowerShell-cmdletar fungerar för närvarande bara med [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) -modulen. Observera att för hands versions modulen inte föreslås för produktions användning. 
 
 Använd följande om du vill installera den offentliga för hands versionen. 
 
@@ -36,7 +36,7 @@ Använd följande om du vill installera den offentliga för hands versionen.
 Install-module AzureADPreview
 ```
 
-Mer information om hur du ansluter till Azure AD med hjälp av PowerShell finns i artikeln [Azure AD PowerShell för Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Mer information om hur du ansluter till Azure AD med hjälp av PowerShell finns i artikeln [Azure AD PowerShell för Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Med Azure Active Directory (Azure AD)-rapporter kan du få information om aktiviteter kring alla Skriv åtgärder i din riktning (gransknings loggar) och autentiserings data (inloggnings loggar). Även om informationen är tillgänglig med hjälp av MS-Graph API kan du hämta samma data med hjälp av Azure AD PowerShell-cmdlets för rapportering.
 

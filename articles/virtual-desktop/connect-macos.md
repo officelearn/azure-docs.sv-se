@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 649176a363b1a721fede68c5db2a736d5304f485
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007618"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230882"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Ansluta till virtuella Windows-datorer med macOS-klienten
 
@@ -24,7 +24,7 @@ Du kan komma åt Windows virtuella Skriv bords resurser från dina macOS-enheter
 
 ## <a name="install-the-client"></a>Installera klienten
 
-Kom igång genom att [Ladda ned](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)   och installera-klienten på din MacOS-enhet.
+Kom igång genom att [Ladda ned](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) och installera-klienten på din MacOS-enhet.
 
 ## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
 
@@ -36,6 +36,7 @@ Så här prenumererar du på en feed:
 2. Ange feed-URL: en. Detta kan vara en URL eller en e-post adress:
    - Om du använder en URL kan du använda den som din administratör fick. Normalt är URL: en <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Ange din e-postadress om du vill använda e-post. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
+   - Använd om du vill ansluta via US Gov-portalen <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Välj **Lägg till**.
 4. Logga in med ditt användar konto när du uppmanas till det.
 

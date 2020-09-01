@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: f870f90ede4465bf9ebf5c886e1ebb7aa76acaaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8b20a0815ab16a3713d640a25171e440a8330dd1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997905"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230322"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Flytta data till och mellan olika steg i ML-pipelinen (Python)
 
@@ -33,15 +33,14 @@ Den här artikeln visar hur du kan:
 - Skapa nya `Dataset` objekt `PipelineData` som du vill behålla
 
 > [!TIP]
-> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg och spara dina data efter att pipeline-körningar är tillgängliga i de offentliga för hands klasserna  `OutputFileDatasetConfig` och `OutputTabularDatasetConfig` .  Dessa klasser är experimentella för hands versions funktioner och kan ändras när som helst.
-> 
->Mer information om experimentella funktioner finns i https://aka.ms/azuremlexperimental .
+> En förbättrad upplevelse för att skicka temporära data mellan pipeline-steg och spara dina data efter att pipeline-körningar är tillgängliga i de offentliga för hands klasserna  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) och [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  Dessa klasser är [experimentella](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) för hands versions funktioner och kan ändras när som helst.
 
-## <a name="prerequisites"></a>Förutsättningar
+
+## <a name="prerequisites"></a>Krav
 
 Du behöver:
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller åtkomst till [Azure Machine Learning Studio](https://ml.azure.com/).
 

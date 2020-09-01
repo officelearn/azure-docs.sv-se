@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a4c68454807cb26ac62799b598f146680e37c42
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445448"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230185"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Aktivera och hantera tidpunkts återställning för block-blobar (för hands version)
 
@@ -48,7 +48,7 @@ Mer information om hur du installerar Azure PowerShell finns i [installera Azure
 
 Innan du aktiverar och konfigurerar återställning av tidpunkt, aktiverar du dess krav för lagrings kontot: mjuk borttagning, ändrings flöde och blob-versioner. Mer information om hur du aktiverar var och en av dessa funktioner finns i följande artiklar:
 
-- [Aktivera mjuk borttagning för blobbar](soft-delete-enable.md)
+- [Aktivera mjuk borttagning för blobar](soft-delete-enable.md)
 - [Aktivera och inaktivera ändrings flödet](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Aktivera och hantera BLOB-versioner](versioning-enable.md)
 
@@ -184,4 +184,4 @@ $job | Wait-Job
 - [Återställning av tidpunkt för block-blobar (för hands version)](point-in-time-restore-overview.md)
 - [Mjuk borttagning](soft-delete-overview.md)
 - [Ändra feed (förhands granskning)](storage-blob-change-feed.md)
-- [Blob-version (för hands version)](versioning-overview.md)
+- [BLOB-versioner](versioning-overview.md)

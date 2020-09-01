@@ -1,44 +1,39 @@
 ---
-title: Anropa, utlösa eller kapsla logikappar
+title: Anropa, utlösa eller kapsla Logi Kap par genom att använda begär ande utlösare
 description: Konfigurera HTTPS-slutpunkter för att anropa, utlösa eller kapsla Logic app-arbetsflöden i Azure Logic Apps
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078677"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230814"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
 
-För att din Logi Kap par ska kunna anropas via en URL så att din Logi Kap par kan ta emot inkommande begär Anden från andra tjänster, kan du på ett enhetligt sätt exponera en synkron HTTPS-slutpunkt som en utlösare för den logiska appen. När du ställer in den här funktionen kan du också kapsla din Logi Kap par i andra Logic Apps, vilket gör att du kan skapa ett mönster för slut punkter som kan anropas.
+För att din Logi Kap par ska kunna anropas via en URL och kunna ta emot inkommande begär Anden från andra tjänster, kan du på ett enhetligt sätt exponera en synkron HTTPS-slutpunkt genom att använda en begäran-baserad utlösare på din Logic app. Med den här funktionen kan du anropa din Logic app från andra Logi Kap par och skapa ett mönster för slut punkter som kan anropas. Om du vill konfigurera en slut punkt som kan anropas för att hantera inkommande samtal kan du använda någon av följande utlösnings typer:
 
-Om du vill konfigurera en slut punkt som kan anropas kan du använda någon av dessa utlösnings typer, vilket gör att Logi Kap par kan ta emot inkommande begär Anden:
-
-* [Begäran](../connectors/connectors-native-reqres.md)
+* [Förfrågan](../connectors/connectors-native-reqres.md)
 * [HTTP-webhook](../connectors/connectors-native-webhook.md)
 * Hanterade anslutnings utlösare som har [typen ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och kan ta emot inkommande HTTPS-begäranden
 
-> [!NOTE]
-> I de här exemplen används begär ande utlösare, men du kan använda vilken HTTPS-baserad utlösare som helst i föregående lista. Alla principer som identiskt gäller för dessa typer av utlösare.
+Den här artikeln visar hur du skapar en anropad slut punkt i din Logic app genom att använda begär ande utlösare och anropa slut punkten från en annan Logic app. Alla principer gäller identiskt med de andra utlösare typer som du kan använda för att ta emot inkommande begär Anden.
 
-Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Den Logic app där du vill använda utlösaren för att skapa en slut punkt som kan anropas. Du kan börja med antingen en tom Logic-app eller en befintlig Logic-app där du vill ersätta den aktuella utlösaren. Det här exemplet börjar med en tom Logic-app.
+* Den Logic app där du vill använda utlösaren för att skapa en slut punkt som kan anropas. Du kan börja med antingen en tom Logic-app eller en befintlig Logic-app där du kan ersätta den aktuella utlösaren. Det här exemplet börjar med en tom Logic-app. Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-callable-endpoint"></a>Skapa en slut punkt som går att anropa
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa och öppna en tom Logic-app i Logic App Designer.
-
-   I det här exemplet används en begär ande utlösare, men du kan använda en utlösare som kan ta emot inkommande HTTPS-begäranden. Alla principer gäller identiskt för dessa utlösare. Mer information om begär ande utlösare finns i [ta emot och svara på inkommande https-anrop med hjälp av Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
 1. Välj **inbyggd i**rutan Sök. I rutan Sök anger `request` du som filter. Välj **när en HTTP-begäran tas emot**från listan utlösare.
 
@@ -200,7 +195,7 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   Webbläsaren returnerar ett svar med den här texten:`Postal Code: 123456`
+   Webbläsaren returnerar ett svar med den här texten: `Postal Code: 123456`
 
    ![Svar från sändning av begäran till återanrops-URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
@@ -210,12 +205,12 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
    Det här exemplet visar återanrops-URL: en med exempel parameterns namn och värde `postalCode=123456` i olika positioner i URL: en:
 
-   * första position:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * första position: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * andra position:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * andra position: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 > [!NOTE]
-> Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n använder du den här kodade versionen i stället:`%25%23`
+> Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n använder du den här kodade versionen i stället: `%25%23`
 
 <a name="relative-path"></a>
 
@@ -257,12 +252,12 @@ När du vill acceptera parameter värden via slut punktens URL har du följande 
 
 1. Om du vill testa den anropande slut punkten kopierar du den uppdaterade återanrops-URL: en från begär ande utlösaren, klistrar in webb adressen i ett annat webbläsarfönster, ersätter `{postalCode}` i URL: en med `123456` och trycker
 
-   Webbläsaren returnerar ett svar med den här texten:`Postal Code: 123456`
+   Webbläsaren returnerar ett svar med den här texten: `Postal Code: 123456`
 
    ![Svar från sändning av begäran till återanrops-URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
 > [!NOTE]
-> Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n använder du den här kodade versionen i stället:`%25%23`
+> Om du vill inkludera hash-eller pund symbolen ( **#** ) i URI: n använder du den här kodade versionen i stället: `%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Anropa Logic app via slut punkts-URL
 
@@ -408,3 +403,4 @@ Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fulls
 ## <a name="next-steps"></a>Nästa steg
 
 * [Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps](../connectors/connectors-native-reqres.md)
+* [Skydda åtkomst och data i Azure Logic Apps-åtkomst-åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

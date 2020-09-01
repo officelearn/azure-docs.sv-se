@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066669"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230083"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Aktivera och hantera mjuk borttagning för behållare (förhands granskning)
 
@@ -22,7 +22,7 @@ Container mjuk borttagning (för hands version) skyddar dina data från att oavs
 
 Om det finns en risk att dina data av misstag kan ändras eller tas bort av ett program eller en annan lagrings konto användare rekommenderar Microsoft att du aktiverar mjuk borttagning av behållare. Den här artikeln visar hur du aktiverar mjuk borttagning för behållare. Mer information om mjuk borttagning av behållare, inklusive hur du registrerar för för hands versionen finns i [mjuk borttagning för behållare (för hands version)](soft-delete-container-overview.md).
 
-För data skydd från slut punkt till slut punkt rekommenderar Microsoft att du även aktiverar mjuk borttagning för blobbar och blob-versioner (för hands version). Information om hur du också aktiverar mjuk borttagning för blobbar finns i [Aktivera och hantera mjuk borttagning för blobbar](soft-delete-blob-enable.md). Information om hur du aktiverar BLOB-versioner finns i [BLOB-Versioning (för hands version)](versioning-overview.md).
+För data skydd från slut punkt till slut punkt rekommenderar Microsoft att du även aktiverar mjuk borttagning för blobbar och blob-versioner. Information om hur du också aktiverar mjuk borttagning för blobbar finns i [Aktivera och hantera mjuk borttagning för blobbar](soft-delete-blob-enable.md). Information om hur du aktiverar BLOB-versioner finns i [BLOB-versioner](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Aktivera mjuk borttagning av behållare
 
@@ -101,4 +101,4 @@ Du kan återställa en mjuk, borttagen behållare och dess innehåll inom kvarh�
 
 - [Mjuk borttagning för behållare (förhands granskning)](soft-delete-container-overview.md)
 - [Mjuk borttagning för blobar](soft-delete-blob-overview.md)
-- [Blob-version (för hands version)](versioning-overview.md)
+- [BLOB-versioner](versioning-overview.md)

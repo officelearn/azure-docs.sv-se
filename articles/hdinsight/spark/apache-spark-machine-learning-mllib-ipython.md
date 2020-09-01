@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ab996c3f3310656e7b85dded8e57a129b901660
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873814"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230423"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använd Apache Spark MLlib för att bygga ett Machine Learning-program och analysera en data uppsättning
 
@@ -44,7 +44,7 @@ I stegen nedan utvecklar du en modell för att se vad som krävs för att kunna 
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Skapa en Apache Spark MLlib Machine Learning-appen
 
-1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Anvisningar finns i [skapa en Jupyter Notebook-fil](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **SKIFT + RETUR**.
 
@@ -108,7 +108,7 @@ Använd Spark-kontexten för att hämta rå CSV-data till minnet som ostrukturer
 
     Utdata ger dig en uppfattning om schemat för indatafilen. Den innehåller namnet på varje företag och typ av verksamhet. Dessutom är adressen, data för kontrollerna och platsen, bland annat.
 
-3. Kör följande kod för att skapa en dataframe (*DF*) och en temporär tabell (*CountResults*) med några kolumner som är användbara för förutsägelse analys. `sqlContext`används för att utföra omvandlingar på strukturerade data.
+3. Kör följande kod för att skapa en dataframe (*DF*) och en temporär tabell (*CountResults*) med några kolumner som är användbara för förutsägelse analys. `sqlContext` används för att utföra omvandlingar på strukturerade data.
 
     ```PySpark
     schema = StructType([

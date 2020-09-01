@@ -1,18 +1,18 @@
 ---
 title: Självstudie – Lägg till en exempel modell – Azure Analysis Services | Microsoft Docs
-description: I den här självstudiekursen lär du dig hur du lägger till en exempelmodell i Azure Analysis Services.
+description: I den här självstudien får du lära dig hur du lägger till en exempel modell i Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697515"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230915"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
 
@@ -24,7 +24,7 @@ I den här självstudiekursen får du lägga till en exempeldatabas för Adventu
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -45,7 +45,7 @@ Logga in på [portalen](https://portal.azure.com/).
 
 2. I **ny modell**  >  **väljer du en data källa**, verifierar **exempel data** är markerat och klickar sedan på **Lägg till**.
 
-    ![Välj exempeldata](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![Välj ny modell](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. Kontrollera i **översikten** att `adventureworks` exempelmodellen har lagts till.
 

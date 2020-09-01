@@ -16,26 +16,26 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 897762e523a2d20445c3a25e612cf138e021f633
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b6deda5a9a0a2d2e2caeaac95952b0ad91eb1e03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739727"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230559"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Snabbstart: Konfigurera namngivna platser i Azure Active Directory
 
 Du kan använda namngivna platser för att sätta etiketter på betrodda IP-adressintervall i din organisation. Azure AD använder namngivna platser för att:
-- Identifiera falska positiva identifieringar i [risk identifieringar](concept-risk-events.md). Inloggning från en betrodd plats minskar en användares inloggningsrisk.   
+- Identifiera falska positiva identifieringar i [risk identifieringar](../identity-protection/overview-identity-protection.md). Inloggning från en betrodd plats minskar en användares inloggningsrisk.   
 - Konfigurera [plats baserad villkorlig åtkomst](../conditional-access/location-condition.md).
 
 I den här snabbstarten får du lära dig att konfigurera namngivna platser i din miljö.
 
 ## <a name="prerequisites"></a>Krav
 
-Följande krävs för att slutföra den här snabbstarten:
+För att slutföra den här snabbstarten behöver du:
 
-* En Azure AD-klientorganisation. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/). 
+* En Azure AD-klientorganisation. Registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * En användare som är en global administratör för klienten.
 * Ett IP-adressintervall som är etablerat och betrott inom din organisation. IP-intervallet måste använda formatet **Classless Interdomain Routing (CIDR)**.
 
@@ -64,4 +64,4 @@ Följande krävs för att slutföra den här snabbstarten:
 Mer information finns i:
 
 - [Plats som ett villkor i villkorlig åtkomst](../conditional-access/concept-conditional-access-conditions.md#locations).
-- [Rapport över riskfyllda inloggningar](concept-risky-sign-ins.md).  
+- [Rapport över riskfyllda inloggningar](../identity-protection/overview-identity-protection.md).

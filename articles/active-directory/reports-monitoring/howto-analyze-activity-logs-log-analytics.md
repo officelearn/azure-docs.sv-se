@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d56a13d0a2e373a725320e132df739d806f2e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608236"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231239"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analysera Azure AD-aktivitets loggar med Azure Monitor loggar
 
@@ -36,13 +36,13 @@ I den här artikeln får du lära dig hur du analyserar Azure AD-aktivitets logg
 
 För att följa med måste du:
 
-* En Log Analytics arbets yta i din Azure-prenumeration. Lär dig hur du [skapar en arbets yta för Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* En Log Analytics arbets yta i din Azure-prenumeration. Lär dig hur du [skapar en arbets yta för Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 * Slutför först stegen för att [dirigera Azure AD-aktivitets loggarna till din Log Analytics-arbetsyta](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Åtkomst](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
+*  [Åtkomst](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
 * Följande roller i Azure Active Directory (om du får åtkomst till Log Analytics via Azure Active Directory Portal)
     - Säkerhetsadministratör
     - Säkerhetsläsare
-    - Rapport läsare
+    - Rapportläsare
     - Global administratör
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Navigera till arbets ytan Log Analytics
@@ -96,7 +96,7 @@ Du kan också ställa in aviseringar på din fråga. Om du till exempel vill kon
 
 3. Ange ett namn och en beskrivning av aviseringen och välj allvarlighets grad. I vårt exempel kunde vi ställa in det till **information**.
 
-4. Välj den **Åtgärds grupp** som ska aviseras när signalen inträffar. Du kan välja att meddela ditt team via e-post eller SMS, eller så kan du automatisera åtgärden med Webhooks, Azure Functions eller Logic Apps. Läs mer om hur [du skapar och hanterar aviserings grupper i Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
+4. Välj den **Åtgärds grupp** som ska aviseras när signalen inträffar. Du kan välja att meddela ditt team via e-post eller SMS, eller så kan du automatisera åtgärden med Webhooks, Azure Functions eller Logic Apps. Läs mer om hur [du skapar och hanterar aviserings grupper i Azure Portal](../../azure-monitor/platform/action-groups.md).
 
 5. När du har konfigurerat aviseringen väljer du **skapa avisering** för att aktivera den. 
 
@@ -113,6 +113,6 @@ Lär dig att [installera och använda logganalysvyer för Azure AD-aktivitetslog
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med frågor i Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
-* [Skapa och hantera aviserings grupper i Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
+* [Kom igång med frågor i Azure Monitor loggar](../../azure-monitor/log-query/get-started-queries.md)
+* [Skapa och hantera aviserings grupper i Azure Portal](../../azure-monitor/platform/action-groups.md)
 * [Installera och Använd Log Analytics-vyerna för Azure Active Directory](howto-install-use-log-analytics-views.md)

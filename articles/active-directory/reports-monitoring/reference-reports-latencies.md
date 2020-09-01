@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74007711"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231069"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapporteringssvarstider
 
@@ -54,12 +54,12 @@ Om du redan har aktivitets data med din kostnads fria licens kan du se den direk
 
 Det finns två typer av säkerhetsrapporter:
 
-- [Riskfyllda inloggningar](concept-risky-sign-ins.md) – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
-- [Användare som har flaggats för risk](concept-user-at-risk.md) – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
+- [Riskfyllda inloggningar](../identity-protection/overview-identity-protection.md) – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
+- [Användare som har flaggats för risk](../identity-protection/overview-identity-protection.md) – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
 
 I följande tabell visas svars tids informationen för säkerhets rapporter.
 
-| Rapport | Minimum | Medel | Maximal |
+| Rapport | Minimum | Genomsnitt | Maximal |
 | :-- | --- | --- | --- |
 | Användare i riskzonen          | 5 minuter   | 15 minuter  | 2 timmar  |
 | Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
@@ -70,7 +70,7 @@ Azure AD använder anpassningsbara algoritmer för maskin inlärning och heurist
 
 I följande tabell visas svars informationen för risk identifieringar.
 
-| Rapport | Minimum | Medel | Maximal |
+| Rapport | Minimum | Genomsnitt | Maximal |
 | :-- | --- | --- | --- |
 | Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
 | Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
@@ -84,4 +84,4 @@ I följande tabell visas svars informationen för risk identifieringar.
 
 * [Översikt över Azure AD-rapporter](overview-reports.md)
 * [Programmerings åtkomst till Azure AD-rapporter](concept-reporting-api.md)
-* [Azure Active Directory risk identifieringar](concept-risk-events.md)
+* [Azure Active Directory risk identifieringar](../identity-protection/overview-identity-protection.md)

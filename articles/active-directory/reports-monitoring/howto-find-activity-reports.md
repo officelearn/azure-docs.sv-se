@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608219"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230627"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter på Azure-portalen
 
@@ -64,7 +64,7 @@ Kategorier inkluderar:
 - EntitlementManagement
 - GroupManagement
 - Övrigt
-- Princip
+- Policy
 - ResourceManagement
 - RoleManagement
 - UserManagement
@@ -114,7 +114,7 @@ Du kan använda inloggnings rapporten för att visa information om program anvä
 
 Avvikande aktivitets rapporter innehåller information om säkerhetsrelaterade risk identifieringar som Azure AD kan identifiera och rapportera om.
 
-I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och motsvarande typer av risk identifiering i Azure Portal. Mer information finns i [Azure Active Directory risk identifieringar](concept-risk-events.md).  
+I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och motsvarande typer av risk identifiering i Azure Portal. Mer information finns i [Azure Active Directory risk identifieringar](../identity-protection/overview-identity-protection.md).  
 
 
 | Rapport om avvikande aktiviteter i Azure AD |  Typ av risk identifiering för identitets skydd|
@@ -136,8 +136,8 @@ Följande säkerhets rapporter i Azure AD-avvikande aktivitet ingår inte som id
 
 Du kan komma åt rapporter om identifierade risk identifieringar i avsnittet **säkerhet** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Identifierade risk identifieringar spåras i följande rapporter:   
 
-- [Användare i riskzonen](concept-user-at-risk.md)
-- [Riskfyllda inloggningar](concept-risky-sign-ins.md)
+- [Användare i riskzonen](../identity-protection/overview-identity-protection.md)
+- [Riskfyllda inloggningar](../identity-protection/overview-identity-protection.md)
 
     ![Säkerhetsrapporter](./media/howto-find-activity-reports/04.png "Säkerhetsrapporter")
 
@@ -228,4 +228,4 @@ Du har två alternativ för att behålla data längre än 30 dagar. Du kan anvä
 
 * [Översikt över gransknings loggar](concept-audit-logs.md)
 * [Översikt över inloggningar](concept-sign-ins.md)
-* [Översikt över riskfyllda händelser](concept-risk-events.md)
+* [Översikt över riskfyllda händelser](../identity-protection/overview-identity-protection.md)

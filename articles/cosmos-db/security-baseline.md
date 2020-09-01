@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 3431ad88a27da9d83b75ed3661d6129f157b9b1f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 99985ba8540a347977b9eaf2e733a308fa777b97
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531514"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231409"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
 
@@ -34,13 +34,13 @@ Du kan också använda tjänstens slut punkter för att skydda ditt Azure Cosmos
 
 Du kan också skydda data som lagras i ditt Azure Cosmos-konto med hjälp av IP-brandväggar. Azure Cosmos DB stöder IP-baserade åtkomst kontroller för inkommande brand Väggs stöd. Du kan ange en IP-brandvägg på Azure Cosmos-kontot med hjälp av Azure Portal, Azure Resource Manager mallar eller via Azure CLI eller Azure PowerShell.
 
-Översikt över Azure privat länk:https://docs.microsoft.com/azure/private-link/private-link-overview
+Översikt över Azure privat länk: https://docs.microsoft.com/azure/private-link/private-link-overview
 
-Så här konfigurerar du en privat slut punkt för Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints 
+Så här konfigurerar du en privat slut punkt för Azure Cosmos DB:  https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints 
 
-Så här skapar du en nätverks säkerhets grupp med en säkerhets konfiguration:https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Så här skapar du en nätverks säkerhets grupp med en säkerhets konfiguration:  https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-Konfigurera IP-brandvägg i Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall
+Konfigurera IP-brandvägg i Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall
 
 **Azure Security Center övervakning**: Ja
 
@@ -52,11 +52,11 @@ Konfigurera IP-brandvägg i Cosmos DB:https://docs.microsoft.com/azure/cosmos-db
 
 När virtuella datorer distribueras i samma virtuella nätverk som ditt Azure Cosmos-konto kan du använda en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett Azure Storage-konto för trafik granskningar. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Förstå nätverks säkerhet som tillhandahålls av Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+Förstå nätverks säkerhet som tillhandahålls av Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-Så här aktiverar du NSG Flow-loggar:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Azure Security Center övervakning**: Ja
 
@@ -66,7 +66,7 @@ Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azur
 
 **Vägledning**: Använd funktionen för resurs delning mellan ursprung (CORS) för att aktivera ett webb program som körs under en domän för att få åtkomst till resurser i en annan domän. Webbläsare implementerar en säkerhets begränsning som kallas samma-Origin-princip som förhindrar att en webb sida anropar API: er i en annan domän. CORS är dock ett säkert sätt att tillåta att ursprungs domänen anropar API: er i en annan domän. När du har aktiverat CORS-stöd för ditt Azure Cosmos-konto utvärderas bara autentiserade begär Anden för att avgöra om de är tillåtna enligt de regler som du har angett.
 
-Konfigurera resurs delning mellan ursprung:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-cross-origin-resource-sharing
+Konfigurera resurs delning mellan ursprung: https://docs.microsoft.com/azure/cosmos-db/how-to-configure-cross-origin-resource-sharing
 
 **Azure Security Center övervakning**: Ja
 
@@ -78,11 +78,11 @@ Konfigurera resurs delning mellan ursprung:https://docs.microsoft.com/azure/cosm
 
 Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Azure Cosmos DB instanser för att skydda mot DDoS-attacker. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
 
-Så här konfigurerar du Azure Cosmos DB Avancerat skydd:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Så här konfigurerar du Azure Cosmos DB Avancerat skydd: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
-Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Så här konfigurerar du DDoS-skydd: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-Förstå Azure Security Center integrerad Hot information:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Förstå Azure Security Center integrerad Hot information: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 **Azure Security Center övervakning**: Ja
 
@@ -92,9 +92,9 @@ Förstå Azure Security Center integrerad Hot information:https://docs.microsoft
 
 **Vägledning**: Aktivera flödes loggar för nätverks säkerhets grupper (NSG) och skicka loggar till ett lagrings konto för trafik granskning. Du kan skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflödet i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här aktiverar du NSG Flow-loggar:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Azure Security Center övervakning**: Ja
 
@@ -104,7 +104,7 @@ Så här aktiverar och använder du Trafikanalys:https://docs.microsoft.com/azur
 
 **Vägledning**: Använd avancerat skydd (ATP) för Azure Cosmos dB. ATP för Azure Cosmos DB ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos-konton. Det här skydds lagret gör att du kan åtgärda hot och integrera dem med centrala säkerhets övervaknings system. 
 
-Så här konfigurerar du Cosmos DB Avancerat skydd:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Så här konfigurerar du Cosmos DB Avancerat skydd: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 **Azure Security Center övervakning**: Ja
 
@@ -123,7 +123,7 @@ Så här konfigurerar du Cosmos DB Avancerat skydd:https://docs.microsoft.com/az
 
 **Vägledning**: för resurser som behöver åtkomst till ditt Azure Cosmos-konto använder du Virtual Network Service-taggar för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. AzureCosmosDB) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
-Mer information om att använda service märken:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Mer information om att använda service märken: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -139,9 +139,9 @@ Mer information om att använda service märken:https://docs.microsoft.com/azure
 
 Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -151,7 +151,7 @@ Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governanc
 
 **Vägledning**: Använd taggar för nätverks resurser som är associerade med din Azure Cosmos DB-distribution för att logiskt organisera dem i en taxonomi.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -161,9 +161,9 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Cosmos DB-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker. 
 
-Så här visar och hämtar du Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -186,9 +186,9 @@ Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/
 
 **Vägledning**: mata in loggar via Azure Monitor för att samla in säkerhets data som genereras av Azure Cosmos dB. Använd Log Analytics arbets ytor i Azure Monitor för att fråga och utföra analyser och Använd lagrings konton för långsiktig/lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en säkerhets incident och händelse hantering från tredje part (SIEM). 
 
-Så här aktiverar du diagnostikloggar för Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/logging
+Så här aktiverar du diagnostikloggar för Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/logging
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -198,9 +198,9 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 **Vägledning**: Aktivera diagnostikinställningar för Azure Cosmos DB och skicka loggarna till en Log Analytics arbets yta eller ett lagrings konto. Diagnostikinställningar i Azure Cosmos DB används för att samla in resurs loggar. Dessa loggar samlas in per begäran och kallas även för "data Plans loggar". Några exempel på data Plans åtgärderna är ta bort, infoga och läsa. Du kan också aktivera inställningar för Azure aktivitets loggs diagnostik och skicka dem till samma Log Analytics-arbetsyta.
 
-Så här aktiverar du diagnostikinställningar för Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/logging
+Så här aktiverar du diagnostikinställningar för Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/logging
 
-Så här aktiverar du diagnostikinställningar för Azure aktivitets logg:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Så här aktiverar du diagnostikinställningar för Azure aktivitets logg: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -218,7 +218,7 @@ Så här aktiverar du diagnostikinställningar för Azure aktivitets logg:https:
 
 **Vägledning**: i Azure Monitor anger du logg kvarhållningsperioden för Log Analytics arbets ytor som är kopplade till dina Azure Cosmos DB instanser enligt organisationens regler för efterlevnad.
 
-Så här ställer du in parametrar för logg kvarhållning:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Så här ställer du in parametrar för logg kvarhållning: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -228,7 +228,7 @@ Så här ställer du in parametrar för logg kvarhållning:https://docs.microsof
 
 **Vägledning**: du kan utföra frågor i Log Analytics en arbets yta för att söka efter termer, identifiera trender, analysera mönster och tillhandahålla många andra insikter baserat på de Azure Cosmos DB loggar som du har samlat in.
 
-Så här utför du frågor för Azure Cosmos DB i Log Analytics arbets ytor:https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db
+Så här utför du frågor för Azure Cosmos DB i Log Analytics arbets ytor: https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -242,11 +242,11 @@ Så här utför du frågor för Azure Cosmos DB i Log Analytics arbets ytor:http
 
 Du kan också publicera din Log Analytics-arbetsyta till Azure Sentinel eftersom den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem. Dessutom kan du skapa anpassade logg aviseringar i Log Analytics arbets ytan med Azure Monitor.
 
-Lista med aviseringar för skydd mot hot för Azure Cosmos DB:https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos
+Lista med aviseringar för skydd mot hot för Azure Cosmos DB: https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Skapa, Visa och hantera logg aviseringar med Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
+Skapa, Visa och hantera logg aviseringar med Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
 
 **Azure Security Center övervakning**: Ja
 
@@ -292,17 +292,17 @@ Du kan också använda Azure AD PowerShell-modulen för att utföra adhoc-frågo
 
 Dessutom kan vissa åtgärder i Azure Cosmos DB kontrol leras med Azure Active Directory och konto-/regionsspecifika huvud nycklar.  Använd konto inställningen ' disableKeyBasedMetadataWriteAccess ' för att kontrol lera åtkomst till nyckeln.
 
-Förstå rollbaserad åtkomst kontroll i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Förstå rollbaserad åtkomst kontroll i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
-Bygg egna anpassade roller med hjälp av Azure Cosmos DB åtgärder (Microsoft.DocumentDB-namnrymd):https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
+Bygg egna anpassade roller med hjälp av Azure Cosmos DB åtgärder (Microsoft.DocumentDB-namnrymd): https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
-Skapa en ny roll i Azure Active Directory:https://docs.microsoft.com/azure/role-based-access-control/custom-roles
+Skapa en ny roll i Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Så här hämtar du en katalog roll i Azure Active Directory med PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Så här hämtar du en katalog roll i Azure Active Directory med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Så här hämtar du medlemmar i en katalog roll i Azure Active Directory med PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Så här hämtar du medlemmar i en katalog roll i Azure Active Directory med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-Begränsa användar åtkomsten till endast data åtgärder:https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
+Begränsa användar åtkomsten till endast data åtgärder: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
 **Azure Security Center övervakning**: Ja
 
@@ -312,11 +312,11 @@ Begränsa användar åtkomsten till endast data åtgärder:https://docs.microsof
 
 **Vägledning**: begreppet standard eller tomma lösen ord finns inte i relation till Azure AD eller Azure Cosmos dB. I stället använder Azure Cosmos DB två typer av nycklar för att autentisera användare och ge åtkomst till dess data och resurser. huvud nycklar och resurs-token. Nycklarna kan återskapas när som helst.
 
-Förstå säker åtkomst till data i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
+Förstå säker åtkomst till data i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
-Återskapa Azure Cosmos DB nycklar:https://docs.microsoft.com/azure/cosmos-db/manage-with-powershell#regenerate-keys
+Återskapa Azure Cosmos DB nycklar: https://docs.microsoft.com/azure/cosmos-db/manage-with-powershell#regenerate-keys
 
-Få åtkomst till nycklar via programmering med hjälp av Azure Active Directory:https://docs.microsoft.com/azure/cosmos-db/certificate-based-authentication
+Få åtkomst till nycklar via programmering med hjälp av Azure Active Directory: https://docs.microsoft.com/azure/cosmos-db/certificate-based-authentication
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -336,9 +336,9 @@ Få åtkomst till nycklar via programmering med hjälp av Azure Active Directory
 
 **Vägledning**: Azure Cosmos DB använder två typer av nycklar för att auktorisera användare och inte stöder enkel inloggning (SSO) på data planet nivå. Åtkomst till kontroll planet för Cosmos DB är tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
 
-Förstå Azure Database för Cosmos DB REST API:https://docs.microsoft.com/rest/api/cosmos-db/
+Förstå Azure Database för Cosmos DB REST API: https://docs.microsoft.com/rest/api/cosmos-db/
 
-Förstå SSO med Azure Active Directory:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Förstå SSO med Azure Active Directory: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -348,9 +348,9 @@ Förstå SSO med Azure Active Directory:https://docs.microsoft.com/azure/active-
 
 **Vägledning**: aktivera Azure Active Directory Multi-Factor Authentication och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Övervaka identitet och åtkomst i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Övervaka identitet och åtkomst i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center övervakning**: Ja
 
@@ -360,9 +360,9 @@ Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-direct
 
 **Vägledning**: Använd Paw (Privileged Access Workstation) med Multi-Factor Authentication konfigurerad för att logga in på och konfigurera Azure-resurser.
 
-Lär dig mer om arbets stationer med privilegie rad åtkomst:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Lär dig mer om arbets stationer med privilegie rad åtkomst: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -376,9 +376,9 @@ Dessutom kan du använda Azure Active Directory (AD) Privileged Identity Managem
 
 Använd identifieringar av Azure AD-risker för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-Så här distribuerar du Privileged Identity Management (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Så här distribuerar du Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Förstå identifieringar av Azure AD-risker: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Azure Security Center övervakning**: Ja
 
@@ -388,7 +388,7 @@ Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/act
 
 **Vägledning**: Konfigurera plats villkoret för en princip för villkorlig åtkomst och hantera dina namngivna platser. Med namngivna platser kan du skapa logiska grupperingar av IP-adressintervall eller länder och regioner. Du kan begränsa åtkomsten till känsliga resurser, till exempel Azure Cosmos DB-instanser, till dina konfigurerade namngivna platser.
 
-Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -398,9 +398,9 @@ Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/az
 
 **Vägledning**: använda Azure Active Directory (AD) som central autentiserings-och auktoriserings system. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-Så här skapar och konfigurerar du en Azure Active Directory-instans:https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
+Så här skapar och konfigurerar du en Azure Active Directory-instans: https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
-Konfigurera och hantera Azure Active Directory-autentisering med Azure SQL:https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
+Konfigurera och hantera Azure Active Directory-autentisering med Azure SQL: https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -410,7 +410,7 @@ Konfigurera och hantera Azure Active Directory-autentisering med Azure SQL:https
 
 **Vägledning**: Azure Active Directory innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användarens åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
 
-Så här använder du granskningar av Azure Identity Access:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Så här använder du granskningar av Azure Identity Access: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Azure Security Center övervakning**: Ja
 
@@ -420,7 +420,7 @@ Så här använder du granskningar av Azure Identity Access:https://docs.microso
 
 **Vägledning**: du kan skapa diagnostikinställningar för Azure Active Directory användar konton, skicka gransknings loggar och inloggnings loggar till en Log Analytics arbets yta där du kan konfigurera önskade aviseringar.
 
-Så här integrerar du Azure-aktivitets loggar i Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Så här integrerar du Azure-aktivitets loggar i Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -432,11 +432,11 @@ Så här integrerar du Azure-aktivitets loggar i Azure Monitor:https://docs.micr
 
 Du kan också använda Azure AD Identity Protection-och risk identifierings funktion för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Dessutom kan du mata in loggar i Azure Sentinel för ytterligare undersökning.
 
-Så här visar du Azure Active Directory riskfyllda inloggningar:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+Så här visar du Azure Active Directory riskfyllda inloggningar: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Så här konfigurerar och aktiverar du principer för identitets skydds risker:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Så här konfigurerar och aktiverar du principer för identitets skydds risker: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: Ja
 
@@ -446,7 +446,7 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 **Vägledning**: inte tillgänglig för tillfället. Customer Lockbox ännu inte stöd för Azure Database för Cosmos DB.
 
-Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -460,7 +460,7 @@ Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azu
 
 **Vägledning**: Använd taggar för att under lätta spårning Azure Cosmos DB instanser som lagrar eller bearbetar känslig information.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -470,15 +470,15 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Azure Cosmos DB instanser separeras av ett virtuellt nätverk/undernät, taggas på lämpligt sätt och skyddas inom en nätverks säkerhets grupp (NSG) eller Azure-brandvägg. Azure Cosmos DB instanser som lagrar känsliga data bör isoleras. Med hjälp av en privat Azure-länk kan du ansluta till ett Azure Cosmos DB instans konto via en privat slut punkt. Den privata slut punkten är en uppsättning privata IP-adresser i ett undernät i det virtuella nätverket. Du kan sedan begränsa åtkomsten till de valda privata IP-adresserna. 
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du hanterings grupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du hanterings grupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Så här konfigurerar du en privat slut punkt för Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints
+Så här konfigurerar du en privat slut punkt för Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints
 
-Så här skapar du en nätverks säkerhets grupp med en säkerhets konfiguration:https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Så här skapar du en nätverks säkerhets grupp med en säkerhets konfiguration: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -494,9 +494,9 @@ Så här skapar du en nätverks säkerhets grupp med en säkerhets konfiguration
 
 När du använder virtuella datorer för att komma åt dina Azure Cosmos DB-instanser använder du dessutom privata länkar, brand väggar, nätverks säkerhets grupper och service märken för att minimera risken för data exfiltrering. Microsoft hanterar den underliggande infrastrukturen för Azure Cosmos DB och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Så här konfigurerar du Cosmos DB Avancerat skydd:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Så här konfigurerar du Cosmos DB Avancerat skydd: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: Ja
 
@@ -506,7 +506,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 **Vägledning**: alla anslutningar till Azure Cosmos DB stöd för https. Azure Cosmos DB stöder också TLS 1.2. Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar du [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) .
 
-Översikt över Cosmos DB säkerhet:https://docs.microsoft.com/azure/cosmos-db/database-security
+Översikt över Cosmos DB säkerhet: https://docs.microsoft.com/azure/cosmos-db/database-security
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -520,7 +520,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 Indexera Azure Cosmos DB data med Azure Kognitiv sökning: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp ; BC =/azure/cosmos-db/breadcrumb/toc.jspå
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -530,7 +530,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 **Vägledning**: Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll (RBAC) för vanliga hanterings scenarier i Azure Cosmos dB. En person som har en profil i Azure Active Directory kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
 
-Implementera RBAC i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Implementera RBAC i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -542,7 +542,7 @@ Implementera RBAC i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/r
 
 Microsoft hanterar den underliggande infrastrukturen för Cosmos DB och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -554,11 +554,11 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 Som standard hanterar Microsoft de nycklar som används för att kryptera data i ditt Azure Cosmos-konto. Du kan välja att lägga till ett andra lager av kryptering med dina egna nycklar.
 
-Förstå kryptering i vila med Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
+Förstå kryptering i vila med Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Förstå nyckel hantering för kryptering i vila med Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-security-controls
+Förstå nyckel hantering för kryptering i vila med Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-security-controls
 
-Så här konfigurerar du Kundhanterade nycklar för ditt Azure Cosmos DB-konto:https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk
+Så här konfigurerar du Kundhanterade nycklar för ditt Azure Cosmos DB-konto: https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -568,9 +568,9 @@ Så här konfigurerar du Kundhanterade nycklar för ditt Azure Cosmos DB-konto:h
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i produktions instanser av Azure Cosmos dB.
 
-Så här skapar du aviseringar för Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar för Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-Så här skapar du aviseringar för Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar för Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -586,7 +586,7 @@ Så här skapar du aviseringar för Azure aktivitets logg händelser:https://doc
 
 Microsoft utför system korrigering och sårbarhets hantering på de underliggande värdar som har stöd för dina Azure Cosmos DB-instanser. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-Tillgängliga funktioner som stöds i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows
+Tillgängliga funktioner som stöds i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows
 
 **Azure Security Center övervakning**: Ja
 
@@ -638,11 +638,11 @@ Tillgängliga funktioner som stöds i Azure Security Center:https://docs.microso
 
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Förstå rollbaserad åtkomst kontroll i Azure:https://docs.microsoft.com/azure/role-based-access-control/overview
+Förstå rollbaserad åtkomst kontroll i Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -652,9 +652,9 @@ Förstå rollbaserad åtkomst kontroll i Azure:https://docs.microsoft.com/azure/
 
 **Vägledning**: Använd taggar för Azure Cosmos DB instanser och relaterade resurser med metadata för att logiskt organisera dem i en taxonomi.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Vilken Azure Cosmos DB resurser stöder Taggar:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support#microsoftdocumentdb
+Vilken Azure Cosmos DB resurser stöder Taggar: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support#microsoftdocumentdb
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -664,11 +664,11 @@ Vilken Azure Cosmos DB resurser stöder Taggar:https://docs.microsoft.com/azure/
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att organisera och spåra till gångar, inklusive men inte begränsat till Azure Cosmos DB resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -692,9 +692,9 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -735,9 +735,9 @@ Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/gove
 
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -756,7 +756,7 @@ Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft
 
 **Vägledning**: Använd den villkorliga Azure-åtkomsten för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering". Detta kan förhindra att resurser skapas och ändras i en hög säkerhets miljö.
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -792,9 +792,9 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 - Cosmos DB bör använda en tjänst slut punkt för virtuellt nätverk
 
-Så här visar du tillgängliga Azure Policy alias:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -813,9 +813,9 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -852,7 +852,7 @@ Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/
 
 **Vägledning**: Använd Azure policy alias i namn rymden "Microsoft.DocumentDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -870,7 +870,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy alias i namn rymden "Microsoft.DocumentDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Cosmos DB-instanser och relaterade resurser. 
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -888,11 +888,11 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: för virtuella Azure-datorer eller webb program som körs på Azure App Service används för att komma åt dina Azure Cosmos DB-instanser använder du hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och säkra hanteringen av Azure Cosmos DB Secret. Se till att Key Vault mjuk borttagning har Aktiver ATS.
 
-Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Så här skapar du en Key Vault:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Så här ger Key Vault autentisering med en hanterad identitet:https://docs.microsoft.com/azure/key-vault/managed-identity
+Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Azure Security Center övervakning**: Ja
 
@@ -904,9 +904,9 @@ Så här ger Key Vault autentisering med en hanterad identitet:https://docs.micr
 
 Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
 
-Så här konfigurerar du hanterade identiteter:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Så här konfigurerar du hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 **Azure Security Center övervakning**: Ja
 
@@ -916,7 +916,7 @@ Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/a
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-Så här konfigurerar du en inloggnings skanner:https://secdevtools.azurewebsites.net/helpcredscan.html
+Så här konfigurerar du en inloggnings skanner: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -963,7 +963,7 @@ Det är ditt ansvar att i förväg genomsöka filer som laddas upp till Azure-re
 
 **Vägledning**: Azure Cosmos DB tar ögonblicks bilder av dina data var fjärde timme. Alla säkerhets kopior lagras separat i en lagrings tjänst och de säkerhets kopiorna replikeras globalt för återhämtning mot regionala haverier. Vid en specifik tidpunkt behålls bara de sista två ögonblicks bilderna. Men om containern eller databasen tas bort, behåller Azure Cosmos DB befintliga ögonblicksbilder av en specifik container eller databas i 30 dagar. Kontakta Azure-supporten för att återställa från en säkerhets kopia.
 
-Förstå Azure Cosmos DB automatiserade säkerhets kopieringar:https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
+Förstå Azure Cosmos DB automatiserade säkerhets kopieringar: https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -975,11 +975,11 @@ Förstå Azure Cosmos DB automatiserade säkerhets kopieringar:https://docs.micr
 
 Om du använder Key Vault för att lagra autentiseringsuppgifter för dina Cosmos DB-instanser bör du se till att vanliga automatiserade säkerhets kopieringar av nycklar används.
 
-Förstå Azure Cosmos DB automatiserade säkerhets kopieringar:https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
+Förstå Azure Cosmos DB automatiserade säkerhets kopieringar: https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
 
-Så här återställer du data i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
+Så här återställer du data i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
-Så här säkerhetskopierar du Key Vault nycklar:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Så här säkerhetskopierar du Key Vault nycklar: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1013,9 +1013,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 Aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-Förstå data kryptering i Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
+Förstå data kryptering i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Så här aktiverar du mjuk borttagning i Key Vault:https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Så här aktiverar du mjuk borttagning i Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Azure Security Center övervakning**: Ja
 
@@ -1029,13 +1029,13 @@ Så här aktiverar du mjuk borttagning i Key Vault:https://docs.microsoft.com/az
 
 **Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
 
-Du kan också använda NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa en egen incident svars plan:https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+Du kan också använda NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa en egen incident svars plan: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
-Konfigurera automatisering av arbets flöden i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+Konfigurera automatisering av arbets flöden i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Vägledning om hur du skapar en egen svars process för säkerhets incident:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Vägledning om hur du skapar en egen svars process för säkerhets incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Microsoft Security Response Center: s uppbyggnad av en incident:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Microsoft Security Response Center: s uppbyggnad av en incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -1056,7 +1056,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1066,7 +1066,7 @@ Se NIST: guide för test, utbildning och övnings program för IT-planer och fun
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part.  Granska incidenter när du är säker på att problemen är lösta.
 
-Så här ställer du in Azure Security Center säkerhets kontakt:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Så här ställer du in Azure Security Center säkerhets kontakt: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Azure Security Center övervakning**: Ja
 
@@ -1076,9 +1076,9 @@ Så här ställer du in Azure Security Center säkerhets kontakt:https://docs.mi
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviserings indikatorn.
 
-Så här konfigurerar du kontinuerlig export:https://docs.microsoft.com/azure/security-center/continuous-export
+Så här konfigurerar du kontinuerlig export: https://docs.microsoft.com/azure/security-center/continuous-export
 
-Strömma aviseringar till Azure Sentinel:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+Strömma aviseringar till Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1088,7 +1088,7 @@ Strömma aviseringar till Azure Sentinel:https://docs.microsoft.com/azure/sentin
 
 **Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer.
 
-Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsoft.com/azure/security-center/workflow-automation
+Konfigurera automatisering av arbets flöde och Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1100,9 +1100,9 @@ Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsof
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att alla kritiska säkerhets brister upptäcks inom 60 dagar
 
-**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center övervakning**: inte tillämpligt
 

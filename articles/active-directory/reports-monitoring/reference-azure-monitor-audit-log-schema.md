@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68987942"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231103"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Tolka schemat för gransknings loggar för Azure AD i Azure Monitor (för hands version)
 
@@ -179,5 +179,5 @@ Den här artikeln beskriver Gransknings logg schema för Azure Active Directory 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Azure Diagnostics-loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Azure Diagnostics-loggar](../../azure-monitor/platform/platform-logs-overview.md)
 * [Vanliga frågor och kända problem](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034659"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230695"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
@@ -32,7 +32,7 @@ Allmänna-Purpose v2-lagrings konton har stöd för de senaste Azure Storage fun
 
 - Blobbar (alla typer: blockera, Lägg till, sida)
 - Data Lake Gen2
-- Files
+- Filer
 - Diskar
 - Köer
 - Tabeller
@@ -49,7 +49,7 @@ Allmänna-syfte v2-lagrings konton ger flera åtkomst nivåer för lagring av da
 Generella v1-lagrings konton ger till gång till alla Azure Storage-tjänster, men de har inte de senaste funktionerna eller de lägsta priset per Gigabyte. Generella v1-lagrings konton har stöd för dessa Azure Storage tjänster:
 
 - Blobbar (alla typer)
-- Files
+- Filer
 - Diskar
 - Köer
 - Tabeller
@@ -129,10 +129,10 @@ På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla o
 
 Om ditt allmänna lagrings konto till exempel heter *mystorageaccount*, är standard slut punkterna för det kontot:
 
-- Blob-lagring:`https://*mystorageaccount*.blob.core.windows.net`
-- Tabell lagring:`https://*mystorageaccount*.table.core.windows.net`
-- Queue Storage:`https://*mystorageaccount*.queue.core.windows.net`
-- Azure Files:`https://*mystorageaccount*.file.core.windows.net`
+- Blob-lagring: `https://*mystorageaccount*.blob.core.windows.net`
+- Tabell lagring: `https://*mystorageaccount*.table.core.windows.net`
+- Queue Storage: `https://*mystorageaccount*.queue.core.windows.net`
+- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > Block-Blob-och Blob Storage-konton exponerar endast Blob Service-slutpunkten.
@@ -174,7 +174,7 @@ Azure Storage-biblioteket för flytt av data för .NET är baserat på det ramve
 
 ### <a name="rest-api-or-client-library"></a>REST-API eller klientbibliotek
 
-Du kan skapa ett anpassat program för att migrera dina data från ett allmänt v1-lagrings konto till ett Blob Storage-konto. Använd ett av Azures klient bibliotek eller Azure Storage-tjänster REST API. Azure Storage innehåller omfattande klientbibliotek för flera språk och plattformar som .NET, Java, C++, Node.JS, PHP, Ruby och Python. Klientbiblioteken har avancerade funktioner, t.ex. logik för omprövning, loggning och parallell överföring. Du kan också utveckla direkt mot REST-API:t, som kan anropas med valfritt språk som kan skicka HTTP/HTTPS-begäranden.
+Du kan skapa ett anpassat program för att migrera dina data från ett allmänt v1-lagrings konto till ett Blob Storage-konto. Använd en av Azures klient bibliotek eller Azure Storage tjänsterna REST API. Azure Storage innehåller omfattande klientbibliotek för flera språk och plattformar som .NET, Java, C++, Node.JS, PHP, Ruby och Python. Klientbiblioteken har avancerade funktioner, t.ex. logik för omprövning, loggning och parallell överföring. Du kan också utveckla direkt mot REST-API:t, som kan anropas med valfritt språk som kan skicka HTTP/HTTPS-begäranden.
 
 Mer information om Azure Storage REST API finns i [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/).
 

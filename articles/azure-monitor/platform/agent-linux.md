@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998942"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230474"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
 Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Linux-datorer med följande metoder:
@@ -51,11 +51,19 @@ Från och med versioner som publicerats efter 2018 augusti gör vi följande än
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE `zypper install -y python2`
 
-Den körbara filen python2 måste ha ett alias till python med följande kommando:
+Den körbara filen python2 måste ha ett alias till *python*. Följande är en metod som du kan använda för att ange det här aliaset:
 
-```
-alternatives --set python `which python2`
-```
+1. Kör följande kommando för att ta bort alla befintliga alias.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Kör följande kommando för att skapa aliaset.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>Linux-härdning som stöds
 OMS-agenten har begränsat anpassnings stöd för Linux. 
@@ -64,7 +72,8 @@ Följande stöds för närvarande:
 - FIPs
 
 Följande planeras men stöds ännu inte:
-- CIS-SELINUX
+- CIS
+- SELINUX
 
 Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OMS-agenten.  
 

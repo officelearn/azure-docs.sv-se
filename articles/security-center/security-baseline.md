@@ -6,13 +6,13 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004491"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231290"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Azures säkerhets bas linje för Security Center
 
@@ -394,7 +394,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 **Vägledning**: Azure Security Center använder en konfigurerad Log Analytics arbets yta för att lagra data, aviseringar och rekommendationer som genereras. Konfigurera en kundhanterad nyckel (CMK) för arbets ytan som du har konfigurerat för Security Center data insamling. CMK gör det möjligt att kryptera alla data som sparas eller skickas till arbets ytan med en Azure Key Vault nyckel som skapats och ägs av dig. 
 
-- [Azure Monitor kundhanterad nyckel](../azure-monitor/platform/customer-managed-keys.md)
+- [Kundhanterad nyckel i Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -596,7 +596,7 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 **Vägledning**: Azure Security Center använder en konfigurerad Log Analytics arbets yta för att lagra data, aviseringar och rekommendationer som genereras. Konfigurera en kundhanterad nyckel (CMK) för arbets ytan som du har konfigurerat för Security Center data insamling. CMK gör det möjligt att kryptera alla data som sparas eller skickas till arbets ytan med en Azure Key Vault nyckel som skapats och ägs av dig. 
 
-- [Azure Monitor kundhanterad nyckel](../azure-monitor/platform/customer-managed-keys.md)
+- [Kundhanterad nyckel i Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

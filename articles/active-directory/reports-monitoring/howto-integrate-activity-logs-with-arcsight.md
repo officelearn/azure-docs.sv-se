@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c3c597c172c7ec21c2d46e89602abf87d750127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc7bcab04da005fd0d46d18e7b708dcb1c9d58e5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608185"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230525"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor
 
@@ -32,8 +32,8 @@ I den här artikeln får du lära dig hur du dirigerar Azure AD-loggar till ArcS
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda den här funktionen behöver du:
-* En Azure Event Hub som innehåller Azure AD-aktivitets loggar. Lär dig hur du [strömmar dina aktivitets loggar till en Event Hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+För att använda funktionen behöver du:
+* En Azure Event Hub som innehåller Azure AD-aktivitets loggar. Lär dig hur du [strömmar dina aktivitets loggar till en Event Hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 * En konfigurerad instans av ArcSight syslog NG daemon SmartConnector (SmartConnector) eller ArcSight Load Balancer. Om händelserna skickas till ArcSight Load Balancer skickas de därför till SmartConnector av Load Balancer.
 
 Hämta och öppna [konfigurations guiden för ArcSight-SmartConnector för Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Den här guiden innehåller de steg du behöver för att installera och konfigurera ArcSight-SmartConnector för Azure Monitor. 

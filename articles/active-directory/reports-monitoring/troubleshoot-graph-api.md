@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eec5c5a3d810fdd2d561313e3a355e872fb525c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abc8badf261e631dd6ceb7af9a6a0cb3676ae25d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608100"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231018"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Felsöka fel i Azure Active Directory rapporterings-API
 
@@ -48,7 +48,7 @@ Följ stegen i [kraven för att få åtkomst till Azure Active Directory rapport
 
 Följ stegen i [kraven för att få åtkomst till Azure Active Directory rapporterings-API: et](howto-configure-prerequisites-for-reporting-api.md) för att se till att programmet körs med rätt behörighets uppsättning. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-[Använda gransknings-API-referensen](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
- [Använd rapport-API-referens för inloggnings aktivitet](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Använda gransknings-API-referensen](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+ [Använd rapport-API-referens för inloggnings aktivitet](/graph/api/resources/signin?view=graph-rest-beta)

@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656535"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231324"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API
 
-Den här artikeln visar hur du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via Logic Apps REST API för scenarier där dina Logic Apps och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en dedikerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den ”globala” Logic Apps-tjänsten med flera klienter. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
+Den här artikeln visar hur du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via Logic Apps REST API för scenarier där dina Logic Apps och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en dedikerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den ”globala” Logic Apps-tjänsten med flera klienter. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. Med en ISE får du även egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
 
 Du kan också skapa en ISE med hjälp av [exemplet Azure Resource Manager snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) eller genom att använda [Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -58,7 +58,7 @@ I begär ande huvudet inkluderar du följande egenskaper:
 
 ## <a name="request-body"></a>Begärandetext
 
-Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska användas när du skapar din ISE. Om du vill skapa en ISE som tillåter att du använder ett självsignerat certifikat som är installerat på `TrustedRoot` platsen inkluderar du `certificates` objektet i definitions `properties` området för ISE. För en befintlig ISE kan du bara skicka en PATCH-begäran för `certificates` objektet. Mer information om hur du använder självsignerade certifikat finns även i [http Connector-självsignerade certifikat](../connectors/connectors-native-http.md#self-signed).
+Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska användas när du skapar din ISE. Om du vill skapa en ISE som tillåter att du använder ett självsignerat certifikat som är installerat på `TrustedRoot` platsen inkluderar du `certificates` objektet i definitions `properties` området för ISE. För en befintlig ISE kan du bara skicka en PATCH-begäran för `certificates` objektet. Mer information om hur du använder självsignerade certifikat finns i [säker åtkomst och data åtkomst för utgående anrop till andra tjänster och system](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 0f6a6cbc9112959a670bdb0a9cb56ea4509413a1
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 132b0f095ef1767d7416aefc71dced2a15769701
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640777"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230491"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>Snabb start: skapa Apache Spark kluster i Azure HDInsight med ARM-mall
 
-I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa ett [Apache Spark](./apache-spark-overview.md) -kluster i Azure HDInsight. Sedan skapar du en Jupyter-anteckningsbok och använder den för att köra Spark SQL-frågor mot Apache Hive tabeller. Azure HDInsight är en hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. Apache Spark Framework för HDInsight möjliggör snabb data analys och kluster data behandling med minnes intern bearbetning. Med Jupyter Notebook kan du interagera med dina data, kombinera kod med markdown text och göra enkla visualiseringar.
+I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) för att skapa ett [Apache Spark](./apache-spark-overview.md) -kluster i Azure HDInsight. Sedan skapar du en Jupyter Notebook-fil och använder den för att köra Spark SQL-frågor mot Apache Hive tabeller. Azure HDInsight är en hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. Apache Spark Framework för HDInsight möjliggör snabb data analys och kluster data behandling med minnes intern bearbetning. Med Jupyter Notebook kan du interagera med dina data, kombinera kod med markdown text och göra enkla visualiseringar.
 
 Om du använder flera kluster tillsammans, vill du skapa ett virtuellt nätverk och om du använder ett Spark-kluster vill du också använda Hive-lagrets koppling. Mer information finns i [planera ett virtuellt nätverk för Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) och [integrera Apache Spark och Apache Hive med Hive-lager kopplingen](../interactive-query/apache-hive-warehouse-connector.md).
 
@@ -71,9 +71,9 @@ Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på a
 
 När klustret har skapats får du ett meddelande om att **distributionen har slutförts** med en **gå till resurs** länken. På sidan Resursgrupp visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster har ett [Azure Storage](../hdinsight-hadoop-use-blob-storage.md) konto eller ett beroende för ett [Azure Data Lake Storage konto](../hdinsight-hadoop-use-data-lake-store.md) . Det kallas för standard lagrings kontot. HDInsight-klustret och dess standard lagrings konto måste samplaceras i samma Azure-region. Om du tar bort kluster tas inte lagrings kontot bort.
 
-## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
+## <a name="create-a-jupyter-notebook-file"></a>Skapa en Jupyter Notebook-fil
 
-[Jupyter Notebook](https://jupyter.org/) är en interaktiv Notebook-miljö som har stöd för olika programmeringsspråk. Med antecknings boken kan du interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
+[Jupyter Notebook](https://jupyter.org/) är en interaktiv Notebook-miljö som har stöd för olika programmeringsspråk. Du kan använda en Jupyter Notebook-fil för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 
@@ -87,7 +87,7 @@ När klustret har skapats får du ett meddelande om att **distributionen har slu
 
 4. Välj **ny**  >  **PySpark** för att skapa en antecknings bok.
 
-   ![Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga")
+   ![Skapa en Jupyter Notebook-fil för att köra interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga")
 
    En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
 
@@ -108,7 +108,7 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och tra
     SHOW TABLES
     ```
 
-    När du använder en Jupyter Notebook med ditt HDInsight-kluster får du en förinställd `spark` session som du kan använda för att köra Hive-frågor med Spark SQL. `%%sql` anger att Jupyter Notebook ska använda den förinställda sessionen `spark` när Hive-frågan ska köras. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som medföljer alla HDInsight-kluster som standard. Första gången du skickar frågan kommer Jupyter att skapa ett Spark-program för antecknings boken. Det tar ungefär 30 sekunder att slutföra. När Spark-programmet är klart körs frågan i ungefär en sekund och genererar resultatet. De utdata som returneras ser ut så här:
+    När du använder en Jupyter Notebook-fil med ditt HDInsight-kluster får du en förinställd `spark` session som du kan använda för att köra Hive-frågor med Spark SQL. `%%sql` anger att Jupyter Notebook ska använda den förinställda sessionen `spark` när Hive-frågan ska köras. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som medföljer alla HDInsight-kluster som standard. Första gången du skickar frågan kommer Jupyter att skapa ett Spark-program för antecknings boken. Det tar ungefär 30 sekunder att slutföra. När Spark-programmet är klart körs frågan i ungefär en sekund och genererar resultatet. Utdata ser ut så här:
 
     ![Apache Hive fråga i HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive-fråga i HDInsight")
 

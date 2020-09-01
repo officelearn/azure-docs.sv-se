@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: 25c2096de4c3643a4e6a3ba7bdad1e69ae93a179
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 272f5b747efbc3776b1b2ba7c3546ade717c2452
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019087"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231375"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure Firewall SNAT privata IP-adressintervall
 
@@ -20,7 +20,7 @@ Azure-brandväggen tillhandahåller automatisk SNAT för all utgående trafik ti
 
 Den här logiken fungerar bra när du dirigerar trafik direkt till Internet. Men om du har aktiverat [Tvingad tunnel](forced-tunneling.md)trafik är Internet-baserad trafik SNATed till en av brand väggens privata IP-adresser i AzureFirewallSubnet, vilket döljer källan från den lokala brand väggen.
 
-Om din organisation använder ett offentligt IP-adressintervall för privata nätverk SNATs trafiken till någon av brand väggens privata IP-adresser i AzureFirewallSubnet med Azure-brandväggen. Du kan dock konfigurera Azure-brandväggen så att den **inte** bevarar ditt offentliga IP-adressintervall.
+Om din organisation använder ett offentligt IP-adressintervall för privata nätverk SNATs trafiken till någon av brand väggens privata IP-adresser i AzureFirewallSubnet med Azure-brandväggen. Du kan dock konfigurera Azure-brandväggen så att den **inte** bevarar ditt offentliga IP-adressintervall. Om du till exempel vill ange en enskild IP-adress kan du ange den så här: `192.168.1.10` . Om du vill ange ett intervall med IP-adresser kan du ange det så här: `192.168.1.0/24` .
 
 Om du vill konfigurera Azure-brandväggen till att aldrig SNAT, oavsett mål-IP-adress, använder du **0.0.0.0/0** som ditt privata IP-adressintervall. Med den här konfigurationen kan Azure-brandväggen aldrig dirigera trafik direkt till Internet. Om du vill konfigurera brand väggen så att den alltid är SNAT oavsett mål adress använder du **255.255.255.255/32** som ditt privata IP-adressintervall.
 

@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608933"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231171"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -40,7 +40,7 @@ Från användare som har flaggats för risk rapport kan du utföra följande åt
 - kräva att användarna måste återställa sina lösenord på ett säkert sätt nästa gång de loggar in
 - minimera användarrisken utan att behöva vidta någon åtgärd.
 
-Mer information finns i [användare som har flaggats för risk säkerhets rapporten](concept-user-at-risk.md).
+Mer information finns i [användare som har flaggats för risk säkerhets rapporten](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Azure AD-prenumeration för Office 365-kunder
 
@@ -91,5 +91,5 @@ Dessutom bör du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)
-* [Användare som har flaggats för risk](concept-user-at-risk.md)
+* [Identitetsskydd för Azure Active Directory](../identity-protection/overview-identity-protection.md)
+* [Användare som har flaggats för risk](../identity-protection/overview-identity-protection.md)

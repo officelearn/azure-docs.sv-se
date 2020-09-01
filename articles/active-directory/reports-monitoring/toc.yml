@@ -36,11 +36,11 @@
     - name: Rapport om användning och insikter
       href: concept-usage-insights-report.md
     - name: Riskfyllda inloggningar
-      href: concept-risky-sign-ins.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Riskidentifieringar
-      href: concept-risk-events.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Användare i riskzonen
-      href: concept-user-at-risk.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Etableringsloggar
       href: concept-provisioning-logs.md
     - name: 'Reporting-API:er'
@@ -94,9 +94,9 @@
     - name: Azure AD PowerShell-cmdletar för rapportering
       href: reference-powershell-reporting.md
     - name: API-referens för granskningsloggar
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
     - name: API-referens för inloggningsloggar
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+      href: /graph/api/resources/signin?view=graph-rest-beta
     - name: Granskningsaktiviteter
       href: reference-audit-activities.md
     - name: Datakvarhållningsprinciper

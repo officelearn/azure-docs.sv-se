@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045951"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231035"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Azures säkerhets bas linje för Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -119,7 +119,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Vägledning**: Aktivera avancerat skydd (ATP) för Azure SQL Database.  Användare får en avisering om misstänkt databas aktiviteter, potentiella sårbarheter och SQL-injektering, samt avvikande databas åtkomst och frågor. Avancerat skydd integrerar även aviseringar med Azure Security Center.
 
-Förstå och använda avancerat skydd för Azure SQL Database:https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Förstå och använda avancerat skydd för Azure SQL Database: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Azure Security Center övervakning**: Ja
 
@@ -157,9 +157,9 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 Använd Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Management-mallar, rollbaserad åtkomst kontroll (RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center övervakning**: Ja
 
@@ -437,7 +437,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-over
 
 **Vägledning**: använda villkorlig åtkomst med namngivna platser för att tillåta åtkomst till Portal-och Azure-resurser enbart för vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -723,11 +723,11 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Förstå Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/overview
+Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -783,9 +783,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -825,9 +825,9 @@ Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/gove
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -845,7 +845,7 @@ Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft
 
 **Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1011,7 +1011,7 @@ https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resou
 
 **Vägledning**: implementera autentiseringsuppgifter för inloggning för att identifiera autentiseringsuppgifter i din kod. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcredscan.html
+Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1035,7 +1035,7 @@ Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcreds
 
 Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage, Azure SQL Database osv. Microsoft kan inte komma åt dina data i dessa instanser.
 
-Förstå Microsoft Antimalware för Azure Cloud Services och Virtual Machines:https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Förstå Microsoft Antimalware för Azure Cloud Services och Virtual Machines: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1133,7 +1133,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Vägledning**: Security Center tilldelar en allvarlighets grad till aviseringar, som hjälper dig att prioritera i vilken ordning du deltar i varje avisering, så att när en resurs komprometteras kan du komma åt den direkt. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
 
-Säkerhets aviseringar i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+Säkerhets aviseringar i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
 **Azure Security Center övervakning**: Ja
 
@@ -1201,7 +1201,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud Infrastructure, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft Managed Cloud Infrastructure, tjänster och program, här: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center övervakning**: inte tillämpligt
 

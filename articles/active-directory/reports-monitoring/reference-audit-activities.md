@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80891517"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231154"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -35,8 +35,8 @@ Rapporteringsarkitekturen i Azure AD består av följande komponenter:
     - [Granskningsloggar](concept-audit-logs.md) – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. 
     
 - **Säkerhetsrapporter** 
-    - [Riskfyllda inloggningar](concept-risky-sign-ins.md) – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
-    - [Användare som har flaggats för risk](concept-user-at-risk.md) – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
+    - [Riskfyllda inloggningar](../identity-protection/overview-identity-protection.md) – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
+    - [Användare som har flaggats för risk](../identity-protection/overview-identity-protection.md) – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
 
 I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina granskningsloggar.
 
@@ -256,17 +256,17 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Kataloghantering|Hämta klientinfo|
 |Kataloghantering|Hämta klienttillåtna funktioner|
 |Kataloghantering|Hämta tenantDomains|
-|Tangent|Hämtar typ av klient|
-|Tangent|Kontrollera om B2C-funktionen är aktiverad|
-|Tangent|Verifiera om funktionen är aktive rad|
-|Tangent|Lägg till partner till företag|
-|Tangent|Lägg till overifierad domän|
-|Tangent|Lägg till verifierad domän|
-|Tangent|Skapa företag|
-|Tangent|Skapa företagsinställningar|
-|Tangent|Ta bort företagsinställningar|
-|Tangent|Flytta ned partner|
-|Tangent|Katalog borttagen|
+|Nyckel|Hämtar typ av klient|
+|Nyckel|Kontrollera om B2C-funktionen är aktiverad|
+|Nyckel|Verifiera om funktionen är aktive rad|
+|Nyckel|Lägg till partner till företag|
+|Nyckel|Lägg till overifierad domän|
+|Nyckel|Lägg till verifierad domän|
+|Nyckel|Skapa företag|
+|Nyckel|Skapa företagsinställningar|
+|Nyckel|Ta bort företagsinställningar|
+|Nyckel|Flytta ned partner|
+|Nyckel|Katalog borttagen|
 |Övrigt|Katalog borttagen permanent|
 |Övrigt|Katalog schemalagd för borttagning|
 |Resurs|Flytta upp företag till partner|

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9dd407ce2727582039089c0abe31b68bfe5d0f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070334"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231188"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Felsöka problem med att logga in till ett program från Azure AD Mina appar
 
@@ -27,10 +27,16 @@ Mer information om hur du använder Azure AD som identitets leverantör för en 
 Dessa program är konfigurerade för användarens räkning i Azure AD-portalen. Programmet måste vara korrekt konfigurerat och tilldelat användaren eller en grupp som användaren är medlem i för att kunna se programmet i Mina appar. 
 
 Den typ av appar som en användare kan se hamnar i följande kategorier:
--   Office 365-program
+-   Microsoft 365-och Office 365-program
 -   Program från Microsoft och tredje part som kon figurer ATS med Federation-baserad SSO
 -   Lösenordsbaserade SSO-program
 -   Program med befintliga SSO-lösningar
+
+Här är några saker att kontrol lera om en app visas eller inte visas.
+- Kontrol lera att appen har lagts till i Azure AD och se till att användaren är tilldelad. Mer information finns i [snabb starts serien för program hantering](view-applications-portal.md).
+- Om du nyligen har lagt till en app kan du logga ut och sedan in igen. 
+- Om appen kräver en licens, till exempel Office, kontrollerar du att användaren har tilldelats rätt licens.
+- Hur lång tid det tar för licensierings ändringar kan variera beroende på gruppens storlek och komplexitet.
 
 ## <a name="general-issues-to-check-first"></a>Allmänna problem att kontrol lera först
 

@@ -7,13 +7,13 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/2020
-ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/31/2020
+ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854357"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230846"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Globala parametrar i Azure Data Factory
 
@@ -41,13 +41,28 @@ Globala parametrar kan användas i alla [pipeline-uttryck](control-flow-expressi
 
 ![Använda globala parametrar](media/author-global-parameters/expression-global-parameters.png)
 
-## <a name="global-parameters-in-cicd"></a><a name="cicd"></a>Globala parametrar i CI/CD
+## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Globala parametrar i CI/CD
 
-Globala parametrar har en unik CI/CD-process i förhållande till andra entiteter i Azure Data Factory. När du publicerar en fabrik eller exporterar en ARM-mall med globala parametrar, skapas en mapp med namnet *dublettparameternamnet* med en fil som heter *your-factory-name_GlobalParameters.jspå*. Den här filen är ett JSON-objekt som innehåller varje global parameter typ och värde i den publicerade fabriken.
+Det finns två sätt att integrera globala parametrar i den kontinuerliga integrerings-och distributions lösningen:
+
+* Inkludera globala parametrar i ARM-mallen
+* Distribuera globala parametrar via ett PowerShell-skript
+
+I de flesta användnings fall rekommenderar vi att du inkluderar globala parametrar i ARM-mallen. Detta integreras internt med den lösning som beskrivs i [CI/CD-dokumentet](continuous-integration-deployment.md). Globala parametrar läggs till som en ARM-mallparameter som standard eftersom de ofta ändras från miljö till miljö. Du kan aktivera inkludering av globala parametrar i ARM-mallen från hanterings hubben.
+
+![Ta med i ARM-mallen](media/author-global-parameters/include-arm-template.png)
+
+Om du lägger till globala parametrar i ARM-mallen läggs en inställning på fabriks nivå som kan åsidosätta andra inställningar på fabriks nivå, till exempel en kundhanterad nyckel eller git-konfiguration i andra miljöer. Om du har dessa inställningar aktiverade i en upphöjd miljö, till exempel UAT eller PROD, är det bättre att distribuera globala parametrar via ett PowerShell-skript i stegen som marker ATS nedan.
+
+### <a name="deploying-using-powershell"></a>Distribuera med PowerShell
+
+Följande steg beskriver hur du distribuerar globala parametrar via PowerShell. Detta är användbart när mål fabriken har en inställning på fabriks nivå, till exempel kundhanterad nyckel.
+
+När du publicerar en fabrik eller exporterar en ARM-mall med globala parametrar, skapas en mapp med namnet *dublettparameternamnet* med en fil som heter *your-factory-name_GlobalParameters.jspå*. Den här filen är ett JSON-objekt som innehåller varje global parameter typ och värde i den publicerade fabriken.
 
 ![Globala parametrar publiceras](media/author-global-parameters/global-parameters-adf-publish.png)
 
-Om du distribuerar till en ny miljö, till exempel TEST eller produkt, rekommenderar vi att du skapar en kopia av den här globala parameter filen och skriver över lämpliga miljöaktuella värden. När du publicerar om den ursprungliga globala parameter filen kommer att skrivas över, men kopian för den andra miljön blir orörd.
+Om du distribuerar till en ny miljö, t. ex. TEST eller produkt, rekommenderar vi att du skapar en kopia av den globala parameter filen och skriver över lämpliga miljöaktuella värden. När du publicerar om den ursprungliga globala parameter filen kommer att skrivas över, men kopian för den andra miljön blir orörd.
 
 Om du till exempel har en fabrik med namnet "ADF-DEV" och en global parameter av typen String med namnet "miljö" med värdet "dev", genereras en fil som heter *ADF-DEV_GlobalParameters.jspå* . Om du distribuerar till en test fabrik med namnet ADF_TEST, skapar du en kopia av JSON-filen (till exempel med namnet ADF-TEST_GlobalParameters.jspå) och ersätter parametervärdena med de miljöaktuella värdena. Parametern "miljö" kan ha värdet "test" nu. 
 

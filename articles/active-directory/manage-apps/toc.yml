@@ -238,12 +238,6 @@
               href: application-types.md
             - name: Oväntad tilldelad användare
               href: ways-users-get-assigned-to-applications.md
-        - name: Felsöka Mina appar
-          items:
-            - name: Appen visas inte
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: Oväntad app visas
-              href: access-panel-troubleshoot-unexpected-application.md
         - name: Felsöka lokala appar
           items:
             - name: Felsökning av programproxy

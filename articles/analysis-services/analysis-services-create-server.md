@@ -1,18 +1,18 @@
 ---
 title: Snabb start – skapa en Analysis Services-server i Azure Portal | Microsoft Docs
-description: Lär dig hur du snabbt skapar en Azure Analysis Services Server instans med hjälp av Azure Portal.
+description: I den här snabb starten beskrivs hur du skapar en Azure Analysis Services Server instans med hjälp av Azure Portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697483"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230789"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Snabbstart: Skapa en server – portalen
 
@@ -20,7 +20,7 @@ Den här snabbstarten beskriver hur du skapar en Analysis Services-serverresurs 
 
 ## <a name="prerequisites"></a>Krav 
 
-* **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
+* **Azure-prenumeration**: Besök [Azures kostnads fri utvärderings version](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
 * **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation. Och du måste vara inloggad på Azure med ett konto i den Azure Active Directory. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal 
@@ -58,6 +58,4 @@ Ta bort servern när den inte längre behövs. I serverns **Översikt** klickar 
 I den här snabbstarten har du lärt dig hur du skapar en server i Azure-prenumerationen. Nu när du har en server kan du skydda den genom att konfigurera en serverbrandvägg (valfritt). Du kan även lägga till en grundläggande exempeldatamodell till servern direkt från portalen. Att använda en exempelmodell är en bra idé om du vill lära dig mer om hur man konfigurerar modelldatabasroller och testar klientanslutningar. Fortsätt till och lägg till en exempelmodell om du vill lära dig mer.
 
 > [!div class="nextstepaction"]
-> [Snabb start: Konfigurera Server brand vägg – Portal](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [Självstudier: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)
+> [Snabbstart: Konfigurera serverbrandvägg – portalen](analysis-services-qs-firewall.md)   

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 0029761f8a1c48ab595dfa5bc2a87fca12d90e3d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873933"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230933"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Självstudie: utveckla ett Apache Spark Machine Learning-program i Azure HDInsight
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Utveckla ett Apache Spark-maskininlärningsprogram
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -41,7 +41,7 @@ Programmet använder exempel **HVAC.csv** data som är tillgängliga i alla klus
 
 Det här programmet använder en spark [ml-pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) för att göra en dokument klassificering. ML pipelines tillhandahåller en enhetlig uppsättning högnivå-API: er som bygger på DataFrames. DataFrames hjälper användarna att skapa och finjustera praktiska pipeliner för Machine Learning. I pipelinen delar du upp dokumentet i ord, konverterar orden till en numerisk funktionsvektor och slutligen skapa en förutsägelsemodell med funktionsvektorer och etiketter. Utför följande steg för att skapa programmet.
 
-1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Anvisningar finns i [skapa en Jupyter Notebook-fil](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Importera de typer som krävs för det här scenariot. Klistra in följande kodfragment i en tom cell och tryck sedan på **SKIFT+RETUR**.
 

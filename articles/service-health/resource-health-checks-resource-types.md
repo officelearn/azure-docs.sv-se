@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611950"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230168"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -22,6 +22,11 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |Utförda kontroller|
 |---|
 |<ul><li>Är API Management-tjänsten igång?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft. AppPlatform/våren
+|Utförda kontroller|
+|---|
+|<ul><li>Är Azure våren Cloud-instansen tillgänglig?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.BatCH/batchAccounts
 |Utförda kontroller|
@@ -56,12 +61,17 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 ## <a name="microsoftcomputehostgroupshosts"></a>Microsoft. Compute/hostgroups/hosts
 |Utförda kontroller|
 |---|
-|<ul><li>Är värden igång</li><li>Är värd maskin varan försämrad?</li><li>Är värden friallokerad?</li><li>Har värd maskin varu tjänsten fått till annan maskin vara?</li></ul>|
+|<ul><li>Är värden igång?</li><li>Är värd maskin varan försämrad?</li><li>Är värden friallokerad?</li><li>Har värd maskin varu tjänsten fått till annan maskin vara?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft. Compute/virtualmachines
 |Utförda kontroller|
 |---|
 |<ul><li>Är den server som är värd för den här virtuella datorn igång?</li><li>Har värddatorns OS-start slutförts?</li><li>Är den virtuella dator behållaren etablerad och påslagen?</li><li>Finns det någon nätverks anslutning mellan värden och lagrings kontot?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft. container service/managedClusters
+|Utförda kontroller|
+|---|
+|<ul><li>Är klustret igång?</li><li>Är kärn tjänster tillgängliga i klustret?</li><li>Är alla klusternoder klara?</li><li>Är tjänstens huvud namn aktuellt och giltigt?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft. DataFactory/fabriker
 |Utförda kontroller|
@@ -124,10 +134,20 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är kärn tjänster tillgängliga i HDInsight-klustret?</li><li>Kan HDInsight-klustret komma åt nyckeln för BYOK-kryptering i vila?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+|Utförda kontroller|
+|---|
+|<ul><li>Är IoT Central programmet tillgängligt?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft. nyckel valv/-valv
 |Utförda kontroller|
 |---|
 |<ul><li>Går det inte att utföra nyckel valv på grund av problem med Azure Key Vault-plattformen?</li><li>Är förfrågningar till nyckel valv begränsade på grund av för många förfrågningar som kunden har gjort?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/kluster
+|Utförda kontroller|
+|---|
+|<ul><li>Har klustret låga inmatnings frekvenser?</li><li>Har klustret högt inmatnings svars tid?</li><li>Har klustret en stor mängd frågor om fel?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft. MachineLearning/WebServices
 |Utförda kontroller|
@@ -164,6 +184,11 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är belastnings Utjämnings slut punkter tillgängliga?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficmanagerprofiles
+|Utförda kontroller|
+|---|
+|<ul><li>Finns det några problem som påverkar Traffic Manager profilen?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft. Network/virtualNetworkGateways
 |Utförda kontroller|
 |---|
@@ -183,11 +208,6 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |Utförda kontroller|
 |---|
 |<ul><li>Är kapacitets resursen igång?</li><li>Är alla arbets belastningar igång?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft. PowerBI/workspaceCollections
-|Utförda kontroller|
-|---|
-|<ul><li>Är värd operativ systemet igång?</li><li>Går det att få åtkomst till workspaceCollection utanför data centret?</li><li>Är Power BI Resource Provider tillgänglig?</li><li>Är tjänsten Power BI tillgänglig i rätt region?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft. search/searchServices
 |Utförda kontroller|

@@ -1,73 +1,181 @@
 - name: Dokumentation om Azure Stack Edge och Data Box Gateway
   href: /azure/databox-online/
   expanded: true
-- name: Data Box Gateway
+- name: Azure Stack Edge med GPU (förhandsversion)
   items:
     - name: Översikt
       items:
-        - name: Vad är Data Box Gateway?
-          href: data-box-gateway-overview.md
+        - name: Vad är Azure Stack Edge med GPU?
+          href: azure-stack-edge-gpu-overview.md
     - name: Självstudier
       items:
-        - name: 1 – Förbereda
-          href: data-box-gateway-deploy-prep.md
-        - name: 2A – Etablera i Hyper-V
-          href: data-box-gateway-deploy-provision-hyperv.md
-        - name: 2B – Etablera i VMware
-          href: data-box-gateway-deploy-provision-vmware.md
-        - name: '3 – Ansluta, konfigurera och aktivera'
-          href: data-box-gateway-deploy-connect-setup-activate.md
-        - name: 4 – Lägga till och ansluta till resurs
-          href: data-box-gateway-deploy-add-shares.md
+        - name: 0 – Hämta checklista
+          href: azure-stack-edge-gpu-deploy-checklist.md
+        - name: '1 – Beställa, förbereda'
+          href: azure-stack-edge-gpu-deploy-prep.md
+        - name: 2 – Installera
+          href: azure-stack-edge-gpu-deploy-install.md
+        - name: 3 – Anslut
+          href: azure-stack-edge-gpu-deploy-connect.md
+        - name: 4 – Konfigurera nätverk
+          href: azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md
+        - name: 5 – Konfigurera enhet
+          href: azure-stack-edge-gpu-deploy-set-up-device-update-time.md
+        - name: 6 – Konfigurera certifikat
+          href: azure-stack-edge-gpu-deploy-configure-certificates.md
+        - name: 7 – Aktivera
+          href: azure-stack-edge-gpu-deploy-activate.md
+        - name: 8 – Konfigurera beräkning
+          href: azure-stack-edge-gpu-deploy-configure-compute.md
+        - name: 9A – Lägga till och ansluta till resurs
+          href: azure-stack-edge-j-series-deploy-add-shares.md
+        - name: 9B – Lägga till och ansluta till lagringskonton
+          href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
     - name: Begrepp
       items:
         - name: Granska krav
-          href: data-box-gateway-system-requirements.md
+          href: azure-stack-edge-gpu-system-requirements.md
         - name: Förstå begränsningar
-          href: data-box-gateway-limits.md
+          href: azure-stack-edge-limits.md
         - name: Säkerhetsöversikt
-          href: data-box-gateway-security.md
-        - name: Visa användningsfall
-          href: data-box-gateway-use-cases.md
+          href: azure-stack-edge-security.md
+        - name: Läs specifikationer
+          items:
+            - name: Enhetsspecifikationer
+              href: azure-stack-edge-gpu-technical-specifications-compliance.md
+            - name: Specifikationer för strömsladd
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
+        - name: Förstå Kubernetes
+          items:
+            - name: Vad är Kubernetes?
+              href: azure-stack-edge-gpu-kubernetes-overview.md
+            - name: Kubernetes-lagring
+              href: azure-stack-edge-gpu-kubernetes-storage.md
+            - name: Kubernetes-nätverkstjänster
+              href: azure-stack-edge-gpu-kubernetes-networking.md
+            - name: Kubernetes RBAC
+              href: azure-stack-edge-gpu-kubernetes-rbac.md
+            - name: Kubernetes-arbetsbelastningar
+              href: azure-stack-edge-gpu-kubernetes-workload-management.md
     - name: Gör så här för att
       items:
-        - name: Uppdatera
-          href: data-box-gateway-apply-updates.md
-        - name: Hantera
+        - name: Distribuera IoT Edge-exempel
+          items:
+            - name: Modul från NVIDIA-galleri
+              href: azure-stack-edge-j-series-configure-gpu-modules.md
+            - name: GPU-modul från Git-lagringsplats
+              href: azure-stack-edge-gpu-deploy-sample-module.md
+            - name: GPU-modul via Marketplace
+              href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+        - name: Distribuera Kubernetes-arbetsbelastningar
+          items:
+            - name: Via kubectl
+              items:
+                - name: Få tillgång till Kubernetes-kluster
+                  href: azure-stack-edge-gpu-create-kubernetes-cluster.md
+                - name: Exponera tillståndslös app
+                  href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
+                - name: Distribuera tillståndskänslig app (statiskt etablerad)
+                  href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
+                - name: Distribuera tillståndskänslig app (dynamiskt etablerad)
+                  href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
+            - name: Via IoT Edge
+              items:
+                - name: Exponera tillståndslös app
+                  href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+            - name: Via Azure Arc
+              items:
+                - name: Aktivera Arc på Kubernetes-kluster
+                  href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
+                - name: Distribuera tillståndslös app via GitOps
+                  href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+        - name: Konfigurera Azure Resource Manager
+          items:
+            - name: Ansluta via Azure PowerShell
+              href: azure-stack-edge-j-series-connect-resource-manager.md
+            - name: Konfigurera Azure Resource Manager-lösenord
+              href: azure-stack-edge-j-series-set-azure-resource-manager-password.md
+            - name: Konfigurera klientinställningar för TLS
+              href: azure-stack-edge-j-series-configure-tls-settings.md
+        - name: Distribuera virtuella datorer
+          items:
+            - name: Distribuera virtuella datorer – mallar
+              href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+            - name: Distribuera virtuella datorer – Azure PowerShell-cmdletar
+              href: azure-stack-edge-j-series-deploy-virtual-machine-powershell.md
+            - name: Distribuera virtuella datorer – Azure PowerShell-skript
+              href: azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md
+            - name: Distribuera virtuella datorer – Azure CLI/Python
+              href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md
+            - name: Skapa VM-avbildning
+              href: azure-stack-edge-j-series-create-virtual-machine-image.md
+        - name: Hantera certifikat
+          items:
+            - name: Krav
+              href: azure-stack-edge-j-series-certificate-requirements.md
+            - name: Bring your own
+              href: azure-stack-edge-j-series-manage-certificates.md
+            - name: Skapa via Azure Stack-verktyg för beredskapskontroll
+              href: azure-stack-edge-j-series-create-certificates-tool.md
+            - name: Felsöka certifikatfel
+              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+            - name: Utveckla en C#-modul
+              href: azure-stack-edge-j-series-create-iot-edge-module.md
+        - name: Hantera databehandling på gränsenheter
+          href: azure-stack-edge-j-series-manage-compute.md
+        - name: Hantera lagringsgateway
           items:
             - name: Resurser
-              href: data-box-gateway-manage-shares.md
+              href: azure-stack-edge-j-series-manage-shares.md
             - name: Användare
-              href: data-box-gateway-manage-users.md
+              href: azure-stack-edge-j-series-manage-users.md
+            - name: Lagringskonton
+              href: azure-stack-edge-j-series-manage-storage-accounts.md
             - name: Bandwidth-scheman
-              href: data-box-gateway-manage-bandwidth-schedules.md
-            - name: 'Åtkomst, ström, anslutning'
-              href: data-box-gateway-manage-access-power-connectivity-mode.md
+              href: azure-stack-edge-j-series-manage-bandwidth-schedules.md
+        - name: Hantera enhet
+          items:
+            - name: 'Kraft, åtkomst, anslutning'
+              href: azure-stack-edge-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
-              href: data-box-gateway-connect-powershell-interface.md
+              href: azure-stack-edge-gpu-connect-powershell-interface.md
+            - name: Tillämpa uppdateringar
+              href: azure-stack-edge-gpu-install-update.md
+            - name: Returnera enheten
+              href: azure-stack-edge-return-device.md
+            - name: Ersätta enhet
+              href: azure-stack-edge-replace-device.md
         - name: Övervaka
-          href: data-box-gateway-monitor.md
+          items:
+            - name: Använda måttdiagram
+              href: azure-stack-edge-monitor.md
+            - name: Använda Kubernetes-instrumentpanelen
+              href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
         - name: Felsöka
-          href: data-box-gateway-troubleshoot.md
-        - name: Kontakta Microsoft Support
-          href: azure-stack-edge-contact-microsoft-support.md
+          items:
+            - name: Enhetsproblem
+              href: azure-stack-edge-troubleshoot.md
+            - name: Beställningsproblem
+              href: azure-stack-edge-troubleshoot-ordering.md
+            - name: Kontakta Microsoft Support
+              href: azure-stack-edge-contact-microsoft-support.md
     - name: Viktig information
       items:
-        - name: 2007 – Aktuell
-          href: data-box-gateway-2007-release-notes.md
-        - name: 1911
-          href: data-box-gateway-1911-release-notes.md
-        - name: 1906
-          href: data-box-gateway-1906-release-notes.md
-        - name: 1905
-          href: data-box-gateway-1905-release-notes.md
-        - name: Allmän tillgänglighet (GA)
-          href: data-box-gateway-release-notes.md
-- name: Azure Stack Edge
+        - name: 2008 – Viktig information
+          href: azure-stack-edge-gpu-2008-release-notes.md
+    - name: Referens
+      items:
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+        - name: REST-API
+          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+        - name: .NET SDK
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
+- name: Azure Stack Edge med FPGA
   items:
     - name: Översikt
       items:
-        - name: Vad är Azure Stack Edge?
+        - name: Vad är Azure Stack Edge med FPGA?
           href: azure-stack-edge-overview.md
     - name: Självstudier
       items:
@@ -151,6 +259,68 @@
           href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
         - name: .NET SDK
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
+- name: Data Box Gateway
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Data Box Gateway?
+          href: data-box-gateway-overview.md
+    - name: Självstudier
+      items:
+        - name: 1 – Förbereda
+          href: data-box-gateway-deploy-prep.md
+        - name: 2A – Etablera i Hyper-V
+          href: data-box-gateway-deploy-provision-hyperv.md
+        - name: 2B – Etablera i VMware
+          href: data-box-gateway-deploy-provision-vmware.md
+        - name: '3 – Ansluta, konfigurera och aktivera'
+          href: data-box-gateway-deploy-connect-setup-activate.md
+        - name: 4 – Lägga till och ansluta till resurs
+          href: data-box-gateway-deploy-add-shares.md
+    - name: Begrepp
+      items:
+        - name: Granska krav
+          href: data-box-gateway-system-requirements.md
+        - name: Förstå begränsningar
+          href: data-box-gateway-limits.md
+        - name: Säkerhetsöversikt
+          href: data-box-gateway-security.md
+        - name: Visa användningsfall
+          href: data-box-gateway-use-cases.md
+    - name: Gör så här för att
+      items:
+        - name: Uppdatera
+          href: data-box-gateway-apply-updates.md
+        - name: Hantera
+          items:
+            - name: Resurser
+              href: data-box-gateway-manage-shares.md
+            - name: Användare
+              href: data-box-gateway-manage-users.md
+            - name: Bandwidth-scheman
+              href: data-box-gateway-manage-bandwidth-schedules.md
+            - name: 'Åtkomst, ström, anslutning'
+              href: data-box-gateway-manage-access-power-connectivity-mode.md
+            - name: Via PowerShell
+              href: data-box-gateway-connect-powershell-interface.md
+        - name: Övervaka
+          href: data-box-gateway-monitor.md
+        - name: Felsöka
+          href: data-box-gateway-troubleshoot.md
+        - name: Kontakta Microsoft Support
+          href: azure-stack-edge-contact-microsoft-support.md
+    - name: Viktig information
+      items:
+        - name: 2007 – Aktuell
+          href: data-box-gateway-2007-release-notes.md
+        - name: 1911
+          href: data-box-gateway-1911-release-notes.md
+        - name: 1906
+          href: data-box-gateway-1906-release-notes.md
+        - name: 1905
+          href: data-box-gateway-1905-release-notes.md
+        - name: Allmän tillgänglighet (GA)
+          href: data-box-gateway-release-notes.md
 - name: Resurser
   items:
     - name: Exempel på Azure Stack Edge C#-moduler (.NET)

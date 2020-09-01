@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a3641994098834b47412598b25b3effb2be7d276
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6e620502deb67c7fe79341bc1a45cb1ce33fa52f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836725"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071473"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Azures säkerhets bas linje för Service Fabric
 
@@ -546,7 +546,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för icke-Compute-resurser som är utformade för att lagra data.
 
@@ -868,13 +868,13 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenume
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: om du använder anpassade avbildningar använder du RBAC för att se till att endast behöriga användare kan komma åt avbildningarna. För behållar avbildningar lagrar du dem i Azure Container Registry och använder RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.
+**Vägledning**: om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att endast behöriga användare får åtkomst till avbildningarna. För behållar avbildningar lagrar du dem i Azure Container Registry och utnyttjar Azure RBAC för att se till att endast behöriga användare kan komma åt avbildningarna.
 
-* [Förstå RBAC i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Förstå Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Förstå RBAC för Container Registry](../container-registry/container-registry-roles.md)
+* [Lär dig mer om Azure RBAC för Container Registry](../container-registry/container-registry-roles.md)
 
-* [Konfigurera RBAC i Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Så här konfigurerar du Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 

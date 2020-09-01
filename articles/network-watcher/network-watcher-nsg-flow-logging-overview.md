@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084372"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070589"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
@@ -294,7 +294,7 @@ Texten som följer är ett exempel på en flödes logg. Som du kan se finns det 
 ```
 **Förklarad logg tupel**
 
-![Översikt över flödes loggar](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tupel för flödes loggar](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Exempel på bandbredds beräkning**
 
@@ -357,7 +357,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Flödes loggnings kostnader**: NSG flödes loggning debiteras på volymen av loggar som skapats. Hög trafik volym kan resultera i stor flödes logg volym och tillhör ande kostnader. NSG Flow logg priser omfattar inte de underliggande lagrings kostnaderna. Om du använder funktionen bevarande princip med NSG flödes loggning innebär det att det uppstår separata lagrings kostnader för längre tids perioder. Om du inte behöver funktionen bevarande princip rekommenderar vi att du anger värdet till 0. Mer information finns i [Network Watcher priser](https://azure.microsoft.com/pricing/details/network-watcher/) och [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/) för ytterligare information.
 
-**Problem med användardefinierade inkommande TCP-regler**: [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview) implementeras som en [tillstånds känslig brand vägg](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). På grund av aktuella plattforms begränsningar implementeras dock användardefinierade regler som påverkar inkommande TCP-flöden i ett tillstånds lös läge. På grund av detta blir flöden som påverkas av användardefinierade regler för inkommande trafik som inte avslutas. Dessutom registreras inte byte och antal paket för dessa flöden. Därför kan antalet byte och paket som rapporter ATS i NSG Flow-loggar (och Trafikanalys) skilja sig från de faktiska talen. En valbar flagga som åtgärdar de här problemen är schemalagda att vara tillgängliga senast 2020 senaste. Kunder som drabbas av allvarliga problem på grund av detta beteende kan begära väljer via support, ge en support förfrågan under Network Watcher > flödes loggar.  
+**Problem med användardefinierade inkommande TCP-regler**: [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview) implementeras som en [tillstånds känslig brand vägg](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). På grund av aktuella plattforms begränsningar implementeras dock användardefinierade regler som påverkar inkommande TCP-flöden i ett tillstånds lös läge. På grund av detta blir flöden som påverkas av användardefinierade regler för inkommande trafik som inte avslutas. Dessutom registreras inte byte och antal paket för dessa flöden. Därför kan antalet byte och paket som rapporter ATS i NSG Flow-loggar (och Trafikanalys) skilja sig från de faktiska talen. En valbar flagga som åtgärdar de här problemen är schemalagda att vara tillgängliga senast 2020 senaste. Kunder som drabbas av allvarliga problem på grund av det här beteendet kan begära väljer via support, ge en supportbegäran under Network Watcher > flödes loggar.  
 
 **Inkommande flöden som loggats från Internet-IP-adresser till virtuella datorer utan offentliga**IP-adresser: virtuella datorer som inte har en offentlig IP-adress som tilldelats via en offentlig IP-adress som är kopplad till nätverkskortet som en offentlig IP-adress på instans nivå eller som är en del av en grundläggande belastningsutjämnare, använder [standard SNAT](../load-balancer/load-balancer-outbound-connections.md) och har en IP-adress som tilldelats av Azure för att under lätta Därför kan du se flödes logg poster för flöden från Internet-IP-adresser, om flödet är avsett för en port i intervallet för de portar som tilldelats för SNAT. Även om Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher flödes loggen för NSG efter design. Vi rekommenderar att oönskad inkommande Internet trafik uttryckligen blockeras med NSG.
 
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Aktivera för kritiska virtuella nätverk/undernät**: flödes loggar ska aktive ras på alla kritiska virtuella nätverk/undernät i din prenumeration som bästa praxis för granskning och säkerhet. 
 
-**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används rekommenderar vi att du aktiverar NSG flödes loggar på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Mer information finns i [hur trafiken utvärderas](../virtual-network/security-overview.md#how-traffic-is-evaluated) i nätverks säkerhets grupper.
+**Aktivera NSG flödes loggning på alla NSG: er som är kopplade till en resurs**: flödes loggning i Azure konfigureras på NSG-resursen. Ett flöde kommer bara att associeras med en NSG-regel. I scenarier där flera NSG: er används rekommenderar vi att du aktiverar NSG flödes loggar på alla NSG: er använder en resurss undernät eller nätverks gränssnitt för att säkerställa att all trafik registreras. Mer information finns i [hur trafiken utvärderas](../virtual-network/network-security-group-how-it-works.md) i nätverks säkerhets grupper.
 
 **Lagrings etablering**: lagringen bör tillhandahållas i finjustera med den förväntade flödes logg volymen.
 
@@ -391,7 +391,7 @@ Ibland visas inte loggar om dina virtuella datorer inte är aktiva eller om det 
 
 Stöd för automatisering via ARM-mallar är för närvarande inte tillgängligt för NSG-flödesloggar. Mer information finns i [funktions meddelandet](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) .
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad gör NSG Flow-loggarna?**
 
@@ -406,8 +406,8 @@ Flödes logg data samlas in utanför sökvägen till nätverks trafiken och påv
 Om du vill använda ett lagrings konto bakom en brand vägg måste du ange ett undantag för betrodda Microsoft-tjänster för åtkomst till ditt lagrings konto:
 
 - Navigera till lagrings kontot genom att skriva lagrings kontots namn i den globala sökningen på portalen eller från [sidan lagrings konton](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Under avsnittet **Inställningar** väljer du **brand väggar och virtuella nätverk**
-- I **Tillåt åtkomst från**väljer du **valda nätverk**. Under **undantag**, kryssa i rutan bredvid * * * * Tillåt betrodda Microsoft-tjänster att komma åt det här lagrings kontot * * * *
+- Under avsnittet  **Inställningar**  väljer du  **brand väggar och virtuella nätverk**
+- I **Tillåt åtkomst från**väljer du  **valda nätverk**. Under  **undantag**, kryssa i rutan bredvid * * * * Tillåt betrodda Microsoft-tjänster att komma åt det här lagrings kontot * * * *
 - Om det redan är valt behövs ingen ändring.
 - Leta upp mål NSG på [översikts sidan för NSG Flow-loggar](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) och aktivera NSG flödes loggar med ovanstående lagrings konto valt.
 

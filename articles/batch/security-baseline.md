@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 59b795462ff6e033e299c15f4099b7bfd3874451
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963877"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069401"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Azures säkerhets bas linje för batch
 
@@ -98,7 +98,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-loggin
 
 **Vägledning**: om det behövs för kompatibilitet väljer du en virtuell nätverks installation från Azure Marketplace som stöder intrångs identifierings system (ID) och IP-funktioner (intrångs skydd system) med funktioner för nytto lasts granskning.
 
-Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 Distribuera Azure-brandväggen med en offentlig IP-adress i samma virtuella nätverk som Azure Batch pool-noderna. Konfigurera Network Address Translation (NAT) regler mellan betrodda platser på Internet och de privata IP-adresserna för dina noder i poolen. I Azure-brandväggen, under hot information, konfigurerar du "varning och neka" för att blockera aviseringar och blockera trafik till/från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna kommer från Microsoft Threat Intelligence-flödet och endast de högsta konfidens posterna ingår. 
 
@@ -178,9 +178,9 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till Azure Batch pooler. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
 
-Så här visar och hämtar du Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
+Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
 
-Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: Ja
 
@@ -500,7 +500,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Vägledning**: inte tillgänglig; Customer Lockbox ännu inte stöd för Azure Batch.
  
-Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 
@@ -596,13 +596,13 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: använda Azure Active Directory (AAD) rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomst till hanterings planet för Azure-resurser, inklusive batch-konto, batch-pool (-er) och lagrings konton.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till hanterings planet för Azure-resurser, inklusive batch-konto, batch-pool (-er) och lagrings konton.
 
 Förstå Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-Konfigurera RBAC i Azure:
+Så här konfigurerar du Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -778,9 +778,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
@@ -821,9 +821,9 @@ Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/gove
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
@@ -843,7 +843,7 @@ Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft
 
 **Vägledning**: Använd villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
@@ -907,9 +907,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Microsoft.Network
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -942,13 +942,13 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: om du använder anpassade avbildningar för Azure Batch pooler använder du rollbaserad åtkomst kontroll (RBAC) för att se till att endast behöriga användare kan komma åt avbildningarna.
+**Vägledning**: om du använder anpassade avbildningar för Azure Batch pooler använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att se till att endast behöriga användare får åtkomst till avbildningarna.
 
-Förstå RBAC i Azure:
+Förstå Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Konfigurera RBAC i Azure:
+Så här konfigurerar du Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
@@ -987,9 +987,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Diagnostikloggar i batch-konton måste vara aktiverade
 
-Så här visar du tillgängliga Azure Policy alias:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 
@@ -1039,7 +1039,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
 
-Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcredscan.html
+Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1169,7 +1169,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center övervakning**: inte tillämpligt
 

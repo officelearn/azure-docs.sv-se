@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905762"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071082"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -30,8 +31,8 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 | Windows 8,1 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 | SMB 3.0 | Ja | Ja |
-| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Inga |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Inga |
 
 <sup>1</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
 <sup>2</sup> Windows Server, version 1809, 1903 och 1909.  
@@ -40,7 +41,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Se till att port 445 är öppen: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrol lera om brand väggen blockerar port 445 med `Test-NetConnection` cmdleten. Information om hur du kan kringgå en blockerad 445-port finns i [Orsak 1: port 445 är blockerat](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) i vår guide för Windows fel sökning.
 
@@ -87,7 +88,7 @@ Nu har du monterat Azure-filresursen.
     
     ![En skärmbild av den nedrullningsbara menyn "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
+1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Till exempel: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![En skärmbild av dialogrutan "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

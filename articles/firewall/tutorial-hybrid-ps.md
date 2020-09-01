@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611228"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069416"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -31,17 +31,16 @@ I den här artikeln skapar du tre virtuella nätverk:
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Deklarera variablerna
-> * Skapa brandväggens virtuella hubbnätverk
-> * Skapa det virtuella ekernätverket
-> * Skapa det lokala virtuella nätverket
-> * Konfigurera och distribuera brandväggen
-> * Skapa och ansluta VPN-gatewayer
-> * Peera de virtuella hubb- och ekernätverken
-> * Skapa vägarna
-> * Skapa de virtuella datorerna
-> * testa brandväggen.
+* Deklarera variablerna
+* Skapa brandväggens virtuella hubbnätverk
+* Skapa det virtuella ekernätverket
+* Skapa det lokala virtuella nätverket
+* Konfigurera och distribuera brandväggen
+* Skapa och ansluta VPN-gatewayer
+* Peera de virtuella hubb- och ekernätverken
+* Skapa vägarna
+* Skapa de virtuella datorerna
+* testa brandväggen.
 
 Om du vill använda Azure Portal i stället för att slutföra den här kursen, se [Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal](tutorial-hybrid-portal.md).
 
@@ -62,7 +61,7 @@ Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 Se avsnittet [skapa vägar](#create-the-routes) i den här artikeln för att se hur dessa vägar skapas.
 
 >[!NOTE]
->Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
+>Azure Firewall måste ha direktanslutning till internet. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
 >
 >Azure-brandväggen kan konfigureras för att stödja Tvingad tunnel trafik. Mer information finns i [Tvingad tunnel trafik i Azure Firewall](forced-tunneling.md).
 
@@ -71,7 +70,7 @@ Se avsnittet [skapa vägar](#create-the-routes) i den här artikeln för att se 
 
 Om du vill läsa relaterad referensdokumentation för Azure PowerShell går du till [Azure PowerShell-referensen](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="declare-the-variables"></a>Deklarera variablerna
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 869c6590146561f6f2f50694c5cc3f79530dad25
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 9b5cc1cdae31039fe3f94bc49fadf848032cfd86
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854400"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069297"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Azures säkerhets bas linje för Azure-brandvägg
 
@@ -74,7 +74,7 @@ Observera att du inte kan skapa en egen service tag eller ange vilka IP-adresser
 
 **Vägledning**: Azure policy stöds ännu inte fullt ut för Azure-brandväggen. Azure Firewall Manager kan användas för att uppnå standardisering av säkerhetskonfigurationer.
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, Azure RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -132,7 +132,7 @@ Obs! båda loggarna kan sparas till ett lagrings konto, strömmas till händelse
 
 Lista över resurs åtgärder i aktivitets loggar: Azure Resource Manager Resource Provider-åtgärder
 
-- [Samla in plattforms loggar och mått med Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Samla in plattforms loggar och mått med Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
 
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -416,11 +416,11 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure Active Directory rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten till Azure-brandväggen och relaterade resurser.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure-brandväggen och relaterade resurser.
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 

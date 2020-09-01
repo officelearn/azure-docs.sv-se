@@ -8,12 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: e33f6fdba1a15032d76b94804d610e292f663d59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 120cb86e1bacfefdd9242d8fa766b391983e9c81
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76937161"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069550"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure PowerShell
 
@@ -27,9 +28,9 @@ Azure DNS stöder även skapandet av privata domäner. Stegvisa instruktioner f�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-the-resource-group"></a>Skapa en resursgrupp
+## <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Innan du skapar DNS-zonen skapar du en resursgrupp som ska innehålla DNS-zonen:
 
@@ -81,7 +82,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
@@ -91,7 +92,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Värd namnet **www\.contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
+Värd namnet **www \. contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 

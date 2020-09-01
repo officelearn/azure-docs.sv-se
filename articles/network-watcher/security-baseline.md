@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a4cba847610ab7d6119c04f9e3b1c32a192d6c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f50310b8494b65ff8e9170d333d7c3e70c82ded
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255998"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071524"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Azures säkerhets bas linje för Network Watcher
 
@@ -234,9 +234,9 @@ Network Watcher ska vara aktiverat
 
 **Vägledning**: underhålla en inventering av de användar konton som har administrativ åtkomst till kontroll planet (t. ex. Azure Portal) för Azure Network Watcher. För att kunna använda Network Watcher-funktioner måste det konto som du loggar in på Azure med, tilldelas till de inbyggda rollerna ägare, deltagare eller nätverks deltagare, eller tilldelas till en anpassad roll som tilldelas de åtgärder som anges för vissa Network Watchers funktioner.
 
-Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll (RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory.
+Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory.
 
-* [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Rollbaserad åtkomst kontroll behörigheter som krävs för att använda Network Watcher-funktioner](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
@@ -443,15 +443,15 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Ansvars område**: inte tillämpligt
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll (RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
+**Vägledning**: du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
 
 För att kunna använda Network Watcher-funktioner måste det konto som du loggar in på Azure med, tilldelas till de inbyggda rollerna ägare, deltagare eller nätverks deltagare, eller tilldelas till en anpassad roll som tilldelas de åtgärder som anges för vissa Network Watchers funktioner.
 
-* [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Förstå RBAC-behörigheter i Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Lär dig mer om Azure RBAC-behörigheter i Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

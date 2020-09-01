@@ -9,13 +9,15 @@
     - name: Skapa offentlig lastbalanserare – portalen
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Skapa offentlig lastbalanserare – PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
+      href: quickstart-load-balancer-standard-public-powershell.md
     - name: Skapa offentlig lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Skapa offentlig lastbalanserare – ARM-mall
       href: quickstart-load-balancer-standard-public-template.md
     - name: Skapa intern lastbalanserare – portalen
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Skapa intern lastbalanserare – PowerShell
+      href: quickstart-load-balancer-standard-internal-powershell.md
     - name: Skapa en intern lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true

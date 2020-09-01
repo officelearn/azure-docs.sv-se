@@ -1,19 +1,19 @@
 ---
-title: Filtrera inkommande Internet trafik med Azure Firewall DNAT med portalen
+title: 'Självstudie: filtrera inkommande Internet trafik med Azure Firewall DNAT med portalen'
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall DNAT via Azure-portalen.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251492"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069280"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: filtrera inkommande Internet trafik med Azure Firewall DNAT med hjälp av Azure Portal
 
@@ -28,12 +28,11 @@ I den här guiden får du lära dig att:
 > * Konfigurera en DNAT-regel
 > * testa brandväggen.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Krav
 
-För den här självstudien skapar du två peerkopplade virtuella nätverk:
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- **VN-Hub** – brandväggen finns i det här virtuella nätverket.
-- **VN-Spoke** – arbetsbelastningsservern finns i det här virtuella nätverket.
+
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -45,6 +44,11 @@ För den här självstudien skapar du två peerkopplade virtuella nätverk:
 6. Välj **Skapa**.
 
 ## <a name="set-up-the-network-environment"></a>Konfigurera nätverksmiljön
+
+För den här självstudien skapar du två peerkopplade virtuella nätverk:
+
+- **VN-Hub** – brandväggen finns i det här virtuella nätverket.
+- **VN-Spoke** – arbetsbelastningsservern finns i det här virtuella nätverket.
 
 Skapa först de virtuella nätverken och peerkoppla dem sedan.
 
@@ -112,7 +116,7 @@ Skapa en virtuell arbetsbelastningsdator och placera den i undernätet **SN-Work
 1. Ange ett användarnamn och lösenord.
 1. Välj **Nästa: diskar**.
 
-**Disk**
+**Diskar**
 1. Välj **Nästa: nätverk**.
 
 **Nätverk**
@@ -141,7 +145,7 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
 3. Välj **brand vägg**och välj sedan **skapa**. 
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställningen  |Värde  |
+   |Inställning  |Värde  |
    |---------|---------|
    |Namn     |FW-DNAT-test|
    |Prenumeration     |\<your subscription\>|

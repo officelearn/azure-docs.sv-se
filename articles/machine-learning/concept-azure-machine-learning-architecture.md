@@ -10,113 +10,77 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: d7bad24510f74a7fadd74328e24ea22855e6fe02
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b90cda409096f940d6c2b1c64517731e81c41fbe
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750850"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069176"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
-Lär dig mer om arkitekturen och begreppen för Azure Machine Learning.
-
-> [!NOTE]
-> Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning definierar den inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i [ord listan Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+Lär dig mer om arkitekturen och begreppen för [Azure Machine Learning](overview-what-is-azure-ml.md).  Den här artikeln ger dig en övergripande förståelse för komponenterna och hur de fungerar tillsammans för att skapa, distribuera och underhålla maskin inlärnings modeller.
 
 ## <a name="workspace"></a><a name="workspace"></a> Platsen
 
-:::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Azure Machine Learning arkitektur":::
+En [Machine Learning-arbetsyta](concept-workspace.md) är en resurs på den översta nivån för Azure Machine Learning.
 
-En [Machine Learning-arbetsyta](concept-workspace.md) är en resurs på den översta nivån för Azure Machine Learning.  Arbets ytan är den centrala platsen för att:
+:::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Diagram: Azure Machine Learning arkitektur för en arbets yta och dess komponenter":::
+
+Arbets ytan är den centrala platsen för att:
+
 * Hantera resurser som du använder för utbildning och distribution av modeller, till exempel [beräkningar](#compute-instance)
 * Lagra till gångar som du skapar när du använder Azure Machine Learning, inklusive:
   * [Miljöer](#environments)
-  * [Körningar](#runs)
+  * [Experiment](#experiments)
   * [Pipelines](#ml-pipelines)
   * [Datauppsättningar](#datasets-and-datastores)
   * [Modeller](#models)
-  * [Slut punkter](#endpoints)
+  * [Slutpunkter](#endpoints)
 
 En arbets yta innehåller andra Azure-resurser som används av arbets ytan:
 
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna är ACR en **Lazy-inläst** tills distributions avbildningar skapas.
++ [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/): registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna skapas ACR endast när distributions avbildningar skapas.
 + [Azure Storage konto](https://azure.microsoft.com/services/storage/): används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med dina Azure Machine Learning beräknings instanser lagras också här.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): lagrar övervaknings information om dina modeller.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): lagrar hemligheter som används av beräknings mål och annan känslig information som krävs av arbets ytan.
 
 Du kan dela en arbets yta med andra.
 
-## <a name="studio"></a>Studio
+## <a name="computes"></a>Beräknar
 
-[Azure Machine Learning Studio](https://ml.azure.com) innehåller en webbvy över alla artefakter i din arbets yta.  Den här portalen är också den plats där du får till gång till de interaktiva verktyg som ingår i Azure Machine Learning:
+<a name="compute-targets"></a> Ett [beräknings mål](concept-compute-target.md) är en dator eller en uppsättning datorer som du använder för att köra ditt utbildnings skript eller vara värd för tjänst distributionen. Du kan använda din lokala dator eller en fjärran sluten beräknings resurs som ett beräknings mål.  Med beräknings mål kan du börja träna på din lokala dator och sedan skala ut till molnet utan att ändra ditt utbildnings skript.
 
-+ [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes steg utan att skriva kod
-+ Webb upplevelse för [Automatisk maskin inlärning](concept-automated-ml.md)
-+ [Data märknings projekt](how-to-create-labeling-projects.md) för att skapa, hantera och övervaka projekt för att skapa etiketter för dina data
+Azure Machine Learning introducerar två fullständigt hanterade molnbaserade virtuella datorer (VM) som har kon figurer ATS för Machine Learning-aktiviteter:
 
-##  <a name="computes"></a>Beräknar
+* <a name="compute-instance"></a>**Beräknings instans**: en beräknings instans är en virtuell dator som innehåller flera verktyg och miljöer installerade för Machine Learning. Den primära användningen av en beräknings instans är för din utvecklings arbets Station.  Du kan börja köra exempel antecknings böcker utan att behöva konfigurera några inställningar. En beräknings instans kan också användas som beräknings mål för utbildnings-och inferencing-jobb.
 
-<a name="compute-targets"></a> Ett [beräknings mål](concept-compute-target.md) är en dator eller en uppsättning datorer där du kör ditt utbildnings skript eller är värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en fjärran sluten beräknings resurs.
-
-Azure Machine Learning introducerar två helt hanterade molnbaserade beräknings resurser som har kon figurer ATS för Machine Learning-uppgifter:
-
-* <a name="compute-instance"></a>**Compute instance** ([Computeinstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance?view=azure-ml-py)): en beräknings instans är en virtuell dator (VM) som innehåller flera verktyg och miljöer installerade för Machine Learning. Använd en beräknings instans som utvecklings arbets station för att börja köra exempel antecknings böcker utan att du behöver göra några inställningar. Kan också användas som beräknings mål för utbildnings-och inferencing-jobb.
-* **Beräknings kluster** ([Amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py)): kluster med virtuella datorer med skalnings funktioner för flera noder. Skalar upp automatiskt när ett jobb skickas. Passar bättre för beräknings mål för stora jobb och produktion. Använd som inlärnings mål eller för utveckling och testning av distribution.
+* **Beräknings kluster**: beräknings kluster är ett kluster med virtuella datorer med skalnings funktioner för flera noder. Compute-kluster passar bättre för beräknings mål för stora jobb och produktion.  Klustret skalas upp automatiskt när ett jobb skickas.  Använd som inlärnings mål eller för utveckling och testning av distribution.
 
 Mer information om inlärnings mål finns i [träna beräknings mål](concept-compute-target.md#train).  Mer information om beräknings mål för distribution finns i [distributions mål](concept-compute-target.md#deploy).
 
 ## <a name="datasets-and-datastores"></a>Data uppsättningar och data lager
 
-[**Azure Machine Learning data uppsättningar**](concept-data.md#datasets)  gör det enklare att komma åt och arbeta med dina data. Data uppsättningar hanterar data i olika scenarier, till exempel modell utbildning och skapande av pipelines. Med hjälp av Azure Machine Learning SDK kan du komma åt underliggande lagring, utforska data och hantera livs cykeln för olika definitioner av data uppsättningar.
-
-Data uppsättningar tillhandahåller metoder för att arbeta med data i populära format, t. ex. genom att använda `from_delimited_files()` eller `to_pandas_dataframe()` .
+[**Azure Machine Learning data uppsättningar**](concept-data.md#datasets)  gör det enklare att komma åt och arbeta med dina data. Genom att skapa en data uppsättning skapar du en referens till data käll platsen tillsammans med en kopia av dess metadata. Eftersom data behålls på den befintliga platsen debiteras du ingen extra lagrings kostnad och riskerar inte att skydda dina data källor.
 
 Mer information finns i [skapa och registrera Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md).  Fler exempel på hur du använder data uppsättningar finns i [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
-Ett [**data lager**](concept-data.md#datastores) är en lagrings abstraktion över ett Azure Storage-konto. Varje arbets yta har ett standard-datalager och du kan registrera ytterligare data lager. Använd python SDK API eller Azure Machine Learning CLI för att lagra och hämta filer från data lagret. 
+Data uppsättningar använder [data lager](concept-data.md#datastores) för att på ett säkert sätt ansluta till dina Azure Storage-tjänster. Data lager lagrar anslutnings information utan att ange autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i Key Vault som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i skriptet.
 
-## <a name="models"></a>Modeller
-
-En modell är i sin enklaste del en kod som tar indata och producerar utdata. Genom att skapa en maskin inlärnings modell kan du välja en algoritm, tillhandahålla data och [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md). Träning är en iterativ process som skapar en utbildad modell som kapslar in vad modellen lärt sig under inlärnings processen.
-
-En modell skapas genom [körning](#runs) av ett [experiment](#experiments) i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Sedan [registrerar du modellen](#register-model) i arbets ytan.
-
-Azure Machine Learning är en Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
-
-Ett exempel på hur du tränar en modell med Scikit-lära finns i [Självstudier: träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
-
-### <a name="model-registry"></a><a name="register-model"></a> Modell register
-[Arbets yta](#workspace)  >  **Modell register**
-
-Med **modell registret** kan du hålla reda på alla modeller i Azure Machine Learning arbets ytan.
-
-Modeller identifieras efter namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, förutsätter registret att det är en ny version. Versionen ökar och den nya modellen registreras under samma namn.
-
-När du registrerar modellen kan du ange ytterligare metadata-Taggar och sedan använda taggarna när du söker efter modeller.
-
-> [!TIP]
-> En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i Azure Machine Learning arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
-
-Du kan inte ta bort en registrerad modell som används av en aktiv distribution.
-
-Ett exempel på hur du registrerar en modell finns i [träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
-
-
-### <a name="environments"></a>Miljöer
+## <a name="environments"></a>Miljöer
 
 [Arbets yta](#workspace)  >  **Miljöer**
 
-En [miljö](concept-environments.md) är inkapslingen av miljön där inlärningen eller poängen för din Machine Learning-modell sker. Miljön anger python-paket, miljövariabler och program varu inställningar kring dina utbildnings-och bedömnings skript.
+En [miljö](concept-environments.md) är inkapslingen av miljön där inlärningen eller poängen för din Machine Learning-modell sker. Miljön anger python-paket, miljövariabler och program varu inställningar kring dina utbildnings-och bedömnings skript.  
 
 Kod exempel finns i avsnittet "hantera miljöer" i [använda miljöer](how-to-use-environments.md#manage-environments).
 
-### <a name="experiments"></a>Experiment
+## <a name="experiments"></a>Experiment
 
 [Arbets yta](#workspace)  >  **Experiment**
 
 Ett experiment är en gruppering av många körningar från ett angivet skript. Den tillhör alltid en arbets yta. När du skickar en körning anger du ett experiment namn. Information för körningen lagras under det experimentet. Om namnet inte finns när du skickar ett experiment skapas ett nytt experiment automatiskt.
-
+  
 Ett exempel på hur du använder ett experiment finns i [Självstudier: träna din första modell](tutorial-1st-experiment-sdk-train.md).
 
 ### <a name="runs"></a>Körningar
@@ -148,14 +112,7 @@ För att till exempel köra konfigurationer, se [Välj och Använd ett beräknin
 
 För att under lätta modell träningen med populära ramverk, gör klassen uppskattning att du enkelt kan skapa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
 
-För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
-
-Mer information finns i följande artiklar:
-
-* [Träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
-* [Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning](how-to-train-pytorch.md).
-* [Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning](how-to-train-tensorflow.md).
-* [Träna och registrera kedje modeller i skala med Azure Machine Learning](how-to-train-ml-models.md).
+Mer information om uppskattningar finns i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 
 ### <a name="snapshots"></a>Ögonblicksbilder
 
@@ -177,6 +134,34 @@ När du utvecklar din lösning använder du Azure Machine Learning python SDK i 
 När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Detta fungerar med körningar som skickats med en uppskattning, ML-pipeline eller skript körning. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
 
 Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
+
+## <a name="models"></a>Modeller
+
+En modell är i sin enklaste del en kod som tar indata och producerar utdata. Genom att skapa en maskin inlärnings modell kan du välja en algoritm, tillhandahålla data och [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md). Träning är en iterativ process som skapar en utbildad modell som kapslar in vad modellen lärt sig under inlärnings processen.
+
+Du kan ta en modell som har tränats utanför Azure Machine Learning. Eller så kan du träna en modell genom att skicka [ett](#runs) [experiment](#experiments) till ett [beräknings mål](#compute-targets) i Azure Machine Learning. När du har en modell registrerar du [modellen](#register-model) i arbets ytan.
+
+Azure Machine Learning är en Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
+
+Ett exempel på hur du tränar en modell med Scikit-lära finns i [Självstudier: träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+
+### <a name="model-registry"></a><a name="register-model"></a> Modell register
+
+[Arbets yta](#workspace)  >  **Modeller**
+
+Med **modell registret** kan du hålla reda på alla modeller i Azure Machine Learning arbets ytan.
+
+Modeller identifieras efter namn och version. Varje gången du registrerar en modell med samma namn som en befintlig, förutsätter registret att det är en ny version. Versionen ökar och den nya modellen registreras under samma namn.
+
+När du registrerar modellen kan du ange ytterligare metadata-Taggar och sedan använda taggarna när du söker efter modeller.
+
+> [!TIP]
+> En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i Azure Machine Learning arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
+
+Du kan inte ta bort en registrerad modell som används av en aktiv distribution.
+
+Ett exempel på hur du registrerar en modell finns i [träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="deployment"></a>Distribution
 
@@ -210,8 +195,7 @@ En distribuerad IoT module-slutpunkt är en Docker-behållare som innehåller di
 
 Om du har aktiverat övervakning samlar Azure in telemetridata från modellen i Azure IoT Edge-modulen. Telemetridata är bara tillgängliga för dig och lagras i din lagrings konto instans.
 
-Azure IoT Edge säkerställer att modulen körs och övervakar den enhet som är värd för den.
-. 
+Azure IoT Edge säkerställer att modulen körs och övervakar den enhet som är värd för den. 
 ## <a name="automation"></a>Automation
 
 ### <a name="azure-machine-learning-cli"></a>Azure Machine Learning CLI 
@@ -224,7 +208,19 @@ Du använder [maskin inlärnings pipeliner](concept-ml-pipelines.md) för att sk
 
 Pipeline-steg kan återanvändas och kan köras utan att köra föregående steg om utdata från dessa steg inte har ändrats. Du kan till exempel omträna en modell utan att köra kostsamma data förberedelse steg om data inte har ändrats. Pipelines gör det också möjligt för data experter att samar beta medan de arbetar med olika delar av ett Machine Learning-arbetsflöde.
 
-## <a name="interacting-with-machine-learning"></a>Interagera med Machine Learning
+## <a name="interacting-with-your-workspace"></a>Interagera med din arbets yta
+
+### <a name="studio"></a>Studio
+
+[Azure Machine Learning Studio](https://ml.azure.com) innehåller en webbvy över alla artefakter i din arbets yta.  Du kan visa resultat och information om dina data uppsättningar, experiment, pipelines, modeller och slut punkter.  Du kan också hantera beräknings resurser och data lager i Studio.
+
+Studio är också den plats där du får åtkomst till de interaktiva verktyg som ingår i Azure Machine Learning:
+
++ [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes steg utan att skriva kod
++ Webb upplevelse för [Automatisk maskin inlärning](concept-automated-ml.md)
++ [Data](how-to-create-labeling-projects.md) som används för att skapa, hantera och övervaka projekt för att förse dina data med etiketter
+
+### <a name="programming-tools"></a>Programmerings verktyg
 
 > [!IMPORTANT]
 > Verktyg som marker ATS (för hands version) nedan finns för närvarande i offentlig för hands version.
@@ -232,7 +228,6 @@ Pipeline-steg kan återanvändas och kan köras utan att köra föregående steg
 
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R (för](https://azure.github.io/azureml-sdk-for-r/reference/index.html) hands version).
-+ Använd [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod. (En [företags arbets yta](concept-workspace.md#upgrade)) krävs för att kunna använda designer.)
 + Använd [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) för Automation.
 + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
 

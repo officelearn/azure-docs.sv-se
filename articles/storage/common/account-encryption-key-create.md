@@ -10,13 +10,13 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e6ae39fea8c3839208fc366ba0ce8d69799357d2
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056728"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070504"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -217,7 +217,7 @@ Följande JSON-exempel skapar ett allmänt-syfte v2-lagrings konto som är konfi
 
 När du har skapat ett konto som förlitar sig på konto krypterings nyckeln kan du läsa följande artiklar för att konfigurera Kundhanterade nycklar med Azure Key Vault:
 
-- [Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure Portal](storage-encryption-keys-portal.md)
+- [Konfigurera kundhanterade nycklar med Azure Key Vault med hjälp av Azure-portalen](storage-encryption-keys-portal.md)
 - [Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av PowerShell](storage-encryption-keys-powershell.md)
 - [Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI](storage-encryption-keys-cli.md)
 
@@ -248,7 +248,7 @@ az storage account show /
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 

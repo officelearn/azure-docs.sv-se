@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 12/19/2019
+ms.date: 08/28/2020
 ms.author: nitinme
-ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 1ab075d882f073098e015f8b0726743803edc2ca
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223762"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069994"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -31,7 +31,7 @@ Vill du se vad som är nytt och uppdaterat Cognitive Services dokumentationen? K
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|Med Custom Vision Service kan du bygga anpassade bild klassificerare.|
 |[Ansikte](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut.|
 |[Formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Formigenkänning") (för hands version)|Formulär tolken identifierar och extraherar nyckel/värde-par och tabell data från formulär dokument. matar sedan ut strukturerade data, inklusive relationerna i original filen.|
-|Hand [SKRIFTS tolk](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Handskriftsigenkänning") (för hands version)|Med hjälp av hand SKRIFTS tolken kan du identifiera och analysera digitala pennan tecknings data, former och handskrivna innehåll och generera en dokument struktur med alla identifierade entiteter.|
+|[Tryck färgs tolkning](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Handskriftsigenkänning") (tas ur bruk)|Med hjälp av hand SKRIFTS tolken kan du identifiera och analysera digitala pennan tecknings data, former och handskrivna innehåll och generera en dokument struktur med alla identifierade entiteter.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Med Video Indexer kan du extrahera insikter från videon.|
 
 ## <a name="speech-apis"></a>Tal-API: er
@@ -51,7 +51,7 @@ Vill du se vad som är nytt och uppdaterat Cognitive Services dokumentationen? K
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Språkförståelse")|Language Understanding service (LUIS) gör det möjligt för ditt program att förstå vad en person vill ha i sina egna ord.|
+|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service (LUIS) gör det möjligt för ditt program att förstå vad en person vill ha i sina egna ord.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|Med QnA Maker kan du bygga en fråge-och svars tjänst från det delvis strukturerade innehållet.|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Textanalys")|Textanalys tillhandahåller bearbetning av naturligt språk över rå text för sentiment-analys, extrahering av nyckel fraser och språk identifiering.|
 |[Översättare](https://docs.microsoft.com/azure/cognitive-services/translator/ "Översättare")|Translator tillhandahåller datorspecifik text översättning i nära real tid.|

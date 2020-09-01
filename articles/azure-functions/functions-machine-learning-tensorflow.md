@@ -5,13 +5,13 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 03f27315a1506a67f41bec929f42f3cf6278f126
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: mvc, devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142289"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069620"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
@@ -23,7 +23,7 @@ I den här artikeln får du lära dig hur du använder python, TensorFlow och Az
 > * Bygg en server lös HTTP API för att klassificera en avbildning som innehåller en hund eller en katt.
 > * Använda API: et från en webbapp.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python-3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 och python 3.6. x verifieras med Azure Functions. Python 3,8 och senare versioner stöds inte ännu.)

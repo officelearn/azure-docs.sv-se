@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7871099e3e05613bec29a4bfc0824dd9647431e7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 909d423b31bb76d8d6aaed994d1c9f7372cbc01f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937546"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069790"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure Policy säkerhets bas linje för Azures säkerhets prestanda
 
@@ -72,13 +72,13 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst-lösning med h
 
 *Mer information finns i [säkerhets kontroll: data skydd](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure Active Directory rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten till Azure policy.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure policy.
 
-* [RBAC-behörigheter i Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
+* [Azure RBAC-behörigheter i Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
 
-* [Konfigurera RBAC i Azure](../../../role-based-access-control/role-assignments-portal.md)
+* [Så här konfigurerar du Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt

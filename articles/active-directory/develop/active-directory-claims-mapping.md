@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853366"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068651"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -302,7 +302,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | streetaddress | Gatuadress |
 | Användare | post nummer | Postnummer |
 | Användare | preferredlanguange | Önskat språk |
-| Användare | onpremisesuserprincipalname | Lokalt UPN |
+| Användare | onpremisesuserprincipalname | Lokalt UPN |*
 | Användare | MailNickName | E-postsmek namn |
 | Användare | extensionattribute1 | Attribut 1 för tillägg |
 | Användare | extensionattribute2 | Attribut för tillägg 2 |
@@ -322,7 +322,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | othermail | Annan e-post |
 | Användare | land | Land/region |
 | Användare | city | City |
-| Användare | state | Tillstånd |
+| Användare | state | Status |
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
@@ -340,6 +340,8 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 - JwtClaimType måste innehålla namnet på det anspråk som ska genereras i JWTs.
 - SamlClaimType måste innehålla URI: n för det anspråk som ska genereras i SAML-token.
+
+* **onPremisesUserPrincipalName-attribut:** När du använder ett alternativt ID synkroniseras det lokala attributet userPrincipalName med Azure AD-attributet onPremisesUserPrincipalName. Det här attributet är bara tillgängligt om alternativt ID har kon figurer ATS men också är tillgängligt via MS Graph beta: https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > Namn och URI: er för anspråk i den begränsade anspråks uppsättningen kan inte användas för anspråks typ element. Mer information finns i avsnittet "undantag och begränsningar" längre fram i den här artikeln.
@@ -440,7 +442,7 @@ I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skicka
 > [!NOTE]
 > När du skapar en princip för anspråks mappning kan du också skapa ett anspråk från ett attribut för katalog schema tillägg i tokens. Använd *ExtensionID* för attributet extension i stället för *ID* i `ClaimsSchema` elementet.  Mer information om attribut för tillägg finns i [använda attribut för katalog schema tillägg](active-directory-schema-extensions.md).
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för tjänstens huvud namn. Om du är nybörjare på Azure AD rekommenderar vi att du [Lär dig hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.
 

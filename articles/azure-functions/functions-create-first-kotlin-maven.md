@@ -6,12 +6,13 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: d8abf6cdf8506dc491f4e026c9a61ac1391f6ea4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 526287feb93052d10428971dfd8f660d4265c831
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506306"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071269"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Snabb start: skapa din första funktion med Kotlin och maven
 
@@ -19,7 +20,7 @@ Den här artikeln vägleder dig genom att använda kommando rads verktyget Maven
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill utveckla funktioner med Kotlin måste du ha följande installerat:
 
@@ -238,7 +239,7 @@ Om du vill arbeta med [funktions utlösare och andra bindningar](functions-trigg
 
 Du har skapat en Kotlin Function-app med en enkel HTTP-utlösare och distribuerat den till Azure Functions.
 
-- Mer information om hur du utvecklar Java-och Kotlin-funktioner finns i [utvecklings guiden för Java Functions](functions-reference-java.md) .
+- Mer information om hur du utvecklar Java-och Kotlin-funktioner finns i  [utvecklings guiden för Java Functions](functions-reference-java.md) .
 - Lägg till fler funktioner med olika utlösare i projektet med Maven-målet `azure-functions:add`.
 - Skriv och felsök funktioner lokalt med [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) och [Eclipse](functions-create-maven-eclipse.md). 
 - Felsök funktioner distribuerade i Azure med Visual Studio Code. Instruktioner finns i dokumentationen för [serverlösa Java-program](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) för Visual Studio Code.

@@ -3,13 +3,13 @@ title: Självstudie – Utlös container grupp efter Azure Function
 description: Skapa en HTTP-utlöst, Server lös PowerShell-funktion för att automatisera skapandet av Azure Container instances
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.custom: ''
-ms.openlocfilehash: 298cf1452e514ede540e23d4e64f6dd1059cceab
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259742"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072051"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Självstudie: Använd en HTTP-utlöst Azure-funktion för att skapa en behållar grupp
 
@@ -25,7 +25,7 @@ Lär dig att:
 > * Ändra och publicera om PowerShell-funktionen för att automatisera distributionen av en container grupp med en behållare.
 > * Verifiera den HTTP-utlösta distributionen av containern.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Se [skapa din första funktion i Azure med Visual Studio Code](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment) för krav för att installera och använda Visual Studio code med Azure Functions tillägget på ditt operativ system.
 

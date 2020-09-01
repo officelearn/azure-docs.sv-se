@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536941"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069331"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -48,7 +48,9 @@ I den här guiden får du lära dig att:
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](deploy-ps.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+## <a name="prerequisites"></a>Krav
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="set-up-the-network"></a>Konfigurera nätverket
 
@@ -72,7 +74,7 @@ Det här virtuella nätverket innehåller tre undernät.
 > [!NOTE]
 > Storleken på AzureFirewallSubnet-undernätet är/26. Mer information om under näts storleken finns i [vanliga frågor och svar om Azure Firewall](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
 1. Välj **nätverk**  >  **virtuellt nätverk**.
 2. I fältet **Prenumeration** väljer du din prenumeration.
 3. För **resurs grupp**väljer du **test-VB-RG**.
@@ -98,7 +100,7 @@ Det här virtuella nätverket innehåller tre undernät.
 
 Nu ska du skapa den virtuella arbets belastnings datorn och placera den i **arbets belastningen SN-** undernät.
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
 2. Välj **Compute** och välj sedan **virtuell dator**.
 3. **Windows Server 2016 Data Center** i den aktuella listan.
 4. Ange följande värden för den virtuella datorn:
@@ -110,7 +112,7 @@ Nu ska du skapa den virtuella arbets belastnings datorn och placera den i **arbe
    |Region     |Samma som föregående|
    |Bild|Windows Server 2019 Datacenter|
    |Administratörens användar namn     |Ange ett användar namn|
-   |lösenordsinställning     |Ange ett lösen ord|
+   |Lösenord     |Ange ett lösen ord|
 
 4. Under **regler för inkommande port**, **offentliga inkommande portar**väljer du **ingen**.
 6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
@@ -125,7 +127,7 @@ Nu ska du skapa den virtuella arbets belastnings datorn och placera den i **arbe
 
 Distribuera brandväggen till det virtuella nätverket.
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
 2. Skriv **brand väggen** i sökrutan och tryck på **RETUR**.
 3. Välj **brand vägg** och välj sedan **skapa**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
@@ -134,10 +136,10 @@ Distribuera brandväggen till det virtuella nätverket.
    |---------|---------|
    |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**Test-VB-RG** |
-   |Name     |**Test-FW01**|
-   |Position     |Välj samma plats som tidigare|
+   |Namn     |**Test-FW01**|
+   |Plats     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
-   |Offentlig IP-adress     |**Lägg till ny**<br>**Namn**: **VB-pip**|
+   |Offentlig IP-adress     |**Lägg till ny**<br>**Namn**:  **VB-pip**|
 
 5. Välj **Granska + skapa**.
 6. Granska sammanfattningen och välj sedan **skapa** för att skapa brand väggen.
@@ -188,7 +190,7 @@ Det här är den program regel som tillåter utgående åtkomst till `www.google
 9. I **typ av källa**väljer du **IP-adress**.
 10. För **källa**skriver du **10.0.2.0/24**.
 11. I fältet **Protokoll: port** skriver du **http, https**.
-12. För **mål-FQDN**skriver du**`www.google.com`**
+12. För **mål-FQDN**skriver du **`www.google.com`**
 13. Välj **Lägg till**.
 
 Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).

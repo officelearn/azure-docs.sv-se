@@ -12,17 +12,17 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5d88c685f1e55bd361ac50662d9eaf931cba15c3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: da99468b1582c4acab192ad3b96761172aa69580
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115806"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068668"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att få åtkomst till Azure Active Directory (Azure AD)-resurser. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett begränsat antal scenarier där Azure AD Graph API fortfarande är lämpligt. Mer information finns i blogg inlägget [Microsoft Graph eller Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) och [migrera Azure AD Graph-appar till Microsoft Graph](/graph/migrate-azure-ad-graph-overview).
+> Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att få åtkomst till Azure Active Directory (Azure AD)-resurser. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett begränsat antal scenarier där Azure AD Graph API fortfarande är lämpligt. Mer information finns i blogg inlägget [Microsoft Graph eller Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) och [migrera Azure AD Graph-appar till Microsoft Graph](/graph/migrate-azure-ad-graph-planning-checklist).
 
 Den här artikeln gäller Azure AD Graph API. Liknande information som rör Microsoft Graph-API finns i [använda Microsoft Graph API](/graph/use-the-api).
 

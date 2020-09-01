@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 633db386804a59ca7e315135c1069b9ca278183d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 03e3ea745e00773272cd141aebb845465ee9890c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082281"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072493"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator
 
@@ -128,7 +128,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando                                                                                                             | Kommentarer                                                                                                                                                                                |
+| Kommando                                                                                                             | Anteckningar                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)                           | Skapar en resursgrupp där alla resurser lagras.                                                                                                                          |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)                         | Skapar ett lagringskonto.                                                                                                                                                           |

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 883d0afac5623838e9dde068964b36cfe3b44380
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281998"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070402"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -254,7 +254,7 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--från-till-** sträng (valfritt) anger källans mål kombination. Exempel: `LocalBlob` , `BlobLocal` , `LocalBlobFS` .
 
-**--Hjälp** för kopiering.
+**--Hjälp**  för kopiering.
 
 **--include-efter** sträng inkluderar endast de filer som har ändrats på eller efter det datum/tid som angetts. Värdet ska vara i ISO8601-format. Om ingen tidszon anges antas värdet vara i den lokala tids zonen på den dator som kör AzCopy. till exempel `2020-08-19T15:04:00Z` för en UTC-tid eller `2020-08-19` för midnatt (00:00) i den lokala tids zonen. Som vid AzCopy 10,5 gäller den här flaggan bara för filer, inte mappar, så att mappegenskaper inte kopieras när du använder den här flaggan med `--preserve-smb-info` eller `--preserve-smb-permissions` .
 
@@ -263,6 +263,8 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 **--include-Path-** sträng innehåller bara dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: `myFolder;myFolder/subDirName/file.pdf` ).
 
 **--Inkludera-mönster** sträng inkludera endast dessa filer vid kopiering. Det här alternativet stöder jokertecken (*). Separera filer med hjälp av en `;` .
+
+**--list-of-versions** -sträng anger en fil där varje versions-ID visas på en separat rad. Se till att källan måste peka på en enskild blob och att alla versions-ID: n som anges i filen med den här flaggan endast tillhör käll-bloben. AzCopy kommer att hämta de angivna versionerna i den angivna målmappen. Mer information finns i [Hämta tidigare versioner av en BLOB](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden/svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard `INFO` ). 
 

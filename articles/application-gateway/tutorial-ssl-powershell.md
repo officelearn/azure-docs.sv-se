@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: af1ba6bdf8edc3ce8653c9ecf196a599fb984ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 21e242d0a6a5aa2efa011289200654e71bd58662
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805918"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071456"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Skapa en Application Gateway med TLS-avslutning med Azure PowerShell
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 > * Skapa en programgateway med certifikatet
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

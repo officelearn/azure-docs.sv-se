@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 92cc742fce101b67bfb359381b4eabf9cf2a404e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869583"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068991"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Utdata från Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Vissa utmatnings typer stöder [partitionering](#partitioning)och [utgående bat
 
 | Utdatatyp | Partitionering | Säkerhet | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage gen 1](azure-data-lake-storage-gen1-output.md)|Azure Active Directory användare </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Ja|Azure Active Directory användare </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|Ja, måste aktive ras.|SQL User auth </br> MSI (för hands version)|
 |[Azure Synapse Analytics (för hands version)](azure-synapse-analytics-output.md)|Inga|SQL User auth|
 |[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Ja|MSI </br> Åtkomstnyckel|

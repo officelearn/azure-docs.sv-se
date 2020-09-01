@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/06/2020
-ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: f9dc54959979d00d57536e3a3fa2262d27e28f96
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533095"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072204"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
@@ -28,15 +28,17 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
 
     ![Monterings instruktioner SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
     * Om du monterar en NFS-volym måste du kontrol lera att du använder `vers` alternativet i `mount` kommandot för att ange den NFS-protokollversion som motsvarar den volym som du vill montera. 
-    * Om du använder NFSv 4.1 använder du följande kommando för att montera fil systemet:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    * Om du använder NFSv 4.1 använder du följande kommando för att montera fil systemet:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+        > [!NOTE]
+        > Om du använder NFSv 4.1 ser du till att alla virtuella datorer som monterar exporten använder unika värdnamn.
 
 3. Om du vill att en NFS-volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om, lägger du till en post i `/etc/fstab` filen på värden. 
 
     Exempelvis:  `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
-    * `$ANFIP`är IP-adressen för den Azure NetApp Files volym som finns på bladet volym egenskaper.
-    * `$FILEPATH`är export Sök vägen för Azure NetApp Files volym.
-    * `$MOUNTPOINT`är katalogen som skapas på den Linux-värd som används för att montera NFS-exporten.
+    * `$ANFIP` är IP-adressen för den Azure NetApp Files volym som finns på bladet volym egenskaper.
+    * `$FILEPATH` är export Sök vägen för Azure NetApp Files volym.
+    * `$MOUNTPOINT` är katalogen som skapas på den Linux-värd som används för att montera NFS-exporten.
 
 4. Om du vill montera volymen till Windows med NFS:
 

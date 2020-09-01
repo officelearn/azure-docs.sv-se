@@ -7,13 +7,13 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e38e9ee301d080110e8019e3fe407e7d5cdc026
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499202"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069586"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installera och konfigurera Windows Azure Diagnostics-tillägget (WAD)
 [Tillägget Azure Diagnostics](diagnostics-extension-overview.md) är en agent i Azure Monitor som samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella Azure-datorer och andra beräknings resurser. Den här artikeln innehåller information om hur du installerar och konfigurerar Windows Diagnostics-tillägget och en beskrivning av hur data lagras i och Azure Storage konto.
@@ -192,19 +192,19 @@ Se även [använda PowerShell för att aktivera Azure-diagnostik på en virtuell
 I följande tabell visas olika typer av data som har samlats in från diagnostikprogrammet och om de lagras som en tabell eller en blob. Data som lagras i tabeller kan också lagras i blobbar beroende på [inställningen StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) i din offentliga konfiguration.
 
 
-| Data | Lagringstyp | Description |
+| Data | Lagringstyp | Beskrivning |
 |:---|:---|:---|
-| WADDiagnosticInfrastructureLogsTable | Tabeller | Diagnostisk övervakning och konfigurations ändringar. |
-| WADDirectoriesTable | Tabeller | Kataloger som diagnostiken övervakar.  Detta inkluderar IIS-loggar, IIS misslyckade begär Anden och anpassade kataloger.  Platsen för blobb logg filen anges i fältet container och namnet på blobben är i fältet RelativePath.  Fältet AbsolutePath anger platsen och namnet på filen som den fanns på den virtuella Azure-datorn. |
-| WadLogsTable | Tabeller | Loggar som skrivits i kod med spårnings lyssnaren. |
-| WADPerformanceCountersTable | Tabeller | Prestanda räknare. |
-| WADWindowsEventLogsTable | Tabeller | Händelse loggar i Windows. |
+| WADDiagnosticInfrastructureLogsTable | Tabell | Diagnostisk övervakning och konfigurations ändringar. |
+| WADDirectoriesTable | Tabell | Kataloger som diagnostiken övervakar.  Detta inkluderar IIS-loggar, IIS misslyckade begär Anden och anpassade kataloger.  Platsen för blobb logg filen anges i fältet container och namnet på blobben är i fältet RelativePath.  Fältet AbsolutePath anger platsen och namnet på filen som den fanns på den virtuella Azure-datorn. |
+| WadLogsTable | Tabell | Loggar som skrivits i kod med spårnings lyssnaren. |
+| WADPerformanceCountersTable | Tabell | Prestanda räknare. |
+| WADWindowsEventLogsTable | Tabell | Händelse loggar i Windows. |
 | wad-IIS-failedreqlogfiles | Blob | Innehåller information från IIS-begäranden om misslyckade förfrågningar. |
 | wad-IIS-loggfiler | Blob | Innehåller information om IIS-loggar. |
 | bild | Blob | En anpassad behållare baserat på hur du konfigurerar kataloger som övervakas av diagnostisk övervakare.  Namnet på den här BLOB-behållaren anges i WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att Visa diagnostikdata
-Det finns flera verktyg för att visa data när de har överförts till lagring. Ett exempel:
+Det finns flera verktyg för att visa data när de har överförts till lagring. Exempel:
 
 * Server Explorer i Visual Studio – om du har installerat Azure-verktygen för Microsoft Visual Studio kan du använda noden Azure Storage i Server Explorer för att visa skrivskyddade blob-och tabell data från dina Azure Storage-konton. Du kan visa data från ditt lokala Storage emulator-konto och även från lagrings konton som du har skapat för Azure. Mer information finns i avsnittet [om att bläddra och hantera lagrings resurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, OSX och Linux.

@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008972"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256539"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementera redundans med Media Services v2
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Den här genom gången visar hur du kopierar innehåll (blobbar) från en till gång till en annan för att kunna hantera redundans för strömning på begäran. Det här scenariot är användbart om du vill konfigurera Azure Content Delivery Network att redundansväxla mellan två Data Center, i händelse av ett avbrott i ett Data Center. Den här genom gången använder Azure Media Services SDK, Azure Media Services REST API och Azure Storage SDK för att demonstrera följande uppgifter:
 

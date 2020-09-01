@@ -8,39 +8,17 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: b4d48dcc8f09ae8e2ec3bb198f8864de1c945682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101861"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255026"
 ---
 # <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, en SQL-pool och en Apache Spark pool. 
-
-## <a name="prepare-a-storage-account"></a>Förbereda ett lagrings konto
-
-1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Skapa ett nytt lagrings konto med följande inställningar:
-
-    |Flik|Inställning | Föreslaget värde | Beskrivning |
-    |---|---|---|---|
-    |Grunder|**Namn på lagringskonto**| Välj ett namn.| I det här dokumentet använder vi namnet **contosolake**.|
-    |Grunder|**Typ av konto**| **StorageV2** ||
-    |Grunder|**Plats**|Välj en plats.| Vi rekommenderar din Azure Synapse Analytics-arbetsyta och Azure Data Lake Storage Gen2 kontot befinner sig i samma region.|
-    |Avancerat|**Data Lake Storage Gen2**|**Aktiverad**| Azure Synapse fungerar bara med lagrings konton som har den här inställningen aktive rad.|
-    |||||
-
-1. När du har skapat lagrings kontot väljer du **åtkomst kontroll (IAM)** i den vänstra rutan. Tilldela sedan följande roller eller kontrol lera att de redan har tilldelats:
-    * Tilldela rollen som **ägare** .
-    * Tilldela rollen som **ägare av Storage BLOB-data** .
-1. I den vänstra rutan väljer du **behållare** och skapar en behållare.
-1. Du kan ge behållaren ett valfritt namn. I det här dokumentet namnger vi behållar **användare**.
-1. Godkänn standardinställningen **offentlig åtkomst nivå**och välj sedan **skapa**.
-
-I följande steg ska du konfigurera din Azure Synapse-arbetsyta att använda det här lagrings kontot som primärt lagrings konto och behållare för att lagra data i arbets ytan. Arbets ytan lagrar data i Apache Spark tabeller. Programmet lagrar Spark-programloggarna under en mapp med namnet **/Synapse/workspacename**.
 
 ## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -50,23 +28,17 @@ I följande steg ska du konfigurera din Azure Synapse-arbetsyta att använda det
 
     |Flik|Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|---|
-    |Grunder|**Namn på arbetsyta**|Du kan ge det något annat namn.| I det här dokumentet använder vi min **arbets yta**.|
-    |Grunder|**Region**|Matcha lagrings kontots region.|
+    |Grundläggande inställningar|**Namn på arbetsyta**|Du kan ge det något annat namn.| I det här dokumentet använder vi min **arbets yta**.|
+    |Grundläggande inställningar|**Region**|Matcha lagrings kontots region.|
 
-1. Under **välj Data Lake Storage gen 2**väljer du det konto och den behållare som du skapade tidigare.
+1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
+1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
+    1. Under **välj Data Lake Storage gen 2**, klickar du på **Skapa nytt** och ge den namnet **contosolake**.
+    1. Under **välj Data Lake Storage gen 2**, klickar du på **fil system** och namnger IT- **användare**.
+1. ALTERNATIV 2 Se anvisningarna för att **förbereda ett lagrings konto** längst ned i det här dokumentet.
+1. Din Azure Synapse-arbetsyta kommer att använda det här lagrings kontot som det primära lagrings kontot och behållaren för att lagra data i arbets ytan. Arbets ytan lagrar data i Apache Spark tabeller. Programmet lagrar Spark-programloggarna under en mapp med namnet **/Synapse/workspacename**.
 1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
 
-## <a name="verify-access-to-the-storage-account"></a>Verifiera åtkomst till lagrings kontot
-
-Hanterade identiteter för din Azure Synapse-arbetsyta kanske redan har åtkomst till lagrings kontot. Följ dessa steg för att se till att:
-
-1. Öppna [Azure Portal](https://portal.azure.com) och det primära lagrings kontot som valts för din arbets yta.
-1. Välj **åtkomst kontroll (IAM)** i den vänstra rutan.
-1. Tilldela följande roller eller kontrol lera att de redan har tilldelats. Vi använder samma namn för arbets ytans identitet och arbets ytans namn.
-    * För rollen **Storage BLOB data Contributor** på lagrings kontot tilldelar du min **arbets yta** som arbets ytans identitet.
-    * Tilldela min **arbets yta** som arbets ytans namn.
-
-1. Välj **Spara**.
 
 ## <a name="open-synapse-studio"></a>Öppna Synapse Studio
 
@@ -121,6 +93,38 @@ Till skillnad från andra typer av pooler baseras faktureringen av SQL på begä
 
 * SQL på begäran har egna SQL-databaser på begäran som finns oberoende av en SQL-pool på begäran.
 * En arbets yta har alltid exakt en SQL-pool på begäran som heter **SQL på begäran**.
+
+## <a name="prepare-a-storage-account"></a>Förbereda ett lagrings konto
+
+1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Skapa ett nytt lagrings konto med följande inställningar:
+
+    |Flik|Inställning | Föreslaget värde | Beskrivning |
+    |---|---|---|---|
+    |Grundläggande inställningar|**Namn på lagringskonto**| Välj ett namn.| I det här dokumentet använder vi namnet **contosolake**.|
+    |Grundläggande inställningar|**Typ av konto**| **StorageV2** ||
+    |Grundläggande inställningar|**Plats**|Välj en plats.| Vi rekommenderar din Azure Synapse Analytics-arbetsyta och Azure Data Lake Storage Gen2 kontot befinner sig i samma region.|
+    |Avancerat|**Data Lake Storage Gen2**|**Aktiverad**| Azure Synapse fungerar bara med lagrings konton som har den här inställningen aktive rad.|
+    |||||
+
+1. När du har skapat lagrings kontot väljer du **åtkomst kontroll (IAM)** i den vänstra rutan. Tilldela sedan följande roller eller kontrol lera att de redan har tilldelats:
+    * Tilldela rollen som **ägare** .
+    * Tilldela rollen som **ägare av Storage BLOB-data** .
+1. I den vänstra rutan väljer du **behållare** och skapar en behållare.
+1. Du kan ge behållaren ett valfritt namn. I det här dokumentet namnger vi behållar **användare**.
+1. Godkänn standardinställningen **offentlig åtkomst nivå**och välj sedan **skapa**.
+
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurera åtkomst till lagrings kontot från din arbets yta
+
+Hanterade identiteter för din Azure Synapse-arbetsyta kanske redan har åtkomst till lagrings kontot. Följ dessa steg för att se till att:
+
+1. Öppna [Azure Portal](https://portal.azure.com) och det primära lagrings kontot som valts för din arbets yta.
+1. Välj **åtkomst kontroll (IAM)** i den vänstra rutan.
+1. Tilldela följande roller eller kontrol lera att de redan har tilldelats. Vi använder samma namn för arbets ytans identitet och arbets ytans namn.
+    * För rollen **Storage BLOB data Contributor** på lagrings kontot tilldelar du min **arbets yta** som arbets ytans identitet.
+    * Tilldela min **arbets yta** som arbets ytans namn.
+
+1. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

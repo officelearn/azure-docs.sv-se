@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05278213e30aa6d31873e93025b5a4f1bc36a5a1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d576fb4f5dea10a2adf0d7488aa422e1397fd6d1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018543"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255757"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
 
@@ -44,7 +44,7 @@ Den här självstudien visar hur du använder en systemtilldelad identitet för 
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-Om du vill ge din VM åtkomst till en databas i Azure SQL Database kan du använda en befintlig [logisk SQL-Server](../../azure-sql/database/logical-servers.md) eller skapa en ny. Om du vill skapa en ny server och en databas med hjälp av Azure-portalen följer du den här [Azure SQL-snabbstarten](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [Azure SQL-dokumentationen](https://docs.microsoft.com/azure/sql-database/).
+Om du vill ge din VM åtkomst till en databas i Azure SQL Database kan du använda en befintlig [logisk SQL-Server](../../azure-sql/database/logical-servers.md) eller skapa en ny. Om du vill skapa en ny server och en databas med hjälp av Azure-portalen följer du den här [Azure SQL-snabbstarten](../../azure-sql/database/single-database-create-quickstart.md). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [Azure SQL-dokumentationen](/azure/sql-database/).
 
 Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 
@@ -53,7 +53,7 @@ Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 
 ### <a name="enable-azure-ad-authentication"></a>Aktivera Azure AD-autentisering
 
-**Så här [konfigurerar du Azure AD-autentisering](/azure/sql-database/sql-database-aad-authentication-configure):**
+**Så här [konfigurerar du Azure AD-autentisering](../../azure-sql/database/authentication-aad-configure.md):**
 
 1. I Azure-portalen väljer du **SQL-servrar** från det vänstra navigeringsfältet.
 2. Klicka på den SQL server som ska aktiveras för Azure AD-autentisering.
@@ -64,10 +64,10 @@ Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 
 ### <a name="create-contained-user"></a>Skapa innesluten användare
 
-I det här avsnittet visas hur du skapar en innesluten användare i databasen som representerar den virtuella datorns tilldelade identitet. För det här steget behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
+I det här avsnittet visas hur du skapar en innesluten användare i databasen som representerar den virtuella datorns tilldelade identitet. För det här steget behöver du [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
 
-- [Universal Authentication med SQL Database och Azure Synapse Analytics (SSMS-stöd för MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Konfigurera och hantera Azure Active Directory autentisering med SQL Database eller Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Universal Authentication med SQL Database och Azure Synapse Analytics (SSMS-stöd för MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md)
+- [Konfigurera och hantera Azure Active Directory autentisering med SQL Database eller Azure Synapse Analytics](../../azure-sql/database/authentication-aad-configure.md)
 
 SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-kontona, t. ex. användare, grupper och tjänst huvud namn (program) och virtuella dator namn som är aktiverade för hanterad identitet unikt definieras i AAD om deras visnings namn. SQL DB kontrollerar AADs visnings namn vid T-SQL-skapandet av sådana användare och om det inte är unikt, Miss lyckas begäran att tillhandahålla ett unikt AAD-visnings namn för ett angivet konto.
 
@@ -208,4 +208,4 @@ Kontrollera värdet på `$DataSet.Tables[0]` för att visa resultatet av frågan
 I den här självstudien har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure SQL Database. Mer information om Azure SQL Database finns i:
 
 > [!div class="nextstepaction"]
-> [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)

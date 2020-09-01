@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484302"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254499"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Rekommendationer och metod tips för Azure Active Directory B2C
 
@@ -44,6 +44,7 @@ Definiera din program-och tjänst arkitektur, inventera aktuella system och Plan
 | Användbarhet kontra säkerhet | Din lösning måste träffa det högra saldot mellan program användbarhet och din organisations godtagbara risk nivå. |
 | Flytta lokala beroenden till molnet | Överväg att flytta befintliga program beroenden till molnet för att säkerställa en elastisk lösning. |
 | Migrera befintliga appar till b2clogin.com | Utfasningen av login.microsoftonline.com börjar gälla för alla Azure AD B2C klienter den 04 december 2020. [Läs mer](b2clogin.md). |
+| Använda identitets skydd och villkorlig åtkomst | Använd de här funktionerna för att få betydligt bättre kontroll över riskfyllda autentiseringar och åtkomst principer. Azure AD B2C Premium P2 krävs. [Läs mer](conditional-access-identity-protection-overview.md). |
 
 ## <a name="implementation"></a>Implementering
 
@@ -70,7 +71,7 @@ Testa och automatisera implementeringen av Azure AD B2C.
 | Begränsning |  Azure AD B2C begränsar trafik om för många begär Anden skickas från samma källa under en kort tids period. Använd flera trafik källor vid belastnings testning och hantera `AADB2C90229` fel koden på ett smidigt sätt i dina program. |
 | Automation | Använd en pipeline för kontinuerlig integrering och leverans (CI/CD) för att automatisera testning och distribution, till exempel [Azure DevOps](deploy-custom-policies-devops.md). |
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 Hantera din Azure AD B2Cs miljö.
 

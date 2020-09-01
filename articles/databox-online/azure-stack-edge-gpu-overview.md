@@ -1,6 +1,6 @@
 ---
-title: Översikt över Microsoft Azure Stack Edge | Microsoft Docs
-description: Beskriver Azure Stack Edge, en lagrings lösning som använder en fysisk enhet för nätverks baserad överföring till Azure.
+title: Översikt över Microsoft Azure Stack Edge med GPU | Microsoft Docs
+description: Beskriver Azure Stack Edge med GPU, en lagrings lösning som använder en fysisk enhet för nätverks baserad överföring till Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: e3caf4e0e60b8ef9fb0b30b599b22e0f07d8998c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a8e1c83573de53962b3646304389023d91ab6dd3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088417"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256250"
 ---
 # <a name="what-is-azure-stack-edge-with-gpu-preview"></a>Vad är Azure Stack Edge med GPU (för hands version)?
 

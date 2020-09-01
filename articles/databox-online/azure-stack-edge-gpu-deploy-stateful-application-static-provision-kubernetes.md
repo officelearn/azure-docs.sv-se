@@ -1,6 +1,6 @@
 ---
 title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via statiskt etablerad resurs på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en statiskt etablerad resurs med hjälp av kubectl på en Microsoft Azure Stack Edge-enhet.
+description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en statiskt etablerad resurs med hjälp av kubectl på en Azure Stack Edge GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: cabd27849445c0eab93a6649d228a172b66bd1a4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085801"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254380"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med en PersistentVolume på din Azure Stack Edge-enhet
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du distribuerar ett tillstånds känsligt program me
 Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan distribuera det tillstånds känsliga programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 

@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Lär dig mer om strömnings slut punkter (ursprung), en dynamisk paketerings-och strömnings tjänst som levererar innehåll direkt till en app i klient programmet eller till en Content Delivery Network (CDN).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: inhenkel
+ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446204"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256505"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
 
@@ -54,7 +54,7 @@ I tabellen beskrivs typerna:
 |Typ|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
 |**Standard**|0|Standard slut punkten för direkt uppspelning är en **standard** typ – den kan ändras till Premium-typen genom att justera `scaleUnits` .|
-|**Premium**|> 0|**Premium** Slut punkter för direkt uppspelning passar för avancerade arbets belastningar och tillhandahåller dedikerad och skalbar bandbredds kapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits` (enheter för strömning). `scaleUnits`ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. När du använder **Premium** -typen ger varje aktive rad enhet ytterligare bandbredds kapacitet till appen. |
+|**Premium**|> 0|**Premium** Slut punkter för direkt uppspelning passar för avancerade arbets belastningar och tillhandahåller dedikerad och skalbar bandbredds kapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits` (enheter för strömning). `scaleUnits` ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. När du använder **Premium** -typen ger varje aktive rad enhet ytterligare bandbredds kapacitet till appen. |
 
 > [!NOTE]
 > För kunder som vill leverera innehåll till stora Internet-åhörare rekommenderar vi att du aktiverar CDN på slut punkten för direkt uppspelning.
@@ -92,8 +92,8 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
 
     Om du får det här felet stöder inte data centret det. Prova ett annat data Center.
 
-- `cdnProfile`: Om `cdnEnabled` är inställt på Sant kan du också skicka `cdnProfile` värden. `cdnProfile`är namnet på CDN-profilen där CDN-slutpunkten kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` Sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den angivna `cdnProfile` redan finns skapas en slut punkt under den. Om profilen inte finns skapas en ny profil automatiskt.
-- `cdnProvider`: När CDN har Aktiver ATS kan du också skicka `cdnProvider` värden. `cdnProvider`styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde anges och `cdnEnabled` är sant används "StandardVerizon" (det är standardvärdet).
+- `cdnProfile`: Om `cdnEnabled` är inställt på Sant kan du också skicka `cdnProfile` värden. `cdnProfile` är namnet på CDN-profilen där CDN-slutpunkten kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` Sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den angivna `cdnProfile` redan finns skapas en slut punkt under den. Om profilen inte finns skapas en ny profil automatiskt.
+- `cdnProvider`: När CDN har Aktiver ATS kan du också skicka `cdnProvider` värden. `cdnProvider` styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde anges och `cdnEnabled` är sant används "StandardVerizon" (det är standardvärdet).
 - `crossSiteAccessPolicies`: Används för att ange åtkomst principer mellan platser för olika klienter. Mer information finns i [Specifikation över domän princip fil](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [göra en tjänst tillgänglig över domän gränser](/previous-versions/azure/azure-services/gg185950(v=azure.100)). Inställningarna gäller endast för Smooth Streaming.
 - `customHostNames`: Används för att konfigurera en slut punkt för direkt uppspelning för att acceptera trafik som dirigerats till ett anpassat värdnamn. Den här egenskapen är giltig för slut punkter för standard-och Premium-direktuppspelning och kan ställas in när `cdnEnabled` : false.
 
@@ -122,7 +122,7 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
 
     Media Services stöder för närvarande inte TLS med anpassade domäner.
 
-- `maxCacheAge`– Åsidosätter standardvärdet för max-ålder i HTTP-cachen som anges av slut punkten för direkt uppspelning av medie fragment och manifest på begäran. Värdet anges i sekunder.
+- `maxCacheAge` – Åsidosätter standardvärdet för max-ålder i HTTP-cachen som anges av slut punkten för direkt uppspelning av medie fragment och manifest på begäran. Värdet anges i sekunder.
 - `resourceState` -
 
     - Stoppades: initialt tillstånd för en strömmande slut punkt efter skapandet

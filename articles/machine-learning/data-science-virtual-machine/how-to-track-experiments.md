@@ -1,7 +1,7 @@
 ---
 title: Experiment spårning och distribution av modeller
 titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig hur du spårar och loggar experiment från DSVM med Azure Machine Learning och/eller MLFlow.
+description: Lär dig hur du spårar och loggar experiment från Data Science Virtual Machine med Azure Machine Learning och/eller MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146903"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254808"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Spåra experiment och distribuera modeller i Azure Machine Learning
 
@@ -24,7 +24,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 
 ![spåra experiment](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste [etablera en Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
 
@@ -36,7 +36,7 @@ Azure Machine Learning-och MLFlow SDK är förinstallerade på Data Science VM o
 
 ## <a name="set-up-the-workspace"></a>Konfigurera arbets ytan
 
-Gå till [Azure Portal](https://portal.azure.com) och välj den arbets yta som du etablerade som en del av förutsättningarna. Du kommer att se __hämtnings config.jspå__ (se nedan) – Ladda ned config och se till att den lagras i din arbets katalog på DSVM.
+Gå till [Azure Portal](https://portal.azure.com) och välj den arbets yta som du etablerade som en del av förutsättningarna. Du ser __nedladdnings config.jspå__ (se nedan) – Ladda ned config och se till att den lagras i din arbets katalog på DSVM.
 
 ![Hämta konfigurations fil](./media/how-to-track-experiments/experiment-tracking-2.png)
 
@@ -123,7 +123,7 @@ Du bör se det loggade medeltalet i kvadratvärdet (MSE):
 
 ![GÅNG](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-Om du klickar på Kör visas övrig information och även Pickle-modellen i __utmatningar + loggar__
+Om du klickar på Kör visas annan information och även Pickle-modellen i __utmatningar + loggar__
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Distribuera modell i Azure Machine Learning
 
@@ -131,11 +131,11 @@ I det här avsnittet beskriver vi hur du distribuerar modeller som har tränats 
 
 ### <a name="step-1-create-inference-compute"></a>Steg 1: skapa en Härlednings beräkning
 
-På den vänstra menyn i [azureml Studio](https://ml.azure.com) klickar du på __Compute__ och sedan på fliken __härlednings kluster__ . Klicka sedan på __+ ny__ enligt följande:
+På den vänstra menyn i [azureml Studio](https://ml.azure.com) klickar du på __Compute__ och sedan på fliken __härlednings kluster__ . Klicka sedan på __+ ny__ enligt beskrivningen nedan:
 
 ![Skapa en Härlednings beräkning](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-I fönstret __nytt__ fönster för överfyllnings kluster fyller du i informationen för:
+I fönstret __nytt__ fyllnings kluster fyllnings information för:
 
 * Compute-namn
 * Kubernetes-tjänst – Välj Skapa ny
@@ -151,7 +151,7 @@ Klicka sedan på __skapa__.
 
 ### <a name="step-2-deploy-no-code-inference-service"></a>Steg 2: Distribuera ingen kod härlednings tjänst
 
-När vi registrerade modellen i vår kod med hjälp av `register_model` vi angav du ramverket som sklearn. Azure Machine Learning stöder inga kod distributioner för följande ramverk:
+När vi registrerade modellen i vår kod med `register_model` , angav vi ramverket som sklearn. Azure Machine Learning stöder inga kod distributioner för följande ramverk:
 
 * scikit-learn
 * Tensorflow SaveModel-format
@@ -167,19 +167,19 @@ Klicka sedan på knappen __distribuera__ i fönstret modell information:
 
 ![Distribuera](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-Vi kommer att distribuera modellen till det utgångs bara kluster (Azure Kubernetes-tjänsten) som vi skapade i steg 1. Fyll i informationen nedan genom att ange ett namn för tjänsten och namnet på AKS beräknings kluster (skapas i steg 1). Vi rekommenderar också att du ökar __kapaciteten för processor reserven__ till 1 (från 0,1) och __kapaciteten för minnes reserven__ till 1 (från 0,5) – du kan göra detta genom att klicka på __Avancerat__ och fylla i informationen. Klicka sedan på __distribuera__.
+Vi kommer att distribuera modellen till det utgångs bara kluster (Azure Kubernetes-tjänsten) som vi skapade i steg 1. Fyll i informationen nedan genom att ange ett namn för tjänsten och namnet på AKS beräknings kluster (skapas i steg 1). Vi rekommenderar också att du ökar __kapaciteten för processor reserven__ till 1 (från 0,1) och __kapaciteten för minnes reserven__ till 1 (från 0,5) – du kan göra den här ökningen genom att klicka på __Avancerat__ och fylla i informationen. Klicka sedan på __distribuera__.
 
 ![distribuera information](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
 ### <a name="step-3-consume"></a>Steg 3: förbruka
 
-När modellen har distribuerats bör du se följande (för att komma till den här sidan klickar du på slut punkter i den vänstra menyn > klickar sedan på namnet på den distribuerade tjänsten):
+När modellen har distribuerats, bör du se följande (för att komma till den här sidan klickar du på slut punkter i den vänstra menyn > klickar sedan på namnet på den distribuerade tjänsten):
 
 ![Använda modell](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-Observera att distributions tillståndet går från __över gången__ till __felfri__. Avsnittet om det här avsnittet innehåller även de URL: er för REST-och Swagger som en programutvecklare kan använda för att integrera din ML-modell i sina appar.
+Du bör se att distributions tillståndet går från __över gången__ till __felfri__. Dessutom tillhandahåller det här informations avsnittet REST-slutpunkter och Swagger-URL: er som en programutvecklare kan använda för att integrera din ML-modell i sina appar.
 
-Du kan testa slut punkten med [Postman](https://www.postman.com/), annars kan du använda azureml SDK:
+Du kan testa slut punkten med [Postman](https://www.postman.com/)eller så kan du använda azureml SDK:
 
 ```python
 from azureml.core import Webservice
@@ -200,8 +200,8 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Steg 4: Rensa
 
-Du bör ta bort den Härlednings beräkning som du skapade i steg 1 så att du inte debiteras pågående beräknings kostnader. På den vänstra menyn i Azure Machine Learning Studio klickar du på beräknings > utgångs kluster > väljer Compute > ta bort.
+Ta bort den Härlednings beräkning som du skapade i steg 1 så att du inte debiteras pågående beräknings kostnader. På den vänstra menyn i Azure Machine Learning Studio klickar du på beräknings > utgångs kluster > väljer Compute > ta bort.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Lär dig mer om att [Distribuera modeller i azureml](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)

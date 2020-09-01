@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 1532283be8521ad5c6cd5a9e2252e5ba839a4aa3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ac9ff084476f37348b72bdb42b9b74660132b762
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087072"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254652"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-device"></a>Distribuera en GPU-aktiverad IoT-modul från Azure Marketplace på Azure Stack Edge-enhet
+# <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul från Azure Marketplace på Azure Stack Edge GPU-enhet
 
 Den här artikeln beskriver hur du distribuerar en GPU (Graphics Processing Unit) som är aktive rad IoT Edge-modul från Azure Marketplace på din Azure Stack Edge-enhet. 
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 
 GPU-exemplet i den här artikeln innehåller PyTorch-och TensorFlow-kod för att testa processor mot GPU.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att du har:
 
@@ -113,6 +113,6 @@ Innan du börjar ska du kontrollera att du har:
 
         Du kan se att den tid det tar att köra samma uppsättning åtgärder (5000 iterationer av form Transformation) av GPU är mycket mindre än för CPU.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs mer om hur du [konfigurerar GPU för att använda en modul](azure-stack-edge-j-series-configure-gpu-modules.md).

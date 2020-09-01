@@ -1,6 +1,6 @@
 ---
-title: Hantera beräknings nätverk på Azure Stack Edge för att få åtkomst till moduler | Microsoft Docs
-description: Beskriver hur du utökar beräknings nätverket på Azure Stack Edge för att få åtkomst till moduler via en extern IP-adress.
+title: Distribuera Kubernetes-tillstånds lös app på Azure Stack Edge-GPU via IoT Edge modul | Microsoft Docs
+description: Beskriver hur du distribuerar ett Kubernetes-tillstånds löst program på Azure Stack Edge GPU-enhet med hjälp av en IoT Edge-modul som nås via en extern IP-adress.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 8de3dbd754cd0cbef947d2cde44542f9f3f77a08
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085656"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254176"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Använd IoT Edge modul för att köra ett program med Kubernetes tillstånd på din Azure Stack Edge-enhet
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Använd IoT Edge modul för att köra ett Kubernetes tillstånds löst program på Azure Stack Edge GPU-enhet
 
 I den här artikeln beskrivs hur du kan använda en IoT Edge-modul för att distribuera ett tillstånds lösa program på din Azure Stack Edge-enhet.
 
@@ -27,7 +27,7 @@ Om du vill distribuera det tillstånds lösa programmet utför du följande steg
 
 I den här instruktions artikeln använder du en modul för webserver-app för att demonstrera scenariot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar behöver du:
 

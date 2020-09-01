@@ -16,14 +16,16 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39cbfebcf34ef47ae93972a11be44ef3bcec0d66
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008955"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256454"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > **Azure Media Indexer** medie processorn kommer att dras tillbaka. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen. [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
@@ -244,7 +246,7 @@ Samma utdata (som slutförda jobb) skapas. Du kan referera till manifest filen f
 ### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Uppgifts för inställning för Azure Media Indexer
 Bearbetningen från Azure Media Indexer kan anpassas genom att tillhandahålla en valfri aktivitets för inställning tillsammans med aktiviteten.  I följande avsnitt beskrivs formatet för den här konfigurations-XML-filen.
 
-| Namn | Kräver | Beskrivning |
+| Name | Kräver | Beskrivning |
 | --- | --- | --- |
 | **inleveranstransport** |falskt |Till gångs fil (er) som du vill indexera.</p><p>Azure Media Indexer stöder följande medie fil format: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Du kan ange fil namnen i **indata** -elementets **namn** eller **list** -attribut (se nedan). Om du inte anger vilken till gångs fil som ska indexeras, kommer den primära filen att plockas. Om ingen primär till gångs fil anges indexeras den första filen i indata till gången.</p><p>Om du uttryckligen vill ange namnet på till gångs filen gör du följande:<br/>`<input name="TestFile.wmv">`<br/><br/>Du kan också indexera flera till gångs filer samtidigt (upp till 10 filer). Gör så här:<br/><br/><ol class="ordered"><li><p>Skapa en textfil (manifest fil) och ge den fil tillägget LST. </p></li><li><p>Lägg till en lista över alla till gångs fil namn i din indata till gång till manifest filen. </p></li><li><p>Lägg till (överför) manifest filen till till gången.  </p></li><li><p>Ange namnet på manifest filen i indatans List-attribut.<br/>`<input list="input.lst">`</li></ol><br/><br/>Obs: om du lägger till fler än 10 filer i manifest filen kommer indexerings jobbet att Miss 2006-felkoden. |
 | **metadatatjänst** |falskt |Metadata för de angivna till gångs fil (er) som används för vokabulär anpassning.  Användbart för att förbereda indexeraren för att identifiera ord som inte är standard ord listor, till exempel riktiga substantiv.<br/>`<metadata key="..." value="..."/>` <br/><br/>Du kan ange **värden** för fördefinierade **nycklar**. För närvarande stöds följande nycklar:<br/><br/>"title" och "Description" – används för att anpassa ord listan för att anpassa språk modellen för ditt jobb och förbättra precisionen för tal igenkänning.  Värdena för att dirigera Internet söker efter Sammanhangs beroende text dokument, med hjälp av innehållet för att utöka den interna ord listan under din indexerings aktivitet.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
@@ -253,7 +255,7 @@ Bearbetningen från Azure Media Indexer kan anpassas genom att tillhandahålla e
 ### <a name="error-codes"></a><a id="error_codes"></a>Felkoder
 Om ett fel uppstår bör Azure Media Indexer rapportera tillbaka en av följande felkoder:
 
-| Kod | Namn | Möjliga orsaker |
+| Kod | Name | Möjliga orsaker |
 | --- | --- | --- |
 | 2000 |Ogiltig konfiguration |Ogiltig konfiguration |
 | 2001 |Ogiltiga inmatade till gångar |Inmatade till gångar eller tom till gång saknas. |

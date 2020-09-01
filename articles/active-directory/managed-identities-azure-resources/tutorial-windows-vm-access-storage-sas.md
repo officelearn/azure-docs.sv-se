@@ -15,23 +15,23 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a7c9580d48f70d4bc2391e5c13c8571c38feae
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa04247aca777612c05a7531dc5b36e7af40e60e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018594"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255859"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudie: Använd en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en systemtilldelad identitet för en virtuell Windows-dator (VM) för att hämta en autentiseringsuppgifter för signaturen för delad åtkomst (SAS) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Den här självstudien visar hur du använder en systemtilldelad identitet för en virtuell Windows-dator (VM) för att hämta en autentiseringsuppgifter för signaturen för delad åtkomst (SAS) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 En tjänst-SAS ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagrings konto, för begränsad tid och en viss tjänst (i vårt exempel Blob-tjänsten) utan att exponera en åtkomst nyckel för kontot. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien demonstrerar vi överföring och hämtning av en blob med hjälp av Azure Storage PowerShell. Du lär dig hur du:
 
 > [!div class="checklist"]
-> * Skapa ett lagringskonto
+> * skapar ett lagringskonto
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
 
@@ -41,7 +41,7 @@ En tjänst-SAS ger möjlighet att bevilja begränsad åtkomst till objekt i ett 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan också hoppa över det här steget och ge din VM-tilldelade hanterade identitet åtkomst till SAS-autentiseringsuppgiften för ett befintligt lagrings konto. 
 
@@ -83,7 +83,7 @@ Azure Storage har inte inbyggt stöd för Azure Active Directory-autentisering. 
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har det installerat kan du [Ladda ned den senaste versionen](https://docs.microsoft.com/powershell/azure/) innan du fortsätter.
+Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har det installerat kan du [Ladda ned den senaste versionen](/powershell/azure/) innan du fortsätter.
 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
@@ -205,6 +205,4 @@ Name              : testblob
 I den här självstudien har du lärt dig hur du använder en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure Storage med hjälp av SAS-autentiseringsuppgifter.  Läs mer om Azure Storage SAS här:
 
 > [!div class="nextstepaction"]
->[Använda signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-
-
+>[Använda signaturer för delad åtkomst (SAS)](../../storage/common/storage-sas-overview.md)

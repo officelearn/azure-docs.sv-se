@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att förbereda Azure Portal, data Center miljö för att distribuera Azure Stack Edge | Microsoft Docs
-description: Den första självstudien om att distribuera Azure Stack Edge innebär att förbereda Azure Portal.
+title: Självstudie för att förbereda Azure Portal, data Center miljö för att distribuera Azure Stack Edge-GPU | Microsoft Docs
+description: Den första självstudien om att distribuera Azure Stack Edge-GPU innebär att förbereda Azure Portal.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 004702d52245893f4746ce8e4b4a2cc36aad6a67
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c02af8983489651d8b5b83d5d3107a534c51f067
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181858"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254686"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-with-gpu"></a>Självstudie: förbereda för att distribuera Azure Stack Edge med GPU 
 
@@ -58,7 +58,7 @@ Nu kan du börja samla in information om program varu konfigurationen för Azure
 Innan du distribuerar enheten måste du samla in information för att konfigurera program varan på din Azure Stack Edge-enhet. Att förbereda en del av den här informationen i förväg bidrar till att effektivisera processen att distribuera enheten i din miljö. Använd [Check lista för konfiguration av Azure Stack Edge-distribution](azure-stack-edge-gpu-deploy-checklist.md) för att anteckna konfigurations informationen när du distribuerar enheten.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure Stack Edge-enhet och data Center nätverket.
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuera PHP-gäst-app på en ARC-aktiverad Kubernetes på Azure Stack Edge-enhet | Microsoft Docs
+title: Distribuera PHP gäst programs app på Arc-aktiverade Kubernetes på Azure Stack Edge GPU-enhet | Microsoft Docs
 description: Beskriver hur du distribuerar ett tillstånds lösa program i PHP-programmet med Redis med GitOps på ett Arc-aktiverat Kubernetes-kluster för din Azure Stack Edge-enhet.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 46cef291a447a7c243ee9ef66ee64e9c6264ad23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085765"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254227"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis på Arc-aktiverade Kubernetes-kluster på Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis på Arc-aktiverade Kubernetes-kluster på Azure Stack Edge-GPU
 
 Den här artikeln visar hur du skapar och distribuerar ett enkelt webb program med flera nivåer med hjälp av Kubernetes och Azure Arc. Det här exemplet består av följande komponenter:
 
@@ -28,7 +28,7 @@ Distributionen görs med hjälp av GitOps på Kubernetes-klustret på din Azure 
 Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan distribuera det tillstånds lösa programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 

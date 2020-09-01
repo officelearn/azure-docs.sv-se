@@ -16,14 +16,17 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70acbb239df3806437127e41510bfebc1358532a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 36a1a198f4bd2279a9d9b8b9700b1ddd038a0900
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015976"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256675"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Använda flera indatafiler och komponent egenskaper med Premium-kodare
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Översikt
 Det finns scenarier där du kan behöva anpassa komponent egenskaper, ange Clip List XML-innehåll eller skicka flera indatafiler när du skickar en aktivitet med **Media Encoder Premium Workflow** medie processorn. Några exempel är:
 

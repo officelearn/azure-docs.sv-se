@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/14/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce980d232c6b493bab817d3319d984015270ac7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d29edec6145ebc03218264532cae07b6afc9654c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018563"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254210"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
 
@@ -46,7 +46,7 @@ I den här självstudien lär du dig att komma åt en Azure Data Lake Store med 
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-Nu kan du ge din VM-åtkomst till filer och mappar i en Azure Data Lake Store.  Du kan använda en befintlig Data Lake Store eller skapa en ny för det här steget.  För att skapa en ny Data Lake Store med hjälp av Azure-portalen följer du den här [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Nu kan du ge din VM-åtkomst till filer och mappar i en Azure Data Lake Store.  Du kan använda en befintlig Data Lake Store eller skapa en ny för det här steget.  För att skapa en ny Data Lake Store med hjälp av Azure-portalen följer du den här [snabbstarten för Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md).
 
 I din Data Lake Store skapar du en ny mapp och ger den virtuella datorns systemtilldelade identitet behörighet att läsa, skriva och köra filer i mappen:
 
@@ -62,11 +62,11 @@ I din Data Lake Store skapar du en ny mapp och ger den virtuella datorns systemt
 10. Som i steg 5 klickar du på **Lägg till**. I fältet **Välj** anger du namnet på den virtuella datorn. Markera den och klicka på **Välj**.
 11. Som i steg 6 klickar du på **Välj behörigheter**. Välj **Läs**, **Skriv** och **Kör**, lägg till i **den här mappen** och lägg till som **en åtkomstbehörighetspost och en standardbehörighetspost**.  Klicka på **OK**.  Behörigheten bör nu har lagts till.
 
-Den virtuella datorns systemtilldelade hanterade identitet kan nu utföra alla åtgärder på filer i den mapp som du skapade.  Mer information om hur du hanterar åtkomst till Data Lake Store finns i den här artikeln om [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Den virtuella datorns systemtilldelade hanterade identitet kan nu utföra alla åtgärder på filer i den mapp som du skapade.  Mer information om hur du hanterar åtkomst till Data Lake Store finns i den här artikeln om [Åtkomstkontroll i Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="access-data"></a>Åtkomst till data
 
-Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hjälp av hanterade identiteter för Azure-resurser.  För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för Data Lake Store-filsystemet i en auktoriseringsrubrik i formatet ”Bearer <ACCESS_TOKEN_VALUE>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hjälp av hanterade identiteter för Azure-resurser.  För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för Data Lake Store-filsystemet i en auktoriseringsrubrik i formatet ”Bearer <ACCESS_TOKEN_VALUE>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)
 
 > [!NOTE]
 > Data Lake Store-filsystemets klient-SDK:er stöder inte ännu hanterade identiteter för Azure-resurser.  Den här självstudien kommer att uppdateras när stöd har lagts till i SDK.
@@ -193,4 +193,4 @@ Genom att använda andra Data Lake Store-API:er kan du lägga till i filer, ladd
 I den här självstudien har du lärt dig att använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Data Lake Store. Läs mer om Azure Data Lake Store:
 
 > [!div class="nextstepaction"]
->[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md)

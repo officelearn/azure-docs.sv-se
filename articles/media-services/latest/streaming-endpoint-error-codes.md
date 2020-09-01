@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services paketering och ursprungs fel | Microsoft Docs
 description: I det här avsnittet beskrivs fel som kan uppstå från Orgin-tjänsten (Azure Media Services streaming endpoint).
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
-ms.author: juliako
-ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.openlocfilehash: 8f4e0d9a6781e35c1ed6197dd32181511506d145
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091988"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256488"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Fel med slutpunkter för direktuppspelning (ursprung) 
 
@@ -34,7 +34,7 @@ Begäran innehåller ogiltig information och avvisas av dessa felkoder och av n�
 |MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|Begäran saknar en krypterings kod i URL: en. CMAF-begäranden kräver en krypterings tag i URL: en. Andra protokoll som har kon figurer ATS med fler än en krypterings typ kräver också krypterings tag gen för untvetydighet. |
 |MPE_STORAGE_BAD_URL_SYNTAX |0x808900E9|Begäran om lagrings utrymme för att uppfylla begäran misslyckades med ett felaktigt fel i begäran. |
 
-## <a name="403-forbidden"></a>403 – Förbjuden
+## <a name="403-forbidden"></a>403 förbud
 
 Begäran tillåts inte på grund av en av följande orsaker:
 

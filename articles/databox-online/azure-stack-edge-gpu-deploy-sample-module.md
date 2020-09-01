@@ -1,23 +1,23 @@
 ---
-title: Distribuera GPU-modul på din Microsoft Azure Stack Edge-enhet | Microsoft Docs
+title: Distribuera GPU-modul på Azure Stack Edge GPU-enhet | Microsoft Docs
 description: Beskriver hur du aktiverar beräkning och gör din Azure Stack Edge-enhets beräkning-klar via det lokala användar gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 68badb1524c869309a0e2d96eaf6c9e490111bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085812"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254567"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-device"></a>Distribuera en GPU-aktiverad IoT-modul på Azure Stack Edge-enhet
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul på Azure Stack Edge GPU-enhet
 
-Den här artikeln beskriver hur du distribuerar en GPU-aktiverad IoT Edge-modul på din Azure Stack Edge-enhet. 
+Den här artikeln beskriver hur du distribuerar en GPU-aktiverad IoT Edge-modul på din Azure Stack Edge GPU-enhet. 
 
 I den här artikeln kan du se hur du:
   - Förbered Azure Stack Edge för att köra en GPU-modul.
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 
 GPU-exemplet i den här artikeln innehåller PyTorch-och TensorFlow-kod för att testa processor mot GPU.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att du har:
 
@@ -162,6 +162,6 @@ Innan du börjar ska du kontrollera att du har:
 
         Du kan se att den tid det tar att köra samma uppsättning åtgärder (5000 iterationer av form Transformation) av GPU är mycket mindre än för CPU.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs mer om hur du [konfigurerar GPU för att använda en modul](azure-stack-edge-j-series-configure-gpu-modules.md).

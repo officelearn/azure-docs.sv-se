@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 77251148bed76f672adc2fffe2db688b33786022
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147124"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255536"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på din Azure Stack Edge-enhet med Azure CLI och python
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet med hjälp av Azure CLI och python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -45,7 +45,7 @@ Arbets flödet för distributionen illustreras i följande diagram.
 
 En detaljerad förklaring av arbets flödes diagrammet finns i [distribuera virtuella datorer på Azure Stack Edge-enhet med Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Information om hur du ansluter till Azure Resource Manager finns i [ansluta till Azure Resource Manager med Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-enhet med hjälp av Azure CLI och python måste du kontrol lera att du har slutfört de krav som anges i följande steg:
 

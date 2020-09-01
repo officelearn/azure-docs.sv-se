@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0309579a674533ebd056c8493b149cc78beef607
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896024"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254089"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Använd Media Encoder Standard för att automatiskt generera en bit hastighets steg  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Använd Media Encoder Standard för att automatiskt generera en bit hastighets steg
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## <a name="overview"></a>Översikt
 
@@ -174,7 +176,7 @@ I det här avsnittet visas tre exempel på utmatnings lager som har skapats av i
 ### <a name="example-1"></a>Exempel 1
 Källa med höjden "1080" och RAM hastighet "29,970" producerar 6 video lager:
 
-|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
+|Skikt|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +188,7 @@ Källa med höjden "1080" och RAM hastighet "29,970" producerar 6 video lager:
 ### <a name="example-2"></a>Exempel 2
 Källa med höjden "720" och RAM hastighet "23,970" producerar 5 video lager:
 
-|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
+|Skikt|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +199,7 @@ Källa med höjden "720" och RAM hastighet "23,970" producerar 5 video lager:
 ### <a name="example-3"></a>Exempel 3
 Källa med höjden "360" och RAM hastighet "29,970" producerar 3 video lager:
 
-|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
+|Skikt|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

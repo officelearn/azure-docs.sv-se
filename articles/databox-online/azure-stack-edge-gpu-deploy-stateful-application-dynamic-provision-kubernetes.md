@@ -1,6 +1,6 @@
 ---
-title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via en dynamiskt etablerad resurs på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en dynamiskt etablerad resurs med hjälp av kubectl på en Microsoft Azure Stack Edge-enhet.
+title: Använd kubectl för att distribuera Kubernetes-tillstånds känslig app via en dynamiskt etablerad resurs på Azure Stack Edge GPU-enhet | Microsoft Docs
+description: Beskriver hur du skapar och hanterar en Kubernetes tillstånds känslig program distribution via en dynamiskt etablerad resurs med hjälp av kubectl på en Microsoft Azure Stack Edge-GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: e83b2b1cb7013b9d72bd2c2de8c7636d5c9d8773
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085705"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254329"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med StorageClass på din Azure Stack Edge-enhet
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med StorageClass på din Azure Stack Edge GPU-enhet
 
 Den här artikeln visar hur du distribuerar ett tillstånds känsligt program med en instans i Kubernetes med hjälp av en StorageClass för att dynamiskt tillhandahålla lagring och en distribution. Distributionen använder `kubectl` kommandon i ett befintligt Kubernetes-kluster och distribuerar MySQL-programmet. 
 
 Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan distribuera det tillstånds känsliga programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 

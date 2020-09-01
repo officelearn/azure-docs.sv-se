@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Lär dig mer om terminologi och begrepp för Azure Media Services.
 services: media-servicesgit
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/18/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5f0436394d6d45e8a8e112cc59bc7be50356ce10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 895e29608a9f0d80b8e03c3bc95c3c74005f7c4c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092107"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269717"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services terminologi och koncept
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Det här avsnittet ger en kort översikt över Azure Media Services terminologi och begrepp. Artikeln innehåller också länkar till artiklar med en djupgående förklaring av Media Services v3-koncept och-funktioner.
 
@@ -34,7 +36,7 @@ De grundläggande begreppen som beskrivs i dessa avsnitt bör granskas innan du 
 
 ## <a name="media-services-v3-terminology"></a>Media Services v3-terminologi
 
-|Term|Beskrivning|
+|Period|Beskrivning|
 |---|---|
 |Live-händelse|En **Live-händelse** representerar en pipeline för inmatning, kodning (valfritt) och paketering av direktsända video-, ljud-och real tids metadata.<br/><br/>För kunder som migrerar från Media Services v2-API: er ersätter **Live-händelsen** **kanal** enheten i v2. Mer information finns i [Migrera från v2 till v3](migrate-from-v2-to-v3.md).|
 |Slut punkt för direkt uppspelning/paketering/ursprung|En **slut punkt för direkt uppspelning** representerar en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och på begäran-innehåll direkt till ett klient Player-program. Den använder ett av de vanliga protokollen för strömmande media (HLS eller tank streck). Dessutom tillhandahåller streaming- **slutpunkten** dynamisk (just-in-Time) kryptering till branschledande Digital Rights Management system (DRM: er).<br/><br/>I medie direkt uppspelnings branschen kallas den här tjänsten ofta en **paketerare** eller ett **ursprung**.  Andra vanliga termer i branschen för den här funktionen är JITP (just-in-Time-packageer) eller JITE (just-in-Time-Encryption).

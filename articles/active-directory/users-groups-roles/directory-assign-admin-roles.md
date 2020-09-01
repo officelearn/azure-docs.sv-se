@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180090"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269683"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -27,7 +27,7 @@ Med hjälp av Azure Active Directory (Azure AD) kan du ange begränsade administ
 
 ## <a name="limit-use-of-global-administrator"></a>Begränsa användningen av global administratör
 
-Användare som har tilldelats rollen som global administratör kan läsa och ändra alla administrativa inställningar i din Azure AD-organisation. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som global administratör för Azure AD-organisationen. Endast globala administratörer och privilegierade roll administratörer kan delegera administratörs roller. För att minska risken för verksamheten rekommenderar vi att du tilldelar den här rollen till det minsta möjliga antalet personer i din organisation.
+Användare som har tilldelats rollen som global administratör kan läsa och ändra alla administrativa inställningar i din Azure AD-organisation. När en användare registrerar sig för en moln tjänst från Microsoft skapas en Azure AD-klient som standard och användaren blir medlem i rollen global administratör. När du lägger till en prenumeration till en befintlig klient är du inte tilldelad rollen som global administratör. Endast globala administratörer och privilegierade roll administratörer kan delegera administratörs roller. För att minska risken för verksamheten rekommenderar vi att du tilldelar den här rollen till det minsta möjliga antalet personer i din organisation.
 
 Som bästa praxis rekommenderar vi att du tilldelar rollen till färre än fem personer i din organisation. Om du har fler än fem administratörer tilldelade rollen global administratör i din organisation kan du använda följande metoder för att minska användningen.
 
@@ -1961,7 +1961,7 @@ Följande roller ska inte användas. De är inaktuella och kommer att tas bort f
 
 Alla roller som returneras av PowerShell eller MS Graph API visas i Azure Portal. I följande tabell ordnas skillnaderna.
 
-API-namn | Azure Portal namn | Anteckningar
+API-namn | Azure Portal namn | Kommentarer
 -------- | ------------------- | -------------
 Företagsadministratör | Global administratör | [Namnet ändrades för bättre klarhet](directory-assign-admin-roles.md#role-template-ids)
 Administratör för CRM-tjänsten | Dynamics 365-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)

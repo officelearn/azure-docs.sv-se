@@ -15,20 +15,22 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df35b48a4da05d068760f0b04394ea53d788000e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69997678"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269703"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Bortredigering-ansikten med Azure-medieanalys genom gång
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Översikt
 
 **Azure Media Redactor** är en [Azure-medieanalys](media-services-analytics-overview.md) medie processor (MP) som erbjuder skalbara ansikts bortredigering i molnet. Med ansikts bortredigering kan du ändra videon så att det blir oskarpa ytor på valda individer. Du kanske vill använda ansikts bortredigering i offentliga säkerhets-och nyhets medie scenarier. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten krävs bara några få enkla steg. Mer information finns i [den här](https://azure.microsoft.com/blog/azure-media-redactor/) bloggen.
 
-Mer information om **Azure Media Redactor**finns i avsnittet [Översikt över ansikts bortredigering](media-services-face-redaction.md) .
+Mer information om  **Azure Media Redactor**finns i avsnittet [Översikt över ansikts bortredigering](media-services-face-redaction.md) .
 
 Det här avsnittet innehåller stegvisa instruktioner om hur du kör ett fullständigt bortredigering-arbetsflöde med Azure Media Services Explorer (AMSE) och Azure Media Redactor visualiserare (verktyget med öppen källkod).
 

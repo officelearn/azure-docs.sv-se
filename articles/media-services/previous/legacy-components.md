@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: juliako
-ms.openlocfilehash: d8d961ab58e900a6d619ec64297c783abdb7b6ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c3e50fd64c113aafd2d70cc76c7f789e080ad23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091699"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269530"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services äldre komponenter
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Med tiden har du konstanta förbättringar och förbättringar av media service-komponenter. Därför har vissa äldre komponenter dragits tillbaka. Du hittar anvisningar om hur du migrerar ditt program från den äldre komponenten till en aktuell komponent i följande artiklar.
  

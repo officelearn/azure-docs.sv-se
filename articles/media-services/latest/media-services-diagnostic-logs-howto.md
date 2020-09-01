@@ -3,7 +3,7 @@ title: Övervaka Media Services diagnostikloggar via Azure Monitor | Microsoft D
 description: Den här artikeln visar hur du dirigerar och visar diagnostikloggar via Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 837113c11f24eda91a62cc68fdc68180951eee16
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501243"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269464"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program presterar. Detaljerad beskrivning av den här funktionen och se varför du vill använda Azure Media Services mått och diagnostikloggar finns i [övervaka Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
 
@@ -30,7 +32,7 @@ Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan vis
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa ett Media Services-konto](./create-account-howto.md).
-- Granska [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
+- Granska  [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Dirigera data till lagrings kontot med hjälp av portalen
 

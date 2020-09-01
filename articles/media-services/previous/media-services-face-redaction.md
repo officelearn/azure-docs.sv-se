@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7cdacabcc97d37c144b498ea9a05ccc9d6bffc04
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a562e31a26cc6cf7188dd635273bd9fa8c57213
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019869"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269479"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Bortredigering-ansikten med Azure-medieanalys 
+# <a name="redact-faces-with-azure-media-analytics"></a>Bortredigering-ansikten med Azure-medieanalys
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Översikt
 **Azure Media Redactor** är en [Azure-medieanalys](media-services-analytics-overview.md) medie processor (MP) som erbjuder skalbara ansikts bortredigering i molnet. Med ansikts bortredigering kan du ändra videon så att det blir oskarpa ytor på valda individer. Du kanske vill använda ansikts bortredigering i offentliga säkerhets-och nyhets medie scenarier. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten krävs bara några få enkla steg. Mer information finns i [den här](https://azure.microsoft.com/blog/azure-media-redactor/) bloggen.
 
@@ -35,7 +38,7 @@ Förutom ett helt automatiskt läge, finns det ett två-pass-arbetsflöde, som g
 ### <a name="combined-mode"></a>Kombinerat läge
 Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 
-| Fas | Filnamn | Anteckningar |
+| Fas | Filnamn | Kommentarer |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MOV-eller MP4-format |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' kombinerat '}} |
@@ -50,7 +53,7 @@ Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 ### <a name="analyze-mode"></a>Analysera läge
 Det **analyserande** passet i det två-pass-arbets flödet tar en video indata och skapar en JSON-fil med ansikts platser och jpg-bilder av varje identifierad yta.
 
-| Fas | Filnamn | Anteckningar |
+| Fas | Filnamn | Kommentarer |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format |
 | Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' analysera '}} |
@@ -115,7 +118,7 @@ Detta inkluderar en lista med ID: n som är suddig, den ursprungliga videon och 
 
 Den ursprungliga videon ingår inte i resultatet från analys steget. Videon måste överföras till indata till gången för uppgiften bortredigering och väljs som primär fil.
 
-| Fas | Filnamn | Anteckningar |
+| Fas | Filnamn | Kommentarer |
 | --- | --- | --- |
 | Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format. Samma video som i steg 1. |
 | Inmatad till gång |foo_annotations.jspå |anteckningarnas metadatafil från fas ett, med valfria ändringar. |
@@ -160,9 +163,9 @@ Du kan hitta exempel på suddiga typer nedan.
 
 ![Hög](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Ruta
+#### <a name="box"></a>Box
 
-![Ruta](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Svarta
 

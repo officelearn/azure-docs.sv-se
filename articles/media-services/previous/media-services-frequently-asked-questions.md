@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 73b24de0e66ca8fbe2097f7da39b64aaea8b1ac4
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff15206e2373ce6481cb65cbbeeb3c88cd2b7154
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058001"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269428"
 ---
 # <a name="media-services-v2-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v2
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Den här artikeln behandlar vanliga frågor som skapats av AMS-communityn (Azure Media Services).
 

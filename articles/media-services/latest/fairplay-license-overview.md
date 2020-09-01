@@ -1,7 +1,7 @@
 ---
 title: Stöd för Media Services och Apple FairPlay-licens – Azure | Microsoft Docs
 description: Det här avsnittet ger en översikt över licens krav och konfiguration för Apple-FairPlay.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0c2a699a57ce43b4d0b6f02c850dbda8082fbaea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cded51fa1cc1a1411f59915382f3c310660f8b19
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009737"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269309"
 ---
-# <a name="apple-fairplay-license-requirements-and-configuration"></a>Licenskrav för och konfiguration av Apple FairPlay 
+# <a name="apple-fairplay-license-requirements-and-configuration"></a>Licenskrav för och konfiguration av Apple FairPlay
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med Azure Media Services kan du kryptera ditt HLS-innehåll med **Apple Fairplay** (AES-128 CBC). Media Services tillhandahåller också en tjänst för att leverera FairPlay-licenser. När en spelare försöker spela upp ditt FairPlayt innehåll skickas en begäran till licens leverans tjänsten för att få en licens. Om licens tjänsten godkänner begäran utfärdar den den licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
 

@@ -3,7 +3,7 @@ title: Använd CLI för att skapa filter med Azure Media Services | Microsoft Do
 description: Den här artikeln visar hur du använder CLI för att skapa filter med Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2385171a501d00f91c58f3fde9b487505ec21c60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 024136ab6f660ecc5b6c5c7c0ecae62c83238659
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023219"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269547"
 ---
-# <a name="creating-filters-with-cli"></a>Skapa filter med CLI 
+# <a name="creating-filters-with-cli"></a>Skapa filter med CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du levererar ditt innehåll till kunder (strömma live-händelser eller video på begäran) kan din klient behöva större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Med Azure Media Services kan du definiera konto filter och till gångs filter för ditt innehåll. 
 

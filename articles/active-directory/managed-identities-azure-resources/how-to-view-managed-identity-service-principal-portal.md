@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52cd1f061f91daae7e3c663084647bf98db44cb4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c88f3cdc880888162301ace5c896161f669d2ede
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009244"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269207"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Visa tjänstens huvud namn för en hanterad identitet i Azure Portal
 
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du visar tjänstens huvud namn för en
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md).
 - Om du inte redan har ett Azure-konto kan du [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
-- Aktivera [systemtilldelad identitet på en virtuell dator eller ett](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) [program](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
+- Aktivera [systemtilldelad identitet på en virtuell dator eller ett](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) [program](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 
 ## <a name="view-the-service-principal"></a>Visa tjänstens huvud namn
 
@@ -49,5 +49,4 @@ Den här proceduren visar hur du visar tjänstens huvud namn för en virtuell da
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview)
-
+[Hanterade identiteter för Azure-resurser](./overview.md)

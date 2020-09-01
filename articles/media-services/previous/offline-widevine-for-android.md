@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065493"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269598"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Widevine-direktuppspelning offline för Android  
+# <a name="offline-widevine-streaming-for-android"></a>Widevine-direktuppspelning offline för Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Välj den version av Media Services som du använder:"]
 > * [Version 3](../latest/offline-widevine-for-android.md)
@@ -71,7 +73,7 @@ När du konfigurerar Widevine-skydd för en till gång i Media Services måste d
 
 Om du vill aktivera **offline** -läge för Widevine-licenser måste du konfigurera [licens mal len för Widevine](media-services-widevine-license-template-overview.md). I **policy_overrides** -objektet anger du egenskapen **can_persist** till **Sant** (Standardvärdet är falskt). 
 
-I följande kod exempel används .NET för att aktivera **offline** -läge för Widevine-licenser. Koden baseras på [med hjälp av PlayReady och/eller Widevine Dynamic common Encryption med .net](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) -exempel. 
+I följande kod exempel används .NET för att aktivera **offline** -läge för Widevine-licenser. Koden baseras på [ med hjälp av PlayReady och/eller Widevine Dynamic common Encryption med .net](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) -exempel. 
 
 ```
 private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl)
@@ -131,7 +133,7 @@ Utvecklare bör referera till [ExoPlayer Developer-guiden](https://google.github
 
 För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** egenskaper (definieras i [Widevine-licens mal len](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**och **license_duration_seconds**. Du kan också ställa in dem på noll, vilket innebär oändlig/obegränsad varaktighet.  
 
-Värdena måste anges för att undvika en heltals spill bugg. Mer information om problemet finns i https://github.com/google/ExoPlayer/issues/3150 och https://github.com/google/ExoPlayer/issues/3112 . <br/>Om du inte anger värdena explicit, tilldelas mycket stora värden för **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Det innebär att Widevine-licensen har upphört att gälla och därför att dekrypteringen inte sker. 
+Värdena måste anges för att undvika en heltals spill bugg. Mer information om problemet finns i https://github.com/google/ExoPlayer/issues/3150 och https://github.com/google/ExoPlayer/issues/3112 . <br/>Om du inte anger värdena explicit, tilldelas mycket stora värden för  **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Det innebär att Widevine-licensen har upphört att gälla och därför att dekrypteringen inte sker. 
 
 Det här problemet uppstår inte på Android 5,0 Lollipop eller senare eftersom Android 5,0 är den första Android-versionen, som har utformats för att fullständigt stödja ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) och 64-bitarsplattformar, medan Android 4,4 KitKat ursprungligen har utformats för att stödja ARMv7-och 32-bitarsplattformar som med andra äldre Android-versioner.
 
@@ -157,7 +159,7 @@ Om du uppgraderar din mobila Chrome-webbläsare till V62 (eller högre) på en A
 
 Den här PWA-appen med öppen källkod har skapats i Node.js. Om du vill vara värd för din egen version på en Ubuntu-Server bör du tänka på följande vanliga påträffade problem som kan förhindra uppspelning:
 
-1. CORS-problem: exempel videon i exempel appen finns i https://storage.googleapis.com/biograf-video-files/videos/ . Google har konfigurerat CORS för alla test exempel som finns i Google Cloud Storage Bucket. De hanteras med CORS-rubriker och anger explicit CORS-posten: `https://biograf-155113.appspot.com` (den domän där Google-värdarna i sitt exempel) förhindrar åtkomst av andra platser. Om du försöker visas följande HTTP-fel:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. CORS-problem: exempel videon i exempel appen finns i https://storage.googleapis.com/biograf-video-files/videos/ . Google har konfigurerat CORS för alla test exempel som finns i Google Cloud Storage Bucket. De hanteras med CORS-rubriker och anger explicit CORS-posten: `https://biograf-155113.appspot.com` (den domän där Google-värdarna i sitt exempel) förhindrar åtkomst av andra platser. Om du försöker visas följande HTTP-fel: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Certifikat problem: från och med Chrome v 58 krävs HTTPS för EME för Widevine. Därför måste du vara värd för exempel appen via HTTPS med ett X509-certifikat. Ett vanligt test certifikat fungerar inte på grund av följande krav: du måste skaffa ett certifikat som uppfyller följande minimi krav:
     - Chrome och Firefox kräver SAN – alternativa namn på certifikat mottagare som ska finnas i certifikatet
     - Certifikatet måste ha en betrodd certifikat utfärdare och ett självsignerat utvecklings certifikat fungerar inte

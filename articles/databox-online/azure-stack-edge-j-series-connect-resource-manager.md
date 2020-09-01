@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c7f571489a9e565fac8c23db4c08321be6f551d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146206"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269819"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Anslut till Azure Resource Manager på din Azure Stack Edge-enhet
 
@@ -57,7 +57,7 @@ Processen för att ansluta till lokala API: er för enheten med hjälp av Azure 
 
 I följande avsnitt beskrivs var och en av stegen ovan för att ansluta till Azure Resource Manager.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att klienten som används för att ansluta till enheten via Azure Resource Manager använder TLS 1,2. Mer information finns i [Konfigurera TLS 1,2 på Windows-klienten som använder Azure Stack Edge-enhet](azure-stack-edge-j-series-configure-tls-settings.md).
 

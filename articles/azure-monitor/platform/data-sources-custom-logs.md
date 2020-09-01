@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112008"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269496"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 
@@ -74,7 +74,7 @@ Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
-| Description | Sökväg |
+| Beskrivning | Sökväg |
 |:--- |:--- |
 | Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs \\ \* . txt |
 | Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\log \* . txt |
@@ -158,7 +158,7 @@ Vi använder en enkel fråga för *MyApp_CL* för att returnera alla poster frå
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativ till anpassade loggar
-Även om anpassade loggar är användbara om dina data uppfyller de villkor som anges i, men det finns fall som följande där du behöver en annan strategi:
+Även om anpassade loggar är användbara om dina data uppfyller de kriterier som anges ovan, finns det fall som följande där du behöver en annan strategi:
 
 - Data passar inte den nödvändiga strukturen, till exempel att ha tidsstämpeln i ett annat format.
 - Logg filen följer inte kraven, till exempel fil kodning eller en mappstruktur som inte stöds.

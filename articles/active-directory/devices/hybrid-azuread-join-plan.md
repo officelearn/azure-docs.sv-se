@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925353"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269581"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -26,13 +26,13 @@ På ett liknande sätt som en användare är en enhet en annan kärn identitet s
 - Hybrid Azure Active Directory-anslutning
 - Azure Active Directory-registrering
 
-När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. På samma gång kan du skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
+När du börjar använda dina enheter med Azure Active Directory maximerar du användarnas produktivitet med enkel inloggning (SSO) mellan dina molnresurser och lokala resurser. På samma gång kan du skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md).
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
+Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](./overview.md).
 
 > [!NOTE]
 > Den minsta nödvändiga domänkontrollanten för Windows 10 hybrid Azure AD Join är Windows Server 2008 R2.
@@ -100,7 +100,7 @@ Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview
 > Även om Windows 10 automatiskt tar bort Azure AD-registrerade tillstånd lokalt, raderas inte enhets objekt i Azure AD omedelbart om det hanteras av Intune. Du kan verifiera borttagning av Azure AD-registrerat tillstånd genom att köra dsregcmd/status och se till att enheten inte är registrerad som Azure AD baserat på den.
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
-- Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. 
 
@@ -118,19 +118,19 @@ Hybrid Azure AD Join fungerar med både hanterade och federerade miljöer beroen
 
 ### <a name="managed-environment"></a>Hanterad miljö
 
-En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](/azure/active-directory/hybrid/whatis-phs) eller [genom strömning (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) med [sömlös enkel inloggning](/azure/active-directory/hybrid/how-to-connect-sso).
+En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [genom strömning (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md).
 
 De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
 > [!NOTE]
-> [Molnbaserad autentisering med stegvis](/azure/active-directory/hybrid/how-to-connect-staged-rollout) distribution stöds endast vid start av Windows 10 1903 Update
+> [Molnbaserad autentisering med stegvis](../hybrid/how-to-connect-staged-rollout.md) distribution stöds endast vid start av Windows 10 1903 Update
 
 ### <a name="federated-environment"></a>Federerad miljö
 
 En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. Om du har en federerad miljö som använder Active Directory Federation Services (AD FS) (AD FS) stöds redan nedanstående krav.
 
 - **WIAORMULTIAUTHN-anspråk:** Detta anspråk krävs för att göra en hybrid Azure AD-anslutning för Windows-enheter på hög nivå.
-- **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD. När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs/services/trust/2005/windowstransport`  
+- **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD. När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -152,9 +152,9 @@ Baserat på scenariot som matchar din identitets infrastruktur, se:
 
 ## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Granska lokala AD-användares UPN-stöd för Hybrid Azure AD-anslutning
 
-Ibland kan dina lokala AD-användares UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](/azure/security/fundamentals/choose-ad-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
+Ibland kan dina lokala AD-användares UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](../hybrid/choose-ad-authn.md), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
 
-- Dirigera användarens UPN: ett dirigerbart UPN har en giltig verifierad domän som är registrerad hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- Dirigera användarens UPN: ett dirigerbart UPN har en giltig verifierad domän som är registrerad hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](../fundamentals/add-custom-domain.md)
 - UPN för icke-dirigerbart användare: ett icke-dirigerbart UPN har ingen verifierad domän. Den kan bara användas inom din organisations privata nätverk. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso. local den primära domänen i den lokala AD-domänen, men är inte en verifierbar domän på Internet och används endast i Contosos nätverk.
 
 > [!NOTE]

@@ -16,12 +16,12 @@ ms.date: 12/22/2017
 ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715502ebb899c0a3341a14cfe335d6eaabe112dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c27480f29a29f4805f8a9cafcfd388cb0638519e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014871"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269326"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 
 - [Logga in på Azure Portal](https://portal.azure.com)
 
-- [Skapa en virtuell Linux-dator](/azure/virtual-machines/linux/quick-create-portal)
+- [Skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-portal.md)
 
 - Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
@@ -122,11 +122,11 @@ Svaret innehåller information om rolltilldelningen som skapats, liknande den i 
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/about). 
 
 1. Logga in på Azure- [portalen](https://portal.azure.com).
 2. Gå till **Virtuella datorer** på portalen, gå till den virtuella Linux-datorn och klicka sedan på **Anslut** under **Översikt**. Kopiera strängen för anslutning till din virtuella dator.
-3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 4. Gör ett anrop i terminalfönstret med hjälp av CURL till IMDS-identitetsslutpunkten (Azure Instance Metadata Service) för att hämta en åtkomsttoken för Azure Resource Manager.  
 
    CURL-begäran om att hämta en åtkomsttoken visas i följande exempel.Ersätt `<CLIENT ID>` med `clientId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad hanterad identitet](#create-a-user-assigned-managed-identity): 
@@ -179,5 +179,4 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 I den här självstudien har du lärt dig hur du skapar en användartilldelad hanterad identitet och kopplar den till en virtuell Linux-dator för att komma åt Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

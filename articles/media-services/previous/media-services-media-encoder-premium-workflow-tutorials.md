@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 55d9d9191dc62d7397c5de944985d5653eff4e13
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057474"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269836"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Självstudier för avancerat Media Encoder Premium Workflow
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Översikt
-Det här dokumentet innehåller genom gångar som visar hur du anpassar arbets flöden med **arbetsflödesdesigner**. Du kan hitta de faktiska arbets flödes filerna [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
+Det här dokumentet innehåller genom gångar som visar hur du anpassar arbets flöden med  **arbetsflödesdesigner**. Du kan hitta de faktiska arbets flödes filerna [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>ORGANISK
 Följande avsnitt beskrivs:
@@ -462,7 +465,7 @@ Som skiljer sig från våra MP4-videor, och komponenten JPG-kodare matar ut mer 
 
 *Introduktion till Scene search JPG File Writer*
 
-Konfigurera egenskapen sökväg för målmapp med uttrycket:`${ROOT_outputWriteDirectory}`
+Konfigurera egenskapen sökväg för målmapp med uttrycket: `${ROOT_outputWriteDirectory}`
 
 och egenskapen filename med:
 

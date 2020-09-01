@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d3142547babb780de7a442667fd3472a4ffdc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 70296dce5b9dcac738c17a4f2388a7eb37abd66f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021552"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269343"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser i skalnings uppsättningar för virtuella datorer med hjälp av PowerShell
 
@@ -43,9 +43,9 @@ I den här artikeln använder du PowerShell för att lära dig hur du utför de 
     > [!NOTE]
     > Inga ytterligare Azure AD Directory-roll tilldelningar krävs.
 
-    - [Virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) för att skapa en skalnings uppsättning för virtuella datorer och aktivera och ta bort systemtilldelad hanterad och/eller användardefinierad hanterad identitet från en virtuell dators skalnings uppsättning.
-    - Rollen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) för att skapa en användardefinierad hanterad identitet.
-    - [Hanterad identitet operatörs](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll för att tilldela och ta bort en användardefinierad hanterad identitet från och till en skalnings uppsättning för virtuella datorer.
+    - [Virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för att skapa en skalnings uppsättning för virtuella datorer och aktivera och ta bort systemtilldelad hanterad och/eller användardefinierad hanterad identitet från en virtuell dators skalnings uppsättning.
+    - Rollen [hanterad identitets deltagare](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) för att skapa en användardefinierad hanterad identitet.
+    - [Hanterad identitet operatörs](../../role-based-access-control/built-in-roles.md#managed-identity-operator) roll för att tilldela och ta bort en användardefinierad hanterad identitet från och till en skalnings uppsättning för virtuella datorer.
 - Installera [den senaste versionen av Azure PowerShell](/powershell/azure/install-az-ps) om du inte redan gjort det. 
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
@@ -150,21 +150,4 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 - De fullständiga snabb starterna för att skapa virtuella Azure-datorer finns i:
   
   - [Skapa en virtuell Windows-dator med PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Skapa en virtuell Linux-dator med PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - [Skapa en virtuell Linux-dator med PowerShell](../../virtual-machines/linux/quick-create-powershell.md)

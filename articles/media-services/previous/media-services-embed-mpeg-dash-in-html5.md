@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55c22a58ea76c268c40894c0ea64d43312b1ba27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269105"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in MPEG-DASH-anpassad direktuppspelad video i ett HTML5-program med DASH.js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in MPEG-DASH-anpassad direktuppspelad video i ett HTML5-program med DASH.js
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## <a name="overview"></a>Översikt
 MPEG-bindestreck är en ISO-standard för anpassningsbar strömning av video innehåll, vilket ger avsevärda fördelar för utvecklare som vill leverera högkvalitativ, anpassad video strömnings kvalitet. Med MPEG-streck justeras video strömmen automatiskt till en lägre definition när nätverket blir överbelastat. Detta minskar sannolikheten för att visnings programmet ser en "pausad" video medan spelaren laddar ned de kommande sekunderna för uppspelning (det vill säga att det minskar sannolikheten för buffring). När nätverket överbelastas minskar Videos pelaren i tur och tillbaka till en data ström med högre kvalitet. Den här möjligheten att anpassa bandbredden som krävs leder också till en snabbare start tid för video. Det innebär att de första sekunderna kan spelas upp i ett fast-till-nedladdning av lägre kvalitets segment och sedan gå upp till en högre kvalitet när tillräckligt med innehåll har buffrats.

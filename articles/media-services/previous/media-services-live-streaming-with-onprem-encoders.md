@@ -14,14 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560002"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269632"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som tar emot Live-dataströmmar med flera bit hastigheter från lokala kodare
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Med början den 12 maj 2018 kommer Live Channels inte längre att ha stöd för RTP/MPEG-2 Transport Stream-inmatnings protokoll. Migrera från RTP/MPEG-2 till RTMP eller fragmented MP4 (Smooth Streaming) insugnings protokoll.
@@ -141,7 +143,7 @@ Du kan definiera de IP-adresser som tillåts att publicera video till den här k
 Om inga IP-adresser har angetts och det inte finns någon regel definition, tillåts ingen IP-adress. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 
 ### <a name="channel-preview"></a>Kanal för hands version
-#### <a name="preview-urls"></a>Förhandsgranska URL: er
+#### <a name="preview-urls"></a>Förhandsgransknings-URL:er
 Kanaler tillhandahåller en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
 Du kan hämta URL: en för för hands versionen när du skapar kanalen. För att du ska kunna hämta URL: en behöver kanalen inte vara i **körnings** läge. När kanalen börjar mata in data kan du förhandsgranska data strömmen.
@@ -189,18 +191,18 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | **Startar** |**Startar** |Nej (tillfälligt tillstånd) |
 | **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett program som körs) |Ja |
 | **Stoppas** |**Stoppas** |Nej (tillfälligt tillstånd) |
-| **Stoppad** |**Stoppad** |No |
+| **Stoppad** |**Stoppad** |Nej |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Dold textning och annons infogning
 Följande tabell visar vilka standarder som stöds för dold textning och annons infogning.
 
-| Standard | Obs! |
+| Standard | Kommentarer |
 | --- | --- |
 | CEA-708 och EIA-608 (708/608) |CEA-708 och EIA-608 är stängda – bild texter standarder för USA och Kanada.<p><p>För närvarande stöds inte textning för tillfället om den har överförts i den kodade indataströmmen. Du måste använda en Live Media-kodare som kan infoga 608-eller 708-textning i den kodade data strömmen som skickas till Media Services. Media Services levererar innehållet med infogade under texter till dina användare. |
 | TTML inuti. ISMT (Smooth Streaming text spår) |Med Media Services dynamisk paketering kan klienter strömma innehåll i något av följande format: bindestreck, HLS eller Smooth Streaming. Men om du matar in fragmenterad MP4 (Smooth Streaming) med under texter inuti. ISMT (Smooth Streaming text spår) kan du endast leverera data strömmen till Smooth Streaming klienter. |
 | SCTE – 35 |SCTE – 35 är ett digitalt signal system som används för att stacka annonserings infogning. Underordnade mottagare använder signalen för att använda signalen för att använda en splice-annons till strömmen för den tilldelade tiden. SCTE-35 måste skickas som ett sparse-spår i indataströmmen.<p><p>För närvarande är det enda data Ströms format som stöds som bär AD-signaler fragmenterad MP4 (Smooth Streaming). Det enda utdataformat som stöds Smooth Streaming också. |
 
-## <a name="considerations"></a><a id="considerations"></a>Att tänka på
+## <a name="considerations"></a><a id="considerations"></a>Överväganden
 När du använder en lokal Live-kodare för att skicka en data ström med flera bit hastigheter till en kanal gäller följande begränsningar:
 
 * Se till att du har tillräckligt med Internet anslutning för att skicka data till inmatnings punkterna.

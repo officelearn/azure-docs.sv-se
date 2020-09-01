@@ -3,7 +3,7 @@ title: Skriptexempel för Azure CLI – Skapa och skicka ett jobb | Microsoft Do
 description: Azure CLI-skriptet i det här avsnittet visar hur du skickar ett jobb till en enkel kodningstransformering med hjälp av HTTPs-URL.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,17 +12,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c89fe37bb443dbdbb312f2c930a4df8a708bb597
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ccf4d37cd7216b1a4a3e02d3505fd7a4164c5c8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500699"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269802"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI-exempel: Skapa och skicka ett jobb
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du skickar in jobb för att bearbeta videor i Media Services v3 måste du informera Media Services om var indatavideo finns. Ett av alternativen är att ange en HTTPS-URL som jobb inmatad (som visas i den här artikeln). 
 

@@ -6,18 +6,18 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658544"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269649"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Snabb start: dela data med Azure Data share i Azure Portal
 
 I den här snabb starten får du lära dig hur du konfigurerar en ny Azure-Dataresurs med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -41,13 +41,13 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
    | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
    | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
-   | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
+   | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
 
 1. Välj **Granska + skapa**och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto.
 
 1. När distributionen är klar väljer du **Gå till resurs**.
 
-## <a name="create-a-data-share"></a>Skapa en data resurs
+## <a name="create-a-share"></a>Skapa en resurs
 
 1. Gå till översikts sidan för data delning.
 
@@ -57,15 +57,15 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. Välj **Skapa**.
 
-1. Fyll i informationen för din data resurs. Ange ett namn, resurs typ, en beskrivning av delnings innehåll och användnings villkor (valfritt). 
+1. Fyll i informationen för din resurs. Ange ett namn, resurs typ, en beskrivning av delnings innehåll och användnings villkor (valfritt). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Ange resurs information") 
 
 1. Välj **Fortsätt**.
 
-1. Om du vill lägga till data uppsättningar till din data resurs väljer du **Lägg till data uppsättningar**. 
+1. Om du vill lägga till data uppsättningar i din resurs väljer du **Lägg till data uppsättningar**. 
 
-   ![Datauppsättningar](./media/datasets.png "Datauppsättningar")
+   ![Lägg till data uppsättningar till din resurs](./media/datasets.png "Datauppsättningar")
 
 1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure SQL Data Warehouse kommer du att uppmanas att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
 

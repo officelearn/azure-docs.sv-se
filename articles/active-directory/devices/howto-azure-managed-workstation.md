@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252788"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269564"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
 
@@ -29,7 +29,7 @@ Välj en profil innan du distribuerar lösningen. Du kan använda flera profiler
 > [!NOTE]
 > Använd någon av profilerna efter behov. Du kan flytta till en annan profil genom att tilldela den i Microsoft Intune.
 
-| Profil | Låg | Optimerad | Hög | Specialiserade | Skyddad | Isolerat |
+| Profil | Låg | Optimerad | Hög | Specialiserade | Skyddad | Isolerad |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Användare i Azure AD | Ja | Ja | Ja | Ja | Ja | Ja |
 | Intune-hanterad | Ja | Ja | Ja | Ja | Ja | Ja |
@@ -84,7 +84,7 @@ Från Azure Portal bläddrar du till **Azure Active Directory**  >  **grupper** 
    * **Grupp namn** – säkra arbets Stations användare
    * **Medlemskaps typ** – tilldelad
 
-1. Lägg till administratören för en säker arbets Stations administratör:`secure-ws-admin@identityitpro.com`
+1. Lägg till administratören för en säker arbets Stations administratör: `secure-ws-admin@identityitpro.com`
 1. Du kan lägga till andra användare som ska hantera säkra arbets stationer.
 1. Välj **Skapa**.
 1. För arbets Stations enhets gruppen anger du:
@@ -101,21 +101,21 @@ Från Azure Portal bläddrar du till **Azure Active Directory**  >  **grupper** 
 
 Konfigurera inställningarna för enheter i Active Directory så att din administrativa säkerhets grupp kan ansluta enheter till din domän. Så här konfigurerar du den här inställningen från Azure Portal:
 
-1. Gå till **Azure Active Directory**  >  **Devices**  >  **enhets inställningarna**för Azure Active Directory enheter.
+1. Gå till **Azure Active Directory** > **Enheter** > **Enhetsinställningar**.
 1. Välj **markerad** under **användare kan ansluta enheter till Azure AD**och välj sedan gruppen "skydda arbets Stations användare".
 
 #### <a name="removal-of-local-admin-rights"></a>Borttagning av lokal administratörs behörighet
 
 Den här metoden kräver att användare av de virtuella datorerna VIP, DevOps och Secure-Level inte har någon administratörs behörighet på sina datorer. Så här konfigurerar du den här inställningen från Azure Portal:
 
-1. Gå till **Azure Active Directory**  >  **Devices**  >  **enhets inställningarna**för Azure Active Directory enheter.
+1. Gå till **Azure Active Directory** > **Enheter** > **Enhetsinställningar**.
 1. Välj **ingen** under **ytterligare lokala administratörer på Azure AD-anslutna enheter**.
 
 #### <a name="require-multi-factor-authentication-to-join-devices"></a>Kräv Multi-Factor Authentication för att ansluta enheter
 
 För att ytterligare förstärka processen med att ansluta enheter till Azure AD:
 
-1. Gå till **Azure Active Directory**  >  **Devices**  >  **enhets inställningarna**för Azure Active Directory enheter.
+1. Gå till **Azure Active Directory** > **Enheter** > **Enhetsinställningar**.
 1. Välj **Ja** under **Kräv Multi-factor auth för att ansluta enheter**.
 1. Välj **Spara**.
 
@@ -183,7 +183,7 @@ Att hålla Windows 10 uppdaterat är ett av de viktigaste saker du kan göra. F�
 
 Den här vägledningen rekommenderar att du skapar en ny uppdaterings ring och ändrar följande standardinställningar:
 
-På Azure Portal:
+I Azure-portalen:
 
 1. Gå till **Microsoft Intune**  >  **program uppdateringar**  >  **Windows 10 uppdaterings ringar**.
 1. Ange:
@@ -231,14 +231,14 @@ Slutför lösningen genom att ladda ned och köra lämpligt skript. Hitta nedlad
 
 | Profil | Hämtnings plats | Sökväg |
 | --- | --- | --- |
-| Låg säkerhet | E.t. | E.t. |
+| Låg säkerhet | Saknas | Saknas |
 | Förbättrad säkerhet | https://aka.ms/securedworkstationgit | Enhanced-Workstation-windows10-(1809). ps1 |
 | Hög säkerhet | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-windows10-(1809). ps1 |
 | Specialiserade | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-windows10 (1803) SecurityBaseline.ps1 |
 | Specialiserad kompatibilitet * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-windows10 (1803). ps1 |
 | Skyddad | https://aka.ms/securedworkstationgit | Secure-Workstation-windows10-(1809) -SecurityBaseline.ps1 |
 
-\*Specialiserad kompatibilitet är ett skript som tillämpar den specialiserade konfigurationen i NCSC windows10 SecurityBaseline.
+\* Specialiserad kompatibilitet är ett skript som tillämpar den specialiserade konfigurationen i NCSC windows10 SecurityBaseline.
 
 När skriptet har körts kan du göra uppdateringar av profiler och principer i Intune. Skripten för förbättrade och säkra profiler skapar principer och profiler åt dig, men du måste tilldela en princip till enhets gruppen **säker arbets Station** .
 
@@ -251,7 +251,7 @@ Kör Intune-skriptet för data export `DeviceConfiguration_Export.ps1` från [De
 
 ## <a name="additional-configurations-and-hardening-to-consider"></a>Ytterligare konfigurationer och härdning att överväga
 
-Genom att följa anvisningarna här har du distribuerat en säker arbets Station. Du bör dock även överväga ytterligare kontroller. Ett exempel:
+Genom att följa anvisningarna här har du distribuerat en säker arbets Station. Du bör dock även överväga ytterligare kontroller. Exempel:
 
 * begränsa åtkomsten till alternativa webbläsare
 * Tillåt utgående HTTP
@@ -449,9 +449,9 @@ Program loggningen är tillgänglig i den valda Log Analytics-arbetsytan.
 
 ## <a name="monitoring"></a>Övervakning
 
-* Lär dig att [identifiera hot med Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
-* [Undersök incidenter med Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-* [Konfigurera automatiska hot svar i Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Lär dig att [identifiera hot med Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Undersök incidenter med Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Konfigurera automatiska hot svar i Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Förstå hur du granskar [exponerings poängen](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Granska [säkerhets rekommendation](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Hantera säkerhets [åtgärder](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
@@ -463,4 +463,4 @@ Program loggningen är tillgänglig i den valda Log Analytics-arbetsytan.
 * Läs mer om [Microsoft Intune](/intune/index).
 * Förstå [Azure AD](../index.yml).
 * Arbeta med [Microsoft Defender Avancerat skydd](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Identifiera [Azure Sentinel](/azure/sentinel/)
+* Identifiera [Azure Sentinel](../../sentinel/index.yml)

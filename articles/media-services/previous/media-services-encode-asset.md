@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: ef558b9339fe1d4525156cf58efe5056862de0a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052738"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269096"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Översikt över Azure on-demand Media Encoder
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
@@ -60,7 +62,7 @@ Kodarens indata-metadata beskrivs [här](media-services-input-metadata-schema.md
 Kodarens utdata metadata beskrivs [här](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Skapa miniatyrbilder
-Mer information finns i [så här skapar du miniatyr bilder med hjälp av Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+Mer information finns i [så här skapar du miniatyr bilder med hjälp av Media Encoder Standard](media-services-advanced-encoding-with-mes.md).
 
 ### <a name="trim-videos-clipping"></a>Trimma videor (Urklipp)
 Mer information finns i [så här trimmar du videor med Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).

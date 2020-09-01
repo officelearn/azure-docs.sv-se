@@ -2,16 +2,51 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313214"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272140"
 ---
-På en Azure Stack Edge-enhet som har beräknings rollen konfigurerad, är en del av Docker-kommandona tillgängliga för övervakning eller fel sökning av moduler. Om du vill se en lista över tillgängliga kommandon [ansluter du till PowerShell-gränssnittet](#connect-to-the-powershell-interface) och använder `dkrdbe` funktionen.
+På en Azure Stack Edge-enhet som har beräknings rollen konfigurerad kan du felsöka eller övervaka enheten med hjälp av två olika kommando uppsättningar.
+
+- Använda `iotedge` kommandon. De här kommandona är tillgängliga för grundläggande åtgärder för din enhet.
+- Använda `dkrdbe` kommandon. De här kommandona är tillgängliga för en omfattande uppsättning åtgärder för din enhet.
+
+Om du vill köra någon av ovanstående kommando uppsättningar måste du [ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Använda `iotedge` kommandon
+
+Om du vill se en lista över tillgängliga kommandon [ansluter du till PowerShell-gränssnittet](#connect-to-the-powershell-interface) och använder `iotedge` funktionen.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+Följande tabell innehåller en kort beskrivning av de kommandon som är tillgängliga för `iotedge` :
+
+|command  |Beskrivning |
+|---------|---------|
+|`check`     | Utföra automatiserade kontroller för vanliga konfigurations-och anslutnings problem       |
+|`list`     | Lista med moduler         |
+|`logs`     | Hämta loggarna för en modul        |
+|`restart`     | Stoppa och starta om en modul         |
+
+
+### <a name="use-dkrdbe-commands"></a>Använda `dkrdbe` kommandon
+
+Om du vill se en lista över tillgängliga kommandon [ansluter du till PowerShell-gränssnittet](#connect-to-the-powershell-interface) och använder `dkrdbe` funktionen.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -39,7 +74,7 @@ Följande tabell innehåller en kort beskrivning av de kommandon som är tillgä
 
 |command  |Beskrivning |
 |---------|---------|
-|`image`     | Hantera avbildningar. Om du vill ta bort oanvända avbildningar använder du:`dkrdbe image prune -a -f`       |
+|`image`     | Hantera avbildningar. Om du vill ta bort oanvända avbildningar använder du: `dkrdbe image prune -a -f`       |
 |`images`     | Lista bilder         |
 |`inspect`     | Returnera låg nivå information om Docker-objekt         |
 |`login`     | Logga in på ett Docker-register         |
@@ -89,14 +124,14 @@ Kör kommandot för att hämta listan över alla behållare (inklusive de som ha
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
 CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
 [10.100.10.10]: PS>
 ```
 
-Om det uppstod ett fel när behållar avbildningen skulle skapas eller när avbildningen hämtades kör du `logs edgeAgent` .  `EdgeAgent`är den IoT Edge runtime-behållare som ansvarar för att tillhandahålla andra behållare.
+Om det uppstod ett fel när behållar avbildningen skulle skapas eller när avbildningen hämtades kör du `logs edgeAgent` .  `EdgeAgent` är den IoT Edge runtime-behållare som ansvarar för att tillhandahålla andra behållare.
 
 Eftersom `logs edgeAgent` dumpar alla loggar, är ett bra sätt att se de senaste felen att använda alternativet `--tail 20` .
 
@@ -127,10 +162,10 @@ Om du vill hämta loggar för en speciell behållare ska du först lista behåll
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
     CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
 3. Anteckna behållar-ID: t för den behållare som du behöver loggarna för.

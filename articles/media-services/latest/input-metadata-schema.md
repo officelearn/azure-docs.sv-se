@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3-schema för indata-metadata
 description: Den här artikeln ger en översikt över Azure Media Services v3-schemat för indata-metadata.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
-ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095598"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269156"
 ---
-# <a name="input-metadata"></a>Inkommande metadata 
+# <a name="input-metadata"></a>Inkommande metadata
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar) som du vill utföra vissa kodnings uppgifter på.  När en aktivitet har slutförts skapas en utmatnings till gång. Utmatnings till gången innehåller video, ljud, miniatyrer, manifest och andra filer. 
 
@@ -45,7 +47,7 @@ Innehåller en samling av AssetFile-element för kodnings jobbet.
 | --- | --- | 
 | **VideoTracks**|Varje fysisk till gångs fil kan innehålla noll eller flera video spår som överlämnas till ett lämpligt behållar format. Mer information finns i [VideoTracks](#videotracks). |
 | **AudioTracks**|Varje fysisk till gångs fil kan innehålla noll eller flera ljud spår som överlämnas till ett lämpligt behållar format. Mer information finns i [AudioTracks](#audiotracks) |
-| **Metadata**  |Till gångs filens metadata representeras som key\value-strängar. <br />Exempel: `<Metadata key="language" value="eng" />` |
+| **Metadata**  |Till gångs filens metadata representeras som key\value-strängar. <br />Exempelvis: `<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>Andra underordnade element
 
@@ -70,7 +72,7 @@ Innehåller en samling av AssetFile-element för kodnings jobbet.
 | **Nivå** |Video spårets nivå. <br /><br />Exempel: `"Level": "3.2"`|
 | **PixelFormat** |Video spårets bild punkts format. <br /><br />Exempel: `"PixelFormat": "yuv420p"`|
 | **Bredd**<br />Obligatorisk |Kodad video bredd i bild punkter. <br /><br />Exempel: `"Width": "1280"`|
-| **Våghöjd**<br />Obligatorisk |Kodad video höjd i bild punkter.<br /><br />Exempel: `"Height": "720"` |
+| **Höjd**<br />Obligatorisk |Kodad video höjd i bild punkter.<br /><br />Exempel: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Obligatorisk |Täljare för bild förhållande i bild förhållande.<br /><br />Exempel: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Obligatorisk |Nämnare för bild förhållande i bild. <br /><br />Exempel: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Bild förhållande – täljare för video exempel. <br /><br />Exempel: `"SampleAspectRatioNumerator": 1.0`|

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa0514834d1619bbbae4501fe6b1af16d7964ff7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038451"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261483"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Exempel för inställningar för Media Encoder Standard (marknads status)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 **Media Encoder Standard** definierar en uppsättning fördefinierade system kodnings för inställningar som du kan använda när du skapar kodnings jobb. Vi rekommenderar att du använder för inställningen "anpassningsbar strömning" om du vill koda en video för strömning med Media Services. När du anger den här för inställningen [genererar Media Encoder standard automatiskt en stega-bit](media-services-autogen-bitrate-ladder-with-mes.md). 
 

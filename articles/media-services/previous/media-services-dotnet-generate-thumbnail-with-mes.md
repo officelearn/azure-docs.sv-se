@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3988bbb46782f6dbc703823135f5bda4e2539bd8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020668"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262268"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET 
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Du kan använda Media Encoder Standard för att generera en eller flera miniatyrer från indata-videon i bild fil formaten [JPEG](https://en.wikipedia.org/wiki/JPEG), [png](https://en.wikipedia.org/wiki/Portable_Network_Graphics)eller [BMP](https://en.wikipedia.org/wiki/BMP_file_format) . Du kan skicka uppgifter som bara producerar bilder, eller så kan du kombinera miniatyrer med kodning. Den här artikeln innehåller några exempel på XML-och JSON-miniatyrer för sådana scenarier. I slutet av artikeln finns det en [exempel kod](#code_sample) som visar hur du använder Media Services .NET SDK för att utföra kodnings uppgiften.
 

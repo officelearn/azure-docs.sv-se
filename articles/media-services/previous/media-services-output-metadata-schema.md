@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: e53aad83e79f236bf9a0bb3029e332cad211471a
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058103"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261333"
 ---
 # <a name="output-metadata"></a>Metadata för utdata
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Översikt
 Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar) som du vill utföra vissa kodnings uppgifter på. Koda till exempel en MP4-fil till H. 264 MP4-anpassade bit hastighets uppsättningar; skapa en miniatyr bild. Skapa överlägg. När en aktivitet har slutförts skapas en utmatnings till gång.  Utmatnings till gången innehåller video, ljud, miniatyrer osv. Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på XML-filen med metadata har följande format: &lt; source_file_name &gt;_manifest.xml (till exempel BigBuckBunny_manifest.xml).  
 
@@ -33,7 +36,7 @@ I den här artikeln beskrivs element och typer i XML-schemat där utdata-metada 
 
 Du hittar den fullständiga schema koden och XML-exemplet i slutet av den här artikeln.  
 
-## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a>AssetFiles rot element
+## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a> AssetFiles rot element
 Samling av AssetFile-poster för kodnings jobbet.  
 
 ### <a name="child-elements"></a>Underordnade element
@@ -41,11 +44,11 @@ Samling av AssetFile-poster för kodnings jobbet.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs = "0" maxOccurs = "1" |Ett AssetFile-element som ingår i AssetFiles-samlingen. |
 
-## <a name="assetfile-element"></a><a name="AssetFile"></a>AssetFile-element
+## <a name="assetfile-element"></a><a name="AssetFile"></a> AssetFile-element
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Namn**<br/><br/> Obligatorisk |**XS: String** |Medie till gångens fil namn. |
 | **Storlek**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: Long** |Storlek på till gångs filen i byte. |
@@ -58,7 +61,7 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 | **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlagrad i ett lämpligt behållar format. Mer information finns i VideoTracks-element. |
 | **AudioTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Varje fysisk AssetFile kan innehålla i noll eller flera ljud spår som är överlagrade i ett lämpligt behållar format. Detta är samlingen av alla dessa ljud spår. Mer information finns i AudioTracks-element. |
 
-## <a name="sources-element"></a><a name="Sources"></a>Element för källor
+## <a name="sources-element"></a><a name="Sources"></a> Element för källor
 Samling med indatafiler/källfiler, som bearbetades för att skapa den här AssetFile.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
@@ -68,17 +71,17 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 | --- | --- |
 | **Källa**<br/><br/> minOccurs = "1" maxOccurs = "obunden" |En indata-/käll fil som används när du skapar den här till gången. Mer information finns i käll element. |
 
-## <a name="source-element"></a><a name="Source"></a>Käll element
+## <a name="source-element"></a><a name="Source"></a> Käll element
 En indata-/käll fil som används när du skapar den här till gången.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Namn**<br/><br/> Obligatorisk |**XS: String** |Fil namn för indatakälla. |
 
-## <a name="videotracks-element"></a><a name="VideoTracks"></a>VideoTracks-element
+## <a name="videotracks-element"></a><a name="VideoTracks"></a> VideoTracks-element
 Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlagrad i ett lämpligt behållar format. Elementet **VideoTracks** representerar en samling med alla video spår.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
@@ -88,20 +91,20 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs = "1" maxOccurs = "obunden" |Ett särskilt video spår i den överordnade AssetFile. Mer information finns i VideoTrack-element. |
 
-## <a name="videotrack-element"></a><a name="VideoTrack"></a>VideoTrack-element
+## <a name="videotrack-element"></a><a name="VideoTrack"></a> VideoTrack-element
 Ett särskilt video spår i den överordnade AssetFile.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Identitet**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: int** |Noll-baserat index för det här video spåret. **Obs:**  Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. |
 | **FourCC**<br/><br/> Obligatorisk |**XS: String** |Video-codec FourCC-kod. |
 | **Profil** |**XS: String** |H264,-profil (gäller endast H264,-codec). |
 | **Nivå** |**XS: String** |H264,-nivå (gäller endast H264,-codec). |
 | **Bredd**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: int** |Kodad video bredd i bild punkter. |
-| **Våghöjd**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: int** |Kodad video höjd i bild punkter. |
+| **Höjd**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: int** |Kodad video höjd i bild punkter. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: Double** |Täljare för bild förhållande i bild förhållande. |
 | **DisplayAspectRatioDenominator**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: Double** |Nämnare för bild förhållande i bild. |
 | **Bildfrekvens**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: decimal** |Uppmätt video bild Rute frekvens i. 3F-format. |
@@ -110,7 +113,7 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 | **TargetBitrate**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: int** |Genomsnittlig bit hastighet för mål för det här video spåret enligt begäran via kodnings inställningen i kilobit per sekund. |
 | **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**XS: int** |Högsta GOP genomsnittlig bit hastighet för det här video spåret i kilobit per sekund. |
 
-## <a name="audiotracks-element"></a><a name="AudioTracks"></a>AudioTracks-element
+## <a name="audiotracks-element"></a><a name="AudioTracks"></a> AudioTracks-element
 Varje fysisk AssetFile kan innehålla i noll eller flera ljud spår som är överlagrade i ett lämpligt behållar format. **AudioTracks** -elementet representerar en samling med alla dessa ljud spår.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
@@ -120,13 +123,13 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs = "1" maxOccurs = "obunden" |Ett särskilt ljud spår i den överordnade AssetFile. Mer information finns i AudioTrack-element. |
 
-## <a name="audiotrack-element"></a><a name="AudioTrack"></a>AudioTrack-element
+## <a name="audiotrack-element"></a><a name="AudioTrack"></a> AudioTrack-element
 Ett särskilt ljud spår i den överordnade AssetFile.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Identitet**<br/><br/> minInclusive = "0"<br/><br/> Obligatorisk |**XS: int** |Noll-baserat index för det här ljud spåret. **Obs:**  Detta är inte nödvändigt vis TrackID som används i en MP4-fil. |
 | **ADPCM** |**XS: String** |Ljud spårets codec-sträng. |
@@ -141,13 +144,13 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs = "0" maxOccurs = "1" |Resultat parametrar för loudness-avläsning. Mer information finns i LoudnessMeteringResultParameters-element. |
 
-## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a>LoudnessMeteringResultParameters-element
+## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters-element
 Resultat parametrar för loudness-avläsning.  
 
 Du hittar ett XML-exempel med [XML-](#xml)exempel.  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**XS: String** |**Dolby** Professional loudness-avläsning Development Kit-version. |
 | **DialogNormalization**<br/><br/> minInclusive = "-31" maxInclusive = "-1"<br/><br/> Obligatorisk |**XS: int** |DialogNormalization som genererats via DPLM, krävs när LoudnessMetering har angetts |
@@ -511,7 +514,7 @@ Du hittar ett XML-exempel med [XML-](#xml)exempel.
 
 
 
-## <a name="xml-example"></a><a name="xml"></a>XML-exempel
+## <a name="xml-example"></a><a name="xml"></a> XML-exempel
 
 Följande XML är ett exempel på filen utdata-metadata.  
 

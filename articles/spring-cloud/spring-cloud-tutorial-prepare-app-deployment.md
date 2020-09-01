@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ff797f8b6fd375a940f77b4e0400bcb7a74450c4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179767"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260331"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
 
@@ -41,8 +41,8 @@ Azure våren Cloud stöder bara våren Boot-appar, antingen våren Boot version 
 Start version för våren | Våren Cloud-version
 ---|---
 2.1 | Greenwich. RELEASE
-2.2 | Hoxton. RELEASE
-2.3 | Hoxton.SR5
+2.2 | Hoxton.SR8
+2.3 | Hoxton.SR8
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Beroenden för vår start version 2,1
 
@@ -62,7 +62,7 @@ För våren Boot version 2,1 lägger du till följande beroenden i programmets P
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR4</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -88,7 +88,7 @@ För våren Boot version 2,2 lägger du till följande beroenden i programmets P
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -113,7 +113,7 @@ För våren Boot version 2,3 lägger du till följande beroenden i programmets P
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR5</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -122,49 +122,23 @@ För våren Boot version 2,3 lägger du till följande beroenden i programmets P
 ```
 ## <a name="azure-spring-cloud-client-dependency"></a>Klient beroende för Azure våren Cloud
 
-Azure våren-moln är värdar för och hanterar våren Cloud-komponenter. Komponenterna inkluderar vår moln tjänst register och vår moln konfigurations Server. Ta med klient biblioteket Azure våren Cloud i dina beroenden för att tillåta kommunikation med din Azure våren Cloud Service-instans.
+Azure våren-moln är värdar för och hanterar våren Cloud-komponenter. Komponenterna inkluderar vår moln tjänst register och vår moln konfigurations Server. Vi rekommenderar att du använder våren boot 2,2 eller 2,3. För våren boot 2,1 måste du inkludera klient biblioteket Azure våren Cloud i dina beroenden för att tillåta kommunikation med din Azure våren Cloud Service-instans.
 
 I följande tabell visas rätt Azure våren Cloud-versioner för din app som använder våren-start och våren Cloud.
 
-Start version för våren | Våren Cloud-version | Azure våren Cloud-version
+Start version för våren | Våren Cloud-version | Start version av Azure våren Cloud-klienten
 ---|---|---
-2.1 | Greenwich. RELEASE | 2.1
-2.2 | Hoxton. RELEASE | 2.2
-2.3 | Hoxton.SR5 | 2.3
+2.1 | Greenwich. RELEASE | 2.1.2
+2.2 | Hoxton.SR8 | Krävs inte
+2.3 | Hoxton.SR8 | Krävs inte
 
-Inkludera något av följande beroenden i pom.xml-filen. Välj det beroende vars Azure våren Cloud-version matchar din egen.
-
-### <a name="dependency-for-azure-spring-cloud-version-21"></a>Beroende av Azure våren Cloud version 2,1
-
-För våren Boot version 2,1 lägger du till följande beroende till programmets POM-fil.
+Inkludera följande dependenciy i pom.xml-filen om du använder våren boot 2,1.
 
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
         <version>2.1.2</version>
-</dependency>
-```
-
-### <a name="dependency-for-azure-spring-cloud-version-22"></a>Beroende av Azure våren Cloud version 2,2
-
-För våren Boot version 2,2 lägger du till följande beroende till programmets POM-fil.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.1</version>
-</dependency>
-```
-
-För våren Boot version 2,3 lägger du till följande beroende till programmets POM-fil.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.3.0</version>
 </dependency>
 ```
 

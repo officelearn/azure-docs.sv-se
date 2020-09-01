@@ -1,18 +1,18 @@
 ---
 title: Snabbstart – distribuera ditt första Azure Spring Cloud-program
-description: I den här snabb starten distribuerar vi ett våren Cloud Hello-program till Azure våren-molnet.
+description: I den här snabb starten distribuerar vi ett våren Cloud-program till Azure våren-molnet.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6a7a489367aa7348a3449a72de6889476e5d38db
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 245516e0a54865d3a6097c4bb566b850cb738ad6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177607"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260558"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -28,7 +28,7 @@ Den här snabb starten förklarar hur du:
 > * Bygg och distribuera appen med en offentlig slut punkt
 > * Stream-loggar i real tid
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -37,7 +37,7 @@ För att slutföra den här snabbstarten behöver du:
 * Valfritt [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och Azure våren Cloud-tillägget med kommando: `az extension add --name spring-cloud`
 * Valfritt [Installera Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) och [inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-## <a name="generate-a-spring-cloud-hello-project"></a>Skapa ett våren Cloud Hello-projekt
+## <a name="generate-a-spring-cloud-project"></a>Skapa ett våren Cloud-projekt
 
 Börja med [våren Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) för att generera ett exempel projekt med rekommenderade beroenden för Azure våren Cloud. Följande bild visar Initializr som kon figurer ATS för det här exempelprojektet.
 ```url
@@ -125,7 +125,7 @@ Följande procedur skapar och distribuerar programmet med hjälp av Azure CLI. K
 
 I följande procedur används IntelliJ-plugin-programmet för Azure våren Cloud för att distribuera exempel appen i IntelliJ-idén.  
 
-### <a name="import-hello-project"></a>Importera Hello-projekt
+### <a name="import-project"></a>Importera projekt
 
 1. Öppna dialog rutan **Välkommen** till IntelliJ och välj **Importera projekt** för att öppna import guiden.
 1. Välj `hellospring` mapp.

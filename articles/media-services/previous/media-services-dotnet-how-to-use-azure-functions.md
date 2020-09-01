@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020617"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262132"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Den här artikeln visar hur du kommer igång med att skapa Azure Functions som använder Media Services. Azure-funktionen som definieras i den här artikeln övervakar en lagrings konto behållare med namnet **indata** för nya MP4-filer. När en fil har släppts i lagrings behållaren kör BLOB-utlösaren funktionen. Information om hur du granskar Azure Functions finns i  [Översikt](../../azure-functions/functions-overview.md) och andra ämnen i avsnittet **Azure Functions** .
 

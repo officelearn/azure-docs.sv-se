@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: da1fa8306630fe84efeb208883fb9ed3979be491
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1aadccde8ed0c4e8257482ccca3c9992cc961d11
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504593"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260517"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Snabb start: starta ditt våren Cloud-program från käll koden
 
@@ -30,9 +30,6 @@ Efter den här snabb starten får du lära dig att:
 > * Tilldela en offentlig slut punkt för ditt program
 
 ## <a name="prerequisites"></a>Förutsättningar
-
->[!Note]
-> Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) .
 
 Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga beroendena:
 

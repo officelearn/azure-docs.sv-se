@@ -3,7 +3,7 @@ title: Definiera filter i Azure Media Services
 description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma vissa delar av en ström. Media Services skapar dynamiska manifest för att uppnå denna selektiva strömning.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/23/2019
-ms.author: juliako
-ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8cc3bc176798efda46f03c80fe9cce2edd7daf6b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023236"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262642"
 ---
 # <a name="filters"></a>Filter
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du levererar ditt innehåll till kunder (direkt uppspelnings händelser eller video på begäran) kan din klient behöva större flexibilitet än vad som beskrivs i standard till gångens manifest fil. Azure Media Services erbjuder [dynamiska manifest](filters-dynamic-manifest-overview.md) baserat på fördefinierade filter. 
 
@@ -47,7 +49,7 @@ Beroende på ditt scenario bestämmer du vilken typ av filter som är lämpligar
 
 Du kan använda följande egenskaper för att beskriva filtren. 
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |firstQuality|Den första kvalitets bit hastigheten för filtret.|
 |presentationTimeRange|Tids området för presentationen. Den här egenskapen används för att filtrera manifest start-/slut punkter, presentations fönster längd och start position. <br/>Mer information finns i [PresentationTimeRange](#presentationtimerange).|
@@ -57,7 +59,7 @@ Du kan använda följande egenskaper för att beskriva filtren.
 
 Använd den här egenskapen med **till gångs filter**. Vi rekommenderar inte att du anger egenskapen med **konto filter**.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |**endTimestamp**|Gäller för video på begäran (VoD).<br/>För direkt uppspelnings presentationen ignoreras den tyst och tillämpas när presentationen slutar och strömmen blir VoD.<br/>Detta är ett långt värde som representerar en absolut slut punkt i presentationen, avrundat till närmaste nästa GOP-start. Enheten är tids skala, så en endTimestamp på 1800000000 skulle vara i 3 minuter.<br/>Använd startTimestamp och endTimestamp för att trimma de fragment som ska finnas i spelnings listan (manifest).<br/>Exempel: startTimestamp = 40000000 och endTimestamp = 100000000 med standard tids skalan genererar en spelnings lista som innehåller fragment från mellan 4 och 10 sekunder i VoD-presentationen. Om ett fragment följer gränserna tas hela fragmentet med i manifestet.|
 |**forceEndTimestamp**|Gäller endast för direktsänd strömning.<br/>Anger om egenskapen endTimestamp måste finnas. Om värdet är true måste endTimestamp anges eller så returneras en felaktig kod för begäran.<br/>Tillåtna värden: falskt, sant.|
@@ -72,7 +74,7 @@ Du anger en lista med villkor för filtrerings spårning (FilterTrackPropertyCon
 
 Filtrera egenskaper för spåra egenskaper Beskriv spår typer, värden (beskrivs i följande tabell) och åtgärder (lika med, NotEqual). 
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |**Hastigheten**|Använd bit hastigheten för spårningen för filtrering.<br/><br/>Det rekommenderade värdet är ett intervall med bit hastigheter, i bitar per sekund. Till exempel "0-2427000".<br/><br/>Obs! även om du kan använda ett visst bit hastighets värde, t. ex. 250000 (bitar per sekund), rekommenderas inte den här metoden eftersom de exakta bit hastigheterna kan variera från en till gång till en annan.|
 |**FourCC**|Använd FourCC-värdet för spårningen för filtrering.<br/><br/>Värdet är det första elementet i codec-formatet, enligt vad som anges i [RFC 6381](https://tools.ietf.org/html/rfc6381). För närvarande stöds följande codecenheter: <br/>För video: "avc1", "hev1", "hvc1"<br/>För ljud: "MP4A", "EC-3"<br/><br/>Hämta och granska manifest filen för att fastställa FourCC-värden för spår i en till gång.|

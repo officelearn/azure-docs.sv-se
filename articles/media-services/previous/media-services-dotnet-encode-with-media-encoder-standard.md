@@ -16,14 +16,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ead605462eeb92b31181ce9bba3100df521b471b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90b4680c725f3b5b7fcb6b988e52410c572b2cfa
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004433"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262418"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en till gång med Media Encoder Standard med hjälp av .NET  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en till gång med Media Encoder Standard med hjälp av .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Kodnings jobb är en av de vanligaste bearbetnings åtgärderna i Media Services. Du skapar kodnings jobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda den inbyggda medie kodare Media Services. Du kan också använda en kodare som tillhandahålls av en Media Services-partner. kodare från tredje part är tillgängliga via Azure Marketplace. 
 

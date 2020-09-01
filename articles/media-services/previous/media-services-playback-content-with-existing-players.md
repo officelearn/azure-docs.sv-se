@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd09b734f1ac5ac3c98b6c0c717a48de19b0106f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686928"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261095"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure Media Services stöder många populära strömnings format, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-streck. Det här avsnittet pekar på befintliga spelare som du kan använda för att testa dina data strömmar.
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure Portal Media Services innehålls spelare
@@ -56,7 +59,7 @@ Använd [Azure Media Player](https://aka.ms/azuremediaplayer) för att spela upp
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 För att testa HLS-URL: er kan du också använda:
 
 * **Safari** på en iOS-enhet eller

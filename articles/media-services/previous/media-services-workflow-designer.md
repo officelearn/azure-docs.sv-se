@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a53027ec1f775c240164f67e7ee0473a44690964
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72801951"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262693"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Skapa avancerade arbetsflöden för kodning med Workflow Designer  
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Skapa avancerade arbetsflöden för kodning med Workflow Designer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Översikt
 **Arbetsflödesdesigner** är ett Windows Desktop-verktyg som används för att utforma och skapa anpassade arbets flöden för kodning med **Media Encoder Premium Workflow**.
 Med hjälp av kraften i arbets flödes design verktyget kan du utforma och skapa komplexa arbets flöden som ska köras i **Media Encoder Premium**.  
@@ -73,7 +76,7 @@ Dag 3 video försättsblad:
 
 * Skript i arbets flöden/ritningar
 * Begränsningar med aktuell kodare
-* Frågor och svar
+* Vanliga frågor och svar
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 

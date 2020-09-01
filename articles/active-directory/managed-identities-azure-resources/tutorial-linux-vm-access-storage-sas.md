@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ed1ff7f620b45bfc4e7ca4065bce014a28994b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005079"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260245"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator och hämtar en SAS-autentiseringsuppgift (en signatur för delad åtkomst) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator och hämtar en SAS-autentiseringsuppgift (en signatur för delad åtkomst) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > Den SAS-nyckel som skapas i den här självstudien kommer inte att begränsas/bindas till den virtuella datorn.  
@@ -35,7 +35,7 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 
 
 > [!div class="checklist"]
-> * Skapa ett lagringskonto
+> * skapar ett lagringskonto
 > * Skapa en blob-container i lagringskontot
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
@@ -44,7 +44,7 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till ett befintligt lagringskonto. 
 
@@ -86,7 +86,7 @@ Azure Storage har inte inbyggt stöd för Azure Active Directory-autentisering. 
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/install-win10). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till den virtuella Linux-datorn och klicka sedan längst upp på **Anslut** på sidan **Översikt**. Kopiera strängen för anslutning till din virtuella dator. 
 2. Anslut till den virtuella datorn med hjälp av SSH-klienten.  
@@ -152,7 +152,7 @@ Skapa en blob-exempelfil att ladda upp till din bloblagringscontainer. På en vi
 echo "This is a test file." > test.txt
 ```
 
-Sedan autentiserar du med CLI-kommandot `az storage` med hjälp av SAS-autentiseringsuppgiften och laddar upp filen till blobcontainern. För det här steget behöver du [installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella dator, om du inte redan har gjort det.
+Sedan autentiserar du med CLI-kommandot `az storage` med hjälp av SAS-autentiseringsuppgiften och laddar upp filen till blobcontainern. För det här steget behöver du [installera den senaste versionen av Azure CLI](/cli/azure/install-azure-cli) på din virtuella dator, om du inte redan har gjort det.
 
 ```azurecli-interactive
  az storage blob upload --container-name 
@@ -231,4 +231,4 @@ Svar:
 I den här självstudien har du lärt dig hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage med hjälp av en SAS-autentiseringsuppgift.  Läs mer om Azure Storage SAS här:
 
 > [!div class="nextstepaction"]
->[Använda signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Använda signaturer för delad åtkomst (SAS)](../../storage/common/storage-sas-overview.md)

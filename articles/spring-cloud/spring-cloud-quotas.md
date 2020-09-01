@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cda22c63a70c5121e6a6972c66bdc0a4bb5158fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d47311385848f96a12a50c1dcf8b8284869c71d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089472"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260364"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Kvoter och service planer för Azure våren Cloud
 
@@ -27,9 +27,6 @@ Minne | 2 GB per tjänst instans | 8 GB per tjänst instans
 Azure våren Cloud Service-instanser per region per prenumeration | 10 | 10
 Totalt antal App-instanser per Azure våren Cloud Service-instans | 25 | 500
 Beständiga volymer | 1 GB/app x 10-appar | 50 GB/app x 10-appar
-
-
-Under för hands versions perioden erbjuder Azure våren Cloud bara en tjänst nivå. När du når en gräns får du ett 400-fel som läser: "kvoten överskrider gränsen för prenumeration *på prenumerationen i region* *region där din Azure våren Cloud Service skapas*.
 
 ## <a name="next-steps"></a>Nästa steg
 

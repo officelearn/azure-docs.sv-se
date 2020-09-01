@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018384"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260194"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Så här slutar du använda tillägget för hanterade identiteter för virtuella datorer och börjar använda Azure-Instance Metadata Service
 
@@ -35,7 +35,7 @@ På grund av flera begränsningar som beskrivs i nästa avsnitt, har Managed Ide
 
 ### <a name="provision-the-extension"></a>Etablera tillägget 
 
-När du konfigurerar en virtuell dator eller skalnings uppsättning för virtuell dator som har en hanterad identitet kan du välja att etablera hanterade identiteter för VM-tillägget för Azure-resurser med hjälp av `-Type` parametern på cmdleten [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux` , beroende på typen av virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings`Parametern anger den port som används av OAuth-token för hämtning av token:
+När du konfigurerar en virtuell dator eller skalnings uppsättning för virtuell dator som har en hanterad identitet kan du välja att etablera hanterade identiteter för VM-tillägget för Azure-resurser med hjälp av `-Type` parametern på cmdleten [set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) . Du kan skicka antingen `ManagedIdentityExtensionForWindows` eller `ManagedIdentityExtensionForLinux` , beroende på typen av virtuell dator och ge den namnet med hjälp av `-Name` parametern. `-Settings`Parametern anger den port som används av OAuth-token för hämtning av token:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -96,7 +96,7 @@ Om du vill etablera tillägget för skalnings uppsättning för virtuell dator m
 Etableringen av tillägget för den virtuella datorn kan Miss lyckas på grund av misslyckade DNS-sökningar. Om detta händer startar du om den virtuella datorn och försöker igen. 
 
 ### <a name="remove-the-extension"></a>Ta bort tillägget 
-Om du vill ta bort tillägget använder du `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växlar (beroende på typ av virtuell dator) med [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)eller [AZ VMSS Extension Delete](https://docs.microsoft.com/cli/azure/vmss) för Virtual Machine Scale Sets med Azure CLI eller `Remove-AzVMExtension` för PowerShell:
+Om du vill ta bort tillägget använder du `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växlar (beroende på typ av virtuell dator) med [AZ VM Extension Delete](/cli/azure/vm/)eller [AZ VMSS Extension Delete](/cli/azure/vmss) för Virtual Machine Scale Sets med Azure CLI eller `Remove-AzVMExtension` för PowerShell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -196,7 +196,7 @@ Det finns flera större begränsningar för att använda tillägget för virtuel
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-[Azure instance metadata service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) är en REST-slutpunkt som ger information om att köra virtuella dator instanser som kan användas för att hantera och konfigurera dina virtuella datorer. Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ) som bara kan nås från den virtuella datorn.
+[Azure instance metadata service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) är en REST-slutpunkt som ger information om att köra virtuella dator instanser som kan användas för att hantera och konfigurera dina virtuella datorer. Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ) som bara kan nås från den virtuella datorn.
 
 Det finns flera fördelar med att använda Azure-IMDS för att begära token. 
 
@@ -209,7 +209,7 @@ Det finns flera fördelar med att använda Azure-IMDS för att begära token.
 Av dessa skäl är Azure IMDS-tjänsten det facto-sätt som krävs för att begära token, när tillägget för den virtuella datorn är föråldrat. 
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att få en åtkomsttoken](how-to-use-vm-token.md)
-* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md)

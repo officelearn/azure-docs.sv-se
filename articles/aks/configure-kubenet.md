@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f9bc0cd229888d952821509ced6cc5410000ee52
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543375"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078732"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -20,12 +20,12 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
 * AKS-kluster får inte använda `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` eller `192.0.2.0/24` för Kubernetes-tjänstens adress intervall.
-* Tjänstens huvud namn som används av AKS-klustret måste ha minst rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md#network-contributor) på under nätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda den inbyggda rollen nätverks deltagare, krävs följande behörigheter:
+* Tjänstens huvud namn som används av AKS-klustret måste ha minst rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md#network-contributor) på under nätet i det virtuella nätverket. Du måste också ha rätt behörigheter, till exempel prenumerations ägaren, för att skapa ett huvud namn för tjänsten och tilldela IT-behörigheter. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda den inbyggda rollen nätverks deltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 

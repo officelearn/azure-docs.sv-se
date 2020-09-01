@@ -1,20 +1,20 @@
 ---
 title: Translator-kryptering av data i vila
 titleSuffix: Azure Cognitive Services
-description: Translator-kryptering av data i vila.
+description: Med Microsoft kan du hantera dina Cognitive Services prenumerationer med dina egna nycklar, som kallas Kundhanterade nycklar (CMK). Den här artikeln beskriver data kryptering i vila för Translator och hur du aktiverar och hanterar CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310843"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079208"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Translator-kryptering av data i vila
 
@@ -22,11 +22,11 @@ Translator krypterar automatiskt dina data, som du laddar upp för att bygga anp
 
 ## <a name="about-cognitive-services-encryption"></a>Om Cognitive Services kryptering
 
-Data krypteras och dekrypteras med hjälp av [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [-kompatibla 256-bitars AES-](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kryptering. Kryptering och dekryptering är transparent, vilket innebär att kryptering och åtkomst hanteras åt dig. Dina data är säkra som standard och du behöver inte ändra din kod eller dina program för att utnyttja kryptering.
+Data krypteras och dekrypteras med hjälp av [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [-kompatibla 256-bitars AES-](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kryptering. Kryptering och dekryptering är transparent, vilket innebär att kryptering och åtkomst hanteras åt dig. Dina data skyddas som standard och du behöver inte ändra din kod eller dina program för att utnyttja krypteringen.
 
 ## <a name="about-encryption-key-management"></a>Om hantering av krypterings nyckel
 
-Som standard använder din prenumeration Microsoft-hanterade krypterings nycklar. Om du använder en pris nivå som stöder Kundhanterade nycklar kan du se krypterings inställningarna för resursen i avsnittet **kryptering** i [Azure Portal](https://portal.azure.com), som du ser i följande bild.
+Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Om du använder en pris nivå som stöder Kundhanterade nycklar kan du se krypterings inställningarna för resursen i avsnittet **kryptering** i [Azure Portal](https://portal.azure.com), som du ser i följande bild.
 
 ![Visa krypterings inställningar](../media/cognitive-services-encryption/encryptionblade.png)
 
@@ -34,7 +34,7 @@ För prenumerationer som bara stöder Microsoft-hanterade krypterings nycklar ha
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Kundhanterade nycklar med Azure Key Vault
 
-Det finns också ett alternativ för att hantera din prenumeration med dina egna nycklar. Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.
+Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Det finns också möjlighet att hantera din prenumeration med dina egna nycklar som kallas Kundhanterade nycklar (CMK). CMK erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data. Om CMK har kon figurer ATS för din prenumeration tillhandahålls dubbla kryptering, vilket ger ett sekundärt skydds lager, samtidigt som du kan kontrol lera krypterings nyckeln via din Azure Key Vault.
 
 > [!IMPORTANT]
 > Kundhanterade nycklar är tillgängliga för alla pris nivåer för tjänsten Translator. Om du vill begära möjlighet att använda Kundhanterade nycklar, fyller du i och skickar [översättnings formuläret för den kund hanterade nyckeln](https://aka.ms/cogsvc-cmk) som det tar cirka 3-5 arbets dagar att ta del av statusen för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda CMK med tjänsten Translator måste du skapa en ny översättare-resurs. När du har skapat din Translator-resurs kan du använda Azure Key Vault för att konfigurera din hanterade identitet.
@@ -44,8 +44,6 @@ Följ dessa steg om du vill aktivera Kundhanterade nycklar för översättare:
 1. Skapa din nya regionala Translator-eller regional Cognitive Services-resurs. Detta kommer inte att fungera med en global resurs.
 2. Aktive rad hanterad identitet i Azure Portal och Lägg till din Kundhanterade viktig information.
 3. Skapa en ny arbets yta i en anpassad översättare och associera den här prenumerations informationen.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 

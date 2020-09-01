@@ -1,6 +1,6 @@
 ---
-title: Transformera data med ett Azure Data Factory hanterade VNet-mappnings data flöde
-description: Den här självstudien innehåller stegvisa instruktioner för hur du använder Azure Data Factory för att omvandla data med data flöde för mappning
+title: Transformera data med ett Azure Data Factory hanterat data flöde för mappning av virtuellt nätverk
+description: Den här självstudien innehåller stegvisa instruktioner för hur du använder Azure Data Factory för att transformera data med data flöden för mappning.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -8,20 +8,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
-ms.openlocfilehash: 5515f6c4dfbc5d3c0e391373e763597d7fdc89ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d752b747a0156bcef587f81ee421c55a6de81e17
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532317"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079480"
 ---
-# <a name="transform-data-securely-using-mapping-data-flows"></a>Transformera data på ett säkert sätt med hjälp av mappnings data flöden
+# <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformera data på ett säkert sätt med hjälp av data flödet för mappning
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 
-I den här självstudien använder du gränssnittet i Azure Data Factory användar gränssnitt (UX) för att skapa en pipeline som kopierar och transformerar data **från en Azure Data Lake Storage-Gen2 (ADLS) till en ADLS Gen2 mottagare (båda tillåter endast åtkomst till valda nätverk)** med hjälp av data flödet i [Azure Data Factory hanterade Virtual Network](managed-virtual-network-private-endpoint.md). Konfigurations mönstret i den här självstudien kan utökas vid omvandling av data med hjälp av data flödet för mappning.
+I den här självstudien använder du Data Factory användar gränssnitt för att skapa en pipeline som kopierar och transformerar data *från en Azure Data Lake Storage Gen2 källa till en data Lake Storage Gen2 mottagare (båda tillåter endast åtkomst till valda nätverk) genom att* använda mappa data flöde i [Data Factory hanterade Virtual Network](managed-virtual-network-private-endpoint.md). Du kan expandera konfigurations mönstret i den här självstudien när du transformerar data med hjälp av mappnings data flödet.
 
 I den här självstudien gör du följande:
 
@@ -31,50 +31,53 @@ I den här självstudien gör du följande:
 > * Skapa en pipeline med en data flödes aktivitet.
 > * Skapa ett data flöde för mappning med fyra transformeringar.
 > * Testkör pipelinen.
-> * Övervaka en data flödes aktivitet
+> * Övervaka en data flödes aktivitet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage-konto**. Du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). **Se till att lagrings kontot endast tillåter åtkomst från valda nätverk.** 
+* **Azure Storage-konto**. Du använder Data Lake Storage som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). *Se till att lagrings kontot bara tillåter åtkomst från valda nätverk.* 
 
-Filen som vi transformerar i den här självstudien är MoviesDB.csv, som du hittar [här](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Om du vill hämta filen från GitHub kopierar du innehållet till en text redigerare som du väljer att spara lokalt som en CSV-fil. Om du vill överföra filen till ditt lagrings konto, se [Ladda upp blobar med Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Exemplen refererar till en behållare med namnet "Sample-data".
+Filen som vi ska transformera i den här självstudien är moviesDB.csv, som finns på den här [GitHub innehålls webbplatsen](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Om du vill hämta filen från GitHub kopierar du innehållet till en text redigerare som du väljer för att spara den lokalt som en CSV-fil. Om du vill överföra filen till ditt lagrings konto, se [Ladda upp blobar med Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Exemplen refererar till en behållare med namnet **Sample-data**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-I det här steget skapar du en data fabrik och öppnar Data Factory UX för att skapa en pipeline i data fabriken.
+I det här steget skapar du en data fabrik och öppnar Data Factory gränssnittet för att skapa en pipeline i data fabriken.
 
-1. Öppna **Microsoft Edge** eller **Google Chrome**. Data Factory-gränssnittet stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**.
-3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
+1. Öppna Microsoft Edge eller Google Chrome. För närvarande stöder endast Microsoft Edge-och Google Chrome-webbläsare Data Factory gränssnittet.
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**.
+1. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
 
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel Dittnamnadftutorialdatafactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på data fabriken måste vara *globalt unikt*. Om du får ett fel meddelande om name-värdet anger du ett annat namn på data fabriken (till exempel Dittnamnadftutorialdatafactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
 
-4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
-5. Gör något av följande för **Resursgrupp**:
+1. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
+1. Gör något av följande för **Resursgrupp**:
 
-    a. Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan.
-
-    b. Välj **Skapa ny**och ange namnet på en resurs grupp. 
+    * Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan.
+    * Välj **Skapa ny**och ange namnet på en resurs grupp. 
          
     Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
-6. Under **Version** väljer du **V2**.
-7. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i listrutan. Data lager (till exempel Azure Storage och SQL Database) och beräkningarna (till exempel Azure HDInsight) som används av data fabriken kan finnas i andra regioner.
+1. Under **Version** väljer du **V2**.
+1. Under **Plats** väljer du en plats för datafabriken. Endast platser som stöds visas i den nedrullningsbara listan. Data lager (till exempel Azure Storage och Azure SQL Database) och beräkningarna (till exempel Azure HDInsight) som används av data fabriken kan finnas i andra regioner.
 
-8. Välj **Skapa**.
+1. Välj **Skapa**.
+1. När du har skapat meddelandet visas meddelandet i meddelande centret. Välj **gå till resurs** för att gå till sidan **Data Factory** .
+1. Klicka på **Författare och övervakare** för att starta användargränssnittet för datafabriken på en separat flik.
 
-9. När du har skapat meddelandet visas meddelandet i Notifications Center. Välj **gå till resurs** för att navigera till sidan data fabrik.
-10. Klicka på **Författare och övervakare** för att starta användargränssnittet för datafabriken på en separat flik.
+## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Skapa en Azure IR i Data Factory hanterade Virtual Network
+I det här steget skapar du en Azure IR och aktiverar Data Factory hanterade Virtual Network.
 
-## <a name="create-an-azure-integration-runtime-in-adf-managed-virtual-network"></a>Skapa en Azure Integration Runtime i ADF-hanterade Virtual Network
-I det här steget skapar du en Azure Integration Runtime och aktiverar hanterade Virtual Network.
+1. I Data Factory portal går du till **Hantera**och väljer **nytt** för att skapa en ny Azure IR.
 
-1. I ADF-portalen går du till **Hantera hubb** och klickar på **nytt** för att skapa en ny Azure integration Runtime.
-   ![Skapa nytt Azure Integration Runtime](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-2. Välj att skapa en **Azure** -integration Runtime.
-   ![Ny Azure Integration Runtime](./media/tutorial-copy-data-portal-private/azure-ir.png)
-3. Aktivera **Virtual Network**.
-   ![Ny Azure Integration Runtime](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
-4. Välj **Skapa**.
+   ![Skärm bild som visar hur du skapar en ny Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+1. Välj alternativet **Azure** IR.
+
+   ![Skärm bild som visar en ny Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+
+1. Under **konfiguration av virtuellt nätverk (för hands version)** väljer du **Aktivera**.
+
+   ![Skärm bild som visar aktivering av en ny Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+
+1. Välj **Skapa**.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Skapa en pipeline med en data flödes aktivitet
 
@@ -82,103 +85,105 @@ I det här steget ska du skapa en pipeline som innehåller en data flödes aktiv
 
 1. På sidan **Nu sätter vi igång** väljer du **Skapa pipeline**.
 
-   ![Skapa pipeline](./media/doc-common-process/get-started-page.png)
+   ![Skärm bild som visar hur du skapar en pipeline.](./media/doc-common-process/get-started-page.png)
 
-1. I rutan **Egenskaper** för pipelinen anger du **TransformMovies** som **namn** på pipelinen.
-1. I det fabriksinstallerade övre fältet drar du skjutreglaget för **data flödes fel sökning** på. Fel söknings läge möjliggör interaktiv testning av omvandlings logik mot ett aktivt Spark-kluster. Data flödes kluster tar 5-7 minuter att värma upp och användare rekommenderas att aktivera fel sökning först om de planerar att utföra data flödes utveckling. Mer information finns i [fel söknings läge](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
+1. I rutan Egenskaper för pipelinen anger du **TransformMovies** som namn på pipelinen.
+1. I det fabriksinstallerade övre fältet drar du skjutreglaget för **data flödes fel sökning** på. Fel söknings läge möjliggör interaktiv testning av omvandlings logik mot ett aktivt Spark-kluster. Data flödes kluster tar fem till sju minuter att värma upp. Aktivera **fel sökning av data flöde** först om du planerar att göra data flödes utveckling. Mer information finns i [fel söknings läge](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
 
-    ![Fel sökning av data flöde](media/tutorial-data-flow-private/dataflow-debug.png)
-1. I fönstret **aktiviteter** expanderar du **förflyttnings-och omvandlings** draget. Dra och släpp **data flödes** aktiviteten från fönstret till pipeline-arbetsytan.
+    ![Skärm bild som visar skjutreglaget för fel sökning av data flöde.](media/tutorial-data-flow-private/dataflow-debug.png)
+1. I fönstret **aktiviteter** expanderar du **flytta och transformera**. Dra **data flödes** aktiviteten från fönstret till pipeline-arbetsytan.
 
-1. I popup-fönstret för **att lägga till data flöde** väljer du **Skapa nytt data flöde** och väljer sedan **mappa data flöde**. Klicka på **OK** när du är färdig.
+1. I popup-fönstret för **att lägga till data flöde** väljer du **Skapa nytt data flöde** och väljer sedan **mappa data flöde**. Välj **OK** när du är klar.
 
-    ![Mappa dataflöden](media/tutorial-data-flow-private/mapping-dataflow.png)
+    ![Skärm bild som visar data flöde för mappning.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
 1. Namnge ditt data flöde **TransformMovies** i rutan Egenskaper.
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Bygg omvandlings logik i data flödets arbets yta
 
-När du har skapat ditt data flöde skickas det automatiskt till data flödets arbets yta. I det här steget ska du bygga ett data flöde som tar moviesDB.csv i ADLS-lagring och sammanställer genomsnitts betyget för Comedies från 1910 till 2000. Sedan skriver du filen tillbaka till ADLS-lagringen.
+När du har skapat ditt data flöde skickas det automatiskt till data flödets arbets yta. I det här steget ska du bygga ett data flöde som tar moviesDB.csv-filen i Data Lake Storage och aggregerar genomsnitts betyget för Comedies från 1910 till 2000. Sedan skriver du tillbaka filen till Data Lake Storage.
 
 ### <a name="add-the-source-transformation"></a>Lägg till käll omvandlingen
 
-I det här steget konfigurerar du Azure Data Lake Storage Gen2 som källa.
+I det här steget konfigurerar du Data Lake Storage Gen2 som källa.
 
-1. I data flödets arbets yta lägger du till en källa genom att klicka på rutan **Lägg till källa** .
+1. I data flödets arbets yta lägger du till en källa genom att markera rutan **Lägg till källa** .
 
-1. Namnge din käll **MoviesDB**. Klicka på **ny** för att skapa en ny käll data uppsättning.
+1. Namnge din käll **MoviesDB**. Välj **ny** för att skapa en ny käll data uppsättning.
 
-1. Välj **Azure Data Lake Storage Gen2**. Klicka på Fortsätt.
+1. Välj **Azure Data Lake Storage Gen2**och välj sedan **Fortsätt**.
 
-1. Välj **DelimitedText**. Klicka på Fortsätt.
+1. Välj **DelimitedText**och välj sedan **Fortsätt**.
 
 1. Namnge din data uppsättnings **MoviesDB**. I list rutan länkad tjänst väljer du **nytt**.
 
-1. På skärmen Skapa länkad tjänst namnger du ADLS Gen2 länkade tjänst **ADLSGen2** och anger autentiseringsmetoden. Ange sedan dina autentiseringsuppgifter för anslutningen. I den här självstudien använder vi konto nyckeln för att ansluta till vårt lagrings konto. 
+1. I fönstret Skapa länkad tjänst namnger du Data Lake Storage Gen2 länkade tjänstens **ADLSGen2** och anger din autentiseringsmetod. Ange sedan dina autentiseringsuppgifter för anslutningen. I den här självstudien använder vi **konto nyckeln** för att ansluta till vårt lagrings konto. 
 
-1. Se till att aktivera **interaktiv redigering**. Det kan ta cirka 1 minut att aktive ras.
+1. Se till att aktivera **interaktiv redigering**. Det kan ta en minut att aktive ras.
 
-    ![Interaktiv redigering](./media/tutorial-data-flow-private/interactive-authoring.png)
+    ![Skärm bild som visar interaktiv redigering.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
-1. Välj **test anslutning**. det fungerar inte eftersom lagrings kontot inte ger åtkomst till det utan att skapa och godkänna en privat slut punkt. I fel meddelandet bör du se en länk för att skapa en **privat slut punkt** som du kan följa för att skapa en hanterad privat slut punkt. *Ett alternativ är att gå direkt till fliken Hantera och följa instruktionerna i [det här avsnittet](#create-a-managed-private-endpoint) för att skapa en hanterad privat slut punkt*
+1. Välj **Testanslutning**. Det bör inte utföras eftersom lagrings kontot inte tillåter åtkomst till det utan att en privat slut punkt skapas och godkänns. I fel meddelandet bör du se en länk för att skapa en privat slut punkt som du kan följa för att skapa en hanterad privat slut punkt. Ett alternativ är att gå direkt till fliken **Hantera** och följa instruktionerna i [det här avsnittet](#create-a-managed-private-endpoint) för att skapa en hanterad privat slut punkt.
 
-1. Håll dialog rutan öppen och gå sedan till ditt lagrings konto som valts ovan.
+1. Håll dialog rutan öppen och gå sedan till ditt lagrings konto.
 
-1. Följ anvisningarna i [det här avsnittet](#approval-of-a-private-link-in-storage-account) om du vill godkänna den privata länken.
+1. Följ anvisningarna i [det här avsnittet](#approval-of-a-private-link-in-a-storage-account) om du vill godkänna den privata länken.
 
-1. Gå tillbaka till dialog rutan. **Testa anslutningen** igen och välj **skapa** för att distribuera den länkade tjänsten.
+1. Gå tillbaka till dialog rutan. Välj **Testa anslutning** igen och välj **skapa** för att distribuera den länkade tjänsten.
 
-1. När du är tillbaka på skärmen skapa data uppsättning anger du var filen finns under fältet **fil Sök väg** . I den här självstudien finns filen moviesDB.csv i container exempel-data. När filen har rubriker kontrollerar du **första raden som rubrik**. Välj **från anslutning/Arkiv** om du vill importera huvud schemat direkt från filen i lagrings utrymmet. Klicka på OK när du är färdig.
+1. På skärmen skapa data uppsättning anger du var filen finns under fältet **fil Sök väg** . I den här självstudien finns filen moviesDB.csv i container **exempel-data**. Eftersom filen innehåller rubriker markerar du kryss rutan **första raden som rubrik** . Välj **från anslutning/Arkiv** om du vill importera huvud schemat direkt från filen i lagrings utrymmet. Välj **OK** när du är klar.
 
-    ![Källsökväg](media/tutorial-data-flow-private/source-file-path.png)
+    ![Skärm bild som visar käll Sök vägen.](media/tutorial-data-flow-private/source-file-path.png)
 
-1. Om ditt fel söknings kluster har startats går du till fliken **data förhands granskning** i käll omvandlingen och klickar på **Uppdatera** för att hämta en ögonblicks bild av data. Du kan använda för hands versionen av data för att kontrol lera att din omvandling är korrekt konfigurerad.
+1. Om ditt fel söknings kluster har startats går du till fliken **data förhands granskning** i käll omvandlingen och väljer **Uppdatera** för att hämta en ögonblicks bild av data. Du kan använda för hands versionen av data för att kontrol lera att din omvandling är korrekt konfigurerad.
 
-    ![Förhandsgranskning](media/tutorial-data-flow-private/data-preview.png)
+    ![Skärm bild som visar fliken Data förhands granskning.](media/tutorial-data-flow-private/data-preview.png)
 
 #### <a name="create-a-managed-private-endpoint"></a>Skapa en hanterad privat slut punkt
 
-Om du inte klickade på hyperlänken när du testar anslutningen ovan följer du följande sökväg. Nu måste du skapa en hanterad privat slut punkt som du ska ansluta till den länkade tjänsten som skapats ovan.
+Om du inte använde hyperlänken när du testade den föregående anslutningen följer du sökvägen. Nu måste du skapa en hanterad privat slut punkt som du ansluter till den länkade tjänst som du har skapat.
 
-1. Gå till fliken Hantera.
-> [!NOTE]
-> Fliken Hantera är kanske inte tillgänglig för alla data Factory-instanser. Om du inte ser det kan du fortfarande komma åt privata slut punkter via fliken**Author**-->**Connections**-->**privata slut punkt**
-1. Gå till avsnittet hanterade privata slut punkter.
-1. Välj **+ ny** under hanterade privata slut punkter.
+1. Gå till fliken **Hantera** .
 
-    ![Ny hanterad privat slut punkt](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+   > [!NOTE]
+   > Fliken **Hantera** kanske inte är tillgänglig för alla data Factory-instanser. Om du inte ser det kan du komma åt privata slut punkter genom att välja **författar**  >  **anslutningar**  >  **privat slut punkt**.
 
-1. Välj panelen Azure Data Lake Storage Gen2 i listan och välj **Fortsätt**.
-1. Ange namnet på det lagrings konto som du skapade ovan.
+1. Gå till avsnittet **hanterade privata slut punkter** .
+1. Välj **+ ny** under **hanterade privata slut punkter**.
+
+    ![Skärm bild som visar knappen Ny hanterad privat slut punkt ny.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+
+1. Välj panelen **Azure Data Lake Storage Gen2** i listan och välj **Fortsätt**.
+1. Ange namnet på det lagrings konto som du har skapat.
 1. Välj **Skapa**.
-1. Du bör se efter att ha väntat några sekunder på att den privata länken som skapas behöver ett godkännande.
-1. Välj den privata slut punkt som du skapade ovan. Du kan se en hyperlänk som kommer att leda till att du godkänner den privata slut punkten på lagrings konto nivån.
+1. Efter några sekunder bör du se att den privata länken som skapas kräver ett godkännande.
+1. Välj den privata slut punkt som du skapade. Du kan se en hyperlänk som kommer att leda till att du godkänner den privata slut punkten på lagrings konto nivån.
 
-    ![Hantera privat slut punkt](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
+    ![Skärm bild som visar fönstret Hantera privat slut punkt.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
 
-#### <a name="approval-of-a-private-link-in-storage-account"></a>Godkännande av en privat länk i lagrings kontot
+#### <a name="approval-of-a-private-link-in-a-storage-account"></a>Godkännande av en privat länk i ett lagrings konto
 
-1. I lagrings kontot går du till **privata slut punkts anslutningar** under avsnittet Inställningar.
+1. I lagrings kontot går du till **anslutningar för privata slut punkter** under avsnittet **Inställningar** .
 
-1. Kryssa för den privata slut punkt som du skapade ovan och välj **Godkänn**.
+1. Markera kryss rutan efter den privata slut punkt som du skapade och välj **Godkänn**.
 
-    ![Godkänn privat slut punkt](./media/tutorial-data-flow-private/approve-private-endpoint.png)
+    ![Skärm bild som visar knappen Godkänn privat slut punkt.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
 
-1. Lägg till en beskrivning och klicka på **Ja**.
-1. Gå tillbaka till avsnittet **hanterade privata slut punkter** på fliken **Hantera** i Azure Data Factory.
-1. Det bör ta cirka 1 minut att få godkännandet återspeglas för din privata slut punkt.
+1. Lägg till en beskrivning och välj **Ja**.
+1. Gå tillbaka till avsnittet **hanterade privata slut punkter** på fliken **Hantera** i Data Factory.
+1. Efter ungefär en minut bör du se att godkännandet visas för din privata slut punkt.
 
 ### <a name="add-the-filter-transformation"></a>Lägg till filter omvandlingen
 
-1. Klicka på plus ikonen bredvid käll-noden på data flödets arbets yta för att lägga till en ny omvandling. Den första omvandlingen som du lägger till är ett **filter**.
+1. Bredvid Källnoden på data flödets arbets yta väljer du plus ikonen för att lägga till en ny omvandling. Den första omvandlingen som du lägger till är ett **filter**.
 
-    ![Lägg till filter](media/tutorial-data-flow-private/add-filter.png)
-1. Namnge filter omvandlingen **FilterYears**. Klicka på uttrycks rutan bredvid **filtrera på** för att öppna uttrycks verktyget. Här anger du filtrerings villkoret.
+    ![Skärm bild som visar hur du lägger till ett filter.](media/tutorial-data-flow-private/add-filter.png)
+1. Namnge filter omvandlingen **FilterYears**. Välj uttrycks rutan bredvid **filtrera på** för att öppna uttrycks verktyget. Här anger du filtrerings villkoret.
 
-    ![Filtrera år](media/tutorial-data-flow-private/filter-years.png)
+    ![Skärm bild som visar FilterYears.](media/tutorial-data-flow-private/filter-years.png)
 1. Med uttrycks verktyget Data Flow kan du interaktivt skapa uttryck som ska användas i olika transformationer. Uttryck kan innehålla inbyggda funktioner, kolumner från schemat för indata och användardefinierade parametrar. Mer information om hur du skapar uttryck finns i [uttrycks verktyg för data flöde](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
-    * I den här självstudien vill du filtrera filmer för Genre-komedi som kommer ut mellan åren 1910 och 2000. Om ett år är för närvarande en sträng måste du konvertera det till ett heltal med hjälp av ```toInteger()``` funktionen. Använd den större än eller lika med (>=) och mindre än eller lika med (<=) operatörer för att jämföra med de exakta värdena 1910 och 200-. Union dessa uttryck tillsammans med operatorn och (&&). Uttrycket visas som:
+    * I den här självstudien vill du filtrera filmer i komedi-genren som kom mellan åren 1910 och 2000. Eftersom året för närvarande är en sträng måste du konvertera det till ett heltal med hjälp av ```toInteger()``` funktionen. Använd operatorerna större än eller lika med (>=) och mindre än eller lika med (<=) för att jämföra med de litterala årets värden 1910 och 2000. Union dessa uttryck tillsammans med operatorn och (&&). Uttrycket visas som:
 
         ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
@@ -186,69 +191,69 @@ Om du inte klickade på hyperlänken när du testar anslutningen ovan följer du
 
         ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
 
-    * Om du har ett fel söknings kluster aktivt kan du verifiera din logik genom att klicka på **Uppdatera** för att se uttryckets utdata jämfört med de indata som används. Det finns mer än ett rätt svar på hur du kan utföra den här logiken med hjälp av Expression-språket för data flödet.
+    * Om du har ett aktivt fel söknings kluster kan du verifiera din logik genom att välja **Uppdatera** för att se uttryckets utdata jämfört med de använda inmatningarna. Det finns mer än ett rätt svar på hur du kan utföra den här logiken med hjälp av Expression-språket för data flödet.
 
-        ![Filter uttryck](media/tutorial-data-flow-private/filter-expression.png)
+        ![Skärm bild som visar filter uttrycket.](media/tutorial-data-flow-private/filter-expression.png)
 
-    * Klicka på **Spara och slutför** när du är klar med ditt uttryck.
+    * Välj **Spara och slutför** när du är klar med ditt uttryck.
 
 1. Hämta en **data förhands granskning** för att kontrol lera att filtret fungerar korrekt.
 
-    ![Filtrera data för hands version](media/tutorial-data-flow-private/filter-data.png)
+    ![Skärm bild som visar den filtrerade data förhands granskningen.](media/tutorial-data-flow-private/filter-data.png)
 
 ### <a name="add-the-aggregate-transformation"></a>Lägg till aggregerad transformering
 
 1. Nästa omvandling du lägger till är en **sammanställd** omvandling under **schema modifieraren**.
 
-    ![Lägg till mängd](media/tutorial-data-flow-private/add-aggregate.png)
-1. Namnge den sammanställda transformeringen **AggregateComedyRatings**. På fliken **Gruppera efter** väljer du **år** i list rutan för att gruppera agg regeringar efter året som filmen kommer ut.
+    ![Skärm bild som visar hur du lägger till aggregatet.](media/tutorial-data-flow-private/add-aggregate.png)
+1. Namnge den sammanställda transformeringen **AggregateComedyRating**. På fliken **Gruppera efter** väljer du **år** i list rutan för att gruppera agg regeringar efter året som filmen kommer ut.
 
-    ![Samlings grupp](media/tutorial-data-flow-private/group-by-year.png)
-1. Gå till fliken **agg regeringar** . I den vänstra text rutan namnger du den sammanställda kolumnen **AverageComedyRating**. Klicka i rutan till höger uttryck för att ange det sammanställda uttrycket via uttrycks verktyget.
+    ![Skärm bild som visar samlings gruppen.](media/tutorial-data-flow-private/group-by-year.png)
+1. Gå till fliken **agg regeringar** . I den vänstra text rutan namnger du den sammanställda kolumnen **AverageComedyRating**. Välj rutan till höger uttryck för att ange det sammanställda uttrycket via uttrycks verktyget.
 
-    ![Sammanställd kolumn namn](media/tutorial-data-flow-private/name-column.png)
-1. Om du vill få medelvärdet för kolumn **klassificeringen**använder du ```avg()``` mängd funktionen. Eftersom **klassificering** är en sträng och ```avg()``` tar med numeriska värden måste vi konvertera värdet till ett tal via ```toInteger()``` funktionen. Detta är ett uttryck som ser ut så här:
+    ![Skärm bild som visar sammanslaget kolumn namn.](media/tutorial-data-flow-private/name-column.png)
+1. Om du vill få medelvärdet för kolumn **klassificeringen**använder du ```avg()``` mängd funktionen. Eftersom **klassificeringen** är en sträng och ```avg()``` tar med numeriska värden måste vi konvertera värdet till ett tal via ```toInteger()``` funktionen. Detta uttryck ser ut så här:
 
     ```avg(toInteger(Rating))```
 
-    Klicka på **Spara och slutför** när du är klar.
+1. Välj **Spara och slutför** när du är klar.
 
-    ![Spara mängd](media/tutorial-data-flow-private/save-aggregate.png)
+    ![Skärm bild som visar hur du sparar mängden.](media/tutorial-data-flow-private/save-aggregate.png)
 1. Gå till fliken **data förhands granskning** för att Visa transformationens utdata. Observera att endast två kolumner finns där, **år** och **AverageComedyRating**.
 
 ### <a name="add-the-sink-transformation"></a>Lägg till omvandlingen av mottagare
 
 1. Sedan vill du lägga till en **Sink** -omvandling under **mål**.
 
-    ![Lägg till mottagare](media/tutorial-data-flow-private/add-sink.png)
-1. Namnge din Sink- **mottagare**. Klicka på **ny** för att skapa din data uppsättning för mottagare.
+    ![Skärm bild som visar hur du lägger till en mottagare.](media/tutorial-data-flow-private/add-sink.png)
+1. Namnge din Sink- **mottagare**. Välj **ny** för att skapa din data uppsättning för mottagare.
 
-    ![Skapa mottagare](media/tutorial-data-flow-private/create-sink.png)
-1. På sidan ny data uppsättning väljer du **Azure Data Lake Storage Gen2**. Klicka på Fortsätt.
+    ![Skärm bild som visar hur du skapar en mottagare.](media/tutorial-data-flow-private/create-sink.png)
+1. På sidan **ny data uppsättning** väljer du **Azure Data Lake Storage Gen2** och väljer sedan **Fortsätt**.
 
-1. På sidan Välj format väljer du **DelimitedText**. Klicka på Fortsätt.
+1. På sidan **Välj format** väljer du **DelimitedText** och väljer sedan **Fortsätt**.
 
-1. Namnge din data uppsättning **MoviesSink**. För länkad tjänst väljer du samma ADLSGen2-länkade tjänst som du skapade för käll omvandling. Ange en mapp för utdata för att skriva dina data till. I den här självstudien ska vi skriva till mappen "output" i container ' Sample-data '. Mappen behöver inte finnas i förväg och kan skapas dynamiskt. Ange **första raden som rubrik** som sann och välj **ingen** för **import schema**. Klicka på OK.
+1. Namnge din data uppsättning **MoviesSink**. För länkad tjänst väljer du samma **ADLSGen2** -länkade tjänst som du skapade för käll omvandling. Ange en mapp för utdata för att skriva dina data till. I den här självstudien ska vi skriva till mappens **utdata** i **exempel på container-data**. Mappen behöver inte finnas i förväg och kan skapas dynamiskt. Markera kryss rutan **första raden som rubrik** och välj **ingen** för **import schema**. Välj **OK**.
 
-    ![Mottagar Sök väg](media/tutorial-data-flow-private/sink-file-path.png)
+    ![Skärm bild som visar mottagarens sökväg.](media/tutorial-data-flow-private/sink-file-path.png)
 
 Nu har du slutfört skapandet av ditt data flöde. Du är redo att köra den i din pipeline.
 
-## <a name="running-and-monitoring-the-data-flow"></a>Köra och övervaka data flödet
+## <a name="run-and-monitor-the-data-flow"></a>Köra och övervaka data flödet
 
-Du kan felsöka en pipeline innan du publicerar den. I det här steget ska du utlösa en fel söknings körning av data flödets pipeline. Medan data förhands granskning skriver inte data, skriver en fel söknings körning data till mottagar målet.
+Du kan felsöka en pipeline innan du publicerar den. I det här steget utlöser du en fel söknings körning av data flödets pipeline. Medan data förhands granskningen inte skriver data skriver en fel söknings körning data till mottagar målet.
 
-1. Gå till pipeline-arbetsytan. Klicka på **Felsök** för att utlösa en debug-körning.
+1. Gå till pipeline-arbetsytan. Välj **Felsök** för att utlösa en debug-körning.
 
-1. Fel sökning av data flödes aktiviteter i pipeline använder det aktiva fel söknings klustret men tar fortfarande minst en minut att initiera. Du kan följa förloppet via fliken **utdata** . När körningen är klar klickar du på glasögon-ikonen för att köra information.
+1. Pipeline-felsökning av data flödes aktiviteter använder det aktiva fel söknings klustret men tar fortfarande minst en minut att initiera. Du kan följa förloppet via fliken **utdata** . När körningen är klar väljer du ikonen glasögon för körnings information.
 
-1. På sidan information kan du se antalet rader och tid som lagts till i varje omformnings steg.
+1. På sidan information kan du se antalet rader och hur lång tid som har använts för varje omformnings steg.
 
-    ![Övervaknings körning](media/tutorial-data-flow-private/run-details.png)
-1. Klicka på en omvandling för att få detaljerad information om kolumnerna och partitionering av data.
+    ![Skärm bild som visar en övervaknings körning.](media/tutorial-data-flow-private/run-details.png)
+1. Välj en omvandling för att få detaljerad information om kolumner och partitionering av data.
 
 Om du har följt den här självstudien korrekt bör du ha skrivit 83 rader och 2 kolumner i mottagar mappen. Du kan kontrol lera att informationen är korrekt genom att kontrol lera Blob Storage.
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här självstudien använder du gränssnittet i Azure Data Factory användar gränssnitt (UX) för att skapa en pipeline som kopierar och transformerar data **från en Azure Data Lake Storage-Gen2 (ADLS) till en ADLS Gen2 mottagare (båda tillåter endast åtkomst till valda nätverk)** med hjälp av data flödet i [Azure Data Factory hanterade Virtual Network](managed-virtual-network-private-endpoint.md).
+I den här självstudien använde du Data Factory gränssnittet för att skapa en pipeline som kopierar och transformerar data från en Data Lake Storage Gen2 källa till en Data Lake Storage Gen2 mottagare (båda tillåter endast åtkomst till valda nätverk) genom att använda mappa data flöde i [Data Factory hanterade Virtual Network](managed-virtual-network-private-endpoint.md).

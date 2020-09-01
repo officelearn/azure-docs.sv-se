@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Wandera | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wandera.
+title: 'Självstudie: Azure Active Directory integrering med Wandera RADAR-administratör | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Wandera RADAR-administratör.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,68 +9,69 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4af2fa415c22abe5cd8ac98d510feb44abab0e97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8ec4b68dc774b52ad621ff3e965481de680b6ff
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88524010"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89080007"
 ---
-# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Självstudie: integrera Wandera med Azure Active Directory
+# <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Självstudie: integrera Wandera POLÄRDIAGRAM-administratör med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Wandera med Azure Active Directory (Azure AD). När du integrerar Wandera med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Wandera POLÄRDIAGRAM-administratören med Azure Active Directory (Azure AD). När du integrerar Wandera RADAR-administratör med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Wandera.
-* Gör det möjligt för användarna att logga in automatiskt till Wandera med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Wandera RADAR-administratör.
+* Gör det möjligt för användarna att logga in automatiskt till Wandera RADAR-administratör med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Wandera för enkel inloggning (SSO) aktive rad.
+* Wandera RADAR admin, enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Wandera stöder **IDP** INITIERAd SSO
+* Wandera RADAR-administratören stöder **IDP** INITIERAd SSO
+* När du har konfigurerat Wandera RADAR-administratör kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-wandera-from-the-gallery"></a>Lägga till Wandera från galleriet
+## <a name="adding-wandera-radar-admin-from-the-gallery"></a>Lägga till Wandera RADAR-administratör från galleriet
 
-Om du vill konfigurera integreringen av Wandera i Azure AD måste du lägga till Wandera från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Wandera RADAR-administratören i Azure AD måste du lägga till Wandera POLÄRDIAGRAM från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Wandera** i sökrutan.
-1. Välj **Wandera** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** , Skriv **Wandera radar admin** i sökrutan.
+1. Välj **WANDERA radar-administratör** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Konfigurera och testa Azure AD SSO
 
-Konfigurera och testa Azure AD SSO med Wandera med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Wandera.
+Konfigurera och testa Azure AD SSO med Wandera RADAR-administratör med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Wandera POLÄRDIAGRAM-administratören.
 
-Om du vill konfigurera och testa Azure AD SSO med Wandera, slutför du följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med Wandera RADAR-administratör slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera WANDERA SSO](#configure-wandera-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-5. **[Skapa Wandera test User](#create-wandera-test-user)** -om du vill ha en motsvarighet till B. Simon i Wandera som är länkad till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+   * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+   * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera WANDERA radar admin SSO](#configure-wandera-radar-admin-sso)** – om du vill konfigurera inställningar för enkel inloggning på program sidan.
+   * **[Skapa WANDERA radar Admin test User](#create-wandera-radar-admin-test-user)** – om du vill ha en motsvarighet till B. Simon i Wandera polärdiagram-administratören som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Wandera** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Wandera radar admin** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -81,7 +82,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://radar.wandera.com/saml/acs/<tenant id>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Wandera client support team](https://www.wandera.com/about-wandera/contact/#supportsection) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [WANDERA polärdiagram admin client support team](https://www.wandera.com/about-wandera/contact/#supportsection) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -95,33 +96,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     1. Välj **signeringsalgoritmen** som **SHA-256**.
 
-1. I avsnittet **Konfigurera Wandera** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **Konfigurera WANDERA radar-administratör** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-wandera-sso"></a>Konfigurera Wandera SSO
-
-1. Om du vill automatisera konfigurationen i Wandera måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
-
-    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
-
-2. När du har lagt till tillägg i webbläsaren, klickar du på **installations Wandera** för att dirigera dig till Wandera-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Wandera. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-4.
-
-    ![Konfigurera konfiguration](common/setup-sso.png)
-
-3. Om du vill konfigurera Wandera manuellt öppnar du ett nytt webbläsarfönster och loggar in på din Wandera-företags webbplats som administratör och utför följande steg:
-
-4. I det övre högra hörnet på sidan klickar du på **Inställningar**  >  **Administration**  >  **enkel inloggning** och markerar sedan alternativet **Aktivera SAML 2,0** för att utföra följande steg.
-
-    ![Wandera-konfiguration](./media/wandera-tutorial/config01.png)
-
-    a. Klicka på **eller ange de obligatoriska fälten manuellt**.
-
-    b. I text rutan **IDP EntityId** klistrar du in värdet för **Azure AD-identifieraren** , som du har kopierat från Azure Portal.
-
-    c. Öppna XML-metadata för federationsmetadata i anteckningar, kopiera dess innehåll och klistra in det i text rutan **IDP Public X. 509 Certificate** .
-
-    d. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -137,10 +114,10 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Wandera.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Wandera RADAR-administratör.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Wandera**.
+1. I listan program väljer du **WANDERA radar-administratör**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
@@ -153,15 +130,39 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-### <a name="create-wandera-test-user"></a>Skapa Wandera test användare
+## <a name="configure-wandera-radar-admin-sso"></a>Konfigurera Wandera RADAR admin SSO
 
-I det här avsnittet skapar du en användare som heter B. Simon i Wandera. Arbeta med [Wandera support team](https://www.wandera.com/about-wandera/contact/#supportsection) för att lägga till användare i Wandera-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+1. Om du vill automatisera konfigurationen i Wandera RADAR-administratören måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
 
-### <a name="test-sso"></a>Testa SSO
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, klickar du på **Setup WANDERA radar admin** dirigerar dig till Wandera-administrations programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Wandera RADAR-administratören. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-4.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera Wandera RADAR-administratören manuellt öppnar du ett nytt webbläsarfönster och loggar in på företags platsen för Wandera RADAR-administratören som administratör och utför följande steg:
+
+4. I det övre högra hörnet på sidan klickar du på **Inställningar**  >  **Administration**  >  **enkel inloggning** och markerar sedan alternativet **Aktivera SAML 2,0** för att utföra följande steg.
+
+    ![Konfiguration av Wandera RADAR-admin](./media/wandera-tutorial/config01.png)
+
+    a. Klicka på **eller ange de obligatoriska fälten manuellt**.
+
+    b. I text rutan **IDP EntityId** klistrar du in värdet för **Azure AD-identifieraren** , som du har kopierat från Azure Portal.
+
+    c. Öppna XML-metadata för federationsmetadata i anteckningar, kopiera dess innehåll och klistra in det i text rutan **IDP Public X. 509 Certificate** .
+
+    d. Klicka på **Spara**.
+
+### <a name="create-wandera-radar-admin-test-user"></a>Skapa Wandera POLÄRDIAGRAM-administratör test användare
+
+I det här avsnittet skapar du en användare som heter B. Simon i Wandera RADAR-administratören. arbeta med [support teamet för WANDERA polärdiagram](https://www.wandera.com/about-wandera/contact/#supportsection) för att lägga till användarna i Wandera radar-administratörskonsolen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Wandera på åtkomst panelen, bör du loggas in automatiskt på den Wandera som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Wandera RADAR-administratör på åtkomst panelen, bör du loggas in automatiskt på den Wandera RADAR-administratör som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

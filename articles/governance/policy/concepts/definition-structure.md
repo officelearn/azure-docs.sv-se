@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b6509f684e611fbb79184383e1b332d793458b9
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958787"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079038"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -653,7 +653,7 @@ Listan över alias växer alltid. Använd någon av följande metoder för att t
   ```
 
   > [!NOTE]
-  > Använd följande kommando om du vill söka efter alias som kan användas med [ändra](./effects.md#modify) -resultatet:
+  > Om du vill söka efter alias som kan användas med [ändra](./effects.md#modify) -resultatet använder du följande kommando i Azure PowerShell **4.6.0** eller högre:
   >
   > ```azurepowershell-interactive
   > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }

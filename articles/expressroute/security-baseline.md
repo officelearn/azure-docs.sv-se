@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f84c73f3fbefddd2972f077826fe1e2a8738ad5a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079038"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079157"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Azures säkerhets bas linje för ExpressRoute
 
@@ -240,13 +240,13 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 **Vägledning**: underhålla en inventering av de användar konton som har administrativ åtkomst till kontroll planet (t. ex. Azure Portal) för dina Azure ExpressRoute-resurser.
 
-Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll (RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory.
+Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory.
 
 Dessutom kan partner som använder API: et för ExpressRoute partner Resource Manager använda sig av rollbaserade Access Control till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
 
-* [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Utnyttja RBAC i ExpressRoute partner Resource Manager-API: et](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Utnyttja Azure RBAC i ExpressRoute partner Resource Manager-API: et](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Azure Security Center övervakning**: Ja
 
@@ -437,7 +437,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 * [Så här konfigurerar du plats-till-plats-IPSEC över ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
 
-Så här konfigurerar du plats-till-plats-IPSEC över ExpressRoute:https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+Så här konfigurerar du plats-till-plats-IPSEC över ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -453,17 +453,17 @@ Så här konfigurerar du plats-till-plats-IPSEC över ExpressRoute:https://docs.
 
 **Ansvars område**: inte tillämpligt
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll (RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
+**Vägledning**: du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
 
 Azure ExpressRoute har också användar roller för krets ägare och kretsar. Krets användare är ägare till virtuella nätverksgateway som inte ingår i samma prenumeration som ExpressRoute-kretsen. Krets ägaren har möjlighet att ändra och återkalla auktorisering när som helst. Att återkalla ett auktoriserings resultat i alla länk anslutningar tas bort från prenumerationen vars åtkomst har återkallats. Krets användare kan lösa in auktoriseringar (en auktorisering per virtuellt nätverk).
 
 Dessutom kan partner som använder API: et för ExpressRoute partner Resource Manager använda sig av rollbaserade Access Control till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
 
-* [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Utnyttja RBAC i ExpressRoute partner Resource Manager-API: et](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Utnyttja Azure RBAC i ExpressRoute partner Resource Manager-API: et](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 * [Förstå administrations roller i ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 

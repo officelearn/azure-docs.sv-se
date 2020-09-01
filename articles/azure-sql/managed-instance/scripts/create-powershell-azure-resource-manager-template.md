@@ -5,19 +5,19 @@ description: Använd det här Azure PowerShell exempel skriptet för att skapa e
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: seo-dt-2019
+ms.custom: seo-dt-2019, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8ac742c42a32e8b864c4be71e786c292ceb1514d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6758aed67949032bb93086527623b60af33e716e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073384"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079565"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Använd PowerShell med en Azure Resource Manager mall för att skapa en hanterad instans
 
@@ -41,7 +41,7 @@ Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinier
 
 Instans namn, SQL-administratörens användar namn, VNet/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här exemplet förutsätter att du har [skapat en giltig nätverks miljö](../virtual-network-subnet-create-arm-template.md) eller [ändrat ett befintligt virtuellt](../vnet-existing-add-subnet.md) nätverk för din hanterade instans. Du kan förbereda nätverks miljön med en separat [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), om det behövs. 
 

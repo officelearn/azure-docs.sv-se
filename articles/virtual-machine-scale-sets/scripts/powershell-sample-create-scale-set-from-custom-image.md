@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
-ms.custom: akjosh
-ms.openlocfilehash: 10f0cb1f6f3b5ee25538a588fadda75a2aeb6079
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: akjosh, devx-track-azurepowershell
+ms.openlocfilehash: 34a786c133d38e40cfa614ddceed53a6cf52b617
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088928"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078936"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>Skapa en VM-skalningsuppsättning från en anpassad virtuell datoravbildning med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning som källa för de virtuella datorinstanserna.
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzVmss](/powershell/module/az.compute/new-azvmss) | Skapar VM-skalningsuppsättningen och alla stödresurser, inklusive virtuellt nätverk, lastbalansering och NAT-regler. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |

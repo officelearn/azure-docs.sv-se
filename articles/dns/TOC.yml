@@ -33,6 +33,8 @@
           href: dns-delegate-domain-azure-dns.md
         - name: Skapa anpassade DNS-poster för en webbapp
           href: dns-web-sites-custom-domain.md
+        - name: Skapa en ny underordnad DNS-zon
+          href: tutorial-public-dns-zones-child.md
         - name: Aliasposter för Traffic Manager
           href: tutorial-alias-tm.md
         - name: Aliasposter för offentliga IP-adresser

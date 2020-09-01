@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045543"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079004"
 ---
 # <a name="security-control-data-protection"></a>Säkerhets kontroll: data skydd
 
@@ -84,15 +84,15 @@ Använd Azure SQL-Information Protection för att hjälpa till med klassificerin
 
 - [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 4.6 | 14,6 | Kund |
+| 4,6 | 14,6 | Kund |
 
-Använd Azure AD RBAC för att kontrol lera åtkomsten till data och resurser, Använd annars tjänst särskilda metoder för åtkomst kontroll.
+Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till data och resurser, Använd annars tjänstens speciella metoder för åtkomst kontroll.
 
-- [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Använd värdbaserade data förlust skydd för att genomdriva åtkomst kontroll
 
@@ -131,4 +131,4 @@ Använd Azure Monitor med Azure aktivitets logg för att skapa aviseringar för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se nästa säkerhets kontroll: [sårbarhets hantering](security-control-vulnerability-management.md)
+- Se nästa säkerhets kontroll:  [sårbarhets hantering](security-control-vulnerability-management.md)

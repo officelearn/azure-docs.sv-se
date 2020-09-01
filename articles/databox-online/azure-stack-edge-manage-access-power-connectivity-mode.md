@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339730"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079803"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Hantera åtkomst, energi och anslutnings läge för Azure Stack Edge
 
@@ -95,7 +95,7 @@ För Azure Stack Edge-enhet `Microsoft.DataBoxEdge` ska registreras. För att re
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Mer information om hur du registrerar en resurs leverantör finns i [lösa fel för registrering av resurs leverantör](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Mer information om hur du registrerar en resurs leverantör finns i [lösa fel för registrering av resurs leverantör](../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="manage-connectivity-mode"></a>Hantera anslutnings läge
 
@@ -120,7 +120,7 @@ Följ dessa steg om du vill ändra enhets läge:
  
 ## <a name="manage-power"></a>Hantera energi
 
-Du kan stänga av eller starta om den fysiska enheten med hjälp av det lokala webb gränssnittet. Innan du startar om, bör du koppla från resurserna på data servern och sedan enheten. Den här åtgärden minimerar risken för skadade data.
+Du kan stänga av eller starta om den fysiska enheten med hjälp av det lokala webbgränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på dataservern och sedan enheten. Den här åtgärden minskar risken för skadade data.
 
 1. I det lokala webb gränssnittet går du till **underhåll > energi inställningar**.
 2. Välj **Stäng** av eller **starta om** beroende på vad du vill göra.

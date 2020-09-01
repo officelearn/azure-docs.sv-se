@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958770"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079667"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -488,7 +488,7 @@ Följande åtgärder stöds av modifiera:
 - Lägg till eller Ersätt värdet för den hanterade identitets typen ( `identity.type` ) för virtuella datorer och skalnings uppsättningar för virtuella datorer.
 - Lägg till eller ersätt värdena för vissa alias (för hands version).
   - Använda `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
-    i Azure PowerShell för att hämta en lista över alias som kan användas med modifiera.
+    i Azure PowerShell **4.6.0** eller högre för att hämta en lista över alias som kan användas med modifiera.
 
 > [!IMPORTANT]
 > Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet eller ändra ännu inte har stöd för ett alias för resurs egenskapen.

@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420829"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079123"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Självstudie: skydda din virtuella hubb med Azure Firewall Manager
 
@@ -32,6 +32,10 @@ I den här guiden får du lära dig att:
 > * Distribuera servrarna
 > * Skapa en brand Väggs princip och skydda hubben
 > * testa brandväggen.
+
+## <a name="prerequisites"></a>Krav
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Skapa en hubb och eker-arkitektur
 
@@ -136,13 +140,13 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 2. Välj **Windows Server 2016 Data Center** i listan **populär** .
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställningen  |Värde  |
+   |Inställning  |Värde  |
    |---------|---------|
    |Resursgrupp     |**VB-chef**|
    |Namn på virtuell dator     |**SRV-arbets belastning – 01**|
    |Region     |**USA USA, östra)**|
    |Administratörens användar namn     |Ange ett användar namn|
-   |lösenordsinställning     |Ange ett lösen ord|
+   |Lösenord     |Ange ett lösen ord|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **ingen**.
 6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
@@ -155,7 +159,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 
 Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **SRV-arbetsbelastning-02**. Resten av konfigurationen är samma som den virtuella datorn för **SRV-arbetsbelastnings 01** .
 
-|Inställningen  |Värde  |
+|Inställning  |Värde  |
 |---------|---------|
 |Virtuellt nätverk|**Eker-02**|
 |Undernät|**Arbets belastning-02-SN**|
@@ -270,6 +274,10 @@ Testa nu nätverks regeln.
 
 Nu har du verifierat att brand Väggs nätverks regeln fungerar:
 * Du kan ansluta ett fjärr skrivbord till en server som finns i ett annat virtuellt nätverk.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är färdig med att testa brand Väggs resurserna tar du bort resurs gruppen **VB-Manager** för att ta bort alla brand Väggs resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

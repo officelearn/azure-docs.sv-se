@@ -7,13 +7,13 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
-ms.custom: avverma
-ms.openlocfilehash: 9ee64f86cba7287af371f856c442d93e9a03d85b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: 9530f34ee919547049df06fb0974971c3ba4b2a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088919"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079633"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Skala automatiskt en VM-skalningsuppsättning med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 och använder värdbaserade mått för att automatiskt skala allteftersom CPU-belastningen ändras.
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzVmss](/powershell/module/az.compute/new-azvmss) | Skapar VM-skalningsuppsättningen och alla stödresurser, inklusive virtuellt nätverk, lastbalansering och NAT-regler. |
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Hämtar information om en VM-skalningsuppsättning. |

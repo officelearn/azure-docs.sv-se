@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 256751e452be539084a7dc022dc56c0f60e910e6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044183"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079191"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azures säkerhets bas linje för Azure Data Factory
 
@@ -598,15 +598,15 @@ Funktioner för identifiering och klassificering av data är inte tillgängliga 
 
 **Ansvar**: kund
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure Active Directory (AD) rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten till Azure Data Factory kontroll planet (Azure Portal).
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra åtkomsten till Azure Data Factory kontroll planet (Azure Portal).
 
 Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
 
-För dina Data Factory data källor, till exempel Azure SQL Database, se säkerhets bas linjen för den tjänsten för mer information om RBAC.
+För dina Data Factory data källor, till exempel Azure SQL Database, se säkerhets bas linjen för den tjänsten för mer information om Azure RBAC.
 
-* [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 * [Roller och behörigheter för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -656,7 +656,7 @@ Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault 
 
 * [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-* [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+* [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -984,15 +984,15 @@ I de flesta fall kan de virtuella bas-VM-mallarna tillsammans med Azure Automati
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll (RBAC) för att se till att endast behöriga användare får åtkomst till avbildningarna. För behållar avbildningar lagrar du dem i Azure Container Registry och använder RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.
+**Vägledning**: om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att endast behöriga användare får åtkomst till avbildningarna. För behållar avbildningar lagrar du dem i Azure Container Registry och utnyttjar Azure RBAC för att se till att endast behöriga användare kan komma åt avbildningarna.
 
 Rollen Data Factory Contributor kan användas för att skapa och hantera data fabriker, samt underordnade resurser i dem.
 
-* [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Förstå RBAC för Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+* [Lär dig mer om Azure RBAC för Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-* [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 * [Roller och behörigheter för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 

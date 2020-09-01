@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b609fd81c9f1013d2308dccd8ed22fb82aac149
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 900273ec48c71e6f88d28bccff6f1e2abd412c1d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503352"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079582"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
 
@@ -37,7 +37,7 @@ Ingen kontinuerlig rapportering är tillgänglig, förutom lokalt på den virtue
 
 Den här artikeln innehåller information om båda scenarierna: använda DSC-tillägget för automatisering onboarding och använda DSC-tillägget som ett verktyg för att tilldela konfigurationer till virtuella datorer med hjälp av Azure SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Lokal dator**: om du vill interagera med tillägget för Azure VM måste du antingen använda Azure Portal eller Azure PowerShell SDK.
 - **Gästa Gent**: den virtuella Azure-dator som konfigureras av DSC-konfigurationen måste vara ett operativ system som stöder Windows Management Framework (WMF) 4,0 eller senare. En fullständig lista över OS-versioner som stöds finns i [versions historik för DSC-tillägg](../../automation/automation-dsc-extension-history.md).
@@ -201,7 +201,7 @@ Portalen samlar in följande ingångar:
 
 ## <a name="logs"></a>Loggar
 
-Loggar för tillägget lagras på följande plats:`C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
+Loggar för tillägget lagras på följande plats: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 
 ## <a name="next-steps"></a>Nästa steg
 

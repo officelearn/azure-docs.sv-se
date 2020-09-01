@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80117072"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89094169"
 ---
 Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
@@ -59,6 +59,7 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
       "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
       "trackingStoreNamePrefix": "DurableTask",
+      "useLegacyPartitionManagement": true,
       "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
@@ -83,9 +84,10 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
     "extendedSessionIdleTimeoutInSeconds": 30,
+    "useAppLease": true,
     "useGracefulShutdown": false
   }
-  }
+ }
 }
 
 ```
@@ -104,7 +106,7 @@ Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bo
 |maxConcurrentOrchestratorFunctions |10X antalet processorer på den aktuella datorn|Det maximala antalet Orchestrator-funktioner som kan bearbetas samtidigt på en enda värd instans.|
 |maxQueuePollingInterval|30 sekunder|Det maximala avsöknings intervallet för kontroll och arbets objekt kön i formatet *hh: mm: SS* . Högre värden kan resultera i högre meddelande fördröjning. Lägre värden kan resultera i högre lagrings kostnader på grund av ökade lagrings transaktioner.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den app-inställning som har Azure Storage anslutnings strängen som används för att hantera de underliggande Azure Storage resurserna.|
-|trackingStoreConnectionStringName||Namnet på en anslutnings sträng som ska användas för tabellerna historik och instans. Om inget anges `azureStorageConnectionStringName` används anslutningen.|
+|trackingStoreConnectionStringName||Namnet på en anslutnings sträng som ska användas för tabellerna historik och instans. Om inget anges `connectionStringName` används (tålig 2. x) eller `azureStorageConnectionStringName` (tålig 1. x)-anslutningen.|
 |trackingStoreNamePrefix||Det prefix som ska användas för historik-och instans tabellerna när `trackingStoreConnectionStringName` har angetts. Om den inte anges kommer standardvärdet för prefixet att vara `DurableTask` . Om `trackingStoreConnectionStringName` inte har angetts använder historik-och instans tabellerna `hubName` värdet som prefix, och alla inställningar för `trackingStoreNamePrefix` kommer att ignoreras.|
 |traceInputsAndOutputs |falskt|Ett värde som anger om indata och utdata för funktions anrop ska spåras. Standard beteendet vid körning av spårning av funktions händelser är att inkludera antalet byte i de serialiserade indata och utdata för funktions anrop. Det här beteendet ger minimal information om vad indata och utdata ser ut som om de inte bloating loggar eller oavsiktligt exponerar känslig information. Om den här egenskapen ställs in på Sant loggas hela innehållet i funktions inmatning och utdata.|
 |logReplayEvents|falskt|Ett värde som anger om omdirigerings händelser ska skrivas till Application Insights.|
@@ -113,6 +115,8 @@ Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bo
 |eventGridPublishRetryCount|0|Antalet gånger som försök görs om publicering till Event Grid avsnittet Miss lyckas.|
 |eventGridPublishRetryInterval|5 minuter|Återförsöks intervallet för Event Grid publiceras i formatet *hh: mm: SS* .|
 |eventGridPublishEventTypes||En lista med händelse typer att publicera till Event Grid. Om inget värde anges kommer alla händelse typer att publiceras. Tillåtna värden är `Started` , `Completed` , `Failed` , `Terminated` .|
+|useAppLease|true|När det är inställt på måste `true` apparna förvärva ett BLOB-lån på App-nivå innan de kan bearbeta meddelanden från aktivitets hubben. Mer information finns i dokumentationen om [haveri beredskap och geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) . Tillgänglig från och med v-2.3.0.
+|useLegacyPartitionManagement|true|När det är inställt på `false` , används en algoritm för partitions hantering som minskar risken för duplicerad funktions körning vid utskalning.  Tillgänglig från och med v-2.3.0. Standardvärdet kommer att ändras till `false` i en framtida version.|
 |useGracefulShutdown|falskt|Förhandsgranskningsvyn Aktivera Stäng av på ett smidigt sätt för att minska risken för att det inte går att stänga av värden i process funktionens körningar.|
 
 Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).

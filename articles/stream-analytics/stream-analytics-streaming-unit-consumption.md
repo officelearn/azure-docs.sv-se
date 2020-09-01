@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 08/28/2020
+ms.openlocfilehash: e568051bfd5ac58f283eac7f9dc8a72be5c9dbbb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903569"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079684"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
@@ -20,7 +20,7 @@ Strömnings enheter (SUs) representerar de data bearbetnings resurser som alloke
 
 För att minimera svarstiderna vid bearbetningen av dataströmmar utför Azure Stream Analytics-jobb all bearbetning i minnet. Det går inte att köra direkt uppspelnings jobbet när minnet börjar ta slut. För ett produktions jobb är det viktigt att övervaka resursanvändningen för ett direkt uppspelnings jobb och se till att det finns tillräckligt med resurser för att behålla jobben som kör 24/7.
 
-Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukningen för din arbets belastning. För ett strömmande jobb med minimalt utrymme är det här måttet vanligt vis mellan 10% och 20%. Om SU%-användning är låg och indata-händelser blir eftersläpande, kräver din arbets belastning troligen fler beräknings resurser, vilket kräver att du ökar antalet SUs. Vi rekommenderar att du håller SU-måttet under 80% för att få en tillfällig toppar. Microsoft rekommenderar att du ställer in en avisering på 80% SU-användnings mått för att förhindra resurs överbelastning. Mer information finns i [Självstudier: Konfigurera aviseringar för Azure Stream Analytics jobb](stream-analytics-set-up-alerts.md).
+Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukningen för din arbets belastning. För ett strömmande jobb med minimalt utrymme är det här måttet vanligt vis mellan 10% och 20%. Om SU%-användningen är hög (över 80%), eller om indata-händelser blir eftersläpande (även om den inte visar CPU-användning), kräver din arbets belastning troligen fler beräknings resurser, vilket kräver att du ökar antalet SUs. Vi rekommenderar att du håller SU-måttet under 80% för att få en tillfällig toppar. Microsoft rekommenderar att du ställer in en avisering på 80% SU-användnings mått för att förhindra resurs överbelastning. Mer information finns i [Självstudier: Konfigurera aviseringar för Azure Stream Analytics jobb](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurera Stream Analytics streaming Units (SUs)
 1. Logga in på [Azure Portal](https://portal.azure.com/)
@@ -111,7 +111,7 @@ Antalet omatchade händelser i kopplingen påverkar minnes användningen för fr
 
 I det här exemplet är det möjligt att många annonser visas och att jag klickar på den och det krävs för att behålla alla händelser i tids perioden. Förbrukat minne beror på tidsperiodens längd och händelsens frekvens. 
 
-Du kan åtgärda detta genom att skicka händelser till Händelsehubben partitionerad av kopplings nycklarna (ID i det här fallet) och skala ut frågan genom att låta systemet bearbeta varje indatatagg separat med hjälp av **partition** :
+Du kan åtgärda detta genom att skicka händelser till Händelsehubben partitionerad av kopplings nycklarna (ID i det här fallet) och skala ut frågan genom att låta systemet bearbeta varje indatatagg separat med hjälp av  **partition** :
 
    ```sql
    SELECT clicks.id

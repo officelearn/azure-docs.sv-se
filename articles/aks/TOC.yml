@@ -129,6 +129,8 @@
       href: security-hardened-vm-host-image.md
     - name: Översikt över Azure Kubernetes Service-diagnostik
       href: concepts-diagnostics.md
+    - name: Hållbar programvaruteknik
+      href: concepts-sustainable-software-engineering.md
 - name: Anvisningar
   items:
     - name: Klusteråtgärder

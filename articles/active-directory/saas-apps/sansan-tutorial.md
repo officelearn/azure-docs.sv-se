@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 65c3e3df9fe62614eff15585373360ebcaa158cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fa4e91a087c7dcfce247cacc2dff83458bc87f64
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543337"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079990"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Självstudie: integrera sansan med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar sansan med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -37,7 +37,9 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Sansan stöder **SP** -initierad SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+* Sansan stöder **SP** -initierad SSO.
+* När du har konfigurerat sansan kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sansan-from-the-gallery"></a>Lägga till sansan från galleriet
 
@@ -50,20 +52,20 @@ Om du vill konfigurera integreringen av sansan i Azure AD måste du lägga till 
 1. I avsnittet **Lägg till från galleriet** , skriver du **sansan** i sökrutan.
 1. Välj **sansan** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Konfigurera och testa Azure AD SSO
 
 Konfigurera och testa Azure AD SSO med sansan med hjälp av en test användare som kallas **Britta Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i sansan.
 
 Om du vill konfigurera och testa Azure AD SSO med sansan, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-2. **[Konfigurera sansan](#configure-sansan)** för att konfigurera SSO-inställningarna på program sidan.
-3. **[Skapa en Azure AD test-användare](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera Britta Simon att använda enkel inloggning i Azure AD.
-5. **[Skapa sansan test User](#create-sansan-test-user)** för att ha en motsvarighet till Britta Simon i sansan som är länkad till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
+   * **[Skapa en Azure AD test-användare](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med Britta Simon.
+   * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera Britta Simon att använda enkel inloggning i Azure AD.
+1. **[Konfigurera sansan](#configure-sansan)** för att konfigurera SSO-inställningarna på program sidan.
+   * **[Skapa sansan test User](#create-sansan-test-user)** för att ha en motsvarighet till Britta Simon i sansan som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
@@ -75,18 +77,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    1. I text rutan **inloggnings-URL** skriver du någon av URL: en med följande mönster:
-    
-    | Miljö | URL |
-    |:--- |:--- |
-    | PC-webb |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | Inbyggd mobilapp |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | Inställningar för mobila webbläsare |`https://ap.sansan.com/s/saml2/<company name>/acs` |
+    1. I text rutan **inloggnings-URL** anger du URL: en: `https://ap.sansan.com/`
 
-    2. I text rutan **identifierare (enhets-ID)** kan du ange flera ID-värden och välja någon av dem enligt miljöerna.
+   1. I textrutan **Identifierare (entitets-ID)** anger du URL:en:   
+   `https://ap.sansan.com/saml2/<company name>`
+
+   1. I text rutan **svars-URL** skriver du en av URL: erna med följande mönster:
+
+    
+       | Miljö | URL |
+      |:--- |:--- |
+      | PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
+      | Smartphone-app |`https://internal.api.sansan.com/<company name>/acs` |
+      | Smartphone-webb |`https://ap.sansan.com/s/saml2/<company name>/acs` |
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [sansan client support team](https://www.sansan.com/form/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Kontrol lera de faktiska värdena i **sansan-administratörs inställningarna**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -95,10 +101,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. I avsnittet **Konfigurera sansan** kopierar du lämpliga URL: er baserat på ditt krav.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-sansan"></a>Konfigurera sansan
-
-Om du vill konfigurera enkel inloggning på **sansan** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [sansan-klientens support team](https://www.sansan.com/form/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -130,14 +132,20 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
+## <a name="configure-sansan"></a>Konfigurera sansan
+
+Om du vill utföra **inställningarna för enkel inloggning** på **sansan** -sidan följer du stegen nedan enligt ditt krav.
+
+   * [Japansk](https://jp-help.sansan.com/hc/ja/articles/900001551383 ) version.
+
+   * [Engelsk](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ) version.
+
+
 ### <a name="create-sansan-test-user"></a>Skapa sansan test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i sansan. Sansan-programmet behöver användaren vara etablerad i programmet innan SSO kan göras.
+I det här avsnittet skapar du en användare som heter Britta Simon i sansan. Mer information om hur du skapar en användare finns i [de här](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users) stegen.
 
-> [!NOTE]
-> Om du behöver skapa en användare manuellt eller en grupp användare måste du kontakta [sansan support-teamet](https://www.sansan.com/form/contact).
-
-### <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Testa SSO
 
 När du väljer panelen sansan på åtkomst panelen, bör du loggas in automatiskt på den sansan som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

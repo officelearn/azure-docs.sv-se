@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: e7a4ddaf74df6e04c1597b9c106cd458ddebac55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080530"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079599"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera din app i VM-skalningsuppsättningar
 
@@ -35,7 +35,7 @@ Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-da
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Azure Resource Manager-mall](tutorial-install-apps-template.md)
+- [Azure Resource Manager mall](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installera en app på en virtuell Windows-dator med PowerShell DSC
@@ -43,8 +43,8 @@ Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-da
 
 Med PowerShell DSC-tillägget kan du anpassa VM-instanser i en skalnings uppsättning med PowerShell. Följande exempel:
 
-- Instruerar de virtuella dator instanserna att hämta ett DSC-paket från GitHub-*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
-- Ställer in tillägget för att köra ett installations skript –`configure-http.ps1`
+- Instruerar de virtuella dator instanserna att hämta ett DSC-paket från GitHub- *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Ställer in tillägget för att köra ett installations skript – `configure-http.ps1`
 - Hämtar information om en skalnings uppsättning med [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Tillämpar tillägget på de virtuella dator instanserna med [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 

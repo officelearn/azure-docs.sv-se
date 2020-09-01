@@ -3,12 +3,13 @@ title: PowerShell-skript – ta bort en borttagen fil resurs
 description: Lär dig hur du använder ett Azure PowerShell-skript för att ta bort en fil resurs som tagits bort av misstag.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 99cd980e13b3b9b9a7a450520218c76ccf26fd69
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007640"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079871"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>PowerShell-skript för att ta bort en fil resurs som tagits bort av misstag
 
@@ -152,7 +153,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ## <a name="how-to-use-the-script-in-different-scenarios"></a>Så här använder du skriptet i olika scenarier
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 1. Installera de senaste Azure PowerShell AZ-modulerna från [den här länken](/powershell/azure/install-az-ps) innan du kör skriptet.
 2. Behåll följande information när du behöver skicka dem som värden för olika parametrar i skriptet:
@@ -177,7 +178,7 @@ I följande exempel tar bort den fil resurs *Share1* som finns i lagrings kontot
    .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1
 ```
 
-Resultatet ska visa meddelandet`Completed:Restore File Share`
+Resultatet ska visa meddelandet `Completed:Restore File Share`
 
 #### <a name="scenario-2"></a>Scenario 2
 

@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c52275735a6558a625e2118761d7ba98509dbe1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 3f1a9a2756d81765d82938651672e5a83edc48ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497077"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078698"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registrera en SQL Server VM i Azure med providern för SQL VM-resurs (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,7 +53,7 @@ Genom att distribuera en SQL Server VM Azure Marketplace-avbildning via Azure Po
 
 Om du vill använda en SQL VM-adressresurs måste du först [Registrera din prenumeration med resurs leverantören](#register-subscription-with-rp), vilket ger resurs leverantören möjlighet att skapa resurser i den aktuella prenumerationen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att registrera SQL Server VM med resurs leverantören behöver du: 
 
@@ -87,13 +87,13 @@ Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av Power
 
 Om du vill registrera din SQL Server VM med resurs leverantören för SQL-VM måste du först registrera din prenumeration med resurs leverantören. Detta ger den virtuella SQL-adressresursen möjlighet att skapa resurser i din prenumeration.  Du kan göra detta med hjälp av Azure Portal, Azure CLI eller PowerShell.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Öppna Azure Portal och gå till **alla tjänster**. 
 1. Gå till **prenumerationer** och välj en prenumeration på intresse.  
 1. På sidan **prenumerationer** går du till **Resource providers**. 
 1. Ange **SQL** i filtret för att ta fram SQL-relaterade resurs leverantörer. 
-1. Välj **Registrera**, **Registrera**om eller **avregistrera** för **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
+1. Välj **Registrera**, **Registrera**om eller **avregistrera** för  **Microsoft. SqlVirtualMachine** -providern, beroende på vilken åtgärd du önskar. 
 
    ![Ändra providern](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
 
@@ -239,7 +239,7 @@ Du kan visa det aktuella läget för SQL Server IaaS-agenten med hjälp av Power
 Så här uppgraderar du agentens läge till fullständigt: 
 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Gå till resursen för [virtuella SQL-datorer](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) . 
@@ -280,7 +280,7 @@ Kör följande PowerShell-kodfragment:
 ## <a name="verify-registration-status"></a>Verifiera registrerings status
 Du kan kontrol lera om din SQL Server VM redan har registrerats med resurs leverantören för SQL-VM med hjälp av Azure Portal, Azure CLI eller PowerShell. 
 
-### <a name="azure-portal"></a>Azure-portalen 
+### <a name="azure-portal"></a>Azure Portal 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Gå till dina [SQL Server virtuella datorer](manage-sql-vm-portal.md).
@@ -291,7 +291,7 @@ Du kan kontrol lera om din SQL Server VM redan har registrerats med resurs lever
 
 ### <a name="command-line"></a>Kommandorad
 
-Verifiera aktuell SQL Server VM registrerings status med hjälp av antingen Azure CLI eller PowerShell. `ProvisioningState`visar `Succeeded` om registreringen lyckades. 
+Verifiera aktuell SQL Server VM registrerings status med hjälp av antingen Azure CLI eller PowerShell. `ProvisioningState` visar `Succeeded` om registreringen lyckades. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/bash)
 
@@ -317,7 +317,7 @@ Ta bort den virtuella SQL-datorns *resurs* med hjälp av Azure Portal eller Azur
 
 Att avregistrera den virtuella SQL-datorn med den virtuella SQL-adressresursen är nödvändig för att nedgradera hanterings läget från full. 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Följ dessa steg om du vill avregistrera SQL Server VM med resurs leverantören med hjälp av Azure Portal:
 
@@ -398,9 +398,9 @@ Standard läget för SQL-hantering vid registrering med SQL VM Resource Provider
 
 **Kommer att registreras med den virtuella SQL-adressresursen installera en agent på den virtuella datorn?**
 
-Nej. Vid registrering med den virtuella SQL-adressresursen skapas endast en ny metadata-resurs. Den installerar inte en agent på den virtuella datorn.
+Ja, om du registrerar med providern för SQL VM-resurs installeras en agent på den virtuella datorn.
 
-SQL Server IaaS-tillägget krävs bara för att aktivera fullständig hanterbarhet. Om du uppgraderar hanterbarhets läget från Lightweight till full installeras SQL Server IaaS-tillägget och startas om SQL Server.
+SQL Server IaaS-tillägget är beroende av agenten för att fråga efter metadata för SQL Server. Den enda gången en agent inte installeras är när regsitered för virtuell dator i noagent-läge är inaktive IDE
 
 **Kommer registreringen med den virtuella SQL-adressresursen att starta om SQL Server på den virtuella datorn?**
 
@@ -457,8 +457,8 @@ Inga. Det finns ingen avgift kopplad till registrering med den virtuella SQL VM-
 Det påverkas inte när du använder *Noagent* -och *Lightweight* hanterbarhets läge. Det finns minimal påverkan när du använder läget *fullständig* hantering från två tjänster som är installerade på operativ systemet. Dessa kan övervakas via aktivitets hanteraren och visas i den inbyggda konsolen för Windows-tjänster. 
 
 De två tjänst namnen är:
-- `SqlIaaSExtensionQuery`(Visnings namn- `Microsoft SQL Server IaaS Query Service` )
-- `SQLIaaSExtension`(Visnings namn- `Microsoft SQL Server IaaS Agent` )
+- `SqlIaaSExtensionQuery` (Visnings namn- `Microsoft SQL Server IaaS Query Service` )
+- `SQLIaaSExtension` (Visnings namn- `Microsoft SQL Server IaaS Agent` )
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -466,6 +466,6 @@ De två tjänst namnen är:
 Mer information finns i följande artiklar: 
 
 * [Översikt över SQL Server på en virtuell Windows-dator](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Vanliga frågor och svar om SQL Server på en virtuell Windows-dator](frequently-asked-questions-faq.md)
+* [Vanliga frågor och svar om SQL Server på en virtuell Windows-dator](frequently-asked-questions-faq.md)  
 * [Pris vägledning för SQL Server på en virtuell Windows-dator](pricing-guidance.md)
 * [Viktig information för SQL Server på en virtuell Windows-dator](../../database/doc-changes-updates-release-notes.md)

@@ -7,18 +7,19 @@ services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-ms.openlocfilehash: b73b15e7f174868fa4c0a9518725a4585cf3dffe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8d800e77ed0e609091d31d9b3177af447ac06f5b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035595"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079514"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Skapa anpassade WAF-regler med Azure PowerShell
 
 Det här skriptet skapar en Application Gateway brand vägg för webbaserade program som använder anpassade regler. Den anpassade regeln blockerar trafik om begär ande huvudet innehåller användar agentens *evilbot*.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell-modul
 
@@ -45,7 +46,7 @@ Remove-AzResourceGroup -Name CustomRulesTest
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar undernätskonfigurationen. |

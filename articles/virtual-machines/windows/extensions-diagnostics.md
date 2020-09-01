@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b657231cb6b896479766654e5bd989468d9b73e7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: c981214c69653b3a4a687a861cb348f3587def7c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501158"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078766"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Azure-diagnostik tillägg för virtuella Windows-datorer
 
@@ -22,7 +22,7 @@ ms.locfileid: "87501158"
 
 Med tillägget Azure-diagnostik VM kan du samla in övervaknings data, till exempel prestanda räknare och händelse loggar, från din virtuella Windows-dator. Du kan i detalj ange vilka data du vill samla in och var du vill att data ska placeras, till exempel ett Azure Storage konto eller en Azure Event Hub. Du kan också använda dessa data för att skapa diagram i Azure Portal eller skapa mått aviseringar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -87,6 +87,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Azure-diagnostik-tillägget](../../azure-monitor/platform/diagnostics-extension-overview.md)
 * [Granska tilläggs schema och-versioner](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

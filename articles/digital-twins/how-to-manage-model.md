@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013012"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079784"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -170,9 +170,9 @@ Modeller returneras inte nödvändigt vis i exakt det dokument formulär de öve
 
 När en modell har laddats upp till din instans, är hela modell gränssnittet oföränderligt. Det innebär att det inte finns någon traditionell "redigering" av modeller.
 
-Om du i stället vill göra ändringar i en modell i Azure Digitals, t. ex. genom att ändra `DisplayName` eller `Description` , så är det att ladda upp en **nyare version** av samma modell. Det åsidosätter den ursprungliga modellen.
+Om du i stället vill göra ändringar i en modell i Azure Digitals, är det möjligt att ladda upp en **nyare version** av samma modell. Under för hands versionen tillåter en modell version bara att du tar bort fält, inte lägger till nya fält (om du vill lägga till nya fält behöver du bara [skapa en helt ny modell](#create-models)).
 
-Det gör du genom att börja med DTDL i den ursprungliga modellen. Uppdatera de fält som du vill ändra.
+Om du vill skapa en ny version av en befintlig modell börjar du med DTDL för den ursprungliga modellen. Uppdatera de fält som du vill ändra.
 
 Markera sedan detta som en nyare version av modellen genom att uppdatera `id` fältet i modellen. Det sista avsnittet i modell-ID: t, efter `;` , representerar modell numret. Om du vill visa att det nu är en mer uppdaterad version av den här modellen ökar du talet i slutet av `id` värdet till ett tal som är större än det aktuella versions numret.
 

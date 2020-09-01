@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Lär dig hur du skapar filter med dynamisk Paketeraren för att filtrera och selektivt strömma dina manifest.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 4a2464cbb47291f35cd4d7e20b555356e3e9aa8b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705210"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266467"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrera dina manifest med hjälp av dynamisk Paketeraren
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du levererar strömnings innehåll med anpassningsbar bit hastighet till enheter måste du ibland publicera flera versioner av ett manifest för att rikta in dig på specifika enhets funktioner eller tillgänglig nätverks bandbredd. Med den [dynamiska Paketeraren](dynamic-packaging-overview.md) kan du ange filter som kan filtrera ut vissa codecenheter, lösningar, bit hastigheter och kombinationer av ljud spår direkt. Den här filtreringen tar bort behovet av att skapa flera kopior. Du behöver bara publicera en ny URL med en viss uppsättning filter som kon figurer ATS för mål enheterna (iOS, Android, SmartTV eller webbläsare) och nätverksfunktioner (scenarier med hög bandbredd, mobil eller låg bandbredd). I det här fallet kan klienterna ändra strömningen för ditt innehåll genom frågesträngen (genom att ange tillgängliga [till gångs filter eller konto filter](filters-concept.md)) och använda filter för att strömma vissa delar av en ström.
 

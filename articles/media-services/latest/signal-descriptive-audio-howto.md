@@ -3,23 +3,25 @@ title: Signalera beskrivande ljud spår med Azure Media Services v3 | Microsoft 
 description: Följ stegen i den här självstudien för att ladda upp en fil, koda videon, lägga till beskrivande ljud spår och strömma ditt innehåll med Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
-ms.openlocfilehash: cce2dfe943519f39fbe0660338babf782fee4336
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1a8986dcba9dc64eb77d8bc8c6e77704fa212abb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006660"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267436"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signals beskrivande ljud spår
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Du kan lägga till en berättarröst i videon för att hjälpa visuellt synskadade klienter att följa videoinspelningen genom att lyssna på berättarrösten. I Media Services v3 signalerar du beskrivande ljud spår genom att kommentera ljud spåret i manifest filen.
 

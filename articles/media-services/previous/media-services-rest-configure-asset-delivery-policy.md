@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0704913bf3158067c96eeaa69729792cfe63bf37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 49fc67bcd45d0c364f47276a9b47676a65f6d837
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010262"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268680"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Konfigurera till gångs leverans principer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Om du planerar att leverera dynamiskt krypterade till gångar, är ett av stegen i arbets flödet för Media Services innehålls leverans konfigurera leverans principer för till gångar. Policyn för till gångs leverans anger Media Services hur du vill att din till gång ska levereras: i vilket strömnings protokoll ska din till gång vara dynamiskt paketerad (till exempel MPEG-streck, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera till gången dynamiskt och hur (kuvert eller gemensam kryptering).

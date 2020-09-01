@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042807"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268313"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Med början den 12 maj 2018 kommer Live Channels inte längre att ha stöd för RTP/MPEG-2 Transport Stream-inmatnings protokoll. Migrera från RTP/MPEG-2 till RTMP eller fragmented MP4 (Smooth Streaming) insugnings protokoll.
@@ -73,7 +75,7 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | Startar |Startar |Nej (tillfälligt tillstånd) |
 | Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |JA |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
-| Stoppad |Stoppad |No |
+| Stoppad |Stoppad |Inga |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisk avstängning för oanvända kanaler
 Från och med 25 januari 2016 har Media Services lanserat en uppdatering som automatiskt stoppar en kanal (där Live encoding är aktiverat) när den har körts i ett oanvänt tillstånd under en längre tid. Detta gäller för kanaler som inte har några aktiva program och som inte har tagit emot någon inmatnings bidrag under en längre tids period.
@@ -219,12 +221,12 @@ Anger den för inställning som ska användas av direktsänd kodare i den här k
 
 | Hastigheten | Bredd | Höjd | MaxFPS | Profil | Namn på utdataström |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Högt |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Högt |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Högt |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Högt |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Högt |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Högt |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Hög |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Hög |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Hög |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Hög |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Hög |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Utdata, ljud ström
 
@@ -313,9 +315,9 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Debiteras? |
 | --- | --- | --- |
 | Startar |Startar |Nej (tillfälligt tillstånd) |
-| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Yes |
+| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Ja |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
-| Stoppad |Stoppad |No |
+| Stoppad |Stoppad |Inga |
 
 > [!NOTE]
 > För närvarande är kanalens start genomsnitt cirka 2 minuter, men ibland kan det ta upp till 20 minuter. Det kan ta upp till 5 minuter att återställa kanal.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cf30324371043d8b702d3e22ec3ecd98e114ba6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3a37353615e35cd75c126c268de71d10077a9071
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428577"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268442"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
@@ -32,7 +32,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
 
 - **WIAORMULTIAUTHN-anspråk:** Detta anspråk krävs för att göra en hybrid Azure AD-anslutning för Windows-enheter på hög nivå.
 - **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD.
-  När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs/services/trust/2005/windowstransport`
+  När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter: `/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
    `/adfs/services/trust/13/usernamemixed`
@@ -79,7 +79,7 @@ Hybrid Azure AD-anslutning kräver att enheter har åtkomst till följande Micro
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - Din organisations säkerhetstokentjänst (STS) (för federerade domäner)
-- `https://autologon.microsoftazuread-sso.com`(Om du använder eller planerar att använda sömlös enkel inloggning)
+- `https://autologon.microsoftazuread-sso.com` (Om du använder eller planerar att använda sömlös enkel inloggning)
 
 > [!WARNING]
 > Om din organisation använder proxyservrar som fångar upp SSL-trafik för scenarier som förebyggande av data förlust eller begränsningar för Azure AD-innehavare, kontrollerar du att trafik till ( https://device.login.microsoftonline.com ) är exkluderad från TLS-och-undersök. Det går inte att utesluta " https://device.login.microsoftonline.com " kan orsaka störningar med autentisering av klient certifikat, vilket orsakar problem med enhets registrering och enhets-baserad villkorlig åtkomst.
@@ -88,7 +88,7 @@ Från och med Windows AD FS 10 1803 förlitar vi sig på Azure AD Connect för a
 
 Om din organisation kräver åtkomst till Internet via en utgående proxy rekommenderar Microsoft att [implementera WPAD (Web Proxy Auto-Discovery)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Om du stöter på problem med att konfigurera och hantera WPAD, se [Felsöka automatisk identifiering](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
-Om du inte använder WPAD och vill konfigurera proxyinställningar på datorn kan du göra det från och med Windows 10 1709. Mer information finns i [Konfigurera WinHTTP-inställningar med hjälp av ett grup princip objekt (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Om du inte använder WPAD och vill konfigurera proxyinställningar på datorn kan du göra det från och med Windows 10 1709. Mer information finns i [Konfigurera WinHTTP-inställningar med hjälp av ett grup princip objekt (GPO)](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Om du konfigurerar proxyinställningar på datorn med hjälp av WinHTTP-inställningar kommer alla datorer som inte kan ansluta till den konfigurerade proxyn inte att kunna ansluta till Internet.
@@ -167,7 +167,7 @@ För att slutföra en fullständig Azure AD-anslutning av dina Windows-enheter m
 
 - `https://device.login.microsoftonline.com`
 - Din organisations STS (för federerade domäner)
-- `https://autologon.microsoftazuread-sso.com`(För sömlös enkel inloggning)
+- `https://autologon.microsoftazuread-sso.com` (För sömlös enkel inloggning)
 
 Du måste också aktivera **Tillåt uppdateringar av statusfältet via skript** i användarens lokala intranät zon.
 
@@ -193,7 +193,7 @@ Här är tre sätt att hitta och kontrol lera enhets status:
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 1. Gå till sidan enheter med en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](./device-management-azure-portal.md).
 3. Om den **registrerade** kolumnen säger **väntar**, slutförs inte hybrid Azure AD Join. I federerade miljöer kan detta bara inträffa om det inte kunde registreras och AAD Connect har kon figurer ATS för att synkronisera enheterna.
 4. Om den **registrerade** kolumnen innehåller ett **datum/tid**har hybrid Azure AD Join slutförts.
 
@@ -243,7 +243,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Om du får problem med att slutföra hybrid Azure AD-anslutning för domänanslutna Windows-enheter, se:
 
-- [Felsöka enheter med kommandot dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Felsöka enheter med kommandot dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Felsöka hybrid Azure AD-anslutning för aktuella Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
 - [Felsöka hybrid Azure AD-anslutning för tidigare Windows-enheter](troubleshoot-hybrid-join-windows-legacy.md)
 

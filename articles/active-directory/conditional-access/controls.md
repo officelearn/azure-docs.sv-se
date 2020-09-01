@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948308"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266586"
 ---
 # <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
 
 Anpassade kontroller är en förhands gransknings funktion för Azure Active Directory. När du använder anpassade kontroller omdirigeras användarna till en kompatibel tjänst för att uppfylla autentiseringskrav utanför Azure Active Directory. För att tillfredsställa den här kontrollen omdirigeras användarens webbläsare till den externa tjänsten, utför alla nödvändiga autentiseringar och dirigeras sedan tillbaka till Azure Active Directory. Azure Active Directory verifierar svaret och, om användaren har autentiserats eller verifierats, fortsätter användaren i flödet för villkorlig åtkomst.
 
 > [!NOTE]
-> Mer information om ändringar som vi planerar för den anpassade kontroll funktionen finns i den [nya uppdateringen](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)från februari 2020.
+> Mer information om ändringar som vi planerar för den anpassade kontroll funktionen finns i februari 2020- [arkivet för nyheter](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls).
 
 ## <a name="creating-custom-controls"></a>Skapa anpassade kontroller
 

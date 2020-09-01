@@ -1,6 +1,6 @@
 ---
-title: Aktivera Azure Arc på Kubernetes på Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge-enhet.
+title: Aktivera Azure Arc på Kubernetes på Azure Stack Edge GPU-enhet | Microsoft Docs
+description: Beskriver hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 03bf2a01ad4c1d5d017d881bf171806fa33e8799
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087172"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268201"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-device"></a>Aktivera Azure Arc på Kubernetes-kluster på din Azure Stack Edge-enhet
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Aktivera Azure Arc på Kubernetes-kluster på din Azure Stack Edge GPU-enhet
 
 Den här artikeln visar hur du aktiverar Azure Arc på ett befintligt Kubernetes-kluster på din Azure Stack Edge-enhet. 
 
 Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan aktivera Azure Arc på Kubernetes-kluster måste du kontrol lera att du har slutfört följande krav på din Azure Stack Edge-enhet och klienten som du ska använda för att få åtkomst till enheten:
 

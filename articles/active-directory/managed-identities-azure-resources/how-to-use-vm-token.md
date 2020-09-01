@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016146"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266297"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att hämta en åtkomsttoken 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Hämta en token med hjälp av Microsoft. Azure. Services. AppAuthentication-biblioteket för .NET
 
-För .NET-program och-funktioner är det enklaste sättet att arbeta med hanterade identiteter för Azure-resurser via Microsoft. Azure. Services. AppAuthentication-paketet. Med det här biblioteket kan du också testa din kod lokalt på din utvecklings dator med ditt användar konto från Visual Studio, [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)eller Active Directory integrerad autentisering. Mer information om lokala utvecklings alternativ med det här biblioteket finns i [referens för Microsoft. Azure. Services. AppAuthentication](/azure/key-vault/service-to-service-authentication). Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
+För .NET-program och-funktioner är det enklaste sättet att arbeta med hanterade identiteter för Azure-resurser via Microsoft. Azure. Services. AppAuthentication-paketet. Med det här biblioteket kan du också testa din kod lokalt på din utvecklings dator med ditt användar konto från Visual Studio, [Azure CLI](/cli/azure?view=azure-cli-latest)eller Active Directory integrerad autentisering. Mer information om lokala utvecklings alternativ med det här biblioteket finns i [referens för Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md). Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
 
 1. Lägg till referenser till [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -och [Microsoft. Azure.](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paketen i programmet.
 
@@ -141,7 +141,7 @@ För .NET-program och-funktioner är det enklaste sättet att arbeta med hantera
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Mer information om Microsoft. Azure. Services. AppAuthentication och de åtgärder den visar finns i [referensen Microsoft. Azure. Services. AppAuthentication](/azure/key-vault/service-to-service-authentication) och [app service och nyckel valvet med hanterade identiteter för Azure-resurser .net-exempel](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Mer information om Microsoft. Azure. Services. AppAuthentication och de åtgärder den visar finns i [referensen Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md) och [app service och nyckel valvet med hanterade identiteter för Azure-resurser .net-exempel](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Hämta en token med C #
 
@@ -381,7 +381,7 @@ I det här avsnittet dokumenteras möjliga fel svar. Statusen "200 OK" är ett l
 |           | access_denied | Resurs ägaren eller auktoriseringsservern nekade begäran. |  |
 |           | unsupported_response_type | Auktoriseringsservern har inte stöd för att hämta en åtkomsttoken med den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltigt, okänt eller felaktigt. |  |
-| 500 Internt serverfel | okänd | Det gick inte att hämta token från Active Directory. Mer information finns i loggarna i *\<file path\>* | Kontrol lera att hanterade identiteter för Azure-resurser har Aktiver ATS på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen.<br><br>Kontrol lera också att HTTP GET-begärande-URI: n är korrekt formaterad, särskilt resurs-URI: n som anges i frågesträngen. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel, eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över tjänster och deras respektive resurs-ID.
+| 500 Internt serverfel | okänd | Det gick inte att hämta token från Active Directory. Mer information finns i loggarna i *\<file path\>* | Kontrol lera att hanterade identiteter för Azure-resurser har Aktiver ATS på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen.<br><br>Kontrol lera också att HTTP GET-begärande-URI: n är korrekt formaterad, särskilt resurs-URI: n som anges i frågesträngen. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel, eller [Azure-tjänster som stöder Azure AD-autentisering](./services-support-managed-identities.md) för en lista över tjänster och deras respektive resurs-ID.
 
 ## <a name="retry-guidance"></a>Vägledning för nytt försök 
 
@@ -397,17 +397,9 @@ För återförsök rekommenderar vi följande strategi:
 
 ## <a name="resource-ids-for-azure-services"></a>Resurs-ID för Azure-tjänster
 
-Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över resurser som stöder Azure AD och som har testats med hanterade identiteter för Azure-resurser och deras respektive resurs-ID.
+Se [Azure-tjänster som stöder Azure AD-autentisering](./services-support-managed-identities.md) för en lista över resurser som stöder Azure AD och som har testats med hanterade identiteter för Azure-resurser och deras respektive resurs-ID.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill aktivera hanterade identiteter för Azure-resurser på en virtuell Azure-dator, se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md).
-
-
-
-
-
-
-
-

@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0a2f5fbc2139a8340ee763efc51c36a01dd24d0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b71a2064887cc2b6099ead2e59f9fa3113d2f0b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999590"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269020"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Använda Microsoft Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework  
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Använda Microsoft Smooth Streaming-plugin-programmet för Adobe Open Source Media Framework
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Översikt
 Microsoft Smooth Streaming-plugin-programmet för Open Source Media Framework 2,0 (SS för OSMF) utökar standard funktionerna i OSMF och lägger till Microsoft Smooth Streaming innehålls uppspelning till nya och befintliga OSMF-spelare. Plugin-programmet lägger också till Smooth Streaming uppspelnings funktioner i SMP (Media uppspelning).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689052"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266790"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
@@ -62,7 +62,7 @@ Endast följande enheter visas under **användar enheter**:
 - Användaren inaktiverar enheten från portalen Mina appar. 
 - En administratör (eller användare) tar bort eller inaktiverar enheten i Azure Portal eller med hjälp av PowerShell
 - Endast ansluten till Azure AD: en administratör tar bort enhets-OU: en utanför Sync-omfånget, vilket innebär att enheterna tas bort från Azure AD
-- Uppgradera Azure AD Connect till version 1.4. xx. x. Att [förstå Azure AD Connect 1.4. xx. x och enheten försvinner](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Uppgradera Azure AD Connect till version 1.4. xx. x. Att [förstå Azure AD Connect 1.4. xx. x och enheten försvinner](../hybrid/reference-connect-device-disappearance.md).
 
 
 Se nedan om hur dessa åtgärder kan korrigeras.
@@ -312,7 +312,7 @@ UPN-ändringar stöds med Windows 10 2004 Update. Användare på enheter med den
 **A:** Utför följande steg:
 
 1.    [Skapa en policy för efterlevnad](/intune/compliance-policy-create-mac-os)
-1.    [Definiera en princip för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
+1.    [Definiera en princip för villkorlig åtkomst för macOS-enheter](../conditional-access/overview.md) 
 
 **!**
 

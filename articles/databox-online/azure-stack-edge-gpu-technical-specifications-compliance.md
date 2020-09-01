@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 87c96ef6487895d3230541f0ae5fe15c5a645368
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085296"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266671"
 ---
-# <a name="azure-stack-edge-technical-specifications-and-compliance"></a>Azure Stack gräns tekniska specifikationer och efterlevnad
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>Tekniska specifikationer och efterlevnad för Azure Stack Edge med GPU 
 
 Maskin varu komponenterna i Azure Stack Edge med en onboard Graphics Processing Unit (GPU) följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver maskin vara, strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder.
 

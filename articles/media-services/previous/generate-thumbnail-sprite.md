@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d05e73bc9aa51bf20121790de94b1b6d0e26615
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61229058"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268578"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Skapa en miniatyrsprite  
+# <a name="generate-a-thumbnail-sprite"></a>Skapa en miniatyrsprite
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Du kan använda Media Encoder Standard för att generera en miniatyr av en miniatyr bild, som är en JPEG-fil som innehåller flera små upplöst miniatyr bilder som häftas samman i en enda (stor) bild, tillsammans med en VTT-fil. Den här VTT-filen anger tidsintervallet i indata-videon som varje miniatyr representerar, tillsammans med storlek och koordinater för miniatyren i den stora JPEG-filen. Videos pelare använder VTT-filen och Sprite-bilden för att visa en "visuell" SeekBar, vilket ger ett visnings program med visuell feedback vid skrubbning och vidarebefordran längs video tids linjen.
 

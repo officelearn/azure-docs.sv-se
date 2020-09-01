@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9c9b1f7687d1ab1af36ac603501ecbaa7affd9b6
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 4f724297f216267dadda31be4bd548eb241b9845
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387038"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266977"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -23,7 +23,7 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 **Support** | **Information**
 --- | ---
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan identifiera och utvärdera upp till 35 000 virtuella VMware-datorer i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects). Ett projekt kan även innehålla fysiska servrar och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
-**Identifiering** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
+**Identifikation** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -40,6 +40,7 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 **VMware** | **Information**
 --- | ---
 **VMwares virtuella datorer** | Alla operativ system kan utvärderas för migrering. 
+**Storage** | Diskar som är anslutna till SCSI-, IDE-och SATA-baserade styrenheter stöds.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
@@ -55,7 +56,7 @@ Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för iden
 
 **Enhet** | **Anslutning**
 --- | ---
-**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 **vCenter-Server** | Inkommande anslutningar på TCP-port 443 för att tillåta att installationen samlar in konfigurations-och prestanda-metadata för utvärderingar. <br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du konfigurerar identifiering.
 **ESXi-värdar** | Om du vill göra en [app-identifiering](how-to-discover-applications.md)eller en [agent lös analys av beroenden](concepts-dependency-visualization.md#agentless-analysis)ansluter-enheten till ESXI-värdar på TCP-port 443, för att identifiera program, till och köra en agent lös beroende visualisering på virtuella datorer.
 
@@ -66,7 +67,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **Support** | **Information**
 --- | ---
 **Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer.
-**Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
+**Identifikation** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
 **Stöd för virtuella datorer** | App-Discovery stöds för virtuella datorer som kör alla Windows-och Linux-versioner.
 **vCenter** | VCenter Server skrivskyddat konto som används för utvärdering måste ha behörighet som är aktiverat för **Virtual Machines**  >  **gäst åtgärder**för att kunna interagera med den virtuella datorn för program identifiering.
 **VM-åtkomst** | Identifiering av appar behöver ett lokalt användar konto på den virtuella datorn för program identifiering.<br/><br/> Azure Migrate har för närvarande stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.

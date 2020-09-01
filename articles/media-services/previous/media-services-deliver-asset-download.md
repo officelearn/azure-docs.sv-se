@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f22d2022ae095ea7178859b1c036f78e39c10152
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5ad40feacdccc847ed66caed3d586db2490b0b50
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019461"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266535"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Gör så här: leverera en till gång genom att ladda ned  
+# <a name="how-to-deliver-an-asset-by-download"></a>Gör så här: leverera en till gång genom att ladda ned
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Den här artikeln beskriver alternativ för att leverera media till gångar som har överförts till Media Services. Du kan leverera Media Services innehåll i flera olika program scenarier. Efter kodningen kan du hämta de genererade medie till gångarna eller komma åt dem med hjälp av en strömmande positionerare. För bättre prestanda och skalbarhet kan du även leverera innehåll med hjälp av en Content Delivery Network (CDN).
 
 Det här exemplet visar hur du hämtar medie till gångar från Media Services till din lokala dator. Koden frågar jobben som associeras med Media Services-kontot efter jobb-ID och får åtkomst till sin **OutputMediaAssets** -samling (som är en uppsättning av ett eller flera medie till gångar som resulterar i att ett jobb körs). I det här exemplet visas hur du hämtar utdata till medie till gångar från ett jobb, men du kan använda samma metod för att ladda ned andra till gångar.

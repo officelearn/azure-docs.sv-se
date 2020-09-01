@@ -3,23 +3,25 @@ title: Koda anpassad transformering med Media Services v3 Azure CLI | Microsoft 
 description: Det här avsnittet visar hur du använder Azure Media Services v3 för att koda en anpassad transformering med Azure CLI.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4ea328cc21d849367d36342ed1b0953a7eb26c77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f7b1f7a858c465629e075bcdb6d32bec29863f0a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503896"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267895"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Koda med en anpassad transformering – Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna, baserat på bransch metod tips, som visas i snabb starten av [strömmande filer](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 

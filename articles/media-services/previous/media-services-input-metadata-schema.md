@@ -13,27 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6d89b36123267c0bdc5d8fdbfd56c83610418c9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056216"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267844"
 ---
-# <a name="input-metadata"></a>Metadata för indata 
+# <a name="input-metadata"></a>Metadata för indata
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar) som du vill utföra vissa kodnings uppgifter på.  När en aktivitet har slutförts skapas en utmatnings till gång.  Utmatnings till gången innehåller video, ljud, miniatyrer, manifest osv. Till gången till utdata innehåller också en fil med metadata om inmatnings till gången. Namnet på XML-filen med metadata har följande format: &lt; asset_id &gt;_metadata.xml (till exempel 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), där &lt; asset_id &gt; är AssetID-värdet för indata till gången.  
 
 Media Services förebyggande syfte inte för att generera metadata. Metadata för indata genereras bara som en artefakt när en indata-till gång bearbetas i ett jobb. Därför skrivs denna artefakt till utmatnings till gången. Olika verktyg används för att generera metadata för indata till gångar och utgående till gångar. Därför har metadata för indata ett något annorlunda schema än utdata-metadata.
 
-Om du vill undersöka metadatafilen kan du skapa en **SAS** -lokaliserare och ladda ned filen till den lokala datorn. Du hittar ett exempel på hur du skapar en SAS-lokaliserare och laddar ned en fil [med hjälp av Media Services .NET SDK-tillägg](media-services-dotnet-get-started.md).  
+Om du vill undersöka metadatafilen kan du skapa en **SAS** -lokaliserare och ladda ned filen till den lokala datorn. Du hittar ett exempel på hur du skapar en SAS-lokaliserare och laddar ned en fil  [med hjälp av Media Services .NET SDK-tillägg](media-services-dotnet-get-started.md).  
 
 I den här artikeln beskrivs element och typer för XML-schemat som indata-metada ( &lt; asset_id &gt;_metadata.xml) baseras på.  Information om filen som innehåller metadata om utmatnings till gången finns i [utdata-metadata](media-services-output-metadata-schema.md).  
 
 Du kan hitta [schema koden](media-services-input-metadata-schema.md#code) ett [XML-exempel](media-services-input-metadata-schema.md#xml) i slutet av den här artikeln.  
  
 
-## <a name="assetfiles-element-root-element"></a><a name="AssetFiles"></a>AssetFiles-element (rot element)
+## <a name="assetfiles-element-root-element"></a><a name="AssetFiles"></a> AssetFiles-element (rot element)
 Innehåller en samling av [AssetFile-element](media-services-input-metadata-schema.md#AssetFile)för kodnings jobbet.  
 
 Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
@@ -42,13 +44,13 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs = "1" maxOccurs = "obunden" |Ett enda underordnat element. Mer information finns i [AssetFile-element](media-services-input-metadata-schema.md#AssetFile). |
 
-## <a name="assetfile-element"></a><a name="AssetFile"></a>AssetFile-element
+## <a name="assetfile-element"></a><a name="AssetFile"></a> AssetFile-element
  Innehåller attribut och element som beskriver en till gångs fil.  
 
  Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Namn**<br /><br /> Obligatorisk |**XS: String** |Till gångs fil namn. |
 | **Storlek**<br /><br /> Obligatorisk |**XS: Long** |Storlek på till gångs filen i byte. |
@@ -65,18 +67,18 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 > 
 
 ### <a name="child-elements"></a>Underordnade element
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs = "0" | |Samling av alla [program element](media-services-input-metadata-schema.md#Programs) när till gångs filen är i MPEG-TS-format. |
 | **VideoTracks**<br /><br /> minOccurs = "0" | |Varje fysisk till gångs fil kan innehålla noll eller flera video spår som överlämnas till ett lämpligt behållar format. Det här elementet innehåller en samling med alla [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) som ingår i till gångs filen. |
 | **AudioTracks**<br /><br /> minOccurs = "0" | |Varje fysisk till gångs fil kan innehålla noll eller flera ljud spår som överlämnas till ett lämpligt behållar format. Det här elementet innehåller en samling med alla [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) som ingår i till gångs filen. |
-| **Metadata**<br /><br /> minOccurs = "0" maxOccurs = "obunden" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Till gångs filens metadata representeras som key\value-strängar. Ett exempel:<br /><br /> **&lt;Metadata-nyckel = "språk" värde = "eng"/&gt;** |
+| **Metadata**<br /><br /> minOccurs = "0" maxOccurs = "obunden" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Till gångs filens metadata representeras som key\value-strängar. Exempel:<br /><br /> **&lt;Metadata-nyckel = "språk" värde = "eng"/&gt;** |
 
-## <a name="tracktype"></a><a name="TrackType"></a>TrackType
+## <a name="tracktype"></a><a name="TrackType"></a> TrackType
 Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Description |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Identitet**<br /><br /> Obligatorisk |**XS: int** |Noll-baserat index för det här ljud-eller video spåret.<br /><br /> Detta är inte nödvändigt vis att TrackID som används i en MP4-fil. |
 | **ADPCM** |**XS: String** |Video spårets codec-sträng. |
@@ -92,12 +94,12 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 > 
 
 ### <a name="child-elements"></a>Underordnade element
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Disposition**<br /><br /> minOccurs = "0" maxOccurs = "1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Innehåller presentations information (till exempel om ett visst ljud spår är för synskadade visnings program). |
 | **Metadata**<br /><br /> minOccurs = "0" maxOccurs = "obunden" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Generiska nyckel/värde-strängar som kan användas för att lagra en rad olika uppgifter. Till exempel Key = "Language" och value = "eng". |
 
-## <a name="audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a>AudioTrackType (ärver från TrackType)
+## <a name="audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a> AudioTrackType (ärver från TrackType)
  **AudioTrackType** är en global komplex typ som ärver från [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
  Typen representerar ett särskilt ljud spår i till gångs filen.  
@@ -105,7 +107,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
  Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **SampleFormat** |**XS: String** |Exempel format. |
 | **ChannelLayout** |**XS: String** |Kanalens layout. |
@@ -114,7 +116,7 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | **Hastigheten** |**XS: int** |Genomsnittlig ljud bit hastighet i bitar per sekund, beräknat från till gångs filen. Endast den grundläggande data Ströms nytto lasten räknas och förpacknings omkostnaderna ingår inte i det här antalet. |
 | **BitsPerSample** |**XS: int** |Bitar per sampel för format typen wFormatTag. |
 
-## <a name="videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a>VideoTrackType (ärver från TrackType)
+## <a name="videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a> VideoTrackType (ärver från TrackType)
 **VideoTrackType** är en global komplex typ som ärver från [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
 Typen representerar ett särskilt video spår i till gångs filen.  
@@ -122,14 +124,14 @@ Typen representerar ett särskilt video spår i till gångs filen.
 Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Obligatorisk |**XS: String** |Video-codec FourCC-kod. |
 | **Profil** |**XS: String** |Video spårets profil. |
 | **Nivå** |**XS: String** |Video spårets nivå. |
 | **PixelFormat** |**XS: String** |Video spårets bild punkts format. |
 | **Bredd**<br /><br /> Obligatorisk |**XS: int** |Kodad video bredd i bild punkter. |
-| **Våghöjd**<br /><br /> Obligatorisk |**XS: int** |Kodad video höjd i bild punkter. |
+| **Höjd**<br /><br /> Obligatorisk |**XS: int** |Kodad video höjd i bild punkter. |
 | **DisplayAspectRatioNumerator**<br /><br /> Obligatorisk |**XS: Double** |Täljare för bild förhållande i bild förhållande. |
 | **DisplayAspectRatioDenominator**<br /><br /> Obligatorisk |**XS: Double** |Nämnare för bild förhållande i bild. |
 | **DisplayAspectRatioDenominator**<br /><br /> Obligatorisk |**XS: Double** |Bild förhållande – täljare för video exempel. |
@@ -140,22 +142,22 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | **MaxGOPBitrate** |**XS: int** |Högsta GOP genomsnittlig bit hastighet för det här video spåret i kilobit per sekund. |
 | **HasBFrames** |**XS: int** |Video spårs nummer för B-ramar. |
 
-## <a name="metadatatype"></a><a name="MetadataType"></a>MetadataType
+## <a name="metadatatype"></a><a name="MetadataType"></a> MetadataType
 **MetadataType** är en global komplex typ som beskriver metadata för en till gångs fil som nyckel/värde-strängar. Till exempel Key = "Language" och value = "eng".  
 
 Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **knapp**<br /><br /> Obligatorisk |**XS: String** |Nyckeln i nyckel/värde-paret. |
 | **värde**<br /><br /> Obligatorisk |**XS: String** |Värdet i nyckel/värde-paret. |
 
-## <a name="programtype"></a><a name="ProgramType"></a>ProgramType
+## <a name="programtype"></a><a name="ProgramType"></a> ProgramType
 **ProgramType** är en global komplex typ som beskriver ett program.  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **ProgramId**<br /><br /> Obligatorisk |**XS: int** |Program-ID |
 | **NumberOfPrograms**<br /><br /> Obligatorisk |**XS: int** |Antal program. |
@@ -164,15 +166,15 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | **StartPTS** |**XS: Long** |Startar tids stämpling för presentationen. |
 | **EndPTS** |**XS: Long** |Tids stämpling för presentationen avslutas. |
 
-## <a name="streamdispositiontype"></a><a name="StreamDispositionType"></a>StreamDispositionType
+## <a name="streamdispositiontype"></a><a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** är en global komplex typ som beskriver data strömmen.  
 
 Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attribut
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Default**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 för att indikera att detta är standard presentationen. |
+| **Objekt**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 för att indikera att detta är standard presentationen. |
 | **Dub**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 för att indikera att detta är dubbed-presentationen. |
 | **Originalspråket**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 för att indikera att detta är den ursprungliga presentationen. |
 | **Kommentar**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 om du vill visa att det här spåret innehåller kommentarer. |
@@ -184,35 +186,35 @@ Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-i
 | **CleanEffects**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 om du vill visa att det här spåret har rena effekter. |
 | **AttachedPic**<br /><br /> Obligatorisk |**XS: int** |Ange det här attributet till 1 om du vill visa att det här spåret innehåller bilder. |
 
-## <a name="programs-element"></a><a name="Programs"></a>Program element
+## <a name="programs-element"></a><a name="Programs"></a> Program element
 Omslutnings element som innehåller flera **program** element.  
 
 ### <a name="child-elements"></a>Underordnade element
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs = "0" maxOccurs = "obunden" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |För till gångs filer som är i MPEG-TS-format, innehåller information om program i till gångs filen. |
 
-## <a name="videotracks-element"></a><a name="VideoTracks"></a>VideoTracks-element
+## <a name="videotracks-element"></a><a name="VideoTracks"></a> VideoTracks-element
  Omslutnings element som innehåller flera **VideoTrack** -element.  
 
  Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Underordnade element
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs = "0" maxOccurs = "obunden" |[VideoTrackType (ärver från TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Innehåller information om video spår i till gångs filen. |
 
-## <a name="audiotracks-element"></a><a name="AudioTracks"></a>AudioTracks-element
+## <a name="audiotracks-element"></a><a name="AudioTracks"></a> AudioTracks-element
  Omslutnings element som innehåller flera **AudioTrack** -element.  
 
  Se ett XML-exempel i slutet av den här artikeln: [XML-exempel](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>ämnen
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs = "0" maxOccurs = "obunden" |[AudioTrackType (ärver från TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Innehåller information om ljud spår i till gångs filen. |
 
-## <a name="schema-code"></a><a name="code"></a>Schema kod
+## <a name="schema-code"></a><a name="code"></a> Schema kod
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
@@ -613,7 +615,7 @@ Omslutnings element som innehåller flera **program** element.
 ```
 
 
-## <a name="xml-example"></a><a name="xml"></a>XML-exempel
+## <a name="xml-example"></a><a name="xml"></a> XML-exempel
 Följande är ett exempel på filen med indata-metadata.  
 
 ```xml

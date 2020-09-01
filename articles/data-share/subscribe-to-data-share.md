@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258631"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268901"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudie: Godkänn och ta emot data med Azure Data Share  
 
@@ -23,7 +23,7 @@ I den här självstudien får du lära dig hur du godkänner en data delnings-in
 > * Ange ett mål för dina data
 > * Skapa en prenumeration på din data resurs för schemalagd uppdatering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan acceptera en inbjudan till en data resurs måste du etablera ett antal Azure-resurser som visas nedan. 
 
 Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data delning. 
@@ -38,7 +38,7 @@ Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data deln
 * Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagar rollen. 
 * Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Ta emot data i en SQL-baserad Källa:
+### <a name="receive-data-into-a-sql-based-target"></a>Ta emot data till ett SQL-baserat mål:
 
 * Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen. 
 * Behörighet för data resurs resursens hanterade identitet för att komma åt Azure SQL Database eller Azure SQL Data Warehouse. Detta kan göras genom följande steg: 
@@ -78,7 +78,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    Du öppnar inbjudan från Azure Portal direkt genom att söka efter **inbjudningar för data delning** i Azure Portal. Då går du till listan med data resurs inbjudningar.
 
-   ![Inbjudningar](./media/invitations.png "Lista över inbjudningar") 
+   ![Lista över inbjudningar](./media/invitations.png "Lista över inbjudningar") 
 
 1. Välj den resurs som du vill visa. 
 
@@ -114,7 +114,7 @@ Följ stegen nedan för att konfigurera var du vill ta emot data.
 
    ![Mål lagrings konto](./media/dataset-map-target-sql.png "Mål lagring") 
 
-1. För ögonblicks bilds-baserad delning, om dataprovidern har skapat ett ögonblicks bild schema för att tillhandahålla regelbunden uppdatering av data, kan du också aktivera schema för ögonblicks bild genom att välja fliken **ögonblicks** bild schema. Markera kryss rutan bredvid schemat för ögonblicks bilder och välj **+ Aktivera**.
+1. För ögonblicks bilds-baserad delning, om dataprovidern har skapat ett ögonblicks bild schema för att tillhandahålla regelbunden uppdatering av data, kan du också aktivera schema för ögonblicks bild genom att välja fliken **ögonblicks bild schema** . Markera kryss rutan bredvid schemat för ögonblicks bilder och välj **+ Aktivera**.
 
    ![Aktivera schema för ögonblicks bild](./media/enable-snapshot-schedule.png "Aktivera schema för ögonblicks bild")
 

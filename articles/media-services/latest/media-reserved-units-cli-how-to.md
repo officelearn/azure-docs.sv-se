@@ -3,7 +3,7 @@ title: Använd CLI för att skala medium reserverade enheter – Azure | Microso
 description: Det här avsnittet visar hur du använder CLI för att skala medie bearbetning med Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e681b1f82086480541d08ae9f8ef9e5cf07b4df
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053225"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268476"
 ---
 # <a name="scaling-media-processing"></a>Bearbetning av skalningsmedia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med Azure Media Services kan du skala mediebearbetning i ditt konto genom att hantera mediereserverade enheter (MRU:er). MRUs avgör hastigheten som dina medie bearbetnings uppgifter bearbetas med. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. 
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/04/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99651bb449268aa830babcedc18cc33d5870aa23
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016384"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266280"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en systemtilldelade hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via åtkomstnyckel
 
@@ -36,7 +36,7 @@ I den här självstudien lär du dig att hämta åtkomstnycklar till lagringskon
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till ett befintligt lagringskonto. 
 
@@ -78,7 +78,7 @@ I det här steget ger du den virtuella datorns systemtilldelade hanterade identi
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/install-win10). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till den virtuella Linux-datorn och klicka sedan längst upp på **Anslut** på sidan **Översikt**. Kopiera strängen för anslutning till din virtuella dator. 
 2. Anslut till den virtuella datorn med hjälp av SSH-klienten.  
@@ -127,7 +127,7 @@ Skapa en blob-exempelfil att ladda upp till din bloblagringscontainer. På en vi
 echo "This is a test file." > test.txt
 ```
 
-Sedan autentiserar du med CLI-kommandot `az storage` med hjälp av lagringsåtkomstnyckeln och laddar upp filen till blobcontainern. För det här steget behöver du [installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella dator, om du inte redan har gjort det.
+Sedan autentiserar du med CLI-kommandot `az storage` med hjälp av lagringsåtkomstnyckeln och laddar upp filen till blobcontainern. För det här steget behöver du [installera den senaste versionen av Azure CLI](/cli/azure/install-azure-cli) på din virtuella dator, om du inte redan har gjort det.
  
 
 ```azurecli-interactive
@@ -199,4 +199,4 @@ Svar:
 I den här självstudien har du lärt dig hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage med hjälp av en åtkomstnyckel.  Mer information om Azure Storage-åtkomstnycklar finns här:
 
 > [!div class="nextstepaction"]
->[Hantera dina lagringsåtkomstnycklar](/azure/storage/common/storage-create-storage-account)
+>[Hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-create.md)

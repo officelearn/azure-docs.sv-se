@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837048"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267861"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -128,7 +128,7 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
@@ -173,7 +173,7 @@ Den här uppsättningen konfigurations information innehåller känslig informat
 }
 ```
 
-Namn | Värde
+Name | Värde
 ---- | -----
 storageAccountName | Namnet på det lagrings konto där data skrivs av tillägget.
 storageAccountEndPoint | valfritt Slut punkten som identifierar molnet där lagrings kontot finns. Om den här inställningen saknas, LAD standardvärdet för det offentliga Azure-molnet `https://core.windows.net` . Om du vill använda ett lagrings konto i Azure Germany, Azure Government eller Azure Kina anger du detta värde i enlighet med detta.
@@ -233,8 +233,8 @@ Version 3,0 av Linux Diagnostic-tillägget har stöd för två typer av mottagar
 
 Posten "sasURL" innehåller den fullständiga URL: en, inklusive SAS-token, för den Händelsehubben som data ska publiceras till. LAD kräver en SAS som namnger en princip som aktiverar Send-anspråk. Ett exempel:
 
-* Skapa ett Event Hubs-namnområde som kallas`contosohub`
-* Skapa en Event Hub i namn området som kallas`syslogmsgs`
+* Skapa ett Event Hubs-namnområde som kallas `contosohub`
+* Skapa en Event Hub i namn området som kallas `syslogmsgs`
 * Skapa en princip för delad åtkomst på Händelsehubben med namnet `writer` som aktiverar Send-anspråk
 
 Om du har skapat ett SAS-värde till och med midnatt UTC den 1 januari 2018 kan sasURL-värdet vara:
@@ -367,9 +367,9 @@ displayName | Etiketten (på det språk som anges av den associerade språk inst
 
 CounterSpecifier är en godtycklig identifierare. Konsumenter av mått, som Azure Portal funktion för diagram och avisering, använder counterSpecifier som "Key" som identifierar ett mått eller en instans av ett mått. För `builtin` mått rekommenderar vi att du använder counterSpecifier-värden som börjar med `/builtin/` . Om du samlar in en speciell instans av ett mått rekommenderar vi att du kopplar instansens identifierare till counterSpecifier-värdet. Några exempel:
 
-* `/builtin/Processor/PercentIdleTime`-Inaktiv tid i genomsnitt för alla virtuella processorer
-* `/builtin/Disk/FreeSpace(/mnt)`– Ledigt utrymme för/mnt-filsystem
-* `/builtin/Disk/FreeSpace`– Genomsnittligt utrymme i genomsnitt i alla monterade fil system
+* `/builtin/Processor/PercentIdleTime` -Inaktiv tid i genomsnitt för alla virtuella processorer
+* `/builtin/Disk/FreeSpace(/mnt)` – Ledigt utrymme för/mnt-filsystem
+* `/builtin/Disk/FreeSpace` – Genomsnittligt utrymme i genomsnitt i alla monterade fil system
 
 Varken LAD eller Azure Portal förväntar sig att counterSpecifier-värdet matchar eventuella mönster. Var konsekvent i hur du skapar counterSpecifier-värden.
 
@@ -757,7 +757,7 @@ Data som skickas till JsonBlob-mottagare lagras i blobbar i lagrings kontot med 
 Dessutom kan du använda dessa UI-verktyg för att komma åt data i Azure Storage:
 
 * Visual Studio-Server Explorer.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Lagringsutforskaren").
 
 Den här ögonblicks bilden av en Microsoft Azure Storage Explorer-session visar de genererade Azure Storage tabellerna och behållarna från ett korrekt konfigurerat LAD 3,0-tillägg på en virtuell test dator. Avbildningen stämmer inte exakt med [exemplet på LAD 3,0-konfigurationen](#an-example-lad-30-configuration).
 

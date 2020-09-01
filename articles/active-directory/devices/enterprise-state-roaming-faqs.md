@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274093"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268544"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 
@@ -37,7 +37,7 @@ I den här artikeln besvaras några frågor som IT-administratörer kan ha om in
 > [!NOTE]
 > Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Program data**: universella Windows-appar kan skriva inställnings data till en central mapp, och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till den enskilda appens utvecklare att utforma en app för att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder roaming finns i [API för lagrings-API för AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 AppData-Roaming-bloggen för utvecklare](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
+**Program data**: universella Windows-appar kan skriva inställnings data till en central mapp, och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till den enskilda appens utvecklare att utforma en app för att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder roaming finns i [API för lagrings-API för AppData](/windows/uwp/design/app-settings/store-and-retrieve-app-data) och [Windows 8 AppData-Roaming-bloggen för utvecklare](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Vilket konto används för synkronisering av inställningar?
 
@@ -86,9 +86,9 @@ När flera Azure AD-konton från olika Azure AD-klienter finns på samma enhet m
 Roaming fungerar bara för universella Windows-appar. Det finns två alternativ för att aktivera roaming i ett befintligt Windows Desktop-program:
 
 * [Desktop-bryggan](https://aka.ms/desktopbridge) hjälper dig att ta dina befintliga Windows-skrivbordsappar till universell Windows-plattform. Härifrån kommer minimal kod ändringar att krävas för att dra nytta av nätverks växling av Azure AD-AppData. Desktop-bryggan ger dina appar en app-identitet, vilket krävs för att aktivera centrala AppData för befintliga skrivbordsappar.
-* Med [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) kan du skapa en anpassad inställnings mall för befintliga Windows-skrivbordsappar och aktivera roaming för Win32-appar. Det här alternativet kräver inte att appens utvecklare ändrar koden för appen. UE-V är begränsad till lokal Active Directory nätverks växling för kunder som har köpt Microsoft Desktop Optimization Pack.
+* Med [User Experience Virtualization (UE-V)](/previous-versions//dn458947(v=vs.85)) kan du skapa en anpassad inställnings mall för befintliga Windows-skrivbordsappar och aktivera roaming för Win32-appar. Det här alternativet kräver inte att appens utvecklare ändrar koden för appen. UE-V är begränsad till lokal Active Directory nätverks växling för kunder som har köpt Microsoft Desktop Optimization Pack.
 
-Administratörer kan konfigurera UE-V till nätverks växling av Windows-AppData genom att ändra roaming av Windows OS-inställningar och universella AppData via [UE-v grup principer](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), inklusive:
+Administratörer kan konfigurera UE-V till nätverks växling av Windows-AppData genom att ändra roaming av Windows OS-inställningar och universella AppData via [UE-v grup principer](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), inklusive:
 
 * Grup princip för centrala Windows-inställningar
 * Synkronisera inte grup princip för Windows-appar

@@ -3,7 +3,7 @@ title: Scheman för Azure Media Services diagnostiska loggar – Azure
 description: Den här artikeln visar scheman för Azure Media Services diagnostiska loggar.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2019
-ms.author: juliako
-ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 6f09a0ab88273aa10bb5f3cb55f89d014897df12
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092022"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268459"
 ---
 # <a name="diagnostic-logs-schemas"></a>Scheman för diagnostikloggar
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och diagnostikloggar som hjälper dig att förstå hur dina program presterar. Du kan övervaka Media Services diagnostikloggar och skapa aviseringar och aviseringar för insamlade mått och loggar. Du kan skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/)eller använda tjänster från tredje part.
 
@@ -38,7 +40,7 @@ Detaljerad beskrivning av schemat på den högsta nivån av diagnostiska loggar 
 
 De här egenskaperna är speciella för logg schema för nyckel leverans.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |keyId|ID för den begärda nyckeln.|
 |keyType|Kan vara något av följande värden: "Clear" (ingen kryptering), "FairPlay", "PlayReady" eller "Widevine".|

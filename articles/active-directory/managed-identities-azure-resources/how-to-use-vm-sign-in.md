@@ -16,12 +16,12 @@ ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 02815003bf5167a73c1e2362d9270deb867c84b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999418"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266331"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för inloggning 
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller exempel på PowerShell-och CLI-skript för inloggn
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Om du planerar att använda Azure PowerShell-eller Azure CLI-exemplen i den här artikeln måste du installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du planerar att använda Azure PowerShell-eller Azure CLI-exemplen i den här artikeln måste du installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps) eller [Azure CLI](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Alla exempel skript i den här artikeln förutsätter att kommando rads klienten körs på en virtuell dator med hanterade identiteter för Azure-resurser aktiverade. Använd funktionen för att ansluta till den virtuella datorn i Azure Portal för att fjärrans luta till den virtuella datorn. Mer information om hur du aktiverar hanterade identiteter för Azure-resurser på en virtuell dator finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md)eller en av variant-artiklarna (med POWERSHELL, CLI, mall eller Azure SDK). 
@@ -100,9 +100,3 @@ Om något är felaktigt kan du behöva distribuera hanterade identiteter för Az
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill aktivera hanterade identiteter för Azure-resurser på en virtuell Azure-dator, se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](qs-configure-powershell-windows-vm.md)eller [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator](qs-configure-cli-windows-vm.md)
-
-
-
-
-
-

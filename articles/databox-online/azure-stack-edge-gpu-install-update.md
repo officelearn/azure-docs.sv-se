@@ -1,22 +1,23 @@
 ---
 title: Installera uppdatering på Azure Stack Edge GPU-enhet | Microsoft Docs
-description: Beskriver hur du tillämpar uppdateringar med hjälp av Azure Portal och lokalt webb gränssnitt för Azure Stack Edge GPU-enhet
+description: Beskriver hur du tillämpar uppdateringar med hjälp av Azure Portal och lokalt webb gränssnitt för Azure Stack Edge-GPU-enhet och Kubernetes-klustret på enheten
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: article
-ms.date: 06/12/2020
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e973e41493b8e84f31a82d5379a01a0e851a48d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085429"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268252"
 ---
 # <a name="update-your-azure-stack-edge-with-gpu"></a>Uppdatera din Azure Stack Edge med GPU 
 
-I den här artikeln beskrivs de steg som krävs för att installera uppdateringen på din Azure Stack Edge med GPU via det lokala webb gränssnittet och via Azure Portal. Du installerar program uppdateringar eller hotfixar för att hålla din Azure Stack Edge-enhet uppdaterad. 
+I den här artikeln beskrivs de steg som krävs för att installera uppdateringen på din Azure Stack Edge med GPU via det lokala webb gränssnittet och via Azure Portal. Du tillämpar program uppdateringar eller snabb korrigeringar för att hålla din Azure Stack Edge-enhet och tillhör ande Kubernetes-cluaster på enheten uppdaterad. 
 
 > [!IMPORTANT]
 > - Uppdatering **2008** motsvarar **2.1.1328.1904** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](azure-stack-edge-gpu-2008-release-notes.md).

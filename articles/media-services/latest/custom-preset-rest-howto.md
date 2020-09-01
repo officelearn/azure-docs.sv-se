@@ -3,23 +3,25 @@ title: Koda anpassad transformering med Media Services v3 REST – Azure | Micro
 description: Det här avsnittet visar hur du använder Azure Media Services v3 för att koda en anpassad transformering med REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 9bdea0998b5d6b4c10a96d2ef593f46d6b7c02bf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053328"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267011"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Koda med en anpassad transformering-REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna, baserat på bransch bästa praxis, som du ser i själv studie kursen för [strömnings filer](stream-files-tutorial-with-rest.md#create-a-transform) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfbad53fd2361752824292e0ade82f3ac231916
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb8c6c64e0a68f5176c4eb0c0177c5220394695
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099856"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268765"
 ---
 # <a name="enforce-tls-12-for-the-azure-ad-registration-service"></a>Framtvinga TLS 1,2 för registrerings tjänsten för Azure AD
 
@@ -52,7 +52,7 @@ Alla datorer som fungerar som proxyservrar mellan enheter och Azure AD Device Re
 
 ## <a name="update-ad-fs-servers"></a>Uppdatera AD FS-servrar
 
-Alla AD FS-servrar som används för att kommunicera med Azure AD Device Registration Service måste se till att TLS 1,2 är aktiverat. Mer information om hur du aktiverar/verifierar den här konfigurationen finns i [Hantera SSL/TLS-protokoll och chiffersviter för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) .
+Alla AD FS-servrar som används för att kommunicera med Azure AD Device Registration Service måste se till att TLS 1,2 är aktiverat. Mer information om hur du aktiverar/verifierar den här konfigurationen finns i [Hantera SSL/TLS-protokoll och chiffersviter för AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) .
 
 ## <a name="client-updates"></a>Klient uppdateringar
 
@@ -68,4 +68,4 @@ Följande klienter är kända för att inte stödja TLS 1,2. Uppdatera klientern
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt över TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview)
+[Översikt över TLS/SSL (Schannel SSP)](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)

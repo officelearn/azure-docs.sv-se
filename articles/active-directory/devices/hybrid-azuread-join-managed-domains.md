@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428472"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268425"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
 
@@ -68,14 +68,14 @@ Hybrid Azure AD-anslutning kräver att enheter har åtkomst till följande Micro
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com`(Om du använder eller planerar att använda sömlös enkel inloggning)
+- `https://autologon.microsoftazuread-sso.com` (Om du använder eller planerar att använda sömlös enkel inloggning)
 
 > [!WARNING]
 > Om din organisation använder proxyservrar som fångar upp SSL-trafik för scenarier som förebyggande av data förlust eller begränsningar för Azure AD-innehavare, kontrollerar du att trafik till ( https://device.login.microsoftonline.com ) är exkluderad från TLS-och-undersök. Det går inte att utesluta " https://device.login.microsoftonline.com " kan orsaka störningar med autentisering av klient certifikat, vilket orsakar problem med enhets registrering och enhets-baserad villkorlig åtkomst.
 
-Om din organisation kräver åtkomst till Internet via en utgående proxy kan du använda [implementera WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Information om hur du löser problem med att konfigurera och hantera WPAD finns i [Felsöka automatisk identifiering](/previous-versions/tn-archive/cc302643(v=technet.10)). I Windows 10-enheter före 1709-uppdateringen är WPAD det enda tillgängliga alternativet för att konfigurera en proxy så att den fungerar med hybrid Azure AD-anslutning. 
+Om din organisation kräver åtkomst till Internet via en utgående proxy kan du använda [implementera WPAD (Web Proxy Auto-Discovery)](/previous-versions/tn-archive/cc995261(v=technet.10)) för att aktivera Windows 10-datorer för enhets registrering med Azure AD. Information om hur du löser problem med att konfigurera och hantera WPAD finns i [Felsöka automatisk identifiering](/previous-versions/tn-archive/cc302643(v=technet.10)). I Windows 10-enheter före 1709-uppdateringen är WPAD det enda tillgängliga alternativet för att konfigurera en proxy så att den fungerar med hybrid Azure AD-anslutning. 
 
-Om du inte använder WPAD kan du konfigurera inställningar för WinHTTP-proxy på datorn som börjar med Windows 10 1709. Mer information finns i [Inställningar för WinHTTP-proxy som distribueras av GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Om du inte använder WPAD kan du konfigurera inställningar för WinHTTP-proxy på datorn som börjar med Windows 10 1709. Mer information finns i [Inställningar för WinHTTP-proxy som distribueras av GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Om du konfigurerar proxyinställningar på datorn med hjälp av WinHTTP-inställningar kommer alla datorer som inte kan ansluta till den konfigurerade proxyn inte att kunna ansluta till Internet.
@@ -174,7 +174,7 @@ Här är tre sätt att hitta och kontrol lera enhets status:
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 1. Gå till sidan enheter med en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](./device-management-azure-portal.md).
 3. Om den **registrerade** kolumnen säger **väntar**, slutförs inte hybrid Azure AD Join.
 4. Om den **registrerade** kolumnen innehåller ett **datum/tid**har hybrid Azure AD Join slutförts.
 
@@ -224,7 +224,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Om du får problem med att slutföra hybrid Azure AD Join för domänanslutna Windows-enheter, se:
 
-- [Felsöka enheter med kommandot dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Felsöka enheter med kommandot dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Felsöka Azure Active Directory-hybridanslutna enheter](troubleshoot-hybrid-join-windows-current.md)
 - [Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner](troubleshoot-hybrid-join-windows-legacy.md)
 

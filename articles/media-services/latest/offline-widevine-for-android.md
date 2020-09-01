@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b603b800dfdfb96e9b6b1074dc1e39d31b994c06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a1e85f37a0dfdbb7ff10db13e53b1998ef391caa
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997786"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267204"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Offline-Widevine strömning för Android med Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Förutom att skydda innehåll för online-direktuppspelning, erbjuder medie innehålls prenumeration och hyres tjänster nedladdnings Bart innehåll som fungerar när du inte är ansluten till Internet. Du kan behöva ladda ned innehåll till din telefon eller surfplatta för uppspelning i flyg Plans läge när det är frånkopplat från nätverket. Ytterligare scenarier där du kanske vill ladda ned innehåll:
 

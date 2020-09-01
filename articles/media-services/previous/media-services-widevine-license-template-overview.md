@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9f583e7956cba0de06e5b3277bfea13c463019d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7bdffa607a1cbe47b940590d19f6140238d31bf0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171983"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266501"
 ---
-# <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen 
+# <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Du kan använda Azure Media Services för att konfigurera och begära Google Widevine-licenser. När spelaren försöker spela upp det Widevine innehållet skickas en begäran till licens leverans tjänsten för att få en licens. Om licens tjänsten godkänner begäran utfärdar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
 
 En begäran om Widevine-licens formateras som ett JSON-meddelande.  
@@ -61,7 +64,7 @@ En begäran om Widevine-licens formateras som ett JSON-meddelande.
 ```
 
 ## <a name="json-message"></a>JSON-meddelande
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
 | payload |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
 | content_id |Base64-kodad sträng |Identifierare som används för att härleda nyckel-ID och innehålls nyckel för varje content_key_specs. track_type. |
@@ -79,7 +82,7 @@ Om det finns en befintlig princip behöver du inte ange något av värdena i inn
 
 Varje content_key_specs värde måste anges för alla spår, oavsett alternativet use_policy_overrides_exclusively. 
 
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
 | content_key_specs. track_type |sträng |Ett namn på spår typ. Om content_key_specs anges i licens förfrågan, se till att ange alla spår typer explicit. Det gick inte att spela upp det senaste 10 sekunderna. |
 | content_key_specs  <br/> security_level |UInt32 |Definierar stabilitets kraven för klienten för uppspelning. <br/> -Programvarubaserad kryptografisk kryptering krävs. <br/> – Program kryptering och en fördunklade-avkodare krävs. <br/> -Nyckel materialet och kryptografi åtgärderna måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning. <br/> -Kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning.  <br/> – Kryptering, avkodning och all hantering av mediet (komprimerade och okomprimerade) måste hanteras i en maskin varu hanterare som är en betrodd körnings miljö. |
@@ -88,7 +91,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 | content_key_specs. key_id |Base64-kodad sträng binär, 16 byte |Unik identifierare för nyckeln. |
 
 ## <a name="policy-overrides"></a>Princip åsidosättningar
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
 | policy_overrides. can_play |Booleskt värde, sant eller falskt |Anger att uppspelning av innehållet är tillåten. Standardvärdet är false. |
 | policy_overrides. can_persist |Booleskt värde, sant eller falskt |Anger att licensen kan vara bestående av Nonvolatile Storage för offline-användning. Standardvärdet är false. |
@@ -103,7 +106,7 @@ Varje content_key_specs värde måste anges för alla spår, oavsett alternative
 | policy_overrides. renew_with_usage |Booleskt värde, sant eller falskt |Anger att licensen har skickats för förnyelse när användningen startar. Det här fältet används endast om can_renew är sant. |
 
 ## <a name="session-initialization"></a>Initiering av session
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
 | provider_session_token |Base64-kodad sträng |Denna sessionstoken skickas tillbaka i licensen och finns i efterföljande förnyelser. Sessionstoken kvarstår utanför sessioner. |
 | provider_client_token |Base64-kodad sträng |Klient-token att skicka tillbaka i licens svaret. Om licens förfrågan innehåller en klient-token ignoreras värdet. Klientens token kvarstår utanför licens-sessioner. |

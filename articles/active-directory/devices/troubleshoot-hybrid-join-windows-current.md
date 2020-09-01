@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611321"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268782"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka Azure Active Directory-hybridanslutna enheter
 
@@ -28,8 +28,8 @@ För andra Windows-klienter kan du läsa artikeln [Felsöka hybrid Azure Active 
 I den här artikeln förutsätter vi att du har [konfigurerat hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-plan.md) som stöd för följande scenarier:
 
 - Enhetsbaserad villkorlig åtkomst
-- [Företags växling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello för företag](../active-directory-azureadjoin-passport-deployment.md)
+- [Företags växling av inställningar](./enterprise-state-roaming-overview.md)
+- [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Det här dokumentet innehåller fel söknings vägledning för att lösa eventuella problem.
 
@@ -170,7 +170,7 @@ Möjliga orsaker till problemet:
 - **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
    - Orsak: generiskt identifierings problem. Det gick inte att hämta metadata för identifiering från DRS.
    - Lösning: hitta underfelet nedan för att undersöka ytterligare.
-- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
+- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
    - Orsak: tids gränsen för åtgärden nåddes under identifieringen.
    - Lösning: kontrol lera att `https://enterpriseregistration.windows.net` är tillgängligt i system kontexten. Mer information finns i avsnittet krav på [nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
@@ -387,7 +387,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Steg 5: samla in loggar och kontakta Microsoft Support
 
-Hämta filen Auth.zip från[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Hämta filen Auth.zip från [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
 1. Zippa upp filerna och Byt namn på de inkluderade filerna **start-auth.txt** och **stop-auth.txt** till **Start-auth. cmd** och **Stop-auth. cmd**.
 1. Kör **Start-auth. cmd**från en upphöjd kommando tolk.

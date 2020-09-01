@@ -3,7 +3,7 @@ title: Övervaka Azure Media Services händelser med Event Grid med portalen
 description: Den här artikeln visar hur du prenumererar på Event Grid för att övervaka Azure Media Services händelser.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -13,16 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 602ff0a29f3fd8717e581b6ac15d493e3ad475f7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 26e6e56d7c14cfa0ab54776003ae4489bb254094
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542403"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265855"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Skapa och övervaka Media Services-händelser med Event Grid med hjälp av Azure-portalen
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Event Grid är en händelsetjänst för molnet. Den här tjänsten använder [händelse prenumerationer](../../event-grid/concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Media Services händelser innehåller all information du behöver för att svara på ändringar i dina data. Du kan identifiera en Media Services-händelse eftersom egenskapen eventType börjar med "Microsoft. Media.". Mer information finns i [Media Services händelse scheman](media-services-event-schemas.md).
 
@@ -32,7 +34,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-* Ha en aktiv Azure-prenumeration.
+* En aktiv Azure-prenumeration.
 * Skapa ett nytt Azure Media Services-konto, som beskrivs i [den här snabbstarten](./create-account-howto.md).
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden

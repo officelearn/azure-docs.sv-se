@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654845"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265889"
 ---
-# <a name="get-credentials-to-access-media-services-api"></a>Hämta autentiseringsuppgifter för åtkomst Media Services-API  
+# <a name="get-credentials-to-access-media-services-api"></a>Hämta autentiseringsuppgifter för åtkomst Media Services-API
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du använder Azure AD-autentisering för att komma åt Azure Media Services-API: et har du två autentiseringsalternativ:
 
@@ -33,7 +35,7 @@ När du använder Azure AD-autentisering för att komma åt Azure Media Services
 
 I den här artikeln beskrivs steg för att få åtkomst till Media Services API. Välj bland följande flikar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har ett konto börjar du med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](create-account-howto.md).

@@ -3,23 +3,25 @@ title: Koda anpassad transformering med Media Services v3 .NET – Azure | Micro
 description: Det här avsnittet visar hur du använder Azure Media Services v3 för att koda en anpassad transformering med hjälp av .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/03/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8557a11a4768b547096fb56371f0f358c890f883
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001153"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266994"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Koda med en anpassad transformering – .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna baserat på bransch bästa praxis som visas i själv studie kursen för [strömmande filer](stream-files-tutorial-with-api.md) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 

@@ -1,21 +1,21 @@
 ---
-title: Check lista för för distribution för att distribuera Azure Stack Edge-enhet | Microsoft Docs
-description: Den här artikeln beskriver den information som kan samlas in innan du distribuerar din Azure Stack Edge-enhet.
+title: Check lista för för distribution för att distribuera Azure Stack Edge GPU-enhet | Microsoft Docs
+description: Den här artikeln beskriver den information som kan samlas in innan du distribuerar din Azure Stack Edge GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/29/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: e1233e17dfe2a56e6ea995190b243ed9c64b8945
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d7b3388b7e3a31c23b34b21017f012d40e9f849
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181365"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268150"
 ---
-# <a name="deployment-checklist-for-your-azure-stack-edge-device"></a>Distributions check lista för din Azure Stack Edge-enhet  
+# <a name="deployment-checklist-for-your-azure-stack-edge-gpu-device"></a>Distributions check lista för Azure Stack Edge GPU-enhet  
 
 Den här artikeln beskriver den information som kan samlas in före den faktiska distributionen av Azure Stack Edge-enheten. 
 

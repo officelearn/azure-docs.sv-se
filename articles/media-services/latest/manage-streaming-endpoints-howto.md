@@ -3,7 +3,7 @@ title: Hantera slut punkter för direkt uppspelning med Azure Media Services v3
 description: Den här artikeln visar hur du hanterar strömnings slut punkter med Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d8b5f79d9c9050eeb7957ddcf28021e3c8b3dd94
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 08730961d81cd14b5ba8af0778d2de4078398bff
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010655"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266552"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Hantera slut punkter för direkt uppspelning med Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 När ditt Media Services-konto skapas, läggs en **standard** [slut punkt för direkt uppspelning](streaming-endpoint-concept.md) till på ditt konto i **stoppat** tillstånd. Om du vill börja strömma ditt innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och [dynamisk kryptering](content-protection-overview.md), måste den strömmande slut punkten från vilken du vill strömma innehåll vara i **Kör** tillstånd.
 

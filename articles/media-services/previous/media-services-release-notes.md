@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ac0b0e0a9c372aebc51af1840491d0f53f9f8f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010332"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268663"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 I den här versionen av Azure Media Services sammanfattas ändringar från tidigare versioner och kända problem.
 
@@ -372,7 +374,7 @@ Media Services REST-metadata är nu version 2,7. Mer information om de senaste R
 
 Media Services SDK för .NET är nu version 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Bryta ändringar
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Icke-bakåtkompatibla ändringar
 * Ursprungets namn ändrades till [StreamingEndpoint].
 * En ändring har gjorts i standard beteendet när du använder Azure Portal för att koda och sedan publicera MP4-filer.
 

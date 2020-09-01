@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604547"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267249"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming inställningar i Azure Active Directory
 
@@ -108,7 +108,7 @@ Se till att Windows 10 v1511-klienten har den kumulativa uppdateringen juli 2016
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>Temat synkroniseras inte, samt data som skyddas med Windows Information Protection 
 
-För att förhindra data läckage, kommer data som skyddas med [windows information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) inte att synkroniseras via Enterprise State roaming för enheter som använder uppdaterings uppdatering för Windows 10.
+För att förhindra data läckage, kommer data som skyddas med [windows information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) inte att synkroniseras via Enterprise State roaming för enheter som använder uppdaterings uppdatering för Windows 10.
 
 **Rekommenderad åtgärd**  
 Inga. Framtida uppdateringar av Windows kan lösa det här problemet.
@@ -159,8 +159,8 @@ Om användaren har ett blandat Skift läges-UPN (t. ex. användar namn i ställe
 Användaren måste koppla från och återansluta enheten till molnet. Det gör du genom att logga in som lokal administratörs användare och ta bort enheten genom att gå till **Inställningar**  >  **system**  >  **om** och välja "hantera eller koppla från arbetet eller skolan". Rensa filerna nedan och Anslut sedan enheten igen i **Inställningar**  >  **system**  >  **om** och välj "Anslut till arbets plats eller skola". Fortsätt att ansluta enheten till Azure Active Directory och slutför flödet.
 
 I rensnings steget rensar du följande filer:
-- Settings. dat i`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Alla filer under mappen`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Settings. dat i `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Alla filer under mappen `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

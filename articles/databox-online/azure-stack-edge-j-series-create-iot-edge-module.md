@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cef6524bd228d5fed342cabfb2959e5d8ab8954e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c981208438529ec7c23ab3c3089f4d57d77c2714
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146240"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268969"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Azure Stack kant
 
@@ -42,7 +42,7 @@ Din Azure Stack Edge-enhet kan distribuera och köra IoT Edge moduler. Edge-modu
 
 När filen finns i moln resursen överförs den automatiskt till ditt Azure Storage-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att du har:
 

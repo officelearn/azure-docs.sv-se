@@ -1,7 +1,7 @@
 ---
 title: Schema för Azure Media Services utdata-metadata | Microsoft Docs
 description: Den här artikeln ger en översikt över Azure Media Services schemat för utdata.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080932"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267215"
 ---
 # <a name="output-metadata"></a>Utgående metadata
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ett kodnings jobb är associerat med en ingångs till gång (eller till gångar) som du vill utföra vissa kodnings uppgifter på. Koda till exempel en MP4-fil till H. 264 MP4-anpassade bit hastighets uppsättningar; skapa en miniatyr bild. Skapa överlägg. När en aktivitet har slutförts skapas en utmatnings till gång.  Utmatnings till gången innehåller video, ljud, miniatyrer och andra filer. Till gången till utdata innehåller också en fil med metadata om utmatnings till gången. Namnet på JSON-filen för metadata har följande format: `<source_file_name>_manifest.json` (till exempel `BigBuckBunny_manifest.json` ). Du bör söka efter * _metadata.jspå och fråga Sök väg strängen i för att hitta käll fil namnet (utan trunkering).
 
@@ -34,7 +36,7 @@ Du hittar den fullständiga schema koden och JSON-exemplet i slutet av den här 
 
 Samling av AssetFile-poster för kodnings jobbet.  
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
 | **Källor** |Samling med indatafiler/källfiler, som bearbetades för att skapa den här AssetFile.<br />Exempel: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlagrad i ett lämpligt behållar format. <br />Se [VideoTracks](#videotracks). |
@@ -47,14 +49,14 @@ Samling av AssetFile-poster för kodnings jobbet.
 
 Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlagrad i ett lämpligt behållar format. Elementet **VideoTracks** representerar en samling med alla video spår.  
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | --- | --- |
 | **Identitet**<br /> Obligatorisk |Noll-baserat index för det här video spåret. **Obs:**  Detta **ID** är inte nödvändigt vis det TrackID som används i en MP4-fil. <br /><br />Exempel: `"Id": 1`|
 | **FourCC**<br />Obligatorisk | Video-codec FourCC-kod som rapporteras av ffmpeg.  <br /><br />Exempel: `"FourCC": "avc1"`|
 | **Profil** |H264,-profil (gäller endast H264,-codec).  <br /><br />Exempel: `"Profile": "High"` |
 | **Nivå** |H264,-nivå (gäller endast H264,-codec).  <br /><br />Exempel: `"Level": "3.2"`|
 | **Bredd**<br />Obligatorisk |Kodad video bredd i bild punkter.  <br /><br />Exempel: `"Width": "1280"`|
-| **Våghöjd**<br />Obligatorisk |Kodad video höjd i bild punkter.  <br /><br />Exempel: `"Height": "720"`|
+| **Höjd**<br />Obligatorisk |Kodad video höjd i bild punkter.  <br /><br />Exempel: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Obligatorisk|Täljare för bild förhållande i bild förhållande.  <br /><br />Exempel: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Obligatorisk |Nämnare för bild förhållande i bild.  <br /><br />Exempel: `"DisplayAspectRatioDenominator": 9.0`|
 | **Bildfrekvens**<br />Obligatorisk |Uppmätt video bild Rute frekvens i. 3F-format.  <br /><br />Exempel: `"Framerate": 29.970`|
@@ -65,7 +67,7 @@ Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlag
 
 Varje fysisk AssetFile kan innehålla i noll eller flera ljud spår som är överlagrade i ett lämpligt behållar format. **AudioTracks** -elementet representerar en samling med alla dessa ljud spår.  
 
-| Namn  | Beskrivning |
+| Name  | Beskrivning |
 | --- | --- |
 | **Identitet**<br />Obligatorisk  |Noll-baserat index för det här ljud spåret. **Obs:**  Detta är inte nödvändigt vis TrackID som används i en MP4-fil.  <br /><br />Exempel: `"Id": 2`|
 | **ADPCM**  |Ljud spårets codec-sträng.  <br /><br />Exempel: `"Codec": "aac"`|

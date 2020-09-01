@@ -11,16 +11,18 @@ ms.subservice: ''
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 07/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dca351133394e27a1d795dc9f5f958f730bbf42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b20668ea08186f42eed89f82fb1ae8d85cf090d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092090"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267708"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Hög tillgänglighet med Media Services och video på begäran (VOD)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="high-availability-for-vod"></a>Hög tillgänglighet för VOD
 
@@ -34,7 +36,7 @@ Det finns ett exempel som kan användas för att bekanta dig med hög tillgängl
 
 Tjänsterna som används i den här exempel arkitekturen är:
 
-| Ikon | Namn | Beskrivning |
+| Ikon | Name | Beskrivning |
 | :--: | ---- | ----------- |
 |![image](media/media-services-high-availability-encoding/azure-media-services.svg)| Media Services-konto | **Beskrivning:**<br>Ett Media Services konto är start punkten för att hantera, kryptera, koda, analysera och strömma medie innehåll i Azure. Den är kopplad till en Azure Storage konto resurs. Kontot och alla tillhör ande lagrings enheter måste finnas i samma Azure-prenumeration.<br><br>**VOD användning:**<br>Det här är de tjänster som du använder för att koda och leverera dina video-och ljud till gångar.  För hög tillgänglighet skulle du ställa in minst två Media Services konton, var och en i en annan region. [Läs mer om Azure Media Services](media-services-overview.md). |
 |![image](media/media-services-high-availability-encoding/storage-account.svg)| Lagringskonto | **Beskrivning:**<br>Ett Azure Storage-konto innehåller alla dina Azure Storage data objekt: blobbar, filer, köer, tabeller och diskar. Data är tillgängliga från var som helst i världen via HTTP eller HTTPS.<br><br>Varje Media Services konto, i varje region, har ett lagrings konto i samma region.<br><br>**VOD användning:**<br>Du kan lagra indata och utdata för bearbetning och strömning av VOD. [Läs mer om Azure Storage](../../storage/common/storage-introduction.md). |
@@ -53,7 +55,7 @@ Det här diagrammet på hög nivå visar arkitekturen för det exempel som tillh
 
 [![Video på begäran (VOD) arkitektur diagram ](media/media-services-high-availability-encoding/high-availability-architecture.svg) på hög nivå](media/media-services-high-availability-encoding/high-availability-architecture.svg#lightbox)
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Rekommenderade metoder
 
 ### <a name="regions"></a>Regioner
 

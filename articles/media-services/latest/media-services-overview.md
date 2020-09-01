@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: En översikt på hög nivå av Azure Media Services v3 med länkar till snabb starter, självstudier och kod exempel.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -14,17 +14,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000966"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267623"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services är en molnbaserad plattform för att skapa lösningar för videor i sändningskvalitet för direktuppspelning, förbättra tillgängligheten och distributionen, analysera innehållet och mycket mer. Oavsett om du är en app-utvecklare, ett Call Center, ett myndighets organ eller ett underhållnings företag, kan Media Services hjälpa dig att skapa appar som levererar medie upplevelser av enastående kvalitet till stora publiker på dagens mest populära mobila enheter och webbläsare.
 
@@ -90,7 +92,7 @@ Självstudierna visar scenariobaserade procedurer för några av de främsta Med
 
 Använd [den här exempel webbläsaren](/samples/browse/?products=azure-media-services) för att bläddra bland Azure Media Services kod exempel.
 
-### <a name="how-to-guides"></a>Instruktionsguider
+### <a name="how-to-guides"></a>Anvisningar
 
 Instruktions guider innehåller kod exempel som visar hur du utför en uppgift. I det här avsnittet hittar du många exempel. Här är några av dem:
 

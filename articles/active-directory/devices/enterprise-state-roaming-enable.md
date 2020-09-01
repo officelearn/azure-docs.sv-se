@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541897"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268612"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 
@@ -32,15 +32,15 @@ När du aktiverar Enterprise State Roaming beviljas din organisation automatiskt
 
 1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com/).
 1. Välj **Azure Active Directory**  >  **enheter**  >  **Enterprise State roaming**.
-1. Välj **användare kan synkronisera inställningar och AppData mellan enheter**. Mer information finns i [så här konfigurerar du enhets inställningar](/azure/active-directory/device-management-azure-portal).
+1. Välj **användare kan synkronisera inställningar och AppData mellan enheter**. Mer information finns i [så här konfigurerar du enhets inställningar](./device-management-azure-portal.md).
   
    ![bild av enhets inställningen märkta användare kan synkronisera inställningar och AppData mellan enheter](./media/enterprise-state-roaming-enable/device-settings.png)
   
-För att en Windows 10-enhet ska kunna använda tjänsten Enterprise State Roaming måste enheten autentisera med en Azure AD-identitet. För enheter som är anslutna till Azure AD är användarens primära inloggnings identitet sin Azure AD-identitet, så ingen ytterligare konfiguration krävs. För enheter som använder lokala Active Directory måste IT-administratören [Konfigurera hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-manual-steps.md). 
+För att en Windows 10-enhet ska kunna använda tjänsten Enterprise State Roaming måste enheten autentisera med en Azure AD-identitet. För enheter som är anslutna till Azure AD är användarens primära inloggnings identitet sin Azure AD-identitet, så ingen ytterligare konfiguration krävs. För enheter som använder lokala Active Directory måste IT-administratören [Konfigurera hybrid Azure Active Directory anslutna enheter](./hybrid-azuread-join-plan.md). 
 
 ## <a name="data-storage"></a>Datalagring
 
-Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instansen. Enterprise State Roaming data partitioneras baserat på tre viktiga geografiska områden: Nordamerika, EMEA och APAC. Enterprise State Roaming data för klienten är lokalt placerade i den geografiska regionen och replikeras inte över flera regioner.  Ett exempel:
+Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instansen. Enterprise State Roaming data partitioneras baserat på tre viktiga geografiska områden: Nordamerika, EMEA och APAC. Enterprise State Roaming data för klienten är lokalt placerade i den geografiska regionen och replikeras inte över flera regioner.  Exempel:
 
 | Lands-/region värde | har data som finns i |
 | -------------------- | ------------------------ |
@@ -80,7 +80,7 @@ Explicit borttagning är när en Azure-administratör tar bort en användare ell
 
 ### <a name="stale-data-deletion"></a>Borttagning av inaktuella data
 
-Data som inte har öppnats i ett år ("kvarhållningsperiod") kommer att behandlas som inaktuella och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan ändras men kommer inte att vara mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/program-inställningar eller alla inställningar för en användare. Ett exempel:
+Data som inte har öppnats i ett år ("kvarhållningsperiod") kommer att behandlas som inaktuella och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan ändras men kommer inte att vara mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/program-inställningar eller alla inställningar för en användare. Exempel:
 
 * Om inga enheter har åtkomst till en viss inställnings samling (till exempel ett program tas bort från enheten, eller en inställnings grupp som "tema" är inaktive rad för alla användares enheter), blir samlingen inaktuell efter kvarhållningsperioden och kan tas bort. 
 * Om en användare har inaktiverat synkronisering av inställningar på alla sina enheter, kommer ingen av inställnings data att nås, och alla inställnings data för den användaren blir inaktuella och kan tas bort efter kvarhållningsperioden. 

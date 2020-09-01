@@ -1,25 +1,27 @@
 ---
-title: Azure Storage-konton
+title: Azure-lagringskonton
 titleSuffix: Azure Media Services
 description: Lär dig hur du skapar ett Azure Storage-konto som ska användas med Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/01/2019
-ms.author: juliako
-ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071998"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267079"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage-konton
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 För att börja hantera, kryptera, koda, analysera och strömma medie innehåll i Azure måste du skapa ett Media Services-konto. När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto.
 
@@ -49,7 +51,7 @@ För att skydda dina till gångar i vila bör till gångarna krypteras med krypt
 |---|---|---|
 |Media Services lagrings kryptering| AES-256-kryptering, nyckel som hanteras av Media Services. |Stöds inte. <sup>(1)</sup>|
 |[Lagrings tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden.|Stöds.|
-|[Kryptering av lagring på klient Sidan](../../storage/common/storage-client-side-encryption.md)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault.|Stöds ej.|
+|[Kryptering av lagring på klient Sidan](../../storage/common/storage-client-side-encryption.md)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault.|Stöds inte.|
 
 <sup>1</sup> i Media Services v3 stöds inte lagrings kryptering (AES-256-kryptering) för bakåtkompatibilitet när dina till gångar skapades med Media Services v2, vilket innebär att v3 fungerar med befintliga lagrings krypterade till gångar men inte tillåter att nya skapas.
 

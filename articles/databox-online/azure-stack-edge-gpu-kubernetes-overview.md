@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: b85586a431a20102035e253537fc45c8a8a54796
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be7e01644d7d1f232c50b1efbadf100671a262fe
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085404"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268116"
 ---
-# <a name="kubernetes-on-your-azure-stack-edge-device"></a>Kubernetes på din Azure Stack Edge-enhet
+# <a name="kubernetes-on-your-azure-stack-edge-gpu-device"></a>Kubernetes på din Azure Stack Edge-GPU-enhet
 
 Kubernetes är en populär plattform med öppen källkod för att dirigera program i behållare. Den här artikeln innehåller en översikt över Kubernetes och en beskrivning av hur Kubernetes fungerar på din Azure Stack Edge-enhet. 
 

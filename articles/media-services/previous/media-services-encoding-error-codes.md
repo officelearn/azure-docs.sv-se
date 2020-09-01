@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b40bc8521755fae08e851e5b324979d5798e3dcd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042860"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269037"
 ---
 # <a name="encoding-error-codes"></a>Felkoder vid kodning
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 I följande tabell visas felkoder som kan returneras om ett fel påträffades under kodnings körningen.  Om du vill ha fel information i .NET-koden använder du klassen [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) . Använd [ErrorDetail](/rest/api/media/operations/errordetail) -REST API för att få fel information i din rest-kod.
 

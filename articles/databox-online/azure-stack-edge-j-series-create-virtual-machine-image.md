@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c7730b776ef1d7e1d5e372049395492641b839ff
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 83332c3bfa0b2b99d7333fa679fb8d398aecf8bd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146019"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268918"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Skapa anpassade VM-avbildningar för din Azure Stack Edge-enhet
 
@@ -56,7 +56,7 @@ Utför följande steg för att skapa en virtuell Linux-avbildning.
 
 Använd den här virtuella hård disken för att skapa och distribuera en virtuell dator på din Azure Stack Edge-enhet. Du kan använda följande två Azure Marketplace-avbildningar för att skapa anpassade Linux-avbildningar:
 
-|Objekt namn  |Beskrivning  |Utgivare  |
+|Objekt namn  |Beskrivning  |Publisher  |
 |---------|---------|---------|
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu-servern är världens mest populära Linux för moln miljöer.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux är en av de mest populära Linux-distributionerna.     |credativ|

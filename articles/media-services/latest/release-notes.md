@@ -3,22 +3,24 @@ title: Viktig information om Azure Media Services v3 | Microsoft Docs
 description: Den här artikeln innehåller de senaste uppdateringarna för Azure Media Services v3 för att hålla dig uppdaterad med den senaste utvecklingen.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072147"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267518"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: en `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` i din RSS-feed läsare.
 
@@ -141,7 +143,7 @@ Media Services v3 presenterar för hands versionen av 24 timmar x 365 dagar av d
 
 #### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om datum för indragning finns i avsnittet om [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
+Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om datum för indragning finns i avsnittet om  [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
 
 Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -270,31 +272,31 @@ Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](/cli/azure
 
 #### <a name="asset-commands"></a>Till gångs kommandon
 
-- ```--storage-account```och ```--container``` argument har lagts till.
+- ```--storage-account``` och ```--container``` argument har lagts till.
 - Standardvärden för förfallo tid (nu + 23h) och behörigheter (läsa) i ```az ams asset get-sas-url``` kommandot tillagt.
 
 #### <a name="job-commands"></a>Jobb kommandon
 
-- ```--correlation-data```och ```--label``` tillagda argument
-- ```--output-asset-names```har bytt namn till ```--output-assets``` . Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
+- ```--correlation-data``` och ```--label``` tillagda argument
+- ```--output-asset-names``` har bytt namn till ```--output-assets``` . Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
 
 #### <a name="streaming-locator-commands"></a>Kommandon för streaming Locator
 
-- ```az ams streaming locator```kommandot Base ersattes med ```az ams streaming-locator``` .
-- ```--streaming-locator-id```och ```--alternative-media-id support``` argument har lagts till.
-- ```--content-keys argument```argumentet har uppdaterats.
-- ```--content-policy-name```har bytt namn till ```--content-key-policy-name``` .
+- ```az ams streaming locator``` kommandot Base ersattes med ```az ams streaming-locator``` .
+- ```--streaming-locator-id``` och ```--alternative-media-id support``` argument har lagts till.
+- ```--content-keys argument``` argumentet har uppdaterats.
+- ```--content-policy-name``` har bytt namn till ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Kommandon för direkt uppspelnings princip
 
-- ```az ams streaming policy```kommandot Base ersattes med ```az ams streaming-policy``` .
+- ```az ams streaming policy``` kommandot Base ersattes med ```az ams streaming-policy``` .
 - Krypterings parameter stöd ```az ams streaming-policy create``` har lagts till.
 
 #### <a name="transform-commands"></a>Omvandlings kommandon
 
-- ```--preset-names```argumentet ersatt med ```--preset``` . Nu kan du bara ange 1 utdata/för inställning i taget (för att lägga till fler du behöver köra ```az ams transform output add``` ). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
-- ```az ams transform output remove```kan utföras genom att skicka det utgående index som ska tas bort.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argument har lagts till i ```az ams transform create``` och- ```az ams transform output add``` kommandon.
+- ```--preset-names``` argumentet ersatt med ```--preset``` . Nu kan du bara ange 1 utdata/för inställning i taget (för att lägga till fler du behöver köra ```az ams transform output add``` ). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
+- ```az ams transform output remove``` kan utföras genom att skicka det utgående index som ska tas bort.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argument har lagts till i ```az ams transform create``` och- ```az ams transform output add``` kommandon.
 
 ## <a name="october-2018---ga"></a>Oktober 2018 – GA
 

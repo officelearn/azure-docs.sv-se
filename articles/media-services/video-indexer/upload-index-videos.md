@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011879"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268833"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -101,7 +101,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Indexering av tillståndsändring: 
     - Egenskaper:    
     
-        |Namn|Beskrivning|
+        |Name|Beskrivning|
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
@@ -109,7 +109,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Person som identifierades i videon:
   - Egenskaper
     
-      |Namn|Beskrivning|
+      |Name|Beskrivning|
       |---|---|
       |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
@@ -118,7 +118,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         
     - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>Anteckningar
+##### <a name="notes"></a>Kommentarer
 
 - Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
 - Den tillhandahållna webbadressen måste vara kodad.
@@ -167,7 +167,7 @@ Om `videoUrl` inte anges förväntar sig Video Indexer att du skickar filen som 
 
 Följande C#-kodavsnitt visar hur du använder alla Video Indexer-API:er tillsammans.
 
-#### <a name="instructions-for-running-this-code-sample"></a>Instruktioner för att köra det här kod exemplet
+**Instruktioner för att köra följande kod exempel**
 
 När du har kopierat koden till din utvecklings plattform måste du ange två parametrar: API Management autentiseringsnyckel och video-URL.
 

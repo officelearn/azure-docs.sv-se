@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541880"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268816"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -48,13 +48,13 @@ Viktiga fördelar med att ge dina enheter en Azure AD-identitet:
 
 * Förbättra användar upplevelsen – med enhets identiteter i Azure AD kan du ge dina användare enkel åtkomst till din organisations molnbaserade resurser från både personliga och företagets enheter. Administratörer kan aktivera [Enterprise State roaming](enterprise-state-roaming-overview.md) för en enhetlig upplevelse på alla Windows-enheter.
 
-* Förenkla distribution och hantering – enhets identitets hantering fören klar processen att sätta enheter till Azure AD med [Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot), [Mass etablering](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)och [självbetjäning: OOBE (out of Box Experience)](../user-help/user-help-join-device-on-network.md). Du kan hantera dessa enheter med verktyg för hantering av mobila enheter (MDM) som [Microsoft Intune](https://docs.microsoft.com/mem/intune/fundamentals/what-is-intune)och deras identiteter i [Azure Portal](https://portal.azure.com/).
+* Förenkla distribution och hantering – enhets identitets hantering fören klar processen att sätta enheter till Azure AD med [Windows autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [Mass etablering](/mem/intune/enrollment/windows-bulk-enroll)och [självbetjäning: OOBE (out of Box Experience)](../user-help/user-help-join-device-on-network.md). Du kan hantera dessa enheter med verktyg för hantering av mobila enheter (MDM) som [Microsoft Intune](/mem/intune/fundamentals/what-is-intune)och deras identiteter i [Azure Portal](https://portal.azure.com/).
 
 ### <a name="training-resources"></a>Utbildnings resurser
 
-Video: [villkorlig åtkomst med enhets kontroller](https://youtu.be/NcONUf-jeS4)
+Video:  [villkorlig åtkomst med enhets kontroller](https://youtu.be/NcONUf-jeS4)
 
-Vanliga frågor och svar om [Azure AD-enhets hantering, vanliga](faq.md) frågor och [svar om inställningar och centrala data](enterprise-state-roaming-faqs.md) 
+Vanliga frågor och svar om [Azure AD-enhets hantering, vanliga](faq.md)  frågor och [svar om inställningar och centrala data](enterprise-state-roaming-faqs.md) 
 
 ## <a name="plan-the-deployment-project"></a>Planera distributions projektet
 
@@ -127,21 +127,21 @@ Villkorlig åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markerin
 
 ## <a name="azure-ad-registration"></a>Registrering av Azure AD 
 
-Registrerade enheter hanteras ofta med [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Enheter registreras i Intune på flera olika sätt beroende på operativ systemet. 
+Registrerade enheter hanteras ofta med [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Enheter registreras i Intune på flera olika sätt beroende på operativ systemet. 
 
 Registrerade Azure AD-enheter har stöd för att ta dina egna enheter (BYOD) och företagsägda enheter till enkel inloggning till moln resurser. Åtkomst till resurser baseras på de Azure AD [ca-principer](../conditional-access/require-managed-devices.md) som tillämpas på enheten och användaren.
 
 ### <a name="registering-devices"></a>Registrera enheter
 
-Registrerade enheter hanteras ofta med [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Enheter registreras i Intune på flera olika sätt beroende på operativ systemet. 
+Registrerade enheter hanteras ofta med [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Enheter registreras i Intune på flera olika sätt beroende på operativ systemet. 
 
 BYOD och företagsägda mobila enheter registreras av användare som installerar appen företags Portal.
 
-* [iOS](https://docs.microsoft.com/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
+* [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
 
-* [Android](https://docs.microsoft.com/mem/intune/user-help/enroll-device-android-company-portal)
+* [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
-* [Windows 10](https://docs.microsoft.com/mem/intune/user-help/enroll-windows-10-device)
+* [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
 
 Om du registrerar dina enheter är det bästa alternativet för din organisation, se följande resurser:
 
@@ -171,9 +171,9 @@ Om du har Windows 10 Professional eller Windows 10 Enterprise installerat på en
 
 * [Windows out of Box Experience (OOBE) eller från Windows-inställningar](../user-help/user-help-join-device-on-network.md)
 
-* [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot)
+* [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 
-* [Mass registrering](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)
+* [Mass registrering](/mem/intune/enrollment/windows-bulk-enroll)
 
 Välj distributions proceduren efter noggrann [jämförelse av dessa metoder](azureadjoin-plan.md).
 
@@ -216,7 +216,7 @@ Du kan fastställa att hybrid Azure AD Join är den bästa lösningen för en en
 | Aktuellt enhets tillstånd| Önskat enhets tillstånd| Så här gör du |
 | - | - | - |
 | Lokal domän anslutning| Hybrid Azure AD-anslutning| Använd Azure AD Connect eller AD FS för att ansluta till Azure |
-| Lokal arbets grupp som är ansluten eller ny| Hybrid Azure AD-anslutning| Stöds med [Windows autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). Enheten måste vara ansluten till en lokal domän före hybrid Azure AD-anslutning |
+| Lokal arbets grupp som är ansluten eller ny| Hybrid Azure AD-anslutning| Stöds med [Windows autopilot](/windows/deployment/windows-autopilot/windows-autopilot). Enheten måste vara ansluten till en lokal domän före hybrid Azure AD-anslutning |
 | Azure AD-ansluten| Hybrid Azure AD-anslutning| Ta en anslutning från Azure AD, som placerar den i den lokala arbets gruppen eller det nya läget. |
 | Azure AD-registerad| Hybrid Azure AD-anslutning| Är beroende av Windows-version. [Se dessa överväganden](hybrid-azuread-join-plan.md). |
 
@@ -239,13 +239,13 @@ Granska stödda plattformar och plattformar som inte stöds för integrerade enh
 
 | Verktyg för enhetshantering| Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning|
 | - | - | - | - |
-| [Hantering av mobila enheter (MDM)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exempel: Microsoft Intune| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
-| [Samhantering med Microsoft Intune och Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 och senare)| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
-| [Grup princip](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Endast Windows)| | | ![markering](./media/plan-device-deployment/check.png)|  |
+| [Hantering av mobila enheter (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exempel: Microsoft Intune| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
+| [Samhantering med Microsoft Intune och Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 och senare)| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
+| [Grup princip](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Endast Windows)| | | ![markering](./media/plan-device-deployment/check.png)|  |
 
 
 
- Vi rekommenderar att du funderar [Microsoft Intune hantering av mobil program (MAM)](https://docs.microsoft.com/mem/intune/apps/app-management) med eller utan enhets hantering för registrerade iOS-eller Android-enheter.
+ Vi rekommenderar att du funderar [Microsoft Intune hantering av mobil program (MAM)](/mem/intune/apps/app-management) med eller utan enhets hantering för registrerade iOS-eller Android-enheter.
 
  Administratörer kan även [distribuera VDI-plattformar (Virtual Desktop Infrastructure)](howto-device-identity-virtual-desktop-infrastructure.md) som är värd för Windows-operativsystem i sina organisationer för att effektivisera hanteringen och minska kostnaderna genom konsolidering och centralisering av resurser. 
 

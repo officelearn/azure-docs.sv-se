@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428386"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268561"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -39,7 +39,7 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 
 I den här självstudien förutsätts att du känner till:
 
-* [Introduktion till enhetshantering i Azure Active Directory](../device-management-introduction.md)
+* [Introduktion till enhetshantering i Azure Active Directory](./overview.md)
 * [Planera implementeringen av Azure Active Directory-hybridanslutning](hybrid-azuread-join-plan.md)
 * [Kontrollera Azure AD-anslutningshybriden för dina enheter](hybrid-azuread-join-control.md)
 
@@ -94,7 +94,7 @@ Använd följande tabell för att få en översikt över stegen som krävs för 
 
 Dina enheter använder en tjänstanslutningspunkt (SCP) under registreringen för att upptäcka information om Azure AD-klientorganisation. I din lokala Active Directory-instans måste SCP-objektet för Azure AD-hybridanslutna enheter finnas i kontextpartitionen för konfigurationsnamngivningen för datorns skog. Det finns bara en kontext för konfigurationsnamngivning per skog. I en Active Directory-konfiguration med flera skogar måste tjänstanslutningspunkten finnas i alla skogar som innehåller domänanslutna datorer.
 
-Du kan använda cmdleten [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) för att hämta skogens kontext för konfigurationsnamngivning.  
+Du kan använda cmdleten [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)) för att hämta skogens kontext för konfigurationsnamngivning.  
 
 För en skog med Active Directory-domännamnet *fabrikam.com*, är kontexten för konfigurationsnamngivning:
 
@@ -167,7 +167,7 @@ För domänkontrollanter som kör Windows Server 2008 eller tidigare versioner a
 
 I föregående skript är `$verifiedDomain = "contoso.com"` en platshållare. Ersätt den med något av dina verifierade domännamn i Azure AD. Du måste äga domänen för att kunna använda den.
 
-Mer information om verifierade domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](../active-directory-domains-add-azure-portal.md).
+Mer information om verifierade domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 Om du vill hämta en lista över verifierade företagsdomäner kan du använda cmdleten [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
 
@@ -326,7 +326,7 @@ Anspråket `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` m�
 
 I föregående anspråk är `<verified-domain-name>` en platshållare. Ersätt den med något av dina verifierade domännamn i Azure AD. Använd till exempel `Value = "http://contoso.com/adfs/services/trust/"`.
 
-Mer information om verifierade domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+Mer information om verifierade domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
 Om du vill hämta en lista över verifierade företagsdomäner kan du använda cmdleten [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
 
@@ -614,7 +614,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Om du får problem med att slutföra hybrid Azure AD Join för domänanslutna Windows-enheter, se:
 
-- [Felsöka enheter med kommandot dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Felsöka enheter med kommandot dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Felsöka Azure Active Directory-hybridanslutna enheter](troubleshoot-hybrid-join-windows-current.md)
 - [Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner](troubleshoot-hybrid-join-windows-legacy.md)
 

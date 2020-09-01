@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/12/2020
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4d629351ae7b6154b332a1b1f99374de1187518
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744610"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267878"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Vad är Azure Media Services Video Indexer?
 
 Video Indexer (VI) är Azure Media Services AI-lösningen och en del av Azure Cognitive Services varumärket. Video Indexer ger möjlighet att extrahera djupgående insikter (utan behov av data analys eller kodnings kunskaper) med hjälp av maskin inlärnings modeller baserade på flera kanaler (röst, Vocals, visualisering). Du kan anpassa och träna modeller ytterligare. Tjänsten möjliggör djupgående sökning, minskar drifts kostnaderna, ger nya Sälj möjligheter och skapar nya användar upplevelser för stora Arkiv av videor (med låga ingångs hinder).
 
 Om du vill börja extrahera insikter med Video Indexer måste du skapa ett konto och ladda upp videor. När du laddar upp videor till Video Indexer, analyserar den både visuella objekt och ljud genom att köra olika AI-modeller. När Video Indexer analyserar videon extraheras de insikter som extraheras av AI-modellerna.
+
+När du skapar ett Video Indexer-konto och ansluter det till Media Services, lagras medie-och metadatafiler i Azure Storage-kontot som är kopplat till det Media Services kontot. Mer information finns i [skapa ett video Indexer-konto som är anslutet till Azure](connect-to-azure.md).
 
 Följande diagram är en illustration och inte en teknisk förklaring av hur Video Indexer fungerar i Server delen.
 
@@ -70,9 +72,9 @@ I följande lista visas de insikter som du kan hämta från dina videor med Vide
 
 ### <a name="audio-insights"></a>Ljud insikter
 
-* **Ljud avskrift**: konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandariner kinesiska, japanska, arabiska, ryska, portugisiska, hindi och koreanska.
-* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandariner kinesiska, japanska, ryska och portugisiska. Om språket inte kan identifieras med förtroende förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [språk identifierings modell](language-identification-model.md).
-* **Tal identifiering och avskrifter för flera språk** (för hands version): identifierar automatiskt det talade språket i olika segment från ljud. Den skickar varje segment i medie filen som ska skrivas av och kombinerar sedan avskriften till en enhetlig avskrift. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
+* **Ljud avskrift**: konverterar tal till text på 12 språk och tillåter tillägg. Språken som stöds är engelska, spanska, franska, tyska, italienska, mandarin, japanska, arabiska, ryska och portugisiska, hindi och koreanska.
+* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, mandarin, japanska, ryska och portugisiska. Om språket inte säkert kan identifieras förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [Modell för språkidentifiering](language-identification-model.md).
+* **Tal identifiering och avskrifter för flera språk** (för hands version): identifierar automatiskt det talade språket i olika segment från ljud. Tjänsten skickar varje segment av mediefilen som ska transkriberas, och sedan kombineras transkriptionerna till en enda transkription. Mer information finns i [Identifiera och transkribera innehåll på olika språk automatiskt](multi-language-identification-transcription.md).
 * **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
 * **Två kanal bearbetning**: identifierar automatiskt separata avskrifter och sammanfogningar på en enda tids linje.
 * **Brus minskning**: tar bort ljud-eller brus inspelnings telefoner (baserat på Skype-filter).

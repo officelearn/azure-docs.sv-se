@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 39c790ea3c7799c59d4b49e3ce3284fb96b8b254
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2730c6ce523e618110cd29b13ba2f37115e2cbd0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422971"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267691"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Använda Video.js Player med Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -73,10 +75,10 @@ Exempel kod för den här artikeln finns på [Azure-samples/Media-Services-3rdPa
 
 Kör `addRemoteTextTrack` metoden och Ersätt:
 
-- `subtitleKind`med antingen `"captions"` , `"subtitles"` , `"descriptions"` eller`"metadata"`  
-- `caption`med fil Sök vägen. VTT (VTT-filen måste finnas på samma värd för att undvika CORS-fel)
-- `subtitleLang`med BCP 47-koden för språk, till exempel `"eng"` för engelska eller `"es"` spanska
-- `subtitleLabel`med det önskade visnings namnet för rubrik
+- `subtitleKind` med antingen `"captions"` , `"subtitles"` , `"descriptions"` eller `"metadata"`  
+- `caption` med fil Sök vägen. VTT (VTT-filen måste finnas på samma värd för att undvika CORS-fel)
+- `subtitleLang` med BCP 47-koden för språk, till exempel `"eng"` för engelska eller `"es"` spanska
+- `subtitleLabel` med det önskade visnings namnet för rubrik
 
 ```javascript
 videojs.players.video.addRemoteTextTrack({

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: db3bfddd3376a013cc8921f9e0b94bd30bfe041f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b18218515e4fbd9886317e116c76186b8372392c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181535"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267555"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -29,7 +29,7 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom f
 
 * [B-serien](../sizes-b-series-burstable.md)
 * [DCsv2-serien](../dcv2-series.md)
-* [DSv2-serien](../dv2-dsv2-series.md) 
+* [Dsv2-serien](../dv2-dsv2-series.md) 
 * [Dsv3-serien](../dv3-dsv3-series.md)
 * [Dsv4-serien](../dv4-dsv4-series.md)
 * [Ddsv4-serien](../ddv4-ddsv4-series.md)
@@ -107,7 +107,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 I Azure Portal eller Azure CLI kan du skapa virtuella datorer i generation 2 från en Marketplace-avbildning som stöder UEFI-start.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Nedan visas stegen för att skapa en virtuell dator i generation 2 (Gen2) i Azure Portal.
 

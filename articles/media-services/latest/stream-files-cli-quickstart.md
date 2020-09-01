@@ -3,7 +3,7 @@ title: Strömma videofiler med Azure Media Services och Azure CLI
 description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: azure media services, strömma
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 5a90e1fdc50a6e2b1544a06f587362bf43b80369
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8c8db31ae51e1fb80ae9baad6a5d6329cd963bab
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504457"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267419"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon – Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Den här självstudien visar hur du enkelt kodar och direktuppspelar videor på en rad olika webbläsare och enheter genom att använda Azure Media Services och Azure CLI. Du kan ange indata-innehåll med hjälp av HTTPS-eller SAS-URL: er eller sökvägar till filer i Azure Blob Storage.
 

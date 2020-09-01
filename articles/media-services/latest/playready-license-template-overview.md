@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 med Microsoft PlayReady-licens mal len
 description: Det här avsnittet ger en översikt över en PlayReady-licens mal len som används för att konfigurera PlayReady-licenser.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 302c938aa3a778f4e1b0ca7884f82943edf43ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b4131ff0cb2169660b231cdf136f52c3f26a02dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998976"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267164"
 ---
-# <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 med PlayReady-licens mal len 
+# <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 med PlayReady-licens mal len
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Med Azure Media Services kan du kryptera ditt innehåll med **Microsoft PlayReady**. Media Services tillhandahåller också en tjänst för att leverera PlayReady-licenser. Du kan använda Media Services API: er för att konfigurera PlayReady-licenser. När en spelare försöker spela upp ditt PlayReady-skyddade innehåll skickas en begäran till licens leverans tjänsten för att få en licens. Om licens tjänsten godkänner begäran utfärdar den den licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
 

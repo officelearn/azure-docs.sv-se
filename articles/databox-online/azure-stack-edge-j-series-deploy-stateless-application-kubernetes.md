@@ -5,21 +5,21 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145968"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268867"
 ---
-# <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Köra och hantera ett Kubernetes-program utan tillstånd på din Azure Stack Edge-enhet
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Distribuera ett Kubernetes tillstånds löst program via kubectl på din Azure Stack Edge GPU-enhet
 
 Den här artikeln beskriver hur du distribuerar ett tillstånds lösa program med kubectl-kommandon i ett befintligt Kubernetes-kluster. Den här artikeln vägleder dig genom processen att skapa och konfigurera poddar i ditt tillstånds lösa program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa ett Kubernetes-kluster och använda `kubectl` kommando rads verktyget, måste du se till att:
 

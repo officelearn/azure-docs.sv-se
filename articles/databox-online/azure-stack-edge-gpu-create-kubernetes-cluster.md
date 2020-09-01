@@ -1,21 +1,21 @@
 ---
-title: Skapa och hantera ett Kubernetes-kluster på Microsoft Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du skapar och hanterar ett Kubernetes-kluster på Microsoft Azure Stack Edge-enhet via Windows PowerShell-gränssnittet.
+title: Skapa och hantera ett Kubernetes-kluster på Azure Stack Edge GPU-enhet | Microsoft Docs
+description: Beskriver hur du skapar och hanterar ett Kubernetes-kluster på Azure Stack Edge-GPU-enhet via Windows PowerShell-gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 74f86ed48f363031fcab5d9d89046c349a1c3667
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 95663553bc68d34eebd90be0d4032ee53900479b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181400"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267966"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-device"></a>Ansluta till och hantera ett Kubernetes-kluster via kubectl på din Azure Stack Edge-enhet
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Ansluta till och hantera ett Kubernetes-kluster via kubectl på din Azure Stack Edge GPU-enhet
 
 På din Azure Stack Edge-enhet skapas ett Kubernetes-kluster när du konfigurerar Compute-rollen. När Kubernetes-klustret har skapats kan du ansluta till och hantera klustret lokalt från en klient dator via ett inbyggt verktyg, till exempel *kubectl*.
 

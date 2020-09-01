@@ -94,9 +94,11 @@
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Distribuera och hantera med Azure CLI
           href: cli-samples.md
-        - name: Om Azure Cache for Redis
+        - name: Skapa Redis Cache – ARM-mall
+          displayName: Resource Manager
           href: cache-redis-cache-arm-provision.md
-        - name: Etablera en webbapp med Azure Cache for Redis
+        - name: Skapa webbapp med Redis Cache – ARM-mall
+          displayName: Resource Manager
           href: cache-web-app-arm-with-redis-cache-provision.md
     - name: Hantera
       items:

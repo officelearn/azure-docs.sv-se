@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84710141"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078001"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudie: Använda Azure DNS som värd för din domän
 
 Du kan använda Azure DNS för att vara värd för din DNS-domän och hantera dina DNS-poster. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
-Anta exempelvis att du köper domänen contoso.net från en domännamnsregistrator och sedan skapar en zon med namnet contoso.net i Azure DNS. Eftersom du är ägare till domänen erbjuder sig registratorn att konfigurera namnserverposterna (NS) för din domän. Registratorn lagrar NS-posterna i den överordnade .net-zonen. Internetanvändare över hela världen omdirigeras sedan till din Azure DNS-zon när de försöker matcha DNS-poster i contoso.net.
+Anta exempelvis att du köper domänen contoso.net från en domännamnsregistrator och sedan skapar en zon med namnet contoso.net i Azure DNS. Eftersom du är ägare till domänen erbjuder sig registratorn att konfigurera namnserverposterna (NS) för din domän. Registratorn lagrar NS-poster i den överordnade .NET-zonen. Internetanvändare över hela världen omdirigeras sedan till din Azure DNS-zon när de försöker matcha DNS-poster i contoso.net.
 
 
 I den här guiden får du lära dig att:
@@ -32,11 +32,11 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Exempel domänen som används för den här självstudien är contoso.net, men Använd ditt eget domän namn.
+I det här exemplet kommer vi att referera till den överordnade domänen som **contoso.net**
 
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
@@ -45,14 +45,19 @@ Exempel domänen som används för den här självstudien är contoso.net, men A
    ![DNS-zon](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. Välj **Skapa DNS-zon**.
-1. På sidan **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
+1. På sidan **Skapa DNS-zon** anger du följande värden och väljer sedan **skapa**: till exempel **contoso.net**
+      > [!NOTE] 
+      > Om den nya zonen som du skapar är en underordnad zon (t. ex. överordnad zon = contoso.net underordnad zon = child.contoso.net), se vår [själv studie kurs om att skapa en ny underordnad DNS-zon](./tutorial-public-dns-zones-child.md)
 
-   | **Inställning** | **Värde** | **Information** |
-   |---|---|---|
-   |**Namn**|[ditt domännamn] |Det domännamn som du har köpt. Den här självstudien använder contoso.net som ett exempel.|
-   |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa zonen.|
-   |**Resursgrupp**|**Skapa ny:** contosoRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde.<br>Platsen för resursgruppen har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.|
-   |**Plats**|East US||
+    | **Inställning** | **Värde** | **Information** |
+    |--|--|--|
+    | **Projekt information:**  |  |  |
+    | **Resursgrupp**    | ContosoRG | Skapa en resursgrupp. Resurs gruppens namn måste vara unikt inom den prenumeration som du har valt. Platsen för resurs gruppen har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid "global" och visas inte. |
+    | **Instans information:** |  |  |
+    | **Underordnad zon**        | lämna omarkerad | Eftersom den här zonen **inte** är en [underordnad zon](./tutorial-public-dns-zones-child.md) bör du lämna denna omarkerad |
+    | **Namn**              | contoso.net | Fält för namn på överordnad zon      |
+    | **Plats**          | East US | Det här fältet baseras på den plats som valts som del av resurs gruppen skapas  |
+    
 
 ## <a name="retrieve-name-servers"></a>Hämta namnservrar
 
@@ -85,7 +90,7 @@ När du har slutfört delegeringen kan du kontrollera att den fungerar med hjäl
 
 Du måste inte ange Azure DNS-namnservrarna. Om delegeringen är korrekt konfigurerad hittar den normala DNS-matchningsprocessen namnservrarna automatiskt.
 
-1. Från en kommandotolk anger du ett nslookup-kommando som liknar följande exempel:
+1. I en kommando tolk anger du ett nslookup-kommando som liknar följande exempel:
 
    ```
    nslookup -type=SOA contoso.net

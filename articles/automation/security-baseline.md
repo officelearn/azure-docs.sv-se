@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6e5c7bbc850a71cd71d8f826c6a975f552374b7a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562692"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077729"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azures säkerhets bas linje för Automation
 
@@ -146,7 +146,7 @@ Om du använder hybrid Runbook Worker som finns på Azure Virtual Machines kan d
 
 **Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser som används av Azure Automation med Azure policy.
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, Azure RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -570,11 +570,11 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 **Ansvar**: kund
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure AD RBAC för att kontrol lera åtkomsten till Azure Automation-resurser med hjälp av inbyggda roll definitioner, tilldela åtkomst för användare som har åtkomst till dina Automation-resurser efter en minst privilegie rad eller "just-tillräckligt" åtkomst modell. När du använder hybrid Runbook Worker kan du använda hanterade identiteter för de virtuella datorerna för att undvika att använda tjänstens huvud namn, när du använder både flera innehavare eller hybrid Runbook-arbetare för att se till att använda korrekt begränsade RBAC-behörigheter på identiteten för Runbook Worker.
+**Vägledning**: Använd Azures rollbaserad åtkomst kontroll (Azure RBAC) för att kontrol lera åtkomsten till Azure Automation resurser med hjälp av de inbyggda roll definitionerna, tilldela åtkomst för användare som har åtkomst till dina Automation-resurser efter en minst privilegie rad eller "just-tillräckligt" åtkomst modell. När du använder hybrid Runbook Worker kan du använda hanterade identiteter för de virtuella datorerna för att undvika att använda tjänstens huvud namn, när du använder både flera innehavare eller hybrid Runbook-arbetare för att se till att använda korrekt begränsade Azure RBAC-behörigheter på identiteten för Runbook Worker.
 
-* [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+* [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 * [Runbook-behörigheter för en Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -968,9 +968,9 @@ I de flesta fall kan de virtuella Microsoft Base-mallarna tillsammans med Azure 
 
 Se till att du begränsar åtkomsten till den anpassade OS-avbildningen som finns i ditt lagrings konto, så att endast behöriga användare kan komma åt avbildningen när du använder den Hybrid Runbook Worker funktionen.
 
-* [Förstå RBAC i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Förstå Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Konfigurera RBAC i Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Så här konfigurerar du Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

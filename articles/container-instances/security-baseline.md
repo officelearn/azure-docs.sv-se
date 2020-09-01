@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 996793f2851949f7474312a18ccff04e88db2232
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b43635c637f10b6ace8a744ceb3046c4ce3b9bd4
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259169"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078086"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Azures säkerhets bas linje för Container Instances
 
@@ -97,7 +97,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](../security/
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
-**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll. Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll. Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 Distribuera den brand Väggs lösning som du väljer för var och en av organisationens nätverks gränser för att upptäcka och/eller neka skadlig trafik.
 
@@ -155,7 +155,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
-**Vägledning**: du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering. 
+**Vägledning**: du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resources Manager-mallar, Azure RBAC-kontroller och-principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering. 
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -557,9 +557,9 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure AD RBAC för att kontrol lera åtkomsten till Azure Container instances data och resurser. 
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra åtkomsten till Azure Container instances data och resurser. 
 
-* [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+* [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -923,13 +923,13 @@ Använd en anpassad eller tredje parts lösning för att korrigera behållar avb
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: lagra behållar avbildningar i Azure Container Registry och utnyttja RBAC för att säkerställa att endast behöriga användare får åtkomst till avbildningarna.
+**Vägledning**: lagra behållar avbildningar i Azure Container Registry och utnyttja Azure RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.
 
-* [Förstå RBAC i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Förstå Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Förstå RBAC för Container Registry](../container-registry/container-registry-roles.md)
+* [Lär dig mer om Azure RBAC för Container Registry](../container-registry/container-registry-roles.md)
 
-* [Konfigurera RBAC i Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Så här konfigurerar du Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Azure Security Center övervakning**: inte tillämpligt

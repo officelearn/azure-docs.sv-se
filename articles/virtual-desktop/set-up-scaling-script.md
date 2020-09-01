@@ -6,22 +6,18 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a7ac01d71316fe4ccf44aa422d88dc31b1fd0ca4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009451"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078562"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
 Du kan minska din totala distributions kostnad för virtuella Windows-datorer genom att skala dina virtuella datorer (VM). Det innebär att du stänger av och avallokerar sessions värden för virtuella datorer vid låg belastnings tider, sedan aktiverar dem igen och omallokerar dem under hög belastnings tid.
 
 I den här artikeln får du lära dig om skalnings verktyget som skapats med Azure Automation-kontot och Azure Logic-appen som automatiskt skalar virtuella datorer i Windows Virtual Desktop-miljön. Om du vill lära dig hur du använder skalnings verktyget kan du gå vidare till [krav](#prerequisites).
-
-## <a name="report-issues"></a>Rapportera problem
-
-Problem rapporter för skalnings verktyget hanteras för närvarande på GitHub i stället för Microsoft Support. Om du stöter på problem med skalnings verktyget får du den information som beskrivs i avsnittet [rapporterings problem](#reporting-issues) och öppnar ett GitHub-ärende med namnet "4a-WVD-Scaling-logicapps" på [sidan RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Hur skalnings verktyget fungerar
 
@@ -60,7 +56,7 @@ Verktyget har dock också följande begränsningar:
 >[!NOTE]
 >Skalnings verktyget styr belastnings Utjämnings läget för den aktuella värddatorn som skalas för närvarande. Verktyget använder det bredd-första belastnings Utjämnings läget för både högsta och låg belastnings tid.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar konfigurera skalnings verktyget ser du till att du har följande klart:
 
@@ -327,3 +323,7 @@ Om du valde att använda Log Analytics kan du Visa alla loggdata i en anpassad l
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Rapportera problem
+
+Problem rapporter för skalnings verktyget hanteras för närvarande av Microsoft Support. När du skapar en ärende rapport, se till att följa anvisningarna i [rapporterings problem](#reporting-issues). Om du har feedback om verktyget eller vill begära nya funktioner, öppnar du ett GitHub-ärende med etiketten "4-WVD-Scaling-Tool" på [sidan RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

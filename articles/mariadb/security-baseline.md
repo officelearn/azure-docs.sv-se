@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 69930342a69613c3863443c993d80e02e1981a98
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366841"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077253"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azures säkerhets bas linje för Azure Database for MariaDB
 
@@ -34,11 +34,11 @@ Du kan också använda Virtual Network tjänstens slut punkter för att skydda o
 
 Du kan också skydda dina Azure Database for MariaDB med brand Väggs regler. Server brand väggen förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brand Väggs regler på server nivå.
 
-Så här konfigurerar du en privat länk för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
+Så här konfigurerar du en privat länk för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
 
-Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for MariaDB Server:https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
+Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for MariaDB Server: https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
 
-Så här konfigurerar du Azure Database for MariaDB brand Väggs regler:https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
+Så här konfigurerar du Azure Database for MariaDB brand Väggs regler: https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
 
 **Azure Security Center övervakning**: Ja
 
@@ -48,9 +48,9 @@ Så här konfigurerar du Azure Database for MariaDB brand Väggs regler:https://
 
 **Vägledning**: när din Azure Database for MariaDB-Server är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan använda en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här konfigurerar du en privat länk för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
+Så här konfigurerar du en privat länk för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal
 
-Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal så här aktiverar och använder du trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal så här aktiverar och använder du trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 
 
@@ -72,9 +72,9 @@ Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-
 
 Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Azure Database for MariaDB instanser för att skydda mot DDoS-attacker. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Så här konfigurerar du Avancerat skydd för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Så här konfigurerar du DDoS-skydd: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
 
 
@@ -86,7 +86,7 @@ Så här konfigurerar du DDoS-skydd:https://docs.microsoft.com/azure/virtual-net
 
 **Vägledning**: när din Azure Database for MariaDB-Server är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan sedan konfigurera en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal så här aktiverar och använder du trafikanalys:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal så här aktiverar och använder du trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 
 
@@ -97,7 +97,7 @@ Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
 **Vägledning**: Använd avancerat skydd för Azure Database for MariaDB. Avancerat skydd identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
-Så här konfigurerar du Avancerat skydd för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Så här konfigurerar du Avancerat skydd för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
 
 **Azure Security Center övervakning**: Ja
@@ -118,7 +118,7 @@ Så här konfigurerar du Avancerat skydd för Azure Database for MariaDB:https:/
 **Vägledning**: för resurser som behöver åtkomst till dina Azure Database for MariaDB-instanser använder du tjänst taggar för virtuella nätverk för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange namnet på service tag gen (t. ex. SQL. Väst) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 Obs: Azure Database for MariaDB använder service tag gen "Microsoft. SQL".
 
-Mer information om att använda service märken: https://docs.microsoft.com/azure/virtual-network/service-tags-overview förstå användningen av service tag i Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
+Mer information om att använda service märken: https://docs.microsoft.com/azure/virtual-network/service-tags-overview förstå användningen av service tag i Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet#terminology-and-description
 
 
 
@@ -136,11 +136,11 @@ Mer information om att använda service märken: https://docs.microsoft.com/azur
 
 - MariaDB-servern bör använda en tjänst slut punkt för virtuellt nätverk
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Policy exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/
+Azure Policy exempel för nätverk: https://docs.microsoft.com/azure/governance/policy/samples/
 
-Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -155,7 +155,7 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -164,7 +164,7 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Database for MariaDB-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
-Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
 
@@ -188,9 +188,9 @@ Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.mic
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
 **Vägledning**: Aktivera diagnostikinställningar och Server loggar och mata in loggar för att samla in säkerhets data som genereras av Azure Database for MariaDB instanser. I Azure Monitor använder du Log Analytics arbets ytor för att fråga och utföra analyser och använda Azure Storage konton för långsiktig lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
-Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal så här integrerar du Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal så här integrerar du Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
 
@@ -202,7 +202,7 @@ Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Da
 
 **Vägledning**: Aktivera diagnostikinställningar på Azure Database for MariaDB instanser för åtkomst till gransknings-, säkerhets-och diagnostikloggar. Se till att du specifikt aktiverar gransknings loggen för MariaDB. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element. Du kan också aktivera inställningar för Azure aktivitets loggs diagnostik och skicka loggarna till samma Log Analytics-arbetsyta eller lagrings konto.
 
-Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs Konfigurera och få åtkomst till gransknings loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs Konfigurera och få åtkomst till gransknings loggar för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 
 
@@ -222,7 +222,7 @@ Konfigurera och få åtkomst till Server loggar för Azure Database for MariaDB:
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
 
 **Vägledning**: i Azure Monitor för arbets ytan Log Analytics som används för att hålla dina Azure Database for MariaDB loggar, anger du kvarhållningsperioden enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
-Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period lagra resurs loggar i ett Azure Storage konto:https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period lagra resurs loggar i ett Azure Storage konto: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
 
 
 
@@ -234,11 +234,11 @@ Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor:
 
 **Vägledning**: analysera och övervaka loggar från dina MariaDB-instanser för avvikande beteende. Använd Azure Monitor Log Analytics arbets ytan för att granska loggar och köra frågor om loggdata. Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part.
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Mer information om arbets ytan Log Analytics:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Mer information om arbets ytan Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Så här utför du anpassade frågor i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Så här utför du anpassade frågor i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -250,13 +250,13 @@ Så här utför du anpassade frågor i Azure Monitor:https://docs.microsoft.com/
 
 Dessutom kan du aktivera server loggar och diagnostiska inställningar för MariaDB och skicka loggar till en Log Analytics-arbetsyta. Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem.
 
-Så här aktiverar du Avancerat skydd för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Så här aktiverar du Avancerat skydd för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-Konfigurera och få åtkomst till Server loggar för MariDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+Konfigurera och få åtkomst till Server loggar för MariDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
+Så här konfigurerar och får du åtkomst till gransknings loggar för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: Ja
 
@@ -294,9 +294,9 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 **Vägledning**: upprätthålla en inventering av de användar konton som har administrativ åtkomst till hanterings planet (Azure Portal/Azure Resource Manager) för dina MariaDB-instanser. Dessutom bör du underhålla en inventering av de administrativa konton som har åtkomst till data planet för dina MariaDB-instanser. (När du skapar MariaDB-servern anger du autentiseringsuppgifter för en administratörs användare. Den här administratören kan användas för att skapa ytterligare MariaDB-användare.)
 
-Förstå åtkomst hantering för MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
+Förstå åtkomst hantering för MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Förstå inbyggda Azure-roller för Azure-prenumerationer:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Förstå inbyggda Azure-roller för Azure-prenumerationer: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Azure Security Center övervakning**: Ja
@@ -309,7 +309,7 @@ Förstå inbyggda Azure-roller för Azure-prenumerationer:https://docs.microsoft
 
 När MariaDB-resursen skapas tvingar Azure skapandet av en administrativ användare med ett starkt lösen ord. När MariaDB-instansen har skapats kan du dock använda det första server administratörs konto som du skapade för att skapa ytterligare användare och ge administrativ åtkomst till dem. När du skapar dessa konton bör du se till att konfigurera ett annat, starkt lösen ord för varje konto.
 
-Så här skapar du ytterligare konton för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-create-users
+Så här skapar du ytterligare konton för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -320,7 +320,7 @@ Så här skapar du ytterligare konton för MariaDB:https://docs.microsoft.com/az
 
 **Vägledning**: skapa standard procedurer för användning av dedikerade administrativa konton som har åtkomst till dina MariaDB-instanser. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton.
 
-Förstå Azure Security Center identitet och åtkomst:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Förstå Azure Security Center identitet och åtkomst: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -330,7 +330,7 @@ Förstå Azure Security Center identitet och åtkomst:https://docs.microsoft.com
 
 **Vägledning**: data Plans åtkomst till MariaDB styrs av identiteter som lagras i databasen och inte stöder SSO. Kontroll Plans åtkomst för MariaDB är tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
 
-Förstå Azure Database for MariaDB REST API:https://docs.microsoft.com/rest/api/mariadb/
+Förstå Azure Database for MariaDB REST API: https://docs.microsoft.com/rest/api/mariadb/
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -340,9 +340,9 @@ Förstå Azure Database for MariaDB REST API:https://docs.microsoft.com/rest/api
 
 **Vägledning**: Aktivera Azure AD MFA och följ Azure Security Center rekommendationer för identitets-och åtkomst hantering.
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Övervaka identitet och åtkomst i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Övervaka identitet och åtkomst i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center övervakning**: Ja
 
@@ -352,9 +352,9 @@ Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-direct
 
 **Vägledning**: Använd Paw (arbets stationer med privilegie rad åtkomst) med MFA konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-Lär dig mer om arbets stationer med privilegie rad åtkomst:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Lär dig mer om arbets stationer med privilegie rad åtkomst: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
-Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -366,11 +366,11 @@ Så här aktiverar du MFA i Azure:https://docs.microsoft.com/azure/active-direct
 
 Dessutom kan du använda Azure AD Privileged Identity Management (PIM) för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön. Använd identifieringar av Azure AD-risker för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-Konfigurera Avancerat skydd för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Konfigurera Avancerat skydd för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-Så här distribuerar du Privileged Identity Management (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Så här distribuerar du Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Förstå identifieringar av Azure AD-risker: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Azure Security Center övervakning**: Ja
 
@@ -380,7 +380,7 @@ Förstå identifieringar av Azure AD-risker:https://docs.microsoft.com/azure/act
 
 **Vägledning**: Använd villkorlig åtkomst med namngivna platser för att tillåta åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner för att begränsa åtkomsten till Azure-resurser som MariaDB.
 
-Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -392,7 +392,7 @@ Så här konfigurerar du namngivna platser i Azure:https://docs.microsoft.com/az
 
 Azure AD-autentisering kan inte användas för direkt åtkomst till MariaDB-dataplanen. Azure AD-autentiseringsuppgifter kan dock användas för administration på hanterings Plans nivån (t. ex. Azure Portal) för att styra MariaDB-administratörskonton.
 
-Så här uppdaterar du administratörs lösen ord för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-create-manage-server-portal#update-admin-password
+Så här uppdaterar du administratörs lösen ord för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-manage-server-portal#update-admin-password
 
 **Azure Security Center övervakning**: Ja
 
@@ -402,9 +402,9 @@ Så här uppdaterar du administratörs lösen ord för MariaDB:https://docs.micr
 
 **Vägledning**: granska Azure Active Directory loggar för att identifiera inaktuella konton som kan innehålla de administrativa rollerna med MariaDB. Använd dessutom Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program som kan användas för att få åtkomst till MariaDB och roll tilldelningar. Användar åtkomsten bör granskas regelbundet, till exempel var 90: e dag och se till att endast rätt användare har fortsatt åtkomst.
 
-Förstå Azure AD-rapportering:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Förstå Azure AD-rapportering: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-Så här använder du granskningar av Azure Identity Access:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Så här använder du granskningar av Azure Identity Access: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Azure Security Center övervakning**: Ja
 
@@ -414,11 +414,11 @@ Så här använder du granskningar av Azure Identity Access:https://docs.microso
 
 **Vägledning**: Aktivera diagnostikinställningar för MariaDB och Azure Active Directory och skicka alla loggar till en Log Analytics arbets yta. Konfigurera önskade aviseringar (t. ex. misslyckade autentiseringsförsök) i Log Analytics arbets ytan.
 
-Konfigurera och få åtkomst till Server loggar för MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+Konfigurera och få åtkomst till Server loggar för MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
+Så här konfigurerar och får du åtkomst till gransknings loggar för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
 
-Så här integrerar du Azure-aktivitets loggar i Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Så här integrerar du Azure-aktivitets loggar i Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -430,13 +430,13 @@ Så här integrerar du Azure-aktivitets loggar i Azure Monitor:https://docs.micr
 
 Använd Azure Active Directoryens identitets skydds-och risk identifierings funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder. Du kan aktivera automatiserade svar via Azure Sentinel för att implementera din organisations säkerhets svar.
 
-Så här aktiverar du Avancerat skydd för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+Så här aktiverar du Avancerat skydd för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-Så här konfigurerar och aktiverar du principer för identitets skydds risker:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Så här konfigurerar och aktiverar du principer för identitets skydds risker: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Så här visar du Azure AD-riskfyllda inloggningar:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+Så här visar du Azure AD-riskfyllda inloggningar: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -446,7 +446,7 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 **Vägledning**: ej tillämpligt; Customer Lockbox ännu inte stöd för Azure Database for MariaDB.
 
-Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -460,7 +460,7 @@ Lista över Customer Lockbox tjänster som stöds:https://docs.microsoft.com/azu
 
 **Vägledning**: Använd taggar för att spåra Azure Database for MariaDB instanser eller relaterade resurser som lagrar eller bearbetar känslig information.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -470,15 +470,15 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Använd en kombination av privata länkar, tjänst slut punkter och/eller MariaDB brand Väggs regler för att isolera och begränsa nätverks åtkomsten till dina MariaDB-instanser.
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Så här konfigurerar du en privat länk för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
+Så här konfigurerar du en privat länk för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
 
-Konfigurera tjänst slut punkter för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
+Konfigurera tjänst slut punkter för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-manage-vnet-portal
 
-Konfigurera brand Väggs regler för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
+Konfigurera brand Väggs regler för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -490,9 +490,9 @@ Konfigurera brand Väggs regler för Azure Database for MariaDB:https://docs.mic
 
 Microsoft hanterar den underliggande infrastrukturen för MariaDB och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Så här minskar du data exfiltrering för Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
+Så här minskar du data exfiltrering för Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -502,7 +502,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 **Vägledning**: Azure Database for MariaDB stöder anslutning av din Azure Database for MariaDB-server till klient program med hjälp av Transport Layer Security (TLS), tidigare kallat Secure SOCKETS Layer (SSL). Att framtvinga TLS-anslutningar mellan din databas server och dina klient program hjälper till att skydda mot "man i de mittersta" angrepp genom att kryptera data strömmen mellan servern och ditt program. Se till att "tvinga SSL-anslutning" är aktiverat för alla MariaDB-instanser i Azure Portal.
 
-Konfigurera kryptering i överföring för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
+Konfigurera kryptering i överföring för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -514,7 +514,7 @@ Konfigurera kryptering i överföring för MariaDB:https://docs.microsoft.com/az
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -522,11 +522,11 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure AD RBAC för att kontrol lera åtkomsten till Azure-databasen för MariaDB hanterings plan (Azure Portal/Azure Resource Manager). För data Plans åtkomst (i själva databasen) använder du SQL-frågor för att skapa användare och konfigurera användar behörigheter.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure-databasen för MariaDB hanterings plan (Azure Portal/Azure Resource Manager). För data Plans åtkomst (i själva databasen) använder du SQL-frågor för att skapa användare och konfigurera användar behörigheter.
 
-Konfigurera RBAC i Azure:https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Så här konfigurerar du Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-Så här konfigurerar du användar åtkomst med SQL för MariaDB:https://docs.microsoft.com/azure/mariadb/howto-create-users
+Så här konfigurerar du användar åtkomst med SQL för MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -538,7 +538,7 @@ Så här konfigurerar du användar åtkomst med SQL för MariaDB:https://docs.mi
 
 Microsoft hanterar den underliggande infrastrukturen för MariaDB och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -548,7 +548,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 **Vägledning**: tjänsten Azure Database for MARIADB använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
-Förstå kryptering i vila för MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security
+Förstå kryptering i vila för MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -558,7 +558,7 @@ Förstå kryptering i vila för MariaDB:https://docs.microsoft.com/azure/mariadb
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i produktions instanser av Azure Database for MariaDB och andra kritiska eller relaterade resurser.
 
-Så här skapar du aviseringar för Azure aktivitets logg händelser:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Så här skapar du aviseringar för Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -620,11 +620,11 @@ Så här skapar du aviseringar för Azure aktivitets logg händelser:https://doc
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive Azure Database for MariaDB Server) i dina prenumerationer. Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
-Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Förstå Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/overview
+Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -634,7 +634,7 @@ Förstå Azure RBAC:https://docs.microsoft.com/azure/role-based-access-control/o
 
 **Vägledning**: Använd taggar för att Azure Database for MariaDB Server och andra relaterade resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -644,11 +644,11 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att ordna och spåra Azure Database for MariaDB Server och relaterade resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-Så här skapar du ytterligare Azure-prenumerationer:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Så här skapar du Hanteringsgrupper:https://docs.microsoft.com/azure/governance/management-groups/create
+Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -672,9 +672,9 @@ Skapa och använda Taggar:https://docs.microsoft.com/azure/azure-resource-manage
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -716,9 +716,9 @@ Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/gove
 
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 
@@ -739,7 +739,7 @@ Så här nekar du en speciell resurs typ med Azure Policy:https://docs.microsoft
 
 **Vägledning**: Använd den villkorliga Azure-åtkomsten för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering". Detta kan förhindra att resurser skapas och ändras i en hög säkerhets miljö, Azure Database for MariaDB server som innehåller känslig information.
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 
@@ -774,9 +774,9 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 - Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MariaDB
 
-Så här visar du tillgängliga Azure Policy alias:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 
@@ -796,9 +796,9 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
 
@@ -818,9 +818,9 @@ Förstå Azure Policys effekter:https://docs.microsoft.com/azure/governance/poli
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för dina Azure Database for MariaDB-servrar och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Så här lagrar du kod i Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Dokumentation om Azure databaser:https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -838,7 +838,7 @@ Dokumentation om Azure databaser:https://docs.microsoft.com/azure/devops/repos/i
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforMariaDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 
@@ -858,7 +858,7 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforMariaDB" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Database for MariaDB-instanser och relaterade resurser.
 
-Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 
@@ -878,11 +878,11 @@ Så här konfigurerar och hanterar du Azure Policy:https://docs.microsoft.com/az
 
 **Vägledning**: för Azure-Virtual Machines eller-webb program som körs på Azure App Service används för att få åtkomst till dina Azure Database for MariaDB-servrar, använder du hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda Azure Database for MariaDB hantering av Server hemlighet. Se till att Key Vault mjuk borttagning har Aktiver ATS.
 
-Så här integrerar du med Azure Managed Identities:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Så här skapar du en Key Vault:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Så här ger Key Vault autentisering med en hanterad identitet:https://docs.microsoft.com/azure/key-vault/managed-identity 
+Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity 
 
 
 
@@ -908,7 +908,7 @@ Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en au
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
 
-Konfigurera inloggnings skannern:https://secdevtools.azurewebsites.net/helpcredscan.html
+Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -958,9 +958,9 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 **Vägledning**: Azure Database for MariaDB tar fullständiga, differentiella och transaktions logg säkerhets kopior.  Azure Database for MariaDB skapar automatiskt Server säkerhets kopior och lagrar dem i användar konfiguration lokalt redundant eller Geo-redundant lagring. Säkerhetskopieringar kan användas för att återställa servern till en vald tidpunkt. Säkerhets kopiering och återställning är en viktig del av en strategi för affärs kontinuitet eftersom de skyddar dina data från oavsiktlig skada eller borttagning.  Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
-Förstå säkerhets kopieringar för MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup
+Förstå säkerhets kopieringar för MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
-Förstå MariaDB inledande konfiguration:https://docs.microsoft.com/azure/mariadb/tutorial-design-database-using-portal
+Förstå MariaDB inledande konfiguration: https://docs.microsoft.com/azure/mariadb/tutorial-design-database-using-portal
 
 
 
@@ -974,9 +974,9 @@ Förstå MariaDB inledande konfiguration:https://docs.microsoft.com/azure/mariad
 
 Om du använder Key Vault för data kryptering på klient sidan för data som lagras i din MariaDB-Server, se till att vanliga automatiserade säkerhets kopieringar av dina nycklar används.
 
-Förstå säkerhets kopieringar för MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup
+Förstå säkerhets kopieringar för MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
-Så här säkerhetskopierar du Key Vault nycklar:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Så här säkerhetskopierar du Key Vault nycklar:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 
 **Azure Security Center övervakning**: Ja
@@ -989,7 +989,7 @@ Så här säkerhetskopierar du Key Vault nycklar:https://docs.microsoft.com/powe
 
 Den uppskattade återställnings tiden beror på flera faktorer, till exempel databasens storlek, transaktions loggens storlek, nätverks bandbredden och det totala antalet databaser som återställs i samma region på samma tid. Återställnings tiden är vanligt vis mindre än 12 timmar.
 
-Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup#restore
+Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup#restore
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -1000,7 +1000,7 @@ Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:h
 
 **Vägledning**: Azure Database for MariaDB tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
-Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-backup
+Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
 
 **Azure Security Center övervakning**: Ja
@@ -1015,9 +1015,9 @@ Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:h
 
 **Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
 
-- Vägledning om hur du skapar en egen svars process för säkerhets incident:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-- Microsoft Security Response Center: s uppbyggnad av en incident:https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
-- Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer:https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final 
+- Vägledning om hur du skapar en egen svars process för säkerhets incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- Microsoft Security Response Center: s uppbyggnad av en incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
+- Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final 
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1029,9 +1029,9 @@ Förstå säkerhets kopiering och återställning i Azure Database for MariaDB:h
 
 Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
-- Säkerhets aviseringar i Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+- Säkerhets aviseringar i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-- Använd taggar för att organisera dina Azure-resurser:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- Använd taggar för att organisera dina Azure-resurser: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center övervakning**: Ja
 
@@ -1041,7 +1041,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: utföra övningar för att testa dina Systems funktioner för incident svar på en vanlig takt för att hjälpa till att skydda dina Azure-resurser. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-- Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+- Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1051,7 +1051,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-- Så här ställer du in Azure Security Center säkerhets kontakt:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+- Så här ställer du in Azure Security Center säkerhets kontakt: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Azure Security Center övervakning**: Ja
 
@@ -1061,8 +1061,8 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker för Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-- Så här konfigurerar du kontinuerlig export:https://docs.microsoft.com/azure/security-center/continuous-export
-- Strömma aviseringar till Azure Sentinel:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+- Så här konfigurerar du kontinuerlig export: https://docs.microsoft.com/azure/security-center/continuous-export
+- Strömma aviseringar till Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1073,7 +1073,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 **Vägledning**: Använd funktionen för arbets flödes automatisering i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
     
 
-Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsoft.com/azure/security-center/workflow-automation
+Konfigurera automatisering av arbets flöde och Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1089,7 +1089,7 @@ Konfigurera automatisering av arbets flöde och Logic Apps:https://docs.microsof
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 
 **Azure Security Center övervakning**: inte tillämpligt

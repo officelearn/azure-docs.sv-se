@@ -1,142 +1,84 @@
 ---
-title: Distribuera Azure cache för Redis med Azure Resource Manager
+title: Distribuera Azure cache för Redis med hjälp av Azure Resource Manager mall
 description: Lär dig hur du använder en Azure Resource Manager-mall för att distribuera en Azure-cache för Redis-resursen. Mallar finns för vanliga scenarier.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/23/2017
-ms.openlocfilehash: 2d00a6b7753a61bb2527a56231b2fe054736f1b0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-armqs
+ms.date: 08/18/2020
+ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008584"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078426"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-template"></a>Skapa en Azure-cache för Redis med hjälp av en mall
+# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Skapa en Azure-cache för Redis med hjälp av en Resource Manager-mall
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Lär dig hur du skapar en Azure Resource Manager-mall som distribuerar en Azure-cache för Redis. Cachen kan användas med ett befintligt lagrings konto för att behålla diagnostikdata. Du lär dig också hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Diagnostiska inställningar delas för närvarande för alla cacheminnen i samma region för en prenumeration. Att uppdatera en cache i regionen påverkar alla andra cacheminnen i regionen.
 
-I det här avsnittet får du lära dig hur du skapar en Azure Resource Manager-mall som distribuerar en Azure-cache för Redis. Cachen kan användas med ett befintligt lagrings konto för att behålla diagnostikdata. Du lär dig också hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Diagnostiska inställningar delas för närvarande för alla cacheminnen i samma region för en prenumeration. Att uppdatera en cache i regionen påverkar alla andra cacheminnen i regionen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md). Information om JSON-syntaxen och egenskaperna för cache-resurs typer finns i [resurs typer för Microsoft. cache](/azure/templates/microsoft.cache/allversions).
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-Den fullständiga mallen finns i [Azure cache för Redis-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+## <a name="prerequisites"></a>Krav
 
-> [!NOTE]
-> Resource Manager-mallar för den nya [Premium-nivån](cache-overview.md#service-tiers) är tillgängliga. 
-> 
-> * [Skapa en Premium Azure-cache för Redis med klustring](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Skapa Premium Azure-cache för Redis med data persistence](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Skapa Premium-Redis Cache distribueras till en Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
-> 
-> Du kan söka efter de senaste mallarna i [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) och söka efter `Azure Cache for Redis` .
-> 
-> 
+* **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Ett lagrings konto**: om du vill skapa ett, se [skapa ett Azure Storage konto](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). Lagrings kontot används för diagnostikdata.
 
-## <a name="what-you-will-deploy"></a>Vad du ska distribuera
-I den här mallen kommer du att distribuera en Azure-cache för Redis som använder ett befintligt lagrings konto för diagnostikdata.
+## <a name="review-the-template"></a>Granska mallen
 
-Klicka på följande knapp för att köra distributionen automatiskt:
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-redis-cache/).
 
-[![Distribuera till Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+:::code language="json" source="~/quickstart-templates/101-redis-cache/azuredeploy.json":::
 
-## <a name="parameters"></a>Parametrar
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt med namnet parametrar som innehåller alla parameter värden.
-Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras. 
+Följande resurser definieras i mallen:
 
-[!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
+* [Microsoft. cache/Redis](/azure/templates/microsoft.cache/redis)
+* [Microsoft. Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
 
-### <a name="rediscachelocation"></a>redisCacheLocation
-Platsen för Azure-cachen för Redis. För bästa prestanda bör du använda samma plats som appen som ska användas med cachen.
+Resource Manager-mallar för den nya [Premium-nivån](cache-overview.md#service-tiers) är också tillgängliga.
 
-```json
-  "redisCacheLocation": {
-    "type": "string"
-  }
+* [Skapa en Premium Azure-cache för Redis med klustring](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
+* [Skapa Premium Azure-cache för Redis med data persistence](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+* [Skapa Premium-Redis Cache distribueras till en Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+
+Du kan söka efter de senaste mallarna i [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) och söka efter `Azure Cache for Redis` .
+
+## <a name="deploy-the-template"></a>Distribuera mallen
+
+1. Välj följande bild för att logga in på Azure och öppna mallen.
+
+    [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+1. Välj eller ange följande värden:
+
+    * **Prenumeration**: Välj en Azure-prenumeration som används för att skapa data resursen och de andra resurserna.
+    * **Resurs grupp**: Välj **Skapa ny** för att skapa en ny resurs grupp eller Välj en befintlig resurs grupp.
+    * **Plats**: Välj en plats för resursgruppen. Lagrings kontot och Redis-cachen måste vara i samma region. Som standard använder Redis-cachen samma plats som resurs gruppen. Ange därför samma plats som lagrings kontot.
+    * **Redis cache namn**: Ange ett namn för Redis-cachen.
+    * **Befintligt diagnostik-lagrings konto**: Ange resurs-ID för ett lagrings konto. Syntaxen är **/Subscriptions/ &lt; PRENUMERATIONS-ID>/RESOURCEGROUPS/ &lt; resurs grupp namn>/providers/Microsoft.Storage/STORAGEACCOUNTS/ &lt; lagrings konto namn>**.
+
+    Använd standardvärdet för resten av inställningarna.
+1. Välj **Jag accepterar de villkor som anges ovan**och välj **köp**.
+
+## <a name="review-deployed-resources"></a>Granska distribuerade resurser
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Öppna Redis-cachen som du skapade.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När de inte längre behövs tar du bort resurs gruppen, som tar bort resurserna i resurs gruppen.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
-### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-Namnet på det befintliga lagrings kontot som ska användas för diagnostik. 
+## <a name="next-steps"></a>Nästa steg
 
-```json
-  "existingDiagnosticsStorageAccountName": {
-    "type": "string"
-  }
-```
-
-### <a name="enablenonsslport"></a>enableNonSslPort
-Ett booleskt värde som anger om åtkomst ska tillåtas via icke-SSL-portar.
-
-```json
-  "enableNonSslPort": {
-    "type": "bool"
-  }
-```
-
-### <a name="diagnosticsstatus"></a>diagnosticsStatus
-Ett värde som anger om diagnostik är aktiverat. Använd på eller av.
-
-```json
-  "diagnosticsStatus": {
-    "type": "string",
-    "defaultValue": "ON",
-    "allowedValues": [
-          "ON",
-          "OFF"
-      ]
-  }
-```
-
-## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-### <a name="azure-cache-for-redis"></a>Azure Cache for Redis
-Skapar Azure-cachen för Redis.
-
-```json
-  {
-    "apiVersion": "2015-08-01",
-    "name": "[parameters('redisCacheName')]",
-    "type": "Microsoft.Cache/Redis",
-    "location": "[parameters('redisCacheLocation')]",
-    "properties": {
-      "enableNonSslPort": "[parameters('enableNonSslPort')]",
-      "sku": {
-        "capacity": "[parameters('redisCacheCapacity')]",
-        "family": "[parameters('redisCacheFamily')]",
-        "name": "[parameters('redisCacheSKU')]"
-      }
-    },
-    "resources": [
-      {
-        "apiVersion": "2017-05-01-preview",
-        "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
-        "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
-        "location": "[parameters('redisCacheLocation')]",
-        "dependsOn": [
-          "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
-        ],
-        "properties": {
-          "status": "[parameters('diagnosticsStatus')]",
-          "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
-        }
-      }
-    ]
-  }
-```
-
-## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell
-    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-```
+I den här självstudien får du lära dig hur du skapar en Azure Resource Manager-mall som distribuerar ett Azure-cacheminne för Redis. Information om hur du skapar en Azure Resource Manager mall som distribuerar en Azure-webbapp med Azure cache för Redis finns i [skapa en webbapp plus Azure cache för Redis med hjälp av en mall](./cache-web-app-arm-with-redis-cache-provision.md).

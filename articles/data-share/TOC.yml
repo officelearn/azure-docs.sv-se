@@ -1,6 +1,7 @@
 - name: Dokumentation för Azure Data Share
   href: index.yml
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är Azure Data Share?
       href: overview.md
@@ -36,6 +37,11 @@
       href: samples-powershell.md
 - name: Anvisningar
   items:
+    - name: Dela och ta emot data efter källa
+      items:
+        - name: Dela från Azure Data Explorer
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: Övervaka
       href: how-to-monitor.md
     - name: Felsöka
@@ -54,9 +60,6 @@
       href: security.md
     - name: Haveriberedskap
       href: disaster-recovery.md
-    - name: Dela Azure Data Explorer-data
-      href: /azure/data-explorer/data-share
-      maintainContext: true
 - name: Referens
   items:
     - name: .NET

@@ -1,20 +1,20 @@
 ---
 title: Custom Vision kryptering av data i vila
 titleSuffix: Azure Cognitive Services
-description: Custom Vision kryptering av data i vila.
+description: Microsoft erbjuder Microsoft-hanterade krypterings nycklar och du kan också hantera dina Cognitive Services prenumerationer med dina egna nycklar, som kallas Kundhanterade nycklar (CMK). Den här artikeln beskriver data kryptering i vila för Custom Vision och hur du aktiverar och hanterar CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 85cf251db69d33f02e928eaea6a848f20ae7d923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310299"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077763"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Custom Vision kryptering av data i vila
 
@@ -31,7 +31,7 @@ Kundhanterade nycklar är för närvarande tillgängliga i följande regioner:
 
 * USA, södra centrala
 * USA, västra 2
-* USA, östra
+* East US
 * US Gov, Virginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]

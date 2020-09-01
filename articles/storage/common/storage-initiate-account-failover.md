@@ -10,13 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01718b4f3d539f77f4496a7914b027335cc45618
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 74f4c30f7aa018502f3437fd4a577f8c2a9de491
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503284"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077955"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Initiera redundans för lagrings konto
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto kontrollerar du att ditt lagrings konto har kon figurer ATS för geo-replikering. Ditt lagrings konto kan använda något av följande alternativ för redundans:
 
@@ -114,7 +114,7 @@ När du har aktiverat GRS för ditt lagrings konto börjar Microsoft replikera d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Haveri beredskap och redundans för lagrings konto](storage-disaster-recovery-guidance.md)
+- [Haveriberedskap och lagringskontoredundans](storage-disaster-recovery-guidance.md)
 - [Kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md)
 - [Använd GEO-redundans för att skapa program med hög tillgänglighet](geo-redundant-design.md)
 - [Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage](../blobs/storage-create-geo-redundant-storage.md)

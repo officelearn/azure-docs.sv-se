@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e3d43239dabe75bc2b25319945c2c6b08d726d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193113"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077236"
 ---
 # <a name="security-control-secure-configuration"></a>Säkerhets kontroll: säker konfiguration
 
@@ -22,7 +22,7 @@ Upprätta, implementera och aktivt hantera (spåra, rapportera om, korrigera) s�
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 7.1 | 5.1 | Kund |
+| 7.1 | 5,1 | Kund |
 
 Använd Azure Policy alias för att skapa anpassade principer för att granska eller tillämpa konfigurationen för dina Azure-resurser. Du kan också använda inbyggda Azure Policy definitioner.
 
@@ -42,7 +42,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 7.2 | 5.1 | Kund |
+| 7.2 | 5,1 | Kund |
 
 Använd Azure Security Center rekommendationer för att underhålla säkerhetskonfigurationer för alla beräknings resurser.  Dessutom kan du använda anpassade operativ system avbildningar eller Azure Automation tillstånds konfiguration för att upprätta säkerhets konfigurationen för det operativ system som krävs av din organisation.
 
@@ -74,7 +74,7 @@ Använd Azure Policy [neka] och [distribuera om det inte finns] för att framtvi
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 7.4 | 5.2 | Delad |
+| 7,4 | 5.2 | Delad |
 
 Följ rekommendationerna från Azure Security Center om att utföra sårbarhets bedömningar på dina Azure Compute-resurser.  Dessutom kan du använda Azure Resource Manager mallar, anpassade operativ Systems avbildningar eller Azure Automation tillstånds konfiguration för att underhålla säkerhets konfigurationen för det operativ system som krävs av din organisation.   Mallarna för Microsoft Virtual Machines tillsammans med Azure Automation önskad tillstånds konfiguration kan under lätta möten och upprätthålla säkerhets kraven. 
 
@@ -110,13 +110,13 @@ Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, t
 |--|--|--|
 | 7,6 | 5.3 | Kund |
 
-Om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll (RBAC) för att se till att endast behöriga användare får åtkomst till avbildningarna. Med hjälp av ett delat bild galleri kan du dela dina avbildningar till olika användare, tjänst huvud namn eller AD-grupper i din organisation.  För behållar avbildningar lagrar du dem i Azure Container Registry och använder RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.  
+Om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att endast behöriga användare får åtkomst till avbildningarna. Med hjälp av ett delat bild galleri kan du dela dina avbildningar till olika användare, tjänst huvud namn eller AD-grupper i din organisation.  För behållar avbildningar lagrar du dem i Azure Container Registry och utnyttjar Azure RBAC för att se till att endast behöriga användare kan komma åt avbildningarna.  
 
-- [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-- [Förstå RBAC för Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Lär dig mer om Azure RBAC för Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-- [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 - [Översikt över delade avbildnings Galleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 
@@ -199,4 +199,4 @@ Implementera autentiseringsuppgifterna för inloggning för att identifiera aute
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se nästa säkerhets kontroll: skydd [mot skadlig kod](security-control-malware-defense.md)
+- Se nästa säkerhets kontroll: skydd  [mot skadlig kod](security-control-malware-defense.md)

@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422070"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078256"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Över gång till mått i Azure Monitor
 
-Azure Storage integrerar nu måtten i Azure Monitors plattformen. Den här artikeln hjälper dig att göra över gången.
+Den **31 augusti 2023** Lagringsanalys Mät värden, även kallade *klassiska mått* , kommer att dras tillbaka. Om du använder klassiska mått, se till att gå över till mått i Azure Monitor före det datumet. Den här artikeln hjälper dig att göra över gången.
 
 ## <a name="steps-to-complete-the-transition"></a>Steg för att slutföra över gången
 
@@ -63,8 +63,8 @@ Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](https:/
 
 | Klassiskt mått | Mått i Azure Monitor |
 | ------------------- | ----------------- |
-| `Capacity`            | `BlobCapacity`med dimensionen `BlobType` lika med `BlockBlob` eller`PageBlob` |
-| `ObjectCount`        | `BlobCount`med dimensionen `BlobType` lika med `BlockBlob` eller`PageBlob` |
+| `Capacity`            | `BlobCapacity` med dimensionen `BlobType` lika med `BlockBlob` eller `PageBlob` |
+| `ObjectCount`        | `BlobCount` med dimensionen `BlobType` lika med `BlockBlob` eller `PageBlob` |
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
@@ -74,40 +74,40 @@ Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](https:/
 
 | Klassiskt mått | Mått i Azure Monitor |
 | ------------------- | ----------------- |
-| `AnonymousAuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med `AuthorizationError` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ClientOtherError` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousClientTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ClientTimeoutError` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousNetworkError` | Transaktioner med dimensionen `ResponseType` lika med `NetworkError` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ServerOtherError` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousServerTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousSuccess` | Transaktioner med dimensionen `ResponseType` lika med `Success` och dimension `Authentication` lika med`Anonymous` |
-| `AnonymousThrottlingError` | Transaktioner med dimensionen `ResponseType` lika med `ClientThrottlingError` eller `ServerBusyError` och dimension `Authentication` lika med`Anonymous` |
-| `AuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med`AuthorizationError` |
+| `AnonymousAuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med `AuthorizationError` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ClientOtherError` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousClientTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ClientTimeoutError` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousNetworkError` | Transaktioner med dimensionen `ResponseType` lika med `NetworkError` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ServerOtherError` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousServerTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousSuccess` | Transaktioner med dimensionen `ResponseType` lika med `Success` och dimension `Authentication` lika med `Anonymous` |
+| `AnonymousThrottlingError` | Transaktioner med dimensionen `ResponseType` lika med `ClientThrottlingError` eller `ServerBusyError` och dimension `Authentication` lika med `Anonymous` |
+| `AuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med `AuthorizationError` |
 | `Availability` | `Availability` |
 | `AverageE2ELatency` | `SuccessE2ELatency` |
 | `AverageServerLatency` | `SuccessServerLatency` |
-| `ClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med`ClientOtherError` |
-| `ClientTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med`ClientTimeoutError` |
-| `NetworkError` | Transaktioner med dimensionen `ResponseType` lika med`NetworkError` |
-| `PercentAuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med`AuthorizationError` |
-| `PercentClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med`ClientOtherError` |
-| `PercentNetworkError` | Transaktioner med dimensionen `ResponseType` lika med`NetworkError` |
-| `PercentServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med`ServerOtherError` |
-| `PercentSuccess` | Transaktioner med dimensionen `ResponseType` lika med`Success` |
-| `PercentThrottlingError` | Transaktioner med dimensionen `ResponseType` lika med `ClientThrottlingError` eller`ServerBusyError` |
-| `PercentTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` eller `ResponseType` lika med`ClientTimeoutError` |
-| `SASAuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med `AuthorizationError` och dimension `Authentication` lika med`SAS` |
-| `SASClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ClientOtherError` och dimension `Authentication` lika med`SAS` |
-| `SASClientTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ClientTimeoutError` och dimension `Authentication` lika med`SAS` |
-| `SASNetworkError` | Transaktioner med dimensionen `ResponseType` lika med `NetworkError` och dimension `Authentication` lika med`SAS` |
-| `SASServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ServerOtherError` och dimension `Authentication` lika med`SAS` |
-| `SASServerTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` och dimension `Authentication` lika med`SAS` |
-| `SASSuccess` | Transaktioner med dimensionen `ResponseType` lika med `Success` och dimension `Authentication` lika med`SAS` |
-| `SASThrottlingError` | Transaktioner med dimensionen `ResponseType` lika med `ClientThrottlingError` eller `ServerBusyError` och dimension `Authentication` lika med`SAS` |
-| `ServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med`ServerOtherError` |
-| `ServerTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med`ServerTimeoutError` |
-| `Success` | Transaktioner med dimensionen `ResponseType` lika med`Success` |
-| `ThrottlingError` | `Transactions`med dimensionen `ResponseType` lika med `ClientThrottlingError` eller`ServerBusyError`|
+| `ClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ClientOtherError` |
+| `ClientTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ClientTimeoutError` |
+| `NetworkError` | Transaktioner med dimensionen `ResponseType` lika med `NetworkError` |
+| `PercentAuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med `AuthorizationError` |
+| `PercentClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ClientOtherError` |
+| `PercentNetworkError` | Transaktioner med dimensionen `ResponseType` lika med `NetworkError` |
+| `PercentServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ServerOtherError` |
+| `PercentSuccess` | Transaktioner med dimensionen `ResponseType` lika med `Success` |
+| `PercentThrottlingError` | Transaktioner med dimensionen `ResponseType` lika med `ClientThrottlingError` eller `ServerBusyError` |
+| `PercentTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` eller `ResponseType` lika med `ClientTimeoutError` |
+| `SASAuthorizationError` | Transaktioner med dimensionen `ResponseType` lika med `AuthorizationError` och dimension `Authentication` lika med `SAS` |
+| `SASClientOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ClientOtherError` och dimension `Authentication` lika med `SAS` |
+| `SASClientTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ClientTimeoutError` och dimension `Authentication` lika med `SAS` |
+| `SASNetworkError` | Transaktioner med dimensionen `ResponseType` lika med `NetworkError` och dimension `Authentication` lika med `SAS` |
+| `SASServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ServerOtherError` och dimension `Authentication` lika med `SAS` |
+| `SASServerTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` och dimension `Authentication` lika med `SAS` |
+| `SASSuccess` | Transaktioner med dimensionen `ResponseType` lika med `Success` och dimension `Authentication` lika med `SAS` |
+| `SASThrottlingError` | Transaktioner med dimensionen `ResponseType` lika med `ClientThrottlingError` eller `ServerBusyError` och dimension `Authentication` lika med `SAS` |
+| `ServerOtherError` | Transaktioner med dimensionen `ResponseType` lika med `ServerOtherError` |
+| `ServerTimeoutError` | Transaktioner med dimensionen `ResponseType` lika med `ServerTimeoutError` |
+| `Success` | Transaktioner med dimensionen `ResponseType` lika med `Success` |
+| `ThrottlingError` | `Transactions` med dimensionen `ResponseType` lika med `ClientThrottlingError` eller `ServerBusyError`|
 | `TotalBillableRequests` | `Transactions` |
 | `TotalEgress` | `Egress` |
 | `TotalIngress` | `Ingress` |

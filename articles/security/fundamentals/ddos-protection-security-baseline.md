@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: daff4d1e43f5cc27e52e8bf26f48f30147800ae8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 63c476e7ad8c7bab38ad4adfb6197b845106458c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839909"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077984"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Azures säkerhets bas linje för Azure DDoS Protection standard
 
@@ -262,11 +262,11 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Ansvar**: kund
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
 **Vägledning**: om du vill arbeta med Azure DDoS Protection-planer måste ditt konto tilldelas rollen nätverks deltagare eller till en anpassad roll som tilldelas vissa åtgärder.
 
-- [Hantera rollbaserad åtkomst kontroll i Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
+- [Hantera rollbaserad åtkomst kontroll i Azure (Azure RBAC) i Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

@@ -6,12 +6,13 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055258"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078409"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell-exempel
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.
@@ -96,10 +97,10 @@ Följande kommando hämtar de senaste 1000 händelserna från aktivitets loggen:
 Get-AzLog -MaxRecord 10
 ```
 
-`Get-AzLog`har stöd för många andra parametrar. `Get-AzLog`Mer information finns i referensen.
+`Get-AzLog` har stöd för många andra parametrar. `Get-AzLog`Mer information finns i referensen.
 
 > [!NOTE]
-> `Get-AzLog`innehåller endast 15 dagars historik. Med parametern **-maxRecords** kan du fråga de senaste N händelserna, efter 15 dagar. För att få åtkomst till händelser som är äldre än 15 dagar använder du REST API eller SDK (C#-exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
+> `Get-AzLog` innehåller endast 15 dagars historik. Med parametern **-maxRecords** kan du fråga de senaste N händelserna, efter 15 dagar. För att få åtkomst till händelser som är äldre än 15 dagar använder du REST API eller SDK (C#-exempel med hjälp av SDK). Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
 > 
 > 
 
@@ -139,12 +140,12 @@ Hämta alla varnings regler för en mål resurs. Till exempel alla varnings regl
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule`stöder andra parametrar. Mer information finns i [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) .
+`Get-AzAlertRule` stöder andra parametrar. Mer information finns i [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) .
 
 ## <a name="create-metric-alerts"></a>Skapa måttaviseringar
 Du kan använda `Add-AlertRule` cmdleten för att skapa, uppdatera eller inaktivera en varnings regel.
 
-Du kan skapa e-post och webhook-egenskaper med respektive `New-AzAlertRuleEmail` `New-AzAlertRuleWebhook` . I aviserings regelns cmdlet tilldelar du dessa egenskaper som åtgärder till egenskapen **åtgärder** för varnings regeln.
+Du kan skapa e-post och webhook-egenskaper med respektive  `New-AzAlertRuleEmail` `New-AzAlertRuleWebhook` . I aviserings regelns cmdlet tilldelar du dessa egenskaper som åtgärder till egenskapen **åtgärder** för varnings regeln.
 
 I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med hjälp av ett mått.
 

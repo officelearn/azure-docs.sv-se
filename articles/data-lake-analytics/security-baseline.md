@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 383e135cad867ed8f345b39a6cace6fbbca8bfa0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005128"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076386"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Azures säkerhets bas linje för Data Lake Analytics
 
@@ -334,7 +334,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
-**Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure AD tillhandahåller rollbaserad åtkomst kontroll (RBAC) för detaljerad kontroll över en klients åtkomst till Data Lake Analytics resurser.
+**Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Rollbaserad åtkomst kontroll i Azure (Azure RBAC) ger detaljerad kontroll över en klients åtkomst till Data Lake Analytics resurser.
 
 * [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -404,7 +404,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
-**Vägledning**: implementera isolering med separata prenumerationer, hanterings grupper för enskilda säkerhets domäner, till exempel miljö, data känslighet. Du kan begränsa din Data Lake Analytics för att kontrol lera åtkomst nivån till dina Data Lake Analytics resurser som dina program och företags miljöer kräver. När brand Väggs regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt dina Data Lake Analytics-resurser. Du kan styra åtkomsten till Azure Data Lake Analytics via Azure AD RBAC.
+**Vägledning**: implementera isolering med separata prenumerationer, hanterings grupper för enskilda säkerhets domäner, till exempel miljö, data känslighet. Du kan begränsa din Data Lake Analytics för att kontrol lera åtkomst nivån till dina Data Lake Analytics resurser som dina program och företags miljöer kräver. När brand Väggs regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt dina Data Lake Analytics-resurser. Du kan styra åtkomsten till Azure Data Lake Analytics via Azure RBAC.
 
 * [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -456,11 +456,11 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Ansvar**: kund
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd rollbaserad åtkomst kontroll (RBAC) för att styra hur användare interagerar med tjänsten.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra hur användare interagerar med tjänsten.
 
-* [Hantera rollbaserade Access Control](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Hantera Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 

@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dc53eacf456d1e7c1926c6d7f20e343b3a84340d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212306"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078052"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -159,7 +159,7 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
 **Vägledning:** DevTest Labs använder Azure AD-tjänsten för identitets hantering. Tänk på följande två viktiga aspekter när du ger användarna åtkomst till en miljö baserat på DevTest Labs:
 
-- **Resurs hantering:** Den ger till gång till Azure Portal för att hantera resurser (skapa virtuella datorer, skapa miljöer, starta, stoppa, starta om, ta bort och tillämpa artefakter osv.). Resurs hantering görs i Azure med hjälp av rollbaserad åtkomst kontroll (RBAC). Du tilldelar roller till användare och anger behörigheter för resurs-och åtkomst nivå.
+- **Resurs hantering:** Den ger till gång till Azure Portal för att hantera resurser (skapa virtuella datorer, skapa miljöer, starta, stoppa, starta om, ta bort och tillämpa artefakter osv.). Resurs hantering görs i Azure med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Du tilldelar roller till användare och anger behörigheter för resurs-och åtkomst nivå.
 - **Virtuella datorer (nätverks nivå)**: i standard konfigurationen använder virtuella datorer ett lokalt administratörs konto. Om det finns en tillgänglig domän (Azure AD Domain Services, en lokal domän eller en molnbaserad domän) kan datorer anslutas till domänen. Användare kan sedan använda sina domänbaserade identiteter med hjälp av domän anslutningens artefakt för att ansluta till datorerna. 
 
 - [Referens arkitektur för DevTest Labs](devtest-lab-reference-architecture.md#architecture)
@@ -315,9 +315,9 @@ För den underliggande plattformen, som hanteras av Microsoft, behandlar Microso
 **Ansvar:** Kund
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
-**Vägledning:** Använd Azure Active Directory (Azure AD) rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten till labb i Azure DevTest Labs.
+**Vägledning:** Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra åtkomsten till labb i Azure DevTest Labs.
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 - [Förstå roller i DevTest Labs](devtest-lab-add-devtest-user.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
@@ -638,12 +638,12 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 **Ansvar:** Kund
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
-**Vägledning:** Om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll (RBAC) för att se till att endast behöriga användare får åtkomst till avbildningarna. Med hjälp av ett delat avbildnings Galleri kan du dela dina avbildningar till vissa labb som behöver det. För behållar avbildningar lagrar du dem i Azure Container Registry och använder RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.
+**Vägledning:** Om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att endast behöriga användare får åtkomst till avbildningarna. Med hjälp av ett delat avbildnings Galleri kan du dela dina avbildningar till vissa labb som behöver det. För behållar avbildningar lagrar du dem i Azure Container Registry och använder Azure RBAC för att se till att endast behöriga användare kan komma åt avbildningarna.
 
-- [Förstå RBAC i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Konfigurera RBAC i Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Förstå Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Konfigurera ett delat avbildnings Galleri för en DevTest Labs](configure-shared-image-gallery.md)
-- [Förstå RBAC för Container Registry](../container-registry/container-registry-roles.md)
+- [Lär dig mer om Azure RBAC för Container Registry](../container-registry/container-registry-roles.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1cdb49f6865afa4101468dc35b4e416d999b63f5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d79b647d216fe28241e5891def574ab598304828
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285228"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078228"
 ---
 # <a name="azcopy-remove"></a>azcopy ta bort
 
@@ -73,7 +73,6 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
-
 Ta bort en enskild fil från ett Blob Storage konto som har ett hierarkiskt namn område (inkludera/exkludera stöds inte):
 
 ```azcopy
@@ -96,13 +95,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--tvång-skrivskyddad**   När du tar bort en Azure Files-fil eller-mapp, tvinga borttagningen att fungera även om det befintliga objektet har en skrivskyddad attribut uppsättning.
 
-**--Hjälp** för att ta bort.
+**--Hjälp**   för att ta bort.
 
 **--include-Path-** sträng innehåller bara dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Exempelvis: `myFolder;myFolder/subDirName/file.pdf`
 
 **--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Exempel: * `.jpg` ;* `.pdf` ;`exactName`
 
-**--** en sträng som anger en fil som innehåller en lista över filer och kataloger som ska tas bort. De relativa Sök vägarna ska avgränsas med rad brytningar och Sök vägarna får inte vara URL-kodade.
+**--** en sträng som anger en fil som innehåller en lista över filer och kataloger som ska tas bort. De relativa Sök vägarna ska avgränsas med rad brytningar och Sök vägarna får inte vara URL-kodade. 
+
+**--list-of-versions** -sträng anger en fil där varje versions-ID visas på en separat rad. Se till att källan måste peka på en enskild blob och att alla versions-ID: n som anges i filen med den här flaggan endast tillhör käll-bloben. Angivet versions-ID för den angivna blobben tas bort från Azure Storage. 
 
 **--sträng för logg nivå** definierar loggens utförlighet för logg filen. Tillgängliga nivåer är: `INFO` (alla begär Anden/svar), `WARNING` (långsamma svar), `ERROR` (endast misslyckade förfrågningar) och `NONE` (inga utgående loggar). (standard `INFO` ) (standard `INFO` )
 

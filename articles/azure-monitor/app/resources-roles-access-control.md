@@ -3,12 +3,13 @@ title: Resurser, roller och åtkomst kontroll i Azure Application Insights | Mic
 description: Ägare, deltagare och läsare av organisationens insikter.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926509"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076692"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomst kontroll i Application Insights
 
@@ -37,7 +38,7 @@ För det första, vissa definitioner:
 * [**Prenumeration**](https://portal.azure.com) – om du vill använda Application Insights eller andra Azure-resurser loggar du in på en Azure-prenumeration. Varje resurs grupp tillhör en Azure-prenumeration där du väljer ditt pris paket och väljer medlemmar och deras åtkomst behörigheter om det är en organisations prenumeration.
 * [**Microsoft-konto**][account] -det användar namn och lösen ord som du använder för att logga in på Microsoft Azure prenumerationer, Xbox Live, Outlook.com och andra Microsoft-tjänster.
 
-## <a name="control-access-in-the-resource-group"></a><a name="access"></a>Kontrol lera åtkomst i resurs gruppen
+## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Kontrol lera åtkomst i resurs gruppen
 
 Det är viktigt att förstå att förutom den resurs som du skapade för ditt program, finns det också separata dolda resurser för aviseringar och webbtester. De är kopplade till samma [resurs grupp](#resource-group) som din Application Insights-resurs. Du kanske också har lagt till andra Azure-tjänster i dit, t. ex. webbplatser eller lagring.
 
@@ -67,7 +68,7 @@ Om du vill visa information om alla inbyggda roller som baseras på Azure rollba
 
 Där så är tillämpligt länkar vi till den tillhör ande officiella referens dokumentationen.
 
-| Role | I resurs gruppen |
+| Roll | I resurs gruppen |
 | --- | --- |
 | [Ägare](../../role-based-access-control/built-in-roles.md#owner) |Kan ändra vad som helst, inklusive användar åtkomst. |
 | [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) |Kan redigera vad som helst, inklusive alla resurser. |

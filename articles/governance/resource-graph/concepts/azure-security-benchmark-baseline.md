@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b67397db3cc6de2a0e6658795ddf87ad355ad422
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009009"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078375"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Azure resurs diagram säkerhets bas linje för Azures säkerhets prestanda
 
@@ -41,13 +41,13 @@ Den här säkerhets bas linjen använder vägledning från [Azures säkerhets be
 
 *Mer information finns i [säkerhets kontroll: data skydd](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd rollbaserad åtkomst kontroll (RBAC) för att styra åtkomsten till data och resurser. Om du vill använda Azure Resource Graph måste du också ha nödvändig åtkomst till de resurser som du vill fråga. Den här åtkomsten bör begränsas till skrivskyddad och beviljas endast för nödvändig personal.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra åtkomsten till data och resurser. Om du vill använda Azure Resource Graph måste du också ha nödvändig åtkomst till de resurser som du vill fråga. Den här åtkomsten bör begränsas till skrivskyddad och beviljas endast för nödvändig personal.
 
 * [Behörigheter i Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
-* [Konfigurera RBAC i Azure](../../../role-based-access-control/role-assignments-rest.md)
+* [Så här konfigurerar du Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt

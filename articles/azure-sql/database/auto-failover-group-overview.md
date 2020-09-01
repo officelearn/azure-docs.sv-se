@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/28/2020
-ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055591"
+ms.locfileid: "89076522"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,11 +89,11 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Läs-och skriv lyssnare för redundans**
 
-  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att Läs-och skriv arbets belastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en server skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.database.windows.net` . När gruppen för växling vid fel skapas på en SQL-hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.zone_id.database.windows.net` .
+  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att Läs-och skriv arbets belastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en server skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.database.windows.net` . När gruppen för växling vid fel skapas på en SQL-hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.<zone_id>.database.windows.net` .
 
 - **Skrivskyddad lyssnare för redundans grupp**
 
-  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en server skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.secondary.database.windows.net` . När gruppen för växling vid fel skapas på en SQL-hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.zone_id.secondary.database.windows.net` .
+  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en server skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.secondary.database.windows.net` . När gruppen för växling vid fel skapas på en SQL-hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 - **Princip för automatisk redundansväxling**
 
@@ -257,13 +257,13 @@ När du utför OLTP-åtgärder ska du använda `<fog-name>.zone_id.database.wind
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Använda skrivskyddad lyssnare för att ansluta till den sekundära instansen
 
-Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära använder du `<fog-name>.zone_id.secondary.database.windows.net` som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
+Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära använder du `<fog-name>.secondary.<zone_id>.database.windows.net` som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
 
 > [!NOTE]
 > I vissa tjänst nivåer SQL Database stöder användning av [skrivskyddade repliker](read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av `ApplicationIntent=ReadOnly` parametern i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär kan du använda den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
 >
-> - Använd om du vill ansluta till en skrivskyddad replik på den primära platsen `<fog-name>.zone_id.database.windows.net` .
-> - Använd om du vill ansluta till en skrivskyddad replik på den sekundära platsen `<fog-name>.secondary.zone_id.database.windows.net` .
+> - Använd om du vill ansluta till en skrivskyddad replik på den primära platsen `<fog-name>.<zone_id>.database.windows.net` .
+> - Använd om du vill ansluta till en skrivskyddad replik på den sekundära platsen `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 ### <a name="preparing-for-performance-degradation"></a>Prestanda försämring förbereds
 

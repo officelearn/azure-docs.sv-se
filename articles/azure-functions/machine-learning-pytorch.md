@@ -5,13 +5,13 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.custom: devx-track-python
-ms.openlocfilehash: ebedb7f205553f91e38e3976a02b0912cbee1fb0
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: dd8de1b56927e158a181df952ce0dbeed140d6b7
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852437"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078664"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Självstudie: Distribuera en förtränad bild klassificerings modell till Azure Functions med PyTorch
 
@@ -23,7 +23,7 @@ I den här artikeln får du lära dig hur du använder python, PyTorch och Azure
 > * Bygg ett Server lös HTTP API för att klassificera en avbildning som en av 1000 ImageNet- [klasser](https://gist.github.com/yrevar/942d3a0ac09ec9e5eb3a).
 > * Använda API: et från en webbapp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python 3.7.4 eller senare](https://www.python.org/downloads/release/python-374/). (Python 3.8. x och python 3.6. x verifieras också med Azure Functions.)
@@ -109,7 +109,7 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     > [!TIP]
     > Eftersom ett funktions projekt är knutet till en viss körnings miljö måste alla funktioner i projektet skrivas med samma språk.
 
-1. Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
+1. Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 
     ```
     func new --name classify --template "HTTP trigger"

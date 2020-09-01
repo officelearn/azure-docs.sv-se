@@ -10,19 +10,19 @@ ms.subservice: sql-dw
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e6683746e2a8f274f7260a3d5bb60e956d49d30a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
+ms.openlocfilehash: 098b33491076de5e7e71fed7439cc6090e0183bb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751914"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076804"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skapa en Synapse SQL-pool med Azure PowerShell
 
 Skapa en Synapse SQL-pool (informations lager) i Azure Synapse Analytics med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

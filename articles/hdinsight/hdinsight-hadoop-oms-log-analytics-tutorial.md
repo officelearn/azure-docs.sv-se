@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli
+ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 531bbf40df4636ae62203d639deeeb9468c7bfe0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9781369e862c74afe5a8a94cafafff7ef35e68e1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498199"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078358"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använda Azure Monitor-loggar för att övervaka HDInsight-kluster
 
@@ -25,7 +25,7 @@ Lär dig hur du aktiverar Azure Monitor loggar för att övervaka Hadoop-kluster
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Log Analytics-arbetsyta. Du kan tänka på den här arbets ytan som en unik Azure Monitor loggar miljö med ett eget data lager, data källor och lösningar. Anvisningar finns i [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
@@ -153,10 +153,10 @@ Azure Monitor stöder insamling och analys av prestanda mått för noderna i klu
 
 HDInsight support kluster granskning med Azure Monitor loggar genom att importera följande typer av loggar:
 
-* `log_gateway_audit_CL`– den här tabellen innehåller gransknings loggar från klusternoder som visar lyckade och misslyckade inloggnings försök.
-* `log_auth_CL`– den här tabellen innehåller SSH-loggar med lyckade och misslyckade inloggnings försök.
-* `log_ambari_audit_CL`– den här tabellen innehåller gransknings loggar från Ambari.
-* `log_ranger_audti_CL`– den här tabellen innehåller gransknings loggar från Apache Ranger på ESP-kluster.
+* `log_gateway_audit_CL` – den här tabellen innehåller gransknings loggar från klusternoder som visar lyckade och misslyckade inloggnings försök.
+* `log_auth_CL` – den här tabellen innehåller SSH-loggar med lyckade och misslyckade inloggnings försök.
+* `log_ambari_audit_CL` – den här tabellen innehåller gransknings loggar från Ambari.
+* `log_ranger_audti_CL` – den här tabellen innehåller gransknings loggar från Apache Ranger på ESP-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 

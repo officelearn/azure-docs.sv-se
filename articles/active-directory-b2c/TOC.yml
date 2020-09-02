@@ -81,6 +81,8 @@
       href: user-profile-attributes.md
     - name: Sessioner för enkel inloggning
       href: session-overview.md
+    - name: Identitetsskydd och villkorsstyrd åtkomst
+      href: conditional-access-identity-protection-overview.md
 - name: Anvisningar
   items:
     - name: Appintegrering
@@ -111,6 +113,8 @@
               href: configure-ropc.md
             - name: Konfigurera återställning av lösenord för självbetjäning
               href: user-flow-self-service-password-reset.md
+        - name: Lägg till villkorsstyrd åtkomst
+          href: conditional-access-user-flow.md
         - name: UX-anpassning
           items:
             - name: Anpassa användargränssnittet
@@ -164,6 +168,8 @@
           href: user-flow-custom-attributes.md
         - name: Skicka externa IdP-token
           href: idp-pass-through-user-flow.md
+    - name: Identitetsskydd och villkorsstyrd åtkomst
+      href: conditional-access-identity-protection-setup.md
     - name: Anpassad princip
       items:
         - name: Skapa en princip
@@ -333,6 +339,9 @@
                       href: aad-sspr-technical-profile.md
                     - name: Anspråkstransformering
                       href: claims-transformation-technical-profile.md
+                    - name: Teknisk profil för villkorsstyrd åtkomst
+                      href: conditional-access-technical-profile.md
+                      displayName: ca
                     - name: JWT-tokenutfärdare
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1

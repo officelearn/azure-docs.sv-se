@@ -9,9 +9,9 @@
       href: supported-data-stores.md
 - name: Snabbstarter
   items:
-    - name: Skapa dataresurs – Azure-portalen
+    - name: Dela data – Microsoft Azure-portalen
       href: share-your-data-portal.md
-    - name: Skapa dataresurs – ARM-mall
+    - name: Dela data – ARM-mall
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Självstudier
@@ -39,6 +39,10 @@
   items:
     - name: Dela och ta emot data efter källa
       items:
+        - name: Dela från Azure Storage
+          href: how-to-share-from-storage.md
+        - name: Dela från Azure SQL Database eller Synapse Analytics
+          href: how-to-share-from-sql.md
         - name: Dela från Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true

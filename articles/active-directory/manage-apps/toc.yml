@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: Konfigurera en app
       href: add-application-portal-configure.md
+    - name: Tilldela användare en app
+      href: add-application-portal-assign-users.md
     - name: Konfigurera enkel inloggning
       href: add-application-portal-setup-sso.md
     - name: Ta bort en app

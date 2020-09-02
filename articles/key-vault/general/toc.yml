@@ -39,9 +39,6 @@
   items:
     - name: Kodexempel för Key Vault
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Begrepp
   items:
     - name: Grundläggande begrepp
@@ -90,6 +87,8 @@
           href: managed-identity.md
         - name: Använda en princip för åtkomstkontroll
           href: group-permissions-for-apps.md
+        - name: Använda en rollbaserad åtkomstkontroll i Azure (förhandsversion)
+          href: rbac-guide.md
         - name: Felsöka åtkomstproblem
           href: troubleshooting-access-issues.md
     - name: Utveckla
@@ -163,6 +162,9 @@
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

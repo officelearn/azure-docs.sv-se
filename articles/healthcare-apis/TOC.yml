@@ -46,11 +46,6 @@
       items:
         - name: Ta emot enhetsdata från Azure IoT Hub
           href: device-data-through-iot-hub.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Anvisningar
   expanded: false
   items:
@@ -82,6 +77,11 @@
           href: configure-cross-origin-resource-sharing.md
         - name: Konfigurera export
           href: configure-export-data.md
+    - name: Exportera data
+      expanded: false
+      items:
+        - name: Avidentifierad export
+          href: export-data.md
     - name: 'Hitta ID:n för identitetsobjekt'
       href: find-identity-object-ids.md
     - name: Aktivera diagnostisk loggning i Azure API for FHIR®
@@ -118,3 +118,6 @@
   items:
     - name: Azure CLI
       href: /cli/azure/ext/healthcareapis/healthcareapis
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

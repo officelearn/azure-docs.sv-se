@@ -37,9 +37,6 @@
       href: powershell-samples.md
     - name: Mallar för Resurshanteraren
       href: template-samples.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Verksamhetskontinuitet
@@ -226,6 +223,12 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: IP-adress
           items:
+            - name: Skapa offentliga IP-adresser – portalen
+              href: create-public-ip-portal.md
+            - name: Skapa offentliga IP-adresser – PowerShell
+              href: create-public-ip-powershell.md
+            - name: Skapa offentliga IP-adresser – Azure CLI
+              href: create-public-ip-cli.md
             - name: Hantera offentliga IP-adresser
               href: virtual-network-public-ip-address.md
             - name: Hantera offentligt IP-adressprefix
@@ -432,6 +435,9 @@
       href: /azure/templates/microsoft.network/allversions
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

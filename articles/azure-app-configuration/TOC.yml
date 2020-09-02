@@ -76,9 +76,6 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Nycklar och värden
@@ -151,6 +148,9 @@
       items:
         - name: REST-API
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Prissättning
@@ -165,7 +165,7 @@
           href: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
         - name: Azure App Configuration på Cloud Native Show
           href: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
-        - name: Funktionsfiltrering på Azure Friday
-          url: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
+        - name: Lansera nya funktioner
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
     - name: Ge produktfeedback
       href: 'https://github.com/Azure/AppConfiguration/issues'

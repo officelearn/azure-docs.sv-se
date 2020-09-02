@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795906"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376391"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Hantering av administrativa enheter i Azure Active Directory (för hands version)
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs administrativa enheter i Azure Active Directory (Az
 
 Med administrativa enheter kan du bevilja administratörs behörigheter som är begränsade till en avdelning, region eller något annat segment i din organisation som du definierar. Du kan använda administrativa enheter för att delegera behörigheter till regionala administratörer eller ange en princip på en detaljerad nivå. En användar konto administratör kan till exempel uppdatera profil information, återställa lösen ord och tilldela licenser enbart för användare i sin administrativa enhet.
 
- Du kan till exempel delegera till regionala support specialister som [Administratörs](directory-assign-admin-roles.md#helpdesk-administrator) rollen för supportavdelningen begränsas till att bara hantera användare i den region som de stöder.
+Du kan till exempel delegera till regionala support specialister som [Administratörs](directory-assign-admin-roles.md#helpdesk-administrator) rollen för supportavdelningen begränsas till att bara hantera användare i den region som de stöder.
 
 ## <a name="deployment-scenario"></a>Distributionsscenario
 
@@ -54,7 +54,7 @@ I den här för hands versionen kan du hantera administrativa enheter med hjälp
 
 Administrativa enheter kan användas för att logiskt gruppera Azure AD-resurser. Till exempel, för en organisation vars IT-avdelning är spridd globalt, kan det vara klokt att skapa administrativa enheter som definierar dessa geografiska gränser. I ett annat scenario där en organisation med flera nationella organisationer har olika "under organisationer", som är halv fabrikat i drift, kan varje under organisation representeras av en administrativ enhet.
 
-De kriterier som de administrativa enheterna skapas i vägleds av de unika kraven för en organisation. Administrativa enheter är ett vanligt sätt att definiera struktur över M365-tjänster. Vi rekommenderar att du förbereder dina administrativa enheter med deras användning i M365-tjänster i åtanke. Du kan få det maximala värdet av administrativa enheter när du kan koppla vanliga resurser över M365 under en administrativ enhet.
+De kriterier som de administrativa enheterna skapas i vägleds av de unika kraven för en organisation. Administrativa enheter är ett vanligt sätt att definiera strukturen mellan Microsoft 365 tjänster. Vi rekommenderar att du förbereder dina administrativa enheter med deras användning i Microsoft 365 tjänster i åtanke. Du kan få det maximala värdet av administrativa enheter när du kan koppla vanliga resurser mellan Microsoft 365 under en administrativ enhet.
 
 Du kan vänta dig att skapa administrativa enheter i organisationen för att gå igenom följande steg:
 
@@ -64,7 +64,7 @@ Du kan vänta dig att skapa administrativa enheter i organisationen för att gå
 
 ## <a name="currently-supported-scenarios"></a>Scenarier som stöds för närvarande
 
-Globala administratörer eller privilegierade roll administratörer kan använda Azure AD-portalen för att skapa administrativa enheter, lägga till användare som medlemmar i administrativa enheter och sedan tilldela IT-personal till administrativa roller för enhets omfångs administratörer. De administrativa enhets omfångs administratörerna kan sedan använda Office 365-portalen för grundläggande hantering av användare i deras administrativa enheter.
+Globala administratörer eller privilegierade roll administratörer kan använda Azure AD-portalen för att skapa administrativa enheter, lägga till användare som medlemmar i administrativa enheter och sedan tilldela IT-personal till administrativa roller för enhets omfångs administratörer. De administrativa enhets omfångs administratörer kan sedan använda Microsoft 365 administrations Center för grundläggande hantering av användare i deras administrativa enheter.
 
 Dessutom kan grupper läggas till som medlemmar i en administrativ enhet, och en administratör för enhets gruppen kan hantera dem med hjälp av PowerShell, Microsoft Graph och Azure AD-portalen.
 
@@ -99,7 +99,7 @@ administrativ enhets hantering av grupp licensiering   |    Stöds  |    Stöds 
 >
 > Administratörer med en administrativ enhets omfattning kan inte hantera regler för dynamisk grupp medlemskap.
 
-Administrativa enheter tillämpar endast omfång på hanterings behörigheter. De förhindrar inte att medlemmar eller administratörer använder sina [standard användar behörigheter](../fundamentals/users-default-permissions.md) för att bläddra bland andra användare, grupper eller resurser utanför den administrativa enheten. På Office 365-portalen filtreras användare utanför en omfångs administratörs administrativa enheter, men du kan söka i andra användare i Azure AD-portalen, PowerShell och andra Microsoft-tjänster.
+Administrativa enheter tillämpar endast omfång på hanterings behörigheter. De förhindrar inte att medlemmar eller administratörer använder sina [standard användar behörigheter](../fundamentals/users-default-permissions.md) för att bläddra bland andra användare, grupper eller resurser utanför den administrativa enheten. I Microsoft 365 administrations centret filtreras användare utanför en omfångs administratörs administrativa enheter, men du kan söka i andra användare i Azure AD-portalen, PowerShell och andra Microsoft-tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

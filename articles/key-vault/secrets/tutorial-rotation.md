@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5b03e22fee2bf1bd662c152bf1b5c2f83a4358
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019920"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378023"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser som använder en uppsättning autentiseringsuppgifter för autentisering
 
-Det bästa sättet att autentisera till Azure-tjänster är genom att använda en [hanterad identitet](../general/managed-identity.md), men det finns vissa scenarier där det inte är ett alternativ. I dessa fall används åtkomst nycklar eller hemligheter. Du bör regelbundet rotera åtkomst nycklar eller hemligheter.
+Det bästa sättet att autentisera till Azure-tjänster är genom att använda en [hanterad identitet](../general/authentication.md), men det finns vissa scenarier där det inte är ett alternativ. I dessa fall används åtkomst nycklar eller hemligheter. Du bör regelbundet rotera åtkomst nycklar eller hemligheter.
 
 Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster som använder en uppsättning autentiseringsuppgifter för autentisering. Mer specifikt roterar SQL Server lösen ord som lagras i Azure Key Vault genom att använda en funktion som utlöses av Azure Event Grid meddelande:
 
@@ -34,7 +34,7 @@ Den här självstudien visar hur du automatiserar den periodiska rotationen av h
 > [!NOTE]
 > Det kan finnas en fördröjning mellan steg 3 och 4. Under den tiden kan hemligheten i Key Vault inte autentisera till SQL Server. Om något av stegen Miss lyckas Event Grid försök i två timmar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
@@ -113,7 +113,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-Information om hur du skapar en Function-app och använder hanterad identitet för att få åtkomst till Key Vault finns i [skapa en Function-app från Azure Portal](../../azure-functions/functions-create-function-app-portal.md) och [tillhandahålla Key Vault autentisering med en hanterad identitet](../general/managed-identity.md).
+Information om hur du skapar en Function-app och använder hanterad identitet för att få åtkomst till Key Vault finns i [skapa en Function-app från Azure Portal](/azure/azure-functions/functions-create-function-app-portal), [använda hanterad identitet för app service och Azure Functions](/azure/app-service/overview-managed-identity)och [tilldela en Key Vault åtkomst princip med hjälp av Azure Portal](../general/assign-access-policy-portal.md).
 
 ### <a name="rotation-function"></a>Rotations funktion
 Distribuerad i föregående steg-funktion använder en händelse för att utlösa rotationen av en hemlighet genom att uppdatera Key Vault och SQL-databasen. 

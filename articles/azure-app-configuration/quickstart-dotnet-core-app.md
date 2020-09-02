@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590259"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319516"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabb start: skapa en .NET Core-app med app-konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-konsol för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.Net Core SDK](https://dotnet.microsoft.com/download) – även tillgängligt i [Azure Cloud Shell](https://shell.azure.com).
@@ -36,7 +36,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-ko
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+7. Välj **Använd**.
 
 ## <a name="create-a-net-core-console-app"></a>Skapa en .NET Core-konsolapp
 
@@ -44,7 +44,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 1. Skapa en ny mapp för ditt projekt.
 
-2. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core Console-projekt:
+2. I den nya mappen kör du följande kommando för att skapa ett nytt .NET Core Console-projekt:
 
     ```dotnetcli
     dotnet new console

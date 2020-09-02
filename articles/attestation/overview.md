@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: bc6f52ed175e55b283e3c41408c15b818a85d6b7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237437"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320604"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure attestering (för hands version)
+# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (förhandsversion)
 
 Microsoft Azure attestering (för hands version) är en lösning för att intyga betrodda körnings miljöer (TEEs) som [Intel® Software Guard-tillägg](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves och [virtualiseringsbaserad säkerhet](/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. Enklaven-attestering är en process för att verifiera att en enklaven är säker och pålitlig.
 
@@ -65,10 +65,11 @@ Kunder med Azure-attestering har utgivit ett krav för att Microsoft ska kunna u
 
 Azure-attestering är det bästa valet för att intyga TEEs eftersom det ger följande fördelar: 
 
-- Kostnads fri Azure-tjänst med hög tillgänglighet
-- Utnyttjar Azure Active Directory för autentisering av klient begär Anden. Detta gör att Azure-attestering kan utföra attestering baserat på identitet och ägarskap
-- Har stöd för principer som tillåter att klient ägare begränsar genereringen av token
-- Ger skydd av dess data när de används med implementering i en SGX-enklaven
+- Enhetligt ramverk för att intyga flera TEEs, till exempel SGX enclaves och VBS enclaves
+- Tjänst för flera innehavare som gör det möjligt att konfigurera anpassade leverantörer och principer för utfärdande av token
+- Erbjuder standardproviders som kan attestera utan konfiguration från användare
+- Skyddar dess data vid användning med implementering i en SGX-enklaven
+- Hög tillgänglig tjänst som erbjuder Serviceavtal (SLA)
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Support för affärs kontinuitet och haveri beredskap (BCDR)
 

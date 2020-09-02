@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815308"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319550"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Skapa och skapa Linux-avbildningar i Azure
 
@@ -46,7 +46,7 @@ Azure erbjuder två huvud avbildnings typer, generaliserade och specialiserade. 
 
 ### <a name="generalized-images"></a>Generaliserade avbildningar
 
-En generaliserad avbildning är en avbildning som kräver att installationen slutförs vid första starten. Vid den första starten anger du till exempel värd namnet, administratörs användaren och andra VM-/regionsspecifika konfigurationer. Detta är användbart när du vill att avbildningen ska återanvändas flera gånger och när du vill skicka in parametrar när du skapar den. Om den generaliserade avbildningen innehåller Azure-agenten kommer agenten att bearbeta parametrarna och signaler tillbaka till den plattform där den inledande konfigurationen har slutförts. Den här processen kallas för **etablering**. 
+En generaliserad avbildning är en avbildning som kräver att installationen slutförs vid första starten. Vid den första starten anger du till exempel värd namnet, administratörs användaren och andra VM-/regionsspecifika konfigurationer. Detta är användbart när du vill att avbildningen ska återanvändas flera gånger och när du vill skicka in parametrar när du skapar den. Om den generaliserade avbildningen innehåller Azure-agenten kommer agenten att bearbeta parametrarna och signaler tillbaka till den plattform där den inledande konfigurationen har slutförts. Den här processen kallas för [etablering](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 Etableringen kräver att en-etablering ingår i avbildningen. Det finns två provisioner:
 - [Azure Linux-Agent](../extensions/agent-linux.md)

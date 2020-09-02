@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 985060d1acb9e3bf0babc8303b997ceddfff8f05
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f14bcc1b0576a5ad2f4dbbf30311f613607d3ee5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931955"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322338"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudie: Använd Visuellt innehåll för att skapa metadata för bilder i Azure Storage
 
-I den här självstudien får du lära dig hur du integrerar Azure Visuellt innehåll-tjänsten i en webbapp för att generera metadata för överförda avbildningar. Detta är användbart för scenarier med [Digital Asset Management (damm)](../Home.md#computer-vision-for-digital-asset-management) , till exempel om ett företag vill skapa beskrivande under texter eller sökbara nyckelord för alla sina avbildningar.
+I den här självstudien får du lära dig hur du integrerar Azure Visuellt innehåll-tjänsten i en webbapp för att generera metadata för överförda avbildningar. Detta är användbart för scenarier med [Digital Asset Management (damm)](../overview.md#computer-vision-for-digital-asset-management) , till exempel om ett företag vill skapa beskrivande under texter eller sökbara nyckelord för alla sina avbildningar.
 
 En fullständig appguide finns i [labbet för Azure Storage och Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) på GitHub, och den här självstudien omfattar i stort sett Övning 5 i labben. Du kanske vill skapa hela programmet genom att följa alla steg, men om du bara vill lära dig hur du integrerar Visuellt innehåll i en befintlig webbapp läser du här.
 
@@ -34,7 +34,7 @@ I den här självstudiekursen lär du dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) eller senare med arbetsbelastningarna ”ASP.NET and web development” (ASP.NET och webbutveckling) och ”Azure development” (Azure-utveckling) installerade.
 - Ett Azure Storage konto med en BLOB-behållare som kon figurer ATS för avbildnings lagring (Följ [Övning 1 i Azure Storage labb](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).

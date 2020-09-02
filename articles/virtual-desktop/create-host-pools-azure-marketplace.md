@@ -3,15 +3,15 @@ title: Windows-pool för virtuella skriv bord Azure Portal – Azure
 description: Så här skapar du en Windows-pool för virtuella skriv bord med hjälp av Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 466180535b3fe7c7d0155c8b19ac287930341ee7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226105"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322593"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -131,9 +131,11 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
 
 7. Välj vilken typ av OS-diskar du vill att de virtuella datorerna ska använda: Standard SSD, Premium SSD eller Standard HDD.
 
-8. Under nätverk och säkerhet väljer du det **virtuella nätverk** och **undernät** där du vill placera de virtuella datorer som du skapar. Se till att det virtuella nätverket kan ansluta till domänkontrollanten eftersom du måste ansluta de virtuella datorerna i det virtuella nätverket till domänen. Välj sedan om du vill ha en offentlig IP-adress för de virtuella datorerna. Vi rekommenderar att du väljer **Nej**eftersom en privat IP-adress är säkrare.
+8. Under nätverk och säkerhet väljer du det **virtuella nätverk** och **undernät** där du vill placera de virtuella datorer som du skapar. Se till att det virtuella nätverket kan ansluta till domänkontrollanten eftersom du måste ansluta de virtuella datorerna i det virtuella nätverket till domänen. DNS-servrarna för det virtuella nätverk som du har valt ska konfigureras att använda IP-adressen för domänkontrollanten.
 
-9. Välj vilken typ av säkerhets grupp du vill använda: **Basic**, **Advanced**eller **none**.
+9. Välj sedan om du vill ha en offentlig IP-adress för de virtuella datorerna. Vi rekommenderar att du väljer **Nej** eftersom en privat IP-adress är säkrare.
+
+10. Välj vilken typ av säkerhets grupp du vill använda: **Basic**, **Advanced**eller **none**.
 
     Om du väljer **Basic**måste du välja om du vill att en inkommande port ska vara öppen. Om du väljer **Ja**väljer du i listan med standard portar att tillåta inkommande anslutningar till.
 
@@ -145,11 +147,13 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
 
     Om du väljer **Avancerat**väljer du en befintlig nätverks säkerhets grupp som du redan har konfigurerat.
 
-10. Efter det väljer du om du vill att de virtuella datorerna ska vara anslutna till en speciell domän och organisationsenhet. Om du väljer **Ja**anger du domänen som ska anslutas. Du kan också lägga till en speciell organisationsenhet som du vill att de virtuella datorerna ska finnas i. Om du väljer **Nej**kommer de virtuella datorerna att anslutas till domänen som matchar suffixet för **AD-domänens anslutningens UPN**.
+11. Efter det väljer du om du vill att de virtuella datorerna ska vara anslutna till en speciell domän och organisationsenhet. Om du väljer **Ja**anger du domänen som ska anslutas. Du kan också lägga till en speciell organisationsenhet som du vill att de virtuella datorerna ska finnas i. Om du väljer **Nej**kommer de virtuella datorerna att anslutas till domänen som matchar suffixet för **AD-domänens anslutningens UPN**.
 
-11. Under administratörs konto anger du autentiseringsuppgifterna för Active Directory-domän admin för det virtuella nätverk som du har valt.
+  - När du anger en ORGANISATIONSENHET måste du kontrol lera att du använder den fullständiga sökvägen (unikt namn) och utan citat tecken.
 
-12. Välj **Nästa: >arbets yta **.
+12. Under administratörs konto anger du autentiseringsuppgifterna för Active Directory-domän admin för det virtuella nätverk som du har valt. Det här kontot kan inte ha Multi-Factor Authentication (MFA) aktiverat. När du ansluter till en Azure Active Directory Domain Services (Azure AD DS)-domän måste kontot vara en del av administratörs gruppen för Azure AD DC och konto lösen ordet måste fungera i Azure AD DS.
+
+13. Välj **Nästa: >arbets yta **.
 
 Vi är nu redo att starta nästa steg i konfigurationen av din värddator: registrera din app-grupp på en arbets yta.
 

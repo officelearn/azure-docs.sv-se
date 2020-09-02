@@ -2,17 +2,17 @@
 title: Självstudie – Skapa och ändra en krets med ExpressRoute
 description: I den här självstudien får du lära dig hur du skapar, etablerar, kontrollerar, uppdaterar, tar bort och avetablerar en ExpressRoute-krets.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/20/2018
-ms.author: cherylmc
-ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.author: duau
+ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74813125"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322149"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Självstudie: skapa och ändra en ExpressRoute-krets
 
@@ -25,7 +25,15 @@ ms.locfileid: "74813125"
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
-Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azure Portal och Azure Resource Manager distributions modell. Du kan också kontrol lera status, uppdatera, ta bort eller avetablera en krets.
+Den här självstudien visar hur du skapar en ExpressRoute-krets med hjälp av Azure Portal och Azure Resource Manager distributions modell. Du kan också kontrol lera status, uppdatera, ta bort eller avetablera en krets.
+
+I den här guiden får du lära du dig hur man:
+
+> [!div class="checklist"]
+> * Skapa en ExpressRoute-krets
+> * Hämta aktuell status för en krets
+> * Ändra en krets
+> * Avetablera och ta bort en krets
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -47,38 +55,51 @@ Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azu
 
 Du kan skapa en ExpressRoute-krets genom att välja alternativet för att skapa en ny resurs. 
 
-1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Välj **nätverks**  >  -**ExpressRoute**, som du ser i följande bild:
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**. Välj **nätverks**  >  -**ExpressRoute**, som du ser i följande bild:
 
-   ![Skapa en ExpressRoute-krets](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Skapa en ExpressRoute-krets":::
 
-2. När du har klickat på **ExpressRoute**visas sidan **skapa ExpressRoute-krets** . När du fyller i värdena på den här sidan, se till att du anger rätt SKU-nivå (standard eller Premium) och fakturerings modell för data mätning (obegränsad eller uppmätt).
+2. När du har klickat på **ExpressRoute**visas sidan **skapa ExpressRoute** . Ange **resurs grupp**, **region**och  **namn** för kretsen. Klicka sedan på **Nästa: konfiguration >**.
 
-   ![Konfigurera SKU-nivån och data mätning](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Konfigurera resurs gruppen och regionen":::
 
-   * **Nivån** avgör om en ExpressRoute-standard eller ett ExpressRoute Premium-tillägg är aktiverat. Du kan ange **standard** för att hämta standard-SKU eller **Premium** för Premium-tillägget.
-   * **Data mätningen** fastställer fakturerings typen. Du kan ange **Mät** värde för en dataplan med datapriser och **obegränsade** för ett obegränsat data abonnemang. Observera att du kan ändra fakturerings typen från **avgiftsbelagd** till **obegränsad**.
+3. När du fyller i värdena på den här sidan, se till att du anger rätt SKU-nivå (lokal, standard eller Premium) och fakturerings modell för data mätning (obegränsad eller uppmätt).
 
-     > [!IMPORTANT]
-     > Du kan inte ändra typen från **obegränsad** till **mätning**.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Konfigurera kretsen":::
+    
+    * **Port typen** bestämmer om du ansluter till en tjänst leverantör eller direkt till Microsofts globala nätverk på en peering-plats.
+    * **Skapa ny eller importera från klassisk** bestämmer om en ny krets skapas eller om du migrerar en klassisk krets till arm.
+    * **Providern** är Internet-tjänsten som du kan använda för att begära din tjänst.
+    * **Peering-platsen** är den fysiska plats där du peer-koppla med Microsoft.
 
-   * **Peering-platsen** är den fysiska plats där du peer-koppla med Microsoft.
+    > [!IMPORTANT]
+    > Peering-platsen anger den [fysiska plats](expressroute-locations.md) där du peer-koppla med Microsoft. Detta är **inte** länkat till "location"-egenskap som refererar till den geografi där Azure Network Resource-providern finns. Även om de inte är relaterade är det en bra idé att välja en nätverks resurs-Provider geografiskt nära peering-platsen för kretsen.
 
-     > [!IMPORTANT]
-     > Peering-platsen anger den [fysiska plats](expressroute-locations.md) där du peer-koppla med Microsoft. Detta är **inte** länkat till "location"-egenskap som refererar till den geografi där Azure Network Resource-providern finns. Även om de inte är relaterade är det en bra idé att välja en nätverks resurs-Provider geografiskt nära peering-platsen för kretsen.
+    * **SKU** avgör om en ExpressRoute lokal, ExpressRoute standard eller ett ExpressRoute Premium-tillägg är aktiverat. Du kan ange **lokal** för att hämta lokal SKU, **standard** för att hämta standard-SKU eller **Premium** för Premium-tillägget.
+    * **Fakturerings modellen** fastställer fakturerings typen. Du kan ange **Mät** värde för en dataplan med datapriser och **obegränsade** för ett obegränsat data abonnemang. Observera att du kan ändra fakturerings typen från **avgiftsbelagd** till **obegränsad**.
+
+    > [!IMPORTANT]
+    > Du kan inte ändra typen från **obegränsad** till **mätning**.
+
+    * Med den **klassiska åtgärden** kan klassiska virtuella nätverk länka till kretsen.
 
 ### <a name="3-view-the-circuits-and-properties"></a>3. Visa kretsar och egenskaper
 
 **Visa alla kretsar**
 
-Du kan visa alla kretsar som du har skapat genom att välja **alla resurser** på den vänstra menyn.
+Du kan visa alla kretsar som du har skapat genom att välja **alla tjänster > nätverks > ExpressRoute-kretsar** på den vänstra menyn.
 
-![Visa kretsar](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="ExpressRoute krets-menyn":::
+
+Alla ExpressRoute-kretsar som skapats i prenumerationen visas här.
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="ExpressRoute krets List":::
 
 **Visa egenskaperna**
 
-Du kan visa egenskaperna för kretsen genom att markera den. På **översikts** sidan för din krets visas tjänst nyckeln i fältet tjänst nyckel. Du måste kopiera tjänst nyckeln för din krets och skicka den till tjänst leverantören för att slutföra etablerings processen. Krets tjänst nyckeln är speciell för din krets.
+Du kan visa egenskaperna för kretsen genom att markera den. På **översikts** sidan för din krets visas tjänst nyckeln i fältet tjänst nyckel. Se tjänst nyckeln för din krets och ge den till tjänst leverantören för att slutföra etablerings processen. Tjänst nyckeln är speciell för din krets.
 
-![Visa egenskaper](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Visa egenskaper":::
 
 ### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. skicka tjänst nyckeln till din anslutnings leverantör för etablering
 
@@ -86,26 +107,26 @@ På den här sidan tillhandahåller **leverantörs status** information om det a
 
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
-Leverantörs status: inte etablerad<BR>
-Krets status: aktive rad
+Leverantörs status: **inte etablerad**<BR>
+Krets status: **aktive rad**
 
-![Initiera etablerings processen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Initiera etablerings processen":::
 
 -Kretsen ändras till följande tillstånd när anslutnings leverantören håller på att aktivera den åt dig:
 
-Leverantörs status: etablering<BR>
-Krets status: aktive rad
+Leverantörs status: **etablering**<BR>
+Krets status: **aktive rad**
 
 För att du ska kunna använda en ExpressRoute-krets måste den vara i följande tillstånd:
 
-Leverantörs status: etablerad<BR>
-Krets status: aktive rad
+Leverantörs status: **etablerad**<BR>
+Krets status: **aktive rad**
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. kontrol lera regelbundet status och tillståndet för krets nyckeln
 
 Du kan visa egenskaperna för den krets som du är intresse rad av genom att markera den. Kontrol lera **providerns status** och se till att den har flyttats till **etablerad** innan du fortsätter.
 
-![Status för krets och Provider](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Status för krets och Provider":::
 
 ### <a name="6-create-your-routing-configuration"></a>6. skapa konfigurationen för routning
 
@@ -137,7 +158,7 @@ Du kan utföra följande uppgifter utan avbrott:
 * Ändra Mät planen från *datapriser* till *obegränsade data*.
 
   > [!IMPORTANT]
-  > Det finns inte stöd för att ändra Mät planen från obegränsade data till datapriser.
+  > Det finns inte stöd för att ändra Mät planen från **obegränsade data** till **datapriser** .
 
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
   > [!IMPORTANT]
@@ -149,15 +170,19 @@ Du kan utföra följande uppgifter utan avbrott:
 
 Om du vill ändra en ExpressRoute-krets klickar du på **konfiguration**.
 
-![Ändra krets](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Ändra krets":::
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Avetablera och ta bort en ExpressRoute-krets
 
-Du kan ta bort ExpressRoute-kretsen genom att välja ikonen **ta bort** . Notera följande information:
+Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
 
-* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. Om den här åtgärden Miss lyckas kontrollerar du om några virtuella nätverk är länkade till kretsen.
-* Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
-* Om tjänst leverantören har avetablerat kretsen (etablerings statusen för tjänst leverantören är inställd på **inte etablerad**) kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
+> [!NOTE]
+>* Du måste ta bort länken mellan *alla virtuella nätverk* från ExpressRoute-kretsen innan du avetablerar. Om den här åtgärden Miss lyckas kontrollerar du om några virtuella nätverk är länkade till kretsen.
+>* Om tjänst leverantören har avetablerat kretsen (etablerings statusen för tjänst leverantören är inställd på **inte etablerad**) kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
+
+Du kan ta bort ExpressRoute-kretsen genom att välja ikonen **ta bort** . 
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Ta bort krets":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: f5f2678078850ad17fa72439df9c963b60ad7a9d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 30c486ccb7bf3b7d537cd1ed3475a8dadc5b4f6d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237869"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89326233"
 ---
 > [!IMPORTANT]
 > * Formulär igenkännings-SDK: n är riktad mot v 2.0 från tolk tjänsten.
@@ -61,7 +61,7 @@ mkdir -p src/main/java
 
 I den här snabb starten används Gradle-beroende hanteraren. Du hittar klient biblioteket och information för andra beroende hanterare på den [centrala maven-lagringsplatsen](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-I projektets *build. gradle. KTS* -fil måste du ta med klient biblioteket som en `implementation` instruktion, tillsammans med nödvändiga plugin-program och inställningar.
+I projektets *build. gradle. KTS* -fil inkluderar du klient biblioteket som en `implementation` instruktion, tillsammans med nödvändiga plugin-program och inställningar.
 
 ```kotlin
 plugins {
@@ -79,7 +79,7 @@ dependencies {
 }
 ```
 
-Navigera till den nya **src/main/Java-** mappen och skapa en fil med namnet *FormRecognizer. java*. Öppna det i önskat redigerings program eller IDE och Lägg till följande- `import` uttryck:
+Navigera till den nya **src/main/Java-** mappen och skapa en fil med namnet *Management. java*. Öppna det i önskat redigerings program eller IDE och Lägg till följande- `import` uttryck:
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -241,7 +241,7 @@ Det returnerade värdet är en samling **FormPage** -objekt: en för varje sida 
 }
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Get form content...
@@ -354,7 +354,7 @@ Nästa kodblock upprepas genom de enskilda objekt som identifierats vid inlevera
 }
 ```
 
-### <a name="output"></a>Utdata 
+### <a name="output"></a>Resultat 
 
 ```console
 Analyze receipt...
@@ -421,7 +421,7 @@ Slutligen returnerar den här metoden det unika ID: t för modellen.
 }
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Train Model with training data...
@@ -480,7 +480,7 @@ Den returnerade **CustomFormModel** anger de fält som modellen kan extrahera, t
 }
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Train Model with training data...
@@ -536,7 +536,7 @@ Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje i
 }
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Analyze PDF form...
@@ -575,7 +575,7 @@ Följande kod block kontrollerar hur många modeller som du har sparat i ditt fo
         accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
 ```
 
-#### <a name="output"></a>Utdata 
+#### <a name="output"></a>Resultat 
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -611,7 +611,7 @@ Följande kodblock visar de aktuella modellerna i ditt konto och skriver ut info
     });
 ```
 
-#### <a name="output"></a>Utdata 
+#### <a name="output"></a>Resultat 
 
 Det här svaret har trunkerats för läsbarhet.
 

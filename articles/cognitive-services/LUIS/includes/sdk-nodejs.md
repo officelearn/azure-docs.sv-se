@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 8/13/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-javascript, cog-serv-seo-aug-2020
 ms.author: diberry
-ms.openlocfilehash: e52aba2fe6189c8964fd6525581b0bd6ee6def48
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: b961bb0598a1f6e9cdc7b4df27af50e7af1d9d81
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246286"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323261"
 ---
 Använd Language Understanding (LUIS) klient biblioteken för Node.js för att:
 
@@ -43,13 +43,13 @@ Använd Language Understanding (LUIS) klient biblioteken för Node.js för att:
     mkdir quickstart-sdk && cd quickstart-sdk
     ```
 
-1. Initiera katalogen som ett JavaScript-program genom att skapa en `package.json` fil. 
+1. Initiera katalogen som ett JavaScript-program genom att skapa en `package.json` fil.
 
     ```console
     npm init -y
     ```
 
-1. Skapa en fil med namnet `index.js` för din JavaScript-kod. 
+1. Skapa en fil med namnet `index.js` för din JavaScript-kod.
 
     ```console
     touch index.js
@@ -61,7 +61,7 @@ I program katalogen installerar du beroendena med följande kommandon, utförde 
 
 ```console
 npm install @azure/ms-rest-js
-npm install @azure/cognitiveservices-luis-authoring 
+npm install @azure/cognitiveservices-luis-authoring
 npm install @azure/cognitiveservices-luis-runtime
 ```
 
@@ -91,6 +91,8 @@ Din `package.json` bör se ut så här:
 
 Redigerings klienten för Language Understanding (LUIS) är ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) -objekt som autentiserar till Azure, som innehåller din redigerings nyckel.
 
+## <a name="code-examples-for-authoring"></a>Kod exempel för redigering
+
 När klienten har skapats använder du den här klienten för att få åtkomst till funktioner, inklusive:
 
 * Appar- [Lägg till](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#add-applicationcreateobject--msrest-requestoptionsbase-), [ta bort](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-), [publicera](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-)
@@ -105,6 +107,8 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 
 Redigerings klienten för Language Understanding (LUIS) är ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) -objekt som autentiserar till Azure, som innehåller din redigerings nyckel.
 
+## <a name="code-examples-for-prediction-runtime"></a>Kod exempel för förutsägelse körning
+
 När klienten har skapats använder du den här klienten för att få åtkomst till funktioner, inklusive:
 
 * [Förutsägelse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) efter `staging` eller `production` plats
@@ -118,16 +122,16 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 
 [!code-javascript[Add NPM libraries to code file](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=Dependencies)]
 
-## <a name="add-boilerplate-code"></a>Lägg till en exempel kod 
+## <a name="add-boilerplate-code"></a>Lägg till en exempel kod
 
-1. Lägg till- `quickstart` metoden och dess anrop. Den här metoden innehåller de flesta återstående koder. Den här metoden anropas i slutet av filen. 
+1. Lägg till- `quickstart` metoden och dess anrop. Den här metoden innehåller de flesta återstående koder. Den här metoden anropas i slutet av filen.
 
     ```javascript
     const quickstart = async () => {
-    
+
         // add calls here
-    
-    
+
+
     }
     quickstart()
         .then(result => console.log("Done"))
@@ -136,9 +140,11 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
             })
     ```
 
-1. Lägg till den återstående koden i snabb starts metoden om inget annat anges. 
+1. Lägg till den återstående koden i snabb starts metoden om inget annat anges.
 
 ## <a name="create-variables-for-the-app"></a>Skapa variabler för appen
+
+Skapa två uppsättningar variabler: den första uppsättningen som du ändrar, den andra anges i kod exemplet. 
 
 1. Skapa variabler för att hålla dina redigerings nycklar och resurs namn.
 
@@ -152,7 +158,7 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 
 Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) -objekt.
 
-[!code-javascript[Create LUIS authoring client object](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateClient)]
+[!code-javascript[Authenticate the client](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateClient)]
 
 ## <a name="create-a-luis-app"></a>Skapa en LUIS-app
 
@@ -160,7 +166,7 @@ En LUIS-app innehåller NLP-modellen (Natural Language Processing) inklusive avs
 
 Skapa appen genom att skapa ett [AppsOperation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) -objekts [Add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) -metod. Namnet och språk kulturen är obligatoriska egenskaper.
 
-[!code-javascript[Create LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateApplication)]
+[!code-javascript[Create a LUIS app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateApplication)]
 
 
 ## <a name="create-intent-for-the-app"></a>Skapa avsikt för appen
@@ -170,7 +176,7 @@ Använd metoden [Model. add_intent](https://docs.microsoft.com/javascript/api/@a
 
 `intentName`Värdet hårdkodas till `OrderPizzaIntent` som en del av variablerna i avsnittet [Skapa variabler för appen](#create-variables-for-the-app) .
 
-[!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AddIntent)]
+[!code-javascript[Create intent for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AddIntent)]
 
 ## <a name="create-entities-for-the-app"></a>Skapa entiteter för appen
 
@@ -182,7 +188,7 @@ Skapande metoder för entiteter ingår i [modell](https://docs.microsoft.com/jav
 
 Entitetens skapande kod skapar en enhet för maskin inlärning med underentiteter och funktioner som tillämpas på `Quantity` underentiteterna.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Entiteten för skapande av entitet skapar en enhet för maskin inlärning med underentiteter och funktioner som används i underentiteterna "kvantitet".":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="En del skärm bild från portalen som visar att entiteten har skapats, en enhet för maskin inlärning med underentiteter och funktioner som används i underentiteterna "kvantitet".":::
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 
@@ -196,11 +202,11 @@ Appen behöver exempel på yttranden för att kunna fastställa en uttryck för 
 
 Lägg till exempel yttranden genom att skapa en lista över [ExampleLabelObject](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest) -objekt, ett objekt för varje exempel uttryck. Varje exempel bör markera alla entiteter med en ord lista med namn/värde-par för enhets namn och enhets värde. Enhet svärdet bör vara exakt så som det visas i texten i exemplet uttryck.
 
-:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="Enhet svärdet bör vara exakt så som det visas i texten i exemplet uttryck.":::
+:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="En del skärm bild som visar den märkta uttryck i portalen. ":::
 
 Anropa [exempel. Lägg till](https://docs.microsoft.com//javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-) med app-ID, VERSIONS-ID och exemplet.
 
-[!code-javascript[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples)]
+[!code-javascript[Add example utterance to intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples)]
 
 ## <a name="train-the-app"></a>Träna appen
 
@@ -210,9 +216,9 @@ Metoden [Train. trainVersion](https://docs.microsoft.com/javascript/api/@azure/c
 
 En mycket liten modell, till exempel den här snabb starten visar, kommer att träna mycket snabbt. Utbildning appen måste innehålla ett avsöknings anrop till [get_Status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) -metoden för att fastställa när utbildningen har genomförts för program på produktions nivå. Svaret är en lista över [ModelTrainingInfo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) -objekt med separat status för varje objekt. Alla objekt måste lyckas för att träningen ska anses vara slutförd.
 
-[!code-javascript[Train the app's version](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion)]
+[!code-javascript[Train the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion)]
 
-## <a name="publish-a-language-understanding-app"></a>Publicera en Language Understanding app
+## <a name="publish-app-to-production-slot"></a>Publicera appen till produktions platsen
 
 Publicera LUIS-appen med metoden [app. Publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-) . Detta publicerar den aktuella utbildade versionen till den angivna platsen vid slut punkten. Klient programmet använder den här slut punkten för att skicka användarens yttranden för förutsägelse av avsikt och extrahering av enheter.
 
@@ -225,7 +231,7 @@ Använd ett msRest. ApiKeyCredentials-objekt med din nyckel och Använd slut pun
 
 [!INCLUDE [Caution about using authoring key](caution-authoring-key.md)]
 
-[!code-javascript [Create LUIS runtime client object](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=PredictionCreateClient)]
+[!code-javascript [Authenticate the prediction runtime client](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=PredictionCreateClient)]
 
 ## <a name="get-prediction-from-runtime"></a>Hämta förutsägelse från körning
 
@@ -233,7 +239,7 @@ Lägg till följande kod för att skapa begäran till förutsägelse körning. A
 
 Metoden **[luisRuntimeClient. förutsägelse. getSlotPrediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** kräver flera parametrar, till exempel App-ID, plats namn och objektet förutsägelse begär Ande för att uppfylla begäran. De andra alternativen, till exempel verbose, Visa alla avsikter och loggen är valfria.
 
-[!code-javascript [Get prediction based on query](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=QueryPredictionEndpoint)]
+[!code-javascript [Get prediction from runtime](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=QueryPredictionEndpoint)]
 
 [!INCLUDE [Prediction JSON response](sdk-json.md)]
 

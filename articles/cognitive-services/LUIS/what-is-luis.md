@@ -5,12 +5,12 @@ keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, 
 ms.topic: overview
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752148"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320060"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -64,7 +64,7 @@ Utforma din modell med kategorier av **[användar avsikter som kallas](luis-conc
 |`When does your store open?`|StoreHoursAndLocation (Butikens öppettider och plats)|open (öppen)|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting (Boka möte)|1pm, Bob (kl. 13, Bob)|
 
-Skapa modellen med [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: erna, eller med [**Luis-portalen**](https://www.luis.ai)eller båda. Lär dig mer om hur du skapar med [portalen](get-started-portal-build-app.md) och [SDK-klient biblioteken](quickstart-sdk.md).
+Skapa modellen med [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: erna, eller med [**Luis-portalen**](https://www.luis.ai)eller båda. Lär dig mer om hur du skapar med [portalen](get-started-portal-build-app.md) och [SDK-klient biblioteken](azure-sdk-quickstart.md).
 
 ## <a name="step-2-get-the-query-prediction"></a>Steg 2: Hämta frågan förutsägelse
 
@@ -126,7 +126,7 @@ LUIS tillhandahåller funktioner från Textanalys som en del av dina befintliga 
 
 ## <a name="learn-with-the-quickstarts"></a>Lär dig med snabb starter
 
-Lär dig mer om LUIS med praktiska snabb starter med hjälp av [portalen](get-started-portal-build-app.md) och [klient biblioteken för SDK](quickstart-sdk.md).
+Lär dig mer om LUIS med praktiska snabb starter med hjälp av [portalen](get-started-portal-build-app.md) och [klient biblioteken för SDK](azure-sdk-quickstart.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

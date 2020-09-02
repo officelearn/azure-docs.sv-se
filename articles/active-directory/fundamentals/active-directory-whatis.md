@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82a5fd5a14091c95bc1783f283c41431082c8980
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: db14e4e47cce1822404561d33bd8e0d3f224e037
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182113"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321114"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets-och åt
 
 - Interna resurser, som appar i företagets nätverk och intranät, tillsammans med molnappar som utvecklats av din egen organisation. Mer information om hur du skapar en klient organisation för din organisation finns i [snabb start: skapa en ny klient i Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Mer information om skillnaden mellan Azure AD och Active Directory Domain Services finns i [jämföra Active Directory till Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Du kan också använda de olika [Microsoft Cloud för affischer för Enterprise Architects-serien](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) för att bättre förstå kärn identitets tjänsterna i Azure, Azure AD och Office 365.
+Mer information om skillnaden mellan Azure AD och Active Directory Domain Services finns i [jämföra Active Directory till Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Du kan också använda de olika [Microsoft Cloud för affischer för Enterprise Architects-serien](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) för att bättre förstå kärn identitets tjänsterna i Azure, Azure AD och Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Vem använder Azure AD?
 
@@ -68,7 +68,7 @@ När du har valt din Azure AD-licens får du åtkomst till några eller alla av 
 |Programhantering|Hantera dina molnbaserade och lokala appar med programproxy, enkel inloggning Mina appar-portalen (kallas även åtkomstpanelen) och Software as a Service-appar (SaaS). Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage-apps/application-proxy.md) och i [dokumentationen om programhantering](../manage-apps/index.yml).|
 |Autentisering|Hantera Azure Active Directory-lösenordsåterställning via självbetjäning, Multi-Factor Authentication, listor över anpassade förbjudna lösenord och smart utlåsning. Mer information finns i [dokumentationen om Azure AD-autentisering](../authentication/index.yml).|
 |Azure Active Directory för utvecklare|Skapa appar som loggar in alla Microsoft-identiteter, hämta token för att anropa Microsoft Graph, andra Microsoft-API:er eller anpassade API:er. Mer information finns i [Microsoft Identity Platform (Azure Active Directory för utvecklare)](../develop/index.yml).|
-|Business-to-Business (B2B)|Hantera dina gästanvändare och externa partners, och behåll kontrollen över egna företagsdata. Mer information finns i [Azure Active Directory B2B-dokumentationen](../b2b/index.yml).|
+|Business-to-Business (B2B)|Hantera dina gästanvändare och externa partners, och behåll kontrollen över egna företagsdata. Mer information finns i [Azure Active Directory B2B-dokumentationen](../external-identities/index.yml).|
 |Business-to-Customer (B2C)|Anpassa och kontrollera hur användare registrerar sig, loggar in och hanterar sina profiler när de använder dina appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).|
 |Villkorlig åtkomst|Hantera åtkomst till molnappar. Mer information finns i [dokumentationen om villkorsstyrd åtkomst i Azure AD](../conditional-access/index.yml).|
 |Enhetshantering|Hantera hur dina molnbaserade eller lokala enheter får åtkomst till företagets data. Mer information finns i [dokumentationen om enhetshantering i Azure AD](../devices/index.yml).|
@@ -76,7 +76,7 @@ När du har valt din Azure AD-licens får du åtkomst till några eller alla av 
 |Företagsanvändare|Hantera licenstilldelningen, åtkomsten till appar och konfigurera ombud med hjälp av grupper och administratörsroller. Mer information finns i [dokumentationen om användarhantering i Azure Active Directory](../users-groups-roles/index.yml).|
 |Hybrididentitet|Använd Azure Active Directory Connect och Connect Health för att tillhandahålla en enda användaridentitet för autentisering och autentisering för alla resurser, oavsett plats (moln eller lokalt). Mer information finns i [dokumentationen om hybrididentiter](../hybrid/index.yml).|
 |Identitetsstyrning|Hantera organisationens identitet via åtkomstkontroller för medarbetare, affärspartners, leverantörer, tjänster och appar. Du kan även utföra åtkomstgranskningar. Mer information finns i [dokumentationen om identitetsstyrning i Azure AD](../governance/identity-governance-overview.md) och [Azure AD-åtkomstgranskningar](../governance/access-reviews-overview.md).|
-|Identity Protection|Identifiera potentiella sårbarheter som påverkar organisationens identiteter, konfigurera principer för att svara på misstänkta handlingar och sedan vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure AD Identity Protection](../identity-protection/index.yml).|
+|Identitetsskydd|Identifiera potentiella sårbarheter som påverkar organisationens identiteter, konfigurera principer för att svara på misstänkta handlingar och sedan vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure AD Identity Protection](../identity-protection/index.yml).|
 |Hanterade identiteter för Azure-resurser|Ger dina Azure-tjänster en automatiskt hanterad identitet i Azure AD som kan autentisera alla autentiseringstjänster med stöd för Azure AD, till exempel Key Vault. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).|
 |Privileged Identity Management (PIM)|Hantera, kontrollera och övervaka åtkomst i organisationen. Den här funktionen inkluderar åtkomst till resurser i Azure AD och Azure och andra Microsoft Online Services, till exempel Office 365 eller Intune. Mer information finns i [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
 |Rapporter och övervakning|Få insikter om säkerhet och användningsmönster i din miljö. Mer information finns i [Azure Active Directory-rapporter och -övervakning](../reports-monitoring/index.yml).|

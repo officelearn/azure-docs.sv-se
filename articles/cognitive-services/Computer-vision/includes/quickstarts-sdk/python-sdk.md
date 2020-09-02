@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c6e94cb4d55fdc8a204af0017eb1a8b37d44f087
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 744ef58b54dc3718c4693ce2aad69024e2d6e2fe
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035726"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321892"
 ---
 <a name="HOLTop"></a>
 
@@ -194,5 +194,5 @@ I den här snabb starten har du lärt dig hur du använder Visuellt innehåll-bi
 > [!div class="nextstepaction"]
 >[API för visuellt innehåll referens (python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [Vad är visuellt innehåll?](../../Home.md)
+* [Vad är visuellt innehåll?](../../overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

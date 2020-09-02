@@ -8,29 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 93ea0ffc94b78e014b30ab1d45d589eba50fe524
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: d8da5fcffa6ff02bed76973021b8a69c6c250821
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607791"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321630"
 ---
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En giltig Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/).
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## <a name="create-an-azure-service-principal"></a>Skapa ett huvud namn för Azure-tjänsten
+[!INCLUDE [Create a service principal](./create-service-principal.md)]
 
-För att ditt program ska interagera med ditt Azure-konto behöver du ett Azure-tjänstens huvud namn för att hantera behörigheter. Följ instruktionerna i [skapa ett huvud namn för Azure-tjänsten](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0).
-
-När du skapar ett huvud namn för tjänsten visas det ett hemligt värde, ett ID och ett program-ID. Spara program-ID och hemlighet till en tillfällig plats för senare steg.
-
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-
-Innan du skapar en Cognitive Services resurs måste ditt konto ha en Azure-resurs grupp som innehåller resursen. Om du inte redan har en resurs grupp skapar du en i [Azure Portal](https://ms.portal.azure.com/) innan du fortsätter.
+[!INCLUDE [Create a resource group](./create-resource-group.md)]
 
 ## <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
@@ -100,71 +94,7 @@ När du skapar en ny resurs måste du veta vilken typ av tjänst du vill använd
 
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
-Se listan över SKU: er och pris information nedan. 
-
-#### <a name="multi-service"></a>Multi-service
-
-| Tjänst                    | Variant                      |
-|----------------------------|---------------------------|
-| Flera tjänster. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
-
-
-#### <a name="vision"></a>Visuellt innehåll
-
-| Tjänst                    | Variant                      |
-|----------------------------|---------------------------|
-| Visuellt innehåll            | `ComputerVision`          |
-| Custom Vision förutsägelse | `CustomVision.Prediction` |
-| Custom Vision-utbildning   | `CustomVision.Training`   |
-| Ansikte                       | `Face`                    |
-| Formigenkänning            | `FormRecognizer`          |
-| Handskriftsigenkänning             | `InkRecognizer`           |
-
-#### <a name="search"></a>Search
-
-| Tjänst            | Variant                  |
-|--------------------|-----------------------|
-| Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
-| Anpassad sökning i Bing | `Bing.CustomSearch`   |
-| Entitetssökning i Bing | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
-
-#### <a name="speech"></a>Speech
-
-| Tjänst            | Variant                 |
-|--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
-| Taligenkänning | `SpeakerRecognition` |
-
-#### <a name="language"></a>Språk
-
-| Tjänst            | Variant                |
-|--------------------|---------------------|
-| Formulär förståelse | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| Textanalys     | `TextAnalytics`     |
-| Textöversättning   | `TextTranslation`   |
-
-#### <a name="decision"></a>Beslut
-
-| Tjänst           | Variant               |
-|-------------------|--------------------|
-| Avvikelseidentifiering  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personanpassning      | `Personalizer`     |
-
-
-#### <a name="pricing-tiers-and-billing"></a>Pris nivåer och fakturering
-
-Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner som du skickar med hjälp av autentiseringsinformationen. Varje pris nivå anger:
-* maximalt antal tillåtna transaktioner per sekund (TPS).
-* tjänst funktioner som Aktiver ATS inom pris nivån.
-* kostnad för ett fördefinierat antal transaktioner. Om du fortsätter över det här numret kommer det att leda till en extra avgift som anges i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
-
-> [!NOTE]
-> Många av de Cognitive Services har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd den kostnads fria nivån `F0` som SKU för din resurs.
+[!INCLUDE [SKUs and pricing](./sku-pricing.md)]
 
 ## <a name="create-a-cognitive-services-resource"></a>Skapa en -resurs för Cognitive Services
 

@@ -3,16 +3,17 @@ title: Vad är nytt i det virtuella Windows-skrivbordet? – Azure
 description: Nya funktioner och produkt uppdateringar för virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: references_regions
+ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003530"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319822"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Vad är nytt i det virtuella Windows-skrivbordet?
 
@@ -24,6 +25,31 @@ Uppdateringar av virtuella Windows-datorer regelbundet. I den här artikeln får
 - Felkorrigeringar
 
 Den här artikeln uppdateras varje månad. Se till att kontrol lera igen ofta för att hålla dig uppdaterad med nya uppdateringar.
+
+## <a name="august-2020"></a>Augusti 2020
+
+Följande har ändrats i augusti 2020:
+
+- Vi har förbättrat prestanda för att minska anslutnings fördröjningen i följande Azure-regioner: 
+
+    - Storbritannien
+    - Frankrike
+    - Norge
+    - Sydkorea
+
+   Du kan använda [Experience-uppskattningen](https://azure.microsoft.com/services/virtual-desktop/assessment/) för att få en allmän uppfattning om hur dessa ändringar kommer att påverka användarna.
+
+- Microsoft Store fjärr skrivbords klienten (v-10.2.1522 +) är nu allmänt tillgänglig! Den här versionen av Microsoft Store fjärr skrivbords klienten är kompatibel med Windows Virtual Desktop. Vi har också infört uppdaterade GRÄNSSNITTs flöden för förbättrade användar upplevelser. Den här uppdateringen omfattar Fluent design, lätta och mörka lägen och många andra spännande förändringar. Vi har också skrivit om klienten för att använda samma underliggande RDP-motor (Remote Desktop Protocol) som iOS-, macOS-och Android-klienter. På så sätt kan vi leverera nya funktioner till ett snabbare pris på alla plattformar. [Ladda ned klienten](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) och ge den ett try!
+
+- Vi har åtgärdat ett problem i Teams Skriv bords klienten (version 1.3.00.21759) där klienten endast visade UTC-tidszonen i chatten, kanalerna och kalendern. Den uppdaterade klienten visar nu Fjärrsessionens tidszon i stället.
+
+- Azure Advisor är nu en del av det virtuella Windows-skrivbordet. När du ansluter till virtuella Windows-datorer via Azure Portal kan du se rekommendationer för att optimera din Windows-miljö för virtuella skriv bord. Läs mer på [Azure Advisor](azure-advisor.md).
+
+- Azure CLI stöder nu Windows Virtual Desktop ( `az desktopvirtualization` ) för att hjälpa dig att automatisera dina Windows-distributioner av virtuella datorer. Ta en titt på [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) för en lista över tilläggs kommandon.
+
+- Vi har uppdaterat våra mallar för att göra dem fullständigt kompatibla med Windows Virtual Desktop Azure Resource Manager-gränssnitt. Du kan hitta mallarna på [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
+
+- Windows Virtual Desktop US Gov-portalen finns nu som offentlig för hands version. Mer information finns i [vårt meddelande](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-available-in-the-azure-government-cloud-in-preview/).
 
 ## <a name="july-2020"></a>Juli 2020  
 
@@ -105,9 +131,7 @@ Vi har gjort några förbättringar av Microsoft Teams för Windows Virtual Desk
 
 Mer information finns i [vårt blogg inlägg](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
-## <a name="next-steps"></a>Nästa steg
-
-Lär dig mer om framtida planer i [Microsoft 365 översikt över virtuella Windows-datorer](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+## <a name="client-updates"></a>Klient uppdateringar
 
 Ta en titt på de här artiklarna om du vill veta mer om uppdateringar för våra klienter för virtuella Windows-datorer och Fjärrskrivbordstjänster:
 
@@ -116,3 +140,8 @@ Ta en titt på de här artiklarna om du vill veta mer om uppdateringar för vår
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Webb](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om framtida planer i [Microsoft 365 översikt över virtuella Windows-datorer](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+

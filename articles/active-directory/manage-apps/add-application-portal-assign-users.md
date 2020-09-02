@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0e31852b6cf40cec9161c6904ce99798f1ee4996
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303901"
+ms.locfileid: "89322508"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Snabb start: tilldela användare till en app som använder Azure AD som identitets leverantör
 
 I den tidigare snabb starten konfigurerade du egenskaperna för en app. När du ställer in de egenskaper som du konfigurerade för både tilldelade och otilldelade användare. Den här snabb starten vägleder dig genom processen att tilldela användare till appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill tilldela användare till en app som du har lagt till i din Azure AD-klient behöver du:
 
@@ -34,11 +34,11 @@ Om du vill tilldela användare till en app som du har lagt till i din Azure AD-k
 >[!IMPORTANT]
 >Använd en icke-produktions miljö för att testa stegen i den här snabb starten.
 
-## <a name="assign-users-to-an-app"></a>Tilldela användare till en app
+## <a name="assign-users-to-an-app"></a>Tilldela användare en app
 1. I Azure AD-portalen väljer du **företags program**. Hitta och välj sedan det program som du vill konfigurera.
 2. I den vänstra navigerings menyn väljer **du användare och grupper**.
    > [!NOTE]
-   > Om du vill tilldela användare till Microsoft-program, till exempel Office 365-appar, använder vissa av dessa appar PowerShell. 
+   > Några av de Microsoft 365-och Office 365-apparna kräver att du använder PowerShell. 
 3. Välj knappen **Lägg till användare** .
 4. I fönstret **Lägg till tilldelning** väljer **du användare och grupper**.
 5. Välj den användare eller grupp som du vill tilldela till programmet. Du kan också börja skriva in namnet på användaren eller gruppen i sökrutan. Du kan välja flera användare och grupper och dina val visas under **valda objekt**.
@@ -55,6 +55,8 @@ Om du vill tilldela användare till en app som du har lagt till i din Azure AD-k
     > Om programmet inte har stöd för roll val tilldelas standard åtkomst rollen. I det här fallet hanterar programmet åtkomst nivån för användare.
 9. I fönstret **Lägg till tilldelning** väljer du knappen **tilldela** längst ned i fönstret.
 
+> [!NOTE]
+> Du kan ta bort tilldelningen av användare eller grupper med samma procedur. Välj den användare eller grupp som du vill ta bort tilldelningen för och välj sedan **ta bort**. Några av de Microsoft 365-och Office 365-apparna kräver att du använder PowerShell. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

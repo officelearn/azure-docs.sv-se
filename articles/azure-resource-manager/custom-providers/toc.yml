@@ -21,11 +21,6 @@
       href: tutorial-custom-providers-create.md
     - name: Utöka resurser
       href: tutorial-resource-onboarding.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Azure Policy för associationer
@@ -50,6 +45,9 @@
       href: /rest/api/customproviders/
     - name: Azure CLI
       href: /cli/azure/ext/custom-providers/custom-providers/
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

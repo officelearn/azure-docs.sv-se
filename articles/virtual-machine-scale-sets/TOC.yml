@@ -93,9 +93,6 @@
           href: ./scripts/powershell-single-av-zone-scale-set.md
         - name: Skapa en zonredundant skalningsuppsättning
           href: ./scripts/powershell-sample-zone-redundant-scale-set.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Azure Resource Manager
@@ -394,6 +391,9 @@
       href: /rest/api/virtualmachinescalesets/
     - name: Azure-mallar
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

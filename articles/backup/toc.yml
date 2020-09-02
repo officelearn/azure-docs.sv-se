@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: Hantera säkerhetskopierade SAP HANA-databaser – CLI
           href: tutorial-sap-hana-manage-cli.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Stödmatriser
@@ -428,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Efterlevnad

@@ -4,11 +4,6 @@
   items:
     - name: Vad är Resource Manager?
       href: overview.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Prenumerations- och tjänstbegränsningar
@@ -17,8 +12,6 @@
       href: resource-name-rules.md
     - name: Resource Manager och klassisk distribution
       href: deployment-models.md
-    - name: Vanliga säkerhetsattribut i Azure
-      href: azure-resource-manager-security-controls.md
     - name: Resursprovidrar som stöds av tjänsten
       href: azure-services-resource-providers.md
     - name: Filnamnstillägg för resurstyper
@@ -30,6 +23,8 @@
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Vanliga säkerhetsattribut i Azure
+          href: azure-resource-manager-security-controls.md
 - name: Gör så här för att
   items:
     - name: Flytta – resursgrupper/prenumerationer
@@ -118,7 +113,7 @@
           href: tag-support.md
     - name: Hantera resursgrupper
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -172,6 +167,9 @@
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

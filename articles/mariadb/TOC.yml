@@ -38,9 +38,6 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Databas och servrar
@@ -124,13 +121,13 @@
           href: howto-create-manage-server-portal.md
     - name: Brandväggsregler
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-manage-firewall-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-cli.md
     - name: Återställ en server
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -158,7 +155,7 @@
           href: howto-redirection.md
     - name: Konfigurera serverparametrar
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -166,7 +163,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Lagring som växer automatiskt
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -180,13 +177,13 @@
       items:
         - name: Långsamma frågeloggar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-server-logs-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-cli.md
         - name: Granskningsloggar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -216,19 +213,19 @@
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
     - name: Private Link
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Starta om servern
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -244,6 +241,9 @@
       href: /azure/templates/microsoft.dbformariadb/allversions
     - name: Lagrade procedurer för hantering
       href: reference-stored-procedures.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Distributionsmallar

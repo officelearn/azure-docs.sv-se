@@ -83,9 +83,6 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: NoSQL jämfört med relationsdatabaser
@@ -754,7 +751,7 @@
               href: mongodb-feature-support.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: mongodb-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Guide före migrering
               href: mongodb-pre-migration.md
@@ -824,7 +821,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -909,7 +906,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -1305,6 +1302,11 @@
       displayName: ARM
     - name: Publiceringsinformation om emulatorn
       href: local-emulator-release-notes.md
+- name: Referens
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

@@ -26,10 +26,6 @@
       href: resource-manager-template.md
     - name: Diagnostikloggning
       href: diagnostic-logging.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      href: ./policy-samples.md
 - name: Säkerhet
   items:
     - name: Cognitive Services-säkerhet
@@ -86,6 +82,11 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Recept: Art Explorer'
           href: ./big-data/recipes/art-explorer.md
+- name: Referens
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

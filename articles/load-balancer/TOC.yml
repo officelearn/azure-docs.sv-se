@@ -47,8 +47,6 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
-    - name: Nyheter
-      href: whats-new.md
     - name: Komponenter
       href: components.md
     - name: Begrepp

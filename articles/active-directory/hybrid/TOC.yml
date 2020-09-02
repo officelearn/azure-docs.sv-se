@@ -31,7 +31,7 @@
         - name: Vad är Azure AD Connect och Connect Health?
           href: whatis-azure-ad-connect.md
         - name: Välj rätt autentisering
-          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
+          href: ./choose-ad-authn.md
         - name: Identitetssynkronisering och duplicerad attributåterhämtning
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Synkronisering av lösenordshash
@@ -339,7 +339,7 @@
     - name: Versionshistorik för Azure AD-direktautentiseringsagent
       href: reference-connect-pta-version-history.md
     - name: Versionshistorik för anslutningsappen
-      href: reference-connect-sync-connector-version-history.md
+      href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
     - name: Konton och behörigheter
       href: reference-connect-accounts-permissions.md
     - name: Vanliga frågor och svar om Azure AD Connect

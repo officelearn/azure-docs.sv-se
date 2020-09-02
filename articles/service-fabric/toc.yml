@@ -116,9 +116,6 @@
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
       href: samples-cli.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Förstå mikrotjänster
@@ -895,6 +892,9 @@
           href: service-fabric-service-model-schema-element-groups.md
     - name: Miljövariabler
       href: service-fabric-environment-variables-reference.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

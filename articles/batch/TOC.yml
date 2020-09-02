@@ -44,9 +44,6 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
       href: cli-samples.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Säkerhet
@@ -268,6 +265,9 @@
           href: batch-task-complete-event.md
         - name: Händelse för misslyckad uppgift
           href: batch-task-fail-event.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Azure-uppdateringar

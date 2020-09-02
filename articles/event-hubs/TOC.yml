@@ -75,9 +75,6 @@
   items:
     - name: Kodexempel
       href: event-hubs-samples.md
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Event Hubs-terminologi
@@ -290,6 +287,9 @@
       href: event-hubs-quotas.md
     - name: Apache Kafka-konfigurationer
       href: apache-kafka-configurations.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

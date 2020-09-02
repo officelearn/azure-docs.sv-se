@@ -40,11 +40,6 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 – Uppgradera kluster
       href: tutorial-kubernetes-upgrade-cluster.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Kluster och arbetsbelastningar
@@ -388,6 +383,9 @@
       href: /javascript/api/overview/azure/container-service
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

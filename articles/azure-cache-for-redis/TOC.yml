@@ -161,7 +161,8 @@
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.cache/allversions
     - name: Inbyggda Azure Policy-program
-      href: ./policy-samples.md
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Redis-kommandon
       href: 'https://redis.io/commands#'
 - name: Resurser

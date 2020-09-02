@@ -88,9 +88,6 @@
       href: /samples/browse/?languages=python&products=azure-cognitive-search
     - name: REST-exempel
       href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Fulltextsökning
@@ -496,6 +493,9 @@
           items:
             - name: Igenkänning av namngiven enhet
               href: cognitive-search-skill-named-entity-recognition.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Support av Azure-communityn
@@ -526,5 +526,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Videoklipp
+    - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

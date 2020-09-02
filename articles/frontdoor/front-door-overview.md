@@ -3,21 +3,21 @@ title: Azure-front dörr | Microsoft Docs
 description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastnings utjämning av användar trafik för ditt program.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
-ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 09/02/2020
+ms.author: duau
+ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322289"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378193"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
 Med Azures front dörr kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och snabb global redundans för hög tillgänglighet. Med front dörren kan du omvandla din globala (flera regioner) konsument-och företags program till robusta, anpassade moderna program med höga prestanda, API: er och innehåll som når en global publik med Azure.
@@ -81,6 +81,10 @@ HTTP/2-protokollet ger full duplex-kommunikation mellan programserverdelar och e
 ## <a name="pricing"></a>Prissättning
 
 Information om priser finns i [Prissättning för Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+## <a name="whats-new"></a>Nyheter
+
+Prenumerera på RSS-flödet och Visa de senaste Azure Load Balancer funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
 
 ## <a name="next-steps"></a>Nästa steg
 

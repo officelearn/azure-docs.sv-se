@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81391567"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377020"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -71,13 +71,13 @@ Användaren har fullständig åtkomst till resursgruppen och använder den för 
 
 Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomsten är antingen permanent eller begränsad till en viss tidpunkt.
 
-När du publicerar det [hanterade programmet på Marketplace](publish-marketplace-app.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resurs gruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver Läs åtgärder nekas fortfarande.
+När du publicerar det [hanterade programmet på Marketplace](publish-marketplace-app.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resurs gruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver Läs åtgärder nekas fortfarande. Ändringar av resurser i en hanterad resurs grupp av en konsument med beviljade åtgärder är föremål för [Azure policy](../../governance/policy/overview.md) tilldelningar i klient organisationen som omfattas för att inkludera den hanterade resurs gruppen.
 
 När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Du kan använda [Azure Policy](../../governance/policy/overview.md) för det hanterade programmet. Du kan tillämpa principer som ser till att distribuerade instanser av det hanterade programmet uppfyller data- och säkerhetskraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om programmet till exempel interagerar med data från Office 365 kan du använda en princip som ser till att datakryptering är aktiverad.
+Du kan använda en [Azure policy](../../governance/policy/overview.md) för att granska det hanterade programmet. Du tillämpar princip definitioner för att se till att distribuerade instanser av ditt hanterade program uppfyller data-och säkerhets kraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om ditt program till exempel interagerar med data från Office 365 använder du en princip definition för att kontrol lera att data kryptering är aktiverat.
 
 ## <a name="next-steps"></a>Nästa steg
 

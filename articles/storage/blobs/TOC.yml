@@ -111,9 +111,6 @@
           href: storage-samples-blobs-powershell.md
         - name: Azure CLI
           href: storage-samples-blobs-cli.md
-        - name: Inbyggda Azure Policy-program
-          displayName: 'samples, policies, definitions'
-          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Begrepp
       items:
         - name: Lagringskonton
@@ -554,6 +551,9 @@
           href: /azure/templates/microsoft.storage/allversions
         - name: Övervaka data
           href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resurser
       items:
         - name: Azure-uppdateringar
@@ -713,12 +713,8 @@
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gör så här för att
       items:
-        - name: Skapa
-          items:
-            - name: Skapa ett lagringskonto (generell användning v2)
-              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Skapa ett lagringskonto (blockblob)
-              href: storage-blob-create-account-block-blob.md
+        - name: skapar ett lagringskonto
+          href: create-data-lake-storage-account.md
         - name: Migrera
           items:
             - name: Migrera från Data Lake Storage Gen1
@@ -830,6 +826,9 @@
         - name: Resource Manager-mall
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resurser
       items:
         - name: Kända problem

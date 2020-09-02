@@ -4,6 +4,8 @@
   items:
     - name: Om Azure Arc-aktiverade servrar
       href: overview.md
+    - name: Senaste nytt om Connected Machine-agent
+      href: agent-release-notes.md
 - name: Snabbstarter
   items:
     - name: Aktivera Azure Arc-aktiverad agent för servrar
@@ -14,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Övervaka dator
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      items:
-        - name: Arc-aktiverade servrar
-          href: policy-samples.md
 - name: Begrepp
   items:
     - name: Säkerhet
@@ -55,3 +51,6 @@
           href: data-residency.md
         - name: REST
           href: /rest/api/hybridcompute
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: policy-reference.md

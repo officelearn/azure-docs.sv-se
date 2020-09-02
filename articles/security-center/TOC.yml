@@ -107,12 +107,12 @@
           href: update-regulatory-compliance-packages.md
     - name: Sök igenom dina virtuella datorer efter sårbarheter
       items:
-        - name: Översikt över sårbarhetssökning
-          href: security-center-vulnerability-assessment-recommendations.md
-        - name: Integrerad sårbarhetsskanner för virtuella datorer
-          href: built-in-vulnerability-assessment.md
-        - name: Använda externa skannrar
-          href: partner-vulnerability-assessment.md
+        - name: Distribuera den integrerade sårbarhetsskannern till dina virtuella datorer
+          href: deploy-vulnerability-assessment-vm.md
+        - name: Distribuera en BYOL-sårbarhetslösning till dina virtuella datorer
+          href: deploy-vulnerability-assessment-byol-vm.md
+        - name: Granska och åtgärda sårbarheter i dina virtuella datorer
+          href: remediate-vulnerability-findings-vm.md
     - name: Konfigurera aviseringar för skydd mot hot och hothantering
       items:
         - name: Hantera säkerhetsaviseringar

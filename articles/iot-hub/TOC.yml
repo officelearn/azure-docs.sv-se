@@ -84,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: Testa enhetsanslutning
       href: tutorial-connectivity.md
-- name: Exempel
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: TLS-support
@@ -461,6 +456,9 @@
       href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: 'Tillbakadragning av funktioner och API:er'
       items:
         - name: Övervakning av åtgärder

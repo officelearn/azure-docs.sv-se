@@ -49,20 +49,22 @@
   items:
     - name: .NET
       items:
-        - name: Koda och strömma en fjärrfil – REST
-          href: stream-files-tutorial-with-rest.md
         - name: Koda och strömma en fjärrfil – .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Koda och strömma en uppladdad fil
+        - name: Koda och strömma en uppladdad fil .NET
           href: stream-files-tutorial-with-api.md
-        - name: Strömma live
+        - name: Strömma live med .NET
           href: stream-live-tutorial-with-api.md
-        - name: Analysera din video
+        - name: Analysera din video med .NET
           href: analyze-videos-tutorial-with-api.md
         - name: Kryptera dynamiskt med AES-128
           href: protect-with-aes128.md
         - name: Kryptera dynamiskt med DRM
           href: protect-with-drm.md
+    - name: REST
+      items:
+        - name: Koda och strömma en fjärrfil – REST
+          href: stream-files-tutorial-with-rest.md
     - name: CLI
       items:
         - name: Koda och strömma en fjärrfil – CLI

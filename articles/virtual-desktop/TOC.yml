@@ -166,6 +166,8 @@
       href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
     - name: Azure – exempel på scenarier
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+    - name: E-postidentifiering
+      href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Resurser
   items:
     - name: PowerShell

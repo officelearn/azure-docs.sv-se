@@ -46,6 +46,8 @@
       href: disable-private-link-service-network-policy.md
     - name: Hantera privata slutpunkter
       href: manage-private-endpoint.md
+    - name: Undersök trafik med Azure Firewall
+      href: inspect-traffic-with-azure-firewall.md
     - name: Felsöka
       items:
         - name: Felsöka anslutningsproblem för privata slutpunkter

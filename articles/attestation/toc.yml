@@ -1,0 +1,48 @@
+- name: Microsoft Azure Attestation (förhandsversion)
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Microsoft Azure Attestation
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: ARM-mall
+      href: quickstart-template.md
+    - name: PowerShell
+      href: quickstart-powershell.md
+- name: Självstudier
+  items:
+    - name: Redigera och signera attesteringsprincipen
+      href: author-sign-policy.md
+    - name: Kodexempel för SGX-attestering
+      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+- name: Exempel
+  items:
+    - name: Attesteringsprincip
+      href: policy-examples.md
+    - name: Principsigneringscertifikat
+      href: policy-signer-examples.md
+- name: Begrepp
+  items:
+    - name: Grundläggande begrepp
+      href: basic-concepts.md
+    - name: Anspråk på attesteringsprincip
+      items:
+        - name: Grammatik för anspråksregel
+          href: claim-rule-grammar.md
+        - name: Anspråksuppsättningar
+          href: claim-sets.md
+    - name: Arbetsflöde
+      href: workflow.md
+- name: Referenser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
+    - name: REST
+      href: /rest/api/attestation/
+    - name: Azure PowerShell
+      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - name: Azure DCAP-bibliotek för Windows
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
+    - name: Azure DCAP-bibliotek för Linux
+      href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'

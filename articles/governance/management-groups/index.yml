@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
-  ms.openlocfilehash: d27bb0be6698a6b92c459143604ad2ebeb00b728
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/31/2020
+  ms.openlocfilehash: a2d736b2706b3b0958bb544c6d0e4434c78e6791
+  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85551884"
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89231341"
 landingContent:
 - title: Om Azure Governance
   linkLists:
@@ -29,14 +29,26 @@ landingContent:
     links:
     - text: Azure-hanteringsgrupper
       url: ./overview.md
-- title: Organisera dina resurser
+- title: Kom igång
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en hanteringsgrupp (Portal)
+      url: ./create-management-group-portal.md
+    - text: Skapa en hanteringsgrupp (Azure CLI)
+      url: ./create-management-group-azure-cli.md
+    - text: Skapa en hanteringsgrupp (Azure PowerShell)
+      url: ./create-management-group-powershell.md
+    - text: Skapa en hanteringsgrupp (REST)
+      url: ./create-management-group-rest-api.md
+    - text: Distribuera resurser till hanteringsgruppen (ARM-mallar)
+      url: ../../azure-resource-manager/templates/deploy-to-management-group.md
   - linkListType: how-to-guide
     links:
-    - text: Skapa hanteringsgrupper
-      url: ./create.md
-    - text: Hantera dina resurser
+    - text: Hantera din resurshierarki
       url: ./manage.md
+    - text: Skydda din resurshierarki
+      url: ./how-to/protect-resource-hierarchy.md
 - title: Referens
   linkLists:
   - linkListType: reference

@@ -4,6 +4,10 @@
   items:
     - name: Vad är ExpressRoute?
       href: expressroute-introduction.md
+- name: Snabbstart
+  items:
+    - name: Skapa en ExpressRoute-krets – ARM-mall
+      href: quickstart-create-expressroute-vnet-template.md
 - name: Självstudier
   items:
     - name: Skapa och ändra en krets

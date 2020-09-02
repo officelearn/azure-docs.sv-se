@@ -116,6 +116,10 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Enkel inloggning till lokala resurser
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Vanliga frågor och svar om hybrid
+              href: howto-authentication-passwordless-faqs.md
+            - name: Felsöka hybrid
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Lösenordslös inloggning via telefon
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello för företag
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Felsöka
       items:
-        - name: Felsöka SSPR
+        - name: SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: VANLIGA FRÅGOR OCH SVAR OM SSPR
           href: active-directory-passwords-faq.md

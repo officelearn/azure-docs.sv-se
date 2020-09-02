@@ -4,14 +4,17 @@
   items:
     - name: Vad är Traffic Manager?
       href: traffic-manager-overview.md
-- name: Snabbstart
+- name: Snabbstarter
   items:
-    - name: Skapa en Traffic Manager-profil – portalen
+    - name: Skapa en Traffic Manager-profil – portal
       href: quickstart-create-traffic-manager-profile.md
     - name: Skapa en Traffic Manager-profil – PowerShell
       href: quickstart-create-traffic-manager-profile-powershell.md
     - name: Skapa en Traffic Manager-profil – Azure CLI
       href: quickstart-create-traffic-manager-profile-cli.md
+    - name: Skapa en Traffic Manager-profil – ARM-mall
+      href: quickstart-create-traffic-manager-profile-template.md
+  expanded: true
 - name: Självstudier
   items:
     - name: Dirigera trafik för låg latens
@@ -59,7 +62,7 @@
       href: traffic-manager-how-it-works.md
     - name: Vanliga frågor och svar
       href: traffic-manager-FAQs.md
-- name: Gör så här för att
+- name: Anvisningar
   items:
     - name: Konfigurera prestandaroutning i Traffic Manager
       href: traffic-manager-configure-performance-routing-method.md
@@ -132,7 +135,7 @@
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Tjänstbegränsningar
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: SLA

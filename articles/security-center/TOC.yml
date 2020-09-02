@@ -61,8 +61,6 @@
           href: security-center-recommendations.md
         - name: Översikt över säkerhetsprinciper
           href: tutorial-security-policy.md
-        - name: Inbyggda säkerhetsprinciper
-          href: security-center-policy-definitions.md
         - name: Använda rekommendationer för att förbättra säkerheten
           href: security-center-using-recommendations.md
         - name: Säkerhetsbaslinje
@@ -157,7 +155,7 @@
       href: asset-inventory.md
     - name: Integrera med andra verktyg och tjänster
       items:
-        - name: Integrera med Windows Admin Center
+        - name: Skydda dina Windows Admin Center-servrar
           href: windows-admin-center-integration.md
         - name: 'Skydda dina Azure App Service-webbappar och API:er'
           href: security-center-app-services.md
@@ -211,6 +209,9 @@
       href: security-center-features-retirement-july2019.md
     - name: Utvärdering av slutpunktsskydd och rekommendationer
       href: security-center-endpoint-protection.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 8066ba5c895ec5c3fdbf06ffc0a1f30117dcd4d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fb9f422f2d2c4ed035b04b4abe4141bbb8ebfc7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076821"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299855"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-[Azure Cosmos DB](introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos DB erbjuder [nyckelfärdig global distribution](distribute-data-globally.md), [elastisk skalning av dataflöde och lagring](partition-data.md) världen över, ensiffrig svarstid som den 99:e percentilen, och garanterat hög tillgänglighet, och allt understöds av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexerar alla data automatiskt](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det är flera modeller och stöder dokument, nyckel/värde-, graf-och kolumn data modeller. Azure Cosmos DB tjänst implementerar kabel protokoll för vanliga NoSQL-API: er, inklusive Cassandra, MongoDB, Gremlin och Azure Table Storage. På så sätt kan du använda välbekanta NoSQL-klientdrivrutiner och verktyg för att interagera med din Cosmos-databas.
+[Azure Cosmos DB](introduction.md) är Microsofts globalt distribuerade databastjänst för flera datamodeller för verksamhetskritiska program. Azure Cosmos DB erbjuder [nyckelfärdig global distribution](distribute-data-globally.md), [elastisk skalning av dataflöde och lagring](partition-data.md) världen över, ensiffrig svarstid som den 99:e percentilen, och garanterat hög tillgänglighet, och allt understöds av [branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexerar alla data automatiskt](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) utan att du behöver bry dig om schema- eller indexhantering. Det stöder flera modeller och dokument, nyckelvärde graf och kolumndatamodeller. Azure Cosmos DB tjänst implementerar kabel protokoll för vanliga NoSQL-API: er, inklusive Cassandra, MongoDB, Gremlin och Azure Table Storage. På så sätt kan du använda välbekanta NoSQL-klientdrivrutiner och verktyg för att interagera med din Cosmos-databas.
 
 ## <a name="wire-protocol-compatibility"></a>Trådprotokollkompatibilitet
 

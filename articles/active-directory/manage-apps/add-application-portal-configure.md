@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641865"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300161"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
@@ -31,7 +31,7 @@ Om du vill konfigurera egenskaperna för ett program i din Azure AD-klient behö
 - Valfritt: slut för ande av [Lägg till en app](add-application-portal.md).
 
 >[!IMPORTANT]
->Använd en miljö som inte är en produktions miljö för att testa stegen i den här snabb starten.
+>Använd en icke-produktions miljö för att testa stegen i den här snabb starten.
 
 ## <a name="configure-app-properties"></a>Konfigurera app-egenskaper
 
@@ -57,13 +57,13 @@ Redigera program egenskaperna:
     | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Beteende för användare som antingen har tilldelats till appen eller inte. |
     |---|---|---|---|
     | Ja | Ja | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Ja | Ja | Nej  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Ja | Nej  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
-    | Ja | Nej  | Nej  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
-    | Nej  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Nej  | Ja | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Nej  | Nej  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Nej  | Nej  | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Ja | Inga  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Inga  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Ja | Inga  | Inga  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Inga  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Inga  | Ja | Inga  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Inga  | Inga  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Inga  | Inga  | Inga  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
 
 4. När du är klar väljer du **Spara**.
 
@@ -93,6 +93,6 @@ Om du inte kommer att fortsätta med snabb starts serien kan du ta bort appen f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt till nästa artikel och lär dig hur du konfigurerar enkel inloggning för en app.
+Gå vidare till nästa artikel om du vill lära dig hur du tilldelar användare till appen.
 > [!div class="nextstepaction"]
-> [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)
+> [Tilldela användare till en app](add-application-portal-assign-users.md)

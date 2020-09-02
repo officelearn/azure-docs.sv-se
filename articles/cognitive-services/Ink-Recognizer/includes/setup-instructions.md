@@ -4,12 +4,12 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/20/2019
-ms.openlocfilehash: c202ba1d7363af9791daa801f0c447c49a80859b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 9d46b304d598b4830cf325909f77eea6b68af757
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378603"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303983"
 ---
 >[!NOTE]
 > Slut punkter för resurser som skapats efter den 1 juli 2019 Använd det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
@@ -20,6 +20,6 @@ När du har skapat en resurs hämtar du slut punkten och nyckeln genom att öppn
 
 Skapa två [miljövariabler](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource):
 
-* `INK_RECOGNITION_SUBSCRIPTION_KEY`– Slut punkten för din resurs. Det kommer att se ut så här: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `INK_RECOGNITION_SUBSCRIPTION_KEY` – Prenumerations nyckeln för autentisering av dina begär Anden. 
 
-* `INK_RECOGNITION_ENDPOINT`– Prenumerations nyckeln för autentisering av dina begär Anden.   
+* `INK_RECOGNITION_ENDPOINT` – Slut punkten för din resurs. Resultatet ser ut så här: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com`   

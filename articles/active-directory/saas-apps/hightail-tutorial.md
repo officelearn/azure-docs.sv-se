@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b3f279b28bf78114556623865a9f132174c6e41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550553"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297322"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Hightail
 
@@ -109,7 +109,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Innan du konfigurerar den enkla inloggningen i Hightail-appen, måste du vara vit lista över din e-postdomän med Hightail-teamet så att alla användare som använder den här domänen kan använda enkel inloggnings funktioner.
+> Innan du konfigurerar den enkla inloggningen på Hightail-appen kan du lägga till din e-postdomän till listan över tillåtna användare med Hightail-teamet så att alla användare som använder den här domänen kan använda enkel inloggnings funktioner.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

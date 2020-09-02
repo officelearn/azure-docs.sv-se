@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808243"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300127"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: ta bort ett program från din Azure Active Directory (Azure AD)-klient
 
@@ -30,10 +30,11 @@ Om du vill ta bort ett program från din Azure AD-klient behöver du:
 - Valfritt: Slutför [visningen av Visa dina appar](view-applications-portal.md).
 - Valfritt: slut för ande av [Lägg till en app](add-application-portal.md).
 - Valfritt: Slutför [konfiguration av en app](add-application-portal-configure.md).
+- Valfritt: slut för ande av [tilldela användare till en app](add-application-portal-assign-users.md).
 - Valfritt: slut för ande av konfiguration av [enkel inloggning](add-application-portal-setup-sso.md).
 
 >[!IMPORTANT]
->Använd en miljö som inte är en produktions miljö för att testa stegen i den här snabb starten.
+>Använd en icke-produktions miljö för att testa stegen i den här snabb starten.
 
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Ta bort ett program från din Azure AD-klient
 

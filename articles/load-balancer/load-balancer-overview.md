@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 898f63cbfba082f8c268587bcd2ea7f575d07f81
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299209"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -48,7 +48,7 @@ Viktiga scenarier som du kan utföra med Standard Load Balancer inkluderar:
 
 - Öka tillgängligheten genom att distribuera resurser **[inom](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** och **[mellan](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** zoner.
 
-- Konfigurera **[utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** för virtuella Azure-datorer.
+- Konfigurera **[utgående anslutning ](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** för virtuella Azure-datorer.
 
 - Använd **[hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** för att övervaka belastningsutjämnade resurser.
 
@@ -74,6 +74,10 @@ Basic Load Balancer är öppet för Internet som standard. Dessutom lagrar Load 
 Standard Load Balancer pris information finns i [Load Balancer prissättning](https://azure.microsoft.com/pricing/details/load-balancer/).
 Basic Load Balancer tillhandahålls kostnadsfritt.
 Se [SLA för Load Balancer](https://aka.ms/lbsla). Basic Load Balancer har inget service avtal.
+
+## <a name="whats-new"></a>Nyheter
+
+Prenumerera på RSS-flödet och Visa de senaste Azure Load Balancer funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer) .
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i [uppgradera en Basic-Load Balancer](upgrade-basic-standard.md) för att uppgradera Basic Load Balancer till standard Load Balancer.

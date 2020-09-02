@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: d6e4b77c6eba976de052295e4a0001924ad90644
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374209"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290335"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 Domain Name Service (DNS) är en teknik för att lagra namn på nätverks-noder i ett nätverk. Den här självstudien mappar en domän, till exempel www.contoso.com, med hjälp av en CNAME-post. Den säkrar den anpassade domänen med ett certifikat och visar hur du tvingar Transport Layer Security (TLS), även kallat Secure Sockets Layer (SSL). 
@@ -20,7 +20,7 @@ Domain Name Service (DNS) är en teknik för att lagra namn på nätverks-noder 
 Certifikaten krypterar webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Ett program som distribueras till Azure våren Cloud (se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart-launch-app-portal.md)eller Använd en befintlig app).
+* Ett program som distribueras till Azure våren Cloud (se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)eller Använd en befintlig app).
 * Ett domän namn med åtkomst till DNS-registret för domän leverantören, till exempel GoDaddy.
 * Ett privat certifikat (det vill säga ditt självsignerade certifikat) från en tredje parts leverantör. Certifikatet måste matcha domänen.
 * En distribuerad instans av [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
@@ -145,7 +145,7 @@ I tabellen anpassad domän väljer du **Lägg till SSL-bindning** som visas i f�
 1. Välj ditt **certifikat** eller importera det.
 1. Klicka på **Spara**.
 
-    ![Lägg till SSL-bindning](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Lägg till SSL-bindning 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
 Du kan också använda Azure CLI för att **lägga till SSL-bindning**:
 ```
@@ -154,14 +154,14 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 
 När du har lagt till SSL-bindningen är domän tillståndet säker: **felfri**. 
 
-![Lägg till SSL-bindning](./media/custom-dns-tutorial/secured-domain-state.png)
+![Lägg till SSL-bindning 2](./media/custom-dns-tutorial/secured-domain-state.png)
 
 ## <a name="enforce-https"></a>Använda HTTPS
 Som standard kan alla fortfarande komma åt din app med HTTP, men du kan omdirigera alla HTTP-förfrågningar till HTTPS-porten.
 
 På din app-sida väljer du **anpassad domän**i det vänstra navigerings fältet. Ange sedan **https**till *True*.
 
-![Lägg till SSL-bindning](./media/custom-dns-tutorial/enforce-http.png)
+![Lägg till SSL-bindning 3](./media/custom-dns-tutorial/enforce-http.png)
 
 Du kan också använda Azure CLI för att genomdriva HTTPS:
 ```

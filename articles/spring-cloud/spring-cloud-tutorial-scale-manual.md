@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: edbb3c1b2ed3e696c304f72c7b40fa926cae2c54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021196"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289825"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Självstudie: skala ett program i Azure våren Cloud
 
@@ -26,8 +26,8 @@ När du är klar vet du hur du ska göra snabba manuella ändringar i varje prog
 
 Om du vill följa de här procedurerna behöver du:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
-* En distribuerad Azure våren Cloud Service-instans.  Följ [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* En distribuerad Azure våren Cloud Service-instans.  Följ [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart.md) för att komma igång.
 * Minst ett program som redan har skapats i din tjänst instans.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Gå till sidan skala i Azure Portal
@@ -58,7 +58,7 @@ Se till att välja **Spara** för att tillämpa skalnings inställningarna.
 
 ![Skalnings tjänsten i Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Efter några sekunder visas ändringarna du gjort på sidan **Översikt** med mer information på fliken **program instanser** . skalning kräver inte kod ändringar eller omdistribution.
+Efter några sekunder visas de ändringar du gjort på sidan **Översikt** med mer information som är tillgänglig på fliken **program instanser** . Skalning kräver inte kod ändringar eller omdistribution.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Uppgradera till standardnivån
 Om du är på Basic-nivån och är begränsad av en eller flera av dessa [gränser](spring-cloud-quotas.md), kan du uppgradera till standard nivån. Om du vill göra detta går du till menyn pris nivå genom att först välja kolumnen standard nivå och klicka på knappen **Uppgradera** .

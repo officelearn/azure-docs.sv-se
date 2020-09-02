@@ -3,12 +3,12 @@ title: IRS 1075-skiss exempel kontroller
 description: Kontroll mappning för IRS 1075-skiss exemplet. Varje kontroll mappas till en eller flera Azure-principer som underlättar utvärderingen.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: b7208a475d35674cc1abb6932a04681a11f7e89b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f19cc11ddde8137305566efb33aa316ea7b71960
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653757"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289009"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Kontroll mappning för IRS 1075-skiss exemplet
 
@@ -137,19 +137,19 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 ## <a name="9357-cm-7-2-least-functionality--prevent-program-execution"></a>9.3.5.7 CM – 7 (2) minsta funktioner | Förhindra program körning
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Program kontroll kan köras i ett tvingande läge som förhindrar att icke-godkända program körs. Den här skissen tilldelar en Azure Policy-definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
+Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad program filtrerings lösning från slut punkt till slut punkt som kan blockera eller förhindra att specifika program körs på dina virtuella datorer. Program kontroll kan köras i ett tvingande läge som förhindrar att icke-godkända program körs. Den här skissen tilldelar en Azure Policy-definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
 ## <a name="9357-cm-7-5-least-functionality--authorized-software--whitelisting"></a>9.3.5.7 CM – 7 (5) de minst funktionerna | Auktoriserad program vara/vit listning
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Med program kontroll kan du skapa godkända program listor för dina virtuella datorer. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
+Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad program filtrerings lösning från slut punkt till slut punkt som kan blockera eller förhindra att specifika program körs på dina virtuella datorer. Med program kontroll kan du skapa godkända program listor för dina virtuella datorer. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
 ## <a name="93511-cm-11-user-installed-software"></a>9.3.5.11 CM – 11 användare-installerad program vara
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
+Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad program filtrerings lösning från slut punkt till slut punkt som kan blockera eller förhindra att specifika program körs på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där en lista över tillåtna program rekommenderas men inte har kon figurer ATS än.
 
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 

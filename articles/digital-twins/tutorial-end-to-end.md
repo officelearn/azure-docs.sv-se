@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b12320213b28e6b07abe217bb509fd668a9ad997
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3da73e376fc77297f77c1ff8c7f444b98e92b412
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017532"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290811"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -365,6 +365,8 @@ Spara de namn som du gav ditt event Grid-ämne och din Azure digital-slutpunkt. 
 ### <a name="set-up-route"></a>Konfigurera väg
 
 Skapa sedan en Azure Digital-väg som skickar händelser till den Azure digital-slutpunkt som du nyss skapade.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

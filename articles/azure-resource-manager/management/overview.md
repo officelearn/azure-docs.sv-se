@@ -2,13 +2,14 @@
 title: Översikt över Azure Resource Manager
 description: Beskriver hur du använder Azure Resource Manager för distribution, hantering och åtkomstkontroll av resurser i Azure.
 ms.topic: overview
-ms.date: 04/21/2020
-ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/01/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087035"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293956"
 ---
 # <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
@@ -68,25 +69,33 @@ Du kan distribuera mallar till klienter, hanterings grupper, prenumerationer ell
 
 Det finns några viktiga faktorer att tänka på när du definierar en resursgrupp:
 
-* Alla resurserna i din grupp måste ha samma livscykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en server, måste finnas på en annan distributions cykel bör den finnas i en annan resurs grupp.
+* Alla resurser i resurs gruppen bör dela samma livs cykel. Du distribuerar, uppdaterar och tar bort dem tillsammans. Om en resurs, till exempel en server, måste finnas på en annan distributions cykel bör den finnas i en annan resurs grupp.
 
-* En enskild resurs kan bara finnas i en resursgrupp.
-
-* Vissa resurser kan finnas utanför en resurs grupp. Dessa resurser distribueras till [prenumerationen](../templates/deploy-to-subscription.md), [hanterings gruppen](../templates/deploy-to-management-group.md)eller [klient organisationen](../templates/deploy-to-tenant.md). Endast vissa resurs typer stöds i dessa omfång.
+* Varje resurs kan endast finnas i en resursgrupp.
 
 * Du kan lägga till eller ta bort en resurs i en resursgrupp när som helst.
 
 * Du kan flytta en resurs från en resursgrupp till en annan grupp. Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](move-resource-group-and-subscription.md).
 
-* En resursgrupp kan innehålla resurser som finns i olika regioner.
+* Resurserna i en resurs grupp kan finnas i olika regioner än i resurs gruppen.
 
-* En resursgrupp kan användas för att definiera omfattningen av åtkomstkontrollen för administrativa åtgärder.
+* När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs gruppen anger du var metadata lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att dina data lagras inom en viss region.
 
-* En resurs kan interagera med resurser i andra resursgrupper. Denna interaktion är vanlig när de två resurserna är relaterade, men inte delar samma livscykel (till exempel webbappar som är anslutna till en databas).
+   Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Mer information om hur du skapar pålitliga program finns i [utforma pålitliga Azure-program](/azure/architecture/checklist/resiliency-per-service).
 
-När du skapar en resursgrupp måste du ange en plats för denna resursgrupp. Du kanske undrar, "varför behöver en resursgrupp en plats? Och om resurserna kan ha andra platser än resursgruppen, varför spelar platsen för gruppresursen alls någon roll?" Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs gruppen anger du var metadata lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
+* En resursgrupp kan användas för att definiera omfattningen av åtkomstkontrollen för administrativa åtgärder. Om du vill hantera en resurs grupp kan du tilldela [Azure-principer](../../governance/policy/overview.md), RBAC- [roller](../../role-based-access-control/role-assignments-portal.md)eller [resurs lås](lock-resources.md).
 
-Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Mer information om hur du skapar pålitliga program finns i [utforma pålitliga Azure-program](/azure/architecture/checklist/resiliency-per-service).
+* Du kan [använda Taggar](tag-resources.md) i en resurs grupp. Resurserna i resurs gruppen ärver inte taggarna.
+
+* En resurs kan ansluta till resurser i andra resurs grupper. Det här scenariot är vanligt när de två resurserna är relaterade men inte delar samma livs cykel. Du kan till exempel ha en webbapp som ansluter till en databas i en annan resurs grupp.
+
+* När du tar bort en resurs grupp raderas även alla resurser i resurs gruppen. Information om hur Azure Resource Manager dirigerar dessa borttagningar finns i [Azure Resource Manager resurs grupp och borttagning av resurser](delete-resource-group.md).
+
+* Du kan distribuera upp till 800 instanser av en resurs typ i varje resurs grupp. Vissa resurs typer är [undantagna från gränsen på 800-instanser](resources-without-resource-group-limit.md).
+
+* Vissa resurser kan finnas utanför en resurs grupp. Dessa resurser distribueras till [prenumerationen](../templates/deploy-to-subscription.md), [hanterings gruppen](../templates/deploy-to-management-group.md)eller [klient organisationen](../templates/deploy-to-tenant.md). Endast vissa resurs typer stöds i dessa omfång.
+
+* Om du vill skapa en resurs grupp kan du använda [portalen](manage-resource-groups-portal.md#create-resource-groups), [POWERSHELL](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups)eller en [Azure Resource Manager-mall (arm)](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Managers återhämtning
 

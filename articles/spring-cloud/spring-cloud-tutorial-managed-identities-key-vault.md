@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c960a4aeaeea41f23c7f29351b9205c4bbf21454
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: fc803cbe3dd1ec57b6cd286513efe8393a1471e9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177235"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297135"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Självstudie: använda en hanterad identitet för att ansluta Key Vault till en Azure våren Cloud-App
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar en hanterad identitet för en Azure våren
 
 Azure Key Vault kan användas för säker lagring och strikt kontroll av åtkomst till token, lösen ord, certifikat, API-nycklar och andra hemligheter för din app. Du kan skapa en hanterad identitet i Azure Active Directory (AAD) och autentisera till en tjänst som stöder AAD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
 * [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -81,7 +81,7 @@ Den här appen kommer att ha åtkomst till att hämta hemligheter från Azure Ke
 
 1. Generera ett exempel projekt från start.spring.io med Azure Key Vault våren starter. 
     ```azurecli
-    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE | tar -xzvf -
+    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault-secrets -d baseDir=springapp -d bootVersion=2.3.1.RELEASE -d javaVersion=1.8 | tar -xzvf -
     ```
 
 2. Ange Key Vault i din app. 

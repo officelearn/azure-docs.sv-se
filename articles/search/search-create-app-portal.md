@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 60c5431150141a8a2421c80ac4858f85ad41b002
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927110"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292545"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en demo-app i portalen (Azure Kognitiv sökning)
 
@@ -61,7 +61,7 @@ Guiden innehåller en grundläggande layout för åter givning av Sök resultat 
 
 1. I Beskrivning väljer du ett fält som innehåller information som kan hjälpa någon att avgöra om du vill klicka till det specifika dokumentet.
 
-   ![data källans sida för exempel data](media/search-create-app-portal/configure-results.png)
+   ![Konfigurera resultat för exempel data](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Lägg till en marginal List
 

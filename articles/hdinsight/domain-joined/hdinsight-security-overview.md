@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367112"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292987"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -59,7 +59,7 @@ För att komma åt Apache Ranger och Ambari gransknings loggar och SSH-åtkomst 
 
 Det är viktigt att skydda data för att uppfylla organisationens krav på säkerhet och efterlevnad. Förutom att begränsa åtkomsten till data från obehöriga anställda bör du kryptera den.
 
-Azure Storage och Data Lake Storage Gen1/Gen2, stöder transparent [kryptering på Server sidan av data](../../storage/common/storage-service-encryption.md) i vila. Säkra HDInsight-kluster fungerar sömlöst med kryptering på Server sidan av data i vila.
+HDInsight stöder data kryptering i vila med både plattforms hanterade och [kundens hanterade nycklar](../disk-encryption.md). Kryptering av data i överföring hanteras med både TLS och IPSec. Mer information finns i [kryptering i överföring för Azure HDInsight](encryption-in-transit.md) .
 
 ### <a name="compliance"></a>Efterlevnad
 
@@ -79,7 +79,7 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 |  | Aktivera egenskapen ["säker överföring krävs"](../../storage/common/storage-require-secure-transfer.md) för lagrings konton. | Kund |
 |  | Konfigurera [Azure Storage brand väggar](../../storage/common/storage-network-security.md) och virtuella nätverk | Kund |
 |  | Konfigurera [tjänst slut punkter för Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) för Cosmos DB och [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Kund |
-|  | Se till att [TLS-kryptering](../../storage/common/storage-security-tls.md) har Aktiver ATS för data under överföring. | Kund |
+|  | Se till att [kryptering i överförings](./encryption-in-transit.md) funktionen är aktive rad för att använda TLS och IPSec för kommunikation mellan kluster. | Kund |
 |  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kund |
 |  | Kontrol lera åtkomsten till dina data med Azure-support med hjälp av [kundsäkerhet](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Kund |
 | Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera autentisering](apache-domain-joined-configure-using-azure-adds.md) | Kund |
@@ -90,8 +90,8 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
-| Virtualiserad infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
+| Virtualiserad infrastruktur | E.t. | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | E.t. | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

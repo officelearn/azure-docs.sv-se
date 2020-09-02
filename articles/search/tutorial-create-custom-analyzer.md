@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 667ee4b362d62cd4b7bd1b6c5a8ecf762adb0730
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936630"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290318"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Självstudie: skapa en anpassad analys för telefonnummer
 
@@ -239,7 +239,7 @@ Analyserare består av tre komponenter:
 
 I diagrammet nedan kan du se hur dessa tre komponenter fungerar tillsammans för att Tokenize en mening:
 
-  ![Diagram över analys processen](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagram över Analyzer-processen för att Tokenize en mening](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 Dessa tokens lagras sedan i ett inverterat index, vilket möjliggör snabba, full texts ökningar.  Ett inverterat index möjliggör full texts ökning genom att mappa alla unika villkor som extraheras under lexikal analys till de dokument där de förekommer. Du kan se ett exempel i diagrammet nedan:
 
@@ -251,7 +251,7 @@ All sökning är nedtryckt för att söka efter termer som lagras i det inverter
 1. Det inverterade indexet genomsöks sedan efter dokument med matchande villkor.
 1. Slutligen rangordnas de hämtade dokumenten av [algoritmen för likheter](index-ranking-similarity.md).
 
-  ![Diagram över analys processen](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Diagram över likhets sätt i Analyzer-processen](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 Om villkoren i frågan inte matchar villkoren i det inverterade indexet returneras inte resultatet. Mer information om hur frågor fungerar finns i den här artikeln om [full texts ökning](search-lucene-query-architecture.md).
 

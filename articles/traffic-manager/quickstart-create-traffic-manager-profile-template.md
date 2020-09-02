@@ -1,19 +1,19 @@
 ---
-title: Skapa en Traffic Manager med hjälp av Azure Resource Manager-mall (ARM-mall)
-description: Lär dig hur du skapar en Azure Traffic Manager-profil med Azure Resource Manager-mall (ARM-mall).
+title: 'Snabb start: skapa en Traffic Manager med hjälp av Azure Resource Manager-mall (ARM-mall)'
+description: I den här snabb starten beskrivs hur du skapar en Azure Traffic Manager-profil med hjälp av Azure Resource Manager-mall (ARM-mall).
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
-ms.date: 08/24/2020
-ms.openlocfilehash: bc7cc3220f228a4c8f15370b7b0fcde56db8186d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/01/2020
+ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237364"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299158"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Snabb start: skapa en Traffic Manager profil med en ARM-mall
 
@@ -105,12 +105,12 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar tar du bort resurs grupperna, webb programmen och alla relaterade resurser med hjälp av [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+När du inte längre behöver Traffic Manager profilen tar du bort resurs gruppen. Detta tar bort Traffic Manager profilen och alla relaterade resurser.
+
+Anropa cmdleten om du vill ta bort resurs gruppen `Remove-AzResourceGroup` :
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name <your resource group name>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

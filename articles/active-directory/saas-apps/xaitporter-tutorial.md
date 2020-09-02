@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546312"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Självstudie: Azure Active Directory integrering med XaitPorter
 
@@ -112,7 +112,7 @@ Utför följande steg för att konfigurera enkel inloggning med XaitPorter i Azu
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-6. Ange **IP-adressen** eller **URL: en för appens Federations-metadata** till [SmartRecruiters support-teamet](https://www.smartrecruiters.com/about-us/contact-us/)så att XaitPorter kan se till att IP-adressen kan användas från XaitPorter-instansen som konfigurerar vitlista på sin sida. 
+6. Ange **IP-adressen** eller **URL: en för app Federation-Metadata** till [support teamet för SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/)så att XaitPorter kan se till att IP-adressen kan hämtas från XaitPorter-instansen som konfigurerar en godkänd lista på deras sida. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Konfigurera XaitPorter enkel inloggning
 
@@ -213,4 +213,3 @@ När du klickar på panelen XaitPorter på åtkomst panelen, bör du loggas in a
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

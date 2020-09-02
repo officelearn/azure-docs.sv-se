@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585024"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300297"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudie: Använd dynamisk konfiguration i en ASP.NET Core app
 
@@ -53,13 +53,11 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 En *kontroll nyckel* är en särskild nyckel som används för att signalera när konfigurationen har ändrats. Din app övervakar kontroll nyckeln för ändringar. När en ändring identifieras uppdaterar du alla konfigurations värden. Den här metoden minskar det totala antalet begär Anden som görs av appen till app-konfigurationen, jämfört med övervakning av alla nycklar för ändringar.
 
 1. I Azure Portal väljer du **Configuration Explorer > skapa > nyckel värde**.
-
 1. För **nyckel**anger du *TestApp: Settings (inställningar: Sentinel*). För **värde**anger du 1. Lämna **etikett** och **innehålls typ** tom.
+1. Välj **Använd**.
 
-1. Välj **Tillämpa**.
-
-    > [!NOTE]
-    > Om du inte använder en kontroll nyckel måste du registrera varje nyckel som du vill se manuellt.
+> [!NOTE]
+> Om du inte använder en kontroll nyckel måste du registrera varje nyckel som du vill se manuellt.
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
 
@@ -162,9 +160,8 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
     }
     ```
     ---
-
-    > [!TIP]
-    > Mer information om alternativ mönstret när du läser konfigurations värden finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > Mer information om alternativ mönster när du läser konfigurations värden finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Uppdatera `Configure` metoden, Lägg till `UseAzureAppConfiguration` mellanprogram för att tillåta att konfigurations inställningarna som registreras för uppdatering uppdateras medan den ASP.net Core webbappen fortsätter att ta emot begär Anden.
 
@@ -316,15 +313,15 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
 
 1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. När skapandet har slutförts kör du följande kommando för att köra webbappen lokalt:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Öppna ett webbläsarfönster och gå till den URL som visas i `dotnet run` utdata.
 

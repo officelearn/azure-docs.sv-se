@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6ac8638efc09efe6d74f634c4042346d738d44ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924205"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290366"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -373,7 +373,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. Kontrol lera att projektet har följande struktur.
 
-    ![Projekt katalog struktur](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Projekt katalog struktur och klasser](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java` 
  ![ Kör maven-mål: verifiera exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)

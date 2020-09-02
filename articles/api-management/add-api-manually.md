@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82203275"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295270"
 ---
 # <a name="add-an-api-manually"></a>Lägga till ett API manuellt
 
@@ -45,7 +45,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 Nu har du inga åtgärder i API Management som mappar till åtgärderna i Server dels-API: et. Om du anropar en åtgärd som exponeras genom Server delen men inte via API Management får du en **404**.
 
 >[!NOTE] 
-> Som standard när du lägger till en API, även om den är ansluten till en serverdelstjänst, kommer inte APIM att exponera några åtgärder förrän du vitlistat dem. Om du vill vitlista en åtgärd i din serverdelstjänst, skapar du en APIM-åtgärd som mappar till serverdelsåtgärden.
+> När du lägger till ett API, även om det är anslutet till en viss backend-tjänst, kommer APIM som standard inte att exponera några åtgärder förrän du tillåter dem. Om du vill tillåta en drift av backend-tjänsten skapar du en APIM-åtgärd som mappar till Server dels åtgärden.
 
 ## <a name="add-and-test-an-operation"></a>Lägg till och testa en åtgärd
 

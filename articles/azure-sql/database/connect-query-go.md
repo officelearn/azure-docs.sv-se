@@ -12,12 +12,12 @@ author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: e9a6c769451385f09706731fcb15de4197ecc063
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5248f43e2b0b1e347c6968678b7f05ba7efa9cf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231666"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299600"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda Golang för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ I den här snabb starten använder du programmerings språket [Golang](https://g
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande krävs för att slutföra den här snabbstarten:
+För att slutföra den här snabbstarten behöver du:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En databas i Azure SQL Database eller Azure SQL-hanterad instans. Du kan använda någon av följande snabb starter för att skapa en databas:
@@ -38,8 +38,8 @@ Följande krävs för att slutföra den här snabbstarten:
   | **Skapa** | [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | **I** | [IP-brandväggsregel på servernivå](firewall-create-server-level-portal-quickstart.md)| [Anslutning från en virtuell dator](../managed-instance/connect-vm-instance-configure.md)|
   | **I** ||[Anslutning från lokal plats](../managed-instance/point-to-site-p2s-configure.md) | [Ansluta till en SQL Server-instans](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |**Läs in data**|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  | **Läs in data** ||Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |**Läsa in data**|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Återställa Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
+  | **Läsa in data** ||Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Återställa eller importera Adventure Works från en [BACPAC](database-import.md) -fil från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
 
   > [!IMPORTANT]
   > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en SQL-hanterad instans måste du antingen importera Adventure Works-databasen till en instans databas eller ändra skripten i den här artikeln för att använda Wide World imports-databasen.
@@ -56,7 +56,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
+2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
 3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
@@ -200,7 +200,8 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
            return -1, err
        }
 
-       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); select convert(bigint, SCOPE_IDENTITY());"
+       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); "
+       tsql += select isNull(SCOPE_IDENTITY(), -1);"
 
        stmt, err := db.Prepare(tsql)
        if err != nil {

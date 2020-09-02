@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495358"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296489"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Snabb start: skapa en Azure Database for MySQL med ett enkelt Azure CLI-kommando – AZ MySQL up (för hands version)
 
@@ -24,7 +24,7 @@ Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -63,7 +63,7 @@ resource-group | Genereras av systemet | En ny Azure-resurs grupp.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardvärdet är en Generell användning Gen5-server med 2 virtuella kärnor. På vår [prissättnings sida](https://azure.microsoft.com/pricing/details/mysql/) finns mer information om nivåerna.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar.
 geo-redundant-backup | Inaktiverad | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
-location | westus2 | Azure-platsen för servern.
+location | USA, västra 2 | Azure-platsen för servern.
 ssl-enforcement | Enabled | Om SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).
 version | 5.7 | Huvudversion för MySQL.
@@ -75,7 +75,7 @@ admin-password | Genereras av systemet | Lösenordet för administratörsanvänd
 
 När servern har skapats levereras den med följande inställningar:
 
-- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az mysql up` kommandot körs från och whitelists den IP-adressen.
+- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az mysql up` kommandot körs från och tillåter den IP-adressen.
 - "Tillåt åtkomst till Azure-tjänster" är inställt på på. Den här inställningen konfigurerar serverns brand vägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
 - `wait_timeout`Parametern har angetts till 8 timmar
 - En tom databas med namnet "sampledb" skapas

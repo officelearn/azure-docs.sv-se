@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d958cd2fa95cd3c3747afc80b47c17f55e4248a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 251dbf6897f7efe56d968122c2ccad7093d39e44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405542"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300059"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
 
@@ -443,7 +443,7 @@ Webbläsarens säkerhetsprinciper, till exempel resursdelning för korsande ursp
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-prenumerationsnyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-För utvecklingssyften kan du göra en begäran via en proxyserver för CORS. Svaret från denna typ av proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+För utvecklingssyften kan du göra en begäran via en proxyserver för CORS. Svaret från den här typen av proxy har ett `Access-Control-Expose-Headers` huvud som filtrerar svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att exempelappen får åtkomst till klientens ID-huvud. Kör följande kommando:
 

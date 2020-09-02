@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 662d34d3ed89a7d440a604de4338de334ea0bd11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496584"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300025"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd ett Azure CLI-kommando, AZ postgres (för hands version), för att skapa en Azure Database for PostgreSQL-enskild server
 
@@ -24,7 +24,7 @@ Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, han
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -63,7 +63,7 @@ resource-group | Genereras av systemet | En ny Azure-resurs grupp.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardvärdet är en Generell användning Gen5-server med 2 virtuella kärnor. På vår [prissättnings sida](https://azure.microsoft.com/pricing/details/postgresql/) finns mer information om nivåerna.
 backup-retention | 7 | Hur länge en säkerhets kopia behålls. Enheten är dagar.
 geo-redundant-backup | Inaktiverad | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
-location | westus2 | Azure-platsen för servern.
+location | USA, västra 2 | Azure-platsen för servern.
 ssl-enforcement | Inaktiverad | Om TLS/SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).
 version | 10 | Huvudversion för PostgreSQL.
@@ -75,7 +75,7 @@ admin-password | Genereras av systemet | Lösenordet för administratörsanvänd
 
 När servern har skapats levereras den med följande inställningar:
 
-- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az postgres up` kommandot körs från och whitelists den IP-adressen.
+- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az postgres up` kommandot körs från och tillåter den IP-adressen.
 - "Tillåt åtkomst till Azure-tjänster" är inställt på på. Den här inställningen konfigurerar serverns brand vägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
 - En tom databas med namnet "sampledb" skapas
 - En ny användare med namnet "rot" med behörighet till "sampledb" skapas

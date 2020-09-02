@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071166"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299235"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: så här övervakar du våren Cloud-resurser med hjälp av aviseringar och åtgärds grupper
 
@@ -24,7 +24,7 @@ Det finns två steg för att konfigurera en aviserings pipeline:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Förutom Azures våren-krav fungerar procedurerna i den här självstudien med en distribuerad Azure våren Cloud-instans.  Kom igång genom att följa en [snabb start](spring-cloud-quickstart-launch-app-cli.md) .
+Förutom Azures våren-krav fungerar procedurerna i den här självstudien med en distribuerad Azure våren Cloud-instans.  Kom igång genom att följa en [snabb start](spring-cloud-quickstart.md) .
 
 Följande procedurer initierar både **Åtgärds gruppen** och **aviseringen** från alternativet **aviseringar** i det vänstra navigerings fönstret i en våren-moln instans. (Proceduren kan också starta från sidan **övervaka översikt** i Azure Portal.) 
 
@@ -76,11 +76,11 @@ Om du vill konfigurera en **avisering**går du tillbaka till sidan **aviseringar
 
 1. Välj ett villkor. I det här exemplet används **system processor användning i procent**.
 
-   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-1.png)
+   ![Skärm bilds portalen ny varnings regel 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Rulla nedåt i fönstret **Konfigurera signal logik** för att ange det **tröskelvärde** som ska övervakas.
 
-   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-2.png)
+   ![Skärm bilds portalen ny varnings regel 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. Klicka på **Klar**.
 
@@ -88,7 +88,7 @@ Mer information om de villkor som är tillgängliga för övervakning finns i [a
 
  Under **åtgärder**klickar du på **Välj åtgärds grupp**. Från fönstret **åtgärder** väljer du den tidigare definierade **Åtgärds gruppen**.
 
-   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-3.png) 
+   ![Skärm bilds portalen ny varnings regel 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. Rulla nedåt och ge aviserings regeln under **aviserings information**.
 
@@ -96,15 +96,15 @@ Mer information om de villkor som är tillgängliga för övervakning finns i [a
 
 1. Klicka på **Skapa aviseringsregel**.
 
-   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-4.png)
+   ![Skärm bilds portalen ny varnings regel 5](media/alerts-action-groups/alerts-3-4.png)
 
 Kontrol lera att den nya varnings regeln har Aktiver ATS.
 
-   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-4.png)
+   ![Skärm bilds portalen ny aviserings regel 6](media/alerts-action-groups/alerts-4.png)
 
 Du kan också skapa en regel med hjälp av sidan **mått** :
 
-   ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-5.png)
+   ![Skärm bilds portalen ny varnings regel 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

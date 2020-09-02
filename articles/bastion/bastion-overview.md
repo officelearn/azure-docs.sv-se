@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 01/31/2020
+ms.date: 09/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8b27a7c2fd03ed0a80f1775465f1f1bbb44f0202
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270350"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291882"
 ---
 # <a name="what-is-azure-bastion"></a>Vad är Azure Bastion?
 
@@ -26,7 +26,7 @@ Azure skydds-distributionen är per virtuellt nätverk, inte per prenumeration/k
 
 RDP och SSH är några av de grundläggande metoder som du kan använda för att ansluta till dina arbets belastningar som körs i Azure. Att exponera RDP/SSH-portar över Internet är inte önskas och visas som en betydande hot yta. Detta beror ofta på protokoll sårbarheter. För att kunna innehålla den här hot ytan kan du distribuera skydds-värdar (kallas även hopp servrar) på den offentliga sidan av perimeternätverket. Skydds-värd servrar är utformade och konfigurerade för att motstå attacker. Skydds-servrar tillhandahåller också RDP-och SSH-anslutningar till arbets belastningarna bakom skydds, och även i nätverket.
 
-![Arkitektur](./media/bastion-overview/architecture.png)
+![Azure skydds-arkitektur](./media/bastion-overview/architecture.png)
 
 Den här bilden visar arkitekturen för en Azure skydds-distribution. I det här diagrammet:
 
@@ -47,7 +47,11 @@ Följande funktioner är tillgängliga:
 * **Skydd mot Port genomsökning:** Eftersom du inte behöver exponera dina virtuella datorer på offentliga Internet skyddas dina virtuella datorer mot Port genomsökning av falska och skadliga användare som finns utanför det virtuella nätverket.
 * **Skydda dig mot noll dagar. Härdning endast på ett enda ställe:** Azure skydds är en fullständigt plattforms oberoende PaaS-tjänst. Eftersom det finns i det virtuella nätverkets perimeter behöver du inte bekymra dig om att skärpa var och en av de virtuella datorerna i det virtuella nätverket. Azure-plattformen skyddar mot en noll-dagars sårbarhet genom att hålla Azure-skydds skärpt och alltid uppdaterat.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="whats-new"></a><a name="new"></a>Vad är det senaste?
+
+Prenumerera på RSS-flödet och Visa de senaste Azure skydds-funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) .
+
+## <a name="faq"></a>Vanliga frågor
 
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
 

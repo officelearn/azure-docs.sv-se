@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 9bbe06cbdc5ad349995d93d01cc325ed8d7951a0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935406"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300042"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Snabb start: skapa en färdigheter för Azure Kognitiv sökning kognitivt i Azure Portal
 
@@ -76,7 +76,7 @@ Konfigurera sedan AI-anrikning för att anropa OCR, bild analys och naturlig spr
 
 1. I den här snabb starten använder vi den **kostnads fria** Cognitive Services resursen. Exempel data består av 14 filer, så den kostnads fria tilldelningen av 20 transaktioner på Cognitive Services räcker för den här snabb starten. 
 
-   ![Bifoga Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Koppla Cognitive Services Base service](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expandera **Lägg till anrikninger** och gör fyra val. 
 
@@ -86,7 +86,7 @@ Konfigurera sedan AI-anrikning för att anropa OCR, bild analys och naturlig spr
 
    Välj enhets igenkänning (personer, organisationer, platser) och bild analys kunskaper.
 
-   ![Bifoga Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Bifoga Cognitive Services Välj tjänster för färdigheter](media/cognitive-search-quickstart-blob/skillset.png)
 
    Fortsätt till nästa sida.
 

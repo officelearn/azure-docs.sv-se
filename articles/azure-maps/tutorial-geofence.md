@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121246"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299311"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geofence med hjälp av Azure Maps
 
@@ -203,7 +203,7 @@ I det här avsnittet ska vi skapa två [Logic app](https://docs.microsoft.com/az
 
     I den här självstudien behåller du resten av värdena i standardinställningarna.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Skapa en logikapp":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Skapa en Logic app":::
 
 6. Klicka på knappen **Granska + skapa** . Granska inställningarna och klicka på **skapa** för att skicka distribution. När distributionen har slutförts klickar **du på gå till resurs**. Du kommer till **Logic Apps designer**
 
@@ -258,15 +258,15 @@ Följ stegen nedan för att skapa en händelseprenumeration för geofence-inträ
 
 5. Upprepa steg 1-4 för den logiska appens slut punkt som du skapade i föregående avsnitt. I steg 3, se till att välja `Geofence Exited` som händelse typ.
 
-## <a name="use-search-geofence-get-api"></a>Använd Search-API för hämtning av geografiskt avgränsning
+## <a name="use-spatial-geofence-get-api"></a>Använd API för att hämta geospatiala gränser
 
-Nu ska vi använda Sök funktionen för att [Hämta API: et](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att skicka e-postmeddelanden till Operations Manager när en del av utrustningen går in eller avslutar-avgränsningarna.
+Nu ska vi använda den spatialdata för att [Hämta API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att skicka e-postmeddelanden till Operations Manager när en del av utrustningen går in eller avslutar-avgränsningarna.
 
 Varje utrustning har en `deviceId` . I den här självstudien kommer vi att spåra en enda utrustning, vars unika ID är `device_1` .
 
 För tydlighetens skull visar följande diagram de fem platserna för utrustningen över tid, med början från *Start* platsen, som ligger någonstans utanför de yttre avgränsningarna. I den här självstudien är *Start* platsen odefinierad, eftersom vi inte kommer att fråga enheten på den platsen.
 
-När vi frågar [efter funktionen](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att hämta ett API med en utrustnings plats som anger inledande gräns eller avsluta, kommer Event Grid att anropa rätt Logic app-slutpunkt för att skicka ett e-postmeddelande till Operations Manager.
+När vi frågar efter den [spatiala netstängsel get-API: et](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) med en utrustnings plats som anger inledande avgränsnings post eller avsluta, kommer Event Grid att anropa rätt Logic app-slutpunkt för att skicka ett e-postmeddelande till Operations Manager.
 
 Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika plats koordinaterna för utrustningen.
 
@@ -399,7 +399,7 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
 
 1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**.  Ange ett **namn** för begäran. Vi använder namnet, *plats 4*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}` med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}`  med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit

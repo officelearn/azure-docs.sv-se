@@ -15,7 +15,7 @@
     - name: Redigera och signera attesteringsprincipen
       href: author-sign-policy.md
     - name: Kodexempel för SGX-attestering
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+      href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exempel
   items:
     - name: Attesteringsprincip

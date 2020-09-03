@@ -160,6 +160,8 @@
       href: platform/partners.md
     - name: Säkerhet
       items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./platform/security-controls-policy.md

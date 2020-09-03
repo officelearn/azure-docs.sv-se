@@ -111,6 +111,9 @@
           href: ddos-protection-overview.md
         - name: Virtual Network TAP
           href: virtual-network-tap-overview.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Undernät
       items:
         - name: Undernätstillägg

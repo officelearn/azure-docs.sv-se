@@ -470,13 +470,13 @@
     - name: Automatisk användaretablering (SCIM)
       items:
         - name: Vad är automatisk användaretablering?
-          href: ../app-provisioning/user-provisioning.md
+          href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Utveckla och integrera en SCIM-slutpunkt
-          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Vanliga etableringsscenarier
-          href: ../app-provisioning/scim-graph-scenarios.md
+          href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatisera konfiguration med MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md
+          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Hjälpartiklar för Azure-portalen
       items:
         - name: Standardvärden för tokenlivstid för ett egenutvecklat program

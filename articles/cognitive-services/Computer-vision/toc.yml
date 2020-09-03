@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Vad är visuellt innehåll?
-      href: Home.md
+      href: overview.md
     - name: Nyheter
       href: whats-new.md
 - name: Snabbstarter

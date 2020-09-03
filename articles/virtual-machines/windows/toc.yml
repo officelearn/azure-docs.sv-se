@@ -70,23 +70,23 @@
             - name: Virtuell dator från VHD-uppladdning
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: Ansluta en OS-disk
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: Virtuell dator från ögonblicksbild
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: Hantera lagring
           items:
             - name: Skapa en hanterad disk från en virtuell hårddisk
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: Skapa en hanterad disk från en ögonblicksbild
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: Kopiera en hanterad disk
               href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: Skapa en ögonblicksbild från en virtuell hårddisk
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: Kopiera en ögonblicksbild
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Skydda
@@ -118,15 +118,15 @@
         - name: Hantera lagring
           items:
             - name: Skapa en hanterad disk från en virtuell hårddisk
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: Skapa en hanterad disk från en ögonblicksbild
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: Kopiera en hanterad disk
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportera en ögonblicksbild som en virtuell hårddisk till ett lagringskonto
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportera den virtuella hårddisken för en hanterad disk till ett lagringskonto
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: Kopiera en ögonblicksbild
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Nätverk
@@ -172,7 +172,7 @@
         - name: VM-storlekar
           href: ../sizes.md
         - name: 'Virtuella datorer, generation 2'
-          href: generation-2.md
+          href: ../generation-2.md
         - name: Generellt syfte
           items:
             - name: Översikt
@@ -621,7 +621,7 @@
     - name: Hantera virtuella datorer
       items:
         - name: VM-användning
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: Vanliga PowerShell-åtgärder
           href: ps-common-ref.md
         - name: Ändra storlek på en virtuell dator
@@ -918,7 +918,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Öppna portar till en virtuell dator
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

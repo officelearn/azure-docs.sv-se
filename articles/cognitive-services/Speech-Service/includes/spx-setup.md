@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 27d450f8e48210723570f2fe0b45be4bca89fd56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068621"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400929"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den enda förutsättningen är en Azure tal-prenumeration. Se [guiden](../get-started.md#new-resource) för att skapa en ny prenumeration om du inte redan har en.
 
@@ -22,9 +22,8 @@ Den enda förutsättningen är en Azure tal-prenumeration. Se [guiden](../get-st
 
 Följ de här stegen för att installera tal-CLI i Windows:
 
-1. Installera antingen [.NET Framework 4,7](https://dotnet.microsoft.com/download/dotnet-framework/net471) eller [.net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Hämta [zip-arkivet](https://aka.ms/speech/spx-zips.zip)för tal CLI och extrahera det sedan.
-3. Gå till rot katalogen `spx-zips` som du extraherade från nedladdningen och extrahera den under katalog du behöver ( `spx-net471` för .NET Framework 4,7 eller `spx-netcore-win-x64` .net Core 3,0 på en x64-processor).
+1. Hämta [zip-arkivet](https://aka.ms/speech/spx-zips.zip)för tal CLI och extrahera det sedan.
+2. Gå till rot katalogen `spx-zips` som du extraherade från nedladdningen och extrahera den under katalog du behöver ( `spx-net471` för .NET Framework 4,7 eller `spx-netcore-win-x64` .net Core 3,0 på en x64-processor).
 
 I kommando tolken ändrar du katalog till den här platsen och skriver sedan `spx` för att se hjälp för tal-cli.
 
@@ -53,11 +52,15 @@ Skriv `spx` för att se hjälp för tal-cli.
 
 #### <a name="docker-install"></a>[Docker-installation](#tab/dockerinstall)
 
+#### <a name="prerequisites"></a>Krav
+
+> [!div class="checklist"]
+> * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop för din plattform <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
 Följ de här stegen för att installera tal-CLI i en Docker-behållare:
 
-1. Installera och kör [Docker Desktop för din plattform](https://www.docker.com/get-started).
-1. Skriv följande kommando i en ny kommando tolk eller Terminal:`docker pull msftspeech/spx`
-1. Skriv det här kommandot. Du bör se hjälp information för tal-CLI:`docker run -it --rm msftspeech/spx help`
+1. Skriv följande kommando i en ny kommando tolk eller Terminal:  `docker pull msftspeech/spx`
+2. Skriv det här kommandot. Du bör se hjälp information för tal-CLI: `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Montera en katalog i behållaren
 

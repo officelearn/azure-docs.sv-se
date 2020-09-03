@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent lös migrering av virtuella VMware-da
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 77fc621dc5e8013f49c261f7e0e265aad939bc2a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c9a7e76496c2851b90c8fd1d164645c46d02609b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86113538"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376049"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -94,26 +94,36 @@ Aktivera replikering på följande sätt:
 
 6. I **mål inställningar**väljer du prenumerationen och mål regionen. Ange resurs gruppen där de virtuella Azure-datorerna finns efter migreringen.
 7. I **Virtual Network**väljer du det virtuella Azure-nätverk/undernät som de virtuella Azure-datorerna ska ansluta till efter migreringen.
-7. I **Azure Hybrid-förmån**:
+8. I **tillgänglighets alternativ**väljer du:
+    -  Tillgänglighets zon för att fästa den migrerade datorn i en angiven tillgänglighets zon i regionen. Använd det här alternativet för att distribuera servrar som utgör en program nivå med flera noder i Tillgänglighetszoner. Om du väljer det här alternativet måste du ange den tillgänglighets zon som ska användas för var och en av de valda datorerna på fliken beräkning. Det här alternativet är bara tillgängligt om det valda mål området för migreringen stöder Tillgänglighetszoner
+    -  Tillgänglighets uppsättning för att placera den migrerade datorn i en tillgänglighets uppsättning. Den valda mål resurs gruppen måste ha en eller flera tillgänglighets uppsättningar för att kunna använda det här alternativet.
+    - Inget alternativ för infrastrukturs redundans krävs om du inte behöver någon av dessa tillgänglighets konfigurationer för de migrerade datorerna.
+
+9. I **Azure Hybrid-förmån**:
 
     - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
     - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
 
     ![Mål inställningar](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+10. I **Compute**granskar du VM-namn, storlek, typ av operativ system disk och tillgänglighets konfiguration (om du valde i föregående steg). De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM-storlek**: om du använder bedömnings rekommendationer visas den rekommenderade storleken i list rutan VM-storlek. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 
-    - **Tillgänglighets uppsättning**: om den virtuella datorn kommer att finnas i en Azure-tillgänglighets uppsättning efter migreringen anger du uppsättningen. Uppsättningen måste finnas i målets resursgrupp som du anger för migreringen.
+    - **Tillgänglighets zon**: Ange den tillgänglighets zon som ska användas.
+    - **Tillgänglighets uppsättning**: Ange den tillgänglighets uppsättning som ska användas.
 
-    ![Inställningar för VM-beräkning](./media/tutorial-migrate-vmware/compute-settings.png)
+> [!NOTE]
+>Om du vill välja ett annat tillgänglighets alternativ för en uppsättning virtuella datorer går du till steg 1 och upprepar stegen genom att välja olika tillgänglighets alternativ när du har startat replikering för en uppsättning virtuella datorer.
 
-9. I **Diskar** anger du om VM-diskarna ska replikeras till Azure och disktypen (standard SSD/HDD eller premiumhanterade diskar) i Azure. Klicka sedan på **Nästa**.
+
+ ![Inställningar för VM-beräkning](./media/tutorial-migrate-vmware/compute-settings.png)
+
+11. I **Diskar** anger du om VM-diskarna ska replikeras till Azure och disktypen (standard SSD/HDD eller premiumhanterade diskar) i Azure. Klicka sedan på **Nästa**.
    
     ![Diskar](./media/tutorial-migrate-vmware/disks.png)
 
-10. I **Granska och starta replikering** kontrollerar du inställningarna och klickar på **Replikera** för att påbörja den första replikeringen för servrarna.
+12. I **Granska och starta replikering** kontrollerar du inställningarna och klickar på **Replikera** för att påbörja den första replikeringen för servrarna.
 
 > [!NOTE]
 > Du kan uppdatera replikeringsinställningar när som helst innan replikeringen startar (**Hantera**  >  **replikering av datorer**). Du kan inte ändra inställningarna när replikeringen har påbörjats.

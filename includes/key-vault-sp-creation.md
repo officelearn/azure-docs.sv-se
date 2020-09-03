@@ -4,14 +4,14 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: d669874040b04af089b4d57333869fe34066720e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6dbdebb1a9fc31e225349cc7fca8366e8b8ed004
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841920"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378565"
 ---
-Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](/azure/key-vault/general/managed-identity) . 
+Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i avsnittet [autentisera till Key Vault](/azure/key-vault/general/authentication) .
 
 För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänstens huvud namn kräver ett unikt namn i formatet "http:// &lt; My-Unique-service-huvud namn &gt; ".
 

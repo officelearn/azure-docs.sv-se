@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: duau
-ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 5741e41e3c1474cef5cf49270fd40bbdf4fcaffb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378193"
+ms.locfileid: "89399420"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
 Med Azures front dörr kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och snabb global redundans för hög tillgänglighet. Med front dörren kan du omvandla din globala (flera regioner) konsument-och företags program till robusta, anpassade moderna program med höga prestanda, API: er och innehåll som når en global publik med Azure.
@@ -84,7 +84,7 @@ Information om priser finns i [Prissättning för Front Door](https://azure.micr
 
 ## <a name="whats-new"></a>Nyheter
 
-Prenumerera på RSS-flödet och Visa de senaste Azure Load Balancer funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
+Prenumerera på RSS-flödet och Visa de senaste Azure-funktionerna för front dörren på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
 
 ## <a name="next-steps"></a>Nästa steg
 

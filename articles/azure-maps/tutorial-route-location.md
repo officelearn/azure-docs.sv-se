@@ -1,42 +1,46 @@
 ---
-title: 'Självstudie: hitta en väg till en plats | Microsoft Azure Maps'
-description: Lär dig hur du hittar en väg till en orienterings punkt. Se hur du ställer in adress koordinater och skickar frågor till tjänsten Azure Maps Route för vägbeskrivning till punkten.
+title: 'Självstudie: så här visar du väg riktningar med Microsoft Azure Maps Route service och kart kontroll'
+description: Lär dig hur du visar väg riktningar med hjälp av Microsoft Azure mappar Route service och kart kontroll.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/14/2020
+ms.date: 09/01/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0ff604e920ca3e0708fc21a1cadfe61646f4e30b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037583"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400338"
 ---
-# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Självstudie: dirigera till en orienterings punkt med hjälp av Azure Maps
+# <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Självstudie: så här visar du väg riktningar med Azure Maps Route service och kart kontroll
 
-Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service SDK för att hitta rutten till en orienteringspunkt. I den här guiden får du lära dig att:
+Den här självstudien visar hur du använder [API för Azure Maps Route service](https://docs.microsoft.com/rest/api/maps/route) och [kart kontroll](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) för att Visa väg riktningar från start till slut punkt. I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en ny webbsida med API:n för kartkontroll
-> * Ställa in adresskoordinater
-> * Fråga Route Service om vägbeskrivning till orienteringspunkt
+> * Skapa och Visa kart kontrollen på en webb sida. 
+> * Definiera visnings åter givning för vägen genom att definiera [symbol lager](map-add-pin.md) och [linje lager](map-add-line-layer.md).
+> * Skapa och Lägg till interjson-objekt till kartan som representerar start-och slut punkter.
+> * Få vägvisningar från start-och slut punkter med hjälp av API: et för att [Hämta väg riktningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
-## <a name="prerequisites"></a>Förutsättningar
+Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
-Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account). du behöver en prenumeration med pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+## <a name="prerequisites"></a>Krav
+
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 
 <a id="getcoordinates"></a>
 
-## <a name="create-a-new-map"></a>Skapa en ny karta
+## <a name="create-and-display-the-map-control"></a>Skapa och Visa kart kontrollen
 
-Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
+Följande steg visar hur du skapar och visar kart kontrollen på en webb sida.
 
 1. Skapa en ny fil på den lokala datorn och ge den namnet **MapRoute.html**.
-2. Lägg till följande HTML-komponenter i filen:
+2. Kopiera/klistra in följande HTML-kod i filen.
 
     ```HTML
     <!DOCTYPE html>
@@ -81,7 +85,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     </html>
     ```
 
-    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt Azure Maps-API:erna. 
+    HTML-huvudet innehåller CSS-och JavaScript-resursfiler som finns i Azure Kartkontroll-biblioteket. Bröd textens `onload` händelse anropar `GetMap` funktionen. I nästa steg ska vi lägga till initierings koden för kart kontrollen.
 
 3. Lägg till följande JavaScript-kod i funktionen `GetMap`. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckel som du kopierade från ditt Maps-konto.
 
@@ -96,17 +100,15 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
    });
    ```
 
-    `atlas.Map` ger kontroll över en visuell och interaktiv webbkarta och är en komponent i Azure Kartkontroll-API:et.
+4. Spara filen och öppna den i webbläsaren. En enkel visas.
 
-4. Spara filen och öppna den i webbläsaren. Du har nu en grundläggande karta som du kan utveckla mer.
+     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Grundläggande kart åter givning av kart kontroll":::
 
-   ![Visa grundläggande karta](media/tutorial-route-location/basic-map.png)
+## <a name="define-route-display-rendering"></a>Definiera rendering av flödes visning
 
-## <a name="define-how-the-route-will-be-rendered"></a>Definiera hur vägen ska renderas
+I den här självstudien återger vi vägen med ett linje lager. Start-och slut punkterna återges med hjälp av ett symbol lager. Mer information om hur du lägger till linje lager finns i [lägga till ett linje lager till en karta](map-add-line-layer.md). Mer information om symbol lager finns i [lägga till ett symbol lager till en karta](map-add-pin.md).
 
-I den här självstudien renderas en enkel väg med hjälp av en symbolikon för början och slutet av vägen och en linje för vägens färd.
-
-1. När du har initierat kartan lägger du till följande JavaScript-kod.
+1. Lägg till följande JavaScript-kod i `GetMap` funktionen. Den här koden implementerar kart kontrollens `ready` händelse hanterare. Resten av koden i den här självstudien placeras i `ready` händelse hanteraren.
 
     ```JavaScript
     //Wait until the map resources are ready.
@@ -138,10 +140,12 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
         }));
     });
     ```
-    
-    I mappar `ready` händelse hanteraren skapas en data källa för att lagra väg linjen och start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Väg linjen kommer att återges som en bra nyans av blått. Den får en bredd på fem bild punkter, rundade linje kopplingar och versaler. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start-och slut punkterna återges. I det här fallet har uttryck lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt. 
-    
-2. För den här självstudien anger du startpunkt som Microsoft, och målpunkt som en bensinstation i Seattle. `ready`Lägg till följande kod i händelse hanteraren för Maps.
+
+    I kart kontrollens `ready` händelse hanterare skapas en data källa för att lagra vägen från start till slut punkt. För att definiera hur väg linjen ska återges skapas ett linje lager och kopplas till data källan.  För att se till att flödes linjen inte visar väg etiketterna har vi skickat en andra parameter med värdet `'labels'` .
+
+    Därefter skapas ett symbol lager som är kopplat till data källan. Det här lagret anger hur start-och slut punkterna återges. I det här fallet har uttryck lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt.
+
+2. Ange start punkten som Microsoft och slut punkten som en gas station i Seattle.  `ready`Lägg till följande kod i kart kontrollens händelse hanterare.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -164,19 +168,19 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
     });
     ```
 
-    Den här koden skapar två objekt av punkt- [JSON-plats](https://en.wikipedia.org/wiki/GeoJSON) som representerar start-och slut punkterna för vägen och lägger till punkter i data källan. Egenskaperna `title` och `icon` har lagts till i varje punkt. Det sista blocket ställer in kameravy med latitud och longitud för start-och slut punkterna med hjälp av kart [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskapen.
+    Den här koden skapar två [objekt av punkt-JSON-plats](https://en.wikipedia.org/wiki/GeoJSON) som representerar start-och slut punkter, som sedan läggs till i data källan. Det sista blocket i kod ställer in kameravy med latitud och longitud för start-och slut punkterna. Mer information om kart kontrollens egenskap setCamera finns i [setCamera (CameraOptions | Egenskapen CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) .
 
-3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu centreras kartan över Seattle och du kan se att den blå fäst punkten markerar start punkten och den runda blå PIN-koden för att markera slut punkten.
+3. Spara **MapRoute.html** och uppdatera webbläsaren. Kartan centreras nu över Seattle. Den blå Teardrop-PIN-koden markerar start punkten. Den runda blå PIN-koden markerar slut punkten.
 
-   ![Visa vägarnas start-och slut punkt på kartan](media/tutorial-route-location/map-pins.png)
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Visa vägarnas start-och slut punkt på kartan":::
 
 <a id="getroute"></a>
 
-## <a name="get-directions"></a>Hämta anvisningar
+## <a name="get-route-directions"></a>Hämta väg riktningar
 
-Det här avsnittet visar hur du använder API för Azure Maps Route service. Route service-API: et hittar vägen från en viss start punkt till en slut punkt. I den här tjänsten finns API: er för att planera *snabbast*, *kortaste*, *eko*eller *thrilLing* vägar mellan två platser. Den här tjänsten gör det också möjligt för användarna att planera vägar i framtiden genom att använda Azures omfattande historiska trafik databas. Användarna kan se förutsägelsen för vägens varaktighet vid alla valda dagar och tider. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Alla följande funktioner bör läggas till **i kart klara eventListener** för att säkerställa att de läses in efter det att kart resurserna är klara att kommas åt.
+Det här avsnittet visar hur du använder API: et för Azure Maps Route service för att få vägvisningar från en punkt till en annan. I den här tjänsten finns det andra API: er som gör att du kan planera *snabbast*, *kortaste*, *eko*eller *thrilLing* vägar mellan två platser. Den här tjänsten låter också användare planera framtida vägar baserat på historiska trafik villkor. Användarna kan se förutsägelsen av väg varaktigheter för en bestämd tid. Mer information finns i [Hämta väg riktnings-API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
-1. I GetMap-funktionen lägger du till följande i JavaScript-koden.
+1. I `GetMap` -funktionen, i kontrollens `ready` händelse hanterare, lägger du till följande i JavaScript-koden.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
@@ -191,7 +195,7 @@ Det här avsnittet visar hur du använder API för Azure Maps Route service. Rou
 
    `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) -instans. `routeURL`Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
-2. När du har angett autentiseringsuppgifter och URL: en lägger du till följande JavaScript-kod för att skapa vägen från start till slut punkt. `routeURL`Begär Azure Maps väg tjänsten att beräkna väg riktningar. En insamling av en interjson-funktion från svaret extraheras sedan med hjälp av `geojson.getFeatures()` metoden och läggs till i data källan.
+2. När du har angett autentiseringsuppgifter och URL: en lägger du till följande kod i kontrollens `ready` händelse hanterare. Den här koden skapar vägen från start punkt till slut punkt. `routeURL`Begär API: et för Azure Maps Route service för att beräkna väg riktningar. En insamling av en interjson-funktion från svaret extraheras sedan med hjälp av `geojson.getFeatures()` metoden och läggs till i data källan.
 
     ```JavaScript
     //Start and end point input to the routeURL
@@ -205,26 +209,15 @@ Det här avsnittet visar hur du använder API för Azure Maps Route service. Rou
     });
     ```
 
-3. Spara filen **MapRoute.html** och uppdatera webbläsaren. För en lyckad anslutning med den API:er i Maps bör du se en karta som liknar följande.
+3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Kartan ska nu visa vägen från start till slut punkt.
 
-    ![Azure Kartkontroll och Route Service](./media/tutorial-route-location/map-route.png)
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure kart kontroll och Route service":::
+
+    Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Skapa en ny webbsida med API:n för kartkontroll
-> * Ställa in adresskoordinater
-> * Fråga Route Service om vägbeskrivning till orienteringspunkt
-
-> [!div class="nextstepaction"]
-> [Visa fullständig käll kod](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-> [!div class="nextstepaction"]
-> [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
-
-Nästa självstudie visar hur du skapar en vägfråga med begränsningar som resläge eller typ av last och visar sedan flera vägar på samma karta.
+Nästa själv studie kurs visar hur du skapar en väg fråga med begränsningar, t. ex. rese-eller typ av Last. Du kan sedan Visa flera vägar på samma karta.
 
 > [!div class="nextstepaction"]
 > [Hitta rutter för olika färdmedel](./tutorial-prioritized-routes.md)

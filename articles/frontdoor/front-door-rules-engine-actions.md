@@ -3,7 +3,7 @@ title: Motor åtgärder för Azures frontend-dörr
 description: Den här artikeln innehåller en lista över de olika åtgärder som du kan utföra med Azures motor för front dörrs regler.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: f5110a7644d3ca33da5755f783f61ac35484ddb1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521504"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399284"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Åtgärder för Azure Front Door-regelmotorn
 
@@ -78,7 +78,7 @@ Fält | Beskrivning
 Serverdelspool | Välj den backend-pool som du vill åsidosätta och hantera begär Anden från. Då visas alla dina förkonfigurerade Server dels grupper i din profil för din klient del. 
 Protokoll för vidarebefordran | Matcha begäran, HTTP, HTTPS.
 URL-omskrivning | Använd den här åtgärden för att skriva om sökvägen för en begäran som är en väg till ditt ursprung. Om aktive rad, se nedan för ytterligare fält som krävs
-Cachelagring | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
+Caching | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
 
 #### <a name="url-rewrite"></a>URL-omskrivning
 
@@ -88,7 +88,7 @@ Fält | Beskrivning
 ------|------------
 Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefordra begär anden till. 
 
-#### <a name="caching"></a>Cachelagring
+#### <a name="caching"></a>Caching
 
 Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar och om innehållet ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet stannar i cacheminnet för begär Anden som regler matchar villkoren anger. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du gör detta visas följande alternativ: 
 

@@ -3,19 +3,19 @@ title: Exempel på Azure Resource Manager mallar – Azure-front dörr
 description: Lär dig mer om Resource Manager-mallar för Azure-frontend, inklusive mallar för att skapa en grundläggande frontend-dörr och konfigurera en begränsning för front dörr.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
-ms.author: sharadag
-ms.openlocfilehash: 14f9cb33ce298b97ead0f6d7fbec0ad77e79a1ee
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.author: duau
+ms.openlocfilehash: 961214b3a815eb8ae9b0fcb283599b3474d4706e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182195"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399369"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Azure Resource Manager-distributionsmodellmallar för Front Door
 

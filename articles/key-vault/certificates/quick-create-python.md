@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: d0d1ed2b082abe5930f358a2551a967dd158aa41
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6e8da9bf4564dbab07bc5f4e9842a631d51ae824
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376595"
+ms.locfileid: "89398672"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Snabb start: klient bibliotek för Azure Key Vault certifikat för python
 
@@ -27,7 +27,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
-[API-referens dokumentation](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault/)
+[API-referens dokumentation](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault-certificates)
 
 ## <a name="prerequisites"></a>Krav
 

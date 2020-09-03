@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723577"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394405"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -48,6 +48,7 @@ Formulär tolken använder [layout-API](#layout-api) för att lära dig de förv
 ## <a name="prebuilt-models"></a>Fördefinierade modeller
 
 Formulär tolken innehåller även färdiga modeller för unika formulär typer.
+
 ### <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
 Fördefinierad kvitto modell används för att läsa kvitton på engelska försäljning från Australien, Kanada, Storbritannien, Indien och USA typ som &mdash; används av restauranger, gas stationer, åter försäljare och så vidare. Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, moms belopp, rad artiklar, total summor och mer. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto. 
 
@@ -74,9 +75,11 @@ Kom igång genom att följa en snabb start för att extrahera data från dina fo
     * [Träna utan etiketter – sväng](quickstarts/curl-train-extract.md)
     * [Träna utan etiketter – python](quickstarts/python-train-extract.md)
     * [Träna med etiketter – python](quickstarts/python-labeled-data.md)
-  * Extrahera data från USA Sales-kvitton
+  * Extrahera data från försäljnings kvitton
     * [Extrahera kvitto data – sväng](quickstarts/curl-receipts.md)
     * [Extrahera kvitto data – python](quickstarts/python-receipts.md)
+  * Extrahera data från visitkort
+    * [Extrahera visitkorts data – python](quickstarts/python-business-cards.md)
   * Extrahera text-och tabell struktur från formulär
     * [Extrahera layoutinformation – python](quickstarts/python-layout.md)
 
@@ -85,11 +88,12 @@ Kom igång genom att följa en snabb start för att extrahera data från dina fo
 
 Du använder följande API: er för att träna modeller och extrahera strukturerade data från formulär.
 
-|Namn |Beskrivning |
+|Name |Beskrivning |
 |---|---|
 | **Träna anpassad modell**| Träna en ny modell för att analysera dina formulär genom att använda fem formulär av samma typ. Ange parametern _useLabelFile_ för `true` att träna med manuellt märkta data. |
 | **Analysera formulär** |Analysera ett enda dokument som skickas in som en ström för att extrahera text, nyckel/värde-par och tabeller från formuläret med din anpassade modell.  |
 | **Analysera inleverans** |Analysera ett enda kvitto dokument för att extrahera viktig information och annan kvitto text.|
+| **Visitkort för analys** |Analysera ett visitkort för att extrahera viktig information och text.|
 | **Analysera layout** |Analysera layouten för ett formulär för att extrahera text-och tabell strukturen.|
 
 Mer information får du genom att utforska [REST API referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) . Om du är bekant med en tidigare version av API: n läser du artikeln [Nyheter](./whats-new.md) och lär dig mer om de senaste ändringarna.

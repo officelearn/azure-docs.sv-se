@@ -3,7 +3,7 @@ title: Motor matchnings villkor för Azures frontend-dörr
 description: Den här artikeln innehåller en lista över de olika matchnings villkoren som är tillgängliga med motor för Azures front dörrs regler.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 99a590fd3adacc9a63c2ec482965ccd9ff162ac3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512171"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399250"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Matchningsvillkor för Azure Front Door-regelmotorn
 
@@ -82,7 +82,7 @@ Inte IP-matchning | IP-adress (blankstegsavgränsad)
 - Om du vill ange flera IP-adresser och IP-adressblock använder du ett enda blank steg mellan värdena:
   - **IPv4-exempel**: *1.2.3.4 10.20.30.40* matchar alla begär Anden som kommer från adressen 1.2.3.4 eller 10.20.30.40.
   - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
-- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Till exempel:
+- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Exempel:
   - **IPv4-exempel**: *5.5.5.64/26* matchar alla begär Anden som kommer från adresser 5.5.5.64 via 5.5.5.127.
   - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till och med 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
@@ -150,7 +150,7 @@ Identifierar begär Anden som innehåller det angivna fil namns tillägget i fil
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Anknytning | Skift läges omvandling
+Operator | Filnamnstillägg | Skift läges omvandling
 ---------|-----------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Gemener, versaler, trim, ta bort blank steg, URL-kod, URL-avkodning
 
@@ -186,7 +186,7 @@ Operator | Värde | Skift läges omvandling
 
 Följande operatorer är giltiga för regler som accepterar värden från standard operator listan:
 
-- Valfri
+- Alla
 - Lika med 
 - Innehåller 
 - Börjar med 

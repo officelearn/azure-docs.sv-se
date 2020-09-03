@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 57baeccc9f4644ec055de638254d4613a33ef68d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378652"
+ms.locfileid: "89400440"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -37,13 +37,13 @@ Om du skapar ett lokal program, gör en lokal utveckling eller inte kan använda
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Hur kan jag ge AD-gruppen åtkomst till nyckel valvet?
 
-Ge AD-gruppen behörighet till ditt nyckel valv med hjälp av Azure CLI-AZ för att ange princip, eller cmdleten Azure PowerShell set-AzKeyVaultAccessPolicy. Se [tilldela en åtkomst princip – CLI](assign-access-policy-cli.md) och [tilldela en åtkomst princip – PowerShell](assign-access-policy-powershell.md).
+Ge AD-gruppen behörighet till ditt nyckel valv med hjälp av Azure CLI `az keyvault set-policy` -kommandot eller cmdleten Azure PowerShell set-AzKeyVaultAccessPolicy. Se [tilldela en åtkomst princip – CLI](assign-access-policy-cli.md) och [tilldela en åtkomst princip – PowerShell](assign-access-policy-powershell.md).
 
 Programmet behöver också minst en roll för identitets-och åtkomst hantering (IAM) som har tilldelats nyckel valvet. Annars kommer den inte att kunna logga in och kommer att Miss lyckas med otillräcklig behörighet för att komma åt prenumerationen. Azure AD-grupper med hanterade identiteter kan kräva upp till åtta timmar för att uppdatera tokens och bli gällande.
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Hur kan jag distribuera om Key Vault med ARM-mall utan att ta bort befintliga åtkomst principer?
 
-För närvarande Key Vault återdistribution av ARM tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principerna i Key Vault behöver du läsa befintliga åtkomst principer i Key Vault och fylla ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
+För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principerna i Key Vault behöver du läsa befintliga åtkomst principer i Key Vault och fylla ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Rekommenderade fel söknings steg för följande feltyper
 

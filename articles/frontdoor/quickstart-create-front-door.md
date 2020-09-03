@@ -3,7 +3,7 @@ title: 'Snabb start: Konfigurera hög tillgänglighet med Azure-tjänsten för f
 description: I den här snabb starten beskrivs hur du använder Azures frontend-tjänst för hög tillgänglighet och globala webb program med höga prestanda.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.assetid: ''
 ms.service: frontdoor
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
-ms.author: sharadag
-ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: duau
+ms.openlocfilehash: ab59de49b7cf625220f8a803aab9d2b9a2ae5937
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82133445"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398775"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
 
@@ -40,9 +40,9 @@ Om du inte redan har en webbapp använder du följande steg för att ställa in 
 
 1. Välj **skapa en resurs**på Start sidan eller Azure-menyn.
 
-1. Välj **webb** > **-** webbapp.
+1. Välj **Webb** > **Webbapp**.
 
-   ![Skapa en webbapp i Azure Portal](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
+   ![Skapa en webbapp i Azure-portalen](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
 
 1. I **webbapp**väljer du den **prenumeration** som du vill använda.
 
@@ -69,13 +69,13 @@ När distributionen är klar skapar du en annan webbapp. Använd samma procedur 
 | **Resursgrupp**   | Välj **nytt** och ange *FrontDoorQS_rg2* |
 | **Namn**             | Ange ett unikt namn för din webbapp, i det här exemplet *WebAppContoso-2*  |
 | **Region**           | En annan region, i det här exemplet, *södra centrala USA* |
-| **App Service plan** > **Windows-plan**         | Välj **ny** och ange *myAppServicePlanSouthCentralUS*och välj sedan **OK** |
+| **App Service plan**  >  **Windows-plan**         | Välj **ny** och ange *myAppServicePlanSouthCentralUS*och välj sedan **OK** |
 
 ## <a name="create-a-front-door-for-your-application"></a>Skapa en Front Door för programmet
 
 Konfigurera Azure-frontend för att dirigera användar trafik baserat på den lägsta svars tiden mellan de två webbappar-servrarna. Börja genom att lägga till en klient dels värd för Azures frontend-dörr.
 
-1. Välj **skapa en resurs**på Start sidan eller Azure-menyn. Välj **nätverkets** > **frontend-dörr**.
+1. Välj **skapa en resurs**på Start sidan eller Azure-menyn. Välj **nätverkets**  >  **frontend-dörr**.
 
 1. I **skapa en frontend-dörr**väljer du en **prenumeration**.
 
@@ -91,7 +91,7 @@ Konfigurera Azure-frontend för att dirigera användar trafik baserat på den l�
 
 Skapa sedan en backend-pool som innehåller dina två webbappar.
 
-1. Fortfarande i **skapa en front dörr**, i **backend-pooler**, **+** väljer du att öppna **Lägg till en backend-pool**.
+1. Fortfarande i **skapa en front dörr**, i **backend-pooler**, väljer **+** du att öppna **Lägg till en backend-pool**.
 
 1. Som **namn**anger du *myBackendPool*.
 
@@ -107,12 +107,12 @@ Skapa sedan en backend-pool som innehåller dina två webbappar.
 
 Slutligen lägger du till en regel för routning. En Routningstjänst mappar klient dels värden till backend-poolen. Regeln vidarebefordrar en begäran om `contoso-frontend.azurefd.net` till **myBackendPool**.
 
-1. Fortfarande i **skapa en front dörr**, i **regler för routning**, **+** väljer du att konfigurera en regel för routning.
+1. Fortfarande i **skapa en front dörr**, i **regler för routning**, väljer **+** du att konfigurera en regel för routning.
 
 1. I **Lägg till en regel**anger du *LocationRule*som **namn**. Acceptera alla standardvärden och välj sedan **Lägg** till för att lägga till regeln för routning.
 
    >[!WARNING]
-   > Du **måste** se till att var och en av klient dels värdarna i din front dörr har en regel för routning`\*`med en standard Sök väg () kopplad till den. Det vill säga att alla regler för routning måste finnas minst en routningsprincip för var och en av de klient dels värdar som definierats på standard Sök vägen`\*`(). Om du inte gör det kan det leda till att din slut användar trafik inte dirigeras korrekt.
+   > Du **måste** se till att var och en av klient dels värdarna i din front dörr har en regel för routning med en standard Sök väg ( `\*` ) kopplad till den. Det vill säga att alla regler för routning måste finnas minst en routningsprincip för var och en av de klient dels värdar som definierats på standard Sök vägen ( `\*` ). Om du inte gör det kan det leda till att din slut användar trafik inte dirigeras korrekt.
 
 1. Välj **Granska + skapa**och sedan **skapa**.
 
@@ -120,13 +120,13 @@ Slutligen lägger du till en regel för routning. En Routningstjänst mappar kli
 
 ## <a name="view-azure-front-door-in-action"></a>Visa Azures front dörr i praktiken
 
-När du har skapat en frontend-dörr tar det några minuter innan konfigurationen distribueras globalt. När du är klar kan du komma åt klient dels värden som du skapade. Gå till `contoso-frontend.azurefd.net`i en webbläsare. Din begäran dirigeras automatiskt till närmaste server från de angivna servrarna i backend-poolen.
+När du har skapat en frontend-dörr tar det några minuter innan konfigurationen distribueras globalt. När du är klar kan du komma åt klient dels värden som du skapade. Gå till i en webbläsare `contoso-frontend.azurefd.net` . Din begäran dirigeras automatiskt till närmaste server från de angivna servrarna i backend-poolen.
 
 Om du har skapat de här apparna i den här snabb starten visas en informations sida.
 
 Prova följande steg för att testa den globala redundansväxlingen i praktiken:
 
-1. Öppna en webbläsare, enligt beskrivningen ovan, och gå till klient delens adress `contoso-frontend.azurefd.net`:.
+1. Öppna en webbläsare, enligt beskrivningen ovan, och gå till klient delens adress: `contoso-frontend.azurefd.net` .
 
 1. Sök efter och välj *app Services*i Azure Portal. Rulla ned för att hitta en av dina webbappar, **WebAppContoso-1** i det här exemplet.
 

@@ -2,7 +2,7 @@
 title: Självstudie – konfigurera geografisk trafik routning med Azure Traffic Manager
 description: I den här självstudien beskrivs hur du konfigurerar metoden för geografisk trafik cirkulation med hjälp av Azure Traffic Manager
 services: traffic-manager
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: rohink
-ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: duau
+ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76938796"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401086"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Självstudie: Konfigurera den geografiska Traffic routing-metoden med hjälp av Traffic Manager
 

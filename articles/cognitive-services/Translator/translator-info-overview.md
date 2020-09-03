@@ -1,7 +1,7 @@
 ---
 title: Vad är Translator? -Translator
 titlesuffix: Azure Cognitive Services
-description: Integrera översättaren i dina program, webbplatser, verktyg och andra lösningar för att tillhandahålla användar upplevelser med flera språk.
+description: Integrera översättare i dina program, webbplatser, verktyg och andra lösningar för att tillhandahålla användar upplevelser med flera språk.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,24 +11,22 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 206e1bc86404fa41b84647c50482dbe63301c0af
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589460"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425967"
 ---
-# <a name="what-is-the-translator"></a>Vad är Translator?
+# <a name="what-is-translator"></a>Vad är Translator?
 
-Översättningen är enkel att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan lägga till användar upplevelser med flera språk på [över 70 språk](languages.md)och kan användas på alla maskin varu plattformar med valfritt operativ system för översättning av text till text-språk.
-
-Översättaren är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) -samlingen av Machine Learning-och AI-algoritmer i molnet och är lätt att använda i dina utvecklings projekt.
+Azure Cognitive Services Translator är en molnbaserad maskin översättnings tjänst och ingår i [azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) -familjen av kognitiva API: er för att skapa smarta appar. Translator är enkelt att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan lägga till användar upplevelser med flera språk på [över 70 språk](languages.md)och kan användas på alla maskin varu plattformar med valfritt operativ system för översättning av text till text-språk.
 
 ## <a name="about-microsoft-translator"></a>Om Microsoft Translator
 
-Translator är en molnbaserad maskin översättnings tjänst. Kärn tjänsten är översättaren, vilket ger en mängd olika Microsoft-produkter och-tjänster och används av tusentals företag i hela världen i sina program och arbets flöden, vilket ger sitt innehåll möjlighet att komma åt en global publik.
+Azure Cognitive Services Translator är en molnbaserad maskin översättnings tjänst. Translator har ett antal Microsoft-produkter och-tjänster och används av tusentals företag i hela världen i sina program och arbets flöden, vilket ger sitt innehåll möjlighet att komma åt en global publik.
 
-Tal översättning, som drivs av Translator, är också tillgängligt via [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst.Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
+Tal översättning, som drivs av Translator, är också tillgängligt via [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst. 
 
 ## <a name="language-support"></a>Stöd för språk
 
@@ -46,7 +44,7 @@ Läs mer om [hur neural maskinöversättning fungerar](https://www.microsoft.com
 
 ## <a name="language-customization"></a>Språkanpassning
 
-En utökning av tjänsten Microsoft Translator, anpassad översättare kan användas tillsammans med Translator för att anpassa neurala översättnings systemet och förbättra översättningen för din speciella terminologi och stil.
+Ett tillägg till tjänsten Translator, anpassad översättare kan användas tillsammans med Translator för att anpassa neurala översättnings systemet och förbättra översättningen för din speciella terminologi och stil.
 
 Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättnings systemet integreras sedan enkelt i dina befintliga program, arbets flöden och webbplatser på flera olika typer av enheter, via den vanliga översättaren, med hjälp av parametern Category.
 

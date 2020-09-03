@@ -1,18 +1,18 @@
 ---
 title: Flytta virtuella Azure-datorer mellan myndigheter och offentliga regioner med Azure Site Recovery
 description: Använd Azure Site Recovery för att flytta virtuella Azure-datorer mellan Azure myndigheter och offentliga regioner.
-author: rajani-janaki-ram
+author: sideeksh
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
-ms.author: rajanaki
+ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 5ca6e7fa6e02ff6c5e49185c2fb02f9bc5a16d9c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927308"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425355"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Flytta virtuella Azure-datorer mellan Azure Government-regioner och offentliga regioner 
 
@@ -42,7 +42,7 @@ Den här självstudien visar hur du flyttar virtuella Azure-datorer mellan Azure
 > [!NOTE]
 > Se till att du förstår [arkitekturen och komponenterna](physical-azure-architecture.md) i det här scenariot. Den här arkitekturen kommer att användas för att flytta virtuella Azure-datorer **genom att behandla de virtuella datorerna som fysiska servrar**.
 
-- Granska [kraven för stöd](vmware-physical-secondary-support-matrix.md) för alla komponenter.
+- Granska [support kraven](vmware-physical-secondary-support-matrix.md) för alla komponenter.
 - Kontrol lera att de servrar som du vill replikera följer [kraven för virtuella Azure-datorer](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Förbereda ett konto för automatisk installation av mobilitets tjänsten på varje server som du vill replikera.
 
@@ -79,7 +79,7 @@ Mobilitets tjänsten måste installeras på varje server som du vill replikera. 
 
 - Du kan använda en domän eller ett lokalt konto
 - För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**med värdet 1.
-- Om du vill lägga till register posten för att inaktivera inställningen från en CLI, skriver du:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Om du vill lägga till register posten för att inaktivera inställningen från en CLI, skriver du:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - För Linux bör kontot vara rot på käll-Linux-servern.
 
 

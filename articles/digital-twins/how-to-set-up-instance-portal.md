@@ -36,7 +36,7 @@ Börja med att välja _skapa en resurs_ på Start sidan för Azure-tjänster en 
 
 Sök efter *Azure Digitals dubbla* i sökrutan och välj tjänsten **Azure Digitals (för hands version)** från resultaten. Välj knappen _skapa_ för att skapa en ny instans av tjänsten.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj "skapa" från sidan Azure Digitals dubblare tjänst":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj skapa från sidan Azure Digitals dubblare tjänst":::
 
 Fyll i värdena som visas nedan på sidan *skapa resurs* :
 * **Prenumeration**: den Azure-prenumeration du använder
@@ -102,7 +102,7 @@ Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats beh
 
 Börja med att navigera till [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) i Azure Portal (du kan använda den här länken eller hitta den med Portal Sök fältet). Välj *Appregistreringar* på menyn tjänst och sedan *+ ny registrering*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Vy av sidan Azure AD-tjänst i Azure Portal, markera meny alternativet "Appregistreringar" och knappen "+ ny registrering"":::
+:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Vy av sidan Azure AD-tjänst i Azure Portal, markera meny alternativet Appregistreringar och knappen + ny registrering":::
 
 På sidan *Registrera en program* som följer fyller du i de begärda värdena:
 * **Namn**: ett visnings namn för Azure AD-program som ska associeras med registreringen

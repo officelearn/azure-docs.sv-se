@@ -3,12 +3,12 @@ title: gRPC-tilläggs data kontrakt – Azure
 description: I den här artikeln får du lära dig att använda gRPC-protokollet för att skicka meddelanden mellan Live Video Analytics-modulen och ditt AI-eller CV-tillägg.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 0221d20245a6db69791d8bf13ba9e00de3b96ecc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f2d93fb062ab3d6963177e7ece15df6bfe5b42cb
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691880"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421500"
 ---
 # <a name="grpc-extension-data-contract"></a>gRPC förlängnings data kontrakt
 
@@ -21,7 +21,7 @@ gRPC är ett modernt, högpresterande RPC-ramverk med öppen källkod som körs 
 
 En gRPC-session är en enskild anslutning från gRPC-klienten till gRPC-servern via TCP/TLS-porten. 
 
-I en enda session: klienten skickar en Media Stream-Beskrivning följt av video bild rutor till servern som ett [protobuf](https://developers.google.com/protocol-buffers) -meddelande över gRPC Stream-sessionen. Servern verifierar Stream-beskrivningen, analyserar video ramen och returnerar utöknings resultat som ett protobuf-meddelande.
+I en enda session: klienten skickar en Media Stream-Beskrivning följt av video bild rutor till servern som ett [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) -meddelande över gRPC Stream-sessionen. Servern verifierar Stream-beskrivningen, analyserar video ramen och returnerar utöknings resultat som ett protobuf-meddelande.
 
 ![kontrakt för gRPC-tillägg](./media/data-contracts/grpc.png)
 

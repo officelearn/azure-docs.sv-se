@@ -3,12 +3,12 @@ title: Vad är media Graph-tillägget – Azure
 description: Med live video analys på IoT Edge kan du utöka medie diagrammets bearbetnings funktioner via en nod i diagram tillägget.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d7e14a0336da75e1948cf6dc4dbdb51490b70021
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716086"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420837"
 ---
 # <a name="media-graph-extension"></a>Mediegraftillägg
 
@@ -54,8 +54,8 @@ Diagrammet nedan visar data flödet på hög nivå:
 
 ## <a name="samples"></a>Exempel
 
-Kolla in några av våra [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) -exempel för live video analys. Dessa antecknings böcker ger dig stegvisa instruktioner om:
+Kolla in några av våra [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) -exempel för live video analys. De här antecknings böckerna innehåller stegvisa instruktioner för **Media Graph-tilläggen** på:
 
 * Så här skapar du en Docker-behållar avbildning av en tilläggs tjänst
 * Distribuera tilläggs tjänsten som en behållare tillsammans med Live Video Analytics-behållaren
-* Så här använder du ett video diagram med Real video analys med en tilläggs klient och pekar på gRPC-slutpunkten för tillägg
+* Så här använder du ett video diagram med Real video analys med en tilläggs klient och pekar på tilläggets slut punkt (HTTP/gRPC)

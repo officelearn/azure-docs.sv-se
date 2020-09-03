@@ -30,7 +30,7 @@ Hanterade identiteter för Azure-resurser ger Azure-tjänster en automatiskt han
 
 I den här artikeln, med hjälp av mallen för Azure Resource Manager distribution, lär du dig att utföra följande hanterade identiteter för Azure-resurser på en virtuell Azure-dator:
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte känner till hur du använder mallen för Azure Resource Manager distribution kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

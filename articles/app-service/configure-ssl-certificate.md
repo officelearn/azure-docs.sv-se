@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401494"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420888"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Lägg till ett TLS-/SSL-certifikat i Azure App Service
 
@@ -188,6 +188,13 @@ När åtgärden har slutförts visas certifikatet i listan med certifikat för *
 
 Om du använder Azure Key Vault för att hantera dina certifikat kan du importera ett PKCS12-certifikat från Key Vault till App Service så länge det [uppfyller kraven](#private-certificate-requirements).
 
+### <a name="authorize-app-service-to-read-from-the-vault"></a>Auktorisera App Service att läsa från valvet
+Som standard har App Service Resource Provider inte åtkomst till Key Vault. Om du vill använda en Key Vault för en certifikat distribution måste du [ge resurs leverantören Läs behörighet till nyckel valvet](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+
+`abfa0a7c-a6b6-4736-8310-5855508787cd`  är resurs leverantörens tjänst huvud namn för App Service och det är detsamma för alla Azure-prenumerationer. För Azure Government moln miljö använder `6a02c803-dafd-4136-b4c3-5a6f318b4714` du i stället som resurs leverantörens tjänst huvud namn.
+
+### <a name="import-a-certificate-from-your-vault-to-your-app"></a>Importera ett certifikat från valvet till din app
+
 I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services**på menyn till vänster  >  **\<app-name>** .
 
 Välj **TLS/SSL-inställningar**  >  **privat nyckel certifikat (. pfx)**  >  **Importera Key Vault certifikat**i det vänstra navigerings fältet i appen.
@@ -205,6 +212,9 @@ Använd följande tabell för att få hjälp att välja certifikatet.
 När åtgärden har slutförts visas certifikatet i listan med certifikat för **privat nyckel** . Om importen Miss lyckas med ett fel uppfyller certifikatet inte [kraven för App Service](#private-certificate-requirements).
 
 ![Import av Key Vault certifikat avslutad](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+
+> [!NOTE]
+> Om du uppdaterar ditt certifikat i Key Vault med ett nytt certifikat synkroniserar App Service automatiskt ditt certifikat inom 48 timmar.
 
 > [!IMPORTANT] 
 > Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikat bindning. Följ stegen i [skapa bindning](configure-ssl-bindings.md#create-binding).

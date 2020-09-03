@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262863"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421381"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Självstudie: installera Azure Stack Edge med GPU
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -86,7 +86,7 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 > Azure Stack gräns enheter måste vara rack montering för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
 - Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.
@@ -221,6 +221,10 @@ Utför följande steg för att kabelansluta enheten för strömförsörjning och
 4. Anslut strömkablarna till rackets strömfördelare (PDU). Se till att de två strömfördelarna använder separata strömkällor.
 5. Tryck på ström knappen för att aktivera enheten.
 6. Anslut PORT 1 på nätverksgränssnittet med 1 GbE till den dator som används för att konfigurera den fysiska enheten. PORT 1 fungerar som hanterings gränssnitt.
+    
+    > [!NOTE]
+    > Om du ansluter datorn direkt till din enhet (utan att gå igenom en växel) använder du en korskopplad kabel eller ett USB Ethernet-kort.
+
 7. Anslut en eller flera av PORT 2, PORT 3, PORT 4, PORT 5 eller 6 PORT till datacenternätverket/Internet.
 
     - Om du ansluter PORT 2 använder du nätverks kabeln 1 – GbE RJ-45.
@@ -235,7 +239,7 @@ I den här självstudien har du lärt dig mer om Azure Stack Edge-ämnen, till e
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-Gå vidare till nästa självstudie och lär dig hur du ansluter, konfigurerar och aktiverar enheten.
+Gå vidare till nästa självstudie och lär dig hur du ansluter till din enhet.
 
 > [!div class="nextstepaction"]
 > [Anslut Azure Stack kant](./azure-stack-edge-gpu-deploy-connect.md)

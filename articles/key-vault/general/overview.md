@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190545"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421653"
 ---
 # <a name="about-azure-key-vault"></a>Om Azure Key Vault
 
@@ -25,7 +25,7 @@ Azure Key Vault kan hjälpa dig att lösa följande problem:
 - **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
 - **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
 - **Certifikat hantering** – Azure Key Vault är också en tjänst som gör att du enkelt kan etablera, hantera och distribuera offentliga och privata Transport Layer Security/Secure Sockets Layer-certifikat (TLS/SSL) för användning med Azure och dina interna anslutna resurser. 
-- **Lagra hemligheter som backas upp av säkerhetsmoduler för maskin vara** – hemligheterna och nycklarna kan skyddas av program vara eller FIPS 140-2 nivå 2, verifierade HSM: er
+- **Lagra hemligheter som backas upp av säkerhetsmoduler för maskin vara** – hemligheter, nycklar och certifikat i butiken krypteras antingen med program varu nyckel (standard nivå) eller FIPS 140-2 Level 2-verifierad HSM: er-nyckel (Premium-nivå) 
 
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 

@@ -42,7 +42,7 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
 ### <a name="configure-syslog-collection"></a>Konfigurera syslog-samling
 1. Konfigurera syslog-vidarebefordran för VSphere. Detaljerad information om hur du konfigurerar syslog-vidarebefordran finns i [Konfigurera syslog på ESXi 5,0 och högre (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Gå till **ESXi för värd konfiguration**  >  **program**  >  **Avancerade inställningar**  >  **syslog**.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
-1. I fältet *syslog. global. logHost* lägger du till Linux-servern och port numret *1514*. Det kan till exempel vara `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
+1. I fältet *syslog. global. logHost* lägger du till Linux-servern och port numret *1514*. Till exempel `tcp://hostname:1514` eller `tcp://123.456.789.101:1514`
 1. Öppna ESXi-värd brand väggen för syslog. Konfiguration av ESXi- **värd**  >  **Program vara**  >  **Säkerhets profil**  >  **Brand vägg** och öppna **Egenskaper**.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
@@ -50,14 +50,14 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Kontrol lera vSphere-konsolen för att kontrol lera att syslog har kon figurer ATS korrekt. Bekräfta att ESXI-värden som port **1514** är konfigurerad på.
 1. Ladda ned och installera Log Analytics-agenten för Linux på Linux-servern. Mer information finns i [dokumentationen för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. När Log Analytics-agenten för Linux har installerats går du till katalogen/etc/opt/Microsoft/omsagent/sysconf/omsagent.d och kopierar filen vmware_esxi. conf till katalogen/etc/opt/Microsoft/omsagent/conf/omsagent.d och ändrar ägare/grupp och behörigheter för filen. Till exempel:
+1. När Log Analytics-agenten för Linux har installerats går du till katalogen/etc/opt/Microsoft/omsagent/sysconf/omsagent.d och kopierar filen vmware_esxi. conf till katalogen/etc/opt/Microsoft/omsagent/conf/omsagent.d och ändrar ägare/grupp och behörigheter för filen. Exempel:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Starta om Log Analytics agent för Linux genom att köra `sudo /opt/microsoft/omsagent/bin/service_control restart` .
-1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Till exempel:
+1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Exempel:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -75,15 +75,13 @@ VMware-övervakning lösning samlar in olika prestanda mått och loggdata från 
 
 I följande tabell visas metoder för data insamling och annan information om hur data samlas in.
 
-| 
-    plattform
-   | Log Analytics agent för Linux | SCOM-agent | Azure Storage | SCOM krävs? | SCOM agent-data som skickats via hanterings grupp | samlings frekvens |
+| plattform | Log Analytics agent för Linux | SCOM-agent | Azure Storage | SCOM krävs? | SCOM agent-data som skickats via hanterings grupp | samlings frekvens |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |var 3: e minut |
 
 I följande tabell visas exempel på data fält som samlas in av VMware-övervakning-lösningen:
 
-| fält namn | beskrivning |
+| fält namn | description |
 | --- | --- |
 | Device_s |VMware Storage-enheter |
 | ESXIFailure_s |typer av problem |
@@ -181,20 +179,20 @@ Det kan finnas flera skäl:
 
 * ESXi-värden skickar inte data korrekt till den virtuella datorn som kör omsagent. Utför följande steg för att testa:
 
-  1. Bekräfta genom att logga in på ESXi-värden med SSH och kör följande kommando:`nc -z ipaddressofVM 1514`
+  1. Bekräfta genom att logga in på ESXi-värden med SSH och kör följande kommando: `nc -z ipaddressofVM 1514`
 
       Om detta inte lyckas är vSphere-inställningarna i den avancerade konfigurationen förmodligen felaktiga. Se [Konfigurera syslog-samling](#configure-syslog-collection) för information om hur du konfigurerar ESXi-värden för syslog-vidarebefordran.
-  1. Om syslog-port anslutningen lyckas, men du inte ser några data, laddar du om syslog på ESXi-värden med hjälp av SSH för att köra följande kommando:`esxcli system syslog reload`
+  1. Om syslog-port anslutningen lyckas, men du inte ser några data, laddar du om syslog på ESXi-värden med hjälp av SSH för att köra följande kommando: `esxcli system syslog reload`
 * Den virtuella datorn med Log Analytics agent har inte angetts korrekt. Testa detta genom att utföra följande steg:
 
-  1. Log Analytics lyssnar på port 1514. Kontrol lera att den är öppen genom att köra följande kommando:`netstat -a | grep 1514`
+  1. Log Analytics lyssnar på port 1514. Kontrol lera att den är öppen genom att köra följande kommando: `netstat -a | grep 1514`
   1. Du bör se porten `1514/tcp` öppen. Om du inte gör det kontrollerar du att omsagent har installerats korrekt. Om du inte ser portinformation är syslog-porten inte öppen på den virtuella datorn.
 
-    a. Verifiera att Log Analytics Agent körs med hjälp av `ps -ef | grep oms` . Om den inte körs startar du processen genom att köra kommandot`sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Verifiera att Log Analytics Agent körs med hjälp av `ps -ef | grep oms` . Om den inte körs startar du processen genom att köra kommandot `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-     c. Kontrol lera att rätt användar-och grupp inställning är giltig, ungefär så här:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Kontrol lera att rätt användar-och grupp inställning är giltig, ungefär så här: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
      d. Om filen inte finns, eller om användar-och grupp inställningen är fel, vidtar du åtgärder genom att [förbereda en Linux-server](#prepare-a-linux-server).
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377820"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418967"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -225,7 +225,9 @@ Följande värde typer och varianter stöds för närvarande:
 > [!NOTE]
 > Se följande regler för datum format:
 > 
-> Följande tecken kan användas som avgränsare för DMY datum: `, - / . \` . Det går inte att använda blank steg som avgränsare. Exempel:
+> Du måste ange ett format ( `dmy` , `mdy` , `ymd` ) för att datum formatet ska fungera.
+>
+> Följande tecken kan användas som datum avgränsare: `, - / . \` . Det går inte att använda blank steg som avgränsare. Exempel:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Följande värde typer och varianter stöds för närvarande:
 > * 1-1-2020
 > * 1-01-20
 >
-> Om en DMY datum sträng har åtta siffror är avgränsaren valfri:
+> Om en datum sträng har åtta siffror är avgränsaren valfri:
 > * 01012020
 > * 01 01 2020
 >
-> Månaden kan också skrivas som fullständigt eller kort namn. Om namnet används är avgränsnings tecken valfria:
+> Månaden kan också skrivas som fullständigt eller kort namn. Om namnet används är avgränsnings tecken valfria. Det här formatet kan dock tolkas mindre precis som andra.
 > * 01/jan/2020
 > * 01Jan2020
 > * 01 jan 2020

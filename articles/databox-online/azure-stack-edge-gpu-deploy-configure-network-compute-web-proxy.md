@@ -26,13 +26,13 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Konfigurera nätverk
 > * Aktivera beräknings nätverk
 > * Konfigurera webbproxy
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste du kontrol lera att:
 
@@ -149,7 +149,7 @@ Detta är en valfri konfiguration.
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Konfigurera nätverk
 > * Aktivera beräknings nätverk
 > * Konfigurera webbproxy

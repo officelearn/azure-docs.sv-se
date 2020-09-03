@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c18f48f41a537d66c637959df4fb45331fbda176
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255536"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420497"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet med hjälp av Azure CLI och python
 
@@ -45,7 +45,7 @@ Arbets flödet för distributionen illustreras i följande diagram.
 
 En detaljerad förklaring av arbets flödes diagrammet finns i [distribuera virtuella datorer på Azure Stack Edge-enhet med Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Information om hur du ansluter till Azure Resource Manager finns i [ansluta till Azure Resource Manager med Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-enhet med hjälp av Azure CLI och python måste du kontrol lera att du har slutfört de krav som anges i följande steg:
 
@@ -60,13 +60,13 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
 
     2. Aktivera beräkning i nätverks gränssnittet. Azure Stack Edge skapar och hanterar en virtuell växel som motsvarar det nätverks gränssnittet.
 
-    Om du väljer att använda ett annat nätverks gränssnitt för beräkning, se till att du:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Ta bort alla virtuella datorer som du har distribuerat med Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Ta bort alla virtuella nätverks gränssnitt och det virtuella nätverk som är associerat med det här nätverks gränssnittet.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - Nu kan du aktivera ett annat nätverks gränssnitt för beräkning.
+    - You can now enable another network interface for compute.-->
 
 3. Du har skapat och installerat alla certifikat på din Azure Stack Edge-enhet och i det betrodda arkivet för din klient. Följ proceduren som beskrivs i [steg 2: skapa och installera certifikat](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 

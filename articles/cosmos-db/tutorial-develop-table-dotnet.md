@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80918c63c1fef82c13b23569bcda10545628e8e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 56198392f3c769837d8d672b861baa9b341d284e
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998024"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419358"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Kom igång med tabell-API för Azure Cosmos DB och Azure Table Storage med .NET SDK
 
@@ -26,7 +26,7 @@ Du kan använda Azure Cosmos DB Tabell-API eller Azure Table Storage för att la
 
 I den här självstudien beskrivs ett exempel som visar hur du använder [Microsoft Azure Cosmos DB tabell bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) med Azure Cosmos DB tabell-API och Azure Table Storage-scenarier. Du måste använda den anslutning som är speciell för Azure-tjänsten. De här scenarierna är bekanta med C#-exempel som illustrerar hur du skapar tabeller, infogar/uppdaterar data, frågedata och tar bort tabeller.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna följa med i det här exemplet:
 
@@ -86,100 +86,21 @@ Följ dessa steg för att hämta NuGet-paketet:
 
 1. Lägg till följande kod i AppSettings.cs-filen. Den här filen läser anslutnings strängen från Settings.jspå filen och tilldelar den till konfigurations parametern:
 
-   ```csharp
-   namespace CosmosTableSamples
-   {
-    using Microsoft.Extensions.Configuration;
-    public class AppSettings
-    {
-        public string StorageConnectionString { get; set; }
-        public static AppSettings LoadAppSettings()
-        {
-            IConfigurationRoot configRoot = new ConfigurationBuilder()
-                .AddJsonFile("Settings.json")
-                .Build();
-            AppSettings appSettings = configRoot.Get<AppSettings>();
-            return appSettings;
-        }
-    }
-   }
-   ```
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/AppSettings.cs":::
 
-## <a name="parse-and-validate-the-connection-details"></a>Analysera och verifiera anslutnings informationen 
+## <a name="parse-and-validate-the-connection-details"></a>Analysera och verifiera anslutnings informationen
 
 1. Högerklicka på din Project- **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **common.cs**. Du kommer att skriva kod för att verifiera anslutnings informationen och skapa en tabell i den här klassen.
 
-1. Definiera en metod `CreateStorageAccountFromConnectionString` som visas nedan. Med den här metoden tolkas anslutnings Strängs informationen och du kan kontrol lera att konto namnet och konto nyckel informationen i filen "Settings.jspå" är giltig. 
+1. Definiera en metod `CreateStorageAccountFromConnectionString` som visas nedan. Med den här metoden tolkas anslutnings Strängs informationen och du kan kontrol lera att konto namnet och konto nyckel informationen i filen "Settings.jspå" är giltig.
 
- ```csharp
-using System;
-
-namespace CosmosTableSamples
-{
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Cosmos.Table;
-    using Microsoft.Azure.Documents;
-
-    public class Common
-    {
-        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
-        {
-            CloudStorageAccount storageAccount;
-            try
-            {
-                storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the application.");
-                throw;
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the sample.");
-                Console.ReadLine();
-                throw;
-            }
-
-            return storageAccount;
-        }
-    }
-}
-   ```
-
+   :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="createStorageAccount":::
 
 ## <a name="create-a-table"></a>Skapa en tabell 
 
 Med klassen [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) kan du hämta tabeller och de entiteter som lagras i Table Storage. Eftersom vi inte har några tabeller i Cosmos DB Tabell-API-kontot ska vi lägga till `CreateTableAsync` metoden i klassen **common.cs** för att skapa en tabell:
 
-```csharp
-public static async Task<CloudTable> CreateTableAsync(string tableName)
-  {
-    string storageConnectionString = AppSettings.LoadAppSettings().StorageConnectionString;
-
-    // Retrieve storage account information from connection string.
-    CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(storageConnectionString);
-
-    // Create a table client for interacting with the table service
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
-
-    Console.WriteLine("Create a Table for the demo");
-
-    // Create a table client for interacting with the table service 
-    CloudTable table = tableClient.GetTableReference(tableName);
-    if (await table.CreateIfNotExistsAsync())
-    {
-      Console.WriteLine("Created Table named: {0}", tableName);
-    }
-    else
-    {
-      Console.WriteLine("Table {0} already exists", tableName);
-    }
-
-    Console.WriteLine();
-    return table;
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
 
 Om du får fel meddelandet "503 Service Unavailable Exception" är det möjligt att de portar som krävs för anslutnings läget blockeras av en brand vägg. Du kan åtgärda det här problemet genom att antingen öppna de portar som krävs eller använda anslutnings tjänsten för gateway-läge som visas i följande kod:
 
@@ -193,27 +114,7 @@ Entiteter mappar till C#-objekt med hjälp av en anpassad klass som härletts fr
 
 Högerklicka på din Project- **CosmosTableSamples**. Välj **Lägg till**, **ny mapp** och ge den namnet som **modell**. I mappen modell lägger du till en klass med namnet **CustomerEntity.cs** och lägger till följande kod i den.
 
-```csharp
-namespace CosmosTableSamples.Model
-{
-    using Microsoft.Azure.Cosmos.Table;
-    public class CustomerEntity : TableEntity
-    {
-        public CustomerEntity()
-        {
-        }
-
-        public CustomerEntity(string lastName, string firstName)
-        {
-            PartitionKey = lastName;
-            RowKey = firstName;
-        }
-
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
 Den här koden definierar en entitets klass som använder kundens förnamn som rad nyckel och efter namn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel den unikt i tabellen. Entiteter med samma partitionsnyckel kan efter frågas snabbare än entiteter med olika partitionsnyckel, men med hjälp av olika partitionstyper kan du få bättre skalbarhet för parallella åtgärder. Enheter som ska lagras i tabeller måste ha en typ som stöds, till exempel härledda från klassen [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Entitetsegenskaper som du vill lagra i en tabell måste vara offentliga egenskaper av den typen och ha stöd för att både hämta och ange värden. Dessutom måste entitetstypen exponera en parameterlös konstruktor.
 
@@ -223,174 +124,27 @@ Följande kod exempel skapar ett entitet-objekt och lägger till det i tabellen.
 
 Högerklicka på din Project- **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **SamplesUtils.cs**. Den här klassen lagrar all kod som krävs för att utföra CRUD-åtgärder på entiteterna. 
 
-```csharp
- public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
- {
-     if (entity == null)
-     {
-         throw new ArgumentNullException("entity");
-     }
-     try
-     {
-         // Create the InsertOrReplace table operation
-         TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(entity);
-
-         // Execute the operation.
-         TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
-         CustomerEntity insertedCustomer = result.Result as CustomerEntity;
-
-         // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure Cosmos DB
-         if (result.RequestCharge.HasValue)
-         {
-             Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
-         }
-
-         return insertedCustomer;
-     }
-     catch (StorageException e)
-     {
-         Console.WriteLine(e.Message);
-         Console.ReadLine();
-         throw;
-     }
- }
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
 
 ## <a name="get-an-entity-from-a-partition"></a>Hämta en entitet från en partition
 
-Du kan hämta entiteten från en partition med hjälp av metoden GET under klassen [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) . I följande kod exempel hämtas rad nyckel, e-postadress och telefonnummer för en kundentitet. I det här exemplet skrivs även de enheter för programbegäran som används för att fråga efter entiteten. Om du vill fråga efter en entitet lägger du till följande kod i **SamplesUtils.cs** -filen: 
+Du kan hämta entiteten från en partition med hjälp av metoden GET under klassen [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) . I följande kod exempel hämtas rad nyckel, e-postadress och telefonnummer för en kundentitet. I det här exemplet skrivs även de enheter för programbegäran som används för att fråga efter entiteten. Om du vill fråga efter en entitet lägger du till följande kod i **SamplesUtils.cs** -filen:
 
-```csharp
-public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)
-    {
-      try
-      {
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>(partitionKey, rowKey);
-        TableResult result = await table.ExecuteAsync(retrieveOperation);
-        CustomerEntity customer = result.Result as CustomerEntity;
-        if (customer != null)
-        {
-          Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
-        }
-
-        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
-        if (result.RequestCharge.HasValue)
-        {
-           Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
-        }
-
-        return customer;
-        }
-        catch (StorageException e)
-        {
-           Console.WriteLine(e.Message);
-           Console.ReadLine();
-           throw;
-        }
-    }
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 
 Du kan enkelt ta bort en enhet när du har hämtat den genom att använda samma mönster som när du uppdaterar en entitet. Följande kod hämtar och tar bort en kundentitet. Om du vill ta bort en entitet lägger du till följande kod i **SamplesUtils.cs** -filen: 
 
-```csharp
-public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity deleteEntity)
-   {
-     try
-     {
-        if (deleteEntity == null)
-     {
-        throw new ArgumentNullException("deleteEntity");
-     }
-
-    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-    TableResult result = await table.ExecuteAsync(deleteOperation);
-
-    // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
-    if (result.RequestCharge.HasValue)
-    {
-       Console.WriteLine("Request Charge of Delete Operation: " + result.RequestCharge);
-    }
-
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Kör CRUD-åtgärder på exempel data
 
-När du har definierat metoder för att skapa tabeller, infoga eller sammanfoga entiteter kör du dessa metoder i exempel data. Det gör du genom att högerklicka på projektet **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **BasicSamples.cs** och Lägg till följande kod till den. Den här koden skapar en tabell, lägger till entiteter i den. Om du vill ta bort entiteten och tabellen i slutet av projektet tar du bort kommentarerna från `table.DeleteIfExistsAsync()` och `SamplesUtils.DeleteEntityAsync(table, customer)` metoder från följande kod:
+När du har definierat metoder för att skapa tabeller, infoga eller sammanfoga entiteter kör du dessa metoder i exempel data. Det gör du genom att högerklicka på projektet **CosmosTableSamples**. Välj **Lägg till**, **nytt objekt** och Lägg till en klass med namnet **BasicSamples.cs** och Lägg till följande kod till den. Den här koden skapar en tabell, lägger till entiteter i den.
 
-```csharp
-using System;
-namespace CosmosTableSamples
-{
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Cosmos.Table;
-    using Model;
+Om du inte vill ta bort entiteten och tabellen i slutet av projektet, kommenterar du `await table.DeleteIfExistsAsync()` `SamplesUtils.DeleteEntityAsync(table, customer)` metoderna och från följande kod. Det är bäst att kommentera ut dessa metoder och verifiera data innan du tar bort tabellen.
 
-    class BasicSamples
-    {
-        public async Task RunSamples()
-        {
-            Console.WriteLine("Azure Cosmos DB Table - Basic Samples\n");
-            Console.WriteLine();
-
-            string tableName = "demo" + Guid.NewGuid().ToString().Substring(0, 5);
-
-            // Create or reference an existing table
-            CloudTable table = await Common.CreateTableAsync(tableName);
-
-            try
-            {
-                // Demonstrate basic CRUD functionality 
-                await BasicDataOperationsAsync(table);
-            }
-            finally
-            {
-                // Delete the table
-                // await table.DeleteIfExistsAsync();
-            }
-        }
-
-        private static async Task BasicDataOperationsAsync(CloudTable table)
-        {
-            // Create an instance of a customer entity. See the Model\CustomerEntity.cs for a description of the entity.
-            CustomerEntity customer = new CustomerEntity("Harp", "Walter")
-            {
-                Email = "Walter@contoso.com",
-                PhoneNumber = "425-555-0101"
-            };
-
-            // Demonstrate how to insert the entity
-            Console.WriteLine("Insert an Entity.");
-            customer = await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
-
-            // Demonstrate how to Update the entity by changing the phone number
-            Console.WriteLine("Update an existing Entity using the InsertOrMerge Upsert Operation.");
-            customer.PhoneNumber = "425-555-0105";
-            await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
-            Console.WriteLine();
-
-            // Demonstrate how to Read the updated entity using a point query 
-            Console.WriteLine("Reading the updated Entity.");
-            customer = await SamplesUtils.RetrieveEntityUsingPointQueryAsync(table, "Harp", "Walter");
-            Console.WriteLine();
-
-            // Demonstrate how to Delete an entity
-            //Console.WriteLine("Delete the entity. ");
-            //await SamplesUtils.DeleteEntityAsync(table, customer);
-            //Console.WriteLine();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/BasicSamples.cs":::
 
 Föregående kod skapar en tabell som börjar med "demo" och det genererade GUID: t läggs till i tabell namnet. Sedan läggs en kundentitet med för-och efter namn till "Harp Walter" och senare uppdateras telefonnumret för den här användaren. 
 
@@ -400,26 +154,7 @@ I den här självstudien har du skapat kod för att utföra grundläggande CRUD-
 
 Från din Project- **CosmosTableSamples**. Öppna klassen med namnet **program.cs** och Lägg till följande kod i den för att anropa BasicSamples när projektet körs.
 
-```csharp
-using System;
-
-namespace CosmosTableSamples
-{
-    class Program
-    {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("Azure Cosmos Table Samples");
-            BasicSamples basicSamples = new BasicSamples();
-            basicSamples.RunSamples().Wait();
-           
-            Console.WriteLine();
-            Console.WriteLine("Press any key to exit");
-            Console.Read();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Program.cs":::
 
 Nu ska du skapa lösningen och trycka på F5 för att köra projektet. När projektet körs visas följande utdata i kommando tolken:
 

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8ac25193bacfcce3c3062ccd92fa5cfbb5784572
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421704"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: ansluta till ett Azure Red Hat OpenShift 4-kluster
 
@@ -37,7 +37,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
+I följande exempel visas hur lösen ordet ska vara i `kubeadminPassword` .
 
 ```json
 {
@@ -46,7 +46,7 @@ Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
 }
 ```
 
-Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser ut så här: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Du kan hitta kluster konsolens URL genom att köra följande kommando, som kommer att se ut `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` .
 
 ```azurecli-interactive
  az aro show \
@@ -103,3 +103,4 @@ I den här självstudiedelen lärde du dig att:
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
 > [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
+

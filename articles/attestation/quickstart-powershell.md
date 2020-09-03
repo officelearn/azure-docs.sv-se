@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70e86e01a9d37a27620d451bcd5d035dfcb4573d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237392"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421296"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Snabb start: Konfigurera Azure-attestering med Azure PowerShell
 
@@ -159,26 +159,27 @@ TagsTable:
 
 Attesterings leverantörer kan tas bort med cmdleten Remove-AzAttestation.  
 
-' ' AzurePowerShell Remove-AzAttestation-Name $attestationProvider-ResourceGroupName $attestationResourceGroup
+```powershell
+Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
-## Policy management
+## <a name="policy-management"></a>Principhantering
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
-- Microsoft.Attestation/attestationProviders/attestation/read
-- Microsoft.Attestation/attestationProviders/attestation/write
-- Microsoft.Attestation/attestationProviders/attestation/delete
+För att kunna hantera principer kräver en Azure AD-användare följande behörigheter för "åtgärder":
+- Microsoft. attestering/attestationProviders/attestering/läsning
+- Microsoft. attestering/attestationProviders/attestering/skrivning
+- Microsoft. attestering/attestationProviders/attestering/Delete
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+Dessa behörigheter kan tilldelas till en AD-användare via en roll som "ägare" (behörigheter för jokertecken), "deltagare" (behörigheter för jokertecken) eller "attesterings bidrags givare" (endast vissa behörigheter för Azure-attestering).  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
-- Microsoft.Attestation/attestationProviders/attestation/read
+För att kunna läsa principer kräver en Azure AD-användare följande behörighet för "åtgärder":
+- Microsoft. attestering/attestationProviders/attestering/läsning
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+Den här behörigheten kan tilldelas till en AD-användare via en roll som "läsare" (behörighet som jokertecken) eller "attesterings läsare" (endast vissa behörigheter för Azure-attestering).
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+Under PowerShell-cmdletar tillhandahåller princip hantering för en attesterings leverantör (en TEE i taget).
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
+Get-AzAttestationPolicy returnerar den aktuella principen för den angivna TEE. Cmdleten visar principen i både text-och JWT-format för principen.
 
 ```powershell
 $teeType = "<tee Type>"

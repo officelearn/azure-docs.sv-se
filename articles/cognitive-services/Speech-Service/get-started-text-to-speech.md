@@ -1,5 +1,5 @@
 ---
-title: Snabb start för tal syntes – tal tjänst
+title: Text till tal-snabb start – tal tjänst
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du använder tal-SDK för att konvertera text till tal. I den här snabb starten får du lära dig om objekt konstruktions-och design mönster, stöd för ljud uppspelning, tal-CLI och anpassade konfigurations alternativ för tal syntes.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: 12ee7fbbd7699d09deae85971ffe411e115609ec
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: text till tal
+ms.openlocfilehash: 79409f95d698e015d15d9131dcf1f27b34b03343
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934708"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400930"
 ---
-# <a name="get-started-with-speech-synthesis"></a>Kom igång med tal syntes
+# <a name="get-started-with-text-to-speech"></a>Komma igång med text till tal
 
 I den här snabb starten lär du dig vanliga design mönster för att skapa text till tal-Sammanfattning med hjälp av tal-SDK. Du börjar med att utföra grundläggande konfiguration och syntes och går vidare till mer avancerade exempel för anpassad program utveckling, inklusive:
 

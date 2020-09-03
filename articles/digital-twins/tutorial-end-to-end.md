@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3da73e376fc77297f77c1ff8c7f444b98e92b412
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290811"
+ms.locfileid: "89401783"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -436,7 +436,7 @@ Här är en recension av scenariot som du skapade i den här självstudien.
 
 Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan. 
 
-Med hjälp av Azure Cloud Shell kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Detta tar bort resurs gruppen. Azure Digitals dubbla instanser, IoT-hubben och nav enhets registreringen. avsnittet Event Grid och associerade prenumerationer. och båda Azure Functions appar, inklusive tillhör ande resurser som lagring.
+Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Detta tar bort resurs gruppen. Azure Digitals dubbla instanser, IoT-hubben och nav enhets registreringen. avsnittet Event Grid och associerade prenumerationer. och Azure Functions-appen, inklusive både funktioner och associerade resurser som lagring.
 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 
@@ -451,7 +451,7 @@ Ta sedan bort den Azure AD App-registrering som du skapade för din klient app m
 az ad app delete --id <your-application-ID>
 ```
 
-Slutligen tar du bort exempel mappen Project som du laddade ned från den lokala datorn.
+Slutligen tar du bort exempel mappen Project som du laddade ned till din lokala dator.
 
 ## <a name="next-steps"></a>Nästa steg
 

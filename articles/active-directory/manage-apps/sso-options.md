@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: ab4d150d79b2c53ad23d892efacef6a848d97854
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642103"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469821"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Alternativ för enkel inloggning i Azure AD
 
@@ -47,7 +47,7 @@ I följande tabell sammanfattas de enkla inloggnings metoderna och länkar till 
 | [SAML](#saml-sso) | molnet och lokalt | Välj SAML när det är möjligt för befintliga program som inte använder OpenID Connect eller OAuth. SAML fungerar för program som autentiserar med ett av SAML-protokollen.|
 | [Lösenordsbaserade](#password-based-sso) | molnet och lokalt | Välj Password-based när programmet autentiserar med användar namn och lösen ord. Lösenordsbaserad enkel inloggning möjliggör säker lagring av lösen ord för program och uppspelning med hjälp av ett webb läsar tillägg eller en mobilapp. Den här metoden använder den befintliga inloggnings processen som tillhandahålls av programmet, men gör det möjligt för en administratör att hantera lösen orden. |
 | [Länkade](#linked-sign-on) | molnet och lokalt | Välj länkad inloggning när programmet har kon figurer ATS för enkel inloggning i en annan Identity Provider-tjänst. Med det här alternativet läggs inte enkel inloggning till i programmet. Programmet kan dock redan ha enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS).|
-| [Disabled](#disabled-sso) (Inaktiverat) | molnet och lokalt | Välj inaktive rad enkel inloggning när appen inte är redo att konfigureras för enkel inloggning. Det här läget är standard när du skapar appen.|
+| [Inaktiverad](#disabled-sso) | molnet och lokalt | Välj inaktive rad enkel inloggning när appen inte är redo att konfigureras för enkel inloggning. Det här läget är standard när du skapar appen.|
 | [Integrerad Windows-autentisering (IWA)](#integrated-windows-authentication-iwa-sso) | endast lokalt | Välj IWA enkel inloggning för program som använder [integrerad Windows-autentisering (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)eller anspråks känsliga program. För IWA använder Application Proxy-kopplingarna Kerberos-begränsad delegering (KCD) för att autentisera användare till programmet. |
 | [Rubrik baserad](#header-based-sso) | endast lokalt | Använd sidhuvud-baserad enkel inloggning när programmet använder rubriker för autentisering. För rubrik-baserad enkel inloggning krävs PingAccess för Azure AD. Programproxyn använder Azure AD för att autentisera användaren och sedan vidarebefordra trafik via anslutnings tjänsten.  |
 

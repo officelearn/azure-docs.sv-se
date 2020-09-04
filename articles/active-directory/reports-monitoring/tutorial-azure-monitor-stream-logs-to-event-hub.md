@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf35b2c15c0d85c93e69ef4e3b6c76932cbd75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229386"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469192"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Självstudie: strömma Azure Active Directory loggar till en Azure Event Hub
 
@@ -60,8 +60,8 @@ För att använda funktionen behöver du:
 7. Välj **OK** för att avsluta händelsehubbkonfigurationen.
 
 8. Gör endera eller båda av följande:
-    * För att skicka spårningsloggar till lagringskontot markerar du kryssrutan **AuditLogs** (Spårningsloggar). 
-    * För att skicka inloggningsloggar till lagringskontot markerar du kryssrutan **SignInLogs** (Inloggningsloggar).
+    * Markera kryss rutan **AuditLogs** för att skicka gransknings loggar till händelsehubben. 
+    * Markera kryss rutan **SignInLogs** för att skicka inloggnings loggar till händelsehubben.
 
 9. Spara inställningen genom att välja **Spara**.
 

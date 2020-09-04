@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 8ac25193bacfcce3c3062ccd92fa5cfbb5784572
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421704"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469124"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: ansluta till ett Azure Red Hat OpenShift 4-kluster
 
@@ -25,7 +25,7 @@ I den här självstudien, som är del två av tre, kommer du att ansluta till et
 
 I tidigare självstudier skapades ett kluster med en Azure Red Hat OpenShift. Om du inte har gjort dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa ett Azure Red Hat OpenShift 4-kluster.](tutorial-create-cluster.md)
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
@@ -103,4 +103,3 @@ I den här självstudiedelen lärde du dig att:
 Gå vidare till nästa kurs:
 > [!div class="nextstepaction"]
 > [Ta bort ett Azure Red Hat OpenShift-kluster](tutorial-delete-cluster.md)
-

@@ -4,16 +4,6 @@
   items:
     - name: Vad är Virtual WAN?
       href: virtual-wan-about.md
-    - name: Arkitektur
-      items:
-        - name: Migrera till Virtual WAN
-          href: migrate-from-hub-spoke-topology.md
-        - name: Global Transit Network-arkitektur
-          href: virtual-wan-global-transit-network-architecture.md
-        - name: SD-WAN-anslutningsarkitektur
-          href: sd-wan-connectivity-architecture.md
-        - name: Sammankoppla med Kina
-          href: interconnect-china.md
 - name: Självstudier
   items:
     - name: Skapa en plats-till-plats-anslutning
@@ -36,11 +26,21 @@
           href: virtual-wan-locations-partners.md
         - name: Automatiseringsriktlinjer för partner
           href: virtual-wan-configure-automation-providers.md
+    - name: Arkitektur
+      items:
+        - name: Migrera till Virtual WAN
+          href: migrate-from-hub-spoke-topology.md
+        - name: Global Transit Network-arkitektur
+          href: virtual-wan-global-transit-network-architecture.md
+        - name: SD-WAN-anslutningsarkitektur
+          href: sd-wan-connectivity-architecture.md
+        - name: Sammankoppla med Kina
+          href: interconnect-china.md
     - name: Routning
       items:
         - name: Om routning av virtuell hubb
           href: about-virtual-hub-routing.md
-        - name: Scenarier
+        - name: Routningsscenarier
           items:
             - name: Alla-till-alla
               href: scenario-any-to-any.md
@@ -154,8 +154,6 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: virtual-wan-faq.md
-    - name: Uppdatera meddelanden
-      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Prenumerations- och tjänstbegränsningar

@@ -125,8 +125,12 @@
       maintainContext: true
 - name: Anvisningar
   items:
-    - name: Flytta mellan regioner
-      href: move-across-regions.md
+    - name: Flytta
+      items:
+        - name: Flytta ett namnområde till en annan region
+          href: move-across-regions.md
+        - name: Flytta ett dedikerat kluster till en annan region
+          href: move-cluster-across-regions.md
     - name: Lägg till partitioner dynamiskt
       href: dynamically-add-partitions.md
     - name: Använda Blob Storage som kontrollpunktslager på Azure Stack Hub

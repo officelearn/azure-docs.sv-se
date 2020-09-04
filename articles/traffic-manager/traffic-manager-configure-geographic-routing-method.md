@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401086"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462623"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Självstudie: Konfigurera den geografiska Traffic routing-metoden med hjälp av Traffic Manager
 
@@ -39,8 +39,7 @@ Med metoden för geografisk trafik cirkulation kan du dirigera trafik till speci
 
 1. Sök efter namnet på Traffic Manager profilen som du skapade i portalens Sök fält och klicka på resultatet när det visas.
 2. Navigera till **Inställningar**  ->  **slut punkter** i Traffic Manager.
-3. Klicka på **Lägg till** för att visa **Lägg till slut punkt**.
-3. Klicka på **Lägg till** och i **Lägg till slut punkt** som visas, Slutför på följande sätt:
+3. Klicka på **Lägg till** och i fönstret **Lägg till slut punkt** som visas, Slutför på följande sätt:
 4. Välj **typ** beroende på vilken typ av slut punkt du lägger till. För geografiska routnings profiler som används i produktion rekommenderar vi att du använder kapslade slut punkts typer som innehåller en underordnad profil med fler än en slut punkt. Mer information finns i [vanliga frågor och svar om metoder för geografisk trafik cirkulation](traffic-manager-FAQs.md).
 5. Ange ett **Namn** som du vill använda för att identifiera den här slutpunkten.
 6. Vissa fält på den här sidan beror på vilken typ av slut punkt du lägger till:

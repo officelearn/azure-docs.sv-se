@@ -1,5 +1,5 @@
 ---
-title: Hanterade privata slut punkter
+title: Hanterade privata slutpunkter
 description: En artikel som förklarar hanterade privata slut punkter i Azure Synapse Analytics
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,22 +8,22 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070100"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459547"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse-hanterade privata slut punkter (förhands granskning)
 
 Den här artikeln förklarar hanterade privata slut punkter i Azure Synapse Analytics.
 
-## <a name="managed-private-endpoints"></a>Hanterade privata slut punkter
+## <a name="managed-private-endpoints"></a>Hanterade privata slutpunkter
 
 Hanterade privata slut punkter är privata slut punkter som skapats i den hanterade arbets ytan Microsoft Azure Virtual Network att upprätta en privat länk till Azure-resurser. Azure Synapse hanterar de här privata slut punkterna för din räkning.
 
-Azure Synapse stöder privata länkar. Med privat länk kan du få åtkomst till Azure-tjänster (till exempel Azure Storage, Azure Cosmos DB och Azure SQL Data Warehouse) och värdbaserade kund-och partner tjänster från Azure Virtual Network på ett säkert sätt.
+Azure Synapse stöder privata länkar. Med privat länk kan du komma åt Azure-tjänster (till exempel Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-och partner tjänster från Azure Virtual Network på ett säkert sätt.
 
 När du använder en privat länk passerar trafiken mellan din Virtual Network och arbets ytan helt över Microsoft stamnät nätverket. Privat länk skyddar mot data exfiltrering-risker. Du upprättar en privat länk till en resurs genom att skapa en privat slut punkt.
 

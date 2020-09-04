@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Välkommen till den kommersiella marknadsplatsen
-summary: Läs mer om den kommersiella marknadsplatsen, en marknadsplats online för program och tjänster där företag av alla storlekar har möjlighet att erbjuda lösningar till kunder över hela världen.
+summary: Läs mer om den kommersiella marknadsplatsen, en marknadsplats online för program och tjänster där företag av alla storlekar kan erbjuda lösningar till kunder över hela världen.
 metadata:
   title: Välkommen till den kommersiella marknadsplatsen
-  description: Läs mer om den kommersiella marknadsplatsen, en marknadsplats online för program och tjänster där företag av alla storlekar har möjlighet att erbjuda lösningar till kunder över hela världen.
+  description: Läs mer om den kommersiella marknadsplatsen, en marknadsplats online för program och tjänster där företag av alla storlekar kan erbjuda lösningar till kunder över hela världen.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
   ms.date: 04/02/2020
-  ms.openlocfilehash: a79d3de89399e9ed89598c5f08efb756291246ca
-  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+  ms.openlocfilehash: 9a61e3796fdd228ffee52d8bf7611946c873460a
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87287853"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378108"
 landingContent:
 - title: Arbeta i den kommersiella marknadsplatsen
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Skapa ett nytt SaaS-erbjudande
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: ./create-new-saas-offer.md
     - text: Metodtips för marknadsföring
       url: ./gtm-marketing-best-practices.md
     - text: Leverantörer av molnlösningar
@@ -82,7 +82,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: SaaS-erbjudanden
-      url: ./partner-center-portal/create-new-saas-offer.md
+      url: create-new-saas-offer.md
     - text: Erbjudanden för virtuella datorer
       url: ./marketplace-virtual-machines.md
     - text: Erbjudanden för Azure-program

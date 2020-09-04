@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d5a8555b2bd57dc024318464e38f042469beb4b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015993"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458679"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -72,7 +72,7 @@ Klona https://github.com/azure/azureml-sdk-for-r GitHub-lagringsplatsen för en 
 
 1. I RStudio navigerar du till fliken "Terminal" och CD: n till den katalog där du vill klona lagrings platsen.
 
-1. Kör "git-kloning https://github.com/Azure/azureml-sdk-for-r.git " i terminalen för att klona lagrings platsen.
+1. Kör "git-kloning https://github.com/Azure/azureml-sdk-for-r " i terminalen för att klona lagrings platsen.
 
 1. I RStudio navigerar du till mappen *vignettes* i mappen klonad *azureml-SDK-for-r* .  Under *vignettes*väljer du *först modellen träna-och-Deploy-First. RMD* -fil för att hitta Vignette som används i den här självstudien. De ytterligare filer som används för Vignette finns i undermappen *träna-och-distribuera-First-Model* . När du har öppnat Vignette anger du arbets katalogen till filens plats via **Session > anger arbets katalog > till käll filens plats**. 
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47c846f0d8d1cccd91301c7424b2618fffddd565
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1afeca4f627236c5172dd07a44751015c16d2f58
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998449"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462030"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
@@ -27,11 +27,11 @@ I den här guiden får du lära dig att:
 > * Lägg till komplettera automatiskt
 > * Kombinera autokomplettering och förslag
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien är en del av en serie och bygger på det växlings projekt som skapats i [C#-självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md).
 
-Du kan också hämta och köra lösningen för den här självstudien: [3-Add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
+Du kan också hämta och köra lösningen för den här självstudien: [3-Add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Lägg till förslag
 

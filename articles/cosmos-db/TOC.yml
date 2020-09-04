@@ -661,6 +661,14 @@
               href: cassandra-secondary-index.md
         - name: Anvisningar
           items:
+            - name: Migrera till API för Cassandra
+              items:
+                - name: Migrera – Oracle DB till API för Cassandra med Striim
+                  href: cosmosdb-cassandra-api-migrate-data-striim.md
+                - name: Migrera – Oracle DB till API för Cassandra med Blitzz
+                  href: oracle-migrate-cosmos-db-blitzz.md
+                - name: Migrera – Apache Cassandra till Cassandra API med Blitzz
+                  href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Ändringsfeed
               href: cassandra-change-feed.md
             - name: Lagra och hantera Spring Data
@@ -736,12 +744,9 @@
                       href: tutorial-develop-mongodb-nodejs-part6.md
                 - name: Node.js och React-app
                   href: tutorial-develop-mongodb-react.md
-            - name: 2 – Migrera data
-              displayName: import
-              href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-            - name: 3 – Frågedata
+            - name: 2 – Frågedata
               href: tutorial-query-mongodb.md
-            - name: 4 – Distribuera data lokalt
+            - name: 3 – Distribuera data globalt
               href: tutorial-global-distribution-mongodb.md
         - name: Begrepp
           items:
@@ -753,10 +758,16 @@
               href: mongodb-api-faq.md
         - name: Anvisningar
           items:
-            - name: Guide före migrering
-              href: mongodb-pre-migration.md
-            - name: Guide efter migrering
-              href: mongodb-post-migration.md
+            - name: Migrera till MongoDB-API
+              items:
+                - name: Guide före migrering
+                  href: mongodb-pre-migration.md
+                - name: Database Migration Service (online)
+                  href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+                - name: Database Migration Service (offline)
+                  href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+                - name: Guide efter migrering
+                  href: mongodb-post-migration.md
             - name: Hämta anslutningssträngen
               href: connect-mongodb-account.md
             - name: Ansluta med Studio 3T
@@ -1235,12 +1246,6 @@
           href: cosmosdb-migrationchoices.md
         - name: Migrera till SQL API med Striim
           href: cosmosdb-sql-api-migrate-data-striim.md
-        - name: Migrera till API för Cassandra med Striim
-          href: cosmosdb-cassandra-api-migrate-data-striim.md
-        - name: Migrera – Oracle DB till API för Cassandra med Blitzz
-          href: oracle-migrate-cosmos-db-blitzz.md
-        - name: Migrera – Apache Cassandra till Cassandra API med Blitzz
-          href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Migrera hundratals terabyte data till Azure Cosmos DB
           href: migrate-cosmosdb-data.md
         - name: Migrera få relationsdata

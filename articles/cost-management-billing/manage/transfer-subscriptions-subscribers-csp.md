@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ffb72b4b06b8925cae57989a171d7efbd88c3866
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686614"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997582"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
@@ -24,6 +24,9 @@ Den här artikeln innehåller enkla steg för att överföra Azure-prenumeration
 CSP-partner som är certifierade som [Azure Expert-leverantörer av hanterade tjänster (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) kan begära överföring av Azure-prenumerationer för kunder som har ett direkt Enterprise-avtal (EA). Prenumerationsöverföringar tillåts bara för kunder som har godkänt ett Microsoft-kundavtal (MCA) och köpt en Azure-plan.
 
 När begäran har godkänts kan CSP:n tillhandahålla en kombinerad faktura till sina kunder. Mer information om hur CSP:er överför prenumerationer finns i [Få faktureringsägarskap för Azure-prenumerationer för ditt MPA-konto](mpa-request-ownership.md).
+
+>[!IMPORTANT]
+> När du har överfört en EA-prenumeration till en CSP-partner återställs alla kvotökningar som tidigare tillämpats för EA-prenumerationen till standardvärdet. Om du behöver öka kvoten efter att prenumerationen har överförts ber du molnlösningsleverantören skicka en begäran om [ökad kvot](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Andra prenumerationsöverföringar till en CSP-partner
 

@@ -241,11 +241,8 @@
   items:
     - name: Dokumentation om avsiktsigenkänning
       href: index-intent-recognition.yml
-    - name: Snabbstart
-      items:
-        - name: 'Känna igen tal, avsikter och entiteter'
-          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
-          href: quickstarts/intent-recognition.md
+    - name: Snabbstart för avsiktsigenkänning
+      href: quickstarts/intent-recognition.md
     - name: Anvisningar
       items:
         - name: 'Känna igen talavsikter med LUIS, C#'
@@ -466,18 +463,14 @@
           href: custom-keyword-basics.md
 - name: Talarigenkänning
   items:
-    - name: Översikt
-      items:
-        - name: Vad är talarigenkänning?
-          href: speaker-recognition-overview.md
-        - name: Grunderna i talarigenkänning
-          href: speaker-recognition-basics.md
+    - name: Översikt för talarigenkänning
+      href: speaker-recognition-overview.md
+    - name: Snabbstart för talarigenkänning
+      href: get-started-speaker-recognition.md
     - name: Referens
       items:
-        - name: 'REST API:er'
-          items:
-            - name: REST-API för talarigenkänning
-              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+        - name: REST-API för talarigenkänning
+          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:
     - name: Dokumentation om värdar

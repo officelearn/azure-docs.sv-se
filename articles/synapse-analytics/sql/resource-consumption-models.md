@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489579"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461773"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
@@ -45,14 +45,14 @@ Prestanda för informations lager enheter baseras på dessa data lager arbets be
 - Ökar antalet läsare och skribenter för PolyBase-inläsnings åtgärder
 - Ökar det maximala antalet samtidiga frågor och samtidiga platser.
 
-### <a name="service-level-objective"></a>Service Level Objective (servicenivåmål)
+### <a name="service-level-objective"></a>Servicenivåmål
 
 Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Service nivåerna för Gen2 mäts i beräknings data lager enheter (cDWU), till exempel DW2000c. Gen1 service nivåer mäts i DWU: er, till exempel DW2000.
 
 Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Tjänst nivåerna för Gen2 SQL-poolen mäts i informations lager enheter (DWU), till exempel DW2000c.
 
 > [!NOTE]
-> Azure SQL Data Warehouse Gen2 nyligen tillagda ytterligare skalnings funktioner som stöder beräknings nivåer som 100 cDWU. Befintliga data lager för närvarande på gen1 som kräver lägre beräknings nivåer kan nu uppgraderas till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region inte stöds ännu kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Azure Synapse Analytics Gen2 nyligen tillagda ytterligare skalnings funktioner som stöd för beräknings nivåer så lågt som 100 cDWU. Befintliga data lager för närvarande på gen1 som kräver lägre beräknings nivåer kan nu uppgraderas till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region inte stöds ännu kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 I T-SQL bestämmer inställningen för SERVICE_OBJECTIVE tjänst nivå och prestanda nivå för SQL-poolen.
 
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Ändra informations lager enheter
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 Ändra DWU: er:
 
@@ -140,7 +140,7 @@ Om du vill ändra DWU: er använder du PowerShell-cmdleten [set-AzSqlDatabase](/
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Mer information finns i [PowerShell-cmdletar för SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Mer information finns i [PowerShell-cmdletar för Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 #### <a name="t-sql"></a>T-SQL
 
@@ -172,7 +172,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Fler REST APIs exempel finns i [REST-API: er för SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Fler REST APIs exempel finns i [REST-API: er för Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="check-status-of-dwu-changes"></a>Kontrol lera status för DWU-ändringar
 

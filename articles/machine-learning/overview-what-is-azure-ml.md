@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145900"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462470"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -69,7 +69,7 @@ Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-m
 
 ## <a name="build-ml-models-in-the-studio"></a>Bygg ML-modeller i Studio
 
-[Azure Machine Learning Studio](https://www.ml.azure.com) är en webb portal i Azure Machine Learning för alternativ med låg kod och ingen kod för modell utbildning, distribution och till gångs hantering. Studio integreras med Azure Machine Learning SDK för en sömlös upplevelse. Mer information finns i [Vad är Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
+[Azure Machine Learning Studio](https://studio.azureml.net) är en webb portal i Azure Machine Learning för alternativ med låg kod och ingen kod för modell utbildning, distribution och till gångs hantering. Studio integreras med Azure Machine Learning SDK för en sömlös upplevelse. Mer information finns i [Vad är Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning designer (för hands version)**
 
@@ -86,7 +86,7 @@ Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-m
 
 + **Och mycket annat...**
 
-  Besök Azure Machine Learning Studio på [ml.Azure.com](https://www.ml.azure.com). 
+  Besök Azure Machine Learning Studio på [ml.Azure.com](https://studio.azureml.net). 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Distribuera & livs cykel hantering

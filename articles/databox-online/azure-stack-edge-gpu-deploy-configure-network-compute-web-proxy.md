@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/03/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6e7dbc2b96a53d220554e07228a5e30857d12d9c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cc111f0df889efd1d3720e2ec0e4aaa452efd801
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262987"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461875"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Självstudie: Konfigurera nätverk för Azure Stack Edge med GPU
 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill konfigurera nätverket för enheten.
     
     ![Panelen nätverks inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png)
 
-    Det finns sex nätverks gränssnitt på den fysiska enheten. PORT 1 och PORT 2 är 1-Gbps nätverks gränssnitt. PORT 3, PORT 4, PORT 5 och PORT 6 är alla 25 Gbit/s nätverks gränssnitt som också kan fungera som 10 Gbit/s nätverks gränssnitt. PORT 1 konfigureras automatiskt som en port för endast hantering, och PORT 2 till PORT 6 är alla data portar. För en ny enhet visas sidan **nätverks inställningar** enligt nedan.
+    Det finns sex nätverksgränssnitt på den fysiska enheten. PORT 1 och PORT 2 är nätverksgränssnitt på 1 Gbit/s. PORT 3, PORT 4, PORT 5 och PORT 6 är alla 25 Gbit/s nätverks gränssnitt som också kan fungera som 10 Gbit/s nätverks gränssnitt. PORT 1 konfigureras automatiskt som en port för endast hantering, och PORT 2 till PORT 6 är alla data portar. För en ny enhet visas sidan **nätverks inställningar** enligt nedan.
     
     ![Sidan nätverks inställningar för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
@@ -68,9 +68,9 @@ Följ dessa steg om du vill konfigurera nätverket för enheten.
 
         ![Lokalt webb gränssnitt "Port 3 nätverks inställningar"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-4.png)
 
-    Tänk på följande när du konfigurerar nätverks inställningarna:
+    Tänk på följande när du konfigurerar nätverksinställningarna:
 
-   * Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. En IP-adress, undernät, gateway och DNS tilldelas automatiskt.
+   * Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. IP-adress, undernät, gateway och DNS tilldelas automatiskt.
    * Om DHCP inte är aktive rad kan du tilldela statiska IP-adresser om det behövs.
    * Du kan konfigurera nätverks gränssnittet som IPv4.
    * På 25 Gbit/s-gränssnitten kan du ange RDMA-läget (Remote Direct Access Memory) till iWarp eller RoCE (RDMA över konvergerat Ethernet). Om låg fördröjning är det primära kravet och skalbarheten inte är ett problem, Använd RoCE. När svars tiden är ett nyckel krav, men enkel användning och skalbarhet också är höga prioriteringar, är iWARP den bästa kandidaten.
@@ -83,7 +83,7 @@ Följ dessa steg om du vill konfigurera nätverket för enheten.
 
      >[!NOTE]
      >
-     > * Vi rekommenderar att du inte byter lokal IP-adress för nätverks gränssnittet från statisk till DCHP, om du inte har en annan IP-adress för att ansluta till enheten. Om du använder ett nätverks gränssnitt och växlar till DHCP, kan det vara något sätt att fastställa DHCP-adressen. Om du vill ändra till en DHCP-adress väntar du tills enheten har Aktiver ATS med tjänsten och ändrar sedan. Du kan sedan Visa IP-adresserna för alla nätverkskort i **enhets egenskaperna** i Azure Portal för din tjänst.
+     > * Vi rekommenderar att du inte byter nätverksgränssnittets lokala IP-adress från statisk till DCHP om du inte har någon annan IP-adress för att ansluta till enheten. Om du använder ett nätverksgränssnitt och växlar till DHCP finns det inget sätt att fastställa DHCP-adressen. Om du vill ändra till en DHCP-adress väntar du tills enheten har Aktiver ATS med tjänsten och ändrar sedan. Du kan sedan Visa IP-adresserna för alla nätverkskort i **enhets egenskaperna** i Azure Portal för din tjänst.
 
 
     När du har konfigurerat och tillämpat nätverks inställningarna går du tillbaka för att **komma igång**.
@@ -104,7 +104,11 @@ Följ dessa steg om du vill aktivera Compute och konfigurera Compute Network.
     
 3. Tilldela **Kubernetes Node IP-adresser**. Dessa statiska IP-adresser är för den virtuella Compute-datorn. 
 
-    För en *n*-Node-enhet anges ett sammanhängande intervall med minst *n + 1* IPv4-adresser (eller mer) för den virtuella beräknings datorn med hjälp av start-och slut-IP-adresserna. Den angivna Azure Stack Edge är en 1-nods enhet, minst 2 sammanhängande IPv4-adresser tillhandahålls. 
+    För en *n*-Node-enhet anges ett sammanhängande intervall med minst *n + 1* IPv4-adresser (eller mer) för den virtuella beräknings datorn med hjälp av start-och slut-IP-adresserna. Den angivna Azure Stack Edge är en 1-nods enhet, minst 2 sammanhängande IPv4-adresser tillhandahålls.
+
+    > [!IMPORTANT]
+    > Kubernetes på Azure Stack Edge använder 172.27.0.0/16 undernät för Pod och 172.28.0.0/16 under nätet för tjänsten. Se till att de inte används i nätverket. Om dessa undernät redan används i nätverket kan du ändra dessa undernät genom att köra `Set-HcsKubeClusterNetworkInfo` cmdleten från PowerShell-gränssnittet på enheten. Mer information finns i [ändra Kubernetes-Pod och tjänst under nät](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
+
 
 4. Tilldela **Kubernetes external service IP-adresser**. Dessa är också IP-adresser för belastnings utjämning. Dessa sammanhängande IP-adresser är för tjänster som du vill exponera utanför Kubernetes-klustret och du anger det statiska IP-intervallet beroende på antalet tjänster som exponeras. 
     
@@ -131,7 +135,7 @@ Detta är en valfri konfiguration.
 
 3. Gör följande på sidan **Web Proxy-inställningar** :
 
-    1. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://host-IP address or FQDN:Port number` . HTTPS-URL: er stöds inte.
+    1. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://host-IP address or FQDN:Port number` . Du kan inte använda HTTPS-adresser.
 
     2. Under **autentisering**väljer du **ingen** eller **NTLM**. Om du aktiverar beräknings-och användnings IoT Edge-modulen på Azure Stack Edge-enhet rekommenderar vi att du ställer in webbproxy-autentisering på **ingen**. **NTLM** stöds inte.
 

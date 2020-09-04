@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783305"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460822"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -68,7 +68,7 @@ Historiskt sett har privilegie rad åtkomst beskrivits av andra leverantörer so
 
 ![Livs cykel för privilegie rad åtkomst](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) ger ytterligare kontroller som är anpassade för att skydda åtkomst rättigheter för resurser, i Azure AD, Azure och andra Microsoft Online Services.  Just-in-Time-åtkomst och roll ändrings aviseringar som tillhandahålls av Azure AD PIM, förutom Multi-Factor Authentication och villkorlig åtkomst, ger en omfattande uppsättning styrnings kontroller för att skydda företagets resurser (katalog, Office 365 och Azure resurs roller). Precis som med andra former av åtkomst kan organisationer använda åtkomst granskningar för att konfigurera återcertifiering av återkommande åtkomst för alla användare i administratörs roller.
+[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) ger ytterligare kontroller som är anpassade för att skydda åtkomst rättigheter för resurser, i Azure AD, Azure och andra Microsoft Online Services.  Just-in-Time-åtkomst och roll ändrings aviseringar som tillhandahålls av Azure AD PIM, förutom Multi-Factor Authentication och villkorlig åtkomst, ger en omfattande uppsättning styrnings kontroller för att skydda företagets resurser (katalog, Microsoft 365 och Azure resurs roller). Precis som med andra former av åtkomst kan organisationer använda åtkomst granskningar för att konfigurera återcertifiering av återkommande åtkomst för alla användare i administratörs roller.
 
 ## <a name="getting-started"></a>Komma igång
 

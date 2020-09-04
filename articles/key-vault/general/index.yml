@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ada202a8683b64144f2adacc759b9461472e4a31
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: 080cf9d8b7816b28f299396de2fe147fc2f9b27e
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262576"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378890"
 landingContent:
 - title: Om Azure Key Vault
   linkLists:
@@ -54,14 +54,20 @@ landingContent:
       url: security-recommendations.md
     - text: Säkerhetsbaslinje
       url: security-baseline.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autentisera till Key Vault
+      url: authentication.md
+    - text: Tilldela åtkomstprincip (CLI)
+      url: assign-access-policy-CLI.md
+    - text: Tilldela åtkomstprincip (PowerShell)
+      url: assign-access-policy-powershell.md
+    - text: Tilldela åtkomstprincip (portal)
+      url: assign-access-policy-portal.md
   - linkListType: tutorial
     links:
     - text: Använda Private Link
       url: private-link-service.md
-    - text: Använda en hanterad identitet
-      url: managed-identity.md
-    - text: Använda en åtkomstprincip
-      url: group-permissions-for-apps.md
 - title: Klientbibliotek
   linkLists:
   - linkListType: reference

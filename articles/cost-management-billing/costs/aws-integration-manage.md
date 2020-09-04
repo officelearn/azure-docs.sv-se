@@ -3,18 +3,18 @@ title: Hantera AWS-kostnader och AWS-användning i Azure Cost Management
 description: Den här artikeln hjälper dig att förstå hur du använder kostnadsanalys och budgetar i Cost Management för att hantera dina AWS-kostnader och din AWS-användning.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685025"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266223"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Hantera AWS-kostnader och AWS-användning i Azure
 
@@ -36,17 +36,18 @@ I nästa avsnitt beskrivs hur du visar information om kostnader och användning 
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>Visa AWS-länkade konton under en hanteringsgrupp
 
-Att visa kostnader med hjälp av hanteringsgruppens omfattning är det enda sättet att se aggregerade kostnader som kommer från olika prenumerationer och länkade konton. När du använder en hanteringsgrupp får du en molnvy.
+Att visa kostnader med hjälp av omfånget Hanteringsgrupp är det enda sättet att se aggregerade kostnader som kommer från olika Azure-prenumerationer och AWL-länkade konton. Genom att använda en hanteringsgrupp får du en gemensam vy över kostnaderna för både Azure och AWS.
 
 I kostnadsanalys öppnar du omfattningsväljaren och väljer den hanteringsgrupp som innehåller dina AWS-länkade konton. Här är en exempelbild i Azure-portalen:
 
-![Exempel på vyn Välj omfattning](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Exempel på vyn Välj omfattning med länkade konton under en hanteringsgrupp" :::
 
 Här är ett exempel som visar kostnaderna för hanteringsgruppen i kostnadsanalys, grupperade efter leverantör (Azure och AWS).
 
-![Exempel som visar Azure- och AWS-kostnader för ett kvartal i kostnadsanalys](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exempel som visar Azure- och AWS-kostnader för ett kvartal i kostnadsanalys" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> Hanteringsgrupper stöds för närvarande inte för kunder med Microsoft-kundavtal (MCA). MCA-kunder kan skapa anslutningsprogrammet och visa sina AWS-data. Däremot kan inte MCA-kunder se sina Azure-kostnader och AWS-kostnader tillsammans under en hanteringsgrupp.
 
 ### <a name="view-aws-linked-account-costs"></a>Visa kostnader för ett AWS-länkat konto
 
@@ -54,21 +55,17 @@ Om du vill visa kostnader för ett AWS-länkat konto öppnar du omfattningsvälj
 
 Här är ett exempel som visar hur du väljer en omfattning för ett AWS-länkat konto.
 
-![Exempel på vyn Välj omfattning](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exempel på vyn Välj omfattning som visar AWS-länkade konton" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Visa kostnader för ett AWS-konsoliderat konto
 
 Om du vill visa kostnader för ett AWS-konsoliderat konto öppnar du omfattningsväljaren och väljer det AWS-konsoliderade kontot. Här är ett exempel som visar hur du väljer en omfattning för ett AWS-konsoliderat konto.
 
-![Exempel på vyn Välj omfattning](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exempel på vyn Välj omfattning med konsoliderade konton" :::
 
 Den här omfattningen ger en översikt över alla AWS-länkade konton som är associerade med det AWS-konsoliderade kontot. Här är ett exempel som visar kostnader för ett AWS-konsoliderat konto, grupperade efter tjänstnamn.
 
-![Exempel som visar AWS-konsoliderade kostnader i kostnadsanalys](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exempel som visar AWS-konsoliderade kostnader i kostnadsanalys" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensioner som är tillgängliga för filtrering och gruppering
 
@@ -77,28 +74,28 @@ I följande tabell beskrivs de dimensioner som är tillgängliga för gruppering
 | Dimension | Amazon, CUR-huvud | Omfattningar | Kommentarer |
 | --- | --- | --- | --- |
 | Tillgänglighetszon | lineitem/AvailabilityZone | Alla |   |
-| Location | product/Region | Alla |   |
+| Plats | product/Region | Alla |   |
 | Mätare |   | Alla |   |
 | Mätarkategori | lineItem/ProductCode | Alla |   |
 | Mätarunderkategori | lineitem/UsageType | Alla |   |
 | Åtgärd | lineItem/Operation | Alla |   |
 | Resurs | lineItem/ResourceId | Alla |   |
 | Resurstyp | product/instanceType | Alla | Om product/instanceType är null används lineItem/UsageType. |
-| ResourceGuid | Ej tillämpligt | Alla | GUID för Azure-mätare. |
+| ResourceGuid | E.t. | Alla | GUID för Azure-mätare. |
 | Tjänstnamn | product/ProductName | Alla | Om product/ProductName är null används lineItem/ProductCode. |
-| Tjänstenivå |   |   |   |
+| Tjänstnivå |   |   |   |
 | Prenumerations-ID:t | lineItem/UsageAccountId | Konsoliderat konto och hanteringsgrupp |   |
-| Prenumerationens namn | Ej tillämpligt | Konsoliderat konto och hanteringsgrupp | Kontonamn samlas in med AWS-organisationens API. |
-| Tagga | resourceTags/\* | Alla | Prefixet _user:_ tas bort från användardefinierade taggar för att tillåta molntaggar. Prefixet _aws:_ lämnas orört. |
+| Prenumerationens namn | E.t. | Konsoliderat konto och hanteringsgrupp | Kontonamn samlas in med AWS-organisationens API. |
+| Tagga | resourceTags | Alla | Prefixet _user:_ tas bort från användardefinierade taggar för att tillåta molntaggar. Prefixet _aws:_ lämnas orört. |
 | Faktureringskonto-ID | bill/PayerAccountId | Hanteringsgrupp |   |
-| Faktureringskontonamn | Ej tillämpligt | Hanteringsgrupp | Kontonamn samlas in med AWS-organisationens API. |
-| Leverantör | Ej tillämpligt | Hanteringsgrupp | Antingen AWS eller Azure. |
+| Faktureringskontonamn | E.t. | Hanteringsgrupp | Kontonamn samlas in med AWS-organisationens API. |
+| Leverantör | E.t. | Hanteringsgrupp | Antingen AWS eller Azure. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>Ange budgetar för AWS-omfattningar
 
 Med budgetar kan du hantera kostnader proaktivt och öka ansvarstagandet i organisationen. Budgetar anges på omfattningarna för AWS-konsoliderat konto och AWS länkat konto. Här är ett exempel på budgetar för ett AWS-konsoliderat konto i Cost Management:
 
-![Exempel som visar budgetar för ett AWS-konsoliderat konto](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exempel som visar budgetar för ett AWS-konsoliderat konto" :::
 
 ## <a name="aws-data-collection-process"></a>AWS-datainsamlingsprocess
 
@@ -110,15 +107,15 @@ När du har konfigurerat AWS-anslutningsprogrammet startar datainsamlings- och i
 
 ## <a name="aws-integration-pricing"></a>Prissättning för AWS-integrering
 
-Varje AWS-anslutningsprogram får 90 dagars kostnadsfri utvärdering. Under den allmänt tillgängliga förhandsversionen kostar det ingenting.
+Varje AWS-anslutningsprogram får 90 dagars kostnadsfri utvärdering.
 
 Listpriset är 1 % av dina AWS-månadskostnader. Varje månad debiteras du baserat på dina fakturerade kostnader från föregående månad.
 
-Åtkomst till AWS-API:er kan medföra ytterligare kostnader.
+Användningen av AWS-API:er kan medföra ytterligare kostnader för AWS.
 
 ## <a name="aws-integration-limitations"></a>Begränsningar för AWS-integrering
 
-- Cost Management stöder inte kostnadsrapporter som innehåller flera valutatyper. Ett felmeddelande visas om du väljer en omfattning som har flera valutor.
+- Budgetar i Cost Management stöder inte hanteringsgrupper med flera valutor. Budgetutvärdering visas inte för hanteringsgrupper med flera valutor. Ett felmeddelande visas om du väljer en hanteringsgrupp som har flera valutor när du skapar en budget.
 - Molnanslutningsprogram stöder inte AWS GovCloud (US), AWS Gov eller AWS China.
 - I Cost Management visas endast _AWS-användningskostnader_. Skatt, support, återbetalningar, RI, krediter eller andra debiteringstyper stöds inte ännu.
 
@@ -182,4 +179,4 @@ Det här felet gäller definitionen för kostnads- och användningsrapporten fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte redan har konfigurerat din Azure-miljö med hanteringsgrupper kan du se [Initial konfiguration av hanteringsgrupper](../../governance/management-groups/overview.md#initial-setup-of-management-groups).
+- Om du inte redan har konfigurerat din Azure-miljö med hanteringsgrupper, kan du läsa [Initial konfiguration av hanteringsgrupper](../../governance/management-groups/overview.md#initial-setup-of-management-groups).

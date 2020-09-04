@@ -20,7 +20,7 @@
           href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Använda virtuella VMware-datorer på Azure
           href: quickstart-create-vmware-virtual-machine.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Tjänst
           href: cloudsimple-service.md
@@ -112,7 +112,7 @@
               href: azure-create-vm.md
             - name: Hantera virtuella CloudSimple-datorer i Azure
               href: azure-manage-vm.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Skydda din miljö
           href: private-cloud-secure.md
@@ -178,3 +178,7 @@
               href: on-premises-connection.md
             - name: Lokal nätverksanslutning med ExpressRoute
               href: azure-expressroute-connection.md
+    - name: Viktig information
+      items:
+        - name: CloudSimple-uppdatering för september 2020
+          href: update-plan-sept-2020.md

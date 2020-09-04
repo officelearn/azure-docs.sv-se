@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d3199eb67e5672cd6f4a6d99219f184e7fbbdf6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687407"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294415"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Felsöka åtkomst till Azure EA-portalen
 
@@ -32,7 +32,7 @@ Du kan använda Azure EA-portalen för att ge åtkomst till användare med olika
 - Arbets- eller skolkonto mellan klientorganisationer – för organisationer som har konfigurerat Active Directory med federation till molnet och kommer att ha konton i flera klientorganisationer.
 - Blandat konto – gör att du kan lägga till användare med Microsoft-konto och/eller ett arbets- eller skolkonto.
 
-Det första arbets- eller skolkonto som läggs till i registreringen avgör _standard-_ eller _huvuddomänen_. För att lägga till ett arbets- eller skolkonto med en annan klientorganisation måste du ändra autentiseringsnivån under registreringen till autentisering mellan klientorganisationer.
+Det första arbets- eller skolkonto som läggs till i registreringen blir _standarddomänen_. För att lägga till ett arbets- eller skolkonto med en annan klientorganisation måste du ändra autentiseringsnivån under registreringen till autentisering mellan klientorganisationer.
 
 Så här uppdaterar du autentiseringsnivån:
 

@@ -222,6 +222,8 @@
                   href: ./spark/apache-spark-version-support.md
             - name: Bärbara Azure Synapse Studio-datorer
               href: ./spark/apache-spark-development-using-notebooks.md
+            - name: Skydda autentiseringsuppgifter med TokenLibrary
+              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
             - name: .NET för Apache Spark
               href: ./spark/spark-dotnet.md
             - name: Apache Spark-maskininlärning
@@ -248,7 +250,7 @@
               href: sql/best-practices-sql-on-demand.md
             - name: Metodtips för SQL-pooler
               href: sql/best-practices-sql-pool.md
-        - name: Läsa in data
+        - name: Förberedelse och inhämtning av data
           items:
             - name: Översikt
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -416,7 +418,7 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Uppgradera till Gen2
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Läsa in data
+    - name: Förberedelse och inhämtning av data
       items:
         - name: Till informationslagret
           items:

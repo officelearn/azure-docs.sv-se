@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c8f3b9933e09e4c31316037445643e83a2e9c07
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783679"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461008"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -45,7 +45,7 @@ Med Azure AD kan du samar beta med användare i din organisation och med externa
 ## <a name="when-should-you-use-access-reviews"></a>När bör du använda åtkomst granskningar?
 
 - **För många användare i privilegierade roller:** Det är en bra idé att kontrol lera hur många användare som har administrativ åtkomst, hur många av dem som är globala administratörer och om det finns inbjudna gäster eller partners som inte har tagits bort efter att ha tilldelats en administrativ uppgift. Du kan omcertifiera roll tilldelnings användare i [Azure AD-roller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som globala administratörer eller [Azure-resurser](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , t. ex. administratör för användar åtkomst i [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) .
-- **När Automation inte är möjligt:** Du kan skapa regler för dynamiskt medlemskap i säkerhets grupper eller Office 365-grupper, men vad händer om data i HR inte finns i Azure AD eller om användarna fortfarande behöver åtkomst efter att gruppen har lämnats för att träna utbyte av dem? Du kan sedan skapa en granskning av den gruppen för att säkerställa att de som fortfarande behöver åtkomst har fortsatt åtkomst.
+- **När Automation inte är möjligt:** Du kan skapa regler för dynamiskt medlemskap i säkerhets grupper eller Microsoft 365 grupper, men vad händer om HR-data inte finns i Azure AD eller om användarna fortfarande behöver åtkomst efter att ha lämnat gruppen för att träna utbyte av dem? Du kan sedan skapa en granskning av den gruppen för att säkerställa att de som fortfarande behöver åtkomst har fortsatt åtkomst.
 - **När en grupp används för ett nytt syfte:** Om du har en grupp som ska synkroniseras med Azure AD, eller om du planerar att aktivera programmet Salesforce för alla i försäljnings grupp gruppen, är det praktiskt att be grupp ägaren att granska grupp medlemskapet innan gruppen används i ett annat risk innehåll.
 - **Affärs kritisk data åtkomst:** för vissa resurser kan det vara nödvändigt att be personer utanför IT att regelbundet logga ut och ge en motivering för varför de behöver åtkomst till gransknings syfte.
 - **För att underhålla undantags listan för en princip:** I en idealisk värld följer alla användare åtkomst principerna för att skydda åtkomsten till organisationens resurser. Ibland finns det dock affärs fall där du behöver göra undantag. Som IT-administratör kan du hantera den här uppgiften, undvika överblick av princip undantag och tillhandahålla granskare med bevis på att dessa undantag granskas regelbundet.

@@ -59,6 +59,9 @@
           href: security-baseline.md
         - name: Säkerhetsrekommendationer för Azure Key Vault
           href: security-recommendations.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
     - name: Meddelanden (förhandsversion)
       items:
         - name: Övervaka med Azure Event Grid (förhandsversion)
@@ -83,13 +86,17 @@
       items:
         - name: Autentisera till Key Vault
           href: authentication.md
-        - name: Använda en hanterad identitet i App Service
-          href: managed-identity.md
-        - name: Använda en princip för åtkomstkontroll
-          href: group-permissions-for-apps.md
-        - name: Använda en rollbaserad åtkomstkontroll i Azure (förhandsversion)
+        - name: Tilldela en åtkomstprincip
+          items:
+            - name: CLI
+              href: assign-access-policy-cli.md
+            - name: PowerShell
+              href: assign-access-policy-powershell.md
+            - name: Portalen
+              href: assign-access-policy-portal.md
+        - name: 'Använd en Azure RBAC för att hantera åtkomsten till nycklar, hemligheter och certifikat (förhandsversion)'
           href: rbac-guide.md
-        - name: Felsöka åtkomstproblem
+        - name: Felsökning av åtkomstproblem
           href: troubleshooting-access-issues.md
     - name: Utveckla
       items:

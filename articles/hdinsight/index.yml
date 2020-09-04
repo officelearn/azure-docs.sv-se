@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 02/27/2020
-  ms.openlocfilehash: c32ca826eb7ebbc773d86a8cfae65cdd4984bcd0
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: fdda3f72c9ed70130a5f5d3877e677ee625a024d
+  ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78192735"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89393538"
 landingContent:
 - title: Om HDInsight
   linkLists:
@@ -24,209 +24,143 @@ landingContent:
     links:
     - text: Vad är Azure HDInsight?
       url: ./hdinsight-overview.md
-  - linkListType: learn
+    - text: HDInsight OSS-komponenter och -versioner
+      url: ./hdinsight-component-versioning.md
+  - linkListType: get-started
     links:
     - text: Skapa analyslösningar med Azure HDInsight
       url: https://docs.microsoft.com/learn/paths/build-oss-analytical-solutions-az-hdinsight/
+    - text: Skapa HDInsight-kluster
+      url: ./hdinsight-hadoop-provision-linux-clusters.md
+    - text: Övervakning med HDInsight
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: Skala kluster för att spara kostnader
+      url: ./hdinsight-scaling-best-practices.md
+    - text: Översikt över HDInsight-säkerhet
+      url: ./domain-joined/hdinsight-security-overview.md
+- title: Apache Spark
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Vad är Apache Spark?
+      url: ./spark/apache-spark-overview.md
+    - text: Skapa Spark-kluster och köra Spark i Jupyter
+      url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
+    - text: Läsa in data och köra Spark-frågor
+      url: ./spark/apache-spark-load-data-run-query.md
+  - linkListType: how-to-guide
+    links:
+    - text: Hantera Spark-beroenden
+      url: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
+    - text: Optimera Spark-jobb
+      url: ./spark/apache-spark-perf.md
+- title: Apache Hadoop
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Vad är Apache Hadoop?
+      url: ./hadoop/apache-hadoop-introduction.md
+    - text: Skapa Hadoop-kluster och köra Hive-frågor
+      url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
+    - text: Köra Map Reduce-exempel
+      url: ./hadoop/apache-hadoop-run-samples-linux.md
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka och hantera Hadoop-kluster
+      url: ./hdinsight-hadoop-manage-ambari.md
+    - text: Använda JDBC/ODBC-drivrutin
+      url: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+- title: Integrering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Spark/Hive – Ansluta Spark och Hive med Hive Warehouse Connector
+      url: ./interactive-query/apache-hive-warehouse-connector.md
+    - text: Spark/Kafka – Strukturerad direktuppspelning i Apache Spark med Apache Kafka
+      url: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - text: Spark/HBase – Skicka frågor till Apache HBase med Apache Spark
+      url: ./hdinsight-using-spark-query-hbase.md
+    - text: Skapa kluster på begäran med ADF
+      url: ./hdinsight-hadoop-create-linux-clusters-adf.md
   - linkListType: concept
     links:
-    - text: HDInsight-komponenter och -versioner
-      url: ./hdinsight-component-versioning.md
     - text: Välja rätt storlek för virtuell dator
       url: ./hdinsight-selecting-vm-size.md
     - text: Typer av virtuella datorer som stöds med HDInsight
       url: ./hdinsight-supported-node-configuration.md
     - text: Jämför lagringsalternativ
       url: ./hdinsight-hadoop-compare-storage-options.md
-  - linkListType: tutorial
-    links:
-    - text: Konfigurera HDInsight-kluster
-      url: ./hdinsight-hadoop-provision-linux-clusters.md
-    - text: Skapa kluster med Data Lake Store Gen2
-      url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
-  - linkListType: whats-new
-    links:
-    - text: Anpassad Ambari-databas
-      url: ./hdinsight-custom-ambari-db.md
-    - text: 'Automatisk skalning: Skala Hadoop-kluster automatiskt'
-      url: ./hdinsight-autoscale-clusters.md
-    - text: Övervakning med HDInsight
-      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-    - text: Migrera Apache Hive-tabeller till HDInsight 4.0
-      url: ./interactive-query/apache-hive-migrate-workloads.md
-- title: Apache Spark
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Vad är Apache Spark?
-      url: ./spark/apache-spark-overview.md
-  - linkListType: quickstart
-    links:
-    - text: Skapa Apache Spark-kluster i Azure-portalen
-      url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
-  - linkListType: concept
-    links:
-    - text: Optimera Spark-jobb
-      url: ./spark/apache-spark-perf.md
-  - linkListType: tutorial
-    links:
-    - text: Skapa Scala Maven-program för Spark
-      url: ./spark/apache-spark-create-standalone-application.md
-    - text: Läsa in data och köra Apache Spark-frågor
-      url: ./spark/apache-spark-load-data-run-query.md
-    - text: Skicka frågor till Apache HBase med Apache Spark
-      url: ./hdinsight-using-spark-query-hbase.md
-    - text: Analysera Spark-data med Power BI
-      url: ./spark/apache-spark-use-bi-tools.md
-- title: Apache Hadoop
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Vad är Apache Hadoop?
-      url: ./hadoop/apache-hadoop-introduction.md
-  - linkListType: quickstart
-    links:
-    - text: Skapa Apache Hadoop-kluster i Azure-portalen
-      url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
-  - linkListType: concept
-    links:
-    - text: Hadoop ETL i skala
-      url: ./hadoop/apache-hadoop-etl-at-scale.md
-    - text: Migrera Hadoop till molnet
-      url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-    - text: Kapacitetsplanering för Hadoop-kluster
-      url: ./hdinsight-capacity-planning.md
-  - linkListType: tutorial
-    links:
-    - text: Ansluta Excel till Apache Hadoop
-      url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
-    - text: Övervaka Hadoop med Azure Monitor-loggar
-      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-    - text: Övervaka och hantera Hadoop-kluster med Ambari UI
-      url: ./hdinsight-hadoop-manage-ambari.md
 - title: Apache Kafka
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
     - text: Vad är Apache Kafka?
       url: ./kafka/apache-kafka-introduction.md
-  - linkListType: quickstart
-    links:
-    - text: Skapa Apache Kafka-kluster i Azure-portalen
+    - text: Skapa Kafka-kluster och hantera Kafka-ämnen
       url: ./kafka/apache-kafka-get-started.md
-  - linkListType: concept
-    links:
-    - text: Kafka REST-proxy
-      url: ./kafka/rest-proxy.md
-    - text: Migrera 3.6 till 4.0
-      url: ./kafka/migrate-versions.md
-    - text: Optimera Kafka-prestanda
-      url: ./kafka/apache-kafka-performance-tuning.md
-    - text: Skalbarhet och Kafka
-      url: ./kafka/apache-kafka-scalability.md
-    - text: Hög tillgänglighet och Kafka
-      url: ./kafka/apache-kafka-high-availability.md
-  - linkListType: tutorial
-    links:
-    - text: Använda Kafka-API:er för producenter och konsumenter
+    - text: Använda producent- och konsument-API:er
       url: ./kafka/apache-kafka-producer-consumer-api.md
-    - text: Apache Spark Structured Streaming med Apache Kafka
-      url: ./hdinsight-apache-kafka-spark-structured-streaming.md
-    - text: Kafka-spegling för haveriberedskap
-      url: ./kafka/apache-kafka-mirroring.md
-    - text: Kafka SSL-installation för autentisering
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Kafka REST-proxy
+      url: ./kafka/rest-proxy.md
+    - text: Kafka TLS-kryptering och autentisering
       url: ./kafka/apache-kafka-ssl-encryption-authentication.md
-- title: Apache HBase
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Vad är Apache HBase?
-      url: ./hbase/apache-hbase-overview.md
-  - linkListType: quickstart
-    links:
-    - text: Skicka frågor till HBase med Apache Phoenix
-      url: ./hbase/apache-hbase-query-with-phoenix.md
-  - linkListType: concept
-    links:
-    - text: Accelererade skrivningar för Apache HBase
-      url: ./hbase/apache-hbase-accelerated-writes.md
-    - text: Metodtips för Apache Phoenix
-      url: ./hbase/apache-hbase-phoenix-performance.md
-  - linkListType: tutorial
-    links:
-    - text: Använda Apache HBase i Azure HDInsight
-      url: ./hbase/apache-hbase-tutorial-get-started-linux.md
-    - text: Migrera HBase till en ny version
-      url: ./hbase/apache-hbase-migrate-new-version.md
 - title: Interaktiv fråga
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
     - text: Vad är Interaktiv fråga?
       url: ./interactive-query/apache-interactive-query-get-started.md
-  - linkListType: quickstart
-    links:
-    - text: Köra Apache Hive-frågor med Apache Zeppelin
-      url: ./interactive-query/hdinsight-connect-hive-zeppelin.md
-  - linkListType: concept
-    links:
-    - text: Optimera Hive-frågor
-      url: ./hdinsight-hadoop-optimize-hive-query.md
-    - text: Använda Hive som ett ETL-verktyg
-      url: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
-  - linkListType: tutorial
-    links:
     - text: Analysera flygdata med Apache Hive
       url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-    - text: Ansluta Spark och Hive med Hive-lagerkoppling
-      url: ./interactive-query/apache-hive-warehouse-connector.md
-    - text: Ansluta Hive med Power BI med hjälp av DirectQuery
+  - linkListType: how-to-guide
+    links:
+    - text: Storleksguide för kluster
+      url: ./interactive-query/hive-llap-sizing-guide.md
+    - text: Ansluta Hive med Power BI
       url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
 - title: Företagsberedskap
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
     - text: Översikt över HDInsight-säkerhet
       url: ./domain-joined/hdinsight-security-overview.md
-  - linkListType: concept
-    links:
     - text: Planera virtuella nätverk
       url: ./hdinsight-plan-virtual-network-deployment.md
     - text: 'Hadoop i Active Directory: Enterprise Security Package'
       url: ./domain-joined/apache-domain-joined-architecture.md
-    - text: Automatisk skalning av Hadoop-kluster
-      url: ./hdinsight-autoscale-clusters.md
     - text: Migrera lokala kluster till molnet
       url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-  - linkListType: tutorial
+- title: Apache HBase
+  linkLists:
+  - linkListType: get-started
     links:
-    - text: Säkerhetskonfiguration på företagsnivå med Azure ADDS
-      url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
+    - text: Vad är Apache HBase?
+      url: ./hbase/apache-hbase-overview.md
+    - text: Använda HBase i Azure HDInsight
+      url: ./hbase/apache-hbase-tutorial-get-started-linux.md
+    - text: Skicka frågor till HBase med Apache Phoenix
+      url: ./hbase/apache-hbase-query-with-phoenix.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aktivera accelererade skrivningar för HBase
+      url: ./hbase/apache-hbase-accelerated-writes.md
+    - text: Metodtips för Apache Phoenix
+      url: ./hbase/apache-hbase-phoenix-performance.md
 - title: ML Services
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
     - text: Vad är ML Services i HDInsight?
       url: ./r-server/r-server-overview.md
-  - linkListType: quickstart
-    links:
     - text: Köra ett R-skript i ett ML Services-kluster
       url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
-  - linkListType: tutorial
-    links:
-    - text: Använda R i en Spark-beräkningskontext
-      url: ./r-server/ml-services-tutorial-spark-compute.md
 - title: Apache Storm
   linkLists:
-  - linkListType: overview
+  - linkListType: get-started
     links:
     - text: Vad är Apache Storm?
       url: ./storm/apache-storm-overview.md
-  - linkListType: quickstart
-    links:
     - text: Skapa en Apache Storm-topologi
       url: ./storm/apache-storm-quickstart.md
-  - linkListType: tutorial
-    links:
-    - text: Skriva till HDFS med Apache Storm
-      url: ./storm/apache-storm-write-data-lake-store.md

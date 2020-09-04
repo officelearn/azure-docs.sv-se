@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: fd2742744ef4f2f616e772c8f387887e113b132a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88862538"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462674"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Snabb start: Distribuera ett Azure-IoT Hub och ett lagrings konto med en ARM-mall
 
@@ -21,7 +21,7 @@ I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -32,8 +32,8 @@ Mallen som används i den här snabb starten anropas `101-iothub-auto-route-mess
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
 Två Azure-resurser definieras i mallen: 
-* [Microsoft. Devices/Iothubs](/azure/templates/microsoft.iothubs)
-* [Microsoft. Storage/](/azure/templates/microsoft.storage)
+* [Microsoft. Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
+* [Microsoft. Storage/](/azure/templates/microsoft.storage/allversions)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>Distribuera mallen och kör exempel appen
 
@@ -46,7 +46,7 @@ Det här avsnittet innehåller stegen för att distribuera mallen, skapa en virt
 
     [![Distribuera till Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Ladda ned och zippa upp [IoT C#-exempel](https://Azure-Samples/azure-iot-samples-csharp).
+1. Ladda ned och zippa upp [IoT C#-exempel](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Öppna ett kommando fönster och gå till mappen där du zippade IoT C#-exempel. Hitta mappen med filen arm-Read-Write. CSPROJ. Du skapar miljövariablerna i det här kommando fönstret. Logga in på [Azure Portal] ( https://portal.azure.com ] för att hämta nycklarna. Välj **resurs grupper** och välj sedan den resurs grupp som används för den här snabb starten.
 

@@ -3,15 +3,15 @@ title: Hantera app-grupper för Windows Virtual Desktop Portal – Azure
 description: Hantera Windows-appar för virtuella skriv bord med Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226734"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461434"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Självstudie: hantera program grupper med Azure Portal
 
@@ -121,6 +121,9 @@ Distributions processen gör följande saker för dig:
 - Publicera app-gruppen som publicerats till användare och användar grupper som du har valt.
 - Registrera app-gruppen, om du har valt att göra det.
 - Skapa en länk till en Azure Resource Manager-mall baserat på din konfiguration som du kan hämta och spara för senare.
+
+>[!IMPORTANT]
+>Du kan bara skapa 50-program grupper för varje Azure Active Directory klient organisation. Vi har lagt till den här gränsen på grund av tjänst begränsningar för hämtning av feeds för våra användare. Den här begränsningen gäller inte för app-grupper som skapats i Windows Virtual Desktop (klassisk).
 
 ## <a name="next-steps"></a>Nästa steg
 

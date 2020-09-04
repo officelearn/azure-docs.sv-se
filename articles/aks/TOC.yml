@@ -187,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Använda Azure-ultradiskar (förhandsversion)
           href: use-ultra-disks.md
+        - name: CSI-lagringsdrivrutiner
+          items:
+            - name: Aktivera CSI-lagringsdrivrutiner (förhandsversion)
+              href: csi-storage-drivers.md
+            - name: Azure Disk CSI-drivrutiner (förhandsversion)
+              href: azure-disk-csi.md
+            - name: Azure Files CSI-drivrutiner (förhandsversion)
+              href: azure-files-csi.md
     - name: Konfigurera nätverk
       items:
         - name: Skapa eller använda ett befintligt virtuellt nätverk
@@ -252,9 +260,9 @@
           href: update-credentials.md
         - name: Aktivera Azure Active Directory-integrering
           items:
-            - name: AKS-hanterad AAD
+            - name: AKS-hanterad Azure AD
               href: managed-aad.md
-            - name: AAD-integrering (äldre)
+            - name: Azure AD-integrering (äldre)
               href: azure-ad-integration-cli.md
         - name: Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
           href: manage-azure-rbac.md

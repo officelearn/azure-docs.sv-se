@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Dokumentation om API:et för handskriftsigenkänning
-summary: Lär dig hur du integrerar handskriftsigenkänning i dina appar och tjänster med hjälp av API:et för handskriftsigenkänning. API:et är en molnbaserad tjänst som använder maskininlärning för att identifiera handskrivna former och text i alla kontexter.
+title: Dokumentation om API:et för handskriftsigenkänning (tas ur bruk)
+summary: Förhandsversionen av API:et för handskriftsigenkänning avslutades 26 augusti 2020. Om du har befintliga handskriftsigenkänningsresurser kan du fortsätta att använda dem tills tjänsten tas ur bruk helt 31 januari 2021. Lär dig hur du integrerar handskriftsigenkänning i dina appar och tjänster med hjälp av API:et för handskriftsigenkänning. API:et är en molnbaserad tjänst som använder maskininlärning för att identifiera handskrivna former och text i alla kontexter.
 metadata:
   title: API:et för handskriftsigenkänning – självstudier, snabbstarter, API-referens
   titleSuffix: Azure Cognitive Services
@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2019
   ms.author: aahi
-  ms.openlocfilehash: f7e273639e5a5efd5e52517d9729bb7ba8908604
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: e0886171d074863009dd83163599c888db10e187
+  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415705"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89419596"
 landingContent:
 - title: Om API:et för handskriftsigenkänning
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: REST API
+    - text: REST-API
       url: https://go.microsoft.com/fwlink/?linkid=2089907
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services

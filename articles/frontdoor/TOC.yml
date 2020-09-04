@@ -4,8 +4,6 @@
   items:
     - name: Vad är Azure Front Door?
       href: front-door-overview.md
-    - name: Nyheter i Azure Front Door
-      href: front-door-whats-new.md
 - name: Snabbstarter
   expanded: true
   items:

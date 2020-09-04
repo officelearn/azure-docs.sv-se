@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008683"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458340"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check lista för prestanda och skalbarhet för tabell lagring
 
@@ -106,7 +106,7 @@ För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser 
 
 I takt med att nätverks användningen används bör du tänka på att nätverks förhållandena som resulterar i fel och paket förlust kommer att ta en långsam effektiv data flöde.  Att använda WireShark eller NetMon kan hjälpa dig att diagnostisera det här problemet.  
 
-### <a name="location"></a>Plats
+### <a name="location"></a>Location
 
 I alla distribuerade miljöer ger klienten nära-servern den bästa prestandan. För att få åtkomst till Azure Storage med den lägsta svars tiden är den bästa platsen för din klient i samma Azure-region. Om du till exempel har en Azure-webbapp som använder Azure Storage kan du söka efter dem i en enda region, till exempel västra USA eller Asien, sydöstra. Samplacering av resurser minskar svars tiden och kostnaden, eftersom bandbredds användningen i en enda region är kostnads fri.  
 
@@ -197,7 +197,7 @@ Det här avsnittet innehåller flera snabb konfigurations inställningar som du 
 
 Från och med Storage Service version 2013-08-15 har Table service stöd för JSON i stället för det XML-baserade AtomPub-formatet för överföring av tabell data. Med JSON kan du minska nytto Last storlekarna med så mycket som 75% och kan förbättra programmets prestanda avsevärt.
 
-Mer information finns i post [Microsoft Azures tabeller: Introduktion till JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [nytto Last format för tabell tjänst åtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Mer information finns i post [Microsoft Azures tabeller: Introduktion till JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) och [nytto Last format för tabell tjänst åtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ### <a name="disable-nagle"></a>Inaktivera Nagle
 

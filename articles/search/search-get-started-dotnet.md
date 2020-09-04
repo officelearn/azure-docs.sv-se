@@ -10,23 +10,23 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7901254463ef052f3c13b2c9fc49c31bd8ebc454
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ffcb2c741838b1292eaf0793cd625c99d252068c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020872"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462079"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket för Azure.Search.Documents
 
 Använd det nya [ klient biblioteket förAzure.Search.Documents (version 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) för att skapa ett .net Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett sökindex.
 
-[Ladda ned käll koden](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) för att börja med ett färdigt projekt eller följ stegen i den här artikeln för att skapa en egen.
+[Ladda ned käll koden](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) för att börja med ett färdigt projekt eller följ stegen i den här artikeln för att skapa en egen.
 
 > [!NOTE]
 > Letar du efter en tidigare version? Se [skapa ett sökindex med hjälp av Microsoft. Azure. search v10](search-get-started-dotnet-v10.md) i stället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar har du följande verktyg och tjänster:
 

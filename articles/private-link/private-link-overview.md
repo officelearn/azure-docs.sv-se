@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 425290f44fc5f8bc761dc80b72aa2421e5c6d194
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181671"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460668"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -46,7 +46,7 @@ Azure Private-länken ger följande fördelar:
 | Azure Storage       |  Alla offentliga regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
 | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | Alla offentliga regioner <br/> Alla myndighets regioner      |  Stöd för [anslutnings princip](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) för proxy | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Azure Synapse Analytics (SQL Data Warehouse)| Alla offentliga regioner <br/> Alla myndighets regioner |  Stöd för [anslutnings princip](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) för proxy |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Synapse Analytics (tidigare SQL Data Warehouse)| Alla offentliga regioner <br/> Alla myndighets regioner |  Stöd för [anslutnings princip](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) för proxy |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Alla offentliga regioner<br/> Alla myndighets regioner | |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner <br/> Alla myndighets regioner     | Stöds för Generell användning och minnesoptimerade pris nivåer | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | Alla offentliga regioner<br/> Alla myndighets regioner      |  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
@@ -94,7 +94,7 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 ## <a name="faqs"></a>Vanliga frågor och svar  
 Vanliga frågor och svar om [Azures privata länkar](private-link-faq.md).
  
-## <a name="limits"></a>Gränser  
+## <a name="limits"></a>Begränsningar  
 För gränser, se [gränser för privata Azure-länkar](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## <a name="service-level-agreement"></a>Serviceavtal

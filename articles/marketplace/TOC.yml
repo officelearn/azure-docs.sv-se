@@ -17,12 +17,16 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Göra transaktioner på den kommersiella marknadsplatsen
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+            - name: Planer och priser
+              href: plans-pricing.md
             - name: Privata erbjudanden
               href: ./private-offers.md
             - name: Standardavtal
               href: ./standard-contract.md
             - name: Spårning av kundanvändning för Azure-partner
               href: ./azure-partner-customer-usage-attribution.md
+            - name: Länder och regioner som stöds
+              href: ./sell-from-countries.md
         - name: Publiceringsguider efter erbjudandetyp
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -32,8 +36,6 @@
               href: ./marketplace-solution-templates.md
             - name: Hanterade program för Azure-appar
               href: ./marketplace-managed-apps.md
-            - name: SaaS-appar
-              href: ./marketplace-saas-applications-technical-publishing-guide.md
             - name: Containrar
               href: ./marketplace-containers.md
             - name: IoT Edge-moduler
@@ -109,11 +111,11 @@
               href: ./partner-center-portal/create-azure-container-technical-assets.md
             - name: Skapa ett Azure Container-erbjudande
               href: ./partner-center-portal/create-azure-container-offer.md
-        - name: Erbjudande på virtuella datorer
+        - name: Erbjudande för virtuella datorer
           items:
             - name: Skapa ett erbjudande för virtuella datorer i Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Skapa tekniska tillgångar för en virtuell Azure-dator
+            - name: Skapa tekniska tillgångar för virtuella Azure-datorer
               items:
                 - name: Certifiering av virtuella datorer – problem och lösningar
                   href: ./partner-center-portal/vm-certification-issues-solutions.md
@@ -165,10 +167,8 @@
               href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: SaaS-erbjudanden
           items:
-            - name: Checklista för skapande av SaaS-erbjudande
-              href: ./partner-center-portal/offer-creation-checklist.md
-            - name: Skapa ett SaaS-erbjudande
-              href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Planera ett SaaS-erbjudande
+              href: plan-saas-offer.md
             - name: Azure AD-autentisering för SaaS
               items:
                 - name: Översikt över Azure AD och SaaS
@@ -177,6 +177,26 @@
                   href: ./azure-ad-transactable-saas-landing-page.md
                 - name: Landningssida för kostnadsfria erbjudanden eller utvärderingserbjudanden
                   href: ./azure-ad-free-or-trial-landing-page.md
+            - name: SaaS-fakturering efter förbrukning
+              href: ./partner-center-portal/saas-metered-billing.md
+            - name: Skapa och publicera ett SaaS-erbjudande
+              items:
+                - name: Skapa ett SaaS-erbjudande
+                  href: create-new-saas-offer.md
+                - name: Konfigurera egenskaper för SaaS-erbjudandet
+                  href: create-new-saas-offer-properties.md
+                - name: Konfigurera en lista med SaaS-erbjudanden
+                  href: create-new-saas-offer-listing.md
+                - name: Lägg till en målgrupp för förhandsversionen
+                  href: create-new-saas-offer-preview.md
+                - name: Lägg till teknisk information
+                  href: create-new-saas-offer-technical.md
+                - name: Skapa planer
+                  href: create-new-saas-offer-plans.md
+                - name: Testa och publicera ett SaaS-erbjudande
+                  href: test-publish-saas-offer.md
+            - name: Marknadsför ditt SaaS-erbjudande
+              href: create-new-saas-offer-marketing.md
             - name: 'API:er för uppfyllnad av SaaS'
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -188,8 +208,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: SaaS-fakturering efter förbrukning
-              href: ./partner-center-portal/saas-metered-billing.md
         - name: Leadhantering – översikt
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
@@ -207,8 +225,6 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Marketplace-mättjänst
           items:
-            - name: Tjänst för avvikelseidentifiering
-              href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
             - name: Autentiseringsstrategier
               href: ./partner-center-portal/marketplace-metering-service-authentication.md
             - name: 'API:er för Marketplace Metering Service'
@@ -234,7 +250,7 @@
       href: review-publish-offer.md
     - name: Uppdatera befintliga erbjudanden
       href: ./partner-center-portal/update-existing-offer.md
-    - name: Aktivera förmåner
+    - name: Aktivera Marketplace-förmåner
       href: ./partner-center-portal/marketplace-rewards.md
     - name: Partnercenteranalys
       items:
@@ -304,3 +320,7 @@
           href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Supportalternativ
       href: ./partner-center-portal/support.md
+    - name: Resurser
+      items:
+        - name: HTML-taggar som stöds
+          href: supported-html-tags.md

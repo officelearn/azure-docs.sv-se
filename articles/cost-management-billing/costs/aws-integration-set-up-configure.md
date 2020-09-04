@@ -3,17 +3,17 @@ title: Konfigurera AWS-integrering med Azure Cost Management
 description: Den här artikeln beskriver hur du konfigurerar integreringen av kostnads- och användningsrapporter från AWS med Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 639d63df060a680e8c135a9be054ac412d1ca8dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685008"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266126"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Konfigurera integreringen av kostnads- och användningsrapporter från AWS
 
@@ -71,7 +71,6 @@ Använd guiden Skapa en ny roll:
 5. I **Konto-ID** anger du **432263259397**.
 6. I **Alternativ** väljer du **Kräv externt ID (lämplig metod när en tredje part kommer att ha rollen)** .
 7. I **Externt ID** anger du det externa ID som är ett delat lösenord mellan AWS-rollen och Azure Cost Management. Samma externa ID används också på sidan **Ny koppling** i Cost Management. Microsoft rekommenderar att du använder en stark lösenordsprincip när du anger det externa ID:t.
-
     > [!NOTE]
     > Ändra inte valet för **Kräv MFA**. Den bör förbli avmarkerad.
 8. Välj **Nästa: Behörigheter**.
@@ -148,23 +147,23 @@ Principens JSON bör likna nedanstående exempel. Ersätt _bucketname_ med namne
 }
 ```
 
-## <a name="set-up-a-new-aws-connector-in-azure"></a>Konfigurera en ny AWS-koppling i Azure
+## <a name="set-up-a-new-connector-for-aws-in-azure"></a>Konfigurera ett nytt anslutningsprogram för AWS i Azure
 
 Använd följande information för att skapa en AWS-koppling och börja övervaka dina AWS-kostnader:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Gå till **Cost Management och fakturering** > **Cost Management**.
-3. Under **Inställningar** väljer du **Molnanslutningsappar (förhandsversion)** .  
-    ![Exempel som visar inställningen Molnanslutningsappar (förhandsversion)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Välj **+ Lägg till** överst på sidan för att skapa en koppling.
-5. På sidan **Skapa en AWS-koppling** i **Visningsnamn** anger du ett namn på din koppling.  
-    ![Exempel på sidan för att skapa en AWS-koppling](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. Du kan välja standardhanteringsgrupp om du vill. I den lagras alla identifierade länkade konton. Du kan konfigurera detta senare.
-7. I avsnittet **Fakturering** väljer du **Debitera automatiskt 1 % vid allmän tillgänglighet** om du vill säkerställa kontinuerlig drift när förhandsversionen upphör att gälla. Om du väljer alternativet Automatisk måste du välja en faktureringsprenumeration.
-8. I **Roll-ARN** anger du det värde som du använde när du konfigurerade rollen i AWS.
-9. I **Externt ID** anger du det värde som du använde när du konfigurerade rollen i AWS.
-10. I **Rapportnamn** anger du det namn som du skapade i AWS.
-11. Välj **Nästa** och sedan **Skapa**.
+3. Välj **Anslutningsprogram för AWS** under **Inställningar**.  
+4. Välj **+ Lägg till** överst på sidan för att skapa en koppling.  
+    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Exempel som visar inställningen Anslutningsprogram för AWS" :::
+1. På sidan **Skapa anslutning** i **Visningsnamn** anger du ett namn på anslutningsprogrammet.  
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Exempel på sidan för att skapa en AWS-koppling" :::
+1. Du kan välja standardhanteringsgrupp om du vill. I den lagras alla identifierade länkade konton. Du kan konfigurera detta senare.
+1. I avsnittet **Fakturering** väljer du **På** för **Förnya automatiskt** om du vill säkerställa kontinuerlig drift. Om du väljer alternativet Automatisk måste du välja en faktureringsprenumeration.
+1. I **Roll-ARN** anger du det värde som du använde när du konfigurerade rollen i AWS.
+1. I **Externt ID** anger du det värde som du använde när du konfigurerade rollen i AWS.
+1. I **Rapportnamn** anger du det namn som du skapade i AWS.
+1. Välj **Nästa** och sedan **Skapa**.
 
 Det kan ta några timmar innan de nya AWS-omfången, det AWS-konsoliderade kontot, AWS-länkade konton och deras kostnadsdata visas.
 
@@ -178,16 +177,19 @@ Att kopplingsbehörighet tilldelas till användarna efter identifieringen ger in
 - Kontrollera att nya omfång läggs till i din omfångsväljare. Välj **Uppdatera** för att se den senaste informationen.
 - På sidan **Molnanslutningsappar** väljer du din koppling och **Gå till faktureringskonto** för att tilldela det länkade kontot till hanteringsgrupper.
 
-## <a name="manage-cloud-connectors"></a>Hantera molnanslutningsappar
+> [!NOTE]
+> Hanteringsgrupper stöds för närvarande inte för kunder med Microsoft-kundavtal (MCA). MCA-kunder kan skapa anslutningsprogrammet och visa sina AWS-data. Däremot kan inte MCA-kunder se sina Azure-kostnader och AWS-kostnader tillsammans under en hanteringsgrupp.
 
-När du väljer en koppling på sidan **Molnanslutningsappar** kan du:
+## <a name="manage-aws-connectors"></a>Hantera AWS-anslutningsprogram
+
+När du väljer ett anslutningsprogram på sidan **Anslutningsprogram för AWS** kan du:
 
 - Välja **Gå till faktureringskonto** om du vill se information om det AWS-konsoliderade kontot.
 - Välja **Access Control** för att hantera rolltilldelningen för kopplingen.
 - Välja **Redigera** för att uppdatera kopplingen. Du kan inte ändra kontonumret för AWS, eftersom det visas i roll-ARN. Men du kan skapa en ny koppling.
 - Välj **Verifiera** för att köra verifieringstestet igen och se att Cost Management kan samla in data med hjälp av kopplingsinställningarna.
 
-![Exempel på lista med skapade AWS-kopplingar](./media/aws-integration-setup-configure/list-aws-connectors.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Exempel på information för AWS-anslutningsprogram" :::
 
 ## <a name="set-up-azure-management-groups"></a>Konfigurera Azure-hanteringsgrupper
 
@@ -197,9 +199,9 @@ Om du vill dela upp kostnader kan du skapa en hanteringsgrupp som bara innehåll
 
 ## <a name="set-up-an-aws-consolidated-account"></a>Konfigurera ett AWS-konsoliderat konto
 
-Det AWS-konsoliderade kontot kombinerar fakturering och betalning för flera AWS-konton. Det fungerar också som ett AWS-länkat konto.
+Det AWS-konsoliderade kontot kombinerar fakturering och betalning för flera AWS-konton. Det fungerar också som ett AWS-länkat konto. Du kan visa informationen för ditt AWS-konsoliderade konto med hjälp av länken på sidan Anslutningsprogram för AWS. 
 
-![Exempel på information för ett AWS-konsoliderat konto](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Exempel på information för ett AWS-konsoliderat konto" :::
 
 På sidan kan du:
 
@@ -221,7 +223,7 @@ På sidan kan du:
 - Välja **Uppdatera** för att uppdatera associeringen av ett AWS-länkat konto med en hanteringsgrupp.
 - Välja **Access Control** för att ange en rolltilldelning för omfånget.
 
-![Exempel på sidan AWS-länkat konto](./media/aws-integration-setup-configure/aws-linked-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Exempel på sidan AWS-länkat konto" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>Behörighet för ett AWS-länkat konto
 

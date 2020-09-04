@@ -93,10 +93,10 @@
       href: troubleshoot-how-to.md
 - name: Referens
   items:
-    - name: HTTP-dataavtal
-      href: http-data-contract.md
-    - name: gRPC-dataavtal
-      href: grpc-data-contract.md
+    - name: Protokoll för HTTP-tillägg
+      href: http-extension-protocol.md
+    - name: Protokoll för gRPC-tillägg
+      href: grpc-extension-protocol.md
     - name: Schema för slutsatsdragning av metadata
       href: inference-metadata-schema.md
     - name: Direkta metoder

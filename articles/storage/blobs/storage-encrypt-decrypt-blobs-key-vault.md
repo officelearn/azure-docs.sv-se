@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 975952a0a084286bdbc19ce02c1192d076cf3600
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001407"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458390"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
 
@@ -28,7 +28,7 @@ Den här självstudien beskriver hur du använder lagrings kryptering på klient
 
 Översikts information om kryptering på klient sidan för Azure Storage finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -240,4 +240,4 @@ Mer information om hur du använder Microsoft Azure Storage med C# finns i [Micr
 
 Mer information om BLOB-REST API finns i [BLOB Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Den senaste informationen om Microsoft Azure Storage finns i [Microsoft Azure Storage teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/).
+Den senaste informationen om Microsoft Azure Storage finns i [Microsoft Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).

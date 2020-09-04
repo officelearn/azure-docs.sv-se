@@ -93,6 +93,9 @@
     - name: Utvärdera effekten av en ny princip
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Rekommenderade principer
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Regelefterlevnad
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md

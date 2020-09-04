@@ -173,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Säkerhet
       items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Rekommendationer
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Säkerhet från grunden

@@ -28,8 +28,6 @@
       href: oracle-reference-architecture.md
     - name: Skapa en Oracle-databas
       href: oracle-design.md
-    - name: Säkerhetskopieringsstrategi för Oracle-databas
-      href: oracle-backup-recovery.md
     - name: Haveriberedskapsalternativ för Oracle
       href: oracle-disaster-recovery.md
 - name: Anvisningar

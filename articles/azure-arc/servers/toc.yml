@@ -23,6 +23,8 @@
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: security-controls-policy.md
+        - name: Säkerhetsöversikt
+          href: security-overview.md
 - name: Anvisningar
   items:
     - name: Ansluta till Azure Arc

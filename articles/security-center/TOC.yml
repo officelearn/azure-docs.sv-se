@@ -130,6 +130,7 @@
         - name: Automatisera svar på aviseringar
           href: workflow-automation.md
         - name: Exportera aviseringar
+          displayName: continuous
           href: continuous-export.md
     - name: Använda säkerhetsrekommendationer för att förbättra säkerheten
       items:
@@ -150,6 +151,7 @@
         - name: Automatisera svar på rekommendationer
           href: workflow-automation.md
         - name: Exportera rekommendationer
+          displayName: continuous
           href: continuous-export.md
     - name: Hantera dina resurser med tillgångslager
       href: asset-inventory.md

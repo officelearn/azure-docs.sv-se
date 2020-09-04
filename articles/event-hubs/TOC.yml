@@ -64,7 +64,7 @@
   items:
     - name: Visualisera dataavvikelser på Event Hubs-dataströmmar
       href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Lagra insamlade data i SQL Data Warehouse
+    - name: Lagra insamlade data i en Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Bearbeta Apache Kafka för Event Hubs-händelser med Stream-analys
       href: event-hubs-kafka-stream-analytics.md

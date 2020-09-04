@@ -36,12 +36,6 @@
       href: concepts-security.md
 - name: Anvisningar
   items:
-    - name: Utveckla
-      items:
-        - name: 'Använda API:er och SDK:er'
-          href: how-to-use-apis-sdks.md
-        - name: 'Skapa anpassade SDK:er med AutoRest'
-          href: how-to-create-custom-sdks.md
     - name: Distribuera
       items:
         - name: Använda Azure Digital Twins CLI
@@ -78,6 +72,14 @@
           href: how-to-create-azure-function.md
         - name: Fråga tvillingdiagrammet
           href: how-to-query-graph.md
+    - name: Utveckla klientprogram
+      items:
+        - name: 'Använda API:er och SDK:er'
+          href: how-to-use-apis-sdks.md
+        - name: 'Skapa anpassade SDK:er med AutoRest'
+          href: how-to-create-custom-sdks.md
+        - name: Integrera med Azure SignalR Service
+          href: how-to-integrate-azure-signalr.md
     - name: Anslut indata
       items:
         - name: Mata in telemetri från IoT Hub
@@ -188,6 +190,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
         - name: Azure Digital Twins med anpassade Swaggers
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+        - name: Integreringsexempel för SignalR
+          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
     - name: Azure-verktyg
       items:
         - name: Azure Cloud Shell

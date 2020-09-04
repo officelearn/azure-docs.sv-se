@@ -59,6 +59,8 @@
               href: ./marketplace-criteria-content-validation.md
             - name: Leverantörer av molnlösningar
               href: ./cloud-solution-providers.md
+            - name: Onboardingguiden Ansluta program
+              href: ./cloud-partner-portal/business-applications-isv-program.md
         - name: Dina Marketplace-förmåner
           href: ./gtm-your-marketplace-benefits.md
           items:

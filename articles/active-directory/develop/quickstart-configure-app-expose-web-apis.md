@@ -1,146 +1,119 @@
 ---
-title: 'Snabb start: Konfigurera en app för att exponera ett webb-API | Azure'
+title: 'Snabb start: registrera och exponera ett webb-API | Azure'
 titleSuffix: Microsoft identity platform
-description: I den här snabb starten får du lära dig hur du konfigurerar ett program för att exponera en ny behörighet/omfattning och roll för att göra programmet tillgängligt för klient program.
+description: 'I den här snabb starten ska du registrera ett webb-API med Microsoft Identity Platform och konfigurera dess scope, exponeras för klienter för behörighets-baserad åtkomst till API: ns resurser.'
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830299"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442171"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Snabb start: Konfigurera ett program för att exponera ett webb-API
 
-Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram genom att exponera [behörigheter/omfång](developer-glossary.md#scopes) och [roller](developer-glossary.md#roles). Ett korrekt konfigurerat webb-API tillhandahålls precis som de andra webb-API:erna från Microsoft, inklusive Graph API och Office 365-API:erna.
+I den här snabb starten registrerar du ett webb-API med Microsoft Identity Platform och exponerar det för klient program genom att lägga till ett exempel omfång. Genom att registrera ditt webb-API och exponera det via omfång kan du ge behörighet till sina resurser till behöriga användare och klient program som har åtkomst till ditt API.
 
-I den här snabb starten får du lära dig hur du konfigurerar ett program för att exponera ett nytt omfång för att göra det tillgängligt för klient program.
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Förutsättningar
+* Ett Azure-konto med en aktiv prenumeration – [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Slut för ande av [snabb start: Konfigurera en klient](quickstart-create-new-tenant.md)
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Slut för ande av [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md).
+## <a name="register-the-web-api"></a>Registrera webb-API: et
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
+Om du vill ge begränsad åtkomst till resurserna i ditt webb-API måste du först registrera API: t med Microsoft Identity Platform.
 
-Innan du kan konfigurera appen gör du följande:
+1. Utför stegen i avsnittet **Registrera ett program** i [snabb start: registrera en app med Microsoft Identity Platform](quickstart-register-app.md).
+1. Hoppa över avsnittet **Lägg till en omdirigerings-URI** och **Konfigurera plattforms inställningar** . Du behöver inte konfigurera en omdirigerings-URI för ett webb-API eftersom ingen användare har loggat in interaktivt.
+1. Hoppa över avsnittet **Lägg till autentiseringsuppgifter** för tillfället. Endast om ditt API har åtkomst till ett underordnat API skulle det behöva sina egna autentiseringsuppgifter, ett scenario som inte beskrivs i den här artikeln.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
-1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
-1. Välj vilken metod du vill använda, användargränssnitt eller applikationsmanifest, för att exponera ett nytt omfång:
-    * [Exponera ett nytt omfång via användargränssnittet](#expose-a-new-scope-through-the-ui)
-    * [Exponera ett nytt omfång eller en ny roll via applikationsmanifestet](#expose-a-new-scope-or-role-through-the-application-manifest)
+Med ditt webb-API registrerat är du redo att lägga till de omfattningar som din API-kod kan använda för att ge detaljerad behörighet till konsumenter av ditt API.
 
-## <a name="expose-a-new-scope-through-the-ui"></a>Exponera ett nytt omfång via användargränssnittet
+## <a name="add-a-scope"></a>Lägg till ett omfång
 
-[![Visar hur du exponerar ett API med hjälp av användar gränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+Koden i ett klient program begär behörighet att utföra åtgärder som definierats av ditt webb-API genom att skicka en åtkomsttoken tillsammans med dess begär anden till den skyddade resursen (webb-API). Ditt webb-API utför sedan den begärda åtgärden endast om åtkomsttoken den tar emot innehåller de omfattningar som krävs för åtgärden.
 
-Så här exponerar du ett nytt omfång via användargränssnittet:
+Börja med att följa de här stegen för att skapa ett exempel omfång med namnet `Employees.Read.All` :
 
-1. På appens **översiktssida** väljer du avsnittet **Exponera ett API**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: på den översta menyn och väljer den klient som innehåller klient appens registrering.
+1. Välj **Azure Active Directory**  >  **Appregistreringar**och välj sedan ditt API: s app-registrering.
+1. Välj **exponera ett API**  >  **Lägg till ett omfång**.
 
-1. Välj **Lägg till omfång**.
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="En app-registrering visar ett API-fönster i Azure Portal":::
 
-1. Om du inte har angett **Program-ID-URI** visas en uppmaning att ange en. Ange din program-ID-URI eller en använd den som ges och välj sedan **Spara och fortsätt**.
+1. Du uppmanas att ange en **program-ID-URI** om du ännu inte har konfigurerat en.
 
-1. När sidan **Lägg till omfång** visas anger du omfångets information:
+   App-ID-URI: n fungerar som prefix för de omfattningar som du refererar till i din API-kod och måste vara globalt unik. Du kan använda standardvärdet som angetts, som är i formuläret `api://<application-client-id>` eller ange en mer LÄSBAR URI som `https://contoso.com/api` .
 
-    | Fält | Beskrivning |
-    |-------|-------------|
-    | **Namn på sökomfång** | Ange ett beskrivande namn på omfånget.<br><br>Till exempel `Employees.Read.All`. |
-    | **Vem kan ge medgivande** | Välj om användare kan ge sitt medgivande för det här omfånget eller om administratörsmedgivande krävs. Välj **Endast administratörer** för behörigheter på högre nivå. |
-    | **Visningsnamn för administratörsmedgivande** | Ge en beskrivning av omfånget, som administratörer kan se.<br><br>Till exempel `Read-only access to Employee records` |
-    | **Beskrivning av administratörsmedgivande** | Ge en beskrivning av omfånget, som administratörer kan se.<br><br>Till exempel `Allow the application to have read-only access to all Employee data.` |
+1. Ange sedan omfångets attribut i fönstret **Lägg till ett omfång** . I den här genom gången kan du använda exempel värden eller ange egna.
 
-    Om användare kan ge sitt medgivande för omfånget lägger du även till värden för följande fält:
+    | Fält | Beskrivning | Exempel |
+    |-------|-------------|---------|
+    | **Namn på sökomfång** | Namnet på ditt omfång. En vanlig namngivnings konvention för omfång är `resource.operation.constraint` . | `Employees.Read.All` |
+    | **Vem kan ge medgivande** | Anger om det här omfånget kan skickas till av användare eller om administratörs medgivande krävs. Välj **Endast administratörer** för behörigheter på högre nivå. | **Administratörer och användare** |
+    | **Visningsnamn för administratörsmedgivande** | En kort beskrivning av Omfattningens syfte som endast administratörer ser. | `Read-only access to Employee records` |
+    | **Beskrivning av administratörsmedgivande** | En mer detaljerad beskrivning av behörigheten som beviljats av omfånget som endast administratörer ser. | `Allow the application to have read-only access to all Employee data.` |
+    | **Visningsnamn för användarmedgivande** | En kort beskrivning av Omfattningens syfte. Visas endast för användare om du anger **vem som kan** godkänna **Administratörer och användare**. | `Read-only access to your Employee records` |
+    | **Beskrivning av användarmedgivande** | En mer detaljerad beskrivning av behörigheten som beviljats av omfånget. Visas endast för användare om du anger **vem som kan** godkänna **Administratörer och användare**. | `Allow the application to have read-only access to your Employee data.` |
 
-    | Fält | Beskrivning |
-    |-------|-------------|
-    | **Visningsnamn för användarmedgivande** | Ange ett beskrivande namn på omfånget, som användarna kan se.<br><br>Till exempel `Read-only access to your Employee records` |
-    | **Beskrivning av användarmedgivande** | Ge en beskrivning av omfånget, som användarna kan se.<br><br>Till exempel `Allow the application to have read-only access to your Employee data.` |
+1. Ange **statusen** **aktive rad**och välj sedan **Lägg till omfång**.
 
-1. Ange **Tillstånd** och välj **Lägg till omfång** när du är klar.
-
-1. Valfritt Om du vill förhindra att användare av din app godkänner medgivande till de omfattningar som du har definierat, kan du "förauktorisera" klient programmet för att få åtkomst till ditt webb-API. Du bör för hands auktorisera *enbart* de klient program som du litar på eftersom användarna inte har möjlighet att avstå från medgivande.
+1. Valfritt Om du vill förhindra att användare av din app godkänner medgivande till de omfattningar som du har definierat kan du *förauktorisera* klient programmet för åtkomst till ditt webb-API. Förauktoriserar *bara* de klient program som du litar på eftersom användarna inte har möjlighet att avstå från medgivande.
     1. Under **auktoriserade klient program**väljer du **Lägg till ett klient program**
     1. Ange **program-ID** för det klient program som du vill förauktorisera. Till exempel för ett webb program som du har registrerat tidigare.
     1. Under **godkända omfattningar**väljer du de omfattningar som du vill utelämna medgivande frågor för och väljer sedan **Lägg till program**.
 
-    Klient appen är nu en förauktoriserad klient app (PCA) och användarna uppmanas inte att ange medgivande när de loggar in på den.
+    Om du följde det här valfria steget är klient appen nu en förauktoriserad klient app (PCA) och användarna uppmanas inte att ange sitt medgivande när de loggar in på den.
 
-1. Följ stegen för att [kontrollera att webb-API:et exponeras för andra appar](#verify-the-web-api-is-exposed-to-other-applications).
+## <a name="add-a-scope-requiring-admin-consent"></a>Lägg till ett omfång som kräver administratörs medgivande
 
-## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Exponera ett nytt omfång eller en ny roll via applikationsmanifestet
+Lägg sedan till ett annat exempel-omfång `Employees.Write.All` som heter att endast administratörer kan godkänna. Omfattningar som kräver administratörs medgivande används vanligt vis för att ge åtkomst till högre privilegierade åtgärder och ofta av klient program som körs som backend-tjänster eller daemons som inte loggar in en användare interaktivt.
 
-Program manifestet fungerar som en mekanism för att uppdatera programentiteten som definierar attributen för en Azure AD App-registrering.
+Om du vill lägga till `Employees.Write.All` exempel området följer du stegen i avsnittet [Lägg till ett område](#add-a-scope) och anger dessa värden i fönstret **Lägg till ett scope** :
 
-[![Exponera ett nytt omfång med oauth2Permissions-samlingen i manifestet](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+| Fält                          | Exempelvärde                                                      |
+|--------------------------------|--------------------------------------------------------------------|
+| **Namn på sökomfång**                 | `Employees.Write.All`                                              |
+| **Vem kan ge medgivande**            | **Endast administratörer**                                                    |
+| **Visningsnamn för administratörsmedgivande** | `Write access to Employee records`                                 |
+| **Beskrivning av administratörsmedgivande**  | `Allow the application to have write access to all Employee data.` |
+| **Visningsnamn för användarmedgivande**  | *Ingen (lämna tomt)*                                               |
+| **Beskrivning av användarmedgivande**   | *Ingen (lämna tomt)*                                               |
 
-För att exponera ett nytt omfång genom att redigera applikations manifestet:
+## <a name="verify-the-exposed-scopes"></a>Verifiera de exponerade omfattningarna
 
-1. På appens **översiktssida** väljer du avsnittet **Manifest**. En webbaserad manifestredigerare öppnas så att du kan **Redigera** manifestet i portalen. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen.
+Om du har lagt till båda exempel omfattningarna som beskrivs i föregående avsnitt visas de i fönstret **exponera ett API** för din webb-API: s app-registrering, ungefär som den här avbildningen:
 
-    I följande exempel visas hur du exponerar ett nytt omfång med namnet `Employees.Read.All` i resursen/API:et genom att lägga till följande JSON-element i `oauth2Permissions`-samlingen.
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Skärm bild av fönstret exponera ett API som visar två exponerade omfång.":::
 
-    Generera `id` värdet program mässigt eller med ett verktyg för GUID-generering som [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
+Som du ser i bilden är en omfattnings fullständiga sträng sammanfogningen av URL: en för webb-API **: n** och omfångets omfångs **namn**.
 
-      ```json
-      {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-      }
-      ```
-
-1. När det är klart klickar du på **Spara**. Nu är ditt webb-API konfigurerat för användning av andra program i din katalog.
-1. Följ stegen för att [kontrollera att webb-API:et exponeras för andra appar](#verify-the-web-api-is-exposed-to-other-applications).
-
-Mer information om program entiteten och dess schema finns Microsoft Graph referens dokumentation för [program][ms-graph-application] resurs typ.
-
-Mer information om applikations manifestet, inklusive dess schema referens, finns i [förstå Azure AD-appens manifest](reference-app-manifest.md).
-
-## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verifiera att webb-API:et görs tillgängligt för andra appar
-
-1. Gå tillbaka till Azure AD-klienten, Välj **Appregistreringar**och leta upp och välj det klient program som du vill konfigurera.
-1. Upprepa stegen som beskrivs i [Konfigurera ett klient program för att få åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md).
-1. När du kommer till steget för att [välja ett API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)väljer du din resurs (registreringen av webb-API-appen).
-    * Om du har skapat webb-API-appens registrering med hjälp av Azure Portal, visas din API-resurs på fliken **Mina API: er** .
-    * Om du tillåter att Visual Studio skapar registreringen av webb-API-appen när projektet skapas visas din API-resurs i **API: erna min organisation använder** fliken.
-
-När du har valt webb-API-resursen bör du se det nya omfånget som är tillgängligt för klient behörighets begär Anden.
-
-## <a name="using-the-exposed-scopes"></a>Använda de exponerade omfattningarna
-
-När en klient har kon figurer ATS korrekt med behörighet att komma åt ditt webb-API, kan den utfärdas en OAuth 2,0-åtkomsttoken från Azure AD. När klienten anropar webb-API: et, visar den den åtkomsttoken som har scope ( `scp` )-anspråket inställt på de behörigheter som begärs i dess program registrering.
-
-Du kan göra ytterligare omfång tillgängliga senare, vid behov. Tänk på att ditt webb-API kanske gör flera omfång tillgängliga som är associerade med en mängd olika funktioner. Din resurs kan styra åtkomsten till webb-API:et vid körning genom att utvärdera omfångsanspråken (`scp`) i den mottagna OAuth 2.0-åtkomsttoken.
-
-I dina program är det fullständiga omfånget en sammanfogning av webb-API: ns **URI för program-ID** (resursen) och **omfångs namnet**.
-
-Exempel: om webb-API: n för program-ID: t är `https://contoso.com/api` och ditt scopenamn är `Employees.Read.All` , är det fullständiga omfånget:
+Exempel: om webb-API: ns program-ID är `https://contoso.com/api` och omfångs namnet är `Employees.Read.All` , är det fullständiga omfånget:
 
 `https://contoso.com/api/Employees.Read.All`
 
+## <a name="using-the-exposed-scopes"></a>Använda de exponerade omfattningarna
+
+I nästa artikel i serien konfigurerar du klient appens registrering med åtkomst till ditt webb-API och de omfattningar som du definierade genom att följa anvisningarna i den här artikeln.
+
+När en klient program registrering beviljas behörighet att komma åt ditt webb-API kan klienten utfärda en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. När klienten anropar webb-API: et visas en åtkomsttoken vars omfång ( `scp` )-anspråk anges till de behörigheter som du har angett i klientens app-registrering.
+
+Du kan göra ytterligare omfång tillgängliga senare, vid behov. Tänk på att ditt webb-API kan exponera flera scope som är kopplade till flera åtgärder. Din resurs kan styra åtkomsten till webb-API: n vid körning genom att utvärdera omfattning ( `scp` )-anspråk i OAuth 2,0-åtkomsttoken som den tar emot.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har exponerat ditt webb-API genom att konfigurera dess omfång konfigurerar du klient appens registrering med behörighet att komma åt dessa omfattningar.
+Nu när du har exponerat ditt webb-API genom att konfigurera dess omfång konfigurerar du klient appens registrering med behörighet att komma åt omfattningarna.
 
 > [!div class="nextstepaction"]
 > [Konfigurera en app-registrering för webb-API-åtkomst](quickstart-configure-app-access-web-apis.md)

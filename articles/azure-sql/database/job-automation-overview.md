@@ -11,20 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984667"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436790"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Du kan skapa och schemalägga jobb som regelbundet kan köras mot en eller flera databaser för att köra Transact-SQL-frågor (T-SQL) och utföra underhålls uppgifter.
 
-Du kan definiera mål databaser eller grupper av databaser där jobbet ska köras och även definiera scheman för att köra ett jobb.
-Ett jobb hanterar uppgiften att logga in till mål databasen. Du definierar också, underhåller och bevarar Transact-SQL-skript som ska köras i en grupp databaser.
+Du kan definiera en måldatabas eller grupper av databaser där jobbet ska köras, och även definiera scheman för när jobbet ska köras.
+Ett jobb hanterar uppgiften att logga in på måldatabasen. Du definierar, underhåller och bevarar även Transact-SQL-skript som ska köras över en grupp databaser.
 
 Alla jobb loggar status för körning och försöker automatiskt utföra åtgärderna på nytt om det uppstår fel.
 
@@ -51,7 +51,7 @@ Följande funktioner för schemaläggning av jobb är tillgängliga:
 - **SQL Agent-jobb** är klassiska och beskrivande SQL Server jobb schemaläggnings komponent som är tillgänglig i Azure SQL-hanterad instans. SQL Agent-jobb är inte tillgängliga i Azure SQL Database.
 - **Elastic Database-jobb (för hands version)** är jobb schemaläggnings tjänster som kör anpassade jobb på en eller flera databaser i Azure SQL Database.
 
-Det är värt att notera några skillnader mellan SQL-agenten (tillgängligt lokalt och som en del av SQL-hanterad instans) och den elastiska jobb agenten för databasen (tillgänglig för enskilda databaser i Azure SQL Database och databaser i SQL Data Warehouse).
+Det är värt att notera några skillnader mellan SQL-agenten (tillgängligt lokalt och som en del av SQL-hanterad instans) och den elastiska jobb agenten för databasen (tillgänglig för enskilda databaser i Azure SQL Database och databaser i Azure Synapse Analytics).
 
 | |Elastiska jobb |SQL Agent |
 |---------|---------|---------|
@@ -218,7 +218,7 @@ När en jobbagent skapas så skapas ett schema, tabeller och en roll som heter *
 
 |Rollnamn |'jobs'-schemabehörigheter |'jobs_internal'-schemabehörigheter |
 |---------|---------|---------|
-|**jobs_reader** | VÄLJ | Ingen |
+|**jobs_reader** | VÄLJ | Inget |
 
 > [!IMPORTANT]
 > Tänk på säkerhetsaspekterna innan du beviljar åtkomst till *jobbdatabasen* som en databasadministratör. En användare som vill vålla skada och får behörigheter att skapa eller redigera jobb skulle kunna skapa eller redigera ett jobb som använder lagrade autentiseringsuppgifter för att ansluta till en databas som står under en sådan användares kontroll. Användaren skulle då kunna ta reda på lösenordet i autentiseringsuppgifterna.

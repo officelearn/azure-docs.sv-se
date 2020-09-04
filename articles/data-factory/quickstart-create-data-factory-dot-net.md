@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85504873"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433990"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabb start: skapa en data fabrik och pipeline med .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -175,7 +175,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
     storageLinkedService, client.SerializationSettings));
 ```
 
-## <a name="create-a-dataset"></a>Skapa en datamängd
+## <a name="create-a-dataset"></a>Skapa en datauppsättning
 
 Lägg till följande kod i **main** -metoden som skapar en **Azure Blob-datauppsättning**.
 
@@ -318,9 +318,9 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Skapa och starta programmet och kontrollera sedan pipelinekörningen.
 
-Konsolen skriver ut förloppet för skapandet av datafabriken, den länkade tjänsten, datauppsättningar, pipeline och pipelinekörning. Sedan kontrolleras status för pipelinekörningen. Vänta tills du ser körnings informationen för kopierings aktiviteten med storleken på Läs/Skriv-data. Använd sedan verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrol lera att blobben har kopierats till "outputBlobPath" från "inputBlobPath" som du har angett i variablerna.
+Konsolen skriver ut förloppet för skapandet av datafabriken, den länkade tjänsten, datauppsättningar, pipeline och pipelinekörning. Sedan kontrolleras status för pipelinekörningen. Vänta tills du ser körnings informationen för kopierings aktiviteten med storleken på Läs/Skriv-data. Använd sedan verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrol lera att bloben (erna) har kopierats till "outputBlobPath" från "inputBlobPath" som du har angett i variablerna.
 
-### <a name="sample-output"></a>Exempel på utdata
+### <a name="sample-output"></a>Exempelutdata
 
 ```json
 Creating data factory SPv2Factory0907...

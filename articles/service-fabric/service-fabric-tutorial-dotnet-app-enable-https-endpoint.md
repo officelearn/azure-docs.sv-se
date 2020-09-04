@@ -4,12 +4,12 @@ description: I den här självstudien lär du dig hur du lägger till en HTTPS-s
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997293"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441535"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
@@ -36,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -238,7 +238,7 @@ I föregående steg importerade du certifikatet till `Cert:\LocalMachine\My`-lag
 
 Om du vill köra PowerShell från punkten **SetupEntryPoint** kan du köra PowerShell.exe i en batchfil som pekar på en PowerShell-fil. Lägg först till batchfilen i tjänstens projekt.  Öppna Solution Explorer, högerklicka på **VotingWeb**, välj **Lägg till**->**Nytt objekt** och lägg till en ny fil med namnet ”Setup.bat”.  Redigera filen *Setup.bat* och lägg till följande kommando:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 

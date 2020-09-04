@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321098"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436264"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -35,7 +35,7 @@ Föreställ dig ett spelföretag som vill samla in en stor mängd loggar som pro
 
 När företaget analyserar loggarna måste de använda referensdata, till exempel kundinformation, spelinformation och information från en marknadsföringskampanj som finns i ett lokalt datalager. Därför behöver företaget mata in loggdata från molndatalagret och referensdata från det lokala datalagret. 
 
-Sedan bearbetar företaget dessa data med Hadoop i molnet (Azure HDInsight). Företaget publicerar resultatdata i ett molndatalager som Azure SQL Data Warehouse eller i ett lokalt datalager som SQL Server. Företaget vill att arbetsflödet ska köras en gång i veckan. 
+Sedan bearbetar företaget dessa data med Hadoop i molnet (Azure HDInsight). De vill publicera resultat data i ett informations lager i molnet, till exempel Azure Synapse Analytics (tidigare SQL Data Warehouse) eller ett lokalt data lager som SQL Server. Företaget vill att arbetsflödet ska köras en gång i veckan. 
 
 Därför behöver företaget en plattform där de kan skapa ett arbetsflöde som matar in data från både lokala och molnbaserade datalager. Företaget måste också kunna omvandla eller bearbeta data med hjälp av befintliga beräkningstjänster som exempelvis Hadoop och sedan publicera resultaten i ett lokalt eller molnbaserat datalager som kan användas av BI-programmen. 
 
@@ -47,14 +47,14 @@ Azure Data Factory är plattformen som ofta används för sådana typer av scena
 
 - Bearbeta och omvandla data med hjälp av beräkningstjänster, till exempel Azure HDInsight Hadoop, Apache Spark, Azure Data Lake Analytics och Azure Machine Learning.
 
--  Publicera utdata till datalager som Azure SQL Data Warehouse och som sedan kan användas av Business Intelligence-program (BI).  
+-  Publicera utdata till data lager som Azure Synapse Analytics för Business Intelligence-program (BI) att använda.  
 
 Det är snarare en EL-plattform (Extract-and-Load) och sedan en TL-plattform (Transform-and-Load), än en traditionell ETL-plattform (Extract-Transform-and-Load). Omvandlingarna bearbetar data med hjälp av beräkningstjänster i stället för att lägga till härledda kolumner, räkna antalet rader, sortera data och så vidare. 
 
 För närvarande är data som används och produceras av arbetsflöden i Azure Data Factory *tidsuppdelade* (varje timme, dagligen, varje vecka osv.). En pipeline kan till exempel läsa indata, bearbeta data och skapa utdata en gång om dagen. Du kan också köra ett arbetsflöde bara en gång.  
   
 
-## <a name="how-does-it-work"></a>Hur fungerar den? 
+## <a name="how-does-it-work"></a>Hur fungerar det? 
 Pipelines (datadrivna arbetsflöden) i Azure Data Factory utför vanligen följande tre steg:
 
 ![Tre nivåer i Azure Data Factory](media/data-factory-introduction/three-information-production-stages.png)

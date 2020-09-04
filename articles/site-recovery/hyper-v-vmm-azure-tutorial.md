@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar haveri beredskap för lokala virtuella
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130238"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442828"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer i VMM-moln till Azure
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artiklarna i avsnittet om **att gå till guider** i [Site Recovery-dokumentationen](./index.yml).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien förutsätter att du redan har slutfört följande Självstudier:
 
@@ -83,7 +83,11 @@ Installera agenten på varje Hyper-V-värd som innehåller de virtuella datorer 
 Konfigurera de här inställningarna i installations guiden för Microsoft Azure Recovery Services agent:
 
 1. **Krav kontroll**. Välj **Nästa**. Alla nödvändiga komponenter som saknas kommer att installeras automatiskt.
-1. **Installations inställningar**. Acceptera installations platsen och cache-platsen. Cache-enheten måste ha minst 5 GB lagrings utrymme. Vi rekommenderar en enhet med 600 GB eller mer ledigt utrymme. Markera **Installera**.
+1. **Installations inställningar**. Acceptera installations platsen. Markera **Installera**.
+
+    >[!NOTE]
+    >För Azure Site Recovery krävs inte **cachelagring location** .
+
 1. **Installation**. När installationen är klar väljer du **Stäng** för att slutföra guiden.
 
    ![Installera agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)

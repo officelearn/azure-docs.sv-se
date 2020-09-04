@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: afb1108bacadd16007e1f53186107ea8458d96e9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205126"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441423"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Käll kontrolls integrering för SQL-pool
 
@@ -29,31 +29,39 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Konfigurera och Anslut till Azure-DevOps
 
-1. I din Azure DevOps-organisation skapar du ett projekt som ska vara värd för ditt SSDT Database-projekt via en Azure lagrings platsen-lagringsplats
+1. Skapa ett projekt i din Azure DevOps-organisation som är värd för ditt SSDT Database-projekt via en Azure lagrings platsen-lagringsplats.
 
    ![Skapa projekt](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Skapa projekt")
 
-2. Öppna Visual Studio och Anslut till din Azure DevOps-organisation och projekt från steg 1 genom att välja hantera anslutningar
+2. Öppna Visual Studio och Anslut till din Azure DevOps-organisation och projekt från steg ett genom att välja **Hantera anslutning**.
 
    ![Hantera anslutningar](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Hantera anslutningar")
 
-   ![Anslut](./media/sql-data-warehouse-source-control-integration/3-connect.png "Anslut")
+3. Anslut till projektet genom att välja **hantera anslutningar**och sedan **ansluta till ett projekt**.
+ ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Ansluta")
 
-3. Klona din Azure lagrings platsen-lagringsplats från projektet till din lokala dator
+
+4. Leta upp projektet som du skapade i steg ett, Välj **Anslut**.
+![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Ansluta")
+
+
+3. Klona din Azure DevOps-lagringsplats från projektet till din lokala dator.
 
    ![Klona lagrings platsen](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Klona lagrings platsen")
 
+Mer information om hur du ansluter projekt med Visual Studio finns i avsnittet [ansluta till projekt i team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). Information om hur du klonar en lagrings platsen med Visual Studio finns i artikeln [klona a avslutar git lagrings platsen](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) . 
+
 ## <a name="create-and-connect-your-project"></a>Skapa och Anslut ditt projekt
 
-1. I Visual Studio skapar du ett nytt SQL Server Database-projekt med både en katalog och en lokal git-lagringsplats i din **lokala klonade lagrings plats**
+1. I Visual Studio skapar du ett nytt SQL Server Database-projekt med både en katalog och en lokal git-lagringsplats i din **lokala klonade lagrings plats**.
 
    ![Skapa nytt projekt](./media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Skapa nytt projekt")  
 
-2. Högerklicka på din tomma sqlproject och importera data lagret till databas projektet
+2. Högerklicka på din tomma sqlproject och importera data lagret till databas projektet.
 
    ![Importera projekt](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importera projekt")  
 
-3. I team Explorer i Visual Studio ska du spara alla ändringar i din lokala git-lagringsplats
+3. I team Explorer i Visual Studio ska du spara ändringarna i din lokala git-lagringsplats.
 
    ![Förbinder](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Checka in")  
 
@@ -65,19 +73,19 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
 ## <a name="validation"></a>Validering
 
-1. Verifiera att ändringarna har flyttats till din Azure-lagrings platsen genom att uppdatera en tabell kolumn i ditt databas projekt från Visual Studio SQL Server Data Tools (SSDT)
+1. Kontrol lera att ändringarna har flyttats till din Azure-lagrings platsen genom att uppdatera en tabell kolumn i ditt databas projekt från Visual Studio SQL Server Data Tools (SSDT).
 
    ![Verifiera uppdaterings kolumn](./media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Verifiera uppdaterings kolumn")
 
-2. Genomför och skicka ändringarna från din lokala lagrings plats till din Azure-lagrings platsen
+2. Genomför och skicka ändringarna från din lokala lagrings plats till din Azure-lagrings platsen.
 
    ![Push-överföring av ändringar](./media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Push-överföring av ändringar")
 
-3. Kontrol lera att ändringen har överförts i din Azure lagrings platsen-lagringsplats
+3. Kontrol lera att ändringen har överförts i din Azure lagrings platsen-lagringsplats.
 
-   ![Verifiera](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verifiera ändringar")
+   ![Verifiera](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verifiera ändringarna")
 
-4. (**Valfritt**) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager
+4. (**Valfritt**) Använd schema jämför och uppdatera ändringarna i mål informations lagret med hjälp av SSDT för att se till att objekt definitionerna i Azure lagrings platsen-lagringsplatsen och den lokala lagrings platsen återspeglar ditt informations lager.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,18 +1,18 @@
 ---
 title: 'Självstudie: Skicka Event Hubs data till data lagret – Event Grid'
-description: 'Självstudie: beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till en SQL Data Warehouse. Den använder en Azure-funktion för att hämta en Capture-fil.'
+description: 'Självstudie: beskriver hur du använder Azure Event Grid och Event Hubs för att migrera data till en Azure Synapse-analys. Den använder en Azure-funktion för att hämta en Capture-fil.'
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007476"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435039"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
-Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
+Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [Event Hubs och event Grid integrations exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med event Grid för att sömlöst migrera insamlade Event Hubs data från Blob Storage till en Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 ![Programöversikt](media/event-grid-event-hubs-integration/overview.png)
 
@@ -22,19 +22,19 @@ Diagrammet visar arbetsflödet för lösningen som du skapar i självstudien:
 2. När datainsamlingen är klar skapas en händelse som skickas till ett Azure-händelserutnät. 
 3. Händelserutnätet vidarebefordrar händelsedatan till en Azure-funktionsapp.
 4. Funktionsappen använder blobb-URL:en i händelsedatan till att hämta blobben från lagringen. 
-5. Funktionsappen migrerar blobbdatan till ett Azure SQL-informationslager. 
+5. Function-appen migrerar BLOB-data till en Azure Synapse-analys. 
 
 I den här självstudien gör du följande:
 
 > [!div class="checklist"]
-> * Använder en Azure Resource Manager-mall för att distribuera infrastrukturen: en händelsehubb, ett lagringskonto, en funktionsapp, ett SQL-informationslager.
+> * Använd en Azure Resource Manager mall för att distribuera infrastrukturen: en Event Hub, ett lagrings konto, en Function-app, en Synapse-analys.
 > * Skapar en tabell i informationslagret.
 > * Lägger till kod i funktionsappen.
 > * Prenumererar på händelsen. 
 > * Kör appen som skickar data till händelsehubben.
 > * Visar migrerade data i informationslagret.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,7 +52,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 * Apptjänstplan som är värd för funktionsappen
 * Funktionsapp för bearbetning av händelsen
 * SQL Server som värd för informationslagret
-* SQL Data Warehouse för lagring av migrerade data
+* Azure Synapse Analytics för lagring av migrerade data
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Starta Azure Cloud Shell i Azure Portal
 
@@ -97,7 +97,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
           "tags": null
         }
         ```
-2. Distribuera alla resurser som nämns i föregående avsnitt (händelsehubb, lagringskonto, funktionsapp, SQL-informationslager) genom att köra följande CLI-kommando: 
+2. Distribuera alla resurser som nämns i föregående avsnitt (händelsehubben, lagrings konto, Functions-app, Azure Synapse Analytics) genom att köra följande CLI-kommando: 
     1. Kopiera och klistra in kommandot i Cloud Shell-fönstret. Alternativt kan du kopiera och klistra in i ett redigeringsprogram, ange värden och sedan kopiera kommandot till Cloud Shell. 
 
         ```azurecli
@@ -112,7 +112,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
         3. Namn på händelsehubben. Du kan lämna värdet som det är (hubdatamigration).
         4. Namn på SQL-servern.
         5. Namn på SQL-användaren och lösenordet. 
-        6. Namn på SQL-informationslagret
+        6. Namn på Azure Synapse Analytics
         7. Namn på lagringskontot. 
         8. Namn på funktionsappen. 
     3.  Tryck på **Retur-tangenten** i Cloud Shell-fönstret för att köra kommandot. Den här processen kan ta en stund eftersom du skapar många resurser. Kontrollera att det inte finns några fel i kommandoresultatet. 
@@ -131,7 +131,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
         ```
     2. Ange ett namn för **resurs gruppen**.
     3. Tryck på Retur-tangenten. 
-3. Distribuera alla resurser som nämns i föregående avsnitt (händelsehubb, lagringskonto, funktionsapp, SQL-informationslager) genom att köra följande kommando:
+3. Distribuera alla resurser som nämns i föregående avsnitt (händelsehubben, lagrings konto, Functions-app, Azure Synapse Analytics) genom att köra följande kommando:
     1. Kopiera och klistra in kommandot i Cloud Shell-fönstret. Alternativt kan du kopiera och klistra in i ett redigeringsprogram, ange värden och sedan kopiera kommandot till Cloud Shell. 
 
         ```powershell
@@ -143,7 +143,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
         3. Namn på händelsehubben. Du kan lämna värdet som det är (hubdatamigration).
         4. Namn på SQL-servern.
         5. Namn på SQL-användaren och lösenordet. 
-        6. Namn på SQL-informationslagret
+        6. Namn på Azure Synapse Analytics
         7. Namn på lagringskontot. 
         8. Namn på funktionsappen. 
     3.  Tryck på **Retur-tangenten** i Cloud Shell-fönstret för att köra kommandot. Den här processen kan ta en stund eftersom du skapar många resurser. Kontrollera att det inte finns några fel i kommandoresultatet. 
@@ -162,13 +162,13 @@ Stäng Cloud Shell genom att välja knappen **Cloud Shell** i portalen (eller) *
 
     ![Resurser i resursgruppen](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Skapa en tabell i Azure Synapse Analytics
 Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Du kan köra skriptet med Visual Studio eller Frågeredigeraren i portalen. Följande steg visar hur du använder Frågeredigeraren: 
 
 1. I listan över resurser i resurs gruppen väljer du din **SYNAPSE SQL-pool (data lager)**. 
-2. På sidan SQL-informationslager väljer du **Frågeredigeraren (förhandsversion)** i den vänstra menyn. 
+2. På sidan Azure Synapse Analytics väljer du **Frågeredigeraren (för hands version)** på den vänstra menyn. 
 
-    ![Sidan SQL-informationslager](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+    ![Azure Synapse Analytics-sida](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
 2. Ange namnet på **användare** och **lösenord** för SQL-servern och välj **OK**. Du kan behöva lägga till din klient-IP-adress i brand väggen för att kunna logga in på SQL Server. 
 
     ![SQL-serverautentisering](media/event-grid-event-hubs-integration/sql-server-authentication.png)
@@ -258,7 +258,7 @@ När du har publicerat funktionen är du redo att prenumerera på händelsen.
         ![Skapa Event Grid-prenumeration](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Kör appen för att generera data
-Nu har du slutfört konfigurationen av händelsehubben, SQL-informationslagret, Azure-funktionsappen och händelseprenumerationen. Innan du kör ett program som genererar data för händelsehubben måste du konfigurera några värden.
+Du är klar med konfigurationen av händelsehubben, Azure Synapse Analytics, Azure Function-appen och händelse prenumerationen. Innan du kör ett program som genererar data för händelsehubben måste du konfigurera några värden.
 
 1. Gå till resursgruppen som du gjorde tidigare i Azure Portal. 
 2. Välj Event Hubs-namnområde.

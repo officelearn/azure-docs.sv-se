@@ -1,18 +1,18 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce2ce146b8a8ba06729c5e9428bccb8a60e14c39
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501974"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89449653"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -36,7 +36,7 @@ Funktionen för delad bild galleri har flera resurs typer:
 | **Bild källa** | Det här är en resurs som kan användas för att skapa en **avbildnings version** i ett bild galleri. En avbildnings källa kan vara en befintlig virtuell Azure-dator som är antingen [generaliserad eller specialiserad](#generalized-and-specialized-images), en hanterad avbildning, en ögonblicks bild, en virtuell hård disk eller en avbildnings version i ett annat bild galleri. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
 | **Bild definition** | Bild definitionerna skapas i ett galleri och bär information om avbildningen och kraven för att använda den internt. Detta inkluderar om avbildningen är Windows eller Linux, viktig information och minimi-och högsta minnes krav. Det är en definition av en typ av bild. |
-| **Avbildnings version** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
+| **Avbildningsversion** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
 
 <br>
 
@@ -52,7 +52,7 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 |---|---|---|---|
 |myImage1|Contoso|Finance|Serverdel|
 |myImage2|Contoso|Finance|Klientdel|
-|myImage3|Test|Finance|Klientdel|
+|myImage3|Testning|Finance|Klientdel|
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
@@ -83,9 +83,9 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 ## <a name="regional-support"></a>Regional support
 
-Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien, centrala och Australien, Central 2 måste din prenumeration läggas till i listan över tillåtna. Om du vill begära att en prenumeration läggs till i listan över tillåtna går du till:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien, centrala och Australien, Central 2 måste din prenumeration läggas till i listan över tillåtna. Om du vill begära att en prenumeration läggs till i listan över tillåtna går du till: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-## <a name="limits"></a>Gränser 
+## <a name="limits"></a>Begränsningar 
 
 Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
 - 100 delade avbildnings gallerier, per prenumeration, per region
@@ -130,7 +130,7 @@ När galleriet för delad avbildning, bild definition och avbildnings version ä
 | Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
 | Delat bildgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Nej                   | Ja          | Ja                  |
+| Bilddefinition     | Inga                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -196,7 +196,7 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 * [Vad kostar det att använda det delade avbildnings galleriet?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Vilken API-version ska jag använda för att skapa delade avbildnings gallerier och bild definitions-och avbildnings versioner?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Vilken API-version ska jag använda för att skapa delad VM eller virtuell dators skalnings uppsättning från avbildnings versionen?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Kan jag uppdatera min skalnings uppsättning för virtuella datorer som skapats med hanterad avbildning för att använda delade avbildnings Galleri avbildningar?]
+* [Kan jag uppdatera min skalnings uppsättning för virtuella datorer som skapats med hanterad avbildning för att använda delade avbildnings Galleri avbildningar?] (#can-i-uppdatera-My-Virtual-Machine-Scale-set-created-using-Managed-image-to-use-Shared Image-Gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Hur gör jag för att visa en lista över alla delade avbildnings Galleri resurser i prenumerationer?
 

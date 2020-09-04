@@ -5,22 +5,22 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752929"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434813"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Snabb start: skapa din första statiska webbapp i Azure Portal
 
-Azures statiska Web Apps publicerar en webbplats i en produktions miljö genom att bygga appar från en GitHub-lagringsplats. I den här snabb starten distribuerar du ett webb program till Azures statiska webb program med hjälp av portalen.
+Azures statiska Web Apps publicerar en webbplats i en produktions miljö genom att bygga appar från en GitHub-lagringsplats. I den här snabb starten distribuerar du ett webb program till Azures statiska webbappar med hjälp av Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [GitHub](https://github.com) -konto
 - [Azure](https://portal.azure.com) -konto
@@ -56,38 +56,39 @@ När du har loggat in med GitHub anger du lagrings plats informationen.
 1. Välj önskad _organisation_
 1. Välj **min-första-webb-statisk-app** från List rutan _databas_
 1. Välj **original** i list rutan _gren_
-1. Välj **Nästa: build >** -knappen för att redigera build-konfigurationen
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Nästa build-knapp":::
 
 > [!NOTE]
 > Om du inte ser några databaser kan du behöva auktorisera Azures statiska Web Apps i GitHub. Bläddra till GitHub-lagringsplatsen och gå till **inställningar > program > auktoriserade OAuth-appar**, Välj **Azure static Web Apps**och välj sedan **bevilja**. Du måste vara ägare till organisationen för att kunna bevilja behörighet för organisations databaser.
 
-1. På fliken _skapa_ lägger du till konfigurations information som är unik för det önskade front-end-ramverket.
+1. I avsnittet _skapa information_ lägger du till konfigurations information som är specifika för ditt prioriterade front-end-ramverk.
 
     # <a name="no-framework"></a>[Inget ramverk](#tab/vanilla-javascript)
 
-    - Rensa standardvärdet i rutan _app location_
-    - Rensa standardvärdet från rutan _API-plats_
-    - Rensa rutan Standardvärde från _appens artefakt plats_
+    1. Välj **anpassad** från List rutan _för att bygga för inställningar_
+    1. Rensa standardvärdet i rutan _app location_
+    1. Rensa standardvärdet från rutan _API-plats_
+    1. Lämna rutan för _appens artefakt plats_ tom
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Rensa standardvärdet i rutan _app location_
-    - Rensa standardvärdet från rutan _API-plats_
-    - Skriv **förd/vinkel-Basic** i rutan _app artefakt plats_
+    1. Välj **vinkel** från List rutan _för att bygga för inställningar_
+    1. Behåll standardvärdet i rutan _app location_
+    1. Rensa standardvärdet från rutan _API-plats_
+    1. Skriv **förd/vinkel-Basic** i rutan _app artefakt plats_
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Rensa standardvärdet i rutan _app location_
-    - Rensa standardvärdet från rutan _API-plats_
-    - Skriv **build** i rutan _plats för app-artefakt_
+    1. Välj **reagerar** från List rutan _för att bygga för inställningar_
+    1. Behåll standardvärdet i rutan _app location_
+    1. Rensa standardvärdet från rutan _API-plats_
+    1. Skriv **build** i rutan _plats för app-artefakt_
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Rensa standardvärdet i rutan _app location_
-    - Rensa standardvärdet från rutan _API-plats_
-    - Skriv **Dist** i rutan _plats för app-artefakt_
+    1. Välj **Vue.js** i list rutan _för att bygga för inställningar_
+    1. Behåll standardvärdet i rutan _app location_
+    1. Rensa standardvärdet från rutan _API-plats_
+    1. Behåll standardvärdet i rutan _app artefakt plats_
 
     ---
 

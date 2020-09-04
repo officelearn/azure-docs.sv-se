@@ -1,6 +1,6 @@
 ---
 title: Kopiera data i bulk med PowerShell
-description: Lär dig hur du använder Azure Data Factory och kopieringsaktiviteten till att masskopiera data från ett källdatalager till ett måldatalager.
+description: Använd Azure Data Factory med kopierings aktivitet för att kopiera data från ett käll data lager till ett mål data lager i bulk.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b1601bf095b5898de965d42a16e63f278499a9bf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3bdfe243301a2439178e0dd1f016a804e3f40fd7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85251522"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442776"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Kopiera flera tabeller i bulk genom att använda Azure Data Factory med hjälp av PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
+Den här självstudien visar hur **du kopierar ett antal tabeller från Azure SQL Database till Azure Synapse Analytics (tidigare SQL Data Warehouse)**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
 
 Sett på en hög nivå ingår följande steg i självstudierna:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
-> * Skapa länkade tjänster för Azure SQL Database, Azure SQL Data Warehouse och Azure Storage.
-> * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
+> * Skapa Azure SQL Database, Azure Synapse Analytics och Azure Storage länkade tjänster.
+> * Skapa Azure SQL Database och Azure Synapse Analytics-datauppsättningar.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
 > * Övervaka pipelinen och aktivitetskörningarna.
@@ -37,39 +37,39 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 I den här kursen används Azure PowerShell. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
-I det här scenariot har vi ett antal tabeller i Azure SQL Database som vi vill kopiera till SQL Data Warehouse. Här är den logiska ordningsföljden i arbetsflödet som sker i våra pipelines:
+I det här scenariot har vi ett antal tabeller i Azure SQL Database som vi vill kopiera till Azure Synapse Analytics. Här är den logiska ordningsföljden i arbetsflödet som sker i våra pipelines:
 
 ![Arbetsflöde](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
 
 * Den första pipelinen letar rätt på listan med tabeller som ska kopieras till de mottagande datalagren.  Du kan istället underhålla en metadatatabell som innehåller alla tabeller som ska kopieras till de mottagande datalagren. Sedan utlöser pipelinen en annan pipeline, som itererar över varje tabell i databasen och utför själva datakopieringen.
-* Den andra pipelinen utför den faktiska kopieringen. Den tar listan med tabeller som en parameter. För varje tabell i listan kopieras tabellen i Azure SQL Database till motsvarande tabell i SQL Data Warehouse, med hjälp av [mellanlagrad kopiering via Blob Storage och PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) för bästa möjliga prestanda. I det här exemplet skickar den första pipelinen listan med tabeller som värde för parametern. 
+* Den andra pipelinen utför den faktiska kopieringen. Den tar listan med tabeller som en parameter. För varje tabell i listan kopierar du den speciella tabellen i Azure SQL Database till motsvarande tabell i Azure Synapse Analytics med hjälp av [mellanlagrad kopia via Blob Storage och PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) för bästa prestanda. I det här exemplet skickar den första pipelinen listan med tabeller som värde för parametern. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Azure Storage konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
-* **Azure SQL Data Warehouse**. Det här datalagret innehåller de data som kopieras från SQL Database. 
+* **Azure Synapse-analys**. Det här datalagret innehåller de data som kopieras från SQL Database. 
 
-### <a name="prepare-sql-database-and-sql-data-warehouse"></a>Förbereda SQL Database och SQL Data Warehouse
+### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Förbered SQL Database-och Azure Synapse-analys
 
 **Förbered Azure SQL Database-källan**:
 
-Skapa en databas med Adventure Works LT-exempel data i SQL Database genom att följa artikeln [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) . I den här självstudien kopieras alla tabeller från den här exempeldatabasen till SQL Data Warehouse.
+Skapa en databas med Adventure Works LT-exempel data i SQL Database genom att följa artikeln [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) . Den här självstudien kopierar alla tabeller från den här exempel databasen till Azure Synapse Analytics.
 
-**Förbered det mottagande Azure SQL Data Warehouse-datalagret**:
+**Förbered intagningen av Azure Synapse Analytics**:
 
-1. Om du inte har något Azure SQL Database Warehouse kan du läsa om att skapa ett i artikeln [Skapa ett Azure SQL Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+1. Om du inte har en Azure Synapse Analytics-arbetsyta läser du artikeln [Kom igång med Azure Synapse Analytics](..\synapse-analytics\get-started.md) för att skapa en.
 
-2. Skapa motsvarande tabellscheman i SQL Data Warehouse. Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
+2. Skapa motsvarande tabell scheman i Azure Synapse Analytics. Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
 
 ## <a name="azure-services-to-access-sql-server"></a>Azure-tjänster för åtkomst till SQL-servern
 
-Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Data Warehouse. Kontrol lera att inställningen **Tillåt åtkomst till Azure** -tjänster **är aktive** rad för servern. Den här inställningen gör att Data Factory-tjänsten kan läsa data från Azure SQL Database och skriva data till Azure SQL Data Warehouse. Gör så här för att kontrollera och aktivera den här inställningen:
+Ge Azure-tjänster åtkomst till SQL Server för både SQL Database-och Azure Synapse-analys. Kontrol lera att inställningen **Tillåt åtkomst till Azure** -tjänster **är aktive** rad för servern. Med den här inställningen kan Data Factory tjänsten läsa data från din Azure SQL Database och skriva data till Azure Synapse Analytics. Gör så här för att kontrollera och aktivera den här inställningen:
 
 1. Klicka på **Alla tjänster** till vänster och klicka på **SQL-servrar**.
 2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
@@ -153,7 +153,7 @@ I den här självstudien skapar du tre länkade tjänster för käll-, mottagar-
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
     ```
 
-### <a name="create-the-sink-azure-sql-data-warehouse-linked-service"></a>Skapa den länkade tjänsten för Azure SQL Data Warehouse-mottagaren
+### <a name="create-the-sink-azure-synapse-analytics-linked-service"></a>Skapa en länkad Azure Synapse Analytics-tjänst för mottagare
 
 1. Skapa en JSON-fil med namnet **AzureSqlDWLinkedService.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll:
 
@@ -263,7 +263,7 @@ I den här självstudien skapar du datauppsättningar för källa och mottagare 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Skapa en datauppsättning för SQL Data Warehouse-mottagaren
+### <a name="create-a-dataset-for-sink-synapse-analytics"></a>Skapa en data uppsättning för Synapse-analys för mottagare
 
 1. Skapa en JSON-fil med namnet **AzureSqlDWDataset.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll: ”tableName” anges som en parameter, senare skickar kopieringsaktiviteten som refererar till den här datauppsättningen det faktiska värdet till datauppsättningen.
 
@@ -313,7 +313,7 @@ I den här självstudien skapar du två pipelines:
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Skapa pipelinen ”IterateAndCopySQLTables”
 
-Den här pipelinen tar en lista med tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure SQL Data Warehouse med hjälp av mellanlagrad kopiering och PolyBase.
+Den här pipelinen tar en lista med tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure Synapse Analytics med hjälp av mellanlagrad kopiering och PolyBase.
 
 1. Skapa en JSON-fil med namnet **IterateAndCopySQLTables.json** i mappen **C:\ADFv2TutorialBulkCopy** med följande innehåll:
 
@@ -573,15 +573,15 @@ Den här pipelinen utför två steg:
     $result2
     ```
 
-3. Anslut till Azure SQL Data Warehouse-mottagaren och bekräfta att data har kopierats från Azure SQL Database.
+3. Anslut till din Sink Azure Synapse Analytics och bekräfta att data har kopierats från Azure SQL Database korrekt.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen fick du: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
-> * Skapa länkade tjänster för Azure SQL Database, Azure SQL Data Warehouse och Azure Storage.
-> * Skapa datauppsättningar för Azure SQL Database och Azure SQL Data Warehouse.
+> * Skapa Azure SQL Database, Azure Synapse Analytics och Azure Storage länkade tjänster.
+> * Skapa Azure SQL Database och Azure Synapse Analytics-datauppsättningar.
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
 > * Övervaka pipelinen och aktivitetskörningarna.

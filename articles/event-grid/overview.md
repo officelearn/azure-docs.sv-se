@@ -3,18 +3,18 @@ title: Vad är Azure Event Grid?
 description: Skicka händelsedata från en källa till hanterare med Azure Event Grid. Skapa händelsebaserade program och integrera med Azure-tjänster.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116139"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436875"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
 Med Azure Event Grid kan du enkelt skapa program med händelsebaserade arkitekturer. Du börjar med att välja Azure-resursen som du vill prenumerera på och anger sedan händelsehanteraren eller WebHook-slutpunkten som händelsen ska skickas till. Event Grid har inbyggt stöd för händelser som kommer från Azure-tjänster, som lagringsblobar och resursgrupper. Du kan också använda egna händelser med Event Grid, med hjälp av anpassade ämnen. 
 
-Du kan använda filter för att dirigera specifika händelser till olika slutpunkter, använda multicast till flera slutpunkter och kontrollera att din händelser levereras på ett tillförlitligt sätt.
+Du kan använda filter för att dirigera specifika händelser till olika slutpunkter, multicast-sända till flera slutpunkter och se till att händelserna levereras tillförlitligt.
 
 Azure Event Grid distribueras för att maximera tillgängligheten genom att sprida sig internt över flera fel domäner i varje region, och över tillgänglighets zoner (i regioner som stöder dem). En lista över regioner som stöds av Event Grid finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
@@ -118,6 +118,6 @@ Azure Event Grid använder en prismodell med betalning per händelse, så du bet
 * [Använda Logic Apps som händelsehanterare](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   En självstudie om hur du skapar en app med hjälp av Logic Apps, för att kunna reagera på händelser som skickas av Event Grid.
 * [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md)  
-  En självstudie som använder Azure Functions till att strömma data från Event Hubs till SQL Data Warehouse.
+  En själv studie kurs som använder Azure Functions för att strömma data från Event Hubs till Azure Synapse Analytics.
 * [REST API-referens för Event Grid](/rest/api/eventgrid)  
   Innehåller referensinnehåll för hantering av händelseprenumerationer, routning och filtrering.

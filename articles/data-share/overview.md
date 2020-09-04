@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511929"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433440"
 ---
 # <a name="what-is-azure-data-share"></a>Vad är Azure Data Share?
 
@@ -45,7 +45,7 @@ Data leverantörer kan erbjuda sina data konsumenters stegvisa uppdateringar av 
 
 ![data resurs flöde](media/data-share-flow.png)
 
-När en data konsument accepterar en data resurs kan de ta emot data i ett valfritt data lager. Om dataprovidern t. ex. delar data med Azure Blob Storage kan data konsumenten ta emot dessa data i Azure Data Lake Store. Om data leverantören delar data från en Azure SQL Data Warehouse kan data konsumenten välja om de vill ta emot data i en Azure Data Lake Store, en Azure SQL Database eller en Azure SQL Data Warehouse. Vid delning från SQL-baserade källor kan data konsumenten även välja om de ska ta emot data i Parquet eller CSV. 
+När en data konsument accepterar en data resurs kan de ta emot data i ett valfritt data lager. Om dataprovidern t. ex. delar data med Azure Blob Storage kan data konsumenten ta emot dessa data i Azure Data Lake Store. Om data leverantören delar data från en Azure Synapse-analys (tidigare SQL Data Warehouse) kan data konsumenten välja om de vill ta emot data i en Azure Data Lake Store, en Azure SQL Database eller en Azure Synapse-analys. Vid delning från SQL-baserade källor kan data konsumenten även välja om de ska ta emot data i Parquet eller CSV. 
 
 Med delning på plats kan data leverantörer dela data där de finns utan att kopiera data. När delnings relationen har upprättats genom Inbjudnings flödet skapas en symbolisk länk mellan dataproviderns käll data lager och data konsument mål data lagret. Data konsumenten kan läsa och fråga efter data i real tid med hjälp av ett eget data lager. Ändringar i käll data lagret är omedelbart tillgängliga för data konsumenten. Delning på plats är för närvarande en för hands version för Azure Datautforskaren.
 

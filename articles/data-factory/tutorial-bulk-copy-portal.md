@@ -1,6 +1,6 @@
 ---
 title: Kopiera data i bulk med Azure Portal
-description: Lär dig hur du använder Azure Data Factory och kopieringsaktiviteten till att masskopiera data från ett källdatalager till ett måldatalager.
+description: Använd Azure Data Factory-och kopierings aktivitet för att kopiera data från ett käll data lager till ett mål data lager i bulk.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a047872f519de1873c03998fd1d3a9c273ce9fa1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86081646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442862"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiera flera tabeller i bulk genom att använda Azure Data Factory i Azure Portal
 
@@ -45,11 +45,11 @@ I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill 
 ![Arbetsflöde](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * Den första pipelinen letar rätt på listan med tabeller som ska kopieras till de mottagande datalagren.  Du kan istället underhålla en metadatatabell som innehåller alla tabeller som ska kopieras till de mottagande datalagren. Sedan utlöser pipelinen en annan pipeline, som itererar över varje tabell i databasen och utför själva datakopieringen.
-* Den andra pipelinen utför den faktiska kopieringen. Den tar listan med tabeller som en parameter. För varje tabell i listan kopierar du den speciella tabellen i Azure SQL Database till motsvarande tabell i Azure Synapse Analytics (tidigare SQL DW) med [mellanlagrad kopia via Blob Storage och PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) för bästa prestanda. I det här exemplet skickar den första pipelinen listan med tabeller som värde för parametern. 
+* Den andra pipelinen utför den faktiska kopieringen. Den tar listan med tabeller som en parameter. För varje tabell i listan kopierar du den speciella tabellen i Azure SQL Database till motsvarande tabell i Azure Synapse Analytics (tidigare SQL DW) med [mellanlagrad kopia via Blob Storage och PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) för bästa prestanda. I det här exemplet skickar den första pipelinen listan med tabeller som värde för parametern. 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure Storage konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure Synapse Analytics (tidigare SQL DW)**. Det här datalagret innehåller de data som kopieras från SQL Database. 
@@ -62,7 +62,7 @@ Skapa en databas i SQL Database med Adventure Works LT-exempel data efter [skapa
 
 **Förbered mottagaren Azure Synapse Analytics (tidigare SQL DW)**:
 
-1. Om du inte har en Azure Synapse-analys (tidigare SQL DW) läser du artikeln [skapa en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) för att skapa ett.
+1. Om du inte har en Azure Synapse Analytics-arbetsyta (tidigare SQL DW) kan du läsa artikeln [komma igång med Azure Synapse Analytics](..\synapse-analytics\get-started.md) för att skapa en.
 
 1. Skapa motsvarande tabell scheman i Azure Synapse Analytics (tidigare SQL DW). Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
 
@@ -331,7 +331,7 @@ Den här pipelinen gör två åtgärder:
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Växla till fliken **övervakare** . Klicka på **Uppdatera** tills du ser körningar för båda pipelinen i din lösning. Fortsätt att uppdatera listan tills du ser statusen **Lyckades**. 
+1. Växla till fliken **övervaka** . Klicka på **Uppdatera** tills du ser körningar för båda pipelinen i din lösning. Fortsätt att uppdatera listan tills du ser statusen **Lyckades**. 
 
 1. Om du vill visa aktivitets körningar som är associerade med **GetTableListAndTriggerCopyData** -pipeline klickar du på länken pipeline-namn för pipelinen. Du ska se två aktivitetskörningar för den här pipelinekörningen. 
     ![Övervaka pipeline-körning](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)

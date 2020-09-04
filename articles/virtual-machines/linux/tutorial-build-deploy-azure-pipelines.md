@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 60321363a7506d03ebf4aeffebac56305e231eb6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433051"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436229"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Självstudie: distribuera din app till virtuella Linux-datorer i Azure med Azure DevOps Services och Azure-pipelines
 
@@ -84,9 +84,9 @@ Följ de ytterligare stegen som beskrivs nedan baserat på körnings stacken som
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- För att distribuera Java våren boot och våren Cloud based Apps skapar du en virtuell Linux-dator i Azure med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) mallen, som tillhandahåller en openjdk-baserad körning som stöds fullt ut.
-- För att distribuera Java-servlets på Tomcat-servern skapar du en virtuell Linux-dator med Java 8 med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure-mallen och [konfigurerar Tomcat 9. x som en tjänst](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- För att distribuera Java EE-baserad app använder du en Azure-mall för att skapa en [virtuell Linux-dator + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) eller en [Linux VM + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) eller en [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- För att distribuera Java våren boot och våren Cloud based Apps skapar du en virtuell Linux-dator i Azure med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) mallen, som tillhandahåller en openjdk-baserad körning som stöds fullt ut.
+- För att distribuera Java-servlets på Tomcat-servern skapar du en virtuell Linux-dator med Java 8 med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) Azure-mallen och [konfigurerar Tomcat 9. x som en tjänst](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- För att distribuera Java EE-baserad app använder du en Azure-mall för att skapa en [virtuell Linux-dator + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) eller en [Linux VM + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) eller en [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) + WildFly/JBoss 14 
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
@@ -225,7 +225,7 @@ För ytterligare vägledning följer du stegen i [utveckla din Node.js-app med G
 
 3. Du kan ange eithor `runOnce` eller `rolling` som distributions strategi. 
 
-   `runOnce`är den enklaste distributions strategin där alla livs cykel hookar, nämligen `preDeploy` `deploy` `routeTraffic` och `postRouteTraffic` , utförs en gång. Sedan `on:` `success` körs eller utförs `on:` `failure` .
+   `runOnce` är den enklaste distributions strategin där alla livs cykel hookar, nämligen `preDeploy` `deploy` `routeTraffic` och `postRouteTraffic` , utförs en gång. Sedan `on:` `success` körs eller utförs `on:` `failure` .
 
    Nedan visas ett exempel på YAML-kodfragment för `runOnce` :
    ```YAML
@@ -244,7 +244,7 @@ För ytterligare vägledning följer du stegen i [utveckla din Node.js-app med G
              - script: echo my first deployment
    ```
 
-4. Nedan visas ett exempel på YAML-kodfragmentet som du kan använda för att definiera en rullande strategi för virtuella datorer som uppdaterar upp till 5 mål i varje iteration. `maxParallel`fastställer antalet mål som kan distribueras till parallellt. Urvals kontona för det absoluta antalet eller procent andelen mål som måste vara tillgängliga när som helst exklusive de mål som distribueras till. Den används också för att fastställa lyckade och misslyckade villkor under distributionen.
+4. Nedan visas ett exempel på YAML-kodfragmentet som du kan använda för att definiera en rullande strategi för virtuella datorer som uppdaterar upp till 5 mål i varje iteration. `maxParallel` fastställer antalet mål som kan distribueras till parallellt. Urvals kontona för det absoluta antalet eller procent andelen mål som måste vara tillgängliga när som helst exklusive de mål som distribueras till. Den används också för att fastställa lyckade och misslyckade villkor under distributionen.
 
    ```YAML
    jobs: 

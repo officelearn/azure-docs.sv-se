@@ -1,26 +1,26 @@
 ---
-title: 'Självstudie: Migrera händelse data till SQL Data Warehouse – Azure Event Hubs'
-description: 'Självstudie: den här själv studie kursen visar hur du samlar in data från din händelsehubben till ett SQL Data Warehouse med hjälp av en Azure-funktion som utlöses av ett event Grid.'
+title: 'Självstudie: Migrera händelse data till Azure Synapse Analytics – Azure Event Hubs'
+description: 'Självstudie: den här själv studie kursen visar hur du samlar in data från din händelsehubben till Azure Synapse Analytics genom att använda en Azure-funktion som utlöses av ett event Grid.'
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b6b6466675c8fa258af8370798cadd88e3b25a83
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b2a35647422c91d6859e1889f906ae512ce41a56
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997837"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436620"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-azure-synapse-analytics-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till Azure Synapse Analytics med Event Grid och Azure Functions
 
-Event Hubs [Capture](./event-hubs-capture-overview.md) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagringsmål, som SQL Data Warehouse eller Cosmos DB. I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett [Event Grid](../event-grid/overview.md) (händelserutnät).
+Event Hubs [Capture](./event-hubs-capture-overview.md) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagrings platser som du väljer, till exempel Azure Synapse Analytics eller Cosmos DB. I den här självstudien får du lära dig hur du samlar in data från din händelsehubben till Azure Synapse Analytics genom att använda en Azure-funktion som utlöses av ett [Event Grid](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
 - Först måste du skapa en händelsehubb med funktionen **Capture** aktiverad, och ange en Azure Blob-lagringsplats som mål. Data som genereras av WindTurbineGenerator strömmas till händelsehubben och samlas automatiskt in till Azure Storage som Avro-filer.
 - Sedan skapar du en Azure Event Grid-prenumeration med Event Hubs-namnområdet som källa och Azure Function-slutpunkten som mål.
-- När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Därefter migreras data av Function från blob-lagringen till ett SQL Data Warehouse.
+- När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Funktionen migrerar sedan data från blobben till Azure Synapse Analytics.
 
 I den här självstudien gör du följande:
 
@@ -30,9 +30,9 @@ I den här självstudien gör du följande:
 > - Publicera kod till en Functions-app
 > - Skapa en Event Grid-prenumeration från Functions-appen
 > - Strömma exempeldata till Event Hub.
-> - Verifiera insamlade data i SQL Data Warehouse
+> - Verifiera insamlade data i Azure Synapse Analytics
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 - Hämta [git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) som exempel lösningen innehåller följande komponenter:
 
   - *WindTurbineDataGenerator* – en enkel utgivare som skickar exempeldata från en vindturbin till en Capture-aktiverad händelsehubb
-  - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobbens URI-sökväg, läser innehållet och skickar data till ett SQL Data Warehouse.
+  - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobens URI-sökväg, läser innehållet och pushar dessa data till Azure Synapse Analytics.
 
   Det här exemplet använder det senaste Azure. Messaging. EventHubs-paketet. Du kan hitta det gamla exemplet som använder Microsoft. Azure. EventHubs-paketet [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
@@ -53,7 +53,7 @@ Använd Azure PowerShell eller Azure CLI för att distribuera den infrastruktur 
 - Azure App Service-plan som värd för funktionsappen
 - Funktionsapp för bearbetning av insamlade händelsefiler
 - Logisk SQL Server som värd för data lagret
-- SQL Data Warehouse för lagring av migrerade data
+- Azure Synapse Analytics för lagring av migrerade data
 
 Följande avsnitt innehåller Azure CLI- och Azure PowerShell-kommandon för distribution av den infrastruktur som krävs för den här självstudien. Uppdatera namnen på följande objekt innan du kör kommandona: 
 
@@ -91,9 +91,9 @@ New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Skapa en tabell i Azure Synapse Analytics
 
-Skapa en tabell i SQL-informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) med [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) eller Frågeredigeraren i portalen. 
+Skapa en tabell i Azure Synapse Analytics genom att köra [CreateDataWarehouseTable. SQL](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) -skriptet med [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md)eller Frågeredigeraren i portalen. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
@@ -114,7 +114,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Publicera funktionsapp](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. Välj **Azure-funktionsapp** och **Välj befintlig**. Välj **Publish** (Publicera).
+1. Välj **Azure-funktionsapp** och **Välj befintlig**. Välj **Publicera**.
 
    ![Målfunktionsapp](./media/store-captured-data-data-warehouse/pick-target.png)
 
@@ -148,7 +148,7 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
    ![Skapa en prenumeration](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>Generera exempeldata  
-Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen och Event Grid-prenumerationen. Du kan köra WindTurbineDataGenerator.exe för att generera dataströmmar till Event Hub när du har uppdaterat anslutningssträngen och namnet på din händelsehubb i källkoden. 
+Du har nu konfigurerat Event Hub, Azure Synapse Analytics, Azure Funktionsapp och Event Grid-prenumeration. Du kan köra WindTurbineDataGenerator.exe för att generera dataströmmar till Event Hub när du har uppdaterat anslutningssträngen och namnet på din händelsehubb i källkoden. 
 
 1. Välj händelsehubbens namnområde på portalen. Välj **anslutnings strängar**.
 
@@ -174,9 +174,9 @@ Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen o
 6. Kompilera lösningen och kör sedan programmet WindTurbineGenerator.exe. 
 
 ## <a name="verify-captured-data-in-data-warehouse"></a>Verifiera insamlade data i informationslagret
-Vänta några minuter och skicka sedan en fråga till tabellen i informationslagret. Du kan se att de data som genererats av WindTurbineDataGenerator har strömmats till din Event Hub, samlats in i en Azure Storage-container och sedan migrerats till SQL Data Warehouse-tabellen av Azure Function.  
+Efter ett par minuter frågar du tabellen i Azure Synapse Analytics. Du ser att de data som genereras av WindTurbineDataGenerator har strömmats till Händelsehubben, som har samlats in i en Azure Storage-behållare och sedan migrerats till Azure Synapse Analytics-tabellen med Azure function.  
 
 ## <a name="next-steps"></a>Nästa steg 
 Du kan använda kraftfulla verktyg för datavisualisering med ditt informationslager för att få värdefull kunskap.
 
-Den här artikeln visar hur du använder [Power BI med SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
+Den här artikeln visar hur du använder [Power BI med Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

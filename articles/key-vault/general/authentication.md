@@ -7,18 +7,18 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378990"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481383"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autentisera till Azure Key Vault
 
 Med Azure Key Vault kan du lagra hemligheter och kontrol lera deras distribution i en centraliserad, säker moln lagrings plats, vilket eliminerar behovet av att lagra autentiseringsuppgifter i program. Program behöver bara autentisera med Key Vault vid körning för att få åtkomst till dessa hemligheter.
 
-## <a name="app-identity-and-service-principals"></a>App-identitet och tjänstens huvud namn
+## <a name="app-identity-and-security-principals"></a>App-identitet och säkerhets objekt
 
 Autentisering med Key Vault fungerar tillsammans med [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), som ansvarar för att autentisera identiteten för ett specifikt **säkerhets objekt**.
 
@@ -40,7 +40,7 @@ För program finns det två sätt att hämta ett huvud namn för tjänsten:
 
 * Om du inte kan använda hanterad identitet **registrerar** du i stället programmet med din Azure AD-klient, enligt beskrivningen i [snabb start: registrera ett program med Azure Identity Platform](/azure/active-directory/develop/quickstart-register-app). Registreringen skapar också ett andra program objekt som identifierar appen för alla klienter.
 
-## <a name="authorize-a-service-principal-to-access-key-vault"></a>Auktorisera ett tjänst huvud namn för åtkomst Key Vault
+## <a name="authorize-a-security-principal-to-access-key-vault"></a>Auktorisera ett säkerhets objekt för åtkomst Key Vault
 
 Key Vault fungerar med två olika nivåer av auktorisering:
 
@@ -120,7 +120,7 @@ Följande tabell länkar till olika artiklar som visar hur du arbetar med Key Va
 | [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
 | [ARM-mall](/azure/key-vault/secrets/quick-create-net) | -- | -- |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Fel sökning av Key Vault åtkomst princip](troubleshooting-access-issues.md)
 - [Fel koder för Key Vault REST API](rest-error-codes.md)

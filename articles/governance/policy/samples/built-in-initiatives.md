@@ -1,15 +1,15 @@
 ---
 title: Lista över inbyggda princip initiativ
 description: Visa en lista över inbyggda princip initiativ för Azure Policy. Kategorier omfattar regelefterlevnad, gäst konfiguration och mycket annat.
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b458925d99b20fece95a5647ac48d75af43eea8e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 04fc8769038ed02eda0daa06728b34b6ad96ea28
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298146"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487097"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy inbyggda definitioner för initiativ
 

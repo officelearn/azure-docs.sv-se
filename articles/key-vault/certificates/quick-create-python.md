@@ -3,203 +3,65 @@ title: Snabb start – Azure Key Vault python-klient bibliotek – hantera certi
 description: Lär dig hur du skapar, hämtar och tar bort certifikat från ett Azure Key Vault med hjälp av python-klient biblioteket
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 3/30/2020
+ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 6e8da9bf4564dbab07bc5f4e9842a631d51ae824
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b9ff7397ad29ac681e21c32608ade9c6ce557c37
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398672"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488634"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Snabb start: klient bibliotek för Azure Key Vault certifikat för python
 
-Kom igång med Azure Key Vault klient biblioteket för python. Följ stegen nedan för att installera paketet och prova exempel koden för grundläggande uppgifter.
-
-Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Använd Key Vault klient bibliotek för python för att:
-
-- Öka säkerheten och kontrollen över nycklar och lösen ord.
-- Skapa och importera krypterings nycklar på några minuter.
-- Minska svars tiden med moln skalning och global redundans.
-- Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
-- Använd FIPS 140-2 nivå 2-verifierade HSM: er.
+Kom igång med Azure Key Vault klient biblioteket för python. Följ stegen nedan för att installera paketet och prova exempel koden för grundläggande uppgifter. Genom att använda Key Vault för att lagra certifikat undviker du att lagra certifikat i din kod, vilket ökar säkerheten för din app.
 
 [API-referens dokumentation](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault-certificates)
 
-## <a name="prerequisites"></a>Krav
+## <a name="set-up-your-local-environment"></a>Konfigurera din lokala miljö
 
-- En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Python 2,7, 3.5.3 eller senare
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/)
+[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
 
-Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) i ett Linux-terminalfönster.
+7. Installera biblioteket för Key Vault certifikat:
 
-## <a name="setting-up"></a>Konfigurera
+    ```terminal
+    pip install azure-keyvault-certificates
+    ```
 
-### <a name="install-the-package"></a>Installera paketet
+## <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
 
-I konsol fönstret installerar du biblioteket Azure Key Vault certifikat för python.
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-```console
-pip install azure-keyvault-certificates
-```
+## <a name="give-the-service-principal-access-to-your-key-vault"></a>Ge tjänstens huvud namn åtkomst till ditt nyckel valv
 
-I den här snabb starten måste du även installera Azure. Identity-paketet:
+Kör följande [AZ-nyckel valv set-princip](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommando för att auktorisera tjänstens huvud namn för Get-, list-och Create-åtgärder på certifikat.
 
-```console
-pip install azure.identity
-```
-
-### <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
-
-I den här snabb starten används ett i förväg skapade Azure Key Vault. Du kan skapa ett nyckel valv genom att följa stegen i snabb starten för [Azure CLI](quick-create-cli.md), [Azure PowerShell snabb start](quick-create-powershell.md)eller [Azure Portal snabb start](quick-create-portal.md). Du kan också köra Azure CLI-kommandona nedan.
-
-> [!Important]
-> Varje nyckel valv måste ha ett unikt namn. Ersätt <ditt-unika-nyckel-valv> med namnet på nyckel valvet i följande exempel.
+# <a name="cmd"></a>[kommandot](#tab/cmd)
 
 ```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
+az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --certificate-permissions delete get list create
 ```
 
-### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
-
-Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i avsnittet [autentisera till Key Vault](../general/authentication.md) .
-
-För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänstens huvud namn kräver ett unikt namn i formatet "http:// &lt; My-Unique-service-huvud namn &gt; ".
-
-Skapa ett huvud namn för tjänsten med hjälp av Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommandot:
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
+az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --certificate-permissions delete get list create 
 ```
 
-Den här åtgärden returnerar en serie med nyckel/värde-par. 
+---
 
-```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
+Detta kommando förlitar `KEY_VAULT_NAME` sig på `AZURE_CLIENT_ID` variablerna och för miljön som skapats i föregående steg.
 
-Anteckna clientId och clientSecret, eftersom vi kommer att använda dem i steget [Ange miljö variabel](#set-environmental-variables) .
+Mer information finns i [tilldela en åtkomst princip – CLI](../general/assign-access-policy-cli.md)
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Ge tjänstens huvud namn åtkomst till ditt nyckel valv
+## <a name="create-the-sample-code"></a>Skapa exempel koden
 
-Skapa en åtkomst princip för nyckel valvet som ger behörighet till tjänstens huvud namn genom att skicka clientId till [AZ-kommandot Set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) . Ge tjänstens huvud namn get-, list-och Create-behörigheter för certifikat.
+Med Azure Key Vault klient biblioteket för python kan du hantera certifikat och relaterade till gångar, till exempel hemligheter och kryptografiska nycklar. Följande kod exempel visar hur du skapar en-klient, ställer in en hemlighet, hämtar en hemlighet och tar bort en hemlighet.
 
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --certificate-permissions delete get list create 
-```
-
-#### <a name="set-environmental-variables"></a>Ange miljövariabler
-
-DefaultAzureCredential-metoden i programmet är beroende av tre miljövariabler: `AZURE_CLIENT_ID` , `AZURE_CLIENT_SECRET` och `AZURE_TENANT_ID` . Ange dessa variabler som clientId-, clientSecret-och tenantId-värden som du antecknade i steget [skapa ett huvud namn för tjänsten](#create-a-service-principal) med hjälp av `export VARNAME=VALUE` formatet. (Den här metoden anger bara variablerna för ditt aktuella gränssnitt och processer som skapats från gränssnittet. om du vill lägga till dessa variabler permanent i miljön redigerar du `/etc/environment ` filen.) 
-
-Du måste också spara nyckel valvets namn som en miljö variabel som kallas `KEY_VAULT_NAME` .
-
-```console
-export AZURE_CLIENT_ID=<your-clientID>
-
-export AZURE_CLIENT_SECRET=<your-clientSecret>
-
-export AZURE_TENANT_ID=<your-tenantId>
-
-export KEY_VAULT_NAME=<your-key-vault-name>
-````
-
-## <a name="object-model"></a>Objekt modell
-
-Med Azure Key Vault klient biblioteket för python kan du hantera nycklar och relaterade till gångar som certifikat och hemligheter. I kod exemplen nedan visas hur du skapar en-klient, skapar ett certifikat, hämtar ett certifikat och tar bort ett certifikat.
-
-## <a name="code-examples"></a>Kodexempel
-
-### <a name="add-directives"></a>Lägg till direktiv
-
-Lägg till följande direktiv överst i koden:
-
-```python
-import os
-from azure.keyvault.certificates import CertificateClient, CertificatePolicy,CertificateContentType, WellKnownIssuerNames 
-from azure.identity import DefaultAzureCredential
-```
-
-### <a name="authenticate-and-create-a-client"></a>Autentisera och skapa en klient
-
-Autentisering till ditt nyckel valv och att skapa en Key Vault-klient beror på miljövariablerna i steget [Ange miljövariabler](#set-environmental-variables) ovan. Namnet på nyckel valvet expanderas till Key Vault-URI: n i formatet "https://<Your-Key-Valve-Name>. vault.azure.net".
-
-```python
-credential = DefaultAzureCredential()
-
-client = CertificateClient(vault_url=KVUri, credential=credential)
-```
-
-### <a name="save-a-certificate"></a>Spara ett certifikat
-
-Nu när ditt program är autentiserat kan du ange ett självsignerat certifikat i ditt nyckel valv 
-
-```python
-certificate_operation_poller = client.begin_create_certificate(
-    certificate_name=certificateName, policy=CertificatePolicy.get_default()
-)
-certificate = certificate_operation_poller.result()
-```
-
-Du kan kontrol lera att certifikatet har angetts med kommandot [AZ för certifikat visning](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show) :
-
-```azurecli
-az keyvault certificate show --vault-name <your-unique-keyvault-name> --name myCertificate
-```
-
-### <a name="retrieve-a-certificate"></a>Hämta ett certifikat
-
-Nu kan du hämta det tidigare skapade certifikatet
-
-```python
-retrieved_certificate = client.get_certificate(certificateName)
- ```
-
-Ditt certifikat har nu sparats som `retrieved_certificate` .
-
-### <a name="delete-a-certificate"></a>Ta bort ett certifikat
-
-Slutligen tar vi bort certifikatet från nyckel valvet
-
-```python
-client.delete_certificate(certificateName)
-```
-
-Du kan kontrol lera att certifikatet är borta med kommandot [AZ för certifikat visning](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show) :
-
-```azurecli
-az keyvault certifcate show --vault-name <your-unique-keyvault-name> --name myCertificate
-```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När det inte längre behövs kan du använda Azure CLI eller Azure PowerShell för att ta bort nyckel valvet och motsvarande resurs grupp.
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
-## <a name="sample-code"></a>Exempelkod
+Skapa en fil med namnet *kv_certificates. py* som innehåller den här koden.
 
 ```python
 import os
@@ -212,33 +74,107 @@ KVUri = "https://" + keyVaultName + ".vault.azure.net"
 credential = DefaultAzureCredential()
 client = CertificateClient(vault_url=KVUri, credential=credential)
 
-certificateName = "myCertificate"
+certificateName = input("Input a name for your certificate > ")
 
-print("Creating a certificate in " + keyVaultName + " called '" + certificateName  + "` ...")
+print(f"Creating a certificate in {keyVaultName} called '{certificateName}' ...")
 
-certificate_operation_poller = client.begin_create_certificate(
-    certificate_name=certificateName, policy=CertificatePolicy.get_default()
-
-certificate = certificate_operation_poller.result()
+policy = CertificatePolicy.get_default()
+poller = client.begin_create_certificate(certificate_name=certificateName, policy=policy)
+certificate = poller.result()
 
 print(" done.")
 
-print("Retrieving your certificate from " + keyVaultName + ".")
+print(f"Retrieving your certificate from {keyVaultName}.")
 
 retrieved_certificate = client.get_certificate(certificateName)
 
-print("Certificate with name '{0}' was found'.".format(retrieved_certificate.name))
-print("Deleting your certificate from " + keyVaultName + " ...")
+print(f"Certificate with name '{retrieved_certificate.name}' was found'.")
+print(f"Deleting your certificate from {keyVaultName} ...")
 
-client.delete_certificate(certificateName)
+poller = client.begin_delete_certificate(certificateName)
+deleted_certificate = poller.result()
 
 print(" done.")
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="run-the-code"></a>Kör koden
 
-I den här snabb starten skapade du ett nyckel valv, lagrat ett certifikat och hämtade det certifikatet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
+Kontrol lera att koden i föregående avsnitt finns i en fil med namnet *kv_certificates. py*. Kör sedan koden med följande kommando:
+
+```terminal
+python kv_certificates.py
+```
+
+- Om du får problem med behörigheten kontrollerar du att du körde [ `az keyvault set-policy` kommandot](#give-the-service-principal-access-to-your-key-vault).
+- Att köra koden igen med samma nyckel namn kan orsaka felet, "(konflikt) certifikatet <name> är för närvarande i ett borttaget, men går inte att återställa." Använd ett annat nyckel namn.
+
+## <a name="code-details"></a>Kod information
+
+### <a name="authenticate-and-create-a-client"></a>Autentisera och skapa en klient
+
+I föregående kod [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) använder objektet de miljövariabler som du skapade för tjänstens huvud namn. Du anger den här autentiseringsuppgiften när du skapar ett klient objekt från ett Azure-bibliotek, till exempel [`CertificateClient`](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python) , tillsammans med URI: n för den resurs som du vill arbeta med via klienten:
+
+```python
+credential = DefaultAzureCredential()
+client = CertificateClient(vault_url=KVUri, credential=credential)
+```
+
+### <a name="save-a-certificate"></a>Spara ett certifikat
+
+När du har fått klient objekt för nyckel valvet kan du skapa ett certifikat med hjälp av metoden [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#begin-create-certificate-certificate-name--policy----kwargs-) : 
+
+```python
+policy = CertificatePolicy.get_default()
+poller = client.begin_create_certificate(certificate_name=certificateName, policy=policy)
+certificate = poller.result()
+```
+
+Här kräver certifikatet en princip som hämtats med metoden [CertificatePolicy. get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?view=azure-python#get-default--) .
+
+Anropa en `begin_create_certificate` metod genererar ett asynkront anrop till Azure-REST API för nyckel valvet. Det asynkrona anropet returnerar ett avsöknings objekt. Anropa avsöknings metoden för att vänta på resultatet av åtgärden `result` .
+
+Vid hantering av begäran autentiserar Azure anroparens identitet (tjänstens huvud namn) med hjälp av det Credential-objekt som du angav för klienten.
+
+Det kontrollerar också att anroparen har behörighet att utföra den begärda åtgärden. Du har beviljat den här behörigheten till tjänstens huvud namn tidigare med hjälp av [ `az keyvault set-policy` kommandot](#give-the-service-principal-access-to-your-key-vault).
+
+### <a name="retrieve-a-certificate"></a>Hämta ett certifikat
+
+Om du vill läsa ett certifikat från Key Vault använder du metoden [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#get-certificate-certificate-name----kwargs-) :
+
+```python
+retrieved_certificate = client.get_certificate(certificateName)
+ ```
+
+Du kan också kontrol lera att certifikatet har angetts med Azure CLI-kommandot [AZ för certifikat visning](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
+
+### <a name="delete-a-certificate"></a>Ta bort ett certifikat
+
+Om du vill ta bort ett certifikat använder du metoden [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#begin-delete-certificate-certificate-name----kwargs-) :
+
+```python
+poller = client.begin_delete_certificate(certificateName)
+deleted_certificate = poller.result()
+```
+
+`begin_delete_certificate`Metoden är asynkron och returnerar ett avsöknings objekt. Att anropa avsöknings `result` metoden väntar på att slutföras.
+
+Du kan kontrol lera att certifikatet har tagits bort med Azure CLI-kommandot [AZ för certifikat visning](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show).
+
+När du har tagit bort ett certifikat finns det kvar i ett borttaget, men ett återställnings Bart tillstånd för en tid. Om du kör koden igen ska du använda ett annat certifikat namn.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du också vill experimentera med [hemligheter](../secrets/quick-create-python.md) och [nycklar](../keys/quick-create-python.md)kan du återanvända Key Vault som skapats i den här artikeln.
+
+Annars, när du är klar med resurserna som du skapade i den här artikeln, använder du följande kommando för att ta bort resurs gruppen och alla resurser som finns i den:
+
+```azurecli
+az group delete --resource-group KeyVault-PythonQS-rg
+```
+
+## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure Key Vault](../general/overview.md)
 - [Guide för Azure Key Vault utvecklare](../general/developers-guide.md)
 - [Metod tips för Azure Key Vault](../general/best-practices.md)
+- [Autentisera med Key Vault](../general/authentication.md)

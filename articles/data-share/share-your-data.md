@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259072"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489909"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudie: dela data med Azure Data Share  
 
@@ -40,7 +40,7 @@ I den här självstudien får du lära dig att:
 
 ### <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad Källa:
 
-* En Azure SQL Database-eller Azure Synapse-analys (tidigare Azure SQL Data Warehouse) med tabeller och vyer som du vill dela.
+* En Azure SQL Database-eller Azure Synapse-analys (tidigare SQL Data Warehouse) med tabeller och vyer som du vill dela.
 * Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen.
 * Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
     1. Ange själv som Azure Active Directory administratör för SQL Server.
@@ -113,7 +113,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
     ![Lägg till data uppsättningar till din resurs](./media/datasets.png "Datauppsättningar")
 
-1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure SQL Data Warehouse kommer du att uppmanas att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
+1. Välj den data uppsättnings typ som du vill lägga till. Du ser en annan lista över data uppsättnings typer beroende på vilken resurs typ (ögonblicks bild eller på plats) som du har valt i föregående steg. Om du delar från en Azure SQL Database eller Azure Synapse Analytics uppmanas du att ange vissa SQL-autentiseringsuppgifter. Autentisera med den användare som du skapade som en del av förutsättningarna.
 
     ![AddDatasets](./media/add-datasets.png "Lägg till data uppsättningar")    
 

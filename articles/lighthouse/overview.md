@@ -3,16 +3,16 @@ title: Vad är Azure Lighthouse?
 description: Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
 ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 22bec7ec8944a11ce0cfdf51776f1f193a1aedaa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660741"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488821"
 ---
 # <a name="what-is-azure-lighthouse"></a>Vad är Azure Lighthouse?
 
-Med Azure-Lighthouse kan du hantera flera klienter och flera innehavare, vilket ger högre automatisering, skalbarhet och förbättrad styrning över resurser och klienter. Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster med hjälp av omfattande och robusta hanterings verktyg som är inbyggda i Azure-plattformen. Det här erbjudandet kan också dra nytta av företagets IT-organisationer och hantera resurser över flera klienter.
+Med Azure Lighthouse kan du hantera flera klientorganisationer, vilket ger högre automatisering, skalbarhet och förbättrad styrning av olika resurser och klientorganisationer. Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster med hjälp av omfattande och robusta hanterings verktyg som är inbyggda i Azure-plattformen. Det här erbjudandet kan också dra nytta av företagets IT-organisationer och hantera resurser över flera klienter.
 
 ![Översikts diagram över Azure-Lighthouse](media/azure-lighthouse-overview.jpg)
 
@@ -22,7 +22,7 @@ Azure Lighthouse hjälper dig att effektivt och effektivt bygga och leverera han
 
 - **Hantering i skala**: kund engagemang och livs cykel åtgärder för att hantera kund resurser är enklare och mer skalbar. Befintliga API: er, hanterings verktyg och arbets flöden kan användas med delegerade resurser, oavsett i vilka regioner de är placerade.
 - **Bättre synlighet och precision för kunder**: kunderna får bättre insyn i dina åtgärder och precis kontroll över omfattningen som de delegerar för hantering, inklusive möjligheten att ta bort åtkomsten helt medan IP-adressen bevaras.
-- **Omfattande och enhetlig plattforms verktyg**: vår verktygs upplevelse behandlar scenarier för nyckel tjänst leverantörer, inklusive flera licensierings modeller som EA, CSP och betala per användning. De nya funktionerna fungerar med befintliga verktyg och API: er, licensierings modeller och partner program som [Cloud Solution Provider-program (CSP)](/partner-center/csp-overview). Azure Lighthouse kan integreras i dina befintliga arbets flöden och program, och du kan spåra din påverkan på kund engagemang genom [att länka ditt partner-ID](../cost-management-billing/manage/link-partner-id.md).
+- **Omfattande och enhetlig plattforms verktyg**: vår verktygs upplevelse behandlar scenarier för nyckel tjänst leverantörer, inklusive flera licensierings modeller som EA, CSP och betala per användning. De nya funktionerna fungerar med befintliga verktyg och API: er, licensierings modeller och partner program som [Cloud Solution Provider-program (CSP)](/partner-center/csp-overview). Azure Lighthouse kan integreras i dina befintliga arbets flöden och program, och du kan spåra din påverkan på kund engagemang och få partner intjänad kredit genom [att länka ditt partner-ID](./how-to/partner-earned-credit.md).
 
 Det finns inga ytterligare kostnader för att använda Azure-Lighthouse för att hantera Azure-resurser. Alla Azure-kunder och-partner kan använda Azure-Lighthouse.
 

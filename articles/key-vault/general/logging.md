@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585924"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485463"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -36,7 +36,7 @@ Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du s
 > Den här artikeln innehåller Azure PowerShell instruktioner för uppdatering av diagnostisk loggning. Du kan också uppdatera diagnostikloggning genom att använda Azure Monitor i avsnittet **diagnostiska loggar** i Azure Portal. 
 >
 
-Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md)). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/).
+Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md)). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/). Information om hur du använder [Azure Monitor för Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -190,7 +190,7 @@ Datum- och tidsvärdena använder UTC.
 
 Eftersom du kan använda samma lagrings konto för att samla in loggar för flera resurser, är det fullständiga resurs-ID: t i BLOB-namnet användbart för att få åtkomst till eller hämta bara de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Skapa en mapp för att ladda ned Blobbarna. Exempel:
+Skapa en mapp för att ladda ned Blobbarna. Ett exempel:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -210,7 +210,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 När du kör det här andra kommandot **/** skapar avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Ett exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
@@ -281,7 +281,7 @@ I följande tabell visas fält namn och beskrivningar:
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
 | **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **skapa** eller **VaultGet**), innehåller det även nyckel-URI (as `id` ), valv-URI eller hemlig URI. |
 
-Värdena för **operationName** -fältet är i *ObjectVerb* -format. Exempel:
+Värdena för **operationName** -fältet är i *ObjectVerb* -format. Ett exempel:
 
 * Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate` .
 * Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och `KeyList` .
@@ -319,7 +319,7 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | **SecretList** |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Använda Azure Monitor-loggar
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Använda Azure Monitor loggar
 
 Du kan använda Key Vault-lösningen i Azure Monitor loggar för att granska Key Vault `AuditEvent` loggar. I Azure Monitor loggar använder du logg frågor för att analysera data och få den information du behöver. 
 

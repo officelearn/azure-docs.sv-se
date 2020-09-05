@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroll av efterlevnad för Azure Cosmos DB
 description: Visar Azure Policy regler för regelefterlevnad som är tillgängliga för Azure Cosmos DB. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera kompatibiliteten för dina Azure-resurser.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d4b934d45a331bc470da5b1db1b2ced3944b9c43
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eaa3026fcb4139a31b70921909161f012093c56f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294863"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482527"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cosmos-db"></a>Azure Policy kontroll av efterlevnad för Azure Cosmos DB
 

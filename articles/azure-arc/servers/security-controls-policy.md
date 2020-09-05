@@ -1,15 +1,15 @@
 ---
 title: Azure Policy regler för regelefterlevnad för Azure Arc-aktiverade servrar (för hands version)
 description: Visar Azure Policy regler för regelefterlevnad som är tillgängliga för Azure Arc-aktiverade servrar (för hands version). Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera kompatibiliteten för dina Azure-resurser.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6a585465a4e2d3c3c59a6c00d3d7c74d5bf3951e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c1743d89b65639689209bbe35e2e7b8b75c13ebb
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206318"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489261"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-for-servers"></a>Azure Policy regler för regelefterlevnad för Azure-båge för servrar
 

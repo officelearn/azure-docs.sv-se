@@ -12,12 +12,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 863017797aa6872d7ac7a824e1d38f2dde4c6d1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+- contperfq1
+ms.openlocfilehash: 975f32872cd5fcdf00fb9e394920a7a50ba898ce
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589959"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482831"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster med Azure CLI
 
@@ -68,7 +69,7 @@ Följande exempelutdata visar den resursgrupp som skapats:
 Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Det tar flera minuter att slutföra.
 
 > [!NOTE]
-> Azure Monitor för behållare aktive ras med *övervaknings parametern--Enable-addon* , som kräver att *Microsoft. OperationsManagement* och *Microsoft. OperationalInsights* registreras på din prenumeration. Kontrol lera registrerings statusen:
+> [Azure Monitor för behållare][azure-monitor-containers] aktive ras med *övervaknings parametern--Enable-addon* , som kräver att *Microsoft. OperationsManagement* och *Microsoft. OperationalInsights* registreras på din prenumeration. Kontrol lera registrerings statusen:
 > 
 > ```azurecli
 > az provider show -n Microsoft.OperationsManagement -o table
@@ -106,7 +107,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 > [!NOTE]
-> Kommandot ovan använder standard platsen för konfigurations filen Kubernetes, som är `~/.kube/config` . Du kan ange en annan plats för Kubernetes-konfigurations filen med *--File*.
+> Kommandot ovan använder standard platsen för [konfigurations filen Kubernetes][kubeconfig-file], som är `~/.kube/config` . Du kan ange en annan plats för Kubernetes-konfigurations filen med *--File*.
 
 Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl get][kubectl-get] för att returnera en lista över klusternoderna.
 
@@ -123,7 +124,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>Kör programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för exemplet på Azure Vote Python-program och den andra för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
+En [manifest fil för Kubernetes][kubernetes-deployment] definierar ett önskat tillstånd för klustret, till exempel vilka behållar avbildningar som ska köras. I den här snabb starten används ett manifest för att skapa alla objekt som behövs för att köra [Azures röst program][azure-vote-app]. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för exemplet på Azure Vote Python-program och den andra för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-definition. Om du använder Azure Cloud Shell kan filen skapas med `code` , `vi` eller `nano` som om du arbetar på ett virtuellt eller fysiskt system:
 
@@ -254,7 +255,7 @@ Om du vill se hur Azure Vote-appen fungerar i praktiken så öppnar du en webbl�
 
 ![Röstnings app distribuerad i Azure Kubernetes-tjänsten](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
-När AKS-klustret skapades har [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) Aktiver ATS för att avbilda hälso mått för både klusternoderna och poddar. De här hälsomåtten är tillgängliga i Azure-portalen.
+När AKS-klustret skapades har [Azure Monitor för behållare][azure-monitor-containers] Aktiver ATS för att avbilda hälso mått för både klusternoderna och poddar. De här hälsomåtten är tillgängliga i Azure-portalen.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
@@ -287,7 +288,7 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: ../dev-spaces/index.yml
+[kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
@@ -300,6 +301,7 @@ Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig dis
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

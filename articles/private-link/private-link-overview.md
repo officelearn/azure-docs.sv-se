@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 425290f44fc5f8bc761dc80b72aa2421e5c6d194
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460668"
+ms.locfileid: "89488430"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -43,8 +43,11 @@ Azure Private-länken ger följande fördelar:
 |Tjänster som stöds  |Tillgängliga regioner | Annat som är bra att tänka på | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Privata länk tjänster bakom standard Azure Load Balancer | Alla offentliga regioner<br/> Alla myndighets regioner  | Stöds på Standard Load Balancer | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Storage       |  Alla offentliga regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
-| Azure Data Lake Storage Gen2        |  Alla offentliga regioner      |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+| Azure Blob Storage (inklusive Data Lake Storage Gen2)       |  Alla offentliga regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+| Azure Files | Alla offentliga regioner      | |   Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/files/storage-files-networking-endpoints)   |
+| Azure File Sync | Alla offentliga regioner      | |   Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Azure Queue Storage       |  Alla offentliga regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+| Azure Table Storage       |  Alla offentliga regioner       |  Stöds på konto typ Generell användning v2 | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | Alla offentliga regioner <br/> Alla myndighets regioner      |  Stöd för [anslutnings princip](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) för proxy | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (tidigare SQL Data Warehouse)| Alla offentliga regioner <br/> Alla myndighets regioner |  Stöd för [anslutnings princip](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) för proxy |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Alla offentliga regioner<br/> Alla myndighets regioner | |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
@@ -67,7 +70,6 @@ Azure Private-länken ger följande fördelar:
 | Azure IoT Hub | Alla offentliga regioner    |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |  | Förhandsgranskning   <br/> [Läs mer](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Alla offentliga regioner      |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure File Sync | Alla offentliga regioner      | |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
 | Azure Batch | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA, VÄSTRA CENTRALA USA, CENTRALA FRANKRIKE, ÖSTRA ASIEN, SÖDRA STORBRITANNIEN, USA GOV VIRGINIA, US GOV ARIZONA  | | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 Se [Uppdaterings sidan för Azure Private-länkar](https://azure.microsoft.com/updates/?product=private-link)för de mest aktuella aviseringarna.
@@ -94,7 +96,7 @@ Pris information finns i [priser för privata Azure-länkar](https://azure.micro
 ## <a name="faqs"></a>Vanliga frågor och svar  
 Vanliga frågor och svar om [Azures privata länkar](private-link-faq.md).
  
-## <a name="limits"></a>Begränsningar  
+## <a name="limits"></a>Gränser  
 För gränser, se [gränser för privata Azure-länkar](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## <a name="service-level-agreement"></a>Serviceavtal

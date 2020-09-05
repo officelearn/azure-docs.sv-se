@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: bf4864e0c6342cbd4729d5b99479eb2ef1a2c48c
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b9478d3b171189decb4e2cca7fc93ba2fa75e32e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378227"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482790"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser med två uppsättningar autentiseringsuppgifter för autentisering
 
@@ -35,7 +35,7 @@ I ovanstående lösning lagrar Azure Key Vault lagrings konto enskilda åtkomst 
 1. Function-appen identifierar en alternativ nyckel (förutom senaste) och anropar lagrings kontot för att återskapa det
 1. Function-appen lägger till ny återskapad nyckel till Azure Key Vault som ny version av hemligheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
 * Två Azure Storage konton
@@ -182,7 +182,7 @@ az storage account keys list -n akvrotationstorage2
 Fyll i hämtade värden för **key2Value** och **storageAccountResourceId**
 
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
+tomorrowDate=`date -d tomorrow -Iseconds -u | awk -F'+' '{print $1"Z"}'`
 az keyvault secret set --name storageKey2 --vault-name akvrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 
@@ -203,7 +203,7 @@ az storage account keys list -n akvrotationstorage
 - [Lagrings konto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 - Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](../general/event-grid-overview.md)
 - Gör så här: [skapa din första funktion i Azure Portal](../../azure-functions/functions-create-first-azure-function.md)
 - Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](../general/event-grid-logicapps.md)

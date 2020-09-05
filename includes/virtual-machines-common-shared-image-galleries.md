@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ce2ce146b8a8ba06729c5e9428bccb8a60e14c39
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89449653"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494337"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -85,7 +85,7 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien, centrala och Australien, Central 2 måste din prenumeration läggas till i listan över tillåtna. Om du vill begära att en prenumeration läggs till i listan över tillåtna går du till: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-## <a name="limits"></a>Begränsningar 
+## <a name="limits"></a>Gränser 
 
 Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
 - 100 delade avbildnings gallerier, per prenumeration, per region
@@ -146,12 +146,12 @@ Det kostar inget extra att använda tjänsten Shared Image Gallery. Du kommer at
 När du har skapat kan du göra några ändringar i avbildnings Galleri resurserna. Dessa är begränsade till:
  
 Galleri för delad avbildning:
-- Beskrivning
+- Description
 
 Bild definition:
 - Rekommenderad virtuella processorer
 - Rekommenderat minne
-- Beskrivning
+- Description
 - Datum för slut på livs längd
 
 Avbildnings version:
@@ -196,7 +196,7 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 * [Vad kostar det att använda det delade avbildnings galleriet?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Vilken API-version ska jag använda för att skapa delade avbildnings gallerier och bild definitions-och avbildnings versioner?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Vilken API-version ska jag använda för att skapa delad VM eller virtuell dators skalnings uppsättning från avbildnings versionen?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Kan jag uppdatera min skalnings uppsättning för virtuella datorer som skapats med hanterad avbildning för att använda delade avbildnings Galleri avbildningar?] (#can-i-uppdatera-My-Virtual-Machine-Scale-set-created-using-Managed-image-to-use-Shared Image-Gallery-images)
+* [Kan jag uppdatera min skalnings uppsättning för virtuella datorer som skapats med hanterad avbildning för att använda delade avbildnings Galleri avbildningar?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Hur gör jag för att visa en lista över alla delade avbildnings Galleri resurser i prenumerationer?
 

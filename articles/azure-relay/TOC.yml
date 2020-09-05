@@ -44,6 +44,8 @@
       href: relay-hybrid-connections-protocol.md
 - name: Gör så här för att
   items:
+    - name: Flytta mellan regioner
+      href: move-across-regions.md
     - name: 'Migrera från API:er för Azure Service Manager (klassisk) till API:er för Resource Manager'
       href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json
     - name: Planera och designa

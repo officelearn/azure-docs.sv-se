@@ -10,15 +10,15 @@
     - name: Python-webbapp med Docker och PostgreSQL
       href: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
     - name: 'CI/CD med Docker, Jenkins och Linux'
-      href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
 - name: Anvisningar
   items:
     - name: Docker VM-tillägg
-      href: /azure/virtual-machines/linux/dockerextension
+      href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
     - name: Docker-dator
-      href: /azure/virtual-machines/linux/docker-machine
+      href: ../virtual-machines/linux/docker-machine.md
     - name: Docker-containerregister
-      href: /azure/container-registry/container-registry-get-started-portal
+      href: ../container-registry/container-registry-get-started-portal.md
 - name: Resurser
   items:
     - name: Azure-översikt

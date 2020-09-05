@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 27d450f8e48210723570f2fe0b45be4bca89fd56
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400929"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494288"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den enda förutsättningen är en Azure tal-prenumeration. Se [guiden](../get-started.md#new-resource) för att skapa en ny prenumeration om du inte redan har en.
 
@@ -52,10 +52,8 @@ Skriv `spx` för att se hjälp för tal-cli.
 
 #### <a name="docker-install"></a>[Docker-installation](#tab/dockerinstall)
 
-#### <a name="prerequisites"></a>Krav
-
-> [!div class="checklist"]
-> * <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop för din plattform <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop för din plattform <span class="docon docon-navigate-external x-hidden-focus"></span> </a> måste vara installerat.
 
 Följ de här stegen för att installera tal-CLI i en Docker-behållare:
 

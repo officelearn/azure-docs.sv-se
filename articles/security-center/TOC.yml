@@ -229,7 +229,7 @@
     - name: Beredskapsöversikt
       href: security-center-readiness-roadmap.md
     - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Azure Security Center på Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Videoklipp

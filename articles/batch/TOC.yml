@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Använda certifikat med Batch
           href: batch-certificates.md
-    - name: Använda programpaket
-      href: batch-application-packages.md
     - name: Kopiera filer och program till poolnoder
       items:
         - name: Kopiera program och data till poolnoder

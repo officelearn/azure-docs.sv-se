@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: 700c5b1e113de32b80b3d716db915836049128ec
+  ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88224585"
+  ms.lasthandoff: 09/04/2020
+  ms.locfileid: "89470127"
 landingContent:
 - title: Distribuera Docker på Azure
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: Kör en Python (Django)-webbapp med PostgreSQL i Azure App Service
       url: ../app-service/tutorial-python-postgresql-app.md
     - text: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
-      url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+      url: /azure/developer/jenkins/pipeline-with-github-and-docker
 - title: Resurser
   linkLists:
   - linkListType: reference

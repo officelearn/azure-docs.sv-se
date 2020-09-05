@@ -94,6 +94,6 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

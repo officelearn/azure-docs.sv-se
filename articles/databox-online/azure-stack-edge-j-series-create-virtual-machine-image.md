@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 83332c3bfa0b2b99d7333fa679fb8d398aecf8bd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268918"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500291"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Skapa anpassade VM-avbildningar för din Azure Stack Edge-enhet
 
@@ -52,7 +52,22 @@ Utför följande steg för att skapa en virtuell Linux-avbildning.
 
 1. Skapa en virtuell Linux-dator. Mer information finns i [Självstudier: skapa och hantera virtuella Linux-datorer med Azure CLI](../virtual-machines/linux/tutorial-manage-vm.md).
 
-2. [Ladda ned befintlig OS-disk](../virtual-machines/linux/download-vhd.md).
+1. Avetablera den virtuella datorn. Använd den virtuella Azure-agenten för att ta bort datorspecifika filer och data. Använd `waagent` kommandot med `-deprovision+user` parametern på den virtuella käll Linux-datorn. Mer information finns i [förstå och använda Azure Linux-agenten](../virtual-machines/extensions/agent-linux.md).
+
+    1. Anslut till din virtuella Linux-dator med en SSH-klient.
+    2. I SSH-fönstret anger du följande kommando:
+       
+        ```bash
+        sudo waagent -deprovision+user
+        ```
+       > [!NOTE]
+       > Kör bara det här kommandot på en virtuell dator som du ska avbilda som en avbildning. Det här kommandot garanterar inte att avbildningen är klar med all känslig information eller är lämplig för omdistribution. `+user`Parametern tar också bort det senast etablerade användar kontot. Använd endast om du vill behålla autentiseringsuppgifterna för användar kontot på den virtuella datorn `-deprovision` .
+     
+    3. Fortsätt genom att ange **y** . Du kan lägga till `-force` parametern för att undvika det här bekräftelse steget.
+    4. När kommandot har slutförts anger du **Avsluta** för att stänga SSH-klienten.  Den virtuella datorn kommer fortfarande att köras nu.
+
+
+1. [Ladda ned befintlig OS-disk](../virtual-machines/linux/download-vhd.md).
 
 Använd den här virtuella hård disken för att skapa och distribuera en virtuell dator på din Azure Stack Edge-enhet. Du kan använda följande två Azure Marketplace-avbildningar för att skapa anpassade Linux-avbildningar:
 

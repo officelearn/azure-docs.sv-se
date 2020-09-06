@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c18f48f41a537d66c637959df4fb45331fbda176
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420497"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500240"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet med hjälp av Azure CLI och python
 
@@ -342,7 +342,8 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Anteckna `id` `tenantId` värdena och så som de motsvarar ditt Azure Resource Manager PRENUMERATIONS-id och Azure Resource Manager klient-ID och kommer att användas i senare steg.
+       
    Följande miljövariabler måste anges för att fungera som *tjänstens huvud namn*:
 
    ```
@@ -352,7 +353,7 @@ Innan du börjar skapa och hantera en virtuell dator på din Azure Stack Edge-en
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Ditt Azure Resource Manager klient-ID, Azure Resource Manager klient-ID och Azure Resource Manager prenumerations-ID är hårdkodade och har samma värden för alla Azure Stack gräns enheter. Den Azure Resource Manager klient hemligheten är det Azure Resource Manager lösen ord som du har angett.
+   Ditt Azure Resource Manager-klient-ID är hårdkodat. Ditt Azure Resource Manager klient-ID och Azure Resource Manager prenumerations-ID finns både i utdata från `az login` kommandot som du körde tidigare. Den Azure Resource Manager klient hemligheten är det Azure Resource Manager lösen ord som du har angett.
 
    Mer information finns i [Azure Resource Manager Password](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 
@@ -379,7 +380,7 @@ Du får ett Python-skript för att skapa en virtuell dator. Beroende på om du �
 
 2. När skriptet körs tar det upp till 20-30 minuter att ladda upp den virtuella hård disken. Om du vill visa förloppet för uppladdnings åtgärden kan du använda Azure Storage Explorer eller AzCopy.
 
-    Här är ett exempel på utdata från en lyckad körning av skriptet. Skriptet skapar alla resurser i en resurs grupp, använder resurserna för att skapa en virtuell dator och tar slutligen bort resurs gruppen, inklusive alla resurser den har skapat.
+    Här är ett exempel på utdata från en lyckad körning av skriptet. Skriptet skapar alla resurser i en resurs grupp, använder resurserna för att skapa en virtuell dator och tar slutligen bort resurs gruppen inklusive alla resurser den har skapat.
 
     
     ```powershell

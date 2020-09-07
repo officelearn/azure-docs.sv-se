@@ -42,7 +42,7 @@
               href: ./iot-edge-module.md
             - name: Konsulttjänster
               href: ./consulting-services.md
-            - name: 'Office 365, Dynamics 365 och Power BI'
+            - name: 'Microsoft 365, Dynamics 365 och Power BI'
               href: ./appsource-offer-publishing-guide.md
             - name: Aktivera autentisering av erbjudanden med Azure AD
               href: ./enable-appsource-marketplace-using-azure-ad.md
@@ -60,7 +60,7 @@
             - name: Leverantörer av molnlösningar
               href: ./cloud-solution-providers.md
             - name: Onboardingguiden Ansluta program
-              href: ./cloud-partner-portal/business-applications-isv-program.md
+              href: ./business-applications-isv-program.md
         - name: Dina Marketplace-förmåner
           href: ./gtm-your-marketplace-benefits.md
           items:

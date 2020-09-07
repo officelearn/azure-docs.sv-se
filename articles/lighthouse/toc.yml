@@ -47,6 +47,9 @@
     - name: Visa och hantera kunder
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Länka till ditt partner-ID
+      displayName: 'partner earned credit, pec, mpn'
+      href: ./how-to/partner-earned-credit.md
     - name: Ta bort åtkomst till en delegering
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md

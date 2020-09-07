@@ -114,6 +114,8 @@
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Skydda indexeringsresurser
+          href: search-indexer-securing-resources.md
 - name: Anvisningar
   items:
     - name: Skapa index och konstruktioner
@@ -354,6 +356,14 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtrera på användaridentiteter
               href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Utgående säkerhet (indexerare)
+          items:
+            - name: Åtkomst över ett IP-intervall
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Åtkomst via undantag för betrodda tjänster
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Åtkomst via privata slutpunkter
+              href: search-indexer-howto-access-private.md
     - name: Hantera
       items:
         - name: Portalen
@@ -392,14 +402,14 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Search 2020-06-30
+        - name: Sök-API (stabilt)
           href: /rest/api/searchservice
-        - name: Search 2020-06-30-förhandsversion
+        - name: Sök-API (förhandsversion)
           href: /rest/api/searchservice/index-preview
-        - name: Hantering 2020-03-13
+        - name: API för hantering (stabilt)
           href: /rest/api/searchmanagement
-        - name: Hantering 2019-10-01-förhandsversion
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: API för hantering (förhandsversion)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: Sök-API

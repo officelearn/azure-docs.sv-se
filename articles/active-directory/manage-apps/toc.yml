@@ -206,6 +206,10 @@
       items:
         - name: Felsöka processen för att lägga till appar
           href: troubleshoot-adding-apps.md
+        - name: Felsöka lösenordsbaserad enkel inloggning
+          href: troubleshoot-password-based-sso.md
+        - name: Felsöka SAML-baserad enkel inloggning
+          href: troubleshoot-saml-based-sso.md
         - name: Felsöka användarinloggning
           items:
             - name: Oväntad fråga om medgivande
@@ -224,14 +228,6 @@
               href: application-sign-in-problem-federated-sso-gallery.md
             - name: Problem med egenutvecklad app
               href: application-sign-in-problem-custom-dev.md
-        - name: Felsöka enkel inloggning
-          items:
-            - name: Felsöka lösenordsbaserad enkel inloggning
-              href: troubleshoot-password-based-sso.md
-            - name: Vanliga problem vid konfiguration av externa – galleriappar
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: Vanliga problem vid konfiguration av externa – inte galleriappar
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
         - name: Felsöka lokala appar
           items:
             - name: Felsökning av programproxy

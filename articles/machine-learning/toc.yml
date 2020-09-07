@@ -312,6 +312,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Träna med anpassad Docker-avbildning
+          href: how-to-train-with-custom-image.md
         - name: Spåra och övervaka träning
           items:
             - name: 'Starta, övervaka eller avbryta körningar'

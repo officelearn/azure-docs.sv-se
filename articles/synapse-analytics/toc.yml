@@ -36,6 +36,8 @@
   items:
     - name: Skapa en Synapse-arbetsyta med hjälp av Azure-portalen
       href: quickstart-create-workspace.md
+    - name: Distribuera med en mall
+      href: quickstart-deployment-template-workspaces.md
     - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
       href: quickstart-create-workspace-cli.md
     - name: Använda Synapse Studio
@@ -210,6 +212,8 @@
               href: ./spark/apache-spark-delta-lake-overview.md
             - name: Apache Spark-prestanda
               href: ./spark/apache-spark-performance.md
+            - name: Prestandaoptimering för Apache Spark med hjälp av Hyperspace-index
+              href: ./spark/apache-spark-performance-hyperspace.md
             - name: Beteende för automatisk skalning i Apache Spark
               href: ./spark/apache-spark-autoscale.md
         - name: Utveckling

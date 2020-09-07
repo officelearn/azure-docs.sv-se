@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 04505527428a6bb312c6fb7a12c116947fbd7cf6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6ab713715cacc799d2b980c2bce2a2a15b76887
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310845"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505462"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Snabb start: Konfigurera din IoT-lösning
 
@@ -45,8 +45,8 @@ När du har definierat alla resurs relationer använder Azure Security Center f�
 Gör så här om du vill lägga till en ny resurs i IoT-lösningen:
 
 1. Öppna din **IoT Hub** i Azure Portal.
-1. Välj och öppna **resurser** från **säkerhet** i den vänstra menyn.
-1. Välj **Redigera** och välj de resurs grupper som hör till din IoT-lösning.
+1. Välj och öppna **Inställningar** från avsnittet **säkerhet** i den vänstra menyn och välj sedan **övervakade resurser**.
+1. Välj **Redigera** och välj de övervakade resurser som hör till din IoT-lösning.
 1. Klicka på **Lägg till**.
 
 Grattis! Du har lagt till en ny resurs grupp i IoT-lösningen.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 8ba81b669c25d91efa8ad1f07b1a7835b42c5cf4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7638ad070e8ac8bd99cbfb49b99bbb347a243a21
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310839"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505445"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Snabb start: skapa anpassade aviseringar
 
@@ -40,7 +40,7 @@ Dessa grupper kan representera enheter med specifik maskin vara, enheter som har
 
 Säkerhets grupper definieras av en enhets dubbla tag-egenskap med namnet **SecurityGroup**. Som standard har varje IoT-lösning på IoT Hub en säkerhets grupp med namnet **default**. Ändra värdet för egenskapen **SecurityGroup** om du vill ändra säkerhets gruppen för en enhet.
 
-Ett exempel:
+Exempel:
 
 ```
 {
@@ -67,8 +67,8 @@ Använd säkerhets grupper för att gruppera dina enheter i logiska kategorier. 
 
 ## <a name="customize-an-alert"></a>Anpassa en avisering
 
-1. Öppna din IoT Hub.
-1. Klicka på **anpassade aviseringar** i avsnittet **säkerhet** .
+1. Öppna din IoT Hub och välj **Inställningar** på menyn **säkerhet** . 
+1. Klicka på **anpassade aviseringar**.
 1. Välj en säkerhets grupp som du vill tillämpa anpassningen på.
 1. Klicka på **Lägg till en anpassad avisering**.
 1. Välj en anpassad avisering i list rutan.

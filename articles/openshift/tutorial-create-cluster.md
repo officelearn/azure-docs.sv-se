@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 96954d0ebf56251a66d4b9c8bdcce07153f64068
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469974"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503796"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -35,13 +35,31 @@ Om du vill skapa ett Azure Red Hat OpenShift-kluster kontrollerar du följande b
 |**Administratör för användaråtkomst**|X|X| |
 |**Deltagare**|X|X|X|
 
-### <a name="register-the-resource-provider"></a>Registrera resursprovidern
+### <a name="register-the-resource-providers"></a>Registrera resurs leverantörer
 
-Sedan måste du registrera `Microsoft.RedHatOpenShift` resurs leverantören i din prenumeration.
+1. Om du har flera Azure-prenumerationer anger du det relevanta prenumerations-ID:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registrera `Microsoft.RedHatOpenShift` resurs leverantören:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. Registrera `Microsoft.Compute` resurs leverantören:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. Registrera `Microsoft.Storage` resurs leverantören:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Hämta en Red Hat pull-hemlighet (valfritt)
 

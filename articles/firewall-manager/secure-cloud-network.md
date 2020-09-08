@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: victorh
-ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079123"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536011"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Självstudie: skydda din virtuella hubb med Azure Firewall Manager
 
@@ -110,43 +110,19 @@ Nu kan du peer-koppla hubben och Ekers virtuella nätverk.
 
 Upprepa för att ansluta det **ekrar-02** virtuella nätverket: anslutnings namn – **hubb-eker-02**
 
-### <a name="configure-the-hub-and-spoke-routing"></a>Konfigurera hubb och eker-routning
-
-Öppna en Cloud Shell från Azure Portal och kör följande Azure PowerShell för att konfigurera nödvändiga nav och eker-routning. Peer-anslutningar för ekrar/förgreningar måste ange spridningen till **none**. Detta förhindrar kommunikation mellan ekrarna och i stället dirigerar trafik till brand väggen med hjälp av standard vägen.
-
-```azurepowershell
-$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
-                  -HubName hub-01 -Name noneRouteTable
-$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-             -ParentResourceName hub-01
-
-$vnetConn = $vnetConns[0]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name `
-   -RoutingConfiguration $vnetConn.RoutingConfiguration
-
-$vnetConn = $vnetConns[1]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
-```
-
 ## <a name="deploy-the-servers"></a>Distribuera servrarna
 
 1. Välj **Skapa en resurs** på Azure-portalen.
 2. Välj **Windows Server 2016 Data Center** i listan **populär** .
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Resursgrupp     |**VB-chef**|
    |Namn på virtuell dator     |**SRV-arbets belastning – 01**|
    |Region     |**USA USA, östra)**|
    |Administratörens användar namn     |Ange ett användar namn|
-   |Lösenord     |Ange ett lösen ord|
+   |lösenordsinställning     |Ange ett lösen ord|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **ingen**.
 6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
@@ -159,7 +135,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 
 Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **SRV-arbetsbelastning-02**. Resten av konfigurationen är samma som den virtuella datorn för **SRV-arbetsbelastnings 01** .
 
-|Inställning  |Värde  |
+|Inställningen  |Värde  |
 |---------|---------|
 |Virtuellt nätverk|**Eker-02**|
 |Undernät|**Arbets belastning-02-SN**|

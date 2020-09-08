@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: e5123fbf038205befb207d1ecaf64e27ce42d887
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440974"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536320"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
 
@@ -62,7 +62,15 @@ Data Factory erbjuder fullt stöd för CI/CD-datapipeliner med Azure DevOps och 
 När du har skapat och distribuerat din pipeline för dataintegrering och fått affärsvärde från förfinade data, kan du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. Azure Data Factory har ett inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, Azure Monitor-loggar och hälsopaneler i Azure-portalen.
 
 ## <a name="top-level-concepts"></a>Toppnivåbegrepp
-En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory består av fyra nyckelkomponenter. De här komponenterna samverkar för att tillhandahålla en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data.
+En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory består av nedanstående nyckel komponenter.
+- Pipelines
+- Aktiviteter
+- Datauppsättningar
+- Länkade tjänster
+- Dataflöden
+- Integreringskörningar
+
+De här komponenterna samverkar för att tillhandahålla en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data.
 
 ### <a name="pipeline"></a>Pipeline
 En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter för att utföra en arbetsprocess. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. 

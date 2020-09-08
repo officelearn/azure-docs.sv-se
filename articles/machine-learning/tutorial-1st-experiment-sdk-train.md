@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7052617eb83dbd07c2d6938dcbb7a38ba19f3aad
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854933"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536243"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
 
@@ -31,7 +31,7 @@ I den här självstudien går du igenom följande aktiviteter:
 > * Visa utbildnings resultat i Studio
 > * Hämta den bästa modellen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
 
@@ -56,11 +56,14 @@ Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Självstudierna 
 Importera `Workspace` -klassen och Läs in din prenumerations information från filen `config.json` med funktionen som `from_config().` söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter som pekar på filen med hjälp av `from_config(path="your/file/path")` . Om du kör den här antecknings boken i en molnbaserad Notebook-server i din arbets yta, är filen automatiskt i rot katalogen.
 
 Om följande kod frågar efter ytterligare autentisering, klistrar du bara in länken i en webbläsare och anger autentiseringstoken. Om du dessutom har fler än en klient som är länkad till användaren, måste du lägga till följande rader:
-```
+
+```python
 from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
 ```
+
+Mer information om autentisering finns [i autentisering i Azure Machine Learning](https://aka.ms/aml-notebook-auth)
+
 
 ```python
 from azureml.core import Workspace

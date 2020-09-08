@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504525"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536063"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
-Den här artikeln innehåller stegvisa instruktioner för att konfigurera Azure Key Vault brand väggar och virtuella nätverk för att begränsa åtkomsten till ditt nyckel valv. Med [tjänst slut punkter för virtuella nätverk för Key Vault](overview-vnet-service-endpoints.md)) kan du begränsa åtkomsten till ett angivet virtuellt nätverk och en uppsättning adress intervall för IPv4 (Internet Protocol version 4).
+Den här artikeln innehåller stegvisa instruktioner för att konfigurera Azure Key Vault brand väggar och virtuella nätverk för att begränsa åtkomsten till ditt nyckel valv. Med [tjänst slut punkter för virtuella nätverk för Key Vault](overview-vnet-service-endpoints.md) kan du begränsa åtkomsten till ett angivet virtuellt nätverk och en uppsättning adress intervall för IPv4 (Internet Protocol version 4).
 
 > [!IMPORTANT]
 > När brand Väggs reglerna är aktiva kan användarna bara utföra Key Vault [data Plans](secure-your-key-vault.md#data-plane-access-control) åtgärder när deras begär Anden härstammar från tillåtna virtuella nätverk eller IPv4-adress intervall. Detta gäller även för att komma åt Key Vault från Azure Portal. Även om användarna kan bläddra till ett nyckel valv från Azure Portal, kanske de inte kan lista nycklar, hemligheter eller certifikat om deras klient dator inte finns i listan över tillåtna. Detta påverkar också Key Vault väljare från andra Azure-tjänster. Användarna kanske kan se en lista över nyckel valv, men inte lista nycklar, om brand Väggs reglerna förhindrar sin klient dator.
@@ -129,5 +129,5 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tjänst slut punkter för virtuella nätverk för Key Vault](overview-vnet-service-endpoints.md))
-* [Skydda nyckel valvet](secure-your-key-vault.md))
+* [Tjänst slut punkter för virtuella nätverk för Key Vault](overview-vnet-service-endpoints.md)
+* [Skydda ditt nyckel valv](secure-your-key-vault.md)

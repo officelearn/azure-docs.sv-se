@@ -3,12 +3,12 @@ title: 'Snabb start: skapa, träna och publicera kunskaps bas – QnA Maker'
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540762"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535857"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -40,7 +40,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Quickstart - default answer not found.`|

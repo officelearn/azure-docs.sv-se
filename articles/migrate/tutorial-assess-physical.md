@@ -3,12 +3,12 @@ title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Se
 description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 25bd5241700d5950eb032a6c932470871e79945f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950110"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514126"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
 
@@ -30,7 +30,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför](tutorial-prepare-physical.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -115,13 +115,13 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
         **Scenario** | **Hämta*** | **Hash-värde**
         --- | --- | ---
-        Fysisk (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
+        Fysisk (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - För Azure Government:
 
         **Scenario** | **Hämta*** | **Hash-värde**
         --- | --- | ---
-        Fysisk (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
+        Fysisk (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
 

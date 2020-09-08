@@ -4,12 +4,12 @@ description: Beskriver hur du bedömer lokala virtuella VMware-datorer för migr
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 8c2784e999e751972883b6c9ffba2485bb9fe9e1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: abd8aafebe9cc02b8ee88cce88616389c82af83f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950093"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514109"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Utvärdera virtuella VMware-datorer med Server Assessment
 
@@ -29,7 +29,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför den första självstudien](tutorial-prepare-vmware.md) i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -114,7 +114,7 @@ Kontrol lera att ägg filen är säker innan du distribuerar den:
     
         **Integritetsalgoritm** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140337) | 7dab9445a89b47302994d6de4caddaa092c1c582c8f3c1fc5b9c4908c7d2f9f7
+        VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
 
 
 ### <a name="create-the-appliance-vm"></a>Skapa VM-enheten

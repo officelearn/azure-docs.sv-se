@@ -4,12 +4,12 @@ description: Beskriver hur du bedömer lokala virtuella Hyper-V-datorer för mig
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: eae7e2d371ed8156debe9ae24cf0744bd6273943
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 57d91f14b8f3a9f58373cbd43561a03a8546fd8f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950280"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514500"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -31,7 +31,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför](tutorial-prepare-hyper-v.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -116,7 +116,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
         **Situationen*** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        Hyper-V (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140424) |  8025f315e41c01ebdb4ffb1de87982ae6cc4ea7c4cce612612c7e90a44e79b44
+        Hyper-V (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
 
 
 ### <a name="create-the-appliance-vm"></a>Skapa VM-enheten
@@ -133,9 +133,9 @@ Importera den hämtade filen och skapa den virtuella datorn.
     ![Distribuera virtuell hård disk](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. I guiden Importera virtuell dator > **innan du börjar klickar du**på **Nästa**.
-3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka sedan på **Nästa**.
+3. I **hitta mapp**väljer du mappen **Virtual Machines** . Klicka på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
-2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka sedan på **Nästa**.
+2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka på **Nästa**.
 3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.
 4. Lämna standardinställningen i **Storage Folders**. Klicka på **Nästa**.
 5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure. [Lär dig mer](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) om att skapa en virtuell växel.

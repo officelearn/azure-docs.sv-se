@@ -2,13 +2,13 @@
 title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösningen
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: 8aeedeeb785f149239f2bf9a4b58a18ec8bfeb77
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/07/2020
+ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
+ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750490"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89512391"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat moln för Azure VMware-lösningar i Azure
 
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 > * Skapa ett privat moln för Azure VMware-lösningen
 > * Verifiera att det privata molnet har distribuerats
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Lämpliga administrativa rättigheter och behörigheter för att skapa ett privat moln.
@@ -30,50 +30,16 @@ I den här guiden får du lära dig att:
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
 
-Om du vill använda Azure VMware-lösningen måste du först registrera resurs leverantören med din prenumeration.
-
-```
-azurecli-interactive
-az provider register -n Microsoft.AVS --subscription <your subscription ID>
-```
-
-Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## <a name="create-a-private-cloud"></a>Skapa ett privat moln
 
 Du kan skapa ett privat moln i Azure VMware-lösningen med hjälp av [Azure Portal](#azure-portal) eller med hjälp av [Azure CLI](#azure-cli).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-
-1. Välj **skapa en ny resurs**. I text rutan **Sök i Marketplace** `Azure VMware Solution` och välj **Azure VMware-lösning** i listan. I fönstret **Azure VMware-lösning** väljer du **skapa**
-
-1. Ange värden för fälten på fliken **grundläggande** . I följande tabell visas egenskaperna för fälten.
-
-   | Fält   | Värde  |
-   | ---| --- |
-   | **Prenumeration** | Prenumerationen som du planerar att använda för distributionen.|
-   | **Resursgrupp** | Resurs gruppen för dina privata moln resurser. |
-   | **Plats** | Välj en plats, t. ex. **USA, östra**.|
-   | **Resurs namn** | Namnet på ditt privata moln i Azure VMware-lösningen. |
-   | **SKU** | Välj följande SKU-värde: AV36 |
-   | **Lagras** | Antalet värdar som ska läggas till i det privata moln klustret. Standardvärdet är 3, som kan höjas eller sänkas efter distributionen.  |
-   | **administratörs lösen ord för vCenter** | Ange ett lösen ord för moln administratören. |
-   | **Lösen ord för NSX-T Manager** | Ange ett NSX-T-administratörs lösen ord. |
-   | **Adress block** | Ange ett IP-adressblock för CIDR-nätverket för det privata molnet, till exempel 10.175.0.0/22. |
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Ange värden för fälten på fliken grundläggande." border="true":::
-
-1. När du är färdig väljer du **Granska + skapa**. Kontrol lera att informationen har angetts på nästa skärm. Om informationen är korrekt väljer du **skapa**.
-
-   > [!NOTE]
-   > Det här steget tar ungefär två timmar. 
-
-1. Kontrol lera att distributionen har slutförts. Navigera till resurs gruppen som du skapade och välj ditt privata moln.  Du ser statusen **slutförd** när distributionen har slutförts. 
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Kontrol lera att distributionen har slutförts." border="true":::
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -29,6 +29,8 @@
           href: quickstart-service-python.md
 - name: Självstudier
   items:
+    - name: Ansluta en enhet med flera komponenter (C)
+      href: tutorial-multiple-components-c.md
     - name: Ansluta en enhet med flera komponenter (C#)
       href: tutorial-multiple-components-csharp.md
     - name: Ansluta en enhet med flera komponenter (Java)

@@ -31,6 +31,8 @@
           href: manage-user-access-with-access-reviews.md
         - name: Hantera användare som undantagits från villkorsstyrd åtkomst
           href: conditional-access-exclusion.md
+    - name: Granska och ta bort användare från externa organisationer
+      href: access-reviews-external-users.md
 - name: Anvisningar
   expanded: true
   items:

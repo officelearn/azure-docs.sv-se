@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400440"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595996"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -25,6 +25,14 @@ När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hu
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Hur kan jag övervaka valv tillgänglighet, tjänst svars perioder eller andra prestanda mått för Key Vault?
 
 När du börjar skala tjänsten kommer antalet förfrågningar som skickats till ditt nyckel valv att öka. Sådan efter frågan har möjlighet att öka svars tiden för dina begär Anden och i extrema fall, orsaka att dina förfrågningar begränsas, vilket påverkar tjänstens prestanda. Du kan övervaka prestanda mått för nyckel valv och få aviseringar för vissa tröskelvärden, för steg-för-steg-guide för att konfigurera övervakning, [läsa mer](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Jag kan inte ändra åtkomst principen, hur kan den aktive ras?
+Användaren måste ha tillräcklig AAD-behörighet för att ändra åtkomst principen. I det här fallet måste användaren ha högre deltagar roll.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Jag ser fel meddelandet "Unkwown policy". Vad innebär det?
+Det finns två olika möjligheter att se åtkomst principen i okänt avsnitt:
+* Det kan finnas en tidigare användare som hade åtkomst och av någon anledning att användaren inte finns.
+* Om åtkomst principen läggs till via PowerShell och åtkomst principen läggs till för programmet ObjectID i stället för tjänsten priciple
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Hur tilldelar jag åtkomst kontroll per Key Vault-objekt? 
 

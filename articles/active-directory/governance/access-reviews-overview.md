@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 5c8f3b9933e09e4c31316037445643e83a2e9c07
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461008"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594347"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -94,8 +94,10 @@ Här följer några exempel på licens scenarier som hjälper dig att fastställ
 | En administratör skapar en åtkomst granskning av grupp A med 75 användare och 1 grupp ägare och tilldelar grupp ägaren som granskaren. | 1 licens för grupp ägaren som granskare | 1 |
 | En administratör skapar en åtkomst granskning av grupp B med 500 användare och tre grupp ägare och tilldelar de tre grupp ägarna som granskare. | 3 licenser för varje grupp ägare som granskare | 3 |
 | En administratör skapar en åtkomst granskning av grupp B med 500 användare. Gör det till en själv granskning. | 500 licenser för varje användare som självgranskare | 500 |
-| En administratör skapar en åtkomst granskning av grupp C med 50 medlems användare och 25 gäst användare. Gör det till en själv granskning. | 50 licenser för varje användare som självgranskare.<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 50 |
-| En administratör skapar en åtkomst granskning av grupp D med 6 medlems användare och 108 gäst användare. Gör det till en själv granskning. | 6 licenser för varje användare som självgranskare och 16 ytterligare licenser för att hantera alla 108 gäst användare i det begärda 1:5-förhållandet. 6 licenser, som avser 6 \* 5 = 30 gäst användare. För återstående (108-6 \* 5) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs ytterligare licenser. Därför krävs 6 + 16 = 22 licenser. | 22 |
+| En administratör skapar en åtkomst granskning av grupp C med 50 medlems användare och 25 gäst användare. Gör det till en själv granskning. | 50 licenser för varje användare som egen granskare. * | 50 |
+| En administratör skapar en åtkomst granskning av grupp D med 6 medlems användare och 108 gäst användare. Gör det till en själv granskning. | 6 licenser för varje användare som självgranskare. Gäst användare faktureras baserat på en månatlig aktiv användare (MAU). Inga ytterligare licenser krävs. *  | - |
+
+\* Priser för externa Azure AD-identiteter (gäst användare) baseras på månatliga aktiva användare (MAU), vilket är antalet unika användare med autentiserings aktivitet inom en kalender månad. Den här modellen ersätter förhållandet mellan 1:5 och fakturerings modell, som tillåter upp till fem gäst användare för varje Azure AD Premium licens i din klient organisation. När klienten är länkad till en prenumeration och du använder externa identiteter för att samar beta med gäst användare debiteras du automatiskt med hjälp av den MAU fakturerings modellen. Mer information finns i fakturerings modell för externa Azure AD-identiteter.
 
 ## <a name="next-steps"></a>Nästa steg
 

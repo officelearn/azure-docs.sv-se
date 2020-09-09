@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326473"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612178"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -78,7 +78,7 @@ Så här skapar du en data uppsättning från data som du redan har lagrat i Azu
 
 1. Välj **skapa en data uppsättning**  >  **från data lagret**.
 1. Tilldela ett **namn** till din data uppsättning.
-1. Välj **fil** som **data uppsättnings typ**.  
+1. Välj **fil** som **data uppsättnings typ**.  Endast fil data uppsättnings typer stöds.
 1. Välj data lagret.
 1. Om dina data finns i en undermapp i Blob Storage väljer du **Bläddra** för att välja sökvägen.
     * Lägg till "/* *" i sökvägen om du vill inkludera alla filer i undermappar för den valda sökvägen.

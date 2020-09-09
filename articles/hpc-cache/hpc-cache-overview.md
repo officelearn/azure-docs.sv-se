@@ -4,15 +4,15 @@ description: Beskriver Azure HPC cache, en lösning för fil åtkomst Accelerato
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 07/16/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053673"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611748"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
@@ -65,11 +65,11 @@ Besök sidan [Azures globala infrastruktur produkter efter region](https://azure
 * US Gov, Arizona
 * US Gov, Virginia
 
-## <a name="service-availability"></a>Tjänst tillgänglighet
+<!-- ## Service availability
 
-Du måste begära åtkomst för varje prenumeration som du kommer att använda med Azure HPC-cache. Den här begränsningen säkerställer tjänst kvaliteten.
+You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
 
-Begär åtkomst genom att fylla i [det här formuläret](https://aka.ms/onboard-hpc-cache). När du har lagt till din prenumeration i åtkomst listan kan du skapa cacheminnen.
+Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
 
 ## <a name="next-steps"></a>Nästa steg
 

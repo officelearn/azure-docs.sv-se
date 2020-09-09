@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5ab742e7ce2d198a321e15118522e6866bd1d104
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: fced9206bfd7d33ab4d9e911f92f12ec4b2aa99c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405880"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565017"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 
@@ -20,9 +20,9 @@ Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst 
 
 Innan du kan göra något måste du installera <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK för Java Script <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Använd följande instruktioner, beroende på plattform:
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js<span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Webbläsare<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Webbläsare <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Beroende på mål miljön använder du dessutom något av följande:
 
@@ -77,27 +77,30 @@ const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourS
 
 ## <a name="initialize-a-recognizer"></a>Initiera en identifierare
 
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) . När du initierar en måste [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) du skicka den `speechConfig` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
-
-Om du känner igen tal med hjälp av enhetens standard mikrofon [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) ska du se vad som ska se ut så här:
+När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) . När du initierar en [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) skickar du det `speechConfig` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
 
 ```javascript
 const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) och ange `audioConfig` parametern när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) .
+## <a name="recognize-from-microphone-or-file"></a>Identifiera från mikrofon eller fil
 
-> [!TIP]
-> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) och skicka den som en parameter när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) .
 
-Referera till `AudioConfig` objektet enligt följande:
+Om du vill känna igen tal med din enhets mikrofon skapar du en `AudioConfig` med `fromDefaultMicrophoneInput()` och skickar sedan ljud konfigurationen när du skapar `SpeechRecognizer` objektet.
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
-Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig` . Detta kan dock endast göras när mål **Node.js** och när du skapar en [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) , i stället för att anropa `fromDefaultMicrophoneInput` , anropar `fromWavFileOutput` och skickar `filename` parametern.
+> [!TIP]
+> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+
+Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå ange en `AudioConfig` . Men när du skapar [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) , i stället för att anropa `fromDefaultMicrophoneInput()` , anropar `fromWavFileInput()` och skickar `filename` parametern.
+
+> [!IMPORTANT]
+> Det går *bara* att känna igen tal från en fil i **Node.js** SDK
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
@@ -126,9 +129,9 @@ recognizer.recognizeOnceAsync(result => {
 
 Du måste skriva kod för att hantera resultatet. I det här exemplet utvärderas [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?view=azure-node-latest#reason) :
 
-* Skriver ut resultatet för igenkänning:`ResultReason.RecognizedSpeech`
-* Om det inte finns någon igenkännings matchning, informera användaren:`ResultReason.NoMatch`
-* Om ett fel påträffas skriver du ut fel meddelandet:`ResultReason.Canceled`
+* Skriver ut resultatet för igenkänning: `ResultReason.RecognizedSpeech`
+* Om det inte finns någon igenkännings matchning, informera användaren: `ResultReason.NoMatch`
+* Om ett fel påträffas skriver du ut fel meddelandet: `ResultReason.Canceled`
 
 ```javascript
 switch (result.reason) {

@@ -4,18 +4,18 @@ description: Den här snabb starten visar hur du använder real tids analys på 
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 45595e8e6aa53b41d6d8b0d9d11457468dc47013
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691042"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566930"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Snabb start: identifiera rörelse-och genererar händelser
 
 Den här snabb starten vägleder dig genom stegen för att komma igång med real tids video analys på IoT Edge. Den använder en virtuell Azure-dator som en IoT Edge-enhet och en simulerad livevideoström. När du har slutfört installations stegen kan du köra en simulerad real tids video ström genom ett medie diagram som identifierar och rapporterar en rörelse i den data strömmen. Följande diagram visar en grafisk representation av det medie diagrammet.
 
-![Real video analys baserat på rörelse identifiering](./media/analyze-live-video/motion-detection.png) 
+![Real video analys baserat på rörelse identifiering](./media/analyze-live-video/motion-detection.svg) 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]
@@ -25,7 +25,7 @@ Den här snabb starten vägleder dig genom stegen för att komma igång med real
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/python/header.md)]
 ::: zone-end
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/csharp/prerequisites.md)]

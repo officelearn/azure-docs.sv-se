@@ -7,14 +7,14 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: e28638e8daec5dcc283d61474d63ec41ec56ae63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102229"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567817"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-tools-for-teaching"></a>Vanliga frågor och svar om Azure dev tools för undervisning
+# <a name="frequently-asked-questions-about-the-education-hub"></a>Vanliga frågor och svar om Education Hub
 
 Den här artikeln behandlar vanliga frågor om Azure för studenter, Azure för studenter starter och Azure dev tools för utbildning.
 
@@ -42,7 +42,7 @@ Du kan se din återstående kredit på [portalen för Azure-sponsring](https://w
 
 ### <a name="how-do-i-download-the-software-developer-tools"></a>Hur gör jag för att ladda ned verktyg för program varu utvecklare?
 
-Din prenumeration på Azure för studenter ger dig till gång till vissa verktyg för programutvecklare. Du måste ha en aktuell, aktiv Azure för studenter-prenumeration för att kunna komma åt och hämta verktyg för programutvecklare. Gå till [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) för att ladda ned verktyg för program varu utvecklare med hjälp av prenumerationen för Azure för studenter.
+Din prenumeration på Azure för studenter ger dig till gång till vissa verktyg för programutvecklare. Du måste ha en aktuell, aktiv Azure för studenter-prenumeration för att kunna komma åt och hämta verktyg för programutvecklare. Gå till  [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) för att ladda ned verktyg för program varu utvecklare med hjälp av prenumerationen för Azure för studenter.
 
 ### <a name="what-is-microsoft-learn"></a>Vad är Microsoft Learn?
 
@@ -103,7 +103,7 @@ Du kan ladda ned den här program varan i [Education Hub](https://ms.portal.azur
 
 ### <a name="how-do-i-start-using-my-azure-course-credits"></a>Hur gör jag för att börja använda mina Azure-kurs krediter?
 
-Du kan komma åt dina Azure-kurs krediter genom att skapa en ny Microsoft Azure akademisk beviljad prenumeration. Välj knappen **Aktivera** i e-postmeddelandet för sponsring godkännande.
+Du kan komma åt dina Azure-kurs krediter genom att skapa en ny Microsoft Azure akademisk beviljad prenumeration. Välj knappen  **Aktivera** i e-postmeddelandet för sponsring godkännande.
 
 Du kan också konvertera en befintlig prenumeration till Microsoft Azure-sponsring erbjudandet för att få åtkomst till dina krediter. Information om hur du konverterar din prenumeration finns i nästa fråga.
 
@@ -153,6 +153,11 @@ Om du tittar på en prenumeration på bladet prenumerationer i din Azure Portal,
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure-utvecklarverktyg för utbildning
 
+### <a name="who-is-eligible-to-purchase-microsoft-azure-dev-tools-for-teaching"></a>Vem är behörig att köpa Microsoft Azure dev tools för utbildning?
+
+Endast akademiska institutioner som har köpt ett volym licens avtal (VL) med Microsoft kan registrera sig i Azure dev tools för utbildning.  Om du för närvarande är dev-verktyg för att under Visa kunden utan VL-avtal kan du fortsätta att förnya prenumerationen. Om du vill ha mer information om VL-avtal för akademiska institutioner går du till https://aka.ms/ees 
+
+
 ### <a name="what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription"></a>Vilka produkter ingår i Azure dev tools för utbildning av prenumerationer?
 
 :::row:::
@@ -178,7 +183,7 @@ SQL Server Web<br>
 System Center<br>
 Azure DevOps Server (tidigare Visual Studio Team Foundation Server)<br>
 Microsoft Visio<br>
-Visuell Studio-kod<br>
+Visual Studio-koden<br>
 Visual Studio Community<br>
 Visual Studio Enterprise<br>
 Visual Studio för Mac<br>

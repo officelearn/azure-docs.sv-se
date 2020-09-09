@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 26f27297b651da11bf6dd76236709e5bfb77d90e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395408"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566882"
 ---
 # <a name="what-is-azure-expressroute"></a>Vad är Azure ExpressRoute?
-Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure och Office 365.
+Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Microsoft 365.
 
 Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning. ExpressRoute-anslutningar går inte via offentligt Internet. Detta gör att ExpressRoute-anslutningar ger bättre tillförlitlighet, snabbare hastigheter, konsekvent fördröjning och högre säkerhet än vanliga anslutningar via Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
 
@@ -44,7 +44,7 @@ Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterp
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Anslutning till Microsofts molntjänster
 ExpressRoute-anslutningar ger åtkomst till följande tjänster:
 * Microsoft Azure-tjänster
-* Microsoft Office 365-tjänster
+* Microsoft 365 tjänster
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

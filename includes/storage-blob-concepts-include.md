@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: tamram
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e90e750bf248bdcc8e50c6ddc6e9fa0273660195
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c3438631dca921989309bb8701e113cb5ce3ff2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79136026"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570213"
 ---
-Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss data modell eller definition, till exempel text eller binära data.
+Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blob Storage är optimerad för lagring av enorma mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss data modell eller definition, till exempel text eller binära data.
 
 ## <a name="about-blob-storage"></a>Om blobblagring
 
@@ -26,13 +26,13 @@ Blobblagring är utformat för att:
 * Direktuppspelning av video och ljud.
 * Skriva till loggfiler.
 * Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering.
-* Lagra data för analys av en tjänst som kan vara lokal eller Azure-baserad.
+* Lagra data för analys av en tjänst som kan vara lokal eller Azure-värdbaserad.
 
-Användare eller klientprogram kan komma åt objekt i blobblagring via HTTP/HTTPS från var som helst i världen. Objekt i blobblagring nås via [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) eller ett Azure Storage-klientbibliotek. Klient bibliotek är tillgängliga för olika språk, bland annat:
+Användare eller klientprogram kan komma åt objekt i blobblagring via HTTP/HTTPS från var som helst i världen. Objekt i blobblagring nås via [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) eller ett Azure Storage-klientbibliotek. Klient bibliotek är tillgängliga för olika språk, bland annat:
 
 * [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Node.js](https://azure.github.io/azure-storage-node) 
+* [Node.js](https://azure.github.io/azure-storage-node)
 * [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
 * [Kör](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)

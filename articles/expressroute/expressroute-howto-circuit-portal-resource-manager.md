@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322149"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566270"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Självstudie: skapa och ändra en ExpressRoute-krets
 
@@ -75,7 +75,10 @@ Du kan skapa en ExpressRoute-krets genom att välja alternativet för att skapa 
     > [!IMPORTANT]
     > Peering-platsen anger den [fysiska plats](expressroute-locations.md) där du peer-koppla med Microsoft. Detta är **inte** länkat till "location"-egenskap som refererar till den geografi där Azure Network Resource-providern finns. Även om de inte är relaterade är det en bra idé att välja en nätverks resurs-Provider geografiskt nära peering-platsen för kretsen.
 
-    * **SKU** avgör om en ExpressRoute lokal, ExpressRoute standard eller ett ExpressRoute Premium-tillägg är aktiverat. Du kan ange **lokal** för att hämta lokal SKU, **standard** för att hämta standard-SKU eller **Premium** för Premium-tillägget.
+    * **SKU** avgör om en ExpressRoute lokal, ExpressRoute standard eller ett ExpressRoute Premium-tillägg är aktiverat. Du kan ange **lokal** för att hämta den lokala SKU: n, **standard** för att hämta standard-SKU eller **Premium** för Premium-tillägget. Observera att du kan ändra SKU: n så att Premium-tillägget aktive ras.
+    > [!IMPORTANT]
+    > Du kan inte ändra SKU: n från **Standard/Premium** till **lokal**.
+    
     * **Fakturerings modellen** fastställer fakturerings typen. Du kan ange **Mät** värde för en dataplan med datapriser och **obegränsade** för ett obegränsat data abonnemang. Observera att du kan ändra fakturerings typen från **avgiftsbelagd** till **obegränsad**.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka ansl
 Du kan utföra följande uppgifter utan avbrott:
 
 * Aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets.
+
+> [!IMPORTANT]
+  > Det finns inte stöd för att ändra SKU: n från **Standard/Premium** till **lokal** .
+
 * Öka bandbredden för din ExpressRoute-krets, förutsatt att kapaciteten är tillgänglig på porten.
 
   > [!IMPORTANT]

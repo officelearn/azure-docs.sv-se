@@ -2,18 +2,17 @@
 title: Snabb start – distribuera Docker-behållare till container instance – PowerShell
 description: I den här snabb starten använder du Azure PowerShell för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
 services: container-instances
-author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9901b3f18973365dc9ceb8c85ff8587b6c2ea894
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533614"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565590"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av Azure PowerShell
 
@@ -23,7 +22,7 @@ I den här snabb starten använder du Azure PowerShell för att distribuera en i
 
 ![Program som distribuerats till Azure Container Instances visas i en webbläsare][qs-powershell-01]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -43,7 +42,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure PowerShell anger du ett resursgruppsnamn, ett instansnamn för containern och avbildningen av dockercontainern till cmdleten [New-AzContainerGroup][New-AzContainerGroup]. I den här snabb starten använder du den `mcr.microsoft.com/windows/servercore/iis:nanoserver` offentliga avbildningen. Den här avbildningen paketerar Microsoft Internet Information Services (IIS) för körning i Nano Server.
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure PowerShell anger du ett resursgruppsnamn, ett instansnamn för containern och avbildningen av dockercontainern till cmdleten [New-AzContainerGroup][New-AzContainerGroup]. I den här snabb starten använder du den offentliga `mcr.microsoft.com/windows/servercore/iis:nanoserver` avbildningen. Den här avbildningen paketerar Microsoft Internet Information Services (IIS) för körning i Nano Server.
 
 Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att IIS kan nås offentligt.
 

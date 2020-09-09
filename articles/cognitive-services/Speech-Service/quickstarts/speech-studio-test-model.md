@@ -1,25 +1,25 @@
 ---
-title: 'Snabb start: testa en modell med ljudfiler – tal Studio'
+title: Testa en modell med ljudfiler – tal Studio
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du tal Studio för att testa igenkänning av tal i en ljudfil.
+description: I den här instruktionen använder du tal Studio för att testa igenkänning av tal i en ljudfil.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391544"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565811"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Snabb start: testa en modell med en ljudfil i tal Studio
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testa en modell med hjälp av en ljudfil i tal Studio
 
-I den här snabb starten använder du tal Studio för att konvertera tal från en ljudfil till text. Med tal Studio kan du testa, jämföra, förbättra och distribuera tal igenkännings modeller med relaterad text, ljud med medmärkta avskrifter och vägledning som du anger.
+I den här instruktionen använder du tal Studio för att konvertera tal från en ljudfil till text. Med tal Studio kan du testa, jämföra, förbättra och distribuera tal igenkännings modeller med relaterad text, ljud med medmärkta avskrifter och vägledning som du anger.
 
 ## <a name="prerequisites"></a>Krav
 

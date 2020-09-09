@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716120"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569381"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
 
@@ -100,8 +100,11 @@ Exempel
 
 ## <a name="troubleshoot"></a>Felsöka
 
-- **Fel typ: den offentliga nyckeln för certifikatet för slutentiteten i det angivna X. 509-certifikatets innehåll matchar inte den offentliga delen av den angivna privata nyckeln. Kontrol lera att certifikatet är giltigt** . det här felet kan inträffa om du inte slår samman kund service representanten med samma CSR-begäran som initieras. Varje gång en CSR skapas skapas en privat nyckel som måste matchas vid sammanslagning av den signerade begäran.
+- **Fel typ: den offentliga nyckeln för certifikatet för slutentiteten i det angivna X. 509-certifikatets innehåll matchar inte den offentliga delen av den angivna privata nyckeln. Kontrol lera att certifikatet är giltigt** . det här felet kan inträffa om du inte slår samman kund service representanten med samma CSR-begäran som initieras. Varje gång en CSR skapas, skapas en privat nyckel som måste matchas vid sammanslagning av den signerade begäran.
     
+- När kund service representanten slås samman sammanfogas hela kedjan?
+    Ja, den sammanfogar hela kedjan, förutsatt att användaren har återställt P7B-filen att sammanfoga.
+
 - Om certifikatet som har utfärdats är inaktiverat i Azure Portal kan du gå vidare och visa **certifikat åtgärden** för att granska fel meddelandet för det certifikatet.
 
 Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy).

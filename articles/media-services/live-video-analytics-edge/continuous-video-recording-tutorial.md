@@ -3,12 +3,12 @@ title: Kontinuerlig video inspelning till molnet och uppspelningen från Cloud-s
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att kontinuerligt spela in video i molnet och strömma någon del av videon med hjälp av Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043472"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566812"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: kontinuerlig video inspelning till molnet och uppspelningen från molnet
 
@@ -33,7 +33,7 @@ Läs de här artiklarna innan du börjar:
 * [Media Graph-begrepp](media-graph-concept.md) 
 * [Scenarier för kontinuerlig video inspelning](continuous-video-recording-concept.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Krav för den här självstudien är:
 
@@ -61,7 +61,8 @@ Som det beskrivs i artikeln om [begrepp för medie diagram](media-graph-concept.
  
  För att kunna utföra CVR måste du samla in videon från en RTSP-kompatibel kamera och kontinuerligt registrera den på en [Azure Media Services till gång](terminology.md#asset). Det här diagrammet visar en grafisk representation av det medie diagrammet.
 
-![Mediegraf](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Mediegraf":::
 
 I den här självstudien använder du en Edge-modul som skapats med hjälp av [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) för att simulera en RTSP-kamera. I medie grafen använder du en RTSP- [källnod](media-graph-concept.md#rtsp-source) för att hämta Live-flödet och skicka videon till [till gångs mottagarens nod](media-graph-concept.md#asset-sink), som registrerar videon till en till gång.
 
@@ -229,7 +230,7 @@ När du använder live video analys i IoT Edge-modulen för att spela in direktu
    * Ett anrop till GraphTopologyDelete för att ta bort topologin.
    * Ett sista anrop till GraphTopologyList för att visa att listan nu är tom.
 
-## <a name="interpret-the-results"></a>Tolka resultaten 
+## <a name="interpret-the-results"></a>Tolka resultatet 
 
 När du kör medie diagrammet skickar live video analys i IoT Edge-modulen vissa diagnostik-och drift händelser till IoT Edge Hub. Dessa händelser är de meddelanden som visas i fönstret **utdata** i Visual Studio Code. De innehåller ett Body-avsnitt och ett applicationProperties-avsnitt. Information om vad dessa avsnitt representerar finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -352,7 +353,7 @@ Du kan granska Media Services till gången som skapades av medie diagrammet geno
 1. Leta upp ditt Media Services-konto bland de resurser som du har i din prenumeration och öppna fönstret konto.
 1. Välj **till gångar** i listan **Media Services** .
 
-    ![Tillgångar](./media/continuous-video-recording-tutorial/assets.png)
+    ![Media Services till gångar](./media/continuous-video-recording-tutorial/assets.png)
 1. Du hittar en till gång i listan med namnet sampleAsset-CVRToAMSAsset-Sample-Graph-1. Det här är det namn mönster som valts i din graf-Topology-fil.
 1. Välj tillgången.
 1. På sidan till gångs information väljer du **Skapa ny** under text rutan **strömmande URL** .

@@ -3,12 +3,12 @@ title: Vad är media Graph-tillägget – Azure
 description: Med live video analys på IoT Edge kan du utöka medie diagrammets bearbetnings funktioner via en nod i diagram tillägget.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: d7e14a0336da75e1948cf6dc4dbdb51490b70021
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420837"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569345"
 ---
 # <a name="media-graph-extension"></a>Mediegraftillägg
 
@@ -49,8 +49,9 @@ Använd därför en gRPC för utöknings processor när du:
 Med Media Graph-tillägg kan du köra eventuella utöknings modeller som du väljer på alla tillgängliga distributions körningar, till exempel ONNX, TensorFlow, PyTorch eller andra i din egen Docker-behållare. Det anpassade tillägget för inferencing bör distribueras tillsammans med Live Video Analytics Edge-modulen för bästa prestanda och kommer sedan att anropas via HTTP-tilläggs processorn eller gRPC-tilläggs processorn som ingår i din graf-topologi. Dessutom kan anrops frekvensen i det anpassade tillägget begränsas genom att du kan lägga till en [rörelse detektor processor](media-graph-concept.md#motion-detection-processor) och ett [ram frekvens filter processor](media-graph-concept.md#frame-rate-filter-processor) uppströms till medie tilläggs processorn.
 
 Diagrammet nedan visar data flödet på hög nivå:
- 
-![Dataflöde](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="AI-tjänst för AI":::
 
 ## <a name="samples"></a>Exempel
 

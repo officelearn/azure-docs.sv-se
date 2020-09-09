@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: duau
-ms.openlocfilehash: ab59de49b7cf625220f8a803aab9d2b9a2ae5937
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398775"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569245"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
 
@@ -64,7 +64,7 @@ Om du inte redan har en webbapp använder du följande steg för att ställa in 
 
 När distributionen är klar skapar du en annan webbapp. Använd samma procedur med samma värden, förutom följande värden:
 
-| Inställning          | Värde     |
+| Inställningen          | Värde     |
 | ---              | ---  |
 | **Resursgrupp**   | Välj **nytt** och ange *FrontDoorQS_rg2* |
 | **Namn**             | Ange ett unikt namn för din webbapp, i det här exemplet *WebAppContoso-2*  |
@@ -165,5 +165,3 @@ Upprepa proceduren för de andra två grupperna.
 Gå vidare till nästa artikel om du vill lära dig hur du lägger till en anpassad domän i din front dörr.
 > [!div class="nextstepaction"]
 > [Lägga till en anpassad domän](front-door-custom-domain.md)
-
-Om du vill veta mer om routning av trafik, se [metoder för routning av dirigerad dörr](front-door-routing-methods.md).

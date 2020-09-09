@@ -2,33 +2,33 @@
 author: ramonarguelles
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 1/30/2019
+ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e3f58a5a88495263396c4e915a6363ad065c202
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72882322"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570167"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
 Java Android-exemplet stöder delning mellan enheter.
-Öppna filen `SharedActivity.java` från mappen Samples i Android Studio. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som `SharingAnchorsServiceUrl` värde för `SharedActivity.java` i filen. Ersätt `index.html` i URL: en med `api/anchors`. Den bör se ut så här `https://<app_name>.azurewebsites.net/api/anchors`:.
+Öppna filen `SharedActivity.java` från mappen Samples i Android Studio. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedActivity.java` filen. Ersätt `index.html` i URL: en med `api/anchors` . Den bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors` .
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="ios"></a>[iOS](#tab/iOS)
 
 Mål-C iOS-exemplet stöder delning mellan enheter.
-Öppna filen `SharedDemoViewController.m` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som `SharingAnchorsServiceUrl` värde för `SharedActivity.java` i filen. Ersätt `index.html` i URL: en med `api/anchors`. Den bör se ut så här `https://<app_name>.azurewebsites.net/api/anchors`:.
+Öppna filen `SharedDemoViewController.m` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `SharingAnchorsServiceUrl` i `SharedDemoViewController.m` filen. Ersätt `index.html` i URL: en med `api/anchors` . Den bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors` .
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Både Xamarin Android och iOS-exempel stöder delning mellan enheter.
-Öppna filen `AccountDetails.cs` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som `AnchorSharingServiceUrl` värde för `SharedActivity.java` i filen. Ersätt `index.html` i URL: en med `api/anchors`. Den bör se ut så här `https://<app_name>.azurewebsites.net/api/anchors`:.
+Öppna filen `AccountDetails.cs` i mappen Samples. Ange URL: en som du fick i föregående steg (från ASP.NET-webbappens Azure-distribution) som värde för `AnchorSharingServiceUrl` i `AccountDetails.cs` filen. Ersätt `index.html` i URL: en med `api/anchors` . Den bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors` .
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -44,15 +44,11 @@ Både Xamarin Android och iOS-exempel stöder delning mellan enheter.
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-the-account-identifier-and-key"></a>Konfigurera konto identifieraren och nyckeln
-
-I fönstret **Projekt** går du till `Assets/AzureSpatialAnchorsPlugin/Examples` och öppnar scenfilen `AzureSpatialAnchorsLocalSharedDemo.unity`.
-
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-I fönstret **projekt** navigerar du till `Assets\AzureSpatialAnchors.Examples\Resources`. Välj `SpatialAnchorSamplesConfig`. I fönstret **kontrollant** anger du `Sharing Anchors Service url` sedan (från din ASP.NET-webbapp Azure-distribution) som värde `Base Sharing Url`för och ersätter `index.html` med. `api/anchors` Den bör se ut så här `https://<app_name>.azurewebsites.net/api/anchors`:.
+I fönstret **projekt** navigerar du till `Assets\AzureSpatialAnchors.Examples\Resources` . Välj `SpatialAnchorSamplesConfig`. I fönstret **kontrollant** anger du sedan `Sharing Anchors Service url` (från din ASP.NET-webbapp Azure-distribution) som värde för `Base Sharing Url` och ersätter `index.html` med `api/anchors` . Den bör se ut så här: `https://<app_name>.azurewebsites.net/api/anchors` .
 
-Spara scenen genom att välja **Arkiv** > **Spara**.
+Spara scenen genom att välja **Arkiv**  >  **Spara**.
 
 ## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
 

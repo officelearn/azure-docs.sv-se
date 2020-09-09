@@ -2,20 +2,21 @@
 title: 'Snabb start: skapa en python-app'
 description: Kom igång med Azure App Service genom att distribuera din första python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/08/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: 3bfe927b2c9dc16de8712f6c1793e850df92c201
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 77aafb53c1346c6723d055a8ae1c96297fdfbd52
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078460"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568922"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
 I den här snabb starten distribuerar du en python-webbapp till [app service på Linux](overview.md#app-service-on-linux), Azures mycket skalbara, självkorrigerande webb värd tjänst. Du använder det lokala [Azures kommando rads gränssnitt (CLI)](/cli/azure/install-azure-cli) på en Mac-, Linux-eller Windows-dator. Webbappen som du konfigurerar använder en kostnads fri App Service nivå, så du debiteras inte några kostnader i samband med den här artikeln.
 
-Om du föredrar att distribuera appar via en IDE, se [distribuera python-appar till App Service från Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01).
+> [!NOTE]
+> Om du föredrar att distribuera appar via en IDE, se **[distribuera python-appar till App Service från Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurera din inledande miljö
 
@@ -67,15 +68,10 @@ När du har loggat in kan du köra Azure-kommandon med Azure CLI för att arbeta
 
 ## <a name="clone-the-sample"></a>Klona exemplet
 
-Klona exempel lagrings platsen med följande kommando. ([Installera git](https://git-scm.com/downloads) om du inte redan har git.)
+Klona exempel lagrings platsen med följande kommando och navigera sedan till mappen. ([Installera git](https://git-scm.com/downloads) om du inte redan har git.)
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-```
-
-Gå sedan till mappen:
-
-```terminal
 cd python-docs-hello-world
 ```
 
@@ -157,7 +153,7 @@ az webapp up --sku F1 -n <app-name>
 - Om `az` kommandot inte känns igen kontrollerar du att du har installerat Azure CLI enligt beskrivningen i [Konfigurera din inledande miljö](#set-up-your-initial-environment).
 - Ersätt `<app_name>` med ett namn som är unikt för alla Azure (*giltiga tecken är `a-z` , `0-9` och `-` *). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
 - `--sku F1`Argumentet skapar webb programmet på den kostnads fria pris nivån. Utelämna det här argumentet om du vill använda en snabbare Premium-nivå, vilket innebär en timkostnad.
-- Du kan också inkludera argumentet `-l <location-name>` där `<location_name>` är en Azure-region, till exempel **Central**, **asienöstra**, **westeurope**, **koreasödra**, **centrala**, **Kanada**och så vidare. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot.
+- Du kan också inkludera argumentet `-l <location-name>` där `<location_name>` är en Azure-region, till exempel **Central**, **asienöstra**, **westeurope**, **koreasödra**, **centrala**, **Kanada**och så vidare. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) kommandot.
 - Om du ser felet "Det gick inte att automatiskt identifiera körnings stacken för appen" kontrollerar du att du kör kommandot i mappen *python-dok-Hello-World* som innehåller den *requirements.txt* filen. (Mer information finns i [Felsöka problem med automatisk identifiering med AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 Det kan ta några minuter att slutföra kommandot. Under körningen innehåller den meddelanden om att skapa resurs gruppen, App Service plan och värd appen, Konfigurera loggning och sedan utföra ZIP-distribution. Det ger meddelandet "du kan starta appen på http:// &lt; App-Name &gt; . azurewebsites.net", som är appens URL på Azure.

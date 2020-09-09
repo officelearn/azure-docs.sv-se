@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304074"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570047"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -83,7 +83,7 @@ Det finns två alternativ för att lägga till DNS-servrar för P2S-klienter. De
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>För användar-VPN (punkt-till-plats) – hur många klienter stöds?
 
-Varje användares VPN-P2S Gateway har två instanser och varje instans har stöd för upp till vissa användare när skalnings enheten ändras. Skalnings enhet 1-3 har stöd för 500 anslutningar, skalnings enhet 4-6 har stöd för 1000 anslutningar, skalnings enhet 7-12 har stöd för 5000-anslutningar och skalnings enhet 13-20 har stöd för upp till 10 000 
+Varje användares VPN-P2S Gateway har två instanser och varje instans har stöd för upp till vissa användare när skalnings enheten ändras. Skalnings enhet 1-3 har stöd för 500 anslutningar, skalnings enhet 4-6 har stöd för 1000 anslutningar, skalnings enhet 7-12 har stöd för 5000-anslutningar och skalnings enhet 13-18 har stöd för upp till 10 000 
 
 Till exempel låter användaren välja 1 skalen het. Varje skalnings enhet innebär att en aktiv-aktiv Gateway distribueras och var och en av instanserna (i det här fallet 2) har stöd för upp till 500 anslutningar. Eftersom du kan få 500 anslutningar * 2 per Gateway, innebär det inte att du planerar för 1000 i stället för 500 för den här skalnings enheten. Instanser kan behöva servas under vilken anslutningen för den extra 500 kan avbrytas om du överskrider det rekommenderade antalet anslutningar. Se också till att planera för stillestånds tid om du vill skala upp eller ned i skalnings enheten eller ändra plats-till-plats-konfigurationen på VPN-gatewayen.
 

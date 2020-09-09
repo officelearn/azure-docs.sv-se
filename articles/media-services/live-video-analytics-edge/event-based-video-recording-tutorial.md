@@ -3,12 +3,12 @@ title: Händelsebaserade videoinspelningar till molnet och uppspelningen från m
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att registrera en Event-baserad videoinspelning i molnet och spela upp den från molnet igen.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: cbd00bf5737e9833a860e154c629bb344416b6ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05ee34770cacdcda270afced13373a61ba83e13a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011795"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568581"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: Event-baserad videoinspelning till molnet och uppspelningen från molnet
 
@@ -36,7 +36,7 @@ Läs de här artiklarna innan du börjar:
 * [Så här redigerar du Deployment. * .template.jspå](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 * Avsnitt om [hur du deklarerar vägar i IoT Edge distributions manifest](../../iot-edge/module-composition.md#declare-routes)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Krav för den här självstudien är:
 
@@ -62,7 +62,8 @@ Händelsebaserade videoinspelningar syftar på hur du spelar in video som utlös
 
 Alternativt kan du bara utlösa registrering när en inferencing-tjänst identifierar att en speciell händelse har inträffat. I den här självstudien använder du en video om fordon som flyttas på en motor och spelar in videoklipp när en Last bil upptäcks.
 
-![Mediegraf](./media/event-based-video-recording-tutorial/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Mediegraf":::
 
 Diagrammet är en bild representation av ett [medie diagram](media-graph-concept.md) och ytterligare moduler som utför det önskade scenariot. Fyra IoT Edge-moduler är involverade:
 
@@ -80,7 +81,8 @@ När diagrammet visas använder du en [RTSP-källmapp](media-graph-concept.md#rt
 
 Innan du börjar bör du kontrol lera att du har slutfört den tredje punkten i [krav](#prerequisites). När resurs installations skriptet har slutförts väljer du klammerparenteserna för att exponera mappstrukturen. Du ser några filer som skapats under katalogen ~/clouddrive/lva-Sample.
 
-![Appinställningar](./media/quickstarts/clouddrive.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Appinställningar":::
 
 Av intresse i den här självstudien är filerna:
 
@@ -152,7 +154,8 @@ Distributions manifestet definierar vilka moduler som distribueras till en grän
 
 Använd Visual Studio Code och följ [anvisningarna](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) för att logga in på Docker. Välj sedan **build och Push IoT Edge-lösning**. Använd src/Edge/deployment.objectCounter.template.jspå för det här steget.
 
-![Lösning för att bygga och push IoT Edge](./media/event-based-video-recording-tutorial/build-push.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Lösning för att bygga och push IoT Edge":::
 
 Den här åtgärden skapar objectCounter-modulen för objekt inventering och skickar avbildningen till din Azure Container Registry.
 
@@ -160,7 +163,8 @@ Den här åtgärden skapar objectCounter-modulen för objekt inventering och ski
 
 Det här steget skapar IoT Edge distributions manifestet i src/Edge/config/deployment.objectCounter.amd64.jspå. Högerklicka på filen och välj **skapa distribution för en enskild enhet**.
 
-![Skapa distribution för en enskild enhet](./media/quickstarts/create-deployment-single-device.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Skapa distribution för en enskild enhet":::
 
 Om det här är din första själv studie kurs med real tids analys på IoT Edge, kommer Visual Studio Code att ange IoT Hub anslutnings strängen. Du kan kopiera den från appsettings.jspå filen.
 
@@ -169,7 +173,8 @@ Sedan ber Visual Studio Code dig att välja en IoT Hub enhet. Välj din IoT Edge
 I det här skedet har distributionen av Edge-moduler till din IoT Edges enhet startats.
 Om 30 sekunder uppdaterar du Azure-IoT Hub i det nedre vänstra avsnittet i Visual Studio Code. Du bör se att det finns fyra moduler som har distribuerats med namnet lvaEdge, rtspsim, yolov3 och objectCounter.
 
-![Fyra moduler har distribuerats](./media/event-based-video-recording-tutorial/iot-hub.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Fyra moduler har distribuerats":::
 
 ## <a name="prepare-for-monitoring-events"></a>Förbereda för övervaknings händelser
 
@@ -179,9 +184,10 @@ Följ dessa steg om du vill visa händelserna från modulen objectCounter och fr
 1. Expandera noden **enheter** .
 1. Högerklicka på filen lva-Sample-Device och välj **starta övervakning inbyggd händelse slut punkt**.
 
-   ![Starta övervakning av inbyggd händelse slut punkt](./media/quickstarts/start-monitoring-iothub-events.png)
-
-## <a name="run-the-program"></a>Köra programmet
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Starta övervakning av inbyggd händelse slut punkt":::
+    
+    ## <a name="run-the-program"></a>Köra programmet
 
 1. I Visual Studio Code går du till src/Cloud-to-Device-console-app/operations.jspå.
 
@@ -257,7 +263,7 @@ Följ dessa steg om du vill visa händelserna från modulen objectCounter och fr
    * Ett anrop till GraphTopologyDelete för att ta bort topologin.
    * Ett sista anrop till GraphTopologyList för att visa att listan nu är tom.
 
-## <a name="interpret-the-results"></a>Tolka resultaten 
+## <a name="interpret-the-results"></a>Tolka resultatet 
 
 När du kör medie diagrammet skickar live video analys i IoT Edge-modulen vissa diagnostik-och drift händelser till IoT Edge Hub. Dessa händelser är de meddelanden som visas i fönstret **utdata** i Visual Studio Code. De innehåller ett Body-avsnitt och ett applicationProperties-avsnitt. Information om vad dessa avsnitt representerar finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -390,13 +396,14 @@ Du kan granska Media Services till gången som skapades av grafen genom att logg
 1. Leta upp ditt Media Services-konto bland de resurser som du har i din prenumeration. Öppna fönstret konto.
 1. Välj **till gångar** i listan **Media Services** .
 
-    ![Tillgångar](./media/continuous-video-recording-tutorial/assets.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Kontinuerlig videoinspelning":::
 1. Du hittar en till gång i listan med namnet sampleAssetFromEVR-LVAEdge-{DateTime}. Detta är det namn som anges i egenskapen outputLocation för händelsen RecordingStarted. AssetNamePattern i topologin avgör hur det här namnet genereras.
 1. Välj tillgången.
 1. På sidan till gångs information väljer du **Skapa ny** under text rutan **strömmande URL** .
 
-    ![Ny till gång](./media/continuous-video-recording-tutorial/new-asset.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Ny till gång":::
 1. I guiden som öppnas accepterar du standard alternativen och väljer **Lägg till**. Mer information finns i [videouppspelning](video-playback-concept.md).
 
     > [!TIP]

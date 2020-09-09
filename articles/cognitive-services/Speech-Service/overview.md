@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825366"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569313"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 
@@ -90,10 +90,10 @@ Det tar en stund att distribuera den nya tal resursen. När distributionen är k
 
 Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var och en har utformats för att lära dig grundläggande design mönster, och du kan köra kod på mindre än 10 minuter. Se följande lista för snabb starten för varje funktion.
 
-* [Snabb start för tal till text](speech-to-text-basics.md)
+* [Snabb start för tal till text](get-started-speech-to-text.md)
 * [Snabbstart för text till tal](get-started-text-to-speech.md)
-* [Snabb start för tal Översättning](speech-translation-basics.md)
-* [Snabb start för avsikts igenkänning](quickstarts/intent-recognition.md)
+* [Snabbstart för talöversättning](speech-translation-basics.md)
+* [Snabbstart för avsiktsigenkänning](quickstarts/intent-recognition.md)
 * [Snabb start för högtalar igenkänning](speaker-recognition-basics.md)
 
 När du har fått chansen att komma igång med tal tjänsten kan du prova våra självstudier som visar hur du kan lösa olika scenarier.

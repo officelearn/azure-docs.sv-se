@@ -11,14 +11,14 @@ ms.topic: include
 ms.date: 03/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 514d1197c5e6d0f4c0f38faf24c6c2522d489820
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9ced792ab076c312c827d4a74c08cfa7971b7e17
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400939"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569431"
 ---
-I den här snabb starten ska du använda en REST API för att känna igen tal från filer i en batch-process. En batch-process kör tal avskriften utan några användar interaktioner. Det ger dig en enkel programmerings modell, utan att behöva hantera samtidighet, anpassade tal modeller eller annan information. Den ger avancerade kontroll alternativ, samtidigt som Azures tjänst resurser är effektiva att använda.
+I den här instruktionen använder du batch-avskriften REST API för att känna igen tal från filer i en batch-process. En batch-process kör tal avskriften utan några användar interaktioner. Det ger dig en enkel programmerings modell, utan att behöva hantera samtidighet, anpassade tal modeller eller annan information. Den ger avancerade kontroll alternativ, samtidigt som Azures tjänst resurser är effektiva att använda.
 
 Mer information om tillgängliga alternativ och konfigurations information finns i [batch-avskriftering](../../../batch-transcription.md).
 

@@ -2,14 +2,14 @@
 title: Analysera direktsänd video med hjälp av Open,™ Model Server – AI-tillägg från Intel
 description: I den här självstudien använder du en AI-modell server som tillhandahålls av Intel för att analysera direktsänd video från en (simulerad) IP-kamera.
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950263"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567595"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Självstudie: analysera direktsänd video med hjälp av poly™ Model Server – AI-tillägg från Intel 
 
@@ -17,7 +17,7 @@ I den här självstudien får du lära dig hur du använder det Open™ modell S
 
 Den här självstudien använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto som innehåller en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -30,6 +30,7 @@ Den här självstudien använder en virtuell Azure-dator som en IoT Edge enhet o
 > När du installerar Azure IoT-verktyg kan du uppmanas att installera Docker. Du kan ignorera prompten.
 
 ## <a name="review-the-sample-video"></a>Granska exempel videon
+
 När du konfigurerar Azure-resurserna kopieras en kort video från ett parkerings parti till den virtuella Linux-datorn i Azure som du använder som IoT Edge enhet. I den här snabb starten används video filen för att simulera en Live-dataström.
 
 Öppna ett program som [VLC Media Player](https://www.videolan.org/vlc/). Välj CTRL + N och klistra sedan in en länk till [videon](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) för att starta uppspelningen. Du ser tagningarna av fordon i ett parkerings parti, de flesta av dem parkerade och ett flyttal.
@@ -38,7 +39,8 @@ I den här snabb starten ska du använda video analys i real tid för IoT Edge t
 
 ## <a name="overview"></a>Översikt
 
-![Översikt](./media/use-intel-openvino-tutorial/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="Översikt":::
 
 Det här diagrammet visar hur signal flödet i den här snabb starten. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når noden för [http-tilläggsbegäranden](media-graph-concept.md#http-extension-processor) . 
 
@@ -46,7 +48,7 @@ Noden HTTP-tillägg spelar rollen för en proxy. Den konverterar video bild ruto
 
 I de här självstudierna får du:
 
-1. Skapa och distribuera medie diagrammet, ändra det 
+1. Skapa och distribuera medie diagrammet och ändra det.
 1. Tolka resultatet.
 1. Rensa resurser.
 

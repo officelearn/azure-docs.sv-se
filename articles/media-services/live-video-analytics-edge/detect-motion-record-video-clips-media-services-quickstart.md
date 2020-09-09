@@ -3,12 +3,12 @@ title: Identifiera rörelse, spela in video till Azure Media Services
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse i en video ström i real tid och spela in videoklipp i Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067694"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569022"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Snabb start: identifiera rörelse, spela in video till Media Services
 
@@ -16,7 +16,7 @@ Den här artikeln beskriver steg för steg hur du använder video analys i real 
 
 Den här artikeln bygger ovanpå [komma igång snabb start](get-started-detect-motion-emit-events-quickstart.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) på din dator med [Azure IoT tools-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
@@ -33,7 +33,8 @@ Du kan använda ett program som [VLC Player](https://www.videolan.org/vlc/), sta
 
 När du har slutfört stegen nedan har du använt video analys i real tid för IoT Edge för att identifiera rörelsen i bilen och spela in ett videoklipp från och med det 5-andra märket. Diagrammet nedan är den visuella representationen av det övergripande flödet.
 
-![Event-baserad videoinspelning till till gångar baserat på rörelse händelser](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Event-baserad videoinspelning till till gångar baserat på rörelse händelser":::
 
 ## <a name="use-direct-method-calls"></a>Använd direkta metod anrop
 
@@ -475,7 +476,7 @@ Anropa nu metoden GraphInstanceSet Direct med följande nytto last:
 }
 ```
 
-Observera följande:
+. Tänk på följande:
 
 * I nytto lasten ovan anges grafens Topology-namn (EVRtoAssetsOnMotionDetection) som graf-instansen måste skapas för.
 * Nytto lasten innehåller parametervärdet för "rtspUrl", som inte har något standardvärde i topologins nytto Last.

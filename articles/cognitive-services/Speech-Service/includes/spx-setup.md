@@ -12,7 +12,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 09/04/2020
 ms.locfileid: "89494288"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den enda förutsättningen är en Azure tal-prenumeration. Se [guiden](../get-started.md#new-resource) för att skapa en ny prenumeration om du inte redan har en.
 

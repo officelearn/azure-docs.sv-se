@@ -4,14 +4,6 @@
   items:
     - name: Vad är Azure Firewall?
       href: overview.md
-- name: Självstudier
-  items:
-    - name: Distribuera och konfigurera
-      href: tutorial-firewall-deploy-portal.md
-    - name: Distribuera i hybridnätverk
-      href: tutorial-hybrid-portal.md
-    - name: Filtrera inkommande trafik med DNAT
-      href: tutorial-firewall-dnat.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -24,6 +16,14 @@
     - name: Distribuera med tillgänglighetszoner – ARM-mall
       displayName: Resource Manager
       href: deploy-template.md
+- name: Självstudier
+  items:
+    - name: Distribuera och konfigurera
+      href: tutorial-firewall-deploy-portal.md
+    - name: Distribuera i hybridnätverk
+      href: tutorial-hybrid-portal.md
+    - name: Filtrera inkommande trafik med DNAT
+      href: tutorial-firewall-dnat.md
 - name: Exempel
   items:
     - name: Azure PowerShell

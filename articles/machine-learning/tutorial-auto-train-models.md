@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 884e97815a048d3e37dba57d362d71e72ef5e103
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: efe2f062cc75fb05484fe810a3ae16c07e93339b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120855"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651750"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
 * När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
@@ -72,16 +72,16 @@ green_taxi_df.head(10)
 
 |Nyttolast| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType |fareAmount |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|    tripType|
 |----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inga|Inga|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inga|Inga|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inga|Inga|– 73,92|40,76|– 73,91|...|2|4.00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inga|Inga|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inga|Inga|– 73,92|40,76|– 73,92|...|2|4.00|0,50|0,50|0|0,00|0,00|ndet|5.00|1,00
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inga|Inga|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inga|Inga|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inga|Inga|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inga|Inga|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00
-|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inga|Inga|– 73,94|40,71|– 73,94|...|2|5.00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inget|Inget|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inget|Inget|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inget|Inget|– 73,92|40,76|– 73,91|...|2|4,00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inget|Inget|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inget|Inget|– 73,92|40,76|– 73,92|...|2|4,00|0,50|0,50|0|0,00|0,00|ndet|5,00|1,00
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inget|Inget|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inget|Inget|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inget|Inget|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inget|Inget|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00
+|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inget|Inget|– 73,94|40,71|– 73,94|...|2|5,00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00
 
 Nu när de ursprungliga data har lästs in definierar du en funktion för att skapa olika tidsbaserade funktioner från fältet Hämta datum/tid. Detta skapar nya fält för månads nummer, dag i månad, veckodag och veckodag och ger modellen i tidsbaserad säsongs beroende. Använd `apply()` funktionen på dataframe för att upprepa `build_time_features()` funktionen på varje rad i taxi data.
 
@@ -101,16 +101,16 @@ green_taxi_df.head(10)
 
 |Nyttolast| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType|fareAmount  |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|tripType|month_num|day_of_month|day_of_week|hour_of_day
 |----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|----
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inga|Inga|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00|1|11|6|5
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inga|Inga|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|20|1|16
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inga|Inga|– 73,92|40,76|– 73,91|...|2|4.00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00|1|1|3|5
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inga|Inga|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|17|5|2
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inga|Inga|– 73,92|40,76|– 73,92|...|2|4.00|0,50|0,50|0|0,00|0,00|ndet|5.00|1,00|1|1|3|5
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inga|Inga|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00|1|4|6|19
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inga|Inga|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00|1|3|5|12
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inga|Inga|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|9|4|23
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inga|Inga|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00|1|11|6|17
-|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inga|Inga|– 73,94|40,71|– 73,94|...|2|5.00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|22|3|23
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Inget|Inget|– 73,88|40,84|– 73,94|...|2|15,00|0,50|0,50|0.3|0,00|0,00|ndet|16,30|1,00|1|11|6|5
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Inget|Inget|– 73,96|40,81|– 73,96|...|2|4,50|1,00|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|20|1|16
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Inget|Inget|– 73,92|40,76|– 73,91|...|2|4,00|0,00|0,50|0.3|0,00|0,00|ndet|4.80|1,00|1|1|3|5
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Inget|Inget|– 73,81|40,70|– 73,82|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|17|5|2
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0,50|Inget|Inget|– 73,92|40,76|– 73,92|...|2|4,00|0,50|0,50|0|0,00|0,00|ndet|5,00|1,00|1|1|3|5
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Inget|Inget|– 73,96|40,72|– 73,95|...|2|6,50|0,50|0,50|0.3|0,00|0,00|ndet|7,80|1,00|1|4|6|19
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Inget|Inget|– 73,88|40,76|– 73,87|...|2|6,00|0,00|0,50|0.3|0,00|0,00|ndet|6,80|1,00|1|3|5|12
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Inget|Inget|– 73,96|40,72|– 73,91|...|2|12,50|0,50|0,50|0.3|0,00|0,00|ndet|13,80|1,00|1|9|4|23
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Inget|Inget|– 73,94|40,71|– 73,95|...|1|7,00|0,00|0,50|0.3|1,75|0,00|ndet|9,55|1,00|1|11|6|17
+|432136|2|2015-01-22 23:16:33 2015-01-22 23:20:13 1 0,65|Inget|Inget|– 73,94|40,71|– 73,94|...|2|5,00|0,50|0,50|0.3|0,00|0,00|ndet|6,30|1,00|1|22|3|23
 
 Ta bort några av de kolumner som du inte behöver för utbildning eller ytterligare funktions utveckling.
 
@@ -137,12 +137,12 @@ green_taxi_df.describe()
 |----|----|---|---|----|---|---|---|---|---|---|---
 |count|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00
 |medelvärde|1,78|1,37|2,87|– 73,83|40,69|– 73,84|40,70|14,75|6,50|15,13|3,27|13,52
-|standard|0,41|1,04|2.93|2,76|1,52|2,61|1,44|12,08|3,45|8,45|1,95|6,83
+|st.av|0,41|1,04|2.93|2,76|1,52|2,61|1,44|12,08|3,45|8,45|1,95|6,83
 |min|1,00|0,00|0,00|– 74,66|0,00|– 74,66|0,00|– 300,00|1,00|1,00|0,00|0,00
-|25 %|2,00|1,00|1.06|– 73,96|40,70|– 73,97|40,70|7,80|3.75|8,00|2,00|9,00
-|50 %|2,00|1,00|1,90|– 73,94|40,75|– 73,94|40,75|11,30|6,50|15,00|3.00|15,00
-|75 %|2,00|1,00|3,60|– 73,92|40,80|– 73,91|40,79|17,80|9,25|22,00|5.00|19,00
-|bekräftat|2,00|9,00|97,57|0,00|41,93|0,00|41,94|450,00|12,00|30,00|6,00|23,00
+|25 %|2,00|1,00|1.06|– 73,96|40,70|– 73,97|40,70|7,80|3.75|8,00|2,00|9,00
+|50 %|2,00|1,00|1,90|– 73,94|40,75|– 73,94|40,75|11,30|6,50|15,00|3.00|15,00
+|75 %|2,00|1,00|3,60|– 73,92|40,80|– 73,91|40,79|17,80|9,25|22,00|5,00|19,00
+|max|2,00|9,00|97,57|0,00|41,93|0,00|41,94|450,00|12,00|30,00|6,00|23,00
 
 
 Från sammanfattnings statistik ser du att det finns flera fält med avvikande värden eller värden som minskar modell noggrannheten. Börja med att filtrera Lat/Long-fälten så att de ligger inom gränserna för Manhattan-ytan. Detta filtrerar längre taxi resor eller resor som är avvikande i förhållande till deras förhållande till andra funktioner.
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()`läser filen **config.jspå** och läser in autentiseringsinformationen till ett objekt med namnet `ws` . `ws` används i resten av koden i den här självstudien.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) är en klass som godkänner din Azure-prenumeration och resursinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. `Workspace.from_config()` läser filen **config.jspå** och läser in autentiseringsinformationen till ett objekt med namnet `ws` . `ws` används i resten av koden i den här självstudien.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Utforska resultaten
 
-Utforska resultatet av automatisk utbildning med en [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Widgeten gör att du kan se en graf och tabell över alla enskilda körnings iterationer, tillsammans med utbildnings precisions mått och metadata. Dessutom kan du filtrera efter olika precisions mått än ditt primära mått med list rutan.
+Utforska resultatet av automatisk utbildning med en [Jupyter-widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Widgeten gör att du kan se en graf och tabell över alla enskilda körnings iterationer, tillsammans med utbildnings precisions mått och metadata. Dessutom kan du filtrera efter olika precisions mått än ditt primära mått med list rutan.
 
 ```python
 from azureml.widgets import RunDetails

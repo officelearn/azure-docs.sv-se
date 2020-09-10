@@ -3,12 +3,12 @@ title: Översikt över Azure Security Benchmark-skissexempel
 description: Översikt över Azure Security Benchmark-skissexempel. Det här skissexemplet hjälper kunderna att utvärdera specifika kontroller.
 ms.date: 06/02/2020
 ms.topic: sample
-ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84740381"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651909"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exempel på Azure Security benchmark-skiss
 
@@ -37,7 +37,7 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
 
 1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. Leta upp utkastet för **Azure Security benchmark** -exempel under _andra exempel_ och välj Klicka på namnet för att välja det här exemplet.
+1. Leta upp utkastet för **Azure Security benchmark** -exempel under _andra exempel_ och välj namnet för att välja det här exemplet.
 
 1. Ange _grunderna_ för skiss exemplet:
 

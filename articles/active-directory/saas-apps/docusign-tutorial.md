@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 6736edd615f99ed987e7d1618c449ff7a819c497
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c91f9d38922cc1bddf252fde59291c2f233e1aa2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536078"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650205"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar DocuSign med Micros
 
 Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -47,7 +47,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * DocuSign stöder **just-in-Time-** etablering av användare.
 
 * DocuSign stöder [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
-* När du har konfigurerat DocuSign kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Lägga till DocuSign från galleriet
 
@@ -61,7 +61,7 @@ Om du vill konfigurera integreringen av DocuSign i Azure AD måste du lägga til
 1. Välj **DocuSign** på panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Konfigurera och testa enkel inloggning med Azure AD för DocuSign
+## <a name="configure-and-test-azure-ad-sso-for-docusign"></a>Konfigurera och testa Azure AD SSO för DocuSign
 
 Konfigurera och testa Azure AD SSO med DocuSign med hjälp av en test användare med namnet **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och motsvarande användare i DocuSign.
 
@@ -94,9 +94,12 @@ Följ dessa steg om du vill aktivera Azure AD SSO i Azure Portal:
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. I text rutan **svars-URL** anger du en URL med följande mönster:
+    c. I text rutan **svars-URL** anger du någon av följande URL-mönster:
     
-    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
+    | Svars-URL |
+    |-------------|
+    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
+    |`https://<subdomain>.docusign.net/SAML/`|
 
     > [!NOTE]
     > Dessa hakparenteser är plats hållare. Ersätt dem med värdena i den faktiska inloggnings-URL: en, identifierare och svars-URL. Informationen beskrivs i avsnittet "Visa SAML 2,0-slutpunkter" senare i den här självstudien.

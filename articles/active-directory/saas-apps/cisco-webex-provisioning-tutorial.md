@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: bdf2bf4102795d35df7eae658e3a24028da79b33
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2500a22d4d3775f7cfea7afbf4e8d106ec2da139
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551310"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647969"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Självstudie: konfigurera Cisco-WebEx för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -97,7 +97,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Cisco WebEx-etablering](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
 
-6.  I fältet **klient-URL** anger du ett värde i formatet `https://api.ciscoweb.com/v1/scim/[OrgId]` . Du skaffar `[OrgId]` dig genom att logga in på ditt [Cisco WebEx-kontroll nav](https://admin.webex.com/login). Klicka på organisationens namn längst ned till vänster och kopiera värdet från **organisations-ID**. 
+6.  I fältet **klient-URL** anger du ett värde i formatet `https://api.ciscospark.com/v1/scim/[OrgId]` . Du skaffar `[OrgId]` dig genom att logga in på ditt [Cisco WebEx-kontroll nav](https://admin.webex.com/login). Klicka på organisationens namn längst ned till vänster och kopiera värdet från **organisations-ID**. 
 
     * Hämta värdet för **hemlig token**genom att gå till denna [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). På WebEx-inloggnings sidan som visas loggar du in med det fullständiga Cisco WebEx-administratörskontot för din organisation. En felsida visas som säger att platsen inte kan nås, men det är normalt.
 

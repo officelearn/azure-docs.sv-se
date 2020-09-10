@@ -1,27 +1,28 @@
 ---
-title: 'Snabb start: Textanalys klient bibliotek v3 | Microsoft Docs'
+title: 'Snabb start: text utvinning med Textanalys klient biblioteket'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabb starten för att ansluta dina program till API för textanalys från Azure Cognitive Services.
+description: Använd den här snabb starten för att utföra sentiment analys med mera, med hjälp av API för textanalys från Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: text utvinning, sentiment-analys, text analys
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 104ae91b59bc04fc3227585a55a744d500d6db29
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931190"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649002"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
-Kom igång med Textanalys klient biblioteket. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
+Använd den här artikeln för att komma igång med Textanalys klient biblioteket. Följ de här stegen för att installera paketet och prova exempel koden för utvinnings text.
 
 Använd Textanalys klient bibliotek för att utföra:
 
@@ -100,7 +101,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [Utforska en lösning](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

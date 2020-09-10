@@ -2,22 +2,22 @@
 title: Självstudie – exportera mall från Azure Portal
 description: Lär dig hur du använder en exporterad mall för att slutföra din mall utveckling.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497162"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650067"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 
 I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om utdata](template-tutorial-add-outputs.md), men det är inte obligatoriskt.
 
@@ -33,11 +33,11 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 
 ## <a name="create-app-service-plan"></a>Skapa apptjänstplan
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Skapa en resurs**.
 1. I **Sök på Marketplace**anger **App Service plan**och väljer sedan **App Service plan**.  Välj inte **App Service plan (klassisk)**
 1. Välj **Skapa**.
-1. Skriv:
+1. Ange:
 
     - **Prenumeration**: Välj din Azure-prenumeration.
     - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett namn. Ange ett annat resurs grupps namn än det som du har använt i den här själv studie serien.
@@ -62,7 +62,7 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 
    Funktionen Exportera mall tar det aktuella läget för en resurs och skapar en mall för att distribuera den. Att exportera en mall kan vara ett användbart sätt att snabbt hämta den JSON du behöver för att distribuera en resurs.
 
-1. Kopiera **Microsoft. Web/Server grupper** -definitionen och parameter definitionen till mallen.
+1. Titta på **Microsoft. Web/Server grupper** -definitionen och parameter definitionen i den exporterade mallen. Du behöver inte kopiera dessa avsnitt. Du kan bara använda den här exporterade mallen som ett exempel på hur du vill lägga till den här resursen i mallen.
 
     ![Exportera mall för mall i Resource Manager-mall](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 
 Den exporterade mallen ger dig merparten av den JSON du behöver, men du måste anpassa den för din mall. Var särskilt uppmärksam på skillnader i parametrar och variabler mellan mallen och den exporterade mallen. Det är självklart att export processen inte känner till de parametrar och variabler som du redan har definierat i mallen.
 
-I följande exempel visas tilläggen i mallen. Den innehåller den exporterade koden och vissa ändringar. Först ändras namnet på parametern så att det matchar din namngivnings konvention. För det andra använder den plats parametern för platsen för App Service-planen. Tredje, tar den bort **namnet** i **egenskaperna Properties** eftersom det här värdet är redundant med egenskapen **Name** på resurs nivå.
+I följande exempel visas tilläggen i mallen. Den innehåller den exporterade koden och vissa ändringar. Först ändras namnet på parametern så att det matchar din namngivnings konvention. För det andra använder den plats parametern för platsen för App Service-planen. Tredje, tar den bort några av egenskaperna där standardvärdet är korrekt.
 
 Kopiera hela filen och ersätt din mall med dess innehåll.
 
@@ -117,7 +117,7 @@ az deployment group create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Resurs gruppen innehåller ett lagrings konto och en App Service plan.

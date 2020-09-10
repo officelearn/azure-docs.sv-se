@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651207"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647223"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>Skapa ett beräknings mål
 
-I Azure Machine Learning refererar *beräkning* (eller *beräknings mål*) till de datorer eller kluster som utför beräknings stegen i din Machine Learning-pipeline. Kör följande kod för att skapa ett CPU-baserat [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) -mål.
+I Azure Machine Learning refererar *beräkning* (eller *beräknings mål*) till de datorer eller kluster som utför beräknings stegen i din Machine Learning-pipeline. Kör följande kod för att skapa ett CPU-baserat [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) -mål.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>Skapa data inmatningar
 
-Indata för batch-härledning är de data som du vill partitionera för parallell bearbetning. En pipeline för batch-härledning accepterar data indata via [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) .
+Indata för batch-härledning är de data som du vill partitionera för parallell bearbetning. En pipeline för batch-härledning accepterar data indata via [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) .
 
-`Dataset` är för att utforska, transformera och hantera data i Azure Machine Learning. Det finns två typer: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) och [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . I det här exemplet ska du använda `FileDataset` som indata. `FileDataset` ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Genom att skapa en data uppsättning skapar du en referens till data käll platsen. Om du har tillämpat transformeringar av under inställningar till data uppsättningen lagras de även i data uppsättningen. Data behålls på den befintliga platsen, så ingen extra lagrings kostnad uppstår.
+`Dataset` är för att utforska, transformera och hantera data i Azure Machine Learning. Det finns två typer: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) och [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) . I det här exemplet ska du använda `FileDataset` som indata. `FileDataset` ger dig möjlighet att ladda ned eller montera filerna i din beräkning. Genom att skapa en data uppsättning skapar du en referens till data käll platsen. Om du har tillämpat transformeringar av under inställningar till data uppsättningen lagras de även i data uppsättningen. Data behålls på den befintliga platsen, så ingen extra lagrings kostnad uppstår.
 
 Mer information om Azure Machine Learning data uppsättningar finns i [skapa och komma åt data uppsättningar (för hands version)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-För att kunna använda dynamiska data inmatningar när du kör pipeline för batch-härledning kan du definiera indata `Dataset` som en [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) . Du kan ange indata-datauppsättningen varje gång du skickar en körnings pipeline för batch-härledning.
+För att kunna använda dynamiska data inmatningar när du kör pipeline för batch-härledning kan du definiera indata `Dataset` som en [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) . Du kan ange indata-datauppsättningen varje gång du skickar en körnings pipeline för batch-härledning.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Skapa utdata
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objekt används för att överföra mellanliggande data mellan pipeline-steg. I det här exemplet använder du den för att ge en utmatnings effekt.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) objekt används för att överföra mellanliggande data mellan pipeline-steg. I det här exemplet använder du den för att ge en utmatnings effekt.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>Skapa och kör pipelinen
 
-Kör nu pipelinen. Börja med att skapa ett [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) objekt med hjälp av din arbets ytans referens och det pipeline-steg som du skapade. `steps`Parametern är en matris med steg. I det här fallet finns det bara ett steg för batch-härledning. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
+Kör nu pipelinen. Börja med att skapa ett [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) objekt med hjälp av din arbets ytans referens och det pipeline-steg som du skapade. `steps`Parametern är en matris med steg. I det här fallet finns det bara ett steg för batch-härledning. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
 
 Använd sedan `Experiment.submit()` funktionen för att skicka pipelinen för körning.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 Det kan ta lång tid att slutföra en batch-härledning. Det här exemplet övervakar förloppet med hjälp av en Jupyter-widget. Du kan också övervaka jobbets förlopp genom att använda:
 
 * Azure Machine Learning Studio. 
-* Konsolens utdata från [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) objektet.
+* Konsolens utdata från [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true) objektet.
 
 ```python
 from azureml.widgets import RunDetails

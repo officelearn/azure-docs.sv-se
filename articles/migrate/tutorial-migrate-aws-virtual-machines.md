@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer 
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 72579c103102196e641244600ce9add64d6e20a4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419018"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651833"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -43,12 +43,17 @@ Konfigurera en utvärdering på följande sätt:
 1. Följ [själv studie kursen](./tutorial-prepare-physical.md) för att konfigurera Azure och förbereda dina virtuella AWS-datorer för en utvärdering. Tänk på följande:
 
     - Azure Migrate använder lösenordsautentisering vid identifiering av AWS-instanser. AWS-instanser har inte stöd för lösenordsautentisering som standard. Innan du kan identifiera instansen måste du aktivera lösenordsautentisering.
-        - Tillåt WinRM-port 5986 (HTTPS) och 5985 (HTTP) för Windows-datorer. Detta tillåter fjärr-WMI-anrop. Om du ställer in 
+        - Tillåt WinRM-port 5985 (HTTP) för Windows-datorer. Detta tillåter fjärr-WMI-anrop.
         - För Linux-datorer:
             1. Logga in på varje Linux-dator.
             2. Öppna filen sshd_config: vi/etc/ssh/sshd_config
             3. Leta upp raden **PasswordAuthentication** i filen och ändra värdet till **Ja**.
             4. Spara filen och Stäng den. Starta om SSH-tjänsten.
+    - Om du använder en rot användare för att identifiera dina virtuella Linux-datorer, måste du kontrol lera att rot inloggningen är tillåten på de virtuella datorerna.
+        1. Logga in på varje Linux-dator
+        2. Öppna filen sshd_config: vi/etc/ssh/sshd_config
+        3. Leta upp raden **PermitRootLogin** i filen och ändra värdet till **Ja**.
+        4. Spara filen och Stäng den. Starta om SSH-tjänsten.
 
 2. Följ sedan den här [självstudien](./tutorial-assess-physical.md) för att skapa en Azure Migrate-projekt och-apparat för att identifiera och utvärdera dina virtuella AWS-datorer.
 
@@ -177,7 +182,7 @@ Det första steget i migreringen är att konfigurera replikerings enheten. Om du
     9,4 i **Internet inställningar**väljer **du Anslut till Azure Site Recovery utan proxyserver**och väljer sedan **Nästa**.  
     9,5 kontroll sidan för **krav kontroll** körs söker efter flera objekt. När den är klar väljer du **Nästa**.  
     9,6 i **MySQL-konfiguration**anger du ett lösen ord för MySQL db och väljer sedan **Nästa**.  
-    9,7 i **miljö information**väljer du **Nej**. Du behöver inte skydda dina virtuella datorer. Välj sedan **Nästa**.  
+    9,7 i **miljö information**väljer du **Nej**. Du behöver inte skydda dina virtuella datorer. Välj **Nästa**.  
     9,8 på **installations plats**väljer du **Nästa** för att acceptera standardvärdet.  
     9,9 i **Val av nätverk**väljer du **Nästa** för att acceptera standardvärdet.  
     9,10 i **Sammanfattning**väljer du **Installera**.   
@@ -267,8 +272,8 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
     -  Tillgänglighets uppsättning för att placera den migrerade datorn i en tillgänglighets uppsättning. Den valda mål resurs gruppen måste ha en eller flera tillgänglighets uppsättningar för att kunna använda det här alternativet.
     - Inget alternativ för infrastrukturs redundans krävs om du inte behöver någon av dessa tillgänglighets konfigurationer för de migrerade datorerna.
 11. I **Azure Hybrid-förmån**:
-    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
-    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
+    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka på **Nästa**.
+    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka på **Nästa**.
 
     ![Mål inställningar](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
@@ -281,7 +286,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 
 ![Beräknings inställningar](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka sedan på **Nästa**.
+13. I **diskar**anger du om de virtuella dator diskarna ska replikeras till Azure och väljer disk typ (standard SSD/HDD eller Premium Managed Disks) i Azure. Klicka på **Nästa**.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 

@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
+ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399828"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648880"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -219,7 +219,27 @@ Om det uppstår ett fel innan begäran har skickats visas följande felmeddeland
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
+1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
+
+    Ett dedikerat/enskilt certifikat som tillhandahålls av Digicert används för din anpassade domän. 
+
+2. *Använder du IP-baserad eller SNI-baserad TLS/SSL?*
+
+    Azures frontend-dörr använder SNI TLS/SSL.
+
+3. *Vad händer om jag inte får domänverifieringsmeddelandet från DigiCert?*
+
+    Om du har en CNAME-post för din anpassade domän som pekar direkt på slutpunktens värdnamn (och du inte använder afdverify-underdomännamnet) får du inget domänverifieringsmeddelande. Verifieringen sker i så fall automatiskt. Om du inte har en CNAME-post och inte har fått något e-postmeddelande inom 24 timmar kontaktar du Microsoft-supporten.
+
+4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
+    
+    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade TLS/SSL-certifikat använder SHA-256 för utökad Server säkerhet.
+
+5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
+
+    Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
 
 ## <a name="clean-up-resources---disable-https"></a>Rensa resurser – inaktivera HTTPS
 
@@ -247,30 +267,15 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 | 2 Avetablering av certifikat | Tar bort certifikat |
 | 3 Slutfört | Certifikatet har tagits bort |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
-
-    Ett dedikerat/enskilt certifikat som tillhandahålls av Digicert används för din anpassade domän. 
-
-2. *Använder du IP-baserad eller SNI-baserad TLS/SSL?*
-
-    Azures frontend-dörr använder SNI TLS/SSL.
-
-3. *Vad händer om jag inte får domänverifieringsmeddelandet från DigiCert?*
-
-    Om du har en CNAME-post för din anpassade domän som pekar direkt på slutpunktens värdnamn (och du inte använder afdverify-underdomännamnet) får du inget domänverifieringsmeddelande. Verifieringen sker i så fall automatiskt. Om du inte har en CNAME-post och inte har fått något e-postmeddelande inom 24 timmar kontaktar du Microsoft-supporten.
-
-4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
-    
-    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade TLS/SSL-certifikat använder SHA-256 för utökad Server säkerhet.
-
-5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
-
-    Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
-- Läs [hur Front Door fungerar](front-door-routing-architecture.md).
+I den här självstudiekursen lärde du dig att:
+
+* Ladda upp ett certifikat till Key Vault.
+* Verifiera en domän.
+* Aktivera HTTPS för din anpassade domän.
+
+Fortsätt till nästa självstudie om du vill veta hur du konfigurerar en princip för geo-filtrering för din frontend-dörr.
+
+> [!div class="nextstepaction"]
+> [Konfigurera en princip för geo-filtrering](front-door-geo-filtering.md)

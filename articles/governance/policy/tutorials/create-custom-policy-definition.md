@@ -3,12 +3,12 @@ title: 'Självstudie: skapa en anpassad princip definition'
 description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86044625"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649833"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
@@ -73,7 +73,7 @@ Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-re
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
 Titta på sidan **Exportera mall** (under **inställningar**) i Azure Portal för den aktuella resursen.
 
-:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Sidan exportera mall på en befintlig resurs" border="false":::
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Skärm bild av sidan Exportera mall på en befintlig resurs i Azure Portal." border="false":::
 
 Om du gör det för ett lagringskonto visas en mall som liknar det här exemplet:
 

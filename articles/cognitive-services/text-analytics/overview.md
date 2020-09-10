@@ -1,47 +1,53 @@
 ---
-title: Vad är API för textanalys? Trådlösa
+title: Text utvinning och analys med API för textanalys Azure-Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Använd API för textanalys från Azure Cognitive Services för sentiment-analys, extrahering av nyckel fraser, språk identifiering och enhets igenkänning.
+description: Lär dig mer om text utvinning med API för textanalys. Använd den för sentiment-analys, språk identifiering och andra former av naturlig språk bearbetning.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: text utvinning, sentiment-analys, text analys
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000965"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647461"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
-API för textanalys är en molnbaserad tjänst som tillhandahåller avancerad bearbetning av naturligt språk över rå text och innehåller fyra huvud funktioner: sentiment analys, extrahering av nyckel fraser, språk identifiering och identifiering av namngivna enheter.
+API för textanalys är en molnbaserad tjänst som tillhandahåller NLP-funktioner (Natural Language Processing) för text utvinning och text analys, inklusive: sentiment analys, uppläggnings utvinning, extrahering av nyckel fraser, språk identifiering och identifiering av namngivna enheter.
 
-API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), en samling maskininlärnings- och AI-algoritmer i molnet för dina utvecklingsprojekt.
+API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), en samling maskininlärnings- och AI-algoritmer i molnet för dina utvecklingsprojekt. Du kan använda dessa funktioner med [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)eller [klient biblioteket](quickstarts/text-analytics-sdk.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-Text analyser kan betyda olika saker, men i Cognitive Services tillhandahåller API för textanalys fyra typer av analys enligt beskrivningen nedan. Du kan använda dessa funktioner med [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)eller [klient biblioteket](quickstarts/text-analytics-sdk.md).
-
 ## <a name="sentiment-analysis"></a>Attitydanalys
-Använd [sentiment analys](how-tos/text-analytics-how-to-sentiment-analysis.md) för att ta reda på vad kunderna tycker om ditt varumärke eller ditt ämne genom att analysera rå text för LED trådar om positiv eller negativ sentiment. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.<br /> Analysmodellen tränas i förväg med hjälp av en omfattande textmängd och tekniker för naturligt språk från Microsoft. För [utvalda språk](text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet.
+
+Använd [sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md) och ta reda på vad man tycker om ditt varumärke eller ditt ämne genom att lansera texten för LED trådar om positiv eller negativ sentiment. Den här API-funktionen returnerar en sentiment Poäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.
+
+Från och med v 3.1-förhands granskningen är utgångs punkt en funktion i Attitydanalys. Den här funktionen är även känd som Aspect-baserad Attitydanalys i naturlig språk bearbetning (NLP) och ger mer detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text.
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
-[Extrahera automatiskt viktiga fraser](how-tos/text-analytics-how-to-keyword-extraction.md) för att snabbt identifiera huvud punkterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.
+
+Använd [extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md) för att snabbt identifiera huvud begreppen i text. I texten "livsmedlet var Delicious och det var en fantastiskt anställd", kommer Extrahering av diskussionsämne att returnera de viktigaste punkterna: "mat" och "underbara personal".
 
 ## <a name="language-detection"></a>Språkidentifiering
-Du kan [identifiera vilket språk som indatamängden skrivs i](how-tos/text-analytics-how-to-language-detection.md) och rapportera en enda språkkod för varje dokument som skickas på begäran i en rad olika språk, varianter, dialekter och vissa regionala/kulturella språk. Språkkoden paras med poäng som anger styrkan hos poängen.
+
+Språk identifiering kan [identifiera språket som en inmatad text är skriven i](how-tos/text-analytics-how-to-language-detection.md) och rapportera en enda språkkod för varje dokument som skickas på begäran i en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk. Språk koden är kopplad till en säkerhets poäng.
 
 ## <a name="named-entity-recognition"></a>Igenkänning av namngiven enhet
-[Identifiera och kategorisera entiteter](how-tos/text-analytics-how-to-entity-linking.md) i din text som personer, platser, organisationer, datum/tid, kvantiteter, procent, valutor och mycket annat. Välkända entiteter identifieras även länkas till mer information på webben.
+
+Med den namngivna enhets igenkänningen (NER) kan du [identifiera och kategorisera entiteter](how-tos/text-analytics-how-to-entity-linking.md) i din text som personer, platser, organisationer, kvantiteter och välkända entiteter också känns igen och länkas till mer information på webben.
 
 ## <a name="use-containers"></a>Använda containrar
 
-[Använd textanalyscontainrarna](how-tos/text-analytics-how-to-install-containers.md) för att extrahera nyckelfraser, identifiera språk och analysera sentiment lokalt genom att installera standardiserade Docker-containrar närmare dina data.
+[Använd textanalys behållare](how-tos/text-analytics-how-to-install-containers.md) som en lokal lösning för utvinnings text och använda API: et. Med dessa Docker-behållare kan du extrahera nyckel fraser, identifiera språk och analysera sentiment närmare dina data.
 
 ## <a name="typical-workflow"></a>Typiskt arbetsflöde
 

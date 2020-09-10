@@ -1,5 +1,5 @@
 ---
-title: Ögonblicks bild av hanterad disk till prenumeration (Windows) – PowerShell
+title: Kopiera ögonblicks bild av hanterad disk till prenumeration (Windows) – PowerShell
 description: Azure PowerShell-skriptexempel – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: b5ac47c8074a3a7bec86a35075a98a141ea0ccd1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a2fd6f8b5f2ba0771449178a2d8d3958329e83eb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052279"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651595"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-windows"></a>Kopiera ögonblicks bild av en hanterad disk i samma prenumeration eller en annan prenumeration med PowerShell (Windows)
 
@@ -42,7 +42,7 @@ Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma ell
 
 Det här skriptet använder följande kommandon för att skapa en ögonblicksbild i målprenumerationen med källögonblicksbildens ID. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzSnapshotConfig](/powershell/module/az.compute/new-azsnapshotconfig) | Skapar konfiguration av ögonblicksbild som används för att skapa ögonblicksbilder. Den innehåller resurs-ID:t för den överordnade ögonblicksbilden och den plats som är samma som för den överordnade ögonblicksbilden.  |
 | [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) | Skapar en ögonblicksbild med hjälp av konfiguration av ögonblicksbild, namn på ögonblicksbild och resursgruppens namn som parametrar. |

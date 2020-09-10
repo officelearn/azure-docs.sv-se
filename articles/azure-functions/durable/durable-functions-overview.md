@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660690"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669248"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -23,7 +23,7 @@ Durable Functions stöder för närvarande följande språk:
 
 * **C#**: både [förkompilerade klassbibliotek](../functions-dotnet-class-library.md) och [C#-skript](../functions-reference-csharp.md).
 * **JavaScript**: stöds endast för version 2.x av Azure Functions-körningen. Kräver version 1.7.0 av Durable Functions-tillägget eller en senare version. 
-* **Python**: kräver version 1.8.5 av Durable Functions-tillägget eller en senare version. 
+* **Python**: kräver version 1.8.5 av Durable Functions-tillägget eller en senare version. Stöd för Durable Functions är för närvarande en offentlig för hands version.
 * **F#**: både förkompilerade klassbibliotek och F#-skript. F#-skriptet stöds endast för version 1.x av Azure Functions-körningen.
 * **PowerShell**: stöd för Durable Functions finns för närvarande i en offentlig för hands version. Stöds endast för version 3. x av Azure Functions Runtime och PowerShell 7. Kräver version 2.2.2 av Durable Functions-tillägget eller en senare version. Endast följande mönster stöds för närvarande: [funktion länkning](#chaining), [fläkt-ut/fläkt-in](#fan-in-out), [asynkrona http API: er](#async-http).
 

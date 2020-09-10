@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 0269d870f55f7246529b9d98608e5a325b6cf468
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0809894964ff99c468f8bf3876bfdb44995656f7
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569534"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667472"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
@@ -19,9 +19,67 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 
 ## <a name="august-2020"></a>Augusti 2020
 
-### <a name="containers"></a>Containrar
+### <a name="general"></a>Allmänt
 
+- [Vad övervakas av Azure Monitor](monitor-reference.md) -uppdaterat för att inkludera Azure Monitor-agenten.
+
+
+### <a name="agents"></a>Agenter
+- [Översikt över Azure Monitor Agent](platform/azure-monitor-agent-overview.md) – ny artikel.
+- [Aktivera Azure Monitor för en hybrid miljö](insights/vminsights-enable-hybrid.md) – uppdaterad beroende agent version.
+- [Översikt över Azure Monitoring agents](platform/agents-overview.md) – lade till Azure Monitor Agent och stöd tabell för konsoliderade operativ system.
+
+
+#### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>Nya och uppdaterade artiklar från omstrukturering av agent innehåll
+- [Aktivera Azure Monitor for VMs översikt](insights/vminsights-enable-overview.md)
+- [Installera Log Analytics agent på Linux-datorer](platform/agent-linux.md)
+- [Installera Log Analytics agent på Windows-datorer](platform/agent-windows.md)
+- [Översikt över Log Analytics agent](platform/log-analytics-agent.md)
+
+### <a name="application-insights"></a>Application Insights
+- [Azure Application Insights för JavaScript-webbappar](app/javascript.md) – tillagt avsnitt för att klargöra klient serverns korrelation och konfiguration för CORS-korrelation.
+- [Skapa en ny Azure Monitor Application Insights arbets ytans baserade resurser](app/create-workspace-resource.md) som har lagts till av arbets ytans baserade program.
+- [IP-adresser som används av Application Insights och Log Analytics](app/ip-addresses.md) uppdaterade IP-adresser för Live Metrics Stream.
+- [Övervaka Java-program i valfri miljö – Azure Monitor Application Insights](app/java-in-process-agent.md) -tillagd tabell för anpassad telemetri som stöds.
+- [Native reakta plugin-program för Application Insights JavaScript SDK](app/javascript-react-native-plugin.md) – ny artikel.
+- [Reagera på plugin-programmet för Application Insights JavaScript SDK](app/javascript-react-plugin.md) – ny artikel.
+- [Exempel på Resource Manager-mall för att skapa Azure Function-appar med Application Insights övervakning](samples/resource-manager-function-app.md) – ny artikel.
+- [Exempel på Resource Manager-mallar för att skapa Azure App Services-webbappar med Application Insights övervakning](samples/resource-manager-web-app.md) – ny artikel.
+- [Användnings analys med Azure Application Insights](app/usage-overview.md) -tillagd video.
+
+### <a name="autoscale"></a>Automatisk skalning
+- [Kom igång med autoskalning i Azure](platform/autoscale-get-started.md) -tillagda avsnitt om routning till Healty-instanser för App Service.
+
+### <a name="data-collection"></a>Datainsamling
+- [Konfigurera data insamling för Azure Monitor Agent (för hands version)](platform/data-collection-rule-azure-monitor-agent.md) – ny artikel.
+- [Data insamlings regler i Azure Monitor (för hands version)](platform/data-collection-rule-overview.md) – ny artikel.
+
+
+### <a name="containers"></a>Containrar
 - [Distributions & hPa mått med Azure Monitor för behållare](insights/container-insights-deployment-hpa-metrics.md) – ny artikel.
+
+### <a name="insights"></a>Insikter
+- [Övervaknings lösningar i Azure Monitor](insights/solutions.md) -uppdaterat för nytt användar gränssnitt.
+- [Övervakare av nätverksprestanda lösning i Azure](insights/network-performance-monitor.md) – stödda arbetsyte regioner som stöds.
+
+
+### <a name="logs"></a>Loggar
+- [Azure Monitor FAQ](faq.md) – tillagd post för att ta bort data från en arbets yta. Lade till post på 502 och 503 svar.
+  - [Utforma Azure Monitor loggar distribution](platform/design-logs-deployment.md) – uppdateringar av avsnittet volym hastighets begränsning.
+- [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – uppdaterade användnings frågor för mer effektivt fråge format.
+- [Optimera logg frågor i Azure Monitor](log-query/query-optimization.md) – vissa värden har lagts till i prestanda indikatorer.
+- [Resource Manager-mall exempel för diagnostiska inställningar](samples/resource-manager-diagnostic-settings.md) – tillagt exempel för logg gransknings loggar.
+
+
+### <a name="platform-logs"></a>Plattformsloggar
+- [Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](platform/diagnostic-settings.md) – extra regionalt krav för diagnostikinställningar.
+
+### <a name="visualizations"></a>Visualiseringar
+- [Översikt över Azure Monitor arbets böcker](platform/workbooks-overview.md) – lägga till video.
+- [Flytta en mall för Azure-arbetsböcker till en annan region](platform/workbook-templates-move-region.md) – ny artikel.
+- [Flytta en Azure-arbetsbok till en annan region](platform/workbooks-move-region.md) – ny artikel.
+
+
 
 ## <a name="july-2020"></a>Juli 2020
 
@@ -111,7 +169,7 @@ Nya och uppdaterade artiklar från omstrukturering av Azure Monitor for VMs inne
 - [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](insights/container-insights-azure-redhat4-setup.md) – uppdaterade krav.
 - [Konfigurera Azure Monitor för behållare Live data (förhands granskning)](insights/container-insights-livedata-setup.md) -borttagen anmärkning om funktionen är inte tillgänglig i Azure amerikanska myndigheter.
 
-### <a name="insights"></a>Insights
+### <a name="insights"></a>Insikter
 - [Vanliga frågor och svar – övervakare av nätverksprestanda lösning i Azure](insights/network-performance-monitor-faq.md) – vanliga frågor och svar om ExpressRoute-övervakaren.
 
 ### <a name="logs"></a>Loggar
@@ -218,7 +276,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Övervaknings kostnad för Azure Monitor för behållare](insights/container-insights-cost.md) – ny artikel.
 - [Konfigurera Azure Monitor för behållare Live-data (för hands version)](insights/container-insights-livedata-setup.md) – stöd för den nya kluster roll bindningen.
 
-### <a name="insights"></a>Insights
+### <a name="insights"></a>Insikter
 - [Azure Monitor för Azure cache för Redis (för hands version)](insights/redis-cache-insights-overview.md) – ny artikel.
 - [Övervaka Key Vault med Azure Monitor för Key Vault (för hands version)](./insights/key-vault-insights-overview.md) – ny artikel.
 
@@ -283,7 +341,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Så här stoppar du övervakning av Azure Red Hat OpenShift v3-kluster](insights/container-insights-optout-openshift-v3.md) – ny artikel.
 - [Så här stoppar du övervakning av ditt hybrid Kubernetes-kluster](insights/container-insights-optout-hybrid.md) – ny artikel.
 
-### <a name="insights"></a>Insights
+### <a name="insights"></a>Insikter
 
 - [Övervaka Azure Key Vaults med Azure Monitor för nyckel valv (för hands version)](insights/key-vault-insights-overview.md) – ny artikel.
 
@@ -328,7 +386,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Azure Monitor vanliga frågor och svar](faq.md) – uppdatering för Azure Monitor för behållare.
 - [Konfigurera GPU-övervakning med Azure Monitor för behållare](insights/container-insights-gpu-monitoring.md) – ny artikel.
 
-### <a name="insights"></a>Insights
+### <a name="insights"></a>Insikter
 
 - [Office 365-hanterings lösning i Azure](insights/solution-office-365.md) – uppdaterat utfasnings datum.
 

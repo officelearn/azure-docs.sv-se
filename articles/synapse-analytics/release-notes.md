@@ -1,6 +1,6 @@
 ---
-title: 'Viktig information: Azure Synapse Analytics (arbets ytor)'
-description: Viktig information för Azure Synapse Analytics (arbets ytor)
+title: 'Viktig information: Azure Synapse Analytics (för hands versioner av arbets ytor)'
+description: Viktig information för Azure Synapse Analytics (för hands versioner av arbets ytor)
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,22 +9,20 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: add5c89e83f33980803bf571239023859653c4f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8212af727a47ab05936c8b59c781cd49c5b0ba6
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059614"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669687"
 ---
-# <a name="azure-synapse-analytics-preview-release-notes"></a>Viktig information om Azure Synapse Analytics (för hands version)
+# <a name="azure-synapse-analytics-workspaces-preview-release-notes"></a>Viktig information om Azure Synapse Analytics (arbets ytans förhands granskning)
 
 Den här artikeln beskriver begränsningar och problem med Azure Synapse Analytics (arbets ytor). Relaterad information finns i [Vad är Azure Synapse Analytics (arbets ytor)](overview-what-is.md)
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-## <a name="azure-synapse-workspaces"></a>Azure-Synapse (arbets ytor) 
-
-### <a name="azure-synapse-cli"></a>Azure Synapse CLI
+## <a name="azure-cli"></a>Azure CLI
 
 - Problem och kund påverkan: arbets ytor som skapats av SDK kan inte starta Synapse Studio
 
@@ -36,8 +34,6 @@ Den här artikeln beskriver begränsningar och problem med Azure Synapse Analyti
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en arbetsyta](quickstart-create-workspace.md)
-* [Använda Synapse Studio](quickstart-synapse-studio.md)
-* [Skapa en SQL-pool](quickstart-create-sql-pool-portal.md)
-* [Använda SQL på begäran](quickstart-sql-on-demand.md)
-* [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+* [Vad är Azure Synapse](overview-what-is.md)
+* [Komma igång](get-started.md)
+* [Vanliga frågor och svar](overview-faq.md)

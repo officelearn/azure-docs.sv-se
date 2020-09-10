@@ -2,22 +2,22 @@
 title: Självstudie – Använd parameter fil för att distribuera mallen
 description: Använd parameterstyrda filer som innehåller de värden som ska användas för att distribuera din Azure Resource Manager-mall.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff3ba6bdf93fd51b3b78fce2bc82404423c427ba
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502808"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667425"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Självstudie: använda parameter-filer för att distribuera ARM-mallen
 
-I den här självstudien får du lära dig hur du använder [parameter-filer](parameter-files.md) för att lagra de värden som du skickar i under distributionen. I de föregående självstudierna använde du infogade parametrar med ditt distributions kommando. Den här metoden fungerade för att testa din Azure Resource Manager-mall (ARM), men när du automatiserar distributioner kan det vara lättare att skicka en uppsättning värden för din miljö. Parameter-filer gör det lättare att paketera parameter värden för en speciell miljö. I den här självstudien skapar du parameterstyrda filer för utvecklings-och produktions miljöer. Det tar ungefär **12 minuter** att slutföra.
+I den här självstudien får du lära dig hur du använder [parameter-filer](parameter-files.md) för att lagra de värden som du skickar i under distributionen. I de föregående självstudierna använde du infogade parametrar med ditt distributions kommando. Den här metoden fungerade för att testa din Azure Resource Manager-mall (ARM-mall), men när du automatiserar distributioner kan det vara lättare att skicka en uppsättning värden för din miljö. Parameter-filer gör det lättare att paketera parameter värden för en speciell miljö. I den här självstudien skapar du parameterstyrda filer för utvecklings-och produktions miljöer. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om Taggar](template-tutorial-add-tags.md), men det är inte obligatoriskt.
 
@@ -34,6 +34,12 @@ Den här mallen fungerar bra, men nu vill du enkelt hantera de parametrar som du
 ## <a name="add-parameter-files"></a>Lägg till parameter filer
 
 Parameter-filer är JSON-filer med en struktur som liknar din mall. I filen anger du de parameter värden som du vill skicka under distributionen.
+
+I parameter filen anger du värden för parametrarna i mallen. Namnet på varje parameter i parameter filen måste matcha namnet på en parameter i mallen. Namnet är Skift läges känsligt men för att enkelt se matchande värden rekommenderar vi att du matchar Skift läget från mallen.
+
+Du behöver inte ange ett värde för varje parameter. Om en ospecificerad parameter har ett standardvärde används det värdet under distributionen. Om en parameter inte har något standardvärde och inte anges i parameter filen uppmanas du att ange ett värde under distributionen.
+
+Du kan inte ange ett parameter namn i parameter filen som inte matchar ett parameter namn i mallen. Du får ett fel meddelande när du har angett okända parametrar.
 
 I VS Code skapar du en ny fil med följande innehåll. Spara filen med namnet **azuredeploy.parameters.dev.jspå**.
 

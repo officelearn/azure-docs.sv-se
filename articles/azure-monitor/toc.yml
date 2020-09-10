@@ -566,6 +566,8 @@
               href: platform/itsmc-overview.md
             - name: IT Service Management-anslutningar
               href: platform/itsmc-connections.md
+            - name: Säker exportintegrering
+              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Skapa Service Manager-webbapp
               href: platform/itsmc-service-manager-script.md
             - name: Åtgärda problem med ServiceNow ITSM-synkronisering
@@ -720,6 +722,10 @@
                       href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
+        - name: OpenTelemetry
+          items:
+            - name: VANLIGA FRÅGOR OCH SVAR
+              href: faq.md#opentelemetry
         - name: Skapa en resurs (klassiskt)
           href: app/create-new-resource.md
         - name: Skapa en resurs (arbetsytebaserat)
@@ -1010,6 +1016,8 @@
           href: insights/container-insights-health.md
         - name: Övervaka GPU-prestanda
           href: insights/container-insights-gpu-monitoring.md
+        - name: 'Övervaka distributioner och HPA:er'
+          href: insights/container-insights-deployment-hpa-metrics.md
         - name: Visa livedata
           items:
             - name: Livedataöversikt (förhandsversion)

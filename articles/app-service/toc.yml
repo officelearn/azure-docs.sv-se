@@ -27,6 +27,8 @@
       href: quickstart-ruby.md
     - name: Statisk HTML-webbplats
       href: quickstart-html.md
+    - name: ARM-mall
+      href: quickstart-arm-template.md
     - name: Anpassad container
       href: quickstart-custom-container.md
     - name: App med flera container

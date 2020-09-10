@@ -136,7 +136,11 @@
       items:
         - name: Åtgärda rekommendationer
           href: security-center-remediate-recommendations.md
+        - name: Förhindra felkonfigurationer med Enforce/Deny
+          displayName: recommendations
+          href: prevent-misconfigurations.md
         - name: Förbättra säkerheten
+          displayName: recommendations
           href: security-center-monitoring.md
         - name: Referenslista över rekommendationer
           href: recommendations-reference.md

@@ -77,3 +77,11 @@
       items:
         - name: Date_Bucket (Transact-SQL)
           href: date-bucket-tsql.md
+        - name: Datakvarhållning och rensning
+          items:
+            - name: Översikt över datakvarhållning
+              href: data-retention-overview.md
+            - name: Aktivera eller inaktivera datakvarhållning
+              href: data-retention-enable-disable.md
+            - name: Rensning av datakvarhållning
+              href: data-retention-cleanup.md

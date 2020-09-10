@@ -32,6 +32,10 @@
       href: private-link-service-overview.md
     - name: DNS-integrering för privat slutpunkt
       href: private-endpoint-dns.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Gör så här för att
   items:
     - name: Ansluta privat till ett lagringskonto

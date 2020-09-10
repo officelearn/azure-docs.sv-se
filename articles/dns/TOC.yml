@@ -1,4 +1,4 @@
-- name: DNS-dokumentation
+- name: Dokumentation om DNS
   href: index.yml
 - name: Översikt
   items:
@@ -17,6 +17,8 @@
           href: dns-getstarted-powershell.md
         - name: Skapa en offentlig zon – CLI
           href: dns-getstarted-cli.md
+        - name: Skapa en offentlig zon – ARM-mall
+          href: dns-get-started-template.md
     - name: Privat DNS
       items:
         - name: Skapa en privat zon – portalen

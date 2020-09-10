@@ -35,6 +35,8 @@
   items:
     - name: Azure SignalR Service – internt
       href: signalr-concept-internals.md
+    - name: Tjänstläge
+      href: concept-service-mode.md
     - name: Skala ASP.NET Core SignalR
       href: signalr-concept-scale-aspnet-core.md
     - name: Utan server

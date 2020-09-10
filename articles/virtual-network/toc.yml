@@ -96,7 +96,7 @@
         - name: Nätverkssäkerhetsgrupper
           items:
             - name: Översikt
-              href: security-overview.md
+              href: network-security-groups-overview.md
             - name: Så här fungerar det
               href: network-security-group-how-it-works.md
         - name: Programsäkerhetsgrupper

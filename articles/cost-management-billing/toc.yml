@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Faktureringskonton för Microsofts partneravtal
           href: understand/mpa-overview.md
+        - name: Överföra prenumerationer mellan partner (förhandsversion)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Anvisningar
   items:
     - name: Konfigurera Cost Management + Fakturering

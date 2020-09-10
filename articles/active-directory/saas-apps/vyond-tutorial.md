@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 01a40e48f606c2e9c92d38b453a058d3ad5ba058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe1f5f718ce54845dea2fc9da3ea2c9f4e18ce92
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531369"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vyond"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Vyond
 
@@ -35,16 +35,16 @@ För att komma igång behöver du följande objekt:
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * Vyond för enkel inloggning (SSO) aktive rad.
 
-> [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
-
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Vyond stöder **SP-och IDP** -INITIERAd SSO
 
-* När du har konfigurerat Vyond kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat Vyond kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-vyond-from-the-gallery"></a>Lägga till Vyond från galleriet
 
@@ -58,7 +58,7 @@ Om du vill konfigurera integreringen av Vyond i Azure AD måste du lägga till V
 1. Välj **Vyond** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-vyond"></a>Konfigurera och testa enkel inloggning med Azure AD för Vyond
+## <a name="configure-and-test-azure-ad-sso-for-vyond"></a>Konfigurera och testa Azure AD SSO för Vyond
 
 Konfigurera och testa Azure AD SSO med Vyond med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Vyond.
 

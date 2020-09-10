@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 0e0530432fd72335a9ed9ab4d53ca5bc80c7c6da
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566258"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661975"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
 
 I den här snabb starten lär du dig att använda Azure Sentinel på kort sikt. 
 
-För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor (inklusive Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
+För att kunna använda Azure Sentinel måste du först aktivera Azure Sentinel och sedan ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft 365 Defender (tidigare lösningar för Microsoft Threat Protection), Microsoft 365 källor (inklusive Office 365), Azure AD, Microsoft Defender för identitet (tidigare Azure ATP), Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
 När du har anslutit dina data källor väljer du från ett galleri med arbets böcker som skapats av experten som är baserade på dina data. Dessa arbets böcker kan enkelt anpassas efter dina behov.
 
@@ -45,16 +45,16 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 1. Sök efter och välj **Azure Sentinel**.
 
-   ![sök](./media/quickstart-onboard/search-product.png)
+   ![Sökning efter tjänster](./media/quickstart-onboard/search-product.png)
 
 1. Välj **Lägg till**.
 
 1. Välj den arbets yta som du vill använda eller skapa en ny. Du kan köra Azure Sentinel på fler än en arbets yta, men data isoleras till en enda arbets yta.
 
-   ![sök](./media/quickstart-onboard/choose-workspace.png)
+   ![Välj en arbets yta](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - Standard arbets ytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
+   > - Standard arbets ytor som skapats av Azure Defender (tidigare Azure Security Center) visas inte i listan. Du kan inte installera Azure Sentinel på dem.
    > - Azure Sentinel kan köras på arbets ytor i alla [ga-regioner med Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) förutom regionerna Kina och Tyskland (suverän). Data som genereras av Azure Sentinel (t. ex. incidenter, bok märken och varnings regler som kan innehålla vissa kund uppgifter från dessa arbets ytor) sparas antingen i Europa (för arbets ytor som finns i Europa) i Australien (för arbets ytor i Australien) eller i östra USA (för arbets ytor som finns i en annan region).
 
    >[!IMPORTANT]

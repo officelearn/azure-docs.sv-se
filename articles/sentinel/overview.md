@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1bd61341683148cfc6431d7ca4b1f9293e19e760
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564635"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662034"
 ---
 # <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
 
@@ -43,9 +43,9 @@ Genom att skapa ett fullständigt utbud av befintliga Azure-tjänster, har Azure
 
 ## <a name="connect-to-all-your-data"></a>Anslut till alla dina data
 
-För att kunna använda Azure Sentinel måste du först [ansluta till dina säkerhets källor](connect-data-sources.md). Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar och Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
+För att kunna använda Azure Sentinel måste du först [ansluta till dina säkerhets källor](connect-data-sources.md). Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft 365 Defender (tidigare lösningar för Microsoft Threat Protection) och Microsoft 365 källor, inklusive Office 365, Azure AD, Microsoft Defender för identitet (tidigare Azure ATP) och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
-![Data insamlare](./media/collect-data/collect-data-page.png)
+![Datainsamlare](./media/collect-data/collect-data-page.png)
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -55,7 +55,7 @@ När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure S
 
 ![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 
@@ -68,7 +68,7 @@ Automatisera dina vanliga uppgifter och [förenkla säkerhets dirigering med spe
 
 Om du till exempel använder ServiceNow Ticket-systemet kan du använda de verktyg som finns för att använda Azure Logic Apps för att automatisera dina arbets flöden och öppna en biljett i ServiceNow varje gång en viss händelse identifieras.
 
-![Strategiböcker](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Spelböcker](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 ## <a name="investigation"></a>Undersökning
@@ -82,13 +82,13 @@ I för hands versionen av Azure Sentinel [djupgående undersöknings](tutorial-i
 
 Använd Azure Sentinels [kraftfulla verktyg för jakt och verktyg](hunting.md), baserat på Mitre-ramverket, som gör det möjligt för dig att proaktivt söka efter säkerhetshot i din organisations data källor innan en avisering utlöses. När du har identifierat vilken jakt fråga som ger hög värdes information i möjliga attacker, kan du också skapa anpassade identifierings regler baserat på din fråga och ställa en funktions insikt som aviseringar till dina säkerhets incident svarare. Samtidigt kan du skapa bok märken för intressanta händelser, så att du kan återgå till dem senare, dela dem med andra och gruppera dem med andra korrelerande händelser för att skapa en övertygande incident för undersökning.
 
-![Hotjakt](./media/overview/hunting.png)
+![Översikt över jakt funktion](./media/overview/hunting.png)
 
 ## <a name="community"></a>Community
 
 Azure Sentinel community är en kraftfull resurs för hot identifiering och automatisering. Våra Microsoft-säkerhetsanalytiker skapar och lägger till nya arbets böcker, spel böcker, jakt frågor med mera, så att du kan använda dem i din miljö. Du kan hämta exempel innehåll från den privata gruppen GitHub- [lagringsplatsen](https://aka.ms/asicommunity) för att skapa anpassade arbets böcker, jakt frågor, antecknings böcker och spel böcker för Azure Sentinel. 
 
-![Community](./media/overview/community.png)
+![Utforska användar gruppen](./media/overview/community.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

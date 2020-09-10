@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f85430aea183cca977e3cb648cb43779f25c61a0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228247"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657826"
 ---
 # <a name="what-is-identity-provisioning"></a>Vad är identitetsetablering?
 
@@ -40,10 +40,10 @@ Etableringen från HR till molnet innebär att du kan skapa objekt (användare, 
 
 Det vanligaste scenariot är att när en ny medarbetare ansluts till företaget registreras de i HR-systemet.  När detta sker är de etablerade i molnet.  I det här fallet Azure AD.  Etableringen från HR kan avse följande scenarier. 
 
-- **Anställning av nya anställda** – när en ny medarbetare läggs till i Cloud HR skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD, med Skriv-tillbaka till molnets e-postadress.
-- **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i moln HR (till exempel namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
+- **Anställning av nya anställda** – när en ny medarbetare läggs till i Cloud HR skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och andra SaaS-program som stöds av Azure AD, med Skriv-tillbaka till molnets e-postadress.
+- **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i moln HR (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och andra SaaS-program som stöds av Azure AD.
 - **Anställdas uppsägningar** – när en medarbetare avslutas i molnet, inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
-- **Anställdas återställningar** – när en medarbetare återställs i molnet kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på dina önskemål) till Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
+- **Anställdas återställningar** – när en medarbetare återställs i molnet i molnet kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Microsoft 365 och andra SaaS-program som stöds av Azure AD.
 
 
 ## <a name="app-provisioning"></a>App-etablering

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 92eecc419128b593dced0f9679dd02eb273cbb62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7081babb66cc91a0d904bf46a31843b663c016e7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518279"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662058"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med min IBISWorld
 
@@ -41,7 +41,10 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Min IBISWorld stöder **SP-och IDP** -INITIERAd SSO
 * Min IBISWorld stöder **just-in-Time** User-etablering
-* När du har konfigurerat mina IBISWorld kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat mina IBISWorld kan du framtvinga kontroll, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-my-ibisworld-from-the-gallery"></a>Lägga till min IBISWorld från galleriet
 
@@ -55,7 +58,7 @@ Om du vill konfigurera integreringen av mina IBISWorld i Azure AD måste du läg
 1. Välj **min IBISWorld** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-my-ibisworld"></a>Konfigurera och testa enkel inloggning med Azure AD för min IBISWorld
+## <a name="configure-and-test-azure-ad-sso-for-my-ibisworld"></a>Konfigurera och testa Azure AD SSO för min IBISWorld
 
 Konfigurera och testa Azure AD SSO med min IBISWorld med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i min IBISWorld.
 
@@ -97,7 +100,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | avdelning | user.department |
     | language | User. preferredLanguage |
     | phone | user.telephonenumber |
-    | rubrik | user.jobtitle |
+    | title | user.jobtitle |
     | userid | user.employeeid |
     | land | användare. land |
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 304f80dcb2da4ed60bd94e9fb4d71d985da87cc2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496221"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662000"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 
@@ -34,7 +34,7 @@ Om du vill visualisera och få en analys av vad som händer i din miljö kan du 
 
 - Verktygsfältet högst upp visar hur många händelser du fick under den valda tids perioden och jämför det med de föregående 24 timmarna. I verktygsfältet får du information om de aviseringar som har utlösts (det lilla värdet representerar de senaste 24 timmarna) och anger sedan för dessa händelser, hur många som är öppna, pågår och stängda. Kontrol lera att det inte finns någon dramatisk ökning eller ta bort antalet händelser. Om det finns ett släpp, kan det vara en anslutning som slutade rapportera till Azure Sentinel. Om det uppstår en ökning kan något misstänkt inträffa. Kontrol lera om du har nya aviseringar.
 
-   ![Azure Sentinel-tratt](./media/qs-get-visibility/funnel.png)
+   ![Azure Sentinel-räknare](./media/qs-get-visibility/funnel.png)
 
 Huvud delen av översikts sidan ger en överblick över en överskådlig säkerhets status för din arbets yta:
 
@@ -42,14 +42,14 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
 - **Potentiella skadliga händelser**: när trafik identifieras från källor som är kända för att bli skadlig, varnar Azure Sentinel dig på kartan. Om du ser orange är det inkommande trafik: någon försöker komma åt din organisation från en känd skadlig IP-adress. Om du ser utgående (röd) aktivitet innebär det att data från nätverket strömmas ut från din organisation till en känd skadlig IP-adress.
 
-   ![Azure Sentinel-karta](./media/qs-get-visibility/map.png)
+   ![Karta över skadlig trafik](./media/qs-get-visibility/map.png)
 
 
-- **Senaste incidenter**: om du vill visa dina senaste incidenter, deras allvarlighets grad och antalet aviseringar som är associerade med incidenten. Om du ser som plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs för tillfället. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Azure ATP, är det möjligt att någon nu försöker attackera dig.
+- **Senaste incidenter**: om du vill visa dina senaste incidenter, deras allvarlighets grad och antalet aviseringar som är associerade med incidenten. Om du ser som plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs för tillfället. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Microsoft Defender för identitet (tidigare Azure ATP), är det möjligt att någon för närvarande försöker attackera dig.
 
 - **Avvikelser i data källan**: Microsofts dataanalytiker skapade modeller som kontinuerligt söker efter avvikelser i data källor. Om det inte finns några avvikelser visas inget. Om avvikelser upptäcks bör du ta en djup inblick i dem för att se vad som hände. Klicka till exempel på insamling i Azure-aktivitet. Du kan klicka på **diagrammet** för att se när insamling skedde och sedan filtrera efter aktiviteter som inträffade under den tids perioden för att se vad som orsakade insamling.
 
-   ![Azure Sentinel-karta](./media/qs-get-visibility/anomolies.png)
+   ![Avvikande data källor](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Använda inbyggda arbets böcker<a name="dashboards"></a>
 
@@ -64,10 +64,10 @@ Inbyggda arbets böcker ger integrerade data från dina anslutna data källor s�
 
    - Lägg till en arbets bok för brand väggen. Lägg till exempel till Palo-arbets boken. Arbets boken analyserar brand Väggs trafiken och ger dig korrelationer mellan brand Väggs data och hot händelser och markerar misstänkta händelser i flera entiteter. Arbets böcker ger dig information om trender i trafiken och gör det möjligt att öka detalj nivån och filtrera resultaten. 
 
-      ![PAL-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
+      ![Palo-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa arbets böckerna antingen genom att redigera knappen för huvud ![ frågan ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen ![ knapp ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
+Du kan anpassa arbets böckerna antingen genom att redigera huvud knappen fråga ![ ](./media/qs-get-visibility/edit-query-button.png) . Du kan klicka på knappen knapp ![ Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
 
 Mer information om hur du arbetar med frågor finns i [Självstudier: visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

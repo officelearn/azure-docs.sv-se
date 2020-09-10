@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 994d427fb91f04ea0d2002a2c95e12366f4c6420
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553575"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658937"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Prezi
 
@@ -42,6 +42,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Prezi stöder SP-och IDP-initierad SSO.
 * Prezi stöder just-in-Time-etablering av användare.
 * När du har konfigurerat Prezi kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. Mer information finns i [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="add-prezi-from-the-gallery"></a>Lägg till Prezi från galleriet
 
@@ -81,7 +84,7 @@ Aktivera Azure AD SSO i Azure Portal:
 
 1. Välj **Ange ytterligare URL: er**och gör följande om du vill konfigurera programmet i **SP**-initierat läge:
 
-    I rutan **inloggnings-URL** anger du URL: en `https://prezi.com/login/sso/` .
+    I rutan **inloggnings-URL** anger du webb adressen: `https://prezi.com/login/sso/` .
 
 1. Välj **Spara**.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: f4a4c38cf079c22dbd2b8eda5e68cc3f147b1fc0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 84db28348baebc4f6b62f9cacb0035b4df1f6145
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535022"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660778"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Meraki-instrumentpanel
 
@@ -40,7 +40,10 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Meraki-instrumentpanelen stöder **IDP** INITIERAd SSO
-* När du har konfigurerat Meraki-instrumentpanelen kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat Meraki-instrumentpanelen kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-meraki-dashboard-from-the-gallery"></a>Lägga till Meraki-instrumentpanelen från galleriet
 
@@ -53,7 +56,7 @@ Om du vill konfigurera integreringen av Meraki-instrumentpanelen i Azure AD mås
 1. I avsnittet **Lägg till från galleriet** , Skriv **Meraki Dashboard** i sökrutan.
 1. Välj **Meraki instrument panel** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-meraki-dashboard"></a>Konfigurera och testa enkel inloggning med Azure AD för Meraki-instrumentpanelen
+## <a name="configure-and-test-azure-ad-sso-for-meraki-dashboard"></a>Konfigurera och testa Azure AD SSO för Meraki-instrumentpanelen
 
 Konfigurera och testa Azure AD SSO med Meraki-instrumentpanelen med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren på Meraki-instrumentpanelen.
 
@@ -147,15 +150,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Navigera till **organisations**  ->  **Inställningar**.
 
-    ![Konfiguration av Meraki-instrumentpanel](./media/meraki-dashboard-tutorial/configure1.png)
+    ![Fliken instrument panels inställningar Meraki](./media/meraki-dashboard-tutorial/configure1.png)
 
 1. Under autentisering, ändra **SAML SSO** till **SAML SSO aktiverat**.
 
-    ![Konfiguration av Meraki-instrumentpanel](./media/meraki-dashboard-tutorial/configure2.png)
+    ![Meraki instrument panels autentisering](./media/meraki-dashboard-tutorial/configure2.png)
 
 1. Klicka på **Lägg till en SAML-IDP**.
 
-    ![Konfiguration av Meraki-instrumentpanel](./media/meraki-dashboard-tutorial/configure3.png)
+    ![Meraki-instrumentpanel Lägg till en SAML-IdP](./media/meraki-dashboard-tutorial/configure3.png)
 
 1. Klistra in det **tumavtryck** -värde som du har kopierat från Azure Portal till **X. 590 cert-finger avtryck** . Klicka sedan på **Spara**. När du har sparat visas konsument-URL: en. Kopiera URL-värde för konsument och klistra in den i text rutan för **svars-URL** i **avsnittet grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -167,15 +170,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **organisations**  ->  **Administratörer**.
 
-    ![Konfiguration av Meraki-instrumentpanel](./media/meraki-dashboard-tutorial/user1.png)
+    ![Meraki instrument panels administratörer](./media/meraki-dashboard-tutorial/user1.png)
 
 1. I avsnittet SAML-administratörs roller klickar du på knappen **Lägg till SAML-roll** .
 
-    ![Konfiguration av Meraki-instrumentpanel](./media/meraki-dashboard-tutorial/user2.png)
+    ![Meraki instrument panel Lägg till SAML-roll knapp](./media/meraki-dashboard-tutorial/user2.png)
 
 1. Ange roll **meraki_full_admin**, markera **organisationens åtkomst** som **fullständig** och klicka på **skapa roll**. Upprepa processen för **meraki_readonly_admin**, den här tids markeringen **organisations åtkomst** som **skrivskyddad** .
  
-    ![Konfiguration av Meraki-instrumentpanel](./media/meraki-dashboard-tutorial/user3.png)
+    ![Meraki instrument panel skapa användare](./media/meraki-dashboard-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -194,6 +197,3 @@ När du klickar på panelen Meraki instrument panel på åtkomst panelen, bör d
 - [Prova Meraki-instrumentpanelen med Azure AD](https://aad.portal.azure.com/)
 
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Så här skyddar du Meraki-instrumentpanelen med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

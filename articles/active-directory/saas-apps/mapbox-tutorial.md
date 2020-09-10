@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554778"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661904"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Mapbox
 
@@ -41,6 +41,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Mapbox stöder **IDP** INITIERAd SSO
 * När du har konfigurerat Mapbox kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>Lägga till Mapbox från galleriet
 
@@ -136,15 +139,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på fliken **Inställningar**.
 
-    ![Mapbox-konfiguration](./media/mapbox-tutorial/configure1.png)
+    ![Fliken Inställningar för Mapbox](./media/mapbox-tutorial/configure1.png)
 
 1. Klicka på fliken **säkerhet** i det vänstra navigerings fönstret.
 
-    ![Mapbox-konfiguration](./media/mapbox-tutorial/configure2.png)
+    ![Fliken Mapbox säkerhet](./media/mapbox-tutorial/configure2.png)
 
 1. Klicka på **Redigera enkel inloggning**.
 
-    ![Mapbox-konfiguration](./media/mapbox-tutorial/configure3.png)
+    ![Mapbox redigera enkel inloggning](./media/mapbox-tutorial/configure3.png)
 
 1. Rulla ned till **steg 3: Konfigurera SAML enkel inloggning för Mapbox** och utför följande steg:
 

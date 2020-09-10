@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/23/2020
-ms.openlocfilehash: 980e3e036257bbf5aa9743025bbfb55065176a39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c40bec80d9f61cf46221cbfe7dde80f3a7b46f6f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133307"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658310"
 ---
 # <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Snabb start: skapa ditt första automatiserade integrerings arbets flöde med hjälp av Azure Logic Apps-Azure Portal
 
@@ -20,7 +20,7 @@ I den här snabb starten beskrivs de grundläggande allmänna koncepten bakom hu
 
 ![Konceptuell bild som visar ett exempel på ett Logic app-arbetsflöde med hög nivå.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-I det här scenariot behöver du en Azure-prenumeration eller [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), ett e-postkonto från en tjänst som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra e-posttjänster som stöds [granskar du kopplings listan här](/connectors/). I det här exemplet använder Logic-appen ett Office 365 Outlook-konto. Om du använder en annan e-posttjänst är de övergripande allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
+I det här scenariot behöver du en Azure-prenumeration eller [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), ett e-postkonto från en tjänst som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra e-posttjänster som stöds [granskar du kopplings listan här](/connectors/). I det här exemplet använder Logic-appen ett arbets-eller skol konto. Om du använder en annan e-posttjänst är de övergripande allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
 
 > [!IMPORTANT]
 > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).

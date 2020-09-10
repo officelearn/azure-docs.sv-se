@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 87a65cd42ad58a06488499aaf8651e206c35b5f2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646967"
+ms.locfileid: "89657046"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Självstudie: Bygg en Azure Machine Learning pipeline för batch-Poäng
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här avancerade självstudien får du lära dig hur du skapar en pipeline i Azure Machine Learning att köra ett batch-bedömnings jobb. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på maskin inlärning i stället för infrastruktur och automatisering. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst. 
+I den här avancerade självstudien får du lära dig hur du skapar en [Azure Machine Learning pipeline](concept-ml-pipelines.md) för att köra ett batch-bedömnings jobb. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på maskin inlärning i stället för infrastruktur och automatisering. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst. 
 
-Exemplet använder en förtränad in(convolutionalt neurala [-](https://arxiv.org/abs/1512.00567) nätverks modell som implementerats i Tensorflow för att klassificera omärkta bilder. [Läs mer om maskin inlärnings pipeliner](concept-ml-pipelines.md).
+Exemplet använder en förtränad in(convolutionalt neurala [-](https://arxiv.org/abs/1512.00567) nätverks modell som implementerats i Tensorflow för att klassificera omärkta bilder. 
 
 I den här självstudien slutför du följande uppgifter:
 
@@ -40,7 +40,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator i datorn, fyller du [i del 1 i installations guiden för](tutorial-1st-experiment-sdk-setup.md).
 * När du är klar med installations självstudien använder du samma Notebook-Server för att öppna *självstudierna/Machine-Learning-pipelines-Advanced/tutorial-pipeline-batch-scoring-Classification. ipynb* Notebook.

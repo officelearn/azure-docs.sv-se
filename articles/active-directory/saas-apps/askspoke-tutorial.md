@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 280dda4d3864f2c659272ffb63d6ac2566524c45
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64a95a14f6832e3f109335b5525b9a5dc1a9ec27
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549444"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662276"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askspoke"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med askSpoke
 
@@ -35,16 +35,16 @@ För att komma igång behöver du följande objekt:
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * askSpoke för enkel inloggning (SSO) aktive rad.
 
-> [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
-
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * askSpoke stöder **SP-och IDP** -INITIERAd SSO
 * askSpoke stöder **just-in-Time** User-etablering
-* När du har konfigurerat askSpoke kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat askSpoke kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-askspoke-from-the-gallery"></a>Lägga till askSpoke från galleriet
 
@@ -57,7 +57,7 @@ Om du vill konfigurera integreringen av askSpoke i Azure AD måste du lägga til
 1. I avsnittet **Lägg till från galleriet** , skriver du **askSpoke** i sökrutan.
 1. Välj **askSpoke** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-askspoke"></a>Konfigurera och testa enkel inloggning med Azure AD för askSpoke
+## <a name="configure-and-test-azure-ad-sso-for-askspoke"></a>Konfigurera och testa Azure AD SSO för askSpoke
 
 Konfigurera och testa Azure AD SSO med askSpoke med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i askSpoke.
 
@@ -89,7 +89,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL i text rutan **inloggnings-URL** :  `https://askspoke.com/login`
+    I rutan **Inloggnings-URL** anger du följande URL: `https://askspoke.com/login`
 
 1. askSpoke-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -146,15 +146,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på fliken **Inställningar** i det vänstra navigerings fönstret.
 
-    ![askSpoke-konfiguration](./media/askspoke-tutorial/configure1.png)
+    ![fliken Inställningar för askSpoke](./media/askspoke-tutorial/configure1.png)
 
 1. Rulla ned till **SSO** och klicka på **Anslut**.
 
-    ![askSpoke-konfiguration](./media/askspoke-tutorial/configure2.png)
+    ![askSpoke ansluta](./media/askspoke-tutorial/configure2.png)
 
 1. Utför följande steg i avsnittet **Aktivera SAML-& scim** :
 
-    ![askSpoke-konfiguration](./media/askspoke-tutorial/configure3.png)
+    ![askSpoke-avsnittet Aktivera SAML & SCIM](./media/askspoke-tutorial/configure3.png)
 
     1. I text rutan **inloggnings-URL** klistrar du in **inloggnings-URL** -värde, som du har kopierat från Azure Portal.
 
@@ -187,6 +187,3 @@ När du klickar på panelen askSpoke på åtkomst panelen, bör du loggas in aut
 - [Prova askSpoke med Azure AD](https://aad.portal.azure.com/)
 
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Så här skyddar du askSpoke med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

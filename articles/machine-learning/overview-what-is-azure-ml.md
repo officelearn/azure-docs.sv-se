@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: d5e1e8c0ced03191a530598bf2dca308dc4fab03
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 72de3c45d0def7cf4a48884ee49be256179ac0a4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651041"
+ms.locfileid: "89659514"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -115,7 +115,7 @@ Azure Machine Learning fungerar med andra tjänster på Azure-plattformen och in
 + __Azure Event Grid__. Mer information finns i [använda Azure Machine Learning händelser](concept-event-grid-integration.md).
 + __Azure Monitor__. Mer information finns i [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md).
 + Data lager som __Azure Storage konton__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__och __Azure Open-datauppsättningar__. Mer information finns i [få åtkomst till data i Azure Storage Services](how-to-access-data.md) och [skapa data uppsättningar med Azure Open data uppsättningar](how-to-create-register-datasets.md).
-+ __Virtuella Azure-nätverk__. Mer information finns i [säker experimentering och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md).
++ __Virtuella Azure-nätverk__. Mer information finns i [Översikt över virtuell nätverks isolering och sekretess](how-to-network-security-overview.md).
 + __Azure-pipeliner__. Mer information finns i [träna och distribuera Machine Learning-modeller](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git-lagringsplatsens loggar__. Mer information finns i [git-integrering](concept-train-model-git-integration.md).
 + __MLFlow__. Mer information finns i [MLflow för att spåra mått och distribuera modeller](how-to-use-mlflow.md) 
@@ -123,7 +123,7 @@ Azure Machine Learning fungerar med andra tjänster på Azure-plattformen och in
 
 ### <a name="secure-communications"></a>Säker kommunikation
 
-Ditt Azure Storage-konto, beräknings mål och andra resurser kan användas på ett säkert sätt i ett virtuellt nätverk för att träna modeller och utföra en härledning. Mer information finns i [säker experimentering och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md).
+Ditt Azure Storage-konto, beräknings mål och andra resurser kan användas på ett säkert sätt i ett virtuellt nätverk för att träna modeller och utföra en härledning. Mer information finns i [Översikt över virtuell nätverks isolering och sekretess](how-to-network-security-overview.md).
 
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Grundläggande & Enterprise-versioner
 

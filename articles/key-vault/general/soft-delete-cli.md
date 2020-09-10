@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585669"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662053"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
@@ -33,7 +33,7 @@ Information om Key Vault-detaljerad referensinformation för CLI finns i [refere
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Description | Användar behörighet |
+| Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
@@ -58,7 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Nytt nyckel valv
 
-Mjuk borttagning aktive ras automatiskt på alla nyckel valv som standard. Den 31 december 2020 är det inte längre möjligt att skapa ett nytt nyckel valv utan att mjuk borttagning är aktiverat.
+Mjuk borttagning aktive ras automatiskt på alla nyckel valv som standard. Från 31 december 2020 går det inte längre att skapa ett nytt nyckel valv utan att mjuk borttagning är aktiverat.
 
 ### <a name="verify-soft-delete-enablement"></a>Verifiera mjuk borttagnings aktivering
 

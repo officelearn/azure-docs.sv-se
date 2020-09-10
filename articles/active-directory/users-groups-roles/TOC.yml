@@ -9,8 +9,8 @@
     - name: Lägga till användare i Azure AD
       href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Tilldela licenser till användare
-      href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-    - name: Bevilja behörighet för obegränsade appregistreringar
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Skapa obegränsade appregistreringar
       href: roles-quickstart-app-registration-limits.md
     - name: Ange utgångsdatum för grupper
       href: groups-quickstart-expiration.md
@@ -175,6 +175,8 @@
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: Tilldela anpassade roller i PowerShell
               href: roles-assign-powershell.md
+            - name: Anpassade roller för företagsappar
+              href: custom-enterprise-apps.md
             - name: Anpassade rollbehörigheter
               href: roles-custom-available-permissions.md
             - name: Delegera behörigheter för appadministratörer

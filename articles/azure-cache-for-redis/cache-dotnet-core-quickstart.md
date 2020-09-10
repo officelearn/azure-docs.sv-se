@@ -8,22 +8,21 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: bc045eba331c861801dceef7f00db42e851f8bb2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211368"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662365"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Snabb start: Använd Azure cache för Redis med en .NET Core-app
 
 I den här snabb starten införlivar du Azure cache för Redis i en .NET Core-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder särskilt [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) -klienten med C#-kod i en .net Core-konsolprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 eller högre](https://www.microsoft.com/net/download/dotnet-framework-runtime), vilket krävs av klienten StackEdchange. Redis.
 
 ## <a name="create-a-cache"></a>Skapa en cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

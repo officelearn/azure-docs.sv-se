@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanterings områden för Azure-program och-resurser med länkar till innehåll på hanterings verktyg för Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041922"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662125"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Vad är Azures hanterings områden?
 
@@ -18,7 +18,9 @@ Hantering syftar på uppgifter och processer som krävs för att underhålla fö
 
 Följande diagram visar de olika hanteringsområdena som krävs för att underhålla alla program och resurser. Dessa olika områden kan ses som en livs cykel. Varje zon krävs i kontinuerliga framgångar över livs längd för en resurs. Den här resurs livs cykeln börjar med den första distributionen, genom fortsatta åtgärder och slutligen när den dras tillbaka.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Hanterings ämnes områden i Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagram över ämnes områden för hantering i Azure." border="false":::
+   Diagram som visar elementen migrera, säkra, skydda, övervaka, konfigurera och styr de delar av tjänsternas hjul som stöder hantering och styrning i Azure. Säker har säkerhets hantering och skydd mot hot som under objekt. Skydda har säkerhets kopiering och haveri beredskap som under objekt. Övervakaren har app, infraröd och nätverks övervakning och Log Analytics och diagnostik som under objekt. Konfigurera har konfiguration, uppdaterings hantering, automatisering och skript som under objekt. Och regler har princip hantering och kostnads hantering som under objekt.
+:::image-end:::
 
 Ingen enskild Azure-tjänst fyller fullständigt kraven i ett visst hanterings utrymme. I stället realiseras varje tjänst av flera tjänster som arbetar tillsammans. Vissa tjänster, till exempel Application Insights, tillhandahåller riktade övervaknings funktioner för webb program. Andra, som Azure Monitor loggar, lagrar hanterings data för andra tjänster. Med den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
 
@@ -53,7 +55,7 @@ Skydd syftar till att hålla dina program och data tillgängliga, även med avbr
 Migrering refererar till att överföra arbetsbelastningar som körs lokalt till Azure-molnet.
 [Azure Migrate](../migrate/migrate-services-overview.md) är en tjänst som hjälper dig att utvärdera migreringens lämplighet för lokala virtuella datorer till Azure. Azure Site Recovery migrerar virtuella datorer [från lokala platser](../site-recovery/migrate-tutorial-on-premises-azure.md) eller [från Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database migration](../dms/dms-overview.md) hjälper dig att migrera databas källor till Azure Data Platforms.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information om Azure-styrning finns i följande artiklar:
 

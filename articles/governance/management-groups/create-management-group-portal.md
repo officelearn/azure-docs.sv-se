@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en hanterings grupp med Portal'
 description: I den här snabb starten använder du Azure Portal för att skapa en hanterings grupp för att organisera resurserna i en resurspool.
 ms.date: 08/31/2020
 ms.topic: quickstart
-ms.openlocfilehash: 28b530e1da6b75dcc20e4a5dfebc494a959040b3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237373"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661737"
 ---
 # <a name="quickstart-create-a-management-group"></a>Snabb start: skapa en hanterings grupp
 
@@ -16,7 +16,7 @@ Hanterings grupper är behållare som hjälper dig att hantera åtkomst, princip
 
 Den första hanterings gruppen som skapas i katalogen kan ta upp till 15 minuter att slutföra. Det finns processer som körs första gången för att konfigurera hanterings grupps tjänsten i Azure för din katalog. Du får ett meddelande när processen är klar. Mer information finns i [den första installationen av hanterings grupper](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -32,14 +32,14 @@ Den första hanterings gruppen som skapas i katalogen kan ta upp till 15 minuter
 
 1. Välj **+ Lägg till hanterings grupp**.
 
-   :::image type="content" source="./media/main.png" alt-text="Sida för att arbeta med hanterings grupper" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Skärm bild av sidan hanterings grupper som visar underordnade hanterings grupper och prenumerationer." border="false":::
 
 1. Lämna **Skapa ny** markerad och fyll i fältet hanterings grupp-ID.
 
    - **Hanterings gruppens ID** är katalogens unika identifierare som används för att skicka kommandon i den här hanterings gruppen. Den här identifieraren kan inte redige ras när den används i hela Azure-systemet för att identifiera den här gruppen. [Rot hanterings gruppen](./overview.md#root-management-group-for-each-directory) skapas automatiskt med ett ID som är Azure Active Directory-ID: t. Tilldela ett unikt ID för alla andra hanterings grupper.
    - Fältet visnings namn är det namn som visas i Azure Portal. Ett separat visnings namn är ett valfritt fält när du skapar hanterings gruppen och kan ändras när som helst.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Alternativ fönster för att skapa en ny hanterings grupp":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Skärm bild av alternativen Lägg till hanterings grupp för att skapa en ny hanterings grupp.":::
 
 1. Välj **Spara**.
 

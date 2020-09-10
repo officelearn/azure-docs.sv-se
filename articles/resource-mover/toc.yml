@@ -1,0 +1,36 @@
+- name: Dokumentation om Azure Resource Mover
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure Resource Mover
+      href: overview.md
+    - name: Välja ett verktyg för att flytta resurser
+      href: select-move-tool.md
+    - name: Vanliga frågor
+      href: common-questions.md
+- name: Självstudier
+  items:
+    - name: Migrera virtuella Azure-datorer till en annan region
+      href: tutorial-move-region-virtual-machines.md
+    - name: Flytta SQL-resurser till en annan region
+      href: tutorial-move-region-sql.md
+- name: Begrepp
+  items:
+    - name: Flyttöversikt
+      href: about-move-process.md
+    - name: Supportmatris för flytt av region för virtuella Azure-datorer
+      href: support-matrix-move-region-azure-vm.md
+    - name: Supportmatris för flytt av region för Azure SQL
+      href: support-matrix-move-region-sql.md
+- name: Instruktionsguider
+  items:
+    - name: Ta bort resurser från en flyttsamling
+      href: remove-move-resources.md
+- name: Resurser
+  items:
+    - name: Molnmigrering i Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/migrate/
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

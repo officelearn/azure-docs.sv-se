@@ -24,6 +24,8 @@
   items:
     - name: Integrera med Power Virtual Agent
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Skapa en robot för frågor och svar med Azure Bot Service
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: Testa med batchfil
       href: Quickstarts/batch-testing.md
 - name: Begrepp
@@ -91,7 +93,7 @@
         - name: Migrera till en ny kunskapsbas
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Testa
+        - name: Testa kunskapsbas
           href: How-To/test-knowledge-base.md
     - name: Hantera QnA-par
       items:

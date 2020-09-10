@@ -52,8 +52,20 @@
           href: how-application-gateway-works.md
         - name: Application Gateway-komponenter
           href: application-gateway-components.md
-        - name: Översikt över konfiguration
-          href: configuration-overview.md
+        - name: Konfiguration
+          items:
+            - name: Översikt
+              href: configuration-overview.md
+            - name: Infrastruktur
+              href: configuration-infrastructure.md
+            - name: Klientdelens IP-adress
+              href: configuration-front-end-ip.md
+            - name: Lyssnare
+              href: configuration-listeners.md
+            - name: Begär routningsregler
+              href: configuration-request-routing-rules.md
+            - name: HTTP-inställningar
+              href: configuration-http-settings.md
     - name: Stöd för mycket trafik
       href: high-traffic-support.md
     - name: Automatisk skalning av v2-SKU

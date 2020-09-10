@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 40dd81b9eb7ff2b20abb1bf3ea4337b63fb2a831
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ff7e423063859a6cdc1a4362fb030c0deb75eb32
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447076"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658689"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
 
@@ -105,29 +105,29 @@ I följande tabell sammanfattas fil fälten som ska fyllas i:
 
 **Fältnamn** | **Erforderlig** | **Information**
 --- | --- | ---
-**Servernamn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | Inga | Server adress.
-**Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
-**Minne** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
-**OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
-**OS-version** | Inga | Serverns operativ system version.
-**OS-arkitektur** | Inga | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
-**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Inga | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | Inga | Procent andel CPU som används.
-**Procent andel minnes användning** | Inga | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Inga | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | Inga | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | Inga | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**MAC-adress**| Inga | Serverns MAC-adress.
+**Servernamn** | Yes | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
+**IP-adress** | No | Server adress.
+**Kärnor** | Yes | Antal processor kärnor som har allokerats till servern.
+**Minne** | Yes | Totalt RAM-minne, i MB, allokeras till servern.
+**OS-namn** | Yes | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
+**OS-version** | No | Serverns operativ system version.
+**OS-arkitektur** | No | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
+**Antal diskar** | No | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | No | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | No | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | No | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | No | Data läses från disken per sekund, i MB per sekund.
+**Disk 1 Skriv data flöde** | No | Data som skrivs till disk per sekund, i MB per sekund.
+**Procent andel CPU-användning** | No | Procent andel CPU som används.
+**Procent andel minnes användning** | No | Procent andelen RAM-minne som används.
+**Totalt antal diskar Read OPS** | No | Läs åtgärder per sekund för alla diskar tillsammans. <br/> Använd det här fältet om du inte kan ange data på disk nivå. 
+**Skriv Ops totalt antal diskar** | No | Skriv åtgärder per sekund för alla diskar. <br/> Använd det här fältet om du inte kan ange data på disk nivå.
+**Totalt antal diskar läsnings data flöde** | No | Data läses från alla diskar, i MB per sekund. <br/> Använd det här fältet om du inte kan ange data på disk nivå. 
+**Totalt antal diskar Skriv data flöde** | No | Data som skrivs till all disk, i MB per sekund. <br/> Använd det här fältet om du inte kan ange data på disk nivå.
+**Nätverk i data flöde** | No | Data som tagits emot av servern, i MB per sekund.
+**Nätverks utflöde** | No | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd program vara** | No | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
+**MAC-adress**| No | Serverns MAC-adress.
 
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system
@@ -146,6 +146,11 @@ Om du till exempel vill ange alla fält för en annan disk lägger du till följ
 - Disk 2 Läs data flöde
 - Disk 2 Skriv data flöde
 
+Om du inte kan ange disk nivå data kan du tillhandahålla disk prestanda data per server med hjälp av följande fält. Se [det här](#add-server-information) avsnittet för information om varje fält.
+- Totalt antal diskar Read OPS
+- Skriv Ops totalt antal diskar
+- Totalt antal diskar läsnings data flöde
+- Totalt antal diskar Skriv data flöde
 
 ## <a name="import-the-server-information"></a>Importera Server informationen
 

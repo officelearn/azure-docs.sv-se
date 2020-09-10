@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dcf67ce9c9e63fdbba8db565113cf3380e4142dd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f8a0576ff9ea128aae0d63d4879fe66ed2bf549
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548679"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660631"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharevault"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ShareVault
 
@@ -41,7 +41,10 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * ShareVault stöder **SP-och IDP** -INITIERAd SSO
 * ShareVault stöder **just-in-Time** User-etablering
-* När du har konfigurerat ShareVault kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat ShareVault kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-sharevault-from-the-gallery"></a>Lägga till ShareVault från galleriet
 
@@ -54,7 +57,7 @@ Om du vill konfigurera integreringen av ShareVault i Azure AD måste du lägga t
 1. I avsnittet **Lägg till från galleriet** , skriver du **ShareVault** i sökrutan.
 1. Välj **ShareVault** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharevault"></a>Konfigurera och testa enkel inloggning med Azure AD för ShareVault
+## <a name="configure-and-test-azure-ad-sso-for-sharevault"></a>Konfigurera och testa Azure AD SSO för ShareVault
 
 Konfigurera och testa Azure AD SSO med ShareVault med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i ShareVault.
 

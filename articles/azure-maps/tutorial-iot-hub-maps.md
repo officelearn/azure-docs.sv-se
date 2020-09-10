@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4150464b5c59b631afea0c788b1e351dee5185f9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 86ae186d3d8b131955be7d9fa2c305316dea9f00
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299410"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658438"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -204,7 +204,7 @@ Nu ska vi konfigurera vår Azure-funktion.
     * Ersätt **UDID** med det geografiskt `udid` avgränsnings tecken som du laddade upp i [överför ett avgränsnings](#upload-a-geofence)tecken.
     * Funktionen **CreateBlobAsync** i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY**, **ACCOUNT_NAME**och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel, konto namn och data lagrings behållare. Dessa värden genererades när du skapade ditt lagrings konto i [skapa ett Azure Storage-konto](#create-an-azure-storage-account).
 
-9. Klicka på bladet **integration** på menyn till vänster. Klicka på **Event Grid utlösare** i diagrammet. Ange ett namn för utlösaren, t. ex. *eventCarTelemetry*, och klicka på **Skapa event Grid prenumeration**.
+9. Klicka på bladet **integration** på menyn till vänster. Klicka på **Event Grid utlösare** i diagrammet. Skriv ett namn för utlösaren, *eventGridEvent*och klicka på **Skapa event Grid prenumeration**.
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Lägga till händelseprenumeration":::
 

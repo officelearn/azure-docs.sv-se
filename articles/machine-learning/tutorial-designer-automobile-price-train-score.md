@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9d25d9e13cc7f3dba0f4254cda6e1119ff9e2e68
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812994"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659797"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Du kan ange ett **standard beräknings mål** för hela pipelinen, vilket anger 
 
 Det finns flera exempel data uppsättningar som ingår i designern som du kan experimentera med. I den här självstudien använder du **bil-pris data (RAW)**. 
 
-1. Till vänster om arbets ytan för pipelinen är en palett med data uppsättningar och moduler. Välj **data uppsättningar**och Visa sedan avsnittet **exempel** för att visa tillgängliga exempel data uppsättningar.
+1. Till vänster om arbets ytan för pipelinen är en palett med data uppsättningar och moduler. Välj **exempel data uppsättningar** för att visa tillgängliga exempel data uppsättningar.
 
 1. Välj data uppsättningens **bil pris data (RAW)** och dra den till arbets ytan.
 
@@ -179,7 +179,7 @@ Din data uppsättning har fortfarande värden som saknas efter att du tagit bort
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-Column":::
 
-## <a name="train-a-machine-learning-model"></a>Träna en Machine Learning-modell
+## <a name="train-a-machine-learning-model"></a>Träna en maskininlärningsmodell
 
 Nu när du har modulerna på plats för att bearbeta data kan du ställa in träna moduler.
 

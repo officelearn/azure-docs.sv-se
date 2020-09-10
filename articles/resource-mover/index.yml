@@ -1,0 +1,48 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Resource Mover
+summary: Flytta Azure-resurser mellan Azure-regioner i Azure Resource Mover-hubben.
+metadata:
+  title: Azure Resource Manager-dokumentation
+  description: Hitta självstudier och information om hur du flyttar resurser mellan olika Azure-regioner.
+  ms.service: resource-move
+  ms.topic: landing-page
+  ms.collection: collection
+  author: rayne-wiselman
+  ms.author: raynew
+  ms.date: 09/09/2020
+  keywords: azure resource mover, azure regions, move across regions
+  ms.openlocfilehash: 4dec18e3000373953c93ee99a6b5500ffb515807
+  ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89652152"
+landingContent:
+- title: Om Azure Resource Mover
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Resource Mover?
+      url: ./overview.md
+    - text: Välja ett verktyg för att flytta resurser
+      url: ./select-move-tool.md
+    - text: Vanliga frågor
+      url: ./common-questions.md
+- title: Kom igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migrera virtuella Azure-datorer till en annan region
+      url: ./tutorial-move-region-virtual-machines.md
+    - text: Flytta Azure SQL-databaser och elastiska pooler till en annan region
+      url: ./tutorial-move-region-sql.md
+- title: Mer information
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Läs mer om flyttprocessen
+      url: ./about-move-process.md
+    - text: Granska supportmatris för att flytta virtuella Azure-datorer
+      url: ./support-matrix-move-region-azure-vm.md
+    - text: Granska supportmatris för att flytta Azure SQL-resurser
+      url: ./support-matrix-move-region-sql.md

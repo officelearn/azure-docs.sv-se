@@ -3,12 +3,12 @@ title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d259f44b8424afa9fcfc94b3f1812a0485ab2993
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920168"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659237"
 ---
 # <a name="what-are-azure-management-groups"></a>Vad är Azures hanterings grupper?
 
@@ -21,7 +21,9 @@ Du kan till exempel tillämpa principer för en hanteringsgrupp som begränsar r
 
 Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer för att organisera dina resurser i en hierarki för enhetlig princip- och åtkomsthantering. Följande diagram visar ett exempel på hur du skapar en hierarki för styrning med hjälp av hanteringsgrupper.
 
-:::image type="content" source="./media/tree.png" alt-text="Exempel på ett hierarkiträd för hanteringsgrupp" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagram över en hierarki för exempel hanterings grupper." border="false":::
+   Diagram över en rot hanterings grupp som innehåller både hanterings grupper och prenumerationer. Vissa underordnade hanterings grupper innehåller hanterings grupper, vissa undantags prenumerationer och vissa har båda. Ett av exemplen i exempel hierarkin är 4 nivåer av hanterings grupper med den underordnade nivån alla prenumerationer.
+:::image-end:::
 
 Du kan till exempel skapa en hierarki som tillämpar en princip som begränsar VM-platser till regionen USA, västra i gruppen med namnet ”Produktion”. Den här principen ärver till alla Enterprise-avtal-prenumerationer (EA) som är underordnade till den hanterings gruppen och gäller för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
 
@@ -147,7 +149,9 @@ Roll definitioner är tilldelnings bara omfång var som helst inom hanterings gr
 
 Låt oss till exempel titta på en liten del av en hierarki för ett visuellt objekt.
 
-:::image type="content" source="./media/subtree.png" alt-text="under träd" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram över en delmängd av hierarkin för exempel hanterings grupper." border="false":::
+   Diagrammet fokuserar på rot hanterings gruppen med underordnade IT-och marknadsförings grupper. Hanterings gruppen I T har en enda underordnad hanterings grupp med namnet produktion medan marknadsförings hanterings gruppen har två kostnads fria underordnade prenumerationer.
+:::image-end:::
 
 Anta att du har definierat en anpassad roll i marknadsförings hanterings gruppen. Den anpassade rollen tilldelas sedan de två kostnads fria utvärderings prenumerationerna.  
 
@@ -189,7 +193,7 @@ Om ägar rollen för prenumerationen ärvs från den aktuella hanterings gruppen
 
 Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/platform/platform-logs-overview.md). Du kan söka efter alla händelser i en hanteringsgrupp från samma centrala plats som andra Azure-resurser. Du kan till exempel se alla ändringar för rolltilldelningar eller principtilldelningar som gjorts i en viss hanteringsgrupp.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Aktivitetsloggar med hanteringsgrupper" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Skärm bild av aktivitets loggar och åtgärder relaterade till den valda hanterings gruppen." border="false":::
 
 När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 

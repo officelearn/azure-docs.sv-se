@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ee5fe4a856e75e9833b9d69dd24efd932f760a91
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 443cd6ce3805dbd5ebc250556c6d8ec28161f50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523346"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whimsical"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med WHimsical
 
@@ -35,16 +35,16 @@ För att komma igång behöver du följande objekt:
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * Arbets ytan WHimsical team.
 
-> [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
-
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * WHimsical stöder **SP-och IDP** -INITIERAd SSO
 * WHimsical stöder **just-in-Time** User-etablering
-* När du har konfigurerat WHimsical kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat WHimsical kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-whimsical-from-the-gallery"></a>Lägga till WHimsical från galleriet
 
@@ -57,7 +57,7 @@ Om du vill konfigurera integreringen av WHimsical i Azure AD måste du lägga ti
 1. I avsnittet **Lägg till från galleriet** , skriver du **WHimsical** i sökrutan.
 1. Välj **WHimsical** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-whimsical"></a>Konfigurera och testa enkel inloggning med Azure AD för WHimsical
+## <a name="configure-and-test-azure-ad-sso-for-whimsical"></a>Konfigurera och testa Azure AD SSO för WHimsical
 
 Konfigurera och testa Azure AD SSO med WHimsical med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i WHimsical.
 
@@ -169,5 +169,3 @@ När du klickar på panelen WHimsical på åtkomst panelen, bör du loggas in au
 - [Prova WHimsical med Azure AD](https://aad.portal.azure.com/)
 
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Så här skyddar du WHimsical med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

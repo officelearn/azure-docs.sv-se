@@ -6,80 +6,70 @@ author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 09/03/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: da7f115224db10ad1d66e8ffe7b86e58e43ae866
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99f4471a3b64990fb71341dc8210bf7f8e5b0d5a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052458"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661944"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
-
 I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
+## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
-## <a name="prerequisites"></a>Förutsättningar
+1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
+1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
+1. Välj **Lägg till** för att skapa en arbets yta med följande inställningar:
 
-- [Azure Data Lake Storage Gen2 lagrings konto](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+    |Flik|Inställning | Föreslaget värde | Beskrivning |
+    |---|---|---|---|
+    |Grundläggande inställningar|**Namn på arbetsyta**|Du kan ge det något annat namn.| I det här dokumentet använder vi min **arbets yta**.|
+    |Grundläggande inställningar|**Region**|Matcha lagrings kontots region.|
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
+1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
+    1. Under **välj Data Lake Storage gen 2**, klickar du på **Skapa nytt** och ge den namnet **contosolake**.
+    1. Under **välj Data Lake Storage gen 2**, klickar du på **fil system** och namnger IT- **användare**.
+1. ALTERNATIV 2 Se anvisningarna för att **förbereda ett lagrings konto** längst ned i det här dokumentet.
+1. Din Azure Synapse-arbetsyta kommer att använda det här lagrings kontot som det primära lagrings kontot och behållaren för att lagra data i arbets ytan. Arbets ytan lagrar data i Apache Spark tabeller. Programmet lagrar Spark-programloggarna under en mapp med namnet **/Synapse/workspacename**.
+1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
 
-Logga in på [Azure-portalen](https://portal.azure.com/)
+## <a name="open-synapse-studio"></a>Öppna Synapse Studio
 
-## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal
+När din Azure Synapse-arbetsyta har skapats kan du öppna Synapse Studio på två sätt:
 
-1. I rutan Microsoft Azure Sök anger du **Synapse-arbetsyta** och väljer sedan den här tjänsten.
-![Azure Portal Sök fältet med Azure Synapse-arbetsytor som anges i.](media/quickstart-create-synapse-workspace/workspace-search.png)
-2. På sidan **Synapse-arbetsytor** klickar du på **+ Lägg till**.
-![Kommando för att skapa en ny Azure dataSynapses-arbetsyta är markerat.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
-3. Fyll i formuläret för **Azure DataSynapses-arbetsyta** med följande information:
+* Öppna din Synapse-arbetsyta i [Azure Portal](https://portal.azure.com). Överst i **översikts** avsnittet väljer du **Starta Synapse Studio**.
+* Gå till `https://web.azuresynapse.net` och logga in på din arbets yta.
 
-    | Inställning | Föreslaget värde | Beskrivning |
-    | :------ | :-------------- | :---------- |
-    | **Prenumeration** | *Din prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-    | **Resursgrupp** | *Alla resurs grupper* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Namn på arbetsyta** | mysampleworkspace | Anger namnet på arbets ytan, som också kommer att användas för anslutnings slut punkter.|
-    | **Region** | USA, östra 2 | Anger arbets ytans plats.|
-    | **Data Lake Storage Gen2** | Redovisning`storage account name` </br> Fil system:`root file system to use` | Anger ADLS Gen2 lagrings konto namn som ska användas som primär lagring och fil systemet som ska användas.|
-    ||||
+## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Förbereda ett befintligt lagrings konto för användning med Synapse Analytics
 
-    ![Arbets ytans etablerings flöde – grundläggande flik.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
+1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Navigera till ett befintligt lagrings konto för ADLSGEN2
+1. Välj **åtkomst kontroll (IAM)** i den vänstra rutan. Tilldela sedan följande roller eller kontrol lera att de redan har tilldelats:
+    * Tilldela rollen som **ägare** .
+    * Tilldela rollen som **ägare av Storage BLOB-data** .
+1. I den vänstra rutan väljer du **behållare** och skapar en behållare.
+1. Du kan ge behållaren ett valfritt namn. I det här dokumentet namnger vi behållar **användare**.
+1. Godkänn standardinställningen **offentlig åtkomst nivå**och välj sedan **skapa**.
 
-    Lagrings kontot kan väljas från:
-    - En lista med ADLS Gen2 konton som är tillgängliga i din prenumeration
-    - Anges manuellt med konto namnet
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurera åtkomst till lagrings kontot från din arbets yta
 
-    > [!IMPORTANT]
-    > Azure Synapse-arbetsytan måste kunna läsa och skriva till det valda ADLS Gen2 kontot. För alla lagrings konton som du länkar som primärt lagrings konto måste du dessutom ha aktiverat **hierarkiskt namn område** för att skapa lagrings kontot.
-    >
-    > Under ADLS Gen2 urvals fälten finns en anteckning om att den hanterade identiteten för arbets ytan kommer att tilldelas rollen **Storage BLOB data Contributor** på det valda data Lake Storage Gen2 fil systemet som ger fullständig åtkomst.
+Hanterade identiteter för din Azure Synapse-arbetsyta kanske redan har åtkomst till lagrings kontot. Följ dessa steg för att se till att:
 
-4. Valfritt Ändra något av fliken **standardvärden säkerhet + nätverk** :
-5. Valfritt Lägg till taggar på fliken **taggar** .
-6. Fliken **Sammanfattning** kör de nödvändiga verifieringarna för att se till att arbets ytan kan skapas. När verifieringen har slutförts trycker du på **skapa** ![ arbets ytan etablerings flöde – bekräftelse-fliken.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
-7. När resurs etablerings processen har slutförts visas en post för den skapade arbets ytan i listan över Synapse-arbetsytor. ![Lista över Synapse-arbetsytor som visar den nyligen etablerade arbets ytan.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
+1. Öppna [Azure Portal](https://portal.azure.com) och det primära lagrings kontot som valts för din arbets yta.
+1. Välj **åtkomst kontroll (IAM)** i den vänstra rutan.
+1. Tilldela följande roller eller kontrol lera att de redan har tilldelats. Vi använder samma namn för arbets ytans identitet och arbets ytans namn.
+    * För rollen **Storage BLOB data Contributor** på lagrings kontot tilldelar du min **arbets yta** som arbets ytans identitet.
+    * Tilldela min **arbets yta** som arbets ytans namn.
 
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Följ stegen nedan för att ta bort Azure dataSynapses-arbetsytan.
-> [!WARNING]
-> Om du tar bort en Azure Synapse-arbetsyta tas analys motorerna och de data som lagras i databasen med SQL-pooler och metadata för arbets ytan bort. Det går inte längre att ansluta till SQL-slutpunkterna Apache Spark slut punkter. Alla kod artefakter tas bort (frågor, antecknings böcker, jobb definitioner och pipeliner).
->
-> Att ta bort arbets ytan påverkar **inte** data i den data Lake Store Gen2 som är länkad till arbets ytan.
-
-Om du vill ta bort arbets ytan för Azure-Synapse utför du följande steg:
-
-1. Gå till arbets ytan Azure Synapse för att ta bort.
-1. Tryck på **ta bort** i kommando fältet.
- ![Översikt över Azure Synapse-arbetsyta – kommandot Ta bort är markerat.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Bekräfta borttagningen och tryck på knappen **ta bort** .
- ![Översikt över Azure Synapse-arbetsyta – bekräftelse dialog rutan ta bort arbets yta.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
-1. När processen har slutförts visas inte längre Azure Synapse-arbetsytan i listan över arbets ytor.
+1. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan kan du [skapa SQL-pooler](quickstart-create-sql-pool-studio.md) eller [skapa Apache Spark pooler](quickstart-create-apache-spark-pool-studio.md) för att börja analysera och utforska dina data.
+* [Skapa en SQL-pool](quickstart-create-sql-pool-studio.md) 
+* [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+* [Använda SQL på begäran](quickstart-sql-on-demand.md)

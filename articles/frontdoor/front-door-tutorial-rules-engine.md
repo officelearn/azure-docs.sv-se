@@ -7,94 +7,121 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
+ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1ff8ca7d7c5972869de4c0d394129c591c7f4a7c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: acbcbc8e5dcebcb894ab8f78b2ed4a71bbc87689
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399080"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662202"
 ---
-# <a name="configure-your-rules-engine"></a>Konfigurera din regel motor
+# <a name="tutorial-configure-your-rules-engine"></a>Självstudie: Konfigurera en regel motor
 
-Den här artikeln innehåller steg för att skapa en regel motor konfiguration och din första regel i både Azure Portal och CLI. 
+Den här självstudien visar hur du skapar en regel Motors konfiguration och din första regel i både Azure Portal och CLI. 
+
+I den här guiden får du lära dig att:
+> [!div class="checklist"]
+> - Konfigurera regel motor med hjälp av portalen.
+> - Konfigurera regel motor med Azure CLI
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 
 ## <a name="configure-rules-engine-in-azure-portal"></a>Konfigurera regel motor i Azure Portal
-1. [Skapa en frontend-dörr](quickstart-create-front-door.md)innan du skapar en regel Motors konfiguration.
+1. I din frontend-resurs går du till **Inställningar** och väljer **regel motor konfiguration**. Klicka på **Lägg till**, ge konfigurationen ett namn och börja skapa din första regel motor konfiguration.
 
-2. I din frontend-resurs går du till **Inställningar** och väljer **regel motor konfiguration**. Klicka på **Lägg till**, ge konfigurationen ett namn och börja skapa din första regel motor konfiguration.
+    ![Meny för inställningar för front dörr](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
 
-    ![Hitta regel motor](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
-
-3. Klicka på **Lägg till regel** för att skapa din första regel. Sedan kan du definiera regeln genom att klicka på **Lägg till villkor** eller **Lägg till åtgärd** .
+1. Klicka på **Lägg till regel** för att skapa din första regel. Sedan kan du definiera regeln genom att klicka på **Lägg till villkor** eller **Lägg till åtgärd** .
     
     > [!NOTE]
     >- Om du vill ta bort ett villkor eller en åtgärd från en regel kan du använda pappers korgen till höger om det aktuella villkoret eller åtgärden.
     > - Om du vill skapa en regel som gäller för all inkommande trafik ska du inte ange några villkor.
     > - Om du vill sluta utvärdera reglerna när det första matchnings villkoret är uppfyllt, kontrollerar du **stoppa utvärderingen av återstående regel**. Om detta är markerat och alla matchnings villkor för en viss regel uppfylls, utförs inte de återstående reglerna i konfigurationen.  
 
-    ![Hitta regel motor](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
+    ![Konfiguration av regel motor](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
-4. Fastställ prioriteten för reglerna i konfigurationen med knapparna Flytta upp, flytta ned och flytta till överst. Prioriteten är i stigande ordning, vilket innebär att regeln först anges är den viktigaste regeln.
+1. Fastställ prioriteten för reglerna i konfigurationen med knapparna Flytta upp, flytta ned och flytta till överst. Prioriteten är i stigande ordning, vilket innebär att regeln först anges är den viktigaste regeln.
 
-5. När du har skapat en eller flera regler trycker du på **Spara**. Den här åtgärden skapar en regel motor konfiguration.
+1. När du har skapat en eller flera regler trycker du på **Spara**. Den här åtgärden skapar en regel motor konfiguration.
 
-6. När du har skapat en eller flera konfigurationer associerar du en regel motor konfiguration med en väg regel. Även om en enskild konfiguration kan tillämpas på många väg regler får en väg regel bara innehålla en regel motor konfiguration. Om du vill skapa en Association går du **Front Door designer**till  >  **Dirigerings reglerna**för din front dörr design. Välj den flödes regel som du vill lägga till regel motor konfigurationen till, gå till **flödes information**  >  **regel motor konfiguration**och välj den konfiguration som du vill koppla.
+1. När du har skapat en eller flera konfigurationer associerar du en regel motor konfiguration med en väg regel. Även om en enskild konfiguration kan tillämpas på många väg regler får en väg regel bara innehålla en regel motor konfiguration. Om du vill skapa en Association går du **Front Door designer**till  >  **Dirigerings reglerna**för din front dörr design. Välj den flödes regel som du vill lägga till regel motor konfigurationen till, gå till **flödes information**  >  **regel motor konfiguration**och välj den konfiguration som du vill koppla.
 
-    ![Hitta regel motor](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
+    ![Konfigurera till en regel för routning](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Konfigurera regel motor i Azure CLI
 
-1. Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)om du inte redan gjort det. Lägg till tillägget "frontend-dörr":-AZ Extension Add--Name front-dörr. Logga sedan in och växla till prenumerationen AZ Account set--Subscription <name_or_Id>.
+1. Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)om du inte redan gjort det. Lägg till tillägget "frontend-dörr":-AZ Extension Add--Name front-dörr. Logga sedan in och växla till prenumerationen AZ Account set--Subscription <name_or_Id>.
 
-2. Börja med att skapa en regel motor – det här exemplet visar en regel med en rubrik-baserad åtgärd och ett matchnings villkor. 
+1. Börja med att skapa en regel motor – det här exemplet visar en regel med en rubrik-baserad åtgärd och ett matchnings villkor. 
 
-```azurecli-interactive
-az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
+    ```
 
-3. Visa en lista med alla regler. 
+1. Visa en lista med alla regler. 
 
-```azurecli-interactive
-az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
+    ```
 
-4. Lägg till en åtgärd för åsidosättning av vidarebefordrande vägar. 
+1. Lägg till en åtgärd för åsidosättning av vidarebefordrande vägar. 
 
-```azurecli-interactive
-az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
+    ```
 
-5. Visa en lista med alla åtgärder i en regel. 
+1. Visa en lista med alla åtgärder i en regel. 
 
-```azurecli-interactive
-az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
+    ```
 
-6. Länka en regel motor konfiguration till en regel för routning.  
+1. Länka en regel motor konfiguration till en regel för routning.  
 
-```azurecli-interactive
-az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
-```
+    ```azurecli-interactive
+    az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
+    ```
 
-7. Ta bort länk till regel motor. 
+1. Ta bort länk till regel motor. 
 
-```azurecli-interactive
-az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
-```
+    ```azurecli-interactive
+    az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
+    ```
 
-För mer information, finns en fullständig lista över AFD-regler för motor kommandon som du hittar [här](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest).   
+För mer information, finns en fullständig lista över AFD-regler för motor kommandon som du hittar [här](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true).   
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+I föregående steg konfigurerade du och associerade regel motor konfigurationen till dina routningsregler. Om du inte längre vill att regel motor konfigurationen ska vara kopplad till din front dörr kan du ta bort konfigurationen genom att utföra följande steg:
+
+1. Ta bort alla routningsregler från regel motor konfigurationen genom att klicka på de tre punkterna bredvid regel motorns namn.
+
+    :::image type="content" source="./media/front-door-rules-engine/front-door-rule-engine-routing-association.png" alt-text="Koppla routningsregler":::
+
+1. Avmarkera alla routningsregler som den här regel motor konfigurationen är kopplad till och klicka på Spara.
+
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Regel koppling för routning":::
+
+1. Nu kan du ta bort regel motor konfigurationen från din front dörr.
+
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Ta bort regel motor konfiguration":::
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [AFD-regel motorn](front-door-rules-engine.md). 
-- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
-- Läs [hur Front Door fungerar](front-door-routing-architecture.md).
-- Läs mer i AFD Rules Engine [CLI-referens](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest). 
-- Läs mer i AFD-regel motor [PowerShell-referens](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0). 
+I den här självstudiekursen lärde du dig att:
+
+* Skapa en regel motor konfiguration
+* Koppla konfigurationen till reglerna för routning av front dörren.
+
+Fortsätt till nästa självstudie om du vill lära dig hur du lägger till säkerhets rubriker med regel motor.
+
+> [!div class="nextstepaction"]
+> [Säkerhets rubriker med regel motor](front-door-security-headers.md)

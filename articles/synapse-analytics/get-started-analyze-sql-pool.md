@@ -9,24 +9,26 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: e2e1d0479b8edacaae8816d74db061eeedb805a7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 363f2934bbeec266c16711572620e03e69785f94
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325227"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007204"
 ---
 # <a name="analyze-data-with-sql-pools"></a>Analysera data med SQL-pooler
 
 Azure Synapse Analytics ger dig möjlighet att analysera data med SQL-poolen. I den här självstudien använder du NYC taxi-exempel data för att utforska SQL-poolens analys funktioner.
 
-## <a name="load-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Läs in NYC taxi-exempelprogrammet i SQLDB1-databasen
+## <a name="link-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Länka NYC taxi-exempel data till SQLDB1-databasen
 
-1. På den översta blå menyn i Synapse Studio väljer du ikonen frågetecken (**?**).
-1. Välj **Kom igång**  >  **kom**igång-hubb.
+1. I Synapse Studio navigerar du till **data** hubben till vänster.
+1. Klicka på **+** och välj sedan **Bläddra bland exempel**. Då öppnas **exempel centret** och fliken **data uppsättningar** öppnas.
+1. Välj **NYC taxi & limousine provision-Yellow taxi rese poster**. Den här data uppsättningen innehåller över 1 500 000 000 rader.
+1. Klicka på **Lägg till data uppsättning**
+1. I **data** hubben under **länkad** visas en ny data uppsättning på den här platsen **Azure Blob Storage > exempel data uppsättningar > nyc_tlc_yellow**   
 1. På kortet med etiketten **fråga exempel data**väljer du SQL-poolen med namnet **SQLDB1**.
-1. Välj **fråga efter data**. Ett meddelande om att läsa in exempel data visas kort. Ett ljust blått statusfält längst upp i Synapse Studio anger att data läses in i SQLDB1.
-1. När statusfältet är grönt stänger du det.
+
 
 ## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Utforska NYC taxi-data i SQL-poolen
 

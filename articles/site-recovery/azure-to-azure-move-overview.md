@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 61d596c4b3a65c54e1a70682adad5b7328c384f8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130622"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007374"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
 
@@ -26,9 +26,21 @@ Du kan flytta virtuella datorer av följande anledningar:
 - Du har redan distribuerat i en region och ett nytt regions stöd har lagts till som är närmare slutanvändaren för ditt program eller din tjänst. I det här scenariot skulle du vilja flytta dina virtuella datorer till den nya regionen för att minska svars tiden. Använd samma metod om du vill konsolidera prenumerationer eller om det finns styrnings-eller organisations regler som kräver att du flyttar.
 - Den virtuella datorn distribuerades som en virtuell dator med enkel instans eller som en del av en tillgänglighets uppsättning. Om du vill öka tillgänglighets service avtal kan du flytta dina virtuella datorer till en tillgänglighets zon.
 
-## <a name="steps-to-move-azure-vms"></a>Steg för att flytta virtuella Azure-datorer
+## <a name="move-vms-with-resource-mover"></a>Flytta virtuella datorer med resurs förflyttning
 
-De här stegen ingår i att flytta virtuella datorer:
+Du kan nu flytta virtuella datorer till en annan region med [Azure Resource-arbetskraften](../resource-mover/tutorial-move-region-virtual-machines.md). Resurs förflyttning är i offentlig för hands version och ger:
+- En enda hubb för att flytta resurser mellan regioner.
+- Minskad flytt tid och komplexitet. Allt du behöver finns på en enda plats.
+- En enkel och konsekvent upplevelse för att flytta olika typer av Azure-resurser.
+- Ett enkelt sätt att identifiera beroenden för resurser som du vill flytta. Detta hjälper dig att flytta relaterade resurser tillsammans, så att allt fungerar som förväntat i mål regionen efter flytten.
+- Automatisk rensning av resurser i käll regionen, om du vill ta bort dem efter flytten.
+- Prestandatester. Du kan prova en flytt och sedan ta bort den om du inte vill göra en fullständig flytt.
+
+
+
+## <a name="move-vms-with-site-recovery"></a>Flytta virtuella datorer med Site Recovery
+
+Att flytta virtuella datorer med Site Recovery omfattar följande steg:
 
 1. Kontrollera förutsättningarna.
 2. Förbered de virtuella käll datorerna.
@@ -49,7 +61,7 @@ I det här avsnittet beskrivs de vanligaste distributions arkitekturerna för et
 
 * **Virtuella datorer med en enda instans som distribueras över olika nivåer**: varje virtuell dator i en nivå konfigureras som en virtuell dator med en instans och är ansluten av belastningsutjämnare till de andra nivåerna. Den här konfigurationen är den enklaste att anta.
 
-     ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/regular-deployment.png)
+     ![Val för att flytta en VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/regular-deployment.png)
 
 * **Virtuella datorer i varje nivå som distribueras över tillgänglighets uppsättningar**: varje virtuell dator i en nivå konfigureras i en tillgänglighets uppsättning. [Tillgänglighetsuppsättningarna](../virtual-machines/windows/tutorial-availability-sets.md) ser till att de virtuella datorer du distribuerar i Azure distribueras över flera isolerade maskinvarunoder i ett kluster. Detta säkerställer att om ett maskinvaru-eller program varu haveri i Azure inträffar påverkas endast en del av de virtuella datorerna och den övergripande lösningen förblir tillgänglig och fungerar.
 
@@ -64,16 +76,8 @@ I det här avsnittet beskrivs de vanligaste distributions arkitekturerna för et
 Baserat på de [arkitekturer](#typical-architectures-for-a-multi-tier-deployment) som nämnts tidigare, är det här hur distributionerna kommer att se ut när du har utfört flytta som är till mål regionen.
 
 * **Virtuella datorer med enkel instans distribuerade över olika nivåer**
-
-     ![VM-distribution med enkel instans mellan nivåer](media/move-vm-overview/single-zone.png)
-
 * **Virtuella datorer i varje nivå som distribueras över tillgänglighets uppsättningar**
-
-     ![Tillgänglighets uppsättningar för flera regioner](media/move-vm-overview/crossregionaset.png)
-
 * **Virtuella datorer på varje nivå som distribueras i Tillgänglighetszoner**
-
-     ![Distribution av virtuella datorer i Tillgänglighetszoner](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Flytta virtuella datorer för att öka tillgängligheten
 

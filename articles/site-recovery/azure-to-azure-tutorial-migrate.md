@@ -1,6 +1,6 @@
 ---
-title: Flytta virtuella Azure IaaS-datorer till en annan region med Azure Site Recovery
-description: Använd Azure Site Recovery för att flytta virtuella IaaS-datorer i Azure från en Azure-region till en annan.
+title: Flytta virtuella Azure-datorer till en annan Azure-region med Azure Site Recovery
+description: Använd Azure Site Recovery för att flytta virtuella Azure-datorer från en Azure-region till en annan.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425933"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006422"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
+# <a name="move-vms-to-another-azure-region"></a>Flytta virtuella datorer till en annan Azure-region
 
-Det finns olika scenarier där du vill flytta dina befintliga virtuella Azure IaaS-datorer (VM) från en region till en annan. Du vill till exempel förbättra tillförlitligheten och tillgängligheten för dina befintliga virtuella datorer, för att förbättra hanterbarheten eller för att kunna flytta av styrnings orsaker. Mer information finns i [Översikt över Azure VM-flyttning](azure-to-azure-move-overview.md). 
+Det finns scenarier där du vill flytta dina befintliga virtuella Azure IaaS-datorer (VM) från en region till en annan. Du vill till exempel förbättra tillförlitligheten och tillgängligheten för dina befintliga virtuella datorer, för att förbättra hanterbarheten eller för att kunna flytta av styrnings orsaker. Mer information finns i [Översikt över Azure VM-flyttning](azure-to-azure-move-overview.md). 
 
-Du kan använda tjänsten [Azure Site Recovery](site-recovery-overview.md) för att hantera och dirigera haveri beredskap för lokala datorer och virtuella Azure-datorer för verksamhets kontinuitet och haveri beredskap (BCDR). Du kan också använda Site Recovery för att hantera flyttningen av virtuella Azure-datorer till en sekundär region.
+Du kan använda [Azure Site Recovery](site-recovery-overview.md) tjänst för att flytta virtuella Azure-datorer till en sekundär region.
 
-I de här självstudierna får du:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ I de här självstudierna får du:
 > * Kopiera data och aktivera replikering
 > * Testa konfigurationen och genomför flytten
 > * Ta bort resurserna i käll regionen
-> 
+
+
+> [!IMPORTANT]
+> För att flytta virtuella Azure-datorer till en annan region rekommenderar vi nu att du använder [Azure Resource-arbetskraft](../resource-mover/tutorial-move-region-virtual-machines.md). Resurs förflyttning är i offentlig för hands version och ger:
+> - En enda hubb för att flytta resurser mellan regioner.
+> - Minskad flytt tid och komplexitet. Allt du behöver finns på en enda plats.
+> - En enkel och konsekvent upplevelse för att flytta olika typer av Azure-resurser.
+> - Ett enkelt sätt att identifiera beroenden för resurser som du vill flytta. Detta hjälper dig att flytta relaterade resurser tillsammans, så att allt fungerar som förväntat i mål regionen efter flytten.
+> - Automatisk rensning av resurser i käll regionen, om du vill ta bort dem efter flytten.
+> - Prestandatester. Du kan prova en flytt och sedan ta bort den om du inte vill göra en fullständig flytt.
+
+
+
 > [!NOTE]
 > Den här självstudien visar hur du flyttar virtuella Azure-datorer från en region till en annan. Om du behöver förbättra tillgängligheten genom att flytta virtuella datorer i en tillgänglighets uppsättning till zon fästa virtuella datorer i en annan region, se avsnittet [flytta virtuella Azure-datorer till Tillgänglighetszoner själv studie kursen](move-azure-vms-avset-azone.md).
 
@@ -72,7 +84,7 @@ I de här självstudierna får du:
     Information om hur du skapar de vanligaste nätverks resurserna som är relevanta för dig baserat på konfigurationen av den virtuella käll datorn finns i följande dokumentation:
     - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
     - [Lastbalanserare](../load-balancer/index.yml)
-    -  [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
+    -  [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     - Information om andra nätverks komponenter finns i [dokumentationen till nätverket](../index.yml?pivot=products&panel=network).
 
 

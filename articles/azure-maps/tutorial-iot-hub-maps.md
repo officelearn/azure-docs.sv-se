@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 86ae186d3d8b131955be7d9fa2c305316dea9f00
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 648feedfb82ad43af8f350bd25c9deb5d6ceec03
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658438"
+ms.locfileid: "90007289"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ I den här självstudien kommer du att:
 > * Prenumerera på IoT Device telemetri-händelser från Azure-funktionen via Event Grid.
 > * Filtrera telemetri-händelserna med IoT Hub meddelanderoutning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ I den här självstudien kommer du att:
 
 4. [Skapa en resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). I den här självstudien namnger vi vår resurs grupp *ContosoRental*, men du kan välja det namn du vill.
 
-5. Ladda ned [C#-projektet rentalCarSimulation ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
+5. Ladda ned [C#-projektet rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
 
 I den här självstudien används [Postman](https://www.postman.com/) -programmet, men du kan välja en annan API utvecklings miljö.
 

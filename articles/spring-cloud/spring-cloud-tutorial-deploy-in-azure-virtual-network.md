@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f7817a596a38c6bb259a048e3dfea11abfd14d82
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688461"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006439"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Självstudie: Distribuera Azure våren Cloud i Azure Virtual Network (VNet-insprutning)
 
@@ -24,7 +24,7 @@ Distributionen gör det möjligt att:
 * Azure våren Cloud-interaktion med system i lokala data Center och/eller Azure-tjänster i andra virtuella nätverk
 * Bemyndiga kunder att kontrol lera inkommande och utgående nätverkskommunikation för Azure våren Cloud
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste registrera Azure våren Cloud Resource Provider `Microsoft.AppPlatform` enligt anvisningarna [Registrera resurs leverantören på Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) eller genom att köra följande AZ CLI-kommando:
 
 ```azurecli
@@ -38,7 +38,7 @@ Det virtuella nätverk som du distribuerar din Azure våren moln tjänst instans
 * **Undernät**: det virtuella nätverket måste innehålla två undernät som är dedikerade till en Azure våren Cloud Service-instans: 
     * En för service runtime
     * En för dina våren Boot-mikrotjänstprogram. 
-    * Det finns en 1-till-1-relation mellan dessa undernät och en Azure våren Cloud Service-instans. Du kan inte dela flera tjänst instanser i ett enda undernät. Du måste använda nya undernät för varje tjänst instans som du distribuerar.
+    * Det finns en 1-till-1-relation mellan dessa undernät och en Azure våren Cloud Service-instans. Du måste använda ett nytt undernät för varje tjänst instans som du distribuerar och varje undernät kan bara innehålla en enda tjänst instans.
 * **Adress utrymme**: ett CIDR-block upp till/28 för service runtime-undernätet och ett annat CIDR-block upp till/24 för våren Boot Boot mikroservice Applications-undernät.
 * **Routningstabell**: under näten får inte ha någon befintlig routningstabell kopplad.
 
@@ -55,7 +55,7 @@ Om du redan har ett virtuellt nätverk som värd för Azure våren Cloud Service
     |-----------------|--------------------------------------------------|
     |Prenumeration     |Välj din prenumeration.                         |
     |Resursgrupp   |Välj en resurs grupp eller skapa en ny.  |
-    |Namn             |Ange *Azure-våren-Cloud-VNet*                   |
+    |Name             |Ange *Azure-våren-Cloud-VNet*                   |
     |Plats         |Välj **USA, östra**                                |
 
 1. Klicka på **Nästa: IP-adresser >**. 

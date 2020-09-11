@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 653ad7e9b41e1c8a4708f2ab951676c144316192
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180787"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005862"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -38,7 +38,7 @@ Dessutom underlättar Azure-Synapse förutsägelse modell utveckling och avancer
 
 * **SYNAPSE SQL** är ett distribuerat Query-system som gör det möjligt för företag att implementera data lager-och data virtualiseringslösningar med hjälp av vanliga T-SQL-upplevelser som är bekanta med data tekniker. Den utökar också funktionerna i SQL för att adressera strömnings-och maskin inlärnings scenarier.
 
-* Synapse SQL erbjuder både **Server** löst och **etablerade** resurs modeller, och erbjuder användnings-och fakturerings alternativ som passar dina behov. För förutsägbar prestanda och kostnad etablera pooler för att reservera bearbetnings kraft för data som lagras i SQL-tabeller. Använd den serverbaserade, alltid tillgängliga SQL-slutpunkten för oplanerade eller burst-arbetsbelastningar.
+* Synapse SQL erbjuder både **Server** lös och **dedikerade** resurs modeller, och erbjuder användnings-och fakturerings alternativ som passar dina behov. För förutsägbara prestanda och kostnader skapar du dedikerade SQL-pooler för att reservera bearbetnings kraften för data som lagras i SQL-tabeller. För oplanerade eller burst-arbetsbelastningar använder du den alltid tillgängliga, Server lös SQL-slutpunkten.
 * Använd inbyggda **strömnings** funktioner för att landa data från moln data källor till SQL-tabeller
 * Integrera AI med SQL genom att använda **maskin inlärnings** modeller för att räkna data med hjälp av [funktionen T-SQL predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 

@@ -1,5 +1,6 @@
 ---
 title: Flytta virtuella datorer till en Azure-region med tillgänglighets zoner med hjälp av Azure Site Recovery
+description: Lär dig hur du flyttar virtuella datorer till en tillgänglighets zon i en annan region med Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 7957c6a3fdc8cb798292d03092ee1442b2c0a6bc
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425480"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004518"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
+
+I den här artikeln beskrivs hur du flyttar virtuella Azure-datorer till en tillgänglighets zon i en annan region. [Läs den här artikeln](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)om du vill flytta till en annan zon i samma region.
+
+
 Tillgänglighetszoner i Azure hjälper dig att skydda dina program och data från data Center fel. Varje tillgänglighetszon består av ett eller flera datacenter som är utrustade med oberoende ström, kylning och nätverkstjänster. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska separeringen av Tillgänglighetszoner inom en region hjälper till att skydda program och data från data Center problem. Med Tillgänglighetszoner erbjuder Azure ett service avtal (SLA) på 99,99% för drift tid för virtuella datorer (VM). Tillgänglighetszoner stöds i SELECT-regioner, som anges i [regioner som stöder Tillgänglighetszoner](../availability-zones/az-region.md).
 
 I ett scenario där de virtuella datorerna distribueras som *en enda instans* till en viss region och du vill förbättra tillgängligheten genom att flytta dessa virtuella datorer till en tillgänglighets zon kan du göra det med hjälp av Azure Site Recovery. Den här åtgärden kan delas in ytterligare i:
@@ -23,7 +28,15 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 - Flytta virtuella datorer i en tillgänglighets uppsättning till Tillgänglighetszoner i en mål region
 
 > [!IMPORTANT]
-> För närvarande har Azure Site Recovery stöd för att flytta virtuella datorer från en region till en annan. Den stöder bara förflyttning mellan zoner inom en region i några regioner. [Läs mer](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> Om du vill flytta virtuella Azure-datorer till en tillgänglighets zon i en annan region region rekommenderar vi att du använder [Azure Resource-arbetskraft](../resource-mover/move-region-availability-zone.md). Resurs förflyttning är i offentlig för hands version och ger:
+> - En enda hubb för att flytta resurser mellan regioner.
+> - Minskad flytt tid och komplexitet. Allt du behöver finns på en enda plats.
+> - En enkel och konsekvent upplevelse för att flytta olika typer av Azure-resurser.
+> - Ett enkelt sätt att identifiera beroenden för resurser som du vill flytta. Detta hjälper dig att flytta relaterade resurser tillsammans, så att allt fungerar som förväntat i mål regionen efter flytten.
+> - Automatisk rensning av resurser i käll regionen, om du vill ta bort dem efter flytten.
+> - Prestandatester. Du kan prova en flytt och sedan ta bort den om du inte vill göra en fullständig flytt.
+
+
 
 ## <a name="check-prerequisites"></a>Kontrollera krav
 
@@ -68,7 +81,7 @@ I ett scenario där de virtuella datorerna distribueras som *en enda instans* ti
 
     - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
     - [Lastbalanserare](../load-balancer/index.yml)
-    - [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     
    Information om andra nätverks komponenter finns i [dokumentationen](../index.yml?pivot=products&panel=network)till nätverket.
 

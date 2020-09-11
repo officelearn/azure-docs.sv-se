@@ -213,8 +213,10 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Felsöka
       items:
-        - name: SSPR
-          href: active-directory-passwords-troubleshoot.md
+        - name: Lösenordsåterställning via självbetjäning (SSPR)
+          href: troubleshoot-sspr.md
+        - name: Tillbakaskrivning för SSPR
+          href: troubleshoot-sspr-writeback.md
         - name: VANLIGA FRÅGOR OCH SVAR OM SSPR
           href: active-directory-passwords-faq.md
         - name: VANLIGA FRÅGOR OCH SVAR OM MFA

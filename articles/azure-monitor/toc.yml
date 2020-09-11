@@ -1136,7 +1136,21 @@
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualiseringar
-          href: platform/workbooks-visualizations.md
+          items:
+            - name: Text
+              href: platform/workbooks-text-visualizations.md
+            - name: Diagram
+              href: platform/workbooks-chart-visualizations.md
+            - name: Rutnät
+              href: platform/workbooks-grid-visualizations.md
+            - name: Panel
+              href: platform/workbooks-tile-visualizations.md
+            - name: Träd
+              href: platform/workbooks-tree-visualizations.md
+            - name: Graph
+              href: platform/workbooks-graph-visualizations.md
+            - name: Sammansatt fält
+              href: platform/workbooks-composite-bar.md
         - name: Datakällor
           href: platform/workbooks-data-sources.md
         - name: Parametrar

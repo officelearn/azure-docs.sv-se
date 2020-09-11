@@ -9,26 +9,67 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 363f2934bbeec266c16711572620e03e69785f94
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007204"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015508"
 ---
 # <a name="analyze-data-with-sql-pools"></a>Analysera data med SQL-pooler
 
 Azure Synapse Analytics ger dig möjlighet att analysera data med SQL-poolen. I den här självstudien använder du NYC taxi-exempel data för att utforska SQL-poolens analys funktioner.
 
-## <a name="link-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Länka NYC taxi-exempel data till SQLDB1-databasen
+## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Läs in NYC taxi-data till SQLDB1
 
-1. I Synapse Studio navigerar du till **data** hubben till vänster.
-1. Klicka på **+** och välj sedan **Bläddra bland exempel**. Då öppnas **exempel centret** och fliken **data uppsättningar** öppnas.
-1. Välj **NYC taxi & limousine provision-Yellow taxi rese poster**. Den här data uppsättningen innehåller över 1 500 000 000 rader.
-1. Klicka på **Lägg till data uppsättning**
-1. I **data** hubben under **länkad** visas en ny data uppsättning på den här platsen **Azure Blob Storage > exempel data uppsättningar > nyc_tlc_yellow**   
-1. På kortet med etiketten **fråga exempel data**väljer du SQL-poolen med namnet **SQLDB1**.
+1. I Synapse Studio navigerar du till **utveckla** hubben och skapar sedan ett nytt SQL-skript
+1. Ange följande kod:
+    ```
+    CREATE TABLE [dbo].[Trip]
+    (
+        [DateID] int NOT NULL,
+        [MedallionID] int NOT NULL,
+        [HackneyLicenseID] int NOT NULL,
+        [PickupTimeID] int NOT NULL,
+        [DropoffTimeID] int NOT NULL,
+        [PickupGeographyID] int NULL,
+        [DropoffGeographyID] int NULL,
+        [PickupLatitude] float NULL,
+        [PickupLongitude] float NULL,
+        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DropoffLatitude] float NULL,
+        [DropoffLongitude] float NULL,
+        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [PassengerCount] int NULL,
+        [TripDurationSeconds] int NULL,
+        [TripDistanceMiles] float NULL,
+        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FareAmount] money NULL,
+        [SurchargeAmount] money NULL,
+        [TaxAmount] money NULL,
+        [TipAmount] money NULL,
+        [TollsAmount] money NULL,
+        [TotalAmount] money NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
 
+    COPY INTO [dbo].[Trip]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/QID6392_20171107_05910_0.txt.gz'
+    WITH
+    (
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
+    )
+    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
+    ```
+1. Skriptet tar ungefär 1 minut att köra. Den läser in 2 000 000 rader av NYC taxi-data i en tabell med namnet **dbo. Resa**
 
 ## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Utforska NYC taxi-data i SQL-poolen
 

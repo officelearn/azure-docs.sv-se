@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237413"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016562"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Snabb start: skapa en ExpressRoute-krets med privat peering med en ARM-mall
 
@@ -76,9 +76,9 @@ Du hittar fler mallar som är relaterade till ExpressRoute i [Azure snabb starts
 
     Resurs gruppens namn är projekt namnet med **RG** tillagt.
 
-Det tar cirka 20 minuter att distribuera mallen. När det är slutfört ser utdata ut ungefär så här:
+    Det tar cirka 20 minuter att distribuera mallen. När det är slutfört ser utdata ut ungefär så här:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Utdata för PowerShell-distribution för ExpressRoute Resource Manager-mall":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Utdata för PowerShell-distribution för ExpressRoute Resource Manager-mall":::
 
 Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell kan du också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-portal.md).
 

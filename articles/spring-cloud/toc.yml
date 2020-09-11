@@ -67,6 +67,8 @@
   items:
     - name: Förbereda en Java Spring-app för distribution
       href: spring-cloud-tutorial-prepare-app-deployment.md
+    - name: Starta Java-appen från källkoden
+      href: spring-cloud-howto-launch-from-source.md
     - name: Konfigurera en konfigurationsserver
       href: spring-cloud-tutorial-config-server.md
     - name: Aktivera tjänstregistrering

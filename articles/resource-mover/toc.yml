@@ -24,8 +24,22 @@
       href: support-matrix-move-region-sql.md
 - name: Instruktionsguider
   items:
-    - name: Ta bort resurser från en flyttsamling
-      href: remove-move-resources.md
+    - name: Flytta mellan regioner
+      items:
+        - name: Flytta mellan regioner med PowerShell
+          href: move-region-powershell.md
+        - name: Flytta virtuella Azure-datorer till tillgänglighetszoner
+          href: move-region-availability-zone.md
+        - name: Flytta mellan regioner (från resursgrupper)
+          href: move-region-within-resource-group.md
+    - name: Hantera flyttningar mellan regioner
+      items:
+        - name: Ändra målinställningar för en regionflytt
+          href: modify-target-settings.md
+        - name: Ta bort resurser från en samling för flytt mellan regioner
+          href: remove-move-resources.md
+        - name: Hantera resurser som skapats av processer för att flytta mellan regioner
+          href: manage-resources-created-move-process.md
 - name: Resurser
   items:
     - name: Molnmigrering i Cloud Adoption Framework

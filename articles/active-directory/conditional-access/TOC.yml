@@ -52,8 +52,8 @@
   items:
     - name: Planera distributionen av villkorsstyrd åtkomst
       href: plan-conditional-access.md
-    - name: Bästa praxis
-      href: best-practices.md
+    - name: 'API:er för villkorsstyrd åtkomst'
+      href: howto-conditional-access-apis.md
     - name: Vanliga principer för villkorlig åtkomst
       items:
         - name: Blockera äldre autentisering
@@ -92,6 +92,8 @@
       href: terms-of-use.md
     - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
       href: howto-conditional-access-session-lifetime.md
+    - name: Bästa praxis
+      href: best-practices.md
     - name: Felsökning
       items:
         - name: Felsöka inloggningsproblem

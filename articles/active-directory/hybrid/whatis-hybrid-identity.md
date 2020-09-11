@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 895355b5acebffe6ad24b15b0c709d21e8f20be4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278657"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016656"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Vad är hybrid identitet med Azure Active Directory?
 
@@ -45,7 +45,7 @@ Här följer några vanliga scenarier med hybrididentitet och åtkomsthantering 
 |Jag behöver:|PHS och SSO<sup>1</sup>| PTA och SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Synkronisera nya användare, kontakter och gruppkonton som skapas i min lokala Active Directory till molnet automatiskt.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Konfigurera min klientorganisation för Office 365-hybridscenarier.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Konfigurera min klient för Microsoft 365 Hybrid scenarier.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Göra det möjligt för mina användare att logga in och komma åt molntjänster med sina lokala lösenord.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implementera enkel inloggning med hjälp av företagsautentiseringsuppgifter.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|  
 |Se till att inga lösenordshashvärden lagras i molnet.| |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 

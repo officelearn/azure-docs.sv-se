@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: kom igång med Spark'
-description: I den här självstudien får du lära dig de grundläggande stegen för att konfigurera och använda Azure Synapse Analytics.
+description: I den här självstudien får du lära dig att analysera data med Apache Spark
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,16 +9,30 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5c6b35c1d9f00cae8fc688569e3a491679900995
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101801"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017922"
 ---
 # <a name="analyze-with-apache-spark"></a>Analysera med Apache Spark
 
+## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>Analysera NYC taxi-data i Blob Storage med Spark
+
 I den här självstudien får du lära dig de grundläggande stegen för att läsa in och analysera data med Apache Spark för Azure-Synapse.
+
+1. I **data** hubben under **länkad**högerklickar du på **Azure Blob Storage > exempel data uppsättningar > nyc_tlc_yellow** och väljer **Välj ny antecknings bok**
+1. Då skapas en ny antecknings bok med följande kod:
+    ```
+    from azureml.opendatasets import NycTlcYellow
+
+    data = NycTlcYellow()
+    data_df = data.to_spark_dataframe()
+    display(data_df.limit(10))
+    ```
+1. I antecknings boken väljer du en spark-pool på menyn **Anslut till**
+1. Klicka på **Kör** i cellen
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Läs in NYC taxi-data till Spark nyctaxi-databasen
 

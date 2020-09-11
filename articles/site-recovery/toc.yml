@@ -466,6 +466,8 @@
       href: site-recovery-monitor-and-troubleshoot.md
     - name: Övervaka Site Recovery med Azure Monitor-loggar
       href: monitor-log-analytics.md
+    - name: Övervaka omsättningsmönster på Virtual Machines
+      href: monitoring-high-churn.md
     - name: Övervaka processervrar
       href: vmware-physical-azure-monitor-process-server.md
 - name: Felsökning

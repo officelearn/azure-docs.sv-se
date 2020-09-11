@@ -58,9 +58,11 @@
               href: set-up-mabs-for-avs.md
             - name: Säkerhetskopiera virtuella datorer för privat moln med Backup Server
               href: backup-avs-vms-with-mabs.md
+        - name: Livcykelhantering för virtuella datorer
+          href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Application Gateway
           href: protect-avs-web-apps-with-app-gateway.md
-        - name: Traffic Manager med AVS
+        - name: Traffic Manager
           href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: VMware-lösningar
       items:

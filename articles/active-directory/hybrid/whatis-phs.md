@@ -11,17 +11,17 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e40eecce3ff0ea5b252fd135ae553fa20e0a77b
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 23f88a783ca257090fc607cc9a16ec457c7e9c8c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85386359"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016596"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Vad är synkronisering av lösenordshash med Azure AD?
 Synkronisering av lösenordshash är en av inloggningsmetoderna som används för att utföra hybrid-identitet. Azure AD Connect synkroniserar en hash-hash för en användares lösen ord från en lokal Active Directory instans till en molnbaserad Azure AD-instans.
 
-Lösenordssynkronisering är ett tillägg till funktionen katalog synkronisering som implementeras av Azure AD Connect Sync. Du kan använda den här funktionen för att logga in på Azure AD-tjänster som Office 365. Du loggar in till tjänsten genom att använda samma lösenord som du använder för att logga in på din lokala Active Directory-instans.
+Lösenordssynkronisering är ett tillägg till funktionen katalog synkronisering som implementeras av Azure AD Connect Sync. Du kan använda den här funktionen för att logga in på Azure AD-tjänster som Microsoft 365. Du loggar in till tjänsten genom att använda samma lösenord som du använder för att logga in på din lokala Active Directory-instans.
 
 ![Vad är Azure AD Connect?](./media/how-to-connect-password-hash-synchronization/arch1.png)
 

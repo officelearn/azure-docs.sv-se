@@ -30,6 +30,8 @@
         - name: Publiceringsguider efter erbjudandetyp
           href: ./publisher-guide-by-offer-type.md
           items:
+            - name: Planera ett SaaS-erbjudande
+              href: ./plan-saas-offer.md
             - name: Virtuella datorer
               href: ./marketplace-virtual-machines.md
             - name: Lösningsmallar för Azure-appar

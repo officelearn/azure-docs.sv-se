@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 583b7e685abfeb831787ca8d4066a29bdd9bb9f3
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 48e94c8f359582f52ba142dbcdcba998dec9c54e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489346"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019450"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark för Azure-säkerhet
 
@@ -34,7 +34,7 @@ Mer information om den här standarden för efterlevnad finns i [CIS Microsoft A
 |---|---|---|---|---|
 |Databas tjänster |4,11 |Se till att tvinga SSL-anslutning är inställt på ENABLEd för MySQL-databasserver |[Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
 
-## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9,2
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 
 Om du vill se hur tillgängliga Azure Policy inbyggda program för alla Azure-tjänster mappar till den här standarden för efterlevnad, se [Azure policy regler för regelefterlevnad-HIPAA HITRUST 9,2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
 Mer information om den här standarden för efterlevnad finns i [HIPAA HITRUST 9,2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).

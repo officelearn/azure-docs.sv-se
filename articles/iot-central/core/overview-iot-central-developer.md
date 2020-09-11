@@ -7,13 +7,15 @@ ms.date: 05/05/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom:
+- mvc
+- device-developer
+ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417029"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017531"
 ---
 # <a name="iot-central-device-development-overview"></a>Översikt över IoT Central enhets utveckling
 
@@ -87,7 +89,7 @@ Använd en av [Azure IoT-enhetens SDK](#languages-and-sdks) : er för att implem
 
 Mer information om rollen hets mallar finns i [Vad är enhets mallar?](./concepts-device-templates.md).
 
-En del exempel kod finns i [skapa och ansluta ett Node. js-klientprogram](./tutorial-connect-device-nodejs.md) eller [skapa och ansluta ett python-klientprogram](./tutorial-connect-device-python.md).
+En del exempel kod finns i [skapa och ansluta ett Node.js klient program](./tutorial-connect-device-nodejs.md) eller [skapa och ansluta ett python-klientprogram](./tutorial-connect-device-python.md).
 
 ### <a name="languages-and-sdks"></a>Språk och SDK: er
 

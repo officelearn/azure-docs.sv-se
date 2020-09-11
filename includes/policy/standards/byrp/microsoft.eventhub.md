@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 781d91404dbf8078a9242a42707f758705314c2e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 3fab33a156847d2adbbe19e57859f81a614d09dd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489737"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015371"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark för Azure-säkerhet
 
@@ -23,7 +23,7 @@ Om du vill se hur tillgängliga Azure Policy inbyggda program för alla Azure-tj
 |Nätverkssäkerhet |1,1 |Skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandväggen på din Virtual Network |[Event Hub bör använda en tjänst slut punkt för virtuellt nätverk](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd63edb4a-c612-454d-b47d-191a724fcbf0) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_EventHub_AuditIfNotExists.json) |
 |Loggning och övervakning |2.3 |Aktivera gransknings loggning för Azure-resurser |[Diagnostikloggar i Händelsehubben måste vara aktive rad](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83a214f7-d01a-484b-91a9-ed54470c9a6a) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_AuditDiagnosticLog_Audit.json) |
 
-## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9,2
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 
 Om du vill se hur tillgängliga Azure Policy inbyggda program för alla Azure-tjänster mappar till den här standarden för efterlevnad, se [Azure policy regler för regelefterlevnad-HIPAA HITRUST 9,2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
 Mer information om den här standarden för efterlevnad finns i [HIPAA HITRUST 9,2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).

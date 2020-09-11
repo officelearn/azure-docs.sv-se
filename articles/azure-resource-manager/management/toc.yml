@@ -53,8 +53,10 @@
               href: ./move-limitations/virtual-machines-move-limitations.md
     - name: Flytta – regioner
       items:
-        - name: Flytta mellan regioner
+        - name: Översikt
           href: move-region.md
+        - name: Flytta mellan regioner (från resursgrupper)
+          href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Tjänster som stöds
           href: region-move-support.md
         - name: Tjänster
@@ -82,19 +84,19 @@
             - name: Azure SQL
               href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Virtuella Azure-datorer
-              href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Logikappar
               href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Konfigurera underhållskonfiguration
               href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Nätverkssäkerhetsgrupp (NSG)
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Offentliga IP-adresser
-              href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Site Recovery (Recovery Services-valv)
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Virtuellt nätverk
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Azure Database for PostgreSQL-server
               href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Azure Database for MariaDB-server
@@ -113,7 +115,7 @@
           href: tag-support.md
     - name: Hantera resursgrupper
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI

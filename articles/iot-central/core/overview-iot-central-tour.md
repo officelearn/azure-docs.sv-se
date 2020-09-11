@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 1792f158ac59e2b80a037621be2c2ce2556e1097
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: c07d247358d980152648fdf7f702c8efcb72bab9
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799793"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90020081"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
-
-
 
 Den här artikeln beskriver Microsoft Azure IoT Central-användargränssnittet. Du kan använda gränssnittet till att skapa, hantera och använda en Azure IoT Central-lösning och dess anslutna enheter.
 
@@ -146,7 +144,7 @@ Enhets grupp är en samling relaterade enheter. En *Solution Builder* definierar
 
 På sidan regler kan du definiera regler baserat på enheternas telemetri, tillstånd eller händelser. När en regel utlöses kan den utlösa en eller flera åtgärder, till exempel att skicka ett e-postmeddelande, meddela ett externt system via webhook-aviseringar osv. Mer information finns i själv studie kursen [Konfigurera regler](tutorial-create-telemetry-rules.md) . 
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analys
 
 > [!div class="mx-imgBorder"]
 > ![Analyssidan](media/overview-iot-central-tour/analytics-pnp.png)

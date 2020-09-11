@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Arbetsflöde för klassisk VM-arkitektur
           href: cloud-services-workflow-process.md
+        - name: Resurshälsostöd för Cloud Services
+          href: resource-health-for-cloud-services.md
         - name: Vanliga frågor och svar om Cloud Services
           items:
             - name: Vanliga frågor och svar om program- och tjänsttillgänglighet

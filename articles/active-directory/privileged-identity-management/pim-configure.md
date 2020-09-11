@@ -14,20 +14,20 @@ ms.date: 08/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9fe22d25be7f98bfb1d9f867b2081cd0489ce17c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047827"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018557"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
- Privileged Identity Management (PIM) är en tjänst i Azure Active Directory (Azure AD) som gör att du kan hantera, kontrol lera och övervaka åtkomsten till viktiga resurser i din organisation. Resurserna omfattar resurser i Azure AD, Azure och andra Microsoft Online Services, till exempel Office 365 eller Microsoft Intune.
+ Privileged Identity Management (PIM) är en tjänst i Azure Active Directory (Azure AD) som gör att du kan hantera, kontrol lera och övervaka åtkomsten till viktiga resurser i din organisation. Resurserna omfattar resurser i Azure AD, Azure och andra Microsoft Online Services, till exempel Microsoft 365 eller Microsoft Intune.
 
 ## <a name="reasons-to-use"></a>Skäl att använda
 
-Organisationer behöver minimera antalet personer som har åtkomst till skyddad information eller skyddade resurser för att därigenom minska risken för att användare som vill vålla skada får åtkomst till informationen eller att behöriga användare oavsiktligt påverkar känsliga resurser. Användare måste emellertid fortfarande kunna utföra privilegierade åtgärder i Azure AD, Azure, Office 365 och SaaS-appar. Organisationer kan ge användare just-in-Time-privilegierad åtkomst till Azure-resurser och Azure AD. Det finns ofta behov av att övervaka vad användarna gör med sina administratörsprivilegier.
+Organisationer behöver minimera antalet personer som har åtkomst till skyddad information eller skyddade resurser för att därigenom minska risken för att användare som vill vålla skada får åtkomst till informationen eller att behöriga användare oavsiktligt påverkar känsliga resurser. Användare behöver dock fortfarande utföra privilegierade åtgärder i Azure AD, Azure, Microsoft 365 eller SaaS-appar. Organisationer kan ge användare just-in-Time-privilegierad åtkomst till Azure-resurser och Azure AD. Det finns ofta behov av att övervaka vad användarna gör med sina administratörsprivilegier.
 
 ## <a name="what-does-it-do"></a>Vad gör det?
 
@@ -80,13 +80,13 @@ Privileged Identity Management stöder följande scenarier:
 
 För att bättre förstå Privileged Identity Management och dess dokumentation bör du läsa följande villkor.
 
-| Term eller begrepp | Kategori för rolltilldelning | Beskrivning |
+| Term eller begrepp | Kategori för rolltilldelning | Description |
 | --- | --- | --- |
 | berättigad | Typ | En rolltilldelning som kräver att en användare utför en eller flera åtgärder för att använda rollen. Om en användare har gjorts berättigad för en roll innebär det att användaren kan aktivera rollen när det finns behov av att utföra privilegierade åtgärder. Det finns ingen skillnad i den åtkomst som ges till någon med en permanent kontra berättigad rolltilldelning. Den enda skillnaden är att vissa användare inte behöver den åtkomsten hela tiden. |
 | aktiv | Typ | En rolltilldelning som inte kräver att en användare utför några åtgärder för att använda rollen. Användare som är tilldelade som aktiva har de behörigheter som rollen har tilldelats. |
 | aktivera |  | Processen med att utföra en eller flera åtgärder för att använda en roll som en användare är berättigad för. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare. |
-| tilldelad | Status | En användare som har en aktiv rolltilldelning. |
-| aktiverad | Status | En användare som har en berättigad rolltilldelning, utförde åtgärderna för att aktivera rollen och nu är aktiv.  När användaren är aktiverad kan han/hon använda rollen under en förinställd tidsperiod innan aktivering krävs igen. |
+| tilldelad | Stat | En användare som har en aktiv rolltilldelning. |
+| aktiverad | Stat | En användare som har en berättigad rolltilldelning, utförde åtgärderna för att aktivera rollen och nu är aktiv.  När användaren är aktiverad kan han/hon använda rollen under en förinställd tidsperiod innan aktivering krävs igen. |
 | permanent berättigad | Varaktighet | En rolltilldelning där en användare alltid är berättigad att aktivera rollen. |
 | permanent aktiv | Varaktighet | En rolltilldelning där en användare alltid kan använda rollen utan att utföra några åtgärder. |
 | berättigad med upphörande | Varaktighet | En rolltilldelning där en användare är berättigad att aktivera rollen inom angivna startdatum och slutdatum. |

@@ -28,7 +28,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    Eller Välj **skapa** från sidan **komma igång** för att gå direkt till att skapa en skiss.
 
-   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Skärm bild av knappen "skapa skiss" på skiss definitions sidan." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Skärm bild av knappen skapa skiss på skiss definitions sidan." border="false":::
 
 1. Välj **börja med en tom skiss** från kortet överst i listan med inbyggda ritningar.
 

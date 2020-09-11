@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1829b6d8ab7b2cab0734ffd3cbab295e6c39678
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761118"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024151"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -29,37 +29,30 @@ I den här snabb starten skapar du en Notification Hub med hjälp av Azure CLI. 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --version` för att hitta den version och beroende bibliotek som är installerade. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
+> [!IMPORTANT]
+> Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --version` för att se vilken version och vilka beroende bibliotek som är installerade. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Förbereda din miljö
+## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget
 
-1. Logga in med kommandot [AZ login](/cli/azure/reference-index#az-login) om du använder en lokal installation av cli.
+När du arbetar med tilläggsreferenser för Azure CLI måste du först installera tillägget. Azure CLI-tillägg ger dig till gång till experiment-och för hands versions kommandon som inte har levererats som en del av kärn-CLI. Läs mer om tillägg, bland annat hur du uppdaterar och avinstallerar dem, i [Använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-    ```azurecli
-    az login
-    ```
+Installera Azure CLI-tillägget för Notification Hubs.
 
-    Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+```azurecli
+az extension add --name notification-hub
+```
 
-2. När du arbetar med tilläggs referenser för Azure CLI måste du först installera tillägget. Azure CLI-tillägg ger dig till gång till experiment-och för hands versions kommandon som ännu inte har levererats som en del av kärn-CLI. Läs mer om tillägg, inklusive uppdatering och avinstallation, i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-   Installera [tillägget för Notification Hubs](/cli/azure/ext/notification-hub/notification-hub) genom att köra följande kommando:
+Azure Notification Hubs, precis som alla Azure-resurser, måste distribueras till en resurs grupp.  Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.  Se [Vad är Azure Resource Manager](/azure/azure-resource-manager/management/overview) för att lära dig mer om resurs grupper.
 
-    ```azurecli
-    az extension add --name notification-hub
-   ```
+I den här snabb starten skapar du en resurs grupp med namnet **spnhubrg** på den **östra** platsen med följande [AZ Group Create](/cli/azure/group#az-group-create) -kommando.
 
-3. Skapa en resursgrupp.
-
-   Azure Notification Hubs, precis som alla Azure-resurser, måste distribueras till en resurs grupp. Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.
-
-   I den här snabb starten skapar du en resurs grupp med namnet _spnhubrg_ på den _östra_ platsen med följande [AZ Group Create](/cli/azure/group#az-group-create) -kommando:
-
-   ```azurecli
-   az group create --name spnhubrg --location eastus
-   ```
+```azurecli
+az group create --name spnhubrg --location eastus
+```
 
 ## <a name="create-a-notification-hubs-namespace"></a>Skapa ett Notification Hubs-namnområde
 
@@ -109,7 +102,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
 
 2. Hämta en lista över namn områden.
 
-   Om du vill se information om det nya namn området använder du kommandot [AZ Notification – Hub namespace List](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) . `--resource-group`Parametern är valfri om du vill visa alla namn områden för en prenumeration.
+   Om du vill se information om det nya namn området använder du kommandot [AZ Notification – Hub namespace List](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list) . `--resource-group`Parametern är valfri om du vill visa alla namn områden för en prenumeration.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -135,7 +128,7 @@ Notification Hubs kräver version 2.0.67 eller senare av Azure CLI. Kör `az --v
 
 3. Hämta en lista över Notification Hub.
 
-   Azure CLI returnerar antingen ett lyckat eller fel meddelande med varje exekverat kommando. men det går att fråga efter en lista över Notification Hub. Kommandot [AZ Notification – Hub List](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) har utformats för detta ändamål.
+   Azure CLI returnerar antingen ett lyckat eller fel meddelande med varje exekverat kommando. men det går att fråga efter en lista över Notification Hub. Kommandot [AZ Notification – Hub List](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) har utformats för detta ändamål.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

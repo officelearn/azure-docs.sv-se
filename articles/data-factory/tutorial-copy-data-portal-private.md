@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079463"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024425"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Kopiera data säkert från Azure Blob Storage till en SQL-databas med hjälp av privata slut punkter
 
@@ -57,7 +57,7 @@ Förbered nu Blob Storage och SQL Database för självstudien genom att utföra 
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
-1. Använd följande SQL-skript för att skapa tabellen **dbo.emp** i din SQL-databas:
+Använd följande SQL-skript för att skapa tabellen **dbo.emp** i din SQL-databas:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ Förbered nu Blob Storage och SQL Database för självstudien genom att utföra 
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Ge Azure-tjänster åtkomst till SQL Server. Se till att **Tillåt åtkomst till Azure** -tjänster **är aktive** rad för SQL-servern så att Data Factory kan skriva data till din SQL Server. Om du vill kontrol lera och aktivera den här inställningen går du till **Azure SQL Server**  >  **Översikt**  >  **Ange server brand vägg**. Ange alternativet **Tillåt åtkomst till Azure-tjänster** till **på**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken.

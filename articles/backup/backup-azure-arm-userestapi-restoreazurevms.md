@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera återställnings åtgä
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011198"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506686"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -242,6 +242,30 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
     }
   }
 }
+```
+
+### <a name="restore-disks-selectively"></a>Återställ diskar selektivt
+
+Om du [selektivt säkerhetskopierar diskar](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)finns listan över aktuella säkerhets kopior i [återställnings punkt sammanfattning](#select-recovery-point) och ett [detaljerat svar](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Du kan också selektivt återställa diskar och mer information finns [här](selective-disk-backup-restore.md#selective-disk-restore). Om du vill återställa en disk i listan över säkerhetskopierade diskar selektivt, letar du reda på LUN-enheten från återställnings punktens svar och lägger till egenskapen **restoreDiskLunList** i [begär ande texten ovan](#example-request) som visas nedan.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
 ```
 
 När du har spårat svaret enligt beskrivningen [ovan](#responses)och det långvariga jobbet är slutfört, finns diskarna och konfigurationen för den säkerhetskopierade virtuella datorn ("VMConfig.jspå") på det angivna lagrings kontot.

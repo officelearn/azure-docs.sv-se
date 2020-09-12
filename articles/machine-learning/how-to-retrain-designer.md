@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319634"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661612"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Omträningsmodeller med Azure Machine Learning Designer (förhandsversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Den här artikeln förutsätter också att du har grundläggande kunskaper om at
 
 ### <a name="sample-pipeline"></a>Exempel på pipeline
 
-Pipelinen som används i den här artikeln är en ändrad version av [exemplet 3: inkomst förutsägelse](samples-designer.md#classification). I pipelinen används modulen [Importera data](algorithm-module-reference/import-data.md) istället för exempel data uppsättningen för att visa hur du tränar modeller med dina egna data.
+Pipelinen som används i den här artikeln är en ändrad version av ett exempel på pipeline- [inkomst förutsägelse](samples-designer.md#classification) på design sidan. I pipelinen används modulen [Importera data](algorithm-module-reference/import-data.md) istället för exempel data uppsättningen för att visa hur du tränar modeller med dina egna data.
 
 ![Skärm bild som visar den ändrade exempel pipelinen med en ruta som markerar modulen importera data](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ Designern sparar alla pipeline-utdata, inklusive utbildade modeller, till standa
 1. Du kan hitta din modell i **andra utdata** tillsammans med kör loggar.
 1. Du kan också välja ikonen **Visa utdata** . Härifrån kan du följa anvisningarna i dialog rutan för att navigera direkt till ditt data lager. 
 
-![Skärm bild som visar hur du laddar ned den tränade modellen](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Skärm bild som visar hur du laddar ned den tränade modellen](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicera en utbildnings pipeline
 
@@ -101,9 +102,9 @@ Publicera en pipeline till en pipeline-slutpunkt så att du enkelt kan återanv�
 
 Nu när du har en publicerad utbildnings pipeline kan du använda den för att träna om din modell på nya data. Du kan skicka körningar från en pipeline-slutpunkt från Studio-arbetsytan eller program mässigt.
 
-### <a name="submit-runs-by-using-the-designer"></a>Skicka körningar med hjälp av designern
+### <a name="submit-runs-by-using-the-studio-portal"></a>Skicka körningar med hjälp av Studio-portalen
 
-Använd följande steg för att skicka en slut punkt för en parametriserad pipeline-körning från designern:
+Använd följande steg för att skicka en slut punkt för en parametriserad pipeline som körs från Studio-portalen:
 
 1. Gå till sidan **slut punkter** i din Studio-arbetsyta.
 1. Välj fliken **pipelines-slutpunkter** . Välj sedan din pipeline-slutpunkt.

@@ -7,32 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927212"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660307"
 ---
-# <a name="adjust-capacity-in-azure-cognitive-search"></a>Justera kapaciteten i Azure Kognitiv sökning
+# <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Justera kapaciteten för en Azure Kognitiv sökning-tjänst
 
-Innan du [konfigurerar en Sök tjänst](search-create-service-portal.md) och låser på en viss pris nivå kan du ta några minuter för att förstå rollen som repliker och partitioner i en tjänst och hur du kan anpassa en tjänst för att hantera toppar och DIP i resurs behovet.
+Innan du [konfigurerar en Sök tjänst](search-create-service-portal.md) och låser en viss pris nivå kan du ta några minuter på att förstå hur kapaciteten fungerar och hur du kan justera repliker och partitioner för att hantera arbets belastnings variationer.
 
-Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. Beroende på nivån och storleken på justeringen kan tillägg eller minskning av kapaciteten ta var som helst från 15 minuter till flera timmar. 
+Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. Du kan öka eller minska antalet repliker eller partitioner individuellt. Beroende på nivån och storleken på justeringen kan tillägg eller minskning av kapaciteten ta var som helst från 15 minuter till flera timmar.
 
 När du ändrar tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under de maximala gränserna för en nivå. Men om du behöver en skript-eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](/rest/api/searchmanagement/services) alternativa lösningar.
 
-## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
+## <a name="concepts-search-units-replicas-partitions-shards"></a>Koncept: Sök enheter, repliker, partitioner, Shards
 
-|||
-|-|-|
-|*Partitioner* | Tillhandahåller index lagring och I/O för Läs-och skriv åtgärder (till exempel när du återskapar eller uppdaterar ett index). Varje partition har en resurs av det totala indexet. Om du tilldelar tre partitioner är ditt index indelat i tredje. |
-|*Repliker* | Instanserna av Sök tjänsten används främst för att belastningsutjämna frågor. Varje replik är en kopia av ett index. Om du tilldelar tre repliker har du tre kopior av ett index som är tillgängligt för att betjäna fråge förfrågningar.|
+Kapaciteten uttrycks i *Sök enheter* som kan tilldelas i kombinationer av *partitioner* och *repliker*, med hjälp av en underliggande *horisontell partitionering* -mekanism som stöder flexibla konfigurationer:
+
+| Koncept  | Definition|
+|----------|-----------|
+|*Sök enhet* | En enda ökning av den totala tillgängliga kapaciteten (36 enheter). Det är även fakturerings enheten för en Azure Kognitiv sökning-tjänst. Minst en enhet krävs för att köra tjänsten.|
+|*Replik* | Instanserna av Sök tjänsten används främst för att belastningsutjämna frågor. Varje replik är värd för en kopia av ett index. Om du tilldelar tre repliker har du tre kopior av ett index som är tillgängligt för att betjäna fråge förfrågningar.|
+|*Partition* | Fysisk lagring och I/O för Läs-och skriv åtgärder (till exempel när du återskapar eller uppdaterar ett index). Varje partition har ett segment av det totala indexet. Om du tilldelar tre partitioner är ditt index indelat i tredje. |
+|*Shard* | En segment av ett index. Azure Kognitiv sökning delar upp varje index i Shards för att göra processen att lägga till partitioner snabbare (genom att flytta Shards till nya Sök enheter).|
+
+I följande diagram visas relationen mellan repliker, partitioner, Shards och Sök enheter. Det visar ett exempel på hur ett enskilt index sträcker sig över fyra Sök enheter i en tjänst med två repliker och två partitioner. Var och en av de fyra Sök enheterna lagrar bara hälften av Shards i indexet. Sök enheterna i den vänstra kolumnen lagrar den första halvan av Shards, som består av den första partitionen, medan de i den högra kolumnen lagrar den andra halvan av Shards, som omfattar den andra partitionen. Eftersom det finns två repliker finns det två kopior av varje index Shard. Sök enheterna i den översta raden lagrar en kopia, som består av den första repliken, medan de i den nedersta raden lagrar en annan kopia, som omfattar den andra repliken.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Sök index är shardade över partitioner.":::
+
+Diagrammet ovan är bara ett exempel. Många kombinationer av partitioner och repliker är möjliga, upp till högst 36 totalt antal Sök enheter.
+
+I Kognitiv sökning är hantering av Shard en implementerings information och kan inte konfigureras, men att veta att ett index är shardade hjälper till att förstå de tillfälliga avvikelserna i ranknings-och beteenden för autocomplete:
+
++ Rangordna avvikelser: Sök Resultat beräknas på Shard-nivå först och summeras sedan i en enda resultat uppsättning. Beroende på egenskaperna för Shard-innehållet kan matchningar från en Shard rangordnas högre än matchningarna i en annan. Om du märker att du inte har några intuitiva rangordningar i Sök resultaten beror det förmodligen på att effekterna av horisontell partitionering, särskilt om index är små. Du kan undvika dessa ranknings avvikelser genom att välja att [Beräkna resultat globalt över hela indexet](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), men detta medför en prestanda försämring.
+
++ Avvikelser vid komplettering: Autoavsluta-frågor, där matchningar görs på de första flera tecknen i en delvis angiven term, Godkänn en Fuzzy-parameter som forgives små avvikelser i stavning. För automatisk komplettering är en partiell matchning begränsad till termer inom den aktuella Shard. Om till exempel en Shard innehåller "Microsoft" och en partiell term på "micor" anges, kommer sökmotorn att matcha "Microsoft" i den Shard, men inte i andra Shards som innehåller de återstående delarna av indexet.
 
 ## <a name="when-to-add-nodes"></a>När du ska lägga till noder
 
-En tjänst har inlednings vis tilldelats en minimal resurs nivå som består av en partition och en replik. 
+En tjänst har inlednings vis tilldelats en minimal resurs nivå som består av en partition och en replik.
 
 En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbets belastningar (indexering och frågor). Ingen arbets belastning körs i bakgrunden. Du kan schemalägga indexeringen för tider när fråge förfrågningar är mycket mindre frekventa, men tjänsten kan inte på annat sätt prioritera en aktivitet över en annan. En viss mängd redundans utjämnar dessutom frågans prestanda när tjänster eller noder uppdateras internt.
 
@@ -86,9 +102,9 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Ej tillämpligt |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Ej tillämpligt |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Ej tillämpligt |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |E.t. |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |E.t. |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |E.t. |
 | **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).

@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871402"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484314"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -21,7 +21,7 @@ När du migrerar en Live-plats och dess DNS-domännamn till App Service, betjän
 
 Om du inte är oroar över stillestånds tid i DNS-matchning, se [mappa ett befintligt anpassat DNS-namn till Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktionen:
 
@@ -40,7 +40,7 @@ När du slutligen migrerar ditt anpassade DNS-namn från den gamla platsen till 
 
 ### <a name="get-domain-verification-id"></a>Hämta ID för domän verifiering
 
-Hämta domän verifierings-ID: t för din app genom att följa stegen i [Hämta domän verifierings-ID](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+Hämta domän verifierings-ID: t för din app genom att följa stegen i [Hämta domän verifierings-ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 
 ### <a name="create-domain-verification-record"></a>Skapa domän verifierings post
 
@@ -48,9 +48,9 @@ Om du vill verifiera domän ägarskapet lägger du till en TXT-post för domän 
 
 | Exempel på DNS-post | TXT-värd | TXT-värde |
 | - | - | - |
-| \@ skogen | _asuid_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| www (sub) | _asuid. www_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| \* användning | _asuid_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \@ skogen | _asuid_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www (sub) | _asuid. www_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \* användning | _asuid_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 På sidan DNS-poster noterar du post typen för det DNS-namn som du vill migrera. App Service stöder mappningar från CNAME-och A-poster.
 

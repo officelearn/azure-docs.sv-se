@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011352"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461042"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
 
@@ -93,7 +93,7 @@ För åtkomst granskningar kommer du troligen att inkludera representanter från
 
 * **IT** -administratören hanterar din IT-infrastruktur och administrerar dina moln investeringar och SaaS-appar (program vara som en tjänst). Det här teamet kommer att:
 
-   * Granska privilegie rad åtkomst till infrastruktur och appar, inklusive Office 365 och Azure AD.
+   * Granska privilegie rad åtkomst till infrastruktur och appar, inklusive Microsoft 365 och Azure AD.
 
    * Schemalägg och kör åtkomst granskningar för grupper som används för att underhålla undantags listor eller IT Pilot-projekt för att upprätthålla aktuella åtkomst listor.
 
@@ -180,7 +180,7 @@ Typiska mål för granskning är:
 
 * [Program som är integrerade med Azure AD för enkel inloggning](../manage-apps/what-is-application-management.md) (till exempel SaaS, verksamhets nivå).
 
-* Grupp [medlemskap](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synkroniserat till Azure AD eller skapats i Azure AD eller Office 365, inklusive Microsoft Teams).
+* Grupp [medlemskap](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synkroniserat till Azure AD eller skapats i Azure ad eller Microsoft 365, inklusive Microsoft Teams).
 
 * [Åtkomst paket](/azure/active-directory/governance/entitlement-management-overview) som grupperar resurser (grupper, appar och platser) till ett enda paket för att hantera åtkomst.
 
@@ -304,7 +304,7 @@ När du [skapar ett Access-paket](entitlement-management-access-package-create.m
 
 ## <a name="plan-access-reviews-for-groups"></a>Planera åtkomst granskningar för grupper
 
-Förutom åtkomst paket är det mest effektiva sättet att styra åtkomsten att granska grupp medlemskap. Vi rekommenderar att åtkomst till resurser tilldelas via [säkerhets grupper eller Office 365-grupper](../fundamentals/active-directory-manage-groups.md)och att användarna läggs till i grupperna för att få åtkomst.
+Förutom åtkomst paket är det mest effektiva sättet att styra åtkomsten att granska grupp medlemskap. Vi rekommenderar att åtkomst till resurser tilldelas via [säkerhets grupper eller Microsoft 365 grupper](../fundamentals/active-directory-manage-groups.md)och att användare läggs till i grupperna för att få åtkomst.
 
 En enskild grupp kan beviljas åtkomst till alla lämpliga resurser. Du kan tilldela gruppen åtkomst till enskilda resurser eller till ett Access-paket som grupperar program och andra resurser. Med den här metoden kan du granska åtkomst till gruppen i stället för en enskild persons åtkomst till varje program. 
 
@@ -322,9 +322,9 @@ Grupp medlemskap kan granskas av:
 
 Vi rekommenderar att grupp ägare granskar medlemskap, eftersom de är mest placerade för att veta vem som behöver åtkomst. Gruppens ägarskap skiljer sig åt från grupp typen:
 
-Grupper som skapas i Office 365 och Azure AD har en eller flera väldefinierade ägare. I de flesta fall gör dessa ägare perfekta granskare för sina egna grupper eftersom de vet vem som ska ha åtkomst. 
+Grupper som skapas i Microsoft 365 och Azure AD har en eller flera väldefinierade ägare. I de flesta fall gör dessa ägare perfekta granskare för sina egna grupper eftersom de vet vem som ska ha åtkomst. 
 
-Microsoft Teams använder till exempel Office 365-grupper som underliggande auktoriserings modell för att ge användare åtkomst till resurser som finns i SharePoint, Exchange, OneNote eller andra Office 365-tjänster. Skaparen av gruppen blir automatiskt ägare och ansvarar för att intyga medlemskapet i gruppen. 
+Till exempel använder Microsoft team Microsoft 365 grupper som den underliggande auktoriserings modellen för att ge användarna åtkomst till resurser som finns i SharePoint, Exchange, OneNote eller andra Microsoft 365-tjänster. Skaparen av gruppen blir automatiskt ägare och ansvarar för att intyga medlemskapet i gruppen. 
 
 Grupper som skapats manuellt i Azure AD-portalen eller via skriptning via Microsoft Graph kanske inte nödvändigt vis har definierade ägare. Vi rekommenderar att du definierar dem antingen via Azure AD-portalen i gruppens "ägare"-eller via Graph.
 
@@ -403,7 +403,7 @@ Med åtkomst granskningar kan granskare intyga om användarna fortfarande måste
 
 * Säkerhetsadministratör
 
-* Alla administrations roller för Office 365 och Dynamics-tjänster
+* Alla roller för Microsoft 365-och Dynamics-tjänsteadministration
 
 Roller som väljs här inkluderar permanent och berättigad roll. 
 
@@ -496,7 +496,7 @@ När du skapar nya Graph API-frågor för Automation rekommenderar vi att du anv
 
 Åtkomst gransknings aktiviteter registreras och är tillgängliga från [Azure Ads gransknings loggar](../reports-monitoring/concept-audit-logs.md). Du kan filtrera gransknings data för kategorin, aktivitets typen och datum intervallet. Här är en exempel fråga:
 
-| Kategori| Princip |
+| Kategori| Policy |
 | - | - |
 | Aktivitetstyp| Skapa åtkomstgranskning |
 | | Uppdatera åtkomst granskning |

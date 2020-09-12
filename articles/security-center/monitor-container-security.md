@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ec06fc23b147eb3e4a5922242aa922063f4172c
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038622"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514160"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Övervaka säkerheten för dina behållare
 
 På den här sidan förklaras hur du använder behållar säkerhetsfunktioner som beskrivs i [artikeln behållar säkerhet](container-security.md) i avsnittet begrepp.
 
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Genomsökning av dina ARM-baserade behållar register för sårbarheter 
+## <a name="scan-your-arm-based-container-registries-for-vulnerabilities"></a>Sök igenom dina ARM-baserade behållar register för sårbarheter 
 
 1. Aktivera sårbarhets ökningar av Azure Container Registry avbildningar:
 
@@ -30,13 +30,13 @@ På den här sidan förklaras hur du använder behållar säkerhetsfunktioner so
 
         Security Center är nu redo att skanna bilder som skickas till registret. 
 
-        >[!NOTE]
-        >Den här funktionen debiteras per avbildning.
+      >[!NOTE]
+      >Den här funktionen debiteras per avbildning.
 
 
 1. Om du vill utlösa skanningen av en avbildning, push-överför den till registret. 
 
-    När genomsökningen är klar (vanligt vis efter cirka 2 minuter, men kan vara upp till 15 minuter), är avgöranden tillgängliga som Security Center rekommendationer som detta:
+    När genomsökningen är klar (vanligt vis efter cirka 2 minuter, men kan vara upp till 15 minuter), är avgöranden tillgängliga som Security Center rekommendationer.
 
 1. Om du vill visa resultaten går du till sidan **rekommendationer** . Om problem påträffas visas följande rekommendation:
 
@@ -86,7 +86,7 @@ På den här sidan förklaras hur du använder behållar säkerhetsfunktioner so
     1. När du är säker på att den uppdaterade avbildningen har flyttats, genomsökts och inte längre visas i rekommendationen, tar du bort den "gamla" sårbara avbildningen från registret.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Härdning av dina behållares Docker-värdar
+## <a name="harden-your-containers-docker-hosts"></a>Skärp dina behållares Docker-värdar
 
 Security Center övervakar ständigt konfigurationen av Docker-värdarna och genererar säkerhets rekommendationer som återspeglar bransch standarder.
 

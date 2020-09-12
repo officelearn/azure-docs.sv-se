@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708849"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658727"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Vad är en Azure SQL-hanterad instans pool (för hands version)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Det finns flera resursbegränsningar för instanspooler och instanser inuti pool
 - Utöver gränser på instans nivå finns det också två begränsningar som gäller för *den instansen av filpool*:
   - Total lagrings storlek per pool (8 TB).
   - Totalt antal databaser per pool (100).
+- Det går inte att ange AAD-administratör för de instanser som distribuerats i instansen. Därför går det inte att använda AAD-autentisering.
 
 Den totala lagrings tilldelningen och antalet databaser i alla instanser måste vara lägre än eller lika med de gränser som exponeras av instans-pooler.
 

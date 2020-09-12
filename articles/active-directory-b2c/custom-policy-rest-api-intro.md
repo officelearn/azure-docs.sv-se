@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388943"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594194"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrera REST API Claims-utbyten i Azure AD B2C anpassad princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den identitets miljö som ligger under Azure Active Directory B2C (Azure AD B2C) kan integreras med RESTful-API: er i en användar resa. Den här artikeln visar hur du skapar en användar resa som interagerar med en RESTful-tjänst med en [RESTful-teknisk profil](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster).
+Den identitets miljö som ligger under Azure Active Directory B2C (Azure AD B2C) kan integreras med RESTful-API: er i en användar resa. Den här artikeln visar hur du skapar en användar resa som interagerar med en RESTful-tjänst med en [RESTful-teknisk profil](restful-technical-profile.md).
 
 Med hjälp av Azure AD B2C kan du lägga till din egen affärs logik till en användar resa genom att anropa din egen RESTful-tjänst. Med identitets miljön kan du skicka och ta emot data från din RESTful-tjänst till Exchange-anspråk. Du kan till exempel:
 
@@ -125,9 +125,9 @@ De utgående anspråken bör se ut så här:
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts.0.person.name" />
-  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts.0.person.emails.0.email" />
-  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts.0.person.loyaltyNumber" />
+  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts[0].person.name" />
+  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts[0].person.emails[0].email" />
+  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts[0].person.loyaltyNumber" />
 </OutputClaims>
 ```
 

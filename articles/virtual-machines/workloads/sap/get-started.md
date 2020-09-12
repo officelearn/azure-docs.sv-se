@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f26c83f87811acc5853f1bff5303cd37092b33f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 986e4fd8c7043f5c01868302ffc2b554e2ce76f7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075961"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567086"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -62,23 +62,17 @@ I det här avsnittet av dokumentationen beskrivs olika aspekter av SAP HANA. Som
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP-NetWeaver distribueras på virtuella Azure-datorer
 Det här avsnittet innehåller planerings-och distributions dokumentation för SAP NetWeaver, SAP LaMa och Business One på Azure. Dokumentationen fokuserar på grunderna och användningen av icke-HANA-databaser med en SAP-arbetsbelastning på Azure. Dokument och artiklar för hög tillgänglighet är också grunden för SAP HANA hög tillgänglighet i Azure
 
-Information om hög tillgänglighet för en SAP-arbetsbelastning i Azure finns i:
-
-- [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver](./sap-high-availability-guide-start.md)
-
+## <a name="sap-netweaver-and-s4hana-high-availability"></a>SAP NetWeaver och S/4HANA hög tillgänglighet
+Hög tillgänglighet för SAP-programnivå och DBMS dokumenteras i informationen som börjar med dokumentet [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver](./sap-high-availability-guide-start.md)
 
 
-Information om integration mellan Azure Active Directory (Azure AD) och SAP-tjänster och enkel inloggning finns i:
 
-- [Självstudie: Azure Active Directory integration med SAP Cloud för kunden](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory integration med SAP Cloud Platform Identity Authentication](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory integration med SAP Cloud Platform](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory-integration med SAP NetWeaver](../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory-integration med SAP Business ByDesign](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudie: Azure Active Directory integration med SAP HANA](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Din S/4HANA-miljö: Fiori starter SAML enkel inloggning med Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+## <a name="integrate-azure-ad-with-sap-services"></a>Integrera Azure AD med SAP-tjänster
+I det här avsnittet hittar du information om hur du konfigurerar SSO med de flesta av SAP SaaS-och PaaS-tjänsterna, NetWeaver och Fiori 
 
-Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
+
+
+## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>Dokumentation om integrering av Azure-tjänster i SAP-komponenter
 
 - [Använda SAP HANA i Power BI Desktop](/power-bi/desktop-sap-hana)
 - [DirectQuery och SAP HANA](/power-bi/desktop-directquery-sap-hana)
@@ -88,6 +82,9 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 09/08/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) för att klargöra stonith-definitioner
+- 09/03/2020: ändra i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för att anpassa till minimal 2 IOPS per 1 GB kapacitet med Ultra disk
+- 09/02/2020: ändring av [tillgängliga SKU: er för HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) för att få mer transparenta i vilka SKU: er är Hana-certifierade
 - 08/28/2020: ändra i [ha för SAP NW på virtuella Azure-datorer på SLES med ANF](./high-availability-guide-suse-netapp-files.md) för att åtgärda skrivning
 - 08/25/2020: ändra i [ha-guide för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-guide-wsfc-shared-disk.md), [Förbered Azure-infrastrukturen för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md) och [Installera SAP NW ha med WSFC och delad disk](./sap-high-availability-guide-wsfc-shared-disk.md) för att presentera möjligheten att använda Azure Shared disk and Document SAP ERS2 Architecture
 - 08/25/2020: version av [multi-sid ha guide för SAP ASCS/SCS med WSFC och Azure Shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
@@ -110,19 +107,19 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 - 06/22/2020: Lägg till installations steg för nytt VM-tillägg för SAP i [distributions guiden](deployment-guide.md)
 - 06/16/2020: ändring i [offentlig slut punkts anslutning för virtuella datorer med Azure standard-ILB i SAP ha-scenarier](./high-availability-guide-standard-load-balancer-outbound-connections.md) för att lägga till en länk till SUSE offentlig Cloud infrastructure 101 dokumentation 
 - 06/10/2020: lägga till nya HLI SKU: er i [tillgängliga SKU: er för HLI](./hana-available-skus.md) och [SAP HANA (stora instanser) lagrings arkitektur](./hana-storage-architecture.md)
-- 05/21/2020: ändra i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) och konfigurera [pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att lägga till en länk till en [offentlig slut punkts anslutning för virtuella datorer med Azure standard ILB i SAP ha-scenarier](./high-availability-guide-standard-load-balancer-outbound-connections.md)  
-- 05/19/2020: Lägg till viktigt meddelande för att inte använda rot volym gruppen när du använder LVM för HANA-relaterade volymer i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md)
-- 05/19/2020: Lägg till ett nytt operativ system som stöds för HANA stor instans typ II i [kompatibla operativ system för Hana-stora instanser](/- azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)
-- 05/12/2020: ändring i [offentlig slut punkts anslutning för virtuella datorer med Azure standard-ILB i SAP ha-scenarier](./high-availability-guide-standard-load-balancer-outbound-connections.md) för att uppdatera länkar och lägga till information för brand Väggs konfiguration från tredje part
-- 05/11/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) för att ange Resource varaktighet till 0 för resursen netcat, som leder till mer strömlinjeformad redundans 
-- 05/05/2020: ändringar i [Azure Virtual Machines planering och implementering för SAP NetWeaver](./planning-guide.md) för att uttrycka att Gen2-distributioner är tillgängliga för virtuella datorer i Mv1-serien
-- 04/24/2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med ANF på SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med ANF på RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i SLES med ANF](./high-availability-guide-suse-netapp-files.md) och [hög tillgänglighet för SAP NetWeaver på virtuella](./high-availability-guide-rhel-netapp-files.md) Azure-datorer i RHEL med ANF för att lägga till information om att IP-
-- 04/22/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) för att ta bort meta-attributet `is-managed` från instruktionerna, eftersom det står i konflikt med att placera klustret i eller ur underhålls läge
-- 04/21/2020: lade till SQL Azure DB som stöd för DBMS för SAP (Hybris) Commerce Platform 1811 och senare i artiklar [vilka SAP-program som stöds för Azure-distributioner](./sap-supported-product-on-azure.md) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](./sap-certifications.md)
-- 04/16/2020: har lagts till SAP HANA as-DBMS som stöds för SAP (Hybris) Commerce Platform i artiklar [vilka SAP-program som stöds för Azure-distributioner](./sap-supported-product-on-azure.md) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](./sap-certifications.md)
-- 04/13/2020: korrigera till exakta SAP ASE-release-nummer i [SAP ASE Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_sapase.md)
-- 04/07/2020: ändra i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) för att klargöra Cloud-netconfig-Azure-instruktioner
-- 04/06/2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) och i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) för att ta bort referenser till NetApp [tr-4435](https://www.netapp.com/us/media/tr-4746.pdf) (ersätts av [tr-4746](https://www.netapp.com/us/media/tr-4746.pdf))
+- Maj 21 2020: ändra i [Konfigurera pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) och konfigurera [pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att lägga till en länk till en [offentlig slut punkts anslutning för virtuella datorer med Azure standard ILB i SAP ha-scenarier](./high-availability-guide-standard-load-balancer-outbound-connections.md)  
+- Maj 19 2020: Lägg till viktigt meddelande för att inte använda rot volym gruppen när du använder LVM för HANA-relaterade volymer i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md)
+- Maj 19 2020: Lägg till nytt operativ system som stöds för HANA stor instans typ II i [kompatibla operativ system för Hana-stora instanser](/- azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)
+- Maj 12 2020: ändring i [offentlig slut punkts anslutning för virtuella datorer med Azure standard-ILB i SAP ha-scenarier](./high-availability-guide-standard-load-balancer-outbound-connections.md) för att uppdatera länkar och lägga till information för brand Väggs konfiguration från tredje part
+- Maj 11 2020: ändring i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) för att ange varaktighet till 0 för resursen netcat, som leder till mer strömlinjeformad redundans 
+- Maj 05 2020: ändringar i [Azure Virtual Machines planering och implementering för SAP NetWeaver](./planning-guide.md) för att uttrycka att Gen2-distributioner är tillgängliga för en virtuell dator familj för Mv1
+- April 24 2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med ANF på SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med ANF på RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), [hög tillgänglighet för SAP NetWeaver på virtuella Azure](./high-availability-guide-suse-netapp-files.md) -datorer i SLES med ANF och [hög tillgänglighet för SAP NetWeaver](./high-availability-guide-rhel-netapp-files.md) på virtuella Azure-datorer i RHEL med ANF för att lägga till information om att IP
+- April 22 2020: ändring i [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) för att ta bort meta-attributet `is-managed` från instruktionerna, eftersom det står i konflikt med att placera klustret i eller ur underhålls läge
+- April 21 2020: lade till SQL Azure DB som stödda DBMS för SAP (Hybris) Commerce Platform 1811 och senare i artiklar [vilka SAP-program som stöds för Azure-distributioner](./sap-supported-product-on-azure.md) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](./sap-certifications.md)
+- April 16 2020: lade till SAP HANA som stödda DBMS för SAP (Hybris) Commerce-plattform i artiklar [vilka SAP-program som stöds för Azure-distributioner](./sap-supported-product-on-azure.md) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](./sap-certifications.md)
+- April 13 2020: korrigera till exakta SAP ASE-releasenummer i [SAP ASE Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_sapase.md)
+- April 07 2020: ändring i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) för att klargöra Cloud-netconfig-Azure-instruktioner
+- April 06 2020: ändringar i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) och i [SAP HANA skalas ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) för att ta bort referenser till NetApp [tr-4435](https://www.netapp.com/us/media/tr-4746.pdf) (ersätts av [tr-4746](https://www.netapp.com/us/media/tr-4746.pdf))
 - 31 mars 2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) och [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md) för att lägga till instruktioner för hur du anger stripe-storlek när du skapar stripe-volymer
 - 27 mars 2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](./high-availability-guide-suse-netapp-files.md) för att justera fil systemets monterings alternativ till NetApp TR-4746 (ta bort alternativet Sync-montering)
 - 26 mars 2020: ändring i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](./high-availability-guide-suse-multi-sid.md) för att lägga till referens till NetApp TR-4746

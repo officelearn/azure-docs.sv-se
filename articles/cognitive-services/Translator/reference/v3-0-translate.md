@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903994"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566610"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: Översätt
 
@@ -43,7 +43,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
     <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara <code>3.0</code> .</td>
   </tr>
   <tr>
-    <td>till</td>
+    <td>på</td>
     <td><em>Obligatorisk parameter</em>.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de <a href="./v3-0-languages.md">språk som stöds</a> som ingår i <code>translation</code> omfånget. Använd till exempel för <code>to=de</code> att översätta till tyska.<br/>Det går att översätta till flera språk samtidigt genom att upprepa parametern i frågesträngen. Använd till exempel för <code>to=de&to=it</code> att översätta till tyska och italienska.</td>
   </tr>
 </table>
@@ -95,7 +95,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system. Möjliga värden är: <code>true</code> (standard) eller <code>false</code> .<br/><br/><code>allowFallback=false</code>anger att översättningen bara ska använda system som är utbildade för den <code>category</code> som anges i begäran. Om en översättning för språk X till språk Y kräver länkning genom ett Pivot-språk E, måste alla system i kedjan (X->E och E->Y) vara anpassade och ha samma kategori. Om det inte finns något system med en viss kategori returnerar begäran en 400-status kod. <code>allowFallback=true</code>anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system.
+    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system. Möjliga värden är: <code>true</code> (standard) eller <code>false</code> .<br/><br/><code>allowFallback=false</code> anger att översättningen bara ska använda system som är utbildade för den <code>category</code> som anges i begäran. Om en översättning för språk X till språk Y kräver länkning genom ett Pivot-språk E, måste alla system i kedjan (X->E och E->Y) vara anpassade och ha samma kategori. Om det inte finns något system med en viss kategori returnerar begäran en 400-status kod. <code>allowFallback=true</code> anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system.
 </td>
   </tr>
 </table> 
@@ -174,7 +174,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     Menings gränser inkluderas endast när parametern request `includeSentenceLength` är `true` .
 
-  * `sourceText`: Ett objekt med en enskild sträng egenskap med namnet `text` , som ger inmatad text i standard skriptet för käll språket. `sourceText`Egenskapen finns bara när indatamängden uttrycks i ett skript som inte är det vanliga skriptet för språket. Om indatatypen till exempel är Arabiskt skriven i latinskt skript, `sourceText.text` är samma arabiska text konverterad till enscripting.
+  * `sourceText`: Ett objekt med en enskild sträng egenskap med namnet `text` , som ger inmatad text i standard skriptet för käll språket. `sourceText` Egenskapen finns bara när indatamängden uttrycks i ett skript som inte är det vanliga skriptet för språket. Om indatatypen till exempel är Arabiskt skriven i latinskt skript, `sourceText.text` är samma arabiska text konverterad till enscripting.
 
 Exempel på JSON-svar finns i avsnittet [exempel](#examples) .
 
@@ -280,7 +280,7 @@ Svars texten är:
     }
 ]
 ```
-Svaret liknar svaret från föregående exempel. Eftersom automatisk automatisk identifiering av språk begärdes, innehåller svaret även information om språket som har identifierats för indata. 
+Svaret liknar svaret från föregående exempel. Eftersom automatisk automatisk identifiering av språk begärdes, innehåller svaret även information om språket som har identifierats för indata. Automatisk identifiering av språk fungerar bättre med längre inmatad text.
 
 ### <a name="translate-with-transliteration"></a>Översätt med transkriberingsspråk
 

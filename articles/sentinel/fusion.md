@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
-ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f415294c77b743996993f1f00be45e36f9d6002
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77587931"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660672"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Avancerad attack identifiering i Multistage i Azure Sentinel
 
@@ -51,13 +51,13 @@ Regelmallar gäller inte för den avancerade identifieringen av skadlig kod.
 > [!NOTE]
 > Azure Sentinel använder för närvarande 30 dagars historiska data för att träna Machine Learning-systemen. Dessa data krypteras alltid med Microsofts nycklar när de passerar genom Machine Learning-pipeline. Inlärnings informationen är dock inte krypterad med [Kundhanterade nycklar (CMK)](customer-managed-keys.md) om du har aktiverat CMK i Azure Sentinel-arbetsytan. Om du inte vill använda fusion går du till **Azure Sentinel**   \>  **Configuration**   \>  **Analytics \> Active Rules \> Advanced sårbarhets identifiering i Multistage** och i kolumnen **status** väljer du **Inaktivera.**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion med Palo-nätverk och Microsoft Defender ATP
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Fusion med Palo-nätverk och Microsoft Defender för slut punkt (tidigare Microsoft Defender ATP)
 
-Dessa scenarier kombinerar två av de grundläggande loggar som används av säkerhetsanalytiker: brand Väggs loggar från Palo-nätverk och slut punkts identifierings loggar från Microsoft Defender ATP. I alla scenarier som anges nedan identifieras en misstänkt aktivitet i slut punkten som omfattar en extern IP-adress. därefter följs detta av avvikande trafik från den externa IP-adressen tillbaka till brand väggen. I Palo-löpeld-loggar fokuserar Azure Sentinel på [hot loggar](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)och trafiken betraktas som misstänkt när hot tillåts (misstänkta data, filer, överbelastningar, paket, genomsökningar, spionprogram, webb adresser, virus, sårbarheter,-virus, Wildfires).
+Dessa scenarier kombinerar två av de grundläggande loggar som används av säkerhetsanalytiker: brand Väggs loggar från Palo-nätverk och slut punkts identifierings loggar från Microsoft Defender för slut punkt. I alla scenarier som anges nedan identifieras en misstänkt aktivitet i slut punkten som omfattar en extern IP-adress. därefter följs detta av avvikande trafik från den externa IP-adressen tillbaka till brand väggen. I Palo-löpeld-loggar fokuserar Azure Sentinel på [hot loggar](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)och trafiken betraktas som misstänkt när hot tillåts (misstänkta data, filer, överbelastningar, paket, genomsökningar, spionprogram, webb adresser, virus, sårbarheter,-virus, Wildfires).
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Nätverks förfrågan till TOR anonymisering-tjänsten följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg.
 
-I det här scenariot identifierar Azure Sentinel först en varning om att Microsoft Defender Avancerat skydd har identifierat en nätverksbegäran till en TOR anonymisering-tjänst som leder till avvikande aktivitet. Detta initierades under kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}.
+I det här scenariot identifierar Azure Sentinel först en avisering som Microsoft Defender för slut punkt (tidigare Microsoft Defender för ATP) upptäckte en nätverksbegäran till en TOR anonymisering-tjänst som leder till avvikande aktivitet. Detta initierades under kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}.
 Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta indikerar att skadlig trafik har angetts i nätverket mål-IP-adressen för nätverks trafiken är {DestinationIP}.
 
 Det här scenariot är för närvarande en offentlig för hands version.
@@ -65,13 +65,13 @@ Det här scenariot är för närvarande en offentlig för hands version.
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell gjorde en misstänkt nätverks anslutning följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg.
 
-I det här scenariot identifierar Azure Sentinel först en varning om att PowerShell gjorde en misstänkt nätverks anslutning som leder till avvikande aktivitet som upptäcktes av en Palo-nätverks brand vägg. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+I det här scenariot identifierar Azure Sentinel först en avisering som Microsoft Defender för slut punkt (tidigare Microsoft Defender för ATP) upptäckte att PowerShell gjorde en misstänkt nätverks anslutning som leder till avvikande aktivitet som upptäcktes av en Palo-nätverks brand vägg. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
 
 Det här scenariot är för närvarande en offentlig för hands version.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Utgående anslutning till IP med en historik över obehöriga åtkomst försök följt av avvikande trafik som flaggats av Palo-nätverks brand vägg
 
-I det här scenariot identifierar Azure Sentinel en varning att Microsoft Defender Avancerat skydd har identifierat en utgående anslutning till en IP-adress med en historik över obehöriga åtkomst försök som leder till avvikande aktivitet som identifieras av brand väggen för Palo-nätverk. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Därefter upptäcktes ovanlig aktivitet av Palo-nätverks brand väggen på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+I det här scenariot identifierar Azure Sentinel en avisering som Microsoft Defender för slut punkt (tidigare Microsoft Defender för ATP) upptäckte en utgående anslutning till en IP-adress med en historik över otillåtna åtkomst försök som leder till avvikande aktivitet som identifieras av brand väggen för Palo-nätverk. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Därefter upptäcktes ovanlig aktivitet av Palo-nätverks brand väggen på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
 
 Det här scenariot är för närvarande en offentlig för hands version.
 
@@ -97,7 +97,7 @@ Det finns sju möjliga Azure Sentinel-incidenter som kombinerar omöjlig resa ti
 
 - **Omöjlig resa till ovanlig-platser som leder till Office 365 Mailbox exfiltrering**
     
-    Den här aviseringen är en indikation på en inloggnings händelse \<*account name*> från en omöjlig resa till \<*location*> , en ovanlig plats, följt av en misstänkt vidarebefordrings regel för Inkorgen angavs i en användares inkorg.
+    Den här aviseringen är en indikation på en inloggnings händelse \<*account name*>  från en omöjlig resa till \<*location*> , en ovanlig plats, följt av en misstänkt vidarebefordrings regel för Inkorgen angavs i en användares inkorg.
     
     Detta kan tyda på att kontot komprometteras och att post lådan används för att stjäla information från din organisation. Användaren \<*account name*> skapade eller uppdaterade en vidarebefordrings regel för Inkorgen som vidarebefordrar all inkommande e-post till den externa adressen \<*email address*> .
 

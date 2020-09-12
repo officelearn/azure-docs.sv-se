@@ -1,6 +1,6 @@
 ---
 title: Snabb start för striims
-description: Kom igång snabbt med Striims och Azure SQL Data Warehouse.
+description: Kom igång snabbt med Striims och Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208560"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485982"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Installations guide för striims Azure SQL DW Marketplace
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Installations guide för striims Azure Synapse Analytics Marketplace
 
-Den här snabb starten förutsätter att du redan har en befintlig instans av SQL Data Warehouse.
+Den här snabb starten förutsätter att du redan har en befintlig instans av Azure Synapse Analytics.
 
-Sök efter Striims på Azure Marketplace och välj alternativet Striims for data integration to SQL Data Warehouse (mellanlagrad) 
+Sök efter Striims på Azure Marketplace och välj alternativet Striims for data integration to Azure Synapse Analytics (mellanlagrad) 
 
 ![Installera Striims][install]
 
@@ -32,7 +32,7 @@ Konfigurera den virtuella datorn Striims med angivna egenskaper, med Striims klu
 
 När du har distribuerat klickar \<VM Name> du på masternode i Azure Portal, klickar på Anslut och kopierar inloggningen med hjälp av lokalt konto för virtuell dator 
 
-![Anslut Striims till SQL Data Warehouse][connect]
+![Anslut Striims till Azure Synapse Analytics][connect]
 
 Ladda ned sqljdbc42. jar från <https://www.microsoft.com/en-us/download/details.aspx?id=54671> till din lokala dator. 
 

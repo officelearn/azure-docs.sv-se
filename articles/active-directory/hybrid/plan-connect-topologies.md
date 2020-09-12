@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509099"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658515"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 I den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect Sync som lösning för nyckel integrering. Den här artikeln innehåller konfigurationer som stöds och som inte stöds.
@@ -117,15 +117,15 @@ Du har en eller flera *konto* skogar med aktiva användar konton i en skogs topo
 
 I det här scenariot har en (eller flera) resurs skog förtroende för alla konto skogar. Resurs skogen har vanligt vis ett utökat Active Directory schema med Exchange och Lync. Alla Exchange-och Lync-tjänster, tillsammans med andra delade tjänster, finns i den här skogen. Användare har ett inaktiverat användar konto i den här skogen och post lådan är länkad till konto skogen.
 
-## <a name="office-365-and-topology-considerations"></a>Överväganden för Office 365 och topologier
-Vissa Office 365-arbetsbelastningar har vissa begränsningar för topologier som stöds:
+## <a name="microsoft-365-and-topology-considerations"></a>Överväganden för Microsoft 365 och topologier
+Vissa Microsoft 365 arbets belastningar har vissa begränsningar för topologier som stöds:
 
 | Arbetsbelastning | Begränsningar |
 | --------- | --------- |
-| Exchange Online | Mer information om hybrid topologier som stöds av Exchange Online finns i [hybrid distributioner med flera Active Directory-skogar](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype för företag | När du använder flera lokala skogar stöds endast skogs topologin för konto resurser. Mer information finns i [miljö krav för Skype för företag Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Mer information om hybrid topologier som stöds av Exchange Online finns i [hybrid distributioner med flera Active Directory-skogar](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype för företag | När du använder flera lokala skogar stöds endast skogs topologin för konto resurser. Mer information finns i [miljö krav för Skype för företag Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Om du är en större organisation bör du överväga att använda [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) -funktionen. Det gör att du kan definiera i vilken data Center region som användarens resurser finns.
+Om du är en större organisation bör du överväga att använda funktionen [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . Det gör att du kan definiera i vilken data Center region som användarens resurser finns.
 
 ## <a name="staging-server"></a>Mellanlagrings Server
 ![Mellanlagrings server i en topologi](./media/plan-connect-topologies/MultiForestStaging.png)
@@ -165,7 +165,7 @@ Den här topologin har följande begränsningar för andra scenarier som stöds:
 * Windows 10-enheter kan bara associeras med en Azure AD-klient.
 * Alternativet enkel inloggning (SSO) för lösen ords-hash-synkronisering och direktautentisering kan bara användas med en Azure AD-klient.
 
-Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Dessa funktioner omfattar:
+Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Funktionerna är:
 
 * Tillbakaskrivning av grupp med standard konfiguration.
 * Tillbakaskrivning av enhet.

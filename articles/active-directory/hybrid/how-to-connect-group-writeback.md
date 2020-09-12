@@ -11,21 +11,21 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385151"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660880"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Tillbakaskrivning av Azure AD Connects grupp
 
-Med tillbakaskrivning av grupper kan kunderna utnyttja moln grupper för sina hybrid behov. Om du använder funktionen Office 365-grupper kan dessa grupper vara representerade i din lokala Active Directory. Det här alternativet är **bara** tillgängligt om du har Exchange installerat i din lokala Active Directory.
+Med tillbakaskrivning av grupper kan kunderna utnyttja moln grupper för sina hybrid behov. Om du använder funktionen Microsoft 365 grupper kan du låta dessa grupper visas i din lokala Active Directory. Det här alternativet är **bara** tillgängligt om du har Exchange installerat i din lokala Active Directory.
 
 ## <a name="pre-requisites"></a>Förutsättningar
 Följande förutsättningar måste vara uppfyllda för att det ska gå att aktivera tillbakaskrivning av gruppen.
 - Azure Active Directory Premium licenser för din klient.
-- En konfigurerad hybrid distribution mellan din lokala Exchange-organisation och Office 365 och kontrollerade att det fungerar korrekt.
+- En konfigurerad hybrid distribution mellan din lokala Exchange-organisation och Microsoft 365 och verifierade att den fungerar korrekt.
 - Installerat en version av Exchange lokalt som stöds
 - Konfigurerad enkel inloggning med Azure Active Directory Connect 
 
@@ -37,7 +37,7 @@ Använd följande steg för att aktivera tillbakaskrivning av grupp:
 3. Ange dina autentiseringsuppgifter på sidan **Anslut till Azure AD** . Klicka på **Nästa**.
 4. På sidan **valfria funktioner** kontrollerar du att de tidigare konfigurerade alternativen fortfarande är markerade.
 5. Välj **tillbakaskrivning av grupp** och klicka sedan på **Nästa**.
-6. På **sidan tillbakaskrivning**väljer du en Active Directory ORGANISATIONSENHET (OU) för att lagra objekt som synkroniseras från Office 365 till din lokala organisation och klickar sedan på **Nästa**.
+6. På **sidan tillbakaskrivning**väljer du en Active Directory ORGANISATIONSENHET (OU) för att lagra objekt som synkroniseras från Microsoft 365 till din lokala organisation och klickar sedan på **Nästa**.
 7. På sidan **klar** att konfigurera klickar du på **Konfigurera**.
 8. När guiden är klar klickar du på **Avsluta** på sidan konfigurationen har slutförts.
 9. Öppna Windows PowerShell som administratör på Azure Active Directory Connect-servern och kör följande kommandon.
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Mer information om hur du konfigurerar Office 365-grupper finns i [konfigurera Microsoft 365 grupper med lokal Exchange hybrid](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+Mer information om hur du konfigurerar Microsoft 365 grupper finns i [konfigurera Microsoft 365 grupper med lokal Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Inaktiverar tillbakaskrivning av grupp
 Gör så här om du vill inaktivera tillbakaskrivning av grupp: 

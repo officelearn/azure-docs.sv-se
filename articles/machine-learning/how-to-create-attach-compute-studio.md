@@ -1,5 +1,5 @@
 ---
-title: Skapa beräknings resurser i Studio
+title: Skapa utbildning & distribuera beräkningar (Studio)
 titleSuffix: Azure Machine Learning
 description: Använd Studio för att skapa utbildnings resurser för utbildning och distribution (beräknings mål) för maskin inlärning
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147609"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661954"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Skapa beräknings mål för modell utbildning och distribution i Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -119,6 +119,9 @@ När klustret skapas eller när du redigerar beräknings kluster information gå
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>Härlednings kluster
+
+> [!IMPORTANT]
+> Att använda Azure Kubernetes-tjänsten med Azure Machine Learning har flera konfigurations alternativ. Vissa scenarier, till exempel nätverk, kräver ytterligare konfiguration och konfiguration. Mer information om hur du använder AKS med Azure ML finns i [skapa och ansluta ett Azure Kubernetes service-kluster](how-to-create-attach-kubernetes.md).
 
 Skapa eller koppla ett Azure Kubernetes service-kluster (AKS) för storskaliga inferencing. Använd [stegen ovan](#portal-create) för att skapa AKS-klustret.  Fyll sedan i formuläret enligt följande:
 

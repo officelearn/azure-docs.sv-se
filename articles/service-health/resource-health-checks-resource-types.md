@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230168"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660648"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -51,7 +51,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/domän namn
 |Utförda kontroller|
 |---|
-|<ul><li>Är produktions plats distributionen felfri i alla roll instanser?</li><li>Är rollen felfri i alla dess VM-instanser?</li><li>Vilken är hälso status för varje virtuell dator i en roll för en moln tjänst?</li><li>Har VM-statusen ändrats på grund av en plattforms-eller kund initierad åtgärd?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li></ul>|
+|<ul><li>Är produktions plats distributionen felfri i alla roll instanser?</li><li>Är rollen felfri i alla dess VM-instanser?</li><li>Vilken är hälso status för varje virtuell dator i en roll för en moln tjänst?</li><li>Har VM-statusen ändrats på grund av en plattforms-eller kund initierad åtgärd?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li><li>[Läs mer](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) om genomförda kontroller</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. cognitiveservices/konton
 |Utförda kontroller|

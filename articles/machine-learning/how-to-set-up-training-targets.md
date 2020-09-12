@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ca76ec5bef1d908ca3cea6ce0f58b1205c1676ca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144099"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661567"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>Skicka en utbildnings körning till ett beräknings mål
 
@@ -31,19 +31,19 @@ Allt du behöver göra är att definiera miljön för varje beräknings mål i e
 ## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
-* [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md), `ws`
 * Ett beräknings mål, `my_compute_target` .  Skapa ett beräknings mål med:
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+  * [Azure Machine Learning-studio](how-to-create-attach-compute-studio.md)
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Vad är en skript körnings konfiguration?
 
-Du skickar in ditt utbildnings experiment med ett [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) -objekt.  Det här objektet innehåller:
+Du skickar in ditt utbildnings experiment med ett [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) -objekt.  Det här objektet innehåller:
 
 * **source_directory**: käll katalogen som innehåller ditt utbildnings skript
 * **skript**: identifiera utbildnings skriptet
-* **run_config**: [Kör konfigurationen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py), som i sin tur definierar var träningen ska ske. I `run_config` anger du beräknings mål och miljö som ska användas när du kör övnings skriptet.  
+* **run_config**: [Kör konfigurationen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true), som i sin tur definierar var träningen ska ske. I `run_config` anger du beräknings mål och miljö som ska användas när du kör övnings skriptet.  
 
 ## <a name="whats-an-environment"></a>Vad är en miljö?
 
@@ -167,7 +167,7 @@ Se dessa antecknings böcker för exempel på utbildning med olika beräknings m
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: träna en modell](tutorial-train-models-with-aml.md) använder ett hanterat beräknings mål för att träna en modell.
-* Lär dig hur du [effektivt justerar disponeringsparametrarna](how-to-tune-hyperparameters.md) för att bygga bättre modeller.
+* Lär dig hur du [effektivt justerar](how-to-tune-hyperparameters.md) de båda parametrarna för att bygga bättre modeller. Visa = Azure-ml-py&bevara – Visa = sant)
 * När du har en tränad modell lär du dig [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
-* Visa SDK-referens för [RunConfiguration-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) .
+* Visa SDK-referens för [RunConfiguration-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) .
 * [Använda Azure Machine Learning med virtuella Azure-nätverk](how-to-enable-virtual-network.md)

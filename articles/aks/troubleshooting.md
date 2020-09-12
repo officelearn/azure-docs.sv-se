@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056517"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460328"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -82,7 +82,7 @@ AKS har kontroll plan som skalas lodrätt i enlighet med antalet kärnor för at
     - https://github.com/helm/helm/issues/4543
 - **[Är intern trafik mellan noder blockerade?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
-## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Jag får `TCP timeouts` , till exempel`dial tcp <Node_IP>:10250: i/o timeout`
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Jag får `TCP timeouts` , till exempel `dial tcp <Node_IP>:10250: i/o timeout`
 
 Dessa tids gränser kan vara relaterade till intern trafik mellan noder som blockeras. Kontrol lera att trafiken inte blockeras, till exempel av [nätverks säkerhets grupper](concepts-security.md#azure-network-security-groups) på under nätet för klustrets noder.
 
@@ -98,13 +98,17 @@ Orsaken till varningarna är att klustret har RBAC aktiverat och åtkomst till i
 
 Se till att portarna 22, 9000 och 1194 är öppna för att ansluta till API-servern. Kontrol lera om `tunnelfront` eller `aks-link` Pod körs i *Kube-systemets* namnrymd med `kubectl get pods --namespace kube-system` kommandot. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
 
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Jag får `"tls: client offered only unsupported versions"` från min klient när jag ansluter till AKS-API: et. Vad ska jag göra?
+
+Den lägsta TLS-version som stöds i AKS är TLS 1,2.
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får ett `"Changing property 'imageReference' is not allowed"` fel meddelande. Hur gör jag för att åtgärda det här problemet?
 
 Du kan få det här felet eftersom du har ändrat taggarna i agent-noderna i AKS-klustret. Ändra eller ta bort taggar och andra egenskaper för resurser i resurs gruppen MC_ * kan leda till oväntade resultat. Att ändra resurserna under MC_ *-gruppen i AKS-klustret delar service nivå målet (service nivå mål).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Jag får fel meddelanden om att mitt kluster är i felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS
 
-*Den här fel söknings hjälpen riktas mothttps://aka.ms/aks-cluster-failed*
+*Den här fel söknings hjälpen riktas mot https://aka.ms/aks-cluster-failed*
 
 Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Följ stegen nedan för att lösa ett tillstånd för misslyckad kluster innan du försöker igen den tidigare misslyckade åtgärden:
 
@@ -115,7 +119,7 @@ Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Fö
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>Jag får fel meddelanden när jag försöker uppgradera eller skala det tillstånd mitt kluster uppgraderas eller har inte uppgraderats
 
-*Den här fel söknings hjälpen riktas mothttps://aka.ms/aks-pending-upgrade*
+*Den här fel söknings hjälpen riktas mot https://aka.ms/aks-pending-upgrade*
 
  Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen före nästa förfrågan på samma resurs. Det innebär att åtgärder begränsas när aktiva uppgraderingar eller skalnings åtgärder inträffar eller görs. 
 
@@ -176,9 +180,9 @@ Använd följande lösningar för det här problemet:
 * Om du använder Automation-skript kan du lägga till tids fördröjningar mellan skapande av tjänstens huvud namn och AKS-kluster.
 * Om du använder Azure Portal återgår du till kluster inställningarna när du skapar och försöker sedan att köra verifierings sidan igen efter några minuter.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Jag får `"AADSTS7000215: Invalid client secret is provided."` när jag använder AKS-API. Vad ska jag göra?
 
-
-
+Detta beror vanligt vis på förfallo datum för autentiseringsuppgifter för tjänstens huvud namn. [Uppdatera autentiseringsuppgifterna för ett AKS-kluster.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Jag får fel efter att ha begränsat utgående trafik
 
@@ -221,7 +225,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | Ej tillämpligt |
+| 1,12 och senare | E.t. |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -278,7 +282,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | Ej tillämpligt |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -297,7 +301,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | Ej tillämpligt |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -406,7 +410,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | Ej tillämpligt |
+| 1,14 och senare | E.t. |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 647ab275fb7f34ee9721e4f085df0d22048fc04d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044251"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613413"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Power BI
 
@@ -155,7 +155,7 @@ Med Azure Resource Manager kan du helt automatisera distributionen av ditt Strea
 
 ## <a name="give-the-stream-analytics-job-access-to-your-power-bi-workspace"></a>Ge Stream Analytics jobb åtkomst till din Power BI arbets yta
 
-Nu när Stream Analytics jobbet har skapats kan det ges åtkomst till en Power BI-arbetsyta.
+Nu när Stream Analytics jobbet har skapats kan det ges åtkomst till en Power BI-arbetsyta. När du har fått åtkomst till ditt jobb kan du göra några minuter så att identiteten kan spridas.
 
 ### <a name="use-the-power-bi-ui"></a>Använd Power BI användar gränssnitt
 

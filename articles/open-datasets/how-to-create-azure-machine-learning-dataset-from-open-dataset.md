@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998083"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461518"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Azure Open-datauppsättningar är granskade offentliga data uppsättningar som d
 Öppna data uppsättningar finns i molnet på Microsoft Azure och ingår i både [Azure Machine Learning python SDK](#create-datasets-with-the-sdk) och [Azure Machine Learning Studio](#create-datasets-with-the-studio).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här artikeln behöver du:
 
@@ -111,7 +111,7 @@ Du kan också skapa Azure Machine Learning data uppsättningar från Azure Open 
 
     ![Välj data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Välj ett namn under vilket du vill registrera data uppsättningen och filtrera sedan data genom att använda de tillgängliga filtren. I det här fallet filtrerar du tids perioden till ett år och lands koden för den **offentliga helgdags** data uppsättningen till endast USA. Se [Azure Open DataSets-katalogen](https://azure.microsoft.com/services/op[en-datasets/catalog/) för data information, till exempel fält beskrivningar och datum intervall. Välj **Skapa**.
+1. Välj ett namn under vilket du vill registrera data uppsättningen och filtrera sedan data genom att använda de tillgängliga filtren. I det här fallet filtrerar du tids perioden till ett år och lands koden för den **offentliga helgdags** data uppsättningen till endast USA. Se [Azure Open DataSets-katalogen](https://azure.microsoft.com/services/open-datasets/catalog) för data information, till exempel fält beskrivningar och datum intervall. Välj **Skapa**.
 
     ![Ange data uppsättnings parametrar och skapa data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

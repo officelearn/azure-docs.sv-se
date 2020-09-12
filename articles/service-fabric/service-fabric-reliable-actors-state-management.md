@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007799"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611707"
 ---
 # <a name="reliable-actors-state-management"></a>Hantering av Reliable Actors tillstånd
 Reliable Actors är entrådade objekt som kan kapsla in både logik och tillstånd. Eftersom aktörerna körs på Reliable Services kan de underhålla tillstånden på ett tillförlitligt sätt genom att använda samma beständiga och replikerade mekanismer. På så sätt förlorar aktörerna sina tillstånd efter fel, vid återaktivering efter skräp insamling, eller när de flyttas runt mellan noder i ett kluster på grund av resurs utjämning eller uppgraderingar.
@@ -115,7 +115,7 @@ Detta är avgörande för prestanda och resursanvändning för ditt program. Nä
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Hantera aktörens livs cykel korrekt
 Du bör ha rensat principen för att hantera storleken på tillstånd i varje partition av en aktörs tjänst. Aktörs tjänsten bör ha ett fast antal aktörer och återanvända dem så mycket som möjligt. Om du skapar nya aktörer kontinuerligt måste du ta bort dem när de är klara med sitt arbete. Aktörs ramverket lagrar metadata om varje aktör som finns. Om du tar bort alla tillstånd för en aktör tas inte metadata bort från aktören. Du måste ta bort aktören (se [ta bort aktörer och deras status](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) om du vill ta bort all information som lagras i systemet. Som en extra kontroll bör du fråga aktörs tjänsten (se [räkna upp skådespelare](service-fabric-reliable-actors-enumerate.md)) en gång i taget för att se till att antalet aktörer ligger inom det förväntade intervallet.
  
-Om du någonsin ser att databas filens storlek för en aktörs tjänst ökar utöver den förväntade storleken ser du till att du följer de föregående rikt linjerna. Om du följer dessa rikt linjer och fortfarande är databas fil storleks problem bör du [öppna ett support ärende](service-fabric-support.md) med produkt teamet för att få hjälp.
+Om du någonsin ser att databas filens storlek för en aktörs tjänst ökar utöver den förväntade storleken ser du till att du följer de föregående rikt linjerna. Om du följer dessa rikt linjer och fortfarande råkar ut för problem med databas fil storlek bör du [öppna ett support ärende](service-fabric-support.md) med produkt teamet för att få hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 

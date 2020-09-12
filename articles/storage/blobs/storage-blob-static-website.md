@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432507"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486866"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hantering av statisk webbplats i Azure Storage
 
-Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en lagrings behållare med namnet *$Web*. Om du är värd för ditt innehåll i Azure Storage kan du använda serverbaserade arkitekturer som inkluderar [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster (Platform as a Service).
+Du kan hantera statiskt innehåll (HTML, CSS, Java Script och bildfiler) direkt från en lagrings behållare med namnet *$Web*. Om du är värd för ditt innehåll i Azure Storage kan du använda serverbaserade arkitekturer som inkluderar [Azure Functions](/azure/azure-functions/functions-overview) och andra PaaS-tjänster (Platform as a Service). Azure Storage statisk webbplats värd är ett bra alternativ i fall där du inte behöver en webb server för att återge innehåll.
+
+[App Service statiska Web Apps](https://azure.microsoft.com/services/app-service/static/) är ett bra alternativ till att Azure Storage statisk webbplats värd och är också lämpligt i fall där du inte behöver en webb server för att återge innehåll. App Service statiska Web Apps ger dig ett fullständigt hanterat arbets flöde för kontinuerlig integrering och kontinuerlig leverans (CI/CD) från GitHub källa till global distribution.
+
+Om du behöver en webb server för att återge innehåll kan du använda [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Om din plats är beroende av kod på Server sidan, använder du [Azure App Service](/azure/app-service/overview) i stället.
-Se till att skapa ett standard lagrings konto för generell användning v2. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
+> Se till att skapa ett standard lagrings konto för generell användning v2. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
 
 ## <a name="setting-up-a-static-website"></a>Konfigurera en statisk webbplats
 
@@ -46,7 +49,7 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 > * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Azure PowerShell-modul](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/)
+> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Visual Studio Code-tillägg](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
@@ -104,7 +107,12 @@ Det finns inget sätt att konfigurera rubriker som en del av den statiska webbpl
 
 Om du vill använda huvuden för att styra cachelagring, se [kontroll Azure CDN cachelagring med regler för cachelagring](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Priser
+## <a name="multi-region-website-hosting"></a>Värd för flera regioner-webbplatser
+
+Om du planerar att vara värd för en webbplats i flera geografiska områden rekommenderar vi att du använder en [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) för regional cachelagring. Använd [Azures front dörr](https://docs.microsoft.com/azure/frontdoor/) om du vill hantera olika innehåll i varje region. Den innehåller också funktioner för redundans. [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) rekommenderas inte om du planerar att använda en anpassad domän. Problem kan uppstå på grund av hur Azure Storage verifierar anpassade domän namn.
+
+
+## <a name="pricing"></a>Prissättning
 
 Du kan aktivera statisk webbplats värd utan kostnad. Du faktureras bara för den blob-lagring som webbplatsen använder och drifts kostnader. Mer information om priser för Azure-Blob Storage finns på sidan med [priser för azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

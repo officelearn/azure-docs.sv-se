@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592295"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566644"
 ---
 # <a name="translator-30-detect"></a>Translator 3,0: identifiera
 
@@ -35,7 +35,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>api-version</td>
     <td>*Obligatorisk parameter*.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` .</td>
@@ -46,7 +46,7 @@ Begärandehuvuden innehåller:
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>Authentication-huvud (er)</td>
     <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
@@ -67,7 +67,7 @@ Begärandehuvuden innehåller:
 
 ## <a name="request-body"></a>Begärandetext
 
-Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med en sträng egenskap med namnet `Text` . Språk identifiering tillämpas på `Text` egenskapens värde. En exempel begär ande text ser ut så här:
+Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med en sträng egenskap med namnet `Text` . Språk identifiering tillämpas på `Text` egenskapens värde. Automatisk identifiering av språk fungerar bättre med längre inmatad text. En exempel begär ande text ser ut så här:
 
 ```json
 [
@@ -78,7 +78,6 @@ Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-o
 Följande begränsningar gäller:
 
 * Matrisen får innehålla högst 100 element.
-* Text värden för ett mat ris element får inte överstiga 10 000 tecken inklusive blank steg.
 * Hela texten som ingår i begäran får inte överstiga 50 000 tecken inklusive blank steg.
 
 ## <a name="response-body"></a>Själva svaret
@@ -126,7 +125,7 @@ Ett exempel på JSON-svar är:
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>X-RequestId</td>
     <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
@@ -139,7 +138,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
 
 <table width="100%">
   <th width="20%">Statuskod</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>200</td>
     <td>Åtgärden lyckades.</td>

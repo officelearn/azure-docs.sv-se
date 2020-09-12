@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357757"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658356"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -53,13 +53,13 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 - Inloggnings användar namnet kan antingen vara det lokala standard användar namnet ( `userPrincipalName` ) eller ett annat attribut som kon figurer ATS i Azure AD Connect ( `Alternate ID` ). Båda användnings fallen fungerar eftersom sömlös SSO använder `securityIdentifier` anspråk i Kerberos-biljetten för att leta upp motsvarande användar objekt i Azure AD.
 - Sömlös SSO är en Opportunistic-funktion. Om det Miss lyckas av någon anledning återgår användar inloggningen till sitt normala beteende, d.v.s. användaren måste ange sitt lösen ord på inloggnings sidan.
-- Om ett program (till exempel `https://myapps.microsoft.com/contoso.com` ) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter som identifierar din klient, eller `login_hint` parameter som identifierar användaren, i sin inloggnings förfrågan för Azure AD, loggas användarna automatiskt in utan att de anger användar namn eller lösen ord.
+- Om ett program (till exempel  `https://myapps.microsoft.com/contoso.com` ) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parameter som identifierar din klient, eller `login_hint` parameter som identifierar användaren, i sin inloggnings förfrågan för Azure AD, loggas användarna automatiskt in utan att de anger användar namn eller lösen ord.
 - Användarna får också en tyst inloggning om ett program (t. ex. `https://contoso.sharepoint.com` ) skickar inloggnings förfrågningar till Azure Ads slut punkter som har kon figurer ATS som klienter, det vill säga `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure Ads vanliga slut punkt – det vill säga `https://login.microsoftonline.com/common/<...>` .
 - Utloggning stöds. Detta gör att användarna kan välja ett annat Azure AD-konto för att logga in med, i stället för att automatiskt logga in med sömlös SSO automatiskt.
-- Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
+- Microsoft 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
 - Den kan aktive ras via Azure AD Connect.
 - Det är en kostnads fri funktion, och du behöver inte några betalda versioner av Azure AD för att använda den.
-- Det finns stöd för webb läsar klienter och Office-klienter som stöder [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) på plattformar och webbläsare som stöder Kerberos-autentisering:
+- Det finns stöd för webb läsar klienter och Office-klienter som stöder [modern autentisering](/office365/enterprise/modern-auth-for-office-2013-and-2016) på plattformar och webbläsare som stöder Kerberos-autentisering:
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
@@ -68,7 +68,7 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 |Windows 8|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
 |Windows 7|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
 |Windows Server 2012 R2 eller senare|Ja\*\*|E.t.|Ja|Ja\*\*\*|E.t.
-|Mac OS X|E.t.|E.t.|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
+|Mac OS X|Saknas|Saknas|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
 \*Kräver Internet Explorer version 10 eller senare
@@ -88,4 +88,3 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 - [**Vanliga frågor**](how-to-connect-sso-faq.md) och svar på vanliga frågor.
 - [**Felsök**](tshoot-connect-sso.md) – lär dig hur du löser vanliga problem med funktionen.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – för att arkivera nya funktions begär Anden.
-

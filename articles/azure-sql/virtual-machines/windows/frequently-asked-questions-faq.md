@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121450"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483753"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Vanliga frågor och svar om SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a name="images"></a><a id="images"></a>Avbildningar
+## <a name="images"></a><a id="images"></a> Avbildningar
 
 1. **Vilka SQL Server Galleri avbildningar för virtuella datorer är tillgängliga?** 
 
@@ -164,6 +164,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Ja. Installations mediet för SQL Server finns i en mapp på **C** -enheten. Kör **Setup.exe** från den platsen för att lägga till nya SQL Server instanser eller ändra andra installerade funktioner i SQL Server på datorn. Observera att vissa funktioner, till exempel automatisk säkerhets kopiering, automatisk uppdatering och Azure Key Vault-integrering, endast fungerar mot standard instansen eller en namngiven instans som kon figurer ATS korrekt (se fråga 3). Kunder som använder [Software Assurance via Azure Hybrid-förmån](licensing-model-azure-hybrid-benefit-ahb-change.md) eller licens modellen **betala per** användning kan installera flera instanser av SQL Server på den virtuella datorn utan att det medför extra licens kostnader. Ytterligare SQL Server instanser kan begränsa system resurserna om de inte är korrekt konfigurerade. 
 
+1. **Vad är det maximala antalet instanser på en virtuell dator?**
+   SQL Server 2012 till SQL Server 2019 kan stödja [50-instanser](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) på en fristående server. Detta är samma gräns oavsett i Azure lokalt. Se [metod tips](performance-guidelines-best-practices.md#multiple-instances) för att lära dig hur du förbereder din miljö bättre. 
+
 1. **Kan jag avinstallera standardinstansen av SQL Server?**
 
    Ja, men det finns vissa överväganden. Först kan SQL Server-kopplad fakturering fortsätta att inträffa beroende på licens modellen för den virtuella datorn. För det andra, enligt vad som anges i föregående svar, finns det funktioner som förlitar sig på [SQL Server IaaS agent-tillägg](sql-server-iaas-agent-extension-automate-management.md). Om du avinstallerar standard instansen utan att ta bort IaaS-tillägget, fortsätter tillägget att söka efter standard instansen och kan generera händelse logg fel. Felen är från följande två källor: **Microsoft SQL Server hantering av autentiseringsuppgifter** och **Microsoft SQL Server IaaS-agenten**. Ett av felen kan vara något av liknar följande:
@@ -179,6 +182,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 1. **Kan jag ta bort SQL Server helt från en virtuell SQL Server-dator?**
 
    Ja, men du kommer att fortsätta att debiteras för din SQL Server VM enligt beskrivningen i [pris vägledningen för SQL Server virtuella Azure-datorer](pricing-guidance.md). Om du inte längre behöver SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Sedan kan du ta bort den virtuella SQL Server-datorn.
+
+1. **Kan jag använda Azure Portal för att hantera flera instanser på samma virtuella dator?**
+   Nej. Portal hantering tillhandahålls av SQL VM Resource Provider, som förlitar sig på SQL Server IaaS agent-tillägg. Samma begränsningar gäller för resurs leverantören som tillägget. Portalen kan antingen bara hantera en standard instans eller en namngiven instans så länge den är korrekt konfigurerad. Mer information finns i [SQL Server IaaS agent Extension](sql-server-iaas-agent-extension-automate-management.md) 
    
 ## <a name="updating-and-patching"></a>Uppdatering och uppdatering
 

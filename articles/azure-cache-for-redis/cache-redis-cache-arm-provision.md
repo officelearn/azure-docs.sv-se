@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078426"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461246"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Skapa en Azure-cache för Redis med hjälp av en Resource Manager-mall
 
@@ -27,7 +27,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 ## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Ett lagrings konto**: om du vill skapa ett, se [skapa ett Azure Storage konto](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). Lagrings kontot används för diagnostikdata.
+* **Ett lagrings konto**: om du vill skapa ett, se [skapa ett Azure Storage konto](/azure/storage/common/storage-account-create?tabs=azure-portal). Lagrings kontot används för diagnostikdata.
 
 ## <a name="review-the-template"></a>Granska mallen
 
@@ -38,7 +38,7 @@ Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmalla
 Följande resurser definieras i mallen:
 
 * [Microsoft. cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft. Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
+* [Microsoft. Insights/diagnosticsettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 Resource Manager-mallar för den nya [Premium-nivån](cache-overview.md#service-tiers) är också tillgängliga.
 

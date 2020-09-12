@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 18397ef76a4503bf79c4aaf286035d222bd84ba0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068634"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460447"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -26,7 +26,7 @@ På grund av den ökade risken som är associerad med äldre autentiseringsproto
 
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för att blockera äldre autentiseringsbegäranden. Den här principen används endast i [rapport läge](howto-conditional-access-insights-reporting.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är bekanta med att principen gäller när de avser, kan de växla till eller mellanlagra distributionen genom att **lägga till vissa** grupper och utesluta andra.
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Logga in på **Azure Portal** som global administratör.
 1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
@@ -37,7 +37,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
 1. Under **molnappar eller åtgärder**väljer du **alla molnappar**.
    1. Välj **Klar**.
 1. **Conditions**  >  Ange **Konfigurera** till **Ja**under villkor för**klient program**.
-   1. Kontrol lera bara rutorna **Exchange ActiveSync-klienter** och **andra klienter**. Om du vill distribuera principen för villkorlig åtkomst för Exchange ActiveSync i Azure måste användaren också vara global administratör.
+   1. Kontrol lera bara rutorna **Exchange ActiveSync-klienter** och **andra klienter**.
    1. Välj **Klar**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **blockera åtkomst**.
    1. Välj **Välj**.

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115761"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658744"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
@@ -40,7 +40,7 @@ Se till att följande krav är uppfyllda:
    - Om din brand vägg eller proxy tillåter kan du lägga till anslutningarna till listan över tillåtna ** \* Msappproxy.net** -URL: er via port 443. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
 
     >[!NOTE]
-    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering i samband med direktautentisering kan du läsa mer i [Azure AD Connect viktig information](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) .
+    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering i samband med direktautentisering kan du läsa mer i [Azure AD Connect viktig information](./reference-connect-version-history.md) .
 
 * **Använd en Azure AD Connect topologi som stöds**: kontrol lera att du använder en av Azure AD Connects topologier som stöds beskrivs [här](plan-connect-topologies.md).
 
@@ -51,9 +51,9 @@ Se till att följande krav är uppfyllda:
     * Du synkroniserar till Azure AD via Azure AD Connect.
     * Innehåller användare som du vill aktivera för sömlös SSO.
     
-* **Aktivera modern autentisering**: du måste aktivera [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) på din klient för att den här funktionen ska fungera.
+* **Aktivera modern autentisering**: du måste aktivera [modern autentisering](/office365/enterprise/modern-auth-for-office-2013-and-2016) på din klient för att den här funktionen ska fungera.
 
-* **Använd de senaste versionerna av Office 365-klienter**: för att få en tyst inloggnings upplevelse med Office 365-klienter (Outlook, Word, Excel och andra) måste användarna använda versionerna 16.0.8730. xxxx eller senare.
+* **Använd de senaste versionerna av Microsoft 365-klienter**: för att få en tyst inloggnings upplevelse med Microsoft 365 klienter (Outlook, Word, Excel och andra) måste användarna använda versionerna 16.0.8730. xxxx eller senare.
 
 ## <a name="step-2-enable-the-feature"></a>Steg 2: aktivera funktionen
 
@@ -132,7 +132,7 @@ Det finns två sätt att ändra användares intranät zon inställningar:
 
      Resultatet ser ut så här:
 
-     Värde namn:`https://autologon.microsoftazuread-sso.com`
+     Värde namn: `https://autologon.microsoftazuread-sso.com`
   
      Värde (data): 1
 
@@ -187,11 +187,11 @@ Se till att datorn som kör macOS är ansluten till AD. Anvisningar för AD-ansl
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge baserat på krom (alla plattformar)
 
-Om du har åsidosatt [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) -eller [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL: en ( `https://autologon.microsoftazuread-sso.com` ) till dem.
+Om du har åsidosatt [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) -eller [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL: en ( `https://autologon.microsoftazuread-sso.com` ) till dem.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge baserat på krom (macOS och andra plattformar som inte är Windows-plattformar)
 
-För Microsoft Edge som baseras på krom på macOS och andra plattformar som inte är Windows-plattformar kan du läsa mer om hur du lägger till Azure AD-URL: en för integrerad autentisering i din Tillåt-lista i [Microsoft Edge baserad på krom princip listan](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) .
+För Microsoft Edge som baseras på krom på macOS och andra plattformar som inte är Windows-plattformar kan du läsa mer om hur du lägger till Azure AD-URL: en för integrerad autentisering i din Tillåt-lista i [Microsoft Edge baserad på krom princip listan](/DeployEdge/microsoft-edge-policies#authserverallowlist) .
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
@@ -211,7 +211,7 @@ Sömlös SSO fungerar inte i privat bläddringsläge i Firefox och Microsoft Edg
 
 Kontrol lera att alla följande villkor är uppfyllda om du vill testa funktionen för en speciell användare:
   - Användaren loggar in på en företags enhet.
-  - Enheten är ansluten till din Active Directorys domän. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md).
+  - Enheten är ansluten till din Active Directorys domän. Enheten behöver _inte_ vara [Azure AD-ansluten](../devices/overview.md).
   - Enheten har en direkt anslutning till domänkontrollanten (DC), antingen i det kabelanslutna eller trådlösa nätverket eller via en fjärråtkomstanslutning, t. ex. en VPN-anslutning.
   - Du har [distribuerat funktionen](#step-3-roll-out-the-feature) till den här användaren via Grupprincip.
 

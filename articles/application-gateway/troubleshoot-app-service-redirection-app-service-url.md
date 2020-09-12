@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806484"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595952"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Felsöka App Service problem i Application Gateway
 
@@ -23,9 +23,8 @@ Lär dig hur du diagnostiserar och löser problem som kan uppstå när Azure App
 
 I den här artikeln får du lära dig hur du felsöker följande problem:
 
-> [!div class="checklist"]
-> * App Service-URL: en visas i webbläsaren när det finns en omdirigering.
-> * App Service-ARRAffinity cookie-domän har angetts som App Service-värdnamn, example.azurewebsites.net, i stället för den ursprungliga värden.
+* App Service-URL: en visas i webbläsaren när det finns en omdirigering.
+* App Service-ARRAffinity cookie-domän har angetts som App Service-värdnamn, example.azurewebsites.net, i stället för den ursprungliga värden.
 
 När ett backend-program skickar ett svar på omdirigering kanske du vill omdirigera klienten till en annan URL än den som anges av Server dels programmet. Du kanske vill göra detta när en app service finns bakom en Programgateway och kräver att klienten utför en omdirigering till dess relativa sökväg. Ett exempel är en omdirigering från contoso.azurewebsites.net/path1 till contoso.azurewebsites.net/path2. 
 

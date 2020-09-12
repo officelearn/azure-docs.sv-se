@@ -1,6 +1,6 @@
 ---
 title: Resurser för att utveckla en Synapse SQL-pool i Azure Synapse Analytics
-description: Utvecklings begrepp, design beslut, rekommendationer och kodnings metoder för SQL Data Warehouse.
+description: Utvecklings koncept, design beslut, rekommendationer och kodnings tekniker för Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211501"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460617"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Design beslut och kod teknik för en Synapse SQL-pool i Azure Synapse Analytics 
  I den här artikeln hittar du ytterligare resurser som hjälper dig att få bättre förståelse för viktiga design beslut, rekommendationer och kodnings metoder för en SQL-pool i Azure Synapse.
@@ -38,7 +38,7 @@ I följande artiklar används olika kodnings tekniker, tips och rekommendationer
 
 * [lagrade procedurer](sql-data-warehouse-develop-stored-procedures.md)
 * [Etiketter](sql-data-warehouse-develop-label.md)
-* [vyer](sql-data-warehouse-develop-views.md)
+* [vyer](performance-tuning-materialized-views.md)
 * [temporära tabeller](sql-data-warehouse-tables-temporary.md)
 * [dynamisk SQL](sql-data-warehouse-develop-dynamic-sql.md)
 * [loopning](sql-data-warehouse-develop-loops.md)

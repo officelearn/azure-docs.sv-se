@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258790"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669614"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered för att distribuera din IoT Edge-lösning i produktion
 
@@ -41,7 +41,7 @@ IoT Edge enheter kan vara allt från en Raspberry Pi till en bärbar dator till 
 Varje IoT Edge enhet i produktionen måste ha ett certifikat för enhetens certifikat utfärdare installerat på den. CA-certifikatet deklareras sedan till IoT Edge runtime i filen config. yaml. För utvecklings-och testnings scenarier skapar IoT Edge runtime temporära certifikat om inga certifikat deklareras i filen config. yaml. Dessa tillfälliga certifikat upphör dock att gälla efter tre månader och är inte säkra för produktions scenarier. För produktions scenarier bör du ange ditt eget certifikat för enhets certifikat utfärdare, antingen från en självsignerad certifikat utfärdare eller köpas från en kommersiell certifikat utfärdare.
 
 > [!NOTE]
-> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050.
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2038.
 
 Information om hur du förstår rollen för enhetens CA-certifikat finns i [hur Azure IoT Edge använder certifikat](iot-edge-certs.md).
 
@@ -231,7 +231,7 @@ Den här check listan är en start punkt för brand Väggs regler:
 Vissa av brand Väggs reglerna ärvs från Azure Container Registry. Mer information finns i [Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg](../container-registry/container-registry-firewall-access-rules.md).
 
 > [!NOTE]
-> För att tillhandahålla ett konsekvent FQDN mellan REST-och data slut punkter, från och med den **15 juni 2020** , kommer Microsoft container Registry data slut punkten att ändras från `*.cdn.mscr.io` till`*.data.mcr.microsoft.com`  
+> För att tillhandahålla ett konsekvent FQDN mellan REST-och data slut punkter, från och med den **15 juni 2020** , kommer Microsoft container Registry data slut punkten att ändras från `*.cdn.mscr.io` till `*.data.mcr.microsoft.com`  
 > Mer information finns i [konfiguration av brand Väggs regler för Microsoft container Registry-klient](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Om du inte vill konfigurera brand väggen för att tillåta åtkomst till offentliga behållar register, kan du lagra avbildningar i din privata behållar register, enligt beskrivningen i [lagra runtime-behållare i ditt privata register](#store-runtime-containers-in-your-private-registry).
@@ -321,9 +321,9 @@ Du kan göra det i **createOptions** för varje modul. Exempel:
 
 ### <a name="consider-tests-and-cicd-pipelines"></a>Överväg tester och CI/CD-pipeliner
 
-För det effektivaste IoT Edge distributions scenariot, kan du överväga att integrera produktions distributionen i dina test-och CI/CD-pipeliner. Azure IoT Edge stöder flera CI/CD-plattformar, inklusive Azure DevOps. Mer information finns i [kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge](how-to-ci-cd.md).
+För det effektivaste IoT Edge distributions scenariot, kan du överväga att integrera produktions distributionen i dina test-och CI/CD-pipeliner. Azure IoT Edge stöder flera CI/CD-plattformar, inklusive Azure DevOps. Mer information finns i [kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [IoT Edge automatisk distribution](module-deployment-monitoring.md).
-* Se hur IoT Edge stöder [kontinuerlig integrering och kontinuerlig distribution](how-to-ci-cd.md).
+* Se hur IoT Edge stöder [kontinuerlig integrering och kontinuerlig distribution](how-to-continuous-integration-continuous-deployment.md).

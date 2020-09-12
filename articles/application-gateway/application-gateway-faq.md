@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236122"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646548"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -105,7 +105,7 @@ Ett enda undernät har inte stöd för både v2-och v1-Application Gateway SKU: 
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Stöder Application Gateway v2 användardefinierade vägar (UDR)?
 
-Ja, men endast vissa scenarier. Mer information finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Ja, men endast vissa scenarier. Mer information finns i [Application Gateway infrastruktur konfiguration](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Stöder Application Gateway x-vidarebefordrade-för rubriker?
 
@@ -136,7 +136,7 @@ Nej. Application Gateway v2 har inte stöd för proxy-begäranden med NTLM-auten
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
 Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. 
 
-För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) .
+För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-http-settings.md#cookie-based-affinity) .
 
 ## <a name="performance"></a>Prestanda
 
@@ -186,7 +186,7 @@ Se [nätverks säkerhets grupper i Application Gateway under nätet](https://doc
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Har Application Gateway-undernätet stöd för användardefinierade vägar?
 
-Se [användardefinierade vägar som stöds i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+Se [användardefinierade vägar som stöds i Application Gateway under nätet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Vilka är gränserna för Application Gateway? Kan jag öka de här gränserna?
 
@@ -404,7 +404,7 @@ För närvarande kan en instans av ingångs styrenheten bara kopplas till en App
 
 ### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Varför fungerar inte mitt AKS-kluster med Kubernetes med AGIC?
 
-AGIC försöker automatiskt koppla väg tabell resursen till Application Gateway under nätet, men kan Miss lyckas på grund av otillräckliga behörigheter från AGIC. Om AGIC inte kan koppla routningstabellen till Application Gateway under nätet, kommer det att finnas ett fel i AGIC-loggarna, i vilket fall måste du associera routningstabellen som skapats av AKS-klustret manuellt till Application Gatewayens undernät. Mer information finns i anvisningarna [här](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+AGIC försöker automatiskt koppla väg tabell resursen till Application Gateway under nätet, men kan Miss lyckas på grund av otillräckliga behörigheter från AGIC. Om AGIC inte kan koppla routningstabellen till Application Gateway under nätet, kommer det att finnas ett fel i AGIC-loggarna, i vilket fall måste du associera routningstabellen som skapats av AKS-klustret manuellt till Application Gatewayens undernät. Mer information finns i [användar definierade vägar som stöds](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Kan jag ansluta mitt AKS-kluster och Application Gateway i separata virtuella nätverk? 
 

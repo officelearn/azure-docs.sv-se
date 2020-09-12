@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002444"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462096"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket Microsoft. Azure. search v10
 
@@ -27,12 +27,12 @@ För nya lösningar rekommenderar vi det nya Azure.Search.Documents-biblioteket.
 
 Skapa ett .NET Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med hjälp av Visual Studio och [Microsoft. Azure. Sök klient bibliotek](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
 
-Den här artikeln beskriver hur du skapar programmet. Du kan också [Hämta och köra hela programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10).
+Den här artikeln beskriver hur du skapar programmet. Du kan också [Hämta och köra hela programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10).
 
 > [!NOTE]
 > Demo koden i den här artikeln använder de synkrona metoderna i Azure Kognitiv sökning version 10 .NET SDK för enkelhetens skull. För produktions scenarier rekommenderar vi dock att du använder de asynkrona metoderna i dina egna program för att hålla dem skalbara och tillgängliga. Du kan till exempel använda `CreateAsync` och `DeleteAsync` i stället för `Create` och `Delete` .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 
@@ -107,9 +107,9 @@ Det här steget krävs för att skapa meningsfulla utdata i-konsolen. När du sk
 
 1. Lägg till två tomma klass definitioner i projektet: Address.Methods.cs, Hotel.Methods.cs
 
-1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
+1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. Kopiera [raderna 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68)i Hotel.Methods.cs.
+1. Kopiera [raderna 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68)i Hotel.Methods.cs.
 
 ## <a name="1---create-index"></a>1 – Skapa index
 

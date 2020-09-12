@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080700"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487308"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights gen1 Explorer
 
 I den här artikeln beskrivs funktionerna och alternativen för Azure Time Series Insights gen1 [Explorer-webbappen](https://insights.timeseries.azure.com/). Azure Time Series Insights Explorer visar de kraftfulla funktionerna för data visualisering som tillhandahålls av tjänsten och kan nås i din egen miljö.
 
-Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data, vilket gör att du snabbt kan verifiera din IoT-lösning och undvika kostsamma drift stopp för verksamhets kritiska enheter. Du kan identifiera dolda trender, upptäcka avvikelser och utföra rotor Saks analyser i nära real tid. 
+Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data, vilket gör att du snabbt kan verifiera din IoT-lösning och undvika kostsamma drift stopp för verksamhets kritiska enheter. Du kan identifiera dolda trender, upptäcka avvikelser och utföra rotor Saks analyser i nära real tid.
 
 > [!TIP]
 > En guidad rundtur i demonstrations miljön finns i snabb starten för [Azure Time Series Insights](time-series-quickstart.md).
@@ -37,7 +37,7 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 >[!NOTE]
 >Spela upp föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Azure Time Series Insights med hjälp av en Azure IoT Solution Accelerator."</a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda Azure Time Series Insights Explorer måste du:
 
@@ -74,7 +74,7 @@ I minuter när du ansluter din händelse källa till din Azure Time Series Insig
          |Åtgärd  |Typer som stöds  |Kommentarer  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **datetime**, **TimeSpan**       |         |
-         |**=**, **!=**,**<>**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |         |
+         |**=**, **!=**, **<>**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |         |
          |**FÖR**     | **Sträng**, **bool**, **Double**, **datetime**, **TimeSpan**, **Null**        |  Alla operander ska vara av samma typ eller vara **Null** -konstant.        |
          |**HADE**     | **Sträng**        |  Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och **Null** är inte tillåtet.       |
 
@@ -108,7 +108,7 @@ I minuter när du ansluter din händelse källa till din Azure Time Series Insig
 
 1. Använd **termisk karta** för att snabbt hitta unika eller avvikande data serier i en specifik fråga. Endast en sökterm kan visualiseras som en termisk karta.
 
-    [![Gen1 Explorer termisk karta diagram](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Time Series Insights Explorer termisk karta-diagram ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. När du utforskar händelser genom att markera eller högerklicka på panelen **händelser** blir panelen händelser tillgänglig. Här kan du granska alla dina obehandlade händelser och exportera dina händelser som JSON-eller CSV-filer. Azure Time Series Insights lagrar alla rå data.
 

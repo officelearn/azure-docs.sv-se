@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926872"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462521"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -78,15 +78,15 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 | Resurs | Kostnads fri &nbsp; <sup>1</sup> | Basic &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Ej tillämpligt |10 |10 |
-| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
-| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
-| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Ej tillämpligt |Obegränsad |Obegränsad |
+| Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |E.t. |10 |10 |
+| Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |E.t. |10 |10 |
+| Maximalt färdighetsuppsättningar <sup>4</sup> |3 |5 eller 15 |50 |200 |200 |E.t. |10 |10 |
+| Maximal indexerings belastning per anrop |10 000 dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |Endast begränsat av maximalt antal dokument |E.t. |Obegränsad |Obegränsad |
 | Lägsta schema | 5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter |5 minuter | 5 minuter |
-| Maximal kör tid| 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Ej tillämpligt  |24 timmar |24 timmar |
-| Maximal kör tid för indexerare med en färdigheter <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Ej tillämpligt  |2 timmar |2 timmar |
-| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Ej tillämpligt  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |Ej tillämpligt |4 &nbsp; miljoner |4 &nbsp; miljoner |
+| Maximal kör tid| 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |E.t.  |24 timmar |24 timmar |
+| Maximal kör tid för indexerare med en färdigheter <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |E.t.  |2 timmar |2 timmar |
+| BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |E.t.  |256 |256 |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |E.t. |4 &nbsp; miljoner |4 &nbsp; miljoner |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -96,16 +96,32 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 <sup>4</sup> maximalt 30 kunskaper per färdigheter.
 
-<sup>5</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Körnings tiden för dessa arbets belastningar har förkort ATS för att ge andra jobb i kön fler möjligheter att köra.  
+<sup>5</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Körnings tiden för dessa arbets belastningar har förkort ATS för att ge andra jobb i kön fler möjligheter att köra.
 
 > [!NOTE]
 > Som det anges i [index gränserna](#index-limits)kommer indexerarna också att genomdriva den övre gränsen på 3000 element i alla komplexa samlingar per dokument som börjar med den senaste ga API-versionen som stöder komplexa typer ( `2019-05-06` ) och senare. Det innebär att om du har skapat din indexerare med en tidigare API-version kommer du inte att omfattas av den här gränsen. För att bevara maximal kompatibilitet kommer en indexerare som har skapats med en tidigare API-version och sedan uppdaterats med en API `2019-05-06` -version eller senare fortfarande att **undantas** från gränserna. Kunderna bör vara medvetna om den negativa effekten av att ha mycket stora komplexa samlingar (som tidigare nämnts) och vi rekommenderar starkt att du skapar alla nya indexerare med den senaste GA API-versionen.
+
+### <a name="shared-private-link-resource-limits"></a>Resurs gränser för delade privata länkar
+
+> [!NOTE]
+> Indexerare kan komma åt resurser på ett säkert sätt över privata slut punkter som hanteras via den [delade privata länk resurs-API: et](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) enligt beskrivningen i [den här instruktions guiden](search-indexer-howto-access-private.md)
+
+| Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Stöd för privat slut punkt indexerare | Inga | Ja | Ja | Ja | Ja | Inga | Ja | Ja |
+| Stöd för privat slut punkt för indexerare med en färdigheter<sup>1</sup> | Inga | Inga | Inga | Ja | Ja | Inga | Ja | Ja |
+| Maximalt antal privata slut punkter | E.t. | 10 eller 30 | 100 | 400 | 400 | E.t. | 20 | 20 |
+| Maximalt antal distinkta resurs typer<sup>2</sup> | Saknas | 4 | 7 | 15 | 15 | Saknas | 4 | 4 |
+
+<sup>1</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft, och därför kan de lägre Sök tjänst nivåerna som de kan köra i den privata miljön påverka prestanda och stabilitet för Sök tjänsten.
+
+<sup>2</sup> antalet distinkta resurs typer beräknas som antalet unika `groupId` värden som används i alla delade privata länk resurser för en viss Sök tjänst, oavsett resursens status.
 
 ## <a name="synonym-limits"></a>Synonym gränser
 
 Det maximala antalet synonym Maps varierar efter nivå. Varje regel kan ha upp till 20 expansionar, där en expansion är en motsvarande period. Till exempel skulle "katt", Association med "Kitty", "Feline" och "Felis" (släktet för katter) räknas som 3 expansionar.
 
-| Resurs | Kostnadsfri | Grundläggande | S1 | S2 | S3 | S3 – HD |L1 | L2 |
+| Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 – HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Maximalt synonyma kartor |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximalt antal regler per karta |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -116,7 +132,7 @@ FRÅGOR per sekund-uppskattningar måste utvecklas oberoende av varje kund. Inde
 
 Uppskattningar är mer förutsägbara när de beräknas på tjänster som körs på dedikerade resurser (Basic-och standard-nivåer). Du kan beräkna frågor per sekund mer noggrant eftersom du har kontroll över fler parametrar. Information om hur du använder uppskattning finns i [Azure kognitiv sökning prestanda och optimering](search-performance-optimization.md).
 
-För lagrings optimerade nivåer (L1 och L2) bör du förvänta dig ett lägre flöde för frågor och högre latens än standard-nivåerna. 
+För lagrings optimerade nivåer (L1 och L2) bör du förvänta dig ett lägre flöde för frågor och högre latens än standard-nivåerna.
 
 ## <a name="data-limits-ai-enrichment"></a>Data begränsningar (AI-anrikning)
 

@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343129"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567135"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 
@@ -39,9 +39,17 @@ Den förvalda visuella redigerings upplevelsen fungerar direkt med Data Factory 
 
 För resurser på högsta nivå, till exempel pipelines, data uppsättningar och data flöden, kan du redigera egenskaper på hög nivå i rutan egenskaper till höger på arbets ytan. Fönstret Egenskaper innehåller egenskaper som namn, beskrivning, anteckningar och andra övergripande egenskaper. Under resurser som pipeline-aktiviteter och data flödes omvandlingar redige ras med hjälp av panelen längst ned på arbets ytan. 
 
-![Redigera arbets yta](media/author-visually/properties-pane.png)
+![Egenskapsfönster](media/author-visually/properties-pane.png)
 
 Fönstret Egenskaper öppnas bara som standard när en resurs skapas. Om du vill redigera det klickar du på ikonen egenskaper som finns i det övre högra hörnet på arbets ytan.
+
+### <a name="related-resources"></a>Relaterade resurser
+
+I rutan egenskaper kan du se vilka resurser som är beroende av den valda resursen genom att välja fliken **relaterad** . Alla resurser som refererar till den aktuella resursen visas här.
+
+![Relaterade resurser](media/author-visually/related-resources.png)
+
+I bilden ovan används till exempel en pipeline och två data flöden för att använda den data uppsättning som är markerad.
 
 ## <a name="management-hub"></a>Hanteringshubb
 

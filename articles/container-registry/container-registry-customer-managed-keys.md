@@ -2,14 +2,14 @@
 title: Kryptering – rest med en kundhanterad nyckel
 description: Lär dig mer om kryptering – resten av ditt Azure Container Registry och hur du krypterar ditt Premium-register med en kundhanterad nyckel som lagras i Azure Key Vault
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom: ''
-ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225894"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487240"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Kryptera registret med en kundhanterad nyckel
 
@@ -22,10 +22,14 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 
 ## <a name="things-to-know"></a>Saker att känna till
 
-* Du kan för närvarande endast aktivera en kundhanterad nyckel när du skapar ett register.
-* När du har aktiverat en kundhanterad nyckel i ett register kan du inte inaktivera den.
+* Du kan för närvarande endast aktivera en kundhanterad nyckel när du skapar ett register. När du aktiverar nyckeln konfigurerar du en *användardefinierad* hanterad identitet för att få åtkomst till nyckel valvet.
+* När du har aktiverat kryptering med en kundhanterad nyckel i ett register kan du inte inaktivera krypteringen.  
 * [Innehålls förtroende](container-registry-content-trust.md) stöds för närvarande inte i ett register som är krypterat med en kundhanterad nyckel.
 * I ett register som är krypterat med en kundhanterad nyckel behålls kör loggar för [ACR-aktiviteter](container-registry-tasks-overview.md) för närvarande endast i 24 timmar. Om du behöver behålla loggarna under en längre period, se rikt linjer för att [Exportera och lagra aktivitets körnings loggar](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> Om åtkomst till ditt Azure Key Vault är begränsat med ett virtuellt nätverk med en [Key Vault brand vägg](../key-vault/general/network-security.md)krävs ytterligare konfigurations steg. När du har skapat registret och aktiverat den Kundhanterade nyckeln, ställer du in åtkomst till nyckeln med hjälp av registrets *tilldelade* hanterade identitet och konfigurerar registret för att kringgå Key Vault brand väggen. Följ anvisningarna i den här artikeln först för att aktivera kryptering med en kundhanterad nyckel och se rikt linjerna för [avancerade scenarier: Key Vault brand vägg](#advanced-scenario-key-vault-firewall) senare i den här artikeln.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -372,7 +376,7 @@ När du har aktiverat en kundhanterad nyckel i ett register kan du utföra samma
 
 ## <a name="rotate-key"></a>Rotations nyckel
 
-Rotera en kundhanterad nyckel som används för register kryptering i efterlevnadsprinciper. Skapa en ny nyckel eller uppdatera en nyckel version och uppdatera sedan registret för att kryptera data med hjälp av nyckeln. Du kan utföra dessa steg med hjälp av Azure CLI eller i portalen.
+Rotera en kundhanterad nyckel som används för register kryptering enligt dina efterlevnadsprinciper. Skapa en ny nyckel eller uppdatera en nyckel version och uppdatera sedan registret för att kryptera data med hjälp av nyckeln. Du kan utföra dessa steg med hjälp av Azure CLI eller i portalen.
 
 När du roterar en nyckel anger du vanligt vis samma identitet som när du skapar registret. Du kan också konfigurera en ny användardefinierad identitet för nyckel åtkomst eller aktivera och ange registrets systemtilldelade identitet.
 
@@ -439,9 +443,15 @@ az keyvault delete-policy \
 
 Att återkalla nyckeln på ett effektivt sätt blockerar åtkomsten till alla register data, eftersom registret inte har åtkomst till krypterings nyckeln. Om åtkomst till nyckeln är aktive rad eller om den borttagna nyckeln återställs, kommer ditt register att välja nyckeln så att du kan komma åt krypterade register data igen.
 
-## <a name="advanced-scenarios"></a>Avancerade scenarier
+## <a name="advanced-scenario-key-vault-firewall"></a>Avancerat scenario: Key Vault brand vägg
 
-### <a name="system-assigned-identity"></a>Systemtilldelad identitet
+Om ditt Azure Key Vault har distribuerats i ett virtuellt nätverk med en Key Vault brand vägg utför du följande ytterligare steg när du har aktiverat kundhanterad nyckel kryptering i registret.
+
+1. Konfigurera register kryptering för att använda registrets tilldelade identitet
+1. Aktivera registret för att kringgå Key Vault brand väggen
+1. Rotera den Kundhanterade nyckeln
+
+### <a name="configure-system-assigned-identity"></a>Konfigurera systemtilldelad identitet
 
 Du kan konfigurera ett registers systemtilldelad hanterad identitet för att få åtkomst till nyckel valvet för krypterings nycklar. Om du inte känner till de olika hanterade identiteterna för Azure-resurser kan du läsa mer i [översikten](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -466,14 +476,18 @@ Så här uppdaterar du registrets krypterings inställningar för att använda i
 1. Under **Inställningar**väljer du **krypterings**  >  **ändrings nyckel**.
 1. I **identitet**väljer du **tilldelat system**och väljer **Spara**.
 
-### <a name="key-vault-firewall"></a>Key Vault brand vägg
+### <a name="enable-key-vault-bypass"></a>Aktivera kringgå nyckel valv
 
-Om ditt Azure Key Vault har distribuerats i ett virtuellt nätverk med en Key Vault brand vägg utför du följande steg:
+För att få åtkomst till ett nyckel valv som kon figurer ATS med en Key Vault brand vägg, måste registret kringgå brand väggen. Konfigurera nyckel valvet för att tillåta åtkomst av [betrodda tjänster](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry är en av de betrodda tjänsterna.
 
-1. Konfigurera register kryptering för att använda registrets tilldelade identitet. Se föregående avsnitt.
-2. Konfigurera nyckel valvet för att tillåta åtkomst av [betrodda tjänster](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. I portalen navigerar du till ditt nyckel valv.
+1. Välj **Inställningar**  >  **nätverk**.
+1. Bekräfta, uppdatera eller Lägg till inställningar för virtuellt nätverk. Detaljerade anvisningar finns i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/general/network-security.md).
+1. I **Tillåt Microsoft-betrodda tjänster att kringgå den här brand väggen väljer du** **Ja**. 
 
-Detaljerade anvisningar finns i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/general/network-security.md).
+### <a name="rotate-the-customer-managed-key"></a>Rotera den Kundhanterade nyckeln
+
+När du har slutfört föregående steg roterar du nyckeln till en ny nyckel i nyckel valvet bakom en brand vägg. Anvisningar finns i [rotations nyckel](#rotate-key) i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

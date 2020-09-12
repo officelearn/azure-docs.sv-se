@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783866"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460872"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
@@ -105,7 +105,7 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Granska inställningarna för delning av Microsoft 365 grupp
 
-- Om du vill inkludera Microsoft 365 grupper i dina åtkomst paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Microsoft 365 grupper](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Om du vill inkludera Microsoft 365 grupper i dina åtkomst paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Microsoft 365 grupper](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access).
 
 - Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är associerade med en Microsoft 365 grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 

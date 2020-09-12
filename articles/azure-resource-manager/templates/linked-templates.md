@@ -2,13 +2,13 @@
 title: Länka mallar för distribution
 description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager mall för att skapa en lösning för modulär mall. Visar hur du skickar parameter värden, anger en parameter fil och dynamiskt skapade URL: er.'
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086820"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535566"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
@@ -19,7 +19,9 @@ För små till medel stora lösningar är det enklare att förstå och underhål
 En själv studie kurs finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> För länkade eller kapslade mallar kan du bara använda [stegvis](deployment-modes.md) distributions läge.
+> För länkade eller kapslade mallar kan du bara ange distributions läget som [stegvis](deployment-modes.md). Men huvud mal len kan distribueras i fullständigt läge. Om du distribuerar huvud mal len i det fullständiga läget och den länkade eller kapslade mallen har samma resurs grupp, inkluderas de resurser som distribueras i den länkade eller kapslade mallen i utvärderingen för fullständig läges distribution. Den kombinerade samling resurser som distribueras i huvud mal len och länkade eller kapslade mallar jämförs med de befintliga resurserna i resurs gruppen. Alla resurser som inte ingår i den kombinerade samlingen tas bort.
+>
+> Om den länkade eller kapslade mallen är riktad mot en annan resurs grupp, använder distributionen stegvist läge.
 >
 
 ## <a name="nested-template"></a>Kapslad mall
@@ -160,7 +162,7 @@ Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller 
 
 Värdet för `exampleVar` ändringar beroende på `scope` egenskapens värde i `expressionEvaluationOptions` . I följande tabell visas resultaten för båda omfattningarna.
 
-| `expressionEvaluationOptions`utrymme | Utdata |
+| `expressionEvaluationOptions` utrymme | Utdata |
 | ----- | ------ |
 | innersta | från kapslad mall |
 | yttre (eller standard) | från överordnad mall |
@@ -312,14 +314,9 @@ När du refererar till en länkad mall får värdet `uri` inte vara en lokal fil
 
 > [!NOTE]
 >
-> Du kan referera till mallar med parametrar som i slut ända till något som använder **http** eller **https**, till exempel med hjälp av `_artifactsLocation` parametern som så här:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> Du kan referera till mallar med parametrar som i slut ända till något som använder **http** eller **https**, till exempel med hjälp av `_artifactsLocation` parametern som så här: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Resource Manager måste kunna komma åt mallen. Ett alternativ är att placera din länkade mall i ett lagrings konto och använda URI: n för objektet.
-
-Med [specifikationer för mallar](./template-specs.md) (för närvarande i privat för hands version) kan du dela arm-mallar med andra användare i din organisation. Specifikationer för mallar kan också användas för att paketera en huvud-mall och dess länkade mallar. Mer information finns i:
-
-- [Självstudie: skapa en mall-specifikation med länkade mallar](./template-specs-create-linked.md).
-- [Självstudie: Distribuera en mall specifikation som en länkad mall](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parametrar för länkad mall
 
@@ -369,6 +366,15 @@ Om du vill skicka parameter värden infogade använder **du parameter** egenskap
 ```
 
 Du kan inte använda både infogade parametrar och en länk till en parameter fil. Distributionen Miss lyckas med ett fel när både `parametersLink` och `parameters` har angetts.
+
+## <a name="template-specs"></a>Mallspecifikationer
+
+I stället för att underhålla de länkade mallarna på en tillgänglig slut punkt kan du skapa en [mall-specifikation](template-specs.md) som paketerar huvud mal len och dess länkade mallar i en enda enhet som du kan distribuera. Mallens specifikation är en resurs i din Azure-prenumeration. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll (RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
+
+Mer information finns i:
+
+- [Självstudie: skapa en mall-specifikation med länkade mallar](./template-specs-create-linked.md).
+- [Självstudie: Distribuera en mall specifikation som en länkad mall](./template-specs-deploy-linked-template.md).
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -723,6 +729,9 @@ done
 Parameter filen kan också begränsas till åtkomst via en SAS-token.
 
 För närvarande kan du inte länka till en mall i ett lagrings konto som ligger bakom en [Azure Storage brand vägg](../../storage/common/storage-network-security.md).
+
+> [!IMPORTANT]
+> I stället för att skydda din länkade mall med en SAS-token kan du skapa en [mall-specifikation](template-specs.md). I retemplate-specifikationen lagras huvud mal len och de länkade mallarna som en resurs i din Azure-prenumeration. Du använder RBAC för att bevilja åtkomst till användare som behöver distribuera mallen.
 
 I följande exempel visas hur du skickar en SAS-token vid länkning till en mall:
 

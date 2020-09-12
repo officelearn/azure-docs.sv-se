@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903415"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566593"
 ---
 # <a name="request-limits-for-translator"></a>Begär ande begränsningar för översättare
 
@@ -31,7 +31,7 @@ I följande tabell visas mat ris element och Character-begränsningar för varje
 |:----|:----|:----|:----|
 | Översätt | 10 000    | 100   | 10 000 |
 | Transkribera | 5 000 | 10    | 5 000 |
-| Upptäcka | 10 000 | 100 |   50 000 |
+| Upptäcka | 50 000 | 100 |   50 000 |
 | BreakSentence | 50 000    | 100 | 50 000 |
 | Slå upp i ordlista| 100 |  10  | 1 000 |
 | Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2 000 |
@@ -71,7 +71,7 @@ När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/co
 | Italienska | it | 800 |
 | Japanska | ja | 166 |
 | Portugisiska | pt | 800 |
-| Spanska | ES | 800 |
+| Spanska | es | 800 |
 | Thailändska | i:te | 180 |
 
 > [!NOTE]

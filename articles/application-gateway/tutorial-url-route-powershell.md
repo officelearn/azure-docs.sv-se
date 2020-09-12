@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805997"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596081"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Dirigera webbtrafik baserat på webbadressen med Azure PowerShell
 
@@ -23,16 +23,15 @@ Om du vill aktivera trafikdirigering skapar du [routningsregler](application-gat
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa lyssnare, en mappning av adressökvägar och regler
-> * Skapa skalbara serverdelspooler
+* Konfigurera nätverket
+* Skapa lyssnare, en mappning av adressökvägar och regler
+* Skapa skalbara serverdelspooler
 
 ![URL-routningsexempel](./media/tutorial-url-route-powershell/scenario.png)
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-route-cli.md) eller [Azure Portal](create-url-route-portal.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

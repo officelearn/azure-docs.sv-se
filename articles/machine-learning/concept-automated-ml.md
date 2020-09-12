@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652108"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658556"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -204,9 +204,9 @@ Att till exempel skapa en modell __för varje instans eller individ__ i följand
 
 ## <a name="automl-in-azure-machine-learning"></a>AutoML i Azure Machine Learning
 
-Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserade ML
+Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserade ML:
 
-* För kod erfarna kunder [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* För kod erfarna kunder [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * För kunder med begränsade/inga kod upplevelser Azure Machine Learning Studio på [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,9 +289,9 @@ Artiklar ger ytterligare information om vilka funktioner AutoML erbjuder. Exempe
 
 Granska detaljerade kod exempel och användnings fall i [GitHub Notebook-lagringsplatsen för automatiserade maskin inlärnings](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)exempel.
 
-### <a name="python-sdk-reference"></a>Python SDK-referens 
+### <a name="python-sdk-reference"></a>Python SDK-referens
 
-Fördjupa dina kunskaper om SDK design mönster och klass specifikationer med [AutoML klass Reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+Fördjupa dina kunskaper om SDK design mönster och klass specifikationer med [AutoML klass Reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
 
 > [!Note]
 > Automatiska maskin inlärnings funktioner är också tillgängliga i andra Microsoft-lösningar som, [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) och [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

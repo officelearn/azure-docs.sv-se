@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085879"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462572"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Apache Hadoop jobb i HDInsight
 
@@ -37,7 +37,7 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
 | Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -58,7 +58,7 @@ När du har anslutit kan du använda följande syntax för att ladda upp en fil 
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Till exempel, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Till exempel `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Eftersom standard fil systemet för HDInsight är i Azure Storage, är/example/data/data.txt faktiskt i Azure Storage. Du kan också referera till filen som:
 
@@ -68,7 +68,7 @@ eller
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-En lista över andra Hadoop-kommandon som fungerar med filer finns i[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+En lista över andra Hadoop-kommandon som fungerar med filer finns i [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > I Apache HBase-kluster är standard block storleken som används vid skrivning av data 256 KB. Även om det fungerar bra när du använder HBase-API: er eller REST-API: er kan du använda `hadoop` `hdfs dfs` kommandona eller för att skriva data som är större än ~ 12 GB. Mer information finns i [lagrings undantag för skrivning i BLOB](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
@@ -77,10 +77,10 @@ En lista över andra Hadoop-kommandon som fungerar med filer finns i[https://had
 
 Det finns också flera program som tillhandahåller ett grafiskt gränssnitt för att arbeta med Azure Storage. Följande tabell är en lista över några av dessa program:
 
-| Klient | Linux | OS X | Windows |
+| Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Lagringsutforskaren](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer för Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
@@ -88,7 +88,7 @@ Det finns också flera program som tillhandahåller ett grafiskt gränssnitt fö
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Montera Azure Storage som lokal enhet
 
-Se [montera Azure Storage som lokal enhet](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Se [montera Azure Storage som lokal enhet](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Ladda upp med tjänster
 

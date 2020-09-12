@@ -10,12 +10,12 @@ ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871164"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658576"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -29,7 +29,7 @@ När du bestämmer vilket alternativ för redundans som passar bäst för ditt s
 
 ## <a name="redundancy-in-the-primary-region"></a>Redundans i den primära regionen
 
-Data i ett Azure Storage-konto replikeras alltid tre gånger i den primära regionen. Azure Storage erbjuder två alternativ för hur dina data replikeras i den primära regionen:
+Data i ett Azure Storage-konto replikeras alltid tre gånger i den primära regionen. Azure Storage innehåller två alternativ för hur dina data replikeras i den primära regionen:
 
 - **Lokalt Redundant lagring (LRS)** kopierar dina data synkront tre gånger inom en enda fysisk plats i den primära regionen. LRS är det minst dyra replikeringsalternativ, men det rekommenderas inte för program som kräver hög tillgänglighet.
 - **Zone-redundant lagring (ZRS)** kopierar dina data synkront över tre tillgänglighets zoner i Azure i den primära regionen. För program som kräver hög tillgänglighet rekommenderar Microsoft att du använder ZRS i den primära regionen och även replikerar till en sekundär region.
@@ -49,7 +49,7 @@ LRS är ett bra val för följande scenarier:
 
 ### <a name="zone-redundant-storage"></a>Zonredundant lagring
 
-Zone-redundant lagring (ZRS) replikerar dina Azure Storage data synkront över tre tillgänglighets zoner i Azure i den primära regionen. Varje tillgänglighets zon är en separat fysisk plats med oberoende strömförsörjning, kylning och nätverk. ZRS erbjuder hållbarhet för Azure Storage data objekt på minst 99,9999999999% (12 9) under ett angivet år.
+Zone-redundant lagring (ZRS) replikerar dina Azure Storage data synkront över tre tillgänglighets zoner i Azure i den primära regionen. Varje tillgänglighetszon är en separat fysisk plats med fristående strömförsörjning, nedkylning och nätverk. ZRS erbjuder hållbarhet för Azure Storage data objekt på minst 99,9999999999% (12 9) under ett angivet år.
 
 Med ZRS är dina data fortfarande tillgängliga för både Läs-och skriv åtgärder även om en zon blir otillgänglig. Om en zon blir otillgänglig gör Azure nätverks uppdateringar, till exempel DNS-ompekare. De här uppdateringarna kan påverka ditt program om du har åtkomst till data innan uppdateringarna har slutförts. När du skapar program för ZRS följer du praxis för hantering av tillfälliga fel, inklusive implementering av principer för återförsök med exponentiell säkerhets kopiering.
 
@@ -64,8 +64,8 @@ Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka re
 | Storage Account-typ | Regioner som stöds | Tjänster som stöds |
 |--|--|--|
 | Allmänt-syfte v2<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Sydafrika, norra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2 | Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
-| BlockBlobStorage<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br /> Västeuropa<br /> USA, Östra <br /> USA, västra 2| Endast Premium block-blobbar |
-| FileStorage | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br /> Västeuropa<br /> USA, Östra <br /> USA, västra 2 | Premium-filer endast resurser |
+| BlockBlobStorage<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br /> Västeuropa<br /> USA, Östra <br /> USA, östra 2 <br /> USA, västra 2| Endast Premium block-blobbar |
+| FileStorage | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br /> Västeuropa<br /> USA, Östra <br /> USA, östra 2 <br /> USA, västra 2 | Premium-filer endast resurser |
 
 <sup>1</sup> Arkiv nivån stöds för närvarande inte för ZRS-konton.<br />
 <sup>2</sup> lagrings konton som innehåller Azure Managed disks för virtuella datorer använder alltid LRS. Azure-ohanterade diskar bör också använda LRS. Det går att skapa ett lagrings konto för Azure unmanaged disks som använder GRS, men det rekommenderas inte på grund av potentiella problem med konsekvens över asynkron geo-replikering. Varken hanterade eller ohanterade diskar har stöd för ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -80,8 +80,8 @@ När du skapar ett lagrings konto väljer du den primära regionen för kontot. 
 
 Azure Storage erbjuder två alternativ för att kopiera data till en sekundär region:
 
-- **Geo-redundant lagring (GRS)** kopierar dina data synkront tre gånger inom en enda fysisk plats i den primära regionen med hjälp av LRS. Därefter kopieras data asynkront till en enda fysisk plats i den sekundära regionen.
-- **Geo-Zone-redundant lagring (GZRS)** kopierar dina data synkront över tre tillgänglighets zoner i Azure i den primära regionen med hjälp av ZRS. Därefter kopieras data asynkront till en enda fysisk plats i den sekundära regionen.
+- **Geo-redundant lagring (GRS)** kopierar dina data synkront tre gånger inom en enda fysisk plats i den primära regionen med hjälp av LRS. Därefter kopieras dina data asynkront till en enda fysisk plats i den sekundära regionen.
+- **Geo-Zone-redundant lagring (GZRS)** kopierar dina data synkront över tre tillgänglighets zoner i Azure i den primära regionen med hjälp av ZRS. Därefter kopieras dina data asynkront till en enda fysisk plats i den sekundära regionen.
 
 Den främsta skillnaden mellan GRS och GZRS är hur data replikeras i den primära regionen. I den sekundära regionen replikeras alltid data synkront under tre gånger med hjälp av LRS. LRS i den sekundära regionen skyddar dina data mot maskin varu problem.
 

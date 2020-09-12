@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962833"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596047"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
@@ -149,11 +149,11 @@ Med det här alternativet behöver du inte skriva någon autentiseringsmetod i d
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service (Windows)](tutorial-auth-aad.md)  
-[Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service för Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
-[Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md) 
- [.Net Core-integrering av Azure AppService EasyAuth (tredje part)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
- [Få Azure App Service autentisering arbeta med .net Core (tredje part)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service (Windows)](tutorial-auth-aad.md)  
+* [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service för Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
+* [Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md)
+* [.NET Core-integrering av Azure AppService EasyAuth (tredje part)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [Få Azure App Service autentisering arbeta med .NET Core (tredje part)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Providerspecifika instruktions guider:
 

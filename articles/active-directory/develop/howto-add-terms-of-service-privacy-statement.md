@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478016"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535780"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Gör så här: konfigurera villkor för service och sekretess policy för en app
 
@@ -45,7 +45,7 @@ Innan du lägger till länkar till appens användar villkor och sekretess policy
 | Giltiga scheman | HTTP och HTTPS<br/>Vi rekommenderar HTTPS |
 | Högsta längd    | 2048 tecken                       |
 
-Exempel: `https://myapp.com/terms-of-service` och`https://myapp.com/privacy-statement`
+Exempel: `https://myapp.com/terms-of-service` och `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Lägga till länkar till villkoren för tjänsten och sekretess policyn
 
@@ -58,7 +58,7 @@ När tjänst villkoren och sekretess policyn är klara kan du lägga till länka
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Använda Azure Portal
 Följ de här stegen i Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/), Välj rätt AzureAD-klient (inte B2C).
 2. Gå till avsnittet **app Registration** och välj din app.
 3. Öppna fönstret **varumärkes anpassning** .
 4. Fyll i URL **-fälten för användnings villkoren** och **URL: en för sekretess policy** .
@@ -69,6 +69,11 @@ Följ de här stegen i Azure Portal.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Använda app Object JSON
 
 Om du föredrar att ändra programobjekt-JSON direkt kan du använda manifest redigeraren i Azure Portal-eller program registrerings portalen för att ta med länkar till appens användnings villkor och sekretess policy.
+
+1. Navigera till avsnittet **app Registration** och välj din app.
+2. Öppna **manifest** fönstret.
+3. Ctrl + F, Sök efter "informationalUrls". Fyll i informationen.
+4. Spara ändringarna.
 
 ```json
     "informationalUrls": { 
@@ -96,5 +101,5 @@ PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 ```
 
 > [!NOTE]
-> * Var noga med att inte skriva över befintliga värden som du har tilldelat något av dessa fält: `supportUrl` , `marketingUrl` och`logoUrl`
+> * Var noga med att inte skriva över befintliga värden som du har tilldelat något av dessa fält: `supportUrl` , `marketingUrl` och `logoUrl`
 > * Microsoft Graph API fungerar bara när du loggar in med ett Azure AD-konto. Personliga Microsoft-konton stöds inte.

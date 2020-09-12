@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 08/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5805fe1f3fe25a1e2d7fbc5c0d0fb443586479d2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bc881b1b366a152c2d592463c8025ea1087307cf
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649620"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461969"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
 
@@ -30,7 +30,7 @@ Mer information och uppdateringar om SAP på DB2 för LUW på Azure finns i SAP 
 
 Följande SAP-anteckningar är relaterade till SAP på Azure angående det utrymme som beskrivs i det här dokumentet:
 
-| Antecknings nummer |Title |
+| Antecknings nummer |Rubrik |
 | --- |--- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -56,7 +56,8 @@ Information om vilka SAP-produkter som stöds och Azure VM-typer finns i SAP NOT
 ### <a name="storage-configuration"></a>Storage-konfiguration
 En översikt över Azure Storage-typer för SAP-arbetsbelastningar finns i artikeln [Azure Storage typer för SAP-arbets belastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) alla databasfiler måste lagras på monterade diskar i Azure block Storage (Windows: NFFS, Linux: xfs, ext4 eller ext3). Alla typer av nätverks enheter eller fjär resurser som följande Azure-tjänster stöds **inte** för databasfiler: 
 
-* [Microsoft Azure fil tjänst](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Microsoft Azure fil tjänst](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
 Med hjälp av diskar baserade på Azure Page BLOB Storage eller Managed Disks, gäller de instruktioner som gjorts i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) gäller även distributioner med DB2-DBMS.
@@ -71,7 +72,7 @@ Du kan också använda Windows-lagringspooler (endast tillgängligt i Windows Se
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata-och saptmp-kataloger måste du ange en storlek på den fysiska disk sektorn på 512 KB. När du använder Windows-lagringspooler måste du skapa lagringspooler manuellt via kommando rads gränssnittet med hjälp av parametern `-LogicalSectorSizeDefault` . Mer information finns i <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+För de diskar som innehåller lagrings Sök vägar för DB2 för dina `sapdata` `saptmp` -och-kataloger måste du ange en storlek på den fysiska disk sektorn på 512 kB. När du använder Windows-lagringspooler måste du skapa lagringspooler manuellt via kommando rads gränssnittet med hjälp av parametern `-LogicalSectorSizeDefault` . Mer information finns i <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 För virtuella datorer i Azure M-serien kan svars tiden som skrivs till transaktions loggarna minskas med faktorer, jämfört med Azure Premium Storage prestanda, när Azure Skrivningsaccelerator används. Därför bör du Distribuera Azure-Skrivningsaccelerator för de virtuella hård diskar som utgör volymen för DB2-transaktionsloggarna. Information kan läsas i dokumentet [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md).
 
@@ -175,7 +176,7 @@ För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 Alla andra allmänna områden som Azures tillgänglighets uppsättningar eller SAP-övervakning gäller enligt beskrivningen i dokumentet [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) för distribution av virtuella datorer med IBM-databasen.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598

@@ -16,15 +16,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359356"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660836"
 ---
 # <a name="risky-ip-report-public-preview"></a>Riskfylld IP-rapport (offentlig för hands version)
-AD FS-kunder kan göra slutpunkter tillgängliga för lösenordsautentisering på Internet för att tillhandahålla autentiseringstjänster till slutanvändare som ska få åtkomst till SaaS-program, till exempel Office 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
+AD FS kunder kan exponera slut punkter för autentisering av lösen ord till Internet för att tillhandahålla autentiseringstjänster för slutanvändare att få åtkomst till SaaS-program som Microsoft 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
 
 Dessutom är det möjligt att en enskild IP-adress kan försöka utföra flera inloggningar mot flera användare. I dessa fall kan antalet försök per användare ligga under tröskelvärdet för kontots utelåsningsskydd i AD FS. Azure AD Connect Health innehåller nu en ”rapport för riskfyllda IP-adresser” som identifierar det här tillståndet och meddelar administratörer om detta inträffar. Följande är viktiga fördelar med den här rapporten: 
 - Identifiering av IP-adresser som överskrider ett tröskelvärde för misslyckade lösenordsbaserade inloggningar
@@ -35,7 +35,7 @@ Dessutom är det möjligt att en enskild IP-adress kan försöka utföra flera i
 
 > [!NOTE]
 > Om du ska kunna använda rapporten måste AD FS-granskning vara aktiverat. Mer information finns i [Aktivera granskning för AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Om du vill ha åtkomst till förhandsversionen måste du ha behörighet som global administratör eller [säkerhetsläsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
+> Om du vill ha åtkomst till förhandsversionen måste du ha behörighet som global administratör eller [säkerhetsläsare](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Vad finns i rapporten?
@@ -99,7 +99,7 @@ Aviseringströskelvärdet kan uppdateras i Tröskelinställningar. Systemet har 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 **Varför ser jag privata IP-adressintervall i rapporten?**  <br />
-Privata IP-adresser (<i>10.x.x.x, 172.x.x.x och 192.168.x.x</i>) och Exchange-IP-adresser är filtrerade och markeras som True i IP-vitlistan. Om du ser privata IP-adressintervall är det mycket troligt att en extern lastbalanserare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn.
+Privata IP-adresser (<i>10. x. x, 172. x. x. x & 192.168. x. x</i>) och Exchange IP-adresser filtreras och markeras som true i listan över godkända IP-adresser. Om du ser privata IP-adressintervall är det mycket troligt att en extern lastbalanserare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn.
 
 **Varför ser jag IP-adresser för lastbalanserare i rapporten?**  <br />
 Om du ser IP-adresser för lastbalanserare är det mycket troligt att en extern lastbalanserare inte skickar klientens IP-adress när den skickar sin begäran till servern för webbprogramproxyn. Konfigurera lastbalanseraren korrekt för att vidarebefordra klientens IP-adress. 
@@ -113,9 +113,9 @@ Du bör lägga till identifierade skadliga IP-adresser i brandväggen eller bloc
 - Granskningar är inte aktiverade i AD FS-servergrupperna.
 
 **Varför ser jag ingen åtkomst till rapporten?**  <br />
-Du måste ha behörighet som global administratör eller [säkerhetsläsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Kontakta en global administratör för att få åtkomst.
+Du måste ha behörighet som global administratör eller [säkerhetsläsare](../../role-based-access-control/built-in-roles.md#security-reader). Kontakta en global administratör för att få åtkomst.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)

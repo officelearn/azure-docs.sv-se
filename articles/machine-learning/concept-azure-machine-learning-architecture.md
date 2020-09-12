@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146784"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651262"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -110,7 +110,7 @@ Du kan t. ex. köra konfigurationer i [använda ett beräknings mål för att tr
 
 ### <a name="estimators"></a>Kostnadsberäknare
 
-För att under lätta modell träningen med populära ramverk, gör klassen uppskattning att du enkelt kan skapa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
+För att under lätta modell träningen med populära ramverk, gör klassen uppskattning att du enkelt kan skapa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
 
 Mer information om uppskattningar finns i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 
@@ -123,7 +123,9 @@ När du skickar en körning komprimerar Azure Machine Learning den katalog som i
 
 ### <a name="logging"></a>Loggning
 
-När du utvecklar din lösning använder du Azure Machine Learning python SDK i python-skriptet för att logga godtyckliga mått. Efter körningen frågar du måtten för att avgöra om körningen har genererat den modell som du vill distribuera.
+Azure Machine Learning loggar standard körnings mått automatiskt åt dig. Du kan dock också [använda python SDK för att logga godtyckliga mått](how-to-track-experiments.md).
+
+Det finns flera sätt att visa dina loggar: övervakningens körnings status i real tid eller Visa resultaten efter slut för ande. Mer information finns i [övervaka och Visa ml-körnings loggar](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Om du har aktiverat automatisk skalning skalar Azure automatiskt distributionen.
 
 Ett exempel på hur du distribuerar en modell som en webb tjänst finns [i Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Real tids slut punkter
+
+När du distribuerar en tränad modell i designern (för hands version) kan du [distribuera modellen som en slut punkt i real tid](tutorial-designer-automobile-price-deploy.md). En slut punkt i real tid tar ofta emot en enskild begäran via REST-slutpunkten och returnerar en förutsägelse i real tid. Detta är i motsats till batchbearbetning, som bearbetar flera värden samtidigt och sparar resultaten när de har slutförts till ett data lager.
+
+#### <a name="pipeline-endpoints"></a>Pipeline-slutpunkter
+
+Med pipeline-slutpunkter kan du ringa dina [ml-pipeliner](#ml-pipelines) program mässigt via en REST-slutpunkt. Med pipelinens slut punkter kan du automatisera dina pipeline-arbetsflöden.
+
+En pipeline-slutpunkt är en samling publicerade pipeliner. Med den här logiska organisationen kan du hantera och anropa flera pipeliner med samma slut punkt. Varje publicerad pipeline i en pipeline-slutpunkt har versions hantering. Du kan välja en förvald pipeline för slut punkten eller ange en version i REST-anropet.
+ 
+
 #### <a name="iot-module-endpoints"></a>IoT-modulens slut punkter
 
 En distribuerad IoT module-slutpunkt är en Docker-behållare som innehåller din modell och tillhör ande skript eller program och eventuella ytterligare beroenden. Du distribuerar dessa moduler genom att använda Azure IoT Edge på gräns enheter.
@@ -212,12 +225,13 @@ Pipeline-steg kan återanvändas och kan köras utan att köra föregående steg
 
 ### <a name="studio"></a>Studio
 
-[Azure Machine Learning Studio](https://ml.azure.com) innehåller en webbvy över alla artefakter i din arbets yta.  Du kan visa resultat och information om dina data uppsättningar, experiment, pipelines, modeller och slut punkter.  Du kan också hantera beräknings resurser och data lager i Studio.
+[Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) innehåller en webbvy över alla artefakter i din arbets yta.  Du kan visa resultat och information om dina data uppsättningar, experiment, pipelines, modeller och slut punkter.  Du kan också hantera beräknings resurser och data lager i Studio.
 
-Studio är också den plats där du får åtkomst till de interaktiva verktyg som ingår i Azure Machine Learning:
+Studio är också den plats där du kommer åt de interaktiva verktyg som ingår i Azure Machine Learning:
 
 + [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes steg utan att skriva kod
 + Webb upplevelse för [Automatisk maskin inlärning](concept-automated-ml.md)
++ [Azure Machine Learning antecknings böcker](how-to-run-jupyter-notebooks.md) för att skriva och köra din egen kod i integrerade Jupyter Notebook-servrar.
 + [Data](how-to-create-labeling-projects.md) som används för att skapa, hantera och övervaka projekt för att förse dina data med etiketter
 
 ### <a name="programming-tools"></a>Programmerings verktyg
@@ -226,7 +240,7 @@ Studio är också den plats där du får åtkomst till de interaktiva verktyg so
 > Verktyg som marker ATS (för hands version) nedan finns för närvarande i offentlig för hands version.
 > För hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R (för](https://azure.github.io/azureml-sdk-for-r/reference/index.html) hands version).
 + Använd [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) för Automation.
 + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.

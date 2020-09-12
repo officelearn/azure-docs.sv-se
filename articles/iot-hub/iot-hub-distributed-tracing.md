@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732563"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462045"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -37,7 +39,7 @@ I den här artikeln använder du [Azure IoT-enhetens SDK för C](iot-hub-device-
 
 - För hands versionen av Distributed tracing stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
-  - **Europa, norra**
+  - **Norra Europa**
   - **Sydostasien**
   - **USA, västra 2**
 
@@ -167,7 +169,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Kör appen. Enheten skickar telemetri som stöder distribuerad spårning.
+1. Kör programmet. Enheten skickar telemetri som stöder distribuerad spårning.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -249,7 +251,7 @@ Om du vill uppdatera den distribuerade spårnings samplings konfigurationen för
 
 | Elementnamn | Krävs | Typ | Beskrivning |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Ja | Integer | Två läges värden stöds för närvarande för att aktivera och inaktivera sampling. `1`är på och `2` är avstängd. |
+| `sampling_mode` | Ja | Integer | Två läges värden stöds för närvarande för att aktivera och inaktivera sampling. `1` är på och `2` är avstängd. |
 | `sampling_rate` | Ja | Integer | Det här värdet är en procent andel. Endast värden från `0` till `100` (inklusive) tillåts.  |
 
 ## <a name="query-and-visualize"></a>Fråga och visualisera
@@ -270,7 +272,7 @@ AzureDiagnostics
 
 Exempel på loggar som visas i Log Analytics:
 
-| TimeGenerated | OperationName | Kategori | Nivå | CorrelationId | . Durationms | Egenskaper |
+| TimeGenerated | OperationName | Kategori | Nivå | CorrelationId | DurationMs | Egenskaper |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633 Z | DiagnosticIoTHubD2C | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId": "AZ3166", "messageSize": "96", "callerLocalTimeUtc": "2018-02-22T03:27:28.633 Z", "calleeLocalTimeUtc": "2018-02-22T03:27:28.687 Z"} |
 | 2018-02-22T03:28:38.633 Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
@@ -307,10 +309,10 @@ När den har Aktiver ATS följer stöd för distribuerad spårning för IoT Hub 
 
 1. Ett meddelande genereras på IoT-enheten.
 1. IoT-enheten bestämmer (med hjälp av molnet) att det här meddelandet ska tilldelas med en spårnings kontext.
-1. SDK lägger till en `tracestate` till meddelande program egenskapen som innehåller tidsstämpeln för att skapa meddelanden.
+1. SDK lägger till en `tracestate` i meddelande egenskapen som innehåller tidsstämpeln för att skapa meddelanden.
 1. IoT-enheten skickar meddelandet till IoT Hub.
 1. Meddelandet anländer till IoT Hub Gateway.
-1. IoT Hub letar efter `tracestate` i egenskaperna för meddelande programmet och kontrollerar om det har rätt format.
+1. IoT Hub letar efter `tracestate` i meddelande egenskaperna och kontrollerar om det har rätt format.
 1. I så fall genererar IoT Hub ett globalt unikt `trace-id` för meddelandet, a `span-id` för "hopp" och loggar dem till Azure Monitor diagnostikloggar under åtgärden `DiagnosticIoTHubD2C` .
 1. När meddelande bearbetningen har slutförts genererar IoT Hub en annan `span-id` och loggar den tillsammans med det befintliga `trace-id` under åtgärden `DiagnosticIoTHubIngress` .
 1. Om routning har Aktiver ATS för meddelandet IoT Hub skriver den till den anpassade slut punkten och loggar en annan `span-id` med samma `trace-id` under kategori `DiagnosticIoTHubEgress` .

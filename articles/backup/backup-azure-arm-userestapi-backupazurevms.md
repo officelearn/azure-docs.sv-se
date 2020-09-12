@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006303"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506635"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -274,6 +274,35 @@ När åtgärden har slutförts returneras 200 (OK) med det skyddade objekt inneh
 
 Detta bekräftar att skyddet har Aktiver ATS för den virtuella datorn och att den första säkerhets kopieringen kommer att utlösas enligt princip schemat.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Exkludera diskar i virtuell Azure-säkerhetskopiering
+
+Azure Backup är också ett sätt att selektivt säkerhetskopiera en delmängd av diskar i virtuella Azure-datorer. Mer information finns [här](selective-disk-backup-restore.md). Om du vill selektivt säkerhetskopiera några diskar när du aktiverar skydd bör följande kodfragment vara [begär ande texten när skyddet aktive ras](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+I begär ande texten ovan finns listan över diskar som ska säkerhets kopie ras i avsnittet utökade egenskaper.
+
+|Egenskap  |Värde  |
+|---------|---------|
+|diskLunList     | Listan disk-LUN är en lista över *LUN för data diskar*. **OS-disken säkerhets kopie ras alltid och behöver inte anges**.        |
+|IsInclusionList     | Bör vara **Sant** för de LUN som ska tas med under säkerhets kopieringen. Om det är **falskt**kommer de ovan nämnda LUN att undantas.         |
+
+Så om kravet bara är att säkerhetskopiera OS-disken ska _alla_ data diskar undantas. Ett enklare sätt är att säga att inga data diskar ska tas med. Diskens LUN-lista är tom och **IsInclusionList** är **sann**. På samma sätt kan du tänka på vad som är det enklaste sättet att välja en delmängd: ett fåtal diskar bör alltid undantas eller så bör ett fåtal diskar alltid inkluderas. Välj LUN-listan och värdet för den booleska variabeln.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Utlös en säkerhets kopiering på begäran för en skyddad virtuell Azure-dator
 
 När en virtuell Azure-dator har kon figurer ATS för säkerhets kopiering sker säkerhets kopieringar enligt princip schemat. Du kan vänta på den första schemalagda säkerhets kopieringen eller utlösa en säkerhets kopiering på begäran när som helst. Kvarhållning för säkerhets kopiering på begäran är separat från säkerhets kopierings principens kvarhållning och kan anges till en viss datum tid. Om inget anges antas det vara 30 dagar från dagen för utlösaren av säkerhets kopiering på begäran.
@@ -389,7 +418,7 @@ Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd måste det 
 
 Om du vill ändra principen som den virtuella datorn är skyddad med kan du använda samma format som att [Aktivera skydd](#enabling-protection-for-the-azure-vm). Ange bara det nya princip-ID: t i [begär ande texten](#example-request-body) och skicka begäran. Exempel: om du vill ändra principen för testVM från "DefaultPolicy" till "ProdPolicy" anger du "ProdPolicy"-ID: t i begär ande texten.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Om du vill ändra principen som den virtuella datorn är skyddad med kan du anv�
 ```
 
 Svaret följer samma format som det som nämnts [för att aktivera skydd](#responses-to-create-protected-item-operation)
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Exkludera diskar under Azure VM-skydd
+
+Om den virtuella Azure-datorn redan har säkerhetskopierats kan du ange en lista över diskar som ska säkerhets kopie ras eller undantas genom att ändra skydds principen. Du behöver bara förbereda begäran i samma format som när du [aktiverar skydd](#excluding-disks-in-azure-vm-backup)
+
+> [!IMPORTANT]
+> Begär ande texten ovan är alltid den sista kopian av data diskar som ska undantas eller tas med. Detta *läggs* inte till i den tidigare konfigurationen. Exempel: om du först uppdaterar skyddet som "exkludera data disk 1" och sedan upprepar med "exkludera data disk 2", *undantas endast data disk 2* i efterföljande säkerhets kopieringar och data disk 1 tas med. Detta är alltid den slutgiltiga listan som kommer att inkluderas/undantas i efterföljande säkerhets kopieringar.
+
+Hämta den information om det skyddade objektet som anges [här](https://docs.microsoft.com/rest/api/backup/protecteditems/get)om du vill hämta den aktuella listan över diskar som undantas eller tas med. Svaret innehåller en lista över LUN för datadisk och indikerar om de tas med eller undantas.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Stoppa skyddet men behåll befintliga data
 

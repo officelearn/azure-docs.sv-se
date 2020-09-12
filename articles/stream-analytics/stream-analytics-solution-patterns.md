@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903331"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461552"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
@@ -102,7 +102,7 @@ De flesta data vetenskaps-och analys aktiviteter sker fortfarande offline. Data 
 
 ## <a name="use-reference-data-for-enrichment"></a>Använd referens data för berikning
 
-Data berikning är ofta ett krav för ETL-motorer. Azure Stream Analytics stöder data anrikning med [referens data](stream-analytics-use-reference-data.md) från både SQL Database och Azure Blob Storage. Data-anrikning kan göras för data landning i både Azure Data Lake och SQL Data Warehouse.
+Data berikning är ofta ett krav för ETL-motorer. Azure Stream Analytics stöder data anrikning med [referens data](stream-analytics-use-reference-data.md) från både SQL Database och Azure Blob Storage. Data berikning kan göras för data landning i både Azure Data Lake och Azure Synapse Analytics.
 
 
 ![ASA offline Analytics med data anrikning](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
@@ -115,7 +115,7 @@ Om du kombinerar offline Analytics-mönstret med nära real tids program mönste
 
 ## <a name="how-to-monitor-asa-jobs"></a>Så här övervakar du ASA-jobb
 
-Ett Azure Stream Analytics jobb kan köras 24/7 för att bearbeta inkommande händelser kontinuerligt i real tid. Drift tiden är avgörande för hälsan för det övergripande programmet. Även om Stream Analytics är den enda streaming Analytics-tjänsten i branschen och erbjuder en [garanti på 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), kan du fortfarande stöta på en viss nivå av drift tid. Under åren har Stream Analytics infört statistik, loggar och jobb tillstånd för att avspegla jobbens hälso tillstånd. Alla är anslutna via Azure Monitor-tjänsten och kan exporteras ytterligare till OMS. Mer information finns i [förstå Stream Analytics jobb övervakning och övervaka frågor](stream-analytics-monitoring.md).
+Ett Azure Stream Analytics jobb kan köras 24/7 för att bearbeta inkommande händelser kontinuerligt i real tid. Drift tiden är avgörande för hälsan för det övergripande programmet. Även om Stream Analytics är den enda streaming Analytics-tjänsten i branschen och erbjuder en  [garanti på 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), kan du fortfarande stöta på en viss nivå av drift tid. Under åren har Stream Analytics infört statistik, loggar och jobb tillstånd för att avspegla jobbens hälso tillstånd. Alla är anslutna via Azure Monitor-tjänsten och kan exporteras ytterligare till OMS. Mer information finns i [förstå Stream Analytics jobb övervakning och övervaka frågor](stream-analytics-monitoring.md).
 
 ![ASA-övervakning](media/stream-analytics-solution-patterns/monitoring.png)
 

@@ -2,17 +2,17 @@
 title: Om Azure ExpressRoute Direct
 description: 'Lär dig mer om viktiga funktioner i Azure ExpressRoute Direct och information som behövs för att publicera till ExpressRoute Direct, till exempel tillgängliga SKU: er och tekniska krav.'
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192354"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566406"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Innan du använder ExpressRoute Direct måste du först registrera din prenumera
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct-kretsar
 
-Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Office 365.
+Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Microsoft 365.
 
 Varje peering-plats har åtkomst till Microsofts globala nätverk och kan komma åt valfri region i en regional politisk zon som standard och kan komma åt alla globala regioner med en Premium-krets.  
 

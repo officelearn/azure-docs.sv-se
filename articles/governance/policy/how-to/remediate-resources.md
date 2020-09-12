@@ -3,12 +3,12 @@ title: Åtgärda icke-kompatibla resurser
 description: Den här guiden vägleder dig genom reparationen av resurser som inte är kompatibla med principer i Azure Policy.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958753"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651356"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -19,7 +19,7 @@ Resurser som inte är kompatibla med en **deployIfNotExists** eller en **ändrin
 När Azure Policy kör mallen i **deployIfNotExists** -princip definitionen används en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy skapar en hanterad identitet för varje tilldelning, men du måste ha information om vilka roller som ska bevilja den hanterade identiteten. Om den hanterade identiteten saknar roller visas det här felet under tilldelningen av principen eller ett initiativ. När du använder portalen beviljas Azure Policy automatiskt den hanterade identitet som listade roller när tilldelningen startar. _Platsen_ för den hanterade identiteten påverkar inte åtgärden med Azure policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Hanterad identitet-saknas roll" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Skärm bild av en deployIfNotExists-princip som saknar definierad behörighet för den hanterade identiteten." border="false":::
 
 > [!IMPORTANT]
 > Om en resurs som har ändrats av **deployIfNotExists** eller **ändra** ligger utanför omfånget för princip tilldelningen eller om mallen har åtkomst till egenskaper för resurser utanför omfånget för princip tilldelningen, måste tilldelningens hanterade identitet [manuellt beviljas åtkomst](#manually-configure-the-managed-identity) eller så Miss fungerar reparations distributionen.
@@ -90,15 +90,15 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>Bevilja definierade roller via portalen
 
-Det finns två sätt att ge en tilldelnings hanterade identitet de definierade rollerna med hjälp av portalen, med hjälp av **åtkomst kontroll (IAM)** eller genom att redigera principen eller initiativ tilldelningen och klicka på **Spara**.
+Det finns två sätt att ge en tilldelnings hanterade identitet de definierade rollerna med hjälp av portalen, med hjälp av **åtkomst kontroll (IAM)** eller genom att redigera principen eller initiativ tilldelningen och välja **Spara**.
 
 Följ dessa steg om du vill lägga till en roll i tilldelningens hanterade identitet:
 
-1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
+1. Starta tjänsten Azure Policy i Azure Portal genom att välja **alla tjänster**och sedan söka efter och välja **princip**.
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy.
 
-1. Leta upp tilldelningen med en hanterad identitet och klicka på namnet.
+1. Leta upp tilldelningen med en hanterad identitet och välj namnet.
 
 1. Hitta egenskapen **tilldelnings-ID** på sidan Redigera. Tilldelnings-ID: t ser ut ungefär så här:
 
@@ -110,10 +110,10 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterade ident
 
 1. Gå till resursen eller den överordnade resurs behållaren (resurs grupp, prenumeration, hanterings grupp) som behöver roll definitionen manuellt tillagda.
 
-1. Klicka på länken **åtkomst kontroll (IAM)** på sidan resurser och klicka på **+ Lägg till roll tilldelning** överst på sidan åtkomst kontroll.
+1. Välj länken **åtkomst kontroll (IAM)** på sidan resurser och välj sedan **+ Lägg till roll tilldelning** överst på sidan åtkomst kontroll.
 
 1. Välj lämplig roll som matchar en **roleDefinitionIds** från princip definitionen.
-   Lämna **behörigheten tilldela** till standardvärdet för Azure AD-användare, grupp eller program. I rutan **Välj** klistrar du in eller skriver den del av tilldelningens resurs-ID som finns tidigare. När sökningen är klar klickar du på objektet med samma namn för att välja ID och klickar på **Spara**.
+   Lämna **behörigheten tilldela** till standardvärdet för Azure AD-användare, grupp eller program. I rutan **Välj** klistrar du in eller skriver den del av tilldelningens resurs-ID som finns tidigare. När sökningen är klar markerar du objektet med samma namn för att välja ID och väljer **Spara**.
 
 ## <a name="create-a-remediation-task"></a>Skapa en reparations uppgift
 
@@ -123,32 +123,32 @@ Under utvärderingen bestämmer princip tilldelningen med **deployIfNotExists** 
 
 Följ dessa steg om du vill skapa en **reparations uppgift**:
 
-1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
+1. Starta tjänsten Azure Policy i Azure Portal genom att välja **alla tjänster**och sedan söka efter och välja **princip**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Sök efter princip i alla tjänster" border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
 1. Välj **reparation** till vänster på sidan Azure policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Välj reparation på princip Sidan" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Skärm bild av reparations noden på princip sidan." border="false":::
 
-1. Alla **deployIfNotExists** och **ändra** princip tilldelningar med icke-kompatibla resurser ingår i **principerna för att åtgärda** fliken och data tabellen. Klicka på en princip med resurser som inte är kompatibla. Sidan **ny reparations aktivitet** öppnas.
+1. Alla **deployIfNotExists** och **ändra** princip tilldelningar med icke-kompatibla resurser ingår i **principerna för att åtgärda** fliken och data tabellen. Välj en princip med resurser som inte är kompatibla. Sidan **ny reparations aktivitet** öppnas.
 
    > [!NOTE]
-   > Ett annat sätt att öppna sidan **reparations uppgift** är att söka efter och klicka på principen på sidan **efterlevnad** . Klicka sedan på knappen **skapa reparations aktivitet** .
+   > Ett annat sätt att öppna sidan **reparations uppgift** är att söka efter och välja principen på sidan **efterlevnad** och sedan välja knappen **skapa reparations uppgift** .
 
 1. På sidan **ny reparations aktivitet** filtrerar du de resurser som ska åtgärdas genom att använda **omfångs** punkter för att välja underordnade resurser från där principen tilldelas (inklusive enskilda resurs objekt). Använd dessutom List rutan **platser** för att ytterligare filtrera resurserna. Endast resurser som anges i tabellen kommer att åtgärdas.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Åtgärda – Välj vilka resurser som ska åtgärdas" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Skärm bild av den reparerande noden och det rutnät med resurser som ska åtgärdas." border="false":::
 
-1. Påbörja reparations åtgärden när resurserna har filtrerats genom att klicka på **åtgärda**. Sidan policy efterlevnad öppnas på fliken **reparations aktiviteter** för att visa status för aktiviteternas förlopp. Distributioner som skapats av reparations aktiviteten börjar direkt.
+1. Påbörja reparations åtgärden när resurserna har filtrerats genom att välja **åtgärda**. Sidan policy efterlevnad öppnas på fliken **reparations aktiviteter** för att visa status för aktiviteternas förlopp. Distributioner som skapats av reparations aktiviteten börjar direkt.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Åtgärds förlopp för reparations åtgärder" border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Skärm bild av fliken reparations aktiviteter och förlopp för befintliga reparations aktiviteter." border="false":::
 
-1. Klicka på **reparations uppgiften** på sidan efterlevnadsprincip om du vill ha mer information om förloppet. Filtreringen som används för aktiviteten visas tillsammans med en lista över de resurser som åtgärdas.
+1. Välj på **reparations uppgiften** från sidan efterlevnadsprincip för att få information om förloppet. Filtreringen som används för aktiviteten visas tillsammans med en lista över de resurser som åtgärdas.
 
-1. På sidan **reparations aktivitet** högerklickar du på en resurs för att Visa reparations aktivitetens distribution eller resursen. Klicka på **relaterade händelser** i slutet av raden för att se information, till exempel ett fel meddelande.
+1. På sidan **reparations aktivitet** högerklickar du på en resurs för att Visa reparations aktivitetens distribution eller resursen. I slutet av raden väljer du **relaterade händelser** för att se information, till exempel ett fel meddelande.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Åtgärds snabb menyn åtgärd – resurs uppgift" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Skärm bild av snabb menyn för en resurs på fliken åtgärda uppgift." border="false":::
 
 Resurser som distribueras via en **reparations uppgift** läggs till på fliken **distribuerade resurser** på sidan efterlevnad av principer.
 

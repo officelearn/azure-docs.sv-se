@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518478"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658381"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Vanliga frågor och svar om Azure Active Directory Connect Cloud-etablering
 
@@ -74,7 +74,7 @@ När du tar bort konfigurationen tar moln etableringen inte bort de synkronisera
 
 **F: Vad betyder det att Exchange hybrid inte stöds?**
 
-Funktionen Exchange-hybridinstallation gör att Exchange-postlådor kan samexistera lokalt och i Office 365. Azure AD Connect synkroniserar en specifik uppsättning attribut från Azure AD tillbaka till din lokala katalog.  Moln Provisioning-agenten synkroniserar för närvarande inte de här attributen i din lokala katalog och stöds därför inte som en ersättning för Azure AD Connect.
+Funktionen Exchange hybrid distribution möjliggör samtidig användning av Exchange-postlådor både lokalt och i Microsoft 365. Azure AD Connect synkroniserar en specifik uppsättning attribut från Azure AD tillbaka till din lokala katalog.  Moln Provisioning-agenten synkroniserar för närvarande inte de här attributen i din lokala katalog och stöds därför inte som en ersättning för Azure AD Connect.
 
 **F: kan jag installera moln etablerings agenten på Windows Server Core?**
 

@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213507"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461213"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Optimera transaktioner i Synapse SQL
 
@@ -419,4 +419,4 @@ Det bästa scenariot är att tillåta att ändringar i Flight-transaktioner slut
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [transaktioner i SYNAPSE SQL](sql-data-warehouse-develop-transactions.md) för att lära dig mer om isolerings nivåer och transaktionella gränser.  En översikt över andra bästa metoder finns i [SQL Data Warehouse metod tips](sql-data-warehouse-best-practices.md).
+Se [transaktioner i SYNAPSE SQL](sql-data-warehouse-develop-transactions.md) för att lära dig mer om isolerings nivåer och transaktionella gränser.  En översikt över andra bästa metoder finns i [metod tips för Azure Synapse Analytics](sql-data-warehouse-best-practices.md).

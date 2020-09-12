@@ -1,24 +1,21 @@
 ---
 title: Aktivera replikering för lokala datorer med privata slut punkter
 description: Den här artikeln beskriver hur du konfigurerar replikering för lokala datorer med hjälp av privata slut punkter i Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 13c19f07ac21f986a5523407e46c59c050ebf96d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142085"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658794"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replikera lokala datorer med hjälp av privata slut punkter
 
-Med Azure Site Recovery kan du använda privata [Azure Private Link](../private-link/private-endpoint-overview.md) -slutpunkter för att replikera dina lokala datorer till ett virtuellt nätverk i Azure. Stöd för åtkomst till privata slut punkter till ett återställnings valv stöds i följande regioner:
-
-- Azure Commercial: södra centrala USA, västra USA 2, östra USA
-- Azure Government: US Gov, Virginia, US Gov, Arizona, US Gov, Texas, US DoD, östra, US DoD, centrala
+Med Azure Site Recovery kan du använda privata [Azure Private Link](../private-link/private-endpoint-overview.md) -slutpunkter för att replikera dina lokala datorer till ett virtuellt nätverk i Azure. Åtkomst till privata slut punkter till ett återställnings valv stöds i alla Azures regioner med kommersiell & myndigheter.
 
 I den här artikeln beskrivs hur du utför följande steg:
 
@@ -210,7 +207,7 @@ Skapa en privat DNS-zon som tillåter Site Recovery-providern (för Hyper-V-dato
 
    1. På sidan **Lägg till uppsättning av poster** lägger du till en post för varje fullständigt kvalificerat domän namn och privat IP-adress som **en** typ post. Du kan hämta en lista över de fullständigt kvalificerade domän namnen och IP-adresserna på den **privata slut punkts** sidan i **översikten**. Som du kan se i följande skärm bild läggs det första fullständigt kvalificerade domän namnet från den privata slut punkten till i post uppsättningen i den privata DNS-zonen.
 
-      Dessa fullständigt kvalificerade domän namn matchar det här mönstret:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Dessa fullständigt kvalificerade domän namn matchar det här mönstret: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Skärm bild som visar sidan Lägg till uppsättning av poster.":::
 

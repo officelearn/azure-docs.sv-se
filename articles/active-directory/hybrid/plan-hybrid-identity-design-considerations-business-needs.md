@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65950894"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660574"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitets krav för din hybrid identitets lösning
 Det första steget i att designa en hybrid identitets lösning är att fastställa kraven för den affärs organisation som kommer att använda den här lösningen.  Hybrid identitet startar som en stödjande roll (den stöder alla andra moln lösningar genom att tillhandahålla autentisering) och är på för att tillhandahålla nya och intressanta funktioner som låser upp nya arbets belastningar för användare.  De arbets belastningar eller tjänster som du vill använda för dina användare avgör kraven för Hybrid identitets designen.  Dessa tjänster och arbets belastningar behöver utnyttja hybrid identitet både lokalt och i molnet.  
@@ -72,10 +72,10 @@ Sedan måste du utvärdera kraven för identitets integrering. Den här utvärde
   * Ditt företag har ett lokalt program (antingen inbyggt eller tredje part) som använder SAML eller liknande Federations funktioner.
   * MFA via smartkort. RSA-SecurID, osv.
   * Klient åtkomst regler som åtgärdar frågorna nedan:
-    1. Kan jag blockera all extern åtkomst till Office 365 baserat på klientens IP-adress?
-    2. Kan jag blockera all extern åtkomst till Office 365, förutom Exchange ActiveSync?
-    3. Kan jag blockera all extern åtkomst till Office 365, förutom för webbläsarbaserade appar (OWA, SPO)
-    4. Kan jag blockera all extern åtkomst till Office 365 för medlemmar i angivna AD-grupper
+    1. Kan jag blockera all extern åtkomst till Microsoft 365 baserat på klientens IP-adress?
+    2. Kan jag blockera all extern åtkomst till Microsoft 365, förutom Exchange ActiveSync?
+    3. Kan jag blockera all extern åtkomst till Microsoft 365, förutom för webbläsarbaserade appar (OWA, SPO)
+    4. Kan jag blockera all extern åtkomst till Microsoft 365 för medlemmar i angivna AD-grupper
 * Säkerhet/gransknings problem
 * Redan befintlig investering i federerad autentisering
 * Vilket namn kommer vår organisation att använda för vår domän i molnet?

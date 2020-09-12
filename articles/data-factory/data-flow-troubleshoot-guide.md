@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
-ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263477"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594160"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Felsöka data flöden i Azure Data Factory
 
@@ -45,6 +45,8 @@ Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Az
 - **Meddelande**: timeout-fel vid sändnings anslutning, kontrol lera att sändnings strömmen genererar data inom 60 sekunder i fel söknings körningar och 300 sekunder i jobb körningar
 - **Orsaker**: sändningen har en standard tids gräns på 60 sekunder i fel söknings körningar och 300 sekunder i jobb körningarna. Den data ström som valts för sändning verkar vara stor för att producera data inom den här gränsen.
 - **Rekommendation**: kontrol lera att fliken optimera finns i dina data flödes omvandlingar för Join, exists och lookup. Standard alternativet för sändning är "Auto". Om detta är inställt, eller om du anger att den vänstra eller högra sidan ska sändas manuellt under "fast", kan du antingen ange en större Azure Integration Runtime-konfiguration eller stänga av sändningen. Den rekommenderade metoden för bästa prestanda i data flöden är att tillåta Spark att sända med "Auto" och använda ett Minnesoptimerade Azure IR.
+
+Om du kör data flödet i ett fel söknings test av en fel söknings-pipeline kan du köra det här villkoret oftare. Detta beror på att ADF begränsar sändningens tids gräns till 60 sekunder för att få en snabbare fel sökning. Om du vill utöka värdet till 300 sekunders tids gräns från en utlöst körning kan du använda den > använda alternativet för aktivitets körning för att använda Azure IR som definierats i pipeline-aktiviteten kör data flöde.
 
 ### <a name="error-code-df-executor-conversion"></a>Felkod: DF-utförar-Conversion
 

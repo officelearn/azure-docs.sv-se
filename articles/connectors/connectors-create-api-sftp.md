@@ -1,21 +1,22 @@
 ---
-title: Anslut till SFTP-konto
-description: Automatisera uppgifter och processer som övervakar, skapar, hanterar, skickar och tar emot filer för en SFTP-server via SSH med hjälp av Azure Logic Apps
+title: Anslut till SFTP-konto (inaktuellt)
+description: Automatisera uppgifter och processer som övervakar, skapar, hanterar, skickar och tar emot filer för en SFTP-server med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ROBOTS: NOINDEX
+ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789281"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651410"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer i Azure Logic Apps
 
 > [!IMPORTANT]
 > Använd [SFTP-ssh-anslutningen](../connectors/connectors-sftp-ssh.md) eftersom SFTP-anslutningen är föråldrad. Du kan inte längre välja SFTP-utlösare och åtgärder i Logic Apps designer.
@@ -33,7 +34,7 @@ Du kan använda utlösare som övervakar händelser på din SFTP-server och gör
 
 SFTP-anslutaren hanterar endast filer som är *50 MB eller mindre* och stöder inte [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). För större filer använder du [SFTP-SSH-anslutningsprogrammet](../connectors/connectors-sftp-ssh.md). Om du vill ha skillnader mellan SFTP-anslutningen och SFTP-SSH-anslutningen kan du läsa [jämföra SFTP – SSH jämfört med SFTP](../connectors/connectors-sftp-ssh.md#comparison) i SFTP-SSH-artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -55,7 +56,7 @@ SFTP-anslutaren hanterar endast filer som är *50 MB eller mindre* och stöder i
 
 SFTP-utlösare fungerar genom att söka i SFTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
-| SFTP-klient | Åtgärd |
+| SFTP-klient | Action |
 |-------------|--------|
 | WinSCP | Gå till **alternativ**  >  **Inställningar**  >  **överför**  >  **Redigera**  >  **bevara tidsstämpel**  >  **inaktivera** |
 | FileZilla | Gå till **överför**  >  **bevara tidsstämplar för överförda filer**  >  **inaktivera** |
@@ -113,10 +114,6 @@ Den här utlösaren startar ett Logic app-arbetsflöde när en fil läggs till e
 ### <a name="sftp-action-get-content"></a>SFTP-åtgärd: hämta innehåll
 
 Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Du kan till exempel lägga till utlösaren från föregående exempel och ett villkor som filens innehåll måste uppfylla. Om villkoret är sant kan åtgärden som hämtar innehållet köras.
-
-## <a name="connector-reference"></a>Referens för anslutningsapp
-
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/sftpconnector/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,27 +13,27 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4c631360417afda41b7f48a46b618e7a4328aef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025126"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660710"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Skapa incidenter automatiskt från Microsofts säkerhets aviseringar
 
-Aviseringar som har utlösts i Microsoft-säkerhetslösningar som är anslutna till Azure Sentinel, till exempel Microsoft Cloud App Security och Azure Advanced Threat Protection, skapar inte automatiskt incidenter i Azure Sentinel. När du ansluter en Microsoft-lösning till Azure Sentinel kommer alla aviseringar som genereras i den tjänsten att lagras som rå data i Azure Sentinel, i tabellen säkerhets avisering i Azure Sentinel-arbetsytan. Du kan sedan använda dessa data, t. ex. andra rå data som du ansluter till Sentinel.
+Aviseringar som utlöses i Microsoft-säkerhetslösningar som är anslutna till Azure Sentinel, till exempel Microsoft Cloud App Security och Microsoft Defender för identitet (tidigare Azure ATP). skapa inte incidenter automatiskt i Azure Sentinel. När du ansluter en Microsoft-lösning till Azure Sentinel kommer alla aviseringar som genereras i den tjänsten att lagras som rå data i Azure Sentinel, i tabellen säkerhets avisering i Azure Sentinel-arbetsytan. Du kan sedan använda dessa data, t. ex. andra rå data som du ansluter till Sentinel.
 
 Du kan enkelt konfigurera Azure Sentinel för att automatiskt skapa incidenter varje gång en avisering utlöses i en ansluten Microsoft-säkerhetslösning genom att följa anvisningarna i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste [ansluta Microsoft-säkerhetslösningar](connect-data-sources.md#data-connection-methods) för att aktivera skapande av incidenter från säkerhets tjänst aviseringar.
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Använda analys regler för skapande av Microsofts säkerhets incidenter
 
-Använd de inbyggda regler som är tillgängliga i Azure Sentinel för att välja vilka anslutna Microsoft-säkerhetslösningar som ska skapa Azure Sentinel-incidenter automatiskt i real tid. Du kan också redigera reglerna för att definiera mer detaljerade alternativ för filtrering som av de aviseringar som genereras av Microsoft Security-lösningen ska skapa incidenter i Azure Sentinel. Du kan till exempel välja att skapa Azure Sentinel-incidenter automatiskt från hög allvarlighets grad Azure Security Center aviseringar.
+Använd de inbyggda regler som är tillgängliga i Azure Sentinel för att välja vilka anslutna Microsoft-säkerhetslösningar som ska skapa Azure Sentinel-incidenter automatiskt i real tid. Du kan också redigera reglerna för att definiera mer detaljerade alternativ för filtrering som av de aviseringar som genereras av Microsoft Security-lösningen ska skapa incidenter i Azure Sentinel. Du kan till exempel välja att skapa Azure Sentinel-incidenter automatiskt från aviseringar med hög allvarlighets grad Azure Defender (tidigare Azure Security Center).
 
 1. I Azure Portal under Azure Sentinel väljer du **analys**.
 
@@ -47,7 +47,7 @@ Använd de inbyggda regler som är tillgängliga i Azure Sentinel för att välj
 
 1. Du kan ändra regel informationen och välja att filtrera de aviseringar som ska skapa incidenter efter allvarlighets grad eller text som finns i aviseringens namn.  
       
-    Om du till exempel väljer **Azure Security Center** i fältet **Microsoft Security Service** och väljer **hög** i fältet **Filtrera efter allvarlighets grad** , skapar bara incidenter med hög allvarlighets grad Azure Security Center aviseringar automatiskt incidenter i Azure Sentinel.  
+    Om du till exempel väljer **Azure Defender** (kan fortfarande anropas Azure Security Center) i fältet **Microsoft Security Service** och väljer **hög** i fältet **Filtrera efter allvarlighets grad** , skapar bara Azure Defender-aviseringar med hög allvarlighets grad automatiskt incidenter i Azure Sentinel.  
 
     ![Guiden Skapa regel](media/incidents-from-alerts/create-rule-wizard.png)
 

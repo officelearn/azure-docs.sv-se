@@ -3,7 +3,7 @@ title: Så här fungerar Azure Traffic Manager | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå hur Traffic Manager dirigerar trafik för hög prestanda och tillgänglighet för dina webb program
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: rohink
-ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294856"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462640"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
 
@@ -62,8 +62,8 @@ När en klient begär sidan från föregående exempel `https://partners.contoso
     - Den aktuella hälsan för varje slut punkt, enligt Traffic Manager hälso kontroller. Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md).
     - Den valda metoden för trafik dirigering. Mer information finns i [Traffic Manager metoder för routning](traffic-manager-routing-methods.md).
 
-5. Den valda slut punkten returneras som en annan DNS CNAME-post. I det här fallet kan vi anta att contoso-us.cloudapp.net returneras.
-6. Sedan hittar den rekursiva DNS-tjänsten namnservrarna för domänen "cloudapp.net". Den kontaktar dessa namnservrar för att begära DNS-posten "contoso-us.cloudapp.net". En DNS-post som innehåller IP-adressen för den amerikanska-baserade tjänst slut punkten returneras.
+5. Den valda slut punkten returneras som en annan DNS CNAME-post. I det här fallet kan vi anta att contoso-eu.cloudapp.net returneras.
+6. Sedan hittar den rekursiva DNS-tjänsten namnservrarna för domänen "cloudapp.net". Den kontaktar dessa namnservrar för att begära DNS-posten "contoso-eu.cloudapp.net". En DNS-post som innehåller IP-adressen för den EU-baserade tjänst slut punkten returneras.
 7. Den rekursiva DNS-tjänsten konsoliderar resultaten och returnerar ett enskilt DNS-svar till klienten.
 8. Klienten får DNS-resultatet och ansluter till den tilldelade IP-adressen. Klienten ansluter direkt till program tjänstens slut punkt, inte via Traffic Manager. Eftersom det är en HTTPS-slutpunkt utför klienten den nödvändiga SSL/TLS-hand skakningen och gör sedan en HTTP GET-begäran för sidan "/login.aspx".
 

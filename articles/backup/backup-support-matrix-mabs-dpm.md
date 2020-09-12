@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182011"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506618"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -114,10 +114,10 @@ Du kan distribuera MABS på en Azure Stack VM så att du kan hantera säkerhets 
 DPM-serverns/MABS behöver åtkomst till följande URL: er:
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### <a name="azure-expressroute-support"></a>Stöd för Azure ExpressRoute
 
@@ -157,7 +157,7 @@ Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhe
 
 |Krav |Information |
 |---------|---------|
-|Domain    | DPM/MABS-servern måste vara i en Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012-domän.        |
+|Domän    | DPM/MABS-servern måste vara i en Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012-domän.        |
 |Domänförtroende   |  DPM/MABS har stöd för data skydd mellan skogar, förutsatt att du etablerar ett dubbelriktat förtroende på skogs nivå mellan separata skogar.   <BR><BR>   DPM/MABS kan skydda servrar och arbets stationer mellan domäner inom en skog som har en dubbelriktad förtroende relation med DPM/MABS-Server domänen. Information om hur du skyddar datorer i arbets grupper eller ej betrodda domäner finns i [säkerhetskopiera och återställa arbets belastningar i arbets grupper och obetrodda domäner.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
 
 ## <a name="dpmmabs-storage-support"></a>Stöd för DPM/MABS-lagring

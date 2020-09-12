@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949787"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647506"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
@@ -46,6 +46,7 @@ Systemnode-pooler har följande begränsningar:
 * Pooler för system-noder kräver en VM-SKU på minst 2 virtuella processorer och 4 GB minne.
 * Systemnodens pooler måste ha stöd för minst 30 poddar enligt beskrivningen i den [minsta och högsta värde formeln för poddar][maximum-pods].
 * Resurspooler för plats kräver användarens noder.
+* Att lägga till ytterligare en adresspool eller ändra vilken Node-pool som är en systemnode-pool kommer *inte* att flytta system poddar automatiskt. System poddar kan fortsätta att köras på samma Node-pool även om du ändrar den till en adresspool. Om du tar bort eller skalar ned en Node-pool som kör System poddar som tidigare var en adresspool, omdistribueras dessa system-poddar med önskad schemaläggning till den nya system-noden.
 
 Du kan utföra följande åtgärder med Node-pooler:
 

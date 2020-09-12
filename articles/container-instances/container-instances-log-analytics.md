@@ -3,13 +3,12 @@ title: Samla in & analysera resurs loggar
 description: Lär dig hur du skickar resurs loggar och händelse data från behållar grupper i Azure Container Instances till Azure Monitor loggar
 ms.topic: article
 ms.date: 07/13/2020
-ms.author: danlep
-ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b39cf31dc28ece7d4e4f938dae21a4fbf6a1a832
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524020"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566678"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållar grupp och instans loggning med Azure Monitor loggar
 
@@ -24,7 +23,7 @@ I följande avsnitt beskrivs hur du skapar en loggnings aktive rad behållar gru
 > [!NOTE]
 > För närvarande kan du bara skicka händelse data från Linux container instances till Log Analytics.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
@@ -107,7 +106,7 @@ Så här visar du behållar gruppens loggar i `ContainerInstanceLog_CL` tabellen
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  
-1. Skriv följande fråga:`ContainerInstanceLog_CL | limit 50`
+1. Skriv följande fråga: `ContainerInstanceLog_CL | limit 50`
 1. Välj **Kör**
 
 Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Som standard visas logg poster i **tabell** format. Du kan därefter expandera en rad för att visa innehållet i en enskild loggpost.
@@ -120,7 +119,7 @@ Du kan också visa händelser för behållar instanser i Azure Portal. Händelse
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Allmänt**väljer du **loggar**  
-1. Skriv följande fråga:`ContainerEvent_CL | limit 50`
+1. Skriv följande fråga: `ContainerEvent_CL | limit 50`
 1. Välj **Kör**
 
 Du bör se flera resultat som visas av frågan. Om du inte ser några resultat i första hand väntar du några minuter och väljer sedan **Kör** -knappen för att köra frågan igen. Poster visas som standard i **tabell** format. Sedan kan du expandera en rad för att se innehållet i en enskild post.

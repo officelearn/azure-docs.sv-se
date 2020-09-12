@@ -3,12 +3,12 @@ title: Kontinuerlig video inspelning – Azure
 description: Kontinuerlig videoinspelning (CVR) avser processen att kontinuerligt spela in videon från en video källa. I det här avsnittet beskrivs vad CVR är.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043308"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566710"
 ---
 # <a name="continuous-video-recording"></a>Kontinuerlig videoinspelning  
 
@@ -21,7 +21,8 @@ ms.locfileid: "87043308"
 
 Kontinuerlig videoinspelning (CVR) avser processen att kontinuerligt spela in videon från en video källa. Video analys på IoT Edge har stöd för att spela in video kontinuerligt, dygnet runt, från en CCTV-kamera via ett [medie diagram](media-graph-concept.md) som består av en RTSP-källmapp och en nod för till gångs mottagare. Diagrammet nedan visar en grafisk representation av ett sådant medie diagram. JSON-representationen av [diagram sto pol Ogin](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) för ett sådant medie diagram finns [här](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
-![Kontinuerlig videoinspelning](./media/continuous-video-recording/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Kontinuerlig videoinspelning":::
 
 Medie diagrammet som illustreras ovan kan köras på en Edge-enhet, med till gångs mottagaren som registrerar videon till en Azure Media Services [till gång](terminology.md#asset). Videon spelas in så länge medie diagrammet är i aktiverat läge. Eftersom video spelas in som en till gång, kan den spelas upp med befintliga strömmande funktioner i Media Services. Se [uppspelning av inspelat innehåll](video-playback-concept.md) för mer information.
 
@@ -30,10 +31,11 @@ Medie diagrammet som illustreras ovan kan köras på en Edge-enhet, med till gå
 Real tids analys på IoT Edge stöder drift under mindre än perfekt nätverks förhållanden, där gräns enheten ibland kan förlora anslutningen till molnet eller uppleva en minskning av den tillgängliga bandbredden. För att kunna redovisa detta registreras videon från källan lokalt i en cache och synkroniseras automatiskt med till gången med regelbunden bas. Om du undersöker [Graph-topologins JSON](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json)visas följande egenskaper:
 
 ```
-    "segmentLength": "PT30S",
-    "localMediaCacheMaximumSizeMiB": "2048",
-    "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
+"segmentLength": "PT30S",
+"localMediaCacheMaximumSizeMiB": "2048",
+"localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
+
 De två sistnämnda egenskaperna är relevanta för elastisk registrering (båda är också nödvändiga egenskaper för en nod för till gångs mottagare). Egenskapen localMediaCachePath anger att till gångs mottagare ska använda den mappsökvägen för att cachelagra medie data innan de överförs till till gången. Du kan se [den här](../../iot-edge/how-to-access-host-storage-from-module.md) artikeln för att förstå hur Edge-modulen kan använda enhetens lokala lagring. Egenskapen localMediaCacheMaximumSizeMiB definierar hur mycket disk utrymme som till gångs mottagaren kan använda som cache (1 MiB = 1024 * 1024 byte). 
 
 Om din Edge-modul förlorar anslutningen under en mycket lång tid och innehållet som lagras i cache-mappen når localMediaCacheMaximumSizeMiB-värdet, kommer till gångs mottagaren att börja ta bort data från cachen, med början från de äldsta data. Om till exempel enheten tappade anslutningen på 10 och cachen träffar Max gränsen på. 18:00 börjar till gångs mottagaren ta bort data som registrerats på 10. 
@@ -48,15 +50,13 @@ Som vi nämnt ovan registrerar noden till gångs mottagare video till en lokal c
 
 Egenskapen segmentLength säkerställer att Edge-modulen laddar upp video högst en gång per segmentLength sekunder. Den här egenskapen har ett minsta värde på 30 sekunder (även standard) och kan ökas med 30 sekunders steg till högst 5 minuter.
 
->[!NOTE]
->Se [den här](playback-recordings-how-to.md) artikeln för den påverkan som segmentLength har på uppspelning.
-
+> [!NOTE]
+> I artikeln [uppspelnings inspelningar](playback-recordings-how-to.md) får du en funktion som segmentLength har på uppspelning.
 
 ## <a name="see-also"></a>Se även
 
 * [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
 * [Uppspelning av inspelat innehåll](video-playback-concept.md)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

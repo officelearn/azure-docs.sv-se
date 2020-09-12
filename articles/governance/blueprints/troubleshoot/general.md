@@ -3,12 +3,12 @@ title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar, till exempel princip överträdelser och skiss parameter funktioner.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557515"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651318"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
@@ -22,9 +22,9 @@ Många fel är resultatet av att tilldela en skiss till ett omfång. När en til
 
 1. Välj **tilldelade skisser** från sidan till vänster och Använd sökrutan för att filtrera skiss tilldelningarna för att hitta den misslyckade tilldelningen. Du kan också sortera tilldelnings tabellen i kolumnen **etablerings tillstånd** för att se alla misslyckade tilldelningar grupperade tillsammans.
 
-1. Vänsterklicka på skissen med statusen _misslyckad_ eller högerklicka och välj **Visa tilldelnings information**.
+1. Välj skissen med statusen _misslyckad_ eller högerklicka och välj **Visa tilldelnings information**.
 
-1. En röd banderoll-varning om att tilldelningen misslyckades visas överst på sidan skiss tilldelning. Klicka var som helst på banderollen för att få mer information.
+1. En röd banderoll-varning om att tilldelningen misslyckades visas överst på sidan skiss tilldelning. Välj var som helst på banderollen för att få mer information.
 
 Det är vanligt att felet orsakas av en artefakt och inte skissen som helhet. Om en artefakt skapar ett Key Vault och Azure Policy förhindrar att Key Vault skapas, kommer hela tilldelningen att Miss förfalla.
 

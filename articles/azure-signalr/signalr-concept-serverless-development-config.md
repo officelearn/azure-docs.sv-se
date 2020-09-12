@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928572"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513956"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions-utveckling och -konfiguration med Azure SignalR Service
 
@@ -51,7 +51,9 @@ Information om hur du skapar en autentiserad token finns i [använda App Service
 
 Använd *signalen utlösare* för att hantera meddelanden som skickas från SignalR-tjänsten. Du kan utlöses när klienter skickar meddelanden eller klienter blir anslutna eller frånkopplade.
 
-Mer information finns i [bindnings referens för *SignalR-utlösare*](../azure-functions/functions-bindings-signalr-service-trigger.md)
+Mer information finns i [bindnings referens för *SignalR-utlösare* ](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+Du måste också konfigurera funktions slut punkten som en Uppström så att tjänsten kommer att utlösa funktionen där det finns ett meddelande från klienten. Mer information om hur du konfigurerar överordnad finns i det här [dokumentet](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Skicka meddelanden och hantera grupp medlemskap
 
@@ -69,7 +71,7 @@ SignalR har begreppet "hubbar". Varje klient anslutning och varje meddelande som
 
 Den klassbaserade modellen är dedikerad för C#. Med klassbaserade modeller kan du ha en konsekvent programmerings miljö på Server sidan. Den har följande funktioner.
 
-* Mindre konfiguration fungerar: klass namnet används som `HubName` , metod namnet används som `Event` och `Category` beslutas automatiskt enligt metod namn.
+* Mindre konfigurations arbete: klass namnet används som `HubName` , metod namnet används som `Event` och `Category` beslutas automatiskt enligt metod namn.
 * Automatisk parameter bindning: inget `ParameterNames` eller-attribut `[SignalRParameter]` krävs. Parametrar är automatiskt kopplade till argument för Azure Function-metoden i ordning.
 * Bekväm utdata och förhandlings upplevelse.
 
@@ -109,7 +111,7 @@ Alla funktioner som vill använda klassbaserade modeller måste vara metoden fö
 
 ### <a name="define-hub-method"></a>Definiera Hubbs metod
 
-Alla nav metoder **måste**  ha ett `[SignalRTrigger]` attribut och **måste** använda parameter lös konstruktor. Sedan behandlas **metod namnet** som parameter **händelse**.
+Alla nav metoder **måste** ha ett argument av `InvocationContext` attributet dekorerat av `[SignalRTrigger]` och använda parameter lös konstruktor. Sedan behandlas **metod namnet** som parameter **händelse**.
 
 Som standard, `category=messages` förutom metod namnet är något av följande namn:
 
@@ -202,7 +204,11 @@ Mer information om hur du använder SignalR klient-SDK finns i dokumentationen f
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>Skicka meddelanden från en klient till tjänsten
 
-Även om SDK: n för signalerar-SDK gör det möjligt för klient program att anropa Server dels logiken i en Signals Hub, stöds inte den här funktionen ännu när du använder SignalR-tjänsten med Azure Functions. Använd HTTP-begäranden för att anropa Azure Functions.
+Om du har konfigurerat [överordnad](concept-upstream.md) för signal resursen kan du skicka meddelanden från klienten till din Azure Functions med hjälp av en signal klient. Här är ett exempel i Java Script:
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Azure Functions konfiguration
 

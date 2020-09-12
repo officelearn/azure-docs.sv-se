@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: kretsar och peering'
 description: Den här sidan innehåller en översikt över ExpressRoute-kretsar och routningsdomäner/peering.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537028"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566508"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute-kretsar och peering
 
@@ -54,7 +54,7 @@ Du kan ansluta fler än ett virtuellt nätverk till den privata peering-domänen
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Anslutning till Microsoft onlinetjänster (Office 365 och Azure PaaS Services) sker via Microsoft-peering. Vi aktiverar dubbelriktad anslutning mellan dina WAN-och Microsofts moln tjänster via Microsoft-peering-routningsdomänen. Du måste bara ansluta till Microsofts moln tjänster över offentliga IP-adresser som ägs av dig eller anslutnings leverantören och du måste följa alla definierade regler. Mer information finns på sidan med [ExpressRoute-krav](expressroute-prerequisites.md) .
+Anslutning till Microsoft onlinetjänster (Microsoft 365 och Azure PaaS Services) sker via Microsoft-peering. Vi aktiverar dubbelriktad anslutning mellan dina WAN-och Microsofts moln tjänster via Microsoft-peering-routningsdomänen. Du måste bara ansluta till Microsofts moln tjänster över offentliga IP-adresser som ägs av dig eller anslutnings leverantören och du måste följa alla definierade regler. Mer information finns på sidan med [ExpressRoute-krav](expressroute-prerequisites.md) .
 
 På [sidan med vanliga frågor och svar](expressroute-faqs.md) finns mer information om tjänster som stöds, kostnader och konfigurations information. På sidan [ExpressRoute locations](expressroute-locations.md) hittar du information om listan över anslutnings leverantörer som erbjuder stöd för Microsoft-peering.
 

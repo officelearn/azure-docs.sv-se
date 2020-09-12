@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795232"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646606"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -85,6 +85,8 @@ I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standa
 |`unique_name` | Sträng | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är unikt vid varje viss tidpunkt, men när e-postmeddelanden och andra identifierare kan återanvändas kan det här värdet visas igen på andra konton och bör därför endast användas för visning. Endast utfärdat i v 1.0 `id_tokens` . |
 |`uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
 |`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen för id_token. |
+|`hasgroups`|Boolesk|Om det här alternativet är sant är det alltid sant, vilket innebär att användaren finns i minst en grupp. Används i stället för Groups-anspråket för JWTs i implicita beviljande flöden om det fullständiga grupp kravet skulle utöka URI-fragmentet över längd gränserna för URL: er (för närvarande 6 eller fler grupper). Anger att klienten ska använda Microsoft Graph API för att fastställa användarens grupper ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ).|
+|`groups:src1`|JSON-objekt | För Tokenbegäran som inte är begränsade (se `hasgroups` ovan) men fortfarande är för stora för token kommer en länk till listan över fullständiga grupper för användaren att inkluderas. För JWTs som ett distribuerat anspråk för SAML som ett nytt anspråk i stället för `groups` anspråket. <br><br>**Exempel-JWT-värde**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Mer information finns i [överutnyttjade anspråk](#groups-overage-claim).|
 
 > [!NOTE]
 > V 1.0-och v 2.0-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen baseras på slut punkten varifrån den begärdes. Även om befintliga program ofta använder Azure AD-slutpunkten, ska nya program använda "Microsoft Identity Platform"-slutpunkten för v 2.0.
@@ -102,6 +104,26 @@ För att korrekt lagra information per användare, använder `sub` eller `oid` e
 > Använd inte `idp` anspråket för att lagra information om en användare i ett försök att korrelera användare mellan klienter.  Det kommer inte att fungera, eftersom `oid` `sub` anspråk för en användare ändras mellan klienter, efter design, för att säkerställa att program inte kan spåra användare mellan klienter.  
 >
 > Gäst scenarier, där en användare är i bostaden och autentiseras i en annan, ska behandla användaren som om de är en helt ny användare i tjänsten.  Dina dokument och behörigheter i Contoso-klienten bör inte gälla i Fabrikam-klienten. Detta är viktigt för att förhindra oavsiktlig data läckage mellan klienter.
+
+### <a name="groups-overage-claim"></a>Gruppera överliggande anspråk
+För att säkerställa att token-storleken inte överskrider storleks gränserna för HTTP-huvudet begränsar Azure AD antalet objekt-ID: n som ingår i `groups` anspråket. Om en användare är medlem i fler grupper än överkvoten (150 för SAML-tokens, 200 för JWT-token), genererar inte Azure AD grupp anspråket i token. I stället innehåller den ett överanvändning-anspråk i token som indikerar att programmet ska fråga Microsoft Graph-API: et för att hämta användarens grupp medlemskap.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>Verifiera en id_token
 

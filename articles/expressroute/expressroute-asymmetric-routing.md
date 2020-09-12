@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: asymmetrisk routning'
 description: Den här artikeln beskriver problem som kan uppstå i samband med asymmetrisk routning i ett nätverk som har flera länkar till ett mål.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072144"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566542"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrisk routning med flera nätverksvägar
 Den här artikeln förklarar hur utgående och återvändande nätverkstrafik kan ta olika vägar när det finns flera vägar tillgängliga mellan nätverkskällan och målet.
@@ -64,5 +64,5 @@ Ett annat sätt att lösa problem med asymmetrisk routning är att använda SNAT
 ![Nätverkskonfiguration för källbaserad NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Identifiering av asymmetrisk routning
-Traceroute är det bästa sättet att kontrollera att nätverkstrafik skickas via rätt väg. Om du förväntar dig att trafik från din lokala SMTP-server till Microsoft ska ta Internetvägen så är förväntad traceroute från SMTP-servern till Office 365. Resultatet bekräftar att trafiken verkligen lämnar ditt nätverk mot Internet och inte mot ExpressRoute.
+Traceroute är det bästa sättet att kontrollera att nätverkstrafik skickas via rätt väg. Om du förväntar dig att trafik från din lokala SMTP-server till Microsoft ska ta Internet vägen, kommer den förväntade traceroute från SMTP-servern att Microsoft 365. Resultatet bekräftar att trafiken verkligen lämnar ditt nätverk mot Internet och inte mot ExpressRoute.
 

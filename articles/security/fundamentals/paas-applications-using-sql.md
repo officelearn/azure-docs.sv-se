@@ -1,6 +1,6 @@
 ---
 title: Skydda PaaS-databaser i Azure | Microsoft Docs
-description: 'Lär dig mer om Azure SQL Database och SQL Data Warehouse rekommenderade säkerhets metoder för att skydda dina PaaS webb-och mobil program. '
+description: 'Lär dig mer om Azure SQL Database och rekommendationer för Azure Synapse Analytics-säkerhet för att skydda dina PaaS webb-och mobil program. '
 services: security
 documentationcenter: na
 author: techlake
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 9c821a8898b61517dd5d6c872c8516bad6db6968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012967"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462538"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Metod tips för att skydda PaaS-databaser i Azure
 
-I den här artikeln diskuterar vi en samling [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) och [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) säkerhets metoder för att skydda din PaaS-webb (Platform-as-a-Service) och mobila program. Dessa bästa metoder härleds från vår erfarenhet av Azure och våra kunders upplevelser som du själv har.
+I den här artikeln diskuterar vi en samling [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) och rekommendationer för [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) -säkerhet för att skydda dina PaaS-webb-och mobil program (Platform-as-a-Service). Dessa bästa metoder härleds från vår erfarenhet av Azure och våra kunders upplevelser som du själv har.
 
-Azure SQL Database och SQL Data Warehouse tillhandahålla en Relations databas tjänst för dina Internetbaserade program. Nu ska vi titta på tjänster som hjälper dig att skydda dina program och data när du använder Azure SQL Database och SQL Data Warehouse i en PaaS-distribution:
+Azure SQL Database och Azure Synapse Analytics tillhandahåller en Relations databas tjänst för dina Internetbaserade program. Nu ska vi titta på tjänster som hjälper dig att skydda dina program och data när du använder Azure SQL Database och Azure Synapse Analytics i en PaaS-distribution:
 
 - Azure Active Directory autentisering (i stället för SQL Server autentisering)
 - Azure SQL-brandvägg
@@ -40,7 +40,7 @@ Azure SQL Database kan konfigureras för att använda en av två typer av autent
 
 - **Azure Active Directory autentisering** använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerade domäner. Om du vill använda Azure Active Directory autentisering måste du skapa en annan Server administratör som kallas "Azure AD-administratör", som har behörighet att administrera Azure AD-användare och-grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan.
 
-[Azure Active Directory autentisering](../../active-directory/develop/authentication-scenarios.md) är en mekanism för att ansluta till Azure SQL Database och SQL Data Warehouse med hjälp av identiteter i Azure Active Directory (AD). Azure AD är ett alternativ till att SQL Server autentisering så att du kan stoppa spridningen av användar identiteter på databas servrar. Med Azure AD-autentisering kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Central ID-hantering ger en enda plats för hantering av databasanvändare och förenklar behörighetshanteringen.  
+[Azure Active Directory autentisering](../../active-directory/develop/authentication-scenarios.md) är en mekanism för att ansluta till Azure SQL Database och Azure Synapse Analytics med hjälp av identiteter i Azure Active Directory (AD). Azure AD är ett alternativ till att SQL Server autentisering så att du kan stoppa spridningen av användar identiteter på databas servrar. Med Azure AD-autentisering kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Central ID-hantering ger en enda plats för hantering av databasanvändare och förenklar behörighetshanteringen.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Fördelar med att använda Azure AD i stället för SQL-autentisering
 
@@ -50,12 +50,12 @@ Azure SQL Database kan konfigureras för att använda en av två typer av autent
 - Använder inneslutna databas användare för att autentisera identiteter på databas nivå.
 - Stöder tokenbaserad autentisering för program som ansluter till SQL Database.
 - Stöder domän federation med Active Directory Federation Services (AD FS) (ADFS) eller autentisering med intern användare/lösenordsautentisering för en lokal Azure AD utan domän-synkronisering.
-- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal Authentication, som inkluderar [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). I MFA används stark autentisering via en rad enkla verifieringsalternativ – telefonsamtal, SMS, smarta kort med PIN-kod eller avisering i mobilappen. Mer information finns i [Universal Authentication with SQL Database och SQL Data Warehouse](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal Authentication, som inkluderar [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). I MFA används stark autentisering via en rad enkla verifieringsalternativ – telefonsamtal, SMS, smarta kort med PIN-kod eller avisering i mobilappen. Mer information finns i [Universal Authentication with SQL Database and Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 Mer information om Azure AD-autentisering finns i:
 
-- [Använd Azure Active Directory autentisering för autentisering med SQL Database, hanterad instans eller SQL Data Warehouse](../../azure-sql/database/authentication-aad-overview.md)
-- [Autentisera till Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Använd Azure Active Directory autentisering för autentisering med SQL Database, hanterad instans eller Azure Synapse Analytics](../../azure-sql/database/authentication-aad-overview.md)
+- [Autentisering till Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Stöd för tokenbaserad autentisering för Azure SQL Database med Azure AD-autentisering](../../azure-sql/database/authentication-aad-overview.md)
 
 > [!NOTE]
@@ -69,12 +69,12 @@ SQL Database standard begränsningar för käll-IP-adress tillåter åtkomst fr�
 
 Mer information om Azure SQL-brandväggen och IP-begränsningar finns i:
 
-- [Azure SQL Database och SQL Data Warehouse åtkomst kontroll](../../azure-sql/database/logins-create-manage.md)
-- [Brandväggsregler för SQL Database och SQL Data Warehouse](../../azure-sql/database/firewall-configure.md)
+- [Åtkomst kontroll för Azure SQL Database och Azure Synapse Analytics](../../azure-sql/database/logins-create-manage.md)
+- [Brand Väggs regler för Azure SQL Database och Azure Synapse Analytics](../../azure-sql/database/firewall-configure.md)
 
 ## <a name="encrypt-data-at-rest"></a>Kryptera data i vila
 
-[Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) är aktiverat som standard. TDE krypterar SQL Server, Azure SQL Database och Azure SQL Data Warehouse data och loggfiler transparent. TDE skyddar mot en kompromiss med direkt åtkomst till filerna eller deras säkerhets kopiering. På så sätt kan du kryptera data i vila utan att ändra befintliga program. TDE bör alltid vara aktive rad. Detta kommer dock inte att stoppa en angripare som använder normal åtkomst Sök väg. TDE ger möjlighet att följa många lagar, förordningar och rikt linjer som har upprättats i olika branscher.
+[Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) är aktiverat som standard. TDE krypterar transparent SQL Server-, Azure SQL Database-och Azure Synapse Analytics-data och loggfiler. TDE skyddar mot en kompromiss med direkt åtkomst till filerna eller deras säkerhets kopiering. På så sätt kan du kryptera data i vila utan att ändra befintliga program. TDE bör alltid vara aktive rad. Detta kommer dock inte att stoppa en angripare som använder normal åtkomst Sök väg. TDE ger möjlighet att följa många lagar, förordningar och rikt linjer som har upprättats i olika branscher.
 
 Azure SQL hanterar viktiga relaterade problem för TDE. Precis som med TDE måste lokala särskilda vård vidtas för att säkerställa återställnings möjlighet och när du flyttar databaser. I mer avancerade scenarier kan nycklarna hanteras explicit i Azure Key Vault genom utöknings bar nyckel hantering. Se [Aktivera TDE på SQL Server med EKM](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm). Detta gör det också möjligt för Bring Your Own Key (BYOK) via BYOK-kapacitet i Azure Key Vault.
 
@@ -86,7 +86,7 @@ Du kan använda ytterligare försiktighets åtgärder för att skydda databasen,
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har vi introducerat en samling av SQL Database och SQL Data Warehouse säkerhets metoder för att skydda dina PaaS webb-och mobil program. Mer information om hur du skyddar dina PaaS-distributioner finns i:
+I den här artikeln har vi introducerat en samling av SQL Database och rekommendationer för Azure Synapse Analytics-säkerhet för att skydda dina PaaS webb-och mobil program. Mer information om hur du skyddar dina PaaS-distributioner finns i:
 
 - [Skydda PaaS-distributioner](paas-deployments.md)
 - [Skydda PaaS-webb-och mobil program med hjälp av Azure App Services](paas-applications-using-app-services.md)

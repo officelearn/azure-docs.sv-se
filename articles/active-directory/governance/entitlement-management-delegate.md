@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01f945496d2f0bc81a108c5e58c89587c1c4e38
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8ab68ab4166ddf9e938648e6618ef37df6d998f0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505486"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460906"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegering och roller i hantering av Azure AD-rättigheter
 
@@ -91,7 +91,7 @@ Dessutom har en utsedd god kännare och en beställare av ett Access-paket även
 
 I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan utföra.
 
-| Aktivitet | Administratör | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
+| Uppgift | Administratör | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegera till en katalog skapare](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Lägga till en ansluten organisation](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -116,11 +116,11 @@ I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan 
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Nödvändiga roller för att lägga till resurser i en katalog
 
-En global administratör kan lägga till eller ta bort alla grupper (molnbaserade säkerhets grupper eller molnbaserade Office 365-grupper), program eller SharePoint Online-platser i en katalog. En användar administratör kan lägga till eller ta bort alla grupper eller program i en katalog, förutom en grupp som kon figurer ATS som tilldelnings bara till en katalog roll.
+En global administratör kan lägga till eller ta bort alla grupper (molnbaserade säkerhets grupper eller molnbaserade Microsoft 365 grupper), program eller SharePoint Online-platser i en katalog. En användar administratör kan lägga till eller ta bort alla grupper eller program i en katalog, förutom en grupp som kon figurer ATS som tilldelnings bara till en katalog roll.
 
 För en användare som inte är en global administratör eller en användar administratör, för att lägga till grupper, program eller SharePoint Online-webbplatser till en katalog, måste användaren ha *både* den nödvändiga Azure AD-katalog rollen och katalog ägaren rättighets hanterings roll. I följande tabell visas de roll kombinationer som krävs för att lägga till resurser i en katalog. Om du vill ta bort resurser från en katalog måste du ha samma roller.
 
-| Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp | Kan lägga till Office 365-gruppen | Kan lägga till app | Kan lägga till SharePoint Online-webbplats |
+| Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp | Kan lägga till Microsoft 365 grupp | Kan lägga till app | Kan lägga till SharePoint Online-webbplats |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administratör](../users-groups-roles/directory-assign-admin-roles.md) | saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Användaradministratör](../users-groups-roles/directory-assign-admin-roles.md) | saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -133,7 +133,7 @@ För en användare som inte är en global administratör eller en användar admi
 | Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | Endast om app-ägare |  |
 
 > [!NOTE]
-> Om en användare lägger till en säkerhets grupp eller en Office 365-grupp kan gruppen inte vara roll tilldelnings bara. Om användaren lägger till en grupp som är roll tilldelnings bara när de skapar åtkomst paketet måste de också vara ägare till den roll tilldelnings bara gruppen. Om du vill ha mer information [skapar du en roll tilldelnings grupp i Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Om en användare lägger till en säkerhets grupp eller Microsoft 365 grupp kan gruppen inte vara roll tilldelnings bara. Om användaren lägger till en grupp som är roll tilldelnings bara när de skapar åtkomst paketet måste de också vara ägare till den roll tilldelnings bara gruppen. Om du vill ha mer information [skapar du en roll tilldelnings grupp i Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
 
 Om du vill fastställa den lägsta privilegierade rollen för en aktivitet kan du också referera till [Administratörs roller efter administratörs uppgift i Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815937"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440464"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data vetenskap med en Windows-Data Science Virtual Machine
 
@@ -40,7 +40,7 @@ I den här artikeln får du lära dig hur du använder din DSVM för att utföra
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du behöver en Azure-prenumeration. Du kan [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 * Instruktioner för hur du konfigurerar en Data Science Virtual Machine på Azure Portal finns i [skapa en virtuell dator](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
@@ -156,7 +156,7 @@ Du hittar mer information om hur du använder Git för att arbeta med din GitHub
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob Storage är en tillförlitlig, ekonomisk moln lagrings tjänst för data som är stora och små. I det här avsnittet beskrivs hur du kan flytta data till Blob Storage och komma åt data som lagras i en Azure-blob.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 * Skapa ditt Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com).
 
@@ -255,7 +255,7 @@ Data läses som en data ram:
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (tidigare SQL DW) och databaser
 Azure Synapse Analytics (tidigare SQL DW) är ett elastiskt informations lager som en tjänst med en SQL Server upplevelse i företags klass.
 
-Du kan etablera Azure Synapse Analytics genom att följa anvisningarna i [den här artikeln](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). När du har etablerat ditt SQL Data Warehouse kan du använda [den här genom gången](../team-data-science-process/sqldw-walkthrough.md) för att utföra data uppladdning, utforskning och modellering med hjälp av data i SQL Data Warehouse.
+Du kan etablera Azure Synapse Analytics genom att följa anvisningarna i [den här artikeln](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). När du har etablerat Azure Synapse Analytics kan du använda [den här genom gången](../team-data-science-process/sqldw-walkthrough.md) för att utföra data uppladdning, utforskning och modellering med hjälp av data i Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB är en NoSQL-databas i molnet. Du kan använda den för att arbeta med dokument som JSON och för att lagra och skicka frågor till dokumenten.

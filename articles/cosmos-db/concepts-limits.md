@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605767"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400321"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -118,6 +118,7 @@ Beroende på vilket API du använder kan en Azure Cosmos-behållare representera
 | Maximalt antal sökvägar i indexerings principen| 100 <sup>*</sup>|
 | Maximalt antal unika nycklar per behållare|10 <sup>*</sup>|
 | Maximalt antal sökvägar per unik nyckel begränsning|16 <sup>*</sup>|
+| Maximalt TTL-värde |2 147 483 647|
 
 <sup>*</sup> Du kan öka de här gränserna för varje behållare genom att kontakta Azure-supporten.
 
@@ -136,6 +137,7 @@ Beroende på vilket API du använder kan ett Azure Cosmos-objekt representera an
 | Maximal längd för egenskap svärdet | Ingen genomförbar gräns |
 | Maximal längd för sträng egenskaps värde | Ingen genomförbar gräns |
 | Maximal längd på numeriskt egenskaps värde | IEEE754 dubbel precision 64-bit |
+| Maximalt TTL-värde |2 147 483 647|
 
 Det finns inga begränsningar för objektets nytto laster som antalet egenskaper och kapslings djup, förutom längd begränsningarna för partitionsnyckel och ID-värden och den övergripande storleks begränsningen på 2 MB. Du kan behöva konfigurera indexerings princip för behållare med stora eller komplexa objekt strukturer för att minska RU-förbrukningen. Se [modell objekt i Cosmos DB](how-to-model-partition-example.md) för ett verkligt exempel och mönster för att hantera stora objekt.
 

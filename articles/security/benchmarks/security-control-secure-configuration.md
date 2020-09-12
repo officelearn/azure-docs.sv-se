@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077236"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400100"
 ---
 # <a name="security-control-secure-configuration"></a>Säkerhets kontroll: säker konfiguration
 
@@ -174,7 +174,9 @@ Använd Hanterad tjänstidentitet tillsammans med Azure Key Vault för att före
 
 - [Så här skapar du en Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Så här ger Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Så här autentiserar du till Key Vault](../../key-vault/general/authentication.md)
+
+- [Så här tilldelar du en Key Vault åtkomst princip](../../key-vault/general/assign-access-policy-portal.md)
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
 

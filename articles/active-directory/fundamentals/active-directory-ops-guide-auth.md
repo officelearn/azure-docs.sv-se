@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80876300"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321726"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -48,8 +48,8 @@ När du granskar listan kanske du måste tilldela en ägare för aktiviteter som
 
 #### <a name="owner-recommended-reading"></a>Rekommenderad läsning av ägare
 
-- [Tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Styrning i Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Styrning i Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Hantering av autentiseringsuppgifter
 
@@ -61,13 +61,13 @@ Använd tabellen nedan för att hitta den rekommenderade lösningen för att åt
 
 | Problem | Rekommendation |
 | :- | :- |
-| Ingen mekanism för att skydda mot svaga lösen ord | Aktivera återställning av [lösen ord för självbetjäning i Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) och [lösen ords skydd](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
-| Ingen mekanism för att identifiera läckta lösen ord | Aktivera PHS ( [Password hash Sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ) för att få insikter |
-| Använda AD FS och inte flytta till hanterad autentisering | Aktivera [AD FS extra näts Smart utelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) och/eller [Azure AD Smart utelåsning](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| Lösen ords principen använder komplexitets regler som längd, flera teckenuppsättningar eller förfallo datum | Fundera över fördelarna med [Microsofts rekommenderade metoder](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) och växla din metod till lösen ords hantering och distribuera [Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
-| Användare har inte registrerats för användning av Multi-Factor Authentication (MFA) | [Registrera all användares säkerhets information](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) så att den kan användas som en mekanism för att verifiera användarens identitet tillsammans med lösen ordet |
-| Det finns inget återkallande av lösen ord baserat på användar risk | Distribuera [användar risk principer](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) i Azure AD Identity Protection för att framtvinga lösen ords ändringar för läckta AUTENTISERINGSUPPGIFTER med SSPR |
-| Det finns ingen Smart utelåsnings funktion för att skydda skadlig autentisering från felaktiga aktörer som kommer från identifierade IP-adresser | Distribuera molnbaserad autentisering med antingen Password-hash-synkronisering eller [direktautentisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
+| Ingen mekanism för att skydda mot svaga lösen ord | Aktivera återställning av [lösen ord för självbetjäning i Azure AD (SSPR)](../authentication/concept-sspr-howitworks.md) och [lösen ords skydd](../authentication/concept-password-ban-bad-on-premises.md) |
+| Ingen mekanism för att identifiera läckta lösen ord | Aktivera PHS ( [Password hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) ) för att få insikter |
+| Använda AD FS och inte flytta till hanterad autentisering | Aktivera [AD FS extra näts Smart utelåsning](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) och/eller [Azure AD Smart utelåsning](../authentication/howto-password-smart-lockout.md) |
+| Lösen ords principen använder komplexitets regler som längd, flera teckenuppsättningar eller förfallo datum | Fundera över fördelarna med [Microsofts rekommenderade metoder](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) och växla din metod till lösen ords hantering och distribuera [Azure AD Password Protection](../authentication/concept-password-ban-bad.md). |
+| Användare har inte registrerats för användning av Multi-Factor Authentication (MFA) | [Registrera all användares säkerhets information](../identity-protection/howto-identity-protection-configure-mfa-policy.md) så att den kan användas som en mekanism för att verifiera användarens identitet tillsammans med lösen ordet |
+| Det finns inget återkallande av lösen ord baserat på användar risk | Distribuera [användar risk principer](../identity-protection/howto-identity-protection-configure-risk-policies.md) i Azure AD Identity Protection för att framtvinga lösen ords ändringar för läckta AUTENTISERINGSUPPGIFTER med SSPR |
+| Det finns ingen Smart utelåsnings funktion för att skydda skadlig autentisering från felaktiga aktörer som kommer från identifierade IP-adresser | Distribuera molnbaserad autentisering med antingen Password-hash-synkronisering eller [direktautentisering](../hybrid/how-to-connect-pta-quick-start.md) (PTA) |
 
 #### <a name="password-policies-recommended-reading"></a>Lösen ords principer rekommenderas att läsa
 
@@ -77,19 +77,19 @@ Använd tabellen nedan för att hitta den rekommenderade lösningen för att åt
 
 Användare som behöver ändra eller återställa sina lösen ord är en av de största volym källorna och kostnader för support samtal. Förutom kostnaden är det grundläggande att ändra lösen ordet som ett verktyg för att minimera en användar risk är ett grundläggande steg i att förbättra din organisations säkerhets position.
 
-Vi rekommenderar minst att du distribuerar Azure AD självbetjäning för [återställning av lösen ord](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) (SSPR) och lokalt [lösen ords skydd](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) för att utföra:
+Vi rekommenderar minst att du distribuerar Azure AD självbetjäning för [återställning av lösen ord](../authentication/concept-sspr-howitworks.md) (SSPR) och lokalt [lösen ords skydd](../authentication/howto-password-ban-bad-on-premises-deploy.md) för att utföra:
 
 - Avhjälpa support samtal.
 - Ersätt användningen av tillfälliga lösen ord.
 - Ersätt eventuella befintliga självbetjänings lösningar för lösen ords hantering som förlitar sig på en lokal lösning.
-- [Eliminera svaga lösen ord](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) i din organisation.
+- [Eliminera svaga lösen ord](../authentication/concept-password-ban-bad.md) i din organisation.
 
 > [!NOTE]
-> För organisationer med en Azure AD Premium P2-prenumeration rekommenderar vi att du distribuerar SSPR och använder den som en del av en [identitets skydds princip för användar risker](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy).
+> För organisationer med en Azure AD Premium P2-prenumeration rekommenderar vi att du distribuerar SSPR och använder den som en del av en [identitets skydds princip för användar risker](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ### <a name="strong-credential-management"></a>Hantering av starka autentiseringsuppgifter
 
-Lösen orden själva är inte tillräckligt säkra för att förhindra att dåliga aktörer får åtkomst till din miljö. Som minst måste alla användare med ett privilegierat konto aktive ras för Multi-Factor Authentication (MFA). Vi rekommenderar att du aktiverar [kombinerad registrering](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined) och kräver att alla användare registrerar sig för MFA och SSPR med hjälp av den [kombinerade registrerings upplevelsen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-security-info-overview). Slutligen rekommenderar vi att du använder en strategi för att [ge återhämtning](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) för att minska risken för utelåsning på grund av oförutsedda omständigheter.
+Lösen orden själva är inte tillräckligt säkra för att förhindra att dåliga aktörer får åtkomst till din miljö. Som minst måste alla användare med ett privilegierat konto aktive ras för Multi-Factor Authentication (MFA). Vi rekommenderar att du aktiverar [kombinerad registrering](../authentication/concept-registration-mfa-sspr-combined.md) och kräver att alla användare registrerar sig för MFA och SSPR med hjälp av den [kombinerade registrerings upplevelsen](../user-help/security-info-setup-signin.md). Slutligen rekommenderar vi att du använder en strategi för att [ge återhämtning](../authentication/concept-resilient-controls.md) för att minska risken för utelåsning på grund av oförutsedda omständigheter.
 
 ![Kombinerat användar upplevelse flöde](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 
@@ -127,7 +127,7 @@ Som en användare i din organisation är en enhet en kärn identitet som du vill
 
 Du kan utföra det här målet genom att sätta enhets identiteter och hantera dem i Azure AD genom att använda någon av följande metoder:
 
-- Organisationer kan använda [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) för att hantera enheten och genomdriva efterlevnadsprinciper, intyga enhetens hälsa och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (via JAMF-integrering), Windows-skrivbord (internt med hantering av mobila enheter för Windows 10 och samhantering med Microsoft Endpoint Configuration Manager) och mobila Android-enheter.
+- Organisationer kan använda [Microsoft Intune](/intune/what-is-intune) för att hantera enheten och genomdriva efterlevnadsprinciper, intyga enhetens hälsa och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (via JAMF-integrering), Windows-skrivbord (internt med hantering av mobila enheter för Windows 10 och samhantering med Microsoft Endpoint Configuration Manager) och mobila Android-enheter.
 - [Hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-managed-domains.md) ger hantering med grup principer eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md)   på samma gång.
 
 Om du har domänanslutna Windows-enheter som inte är registrerade i molnet, eller domänanslutna Windows-enheter som är registrerade i molnet men utan principer för villkorlig åtkomst, bör du registrera de oregistrerade enheterna och i båda fallen [använda hybrid Azure AD Join som en kontroll](../conditional-access/require-managed-devices.md) i dina principer för villkorlig åtkomst.
@@ -141,11 +141,11 @@ Om du hanterar enheter med MDM eller Microsoft Intune, men inte använder enhets
 #### <a name="device-trust-access-policies-recommended-reading"></a>Åtkomst principer för enhets förtroende rekommenderas läsning
 
 - [Gör så här: planera din hybrid Azure Active Directory delta-implementering](../devices/hybrid-azuread-join-plan.md)
-- [Konfigurationer för identitets- och enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfigurationer för identitets- och enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello för företag
 
-I Windows 10 ersätter [Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) lösen ord med stark tvåfaktorautentisering på datorer. Windows Hello för företag ger en mer strömlinjeformad MFA-upplevelse för användare och minskar beroendet av lösen ord. Om du inte har börjat installera Windows 10-enheter eller bara har delvis distribuerat dem, rekommenderar vi att du uppgraderar till Windows 10 och [aktiverar Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) på alla enheter.
+I Windows 10 ersätter [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification) lösen ord med stark tvåfaktorautentisering på datorer. Windows Hello för företag ger en mer strömlinjeformad MFA-upplevelse för användare och minskar beroendet av lösen ord. Om du inte har börjat installera Windows 10-enheter eller bara har delvis distribuerat dem, rekommenderar vi att du uppgraderar till Windows 10 och [aktiverar Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) på alla enheter.
 
 Om du vill veta mer om lösen ords lös autentisering kan du läsa mer om lösen ords lös autentisering i [en värld utan lösen ord med Azure Active Directory](../authentication/concept-authentication-passwordless.md).
 
@@ -184,22 +184,22 @@ Slutligen, om du har ett Azure AD App-galleri och använder program som har stö
 - Definiera dynamiska grupper om användarattribut kan konsekvent bestämma åtkomst till program.
 - Implementera attestering till grupper som används för program åtkomst med hjälp av [åtkomst granskningar i Azure AD](../governance/access-reviews-overview.md).
 
-Om du däremot hittar program som har tilldelning till enskilda användare ska du se till att implementera [styrningar](https://docs.microsoft.com/azure/active-directory/governance/index) runt dessa program.
+Om du däremot hittar program som har tilldelning till enskilda användare ska du se till att implementera [styrningar](../governance/index.yml) runt dessa program.
 
 #### <a name="assign-users-to-applications-recommended-reading"></a>Tilldela användare till program som rekommenderas läsning
 
-- [Tilldela användare och grupper till ett program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)
-- [Delegera registrerings behörigheter för app i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-delegate-app-roles)
-- [Regler för dynamiskt medlemskap för grupper i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
+- [Tilldela användare och grupper till ett program i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
+- [Delegera registrerings behörigheter för app i Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
+- [Regler för dynamiskt medlemskap för grupper i Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Åtkomstprinciper
 
 ### <a name="named-locations"></a>Namngivna platser
 
-Med [namngivna platser](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) i Azure AD kan du märka betrodda IP-adressintervall i din organisation. Azure AD använder namngivna platser för att:
+Med [namngivna platser](../reports-monitoring/quickstart-configure-named-locations.md) i Azure AD kan du märka betrodda IP-adressintervall i din organisation. Azure AD använder namngivna platser för att:
 
 - Förhindra falska positiva identifieringar i risk händelser. Om du loggar in från en betrodd nätverks plats sänker du en användares inloggnings risk.
-- Konfigurera [plats baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations).
+- Konfigurera [plats baserad villkorlig åtkomst](../reports-monitoring/quickstart-configure-named-locations.md).
 
 ![Namngivna platser](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
@@ -217,7 +217,7 @@ Baserat på prioritet använder du tabellen nedan för att hitta den rekommender
 
 Azure AD kan beräkna risken för varje inloggning och varje användare. Att använda risk som ett villkor i åtkomst principer kan ge en bättre användar upplevelse, till exempel färre autentiserings-prompter och bättre säkerhet, till exempel endast fråga användare när de behövs och automatisera svar och reparationer.
 
-![Princip för inloggnings risk](./media/active-directory-ops-guide/active-directory-ops-img11.png)
+![Princip för inloggningsrisk](./media/active-directory-ops-guide/active-directory-ops-img11.png)
 
 Om du redan äger Azure AD Premium P2-licenser som stöder användning av risk i åtkomst principer, men inte används, rekommenderar vi starkt att du lägger till risker för din säkerhets position.
 
@@ -255,10 +255,10 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra din organisatio
 
 #### <a name="conditional-access-recommended-reading"></a>Rekommenderad läsning för villkorlig åtkomst
 
-- [Metod tips för villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Konfigurationer för identitets- och enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Referens för Azure Active Directory villkorlig åtkomst inställningar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [Vanliga principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [Metod tips för villkorlig åtkomst i Azure Active Directory](../conditional-access/best-practices.md)
+- [Konfigurationer för identitets- och enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Referens för Azure Active Directory villkorlig åtkomst inställningar](../conditional-access/concept-conditional-access-conditions.md)
+- [Vanliga principer för villkorlig åtkomst](../conditional-access/concept-conditional-access-policy-common.md)
 
 ## <a name="access-surface-area"></a>Åtkomst till Surface-området
 
@@ -273,9 +273,9 @@ Starka autentiseringsuppgifter, till exempel MFA, kan inte skydda appar med äld
 
 Angripare föredrar dessa protokoll – i själva verket är det nästan [100% av](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) angrepps behållarna för att använda bakåtkompatibla autentiseringsprotokoll! Hackare använder äldre autentiseringsprotokoll, eftersom de inte stöder interaktiv inloggning, vilket krävs för ytterligare säkerhets utmaningar som multifaktorautentisering och enhetsautentisering.
 
-Om äldre autentisering ofta används i din miljö bör du planera att migrera äldre klienter till klienter som stöder [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) så snart som möjligt. Om du har vissa användare som redan använder modern autentisering i samma token, men andra som fortfarande använder äldre autentisering, bör du vidta följande steg för att låsa äldre autentiserings klienter:
+Om äldre autentisering ofta används i din miljö bör du planera att migrera äldre klienter till klienter som stöder [modern autentisering](/office365/enterprise/modern-auth-for-office-2013-and-2016) så snart som möjligt. Om du har vissa användare som redan använder modern autentisering i samma token, men andra som fortfarande använder äldre autentisering, bör du vidta följande steg för att låsa äldre autentiserings klienter:
 
-1. Använd [rapporter om inloggnings aktiviteter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) för att identifiera användare som fortfarande använder tidigare autentisering och prenumerations reparationer:
+1. Använd [rapporter om inloggnings aktiviteter](../reports-monitoring/concept-sign-ins.md) för att identifiera användare som fortfarande använder tidigare autentisering och prenumerations reparationer:
 
    a. Uppgradera till moderna klienter som kan påverka användare.
    
@@ -288,7 +288,7 @@ Om äldre autentisering ofta används i din miljö bör du planera att migrera �
 
 #### <a name="legacy-authentication-recommended-reading"></a>Tidigare autentisering, Rekommenderad läsning
 
-- [Aktivera eller inaktivera POP3-eller IMAP4-åtkomst till post lådor i Exchange Server](https://docs.microsoft.com/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Aktivera eller inaktivera POP3-eller IMAP4-åtkomst till post lådor i Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
 
 ### <a name="consent-grants"></a>Medgivande bidrag
 
@@ -309,18 +309,18 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Ett exempel:
+- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Exempel:
 
 |Resurs | Behörighet |
 | :- | :- |
 | Microsoft Graph API| Directory. AccessAsUser. all |
 | REST-API för Azure | user_impersonation |
 
-För att undvika det här scenariot bör du läsa om att [identifiera och åtgärda illegala medgivande i Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) för att identifiera och åtgärda alla program med illegala bidrag eller program som har fler bidrag än vad som behövs. Ta sedan bort självbetjäningen [helt och hållet](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) och [upprätta styrnings procedurer](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Slutligen kan du schemalägga regelbundna granskningar av app-behörigheter och ta bort dem när de inte behövs.
+För att undvika det här scenariot bör du läsa om att [identifiera och åtgärda illegala medgivande i Office 365](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) för att identifiera och åtgärda alla program med illegala bidrag eller program som har fler bidrag än vad som behövs. Ta sedan bort självbetjäningen [helt och hållet](../manage-apps/configure-user-consent.md) och [upprätta styrnings procedurer](../manage-apps/configure-admin-consent-workflow.md). Slutligen kan du schemalägga regelbundna granskningar av app-behörigheter och ta bort dem när de inte behövs.
 
 #### <a name="consent-grants-recommended-reading"></a>Medgivande ger Rekommenderad läsning
 
-- [Microsoft Graph API-behörigheter](https://docs.microsoft.com/graph/permissions-reference)
+- [Microsoft Graph API-behörigheter](/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Användar-och grupp inställningar
 
@@ -328,7 +328,7 @@ Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte
 
 #### <a name="user-settings"></a>Användarinställningar
 
-- **Externa användare** – externt samarbete kan ske ekologiskt i företaget med tjänster som team, Power BI, SharePoint Online och Azure information Protection. Om du har uttryckliga begränsningar för att styra det externa samarbetet som initieras av användaren, rekommenderar vi att du aktiverar externa användare med hjälp av [hantering av Azure AD-rättighet](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) eller en kontrollerad åtgärd, till exempel genom supportavdelningen. Om du inte vill tillåta ekologiskt externt samarbete för tjänster kan du [blockera medlemmar från att bjuda in externa användare fullständigt](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Du kan också [tillåta eller blockera vissa domäner](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) i externa användar inbjudningar.
+- **Externa användare** – externt samarbete kan ske ekologiskt i företaget med tjänster som team, Power BI, SharePoint Online och Azure information Protection. Om du har uttryckliga begränsningar för att styra det externa samarbetet som initieras av användaren, rekommenderar vi att du aktiverar externa användare med hjälp av [hantering av Azure AD-rättighet](../governance/entitlement-management-overview.md) eller en kontrollerad åtgärd, till exempel genom supportavdelningen. Om du inte vill tillåta ekologiskt externt samarbete för tjänster kan du [blockera medlemmar från att bjuda in externa användare fullständigt](../external-identities/delegate-invitations.md). Du kan också [tillåta eller blockera vissa domäner](../external-identities/allow-deny-list.md) i externa användar inbjudningar.
 - **App-registreringar** – när Appregistreringar är aktiverade kan slutanvändare själva publicera program och ge åtkomst till sina data. Ett typiskt exempel på registrering av appar är användare som aktiverar Outlook-plugin-program eller röst assistenter som Alexa och Siri för att läsa e-post och kalender eller skicka e-post åt dig. Om kunden bestämmer sig för att inaktivera app-registrering, måste informations-och IAM-teamen ingå i hanteringen av undantag (app-registreringar som behövs baserat på affärs krav), eftersom de skulle behöva registrera programmen med ett administratörs konto, och de flesta sannolikt behöver utforma en process för att operationalisera processen.
 - **Administrations portalen** – organisationer kan låsa Azure AD-bladet i Azure Portal så att icke-administratörer inte kan komma åt Azure AD-hanteringen i Azure Portal och få förvirrande. Begränsa åtkomsten genom att gå till användar inställningarna i hanterings portalen för Azure AD:
 
@@ -343,33 +343,33 @@ Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte
 
 #### <a name="groups-recommended-reading"></a>Grupper som rekommenderar läsning
 
-- [Vad är Azure Active Directory B2B-samarbete?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- [Integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- [Appar, behörigheter och medgivande i Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
-- [Använd grupper för att hantera åtkomst till resurser i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-- [Konfigurera åtkomst hantering för självbetjänings program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)
+- [Vad är Azure Active Directory B2B-samarbete?](../external-identities/what-is-b2b.md)
+- [Integrera program med Azure Active Directory](../develop/quickstart-register-app.md)
+- [Appar, behörigheter och medgivande i Azure Active Directory.](../develop/quickstart-register-app.md)
+- [Använd grupper för att hantera åtkomst till resurser i Azure Active Directory](./active-directory-manage-groups.md)
+- [Konfigurera åtkomst hantering för självbetjänings program i Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Trafik från oväntade platser
 
-Angripare kommer från olika delar av världen. Hantera den här risken genom att använda principer för villkorlig åtkomst med plats som villkor. [Plats villkoret](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) för en princip för villkorlig åtkomst gör att du kan blockera åtkomst för platser där det inte finns något affärs skäl att logga in från.
+Angripare kommer från olika delar av världen. Hantera den här risken genom att använda principer för villkorlig åtkomst med plats som villkor. [Plats villkoret](../conditional-access/location-condition.md) för en princip för villkorlig åtkomst gör att du kan blockera åtkomst för platser där det inte finns något affärs skäl att logga in från.
 
 ![Skapa en ny namngiven plats](./media/active-directory-ops-guide/active-directory-ops-img14.png)
 
-Om det är tillgängligt använder du en SIEM-lösning (Security information and Event Management) för att analysera och hitta mönster för åtkomst över flera regioner. Om du inte använder en SIEM-produkt, eller om du inte matar in autentiseringsinformation från Azure AD, rekommenderar vi att du använder [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att identifiera åtkomst mönster över flera regioner.
+Om det är tillgängligt använder du en SIEM-lösning (Security information and Event Management) för att analysera och hitta mönster för åtkomst över flera regioner. Om du inte använder en SIEM-produkt, eller om du inte matar in autentiseringsinformation från Azure AD, rekommenderar vi att du använder [Azure Monitor](../../azure-monitor/overview.md) för att identifiera åtkomst mönster över flera regioner.
 
 ## <a name="access-usage"></a>Åtkomst användning
 
 ### <a name="azure-ad-logs-archived-and-integrated-with-incident-response-plans"></a>Azure AD-loggar har arkiverats och integrerats med incident svars planer
 
-För att få till gång till inloggnings aktivitet är granskningar och risk händelser för Azure AD avgörande för fel sökning, användnings analys och data utredning undersökningar. Azure AD ger åtkomst till dessa källor via REST-API: er som har en begränsad kvarhållningsperiod. Ett system för säkerhets informations-och händelse hantering (SIEM), eller motsvarande lagrings teknik, är nyckeln för långsiktig lagring av revisioner och support. Om du vill aktivera långsiktig lagring av Azure AD-loggar måste du antingen lägga till dem i din befintliga SIEM-lösning eller använda [Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). Arkivera loggar som kan användas som en del av dina incident svars planer och undersökningar.
+För att få till gång till inloggnings aktivitet är granskningar och risk händelser för Azure AD avgörande för fel sökning, användnings analys och data utredning undersökningar. Azure AD ger åtkomst till dessa källor via REST-API: er som har en begränsad kvarhållningsperiod. Ett system för säkerhets informations-och händelse hantering (SIEM), eller motsvarande lagrings teknik, är nyckeln för långsiktig lagring av revisioner och support. Om du vill aktivera långsiktig lagring av Azure AD-loggar måste du antingen lägga till dem i din befintliga SIEM-lösning eller använda [Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md). Arkivera loggar som kan användas som en del av dina incident svars planer och undersökningar.
 
 #### <a name="logs-recommended-reading"></a>Loggar Rekommenderad läsning
 
-- [Azure Active Directory gransknings-API-referens](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)
-- [Rapport API-referens för Azure Active Directory inloggnings aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-sign-in-activity-reference)
-- [Hämta data med hjälp av Azure AD Reporting-API:et med certifikat](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
-- [Microsoft Graph för Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
-- [API-referens för Office 365 Management Activity](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
+- [Azure Active Directory gransknings-API-referens](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Rapport API-referens för Azure Active Directory inloggnings aktivitet](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Hämta data med hjälp av Azure AD Reporting-API:et med certifikat](../reports-monitoring/tutorial-access-api-with-certificates.md)
+- [Microsoft Graph för Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
+- [API-referens för Office 365 Management Activity](/office/office-365-management-api/office-365-management-activity-api-reference)
 - [Så här använder du innehållspaketet för Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>Sammanfattning

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553401"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400049"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenario: isolera virtuella nätverk
 
@@ -29,7 +29,7 @@ I det här scenariot förblir arbets belastningen i ett visst VNet isolerad och 
 | Virtuella nätverk     | &#8594;|           |     X    |
 | Grenar   | &#8594;|    X     |     X    |
 
-I var och en av cellerna i föregående tabell beskrivs om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) lär sig ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil) för ett särskilt trafikflöde.
+Var och en av cellerna i föregående tabell beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) lär sig ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil) för ett särskilt trafikflöde, där ett "X" innebär att anslutningen tillhandahålls av Virtual WAN.
 
 Den här anslutnings matrisen ger oss två olika rad mönster, som översätts till två väg tabeller. Det virtuella WAN-nätverket har redan en standard väg tabell, så vi behöver en annan routningstabell. I det här exemplet namnger vi routningstabellen **RT_VNET**.
 

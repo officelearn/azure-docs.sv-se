@@ -3,7 +3,7 @@ title: Hierarki för land/region som används av geografisk routning – Azure T
 description: Den här artikeln innehåller hierarkin land/region som används av Azure Traffic Manager geografisk typ av Routning
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,17 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: rohink
-ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 83300a5c518a3acf853968164031a80e1c882187
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938634"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401245"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarki för land/region som används av Azure Traffic Manager för geografisk Traffic routing-metod
 
-I den här artikeln listas de länder och regioner som används av routningsmetod för **geografisk** trafik i Azure Traffic Manager. Du kan också få den här informationen genom programmering genom att anropa [Azure Traffic Managers REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+I den här artikeln listas de länder och regioner som används av routningsmetod för **geografisk**  trafik i Azure Traffic Manager. Du kan också få den här informationen genom programmering genom att anropa [Azure Traffic Managers REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - VÄRLD (världen)
 

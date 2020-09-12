@@ -6,14 +6,14 @@ manager: dcscontentpm
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 8b5124a0336773412ae9c36a32a0f6f86da62a31
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056252"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321743"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
@@ -28,73 +28,6 @@ Information om support policyn för virtuella Azure-datorer finns i [Microsoft S
 >
 > - 64-bitars versionen av Windows Server 2008 R2 och senare Windows Server-operativsystem. Information om hur du kör ett 32-bitars operativ system i Azure finns i [stöd för 32-bitars operativ system i virtuella Azure-datorer](https://support.microsoft.com/help/4021388/).
 > - Om något katastrof återställnings verktyg används för att migrera arbets belastningen, t. ex. Azure Site Recovery eller Azure Migrate, krävs fortfarande den här processen på gäst operativ systemet för att förbereda avbildningen före migreringen.
-
-## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konvertera den virtuella disken till en virtuell hård disk med fast storlek
-
-Använd någon av metoderna i det här avsnittet för att konvertera och ändra storlek på den virtuella disken till det format som krävs för Azure:
-
-1. Säkerhetskopiera den virtuella datorn innan du kör konverteringen av den virtuella disken eller storleks ändrings processen.
-
-1. Kontrol lera att Windows-VHD fungerar korrekt på den lokala servern. Lös eventuella fel i den virtuella datorn innan du försöker konvertera eller ladda upp den till Azure.
-
-1. Konvertera den virtuella disken till typen Fixed.
-
-1. Ändra storlek på den virtuella disken så att den uppfyller Azure-kraven:
-
-   1. Diskar i Azure måste ha en virtuell storlek som är justerad till 1 MiB. Om den virtuella hård disken är en bråkdel av 1 MiB måste du ändra storlek på disken till en multipel av 1 MiB. Diskar som är bråktal i en MiB orsakar fel vid skapande av avbildningar från den uppladdade virtuella hård disken. För att verifiera detta kan du använda PowerShell [-](/powershell/module/hyper-v/get-vhd) comdlet för att Visa "storlek", som måste vara en multipel av 1 MIB i Azure och "FILESIZE", vilket är lika med "size" plus 512 byte för VHD-foten.
-   
-   1. Den maximala storlek som tillåts för OS-VHD: n med en virtuell dator i generation 1 är 2 048 GiB (2 TiB). 
-   1. Den maximala storleken för en datadisk är 32 767 GiB (32 TiB).
-
-> [!NOTE]
-> - Om du förbereder en Windows OS-disk efter att du har konverterat till en fast disk och ändrat storlek vid behov, skapar du en virtuell dator som använder disken. Starta och logga in på den virtuella datorn och fortsätt med avsnitten i den här artikeln för att slutföra förberedelserna för att ladda upp.  
-> - Om du förbereder en datadisk kan du sluta med det här avsnittet och fortsätta att ladda upp disken.
-
-### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Använd Hyper-V Manager för att konvertera disken
-
-1. Öppna Hyper-V Manager och välj den lokala datorn till vänster. I menyn ovanför dator listan väljer du **åtgärd**  >  **Redigera disk**.
-1. På sidan **hitta virtuell hård disk** väljer du den virtuella disken.
-1. På sidan **Välj åtgärd** väljer du **konvertera**  >  **Nästa**.
-1. Om du vill konvertera från VHDX väljer du **VHD**  >  **Nästa**.
-1. Om du vill konvertera från en dynamiskt expanderande disk väljer du **fast storlek**  >  **Nästa**.
-1. Leta upp och välj en sökväg för att spara den nya VHD-filen.
-1. Välj **Slutför**.
-
-### <a name="use-powershell-to-convert-the-disk"></a>Använd PowerShell för att konvertera disken
-
-Du kan konvertera en virtuell disk med cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) i PowerShell. Klicka [här](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)om du behöver information om hur du installerar den här cmdleten.
-
-I följande exempel konverteras disken från VHDX till VHD. Den konverterar också disken från en dynamiskt expanderande disk till en disk med fast storlek.
-
-```powershell
-Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
-```
-
-I det här exemplet ersätter du värdet för **sökväg** med sökvägen till den virtuella hård disk som du vill konvertera. Ersätt värdet för **DestinationPath** med den nya sökvägen till och namnet på den konverterade disken.
-
-### <a name="convert-from-vmware-vmdk-disk-format"></a>Konvertera från VMware VMDK disk format
-
-Om du har en avbildning av en virtuell Windows-dator i [formatet VMDK](https://en.wikipedia.org/wiki/VMDK)använder du [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) för att konvertera den till VHD-format. Mer information finns i [så här konverterar du en VMware VMDK till Hyper-V VHD](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
-
-### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Använd Hyper-V Manager för att ändra storlek på disken
-
-1. Öppna Hyper-V Manager och välj den lokala datorn till vänster. I menyn ovanför dator listan väljer du **åtgärd**  >  **Redigera disk**.
-1. På sidan **hitta virtuell hård disk** väljer du den virtuella disken.
-1. På sidan **Välj åtgärd** väljer du **expandera**  >  **Nästa**.
-1. På sidan **hitta virtuell hård disk** anger du den nya storleken i GIB > **Nästa**.
-1. Välj **Slutför**.
-
-### <a name="use-powershell-to-resize-the-disk"></a>Använd PowerShell för att ändra storlek på disken
-
-Du kan ändra storlek på en virtuell disk med hjälp av [ändra storlek-VHD-](/powershell/module/hyper-v/resize-vhd) cmdlet i PowerShell. Klicka [här](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)om du behöver information om hur du installerar den här cmdleten.
-
-I följande exempel ändras storleken på disken från 100,5 MiB till 101 MiB för att uppfylla kraven för Azures justering.
-
-```powershell
-Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
-```
-
-I det här exemplet ersätter du värdet för **sökväg** med sökvägen till den virtuella hård disk som du vill ändra storlek på. Ersätt värdet för **SizeBytes** med den nya storleken i byte för disken.
 
 ## <a name="system-file-checker"></a> systemfilskontroll
 
@@ -138,7 +71,7 @@ När SFC-genomsökningen är klar installerar du Windows-uppdateringar och start
    netsh.exe winhttp reset proxy
    ```
 
-    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag för Azure IP-adressen ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) så att den virtuella datorn kan ansluta till Azure:
+    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag för Azure IP-adressen ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) så att den virtuella datorn kan ansluta till Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -411,13 +344,13 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
 
 1. Starta om den virtuella datorn för att kontrol lera att Windows fortfarande är felfritt och kan nås via RDP-anslutningen. I det här läget kan du överväga att skapa en virtuell dator på din lokala Hyper-V-server för att se till att den virtuella datorn startar helt. Testa sedan för att kontrol lera att du kan komma åt den virtuella datorn via RDP.
 
-1. Ta bort alla filter för filter för extra transport driv Rutins gränssnitt (TDI). Ta till exempel bort program vara som analyserar TCP-paket eller extra brand väggar. Om du vill granska detta senare kan du göra det efter att den virtuella datorn har distribuerats i Azure.
+1. Ta bort alla filter för filter för extra transport driv Rutins gränssnitt (TDI). Ta till exempel bort program vara som analyserar TCP-paket eller extra brand väggar.
 
 1. Avinstallera eventuella program från tredje part eller driv rutin som är relaterade till fysiska komponenter eller någon annan virtualiseringsteknik.
 
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 
-Helst bör du hålla datorn uppdaterad på *korrigerings nivå*. Om detta inte är möjligt kontrollerar du att följande uppdateringar är installerade. För att få de senaste uppdateringarna går du till Windows updates historik sidor: [Windows 10 och Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8,1 och Windows Server 2012 R2](https://support.microsoft.com/help/4009470) och [Windows 7 SP1 och Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
+Vi rekommenderar att du behåller datorn uppdaterad till *korrigerings nivån*, om detta inte är möjligt, se till att följande uppdateringar är installerade. För att få de senaste uppdateringarna går du till Windows updates historik sidor: [Windows 10 och Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8,1 och Windows Server 2012 R2](https://support.microsoft.com/help/4009470) och [Windows 7 SP1 och Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 <br />
 
@@ -462,7 +395,7 @@ Helst bör du hålla datorn uppdaterad på *korrigerings nivå*. Om detta inte �
 > [!NOTE]
 > För att undvika en oavsiktlig omstart under VM-etablering rekommenderar vi att du ser till att alla Windows Update installationer är klara och att inga uppdateringar väntar. Ett sätt att göra detta är att installera alla möjliga Windows-uppdateringar och starta om en gång innan du kör `sysprep.exe` kommandot.
 
-### <a name="determine-when-to-use-sysprep"></a>Avgöra när Sysprep ska användas
+## <a name="determine-when-to-use-sysprep"></a>Avgöra när Sysprep ska användas
 
 Verktyget System preparation ( `sysprep.exe` ) är en process som du kan köra för att återställa en Windows-installation.
 Sysprep tillhandahåller en "direkt användning"-upplevelse genom att ta bort all personlig information och återställa flera komponenter.
@@ -472,7 +405,7 @@ Du kör vanligt vis `sysprep.exe` för att skapa en mall som du kan använda fö
 Om du bara vill skapa en virtuell dator från en disk behöver du inte använda Sysprep. I stället kan du skapa den virtuella datorn från en *specialiserad avbildning*. Information om hur du skapar en virtuell dator från en specialiserad disk finns i:
 
 - [Skapa en virtuell dator från en särskild disk](create-vm-specialized.md)
-- [Skapa en virtuell dator från en specialiserad virtuell hård disk](./create-vm-specialized-portal.md)
+- [Skapa en virtuell dator från en specialiserad virtuell hård disk](/azure/virtual-machines/windows/create-vm-specialized-portal)
 
 Om du vill skapa en generaliserad avbildning måste du köra Sysprep. Mer information finns i [så här använder du Sysprep: en introduktion](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -488,7 +421,6 @@ I synnerhet kräver Sysprep att enheterna måste dekrypteras fullständigt innan
 
 1. Logga in på den virtuella Windows-datorn.
 1. Kör en PowerShell-session som administratör.
-1. Ta bort Panther-katalogen (C:\Windows\Panther).
 1. Ändra katalogen till `%windir%\system32\sysprep` . Kör sedan `sysprep.exe`.
 1. I dialog rutan **system förberedelse verktyg** väljer du **Använd OOBE (system out-of-Box Experience)** och kontrollerar att kryss rutan **generalize** är markerad.
 
@@ -501,6 +433,73 @@ Nu kan den virtuella hård disken laddas upp. Mer information om hur du skapar e
 
 >[!NOTE]
 > Det finns inte stöd för en anpassad *unattend.xml* -fil. Även om vi har stöd för egenskapen **additionalUnattendContent** , som endast ger begränsat stöd för att lägga till [Microsoft-Windows-Shell-Setup-](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) alternativ i *unattend.xml* -filen som Azure Provisioning-agenten använder. Du kan till exempel använda [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) för att lägga till FirstLogonCommands och LogonCommands. Mer information finns i [AdditionalUnattendContent FirstLogonCommands-exempel](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+
+## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konvertera den virtuella disken till en virtuell hård disk med fast storlek
+
+Använd någon av metoderna i det här avsnittet för att konvertera och ändra storlek på den virtuella disken till det format som krävs för Azure:
+
+1. Säkerhetskopiera den virtuella datorn innan du kör konverteringen av den virtuella disken eller storleks ändrings processen.
+
+1. Kontrol lera att Windows-VHD fungerar korrekt på den lokala servern. Lös eventuella fel i den virtuella datorn innan du försöker konvertera eller ladda upp den till Azure.
+
+1. Konvertera den virtuella disken till typen Fixed.
+
+1. Ändra storlek på den virtuella disken så att den uppfyller Azure-kraven:
+
+   1. Diskar i Azure måste ha en virtuell storlek som är justerad till 1 MiB. Om den virtuella hård disken är en bråkdel av 1 MiB måste du ändra storlek på disken till en multipel av 1 MiB. Diskar som är bråktal i en MiB orsakar fel vid skapande av avbildningar från den uppladdade virtuella hård disken. För att verifiera storleken kan du använda PowerShell-cmdleten [Get-VHD](/powershell/module/hyper-v/get-vhd) för att Visa "size", som måste vara en multipel av 1 MIB i Azure och "FILESIZE", vilket är lika med "size" plus 512 byte för VHD-foten.
+   
+   1. Den maximala storlek som tillåts för OS-VHD: n med en virtuell dator i generation 1 är 2 048 GiB (2 TiB). 
+   1. Den maximala storleken för en datadisk är 32 767 GiB (32 TiB).
+
+> [!NOTE]
+> - Om du förbereder en Windows OS-disk efter att du har konverterat till en fast disk och ändrat storlek vid behov, skapar du en virtuell dator som använder disken. Starta och logga in på den virtuella datorn och fortsätt med avsnitten i den här artikeln för att slutföra förberedelserna för att ladda upp.  
+> - Om du förbereder en datadisk kan du sluta med det här avsnittet och fortsätta att ladda upp disken.
+
+### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Använd Hyper-V Manager för att konvertera disken
+
+1. Öppna Hyper-V Manager och välj den lokala datorn till vänster. I menyn ovanför dator listan väljer du **åtgärd**  >  **Redigera disk**.
+1. På sidan **hitta virtuell hård disk** väljer du den virtuella disken.
+1. På sidan **Välj åtgärd** väljer du **konvertera**  >  **Nästa**.
+1. Om du vill konvertera från VHDX väljer du **VHD**  >  **Nästa**.
+1. Om du vill konvertera från en dynamiskt expanderande disk väljer du **fast storlek**  >  **Nästa**.
+1. Leta upp och välj en sökväg för att spara den nya VHD-filen.
+1. Välj **Slutför**.
+
+### <a name="use-powershell-to-convert-the-disk"></a>Använd PowerShell för att konvertera disken
+
+Du kan konvertera en virtuell disk med cmdleten [Convert-VHD](/powershell/module/hyper-v/convert-vhd) i PowerShell. Om du behöver information om hur du installerar denna cmdlet, se [Installera Hyper-V-rollen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+I följande exempel konverteras disken från VHDX till VHD. Den konverterar också disken från en dynamiskt expanderande disk till en disk med fast storlek.
+
+```powershell
+Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
+```
+
+I det här exemplet ersätter du värdet för **sökväg** med sökvägen till den virtuella hård disk som du vill konvertera. Ersätt värdet för **DestinationPath** med den nya sökvägen till och namnet på den konverterade disken.
+
+### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Använd Hyper-V Manager för att ändra storlek på disken
+
+1. Öppna Hyper-V Manager och välj den lokala datorn till vänster. I menyn ovanför dator listan väljer du **åtgärd**  >  **Redigera disk**.
+1. På sidan **hitta virtuell hård disk** väljer du den virtuella disken.
+1. På sidan **Välj åtgärd** väljer du **expandera**  >  **Nästa**.
+1. På sidan **hitta virtuell hård disk** anger du den nya storleken i GIB > **Nästa**.
+1. Välj **Slutför**.
+
+### <a name="use-powershell-to-resize-the-disk"></a>Använd PowerShell för att ändra storlek på disken
+
+Du kan ändra storlek på en virtuell disk med hjälp av [ändra storlek-VHD-](/powershell/module/hyper-v/resize-vhd) cmdlet i PowerShell. Om du behöver information om hur du installerar denna cmdlet, se [Installera Hyper-V-rollen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+I följande exempel ändras storleken på disken från 100,5 MiB till 101 MiB för att uppfylla kraven för Azures justering.
+
+```powershell
+Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
+```
+
+I det här exemplet ersätter du värdet för **sökväg** med sökvägen till den virtuella hård disk som du vill ändra storlek på. Ersätt värdet för **SizeBytes** med den nya storleken i byte för disken.
+
+### <a name="convert-from-vmware-vmdk-disk-format"></a>Konvertera från VMware VMDK disk format
+
+Om du har en avbildning av en virtuell Windows-dator i [formatet VMDK](https://en.wikipedia.org/wiki/VMDK)kan du använda [Azure Migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) för att konvertera VMDK och ladda upp den till Azure.
 
 ## <a name="complete-the-recommended-configurations"></a>Slutför de rekommenderade konfigurationerna
 
@@ -520,4 +519,4 @@ Följande inställningar påverkar inte VHD-uppladdning. Vi rekommenderar dock s
 ## <a name="next-steps"></a>Nästa steg
 
 - [Ladda upp en Windows VM-avbildning till Azure för Resource Manager-distributioner](upload-generalized-managed.md)
-- [Felsök problem med aktivering av virtuella Azure Windows-datorer](../troubleshooting/troubleshoot-activation-problems.md)
+- [Felsök problem med aktivering av virtuella Azure Windows-datorer](troubleshoot-activation-problems.md)

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773414"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400202"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrol lera nätverks trafik i Azure HDInsight
 
@@ -32,7 +32,11 @@ Om du planerar att använda **nätverks säkerhets grupper** för att kontrol le
 
 1. Identifiera den Azure-region som du planerar att använda för HDInsight.
 
-2. Identifiera de tjänst koder som krävs av HDInsight för din region. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](hdinsight-service-tags.md).
+2. Identifiera de tjänst koder som krävs av HDInsight för din region. Det finns flera sätt att hämta dessa service märken:
+    1. Se listan över publicerade service-Taggar i [NSG (Network Security Group) för Azure HDInsight](hdinsight-service-tags.md). 
+    2. Om din region inte finns i listan använder du [API: et för identifiering av service tag](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) för att hitta en service tag för din region.
+    3. Om du inte kan använda API: t kan du hämta [JSON-filen för service tag](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) och söka efter önskad region.
+
 
 3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
 
@@ -51,10 +55,6 @@ Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik
 Kunder som är intresserade av att konfigurera Tvingad tunnel trafik bör använda [anpassade metastores](./hdinsight-use-external-metadata-stores.md) och konfigurera lämplig anslutning från klustrets undernät eller lokalt nätverk till dessa anpassade metastores.
 
 Om du vill se ett exempel på UDR-installationen med Azure Firewall, se [Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster](hdinsight-restrict-outbound-traffic.md).
-
-## <a name="required-ip-addresses"></a>IP-adresser som krävs
-
-Om du använder nätverks säkerhets grupper eller användardefinierade vägar för att styra trafiken, se [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
 
 ## <a name="required-ports"></a>Portar som krävs
 

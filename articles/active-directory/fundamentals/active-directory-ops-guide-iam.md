@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79298622"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321675"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Referens guide för Azure Active Directory identitets-och åtkomst hanterings åtgärder
 
@@ -45,14 +45,14 @@ När du granskar listan kanske du måste tilldela en ägare för aktiviteter som
 
 #### <a name="assigning-owners-recommended-reading"></a>Tilldela ägare Rekommenderad läsning
 
-- [Tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Styrning i Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Styrning i Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Synkronisering av lokala identiteter
 
 ### <a name="identify-and-resolve-synchronization-issues"></a>Identifiera och lösa synkroniseringsproblem
 
-Microsoft rekommenderar att du har en god bas linje och förståelse för problemen i din lokala miljö som kan leda till synkroniseringsproblem i molnet. Eftersom automatiserade verktyg, till exempel [IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) och [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#why-use-azure-ad-connect-health) kan generera en hög volym av falska positiva identifieringar, rekommenderar vi att du identifierar synkroniseringsfel som har lämnats utan adress i mer än 100 dagar genom att rensa dessa objekt i fel. Långsiktigt olösta synkroniseringsfel kan generera support ärenden. [Fel sökning av fel vid synkronisering](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors) ger en översikt av olika typer av synkroniseringsfel, några möjliga scenarier som orsakar felen och potentiella sätt att åtgärda felen.
+Microsoft rekommenderar att du har en god bas linje och förståelse för problemen i din lokala miljö som kan leda till synkroniseringsproblem i molnet. Eftersom automatiserade verktyg, till exempel [IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) och [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) kan generera en hög volym av falska positiva identifieringar, rekommenderar vi att du identifierar synkroniseringsfel som har lämnats utan adress i mer än 100 dagar genom att rensa dessa objekt i fel. Långsiktigt olösta synkroniseringsfel kan generera support ärenden. [Fel sökning av fel vid synkronisering](../hybrid/tshoot-connect-sync-errors.md) ger en översikt av olika typer av synkroniseringsfel, några möjliga scenarier som orsakar felen och potentiella sätt att åtgärda felen.
 
 ### <a name="azure-ad-connect-sync-configuration"></a>Azure AD Connect Sync-konfiguration
 
@@ -81,7 +81,7 @@ Exempel på objekt som ska undantas är:
 > [!NOTE]
 > Om en enskild mänsklig identitet har flera konton som tillhandahålls från något som en äldre domän migrering, sammanslagning eller förvärv, bör du bara synkronisera kontot som används av användaren på en daglig basis, till exempel vad de använder för att logga in på datorn.
 
-Vi rekommenderar att du uppnår en balans mellan att minska antalet objekt som ska synkroniseras och hur komplexa reglerna är. I allmänhet är en kombination mellan OU/behållar [filtrering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) och en enkel mappning till attributet cloudFiltered en effektiv filtrerings kombination.
+Vi rekommenderar att du uppnår en balans mellan att minska antalet objekt som ska synkroniseras och hur komplexa reglerna är. I allmänhet är en kombination mellan OU/behållar [filtrering](../hybrid/how-to-connect-sync-configure-filtering.md) och en enkel mappning till attributet cloudFiltered en effektiv filtrerings kombination.
 
 > [!IMPORTANT]
 > Om du använder grupp filtrering i produktion bör du övergå till en annan filtrerings metod.
@@ -105,7 +105,7 @@ Om din Azure AD Connect version är mer än sex månader bakom bör du uppgrader
 
 #### <a name="source-anchor"></a>Käll fäst punkt
 
-Med **MS-DS-consistencyguid** som [käll ankare](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts) kan en enklare migrering av objekt mellan skogar och domäner, vilket är vanligt i AD-domän konsolidering/rensning, sammanslagningar, förvärv och divestitures.
+Med **MS-DS-consistencyguid** som [käll ankare](../hybrid/plan-connect-design-concepts.md) kan en enklare migrering av objekt mellan skogar och domäner, vilket är vanligt i AD-domän konsolidering/rensning, sammanslagningar, förvärv och divestitures.
 
 Om du för närvarande använder **ObjectGuid** som käll ankare rekommenderar vi att du växlar till att använda **MS-DS-ConsistencyGuid**.
 
@@ -138,7 +138,7 @@ Exempel på felanvända anpassade regler är:
 
 ### <a name="group-based-licensing-for-microsoft-cloud-services"></a>Gruppbaserad licensiering för Microsoft Cloud Services
 
-Azure Active Directory effektiviserar hanteringen av licenser via [gruppbaserad licensiering](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal) för Microsofts moln tjänster. På så sätt tillhandahåller IAM grupp infrastrukturen och delegerad hantering av dessa grupper till rätt team i organisationerna. Det finns flera sätt att konfigurera medlemskapet för grupper i Azure AD, inklusive:
+Azure Active Directory effektiviserar hanteringen av licenser via [gruppbaserad licensiering](./active-directory-licensing-whatis-azure-portal.md) för Microsofts moln tjänster. På så sätt tillhandahåller IAM grupp infrastrukturen och delegerad hantering av dessa grupper till rätt team i organisationerna. Det finns flera sätt att konfigurera medlemskapet för grupper i Azure AD, inklusive:
 
 - **Synkronisering från lokala** grupper kan komma från lokala kataloger, vilket kan vara en bra anpassning för organisationer som har upprättat grup hanterings processer som kan utökas för att tilldela licenser i Office 365.
 
@@ -157,26 +157,26 @@ Använd följande rikt linjer för att definiera tjänst planer för användare:
 - Du kan också definiera ett attribut för att lagra paketen för användare.
 
 > [!IMPORTANT]
-> Gruppbaserad licensiering i Azure AD introducerar begreppet användare i ett licensierings fel tillstånd. Om du ser eventuella licens fel bör du omedelbart [identifiera och lösa](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems) eventuella licens tilldelnings problem.
+> Gruppbaserad licensiering i Azure AD introducerar begreppet användare i ett licensierings fel tillstånd. Om du ser eventuella licens fel bör du omedelbart [identifiera och lösa](../users-groups-roles/licensing-groups-resolve-problems.md) eventuella licens tilldelnings problem.
 
 ![En skärm bild av en dator skärms beskrivning som genereras automatiskt](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Livs cykel hantering
 
-Om du för närvarande använder ett verktyg, till exempel [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) eller ett system från tredje part, som förlitar sig på en lokal infrastruktur, rekommenderar vi att du avlastar tilldelningen från det befintliga verktyget, implementerar gruppbaserad licensiering och definierar en grupp livs cykel hantering baserat på [grupper](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups). På samma sätt bör du, om din befintliga process inte har något konto för nya medarbetare eller anställda som lämnar organisationen, distribuera gruppbaserad licensiering baserat på dynamiska grupper och definiera en livs cykel för grupp medlemskap. Slutligen, om gruppbaserad licensiering distribueras mot lokala grupper som saknar livs cykel hantering, bör du överväga att använda moln grupper för att aktivera funktioner som delegerad ägarskap eller attributbaserade dynamiska medlemskap.
+Om du för närvarande använder ett verktyg, till exempel [Microsoft Identity Manager](/microsoft-identity-manager/) eller ett system från tredje part, som förlitar sig på en lokal infrastruktur, rekommenderar vi att du avlastar tilldelningen från det befintliga verktyget, implementerar gruppbaserad licensiering och definierar en grupp livs cykel hantering baserat på [grupper](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). På samma sätt bör du, om din befintliga process inte har något konto för nya medarbetare eller anställda som lämnar organisationen, distribuera gruppbaserad licensiering baserat på dynamiska grupper och definiera en livs cykel för grupp medlemskap. Slutligen, om gruppbaserad licensiering distribueras mot lokala grupper som saknar livs cykel hantering, bör du överväga att använda moln grupper för att aktivera funktioner som delegerad ägarskap eller attributbaserade dynamiska medlemskap.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Tilldelning av appar med gruppen "alla användare"
 
 Resurs ägare kan tro att gruppen **alla användare** endast innehåller **företags anställda** när de faktiskt kan innehålla både **företags anställda** och **gäster**. Därför bör du vara särskilt försiktig när du använder gruppen **alla användare** för program tilldelning och beviljar åtkomst till resurser som SharePoint-innehåll eller program.
 
 > [!IMPORTANT]
-> Om gruppen **alla användare** är aktive rad och används för principer för villkorlig åtkomst, app eller resurs tilldelning, se till att [skydda gruppen](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) om du inte vill att den ska innehålla gäst användare. Dessutom bör du åtgärda licens tilldelningarna genom att skapa och tilldela till grupper som bara innehåller **företags anställda** . Å andra sidan, om du ser att gruppen **alla användare** är aktive rad men inte används för att bevilja åtkomst till resurser, se till att organisationens operativa vägledning är att avsiktligt använda gruppen (som omfattar både **företags anställda** och **gäster**).
+> Om gruppen **alla användare** är aktive rad och används för principer för villkorlig åtkomst, app eller resurs tilldelning, se till att [skydda gruppen](../external-identities/use-dynamic-groups.md) om du inte vill att den ska innehålla gäst användare. Dessutom bör du åtgärda licens tilldelningarna genom att skapa och tilldela till grupper som bara innehåller **företags anställda** . Å andra sidan, om du ser att gruppen **alla användare** är aktive rad men inte används för att bevilja åtkomst till resurser, se till att organisationens operativa vägledning är att avsiktligt använda gruppen (som omfattar både **företags anställda** och **gäster**).
 
 ### <a name="automated-user-provisioning-to-apps"></a>Automatiserad användar etablering för appar
 
-[Automatiserad användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för program är det bästa sättet att skapa en konsekvent etablering, avetablering och livs cykel för identiteter i flera system.
+[Automatiserad användar etablering](../app-provisioning/user-provisioning.md) för program är det bästa sättet att skapa en konsekvent etablering, avetablering och livs cykel för identiteter i flera system.
 
-Om du för närvarande konfigurerar appar på ett ad hoc-sätt eller använder saker som CSV-filer, JIT eller en lokal lösning som inte hanterar livs cykel hantering, rekommenderar vi att du [implementerar program etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#how-do-i-set-up-automatic-provisioning-to-an-application) med Azure AD för program som stöds och definierar ett konsekvent mönster för program som ännu inte stöds av Azure AD.
+Om du för närvarande konfigurerar appar på ett ad hoc-sätt eller använder saker som CSV-filer, JIT eller en lokal lösning som inte hanterar livs cykel hantering, rekommenderar vi att du [implementerar program etablering](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) med Azure AD för program som stöds och definierar ett konsekvent mönster för program som ännu inte stöds av Azure AD.
 
 ![Azure AD Provisioning-tjänst](./media/active-directory-ops-guide/active-directory-ops-img3.png)
 
@@ -184,12 +184,12 @@ Om du för närvarande konfigurerar appar på ett ad hoc-sätt eller använder s
 
 Det är viktigt att förstå mängden ändringar i din organisation och se till att det inte tar för lång tid att ha en förutsägbar synkroniseringstid.
 
-Standard frekvensen för [synkronisering av ändringar](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) är 30 minuter. Om delta-synkroniseringen tar längre tid än 30 minuter, eller om det finns betydande skillnader mellan delta-synkroniseringens prestanda, bör du undersöka och granska de [faktorer som påverkar Azure AD connectens prestanda](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors).
+Standard frekvensen för [synkronisering av ändringar](../hybrid/how-to-connect-sync-feature-scheduler.md) är 30 minuter. Om delta-synkroniseringen tar längre tid än 30 minuter, eller om det finns betydande skillnader mellan delta-synkroniseringens prestanda, bör du undersöka och granska de [faktorer som påverkar Azure AD connectens prestanda](../hybrid/plan-connect-performance-factors.md).
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect fel sökning av Rekommenderad läsning
 
-- [Förbereda katalog-attribut för synkronisering med Office 365 med verktyget IdFix-Office 365](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
-- [Azure AD Connect: fel sökning av fel vid synkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)
+- [Förbereda katalog-attribut för synkronisering med Office 365 med verktyget IdFix-Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Azure AD Connect: fel sökning av fel vid synkronisering](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>Sammanfattning
 

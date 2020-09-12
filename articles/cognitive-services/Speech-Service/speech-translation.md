@@ -1,28 +1,29 @@
 ---
-title: Tal översättning med Speech service
+title: Översikt över tal översättning – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Med tal tjänsten kan du lägga till en fullständig översättning av tal från slut punkt till slut punkt i real tid till dina program, verktyg och enheter. Samma API kan användas för både tal till tal- och tal till text-översättning.
+description: Tal översättning gör att du kan lägga till data översättning från slut punkt till slut punkt, stöd för flera språk i real tid till dina program, verktyg och enheter. Samma API kan användas för både tal till tal- och tal till text-översättning. Den här artikeln är en översikt över fördelarna och funktionerna i röst översättnings tjänsten.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
-ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: tal Översättning
+ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055540"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401222"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Tal översättning från Speech service möjliggör real tids-, tal-till-tal-och tal-till-text-översättning i real tid av ljud strömmar. Med tal-SDK har dina program, verktyg och enheter åtkomst till käll avskrifter och översättnings utdata för tillhandahållen ljud. Interimistiska avskrifter och översättnings resultat returneras som tal identifieras och slutliga resultat kan konverteras till syntetiskt tal.
+I den här översikten får du lära dig mer om fördelarna och funktionerna i tal översättnings tjänsten, vilket möjliggör real tids-och tal-till-text-översättning i real tid av ljud strömmar. Med tal-SDK har dina program, verktyg och enheter åtkomst till käll avskrifter och översättnings utdata för tillhandahållen ljud. Interimistiska avskrifter och översättnings resultat returneras som tal identifieras och slutgiltiga resultat kan konverteras till syntetiskt tal.
 
 Microsofts översättnings motor drivs av två olika metoder: statistisk maskin översättning (SMT) och neurala Machine Translation (NMT). SMT använder avancerad statistisk analys för att uppskatta de bästa möjliga översättningarna med några få ord. Med NMT används neurala-nätverk för att tillhandahålla mer exakta, naturligt förekommande översättningar genom att använda den fullständiga kontexten för meningar för att översätta ord.
 

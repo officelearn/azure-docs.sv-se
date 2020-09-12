@@ -1,27 +1,29 @@
 ---
-title: Text till tal-tal-tjänsten
+title: Översikt över text till tal – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Funktionen för text till tal i tal-tjänsten gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Välj Förvals röster eller skapa en egen anpassad röst.
+description: Funktionen för text till tal i tal-tjänsten gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturligt mänskligt syntetiskt tal. Den här artikeln är en översikt över fördelarna och funktionerna i tjänsten text till tal.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: text till tal
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167716"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401188"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Text till tal från tal-tjänsten gör det möjligt för program, verktyg eller enheter att konvertera text till humant syntetiskt tal. Välj mellan standard-och neurala röster eller skapa en anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på fler än 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på ett valt antal språk och nationella inställningar. En fullständig lista över röster, språk och nationella inställningar som stöds finns i [språk som stöds](language-support.md#text-to-speech).
+I den här översikten får du lära dig om fördelarna och funktionerna i tjänsten text till tal, som gör att dina program, verktyg eller enheter kan konvertera text till Human-liknande syntetiskt tal. Välj mellan standard-och neurala röster eller skapa en anpassad röst som är unik för din produkt eller ditt varumärke. 75 + standard röster är tillgängliga på fler än 45 språk och nationella inställningar och 5 neurala-röster är tillgängliga på ett valt antal språk och nationella inställningar. En fullständig lista över röster, språk och nationella inställningar som stöds finns i [språk som stöds](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Taligenkänning i Bing togs ur bruk den 15 oktober 2019. Om dina program, verktyg eller produkter använder Taligenkänning i Bing-API: er eller Custom Speech har vi skapat guider som hjälper dig att migrera till tal tjänsten.

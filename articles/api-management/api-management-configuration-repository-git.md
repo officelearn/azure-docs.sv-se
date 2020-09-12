@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723953"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400371"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Så gör du för att spara och konfigurera din API Management-tjänstkonfiguration med Git
 
@@ -47,7 +47,7 @@ I den här artikeln beskrivs hur du aktiverar och använder Git för att hantera
 
 ## <a name="access-git-configuration-in-your-service"></a>Få åtkomst till git-konfiguration i din tjänst
 
-Om du vill visa och konfigurera inställningar för git-konfigurationen kan du klicka på menyn **säkerhet** och navigera till fliken **konfigurations databas** .
+Om du vill visa och konfigurera inställningar för git-konfigurationen kan du klicka på menyn **distribution och infrastruktur** och gå till fliken **lagrings plats** .
 
 ![Aktivera GIT][api-management-enable-git]
 
@@ -62,7 +62,7 @@ Information om hur du aktiverar eller inaktiverar git-åtkomst med hjälp av RES
 
 Det första steget innan du klonar lagrings platsen är att spara det aktuella läget för tjänst konfigurationen till lagrings platsen. Klicka på **Spara till lagrings plats**.
 
-Gör önskade ändringar på bekräftelse skärmen och klicka på **OK** för att spara.
+Gör önskade ändringar på bekräftelse skärmen och klicka på **Spara** för att spara.
 
 Efter en liten stund sparas konfigurationen och databasens konfigurations status visas, inklusive datum och tid för den senaste konfigurations ändringen och den senaste synkroniseringen mellan tjänst konfigurationen och lagrings platsen.
 
@@ -112,7 +112,7 @@ När lagrings platsen är klonad kan du Visa och arbeta med den i det lokala fil
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Uppdatera din lokala lagrings plats med den mest aktuella tjänst instans konfigurationen
 
-Om du gör ändringar i API Management tjänst instansen i Azure Portal eller använder REST API måste du spara ändringarna i lagrings platsen innan du kan uppdatera din lokala lagrings plats med de senaste ändringarna. Det gör du genom att klicka på **Spara konfiguration till databas** på fliken **konfigurations lagrings plats** i Azure Portal och sedan utfärda följande kommando i din lokala lagrings plats.
+Om du gör ändringar i API Management tjänst instansen i Azure Portal eller använder REST API måste du spara ändringarna i lagrings platsen innan du kan uppdatera din lokala lagrings plats med de senaste ändringarna. Det gör du genom att klicka på **Spara till lagrings plats** på fliken **databas** i Azure Portal och sedan utfärda följande kommando i din lokala lagrings plats.
 
 ```
 git pull
@@ -198,7 +198,7 @@ Rotmappen `api-management` innehåller en `configuration.json` fil som innehåll
 }
 ```
 
-De första fyra inställningarna ( `RegistrationEnabled` , `UserRegistrationTerms` , `UserRegistrationTermsEnabled` och `UserRegistrationTermsConsentRequired` ) mappas till följande inställningar på fliken **identiteter** i avsnittet **säkerhet** .
+De första fyra inställningarna ( `RegistrationEnabled` , `UserRegistrationTerms` , `UserRegistrationTermsEnabled` och `UserRegistrationTermsConsentRequired` ) mappas till följande inställningar på fliken **identiteter** i avsnittet **Developer-portalen** .
 
 | Identitets inställning | Mappar till |
 | --- | --- |
@@ -208,7 +208,7 @@ De första fyra inställningarna ( `RegistrationEnabled` , `UserRegistrationTerm
 | UserRegistrationTermsConsentRequired |Kryss rutan **Kräv medgivande** |
 | RequireUserSigninEnabled |Kryss rutan **omdirigera anonyma användare till inloggnings sidan** |
 
-De fyra följande inställningarna ( `DelegationEnabled` , `DelegationUrl` , `DelegatedSubscriptionEnabled` och `DelegationValidationKey` ) mappas till följande inställningar på fliken **delegering** i avsnittet **säkerhet** .
+De följande fyra inställningarna ( `DelegationEnabled` , `DelegationUrl` , `DelegatedSubscriptionEnabled` och `DelegationValidationKey` ) mappas till följande inställningar på fliken **delegering** i avsnittet **Developer-portalen** .
 
 | Delegerings inställning | Mappar till |
 | --- | --- |

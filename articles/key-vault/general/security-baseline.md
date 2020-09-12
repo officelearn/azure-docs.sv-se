@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d939c03aef8d155d83d20c7d8211e04fae26c228
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230287"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400474"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Azures säkerhetsbaslinje för Key Vault
 
@@ -411,7 +411,7 @@ Planera en molnbaserad Azure Multi-Factor Authentication-distribution: https://d
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3,7: Logga och Avisera om misstänkt aktivitet från administrativa konton
 
-**Vägledning**: använda Azure Active Directory (AAD) PRIVILEGED Identity Management (PIM) för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön. Använd AAD-riskfyllda identifieringar för att visa aviseringar och rapporter om riskfyllda användar beteenden. Om du vill ha ytterligare loggning kan du skicka aviseringar om Azure Security Center risk identifiering till Azure Monitor och konfigurera anpassade aviseringar/meddelanden med hjälp av åtgärds grupper.
+**Vägledning**: Använd Azure Active Directory (Azure AD) PRIVILEGED Identity Management (PIM) för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön. Använd identifieringar av Azure AD-risker för att visa aviseringar och rapporter om riskfyllda användar beteenden. Om du vill ha ytterligare loggning kan du skicka aviseringar om Azure Security Center risk identifiering till Azure Monitor och konfigurera anpassade aviseringar/meddelanden med hjälp av åtgärds grupper.
 
 Aktivera avancerat skydd (ATP) för Azure Key Vault att generera aviseringar för misstänkt aktivitet.
 
@@ -445,7 +445,7 @@ Vad är plats villkoret i Azure Active Directory villkorlig åtkomst?: https://d
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
-**Vägledning**: använda Azure Active Directory (AAD) som central autentiserings-och auktoriserings system för Azure-resurser som Key Vault. Detta gör det möjligt för rollbaserad åtkomst kontroll (RBAC) att administrera känsliga resurser.
+**Vägledning**: Använd Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system för Azure-resurser som Key Vault. Detta gör det möjligt för rollbaserad åtkomst kontroll (RBAC) att administrera känsliga resurser.
 
  
 
@@ -460,7 +460,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
-**Vägledning**: granska Azure Active Directory-loggar (AAD) som hjälper dig att identifiera inaktuella konton med Azure Key Vault administrativa roller. Använd dessutom åtkomst granskningar för AAD för att effektivt hantera grupp medlemskap, åtkomst till företags program som kan användas för att komma åt Azure Key Vault-och roll tilldelningar. Användar åtkomsten bör granskas regelbundet, till exempel var 90: e dag och se till att endast rätt användare har fortsatt åtkomst.
+**Vägledning**: granska Azure Active Directory (Azure AD)-loggar för att identifiera inaktuella konton med Azure Key Vault administrativa roller. Dessutom kan du använda Azure AD åtkomst granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program som kan användas för att få åtkomst till Azure Key Vault och roll tilldelningar. Användar åtkomsten bör granskas regelbundet, till exempel var 90: e dag och se till att endast rätt användare har fortsatt åtkomst.
 
 Azure Active Directory rapporter och övervaknings dokumentation:
 
@@ -1009,11 +1009,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Så här skapar du en Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Så här ger Key Vault autentisering med en hanterad identitet: 
+Så här autentiserar du till Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Så här tilldelar du en Key Vault åtkomst princip:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center övervakning**: Ja
 
@@ -1025,16 +1029,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-Så här integrerar du med Azure Managed Identities: 
+* [Integrera med Azure Managed Identities](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [Så här skapar du en Key Vault](quick-create-portal.md)
 
-Så här skapar du en Key Vault: 
+* [Så här autentiserar du till Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-Så här ger Key Vault autentisering med en hanterad identitet:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [Så här tilldelar du en Key Vault åtkomst princip](assign-access-policy-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

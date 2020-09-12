@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502740"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595826"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Skapa en Programgateway med TLS-avslutning med Azure CLI
 
@@ -21,11 +21,10 @@ Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med et
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Skapa ett självsignerat certifikat
-> * Konfigurera ett nätverk
-> * Skapa en programgateway med certifikatet
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
+* Skapa ett självsignerat certifikat
+* Konfigurera ett nätverk
+* Skapa en programgateway med certifikatet
+* Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-ssl-powershell.md).
 

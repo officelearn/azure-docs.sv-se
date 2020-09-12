@@ -4,21 +4,21 @@ description: Lär dig hur du skalar en Azure SignalR service-instans för att l�
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500495"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595775"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Hur skalar jag en Azure SignalR-tjänstinstans?
 Den här artikeln visar hur du skalar din instans av Azure SignalR-tjänsten. Det finns två scenarier för skalning. skala upp och skala ut.
 
 * [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): få fler enheter, anslutningar, meddelanden och mycket annat. Du skalar upp genom att ändra pris nivån från kostnads fri till standard.
-* [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): öka antalet signal enheter. Du kan skala ut till så många som 100 enheter.
+* [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): öka antalet signal enheter. Du kan skala ut till så många som 100 enheter. Det finns begränsade enhets alternativ att välja för skalning: 1, 2, 5, 10, 20, 50 och 100 enheter för en enskild signal tjänst instans.
 
 Det tar några minuter att tillämpa skalnings inställningarna. I sällsynta fall kan det ta cirka 30 minuter att tillämpa. De kräver inte att du ändrar koden eller distribuerar om serverprogrammet.
 

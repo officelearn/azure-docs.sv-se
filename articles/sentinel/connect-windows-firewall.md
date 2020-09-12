@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: b2cf984e629d6b86beef9292dac819b554f49749
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 5804dcc840eb666c1d43ea7d7ed7640b8f7ff371
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850703"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657442"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Anslut Windows Defender-brandväggen med avancerad säkerhet till Azure Sentinel
 
@@ -31,9 +31,9 @@ Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer dä
 > [!NOTE]
 > - Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 >
-> - Om Azure Sentinel och Azure Security Center samlas in i samma arbets yta behöver du inte aktivera Windows brand Väggs lösningen via den här anslutningen. Om du har aktiverat den ändå kommer det inte att orsaka dubbletter av data. 
+> - Om Azure Sentinel och Azure Defender (tidigare Azure Security Center) samlas in i samma arbets yta behöver du inte aktivera Windows brand Väggs lösningen via den här anslutningen. Om du har aktiverat den ändå kommer det inte att orsaka dubbletter av data. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha läs-och Skriv behörighet på arbets ytan som de datorer som du vill övervaka är anslutna till.
 
@@ -47,37 +47,40 @@ Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer dä
 
 ### <a name="instructions-tab"></a>Fliken instruktioner
 
-- **Om dina Windows-datorer finns i Azure:**
+Utför följande steg på fliken **instruktioner** .
 
-    1. Välj **Installera agent på virtuell Azure Windows-dator**.
+- **Slutför följande steg om dina Windows-datorer finns i Azure:**
 
-    1. Klicka på länken **Ladda ned & installera agent för virtuella Azure Windows-datorer >** som visas.
+   1. Välj **Installera agent på virtuell Azure Windows-dator**.
+   
+   1. Klicka på länken **Ladda ned & installera agent för virtuella Azure Windows-datorer >** som visas.
+   
+   1. I listan med **virtuella datorer** väljer du den Windows-dator som du vill strömma till Azure Sentinel. (Du kan välja **fönster** i kolumn filtret för operativ systemet för att säkerställa att endast virtuella Windows-datorer visas).
+   
+   1. I fönstret som öppnas för den virtuella datorn klickar du på **Anslut**.
+   
+   1. Gå tillbaka till **Virtual Machines** fönstret och upprepa föregående två steg för alla andra virtuella datorer som du vill ansluta. När du är klar går du tillbaka till fönstret **Windows-brandväggen** .
 
-    1. I listan med **virtuella datorer** väljer du den Windows-dator som du vill strömma till Azure Sentinel. (Du kan välja **fönster** i kolumn filtret för operativ systemet för att säkerställa att endast virtuella Windows-datorer visas).
+- **Om din Windows-dator inte är en virtuell Azure-dator utför du följande steg:**
+   
+   1. Välj **Installera agent på en Windows-dator som inte är Azure**.
+   
+   1. Klicka på länken **hämta & installera agent för Windows-datorer som inte är Azure->** som visas.
+   
+   1. I fönstret **hantering av agenter** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)** efter behov.
+   
+   1. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** strängar till en textfil. Kopiera filen och den nedladdade installations filen till din Windows-dator. Kör installations filen och ange ID och nyckel strängar i text filen under installationen när du uppmanas till det.
+   
+   1. Gå tillbaka till fönstret **Windows-brandväggen** .
 
-    1. I fönstret som öppnas för den virtuella datorn klickar du på **Anslut**.
-
-    1. Gå tillbaka till **Virtual Machines** fönstret och upprepa föregående två steg för alla andra virtuella datorer som du vill ansluta. När du är klar går du tillbaka till fönstret **Windows-brandväggen** .
-
-- **Om din Windows-dator inte är en virtuell Azure-dator:**
-
-    1. Välj **Installera agent på en Windows-dator som inte är Azure**.
-
-    1. Klicka på länken **hämta & installera agent för Windows-datorer som inte är Azure->** som visas.
-
-    1. I fönstret **hantering av agenter** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)** efter behov.
-
-    1. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** strängar till en textfil. Kopiera filen och den nedladdade installations filen till din Windows-dator. Kör installations filen och ange ID och nyckel strängar i text filen under installationen när du uppmanas till det.
-
-    1. Gå tillbaka till fönstret **Windows-brandväggen** .
-
-1. Klicka på **installera lösning**.
+När du har slutfört stegen på fliken **instruktioner** klickar du på **installera lösning**.
 
 ### <a name="next-steps-tab"></a>Fliken nästa steg
 
-- Se tillgängliga rekommenderade arbets böcker och fråge exempel som paketerats med **Windows-brandväggen** data Connector för att få information om loggdata i Windows-brandväggen.
+- Information om hur du får information om Windows-brandväggen finns i de tillgängliga rekommenderade arbets böcker och fråge exempel som paketeras med **Windows-brandväggen** data Connector.
 
 - Om du vill fråga efter data i Windows-brandväggen i **loggar**skriver du **WindowsFirewall** i frågefönstret.
+
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
  

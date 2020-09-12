@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502772"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595869"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
@@ -22,13 +22,12 @@ Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbpla
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Skapa lyssnare för serverdelen
-> * Skapa routningsregler
-> * Skapa VM-skalningsuppsättningar med serverdelspoolerna
-> * Skapa en CNAME-post i domänen
+* Konfigurera nätverket
+* Skapa en programgateway
+* Skapa lyssnare för serverdelen
+* Skapa routningsregler
+* Skapa VM-skalningsuppsättningar med serverdelspoolerna
+* Skapa en CNAME-post i domänen
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Application Gateway för flera platser":::
 

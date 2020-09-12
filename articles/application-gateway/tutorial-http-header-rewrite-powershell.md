@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806440"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595911"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Skapa en Application Gateway och skriv om HTTP-huvuden
 
@@ -20,17 +20,15 @@ Du kan använda Azure PowerShell för att konfigurera [regler för att skriva om
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
->
-> * Skapa ett virtuellt nätverk för autoskalning
-> * Skapa en reserverad offentlig IP-adress
-> * Konfigurera infrastrukturen för din application gateway
-> * Ange en regel konfiguration för att skriva över HTTP-huvud
-> * Ange automatisk skalning
-> * Skapa programgatewayen
-> * Testa programgatewayen
+* Skapa ett virtuellt nätverk för autoskalning
+* Skapa en reserverad offentlig IP-adress
+* Konfigurera infrastrukturen för din application gateway
+* Ange en regel konfiguration för att skriva över HTTP-huvud
+* Ange automatisk skalning
+* Skapa programgatewayen
+* Testa programgatewayen
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 

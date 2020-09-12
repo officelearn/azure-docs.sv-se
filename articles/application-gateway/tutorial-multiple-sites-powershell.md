@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525014"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595884"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Skapa en programgateway som är värd för flera webbplatser med Azure PowerShell
 
@@ -22,17 +22,16 @@ Du kan använda Azure PowerShell till att [konfigurera ett värdskap för flera 
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Skapa lyssnare för serverdelen
-> * Skapa routningsregler
-> * Skapa VM-skalningsuppsättningar med serverdelspoolerna
-> * Skapa en CNAME-post i domänen
+* Konfigurera nätverket
+* Skapa en programgateway
+* Skapa lyssnare för serverdelen
+* Skapa routningsregler
+* Skapa VM-skalningsuppsättningar med serverdelspoolerna
+* Skapa en CNAME-post i domänen
 
 :::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Application Gateway för flera platser":::
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -128,7 +127,7 @@ Skapa den första lyssnaren med [New-AzApplicationGatewayHttpListener](/powershe
 
 >[!NOTE]
 > Med Application Gateway eller WAF v2 SKU kan du också konfigurera upp till 5 värdnamn per lyssnare och du kan använda jokertecken i värd namnet. Mer information finns i [namn på jokertecken i lyssnaren](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Om du vill använda flera värdnamn och jokertecken i en lyssnare med hjälp av Azure PowerShell måste du använda `-HostNames` i stället för `-HostName` . Med värdnamn kan du nämna upp till 5 värdnamn som kommaavgränsade värden. Till exempel, `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Om du vill använda flera värdnamn och jokertecken i en lyssnare med hjälp av Azure PowerShell måste du använda `-HostNames` i stället för `-HostName` . Med värdnamn kan du nämna upp till 5 värdnamn som kommaavgränsade värden. Till exempel `-HostNames "*.contoso.com,*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

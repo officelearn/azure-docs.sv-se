@@ -3,12 +3,12 @@ title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047334"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651888"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -43,7 +43,9 @@ Exempel på dessa fil format finns i [Azure policy GitHub lagrings platsen](http
 
 Det rekommenderade allmänna arbets flödet som kod ser ut som i det här diagrammet:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Princip som kod arbets flöde – översikt" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram som visar princip som kod arbets flödes rutor från Create to test to deploy." border="false":::
+   Diagrammet som visar princip som kod arbets flödes rutor. Skapa beskriver hur du skapar principer och initiativ definitioner. Testet täcker tilldelningar med tvingande läge inaktiverat. En gateway-kontroll för kompatibilitetsstatus följs av och beviljar behörigheterna för tilldelningarna M S och åtgärdar resurserna.  Distribuera omfattar uppdatering av tilldelningen med tvingande läge aktiverat.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Skapa och uppdatera princip definitioner
 

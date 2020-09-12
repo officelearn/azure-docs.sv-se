@@ -3,12 +3,12 @@ title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051510"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651943"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -103,7 +103,7 @@ När tilldelningen tas bort tas låsen som skapats av Azure-ritningar bort. Resu
 
 Åtgärden för [att neka en RBAC-](../../../role-based-access-control/deny-assignments.md) åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt alternativet **skrivskyddad** eller **Ta inte bort** . Neka-åtgärden läggs till av den hanterade identiteten för skiss tilldelningen och kan bara tas bort från artefakt resurserna av samma hanterade identitet. Det här säkerhets måttet tillämpar låsnings funktionen och förhindrar att skiss låset tas bort utanför Azure-ritningar.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Skissen neka tilldelning för resurs gruppen" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Skärm bild av sidan åtkomst kontroll (I A M) och fliken neka tilldelningar för en resurs grupp." border="false":::
 
 [Egenskaperna för neka tilldelning](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) för varje läge är följande:
 

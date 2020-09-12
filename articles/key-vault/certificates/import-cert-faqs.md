@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588829"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651849"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Vanliga frågor om import av Azure Key Vault-certifikat
 
@@ -54,7 +54,7 @@ Mer information om certifikat-relaterade åtkomst principer finns i [om Azure Ke
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Hur kan jag lösa "typ av fel: en konflikt vid skapande av ett certifikat"?
     
-Varje certifikat namn måste vara unikt. Ett certifikat med samma namn som ett annat kan vara i ett mjukt borttaget tillstånd. I enlighet med [sammansättningen av ett certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) i Azure Key Vault, om det finns en annan nyckel eller hemlighet i nyckel valvet med samma namn som det som du försöker att ange för ditt certifikat, så kommer det att Miss kunna att skapa certifikat och du måste antingen ta bort nyckeln eller hemligheten eller använda ett annat namn för certifikatet. 
+Varje certifikat namn måste vara unikt. Ett certifikat med samma namn kan vara i ett läge med mjuk borttagning. Även när [ett certifikat skapas när ett certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)skapas, skapas en adresserad hemlighet med samma namn, så om det finns en annan nyckel eller hemlighet i nyckel valvet med samma namn som det som du försöker att ange för ditt certifikat, kommer det inte att gå att skapa certifikat och du måste antingen ta bort nyckeln eller hemligheten eller använda ett annat namn för certifikatet. 
 
 Mer information finns i [Get Deleted Certificate-åtgärd](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

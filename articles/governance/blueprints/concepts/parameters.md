@@ -3,12 +3,12 @@ title: Använda parametrar för att skapa dynamiska modeller
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051567"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651955"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
@@ -61,11 +61,11 @@ Ett parameter värde som definieras i definitionen av en skiss kallas en **stati
 
 1. Artefakter som läggs till i skissen med parameter alternativ visar **X av Y-parametrar** som är ifyllda i kolumnen **parametrar** . Välj artefakt raden för att redigera artefakt parametrarna.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Skiss parametrar i en skiss definition" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Skärm bild av en skiss definition och X av Y-parametrarna som har fyllts i markerat." border="false":::
 
-1. Sidan **Redigera artefakt** visar värde alternativ som är lämpliga för den artefakt som klickas på. Varje parameter i artefakten har en rubrik, ett värde-ruta och en kryss ruta. Ange att rutan ska avmarkeras för att göra den till en **statisk parameter**. I exemplet nedan är endast _plats_ en **statisk parameter** eftersom den är omarkerad och _resurs gruppens namn_ är markerat.
+1. Sidan **Redigera artefakt** visar värde alternativ som är lämpliga för den valda artefakten. Varje parameter i artefakten har en rubrik, ett värde-ruta och en kryss ruta. Ange att rutan ska avmarkeras för att göra den till en **statisk parameter**. I exemplet nedan är endast _plats_ en **statisk parameter** eftersom den är omarkerad och _resurs gruppens namn_ är markerat.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Skissa statiska parametrar på en skiss artefakt" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Skärm bild av statiska parametrar i en skiss artefakt." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Ange statiska parametrar från REST API
 
@@ -176,7 +176,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 1. På sidan **tilldela skiss** hittar du avsnittet **artefakt parametrar** . Varje artefakt med minst en **dynamisk parameter** visar artefakten och konfigurations alternativen. Ange de värden som krävs för parametrarna innan du tilldelar skissen. I exemplet nedan är _namn_ en **dynamisk parameter** som måste definieras för fullständig skiss tilldelning.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Dynamisk skiss parameter under skiss tilldelningen" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Skärm bild av inställning av dynamiska parametrar under skiss tilldelningen." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ange dynamiska parametrar från REST API
 

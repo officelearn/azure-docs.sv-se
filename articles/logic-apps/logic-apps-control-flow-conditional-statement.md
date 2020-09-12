@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 796558c2579504b673fd15c468ce635c6b1cca8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19f42270e37c42cf56bbde04f73c01027a56ff63
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066365"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657387"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Skapa villkorliga uttryck som styr arbets flödes åtgärder i Azure Logic Apps
 
@@ -28,7 +28,7 @@ Anta till exempel att du har en logisk app som skickar för många e-postmeddela
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Om du vill följa exemplet i den här artikeln [skapar du den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-eller Office 365 Outlook-konto.
+* Om du vill följa exemplet i den här artikeln [skapar du den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-konto eller ett arbets-eller skol konto.
 
 ## <a name="add-condition"></a>Lägg till villkor
 
@@ -40,7 +40,7 @@ Anta till exempel att du har en logisk app som skickar för många e-postmeddela
 
    ![Lägg till åtgärd mellan steg](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   När du vill lägga till ett villkor i slutet av arbets flödet väljer du **nytt steg** > **Lägg till en åtgärd**längst ned i din Logic app.
+   När du vill lägga till ett villkor i slutet av arbets flödet väljer du  **nytt steg** > **Lägg till en åtgärd**längst ned i din Logic app.
 
 1. I rutan Sök anger du "Condition" som filter. Välj den här åtgärden: **villkor-kontroll**
 

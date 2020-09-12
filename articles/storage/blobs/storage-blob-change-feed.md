@@ -1,21 +1,21 @@
 ---
-title: Ändra feed i Azure Blob Storage (förhands granskning) | Microsoft Docs
+title: Ändra feed i Azure Blob Storage | Microsoft Docs
 description: Lär dig mer om att ändra flödes loggar i Azure Blob Storage och hur du använder dem.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055438"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568242"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Ändra stöd för feed i Azure Blob Storage
 
 Syftet med ändrings flödet är att tillhandahålla transaktions loggar för alla ändringar som sker i blobbar och blob-metadata i ditt lagrings konto. Ändrings flödet ger **beställd**, **garanterad**, **varaktig**, **oföränderlig**, **skrivskyddad** logg över dessa ändringar. Klient program kan läsa dessa loggar när som helst, antingen i strömning eller i batchläge. Med ändrings flödet kan du bygga effektiva och skalbara lösningar som bearbetar ändrings händelser som inträffar i ditt Blob Storage konto till en låg kostnad.
 
@@ -27,11 +27,11 @@ Du kan bearbeta loggarna asynkront, stegvis eller helt och hållet. Valfritt ant
 
 Stöd för ändring av feed passar bra för scenarier som bearbetar data baserat på objekt som har ändrats. Till exempel kan program:
 
-  - Uppdatera ett sekundärt index, synkronisera med en cache, en sökmotor eller andra scenarier för innehålls hantering.
+  - Uppdatera ett sekundärt index, synkronisera med ett cacheminne, sökmotor eller andra scenarier för innehållshantering.
   
-  - Extrahera affärs analys insikter och mått baserat på ändringar som sker i dina objekt, antingen i ett direkt uppspelnings sätt eller i ett batch-läge.
+  - Extrahera företagsanalysinsikter och mått baserat på ändringar som görs i dina objekt, antingen med direktuppspelning eller i ett gruppläge.
   
-  - Lagra, granska och analysera ändringar i dina objekt under en viss tids period, för säkerhet, efterlevnad eller information för företags data hantering.
+  - Lagra, granska och analysera ändringar i dina objekt under en viss tidsperiod, för att se säkerhet, efterlevnad eller information om företagets datahantering.
 
   - Bygg lösningar för att säkerhetskopiera, spegla eller replikera objekt tillstånd i ditt konto för haveri hantering eller efterlevnad.
 
@@ -55,9 +55,6 @@ Här är några saker att tänka på när du aktiverar ändrings flödet.
 - Ändrings matningen fångar *alla* ändringar för alla tillgängliga händelser som inträffar på kontot. Klient program kan filtrera ut händelse typer efter behov. (Se [villkoren](#conditions) för den aktuella versionen).
 
 - Endast GPv2-och Blob Storage-konton kan aktivera ändrings flöde. Premium BlockBlobStorage-konton och aktiverade konton för hierarkiskt namn område stöds inte för närvarande. GPv1 lagrings konton stöds inte, men kan uppgraderas till GPv2 utan avbrott, se [Uppgradera till ett GPv2 Storage-konto](../common/storage-account-upgrade.md) för mer information.
-
-> [!IMPORTANT]
-> Ändrings flödet är i en offentlig för hands version och är tillgänglig i **USA, västra centrala USA**, **västra USA 2**, **centrala Frankrike**, **södra** **Kanada, centrala Kanada**och **Östra Kanada** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln. Du måste registrera din prenumeration innan du kan aktivera ändra feed på dina lagrings konton.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -85,10 +82,10 @@ Aktivera ändrings flöde med hjälp av PowerShell:
 
 2. Stäng och öppna sedan PowerShell-konsolen igen.
 
-3. Installera **AZ. Storage** Preview-modulen.
+3. Installera version 2.5.0 eller senare av modulen **AZ. Storage** .
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Logga in på din Azure-prenumeration med `Connect-AzAccount` kommandot och följ anvisningarna på skärmen för att autentisera.
@@ -289,45 +286,20 @@ En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>Registrera din prenumeration (för hands version)
-
-Eftersom ändrings flödet endast finns i en offentlig för hands version måste du registrera din prenumeration för att använda funktionen.
-
-### <a name="register-by-using-powershell"></a>Registrera med PowerShell
-
-Kör följande kommandon i en PowerShell-konsol:
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>Registrera med Azure CLI
-
-Kör följande kommandon i Azure Cloud Shell:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>Villkor och kända problem (förhands granskning)
+## <a name="conditions-and-known-issues"></a>Villkor och kända problem
 
-I det här avsnittet beskrivs kända problem och villkor i den aktuella offentliga för hands versionen av ändrings flödet. 
-- För för hands versionen måste du först [Registrera din prenumeration](#register) innan du kan aktivera ändra feed för ditt lagrings konto i USA, västra centrala USA, västra USA 2, centrala Frankrike, södra Frankrike, centrala Kanada och Östra Kanada. 
-- För avbildningar av ändrings flöden skapas endast åtgärder för att skapa, uppdatera, ta bort och kopiera. Ändringar av BLOB-egenskapen och metadata registreras också. Åtkomst nivå egenskapen har dock inte registrerats för tillfället. 
+I det här avsnittet beskrivs kända problem och villkor i den aktuella versionen av ändrings flödet. 
+
 - Ändrings händelse poster för en enskild ändring kan visas mer än en gång i din ändrings feed.
 - Du kan ännu inte hantera livs längden för loggfiler för ändrings flöden genom att ange en tidsbaserad bevarande princip för dem och du kan inte ta bort Blobbarna.
 - `url`Logg filens egenskap är för närvarande tom.
 - `LastConsumable`Egenskapen för segments.jsi filen visar inte det väldigt första segmentet som ändrings flödet slutförs. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable` egenskapen.
 - Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer. Du kan visa innehållet genom att anropa ListBlobs-API: et i $blobchangefeed containern direkt.
-- Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida fel i kontot kan också påverka logg filen under för hands versionen.
+- Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida växlingar i kontot kan också påverka logg filen.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Vad är skillnaden mellan ändrings flöde och Lagringsanalys loggning?
 Analys loggar innehåller poster med alla Läs-, Skriv-, list-och borttagnings åtgärder med lyckade och misslyckade förfrågningar för alla åtgärder. Analys loggar är bästa möjliga och ingen beställning är garanterat.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192525"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433678"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Felsöka CDN-filkomprimering
 Den här artikeln hjälper dig att felsöka problem med [CDN-filkomprimering](cdn-improve-performance.md).
@@ -111,8 +111,8 @@ Använd webbläsarens utvecklingsverktyg för att kontrol lera svarshuvuden för
 
 För att vara kvalificerad för komprimering måste en fil uppfylla följande storleks krav:
 
-* Större än 128 byte.
-* Mindre än 1 MB.
+* Större än 128 byte (innehålls längd: 128)
+* Mindre än 3 MB
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Kontrol lera begäran på ursprungs servern för en **via** -rubrik
 **Via** HTTP-huvudet anger webb servern som begäran skickas av en proxyserver.  Microsoft IIS-webbservrar komprimerar som standard inte svar när begäran innehåller en **via** -rubrik.  Gör så här för att åsidosätta det här problemet:

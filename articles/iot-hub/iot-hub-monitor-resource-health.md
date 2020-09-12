@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022147"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438414"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -61,7 +61,7 @@ Kategorin anslutningar spårar enhets anslutning och från kopplings händelser 
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -470,6 +470,42 @@ Kategorin enhets strömmar spårar interaktioner för begär ande svar som skick
          }
     ]
 }
+```
+
+### <a name="sdk-version"></a>SDK-version
+
+Vissa åtgärder returnerar en `sdkVersion` egenskap i sitt `properties` objekt. För dessa åtgärder, när en enhets-eller backend-app använder en av Azure IoT-SDK: erna, innehåller den här egenskapen information om SDK: n som används, SDK-versionen och plattformen som SDK: n körs på. I följande exempel visas `sdkVersion` egenskapen som har genererats för en `deviceConnect` åtgärd när du använder Node.js-enhets-SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"` . Här är ett exempel på det värde som har avsänts för .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"` .
+
+I följande tabell visas SDK-namnet som används för olika Azure IoT SDK: er:
+
+| SDK-namn i egenskapen sdkVersion | Språk |
+|----------|----------|
+| .NET | .NET (C#) |
+| Microsoft. Azure. Devices | SDK för .NET (C#) service |
+| Microsoft. Azure. devices. client | .NET (C#) enhets-SDK |
+| iothubclient | C eller python v1 (föråldrad) enhets-SDK |
+| iothubserviceclient | Service SDK för C eller python v1 (föråldrad) |
+| Azure-IoT-Device-iothub-py | Python-enhets-SDK |
+| azure-iot-device | Node.js-enhets-SDK |
+| azure-iothub | Node.js tjänst-SDK |
+| com. Microsoft. Azure. iothub-Java-client | Java-enhets-SDK |
+| com. Microsoft. Azure. iothub. service. SDK | Java-tjänst-SDK |
+| com. Microsoft. Azure. SDK. IoT. IoT-Device-client | Java-enhets-SDK |
+| com. Microsoft. Azure. SDK. IoT. IoT-service-client | Java-tjänst-SDK |
+| C | Inbäddat C |
+| C + (OSSimplified = Azure återställnings tider) | Azure-återställningstider |
+
+Du kan extrahera SDK-version-egenskapen när du utför frågor mot diagnostikloggar. Följande fråga extraherar SDK-versionens egenskap (och enhets-ID) från de egenskaper som returneras av Connections-händelser. Dessa två egenskaper skrivs till resultaten tillsammans med tiden för händelsen och resurs-ID: t för den IoT-hubb som enheten ansluter till.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Läs loggar från Azure Event Hubs

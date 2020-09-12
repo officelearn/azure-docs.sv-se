@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267518"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425644"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -38,13 +38,25 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 >
 > Mer information finns i: [Azure Portal begränsningar för Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+
+## <a name="august-2020"></a>Augusti 2020
+
+### <a name="dynamic-encryption"></a>Dynamisk kryptering
+Stöd för äldre PlayReady Protected PIFF-kryptering (1,1) är nu tillgängligt i den dynamiska Paketeraren. Detta ger stöd för äldre Smart TV-uppsättningar från Samsung och LG som implementerade de tidiga utkasten av Common Encryption Standard (CENC) som publicerats av Microsoft.  PIFF 1,1-formatet kallas även krypterings format som tidigare stöddes av Silverlight-klientcertifikatet. Idag är det enda användnings Falls scenariot för det här krypterings formatet att rikta in sig på den äldre marknaden för smart TV där det finns ett icke-trivialt antal Smart TV-program i vissa regioner som bara stöder Smooth Streaming med PIFF 1,1-kryptering. 
+
+Om du vill använda det nya PIFF 1,1-krypterings stödet ändrar du kryptering svärdet till "Piff" i URL-sökvägen för den strömmande lokaliseraren. Mer information finns i [Översikt över Content Protection.](content-protection-overview.md)
+Exempel: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> PIFF 1,1-support tillhandahålls som en bakåtkompatibla lösning för smart TV (Samsung, LG) som implementerade den tidiga "Silverlight-versionen av Common Encryption. Vi rekommenderar att du bara använder det PIFF-format som krävs för att stöda äldre Samsung eller LG Smart-TV levereras mellan 2009-2015 som har stöd för PIFF 1,1-versionen av PlayReady-kryptering. 
+
 ## <a name="july-2020"></a>Juli 2020
 
 ### <a name="live-transcriptions"></a>Direkt avskrifter
 
 Direkt avskrifter stöder nu 19 språk och åtta regioner.
 
-## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Skydda ditt innehåll med Media Services och Azure AD
+### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Skydda ditt innehåll med Media Services och Azure AD
 
 Vi har publicerat en självstudie [som kallas slut punkt till slut punkt för innehålls skydd med hjälp av Azure AD](./azure-ad-content-protection.md).
 

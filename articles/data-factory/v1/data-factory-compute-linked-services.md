@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563508"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438831"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Beräknings miljöer som stöds av Azure Data Factory version 1
 > [!NOTE]
@@ -32,7 +32,7 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md) |
 
 ## <a name="hdinsight-versions-supported-in-data-factory"></a><a name="supported-hdinsight-versions-in-azure-data-factory"></a>HDInsight-versioner som stöds i Data Factory
 Azure HDInsight stöder flera Hadoop-kluster som du kan distribuera när som helst. Varje version som stöds skapar en speciell version av HDP-distributionen (Hortonworks Data Platform) och en uppsättning komponenter i distributionen. 
@@ -232,7 +232,7 @@ Den här typen av konfiguration stöds för följande beräknings miljöer:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL Database Azure SQL Data Warehouse SQL Server
+* Azure SQL Database Azure Synapse Analytics (tidigare SQL Data Warehouse) SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Länkad Azure HDInsight-tjänst
 Du kan skapa en länkad HDInsight-tjänst för att registrera ditt eget HDInsight-kluster med Data Factory.
@@ -356,7 +356,7 @@ Du kan välja mellan autentisering med hjälp av ett huvud namn för tjänsten e
 Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD). Ge sedan Azure AD åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 * Program-ID
 * Program nyckel 
-* Klientorganisations-ID
+* Klient-ID:t
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
 
@@ -462,8 +462,8 @@ Lägg till en referens till Microsoft.IdentityModel.Clients.ActiveDirectory.Wind
 ## <a name="azure-sql-linked-service"></a>Länkad Azure SQL-tjänst
 Du kan skapa en länkad SQL-tjänst och använda den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline. Mer information finns i [Azure SQL-anslutning](data-factory-azure-sql-connector.md#linked-service-properties).
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse länkad tjänst
-Du kan skapa en SQL Data Warehouse länkad tjänst och använda den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline. Mer information finns i [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
+## <a name="azure-synapse-analytics-linked-service"></a>Länkad Azure Synapse Analytics-tjänst
+Du kan skapa en länkad Azure Synapse Analytics-tjänst och använda den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline. Mer information finns i [Azure Synapse Analytics-anslutning](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ## <a name="sql-server-linked-service"></a>SQL Server länkad tjänst
 Du kan skapa en SQL Server länkad tjänst och använda den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline. Mer information finns i [SQL Server Connector](data-factory-sqlserver-connector.md#linked-service-properties).

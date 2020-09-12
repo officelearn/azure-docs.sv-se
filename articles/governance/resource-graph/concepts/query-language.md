@@ -3,12 +3,12 @@ title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798558"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426409"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -32,6 +32,7 @@ Resurs diagram innehåller flera tabeller för de data som lagras om Azure Resou
 |ResourceContainers |Inkluderar prenumeration (i förhands granskning-- `Microsoft.Resources/subscriptions` ) och resurs typ och data för resurs grupp ( `Microsoft.Resources/subscriptions/resourcegroups` ). |
 |AdvisorResources |Innehåller resurser som är _relaterade_ till `Microsoft.Advisor` . |
 |AlertsManagementResources |Innehåller resurser som är _relaterade_ till `Microsoft.AlertsManagement` . |
+|GuestConfigurationResources |Innehåller resurser som är _relaterade_ till `Microsoft.GuestConfiguration` . |
 |HealthResources |Innehåller resurser som är _relaterade_ till `Microsoft.ResourceHealth` . |
 |MaintenanceResources |Innehåller resurser som är _relaterade_ till `Microsoft.Maintenance` . |
 |SecurityResources |Innehåller resurser som är _relaterade_ till `Microsoft.Security` . |
@@ -142,7 +143,7 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 Omfattningen av de prenumerationer som resurserna returneras från, beroende på metoden för åtkomst till resurs diagram. Azure CLI och Azure PowerShell fylla i listan över prenumerationer som ska ingå i begäran baserat på den auktoriserade användarens kontext. Listan över prenumerationer kan definieras manuellt för var och en med parametrarna **prenumerationer** och **prenumerationer** .
 I REST API och alla andra SDK: er måste listan över prenumerationer för att inkludera resurser från uttryckligen definieras som en del av begäran.
 
-Som **förhands granskning**lägger REST API-versionen till `2020-04-01-preview` en egenskap för att omfånget av frågan till en [hanterings grupp](../../management-groups/overview.md). Den här för hands versionen av API gör också att prenumerations egenskapen är valfri. Om en hanterings grupp eller en prenumerations lista inte har definierats, är frågans omfång alla resurser som den autentiserade användaren har åtkomst till. Den nya `managementGroupId` egenskapen tar hanterings gruppens ID, som skiljer sig från namnet på hanterings gruppen. När `managementGroupId` har angetts ingår resurser från de första 5000 prenumerationerna i eller under den angivna hierarkin för hanterings grupper. `managementGroupId` kan inte användas på samma tid som `subscriptions` .
+Som **förhands granskning**lägger REST API-versionen till `2020-04-01-preview` en egenskap för att omfånget av frågan till en [hanterings grupp](../../management-groups/overview.md). Den här för hands versionen av API gör också att prenumerations egenskapen är valfri. Om en hanterings grupp eller en prenumerations lista inte har definierats är frågans omfång alla resurser, vilket innefattar [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) -delegerade resurser som den autentiserade användaren kan komma åt. Den nya `managementGroupId` egenskapen tar hanterings gruppens ID, som skiljer sig från namnet på hanterings gruppen. När `managementGroupId` har angetts ingår resurser från de första 5000 prenumerationerna i eller under den angivna hierarkin för hanterings grupper. `managementGroupId` kan inte användas på samma tid som `subscriptions` .
 
 Exempel: fråga alla resurser inom hierarkin för hanterings gruppen med namnet min hanterings grupp med ID myMG.
 

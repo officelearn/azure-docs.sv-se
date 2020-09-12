@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864085"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439835"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Genom gångar som kör team data science-processen
 
@@ -32,7 +32,7 @@ Här följer en kort beskrivning av vad dessa genom gångs exempel tillhandahål
 - [HDInsight Hadoop-genom gångar med Hive](walkthroughs-hdinsight-hadoop.md) De här genom gången använder Hive med ett HDInsight Hadoop-kluster för att göra förutsägelse analyser.
 - [Azure Data Lake genom gångar med U-SQL](walkthroughs-azure-data-lake.md) De här genom gången använder U-SQL med Azure Data Lake för förutsägelse analys.
 - [SQL Server](walkthroughs-sql-server.md) De här genom gången använder SQL Server, SQL Server R Services och SQL Server python-tjänster för förutsägelse analys.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) I de här genom gången använder SQL Data Warehouse för förutsägelse analys. 
+- [Azure Synapse-analys](walkthroughs-sql-data-warehouse.md) De här genom gången använder Azure Synapse Analytics till att förutsäga analyser. 
 
 
 

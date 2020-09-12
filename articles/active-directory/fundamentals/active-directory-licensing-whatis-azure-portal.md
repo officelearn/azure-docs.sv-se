@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce0d543f11a1dcc61616d8a386176272ab44aee
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797278"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565063"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Vad är gruppbaserad licensiering i Azure Active Directory?
 
-Microsoft-betaltjänster i molnet, till exempel Office 365, Enterprise Mobility + Security, Dynamics 365 och andra liknande produkter kräver licenser. Dessa licenser tilldelas till varje användare som behöver åtkomst till dessa tjänster. För att hantera licenser använder administratörer någon av hanteringsportalerna (Office eller Azure) och PowerShell-cmdlets. Azure Active Directory (Azure AD) är den underliggande infrastrukturen som har stöd för identitetshantering för alla Microsofts molntjänster. Azure AD lagrar information om användarnas licenstilldelningsstatus.
+Microsoft-avlönade moln tjänster, till exempel Microsoft 365, Enterprise Mobility + Security, Dynamics 365 och andra liknande produkter, kräver licenser. Dessa licenser tilldelas till varje användare som behöver åtkomst till dessa tjänster. För att hantera licenser använder administratörer någon av hanteringsportalerna (Office eller Azure) och PowerShell-cmdlets. Azure Active Directory (Azure AD) är den underliggande infrastrukturen som har stöd för identitetshantering för alla Microsofts molntjänster. Azure AD lagrar information om användarnas licenstilldelningsstatus.
 
 Hittills har det endast gått att tilldela licenser på nivån för enskilda användare, vilket kan försvåra storskalig hantering. För att till exempel lägga till eller ta bort licenser baserat på organisationsförändringar, till exempel om användare börjar eller slutar på företaget eller på en avdelning, måste administratören ofta skriva ett komplext PowerShell-skript. Det här skriptet gör separata anrop till molntjänsten.
 
@@ -45,9 +45,9 @@ Här är de viktigaste funktionerna i gruppbaserad licensiering:
 
 - Licenser kan tilldelas till valfri säkerhetsgrupp i Azure AD. Säkerhets grupper kan synkroniseras lokalt med hjälp av Azure AD Connect. Du kan också skapa säkerhetsgrupper direkt i Azure AD (även kallade molnspecifika grupper) eller automatiskt via funktionen för dynamiska grupper i Azure AD.
 
-- När en produktlicens har tilldelats en grupp kan administratören inaktivera en eller flera tjänstplaner i produkten. Normalt görs den här tilldelningen när organisationen ännu inte är redo att börja använda en tjänst som ingår i en produkt. Administratören kan till exempel tilldela Office 365 till en avdelning, men tillfälligt inaktivera tjänsten Yammer.
+- När en produktlicens har tilldelats en grupp kan administratören inaktivera en eller flera tjänstplaner i produkten. Normalt görs den här tilldelningen när organisationen ännu inte är redo att börja använda en tjänst som ingår i en produkt. Administratören kan till exempel tilldela Microsoft 365 till en avdelning, men inaktivera Yammer-tjänsten tillfälligt.
 
-- Alla Microsoft-molntjänster som kräver licensiering på användarnivå stöds. Det här stödet omfattar alla Office 365-produkter, Enterprise Mobility + Security och Dynamics 365.
+- Alla Microsoft-molntjänster som kräver licensiering på användarnivå stöds. Det här stödet omfattar alla Microsoft 365 produkter, Enterprise Mobility + Security och Dynamics 365.
 
 - Gruppbaserad licensiering är för närvarande endast tillgängligt via [Azure Portal](https://portal.azure.com). Om du huvudsakligen använder andra hanterings portaler för användar-och grupp hantering, till exempel [Microsoft 365 administrations Center](https://admin.microsoft.com), kan du fortsätta att göra det. Men du bör använda Azure Portal för att hantera licenser på gruppnivå.
 

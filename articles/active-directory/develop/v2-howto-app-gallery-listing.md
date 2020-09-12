@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891869"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439752"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -61,7 +61,7 @@ Stegen för att publicera din app i Azure AD App-galleriet är:
 6. Delta i Microsoft Partner Network.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver ett permanent konto för testning med minst två användare registrerade.
 
@@ -278,5 +278,5 @@ Microsoft Partner Network ger direkt åtkomst till exklusiva resurser, program, 
 
 
 ## <a name="next-steps"></a>Nästa steg
-
-Mer information om hur du skapar program som stöder Azure AD-inloggningar finns i [autentiserings scenarier för Azure AD](authentication-flows-app-scenarios.md).
+* [Bygg en SCIM-slutpunkt och konfigurera användar etablering](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Autentiserings scenarier för Azure AD](authentication-flows-app-scenarios.md)

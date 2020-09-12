@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028127"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440005"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för data vetenskaps projekt
 
@@ -63,11 +63,11 @@ När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser me
 TDSP-teamet från Microsoft har publicerat två fullständiga genom gångar om hur du använder Azure HDInsight Spark-kluster för att bygga data vetenskaps lösningar, en med python och den andra Scala. Mer information om Azure HDInsight **Spark-kluster**finns i [Översikt: Apache Spark på HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Information om hur du skapar en data vetenskaps lösning med **python** i ett Azure HDInsight Spark kluster finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md). Information om hur du skapar en data vetenskaps lösning med **Scala** på ett Azure HDInsight Spark-kluster finns i [data vetenskap med Scala och Spark på Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Med Azure SQL Data Warehouse kan du skala beräknings resurser enkelt och i sekunder, utan att behöva betala eller betala. Det ger också det unika alternativet att pausa användningen av beräknings resurser, vilket ger dig friheten att hantera dina moln kostnader bättre. Möjligheten att distribuera skalbara beräknings resurser gör det möjligt att överföra alla dina data till Azure SQL Data Warehouse. Lagrings kostnaderna är minimala och du kan bara köra beräkningarna på de delar av data uppsättningar som du vill analysera. 
+Med Azure Synapse Analytics kan du skala beräknings resurser enkelt och i sekunder, utan att behöva betala eller betala. Det ger också det unika alternativet att pausa användningen av beräknings resurser, vilket ger dig friheten att hantera dina moln kostnader bättre. Möjligheten att distribuera skalbara beräknings resurser gör det möjligt att hämta alla dina data till Azure Synapse Analytics. Lagrings kostnaderna är minimala och du kan bara köra beräkningarna på de delar av data uppsättningar som du vill analysera. 
 
-Mer information om Azure SQL Data Warehouse finns på [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) webbplats. Information om hur du skapar avancerade analys lösningar från slut punkt till slut punkt med SQL Data Warehouse finns [i processen team data science i praktiken: använda SQL Data Warehouse](sqldw-walkthrough.md).
+Mer information om Azure Synapse Analytics finns på webbplatsen för [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse) . Information om hur du skapar avancerade analys lösningar från slut punkt till slut punkt med Azure Synapse Analytics finns [i processen team data science i praktiken: använda Azure Synapse Analytics](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake

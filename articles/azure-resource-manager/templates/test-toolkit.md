@@ -2,19 +2,19 @@
 title: Test verktyg för ARM-mall
 description: Beskriver hur du kör test verktyg för ARM-mallen på din mall. Med verktyget kan du se om du har implementerat rekommenderade metoder.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255980"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439568"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Använd test verktyg för ARM-mall
 
-[Arm-mallens test verktyg](https://aka.ms/arm-ttk) kontrollerar om mallen använder rekommenderade metoder. När din mall inte är kompatibel med rekommenderade metoder returnerar den en lista med varningar med de föreslagna ändringarna. Med hjälp av test Toolkit kan du lära dig hur du undviker vanliga problem i att utveckla mallar.
+[Test verktyg mal len för Azure Resource Manager (arm)](https://aka.ms/arm-ttk) kontrollerar om mallen använder rekommenderade metoder. När din mall inte är kompatibel med rekommenderade metoder returnerar den en lista med varningar med de föreslagna ändringarna. Med hjälp av test Toolkit kan du lära dig hur du undviker vanliga problem i att utveckla mallar.
 
 Test Toolkit tillhandahåller en [uppsättning standardtester](test-cases.md). Dessa tester är rekommendationer men inte krav. Du kan bestämma vilka tester som är relevanta för dina mål och anpassa vilka tester som körs.
 
@@ -22,53 +22,103 @@ Den här artikeln beskriver hur du kör test Toolkit och hur du lägger till ell
 
 Toolkit är en uppsättning PowerShell-skript som kan köras från ett kommando i PowerShell eller CLI.
 
-## <a name="download-test-toolkit"></a>Hämta test Toolkit
+## <a name="install-on-windows"></a>Installera i Windows
 
-Om du vill använda test verktyget kan du antingen förgrena och klona [lagrings platsen](https://aka.ms/arm-ttk) som innehåller skripten eller [Ladda ned den senaste. zip-filen](https://aka.ms/arm-ttk-latest).
+1. Om du inte redan har PowerShell [installerar du PowerShell i Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-Beroende på körnings principen på den dator där du kör skriptet kan du få ett fel meddelande om att skript körs från Internet. Du måste antingen ändra [körnings principen](/powershell/module/microsoft.powershell.core/about/about_execution_policies) eller [avblockera skriptfiler](/powershell/module/microsoft.powershell.utility/unblock-file).
+1. [Ladda ned den senaste. zip-filen](https://aka.ms/arm-ttk-latest) för test Toolkit och extrahera den.
 
-## <a name="run-on-powershell"></a>Kör på PowerShell
+1. Starta PowerShell.
 
-Importera modulen innan du kör testerna.
+1. Navigera till mappen där du extraherade test Toolkit. I den mappen navigerar du till mappen **arm-TTK** .
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. Om din [körnings princip](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blockerar skript från Internet, måste du häva blockeringen av skriptfilerna. Se till att du är i mappen **arm-TTK** .
 
-Använd följande kommando för att köra testerna i **PowerShell**:
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. Importera modulen.
 
-## <a name="run-on-linux"></a>Kör på Linux
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-Installera [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux)innan du kör testerna.
+1. Använd följande kommando för att köra testerna:
 
-Använd följande kommando för att köra testerna på **Linux** i bash:
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>Installera på Linux
 
-Du kan också köra testet på pwsh.exe.
+1. Om du inte redan har PowerShell [installerar du PowerShell på Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-## <a name="run-on-macos"></a>Kör på macOS
+1. [Ladda ned den senaste. zip-filen](https://aka.ms/arm-ttk-latest) för test Toolkit och extrahera den.
 
-Installera [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos)innan du kör testerna. 
+1. Starta PowerShell.
 
-Installera `coreutils`:
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. Navigera till mappen där du extraherade test Toolkit. I den mappen navigerar du till mappen **arm-TTK** .
 
-Använd följande kommando för att köra testerna på **MacOS**:
+1. Om din [körnings princip](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blockerar skript från Internet, måste du häva blockeringen av skriptfilerna. Se till att du är i mappen **arm-TTK** .
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importera modulen.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Använd följande kommando för att köra testerna:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## <a name="install-on-macos"></a>Installera på macOS
+
+1. Om du inte redan har PowerShell [installerar du PowerShell på MacOS](/powershell/scripting/install/installing-powershell-core-on-macos).
+
+1. Installera `coreutils`:
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. [Ladda ned den senaste. zip-filen](https://aka.ms/arm-ttk-latest) för test Toolkit och extrahera den.
+
+1. Starta PowerShell.
+
+   ```bash
+   pwsh
+   ```
+
+1. Navigera till mappen där du extraherade test Toolkit. I den mappen navigerar du till mappen **arm-TTK** .
+
+1. Om din [körnings princip](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blockerar skript från Internet, måste du häva blockeringen av skriptfilerna. Se till att du är i mappen **arm-TTK** .
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importera modulen.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Använd följande kommando för att köra testerna:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## <a name="result-format"></a>Resultat format
 
@@ -137,7 +187,7 @@ Objektet Template har följande egenskaper:
 
 * $schema
 * contentVersion
-* parameters
+* parametrar
 * användarvariabler
 * resources
 * utdata

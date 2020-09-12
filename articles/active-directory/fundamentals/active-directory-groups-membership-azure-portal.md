@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfc532ea859c78b72a15dc85e0d3fc740ffe19a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797550"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565472"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Lägg till eller ta bort en grupp från en annan grupp med hjälp av Azure Active Directory
 Den här artikeln hjälper dig att lägga till och ta bort en grupp från en annan grupp med hjälp av Azure Active Directory.
@@ -30,7 +30,7 @@ Den här artikeln hjälper dig att lägga till och ta bort en grupp från en ann
 Du kan lägga till en befintlig säkerhets grupp till en annan befintlig säkerhets grupp (kallas även kapslade grupper) och skapa en medlems grupp (under grupp) och en överordnad grupp. Medlems gruppen ärver attribut och egenskaper för den överordnade gruppen, vilket sparar konfigurations tiden.
 
 >[!Important]
->Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som har synkroniserats med lokala Active Directory.</li><li>Lägga till säkerhets grupper i Office 365-grupper.</li><li>Lägga till Office 365-grupper i säkerhets grupper eller andra Office 365-grupper.</li><li>Tilldela appar till kapslade grupper.</li><li>Tillämpa licenser på kapslade grupper.</li><li>Lägga till distributions grupper i kapslings scenarier.</li></ul>
+>Vi stöder för närvarande inte:<ul><li>Lägga till grupper i en grupp som har synkroniserats med lokala Active Directory.</li><li>Lägga till säkerhets grupper i Microsoft 365 grupper.</li><li>Lägga till Microsoft 365 grupper i säkerhets grupper eller andra Microsoft 365 grupper.</li><li>Tilldela appar till kapslade grupper.</li><li>Tillämpa licenser på kapslade grupper.</li><li>Lägga till distributions grupper i kapslings scenarier.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Lägga till en grupp som medlem i en annan grupp
 

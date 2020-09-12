@@ -3,12 +3,12 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022419"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378295"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
@@ -66,7 +66,7 @@ Azure Backup använder systemtilldelad hanterad identitet för att autentisera R
 
     ![Identitets inställningar](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Ändra **statusen** till **på** och klicka på **Spara**.
+1. Ändra **statusen** till **på** och välj **Spara**.
 
 1. Ett objekt-ID genereras, vilket är den systemtilldelade hanterade identiteten för valvet.
 
@@ -82,13 +82,13 @@ Du måste nu tillåta Recovery Services-valvet att få åtkomst till Azure Key V
 
     ![Tilldela nyckel behörigheter](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Gå till **Välj huvud konto** och Sök efter ditt valv i sökrutan med hjälp av dess namn eller hanterad identitet. När den visas väljer du valvet och klickar på **Välj** längst ned i fönstret.
+1. Gå till **Välj huvud konto** och Sök efter ditt valv i sökrutan med hjälp av dess namn eller hanterad identitet. När den visas väljer du valvet och väljer **Välj** längst ned i fönstret.
 
     ![Välj huvud konto](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. När du är färdig klickar du på **Lägg** till för att lägga till den nya åtkomst principen.
+1. När du är färdig väljer du **Lägg** till för att lägga till den nya åtkomst principen.
 
-1. Klicka på **Spara** för att spara ändringar som gjorts i åtkomst principen för Azure Key Vault.
+1. Välj **Spara** för att spara ändringar som gjorts i åtkomst principen för Azure Key Vault.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Aktivera mjuk borttagning och tömning av skydd på Azure Key Vault
 
@@ -148,7 +148,7 @@ Så här tilldelar du nyckeln:
 
     ![Krypteringsinställningar](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Klicka på **Uppdatera** under **krypterings inställningar**.
+1. Välj **Uppdatera** under **krypterings inställningar**.
 
 1. I fönstret krypterings inställningar väljer du **Använd din egen nyckel** och fortsätter att ange nyckeln på något av följande sätt. **Kontrol lera att den nyckel som du vill använda är en RSA 2048-nyckel, som är i ett aktiverat läge.**
 
@@ -160,7 +160,7 @@ Så här tilldelar du nyckeln:
 
         ![Välj nyckel från Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Klicka på **Spara**.
+1. Välj **Spara**.
 
 1. **Spårnings förlopp för uppdatering av krypterings nyckel:** Du kan följa förloppet för nyckel tilldelningen med hjälp av **aktivitets loggen** i Recovery Services valvet. Statusen bör snart ändras till **lyckades**. Ditt valv kommer nu att kryptera alla data med den angivna nyckeln som KEK.
 

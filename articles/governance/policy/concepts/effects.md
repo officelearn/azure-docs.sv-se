@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079667"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425542"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -21,7 +21,7 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny) (Neka)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabled](#disabled) (Inaktiverat)
+- [Inaktiverad](#disabled)
 - [Modify](#modify) (Ändra)
 
 Följande effekter är _föråldrade_:
@@ -156,7 +156,8 @@ Egenskapen **information** för AuditIfNotExists-effekterna har alla under egens
   - Om **information. Type** är en resurs typ under **IF** -villkor-resursen, frågar principen efter resurser av den här **typen** inom omfånget för den utvärderade resursen. I annat fall är princip frågorna inom samma resurs grupp som den utvärderade resursen.
 - **Namn** (valfritt)
   - Anger det exakta namnet på resursen som ska matchas och gör att principen hämtar en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]` . En [gransknings](#audit) funktion bör dock beaktas i stället.
+  - När villkors värden för **IF. Field. Type** och **then.** Type matchar, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]` , eller `[field('fullName')]` för en underordnad resurs.
+    En [gransknings](#audit) funktion bör dock beaktas i stället.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchning av den relaterade resursen att komma från en annan resurs grupp.
   - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .
@@ -277,7 +278,7 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - Startar genom att försöka hämta en resurs under villkors resursen **IF** , och sedan frågar i samma resurs grupp som villkors resursen **om** .
 - **Namn** (valfritt)
   - Anger det exakta namnet på resursen som ska matchas och gör att principen hämtar en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]` .
+  - När villkors värden för **IF. Field. Type** och **then.** Type matchar, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]` , eller `[field('fullName')]` för en underordnad resurs.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchning av den relaterade resursen att komma från en annan resurs grupp.
   - Gäller inte om **typen** är en resurs som skulle ligga under villkors resursen **IF** .

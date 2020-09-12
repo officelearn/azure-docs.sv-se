@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp på Azure Stack
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data på Azure Stack. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 7319cf064ab2bab20e4140f8a208be843df7fa71
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017981"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378329"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Säkerhetskopiera en SharePoint-grupp på Azure Stack
 
@@ -32,7 +32,7 @@ Det finns några saker du behöver bekräfta innan du säkerhetskopierar en Shar
 
 * MABS tillhandahåller inte säkerhets kopior av SharePoint SQL Server-databaser som finns på SOFS-resurser (Scale-Out File Server).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du fortsätter kontrollerar du att du uppfyller alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera Azure Backup Server med valvet.
 
@@ -76,7 +76,7 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
         När du har kört ConfigureSharePoint.exe måste du köra om den om det finns en ändring i administratörs uppgifterna för SharePoint-servergruppen.
 
-1. Om du vill skapa en skydds grupp klickar du på **skydd**  >  **åtgärder**  >  **skapa skydds grupp** för att öppna guiden **Skapa ny skydds grupp** i Mabs-konsolen.
+1. Om du vill skapa en skydds grupp väljer du **skydds**  >  **åtgärder**  >  **skapa skydds grupp** för att öppna guiden **Skapa ny skydds grupp** i Mabs-konsolen.
 
 1. I **Välj typ av skydds grupp**väljer du **servrar**.
 
@@ -104,7 +104,7 @@ Om du vill säkerhetskopiera SharePoint-servergruppen konfigurerar du skyddet f�
 
 1. I **Välj online-replikering**, anger du hur den första fullständiga replikeringen av data ska ske. Du kan replikera via nätverket eller göra en offlinesäkerhetskopiering (offlineseeding). Vid offlinesäkerhetskopiering används funktionen Azure Import. [Läs mer](./backup-azure-backup-import-export.md).
 
-1. På sidan  **Sammanfattning** granskar du inställningarna. När du klickar på **Skapa grupp**utförs inledande replikering av data. När den är klar visas skydds gruppens status som **OK** på sidan **status** . Säkerhetskopieringen sker sedan i enlighet med skyddsgruppens inställningar.
+1. På sidan  **Sammanfattning** granskar du inställningarna. När du har valt **Skapa grupp**sker inledande replikering av data. När den är klar visas skydds gruppens status som **OK** på sidan **status** . Säkerhetskopieringen sker sedan i enlighet med skyddsgruppens inställningar.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -116,17 +116,17 @@ När skydds gruppen har skapats sker den inledande replikeringen och MABS börja
 
 ### <a name="set-up-monitoring-notifications"></a>Konfigurera övervakningsaviseringar
 
-1. I Mabs administratörskonsol klickar du på **övervaknings**  >  **Åtgärds**  >  **alternativ**.
+1. I Mabs administratörskonsol väljer du **övervaknings**  >  **Åtgärds**  >  **alternativ**.
 
-2. Klicka på **SMTP-server**, ange servernamnet, port och e-postadress som meddelanden ska skickas ifrån. Adressen måste vara giltig.
+2. Välj **SMTP-server**, ange Server namn, port och e-postadress som meddelanden ska skickas från. Adressen måste vara giltig.
 
 3. I **autentiserad SMTP-server**anger du ett användar namn och lösen ord. Användar namnet och lösen ordet måste vara domän konto namnet för den person vars "från"-adress beskrivs i föregående steg. Annars Miss lyckas meddelande leveransen.
 
-4. Testa inställningarna för SMTP-servern genom att klicka på **Skicka test-e-post**, ange den e-postadress som du vill att Mabs ska skicka test meddelandet till och klicka sedan på **OK**. Klicka på **alternativ**  >  **meddelanden** och välj de typer av aviseringar som mottagarna vill meddelas om. I **mottagare** anger du e-postadressen för varje mottagare som du vill att Mabs ska skicka kopior av meddelanden till.
+4. Testa inställningarna för SMTP-servern genom att välja **Skicka test-e-post**, ange den e-postadress som du vill att Mabs ska skicka test meddelandet till och välj sedan **OK**. Välj **alternativ**  >  **meddelanden** och välj de typer av aviseringar som mottagarna vill meddelas om. I **mottagare** anger du e-postadressen för varje mottagare som du vill att Mabs ska skicka kopior av meddelanden till.
 
 ### <a name="publish-operations-manager-alerts"></a>Publicera aviseringar för Operations Manager
 
-1. I Mabs administratörskonsol klickar du på **övervaknings**  >  **åtgärd**  >  **alternativ**  >  **avisering publicering**  >  **publicera aktiva aviseringar**
+1. I Mabs administratörskonsol väljer du **övervaknings**  >  **Åtgärds**  >  **alternativ**  >  **avisering publicering**  >  **publicera aktiva aviseringar**
 
 2. När du har aktiverat **aviserings publicering**publiceras alla befintliga Mabs-aviseringar som kan kräva en användar åtgärd i händelse loggen för **Mabs-aviseringar** . Operations Manager agenten som är installerad på MABS-servern publicerar sedan aviseringarna till Operations Manager och fortsätter att uppdatera konsolen när nya aviseringar genereras.
 
@@ -148,10 +148,10 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
 5. Du kan också bläddra igenom olika återställnings punkter och välja en databas eller ett objekt som ska återställas. Välj **datum > återställnings tid**och välj sedan rätt **databas > SharePoint-servergrupp > återställnings punkt > objekt**.
 
     ![MABS SharePoint-Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Högerklicka på objektet och välj sedan **Återställ** för att öppna **återställnings guiden**. Klicka på **Nästa**.
+6. Högerklicka på objektet och välj sedan **Återställ** för att öppna **återställnings guiden**. Välj **Nästa**.
 
     ![Granska val av återställning](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Välj den typ av återställning du vill utföra och klicka sedan på **Nästa**.
+7. Välj den typ av återställning du vill utföra och välj sedan **Nästa**.
 
     ![Återställnings typ](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -172,7 +172,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
     MABS bifogar innehålls databasen som är värd för SharePoint-objektet till den tillfälliga SQL Server-instansen. Från innehålls databasen återställer den objektet och placerar det på mellanlagringsplatsen på MABS. Det återställda objektet som finns på mellanlagringsplatsen måste nu exporteras till mellanlagringsplatsen i SharePoint-servergruppen.
 
     ![Location2 för mellanlagring](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Välj **Ange återställnings alternativ**och tillämpa säkerhets inställningar på SharePoint-servergruppen eller tillämpa säkerhets inställningarna för återställnings punkten. Klicka på **Nästa**.
+10. Välj **Ange återställnings alternativ**och tillämpa säkerhets inställningar på SharePoint-servergruppen eller tillämpa säkerhets inställningarna för återställnings punkten. Välj **Nästa**.
 
     ![Återställnings alternativ](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -180,7 +180,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
     > Du kan välja att begränsa användningen av nätverks bandbredd. Detta minimerar påverkan på produktions servern under produktions timmar.
     >
     >
-11. Granska sammanfattnings informationen och klicka sedan på **Återställ** för att påbörja återställningen av filen.
+11. Granska sammanfattnings informationen och välj sedan **Återställ** för att påbörja återställningen av filen.
 
     ![Återställnings Sammanfattning](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Klicka nu på fliken **övervakning** i **Mabs-administratörskonsol** för att visa **status** för återställningen.
@@ -203,7 +203,7 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
    > Eftersom SharePoint-servergruppen är skyddad för långsiktig kvarhållning i Azure, finns ingen katalog information (metadata) på MABS-servern. När en innehålls databas för SharePoint-databasen måste återställas måste du därför katalogisera SharePoint-servergruppen igen.
    >
    >
-3. Klicka på **ny katalog**.
+3. Välj **ny katalog**.
 
     ![MABS SharePoint-Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -211,10 +211,10 @@ I följande exempel har den återställda *SharePoint-objektet* tagits bort av m
 
     ![MABS SharePoint-Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    När fil förteckningen har slutförts ändras statusen till *lyckades*. Klicka på **Stäng**.
+    När fil förteckningen har slutförts ändras statusen till *lyckades*. Välj **Stäng**.
 
     ![MABS SharePoint-Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Klicka på det SharePoint-objekt som visas på fliken MABS **återställning** för att hämta struktur för innehålls databasen. Högerklicka på objektet och klicka sedan på **Återställ**.
+4. Välj det SharePoint-objekt som visas på fliken MABS **återställning** för att hämta struktur för innehålls databasen. Högerklicka på objektet och välj sedan **Återställ**.
 
     ![MABS SharePoint-Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Följ återställnings stegen tidigare i den här artikeln för att återställa en SharePoint-innehålls databas från disken.
@@ -249,7 +249,7 @@ I följande procedur används exemplet på en Server grupp med två frontend-web
 
 1. På *Server2*, i en kommando tolk, ändra katalogen till `_MABS installation location_\bin\` och kör **ConfigureSharePoint**. Mer information om ConfigureSharePoint finns i [Konfigurera säkerhets kopiering](#configure-backup).
 
-1. Välj den skydds grupp som server gruppen tillhör och klicka sedan på **ändra skydds grupp**.
+1. Välj den skydds grupp som server gruppen tillhör och välj sedan **ändra skydds grupp**.
 
 1. I guiden Ändra grupp, på sidan **Välj grupp medlemmar** , expandera *Server2* och välj server gruppen och slutför sedan guiden.
 

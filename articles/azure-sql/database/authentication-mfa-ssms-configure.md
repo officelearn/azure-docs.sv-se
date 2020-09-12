@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 791402f5d9648c8d235f8853de1b6c41f8082e1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018338"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442657"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor Authentication för SQL Server Management Studio och Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) med SQL Server Management Studio (SSMS). Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage.exe till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) med SQL Server Management Studio (SSMS). Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage.exe till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [azure Synapse Analytics (tidigare SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Multi-Factor Authentication finns i [Universal Authentication with SQL Database, SQL-hanterad instans och Azure Synapse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
-> Databaser i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse (tidigare Azure SQL Data Warehouse) kallas kollektivt i resten av den här artikeln som databaser, och servern refererar till den [Server](logical-servers.md) som är värd för databaser för Azure SQL Database och Azure Synapse.
+> Databaser i Azure SQL Database, Azure SQL-hanterad instans och Azure-Synapse (tidigare SQL Data Warehouse) kallas kollektivt i resten av den här artikeln som databaser, och servern refererar till den [Server](logical-servers.md) som är värd för databaser för Azure SQL Database och Azure Synapse.
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 
@@ -52,7 +52,7 @@ Följande steg visar hur du ansluter med den senaste SSMS.
 
    ![MFA-Tenant-SSMS](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
-4. Välj **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com ) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md). Klicka sedan på **Anslut**.  
+4. Välj **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com ) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och Azure Synapse Analytics (SSMS-stöd för MFA)](../database/authentication-mfa-ssms-overview.md). Klicka sedan på **Anslut**.  
 5. När dialog rutan **Logga in på ditt konto** visas anger du Azure Active Directory identitetens konto och lösen ord. Inget lösen ord krävs om en användare är en del av en domän som är federerad med Azure AD.
 
    ![2mfa – logga in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  

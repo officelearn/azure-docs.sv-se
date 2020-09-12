@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047681"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442742"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrera mobilappar som anropar webb-API: er
 
@@ -30,7 +30,7 @@ De konto typer som mobil programmen stöder beror på vilken upplevelse du vill 
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Mål grupp för hämtning av interaktiva token
 
-De flesta mobila program använder interaktiv autentisering. Om din app använder den här typen av autentisering, kan du logga in användare från vilken [Kontotyp](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)som helst.
+De flesta mobila program använder interaktiv autentisering. Om din app använder den här typen av autentisering, kan du logga in användare från vilken [Kontotyp](quickstart-register-app.md)som helst.
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Mål grupp för integrerad Windows-autentisering, username-Password och B2C
 

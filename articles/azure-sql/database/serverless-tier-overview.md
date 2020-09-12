@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121365"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565097"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Server lösa beräknings nivåer för enskilda databaser i Azure SQL Database ä
 - **Lägsta virtuella kärnor** och **maximal virtuella kärnor** är konfigurerbara parametrar som definierar intervallet för beräknings kapacitet som är tillgängliga för databasen. Minnes-och IO-gränser är proportionella till det vCore-intervall som angetts.  
 - Den automatiska **paus fördröjningen** är en konfigurerbar parameter som definierar den tids period som databasen måste vara inaktiv innan den pausas automatiskt. Databasen återupptas automatiskt när nästa inloggning eller annan aktivitet sker.  Du kan också inaktivera AutoPause.
 
-### <a name="cost"></a>Kostnad
+### <a name="cost"></a>Cost
 
 - Kostnaden för en server lös databas är summan av beräknings kostnaden och lagrings kostnaden.
 - När beräknings användningen är mellan den minsta och högsta gränsen som kon figurer ATS baseras beräknings kostnaden på vCore och använt minne.
@@ -114,11 +114,12 @@ AutoPause utlöses om samtliga följande villkor är uppfyllda för varaktighete
 
 Det finns ett alternativ för att inaktivera autopausen om du vill.
 
-Följande funktioner har inte stöd för automatisk pausning, men stöder automatisk skalning.  Det innebär att om någon av följande funktioner används är databasen online oavsett hur lång tid det tar för databas inaktivitet:
+Följande funktioner har inte stöd för automatisk pausning, men stöder automatisk skalning.  Om någon av följande funktioner används måste den automatiskt pausa inaktive ras och databasen förblir online oavsett hur länge databasen inaktive ras:
 
 - Geo-replikering (aktiv geo-replikering och grupper för automatisk redundans).
 - Långsiktig kvarhållning av säkerhets kopior (brv).
 - Den synkroniserade databasen som används i SQL Data Sync.  Till skillnad från Sync-databaser, nav och medlems databaser har stöd för automatisk paus.
+- DNS-alias
 - Jobb databasen som används i elastiska jobb (för hands version).
 
 AutoPause förhindras tillfälligt under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.  I sådana fall tillåts autopausen igen när tjänsten har uppdaterats.
@@ -276,14 +277,14 @@ Mät värden för att övervaka resursanvändningen för Appaketet och poolen f�
 
 |Entitet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
-|Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procent|
+|Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procentandel|
 |Appaket|app_cpu_billed|Mängden data som debiteras för appen under rapporterings perioden. Det belopp som betalas under perioden är produkten av det här måttet och vCore enhets pris. <br><br>Värdena för det här måttet bestäms genom agg regering över tid för maximalt CPU-använt och minne som används varje sekund. Om det använda beloppet är mindre än det lägsta belopp som har angetts som den lägsta virtuella kärnor och minsta mängden minne, faktureras det lägsta mängd som har allokerats.För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.|vCore sekunder|
-|Appaket|app_memory_percent|Procent andelen minne som används av appen i förhållande till maximalt minne som tillåts för appen.|Procent|
-|Adresspool|cpu_percent|Procent andelen av virtuella kärnor som används av användar arbets belastning i förhållande till högsta tillåtna virtuella kärnor för användar arbets belastning.|Procent|
-|Adresspool|data_IO_percent|Procent andel data IOPS som används av användar arbets belastning i förhållande till maximal data-IOPS som tillåts för användar arbets belastning.|Procent|
-|Adresspool|log_IO_percent|Procent andel logg MB/s som används av användar arbets belastning i förhållande till maximalt antal loggar i MB/s som tillåts för användar arbets belastning.|Procent|
-|Adresspool|workers_percent|Procent andel arbetare som används av användar arbets belastning i förhållande till max arbetare som tillåts för användar arbets belastning.|Procent|
-|Adresspool|sessions_percent|Procent andel sessioner som används av användar arbets belastning i förhållande till högsta antal sessioner som tillåts för användar arbets belastning.|Procent|
+|Appaket|app_memory_percent|Procent andelen minne som används av appen i förhållande till maximalt minne som tillåts för appen.|Procentandel|
+|Adresspool|cpu_percent|Procent andelen av virtuella kärnor som används av användar arbets belastning i förhållande till högsta tillåtna virtuella kärnor för användar arbets belastning.|Procentandel|
+|Adresspool|data_IO_percent|Procent andel data IOPS som används av användar arbets belastning i förhållande till maximal data-IOPS som tillåts för användar arbets belastning.|Procentandel|
+|Adresspool|log_IO_percent|Procent andel logg MB/s som används av användar arbets belastning i förhållande till maximalt antal loggar i MB/s som tillåts för användar arbets belastning.|Procentandel|
+|Adresspool|workers_percent|Procent andel arbetare som används av användar arbets belastning i förhållande till max arbetare som tillåts för användar arbets belastning.|Procentandel|
+|Adresspool|sessions_percent|Procent andel sessioner som används av användar arbets belastning i förhållande till högsta antal sessioner som tillåts för användar arbets belastning.|Procentandel|
 
 ### <a name="pause-and-resume-status"></a>Pausa och återuppta status
 

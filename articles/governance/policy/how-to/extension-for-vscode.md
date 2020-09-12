@@ -3,12 +3,12 @@ title: Azure Policy tillägg för Visual Studio Code
 description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Azure Resource Manager alias.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970764"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648339"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
@@ -25,7 +25,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installera Azure Policy tillägg
@@ -52,7 +52,7 @@ För en nationell moln användare följer du de här stegen för att ställa in 
 
 1. Välj nation-molnet i listan:
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Ange standard Azure Cloud-inloggning för Visual Studio Code" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Skärm bild av valet av netazure Cloud-inloggning för Visual Studio Code." border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Ansluta till ett Azure-konto
 
@@ -64,13 +64,13 @@ Om du vill utvärdera resurser och uppslags-alias måste du ansluta till ditt Az
 
      Från Azure Policy-tillägget väljer **du logga in på Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Azure Cloud-inloggning för Visual Studio Code från Azure Policy-tillägget" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Skärm bild av Visual Studio Code och ikonen för Azure Policy-tillägget." border="false":::
 
    - Kommando palett
 
      I meny raden går du till **Visa**  >  **kommando-palett**och anger **Azure: Logga**in.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Azure Cloud-inloggning för Visual Studio Code från kommando paletten" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Skärm bild av Azure Clouds inloggnings alternativ för Visual Studio Code från paletten Command." border="false":::
 
 1. Följ anvisningarna för inloggning för att logga in på Azure. När du är ansluten visas namnet på ditt Azure-konto i statusfältet längst ned i Visual Studio Code-fönstret.
 
@@ -125,7 +125,7 @@ När en resurs väljs, oavsett om Sök gränssnittet eller genom att markera det
 
 När en resurs är öppen visas Azure Policy alias om ett sådant finns under hovring över resurs hanterarens egenskaps namn eller värde. I det här exemplet är resursen en `Microsoft.Compute/virtualMachines` resurs typ och egenskapen **Properties. StorageProfile. imageReference. erbjudande** hovras över. Vid hovring visas matchande alias.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy förlängnings hovring visar resurs hanterarens egenskaps-alias" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Skärm bild av Azure Policy-tillägget för Visual Studio-kod som hovrar på en egenskap för att visa namnen på alias." border="false":::
 
 > [!NOTE]
 > VS Code-tillägget visar endast Resource Manager-läges egenskaper och visar inga egenskaper för [resurs leverantörs läge](../concepts/definition-structure.md#mode) .

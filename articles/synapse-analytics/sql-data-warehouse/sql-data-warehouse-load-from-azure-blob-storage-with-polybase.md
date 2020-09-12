@@ -1,5 +1,5 @@
 ---
-title: Läs in Contosos detalj handels data till ett Synapse SQL Data Warehouse
+title: Läs in Contosos detalj handels data till Synapse SQL
 description: Använd PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213320"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461705"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Läs in Contosos detalj handels data till Synapse SQL 
 
-I den här självstudien får du lära dig att använda PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till ett Synapse SQL Data Warehouse.
+I den här självstudien får du lära dig att använda PolyBase-och T-SQL-kommandon för att läsa in två tabeller från Contosos detalj handels data till Synapse SQL.
 
 I den här självstudien kommer du att:
 
@@ -30,11 +30,11 @@ I den här självstudien kommer du att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För att kunna köra den här självstudien behöver du ett Azure-konto som redan har ett Synapse SQL Data Warehouse. Om du inte har ett data lager som har skapats, se [skapa ett informations lager och ange brand Väggs regel på server nivå](create-data-warehouse-portal.md).
+För att kunna köra den här självstudien behöver du ett Azure-konto som redan har en Synapse SQL. Om du inte har ett data lager som har skapats, se [skapa ett informations lager och ange brand Väggs regel på server nivå](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurera data källan
 
-PolyBase använder externa T-SQL-objekt för att definiera platsen och attributen för externa data. De externa objekt definitionerna lagras i ditt Synapse SQL Data Warehouse. Data lagras externt.
+PolyBase använder externa T-SQL-objekt för att definiera platsen och attributen för externa data. De externa objekt definitionerna lagras i Synapse SQL. Data lagras externt.
 
 ## <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
 
@@ -122,7 +122,7 @@ GO
 
 Kör följande skript för att skapa DimProduct-och FactOnlineSales-externa tabeller. Allt du gör här är att definiera kolumn namn och data typer och att binda dem till platsen och formatet för Azure Blob Storage-filerna. Definitionen lagras i data lagret och data finns fortfarande i Azure Storage Blob.
 
-Parametern **location** är mappen under rotmappen i Azure Storage blob. Varje tabell finns i en annan mapp.
+Parametern  **location** är mappen under rotmappen i Azure Storage blob. Varje tabell finns i en annan mapp.
 
 ```sql
 --DimProduct
@@ -206,7 +206,7 @@ WITH
 ;
 ```
 
-## <a name="load-the-data"></a>Läs in data
+## <a name="load-the-data"></a>Läsa in data
 
 Det finns olika sätt att komma åt externa data.  Du kan fråga efter data direkt från de externa tabellerna, läsa in data i nya tabeller i informations lagret eller lägga till externa data i befintliga data lager tabeller.  
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimera columnstore-komprimering
 
-Som standard lagrar Synapse SQL Data Warehouse tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det kan bero på olika orsaker. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
+Som standard lagrar Synapse SQL tabellen som ett grupperat columnstore-index. När en belastning är klar kanske vissa av data raderna inte komprimeras till columnstore.  Det kan bero på olika orsaker. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
 
 Om du vill optimera prestanda och columnstore-komprimering efter en belastning måste du återskapa tabellen för att tvinga columnstore-indexet att komprimera alla rader.
 

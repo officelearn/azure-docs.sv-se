@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 39dd9604cf0e58eda94acf6528ab31eca26355d0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f61773e693ad1276ef48b2f26ef6e3e8f59e2992
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936783"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612372"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -27,8 +27,8 @@ Den mest aktuella API-versionen för kontroll plan för den offentliga för hand
 Använda API: er för kontroll plan:
 * Du kan anropa API: erna direkt genom att referera till den senaste [Swagger-mappen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
 * Du kan för närvarande komma åt SDK: er för kontroll-API: er i...
-  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview))
+  - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview&preserve-view=true))
   - [Java Script](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([källa](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [Go-source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
@@ -49,11 +49,13 @@ Använda data Plans-API: er:
 * Du kan anropa API: erna direkt, efter...
    - refererar till den senaste [Swagger-mappen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen. 
    - Visa [API Reference-dokumentationen](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
-* Du kan använda .NET (C#) SDK. För närvarande är detta den enda publicerade SDK: n för att interagera med dessa API: er. För att använda .NET SDK...
-   - Du kan visa paketet på NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+* Du kan använda **.net (C#)** SDK. För att använda .NET SDK...
+   - Du kan visa och lägga till paketet från NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - Du kan hitta SDK-källan, inklusive en mapp med exempel, i GitHub: [Azure IoT Digitals klient bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Du kan visa [SDK Reference-dokumentationen](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
+   - Du kan visa [SDK Reference-dokumentationen](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
    - Du kan se detaljerade informations-och användnings exempel genom att gå vidare till avsnittet [.net (C#) SDK (data plan)](#net-c-sdk-data-plane) i den här artikeln.
+* Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
+   - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
 * Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också utföra API: er för datum plan genom att interagera med Azure Digitals flätar via [CLI](how-to-use-cli.md).
@@ -266,15 +268,15 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 Följande lista innehåller ytterligare information och allmänna rikt linjer för att använda API: er och SDK: er.
 
-* Om du vill använda SDK instansierar du `DigitalTwinsClient` klassen. Konstruktorn kräver autentiseringsuppgifter som kan erhållas med en rad autentiseringsmetoder i `Azure.Identity` paketet. Mer `Azure.Identity` information finns i dokumentationen för [namn området](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
-* Du kan `InteractiveBrowserCredential` komma igång med att komma igång, men det finns flera andra alternativ, inklusive autentiseringsuppgifter för [hanterad identitet](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), som du kommer att använda för att autentisera [Azure Functions som är inställda med MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) mot digitala Azure-dubbla. Mer information `InteractiveBrowserCredential` finns i [klass dokumentationen](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+* Om du vill använda SDK instansierar du `DigitalTwinsClient` klassen. Konstruktorn kräver autentiseringsuppgifter som kan erhållas med en rad autentiseringsmetoder i `Azure.Identity` paketet. Mer `Azure.Identity` information finns i dokumentationen för [namn området](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
+* Du kan `InteractiveBrowserCredential` komma igång med att komma igång, men det finns flera andra alternativ, inklusive autentiseringsuppgifter för [hanterad identitet](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), som du kommer att använda för att autentisera [Azure Functions som är inställda med MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) mot digitala Azure-dubbla. Mer information `InteractiveBrowserCredential` finns i [klass dokumentationen](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 * Alla API-anrop visas som medlems funktioner i `DigitalTwinsClient` klassen.
 * Alla tjänst funktioner finns i synkrona och asynkrona versioner.
-* Alla tjänst funktioner genererar ett undantag för retur status på 400 eller senare. Se till att du omsluter anrop till ett `try` avsnitt och fånga minst `RequestFailedExceptions` . Mer information om den här typen av undantag finns [här](https://docs.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet).
-* De flesta service metoder returnerar `Response<T>` eller ( `Task<Response<T>>` för asynkrona anrop), där `T` är klassen för returnerat objekt för tjänst anropet. [`Response`](https://docs.microsoft.com/dotnet/api/azure.response-1?view=azure-dotnet)Klassen kapslar in tjänsten Return och visar retur värden i sitt `Value` fält.  
-* Tjänst metoder med växlade resultat returnerar `Pageable<T>` eller `AsyncPageable<T>` som resultat. Mer information om `Pageable<T>` klassen finns [här](https://docs.microsoft.com/dotnet/api/azure.pageable-1?view=azure-dotnet-preview). mer information `AsyncPageable<T>` finns [här](https://docs.microsoft.com/dotnet/api/azure.asyncpageable-1?view=azure-dotnet-preview).
+* Alla tjänst funktioner genererar ett undantag för retur status på 400 eller senare. Se till att du omsluter anrop till ett `try` avsnitt och fånga minst `RequestFailedExceptions` . Mer information om den här typen av undantag finns [här](https://docs.microsoft.com/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true).
+* De flesta service metoder returnerar `Response<T>` eller ( `Task<Response<T>>` för asynkrona anrop), där `T` är klassen för returnerat objekt för tjänst anropet. [`Response`](https://docs.microsoft.com/dotnet/api/azure.response-1?view=azure-dotnet&preserve-view=true)Klassen kapslar in tjänsten Return och visar retur värden i sitt `Value` fält.  
+* Tjänst metoder med växlade resultat returnerar `Pageable<T>` eller `AsyncPageable<T>` som resultat. Mer information om `Pageable<T>` klassen finns [här](https://docs.microsoft.com/dotnet/api/azure.pageable-1?view=azure-dotnet-preview&preserve-view=true). mer information `AsyncPageable<T>` finns [här](https://docs.microsoft.com/dotnet/api/azure.asyncpageable-1?view=azure-dotnet-preview&preserve-view=true).
 * Du kan iterera över växlade resultat med en `await foreach` loop. Mer information om den här processen finns [här](https://docs.microsoft.com/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* Den underliggande SDK: n är `Azure.Core` . I [dokumentationen för Azure namespace](https://docs.microsoft.com/dotnet/api/azure?view=azure-dotnet-preview) finns information om SDK-infrastruktur och-typer.
+* Den underliggande SDK: n är `Azure.Core` . I [dokumentationen för Azure namespace](https://docs.microsoft.com/dotnet/api/azure?view=azure-dotnet-preview&preserve-view=true) finns information om SDK-infrastruktur och-typer.
 
 Tjänst metoder returnerar starkt skrivna objekt när det är möjligt. Men eftersom Azure Digital-dubbla är baserade på modeller som anpassas av användaren vid körning (via DTDL-modeller som har överförts till tjänsten), tar många tjänst-API: er att ta och returnera dubbla data i JSON-format.
 

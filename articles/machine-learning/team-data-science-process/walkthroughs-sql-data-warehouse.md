@@ -1,6 +1,6 @@
 ---
-title: Analys av SQL Data Warehouse med T-SQL, python-team data science process
-description: Exempel som går igenom användningen av SQL Data Warehouse för att göra förutsägelse analyser.
+title: Analys av Azure Synapse Analytics med T-SQL, python-team data science process
+description: Exempel som går igenom användningen av Azure Synapse Analytics för att göra förutsägelse analyser.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,23 +11,23 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f657f02a39a023f6cb620895549105e7fd1eb233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92cd3a9cc82a38cae6a56b7796e22d035979f2d5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128169"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439858"
 ---
-# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>SQL Data Warehouse data vetenskaps genom gångar med T-SQL och python på Azure
+# <a name="azure-synapse-analytics-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Genom gång av Azure Synapse Analytics data science med T-SQL och python på Azure
 
-I de här genom gången används SQL Data Warehouse för förutsägelse analys. De följer de steg som beskrivs i processen för team data vetenskap. En översikt över processen för team data vetenskap finns i [data science process](overview.md). En introduktion till SQL Data Warehouse finns i [Vad är Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+I de här genom gången används Azure Synapse Analytics för förutsägelse analys. De följer de steg som beskrivs i processen för team data vetenskap. En översikt över processen för team data vetenskap finns i [data science process](overview.md). En introduktion till Azure Synapse Analytics finns i [Vad är Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Ytterligare data vetenskaps genom gångar som kör team data vetenskaps processen grupperas efter den **plattform** som de använder. Se [genom gångar som kör team data science-processen](walkthroughs.md) för en specificering av dessa exempel.
 
 
-## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Förutsäga taxi-tips med T-SQL och IPython-anteckningsböcker med SQL Data Warehouse
+## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-azure-synapse-analytics"></a>Förutsäga taxi-tips med T-SQL och IPython Notebooks med Azure Synapse Analytics
 
-I [genom gången använd SQL Data Warehouse](sqldw-walkthrough.md) kan du bygga och distribuera Machine Learning-klassificering och Regressions modeller med SQL data WAREHOUSE (SQL DW).  Datan är en offentligt tillgänglig NYC taxi resa och pris data uppsättning.
+[Genom gången Använd Azure Synapse Analytics](sqldw-walkthrough.md) visas hur du skapar och distribuerar Machine Learning-klassificering och Regressions modeller med Azure Synapse Analytics.  Datan är en offentligt tillgänglig NYC taxi resa och pris data uppsättning.
 
 
 ## <a name="next-steps"></a>Nästa steg

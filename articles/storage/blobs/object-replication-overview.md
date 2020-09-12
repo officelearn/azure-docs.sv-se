@@ -1,25 +1,25 @@
 ---
-title: Översikt över objekt replikering (för hands version)
+title: Översikt över objekt replikering
 titleSuffix: Azure Storage
-description: Objekt replikering (för hands version) kopierar asynkront block blobbar mellan ett käll lagrings konto och ett mål konto. Använd objekt replikering för att minimera svars tiden för Läs begär Anden, för att öka effektiviteten för beräknings arbets belastningar, optimera data distribution och minimera kostnaderna.
+description: Objekt replikeringen kopierar asynkront block blobbar mellan ett käll lagrings konto och ett mål konto. Använd objekt replikering för att minimera svars tiden för Läs begär Anden, för att öka effektiviteten för beräknings arbets belastningar, optimera data distribution och minimera kostnaderna.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 434fe938261c1576a5f0c3c8f08ffa8ed3243a27
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230729"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612337"
 ---
-# <a name="object-replication-for-block-blobs-preview"></a>Objekt replikering för block-blobar (för hands version)
+# <a name="object-replication-for-block-blobs"></a>Objekt replikering för block-blobar
 
-Objekt replikering (för hands version) kopierar asynkront block blobbar mellan ett käll lagrings konto och ett mål konto. Vissa scenarier som stöds av objekt replikering är:
+Objekt replikeringen kopierar asynkront block blobbar mellan ett käll lagrings konto och ett mål konto. Vissa scenarier som stöds av objekt replikering är:
 
 - **Minimerar svars tid.** Objekt replikering kan minska svars tiden för Läs begär Anden genom att göra det möjligt för klienter att använda data från en region som ligger närmare fysisk närhet.
 - **Öka effektiviteten för beräknings arbets belastningar.** Med objekt replikering kan beräknings arbets belastningar bearbeta samma uppsättningar block blobbar i olika regioner.
@@ -30,9 +30,18 @@ Följande diagram visar hur objekt replikeringen replikerar block blobbar från 
 
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram som visar hur objekt replikering fungerar":::
 
-Information om hur du konfigurerar objekt replikering finns i [Konfigurera objekt replikering (för hands version)](object-replication-configure.md).
+Information om hur du konfigurerar objekt replikering finns i [Konfigurera objekt replikering](object-replication-configure.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
+## <a name="prerequisites-for-object-replication"></a>Förhandskrav för objektreplikering
+
+Objekt replikering kräver att följande Azure Storage funktioner också är aktiverade:
+
+- [Ändra feed](storage-blob-change-feed.md): måste vara aktiverat på käll kontot. Information om hur du aktiverar ändrings flöden finns i [Aktivera och inaktivera ändrings flödet](storage-blob-change-feed.md#enable-and-disable-the-change-feed).
+- [BLOB-versioner](versioning-overview.md): måste vara aktive rad på både käll-och mål kontona. Information om hur du aktiverar versions hantering finns i [Aktivera och hantera BLOB-versioner](versioning-enable.md).
+
+Att aktivera ändrings flöde och blob-versioner kan medföra ytterligare kostnader. Mer information finns på [sidan med Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="object-replication-policies-and-rules"></a>Principer och regler för objekt replikering
 
@@ -43,126 +52,28 @@ När du har konfigurerat objekt replikering kontrollerar Azure Storage ändrings
 > [!IMPORTANT]
 > Eftersom block BLOB-data replikeras asynkront synkroniseras inte käll kontot och mål kontot omedelbart. Det finns för närvarande inget service avtal för hur lång tid det tar att replikera data till mål kontot.
 
-### <a name="replications-policies"></a>Principer för replikering
+### <a name="replication-policies"></a>Replikeringsprinciper
 
 När du konfigurerar objekt replikering skapas en replikeringsprincip på både käll kontot och mål kontot via Azure Storage resurs leverantören. Replikeringsprincipen identifieras av ett princip-ID. Principen på käll-och mål kontona måste ha samma princip-ID för att replikeringen ska kunna ske.
 
-Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Och ett mål konto får inte ha fler än två käll konton. Käll- och målkontona kan finnas i olika regioner. Du kan konfigurera separata replikeringsprinciper för att replikera data till varje mål konto.
+Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Käll-och mål kontona kan finnas i samma region eller i olika regioner. De kan också finnas i olika prenumerationer och i olika Azure Active Directory-klienter (Azure AD). Det går bara att skapa en replikeringsprincip för varje käll konto/mål konto par.
 
 ### <a name="replication-rules"></a>Regler för replikering
 
-Reglerna för replikering anger hur Azure Storage kommer att replikera blobbar från en käll behållare till en mål behållare. Du kan ange upp till 10 regler för replikering för varje replikeringsprincip. Varje regel definierar en enda käll-och mål behållare, och varje käll-och mål behållare kan bara användas i en regel.
+Reglerna för replikering anger hur Azure Storage kommer att replikera blobbar från en käll behållare till en mål behållare. Du kan ange upp till 10 regler för replikering för varje replikeringsprincip. Varje replikeringsprincip definierar en enda käll-och mål behållare, och varje käll-och mål behållare kan bara användas i en regel.
 
-När du skapar en replikeringsprincip, kopieras som standard bara nya block blobbar som senare läggs till i käll behållaren. Du kan också ange att både nya och befintliga block-blobar ska kopieras, eller så kan du definiera en anpassad kopierings omfattning som kopierar block-blobbar som skapats från en angiven tids period.
+När du skapar en replikeringsprincip, kopieras som standard bara nya block blobbar som senare läggs till i käll behållaren. Du kan ange att både nya och befintliga block-blobbar ska kopieras, eller så kan du definiera en anpassad kopierings omfattning som kopierar block-blobbar som skapats från en angiven tid till och med.
 
 Du kan också ange ett eller flera filter som en del av en replikeringsprincip för att filtrera block blobbar efter prefix. När du anger ett prefix kopieras bara blobbar som matchar det prefixet i käll behållaren till mål behållaren.
 
 Käll-och mål behållarna måste finnas innan du kan ange dem i en regel. När du har skapat replikeringsprincipen blir målcontainern skrivskyddad. Försök att skriva till målcontainern misslyckas med felkoden 409 (konflikt). Du kan dock anropa åtgärden [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier) på en BLOB i mål behållaren för att flytta den till Arkiv nivån. Mer information om Arkiv nivån finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](storage-blob-storage-tiers.md#archive-access-tier)lag rings nivåer.
 
-## <a name="about-the-preview"></a>Om för hands versionen
+## <a name="billing"></a>Fakturering 
 
-Objekt replikering stöds endast för allmänna-syfte v2-lagrings konton. Objekt replikering är tillgängligt i följande regioner i för hands versionen:
-
-- Frankrike, centrala
-- Kanada, östra
-- Kanada, centrala
-- USA, östra 2
-- USA, centrala
-
-Både käll-och mål kontona måste finnas i något av dessa regioner för att det ska gå att använda objekt replikering. Kontona kan finnas i två olika regioner.
-
-Under för hands versionen finns det inga ytterligare kostnader för replikering av data mellan lagrings konton.
-
-> [!IMPORTANT]
-> För hands versionen av objekt replikering är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
-
-### <a name="prerequisites-for-object-replication"></a>Förhandskrav för objektreplikering
-
-Objekt replikering kräver att följande Azure Storage funktioner är aktiverade: 
-- [Ändringsfeed](storage-blob-change-feed.md)
-- [Versionshantering](versioning-overview.md)
-
-Innan du konfigurerar objekt replikering måste du aktivera dess krav. Ändra feed måste vara aktiverat på käll kontot och blob-versioner måste vara aktiverade på både käll-och mål kontot. Mer information om hur du aktiverar de här funktionerna finns i följande artiklar:
-
-- [Aktivera och inaktivera ändrings flödet](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
-- [Aktivera och hantera BLOB-versioner](versioning-enable.md)
-
-Se till att du registrerar dig för för hands versionerna av ändra feed och blob-versioner innan du aktiverar dem.
-
-Att aktivera ändrings flöde och blob-versioner kan medföra ytterligare kostnader. Mer information finns på [sidan med Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/).
-
-### <a name="register-for-the-preview"></a>Registrera dig för för hands versionen
-
-Du kan registrera dig för för hands versionen av objekt replikering med PowerShell eller Azure CLI. Se till att du även registrerar dig för för hands versionerna av ändra feed-och blob-versioner om du inte redan gjort det.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Om du vill registrera dig för för hands versionen med PowerShell kör du följande kommandon:
-
-```powershell
-# Register for the object replication preview
-Register-AzProviderFeature -FeatureName AllowObjectReplication -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Om du vill registrera dig för för hands versionen med Azure CLI kör du följande kommandon:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowObjectReplication
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Kontrol lera registrerings status
-
-Du kan kontrol lera status för dina registrerings begär Anden med PowerShell eller Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Kör följande kommandon för att kontrol lera statusen för dina registrerings begär Anden med PowerShell:
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowObjectReplication
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Om du vill kontrol lera statusen för dina registrerings begär Anden med Azure CLI kör du följande kommandon:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowObjectReplication')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
-
-## <a name="ask-questions-or-provide-feedback"></a>Ställ frågor eller ge feedback
-
-Om du vill ställa frågor om för hands versionen av objekt replikering eller lämna feedback kontaktar du Microsoft på AzureStorageFeedback@microsoft.com . Idéer och förslag om Azure Storage är alltid välkomna i [Azure Storage feedback-forumet](https://feedback.azure.com/forums/217298-storage).
+Objekt replikering medför ytterligare kostnader för Läs-och skriv transaktioner mot käll-och mål kontona, samt utgående kostnader för replikering av data från käll kontot till mål kontot och Läs kostnader för att bearbeta ändrings flödet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera objekt replikering (för hands version)](object-replication-configure.md)
-- [Ändra stöd för feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md)
+- [Konfigurera objektreplikering](object-replication-configure.md)
+- [Ändra stöd för feed i Azure Blob Storage](storage-blob-change-feed.md)
 - [Aktivera och hantera BLOB-versioner](versioning-enable.md)

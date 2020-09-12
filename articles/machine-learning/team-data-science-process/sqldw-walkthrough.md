@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845705"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440209"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team data science-processen i praktiken: använda Azure Synapse Analytics
 I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med Azure Synapse Analytics för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa.  I modeller ingår klassificering av multiklass (oavsett om det finns ett tips) och regression (fördelningen för de belopp som betalas).
@@ -91,14 +91,14 @@ Följ dessa steg om du vill konfigurera din Azure Data Science-miljö.
   * **Behållar namn** (som du vill att data ska lagras i Azure Blob Storage)
 
 **Etablera Azure Synapse Analytics-instansen.**
-Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure Portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) för att etablera en Azure Synapse Analytics-instans. Se till att du gör ett format på följande autentiseringsuppgifter för Azure Synapse Analytics som ska användas i senare steg.
+Följ dokumentationen i [create och fråga en Azure Synapse-analys i Azure Portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) för att etablera en Azure Synapse Analytics-instans. Se till att du gör ett format på följande autentiseringsuppgifter för Azure Synapse Analytics som ska användas i senare steg.
 
 * **Server namn**: \<server Name> . Database.Windows.net
 * **Namn på SQLDW (databas)**
 * **Användarnamn**
 * **Lösenord**
 
-**Installera Visual Studio och SQL Server Data Tools.** Instruktioner finns i [komma igång med Visual Studio 2019 för SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installera Visual Studio och SQL Server Data Tools.** Instruktioner finns i [komma igång med Visual Studio 2019 för Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Anslut till din Azure Synapse Analytics med Visual Studio.** Anvisningar finns i steg 1 & 2 i [Anslut till SQL Analytics i Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
@@ -655,7 +655,7 @@ Om du redan har konfigurerat en Azure Machine Learning arbets yta kan du ladda u
 
 Följande python-paket krävs för att köra IPython Notebook eller Python-skript filen. Om du använder AzureML IPython Notebook-tjänsten har dessa paket förinstallerats.
 
-- pandas
+- Pandas
 - numpy
 - matplotlib
 - pyodbc
@@ -966,7 +966,7 @@ I den här övningen har vi redan utforskat och utformat data i Azure Synapse An
 
     ![Importera data från Azure ML][17]
 2. Välj **Azure SQL Database** som **data källa** i panelen **Egenskaper** .
-3. Ange databasens DNS-namn i fältet **databas server namn** . Formatering`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Ange databasens DNS-namn i fältet **databas server namn** . Formatering `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange **databas namnet** i motsvarande fält.
 5. Ange *SQL-användarnamnet* i **serverns användar konto namn**och *lösen* ordet i **serverns användar konto lösen ord**.
 7. I redigerings text områden för **databas fråga** klistrar du in frågan som extraherar de nödvändiga databas fälten (inklusive alla beräknade fält som etiketterna) och nedåt exempel data till önskad exempel storlek.

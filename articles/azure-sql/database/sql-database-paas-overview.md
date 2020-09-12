@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343259"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612094"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,9 @@ Med Azure SQL Database kan du skapa ett lagrings lager med hög tillgänglighet 
 Azure SQL Database baseras på den senaste stabila versionen av [Microsoft SQL Server databas motorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Du kan använda avancerade funktioner för frågekörning, till exempel [högpresterande minnes teknologier](../in-memory-oltp-overview.md) och [intelligent bearbetning av frågor](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). I själva verket lanseras de nyaste funktionerna i SQL Server först till SQL Database och sedan SQL Server sig själva. Du får de senaste SQL Server funktionerna utan kostnader för uppdatering eller uppgradering, testat över miljon tals databaser. 
 
 Med SQL Database kan du enkelt definiera och skala prestanda inom två olika inköps modeller: en [vCore-baserad inköps modell](service-tiers-vcore.md) och en [DTU-baserad inköps modell](service-tiers-dtu.md). SQL Database är en fullständigt hanterad tjänst som har inbyggd hög tillgänglighet, säkerhets kopiering och andra vanliga underhålls åtgärder. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-och operativ system koden. Du behöver inte hantera den underliggande infrastrukturen.
+
+Om du inte har använt Azure SQL Database kan du titta närmare på *Azure SQL Database översikts* video från vår djupgående [Azure SQL-video serie](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 ## <a name="deployment-models"></a>Distributionsmodeller
 
@@ -169,18 +172,18 @@ Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsf
   Den här funktionen innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Den ger insyn i databas klassificerings tillstånd och spårar åtkomsten till känsliga data i databasen och utanför dess gränser.
 - [Sårbarhets bedömning](sql-vulnerability-assessment.md):
 
-  Den här tjänsten kan upptäcka, spåra och hjälpa dig att åtgärda eventuella sårbarheter i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
+  Den här tjänsten kan upptäcka, spåra och hjälpa dig att åtgärda eventuella sårbarheter i databasen. Den ger inblick i ditt säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
 - [Hot identifiering](threat-detection-configure.md):
 
-  Den här funktionen identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Aviseringar om hot identifiering ger information om den misstänkta aktiviteten och rekommenderar åtgärder för att undersöka och minimera hotet.
+  Den här funktionen identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen efter misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Skydd mot hot ger detaljerad information om den misstänkta aktiviteten och rekommenderar åtgärder för att undersöka och minska risken.
 
 ### <a name="auditing-for-compliance-and-security"></a>Granskning för efterlevnad och säkerhet
 
-[Granskning](../../azure-sql/database/auditing-overview.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databas aktivitet och få insikt i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser.
+[Granskning](../../azure-sql/database/auditing-overview.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insikter om avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
 
 ### <a name="data-encryption"></a>Datakryptering
 
-SQL Database hjälper till att skydda dina data genom att tillhandahålla kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL Database hjälper till att skydda dina data med hjälp av kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 
@@ -192,11 +195,11 @@ SQL Database gör byggandet och underhållet av appar enklare och mer produktivt
 
 |Verktyg|Beskrivning|
 |:---|:---|
-|[Azure Portal](https://portal.azure.com/)|Ett webbaserat program för att hantera alla Azure-tjänster.|
+|[Azure-portalen](https://portal.azure.com/)|Ett webbaserat program för att hantera alla Azure-tjänster.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Ett databas verktyg över plattformar som körs på Windows, MacOS och Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.|
 |[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, databaser i Azure SQL Database, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.|
-|[Visuell Studio-kod](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database och Azure SQL Data Warehouse.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för frågor Microsoft SQL Server, Azure SQL Database och Azure Azure Synapse Analytics (tidigare SQL Data Warehouse).|
 
 SQL Database har stöd för att skapa program med python, Java, Node.js, PHP, ruby och .NET på macOS, Linux och Windows. SQL Database stöder samma [anslutningsbibliotek](connect-query-content-reference-guide.md#libraries) som SQL Server.
 

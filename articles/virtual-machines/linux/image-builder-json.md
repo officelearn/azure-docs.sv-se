@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 6ed95f87d2b2a5f811531a5ff258ebe97a9b892a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869209"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378380"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -142,7 +142,7 @@ Mer information om hur du distribuerar den här funktionen finns i [Konfigurera 
 
 ## <a name="properties-source"></a>Egenskaper: källa
 
-Image Builder stöder för närvarande endast HyperV generation 1-avbildningar och virtuella datorer `source` . avsnittet innehåller information om käll avbildningen som ska användas av Image Builder.
+`source`Avsnittet innehåller information om käll avbildningen som ska användas av Image Builder. Image Builder har för närvarande endast stöd för att skapa Hyper-V generation (gen1) 1-avbildningar i Azure-galleriet för delad avbildning (SIG) eller hanterad avbildning. Om du vill skapa Gen2-avbildningar måste du använda en käll Gen2 avbildning och distribuera till VHD. Därefter måste du skapa en hanterad avbildning från den virtuella hård disken och mata in den i SIG som en Gen2-avbildning.
 
 API: t kräver en ' SourceType ' som definierar källan för avbildnings versionen, för närvarande finns det tre typer:
 - PlatformImage – anger att käll avbildningen är en Marketplace-avbildning.
@@ -571,7 +571,7 @@ Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri 
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

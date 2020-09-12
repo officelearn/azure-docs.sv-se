@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 18ded2713ec89a9a0666cd00221d437c1c9ef090
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092430"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440029"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
 
@@ -47,7 +47,7 @@ Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter.
 >
 >
 
-## <a name="prerequisites"></a><a name="prereqs"></a>Förutsättningar
+## <a name="prerequisites"></a><a name="prereqs"></a>Krav
 Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,12 +60,12 @@ Den här självstudien förutsätter att du har:
 >
 >
 
-## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Ladda upp data till SQL Server-instansen
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a> Ladda upp data till SQL Server-instansen
 Vi använder [NYC taxi-datauppsättningen](https://chriswhong.com/open-data/foil_nyc_taxi/) för att demonstrera migreringsprocessen. NYC taxi-datauppsättningen är tillgänglig, enligt vad som anges i det inlägget, på Azure Blob Storage [NYC taxi-data](https://www.andresmh.com/nyctaxitrips/). Data har två filer, trip_data.csv-filen, som innehåller information om resan och trip_far.csv-filen, som innehåller information om avgiften som betalats för varje resa. Ett exempel på och en beskrivning av dessa filer finns i [Beskrivning av NYC taxi TRIPs-data uppsättning](sql-walkthrough.md#dataset).
 
 Du kan antingen anpassa proceduren som visas här till en uppsättning egna data eller följa stegen som beskrivs i använda NYC taxi-datauppsättningen. Om du vill överföra NYC taxi-datauppsättningen till SQL Server databasen följer du proceduren som beskrivs i [Mass import av data i SQL Server Database](sql-walkthrough.md#dbload).
 
-## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Skapa en Azure Data Factory
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Skapa en Azure Data Factory
 Instruktioner för att skapa en ny Azure Data Factory och en resurs grupp i [Azure Portal](https://portal.azure.com/) anges [skapa en Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Namnge den nya ADF-instansen *adfdsp* och namnge resurs gruppen som skapade *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime
@@ -232,7 +232,7 @@ Med de tabell definitioner som tillhandahölls tidigare, anges pipelinen för AD
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
+        "description" : "This pipeline has two activities: the first one copies data from SQL Server to Azure Blob, and the second one copies from Azure Blob to Azure Database Table",
         "activities":
         [
             {
@@ -294,7 +294,7 @@ Med de tabell definitioner som tillhandahölls tidigare, anges pipelinen för AD
 }
 ```
 
-Kopiera den här JSON-definitionen för pipelinen till en fil *med namnetpipelinedef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.jspå*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera den här JSON-definitionen för pipelinen till en fil * med namnetpipelinedef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.jspå*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json

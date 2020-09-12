@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ef46a0040ba767197028d170372a4a9edca9feee
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085114"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442720"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regler för Azure SQL Database-och Azure Synapse-IP-brandvägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-När du skapar en ny server i Azure SQL Database-eller Azure Synapse-analys med namnet min *SQLServer*, blockerar en brand vägg på server nivå all åtkomst till den offentliga slut punkten för servern (som är tillgänglig på *MySQLServer.Database.Windows.net*). För enkelhetens skull används *SQL Database* för att referera till både SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse).
+När du skapar en ny server i Azure SQL Database-eller Azure Synapse-analys med namnet min *SQLServer*, blockerar en brand vägg på server nivå all åtkomst till den offentliga slut punkten för servern (som är tillgänglig på *MySQLServer.Database.Windows.net*). För enkelhetens skull används *SQL Database* för att referera till både SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 > [!IMPORTANT]
 > Den här artikeln gäller *inte* för *Azure SQL-hanterade instanser*. Information om nätverks konfiguration finns i [ansluta ditt program till en Azure SQL-hanterad instans](../managed-instance/connect-application-instance.md).
@@ -59,7 +59,7 @@ Vi rekommenderar att du använder IP brand Väggs regler på databas nivå när 
 > [!NOTE]
 > Information om portabla databaser i kontexten för företagskontinuitet finns i [Autentiseringskrav för haveriberedskap](active-geo-replication-security-configure.md).
 
-## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Regler för IP-brandvägg på server nivå kontra databas nivå
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>IP-brandväggsregler på servernivå kontra databasnivå
 
 *Ska användare av en databas vara fullständigt isolerade från en annan databas?*
 
@@ -152,7 +152,7 @@ Sidan översikt för servern öppnas. Det visar det fullständigt kvalificerade 
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Använd Transact-SQL för att hantera IP-brandväggens regler
 
-| Katalogvy eller lagrad procedur | Nivå | Description |
+| Katalogvy eller lagrad procedur | Nivå | Beskrivning |
 | --- | --- | --- |
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |Server |Visar aktuella regler för IP-brandvägg på server nivå |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |Server |Skapar eller uppdaterar IP-brandväggens regler på server nivå |
@@ -186,7 +186,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all utveckling är nu för AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-och AzureRm-modulerna är i stort sett identiska.
 
-| Cmdlet | Nivå | Description |
+| Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna på servernivå |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Skapar en ny brandväggsregel på servernivå |
@@ -208,7 +208,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Använd CLI för att hantera IP-brandväggs regler på server nivå
 
-| Cmdlet | Nivå | Description |
+| Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
 |[AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Server|Skapar en server-IP-brandväggsregel|
 |[AZ SQL Server Firewall-Rule List](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Server|Visar en lista över IP-brandväggens regler på en server|
@@ -230,14 +230,14 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>Använd en REST API för att hantera IP-brandvägg på server nivå
 
-| API | Nivå | Description |
+| API | Nivå | Beskrivning |
 | --- | --- | --- |
 | [Visa lista över brand Väggs regler](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visar aktuella regler för IP-brandvägg på server nivå |
 | [Skapa eller uppdatera brand Väggs regler](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Skapar eller uppdaterar IP-brandväggens regler på server nivå |
 | [Ta bort brand Väggs regler](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Tar bort regler för IP-brandvägg på server nivå |
 | [Hämta brand Väggs regler](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Hämtar regler för IP-brandvägg på server nivå |
 
-## <a name="troubleshoot-the-database-firewall"></a>Felsöka databas brand väggen
+## <a name="troubleshoot-the-database-firewall"></a>Felsöka databasbrandväggen
 
 Tänk på följande när åtkomsten till Azure SQL Database inte fungerar som förväntat.
 

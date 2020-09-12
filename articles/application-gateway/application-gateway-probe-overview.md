@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186730"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649060"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
 
@@ -64,7 +64,7 @@ Följande tabell innehåller definitioner av egenskaperna för en anpassad häls
 
 | Egenskapen avsökning | Beskrivning |
 | --- | --- |
-| Namn |Namn på avsökningen. Det här namnet används för att identifiera och referera till avsökningen i Server dels-HTTP-inställningar. |
+| Name |Namn på avsökningen. Det här namnet används för att identifiera och referera till avsökningen i Server dels-HTTP-inställningar. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Detta måste överensstämma med det protokoll som definierats i Server dels-HTTP-inställningarna som det är kopplat till|
 | Värd |Värd namn att skicka avsökningen med. I v1 SKU används det här värdet endast för värd rubriken för avsöknings förfrågan. I v2 SKU används både som värd huvud och SNI |
 | Sökväg |Den relativa sökvägen för avsökningen. En giltig sökväg börjar med "/" |
@@ -84,7 +84,7 @@ Följande är matchnings villkor:
 
 Matchnings villkor kan anges med hjälp av `New-AzApplicationGatewayProbeHealthResponseMatch` cmdleten.
 
-Till exempel:
+Exempel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -98,7 +98,7 @@ Du måste tillåta inkommande Internet trafik på TCP-portarna 65503-65534 för 
 
 Dessutom kan utgående Internet-anslutning inte blockeras och inkommande trafik från **AzureLoadBalancer** -taggen måste tillåtas.
 
-Mer information finns i [Application Gateway konfigurations översikt](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+Mer information finns i [Application Gateway konfigurations översikt](configuration-infrastructure.md#network-security-groups).
 
 ## <a name="next-steps"></a>Nästa steg
 När du har lärt dig om Application Gateway hälso övervakning kan du konfigurera en [anpassad hälso avsökning](application-gateway-create-probe-portal.md) i Azure Portal eller en [anpassad hälso avsökning](application-gateway-create-probe-ps.md) med hjälp av PowerShell och Azure Resource Manager distributions modellen.

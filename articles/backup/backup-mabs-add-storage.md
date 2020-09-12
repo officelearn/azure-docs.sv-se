@@ -3,12 +3,12 @@ title: Använda Modern Backup Storage med Azure Backup Server
 description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här artikeln beskriver hur du uppgraderar installationen av säkerhets kopierings servern.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825876"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378244"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
@@ -56,7 +56,7 @@ Genom att använda backup server v2 eller senare med volymer som disk lagring ka
 
     ![Skapa en ny volym](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. I dialog rutan **Välj server och disk** väljer du servern och den nya disken. Välj sedan **Nästa**.
+6. I dialog rutan **Välj server och disk** väljer du servern och den nya disken. Välj **Nästa**.
 
     ![Välj server och disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -105,7 +105,7 @@ Uppdatering av skyddsgrupper för användning av Modern Backup Storage är valfr
 
    ![Stoppa skyddet av medlem](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. I dialog rutan **ta bort från grupp** granskar du använt disk utrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardinställningen är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Klicka på **OK**.
+2. I dialog rutan **ta bort från grupp** granskar du använt disk utrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardinställningen är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Välj **OK**.
 
    Om du omedelbart vill returnera det använda disk utrymmet till den kostnads fria lagringspoolen markerar du kryss rutan **ta bort replik på disk** för att ta bort de säkerhets kopierings data (och återställnings punkter) som är associerade med medlemmen.
 

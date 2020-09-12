@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114922"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649099"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Läge för delad enhet för iOS-enheter
 
@@ -61,7 +61,7 @@ Enheten måste konfigureras för att stödja delat enhets läge. Den måste ha i
     - **Typ**: omdirigera
     - **Tilläggs-ID**: com. Microsoft. azureauthenticator. ssoextension
     - **Team-ID**: SGGM6D27TK
-    - **URL: er**:https://login.microsoftonline.com
+    - **URL: er**: https://login.microsoftonline.com
     - Ytterligare data att konfigurera:
       - Nyckel: sharedDeviceMode
       - Typ: boolesk

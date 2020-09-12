@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 533ecbaebc5d36f8a6660ce22e5cab3630e3655f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d30fe5f8adccba81baf8bfe1070f95a890d1dc7a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649438"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modell tolkning i Azure Machine Learning (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Att göra det möjligt att förklara en maskin inlärnings modell är viktigt un
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Tolkning med Azure Machine Learning
 
-Tolknings klasser görs tillgängliga via flera SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+Tolknings klasser görs tillgängliga via flera SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
 * `azureml.interpret`, huvud paketet, som innehåller funktioner som stöds av Microsoft.
 
@@ -69,7 +69,7 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 
 ## <a name="supported-interpretability-techniques"></a>Tolknings tekniker som stöds
 
- `azureml-interpret`använder tolknings tekniker som utvecklats i [tolkning – community](https://github.com/interpretml/interpret-community/), ett python-paket med öppen källkod för inlärnings bara modeller och hjälper till att förklara blackbox AI-system. [Tolkning – community](https://github.com/interpretml/interpret-community/) fungerar som värd för den här SDK: s support förklaringar och stöder för närvarande följande tolknings tekniker:
+ `azureml-interpret` använder tolknings tekniker som utvecklats i [tolkning – community](https://github.com/interpretml/interpret-community/), ett python-paket med öppen källkod för inlärnings bara modeller och hjälper till att förklara blackbox AI-system. [Tolkning – community](https://github.com/interpretml/interpret-community/) fungerar som värd för den här SDK: s support förklaringar och stöder för närvarande följande tolknings tekniker:
 
 |Tolknings teknik|Beskrivning|Typ|
 |--|--|--------------------|
@@ -90,7 +90,7 @@ Förutom de tolknings tekniker som beskrivs ovan har vi stöd för en annan SHAP
 * LinearExplainer för linjära modeller
 * KernelExplainer för alla andra modeller
 
-`TabularExplainer`har också gjort betydande förbättringar av funktioner och prestanda i de direkta SHAP-förklaringarna:
+`TabularExplainer` har också gjort betydande förbättringar av funktioner och prestanda i de direkta SHAP-förklaringarna:
 
 * **Sammanfattning av initierings data uppsättningen**. I de fall då förklaringen är viktigast sammanfattar vi initierings data uppsättningen och genererar en liten uppsättning representativa exempel, vilket påskyndar skapandet av övergripande och enskilda funktions prioritets värden.
 * **Sampling av utvärderings data uppsättningen**. Om användaren går igenom en stor uppsättning utvärderings exempel men inte behöver alla dem för att utvärderas, kan exempel parametern anges till sant för att påskynda beräkningen av övergripande modell förklaringar.
@@ -121,4 +121,4 @@ Du kan köra förklaringen via fjärr anslutning på Azure Machine Learning ber�
 
 - Se [anvisningar för att](how-to-machine-learning-interpretability-aml.md) aktivera tolkning för modell utbildning både lokalt och på Azure Machine Learning fjärrstyrda beräknings resurser. 
 - Se [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) för ytterligare scenarier. 
-- Om du är intresse rad av att tolka text scenarier, se [tolka text](https://github.com/interpretml/interpret-text), en relaterad öppen källkod lagrings platsen till [tolkning – community](https://github.com/interpretml/interpret-community/), för tolknings tekniker för NLP. `azureml.interpret`paketet stöder för närvarande inte dessa tekniker, men du kan komma igång med en [exempel antecknings bok i text klassificeringen](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).
+- Om du är intresse rad av att tolka text scenarier, se [tolka text](https://github.com/interpretml/interpret-text), en relaterad öppen källkod lagrings platsen till [tolkning – community](https://github.com/interpretml/interpret-community/), för tolknings tekniker för NLP. `azureml.interpret` paketet stöder för närvarande inte dessa tekniker, men du kan komma igång med en [exempel antecknings bok i text klassificeringen](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

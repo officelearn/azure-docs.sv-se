@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265719"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461722"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Distribuera virtuella datorer på Azure Stack Edge GPU-enhet via Azure PowerShell
 
@@ -27,7 +27,7 @@ Arbets flödet för distributionen illustreras i följande diagram.
 
 ![Arbets flöde för distribution av virtuell dator](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
@@ -220,8 +220,8 @@ Skapa en hanterad disk från den uppladdade virtuella hård disken.
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 Ett exempel på utdata visas nedan: 
-
-$DiskConfig = New-AzureRmDiskConfig-location DBELocal-CreateOption import – SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -408,24 +408,39 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## <a name="connect-to-a-vm"></a>Ansluta till en virtuell dator
 
-Anslut till den virtuella datorn med hjälp av den privata IP-adress som du skickade när du skapade den virtuella datorn.
+Stegen för att ansluta kan vara olika beroende på om du har skapat ett Windows eller en virtuell Linux-dator.
 
-Öppna en SSH-session för att ansluta till IP-adressen.
+### <a name="connect-to-linux-vm"></a>Anslut till virtuell Linux-dator
+
+Följ dessa steg för att ansluta till en virtuell Linux-dator.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### <a name="connect-to-windows-vm"></a>Anslut till virtuell Windows-dator
+
+Följ dessa steg för att ansluta till en virtuell Windows-dator.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
+
+Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-När du uppmanas anger du det lösen ord som du använde när du skapade den virtuella datorn.
+When prompted, provide the password that you used when creating the VM.
 
-Använd det här kommandot om du behöver ange SSH-nyckeln.
+If you need to provide the SSH key, use this command.
 
-ssh-i c:/Users/Administrator/. ssh/id_rsa Administrator@5.5.41.236
+ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
-Om du använde en offentlig IP-adress när du skapade den virtuella datorn kan du använda den IP-adressen för att ansluta till den virtuella datorn. Så här hämtar du den offentliga IP-adressen: 
+If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-Den offentliga IP-adressen i det här fallet är samma som den privata IP-adress som du skickade när du skapade ett virtuellt nätverks gränssnitt.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## <a name="manage-vm"></a>Hantera virtuell dator

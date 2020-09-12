@@ -1,6 +1,6 @@
 ---
 title: Omvandla resurs klass till en arbets belastnings grupp
-description: Lär dig hur du skapar en arbets belastnings grupp som liknar en resurs klass i Azure SQL Data Warehouse.
+description: Lär dig hur du skapar en arbets belastnings grupp som liknar en resurs klass i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192317"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461382"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertera resurs klasser till arbets belastnings grupper
 

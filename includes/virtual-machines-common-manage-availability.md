@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323385"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -33,7 +33,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 * [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
 * [Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer](../articles/virtual-machines/linux/scheduled-events.md)
-* [Konfigurera varje program nivå i separata tillgänglighets uppsättningar]
+* [Konfigurera varje programnivå i separata tillgänglighetsuppsättningar](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Kombinera en belastningsutjämnare med tillgänglighets zoner eller uppsättningar]
 * [Använda tillgänglighets zoner för att skydda från data center nivå problem]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> Under vissa omständigheter kan 2 virtuella datorer i samma AvailabilitySet dela samma Faulydomain. Du kan bekräfta detta genom att gå till din tillgänglighets uppsättning och kontrol lera kolumnen **fel domän** .
-> Detta kan bero på följande sekvens medan de virtuella datorerna distribueras:
-> - Distribuera den första virtuella datorn
-> - Stoppa/frigör den första virtuella datorn
-> - Distribuera den andra virtuella datorn under dessa omständigheter kan operativ system disken för den andra virtuella datorn skapas på samma feldomän som den första virtuella datorn, så att den andra virtuella datorn även kommer att hamna på samma Faulydomain. 
-> För att undvika det här problemet rekommenderar vi att du inte stoppar/frigör de virtuella datorerna mellan distributionerna.
+> Under vissa omständigheter kan två virtuella datorer i samma tillgänglighets uppsättning dela en fel domän. Du kan bekräfta en delad fel domän genom att gå till din tillgänglighets uppsättning och kontrol lera kolumnen **fel domän** . En delad feldomän kan orsakas av att följande sekvens slutförs när du distribuerade de virtuella datorerna:
+> 1. Distribuera den första virtuella datorn.
+> 1. Stoppa/frigör den första virtuella datorn.
+> 1. Distribuera den andra virtuella datorn.
+>
+> Under dessa omständigheter kan operativ system disken för den andra virtuella datorn skapas på samma fel domän som den första virtuella datorn, så de två virtuella datorerna kommer att finnas på samma feldomän. För att undvika det här problemet rekommenderar vi att du inte stoppar/frigör virtuella datorer mellan distributioner.
 
 Om du planerar att använda virtuella datorer med ohanterade diskar följer du rekommendationerna nedan för lagrings konton där virtuella hård diskar (VHD) för virtuella datorer lagras som [Page blobbar](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043964"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612162"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testa ett Azure Stream Analytics jobb i portalen
 
@@ -96,6 +96,21 @@ I stället för att använda real tids data kan du använda exempel data från e
    ![Azure Stream Analytics valda utdata](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. När du har kontrollerat resultaten som visas i webbläsaren kan du **Starta** jobbet.
+
+## <a name="limitations"></a>Begränsningar
+
+1.  Tids principen stöds inte i Portal testning:
+
+   * Föråldrad: alla inkommande händelser kommer att beställas.
+   * Sen införsel: det kommer inte att finnas någon sen införsel eftersom Stream Analytics endast kan använda befintliga data för testning.
+   
+2.  C# UDF stöds inte.
+
+3.  Alla tester kommer att köras med ett jobb som har en enhet för strömning.
+
+4.  Timeout-storleken är en minut. Alla frågor med en fönster storlek som är större än en minut kan inte hämta några data.
+
+5.  Machine Learning stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Bygg en IoT-lösning med hjälp av Stream Analytics: i](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)den här självstudien får du hjälp att bygga en komplett lösning med en data generator som simulerar trafik i en väg LED Ande.

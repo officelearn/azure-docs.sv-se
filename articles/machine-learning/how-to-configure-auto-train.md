@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6a37aaa2eee3151087ce33815d37bf5537578329
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: fe562b8202c508c13f4127d14aeb5f994d15f962
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782761"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649610"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här guiden får du lära dig hur du definierar olika konfigurations inställningar för dina automatiserade maskin inlärnings experiment med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automatisk maskin inlärning väljer en algoritm och sina egenskaper för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
+I den här guiden får du lära dig hur du definierar olika konfigurations inställningar för dina automatiserade maskin inlärnings experiment med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Automatisk maskin inlärning väljer en algoritm och sina egenskaper för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
 
 Om du vill visa exempel på automatiserade Machine Learning-experiment, se [Självstudier: träna en klassificerings modell med automatiserad maskin inlärning](tutorial-auto-train-models.md) eller [träna modeller med automatiserad maskin inlärning i molnet](how-to-auto-train-remote.md).
 
@@ -31,13 +31,13 @@ Konfigurations alternativ som är tillgängliga i Automatisk maskin inlärning:
 * Data källa, format och hämta data
 * Välj ditt beräknings mål: lokal eller fjärran sluten
 * Automatiserade experiment inställningar för Machine Learning
-* Köra ett automatiserat maskin inlärnings experiment
+* Köra ett automatiserat maskininlärningsexperiment
 * Utforska modell mått
 * Registrera och distribuera modell
 
 Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här artikeln behöver du 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
@@ -46,7 +46,7 @@ För den här artikeln behöver du
     Om du vill installera SDK kan du antingen 
     * Skapa en beräknings instans som automatiskt installerar SDK och som är förkonfigurerat för ML-arbetsflöden. Se [Vad är en Azure Machine Learning beräknings instans?](concept-compute-instance.md#managing-a-compute-instance) för mer information. 
 
-    * [Installera SDK själv](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Se bara till att inkludera `automl` extra. 
+    * [Installera SDK själv](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Se bara till att inkludera `automl` extra. 
 
 ## <a name="select-your-experiment-type"></a>Välj experimenttyp
 
@@ -69,7 +69,7 @@ Krav för tränings data:
 - Data måste vara i tabell form.
 - Värdet som ska förutsäga, mål kolumnen, måste finnas i datan.
 
-**För fjärrexperiment**måste inlärnings data vara tillgängliga från fjärrdatorn. AutoML accepterar bara [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) när du arbetar med en fjärrberäkning. 
+**För fjärrexperiment**måste inlärnings data vara tillgängliga från fjärrdatorn. AutoML accepterar bara [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) när du arbetar med en fjärrberäkning. 
 
 Azure Machine Learning data uppsättningar visar funktioner för att:
 
@@ -312,7 +312,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 Det finns några alternativ som du kan definiera för att avsluta experimentet.
 
-|Kriterie| beskrivning
+|Kriterie| description
 |----|----
 Inga &nbsp; kriterier | Om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
 Efter &nbsp; en &nbsp; viss &nbsp; &nbsp; tid| Använd `experiment_timeout_minutes` i dina inställningar för att definiera hur lång tid, i minuter, som experimentet ska fortsätta att köras. <br><br> För att undvika tids brist på experiment, det finns minst 15 minuter eller 60 minuter om raden efter kolumn storlek överskrider 10 000 000.

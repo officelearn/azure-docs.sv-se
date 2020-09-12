@@ -1,19 +1,19 @@
 ---
 title: Skydda en filserver med hjälp av Azure Site Recovery
 description: I den här artikeln beskrivs hur du skyddar en filserver med hjälp av Azure Site Recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: c4b6d583c2dd3d54c6201917a40fa6165efac18f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131274"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425525"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
 
@@ -66,7 +66,7 @@ Eftersom Site Recovery-replikering är programoberoende förväntas dessa rekomm
 
 | Källa  |Till en sekundär plats  |Till Azure
 |---------|---------|---------|
-|Azure|  -|Yes|
+|Azure|  -|Ja|
 |Hyper-V|  Ja  |Ja
 |VMware  |Ja|  Ja
 |Fysisk server|  Ja  |Ja
@@ -123,7 +123,7 @@ I följande steg beskrivs replikering för en virtuell VMware-dator. Stegen för
 1. [Förbered Azure-resurser](tutorial-prepare-azure.md) för replikering av lokala datorer.
 2. Upprätta en VPN-anslutning för plats-till-plats mellan den lokala platsen och Azure-nätverket. 
 3. Utöka lokal Active Directory.
-4. [Förbereda lokal VMware-servrar](./vmware-azure-tutorial-prepare-on-premises.md).
+4. [Förbered lokala VMware-servrar](./vmware-azure-tutorial-prepare-on-premises.md).
 5. [Konfigurera haveriberedskap](./vmware-azure-tutorial.md) för Azure för lokala virtuella datorer.
 
 ## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>Utöka DFSR till en virtuell Azure IaaS-dator

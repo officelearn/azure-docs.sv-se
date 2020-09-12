@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089710"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569092"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
 Azure Security Center integreras med [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) för att tillhandahålla omfattande funktioner för slut punkts identifiering och-svar (EDR).
+
+
+## <a name="availability"></a>Tillgänglighet
+
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|**Allmän tillgänglighet**|
+|Priset|Standard-nivå|
+|Datorer som stöds:|![Ja](./media/icons/yes-icon.png) Azure-datorer som kör Windows<br>![Ja](./media/icons/yes-icon.png) Azure Arc-datorer som kör Windows|
+|Nödvändiga roller och behörigheter:|Aktivera/inaktivera integrering: **säkerhets administratör** eller **ägare**<br>Så här visar du MDATP-aviseringar i Security Center: **säkerhets läsare**, **läsare**, **resurs grupps deltagare**, **resurs grupp ägare**, **säkerhets administratör**, **prenumerations ägare**eller **prenumerations deltagare**|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln.<br>![Inga](./media/icons/no-icon.png) GCC kunder som kör arbets belastningar i offentliga Azure-moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Microsoft Defender ATP-funktioner i Security Center
 
@@ -55,7 +68,7 @@ När du använder Azure Security Center för att övervaka servrar skapas en Mic
 När du har konfigurerat kan du inte ändra den plats där dina data lagras. Om du behöver flytta dina data till en annan plats kontaktar du Microsoft Support för att återställa klienten.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Registrera servrar i Security Center 
+## <a name="onboard-servers-to-security-center"></a>Onboard-servrar som ska Security Center 
 
 Om du vill publicera servrar till Security Center klickar **du på gå till Azure Security Center till onboard-servrar** från Microsoft Defender ATP-serverns onboarding.
 

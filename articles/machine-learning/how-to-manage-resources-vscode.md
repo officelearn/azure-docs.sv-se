@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306153"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440126"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Hantera Azure Machine Learning-resurser med VS Code-tillägget (förhands granskning)
 
@@ -48,6 +48,7 @@ Mer information finns i [arbets ytor](concept-workspace.md).
 
 Alternativa metoder för att skapa en arbets yta är:
 
+- Öppna vyn för kommandosyntaxen **> kommando paletten** och ange text rutan **Azure ml: skapa arbets yta**.
 - Klicka på `+` ikonen överst i vyn Azure Machine Learning.
 - Skapa en ny arbets yta när du uppmanas att välja en arbets yta under etableringen av andra resurser.
 
@@ -216,7 +217,7 @@ Så här visar du experimentet i Azure Machine Learning Studio:
 1. Expandera noden prenumeration som innehåller din arbets yta.
 1. Expandera noden **experiment** i din arbets yta.
 1. Högerklicka på det experiment du vill visa och välj **Visa experiment**. 
-1. En uppmaning visas där du uppmanas att öppna experiment-URL: en i Azure Machine Learning Studio. Välj **Open** (Öppna).
+1. En uppmaning visas där du uppmanas att öppna experiment-URL: en i Azure Machine Learning Studio. Välj **Öppna**.
 
 ### <a name="track-run-progress"></a>Spåra körnings förlopp
 
@@ -226,7 +227,7 @@ När du kör experimentet kanske du vill se hur det fortskrider. Spåra förlopp
 1. Expandera noden **experiment** i din arbets yta.
 1. Expandera den experiment-nod som du vill spåra förloppet för.
 1. Högerklicka på Kör och välj **Visa körs i Azure Portal**.
-1. En uppmaning visas där du uppmanas att öppna körnings-URL: en i Azure Machine Learning Studio. Välj **Open** (Öppna).
+1. En uppmaning visas där du uppmanas att öppna körnings-URL: en i Azure Machine Learning Studio. Välj **Öppna**.
 
 ### <a name="download-run-logs--outputs"></a>Hämta körnings loggar & utdata
 
@@ -242,6 +243,39 @@ När en körning har slutförts kanske du vill hämta loggarna och till gångarn
 ### <a name="view-run-metadata"></a>Visa körnings-metadata
 
 I tillägget kan du kontrol lera metadata, till exempel den körnings konfiguration som används för körnings-och körnings information.
+
+## <a name="compute-instances"></a>Beräkningsinstanser
+
+Mer information finns i [Compute instances](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Skapa beräknings instans
+
+1. Expandera noden prenumeration som innehåller din arbets yta.
+1. Expandera noden arbets yta som du vill skapa beräknings instansen under.
+1. Högerklicka på noden **Compute instances** och välj **skapa beräknings instans**.
+1. I prompten:
+    1. Ange ett namn för beräknings instansen.
+    1. Välj en storlek på virtuell dator i listan.
+    1. Välj om du vill aktivera SSH-åtkomst.
+        1. Om du aktiverar SSH-åtkomst måste du också ange den offentliga SSH-nyckeln eller filen som innehåller nyckeln. Mer information finns i [guiden om att skapa och använda SSH-nycklar på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### <a name="stop-or-restart-compute-instance"></a>Stoppa eller starta om beräknings instans
+
+1. Expandera noden prenumeration som innehåller din arbets yta.
+1. Expandera noden **Compute instance** i din arbets yta.
+1. Högerklicka på den beräknings instans som du vill stoppa eller starta om och välj **stoppa Compute instance** eller **starta om Compute-instansen** .
+
+### <a name="view-compute-instance-configuration"></a>Visa konfiguration av beräknings instans
+
+1. Expandera noden prenumeration som innehåller din arbets yta.
+1. Expandera noden **Compute instance** i din arbets yta.
+1. Högerklicka på den beräknings instans som du vill granska och välj **Visa egenskaper för beräknings instans**.
+
+### <a name="delete-compute-instance"></a>Ta bort beräknings instans
+
+1. Expandera noden prenumeration som innehåller din arbets yta.
+1. Expandera noden **Compute instance** i din arbets yta.
+1. Högerklicka på den beräknings instans som du vill ta bort och välj **ta bort beräknings instans**.
 
 ## <a name="compute-clusters"></a>Beräknings kluster
 

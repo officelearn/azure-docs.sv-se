@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752308"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536487"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -56,11 +56,11 @@ Tjänsten justerar dynamiskt maxfiles-gränsen för en volym baserat på dess et
 
 |    Volym storlek (kvot)     |  Automatisk justering av maxfiles-gränsen    |
 |----------------------------|-------------------|
-|    < 1 TiB                 |    20 000 000     |
-|    >= 1 TiB men < 2 TiB    |    40 000 000     |
-|    >= 2 TiB men < 3 TiB    |    60 000 000     |
-|    >= 3 TiB men < 4 TiB    |    80 000 000     |
-|    >= 4 TiB                |    100 000 000    |
+|    <= 1 TiB                |    20 000 000     |
+|    > 1 TiB men <= 2 TiB    |    40 000 000     |
+|    > 2 TiB men <= 3 TiB    |    60 000 000     |
+|    > 3 TiB men <= 4 TiB    |    80 000 000     |
+|    > 4 TiB                 |    100 000 000    |
 
 Om du redan har tilldelat minst 4 TiB av kvoten för en volym kan du initiera en [support förfrågan](#limit_increase) för att öka maxfiles-gränsen bortom 100 000 000.
 

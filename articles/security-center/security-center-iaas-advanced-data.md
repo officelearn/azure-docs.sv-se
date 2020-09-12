@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: de5346387336acb5a4b13457d3a163f529c51b89
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566275"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438695"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Avancerad data säkerhet för SQL-datorer (för hands version)
 
@@ -65,7 +65,7 @@ Båda beskrivs nedan.
 
     - Om du använder **en arbets yta som inte är standard**väljer du relevant **arbets yta** (ange arbets ytans namn i filtret om det behövs):
 
-        ![rubrik](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 
 1. Växla alternativet för **SQL-servrar på datorer (för hands version)** till aktive rad. 
@@ -109,7 +109,7 @@ Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
     I varje vy sorteras säkerhets kontrollerna efter **allvarlighets grad**. Klicka på en säkerhets kontroll för att visa ett informations fönster med en **Beskrivning**, hur du **åtgärdar** den och annan relaterad information som **påverkan** eller **benchmark**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>Avancerade hot skydd för SQL-servrar på dator aviseringar
-Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet aviseringar för SQL Database och SQL Data Warehouse på referens sidan aviseringar](alerts-reference.md#alerts-sql-db-and-warehouse).
+Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja SQL-datorer. Dessa händelser kan utlösa aviseringar som visas i [avsnittet varningar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) på sidan aviserings referens](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 
 
@@ -131,7 +131,7 @@ Säkerhets aviseringar är tillgängliga på Security Center sidan aviseringar, 
 
 Information om relaterade material finns i följande artikel:
 
-- [Säkerhets aviseringar för SQL Database och SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Säkerhets aviseringar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Konfigurera e-postaviseringar för säkerhets aviseringar](security-center-provide-security-contact-details.md)
 - [Läs mer om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Security Centers avancerade data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

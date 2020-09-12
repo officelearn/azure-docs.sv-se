@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285636"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612332"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för kluster konfiguration (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,26 +35,23 @@ Använd ett enda nätverkskort per server (klusternod) och ett enda undernät. A
 
 Även om ett kluster med två noder fungerar utan en [kvorumresurs](/windows-server/storage/storage-spaces/understand-quorum), krävs det strikta kunder att använda en kvorumresurs för att få produktions support. Kluster valideringen skickar inte några kluster utan en kvorumresurs. 
 
-Ett kluster med tre noder kan på ett enkelt sätt överleva en enskild nod (ned till två noder) utan en kvorumresurs. Men när klustret har gått ned till två noder, finns det risk för att köra: 
+Ett kluster med tre noder kan på ett enkelt sätt överleva en enskild nod (ned till två noder) utan en kvorumresurs. Men när klustret har gått ned till två noder, finns det en risk att de klustrade resurserna kommer att kopplas från vid en nod förlust eller kommunikations fel för att förhindra ett delat-hjärna-scenario.
 
-- **Partition i utrymme** (delad hjärna): klusternoderna separeras i nätverket på grund av Server-, NIC-eller switch-problem. 
-- **Partition i tid** (Amnesia): en nod ansluter eller återansluter klustret och försöker att anspråk på ägande rätt till kluster gruppen eller en kluster roll. 
-
-Kvorumresursen skyddar klustret mot något av de här problemen. 
+Genom att konfigurera en kvorumresurs kan klustret fortsätta att vara online med bara en nod online.
 
 I följande tabell visas de tillgängliga alternativen i den ordning som rekommenderas för användning med en virtuell Azure-dator, med det disk vittne som du föredrar: 
 
 
 ||[Diskvittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Molnvittne](/windows-server/failover-clustering/deploy-cloud-witness)  |[Filresursvittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Operativ system som stöds**| Alla |Windows Server 2016 +| Windows Server 2012 +|
+|**Operativ system som stöds**| Alla |Windows Server 2016 +| Alla|
 
 
 
 
 ### <a name="disk-witness"></a>Diskvittne
 
-Ett disk vittne är en liten kluster disk i den tillgängliga lagrings gruppen för klustret. Disken är hög tillgänglig och kan växlas över mellan noder. Den innehåller en kopia av kluster databasen, med en standard storlek som vanligt vis är mindre än 1 GB. Disk vittnet är det bästa alternativet för kvorum för en virtuell Azure-dator eftersom det kan lösa problemet med tids gränsen, till skillnad från moln vittnet och fil resurs vittnet. 
+Ett disk vittne är en liten kluster disk i den tillgängliga lagrings gruppen för klustret. Disken är hög tillgänglig och kan växlas över mellan noder. Den innehåller en kopia av kluster databasen, med en standard storlek som vanligt vis är mindre än 1 GB. Disk vittnet är det bästa alternativet för kvorum för alla kluster som använder Azure delade diskar (eller någon lösning för delad disk som delad SCSI, iSCSI eller Fibre Channel SAN).  Det går inte att använda en klusterdelad volym som ett disk vittne.
 
 Konfigurera en Azure-delad disk som disk vittne. 
 
@@ -95,8 +92,8 @@ I följande tabell jämförs HADR-anslutnings support:
 
 | |**Namn på virtuellt nätverk (VNN)**  |**Namn på distribuerat nätverk (DNN)**  |
 |---------|---------|---------|
-|**Lägsta version av operativsystemet**| Windows Server 2012 | Windows Server 2016|
-|**Lägsta SQL Server-version** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Lägsta version av operativsystemet**| Alla | Alla |
+|**Lägsta SQL Server-version** |Alla |SQL Server 2019 CU2|
 |**HADR-lösning som stöds** | Redundansklusterinstans <br/> Tillgänglighetsgrupp | Redundansklusterinstans|
 
 
@@ -108,9 +105,9 @@ Det finns en liten växlings fördröjning när du använder belastningsutjämna
 
 Lär dig hur du [konfigurerar Azure Load Balancer för en FCI](hadr-vnn-azure-load-balancer-configure.md)för att komma igång. 
 
-**Operativ system som stöds**: Windows Server 2012 och senare   
-**SQL-version som stöds**: SQL Server 2012 och senare   
-**Hadr lösning som stöds**: kluster instans för växling vid fel och tillgänglighets grupp 
+**Operativ system som stöds**: alla   
+**SQL-version som stöds**: alla   
+**Hadr lösning som stöds**: kluster instans för växling vid fel och tillgänglighets grupp   
 
 
 ### <a name="distributed-network-name-dnn"></a>Namn på distribuerat nätverk (DNN)
@@ -138,9 +135,10 @@ För att komma igång, lär dig hur du [konfigurerar en DNN-resurs för en FCI](
 Tänk på följande begränsningar när du arbetar med FCI-eller tillgänglighets grupper och SQL Server på Azure Virtual Machines. 
 
 ### <a name="msdtc"></a>MSDTC 
-Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och Azure- [standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidigare eftersom:
+Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) eller på SQL Server virtuella datorer som använder Azure delade diskar. 
+
+I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidigare med klustrade delade volymer på grund av följande:
 
 - Det går inte att konfigurera den klustrade MSDTC-resursen att använda delad lagring. Om du skapar en MSDTC-resurs i Windows Server 2016 visas inga delade lagrings enheter som är tillgängliga för användning, även om lagring är tillgängligt. Det här problemet har åtgärd ATS i Windows Server 2019.
 - Den grundläggande belastningsutjämnaren hanterar inte RPC-portar.

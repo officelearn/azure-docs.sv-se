@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d05de44343d5d530a367286bec3d82ba3d66f0f6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818039"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322525"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -398,11 +398,11 @@ Nej, standard SSD-hanterade diskar i valfri storlek kan inte användas med ohant
 
 **Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en operativ system disk är 2 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar.
+Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en operativ system disk är 4 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar.
 
 **Vilken är den största ohanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en ohanterad disk för operativ system är 2 TiB. Azure har stöd för upp till 4 TiB för ohanterade diskar.
+Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en ohanterad disk för operativ system är 4 TiB. Azure har stöd för upp till 4 TiB för ohanterade diskar.
 
 **Vilken är den största sid-BLOB-storlek som stöds?**
 

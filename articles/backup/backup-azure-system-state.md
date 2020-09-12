@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows system State till Azure
 description: Lär dig hur du säkerhetskopierar system tillstånd för Windows Server-datorer till Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181637"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376498"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Säkerhetskopiera Windows system State till Azure
 
@@ -62,7 +62,7 @@ Nu när du har skapat ett valv konfigurerar du det för att säkerhetskopiera Wi
 
     ![Konfigurera filer och mappar](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    När du klickar på OK visas en bock bredvid **säkerhets kopierings mål**och fönstret **Förbered infrastruktur** öppnas.
+    När du har valt **OK**visas en bock bredvid **säkerhets kopierings mål**och fönstret **Förbered infrastruktur** öppnas.
 
     ![När säkerhetskopieringsmålet har konfigurerats går du vidare och förbereder infrastrukturen](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 

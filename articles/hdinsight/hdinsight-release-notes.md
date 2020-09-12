@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826828"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319805"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -49,7 +49,7 @@ Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Kafka-kluster
 
 ## <a name="behavior-changes"></a>Beteende ändringar
 ### <a name="ambari-stack-version-change"></a>Ambari-stack versions ändring
-I den här versionen ändras Ambari-versionen från 2. x. x. x till 4,1. Du kan hämta Ambari-versionen från Ambari UI > om.
+I den här versionen ändras Ambari-versionen från 2. x. x. x till 4,1. Du kan kontrol lera stack versionen (HDInsight 4,1) i Ambari: Ambari > User >-versioner.
 
 ## <a name="upcoming-changes"></a>Kommande ändringar
 Inga kommande överändrade ändringar som du behöver betala.
@@ -75,4 +75,4 @@ Ingen komponent versions ändring för den här versionen. Du hittar de aktuella
 
 ## <a name="known-issues"></a>Kända problem
 
-Ett problem har åtgärd ATS i Azure-portalen, där användarna råkade ut för ett fel när de skapade ett Azure HDInsight-kluster med hjälp av en SSH-autentiseringstyp med en offentlig nyckel. När användare klickar på **Granska + skapa**, får de fel meddelandet "får inte innehålla tre tecken i följd från SSH-användarnamnet". Det här problemet har åtgärd ATS, men det kan krävas att du uppdaterar webbläsarens cacheminne genom att trycka på CTRL + F5 för att läsa in den korrigerade vyn. Lösningen på det här problemet var att skapa ett kluster med en ARM-mall. 
+Vi har rättat till ett fel i Azure-portalen där användare som försökte skapa ett Azure HDInsight-kluster med en offentlig nyckel av SSH-autentiseringstyp fick ett fel. När användarna klickade på **Granska + skapa** visades felet ”Får inte innehålla tre tecken i följd från SSH-användarnamnet”. Det här problemet har åtgärdats, men du kan behöva uppdatera webbläsarcachen genom att trycka på Ctrl+F5 för att läsa in den korrigerade vyn. Lösningen på det här problemet var att skapa ett kluster med en ARM-mall. 

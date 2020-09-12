@@ -1,6 +1,6 @@
 ---
-title: PowerShell – skapa en avbildning från en ögonblicks bild eller virtuell hård disk i ett galleri för delad avbildning
-description: Lär dig hur du skapar en avbildning från en ögonblicks bild eller VHD i ett delat avbildnings galleri med PowerShell.
+title: PowerShell – skapa en bild från en ögonblicks bild eller hanterad disk i ett delat avbildnings Galleri
+description: Lär dig hur du skapar en avbildning från en ögonblicks bild eller en hanterad disk i ett delat avbildnings galleri med PowerShell.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494725"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300263"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Skapa en avbildning från en virtuell hård disk eller en ögonblicks bild i ett galleri för delad avbildning med hjälp av PowerShell
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Skapa en bild från en hanterad disk eller ögonblicks bild i ett delat avbildnings galleri med PowerShell
 
-Om du har en befintlig ögonblicks bild eller virtuell hård disk som du vill migrera till ett delat avbildnings Galleri kan du skapa en avbildning av en delad avbildning direkt från den virtuella hård disken eller en ögonblicks bild. När du har testat den nya avbildningen kan du ta bort käll-VHD eller ögonblicks bild. Du kan också skapa en avbildning från en virtuell hård disk eller en ögonblicks bild i ett galleri för delade avbildningar med hjälp av [Azure CLI](image-version-snapshot-cli.md).
+Om du har en befintlig ögonblicks bild eller en hanterad disk som du vill migrera till ett delat avbildnings Galleri kan du skapa en avbildning av en delad avbildning direkt från den hanterade disken eller ögonblicks bilden. När du har testat den nya avbildningen kan du ta bort den hanterade käll disken eller ögonblicks bilden. Du kan också skapa en avbildning från en hanterad disk eller ögonblicks bild i ett galleri för delade avbildningar med hjälp av [Azure CLI](image-version-snapshot-cli.md).
 
 Bilder i ett bild galleri har två komponenter som vi kommer att skapa i det här exemplet:
 - En **bild definition** innehåller information om avbildningen och kraven för att använda den. Detta inkluderar om avbildningen är Windows eller Linux, specialiserad eller generaliserad, viktig information och lägsta och högsta minnes krav. Det är en definition av en typ av bild. 
@@ -27,14 +27,14 @@ Bilder i ett bild galleri har två komponenter som vi kommer att skapa i det hä
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en ögonblicks bild eller VHD för att kunna slutföra den här artikeln. 
+För att slutföra den här artikeln måste du ha en ögonblicks bild eller en hanterad disk. 
 
 Om du vill inkludera en datadisk får data disk storleken inte vara större än 1 TB.
 
 Ersätt resurs namnen där det behövs när du arbetar i den här artikeln.
 
 
-## <a name="get-the-snapshot-or-vhd"></a>Hämta ögonblicks bilden eller den virtuella hård disken
+## <a name="get-the-snapshot-or-managed-disk"></a>Hämta ögonblicks bilden eller den hanterade disken
 
 Du kan se en lista över ögonblicks bilder som är tillgängliga i en resurs grupp med hjälp av [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
@@ -50,17 +50,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-Du kan också använda en virtuell hård disk i stället för en ögonblicks bild. Använd [Get-AzDisk](/powershell/module/az.compute/get-azdisk)för att hämta en virtuell hård disk. 
+Du kan också använda en hanterad disk i stället för en ögonblicks bild. Använd [Get-AzDisk](/powershell/module/az.compute/get-azdisk)för att hämta en hanterad disk. 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-Hämta sedan den virtuella hård disken och tilldela den till `$source` variabeln.
+Hämta sedan den hanterade disken och tilldela den till `$source` variabeln.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -88,7 +88,7 @@ $gallery = Get-AzGallery `
 
 Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om avbildningen. Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
-När du gör en avbildnings definition ser du till att har all rätt information. I det här exemplet antar vi att ögonblicks bilden eller den virtuella hård disken kommer från en virtuell dator som används och inte har generaliserats. Om den virtuella hård disken eller ögonblicks bilden tog av ett generaliserat operativ system (när Sysprep för Windows eller [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller Linux har körts `-deprovision+user` ) ändrar `-OsState` du till `generalized` . 
+När du gör en avbildnings definition ser du till att har all rätt information. I det här exemplet antar vi att ögonblicks bilden eller den hanterade disken kommer från en virtuell dator som används och inte har generaliserats. Om den hanterade disken eller ögonblicks bilden tog ett generaliserat operativ system (efter att du kört Sysprep för Windows eller [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller `-deprovision+user` för Linux) ändrar `-OsState` du till `generalized` . 
 
 Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](./windows/shared-image-galleries.md#image-definitions).
 
@@ -118,7 +118,7 @@ Skapa en avbildnings version från ögonblicks bilden med [New-AzGalleryImageVer
 
 Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
 
-Om du vill att avbildningen ska innehålla en datadisk, förutom OS-disken, lägger du till `-DataDiskImage` parametern och anger den till ID: t för ögonblicks bilder av data disk eller VHD.
+Om du vill att avbildningen ska innehålla en datadisk, förutom OS-disken, lägger du till `-DataDiskImage` parametern och anger den till ID: t för ögonblicks bilden av en data disk eller en hanterad disk.
 
 I det här exemplet är avbildnings versionen *1.0.0* och replikeras till både *västra centrala* USA och *södra centrala* Data Center. Kom ihåg att du även måste inkludera *käll* regionen som mål för replikering när du väljer mål regioner för replikering.
 

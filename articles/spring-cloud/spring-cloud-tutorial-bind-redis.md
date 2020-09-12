@@ -7,24 +7,24 @@ ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6bbd54be46effe324199639477f9ca4ab31bea98
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c21a6a2a42aa7417ddb53afd3beda735b54cff3d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091410"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299141"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Bind Azure-cache för Redis till ditt Azure våren Cloud-program 
 
 I stället för att manuellt konfigurera dina våren Boot-program kan du automatiskt binda utvalda Azure-tjänster till dina program med hjälp av Azure våren Cloud. Den här artikeln visar hur du binder ditt program till Azure cache för Redis.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En distribuerad Azure våren Cloud-instans
 * En Azure-cache för Redis-tjänstinstans
 * Azure våren Cloud-tillägget för Azure CLI
 
-Om du inte har en distribuerad Azure våren-moln instans följer du stegen i [snabb starten för att distribuera en Azure våren Cloud-App](spring-cloud-quickstart-launch-app-portal.md).
+Om du inte har en distribuerad Azure våren-moln instans följer du stegen i [snabb starten för att distribuera en Azure våren Cloud-App](spring-cloud-quickstart.md).
 
 ## <a name="bind-azure-cache-for-redis"></a>Bind Azure-cache för Redis
 

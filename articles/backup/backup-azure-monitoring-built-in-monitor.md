@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig mer om övervaknings-och avis
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000744"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377411"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -100,7 +100,7 @@ Om frekvensen har angetts till en Tim sammandrag och en avisering har genererats
 
 ## <a name="inactivating-alerts"></a>Inaktivera aviseringar
 
-Om du vill inaktivera/lösa en aktiv avisering kan du välja det List objekt som motsvarar den avisering som du vill inaktivera. Då öppnas en skärm som visar detaljerad information om aviseringen, med en **inaktive rad** knapp överst. Klicka på den här knappen för att ändra aviseringens status till **inaktiv**. Du kan också inaktivera en avisering genom att högerklicka på listobjektet som motsvarar aviseringen och välja **inaktivera**.
+Om du vill inaktivera/lösa en aktiv avisering kan du välja det List objekt som motsvarar den avisering som du vill inaktivera. Då öppnas en skärm som visar detaljerad information om aviseringen, med en **inaktive rad** knapp överst. Om du väljer den här knappen ändras aviseringens status till **inaktiv**. Du kan också inaktivera en avisering genom att högerklicka på listobjektet som motsvarar aviseringen och välja **inaktivera**.
 
 ![Inaktive ring av RS Vault-avisering](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

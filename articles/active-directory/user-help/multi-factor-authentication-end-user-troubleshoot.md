@@ -9,33 +9,33 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/20/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796586"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322610"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåstegsverifiering och ditt arbets- eller skolkonto
 
-Din Azure Active Directory (Azure AD)-organisation kan aktivera tvåstegsverifiering (2FV). Det finns några vanliga 2FV-problem som verkar ofta förekommande än vad som helst av oss. Vi har samlat ihop den här artikeln för att beskriva korrigeringar för de vanligaste problemen.
+Det finns några vanliga vanliga verifierings problem på två faktorer som verkar oftare än vad som helst av oss. Vi har samlat ihop den här artikeln för att beskriva korrigeringar för de vanligaste problemen.
 
-När 2FV är på, kräver ditt konto inloggning en kombination av följande data:
+Din Azure Active Directory (Azure AD)-organisation kan aktivera tvåstegsverifiering för ditt konto. När tvåstegsverifiering är på kräver ditt konto inloggning en kombination av följande data:
 
 - Ditt användar namn
 - Ditt lösenord
 - En mobil enhet eller telefon
 
-2FV är säkrare än bara ett lösen ord, eftersom 2FV kräver något som du _känner_ till och något du _har_. Ingen hackare har din fysiska telefon.
+Tvåstegsverifiering är säkrare än bara ett lösen ord, eftersom tvåstegsverifiering kräver något som du _känner_ till och något du _har_. Ingen hackare har din fysiska telefon.
 
 >[!Important]
 >Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar din Azure AD-miljö i [Azure AD-dokumentationen](../index.yml).
 
-Det här innehållet är avsett att hjälpa dig med ditt arbets-eller skol konto, vilket är det konto som du fått av din organisation (till exempel dritan@contoso.com ). Om du har problem med tvåstegsverifiering på en personlig Microsoft-konto, vilket är ett konto som du har konfigurerat för dig själv (till exempel danielle@outlook.com ), se [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+Det här innehållet kan hjälpa dig med ditt arbets-eller skol konto, vilket är det konto som du fått av din organisation (till exempel dritan@contoso.com ). Om du har problem med tvåstegsverifiering på en personlig Microsoft-konto, vilket är ett konto som du har konfigurerat för dig själv (till exempel danielle@outlook.com ), se [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Jag har inte min mobila enhet
 
@@ -51,7 +51,15 @@ Det sker. Du har lämnat din mobila enhet hemma och nu kan du inte använda din 
 
 2. Välj den alternativa verifierings metoden och fortsätt med processen med tvåstegsverifiering.
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>Jag har förlorat min mobila enhet eller blivit stulen
+## <a name="i-cant-turn-two-factor-verification-off"></a>Det går inte att aktivera tvåstegsverifiering
+
+- Om du använder tvåstegsverifiering med ett personligt konto för en Microsoft-tjänst, till exempel alain@outlook.com , kan du [Aktivera och inaktivera funktionen](https://account.live.com/proofs/Manage).
+
+- Om du använder tvåstegsverifiering med ditt arbets-eller skol konto innebär det förmodligen att din organisation har valt att du måste använda den här extra säkerhetsfunktionen. Det finns inget sätt för dig att individuellt stänga av den.
+
+Om du inte kan stänga av tvåstegsverifiering kan det också bero på de säkerhets inställningar som har tillämpats på organisations nivå. Mer information om säkerhets inställningar finns i [Vad är säkerhets inställningar?](../fundamentals/concept-fundamentals-security-defaults.md)
+
+## <a name="my-device-was-lost-or-stolen"></a>Enheten har tappats bort eller blivit stulen
 
 Om du har förlorat eller haft din mobila enhet stulen kan du göra något av följande:
 
@@ -72,14 +80,14 @@ Kontrol lera att dina meddelanden är aktiverade | Se till att dina meddelanden 
 Kontrol lera att du har en enhets signal och Internet anslutning | Se till att dina telefonsamtal och textmeddelanden går igenom till din mobila enhet. Låt en vän ringa dig och skicka ett SMS till dig för att se till att du får båda. Om du inte får samtal eller text kontrollerar du först för att se till att din mobila enhet är påslagen. Om enheten är påslagen, men du fortfarande inte får samtalet eller texten, finns det förmodligen ett problem med nätverket. Du måste prata med din Provider. Om du ofta har problem med signalen rekommenderar vi att du installerar och använder Microsoft Authenticator- [appen](user-help-auth-app-download-install.md) på din mobila enhet. Authenticator-appen kan generera slumpmässiga säkerhets koder för inloggning, utan att det krävs någon cell signal eller Internet anslutning.
 Inaktivera Stör ej | Kontrol lera att du inte har aktiverat funktionen **stör ej** på den mobila enheten. När den här funktionen är aktive rad är aviseringar inte tillåtna för att varna dig på din mobila enhet. Information om hur du inaktiverar den här funktionen finns i hand boken för den mobila enheten.
 Avblockera telefonnummer | I USA kommer röst samtal från Microsoft att komma från följande nummer: + 1 (866) 539 4191, + 1 (855) 330 8653 och + 1 (877) 668 6536.
-Kontrol lera dina inställningar för batteri | Det här verkar vara lite udda på ytan. Men om du har konfigurerat din batteri optimering för att stoppa att mindre använda appar från återstående aktiva i bakgrunden, har ditt meddelande system förmodligen drabbats. Du kan försöka åtgärda problemet genom att stänga av batteri optimering för både din webbapp och appen för meddelanden. Försök sedan att logga in på ditt konto igen.
-Inaktivera säkerhetsappar från tredje part | Vissa Phone Security-appar blockerar SMS och telefonsamtal från irriterande okända anropare. Sådana appar kan förhindra att din telefon tar emot verifierings koden. Försök att inaktivera säkerhets program från tredje part på din telefon och begär sedan att en annan verifierings kod ska skickas.
+Kontrol lera dina inställningar för batteri | Om du ställer in batteri optimeringen så att mindre ofta använda appar från återstående aktiva i bakgrunden påverkas förmodligen ditt meddelande system. Försök att stänga av batteri optimering för både din webbapp och din app för meddelanden. Försök sedan att logga in på ditt konto igen.
+Inaktivera säkerhetsappar från tredje part | Vissa Phone Security-appar blockerar SMS och telefonsamtal från irriterande okända anropare. En säkerhetsappen kan förhindra att din telefon tar emot verifierings koden. Försök att inaktivera säkerhets program från tredje part på din telefon och begär sedan att en annan verifierings kod ska skickas.
 
 ## <a name="im-not-being-prompted-for-my-second-verification-information"></a>Jag uppmanas inte att ange min andra verifierings information
 
 Du loggar in på ditt arbets-eller skol konto genom att använda ditt användar namn och lösen ord. Härnäst ska du uppmanas att ange ytterligare information om säkerhets verifieringen. Om du inte tillfrågas kanske du inte har konfigurerat din enhet än. Din mobila enhet måste konfigureras så att den fungerar med din speciella ytterligare säkerhets verifierings metod.
 
-Information om hur du ser till att din mobila enhet är på och tillgänglig finns i artikeln [Hantera inställningar för metod](multi-factor-authentication-end-user-manage-settings.md) för att kontrol lera din enhet. Om du vet att du inte har konfigurerat din enhet eller ditt konto kan du göra det nu genom att följa stegen i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
+Du kanske inte har konfigurerat din enhet ännu. Din mobila enhet måste konfigureras för att fungera med din speciella ytterligare säkerhets verifierings metod. Anvisningar om hur du gör din mobila enhet tillgänglig för användning med din verifierings metod finns i [Hantera inställningar för verifierings metoden i två](multi-factor-authentication-end-user-manage-settings.md)steg. Om du vet att du inte har konfigurerat din enhet eller ditt konto än kan du följa stegen i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
 
 ## <a name="i-have-a-new-phone-number-and-i-want-to-add-it"></a>Jag har ett nytt telefonnummer och jag vill lägga till det
 
@@ -95,13 +103,13 @@ Om du har en ny mobil enhet måste du konfigurera den så att den fungerar med t
 
 Valfria steg:
 
-- Installera och konfigurera Microsoft Authenticator-appen på din mobila enhet. Installera genom att följa stegen i artikeln [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) .
+- Installera Microsoft Authenticator-appen på din mobila enhet genom att följa stegen i artikeln [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) .
 
-- Aktivera tvåstegsverifiering (2FV) för dina betrodda enheter. Aktivera 2FV genom att följa stegen i artikeln **Aktivera två faktorers verifiering på en betrodd enhet** i artikeln Hantera inställningar för enhets [verifiering med två faktorer](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) .
+- Aktivera tvåstegsverifiering för dina betrodda enheter genom att följa stegen i artikeln **Aktivera två faktorers verifiering på en betrodd enhet** i avsnittet [Hantera inställningar för metod](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) med tvåstegsverifiering.
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Jag har problem med att logga in på min mobila enhet under resa
 
-Det kan vara svårare att använda en metod som är relaterad till mobil enhet, t. ex. textmeddelanden, medan du är på en internationell plats. Det är också möjligt att din mobila enhet kan medföra att du debiteras för nätverks växling. I den här situationen rekommenderar vi att du använder Microsoft Authenticator-appen med alternativet att ansluta till ett Wi-Fi-hotspot. Mer information om hur du konfigurerar Microsoft Authenticator-appen på din mobila enhet finns i artikeln [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) .
+Det kan vara svårare att använda en metod som är relaterad till mobil enhet, t. ex. textmeddelanden, medan du är på en internationell plats. Det är också möjligt att din mobila enhet kan medföra att du debiteras för nätverks växling. I den här situationen rekommenderar vi att du använder Microsoft Authenticator-appen, med alternativet att ansluta till en trådlös trådlös plats. Mer information om hur du konfigurerar Microsoft Authenticator-appen på din mobila enhet finns i artikeln [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) .
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Jag kan inte få mina applösenord att fungera
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523124"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320655"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Vad är identitetssäkerhetspoäng i Azure Active Directory?
 
@@ -50,7 +50,7 @@ Med hjälp av följande förbättringsåtgärder kan du:
 
 De säkraste poängen för identiteter finns i alla utgåvor av Azure AD. Organisationer kan komma åt sina identitets säkra Poäng från **Azure Portal**  >  **Azure Active Directory**  >  **säkerhets**  >  **identitet säkra Poäng**.
 
-## <a name="how-does-it-work"></a>Hur fungerar den?
+## <a name="how-does-it-work"></a>Hur fungerar det?
 
 Var 48 timme tittar Azure på din säkerhetskonfiguration och jämför dina inställningar med de rekommenderade metoderna. Baserat på resultatet av den här utvärderingen beräknas en ny Poäng för din katalog. Det är möjligt att din säkerhets konfiguration inte är helt justerad med den bästa övnings vägledningen och att förbättrings åtgärderna endast delvis uppfylls. I dessa scenarion tilldelas du bara en del av det högsta antalet poäng som är tillgängliga för kontrollen.
 
@@ -104,11 +104,11 @@ Om du vill se din resultat historik går du till [Microsoft 365 Security Center]
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Hur är identitetssäkerhetspoäng relaterade till säkerhetspoäng i Office 365 Secure Score?
 
-[Microsofts säkra Poäng](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) innehåller fem skilda kontroll-och Poäng kategorier:
+[Microsofts säkra Poäng](/office365/securitycompliance/microsoft-secure-score) innehåller fem skilda kontroll-och Poäng kategorier:
 
 - Identitet
 - Data
-- Enheter
+- Egenskaper
 - Infrastruktur
 - Appar
 
@@ -116,4 +116,4 @@ De säkraste poängen i identiteten representerar identitets delen av Microsofts
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om Microsofts säkra Poäng](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Lär dig mer om Microsofts säkra Poäng](/office365/securitycompliance/microsoft-secure-score)

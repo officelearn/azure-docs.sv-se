@@ -4,12 +4,12 @@ description: Använd rollbaserad Access Control för att hantera åtkomst till s
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017812"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376136"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använd rollbaserad Access Control för att hantera Azure Backup återställnings punkter
 
@@ -56,7 +56,7 @@ I följande tabell inhämtas åtgärder för säkerhets kopierings hantering och
 | Ta bort registrerade lokala Windows Server-eller klient-SCDPM eller Azure Backup Server | Säkerhets kopierings deltagare | Recovery Services-valv |
 
 > [!IMPORTANT]
-> Om du anger VM-deltagare vid en VM-resurs omfånget och klickar på säkerhets kopiering som en del av inställningarna för virtuella datorer öppnas skärmen "Aktivera säkerhets kopiering" trots att den virtuella datorn redan har säkerhetskopierats som anrop för att kontrol lera säkerhets kopierings statusen endast fungerar på prenumerations nivå. Undvik detta genom att gå till valvet och öppna vyn säkerhets kopiering av den virtuella datorn eller ange rollen VM-deltagare på en prenumerations nivå.
+> Om du anger VM-deltagare vid en VM-resurs omfattning och väljer **säkerhets kopiering** som en del av inställningarna för virtuella datorer öppnas skärmen **Aktivera säkerhets kopiering** , även om den virtuella datorn redan har säkerhetskopierats. Detta beror på att anropet att verifiera säkerhets kopierings status endast fungerar på prenumerations nivå. Undvik detta genom att gå till valvet och öppna säkerhets kopierings objekt visningen av den virtuella datorn eller ange rollen VM-deltagare på en prenumerations nivå.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Lägsta roll krav för säkerhets kopiering av Azure-filresurs
 

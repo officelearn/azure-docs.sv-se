@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925642"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300110"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Action |Azure-behörigheter krävs |Anteckningar |
+|Action |Azure-behörigheter krävs |Kommentarer |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -228,14 +228,14 @@ Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill 
 
     * Ge användare följande behörigheter på arbets ytan: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– krävs för att användaren ska kunna räkna upp arbets ytan och öppna bladet arbets yta i Azure Portal
-        * `Microsoft.OperationalInsights/workspaces/query/read`– krävs för alla användare som kan köra frågor
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– för att kunna läsa inloggnings loggar för Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– för att kunna läsa Uppdateringshantering lösnings loggar
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– för att kunna läsa Uppdateringshantering lösnings loggar
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– för att kunna läsa uppdaterings hanterings loggar
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– krävs för att kunna använda Uppdateringshantering lösning
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– krävs för att kunna använda Uppdateringshantering lösning
+        * `Microsoft.OperationalInsights/workspaces/read` – krävs för att användaren ska kunna räkna upp arbets ytan och öppna bladet arbets yta i Azure Portal
+        * `Microsoft.OperationalInsights/workspaces/query/read` – krävs för alla användare som kan köra frågor
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – för att kunna läsa inloggnings loggar för Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – för att kunna läsa Uppdateringshantering lösnings loggar
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – för att kunna läsa Uppdateringshantering lösnings loggar
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – för att kunna läsa uppdaterings hanterings loggar
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – krävs för att kunna använda Uppdateringshantering lösning
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – krävs för att kunna använda Uppdateringshantering lösning
 
     * Ge användarna följande behörigheter till resurserna: `*/read` , tilldelade till rollen läsare eller `Microsoft.Insights/logs/*/read` . 
 
@@ -270,7 +270,7 @@ Om du vill skapa en roll med enbart åtkomst till tabellen _SecurityBaseline_ sk
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-I exemplen ovan definieras en vitlista över tabeller som tillåts. Det här exemplet visar Black definition när en användare kan komma åt alla tabeller, men tabellen _SecurityAlert_ :
+I exemplen ovan definieras en lista över tabeller som tillåts. I det här exemplet visas en blockerad List definition när en användare kan komma åt alla tabeller, men tabellen _SecurityAlert_ :
 
 ```
 "Actions":  [

@@ -3,12 +3,12 @@ title: Återställa SQL Server-databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826564"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377989"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -23,7 +23,7 @@ Azure Backup kan återställa SQL Server databaser som körs på virtuella Azure
 - Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av säkerhets kopior av transaktions loggen. Azure Backup identifierar automatiskt rätt fullständig differentiell säkerhets kopiering och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
 - Återställ en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Observera följande innan du återställer en databas:
 
@@ -98,7 +98,7 @@ För att återställa måste du ha följande behörigheter:
 
         ![Ange mål Sök vägar](./media/backup-azure-sql-database/target-paths.png)
 
-1. Klicka på **OK** för att utlösa återställningen. Spåra återställnings förloppet i **aviserings** området eller spåra det under vyn **säkerhets kopierings jobb** i valvet.
+1. Välj **OK** för att utlösa återställningen. Spåra återställnings förloppet i **aviserings** området eller spåra det under vyn **säkerhets kopierings jobb** i valvet.
 
     > [!NOTE]
     > Återställning vid tidpunkt är bara tillgängligt för säkerhets kopiering av loggar för databaser som är fullständiga och Mass loggade återställnings läge.
@@ -161,7 +161,7 @@ Om du har valt **fullständig & differentiell** som återställnings typ gör du
     ![Välja en fullständig återställningspunkt](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > Återställnings punkter från de senaste 30 dagarna visas som standard. Du kan visa återställnings punkter som är äldre än 30 dagar genom att klicka på **filtrera** och välja ett anpassat intervall.
+    > Återställnings punkter från de senaste 30 dagarna visas som standard. Du kan visa återställnings punkter som är äldre än 30 dagar genom att välja **filter** och välja ett anpassat intervall.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Återställa databaser med ett stort antal filer
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa en ögonblicks bild av en virtuell hård disk i Azure
-description: Lär dig hur du skapar en kopia av en virtuell Azure-dator som ska användas som säkerhets kopiering eller vid fel sökning av problem.
+title: Skapa en ögonblicks bild av en virtuell hård disk med hjälp av portalen eller PowerShell
+description: Lär dig hur du skapar en kopia av en virtuell Azure-dator som ska användas som säkerhets kopiering eller för fel sökning av problem med portalen eller PowerShell.
 author: roygara
 manager: twooley
 ms.service: virtual-machines-windows
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074128"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322321"
 ---
-# <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
+# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Skapa en ögonblicks bild med hjälp av portalen eller PowerShell
 
 En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk (VHD). Du kan ta en ögonblicks bild av en OS-eller datadisk-VHD som ska användas som säkerhets kopia, eller för att felsöka problem med virtuella datorer (VM).
 

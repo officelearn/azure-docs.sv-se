@@ -3,12 +3,12 @@ title: Återställa data från en Azure Backup Server
 description: Återställ de data som du har skyddat till ett Recovery Services valv från alla Azure Backup Server som är registrerade på det valvet.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 531de9226be05bf50f887cfd0410842dadb68178
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012015"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378074"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 
@@ -21,7 +21,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
 
 Återställa data från en Azure Backup Server:
 
-1. På fliken **återställning** i Azure Backup Server hanterings konsolen klickar du på **Lägg till extern DPM** (längst upp till vänster på skärmen).
+1. På fliken **återställning** i Azure Backup Server hanterings konsolen väljer du **Lägg till extern DPM** (längst upp till vänster på skärmen).
 
     ![Lägg till extern DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Hämta nya **autentiseringsuppgifter för valvet** från valvet som är kopplat till **Azure Backup Server** där data återställs, välj Azure Backup Server i listan över Azure Backup servrar som är registrerade i Recovery Services valvet och ange den **krypterings lösen fras** som är kopplad till servern vars data återställs.
@@ -42,10 +42,10 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
     En lista över filer och mappar visas i det nedre fönstret, som kan bläddras och återställas till valfri plats.
 
     ![Externa DPM-serverns återställnings punkter](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Högerklicka på det aktuella objektet och klicka på **Återställ**.
+5. Högerklicka på lämpligt objekt och välj **Återställ**.
 
     ![Extern DPM-återställning](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Granska valet för att **återställa**. Kontrol lera data och tid för säkerhets kopian som återställs, samt den källa från vilken säkerhets kopian skapades. Om valet är felaktigt klickar du på **Avbryt** för att gå tillbaka till fliken återställning och välja lämplig återställnings punkt. Om valet är korrekt klickar du på **Nästa**.
+6. Granska valet för att **återställa**. Kontrol lera data och tid för säkerhets kopian som återställs, samt den källa från vilken säkerhets kopian skapades. Om valet är felaktigt väljer du **Avbryt** för att gå tillbaka till fliken återställning för att välja lämplig återställnings punkt. Om valet är korrekt väljer du **Nästa**.
 
     ![Sammanfattning av extern DPM-återställning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 7. Välj **Återställ till en alternativ plats**. **Bläddra** till rätt plats för återställningen.
@@ -62,7 +62,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
      Identifiera om ett **meddelande** skickas när återställningen har slutförts.
 
      ![Aviseringar om extern DPM-återställning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. På sidan **Sammanfattning** visas de alternativ som valts hittills. När du klickar på **Återställ**återställs data till lämplig lokal plats.
+9. På sidan **Sammanfattning** visas de alternativ som valts hittills. När du väljer **Återställ**återställs data till lämplig lokal plats.
 
     ![Sammanfattning av alternativ för extern DPM-återställning](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -72,7 +72,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
    >
 
     ![Övervaka återställning](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. Du kan klicka på **Rensa extern DPM** på fliken **återställning** på DPM-servern för att ta bort vyn av den externa DPM-servern.
+10. Du kan välja **Rensa extern DPM** på fliken **återställning** på DPM-servern för att ta bort vyn av den externa DPM-servern.
 
     ![Rensa extern DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 

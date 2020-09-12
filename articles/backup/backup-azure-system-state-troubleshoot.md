@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker problem med 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022368"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376289"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du utför följande verifierings steg innan du börjar fels
 - Att återställa till annan maskin vara med återställning av system tillstånd rekommenderas inte av Microsoft
 - Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar. Den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup utför du följande krav kontroll.  
 
@@ -66,20 +66,20 @@ Kör följande kommando för att installera Windows Server Backup med PowerShell
 
 Utför följande steg för att installera Windows Server Backup med hjälp av Serverhanteraren:
 
-1. I **Server hanteraren**klickar du på **Lägg till roller och funktioner**. **Guiden Lägg till roller och funktioner** visas.
+1. I **Server hanteraren**väljer du **Lägg till roller och funktioner**. **Guiden Lägg till roller och funktioner** visas.
 
     ![Instrumentpanel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Välj **Installations typ** och klicka på **Nästa**.
+2. Välj **Installations typ** och välj **Nästa**.
 
     ![Installationstyp](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Välj en server från serverpoolen och klicka på **Nästa**. I Server rollen lämnar du standard valet och klickar på **Nästa**.
-4. Välj **Windows Server Backup** på fliken **funktioner** och klicka på **Nästa**.
+3. Välj en server från serverpoolen och välj **Nästa**. Lämna standard valet i Server rollen och välj **Nästa**.
+4. Välj **Windows Server Backup** på fliken **funktioner** och välj **Nästa**.
 
     ![Fönstret Välj funktioner](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. På fliken **bekräftelse** klickar du på **Installera** för att starta installations processen.
+5. På fliken **bekräftelse** väljer du **Installera** för att starta installations processen.
 6. På fliken **resultat** visas Windows Server Backup funktionen har installerats på Windows-servern.
 
     ![Installations resultat](./media/backup-azure-system-state-troubleshoot/results.jpg)
@@ -92,7 +92,7 @@ Se till att det lokala systemet har fullständig kontroll över mappen **System 
 
 Se till att tjänsterna nedan är i körnings tillstånd:
 
-**Tjänstens namn** | **Startmetod**
+**Tjänst namn** | **Startmetod**
 --- | ---
 RPC (Remote Procedure Call) | Automatiskt
 COM+-händelse system (EventSystem) | Automatiskt

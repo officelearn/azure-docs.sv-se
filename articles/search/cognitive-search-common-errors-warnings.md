@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935559"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378363"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -349,3 +349,7 @@ Du kan undvika den här varningen genom att ta reda på vad text kodningen för 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Varning: Cosmos DB samlingen "X" har en Lazy-indexerings princip. Vissa data kan gå förlorade
 
 Samlingar med [Lazy](/azure/cosmos-db/index-policy#indexing-mode) indexerings principer kan inte frågas konsekvent, vilket leder till att indexeraren saknar data. Undvik den här varningen genom att ändra indexerings principen till konsekvent.
+
+## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Varning! dokumentet innehåller väldigt långa ord (längre än 64 tecken). Dessa ord kan resultera i trunkerade och/eller otillförlitliga modell förutsägelser.
+
+Den här varningen skickas från Textanalyss tjänsten.  I vissa fall är det säkert att ignorera den här varningen, t. ex. när dokumentet innehåller en lång URL (som troligen inte är en nyckel fras eller en sentiment, osv.).  Tänk på att när ett ord är längre än 64 tecken kommer det att trunkeras till 64 tecken som kan påverka modell förutsägelserna.  

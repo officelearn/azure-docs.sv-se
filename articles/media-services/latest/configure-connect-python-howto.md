@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 42fea1a4363684667ccb41f0406bb66ef00d5485
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 68620b644ef85f7b627b7b6380c16959b25299f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265583"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297339"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Ansluta till Media Services v3 API – python
 
@@ -27,7 +27,7 @@ ms.locfileid: "89265583"
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 python SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Hämta python från [python.org](https://www.python.org/downloads/)
 - Se till att ställa in `PATH` miljövariabeln

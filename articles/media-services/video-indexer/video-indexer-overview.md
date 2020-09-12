@@ -10,14 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: b4d629351ae7b6154b332a1b1f99374de1187518
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267878"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318699"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Vad är Azure Media Services Video Indexer?
+
+[!INCLUDE [regulation](./includes/regulation.md)]
 
 Video Indexer (VI) är Azure Media Services AI-lösningen och en del av Azure Cognitive Services varumärket. Video Indexer ger möjlighet att extrahera djupgående insikter (utan behov av data analys eller kodnings kunskaper) med hjälp av maskin inlärnings modeller baserade på flera kanaler (röst, Vocals, visualisering). Du kan anpassa och träna modeller ytterligare. Tjänsten möjliggör djupgående sökning, minskar drifts kostnaderna, ger nya Sälj möjligheter och skapar nya användar upplevelser för stora Arkiv av videor (med låga ingångs hinder).
 

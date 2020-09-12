@@ -7,21 +7,21 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f48cd185f2aa25954627a9ff26f3e59b8e76e7a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d8f3b4d57f00ef33bbf566c36babafd83be9a5df
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037320"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299634"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Så här identifierar och löser du problem i Azure våren Cloud
 Azure våren Cloud Diagnostics är en interaktiv upplevelse som hjälper dig att felsöka din app. Ingen konfiguration krävs. När du hittar problem pekar Azure våren Cloud Diagnostics upp vad som är fel och vägleder dig till information som hjälper dig att felsöka och lösa problemet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här kursen behöver du:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* En distribuerad Azure våren Cloud Service-instans. Följ vår [snabb start för att distribuera en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* En distribuerad Azure våren Cloud Service-instans. Följ vår [snabb start för att distribuera en app via Azure CLI](spring-cloud-quickstart.md) för att komma igång.
 * Minst ett program som redan har skapats i din tjänst instans.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Gå till sidan diagnostik

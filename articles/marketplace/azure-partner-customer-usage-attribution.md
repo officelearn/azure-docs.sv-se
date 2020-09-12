@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031446"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320978"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -97,9 +97,9 @@ Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild �
 
 1. Öppna Resource Manager-mallen.
 
-1. Lägg till en ny resurs i filen main Template. Resursen måste vara i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
+1. Lägg till en ny resurs av typen [Microsoft. Resources/distributioner](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) i filen main Template. Resursen måste vara i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
 
-1. Ange GUID-värdet efter `pid-` prefixet (till exempel PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Ange GUID-värdet efter `pid-` prefixet som namnet på resursen. Om GUID till exempel är eb7927c8-dd66-43e1-b0cf-c346a422063 blir resurs namnet _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Kontrol lera om det finns några fel i mallen.
 
@@ -112,11 +112,11 @@ Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild �
 Om du vill aktivera spårning av resurser för mallen måste du lägga till följande ytterligare resurs under avsnittet resurser. Se till att ändra exempel koden nedan med dina egna indata när du lägger till den i filen för huvud mal len.
 Resursen måste läggas till i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ För python använder du **config** -attributet. Du kan bara lägga till attribu
 
 > [!NOTE]
 > Lägg till attributet för varje klient. Det finns ingen global statisk konfiguration. Du kan tagga en klient fabrik för att se till att alla klienter spårar. Mer information finns i detta [klient fabriks exempel på GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### <a name="example-the-net-sdk"></a>Exempel: .NET SDK
+
+För .NET, se till att ange användar agenten. Du kan använda [Microsoft. Azure. Management. Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) -biblioteket för att ange användar agenten med följande kod (exempel i C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Tagga en distribution med hjälp av Azure PowerShell
 
@@ -256,7 +270,7 @@ När du distribuerar \<PARTNER> program vara kan Microsoft identifiera installat
 
 Det finns två Support kanaler beroende på de problem som du är riktad mot.
 
-Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+Om du stöter på problem i partner centret, t. ex. genom att se rapport om kund användning eller logga in, kan du skapa en support förfrågan med support teamet för partner Center här: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![Skärm bild av sidan Hämta support](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -305,7 +319,7 @@ Visa steg-för-steg-instruktioner med skärm dum par med [tekniska försäljning
 
 Du kommer att kontaktas av en teknisk konsult från Microsoft-partner för att skapa ett samtal för att tillgodose dina behov.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad är fördelen med att lägga till GUID i mallen?**
 
@@ -339,7 +353,7 @@ Du kan skapa ett virtuellt dator erbjudande i Marketplace med din anpassade virt
 
 **Det gick inte att uppdatera *contentVersion* -egenskapen för huvud mal len?**
 
-Troligen en bugg i vissa fall när mallen distribueras med hjälp av en TemplateLink från en annan mall som förväntar sig äldre contentVersion av någon anledning. Lösningen är att använda egenskapen metadata:
+Detta är troligen ett fel i fallet när mallen distribueras med hjälp av en TemplateLink från en annan mall som förväntar sig äldre contentVersion av någon anledning. Lösningen är att använda egenskapen metadata:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387123"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318307"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent datakryptering i Azure SQL med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -132,6 +132,11 @@ När åtkomst till nyckeln har återställts krävs ytterligare tid och steg, vi
 - Om nyckel åtkomsten återställs inom 8 timmar kommer databasen automatiskt att korrigeras inom nästa timma.
 
 - Om nyckelåtkomsten återställs efter mer än åtta timmar går det inte att reparera automatiskt. Det kan då krävas ytterligare steg i portalen för att få databasen online igen, vilket kan ta lång tid för stora databaser. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade**. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
+
+Nedan visas de ytterligare steg som krävs på portalen för att den oåtkomliga databasen ska bli online igen.
+
+![TDE BYOK-databas](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Oavsiktlig åtkomst till återkallning av TDE-skydd
 

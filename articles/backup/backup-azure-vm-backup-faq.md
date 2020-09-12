@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018118"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377326"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -61,7 +61,7 @@ Guiden visar endast virtuella datorer i samma region som valvet och som inte red
 
 Ja. Säkerhets kopieringar körs när en dator stängs av. Återställnings punkten markeras som krasch-konsekvent.
 
-### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag avbryta ett pågående säkerhets kopierings jobb?
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag avbryta ett pågående säkerhetskopieringsjobb?
 
 Ja. Du kan avbryta säkerhets kopierings jobbet med status för **ögonblicks bilder** . Du kan inte avbryta ett jobb om data överföringen från ögonblicks bilden pågår.
 
@@ -197,6 +197,6 @@ Ja, det finns en gräns på 100 virtuella datorer som kan kopplas till samma sä
 
 För närvarande kan du Visa inställningar för kvarhållning på en säkerhets kopierings objekt nivå (VM) utifrån den säkerhets kopierings princip som har tilldelats den virtuella datorn.
 
-Ett sätt att visa inställningarna för kvarhållning av dina säkerhets kopior är att gå till [instrument panelen](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) för säkerhets kopierings objekt för den virtuella datorn i Azure Portal. Genom att klicka på länken till säkerhets kopierings principen kan du se Retentions tiden för alla dagliga, vecko Visa och årliga bevarande punkter som är associerade med den virtuella datorn.
+Ett sätt att visa inställningarna för kvarhållning av dina säkerhets kopior är att gå till [instrument panelen](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) för säkerhets kopierings objekt för den virtuella datorn i Azure Portal. Genom att välja länken till säkerhets kopierings principen kan du se Retentions tiden för alla dagliga, vecko Visa och årliga bevarande punkter som är associerade med den virtuella datorn.
 
 Du kan också använda [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) för att visa inställningarna för kvarhållning för alla virtuella datorer i samma fönster ruta. Gå till backup Explorer från ett Recovery Services valv, gå till fliken **säkerhets kopierings objekt** och välj Avancerad vy för att se detaljerad kvarhållning av information för varje virtuell dator.

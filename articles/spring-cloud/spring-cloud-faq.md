@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: fcd9f0759ae885199347cc23d93e8f1c00251387
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260534"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322049"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -36,7 +36,8 @@ Säkerhet och sekretess är bland de viktigaste prioriteringarna för Azure-och 
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>I vilka regioner är Azure våren Cloud tillgängligt?
 
-Östra USA, västra USA 2, Västeuropa och Sydostasien.
+Östra USA, östra USA 2, centrala USA, södra centrala USA, västra USA 2, Västeuropa, Europa, Nord Europa, Storbritannien, södra, Sydostasien och östra Australien.
+
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Vilka är de kända begränsningarna i Azure våren Cloud?
 
@@ -58,7 +59,7 @@ Om du stöter på problem med Azure våren Cloud kan du skapa en [support förfr
 
 ### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Jag är en moln utvecklare som är våren men som är ny i Azure. Vad är det snabbaste sättet för mig att lära sig hur man utvecklar ett Azure våren Cloud-program?
 
-För det snabbaste sättet att komma igång med Azure våren Cloud följer du anvisningarna i [snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart-launch-app-portal.md).
+För det snabbaste sättet att komma igång med Azure våren Cloud följer du anvisningarna i [snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md).
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Vilken Java-körning stöder Azure våren Cloud?
 
@@ -151,7 +152,7 @@ Nej.  Azure våren Cloud är en sammanfattning av utvecklaren från den underlig
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Har Azure våren Cloud stöd för att skapa behållare från källa?
 
-Ja. Mer information finns i [starta ditt våren Cloud-program från käll koden](spring-cloud-launch-from-source.md).
+Ja. Mer information finns i [starta ditt våren Cloud-program från käll koden](spring-cloud-quickstart.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Stöder Azure våren Cloud automatisk skalning i App-instanser?
 

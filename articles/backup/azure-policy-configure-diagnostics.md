@@ -3,12 +3,12 @@ title: Konfigurera inställningar för valv diagnostik i skala
 description: Konfigurera inställningar för Log Analytics diagnostik för alla valv i ett angivet omfång med Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179988"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378057"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurera inställningar för valv diagnostik i skala
 
@@ -22,7 +22,7 @@ För att förenkla skapandet av diagnostikinställningar i skala (med LA som må
 
 * Du kan tillämpa principen på en gång för alla Recovery Services valv i en viss prenumeration (eller till en resurs grupp i prenumerationen). Användaren som tilldelar principen måste ha **ägar** åtkomst till den prenumeration som principen är tilldelad till.
 
-* Arbets ytan LA som anges av användaren (som diagnostikdata ska skickas till) kan finnas i en annan prenumeration än de valv som principen är tilldelad till. Användaren måste ha **läsare**, **deltagare** eller **ägar** åtkomst till den prenumeration där den angivna La-arbetsytan finns.
+* Arbets ytan LA som anges av användaren (som diagnostikdata ska skickas till) kan finnas i en annan prenumeration än de valv som principen är tilldelad till. Användaren måste ha **läsare**, **deltagare**eller **ägar** åtkomst till den prenumeration där den angivna La-arbetsytan finns.
 
 * Hanterings gruppens omfång stöds inte för tillfället.
 

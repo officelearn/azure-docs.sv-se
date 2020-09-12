@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796768"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321199"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory
 När du har tagit bort en användare förblir kontot i ett pausat tillstånd i 30 dagar. Under den 30-dagars perioden kan användar kontot återställas, tillsammans med alla dess egenskaper. Efter det 30-dagars perioden skickas automatiskt användaren och tas bort permanent.
@@ -88,6 +88,6 @@ När du har återställt eller tagit bort dina användare kan du utföra följan
 
 - [Lägga till eller ändra profil information](active-directory-users-profile-azure-portal.md)
 
-- [Lägga till gäst användare från en annan organisation](../b2b/what-is-b2b.md)
+- [Lägga till gäst användare från en annan organisation](../external-identities/what-is-b2b.md)
 
 Mer information om andra tillgängliga användar hanterings uppgifter, [dokumentation om användar hantering i Azure AD](../users-groups-roles/index.yml).

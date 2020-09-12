@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300229"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -155,6 +155,7 @@ Translator identifierar följande språk för översättning och transkriberings
 |Swahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Koreanska |`ko`   |
+|Kurdiska (Central)  |`ku-Arab`  |
 |Lettiska|   `lv`    |
 |Litauiska|    `lt`    |
 |Malajiska| `ms`        |
@@ -283,10 +284,12 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
+|Afrikaans| `af`|
 | Arabiska       | `ar`          |
 | Bangla      | `bn`          |
 | Bosniska (latinsk)      | `bs`          |
 | Bulgariska      | `bg`          |
+|Katalanska|   `ca`    |
 | Kinesiska, förenklad      | `zh-Hans`          |
 |Kinesiska, traditionell|   `zh-Hant`   |
 | Kroatiska      | `hr`          |
@@ -295,6 +298,8 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Nederländska      | `nl`          |
 | Engelska    | `en`     |
 | Estniska      | `et`          |
+|Fijian|    `fj`    |
+|Filipino|  `fil`   |
 | Finska      | `fi`          |
 | Franska      | `fr`          |
 | Tyska      | `de`          |
@@ -308,12 +313,14 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Iriska | `ga`  |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
+|Kannada|`kn`|
 | Swahili|    `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
 | Madagaskisk| `mg`    |
 | Malajiska|    `ms`        |
+|Maltesiska|   `mt`    |
 | Maori| `mi`  |
 | Marathi| `mr`  |
 | Norska      | `nb`          |
@@ -329,7 +336,9 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Slovenska      | `sl`          |
 | Spanska      | `es`          |
 | Svenska      | `sv`          |
+|Tahitian|  `ty`    |
 | Thailändska      | `th`          |
+|Tonganska|    `to`    |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Urdu| `ur`    |

@@ -1,5 +1,5 @@
 ---
-title: Skapa en ögonblicks bild av en virtuell hård disk i Azure
+title: Skapa en ögonblicks bild av en virtuell hård disk med Azure CLI
 description: Lär dig hur du skapar en kopia av en virtuell hård disk i Azure som en säkerhets kopiering eller för fel söknings problem.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659960"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318003"
 ---
-# <a name="create-a-snapshot"></a>Skapa en ögonblicksbild 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Skapa en ögonblicks bild med hjälp av portalen eller Azure CLI
 
 Ta en ögonblicks bild av ett operativ system eller en data disk för säkerhets kopiering eller för att felsöka problem med virtuella datorer. En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk. 
 

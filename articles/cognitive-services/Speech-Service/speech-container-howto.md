@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 09/02/2020
 ms.author: aahi
-ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b242530b09f399a84f10a40ea35e21c1119f52b1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182402"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321059"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
 Med containrar kan du köra vissa Speech-tjänst-API:er i din egen miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig om hur du laddar ned, installerar och kör en Speech-container.
 
-Speech-containrar gör det möjligt för kunder att bygga en arkitektur för talprogram som är optimerad för både robusta molnfunktioner och gränslokalitet. Det finns fyra olika containrar tillgängliga. De två standard behållarna är **tal-till-text** och **text till tal**. De två anpassade behållarna är **Custom Speech till text** och **anpassad text till tal**. Tal behållare har samma [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) som de molnbaserade Azure Speech-tjänsterna.
+Speech-containrar gör det möjligt för kunder att bygga en arkitektur för talprogram som är optimerad för både robusta molnfunktioner och gränslokalitet. Det finns fem olika behållare tillgängliga. De två standard behållarna är **tal till text**och **text till tal**. De två anpassade behållarna är **Custom Speech till text** och **anpassad text till tal**. **Text-till-tal-neurala** innehåller ytterligare en naturlig yttranden, genom att använda en mer avancerad modell. Tal behållare har samma [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) som de molnbaserade Azure Speech-tjänsterna.
 
 > [!IMPORTANT]
 > Alla tal behållare erbjuds för närvarande som en del av en [offentlig "gated"-förhands granskning](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Ett meddelande kommer att göras när tal behållare förloppet till allmän tillgänglighet (GA).
@@ -32,6 +32,7 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 | Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.4.0 |
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.6.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.6.0 |
+| Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.1.0 |
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
@@ -44,6 +45,7 @@ Följande krav gäller innan du använder tal behållare:
 | Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon. |
 | Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt** |
+
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
@@ -74,31 +76,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje tal behållare.
 
-# <a name="speech-to-text"></a>[Tal till text](#tab/stt)
-
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Tal till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
-
-# <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
-
-| Container | Minimum | Rekommenderas |
-|-----------|---------|-------------|
 | Custom Speech till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
-
-# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
-
-| Container | Minimum | Rekommenderas |
-|-----------|---------|-------------|
 | Text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
-
-# <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
-
-| Container | Minimum | Rekommenderas |
-|-----------|---------|-------------|
 | Anpassad text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
-
-***
+| Neurala text till tal | 6 kärnor, 12 GB minne | 8 kärnor, 16 GB minne |
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 
@@ -128,6 +112,12 @@ Behållar avbildningar för tal finns i följande Container Registry.
 | Container | Lagringsplats |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+
+# <a name="neural-text-to-speech"></a>[Neurala text till tal](#tab/ntts)
+
+| Container | Lagringsplats |
+|-----------|------------|
+| Neurala text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
 
 # <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
@@ -213,7 +203,39 @@ Följande tagg är ett exempel på formatet:
 För alla språk som stöds och motsvarande röster för **text till tal** -behållaren, se [taggar för text till tal-bilder](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> När du skapar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett- `voice` element med ett- `name` attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Taggen skulle till exempel `latest` ha röst namnet `en-US-AriaRUS` .
+> När ett *text-till-tal* -http-inlägg konstrueras, kräver [SSML-](speech-synthesis-markup.md) meddelandet ett- `voice` element med ett- `name` attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Taggen skulle till exempel `latest` ha röst namnet `en-US-AriaRUS` .
+
+# <a name="neural-text-to-speech"></a>[Neurala text till tal](#tab/ntts)
+
+#### <a name="docker-pull-for-the-neural-text-to-speech-container"></a>Docker-hämtning för neurala text till tal-behållaren
+
+Använd [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) -kommandot för att hämta en behållar avbildning från förhands gransknings registret för behållare.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
+```
+
+> [!IMPORTANT]
+> `latest`Taggen hämtar `en-US` språket och `arianeural` rösten. Ytterligare språk finns i [neurala text-till-tal-språk](#neural-text-to-speech-locales).
+
+#### <a name="neural-text-to-speech-locales"></a>Neurala text till tal-språk
+
+Alla Taggar, förutom `latest` i, är i följande format och är Skift läges känsliga:
+
+```
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+```
+
+Följande tagg är ett exempel på formatet:
+
+```
+1.1.0-amd64-en-us-arianeural-preview
+```
+
+För alla språk som stöds och motsvarande röster i **neurala text till tal** -behållaren, se [neurala text till tal-bildtaggar](../containers/container-image-tags.md#neural-text-to-speech).
+
+> [!IMPORTANT]
+> När du skapar ett *neurala text-till-tal* -http-inlägg kräver [SSML-](speech-synthesis-markup.md) meddelandet ett- `voice` element med ett- `name` attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#neural-voices). Taggen skulle till exempel `latest` ha röst namnet `en-US-AriaNeural` .
 
 # <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
@@ -243,7 +265,7 @@ Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandl
 
 # <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
-Kör följande kommando för att köra den *tal-till-text-* behållaren `docker run` .
+Kör följande kommando för att köra standard *-behållaren för tal till text* `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -341,7 +363,7 @@ Det här kommandot:
 
 # <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
-Kör följande kommando för att köra en *text till tal* -behållare `docker run` .
+Kör följande kommando för att köra standard *text till tal* -behållaren `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -353,8 +375,27 @@ ApiKey={API_KEY}
 
 Det här kommandot:
 
-* Kör en *text till tal* -behållare från behållar avbildningen.
+* Kör en standard *text till tal* -behållare från behållar avbildningen.
 * Allokerar 1 processor kärna och 2 GB minne.
+* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
+* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+
+# <a name="neural-text-to-speech"></a>[Neurala text till tal](#tab/ntts)
+
+Kör följande kommando för att köra *neurala-behållaren för text till tal* `docker run` .
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Det här kommandot:
+
+* Kör en *neurala text till tal* -behållare från behållar avbildningen.
+* Allokerar 6 processor kärnor och 12 gigabyte (GB) minne.
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
@@ -411,12 +452,14 @@ Det här kommandot:
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.
 
-| Containers | SDK-värd-URL | Protokoll |
+| Containrar | SDK-värd-URL | Protokoll |
 |--|--|--|
-| Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
-| Text till tal och anpassad text till tal | `http://localhost:5000` | HTTP |
+| Standard tal-till-text och Custom Speech-till-text | `ws://localhost:5000` | WS |
+| Text till tal (inklusive standard, anpassad och neurala) | `http://localhost:5000` | HTTP |
 
 Mer information om hur du använder WSS-och HTTPS-protokoll finns i [behållar säkerhet](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+
+### <a name="speech-to-text-standard-and-custom"></a>Tal till text (standard och anpassad)
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
@@ -537,7 +580,7 @@ speech_config.set_service_property(
 )
 ```
 
-### <a name="text-to-speech-or-custom-text-to-speech"></a>Text till tal eller anpassad text till tal
+### <a name="text-to-speech-standard-neural-and-custom"></a>Text till tal (standard, neurala och anpassad)
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
@@ -580,6 +623,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ne
   * *Custom Speech till text*
   * *Text till tal*
   * *Anpassad text till tal*
+  * *Neurala text till tal*
 * Behållar avbildningar hämtas från behållar registret i Azure.
 * Behållar avbildningar körs i Docker.
 * Om du använder REST API (endast text till tal) eller SDK (tal-till-text eller text till tal) anger du värd-URI för behållaren. 

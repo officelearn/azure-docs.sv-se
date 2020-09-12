@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004178"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377692"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -97,7 +97,7 @@ Observera följande punkter:
 
 - Som standard fylls det återställda DB-namnet på med namnet på säkerhets kopie posten. I det här fallet H21 (SDC).
 - Om du väljer målet som H11 ändras inte det återställda databas namnet automatiskt. **Den bör redige ras till H11 (SDC)**. För SDC kommer det återställda databas namnet att vara mål instans-ID: t med gemener och "SDC" i hakparenteser.
-- Eftersom SDC bara kan ha en enda databas, måste du också klicka på kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
+- Eftersom SDC bara kan ha en enda databas, måste du också markera kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
 - Linux är Skift läges känsligt. Var noga med att bevara ärendet.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Återställning av MDC (Multiple container Database)
@@ -165,7 +165,7 @@ Uppgraderingar från SDC till MDC som inte orsakar en SID ändring kan hanteras 
 - Genomför uppgraderingen. Efter slut för ande är HANA-systemet nu MDC med system DB och klient databaser
 - Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) igen
 - Registrera tillägget på nytt för samma dator i Azure Portal (**Backup**  ->  **information om** säkerhets kopia-> Markera den relevanta Azure VM-> omregistrera)
-- Klicka på **identifiera om databaser** för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 3 som SYSTEMDB och klient organisations databasen, inte SDC
+- Välj **identifiera databaser** på samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 3 som SYSTEMDB och klient organisations databasen, inte SDC
 - Den äldre SDC-databasen fortsätter att finnas i valvet och har tidigare säkerhetskopierade data som kvarhålls enligt principen
 - Konfigurera säkerhets kopiering för dessa databaser
 
@@ -178,7 +178,7 @@ Uppgraderingar från SDC till MDC som orsakar en SID ändring kan hanteras på f
 - Genomför uppgraderingen. Efter slut för ande är HANA-systemet nu MDC med system DB och klient databaser
 - Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med rätt information (ny sid-och MDC). På grund av en ändring i SID kan du stöta på problem med att köra skriptet. Kontakta Azure Backup support om du har problem.
 - Registrera tillägget på nytt för samma dator i Azure Portal (**Backup**  ->  **information om** säkerhets kopia-> Markera den relevanta Azure VM-> omregistrera)
-- Klicka på **identifiera om databaser** för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 3 som SYSTEMDB och klient organisations databasen, inte SDC
+- Välj **identifiera databaser** på samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 3 som SYSTEMDB och klient organisations databasen, inte SDC
 - Den äldre SDC-databasen kommer fortfarande att finnas kvar i valvet och har tidigare säkerhetskopierade data som kvarhålls enligt principen
 - Konfigurera säkerhets kopiering för dessa databaser
 

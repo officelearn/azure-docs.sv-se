@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761703"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376646"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Queue Storage-utlösare för Azure Functions
 
@@ -388,7 +388,7 @@ Algoritmen använder följande logik:
 - När ett meddelande hittas väntar körningen i två sekunder och söker sedan efter ett annat meddelande
 - När inget meddelande hittas väntar det cirka fyra sekunder innan det försöker igen.
 - Efter efterföljande misslyckade försök att hämta ett Queue-meddelande fortsätter vänte tiden att öka tills den når den maximala vänte tiden, vilket är en minut som standard.
-- Maximal vänte tid kan konfigureras via `maxPollingInterval` egenskapen i [host.jsi filen](functions-host-json.md#queues).
+- Maximal vänte tid kan konfigureras via `maxPollingInterval` egenskapen i [host.jsi filen](functions-host-json-v1.md#queues).
 
 För lokal utveckling är det maximala avsöknings intervallet två sekunder som standard.
 

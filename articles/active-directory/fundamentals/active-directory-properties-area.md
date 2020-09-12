@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797401"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321981"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägg till din organisations sekretess information med Azure Active Directory
 Den här artikeln förklarar hur en innehavaradministratör kan lägga till sekretess information till en organisations Azure Active Directory (Azure AD)-klient, via Azure Portal.
@@ -56,5 +56,5 @@ Du lägger till din organisations sekretess information i avsnittet **Egenskaper
 4. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Azure Active Directory B2B-samarbete för inbjudan](../b2b/redemption-experience.md)
+- [Azure Active Directory B2B-samarbete för inbjudan](../external-identities/redemption-experience.md)
 - [Lägga till eller ändra profil information för en användare i Azure Active Directory](active-directory-users-profile-azure-portal.md)

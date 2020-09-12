@@ -2,15 +2,15 @@
 title: Test väskor för test Toolkit
 description: Beskriver de tester som körs av ARM-mallens test verktyg.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255986"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378125"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Standardtest-fall för test verktyg för ARM-mall
 
@@ -100,6 +100,37 @@ Nästa exempel **skickar** det här testet:
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>Miljö-URL: er kan inte vara hårdkodad
+
+Test namn: **DeploymentTemplate får inte innehålla hårdkodad-URI**
+
+Hårdkoda inte miljö-URL: er i din mall. Använd i stället [miljö funktionen](template-functions-deployment.md#environment) för att dynamiskt hämta dessa URL: er under distributionen. En lista över de URL-värdar som blockeras finns i [test fallet](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+I följande exempel **Miss lyckas** det här testet eftersom URL: en är hårdkodad.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+Testet **Miss lyckas** också när det används med [concat](template-functions-string.md#concat) eller [URI](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+I följande exempel **överförs** det här testet.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>Plats använder parameter
@@ -351,18 +382,18 @@ Du får även den här varningen om du anger ett minsta eller högsta värde, me
 
 ## <a name="artifacts-parameter-defined-correctly"></a>Artefakt parametern har definierats korrekt
 
-Test namn: **artefakter – parameter**
+Test namn: **artefakt parameter**
 
 När du inkluderar parametrar för `_artifactsLocation` och `_artifactsLocationSasToken` använder du rätt standardinställningar och typer. Följande villkor måste vara uppfyllda för att det här testet ska kunna skickas:
 
 * Om du anger en parameter måste du ange den andra
-* `_artifactsLocation`måste vara en **sträng**
-* `_artifactsLocation`måste ha ett standardvärde i huvud mal len
-* `_artifactsLocation`Det går inte att ha ett standardvärde i en kapslad mall 
-* `_artifactsLocation`måste ha antingen `"[deployment().properties.templateLink.uri]"` en eller RAW lagrings platsen-URL för sitt standardvärde
-* `_artifactsLocationSasToken`måste vara en **secureString**
-* `_artifactsLocationSasToken`Det får bara finnas en tom sträng för standardvärdet
-* `_artifactsLocationSasToken`Det går inte att ha ett standardvärde i en kapslad mall 
+* `_artifactsLocation` måste vara en **sträng**
+* `_artifactsLocation` måste ha ett standardvärde i huvud mal len
+* `_artifactsLocation` Det går inte att ha ett standardvärde i en kapslad mall 
+* `_artifactsLocation` måste ha antingen `"[deployment().properties.templateLink.uri]"` en eller RAW lagrings platsen-URL för sitt standardvärde
+* `_artifactsLocationSasToken` måste vara en **secureString**
+* `_artifactsLocationSasToken` Det får bara finnas en tom sträng för standardvärdet
+* `_artifactsLocationSasToken` Det går inte att ha ett standardvärde i en kapslad mall 
 
 ## <a name="declared-variables-must-be-used"></a>Deklarerade variabler måste användas
 
@@ -514,9 +545,9 @@ Det här testet gäller för:
 
 För `reference` och `list*` kan testet **Miss lyckas** när du använder `concat` för att konstruera resurs-ID: t.
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn kan inte vara villkorligt
+## <a name="dependson-best-practices"></a>metod tips för dependsOn
 
-Test namn: **DependsOn får inte vara villkorligt**
+Test namn: **DependsOn metod tips**
 
 När du anger distributions beroenden ska du inte använda [IF](template-functions-logical.md#if) -funktionen för att testa ett villkor. Om en resurs är beroende av en resurs som är [villkorligt distribuerad](conditional-resource-deployment.md)anger du det beroende som du skulle göra med vilken resurs som helst. När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroendena.
 
@@ -572,7 +603,7 @@ Om din mall innehåller en virtuell dator med en avbildning kontrollerar du att 
 
 ## <a name="use-stable-vm-images"></a>Använd stabila VM-avbildningar
 
-Testnamn: **virtuella-datorer-ska inte-vara-för hands version**
+Testnamn: **Virtual Machines får inte vara för hands version**
 
 För virtuella datorer bör inte förhands gransknings bilder användas.
 

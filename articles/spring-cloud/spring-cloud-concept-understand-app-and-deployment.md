@@ -7,18 +7,20 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 81e1925810f374da6f02bf6c3a013b00b5bb9a2c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264059"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297543"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Förstå appar och distribution i Azure våren Cloud
 
-**App** och **distribution** är de två viktiga begreppen i resurs modellen i Azure våren Cloud. I Azure våren Cloud är en *app* en abstraktion av en affärsappar eller en mikrotjänst.  En version av kod eller binär distribution som *appen* körs i en *distribution*.
+**App** och **distribution** är de två viktiga begreppen i resurs modellen i Azure våren Cloud. I Azure våren Cloud är en *app* en abstraktion av en affärsappar eller en mikrotjänst.  En version av kod eller binär distribution som *appen* körs i en *distribution*.  Appar körs i en *Azure våren moln tjänst instans*eller bara *tjänst instans*, som du ser härnäst.
 
  ![Appar och distributioner](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
+
+Du kan ha flera tjänst instanser i en enda Azure-prenumeration, men moln tjänsten Azure våren är enkel att använda när alla appar som utgör en affärsapp eller mikrotjänst finns i en enda tjänst instans.
 
 Azure våren Cloud standard-nivån tillåter att en app har en produktions distribution och en mellanlagrings distribution, så att du enkelt kan göra en blå/grön-distribution.
 
@@ -27,8 +29,8 @@ Följande funktioner/egenskaper definieras på App-nivå.
 
 | Enum | Definition |
 |:--|:----------------|
-| Offentlig</br>Slutpunkt | URL: en för att komma åt appen |
-| Anpassat</br>Domain | CNAME-post som skyddar den anpassade domänen |
+| Offentliga</br>Slutpunkt | URL: en för att komma åt appen |
+| Anpassad</br>Domän | CNAME-post som skyddar den anpassade domänen |
 | Tjänst</br>Bindning | Bindnings konfigurations egenskaper som anges i function.jspå filen och attributet *ServiceBusTrigger* |
 | Hanterade</br>Identitet | Hanterad identitet med Azure Active Directory gör att din app enkelt kan komma åt andra Azure AD-skyddade resurser som Azure Key Vault |
 | Permanent</br>Storage | Inställning som gör att data kan sparas efter omstart av appar |
@@ -39,9 +41,9 @@ Följande funktioner/egenskaper definieras på distributions nivå och kommer at
 
 | Enum | Definition |
 |:--|:----------------|
-| Processor | Antal virtuella kärnor per app-instans |
+| CPU | Antal virtuella kärnor per app-instans |
 | Minne | Inställning som allokerar minne för att skala upp eller skala ut distributioner |
-| Instans</br>Count | Antalet App-instanser, ange manuellt eller automatiskt |
+| Instans</br>Antal | Antalet App-instanser, ange manuellt eller automatiskt |
 | Automatisk skalning | Skala instans antal automatiskt baserat på fördefinierade regler och scheman |
 | JVM</br>Alternativ | inställning: JAVA_OPTS |
 | Miljö</br>Variabler | Inställningar som gäller för hela Azure våren Cloud-miljön |

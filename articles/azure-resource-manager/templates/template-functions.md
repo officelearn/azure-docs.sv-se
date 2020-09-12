@@ -2,13 +2,13 @@
 title: Mallfunktioner
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att hämta värden, arbeta med strängar och siffror och hämta distributions information.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/01/2020
+ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331414"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378414"
 ---
 # <a name="arm-template-functions"></a>ARM-mallens funktioner
 
@@ -40,18 +40,18 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser.
 
 * [matris](template-functions-array.md#array)
 * [concat](template-functions-array.md#concat)
-* [ingår](template-functions-array.md#contains)
+* [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [tomt](template-functions-array.md#empty)
 * [förstagångskörningen](template-functions-array.md#first)
 * [överlappning](template-functions-array.md#intersection)
 * [pågå](template-functions-array.md#last)
-* [krävande](template-functions-array.md#length)
-* [minimum](template-functions-array.md#min)
+* [length](template-functions-array.md#length)
+* [min](template-functions-array.md#min)
 * [bekräftat](template-functions-array.md#max)
 * [intervall](template-functions-array.md#range)
 * [Ignorera](template-functions-array.md#skip)
-* [gå](template-functions-array.md#take)
+* [take](template-functions-array.md#take)
 * [Union](template-functions-array.md#union)
 
 <a id="coalesce" aria-hidden="true"></a>
@@ -102,7 +102,7 @@ Resource Manager innehåller följande funktioner för att hämta värden från 
 
 Resource Manager innehåller följande funktioner för att arbeta med logiska villkor:
 
-* [och](template-functions-logical.md#and)
+* [and](template-functions-logical.md#and)
 * [boolesk](template-functions-logical.md#bool)
 * [eventuella](template-functions-logical.md#if)
 * [Ogiltigt](template-functions-logical.md#not)
@@ -126,9 +126,9 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 * [skapa](template-functions-numeric.md#add)
 * [copyIndex](template-functions-numeric.md#copyindex)
 * [div](template-functions-numeric.md#div)
-* [flyta](template-functions-numeric.md#float)
+* [float](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
-* [minimum](template-functions-numeric.md#min)
+* [min](template-functions-numeric.md#min)
 * [bekräftat](template-functions-numeric.md#max)
 * [rest](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
@@ -140,11 +140,11 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
 Resource Manager innehåller flera funktioner för att arbeta med objekt.
 
-* [ingår](template-functions-object.md#contains)
+* [contains](template-functions-object.md#contains)
 * [tomt](template-functions-object.md#empty)
 * [överlappning](template-functions-object.md#intersection)
 * [utgör](template-functions-object.md#json)
-* [krävande](template-functions-object.md#length)
+* [length](template-functions-object.md#length)
 * [Union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -167,6 +167,7 @@ Resource Manager tillhandahåller följande funktioner för att hämta resurs v�
 * [Listnycklar](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [lista](template-functions-resource.md#list)
+* [pickZones](template-functions-resource.md#pickzones)
 * [finansiär](template-functions-resource.md#providers)
 * [förhållande](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) -kan bara användas i distributioner till en resurs grupp.
@@ -214,7 +215,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [concat](template-functions-string.md#concat)
-* [ingår](template-functions-string.md#contains)
+* [contains](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [tomt](template-functions-string.md#empty)
@@ -225,7 +226,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [indexOf](template-functions-string.md#indexof)
 * [pågå](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
-* [krävande](template-functions-string.md#length)
+* [length](template-functions-string.md#length)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
 * [bytt](template-functions-string.md#replace)
@@ -234,7 +235,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [startsWith](template-functions-string.md#startswith)
 * [sträng](template-functions-string.md#string)
 * [under sträng](template-functions-string.md#substring)
-* [gå](template-functions-string.md#take)
+* [take](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toUpper](template-functions-string.md#toupper)
 * [reducera](template-functions-string.md#trim)

@@ -3,12 +3,12 @@ title: Konfigurera ett etiska hackning-labb med Azure Lab Services | Microsoft D
 description: Lär dig hur du konfigurerar ett labb med Azure Lab Services för att under Visa etiska hackning.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444003"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297594"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurera ett labb för att lära dig etiska hackning-klassen 
 Den här artikeln visar hur du konfigurerar en klass som fokuserar på data utredning sida av etiska hackning. Testning av inträngning, en övning som används av den etiska hackning-communityn, inträffar när någon försöker få åtkomst till systemet eller nätverket för att Visa sårbarheter som en skadlig angripare kan utnyttja. 
@@ -18,7 +18,7 @@ I en etisk hackning-klass kan studenter lära sig moderna tekniker för att för
 Den här artikeln innehåller två huvud avsnitt. Det första avsnittet beskriver hur du skapar klass rummets labb. I det andra avsnittet beskrivs hur du skapar en mall med kapslad virtualisering aktive rad och de verktyg och bilder som behövs. I det här fallet en Metasploitable avbildning och en Kali Linux-avbildning på en dator som har Hyper-V aktiverat som värd för avbildningarna.
 
 ## <a name="lab-configuration"></a>Labb konfiguration
-Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
+Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
 
 Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och Använd sedan följande inställningar:
 
@@ -74,7 +74,7 @@ Rapid7 Metasploitable-avbildningen är en avbildning som har kon figurer ATS med
 1. Välj knappen **Hämta Metasploitable nu** .
 1. När zip-filen har laddats ned extraherar du zip-filen och kommer ihåg platsen.
 1. Konvertera den extraherade VMDK-filen till en VHDX-fil så att du kan använda med Hyper-V. Det gör du genom att öppna PowerShell med administratörs behörighet och navigera till den mapp där VMDK-filen finns och följa de här anvisningarna:
-    1. Hämta [konverteraren för Microsoft Virtual Machine](https://www.microsoft.com/download/details.aspx?id=42497)och kör mvmc_setup.msi-filen när du uppmanas till det.
+    1. Hämta [konverteraren för Microsoft Virtual Machine](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)och kör mvmc_setup.msi-filen när du uppmanas till det.
     1. Importera PowerShell-modulen.  Standard platsen där modulen är installerad är C:\Program\Microsoft Virtual Machine Converter \
 
         ```powershell
@@ -117,7 +117,7 @@ Rapid7 Metasploitable-avbildningen är en avbildning som har kon figurer ATS med
 Mallen har nu uppdaterats och innehåller bilder som behövs för en etisk hackning-inträngning test klass, en bild med verktyg för att göra inträngande testning och en annan bild med säkerhets problem som kan upptäckas. Nu kan du publicera mallfilen till-klassen. Klicka på knappen **publicera** på mallsida för att publicera mallen i labbet.
   
 
-## <a name="cost"></a>Kostnad  
+## <a name="cost"></a>Cost  
 Om du vill uppskatta kostnaden för det här labbet kan du använda följande exempel: 
  
 För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara: 

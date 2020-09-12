@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425552"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318938"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Vad är nytt för Azure Active Directory i Microsoft 365 myndigheter
 
@@ -53,22 +53,22 @@ I följande tabell visas slut punkterna för alla kunder:
 
 | Name | Slut punkts information |
 |------|------------------|
-| Portaler |Microsoft Azure Government:https://portal.azure.us<p>Microsoft 365 myndigheter – GCC hög:https://portal.office365.us<p>Microsoft 365 myndigheter – DoD:https://portal.apps.mil |
+| Portaler |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 myndigheter – GCC hög: https://portal.office365.us<p>Microsoft 365 myndigheter – DoD: https://portal.apps.mil |
 | Slut punkt för Azure Active Directory utfärdare | https://login.microsoftonline.us |
 | Microsoft Graph-API för Microsoft 365 myndighets GCC hög | https://graph.microsoft.us |
 | Microsoft Graph-API för Microsoft 365 myndigheter – DoD | https://dod-graph.microsoft.us |
-| Azure Government Services-slutpunkter | Mer information finns i [Azure Government Developer Guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 myndigheter – GCC med höga slut punkter | Mer information finns i [Office 365 amerikanska myndigheter gcc High-slutpunkter](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 myndigheter – DoD | Mer information finns i [Office 365 amerikanska myndigheter DoD-slutpunkter](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Azure Government Services-slutpunkter | Mer information finns i [Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md) |
+| Microsoft 365 myndigheter – GCC med höga slut punkter | Mer information finns i [Office 365 amerikanska myndigheter gcc High-slutpunkter](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 myndigheter – DoD | Mer information finns i [Office 365 amerikanska myndigheter DoD-slutpunkter](/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i de här artiklarna:
 
-- [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [Vad är Azure Government?](../../azure-government/documentation-government-welcome.md)
 
 - [Uppdatering av Azure Government AAD-auktoritets slut punkt](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
 - [Microsoft Graph slut punkter i det amerikanska myndighets molnet](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 amerikanska myndigheter GCC hög och DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 amerikanska myndigheter GCC hög och DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178019"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376187"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -198,7 +198,7 @@ Säkerhets kopierings åtgärden misslyckades på grund av ett inkonsekvent till
 
 * Kontrollera att gästagenten är installerad och svarar.
 * Från Azure Portal går du till **virtuella datorer**  >  **alla inställningar**  >  **tillägg**
-* Välj säkerhetskopieringstillägget VmSnapshot eller VmSnapshotLinux och klicka på **Avinstallera**.
+* Välj säkerhets kopierings tillägget VmSnapshot eller VmSnapshotLinux och välj **Avinstallera**.
 * Försök att säkerhetskopiera igen efter att du har tagit bort säkerhets kopierings tillägget
 * Vid nästföljande säkerhetskopiering installeras det nya tillägget med önskat tillstånd.
 
@@ -363,7 +363,7 @@ Verifiera VM-agentens version på virtuella Windows-datorer:
 1. Logga in på den virtuella Azure-datorn och navigera till mappen **C:\WindowsAzure\Packages**. Du bör hitta **WaAppAgent.exe** -filen.
 2. Högerklicka på filen och gå till **Egenskaper**. Välj fliken **information** . Fältet **produkt version** ska vara 2.6.1198.718 eller högre.
 
-## <a name="troubleshoot-vm-snapshot-issues"></a>Felsök problem med VM-ögonblicksbild
+## <a name="troubleshoot-vm-snapshot-issues"></a>Felsöka problem med ögonblicksbilder av virtuella datorer
 
 VM-säkerhetskopiering är beroende av utfärdande av ögonblicks bild kommandon för underliggande lagring. Om du inte har åtkomst till lagring eller fördröjningar i en ögonblicks bild aktivitet kan säkerhets kopierings jobbet inte köras. Följande villkor kan orsaka ögonblicks bild aktivitets fel:
 

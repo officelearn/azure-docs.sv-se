@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873729"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320876"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -92,7 +92,7 @@ När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autent
 > [!WARNING]
 > Innan du aktiverar säkerhets inställningarna kontrollerar du att administratörerna inte använder äldre autentiseringsprotokoll. Mer information finns i [så här flyttar du bort från äldre autentisering](concept-fundamentals-block-legacy-authentication.md).
 
-- [Konfigurera en multifunktions enhet eller ett program för att skicka e-post med Office 365 och Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Konfigurera en multifunktions enhet eller ett program för att skicka e-post med Office 365 och Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Skydda privilegierade åtgärder
 
@@ -109,7 +109,7 @@ Det är viktigt att du verifierar identiteten för användare som vill komma åt
 När du har aktiverat säkerhets inställningarna i din klient, måste alla användare som har åtkomst till Azure Portal, Azure PowerShell eller Azure CLI slutföra ytterligare autentisering. Den här principen gäller för alla användare som har åtkomst till Azure Resource Manager, oavsett om de är en administratör eller en användare. 
 
 > [!NOTE]
-> Exchange Online-klienter före 2017 har modern autentisering inaktive rad som standard. För att undvika risken för en inloggnings slinga vid autentisering via dessa klienter måste du [Aktivera modern autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> Exchange Online-klienter före 2017 har modern autentisering inaktive rad som standard. För att undvika risken för en inloggnings slinga vid autentisering via dessa klienter måste du [Aktivera modern autentisering](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > Kontot för Azure AD Connect-synkronisering exkluderas från säkerhets inställningarna och kommer inte att uppmanas att registrera sig för eller utföra Multi-Factor Authentication. Organisationer bör inte använda det här kontot för andra orsaker.

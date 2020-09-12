@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716324"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377207"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) självbetjäning för återställning av löse
 >
 > Om IT-teamet inte har aktiverat möjligheten att återställa ditt eget lösen ord kan du kontakta supportavdelningen för ytterligare hjälp.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Hur fungerar portalen för lösen ords återställning?
+## <a name="how-does-the-password-reset-process-work"></a>Hur fungerar lösen ords återställnings processen?
 
 En användare kan återställa eller ändra sitt lösen ord med hjälp av [SSPR-portalen](https://aka.ms/sspr). De måste först ha registrerat sina önskade autentiseringsmetoder. När en användare kommer åt SSPR-portalen, beaktar Azure-plattformen följande faktorer:
 
@@ -58,6 +58,11 @@ När SSPR-portalen visas på det språk som krävs uppmanas användaren att ange
   * Om SSPR tillbakaskrivning inte distribueras och användarens lösen ord hanteras lokalt, uppmanas användaren att kontakta sin administratör för att återställa sitt lösen ord.
 
 Om alla tidigare kontroller har slutförts guidas användaren genom processen att återställa eller ändra lösen ordet.
+
+> [!NOTE]
+> SSPR kan skicka e-postmeddelanden till användare som en del av processen för lösen ords återställning. Dessa e-postmeddelanden skickas med SMTP-tjänsten för vidarebefordran, som fungerar i ett aktivt-aktivt läge i flera regioner.
+>
+> SMTP Relay-tjänster tar emot och bearbetar e-postmeddelandet, men lagrar det inte. Bröd texten i SSPR-e-postmeddelandet som potentiellt kan innehålla information om den angivna kunden lagras inte i SMTP Relay service-loggarna. Loggarna innehåller bara protokollets metadata.
 
 Kom igång med SSPR genom att följa de här självstudierna:
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server-databaser till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver även återställning av SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892447"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376544"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -66,11 +66,11 @@ För alla andra versioner måste du åtgärda behörigheterna med följande steg
 
       ![I dialogrutan Inloggning – ny väljer du Sök](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Kontot för virtuell Windows-tjänst, **NT SERVICE\AzureWLBackupPluginSvc**, skapades under registreringen av den virtuell datorn och SQL-identifieringsfasen. Ange kontonamnet såsom det visas i **Ange ett objektnamn du vill markera**. Välj **Kontrollera namn** för att matcha namnet. Klicka på **OK**.
+  4. Kontot för virtuell Windows-tjänst, **NT SERVICE\AzureWLBackupPluginSvc**, skapades under registreringen av den virtuell datorn och SQL-identifieringsfasen. Ange kontonamnet såsom det visas i **Ange ett objektnamn du vill markera**. Välj **Kontrollera namn** för att matcha namnet. Välj **OK**.
 
       ![Välj Kontrollera namn för att matcha det okända tjänstnamnet](./media/backup-azure-sql-database/check-name.png)
 
-  5. I **Serverroller** kontrollerar du att serverrollen **sysadmin** har valts. Klicka på **OK**. De behörigheter som krävs bör nu finnas.
+  5. I **Serverroller** kontrollerar du att serverrollen **sysadmin** har valts. Välj **OK**. De behörigheter som krävs bör nu finnas.
 
       ![Kontrollera att serverrollen sysadmin har valts](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,23 +91,23 @@ Lägg till **NT instans\system** -och **NT Service\AzureWLBackupPluginSvc** -inl
 
 1. Gå SQL Server-instansen i Object Explorer.
 2. Navigera till säkerhets-> inloggningar
-3. Högerklicka på inloggningarna och klicka på *ny inloggning...*
+3. Högerklicka på inloggningarna och välj *ny inloggning...*
 
     ![Ny inloggning med SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Gå till fliken Allmänt och ange **NT instans\system** som inloggnings namn.
 
-    ![inloggnings namn för SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Inloggnings namn för SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Gå till *Server roller* och välj roller för *offentliga* och *sysadmin* .
 
-    ![välja roller i SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Välja roller i SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Gå till *status*. *Ge* behörighet att ansluta till databas motorn och logga in som *aktive rad*.
 
     ![Bevilja behörigheter i SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Klicka på OK.
+7. Välj OK.
 8. Upprepa samma steg (1-7 ovan) för att lägga till NT Service\AzureWLBackupPluginSvc-inloggning till SQL Server-instansen. Om inloggningen redan finns kontrollerar du att den har Server rollen sysadmin och under status har den behörighet att ansluta till databas motorn och logga in som aktive rad.
 9. När du har beviljat behörighet kan du **identifiera databaser** i portalen: **->** säkerhets kopiering av valv infrastruktur **->** arbets belastningen i Azure VM:
 

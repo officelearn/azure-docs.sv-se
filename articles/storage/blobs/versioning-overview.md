@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226271"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297683"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -66,7 +66,7 @@ Diagrammet som visas i den här artikeln visar versions-ID: t som ett enkelt hel
 
 Följande diagram visar hur Skriv åtgärder påverkar BLOB-versioner. När en BLOB skapas är denna BLOB den aktuella versionen. När samma BLOB ändras, skapas en ny version för att spara blobens tidigare tillstånd och den uppdaterade blobben blir den aktuella versionen.
 
-:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram över hur Skriv åtgärder påverkar versioner av blobar":::
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 > [!NOTE]
 > En blob som skapades innan versions hantering som Aktiver ATS för lagrings kontot har inget versions-ID. När denna BLOB ändras blir den ändrade blobben den aktuella versionen och en version skapas för att spara blobens tillstånd innan uppdateringen. Versionen har tilldelats ett versions-ID som är skapande tillfället.
@@ -79,11 +79,11 @@ Om du anropar åtgärden [ta bort BLOB](/rest/api/storageservices/delete-blob) u
 
 Följande diagram visar effekterna av en borttagnings åtgärd i en versions-BLOB:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram över borttagning av versions-BLOB":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram över borttagning av versions-blob.":::
 
 När nya data skrivs till bloben skapas en ny version av blobben. Eventuella befintliga versioner påverkas inte, vilket visas i följande diagram.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram som visar åter skapandet av versions-BLOB efter borttagning":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram som visar åter skapandet av versions-BLOB efter borttagning.":::
 
 ### <a name="blob-types"></a>Blobbtyper
 
@@ -122,7 +122,7 @@ Du kan läsa eller ta bort versioner med versions-ID: t när versions hantering 
 
 Följande diagram visar hur ändring av en BLOB efter versions hantering är inaktive rad skapar en blob som inte är en version. Alla befintliga versioner som är associerade med blobben är kvar.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram som visar bas-BLOB ändrad efter inaktive rad version":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram som visar bas-BLOB ändrad efter inaktive rad versions hantering.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>BLOB-versioner och mjuk borttagning
 
@@ -138,7 +138,7 @@ Ta bort en tidigare version av en BLOB genom att uttryckligen ta bort den genom 
 
 Följande diagram visar vad som händer när du tar bort en BLOB eller en blob-version.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram som visar borttagning av en version med mjuk borttagning aktive rad":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram som visar borttagning av en version med mjuk borttagning aktive rad.":::
 
 Om både versions hantering och mjuk borttagning är aktiverade på ett lagrings konto skapas ingen mjuk, borttagen ögonblicks bild när en BLOB-eller blob-version ändras eller tas bort.
 
@@ -150,7 +150,7 @@ Att återställa avläsnings bara versioner med **Undelete-BLOB** -åtgärden be
 
 Följande diagram visar hur du återställer avsoft-borttagna BLOB-versioner med åtgärden **ta bort BLOB** och hur du återställer den aktuella versionen av blobben med åtgärden **Kopiera BLOB** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram som visar hur du återställer mjuka borttagna versioner":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram som visar hur du återställer mjuka borttagna versioner.":::
 
 När tids perioden för mjuk borttagning har förflutit tas eventuella borttagna BLOB-versioner bort permanent.
 
@@ -169,7 +169,7 @@ När du tar en ögonblicks bild av en versions-BLOB skapas en ny version på sam
 
 Följande diagram visar vad som händer när du tar en ögonblicks bild av en versions-blob. I diagrammet innehåller BLOB-versioner och ögonblicks bilder med versions-ID 2 och 3 identiska data.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram över ögonblicks bilder av en versions-BLOB ":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram över ögonblicks bilder av en versions-blob.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Auktorisera åtgärder på BLOB-versioner
 
@@ -231,25 +231,25 @@ Följande scenarier visar hur avgifterna påförs för en Block-Blob och dess ve
 
 I Scenario 1 har blobben en tidigare version. Bloben har inte uppdaterats sedan versionen skapades, så kostnader uppkommer bara för unika block 1, 2 och 3.
 
-![Diagram 1 som visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagram 1 visar fakturering för unika block i bas-blob och tidigare version.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenario 2
 
 I scenario 2 har ett block (Block 3 i diagrammet) i blobben uppdaterats. Även om det uppdaterade blocket innehåller samma data och samma ID, är det inte samma som för Block 3 i den tidigare versionen. Det innebär att kontot debiteras för fyra block.
 
-![Diagram 2 visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagram 2 visar fakturering för unika block i bas-blob och tidigare version.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenario 3
 
 I scenario 3 har blobben uppdaterats, men versionen har inte det. Block 3 har ersatts med block 4 i bas-blobben, men den tidigare versionen visar fortfarande Block 3. Det innebär att kontot debiteras för fyra block.
 
-![Diagram 3 som visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagram 3 visar fakturering för unika block i bas-blob och tidigare version.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenario 4
 
 I Scenario 4 har bas-bloben uppdaterats helt och innehåller inget av de ursprungliga blocken. Det innebär att kontot debiteras för alla åtta unika block &mdash; fyra i bas-blobben och fyra i den tidigare versionen. Det här scenariot kan inträffa om du skriver till en blob med åtgärden för att [Skicka BLOB](/rest/api/storageservices/put-blob) , eftersom den ersätter hela innehållet i bas-bloben.
 
-![Diagram 4 som visar fakturering för unika block i bas-blob och tidigare version](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagram 4 visar fakturering för unika block i bas-blob och tidigare version.](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Fakturera när BLOB-nivån uttryckligen har angetts
 
@@ -266,6 +266,10 @@ I följande tabell beskrivs fakturerings beteendet för en BLOB eller version n�
 | En tidigare version | Versionen på den nya nivån och bas-bloben på den ursprungliga nivån samt eventuella unika block i andra versioner. <sup>1</sup> |
 
 <sup>1</sup> Om det finns andra tidigare versioner eller ögonblicks bilder som inte har flyttats från ursprungs nivån debiteras dessa versioner eller ögonblicks bilder utifrån antalet unika block som de innehåller, enligt beskrivningen i [fakturering när BLOB-nivån inte har angetts explicit](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Följande diagram illustrerar hur objekt faktureras när en versions-BLOB flyttas till en annan nivå.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram över hur objekt faktureras när en versions-BLOB är en explicit nivå.":::
 
 Det går inte att göra en återställning av nivån för en BLOB, version eller ögonblicks bild. Om du flyttar en blob till en ny nivå och sedan flyttar tillbaka den till den ursprungliga nivån debiteras du för objektets fullständiga innehålls längd även om det delar block med andra objekt på den ursprungliga nivån.
 

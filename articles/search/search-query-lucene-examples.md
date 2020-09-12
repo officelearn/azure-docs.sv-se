@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934981"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298002"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Använd den fullständiga Söksyntaxen för Lucene (avancerade frågor i Azure Kognitiv sökning)
 
@@ -40,13 +40,13 @@ Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-b
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
-  ![Begärandehuvud i Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Parametrar för set-begär ande huvud för Postman](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Ange URL för begäran
 
 Begäran är ett GET-kommando som paras ihop med en URL som innehåller Azure Kognitiv sökning-slutpunkten och Sök strängen.
 
-  ![Begärandehuvud i Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Hämta rubrik för Postman-förfrågan](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL-kompositionen har följande element:
 
@@ -111,7 +111,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Svar för den här frågan bör se ut ungefär som på följande skärm bild.
 
-  ![Exempel svar på Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Postman-exempel svar med Poäng](media/search-query-lucene-examples/postman-sample-results.png)
 
 Du kanske har lagt märke till Sök poängen i svaret. Enhetliga resultat på 1 inträffar när det inte finns någon rang, antingen på grund av att sökningen inte var full texts ökning eller att inga kriterier tillämpades. För null-sökning utan villkor kommer rader tillbaka i valfri ordning. När du inkluderar faktiska Sök villkor visas Sök resultaten i meningsfulla värden.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Exempel svar på Postman](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Sök uttryck för exempel svar på Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Du kan definiera en fält Sök åtgärd med syntaxen **FieldName: searchExpression** , där Sök uttrycket kan vara ett enstaka ord eller en fras, eller ett mer komplext uttryck inom parentes, eventuellt med booleska operatorer. Några exempel är följande:
 

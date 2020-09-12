@@ -4,14 +4,14 @@ description: Lär dig hur du aktiverar Synapse-länken för Azure Cosmos-konton,
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815580"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322474"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -228,4 +228,4 @@ Mer information finns i följande dokument:
 
 * [Apache Spark i Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL Server utan/på begäran i Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Stöd för SQL Server utan körning i Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

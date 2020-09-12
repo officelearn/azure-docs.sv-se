@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422950"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321964"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
 
@@ -49,8 +49,8 @@ När du granskar listan kanske du måste tilldela en ägare för aktiviteter som
 
 #### <a name="owners-recommended-reading"></a>Ägare, Rekommenderad läsning
 
-- [Tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Styrning i Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Styrning i Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Hybrid hantering
 
@@ -69,12 +69,12 @@ Om ingen har upprättats bör du definiera en process för att uppgradera dessa 
 
 #### <a name="hybrid-management-recommended-reading"></a>Hybrid hantering, Rekommenderad läsning
 
-- [Azure AD Connect: Automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
-- [Förstå Azure AD-programproxy-kopplingar | Automatiska uppdateringar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#automatic-updates)
+- [Azure AD Connect: Automatisk uppgradering](../hybrid/how-to-connect-install-automatic-upgrade.md)
+- [Förstå Azure AD-programproxy-kopplingar | Automatiska uppdateringar](../manage-apps/application-proxy-connectors.md#automatic-updates)
 
 ### <a name="azure-ad-connect-health-alert-baseline"></a>Azure AD Connect Health aviserings bas linje
 
-Organisationer bör distribuera [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#what-is-azure-ad-connect-health) för övervakning och rapportering av Azure AD Connect och AD FS. Azure AD Connect och AD FS är kritiska komponenter som kan bryta livs cykel hantering och autentisering och därför leda till avbrott. Azure AD Connect Health hjälper till att övervaka och få insikter om din lokala identitets infrastruktur och därigenom se till att din miljö är tillförlitlig.
+Organisationer bör distribuera [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) för övervakning och rapportering av Azure AD Connect och AD FS. Azure AD Connect och AD FS är kritiska komponenter som kan bryta livs cykel hantering och autentisering och därför leda till avbrott. Azure AD Connect Health hjälper till att övervaka och få insikter om din lokala identitets infrastruktur och därigenom se till att din miljö är tillförlitlig.
 
 ![Azure AD Connect hälso-arkitektur](./media/active-directory-ops-guide/active-directory-ops-img16.png)
 
@@ -82,7 +82,7 @@ När du övervakar hälso tillståndet för din miljö måste du omedelbart åtg
 
 #### <a name="azure-ad-connect-health-recommended-reading"></a>Azure AD Connect Health Rekommenderad läsning
 
-- [Installation av Azure AD Connect Health Agent](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+- [Installation av Azure AD Connect Health Agent](../hybrid/how-to-connect-health-agent-install.md)
 
 ### <a name="on-premises-agents-logs"></a>Loggar för lokala agenter
 
@@ -90,11 +90,11 @@ Vissa identitets-och åtkomst hanterings tjänster kräver lokala agenter för a
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lokala agenter loggar Rekommenderad läsning
 
-- [Felsöka programproxyn](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
-- [Fel sökning av självbetjäning för lösen ords återställning – Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Förstå Azure AD-programproxy-kopplingar](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
-- [Azure AD Connect: Felsök direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
-- [Felsöka fel koder för Azure MFA NPS-tillägget](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
+- [Felsöka programproxyn](../manage-apps/application-proxy-troubleshoot.md)
+- [Fel sökning av självbetjäning för lösen ords återställning – Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Förstå Azure AD-programproxy-kopplingar](../manage-apps/application-proxy-connectors.md)
+- [Azure AD Connect: Felsök direktautentisering](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
+- [Felsöka fel koder för Azure MFA NPS-tillägget](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Hantering av lokala agenter
 
@@ -106,14 +106,14 @@ Att införa bästa praxis kan hjälpa till att optimera lokala agenter. Övervä
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Hantering av lokala agenter som rekommenderar läsning
 
-- [Förstå Azure AD-programproxy-kopplingar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Förstå Azure AD-programproxy-kopplingar](../manage-apps/application-proxy-connectors.md)
 - [Direkt autentisering i Azure AD – snabb start](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Hantering i skala
 
 ### <a name="identity-secure-score"></a>Identitetssäker poäng
 
-Med de [säkraste poängen för identiteter](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score) får du ett kvantifierbart mått på säkerhets position i din organisation. Det är viktigt att du ständigt granskar och åtgärdar resultat som rapporter ATS och strävar efter att ha det högsta möjliga resultatet. Resultatet hjälper dig att:
+Med de [säkraste poängen för identiteter](./identity-secure-score.md) får du ett kvantifierbart mått på säkerhets position i din organisation. Det är viktigt att du ständigt granskar och åtgärdar resultat som rapporter ATS och strävar efter att ha det högsta möjliga resultatet. Resultatet hjälper dig att:
 
 - Objektivt mäta din identitetssäkerhetsstatus
 - Planera förbättringar i identitetssäkerheten
@@ -125,15 +125,15 @@ Om din organisation för närvarande inte har något program på plats för att 
 
 ### <a name="notifications"></a>Meddelanden
 
-Microsoft skickar e-postkommunikation till administratörer för att meddela olika ändringar i tjänsten, konfigurations uppdateringar som behövs och fel som kräver administratörs åtgärder. Det är viktigt att kunderna anger e-postadresserna för aviseringar så att meddelanden skickas till rätt team medlemmar som kan bekräfta och agera på alla meddelanden. Vi rekommenderar att du lägger till flera mottagare i [meddelande centret för Office 365](https://docs.microsoft.com/office365/admin/manage/message-center) och begär att meddelanden (inklusive Azure AD Connect Health meddelanden) skickas till en distributions lista eller delad post låda. Om du bara har ett globalt administratörs konto med en e-postadress måste du konfigurera minst två e-postkompatibla konton.
+Microsoft skickar e-postkommunikation till administratörer för att meddela olika ändringar i tjänsten, konfigurations uppdateringar som behövs och fel som kräver administratörs åtgärder. Det är viktigt att kunderna anger e-postadresserna för aviseringar så att meddelanden skickas till rätt team medlemmar som kan bekräfta och agera på alla meddelanden. Vi rekommenderar att du lägger till flera mottagare i [meddelande centret för Office 365](/office365/admin/manage/message-center) och begär att meddelanden (inklusive Azure AD Connect Health meddelanden) skickas till en distributions lista eller delad post låda. Om du bara har ett globalt administratörs konto med en e-postadress måste du konfigurera minst två e-postkompatibla konton.
 
 Det finns två "från"-adresser som används av Azure AD: <o365mc@email2.microsoft.com> , som skickar meddelanden om Office 365 meddelande Center och <azure-noreply@microsoft.com> , som skickar meddelanden som rör:
 
-- [Åtkomst granskningar för Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
-- [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
-- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
-- [Företags program som förfaller certifikat meddelanden](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
+- [Åtkomst granskningar för Azure AD](../governance/access-reviews-overview.md)
+- [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
+- [Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-notifications.md)
+- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-email-notifications.md)
+- [Företags program som förfaller certifikat meddelanden](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration)
 - Meddelanden om företags-app-etablering
 
 Se följande tabell för att lära dig vilken typ av meddelanden som skickas och var de ska kontrol leras:
@@ -148,13 +148,13 @@ Se följande tabell för att lära dig vilken typ av meddelanden som skickas och
 
 #### <a name="notifications-recommended-reading"></a>Meddelanden som rekommenderas vid läsning
 
-- [Ändra din organisations adress, teknisk kontakt och mer – Office 365](https://docs.microsoft.com/office365/admin/manage/change-address-contact-and-more)
+- [Ändra din organisations adress, teknisk kontakt och mer – Office 365](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Drift ytans yta
 
 ### <a name="ad-fs-lockdown"></a>AD FS låsning
 
-Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Om du använder AD FS i Windows Server 2012 R2 implementerar du AD FS [extra näts utelåsning-skydd](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 eller senare implementerar du [Smart utelåsning för extra nät](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Vi rekommenderar minst att du aktiverar extra näts utelåsning för att kunna innehålla risken för angrepp mot lokala Active Directory. Men om du har AD FS i Windows 2016 eller högre bör du även aktivera Smart utelåsning för extra nät som hjälper till att minimera angrepp vid [lösen ords spridning](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
+Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](../authentication/concept-sspr-howitworks.md). Om du använder AD FS i Windows Server 2012 R2 implementerar du AD FS [extra näts utelåsning-skydd](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 eller senare implementerar du [Smart utelåsning för extra nät](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Vi rekommenderar minst att du aktiverar extra näts utelåsning för att kunna innehålla risken för angrepp mot lokala Active Directory. Men om du har AD FS i Windows 2016 eller högre bör du även aktivera Smart utelåsning för extra nät som hjälper till att minimera angrepp vid [lösen ords spridning](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
 Om AD FS bara används för Azure AD Federation finns det några slut punkter som kan stängas av för att minimera attack ytan. Om AD FS till exempel bara används för Azure AD bör du inaktivera WS-Trust-slutpunkter som inte är aktiverade för **usernamemixed** och **windowstransport**.
 
@@ -164,7 +164,7 @@ Organisationer bör låsa åtkomsten till datorerna med lokala hybrid komponente
 
 Active Directory administrativ nivå modell har utformats för att skydda identitets system med en uppsättning buffertzoner mellan fullständig kontroll av miljön (nivå 0) och arbets stationerna med hög risk som angripare ofta kompromettera. ![Diagram över de tre nivåerna i nivåmodellen](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
-[Nivå modellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) består av tre nivåer och inkluderar bara administrativa konton, inte standard användar konton.
+[Nivå modellen](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) består av tre nivåer och inkluderar bara administrativa konton, inte standard användar konton.
 
 - **Nivå 0**   – Direkt kontroll över företags identiteter i miljön. Nivå 0 innehåller konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll över Active Directory-skogen, domäner eller domänkontrollanter och alla tillgångar i den. Säkerhetskänsligheten för alla tillgångar i nivå 0 är motsvarande eftersom de alla har effektiv kontroll av varandra.
 - **Nivå 1**   – Kontroll över företags servrar och program. Nivå 1-material inkluderar serveroperativsystem, molntjänster och företagsprogram. Nivå 1-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa tillgångar är värdar för. En vanlig exempelroll är serveradministratörer som hanterar de här operativsystemen med möjlighet att påverka alla företagstjänster.

@@ -10,17 +10,17 @@ tags: ''
 keywords: azure media services, strömma, sändning, live, offline
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e692eef45f8a0b4a8918e7255fa1ac85d4ad064c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265838"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297747"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller en vägledning för migrering från Media Services
 
 Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services v2-API: erna](../previous/media-services-overview.md)bör du läsa följande rikt linjer och överväganden innan du migrerar till v3-API: erna. Det finns många fördelar och nya funktioner i v3-API: et som förbättrar utvecklings upplevelsen och funktionerna i Media Services. Som du ser i avsnittet [kända problem](#known-issues) i den här artikeln finns det också vissa begränsningar på grund av ändringar mellan API-versionerna. Den här sidan kommer att behållas när Media Servicess teamet gör fortsatta förbättringar av v3-API: erna och åtgärdar luckorna mellan versionerna. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Granska [Media Services v2 vs. v3](media-services-v2-vs-v3.md)
 * [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

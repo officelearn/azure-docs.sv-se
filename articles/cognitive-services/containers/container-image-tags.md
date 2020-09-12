@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 2a57c5244630c2328320d7d99eed98c892d49897
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4a98007917e95b1880661fe35bfd3f85f633e9a3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230763"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321777"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
 
@@ -29,7 +29,7 @@ Behållar avbildningen för [avvikelse detektor][ad-containers] finns i `mcr.mic
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 
@@ -39,7 +39,7 @@ Du kan hitta avbildningen [visuellt innehåll][cv-containers] Read OCR-behållar
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest ( (2.0.013250001-amd64-preview)` | • Öka minnes användningen ytterligare för containern. |
 |                                          | • Extern cache krävs för installation av multi-poddar. Du kan till exempel konfigurera Redis för cachelagring. |
@@ -68,7 +68,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -86,7 +86,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -99,7 +99,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -117,7 +117,7 @@ Behållar avbildningen [Custom Speech till text][sp-cstt] finns i `containerprev
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Anteckningar |
+| Bildtaggar            | Kommentarer |
 |-----------------------|:------|
 | `latest`              |       |
 | `2.3.1-amd64-preview` |       | 
@@ -134,7 +134,7 @@ Du hittar den [anpassade text till tal-][sp-ctts] behållar avbildningen i `cont
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Anteckningar |
+| Bildtaggar            | Kommentarer |
 |-----------------------|:------|
 | `latest`              |       |
 | `1.6.0-amd64-preview` |       |
@@ -149,7 +149,7 @@ Den *amerikanska regeringen i Virginia* -versionen av tal-till-text-bilder stöd
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                  | Anteckningar                                    |
+| Bildtaggar                  | Kommentarer                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Behållar avbildning med `en-US` språkvarianten. |
 | `2.4.0-amd64-ar-ae-preview` | Behållar avbildning med `ar-AE` språkvarianten. |
@@ -588,7 +588,7 @@ Du hittar [text till tal-][sp-tts] behållar avbildningen i `containerpreview.az
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                                  | Anteckningar                                                                      |
+| Bildtaggar                                  | Kommentarer                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaRUS` rösten.         |
 | `1.6.0-amd64-ar-eg-hoda-preview`            | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
@@ -998,13 +998,39 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Behållar avbildning med `zh-CN` språket och `zh-CN-Kangkang-Apollo` rösten. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Behållar avbildning med `zh-CN` språket och `zh-CN-Yaoyao-Apollo` rösten.   |
 
+## <a name="neural-text-to-speech"></a>Neurala text till tal
+
+[Neurala text till tal] [SP-ntts] behållar avbildningen finns i `containerpreview.azurecr.io` behållar registret. Den finns i `microsoft` lagrings platsen och får namnet `cognitive-services-neural-text-to-speech` . Det fullständigt kvalificerade namnet på behållar avbildningen är, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` .
+
+Den här behållar avbildningen har följande tillgängliga Taggar:
+
+| Bildtaggar                                  | Kommentarer                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
+| `1.1.0-amd64-de-de-katjaneural-preview`     | Behållar avbildning med `de-DE` språket och `de-DE-KatjaNeural` rösten.     |
+| `1.1.0-amd64-en-au-natashaneural-preview`   | Behållar avbildning med `en-AU` språket och `en-AU-NatashaNeural` rösten.   |
+| `1.1.0-amd64-en-ca-claraneural-preview`     | Behållar avbildning med `en-CA` språket och `en-CA-ClaraNeural` rösten.     |
+| `1.1.0-amd64-en-gb-libbyneural-preview`     | Behållar avbildning med `en-GB` språket och `en-GB-LibbyNeural` rösten.     |
+| `1.1.0-amd64-en-gb-mianeural-preview`       | Behållar avbildning med `en-GB` språket och `en-GB-MiaNeural` rösten.       |
+| `1.1.0-amd64-en-us-arianeural-preview`      | Behållar avbildning med `en-US` språket och `en-US-AriaNeural` rösten.      |
+| `1.1.0-amd64-en-us-guyneural-preview`       | Behållar avbildning med `en-US` språket och `en-US-GuyNeural` rösten.       |
+| `1.1.0-amd64-es-es-elviraneural-preview`    | Behållar avbildning med `es-ES` språket och `es-ES-ElviraNeural` rösten.    |
+| `1.1.0-amd64-es-mx-dalianeural-preview`     | Behållar avbildning med `es-MX` språket och `es-MX-DaliaNeural` rösten.     |
+| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Behållar avbildning med `fr-CA` språket och `fr-CA-SylvieNeural` rösten.    |
+| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Behållar avbildning med `fr-FR` språket och `fr-FR-DeniseNeural` rösten.    |
+| `1.1.0-amd64-it-it-elsaneural-preview`      | Behållar avbildning med `it-IT` språket och `it-IT-ElsaNeural` rösten.      |
+| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Behållar avbildning med `ja-JP` språket och `ja-JP-NanamiNeural` rösten.    |
+| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Behållar avbildning med `ko-KR` språket och `ko-KR-SunHiNeural` rösten.     |
+| `1.1.0-amd64-pt-br-franciscaneural-preview` | Behållar avbildning med `pt-BR` språket och `pt-BR-FranciscaNeural` rösten. |
+| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Behållar avbildning med `zh-CN` språket och `zh-CN-XiaoxiaoNeural` rösten.  |
+
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
 [Extrahering av diskussionsämne][ta-kp] behållar avbildningen finns i `mcr.microsoft.com` behållar registrets syndikering. Den finns i `azure-cognitive-services` lagrings platsen och får namnet `keyphrase` . Det fullständigt kvalificerade namnet på behållar avbildningen är, `mcr.microsoft.com/azure-cognitive-services/keyphrase` .
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -1019,7 +1045,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -1034,7 +1060,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar | Anteckningar                                         |
+| Bildtaggar | Kommentarer                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
 | `3.0-en`   | Attitydanalys v3 (engelska)               |

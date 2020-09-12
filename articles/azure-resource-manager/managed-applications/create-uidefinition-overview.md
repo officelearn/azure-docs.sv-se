@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210962"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319583"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json för Azure-upplevelsen för att skapa hanterade program
 
@@ -25,6 +25,7 @@ Mallen är följande
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -35,7 +36,7 @@ Mallen är följande
 }
 ```
 
-En CreateUiDefinition innehåller alltid tre egenskaper: 
+En `CreateUiDefinition` innehåller alltid tre egenskaper:
 
 * protokollhanteraren
 * version
@@ -43,41 +44,19 @@ En CreateUiDefinition innehåller alltid tre egenskaper:
 
 Hanteraren bör alltid vara `Microsoft.Azure.CreateUIDef` och den senaste versionen som stöds är `0.1.2-preview` .
 
-Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som stöds `basics` , `steps` ,, `outputs` och `config` . Egenskaperna grundläggande och steg innehåller [elementen](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa utmatnings värden för de angivna elementen till parametrarna i Azure Resource Manager-mallen. Du `config` kan bara använda när du behöver åsidosätta standard beteendet för `basics` steget.
+Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som stöds `config` , `basics` ,, `steps` och `outputs` . Du `config` kan bara använda när du behöver åsidosätta standard beteendet för `basics` steget. Egenskaperna grundläggande och steg innehåller [elementen](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa utmatnings värden för de angivna elementen till parametrarna i Azure Resource Manager-mallen.
 
 Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste värdet för `version` matcha versionen i `$schema` URI: n.
 
 Du kan använda en JSON-redigerare för att skapa din createUiDefinition och sedan testa den i [sand boxen createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
 
-## <a name="basics"></a>Grunder
-
-**Grundläggande** steg är det första steget som genereras när Azure Portal tolkar filen. Som standard kan du med hjälp av grundläggande steg välja prenumeration, resurs grupp och plats för distribution.
-
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Standard för grundläggande":::
-
-Du kan lägga till fler element i det här avsnittet. När det är möjligt kan du lägga till element som frågar om globala parametrar, t. ex. namnet på ett kluster eller administratörsautentiseringsuppgifter.
-
-I följande exempel visas en text ruta som har lagts till i standard elementen.
-
-```json
-"basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
-]
-```
-
 ## <a name="config"></a>Konfigurera
 
-Du anger konfigurations elementet när du behöver åsidosätta standard beteendet för grundläggande steg. I följande exempel visas tillgängliga egenskaper.
+`config`Egenskapen är valfri. Använd den för att antingen åsidosätta standard beteendet för grundläggande steg, eller så kan du ställa in gränssnittet som en steg-för-steg-guide. Om `config` används är det den första egenskapen i avsnittet **createUiDefinition.jspå** filen `parameters` . I följande exempel visas tillgängliga egenskaper.
 
 ```json
 "config": {
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -124,15 +103,50 @@ Du anger konfigurations elementet när du behöver åsidosätta standard beteend
 },
 ```
 
-För `description` , anger du en markdown-aktiverad sträng som beskriver din resurs. Flera rader och länkar stöds.
+### <a name="wizard"></a>Konfigurationsguide
 
-För `location` anger du egenskaperna för den plats kontroll som du vill åsidosätta. Alla egenskaper som inte åsidosätts har angetts till standardvärdena. `resourceTypes` accepterar en sträng mat ris som innehåller fullständigt kvalificerade resurs typs namn. Plats alternativen är begränsade till endast regioner som stöder resurs typerna.  `allowedValues`   accepterar en matris med regions strängar. Endast de regionerna visas i list rutan.Du kan ange både `allowedValues`   och  `resourceTypes` . Resultatet är skärningen mellan båda listorna. Slutligen `visible` kan egenskapen användas för att villkorligt eller helt inaktivera List rutan plats.  
+`isWizard`Egenskapen gör det möjligt att verifiera varje steg innan du fortsätter till nästa steg. När `isWizard` egenskapen inte anges är standardvärdet **false**och stegvis verifiering krävs inte.
+
+När `isWizard` är aktiverat, är inställt på **Sant**, är fliken **grundläggande** tillgängligt och alla andra flikar är inaktiverade. När knappen **Nästa** är markerad anger flikens ikon om en fliks verifiering lyckades eller misslyckades. När en fliks obligatoriska fält har slutförts och verifierats **Nästa** knapp kan du navigera till nästa flik. När alla flikar klarar valideringen kan du gå till sidan **Granska och skapa** och välja knappen **skapa** för att starta distributionen.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Fliken guide":::
+
+### <a name="override-basics"></a>Åsidosätt grunderna
+
+Med grunderna i konfigurationen kan du anpassa steget grunderna.
+
+För `description` , anger du en markdown-aktiverad sträng som beskriver din resurs. Flera rader och länkar stöds.
 
 Med `subscription` `resourceGroup` elementen och kan du ange ytterligare verifieringar. Syntaxen för att ange verifieringar är identisk med [text rutan](microsoft-common-textbox.md)anpassad verifiering för text. Du kan också ange `permission` valideringar för prenumerationen eller resurs gruppen.  
 
 Prenumerations kontrollen accepterar en lista över resurs leverantörens namn områden. Du kan till exempel ange **Microsoft. Compute**. Ett fel meddelande visas när användaren väljer en prenumeration som inte stöder resurs leverantören. Felet uppstår när resurs leverantören inte är registrerad på den prenumerationen och användaren inte har behörighet att registrera resurs leverantören.  
 
 Resurs grupps kontrollen har ett alternativ för `allowExisting` . När `true` kan användarna välja resurs grupper som redan har resurser. Den här flaggan gäller mest för Solution templates, där standard beteende användare måste välja en ny eller tom resurs grupp. I de flesta andra scenarier är det inte nödvändigt att ange den här egenskapen.  
+
+För `location` anger du egenskaperna för den plats kontroll som du vill åsidosätta. Alla egenskaper som inte åsidosätts har angetts till standardvärdena. `resourceTypes` accepterar en sträng mat ris som innehåller fullständigt kvalificerade resurs typs namn. Plats alternativen är begränsade till endast regioner som stöder resurs typerna.  `allowedValues`   accepterar en matris med regions strängar. Endast de regionerna visas i list rutan.Du kan ange både `allowedValues`   och  `resourceTypes` . Resultatet är skärningen mellan båda listorna. Slutligen `visible` kan egenskapen användas för att villkorligt eller helt inaktivera List rutan plats.  
+
+## <a name="basics"></a>Grundläggande inställningar
+
+**Grundläggande** steg är det första steget som genereras när Azure Portal tolkar filen. Som standard kan du med hjälp av grundläggande steg välja prenumeration, resurs grupp och plats för distribution.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Standard för grundläggande":::
+
+Du kan lägga till fler element i det här avsnittet. När det är möjligt kan du lägga till element som frågar om globala parametrar, t. ex. namnet på ett kluster eller administratörsautentiseringsuppgifter.
+
+I följande exempel visas en text ruta som har lagts till i standard elementen.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
 
 ## <a name="steps"></a>Steg
 

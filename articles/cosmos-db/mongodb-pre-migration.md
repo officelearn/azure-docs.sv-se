@@ -5,14 +5,14 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 09/01/2020
 ms.author: lbosq
-ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be38b1cfa698907f44c6deee77bb9b8ca88b77b7
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263066"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318224"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -44,13 +44,12 @@ Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
 
 |**Typ av migrering**|**Lösning**|**Överväganden**|
 |---------|---------|---------|
-|Offline|[Migreringsverktyg för data](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Passar inte för stora data mängder.|
-|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Enkelt att konfigurera och stödja flera källor <br/>&bull;Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull;Lämplig för stora data uppsättningar <br/>&bull;Brist på kontroll punkter innebär att eventuella problem under migreringen skulle kräva en omstart av hela migreringsprocessen<br/>&bull;Brist på en kö för obeställbara meddelanden skulle innebära att några felaktiga filer kan stoppa hela migreringsprocessen <br/>&bull;Behöver anpassad kod för att öka Läs data flödet för vissa data källor|
-|Offline|[Befintliga Mongo-verktyg (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Enkelt att konfigurera och integrera <br/>&bull;Kräver anpassad hantering för begränsningar|
-|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull;Fullständigt hanterad migreringstjänster.<br/>&bull;Tillhandahåller värdbaserade och övervaknings lösningar för migreringen. <br/>&bull;Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar <br/>&bull;Fungerar endast med andra MongoDB-källor|
+|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull; Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar <br/>&bull; Fungerar endast med andra MongoDB-källor|
+|Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull; Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar <br/>&bull; Fungerar endast med andra MongoDB-källor|
+|Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)|&bull; Enkelt att konfigurera och stödja flera källor <br/>&bull; Använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull; Lämplig för stora data uppsättningar <br/>&bull; Brist på kontroll punkter innebär att eventuella problem under migreringen skulle kräva en omstart av hela migreringsprocessen<br/>&bull; Brist på en kö för obeställbara meddelanden skulle innebära att några felaktiga filer kan stoppa hela migreringsprocessen <br/>&bull; Behöver anpassad kod för att öka Läs data flödet för vissa data källor|
+|Offline|[Befintliga Mongo-verktyg (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Enkelt att konfigurera och integrera <br/>&bull; Kräver anpassad hantering för begränsningar|
 
-
-## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a>Beräkna data flödes behovet för dina arbets belastningar
+## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a> Beräkna data flödes behovet för dina arbets belastningar
 
 I Azure Cosmos DB allokeras data flödet i förväg och mäts i enheter för programbegäran (RU) per sekund. Till skillnad från virtuella datorer eller lokala servrar är ru: er enkelt att skala upp och ned när som helst. Du kan ändra antalet etablerade ru: er direkt. Mer information finns i [enheter för programbegäran i Azure Cosmos DB](request-units.md).
 
@@ -71,16 +70,16 @@ Det här kommandot kommer att skriva ut ett JSON-dokument som liknar följande:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Du kan också använda [diagnostikinställningar](cosmosdb-monitor-resource-logs.md) för att förstå frekvensen och mönstren för de frågor som körs mot Azure Cosmos dB. Resultaten från diagnostikloggar kan skickas till ett lagrings konto, en EventHub-instans eller Azure- [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
+Du kan också använda [diagnostikinställningar](cosmosdb-monitor-resource-logs.md) för att förstå frekvensen och mönstren för de frågor som körs mot Azure Cosmos dB. Resultaten från diagnostikloggar kan skickas till ett lagrings konto, en EventHub-instans eller Azure- [Log Analytics](../azure-monitor/log-query/get-started-portal.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Välj partitionsnyckel
 Partitionering, även kallat horisontell partitionering, är en viktig faktor innan data migreras. Azure Cosmos DB använder fullständigt hanterad partitionering för att öka kapaciteten i en databas för att uppfylla kraven för lagring och data flöde. Den här funktionen behöver inte vara värd för eller konfigurering av routningsservrar.   
 
-På ett liknande sätt lägger partitionerings kapaciteten automatiskt till kapacitet och återskapar data enligt detta. Mer information och rekommendationer om hur du väljer rätt partitionsnyckel för dina data finns i artikeln om [att välja en partitionsnyckel](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+På ett liknande sätt lägger partitionerings kapaciteten automatiskt till kapacitet och återskapar data enligt detta. Mer information och rekommendationer om hur du väljer rätt partitionsnyckel för dina data finns i artikeln om [att välja en partitionsnyckel](partitioning-overview.md#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexera dina data
 
-Azure Cosmos DBens API för MongoDB Server version 3,6 indexerar automatiskt `_id` endast fältet. Det går inte att ta bort det här fältet. Det tillämpar automatiskt `_id` fältets unikhet per Shard-nyckel. Om du vill indexera ytterligare fält tillämpar du MongoDB index-Management-kommandon. Den här standard indexerings principen skiljer sig från Azure Cosmos DB SQL API, som som standard indexerar alla fält.
+Azure Cosmos DBens API för MongoDB Server version 3,6 indexerar automatiskt `_id` endast fältet. Det går inte att ta bort det här fältet. Det tillämpar automatiskt `_id` fältets unikhet per Shard-nyckel. Om du vill indexera fler fält kan du använda MongoDB-kommandona för indexhantering. Den här indexeringspolicyn skiljer sig från Azure Cosmos DB SQL-API:et som standardmässigt indexerar alla fält.
 
 De indexerings funktioner som tillhandahålls av Azure Cosmos DB innefattar att lägga till sammansatta index, unika index och Time to Live (TTL) index. Index hanterings gränssnittet är mappat till `createIndex()` kommandot. Läs mer vid [indexering i Azure Cosmos DBS API för MongoDB](mongodb-indexing.md)-artikel.
 

@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
 description: Den här artikeln innehåller procedurer för att säkerhetskopiera och återställa virtuella datorer med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: d3648bf6c980049a2e3ccfa90a777bddc1748dc9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011947"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378006"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
@@ -78,7 +78,7 @@ Detta är kraven för att säkerhetskopiera virtuella Hyper-V-datorer med MABS:
 
 2. Konfigurera skydds agenten för MABS på Hyper-V-servern eller Hyper-V-klusternoderna. Om du utför säkerhets kopiering på gästnivå installerar du agenten på de virtuella datorer som du vill säkerhetskopiera på gästnivå.
 
-3. I administratörs konsolen för Mabs klickar du på **skydd**  >  **skapa skydds grupp** för att öppna guiden **Skapa ny skydds grupp** .
+3. I administratörs konsolen för Mabs väljer du **skydd**  >  **skapa skydds grupp** för att öppna guiden **Skapa ny skydds grupp** .
 
 4. På sidan **Välj gruppmedlemmar** väljer du de virtuella datorer som du vill skydda (från de Hyper-V-värdservrar som de virtuella datorerna finns på). Vi rekommenderar att du placerar alla virtuella datorer som har samma skyddsprincip i samma skyddsgrupp. Du får en effektivare användning av diskutrymmet om du aktiverar samplacering. Med samplacering kan du hitta data i olika skyddsgrupper på samma disk- eller bandlagring. Flera datakällor får då en enda replik och återställningspunktvolym.
 
@@ -110,7 +110,7 @@ Om MABS körs på Windows Server 2012 R2 eller senare kan du säkerhetskopiera v
 
 **Aktiverar värdleverantörens säkerhetskopiering** – Du kan använda ett värdbaserat datacenter som en replikplats utan behov av ett sekundärt datacenter. I det här fallet kräver värd avtalets service avtal konsekvent säkerhets kopiering av virtuella replik datorer.
 
-En virtuell replikdator är inaktiverad till dess att redundansväxling initieras, och VSS kan inte garantera en programkonsekvent säkerhetskopiering för en virtuell replikdator. Därför kommer säkerhetskopieringen av en virtuell replikdator endast att vara kraschkonsekvent. Om kraschkonsekvens inte kan garanteras misslyckas säkerhetskopieringen. Detta kan inträffa i ett antal situationer:
+En virtuell replikdator är inaktiverad till dess att redundansväxling initieras, och VSS kan inte garantera en programkonsekvent säkerhetskopiering för en virtuell replikdator. Det innebär att säkerhets kopieringen av en virtuell replik dator blir krasch-konsekvent. Om kraschkonsekvens inte kan garanteras misslyckas säkerhetskopieringen. Detta kan inträffa i ett antal situationer:
 
 - Den virtuella replikdatorn är inte felfri och är i ett kritiskt tillstånd.
 
@@ -128,13 +128,13 @@ När du kan återställa en säkerhetskopierade virtuell dator använder du guid
 
 1. I administratörs konsolen för MABS anger du namnet på den virtuella datorn eller expanderar listan över skyddade objekt och väljer den virtuella dator som du vill återställa.
 
-2. Gå till kalendern i fönstret **Återställningspunkter för** och klicka på ett datum om du vill se vilka återställningspunkter som är tillgängliga. Välj den återställningspunkt som du vill använda på menyn **Sökväg** i återställningsguiden.
+2. I rutan **återställnings punkter för** väljer du ett datum i kalendern för att se tillgängliga återställnings punkter. Välj den återställningspunkt som du vill använda på menyn **Sökväg** i återställningsguiden.
 
-3. Klicka på menyn **Återställ** i fönstret **Åtgärder** så öppnas återställningsguiden.
+3. Från menyn **åtgärder** väljer du **Återställ** för att öppna återställnings guiden.
 
-    Den virtuella dator och återställningspunkt som du har valt visas på skärmen **Granska val av återställning**. Klicka på **Nästa**.
+    Den virtuella dator och återställningspunkt som du har valt visas på skärmen **Granska val av återställning**. Välj **Nästa**.
 
-4. På skärmen **Välj typ av återställning** väljer du var du vill återställa data och klickar sedan på **Nästa**.
+4. På skärmen **Välj återställnings typ** väljer du var du vill återställa data och väljer sedan **Nästa**.
 
     - **Återställ till ursprunglig instans**: När du återställer till den ursprungliga instansen tas den ursprungliga virtuella hårddisken bort. MABS återställer den virtuella hård disken och andra konfigurationsfiler till den ursprungliga platsen med hjälp av VSS-skrivaren för Hyper-V. I slutet av återställningsprocessen är de virtuella datorerna fortfarande högtillgängliga.
         Resursgruppen måste vara tillgänglig för återställning. Om den inte är tillgänglig återställer du till en annan plats och gör sedan den virtuella datorn högtillgänglig.
@@ -143,13 +143,13 @@ När du kan återställa en säkerhetskopierade virtuell dator använder du guid
 
     - **Kopiera till en nätverksmapp**: Mabs har stöd för återställning på objekt nivå (ILR), vilket gör att du kan utföra återställning på objekt nivå av filer, mappar, volymer och virtuella hård diskar (VHD) från en säkerhets kopiering på värdnivå av virtuella Hyper-V-datorer till en nätverks resurs eller en volym på en Mabs-skyddad Server. MABS-skyddsagenten behöver inte vara installerad på gästen för att utföra återställning på objekt nivå. Om du väljer det här alternativet visas ytterligare en skärm i Återställningsguiden där du kan identifiera mål och målsökväg.
 
-5. Under **Ange återställningsalternativ** konfigurerar du återställningsalternativen och klickar på **Nästa**:
+5. I **Ange återställnings alternativ** konfigurerar du återställnings alternativen och väljer **Nästa**:
 
-    - Om du återställer en virtuell dator via låg bandbredd klickar du på **Ändra** om du vill aktivera **Begränsning av nätverksbandbredd**. Du kan ange hur mycket bandbredd som du vill göra tillgänglig och den tidpunkt då bandbredd är tillgänglig när du har aktiverat alternativet för begränsning.
-    - Välj **Aktivera SAN-baserad återställning med hjälp av ögonblicksbilder av maskinvara** om du har konfigurerat nätverket.
+    - Om du återställer en virtuell dator över låg bandbredd väljer du **ändra** för att aktivera **begränsning av nätverks bandbredd**. Du kan ange hur mycket bandbredd som du vill göra tillgänglig och den tidpunkt då bandbredd är tillgänglig när du har aktiverat alternativet för begränsning.
+    - Välj **Aktivera San-baserad återställning med hjälp av ögonblicks bilder av maskin vara** om du har konfigurerat nätverket.
     - Välj **Send an e-mail when the recovery complete (Skicka ett e-postmeddelande när återställningen har slutförts)** och ange de e-postadresserna om du vill att e-postmeddelandena ska skickas när återställningen är klar.
 
-6. Kontrollera att alla uppgifter i fönstret Sammanfattning är korrekta. Om uppgifterna inte är korrekta, eller om du vill göra en ändring, klickar du på **Tillbaka**. Om du är nöjd med inställningarna klickar du på **Återställ** för att starta återställnings processen.
+6. Kontrollera att alla uppgifter i fönstret Sammanfattning är korrekta. Om informationen inte är korrekt eller om du vill göra en ändring väljer du **bakåt**. Om du är nöjd med inställningarna väljer du **Återställ** för att starta återställnings processen.
 
 7. Skärmen **Återställningsstatus** innehåller information om återställningsjobbet.
 

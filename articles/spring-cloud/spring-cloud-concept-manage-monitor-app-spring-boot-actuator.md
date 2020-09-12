@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037601"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299515"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Hantera och övervaka appen med Azure Spring Boot Actuator
 
 När du har distribuerat ny binärfil till appen kanske du vill kontrol lera funktionerna och se information om ditt program som körs. Den här artikeln förklarar hur du får åtkomst till API: et från en test slut punkt som tillhandahålls av Azure våren Cloud och som visar produktions klara funktioner för din app.
 
-## <a name="prerequisites"></a>Förutsättningar
-I den här artikeln förutsätter vi att du har ett program med vår start 2. x som kan distribueras och startas på Azure våren Cloud service.  Se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
+## <a name="prerequisites"></a>Krav
+I den här artikeln förutsätter vi att du har ett program med vår start 2. x som kan distribueras och startas på Azure våren Cloud service.  Se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Verifiera appen via test slut punkten
 1. Gå till **instrument panelen för program** och klicka på din app för att ange appens översikts sida.
@@ -63,12 +63,12 @@ För att studera konfigurationen och konfigurerbar miljö behöver vi `env` äve
 Nu kan du gå tillbaka till fönstret Översikt över appen och vänta tills etablerings statusen ändras till "lyckades".  Det kommer att finnas fler än en instans som körs.
 
 > [!Note] 
-> När du exponerar appen för offentlig är dessa motstånds-och utgångs punkter även tillgängliga för offentliga. Du kan dölja alla slut punkter genom att ta bort miljövariablerna `management.endpoints.web.exposure.include` och ange`management.endpoints.web.exposure.exclude=*`
+> När du exponerar appen för offentlig är dessa motstånds-och utgångs punkter även tillgängliga för offentliga. Du kan dölja alla slut punkter genom att ta bort miljövariablerna `management.endpoints.web.exposure.include` och ange `management.endpoints.web.exposure.exclude=*`
 
 ## <a name="view-the-actuator-endpoint-to-view-application-information"></a>Visa programinformationens slut punkt genom att Visa programinformation
 1. Nu kan du få åtkomst till URL: en `"<test-endpoint>/actuator/"` för att se alla slut punkter som exponeras av våren Boot Boot-motstånd.
 1. Åtkomst `"<test-endpoint>/actuator/env"` -URL, du kan se aktiva profiler som används av appen och alla miljövariabler som har lästs in.
-1. Om du vill söka i en viss miljö kan du öppna URL: en `"<test-endpoint>/actuator/env/{toMatch}"` för att visa den.
+1. Om du vill söka i en viss miljö kan du öppna URL: en  `"<test-endpoint>/actuator/env/{toMatch}"` för att visa den.
 
 Om du vill visa alla inbyggda slut punkter, se [exponera slut punkter](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 

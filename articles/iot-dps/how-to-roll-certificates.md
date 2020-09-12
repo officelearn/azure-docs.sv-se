@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974895"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299276"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Så här återställer du X. 509 enhets certifikat
 
@@ -51,7 +51,7 @@ När en enhet tillhandahålls första gången via automatisk etablering, startas
 
 När ett nytt löv certifikat har registrerats på enheten kan det inte längre ansluta till IoT Hub eftersom det använder ett nytt certifikat för att ansluta. IoT Hub känner bara igen enheten med det gamla certifikatet. Resultatet av enhetens anslutnings försök kommer att vara ett "obehörig" anslutnings fel. För att lösa det här felet måste du uppdatera registrerings posten för enheten för att kunna hantera enhetens nya löv certifikat. Etablerings tjänsten kan sedan uppdatera IoT Hub enhetens register information vid behov när enheten har etablerats. 
 
-Ett möjligt undantag till det här anslutnings felet är ett scenario där du har skapat en [registrerings grupp](concepts-service.md#enrollment-group) för enheten i etablerings tjänsten. I det här fallet, om du inte rullar rot-eller mellanliggande certifikat i enhetens certifikat kedja, kommer enheten att identifieras om det nya certifikatet är en del av förtroende kedjan som definierats i registrerings gruppen. Om det här scenariot inträffar som en reaktion på en säkerhets överträdelse bör du minst svartlista de angivna enhets certifikaten i gruppen som anses vara överträdelse. Mer information finns i [Black-/regionsspecifika enheter i en registrerings grupp](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Ett möjligt undantag till det här anslutnings felet är ett scenario där du har skapat en [registrerings grupp](concepts-service.md#enrollment-group) för enheten i etablerings tjänsten. I det här fallet, om du inte rullar rot-eller mellanliggande certifikat i enhetens certifikat kedja, kommer enheten att identifieras om det nya certifikatet är en del av förtroende kedjan som definierats i registrerings gruppen. Om det här scenariot inträffar som en reaktion på en säkerhets överträdelse bör du minst tillåta att de angivna enhets certifikaten i gruppen anses vara överträdelse. Mer information finns i [Tillåt inte vissa enheter i en registrerings grupp](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
 
 Uppdatering av registrerings poster för registrerade certifikat utförs på sidan **Hantera registreringar** . Följ dessa steg för att få åtkomst till sidan:
 
@@ -197,9 +197,9 @@ Ett annat sätt är att både de gamla och de nya certifikaten ska vara giltiga 
 När etableringen är klar kommer enheterna att kunna ansluta till IoT Hub med hjälp av de nya certifikaten.
 
 
-## <a name="blacklist-certificates"></a>Black-certifikat
+## <a name="disallow-certificates"></a>Tillåt inte certifikat
 
-Som svar på en säkerhets överträdelse kan du behöva svartlista ett enhets certifikat. Om du vill svartlista ett enhets certifikat inaktiverar du registrerings posten för mål enheten/certifikatet. Mer information finns i svartlista enheter i artikeln [Hantera avregistrering](how-to-revoke-device-access-portal.md) .
+Som svar på en säkerhets överträdelse kan du behöva inaktivera ett enhets certifikat. Inaktivera registrerings posten för mål enheten/certifikatet om du inte vill tillåta ett enhets certifikat. Mer information finns i avsnittet om att inte tillåta enheter i artikeln [Hantera avregistrering](how-to-revoke-device-access-portal.md) .
 
 När ett certifikat ingår som en del av en inaktive rad registrerings post kommer alla försök att registrera sig med en IoT-hubb som använder certifikaten att Miss lyckas även om det är aktiverat som en del av en annan registrerings post.
  
@@ -211,13 +211,3 @@ När ett certifikat ingår som en del av en inaktive rad registrerings post komm
 - Mer information om X. 509-certifikat i Device Provisioning-tjänsten finns i [säkerhet](concepts-security.md) 
 - Läs mer om hur du kan använda certifikat för X. 509 CA-certifikat med Azure IoT Hub Device Provisioning Service i [så här verifierar du certifikat](how-to-verify-certificates.md)
 - Information om hur du använder portalen för att skapa en registrerings grupp finns i [Hantera enhets registreringar med Azure Portal](how-to-manage-enrollments.md).
-
-
-
-
-
-
-
-
-
-

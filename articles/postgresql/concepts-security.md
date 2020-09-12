@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75972587"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375803"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Säkerhet i Azure Database for PostgreSQL-enskild server
 
@@ -23,7 +23,7 @@ Det finns flera säkerhets lager som är tillgängliga för att skydda data på 
 Azure Database for PostgreSQL skyddar dina data genom att kryptera data under överföring med Transport Layer Security. Kryptering (SSL/TLS) tillämpas som standard.
 
 ### <a name="at-rest"></a>I vila
-Tjänsten Azure Database for PostgreSQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
+Tjänsten Azure Database for PostgreSQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, inklusive de temporära filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
 
 ## <a name="network-security"></a>Nätverkssäkerhet
@@ -48,7 +48,7 @@ När du skapar Azure Database for PostgreSQL-servern anger du autentiseringsuppg
 Du kan också ansluta till servern med hjälp av [Azure Active Directory (AAD)-autentisering](concepts-aad-authentication.md).
 
 
-## <a name="threat-protection"></a>Skydd mot hot
+## <a name="threat-protection"></a>Hotskydd
 
 Du kan välja att använda [Avancerat skydd](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
 

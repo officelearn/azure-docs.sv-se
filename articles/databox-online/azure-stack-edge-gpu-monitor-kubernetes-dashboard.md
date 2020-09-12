@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180685"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297872"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Använd Kubernetes-instrumentpanelen för att övervaka Azure Stack Edge-GPU-enhet
 
@@ -26,7 +26,6 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 >
 > * Öppna Kubernetes-instrumentpanelen på din enhet
-> * Ladda ned `aseuser` konfiguration
 > * Visa moduler som har distribuerats på din enhet
 > * Hämta IP-adress för program som distribuerats på din enhet
 > * Visa behållar loggar för moduler som har distribuerats på din enhet
@@ -42,26 +41,18 @@ På din Azure Stack Edge-enhet kan du använda Kubernetes-instrumentpanelen i *s
 
 Kubernetes-instrumentpanelen är *skrivskyddad* och körs på den Kubernetes huvud noden på port 31000. Följ de här stegen för att få åtkomst till instrument panelen: 
 
-1. I enhetens lokala användar gränssnitt, gå till **enhet** och gå sedan till **enhetens slut punkter**. Välj instrument panelens URL för Kubernetes för att öppna instrument panelen i en webbläsare.
+1. I enhetens lokala användar gränssnitt, gå till **enhet** och gå sedan till **enhetens slut punkter**. 
+1. Välj **Hämta konfiguration** för att ladda ned en `kubeconfig` som gör det möjligt att komma åt instrument panelen. Spara `config.json` filen på det lokala systemet.
+1. Välj instrument panelens URL för Kubernetes för att öppna instrument panelen i en webbläsare.
 
     ![Kubernetes Dashboard-URL på enhets sidan i lokalt användar gränssnitt](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
 
-1. På **Kubernetes instrument panels inloggning** väljer du **token**. 
-1. Ange en token. 
-    1. Om du vill hämta token [ansluter du via PowerShell-gränssnittet på enheten](azure-stack-edge-gpu-connect-powershell-interface.md).
-    1. Kör kommandot:  `Get-HcsKubernetesDashboardToken`
+1. På **instrument panelen för Kubernetes-instrument panelen** :
     
-    1. Kopiera den token-sträng som visas för dig vid prompten. Här är exempel på utdata:
-        
-        ```powershell
-        [10.100.10.10]: PS>Get-HcsKubernetesDashboardToken
-        eyJhbGciOiJSUzI1NiIsImtpZCI6IkpFTEtBYTMyZ0Ezb01OYTVFSnVaUV85OWtLdXNETTZQR0k0UlFybGdReFUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi03czZ6ayIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjU3NzY3ZDAzLTJlYWUtNDlkMi1hNDEyLTNkOTU3MDFiMThiMyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UgNrpVYVJBEaWxFlljuENUQQmzFXMYG2VsJUIYFdp2AO20zX0k5dRvwcCpeGlqSKb9MyYjG0c6RmT9uCOZk-vAwt7btszQLD7KPCwh_nn_NiIyO8ApgGRYZP8NuP8CBTX3tl_hpwfHtZ0ksbuKAduIL-0uPF0rG5wgLk9cTEw6fKSc2UZW6bIzhNSp_uSiP6MexOS6OftF9JFZejkIGd33dSp-k-tgFlm2Zy96sdFJC0q-XsH7jygiVnfxA9XMs5wqW26LkCh0rfO2WI3C1XFK-4TpufRZLJHo5WPlu-Tnsxa8xmtk2jQ3us-sXcBRrvhPNPrNKkbqc9hbjmWfGD0Q
-        [10.100.10.10]: PS>
-        ```
-        
-1. Välj **Logga in**.
-
-    ![Logga in på Kubernetes-instrumentpanelen](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png)
+    1. Välj **kubeconfig**. 
+        ![Välj alternativet kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
+    1. Välj ellipsen **...** Bläddra och peka på den `kubeconfig` som du laddade ned tidigare på det lokala systemet. Välj **Logga in**.
+        ![Bläddra till kubeconfig-fil](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. Nu kan du Visa Kubernetes-instrumentpanelen för din Azure Stack Edge-enhet i skrivskyddat läge.
 
@@ -110,6 +101,21 @@ Följ de här stegen på instrument panelen för att Visa behållar loggarna:
 
     ![Visa behållar loggar 2](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-container-logs-1.png)
     
+
+## <a name="view-cpu-memory-usage"></a>Visa CPU, minnes användning
+
+Kubernetes-instrumentpanelen för Azure Stack Edge-enhet har också ett [mått Server tillägg](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) som samlar in processor-och minnes användningen för Kubernetes-resurser.
+ 
+Du kan till exempel Visa CPU och minne som används för distributioner i alla namn områden. 
+
+![Visa CPU-och minnes användning för alla distributioner](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-all-1.png)
+
+Du kan också filtrera efter en speciell namnrymd. I följande exempel kan du bara Visa processor-och minnes förbrukning för Azure Arc-distributioner.  
+
+![Visa CPU-och minnes användning för Azure Arc-distributioner](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
+
+Kubernetes Metrics-servern tillhandahåller pipelines för automatisk skalning som liknar den [vågräta Pod autoskalning](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

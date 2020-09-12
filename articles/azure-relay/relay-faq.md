@@ -3,12 +3,12 @@ title: Azure Relay FAQ | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor om Azure Relay tjänsten.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317033"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299294"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor
 
@@ -69,7 +69,7 @@ Att skicka ett meddelande till en Azure Relay behandlas som "fullständig via" S
 Reläer som öppnas med hjälp av **netTCPRelay** WCF-bindning behandla meddelanden som inte är enskilda meddelanden, men som data strömmar i systemet. När du använder den här bindningen får bara avsändaren och lyssnaren insyn i ram för de enskilda meddelanden som skickas och tas emot. För reläer som använder **netTCPRelay** -bindningen behandlas alla data som en ström för att beräkna fakturerbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskilt relä på en 5 minuters basis. Sedan delar den upp den totala mängden data med 64 KB för att fastställa antalet fakturerbara meddelanden för det reläet under den tids perioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvot namn | Omfång |  Obs! | Värde |
+| Kvot namn | Omfång |  Kommentarer | Värde |
 | --- | --- | --- | --- |
 | Samtidiga lyssnare i ett relä |Entitet |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
 | Samtidiga relä anslutningar per alla relä slut punkter i ett tjänst namn område |Namnområde |- |5 000 |
@@ -119,8 +119,8 @@ En beskrivning av vanliga undantag och föreslagna åtgärder som du kan utföra
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att skapa en signatur?
 Signaturer för delad åtkomst (SAS) är en autentiseringsmekanism baserad på SHA-256-säkra hash-värden eller URI: er. Information om hur du genererar egna signaturer i Node.js, PHP, python, Java, C och C# finns i [Service Bus autentisering med signaturer för delad åtkomst][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista relä slut punkter?
-Ja. Relä klienten ansluter till Azure Relay tjänsten med hjälp av fullständigt kvalificerade domän namn. Kunder kan lägga till en post för `*.servicebus.windows.net` i brand väggar som stöder DNS-vit listning.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>Är det möjligt att bara tillåta vissa relä slut punkter?
+Ja. Relä klienten ansluter till Azure Relay tjänsten med hjälp av fullständigt kvalificerade domän namn. Kunder kan lägga till en post för `*.servicebus.windows.net` i brand väggar som har stöd för godkännande av DNS-listor.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa ett namnområde](relay-create-namespace-portal.md)

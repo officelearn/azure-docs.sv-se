@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164928"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377870"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Fjärråtkomst till lokala program via Azure AD-programproxy
 
@@ -57,6 +57,11 @@ Följande diagram visar hur Azure AD och Application Proxy arbetar tillsammans f
 4. Om du har konfigurerat enkel inloggning utför anslutningen all ytterligare autentisering som krävs för användarens räkning.
 5. Anslutningen skickar begäran till det lokala programmet.
 6. Svaret skickas via tjänsten anslutnings-och programproxy till användaren.
+
+> [!NOTE]
+> Precis som i de flesta Azure AD hybrid-agenter kräver inte Application Proxy Connector att du öppnar inkommande anslutningar via brand väggen. Användar trafiken i steg 3 upphör med Application Proxy-tjänsten (i Azure AD). Application Proxy-anslutningen (lokalt) är ansvarig för resten av kommunikationen.
+>
+
 
 | Komponent | Beskrivning |
 | --------- | ----------- |

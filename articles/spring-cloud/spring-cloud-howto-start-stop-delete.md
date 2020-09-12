@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: c8d5b983e376243eca83b929f87ff1e44d4b3470
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 17dd83ba7df469e12e0569e670d71b9068bb2a9f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500376"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297526"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Starta, stoppa och ta bort ditt Azure våren Cloud-program
 
@@ -30,7 +30,7 @@ När du har distribuerat ett program kan du starta, stoppa och ta bort det med h
 ## <a name="using-the-azure-cli"></a>Använda Azure CLI
 
 > [!NOTE]
-> Du kan använda valfria parametrar och konfigurera standardvärden med Azure CLI. Läs mer om Azure CLI genom att läsa [vår referens dokumentation](spring-cloud-cli-reference.md).  
+> Du kan använda valfria parametrar och konfigurera standardvärden med Azure CLI. Läs mer om Azure CLI genom att läsa [vår referens dokumentation](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest).  
 
 Installera först moln tillägget Azure våren för Azure CLI enligt följande:
 

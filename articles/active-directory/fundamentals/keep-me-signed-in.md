@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054720"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320264"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Konfigurera "hållet inloggat?" prompt för Azure AD-konton
 
@@ -57,7 +57,7 @@ Information om inloggnings felet är följande och markerat i exemplet.
 
 Du kan hindra användare från att se avbrottet genom att ställa in **alternativet för att förbli inloggade** på **Nej** i inställningarna för avancerad anpassning. Detta inaktiverar KMSI avgör-prompten för alla användare i Azure AD-katalogen.
 
-Du kan också använda den ständiga webbläsarsessionen i en villkorlig åtkomst för att förhindra att användare ser KMSI avgör-prompten. Med det här alternativet kan du inaktivera KMSI avgör-prompten för en grupp användare (till exempel globala administratörer) utan att påverka inloggnings beteendet för återstående användare i katalogen. Mer information finns i [användar inloggnings frekvens](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+Du kan också använda den ständiga webbläsarsessionen i en villkorlig åtkomst för att förhindra att användare ser KMSI avgör-prompten. Med det här alternativet kan du inaktivera KMSI avgör-prompten för en grupp användare (till exempel globala administratörer) utan att påverka inloggnings beteendet för återstående användare i katalogen. Mer information finns i [användar inloggnings frekvens](../conditional-access/howto-conditional-access-session-lifetime.md). 
 
 För att säkerställa att KMSI avgör-prompten bara visas när den kan dra nytta av användaren, visas inte KMSI avgör-prompten avsiktligt i följande scenarier:
 
@@ -72,6 +72,6 @@ För att säkerställa att KMSI avgör-prompten bara visas när den kan dra nytt
 
 Läs om andra inställningar som påverkar timeout för inloggnings sessioner:
 
-* Microsoft 365 – [tids gräns för inaktiv session](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Villkorlig åtkomst för Azure AD – [användar inloggnings frekvens](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Azure Portal – [tids gräns för inaktivitet på katalog nivå](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365 – [tids gräns för inaktiv session](/sharepoint/sign-out-inactive-users)
+* Villkorlig åtkomst för Azure AD – [användar inloggnings frekvens](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Azure Portal – [tids gräns för inaktivitet på katalog nivå](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

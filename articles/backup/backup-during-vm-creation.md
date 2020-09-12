@@ -3,12 +3,12 @@ title: Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en virtuell Azure-dator med Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892311"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377343"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -26,14 +26,14 @@ Om du inte redan har loggat in på ditt konto loggar du in på [Azure Portal](ht
 
 ## <a name="create-a-vm-with-backup-configured"></a>Skapa en virtuell dator med säkerhets kopia konfigurerad
 
-1. Klicka på **skapa en resurs**i Azure Portal.
+1. I Azure Portal väljer du **skapa en resurs**.
 
-2. I Azure Marketplace klickar du på **Compute**och väljer sedan en avbildning av en virtuell dator.
+2. Välj **Compute**i Azure Marketplace och välj sedan en avbildning av en virtuell dator.
 
 3. Konfigurera den virtuella datorn i enlighet med [Windows](../virtual-machines/windows/quick-create-portal.md) -eller [Linux](../virtual-machines/linux/quick-create-portal.md) -instruktionerna.
 
-4. Klicka på **på**fliken **hantering** i **Aktivera säkerhets kopiering**.
-5. Azure Backup säkerhets kopieringar till ett Recovery Services-valv. Klicka på **Skapa nytt** om du inte har ett befintligt valv.
+4. På fliken **hantering** , i **Aktivera säkerhets kopiering**, väljer du **på**.
+5. Azure Backup säkerhets kopieringar till ett Recovery Services-valv. Välj **Skapa nytt** om du inte har ett befintligt valv.
 6. Acceptera det föreslagna valv namnet eller ange ditt eget.
 7. Ange eller skapa en resurs grupp där valvet ska placeras. Resurs grupps valvet kan skilja sig från resurs gruppen för den virtuella datorn.
 
@@ -76,8 +76,8 @@ Säkerhets kopian av den virtuella datorn kommer att köras enligt säkerhets ko
 
 När den virtuella datorn har skapats gör du följande:
 
-1. I egenskaperna för den virtuella datorn klickar du på **säkerhetskopiera**. VM-statusen är den första säkerhets kopieringen väntar tills den första säkerhets kopieringen körs
-2. Klicka på **Säkerhetskopiera nu** för att köra en säkerhets kopiering på begäran.
+1. I VM-egenskaperna väljer du **säkerhets kopiering**. VM-statusen är den första säkerhets kopieringen väntar tills den första säkerhets kopieringen körs.
+2. Välj **Säkerhetskopiera nu** för att köra en säkerhets kopiering på begäran.
 
     ![Köra en säkerhets kopiering på begäran](./media/backup-during-vm-creation/run-backup.png)
 

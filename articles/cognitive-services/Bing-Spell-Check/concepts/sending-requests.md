@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832550"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299124"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Skicka förfrågningar till API:et för stavningskontroll i Bing
 
@@ -42,7 +42,7 @@ En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](ht
 
 Vid anrop till API för stavningskontroll i Bing via JavaScript kan det hända att webbläsarens inbyggda säkerhetsfunktioner förhindrar dig att komma åt värdena för de här rubrikerna.
 
-Du kan lösa det här problemet genom att göra begäran för API för stavningskontroll i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+Du kan lösa det här problemet genom att göra begäran för API för stavningskontroll i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som filtrerar svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att [självstudieappen](../tutorials/spellcheck.md) får åtkomst till valfria klientrubriker. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i en kommandotolk.
 

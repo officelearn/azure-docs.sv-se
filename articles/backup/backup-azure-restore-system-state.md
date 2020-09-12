@@ -3,12 +3,12 @@ title: Återställa system tillstånd till en Windows-Server
 description: Steg för steg-förklaringar för återställning av Windows Server-systemtillstånd från en säkerhets kopia i Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178594"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377445"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -56,7 +56,7 @@ Följande steg beskriver hur du återställer din Windows Server-konfiguration t
 
 8. Kontrol lera informationen om återställningen i **bekräftelse** fönstret och välj **Återställ**.
 
-   ![Klicka på Återställ för att bekräfta åtgärden för att återställa](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Välj Återställ för att bekräfta åtgärden för att återställa](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Kopiera *WindowsImageBackup* -katalogen på återställnings målet till en icke-kritisk volym på servern. Normalt är Windows OS-volymen den kritiska volymen.
 
@@ -88,7 +88,7 @@ Den terminologi som används i dessa steg omfattar:
 6. I fönstret Välj säkerhets kopierings server väljer du *käll datorn* i listan med datorer som visas.
 7. I fönstret Välj återställnings läge väljer du **system tillstånd** och **sedan nästa**.
 
-    ![Sök](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. I kalendern i fönstret **Välj volym och datum** väljer du en återställnings punkt. Du kan återställa från vilken återställnings punkt som helst. Datum i **fetstil** anger tillgänglighet för minst en återställnings punkt. När du har valt ett datum, om det finns flera återställnings punkter, väljer du den aktuella återställnings punkten från den nedrullningsbara menyn **tid** .
 

@@ -3,12 +3,12 @@ title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002019"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378465"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
 
@@ -36,7 +36,7 @@ Med funktionen offline-seeding i Azure Backup och tjänsten Azure import/export 
 > * SATA-enheterna skickas sedan till närmaste Azure-datacenter.
 > * När överföringen av säkerhets kopierings data till Azure är färdig Azure Backup kopierar säkerhetskopierade data till säkerhets kopierings valvet och de stegvisa säkerhets kopiorna schemaläggs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet offline-säkerhetskopiering:
 
@@ -51,10 +51,10 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 * Skapa ett Azure Storage-konto i samma prenumeration som Recovery Services-valvet.
 * Kontrol lera att du har de [behörigheter som krävs](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa Azure Active Directory-programmet. Arbets flödet offline-säkerhetskopiering skapar ett Azure Active Directory-program i prenumerationen som är kopplad till Azure Storage kontot. Målet med programmet är att tillhandahålla Azure Backup med säker och begränsad åtkomst till Azure import-tjänsten som krävs för arbets flödet offline-säkerhetskopiering.
 * Registrera Microsoft. ImportExport-resurs leverantören med prenumerationen som innehåller det Azure Storage kontot. Så här registrerar du resurs leverantören:
-    1. Klicka på **prenumerationer**i huvud menyn.
+    1. I huvud menyn väljer du **prenumerationer**.
     2. Om du prenumererar på flera prenumerationer väljer du den prenumeration som du använder för säkerhets kopiering offline. Om du bara använder en prenumeration visas din prenumeration.
-    3. I menyn prenumeration klickar du på **resurs leverantörer** för att visa listan över leverantörer.
-    4. I listan över providers bläddrar du ned till Microsoft. ImportExport. Om statusen är NotRegistered klickar du på **Registrera**.
+    3. I menyn prenumeration väljer du **resurs leverantörer** för att visa listan över leverantörer.
+    4. I listan över providers bläddrar du ned till Microsoft. ImportExport. Om statusen är NotRegistered väljer du **Registrera**.
 
        ![Resurs leverantören registreras](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
 
 ## <a name="initiate-offline-backup"></a>Starta säkerhets kopiering offline
 
-1. När du skapar en ny skydds grupp med onlineskydd eller lägger till onlineskydd i befintlig skydds grupp visas följande skärm. Om du vill välja inledande routningsmetod för replikering väljer du **överför med min egen disk** och klickar på **Nästa**.
+1. När du skapar en ny skydds grupp med onlineskydd eller lägger till onlineskydd i befintlig skydds grupp visas följande skärm. Om du vill välja inledande metod för replikering online väljer du **överför med min egen disk** och väljer **Nästa**.
 
     ![Sidan importera](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ I följande procedur uppdateras leverans informationen för Azure import-jobbet.
 * returnera leverans information för dina diskar
 
    1. Logga in på din Azure-prenumeration.
-   2. Klicka på **alla tjänster** i huvud menyn och skriv import i dialog rutan alla tjänster. När du ser **import/export-jobb**klickar du på den.
+   2. I huvud menyn väljer du **alla tjänster** och i dialog rutan alla tjänster skriver du import. När du ser **import/export-jobb**väljer du det.
        ![Ange leverans information](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        Listan över **import/export-jobb** -menyn öppnas och listan över alla import/export-jobb i den valda prenumerationen visas.
@@ -169,11 +169,11 @@ I följande procedur uppdateras leverans informationen för Azure import-jobbet.
 
        ![Granska skeppnings information](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. På menyn Inställningar för import jobbet klickar du på **Hantera skeppnings information** och anger information om retur leveranser.
+   4. På menyn Inställningar för import jobbet väljer du **Hantera skeppnings information** och anger information om retur leveranser.
 
        ![Lagra skeppnings information](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. När du har spårnings numret från transport företaget klickar du på banderollen på översikts sidan för Azure import jobb och anger följande information:
+   5. När du har spårnings numret från transport företaget väljer du banderollen på sidan Översikt för Azure import jobb och anger följande information:
 
       > [!IMPORTANT]
       > Se till att informationen som operatör och spårningsnummer uppdateras inom två veckor efter det att importjobb skapats i Azure. Om du inte verifierar informationen inom två veckor kan det leda till att jobbet tas bort och att enheterna inte bearbetas.

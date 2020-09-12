@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f004be0afc6c73fdabe57e568cd57b51e9abcc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037567"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299690"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure våren Cloud CI/CD med GitHub-åtgärder
 
 GitHub-åtgärder har stöd för ett arbets flöde för automatisk program varu utvecklings livs cykel. Med GitHub-åtgärder för Azure våren Cloud kan du skapa arbets flöden i din lagrings plats för att skapa, testa, paketera, lansera och distribuera dem till Azure. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Det här exemplet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Konfigurera GitHub-lagringsplatsen och autentisera
@@ -164,7 +164,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Distribuera med maven-plugin-programmet
-Ett annat alternativ är att använda [maven-plugin-programmet](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) för att distribuera jar-och uppdaterings inställningarna för appen. Kommandot `mvn azure-spring-cloud:deploy` är idempotenta och kommer automatiskt att skapa appar om det behövs. Du behöver inte skapa motsvarande appar i förväg.
+Ett annat alternativ är att använda [maven-plugin-programmet](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) för att distribuera jar-och uppdaterings inställningarna för appen. Kommandot `mvn azure-spring-cloud:deploy` är idempotenta och kommer automatiskt att skapa appar om det behövs. Du behöver inte skapa motsvarande appar i förväg.
 
 ```
 name: AzureSpringCloud

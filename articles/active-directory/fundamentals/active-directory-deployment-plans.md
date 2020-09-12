@@ -12,14 +12,14 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f85d4203c0fe3978f776b418ab6d7850061416c
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605372"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318435"
 ---
-# <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
+# <a name="azure-active-directory-deployment-plans"></a>Distributionsplaner för Azure Active Directory
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
 
 Från någon av plan sidorna använder du webbläsarens utskrifts-till-PDF-funktion för att skapa en uppdaterad offline-version av dokumentationen.
@@ -81,7 +81,7 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 | -| -|
 | [ADFS till hash-synkronisering av lösenord](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD, vilket gör att Azure AD kan autentisera användare utan interaktion med den lokala Active Directory |
 | [ADFS till Pass Through Authentication](../hybrid/plan-migrate-adfs-pass-through-authentication.md) (Passeringsautentisering)| Med Azure AD-direktautentisering kan användarna logga in i både lokala och molnbaserade program med samma lösen ord. Den här funktionen ger användarna en bättre upplevelse – ett mindre lösen ord att komma ihåg – och minskar kostnaderna för IT-supportavdelningen eftersom det är mindre troligt att de glömmer att logga in. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory. |
-| [Azure-AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). |
+| [Azure-AD-programproxy](../manage-apps/application-proxy-deployment-plan.md) |I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). |
 | [Sömlös enkel inloggning](../hybrid/how-to-connect-sso-quick-start.md)| Sömlös enkel inloggning med Azure Active Directory (sömlös SSO med Azure AD) loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket. Med den här funktionen behöver användarna inte ange sina lösen ord för att logga in på Azure AD och behöver vanligt vis inte ange sina användar namn. Den här funktionen ger auktoriserade användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuera användar etablering

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181382"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298903"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -58,6 +58,13 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
     * För app-registreringen: en *Azure AD Application svars-URL* för Azure AD-programmet. Använd `http://localhost`. Skriptet konfigurerar en *offentlig klient/ursprunglig-URI (mobile & Desktop)* för den.
 
 Skriptet skapar en Azure Digital-instansen, tilldelar din Azure-användare rollen *Azure Digitals-ägare (för hands version)* på instansen och konfigurerar en Azure AD-App-registrering för din klient app som ska användas.
+
+>[!NOTE]
+>Det finns för närvarande ett **känt problem** med skript konfiguration, där vissa användare (särskilt användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account)) kan hitta **roll tilldelningen till _Azure Digitals-ägare (förhands granskning)_ har inte skapats**.
+>
+>Du kan kontrol lera roll tilldelningen med avsnittet [*Verifiera tilldelning av användar roll*](#verify-user-role-assignment) senare i den här artikeln och, om det behövs, konfigurera roll tilldelningen manuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) eller [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Mer information om det här problemet finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Här är ett utdrag från utmatnings loggen från skriptet:
 
@@ -127,5 +134,9 @@ Kontrol lera först att inställningarna för Azure Digitals-inställningar för
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
+Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
+* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
+
+Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
 * [*Instruktion: skriva kod för app-autentisering*](how-to-authenticate-client.md)

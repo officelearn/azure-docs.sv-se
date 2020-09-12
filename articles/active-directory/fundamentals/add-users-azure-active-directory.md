@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797108"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321097"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare med hjälp av Azure Active Directory
 
@@ -60,7 +60,7 @@ Användaren skapas och läggs till i din Azure AD-organisation.
 
 ## <a name="add-a-new-guest-user"></a>Lägg till en ny gäst användare
 
-Du kan också bjuda in nya gäst användare att samar beta med din organisation genom att välja **Bjud in användare** från sidan **ny användare** . Om din organisations inställningar för externt samarbete har kon figurer ATS så att du får bjuda in gäster, skickas användaren via e-post till en inbjudan som de måste acceptera för att börja samar beta. Mer information om att bjuda in B2B-samarbets användare finns i [Bjud in B2B-användare till Azure Active Directory](../b2b/add-users-administrator.md)
+Du kan också bjuda in nya gäst användare att samar beta med din organisation genom att välja **Bjud in användare** från sidan **ny användare** . Om din organisations inställningar för externt samarbete har kon figurer ATS så att du får bjuda in gäster, skickas användaren via e-post till en inbjudan som de måste acceptera för att börja samar beta. Mer information om att bjuda in B2B-samarbets användare finns i [Bjud in B2B-användare till Azure Active Directory](../external-identities/add-users-administrator.md)
 
 ## <a name="add-a-consumer-user"></a>Lägg till en konsument användare
 
@@ -105,4 +105,4 @@ När du har lagt till dina användare kan du göra följande grundläggande proc
 
 - [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
 
-Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../b2b/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).
+Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../external-identities/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).

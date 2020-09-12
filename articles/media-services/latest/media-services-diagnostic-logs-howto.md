@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 837113c11f24eda91a62cc68fdc68180951eee16
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269464"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297645"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
@@ -29,7 +29,7 @@ Med [Azure Monitor](../../azure-monitor/overview.md) kan du övervaka mått och 
 
 Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan visar data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](./create-account-howto.md).
 - Granska  [övervaknings Media Services statistik och diagnostikloggar](media-services-metrics-diagnostic-logs.md).

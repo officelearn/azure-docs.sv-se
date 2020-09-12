@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: fb76f7897b9647a688e21993002f9c96fe9487f8
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 45f892064d0910029db37c56f731a072a6c7514e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046756"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299617"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Strömma apploggar för Azure Spring Cloud i realtid
 Azure våren Cloud gör det möjligt att logga strömning i Azure CLI för att få real tids program konsol loggar för fel sökning. Du kan också [Analysera loggar och mått med diagnostikinställningar](./diagnostic-services.md).
@@ -20,7 +20,7 @@ Azure våren Cloud gör det möjligt att logga strömning i Azure CLI för att f
 ## <a name="prerequisites"></a>Krav
 
 * Installera [Azure CLI-tillägget](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) för våren Cloud, lägsta version 0.2.0.
-* En instans av **Azure våren Cloud** med ett program som körs, till exempel [våren Cloud App](./spring-cloud-quickstart-launch-app-cli.md).
+* En instans av **Azure våren Cloud** med ett program som körs, till exempel [våren Cloud App](./spring-cloud-quickstart.md).
 
 > [!NOTE]
 >  ASC CLI-tillägget har uppdaterats från version 0.2.0 till 0.2.1. Den här ändringen påverkar syntaxen för kommandot för logg strömning: `az spring-cloud app log tail` , som ersätts av: `az spring-cloud app logs` . Kommandot: `az spring-cloud app log tail` kommer att bli inaktuellt i en framtida version. Om du har använt version 0.2.0 kan du uppgradera till 0.2.1. Ta först bort den gamla versionen med kommandot: `az extension remove -n spring-cloud` .  Installera sedan 0.2.1 med kommandot: `az extension add -n spring-cloud` .

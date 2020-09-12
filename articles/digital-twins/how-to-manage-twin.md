@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796960"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297475"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -166,7 +166,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern
-* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
+* Andra egenskaper i ett `$metadata` avsnitt. Dessa omfattar:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -381,6 +381,8 @@ Ett exempel på hur du tar bort alla dubbla på en gång finns i den exempel app
 ## <a name="manage-twins-with-cli"></a>Hantera dubbla med CLI
 
 Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

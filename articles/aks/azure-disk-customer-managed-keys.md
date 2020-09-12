@@ -3,39 +3,25 @@ title: Använd en kundhanterad nyckel för att kryptera Azure-diskar i Azure Kub
 description: Ta med dina egna nycklar (BYOK) för att kryptera AKS OS-och data diskar.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796892"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297764"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
 
-Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange [Kundhanterade nycklar][customer-managed-keys] som ska användas för kryptering i vila för både operativ systemet och data diskarna för dina AKS-kluster.
+Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange Kundhanterade nycklar som ska användas för kryptering i vila för både operativ systemet och data diskarna för dina AKS-kluster. Lär dig mer om Kundhanterade nycklar i [Linux][customer-managed-keys-linux] och [Windows][customer-managed-keys-windows].
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="limitations"></a>Begränsningar
+* Stöd för data disk kryptering är begränsat till AKS-kluster som kör Kubernetes version 1,17 och senare.
+* Det går bara att aktivera kryptering av operativ system och data diskar med Kundhanterade nycklar när du skapar ett AKS-kluster.
 
-* Den här artikeln förutsätter att du skapar ett *nytt AKS-kluster*.
-
+## <a name="prerequisites"></a>Krav
 * Du måste aktivera mjuk borttagning och tömning av skydd för *Azure Key Vault* när du använder Key Vault för att kryptera hanterade diskar.
-
-* Du behöver Azure CLI-version 2.0.79 eller senare och 0.4.26-tillägget AKS-Preview
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Installera det senaste AKS CLI Preview-tillägget
-
-Om du vill använda Kundhanterade nycklar behöver du *AKS-Preview CLI-* tillägg version 0.4.26 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* Du behöver Azure CLI-version 2.11.1 eller senare.
 
 ## <a name="create-an-azure-key-vault-instance"></a>Skapa en Azure Key Vault-instans
 
@@ -155,11 +141,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="limitations"></a>Begränsningar
-
-* Data disk kryptering som stöds med Kubernetes version 1,17 och senare
-* Kryptering med Kundhanterade nycklar för närvarande endast för nya AKS-kluster, går det inte att uppgradera befintliga kluster
-
 ## <a name="next-steps"></a>Nästa steg
 
 Granska [metod tips för AKS kluster säkerhet][best-practices-security]
@@ -171,6 +152,7 @@ Granska [metod tips för AKS kluster säkerhet][best-practices-security]
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

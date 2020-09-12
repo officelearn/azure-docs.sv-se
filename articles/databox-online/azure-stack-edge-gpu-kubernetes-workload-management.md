@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268046"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318989"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Kubernetes arbets belastnings hantering på din Azure Stack Edge-enhet
 
@@ -47,7 +47,7 @@ Det finns tre huvudsakliga sätt att distribuera dina arbets belastningar. Med v
 
 ![Kubernetes arbets belastnings distribution](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Lokal distribution**: det här är via kommando rads verktyget åtkomst verktyg, till exempel `kubectl` som gör att du kan distribuera Kubernetes `yamls` . Du ansluter till Kubernetes-klustret på Azure Stack Edge som du skapar med hjälp av `kubeconfig` filen. Mer information finns i [komma åt ett Kubernetes-kluster via kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Lokal distribution**: den här distributionen sker via kommando rads verktyget för åtkomst, t. ex. så `kubectl` att du kan distribuera Kubernetes `yamls` . Du kommer åt Kubernetes-klustret på din Azure Stack Edge via en `kubeconfig` fil. Mer information finns i [komma åt ett Kubernetes-kluster via kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - **IoT Edge distribution**: det här är via IoT Edge, som ansluter till Azure-IoT Hub. Du ansluter till Kubernetes-klustret på din Azure Stack Edge-enhet via `iotedge` namn området. De IoT Edge agenter som distribueras i det här namn området ansvarar för anslutning till Azure. Du tillämpar `IoT Edge deployment.json` konfigurationen med Azure DEVOPS CI/CD. Hantering av namn områden och IoT Edge görs via moln operatören.
 
@@ -59,9 +59,9 @@ Tänk på följande information när du distribuerar program:
 
 - En **eller flera typer**: du kan välja ett enda distributions alternativ eller en blandning av olika distributions alternativ.
 - **Molnet och lokalt**: beroende på dina program kan du välja lokal distribution via kubectl eller moln distribution via IoT Edge och Azure-bågen. 
-    - Lokal distribution passar bättre för utvecklings scenarier. När du väljer en lokal distribution begränsas nätverket där Azure Stack Edge-enheten distribueras.
+    - När du väljer en lokal distribution begränsas nätverket där Azure Stack Edge-enheten distribueras.
     - Om du har en moln agent som du kan distribuera bör du distribuera din moln operatör och använda moln hantering.
-- **IoT vs Azure Arc**: valet av distribution beror också på syftet med ditt produkt scenario. Om du distribuerar program eller behållare som har djupare integrering med IoT eller IoT eko system, bör du välja IoT Edge sätt att distribuera program. Om du har befintliga Kubernetes-distributioner är Azure Arc det bästa valet.
+- **IoT vs Azure Arc**: valet av distribution beror också på syftet med ditt produkt scenario. Om du distribuerar program eller behållare som har djupare integrering med IoT eller IoT eko system väljer du IoT Edge för att distribuera dina program. Om du har befintliga Kubernetes-distributioner är Azure Arc det bästa valet.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -76,4 +76,4 @@ Om du vill distribuera en app via IoT Edge, se:
 
 Information om hur du distribuerar en app via Azure Arc finns i:
 
-- [Distribuera ett program med Azure-båge](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Distribuera ett program med Azure-båge](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).

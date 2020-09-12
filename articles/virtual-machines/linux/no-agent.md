@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045339"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322559"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Skapa generaliserade avbildningar utan en etablerings agent
 
@@ -174,7 +174,7 @@ Om den virtuella datorn inte har python installerat eller tillgängligt kan du �
    </Health>
    ```
 
-3. Publicera dessa data till WireServer:`curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. Publicera dessa data till WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 
 ### <a name="automating-running-the-code-at-first-boot"></a>Automatisera körningen av koden vid första starten
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Den här system tjänsten gör tre saker för grundläggande etablering:
 
 1. Rapporter som är klara för Azure (för att visa att den har slutförts).
-1. Byter namn på den virtuella datorn baserat på det användardefinierade VM-namnet genom att hämta dessa data från IMDS.
+1. Byter namn på den virtuella datorn baserat på det användardefinierade VM-namnet genom att hämta dessa data från [Azure instance metadata service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Obs!** IMDS innehåller också andra [metadata för instans](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), till exempel offentliga SSH-nycklar, så att du kan ange fler än värd namnet.
 1. Inaktiverar sig själv så att de bara körs vid första starten och inte vid efterföljande omstarter.
 
 Använd enheten i fil systemet och kör följande för att aktivera det:

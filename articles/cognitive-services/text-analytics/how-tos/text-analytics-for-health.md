@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167699"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300076"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gör så här: använda Textanalys för hälsa (för hands version)
 
@@ -91,7 +91,7 @@ Det finns flera sätt att installera och köra behållaren.
 Azure [Web App for containers](https://azure.microsoft.com/services/app-service/containers/) är en Azure-resurs som är dedikerad till att köra behållare i molnet. Den innehåller färdiga funktioner som autoskalning, stöd för Docker-behållare och Docker-form, HTTPS-stöd och mycket mer.
 
 > [!NOTE]
-> Med hjälp av Azure Web App får du automatiskt en domän i form av`<appservice_name>.azurewebsites.net`
+> Med hjälp av Azure Web App får du automatiskt en domän i form av `<appservice_name>.azurewebsites.net`
 
 Kör det här PowerShell-skriptet med Azure CLI för att skapa en Web App for Containers med hjälp av din prenumeration och behållar avbildningen över HTTPS. Vänta tills skriptet har slutförts (cirka 25-30 minuter) innan du skickar den första begäran.
 
@@ -161,11 +161,11 @@ Som standard tillhandahålls ingen säkerhet när du använder ACI med container
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Konfigurera NGINX som en ingress-Gateway
 
-NGINX använder [konfigurationsfiler](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) för att aktivera funktioner vid körning. För att aktivera TLS-avslutning för en annan tjänst måste du ange ett SSL-certifikat för att avsluta TLS-anslutningen och `proxy_pass` Ange en adress för tjänsten. Ett exempel anges nedan.
+NGINX använder [konfigurationsfiler](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) för att aktivera funktioner vid körning. För att aktivera TLS-avslutning för en annan tjänst måste du ange ett SSL-certifikat för att avsluta TLS-anslutningen och  `proxy_pass` Ange en adress för tjänsten. Ett exempel anges nedan.
 
 
 > [!NOTE]
-> `ssl_certificate`förväntar sig att en sökväg anges i NGINX-behållarens lokala fil system. Den angivna adressen `proxy_pass` måste vara tillgänglig i nginx-behållarens nätverk.
+> `ssl_certificate` förväntar sig att en sökväg anges i NGINX-behållarens lokala fil system. Den angivna adressen `proxy_pass` måste vara tillgänglig i nginx-behållarens nätverk.
 
 NGINX-behållaren läser in alla filer i `_.conf_` som är monterade under `/etc/nginx/conf.d/` i http-konfigurationen.
 
@@ -399,22 +399,19 @@ Utmatningen för Relations extrahering innehåller URI-referenser till relatione
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]

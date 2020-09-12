@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025395"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318417"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktion
 
@@ -26,7 +26,7 @@ En välplanerad och utförd identitets infrastruktur paves det sätt för säker
 
 Dessutom kan kunderna kontrol lera sina [identiteter](identity-secure-score.md) för att se hur justerade de är till Microsofts bästa praxis. Kontrol lera dina säkra poäng innan och efter att du har implementerat rekommendationerna för att se hur väl du jämför med andra i din bransch och andra organisationer av din storlek.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Många av rekommendationerna i den här hand boken kan implementeras med Azure AD Free eller ingen licens alls. Om licenserna krävs får vi tillstånd för vilken licens som krävs för att utföra uppgiften minst.
 
@@ -35,7 +35,7 @@ Ytterligare information om licensiering finns på följande sidor:
 * [Azure AD-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Vägledning för Azure AD B2B-licensiering](../b2b/licensing-guidance.md)
+* [Vägledning för Azure AD B2B-licensiering](../external-identities/licensing-guidance.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>Fas 1: Bygg grunden för säkerhet
 
@@ -47,7 +47,7 @@ I den här fasen aktiverar administratörer grundläggande säkerhets funktioner
 | [Använd icke-globala administrativa roller där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. | Azure AD Kostnadsfri |
 | [Aktivera Privileged Identity Management för spårning av administratörs roll användning](../privileged-identity-management/pim-getting-started.md) | Aktivera Privileged Identity Management för att börja spåra användning av administrativ roll. | Azure AD Premium P2 |
 | [Lansera självåterställning av lösenord](../authentication/howto-sspr-deployment.md) | Minska support samtalen för lösen ords återställning genom att låta personalen återställa sina egna lösen ord med hjälp av principer som administratörs behörighet. | |
-| [Skapa en anpassad lista över blockerade lösen ord för organisationen](../authentication/howto-password-ban-bad-configure.md) | Hindra användare från att skapa lösen ord som innehåller vanliga ord eller fraser från din organisation eller ditt områden. | |
+| [Skapa en anpassad lista över blockerade lösen ord för organisationen](../authentication/tutorial-configure-custom-password-protection.md) | Hindra användare från att skapa lösen ord som innehåller vanliga ord eller fraser från din organisation eller ditt områden. | |
 | [Aktivera lokal integrering med Azure AD Password Protection](../authentication/concept-password-ban-bad-on-premises.md) | Utöka listan över förbjudna lösen ord till din lokala katalog för att säkerställa att lösen ord som angetts lokalt också är kompatibla med listorna globala och klient-/regionsspecifika förbjudna lösen ord. | Azure AD Premium P1 |
 | [Aktivera Microsofts lösen Ords vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Sluta kräva att användarna ändrar sitt lösen ord enligt ett schema, inaktiverar komplexitets kraven och att användarna är mer Apta för att komma ihåg sina lösen ord och se till att de är säkra. | Azure AD Kostnadsfri |
 | [Inaktivera regelbunden återställning av lösen ord för molnbaserade användar konton](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Regelbundna lösen ords återställning uppmanar användarna att öka sina befintliga lösen ord. Använd rikt linjerna i Microsofts rikt linjer för lösen Ords vägledning och spegla din lokala princip till endast molnbaserade användare. | Azure AD Kostnadsfri |
@@ -65,12 +65,12 @@ Därefter lägger vi till den grund som anges i fas 1 genom att importera våra 
 
 | Uppgift | Detalj | Nödvändig licens |
 | ---- | ------ | ---------------- |
-| [Installera Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Förbered för att synkronisera användare från din befintliga lokala katalog till molnet. | Azure AD Kostnadsfri |
-| [Implementera hash-synkronisering av lösen ord](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synkronisera lösen ords-hashar för att tillåta att lösen ords ändringar replikeras, felaktig identifiering av lösen ord och reparation och läckta autentiseringsuppgifter rapporteras. | Azure AD Kostnadsfri |
-| [Implementera tillbakaskrivning av lösen ord](../authentication/howto-sspr-writeback.md) | Tillåt att lösen ords ändringar i molnet skrivs tillbaka till en lokal Windows Server Active Directory-miljö. | Azure AD Premium P1 |
-| [Implementera Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Aktivera övervakning av statistik för viktiga hälso tillstånd för dina Azure AD Connect-servrar, AD FS-servrar och domänkontrollanter. | Azure AD Premium P1 |
+| [Installera Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | Förbered för att synkronisera användare från din befintliga lokala katalog till molnet. | Azure AD Kostnadsfri |
+| [Implementera hash-synkronisering av lösen ord](../hybrid/how-to-connect-password-hash-synchronization.md) | Synkronisera lösen ords-hashar för att tillåta att lösen ords ändringar replikeras, felaktig identifiering av lösen ord och reparation och läckta autentiseringsuppgifter rapporteras. | Azure AD Kostnadsfri |
+| [Implementera tillbakaskrivning av lösen ord](../authentication/tutorial-enable-sspr-writeback.md) | Tillåt att lösen ords ändringar i molnet skrivs tillbaka till en lokal Windows Server Active Directory-miljö. | Azure AD Premium P1 |
+| [Implementera Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Aktivera övervakning av statistik för viktiga hälso tillstånd för dina Azure AD Connect-servrar, AD FS-servrar och domänkontrollanter. | Azure AD Premium P1 |
 | [Tilldela licenser till användare efter grupp medlemskap i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Spara tid och ansträngning genom att skapa licens grupper som aktiverar eller inaktiverar funktioner efter grupp i stället för att ställa in per användare. | |
-| [Skapa en plan för åtkomst till gäst användare](../b2b/what-is-b2b.md) | Samar beta med gäst användare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, skol-eller sociala identiteter. | [Vägledning för Azure AD B2B-licensiering](../b2b/licensing-guidance.md) |
+| [Skapa en plan för åtkomst till gäst användare](../external-identities/what-is-b2b.md) | Samar beta med gäst användare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, skol-eller sociala identiteter. | [Vägledning för Azure AD B2B-licensiering](../external-identities/licensing-guidance.md) |
 | [Bestäm strategi för enhets hantering](../devices/overview.md) | Bestäm vad din organisation tillåter för enheter. Registrera vs-anslutning, ta med din egen enhet kontra företaget. | |
 | [Distribuera Windows Hello för företag i din organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Förbered för lösenordsbaserad autentisering med Windows Hello | |
 | [Distribuera autentiseringsmetoder för lösen ord för dina användare](../authentication/concept-authentication-passwordless.md) | Ge dina användare med praktiska metoder för lösen ords kryptering | Azure AD Premium P1 |
@@ -101,6 +101,6 @@ Fas 4 ser att administratörer tillämpar principer för minsta behörighet för
 
 [Azure AD-licensiering och pris information](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Konfigurationer för identitets- och enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+[Konfigurationer för identitets- och enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-[Vanliga rekommenderade identitets-och enhets åtkomst principer](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)
+[Vanliga rekommenderade identitets-och enhets åtkomst principer](/microsoft-365/enterprise/identity-access-policies)

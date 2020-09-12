@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: dba0f82ced5500dc85c3254bea6a2a0066770b1e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265668"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298206"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll
 
@@ -141,7 +141,7 @@ I följande tabell visas mappningen.
 | **Arbets flöde för DRM-skydd** |Azure Media Services dynamiskt skydd |
 | **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licens Server <br/>* Anpassad PlayReady-licensserver |
 | **Kommer** |Slut punkt för Azure Media Services strömning |
-| **Nyckel hantering** |Krävs inte för referens implementering |
+| **Nyckelhantering** |Krävs inte för referens implementering |
 | **Innehållshantering** |Ett C#-konsol program |
 
 Med andra ord tillhandahålls både IDP och STS av Azure AD. [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) : t används för spelaren. Både Azure Media Services och Azure Media Player stöd för CENC över streck, FairPlay över HLS, PlayReady över smidig strömning och AES-128-kryptering för streck, HLS och smidighet.

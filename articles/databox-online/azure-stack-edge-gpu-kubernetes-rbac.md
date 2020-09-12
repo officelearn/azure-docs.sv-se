@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 697c686b61a86cb01327364ad73f30f88e2e151d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 285a41230175392dafb69a99ca08be1f72339439
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268082"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318972"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Kubernetes rollbaserade Access Control på din Azure Stack Edge-GPU-enhet
 
@@ -32,10 +32,7 @@ När du konfigurerar Kubernetes-klustret skapas en enskild användare som motsva
 
 Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i ett namn område. Dessa grupperingar ger ett sätt att logiskt dela upp ett Kubernetes-kluster och begränsa åtkomsten till att skapa, Visa eller hantera resurser. Användare kan bara interagera med resurser inom de tilldelade namn områdena.
 
-Namn områden är avsedda att användas i miljöer med många användare som sprids över flera team eller projekt. För kluster med några få till användare behöver du inte skapa eller tänka på namn områden alls. Börja använda namnrum när du behöver de funktioner som de tillhandahåller.
-
-Mer information finns i [Kubernetes-namnområden](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
+Namn områden är avsedda att användas i miljöer med många användare som sprids över flera team eller projekt. Mer information finns i [Kubernetes-namnområden](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
 Din Azure Stack Edge-enhet har följande namn rymder:
 
@@ -47,20 +44,18 @@ Din Azure Stack Edge-enhet har följande namn rymder:
     - DBE – namnrymd
     - standard
     - Kubernetes-instrument panel
-    - standard
     - Kube-nod-Lease
     - Kube – offentlig
-    - iotedge
-    - Azure-båg
+
 
     Se till att inte använda reserverade namn för användar namn rymder som du skapar. 
 <!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
 
-- **Användar namn område** – det här är de namn områden som du kan skapa via **kubectl** för att distribuera program lokalt.
+- **Användar namn område** – det här är de namn områden som du kan skapa via **Kubectl** eller via PowerShell-gränssnittet på enheten för att distribuera program lokalt.
  
-- **IoT Edge namnrymd** – du ansluter till det här `iotedge` namn området för att distribuera program via IoT Edge.
+- **IoT Edge namnrymd** – du ansluter till det här `iotedge` namn området för att hantera program som distribueras via IoT Edge.
 
-- **Azure Arc-namnrymd** – du ansluter till det här `azure-arc` namn området för att distribuera program via Azure Arc. 
+- **Azure Arc-namnrymd** – du ansluter till det här `azure-arc` namn området för att hantera program som distribueras via Azure Arc. Med Azure ARC kan du också distribuera program i andra användar namn områden. 
 
 ## <a name="namespaces-and-users"></a>Namn områden och användare
 
@@ -96,7 +91,7 @@ Här är ett diagram som illustrerar implementeringen av RBAC på Azure Stack Ed
 
 I det här diagrammet har Alice, Bob och Klas endast åtkomst till tilldelade användar namn områden, som i det här fallet är `ns1` , `ns2` `ns3` respektive. I dessa namn områden har de administratörs åtkomst. Kluster administratören å andra sidan har administratörs behörighet för system namn rymder och resurser i hela klustret.
 
-Du kan använda `kubectl` kommandon för att skapa namn områden, tilldela användare, tilldela användare eller ladda `kubeconfig` ned filer. Här är ett arbets flöde med hög nivå:
+Du kan använda `kubectl` kommandon för att skapa namn områden och användare, tilldela användare till namn områden eller ladda ned `kubeconfig` filer. Här är ett arbets flöde med hög nivå:
 
 1. Skapa ett namn område och en användare.  
 
@@ -123,7 +118,7 @@ När du arbetar med namn områden och användare på dina Azure Stack Edge-enhet
 - Du kan skapa användar namn rymder och inom dessa namn områden, skapa ytterligare användare och bevilja eller återkalla namn områdes åtkomst till dessa användare.
 - Du får inte skapa några namn rymder med namn som är identiska med de för alla system namn rymder. Namnen på system namn rymder är reserverade.  
 - Du får inte skapa några användar namn rymder med namn som redan används av andra användar namn områden. Om du till exempel har skapat en `test-ns` som du har skapat kan du inte skapa en annan `test-ns` namnrymd.
-- Du får inte skapa användare med namn som redan har reserver ATS. Till exempel `aseuser` är en reserverad kluster administratör och kan inte användas.
+- Du får inte skapa användare med namn som redan har reserver ATS. Till exempel `aseuser` är en reserverad användare och kan inte användas.
 
 
 ## <a name="next-steps"></a>Nästa steg

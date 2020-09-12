@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 90f5c55922a5fafb29a40faf9af719f77c74c6cf
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265651"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297407"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
 
@@ -27,7 +27,7 @@ ms.locfileid: "89265651"
 
 Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK med inloggnings metoden för tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](./create-account-howto.md). Kom ihåg att spara resurs gruppens namn och Media Services konto namnet
 - Installera ett verktyg som du vill använda för .NET-utveckling. Stegen i den här artikeln visar hur du använder [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Du kan använda Visual Studio Code, se [arbeta med C#](https://code.visualstudio.com/docs/languages/csharp). Eller så kan du använda en annan kod redigerare.

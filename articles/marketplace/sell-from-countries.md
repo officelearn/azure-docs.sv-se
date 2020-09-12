@@ -1,0 +1,268 @@
+---
+title: Länder och regioner som stöds
+description: Lista över länder där du kan publicera ett erbjudande på Microsofts kommersiella marknads plats.
+ms.reviewer: nanef
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
+ms.custom: references_regions
+ms.topic: how-to
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 09/02/2020
+ms.openlocfilehash: 393b71e78c59d126b24da2f1fd354ccfadf6825a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323005"
+---
+# <a name="supported-publisher-countries-and-regions"></a>Länder och regioner som stöds
+
+Om du vill publicera ett erbjudande på Microsofts kommersiella marknads plats måste du ha din bostad i något av följande länder eller regioner.
+
+- Afghanistan
+- Åland
+- Albanien
+- Algeriet
+- Amerikanska Samoa
+- Andorra
+- Angola
+- Anguilla
+- Antarktis
+- Antigua och Barbuda
+- Argentina
+- Armenien
+- Aruba
+- Australien
+- Österrike
+- Azerbajdzjan
+- Bahamas
+- Bahrain
+- Bangladesh
+- Barbados
+- Vitryssland
+- Belgien
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Bonaire, Sint Eustatius och Saba
+- Bosnien och Hercegovina
+- Botswana
+- Bouvetön
+- Brasilien
+- Brittiska territoriet i Indiska Oceanen
+- Brittiska Jungfruöarna
+- Brunei
+- Bulgarien
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Kambodja
+- Kamerun
+- Kanada
+- Caymanöarna
+- Centralafrikanska Republiken
+- Tchad
+- Chile
+- Kina
+- Julön
+- Kokosöarna
+- Colombia
+- Komorerna
+- Kongo
+- Kongo (DR)
+- Cooköarna
+- Costa Rica
+- Kroatien
+- Curaçao
+- Cypern
+- Côte D' Ivoire
+- Czechia
+- Danmark
+- Djibouti
+- Dominica
+- Dominikanska republiken
+- Ecuador
+- Egypten
+- El Salvador
+- Ekvatorialguinea
+- Eritrea
+- Estland
+- Etiopien
+- Falklandsöarna
+- Färöarna
+- Fiji
+- Finland
+- Frankrike
+- Franska Guyana
+- Franska Polynesien
+- Franska sydterritorierna
+- Gabon
+- Gambia
+- Georgia
+- Tyskland
+- Ghana
+- Gibraltar
+- Grekland
+- Grönland
+- Grenada
+- Guadeloupe
+- Guam
+- Guatemala
+- Guernsey
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Haiti
+- Heard-och McDonaldöarna
+- Honduras
+- Folkrepubliken Kinas särskilda administrativa region Hongkong
+- Ungern
+- Island
+- Indien
+- Indonesien
+- Irak
+- Irland
+- Isle of Man
+- Israel
+- Italien
+- Jamaica
+- Japan
+- Jersey
+- Jordanien
+- Kazakstan
+- Kenya
+- Kiribati
+- Korea
+- Kosovo
+- Kuwait
+- Kirgizistan
+- Laos
+- Lettland
+- Libanon
+- Lesotho
+- Liberia
+- Libyen
+- Liechtenstein
+- Litauen
+- Luxemburg
+- Folkrepubliken Kinas särskilda administrativa region Macao
+- Madagaskar
+- Malawi
+- Malaysia
+- Maldiverna
+- Mali
+- Malta
+- Marshallöarna
+- Martinique
+- Mauretanien
+- Mauritius
+- Mayotte
+- Mexico
+- Mikronesien
+- Moldavien
+- Monaco
+- Mongoliet
+- Montenegro
+- Montserrat
+- Marocko
+- Moçambique
+- Myanmar
+- Namibia
+- Nauru
+- Nepal
+- Nederländerna
+- Nya Kaledonien
+- Nya Zeeland
+- Nicaragua
+- Niger
+- Nigeria
+- Niue
+- Norfolkön
+- Nordmakedonien
+- Nordmarianerna
+- Norge
+- Oman
+- Pakistan
+- Palau
+- Palestinska myndigheten
+- Panama
+- Papua Nya Guinea
+- Paraguay
+- Peru
+- Filippinerna
+- Pitcairn
+- Polen
+- Portugal
+- Puerto Rico
+- Qatar
+- Rumänien
+- Ryssland
+- Rwanda
+- Réunion
+- Saba
+- Sankt Barthélemy
+- Saint Kitts och Nevis
+- Saint Lucia
+- Saint Martin
+- Saint Pierre och Miquelon
+- Saint Vincent och Grenadinerna
+- Samoa
+- San Marino
+- Saudiarabien
+- Senegal
+- Serbien
+- Seychellerna
+- Sierra Leone
+- Singapore
+- Sint Eustatius
+- Sint Maarten
+- Slovakien
+- Slovenien
+- Solomonöarna
+- Somalia
+- Sydafrika
+- Södra Georgien och Sydsandwichöarna
+- Sydsudan
+- Spanien
+- Sri Lanka
+- Saint Helena, Ascension, Tristan da Cunha
+- Surinam
+- Svalbard och Jan Mayen
+- Swaziland
+- Sverige
+- Schweiz
+- São Tomé och Príncipe
+- Taiwan
+- Tadzjikistan
+- Tanzania
+- Thailand
+- Timor-Leste
+- Togo
+- Tokelau
+- Tonga
+- Trinidad och Tobago
+- Tunisien
+- Turkiet
+- Turkmenistan
+- Turks- och Caicosöarna
+- Tuvalu
+- USA:s yttre öar
+- Amerikanska jungfru öarna
+- Uganda
+- Ukraina
+- Förenade Arabemiraten
+- Storbritannien
+- USA
+- Uruguay
+- Uzbekistan
+- Vanuatu
+- Vatikanstaten
+- Venezuela
+- Vietnam
+- Wallis och Futuna
+- Jemen
+- Zambia
+- Zimbabwe

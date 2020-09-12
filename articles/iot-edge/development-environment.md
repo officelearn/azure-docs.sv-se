@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76511101"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300382"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbered din utvecklings-och test miljö för IoT Edge
 
@@ -82,10 +82,10 @@ Endast IoT Edge runtime stöds för produktions distributioner, men med följand
 
 | Verktyg | Kallas även | Plattformar som stöds | Bäst för |
 | ---- | ------------- | ------------------- | --------- |
-| Verktyget IoT EdgeHub dev  | iotedgehubdev | Windows, Linux, MacOS | Simulera en enhet för att felsöka moduler. |
-| IoT Edge dev-behållare | Microsoft/iotedgedev | Windows, Linux, MacOS | Utveckla utan att installera beroenden. |
-| IoT Edge körning i en behållare | iotedgec | Windows, Linux, MacOS, ARM | Testning på en enhet som kanske inte har stöd för körnings miljön. |
-| Behållare för IoT Edge enhet | toolboc/Azure-IoT-Edge-Device-container | Windows, Linux, MacOS, ARM | Testa ett scenario med många IoT Edge enheter i stor skala. |
+| Verktyget IoT EdgeHub dev  | iotedgehubdev | Windows, Linux, macOS | Simulera en enhet för att felsöka moduler. |
+| IoT Edge dev-behållare | Microsoft/iotedgedev | Windows, Linux, macOS | Utveckla utan att installera beroenden. |
+| IoT Edge körning i en behållare | iotedgec | Windows, Linux, macOS, ARM | Testning på en enhet som kanske inte har stöd för körnings miljön. |
+| Behållare för IoT Edge enhet | toolboc/Azure-IoT-Edge-Device-container | Windows, Linux, macOS, ARM | Testa ett scenario med många IoT Edge enheter i stor skala. |
 
 ### <a name="iot-edgehub-dev-tool"></a>Verktyget IoT EdgeHub dev
 
@@ -103,7 +103,7 @@ Mer information finns i [Azure IoT Edge dev container](https://hub.docker.com/r/
 
 ### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge körning i en behållare
 
-IoT Edge runtime i en behållare ger en fullständig körning som tar din enhets anslutnings sträng som en miljö variabel. Med den här behållaren kan du testa IoT Edge moduler och scenarier på ett system som kanske inte stöder körning av program vara internt, till exempel MacOS. Alla moduler som du distribuerar startas utanför runtime-behållaren. Om du vill att körningen och alla distribuerade moduler ska finnas i samma behållare, bör du överväga IoT Edge enhets behållaren i stället.
+IoT Edge runtime i en behållare ger en fullständig körning som tar din enhets anslutnings sträng som en miljö variabel. Med den här behållaren kan du testa IoT Edge moduler och scenarier på ett system som kanske inte stöder körning av program vara internt, till exempel macOS. Alla moduler som du distribuerar startas utanför runtime-behållaren. Om du vill att körningen och alla distribuerade moduler ska finnas i samma behållare, bör du överväga IoT Edge enhets behållaren i stället.
 
 Mer information finns i [köra Azure IoT Edge i en behållare](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
 
@@ -119,7 +119,7 @@ När du är redo att utveckla lösningar för omfattande produktions scenarier k
 
 Mer information, vägledning och exempel finns i följande sidor:
 
-* [Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge](how-to-ci-cd.md)
-* [Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps Projects](how-to-devops-project.md)
+* [Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
+* [Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps starter](how-to-devops-starter.md)
 * [Azure IoT Edge Jenkins-plugin](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps GitHub lagrings platsen](https://github.com/toolboc/IoTEdge-DevOps)

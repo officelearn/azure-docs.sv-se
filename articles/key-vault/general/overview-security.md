@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault säkerhet | Microsoft Docs
+title: Azure Key Vault-säkerhet
 description: Hantera åtkomst behörigheter för Azure Key Vault, nycklar och hemligheter. Beskriver autentiserings-och auktoriserings modellen för Key Vault och hur du skyddar nyckel valvet.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: edef64c215f96b34cd0efbff4521a7d5adb98885
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870586"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377581"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
 
-Du måste skydda krypterings nycklar och hemligheter som certifikat, anslutnings strängar och lösen ord i molnet så att du använder Azure Key Vault. Eftersom du lagrar känsliga och affärs kritiska data måste du vidta åtgärder för att maximera säkerheten för dina valv och de data som lagras i dem. Den här artikeln beskriver några av de begrepp som du bör tänka på när du utformar din Azure Key Vault säkerhet.
+Du använder Azure Key Vault för att skydda krypterings nycklar och hemligheter som certifikat, anslutnings strängar och lösen ord i molnet. När du lagrar känsliga och affärs kritiska data måste du vidta åtgärder för att maximera säkerheten för dina valv och de data som lagras i dem.
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
@@ -65,7 +64,7 @@ Key Vault åtkomst principer beviljar behörigheter separat till nycklar, hemlig
 > [!IMPORTANT]
 > Key Vault åtkomst principer stöder inte detaljerade behörigheter på objekt nivå som en speciell nyckel, hemlighet eller certifikat. När en användare beviljas behörighet att skapa och ta bort nycklar kan de utföra dessa åtgärder på alla nycklar i nyckel valvet.
 
-Om du vill ange åtkomst principer för ett nyckel valv använder du [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)eller [Key Vault hantering REST-API: er](/rest/api/keyvault/).
+Du kan ställa in åtkomst principer för ett nyckel valv använder [Azure Portal](assign-access-policy-portal.md), [Azure CLI](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md)eller [Key Vault hantering REST-API: er](/rest/api/keyvault/).
 
 Du kan begränsa åtkomsten till data planet genom att använda [tjänst slut punkter för virtuella nätverk för Azure Key Vault](overview-vnet-service-endpoints.md)). Du kan konfigurera [brand väggar och virtuella nätverks regler](network-security.md) för ett extra säkerhets lager.
 
@@ -95,7 +94,7 @@ Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. De
 
 Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../../storage/blobs/security-recommendations.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)

@@ -1,44 +1,43 @@
 ---
 title: Skatte information för Microsoft Commercial Marketplace
 Description: För att förstå dina skatte överväganden för pris val, utbetalnings konsekvenser och skatte ansvar, se dina länder/regioner i tabellerna nedan.
-ms.topic: conceptual
+ms.topic: article
 ms.service: marketplace
-ms.date: 05/04/2020
+ms.date: 09/02/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b0ada7047241e74095fd5b81a261c15295a08737
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 82e70c128b64f0574050c17d5e40509995488666
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319940"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378346"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Skatte information för kommersiella Marketplace-utgivare
 
-För att förstå dina skatte överväganden för pris val och skatte ansvar enligt [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560) eller moderna publicerings avtal, se dina länder/regioner i tabellerna nedan.
+För att förstå dina skatte överväganden för pris val och skatte ansvar enligt [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560) eller moderna publicerings avtal, se dina länder/regioner i följande tabeller.
 
-> [!NOTE]
-> Justeringen av handels expansion kan ha utbetalnings konsekvenser i en begränsad uppsättning länder/regioner. Mer information om anpassningen av Commerce-tillägg och de marknader där det gäller finns i [Microsoft Azure Marketplace Publisher-avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560) och i listan över länder/regioner som påverkas.
+Justeringen av handels expansion kan ha utbetalnings konsekvenser i en begränsad uppsättning länder/regioner. Mer information om anpassningen av Commerce-tillägg och de marknader där det gäller finns i [Microsoft Azure Marketplace Publisher-avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560) och i listan över länder/regioner som påverkas.
 
 > [!IMPORTANT]
 > Skatte ansvars områden för åter försäljar länder/regioner och omständigheter (enligt beskrivningen [nedan](#reseller-countriesregions)) omfattas av ett [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560), trots informationen i tabellen nedan.
 > Observera att kolumnen **utbetalnings indirekt** endast gäller för utgivare. Skatte satser som anges i den här kolumnen kan ändras när som helst, och Microsoft kan inte garantera att priserna i tabellerna nedan alltid är korrekta.
 
-| Land/region                   | Skatte överväganden för pris urval                                                                                                             | Utbetalning indirekt                    | Skatte ansvar |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| Land/region  | Skatte överväganden för pris urval  | Utbetalning indirekt  | Skatte ansvar |
+|---|---|---|---|
 | Afghanistan                      | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Albanien                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Algeriet                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Amerikanska Samoa                   | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Andorra                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
-| Anguilla                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Angola                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
+| Anguilla                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Antarktis                       | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Antigua och Barbuda              | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Argentina                        | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.  | Pris minus butiks avgift  | Publisher          |
 | Armenien                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus 20% skatt, minus lager avgift       | Microsoft          |
 | Aruba                      | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
-| Australien                        | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                             | Pris minus 10% skatt, minus lager avgift             | Microsoft          |
+| Australien                        | Det pris som väljs exkluderar alla tillämpliga skatter. *        | Pris minus butiks avgift *        | Microsoft          |
 | Österrike                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.       | Pris minus 20% skatt, minus lager avgift     | Microsoft          |
 | Azerbajdzjan                       | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Bahamas                      | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
@@ -83,7 +82,7 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 | Kroatien                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.       | Pris minus 25% skatt, minus lager avgift   | Microsoft          |
 | Curaçao                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Cypern                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.       | Pris minus 19% skatt, minus lager avgift  | Microsoft          |
-| Tjeckien                   | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.       | Pris minus 21% skatt, minus lager avgift   | Microsoft        |
+| Czechia                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.       | Pris minus 21% skatt, minus lager avgift   | Microsoft        |
 | Danmark                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.       | Pris minus 25% skatt, minus lager avgift   | Microsoft          |
 | Djibouti                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Dominica                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
@@ -148,7 +147,6 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 | Litauen                        | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.              | Pris minus 21% skatt, minus lager avgift | Microsoft          |
 | Luxemburg                       | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.              | Pris minus 17% skatt, minus lager avgift | Microsoft          |
 | Folkrepubliken Kinas särskilda administrativa region Macao                        | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
-| Makedonien (f.d. jugoslaviska republiken Makedonien)                | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Madagaskar                       | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Malawi                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Malaysia                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
@@ -180,6 +178,7 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 | Nigeria                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Niue                             | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Norfolkön                   | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
+| Nordmakedonien                | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Nordmarianerna         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Norge                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. Skatter subtraheras från priset innan utbetalning.              | Pris minus 25% skatt, minus lager avgift | Microsoft          |
 | Oman                             | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
@@ -241,7 +240,7 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 | Turks- och Caicosöarna         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Tuvalu                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Amerikanska mindre öar i Oceanien      | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
-| Amerikanska Jungfruöarna              | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
+| Amerikanska jungfru öarna              | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Uganda                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Ukraina                          | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Förenade Arabemiraten             | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus 5% skatt, minus butiks avgift                 | Microsoft          |
@@ -258,10 +257,12 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 | Zambia                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 | Zimbabwe                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Publisher          |
 
+\* För köp som görs via alla kund inköps scenarier utom Enterprise-avtal.
+
 Följande gäller endast för Azure Marketplace-utgivare, trots vad som strider mot vad som sägs ovan:
 
-| Land/region                   | Skatte överväganden för pris urval                                                                                                             | Skatte hantering                    |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Land/region | Skatte överväganden för pris urval | Skatte hantering |
+| --- |--- | --- |
 | Australien (för köp som görs via alla kund inköps scenarier utom Enterprise-avtal) | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Microsoft |
 | Australien (endast för köp som görs via Enterprise-avtal kundens inköps scenario) | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Publisher |
 | Brasilien | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Utgivare (**Se åter försäljar länder/regioner**) |
@@ -287,6 +288,6 @@ Följande gäller endast för Azure Marketplace-utgivare:
 | Brasilien (för köp som görs via alla kund inköps scenarier utom CSP) |
 | Mexiko (endast för köp som görs via Enterprise-avtal kundens inköps scenario) |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-step"></a>Nästa steg
 
 [Konfigurera utbetalningskonto och deklarationsblanketter](set-up-your-payout-account-tax-forms.md)

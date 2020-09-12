@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797295"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322542"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Hitta hjälp och öppna ett support ärende för Azure Active Directory
 Microsoft tillhandahåller global teknisk, för försäljnings-, fakturerings-och prenumerations support för Azure Active Directory (Azure AD). Support är tillgängligt både online och per telefon för Microsoft Azure betalda och utvärderings prenumerationer. Telefonsupport och faktureringssupport online är tillgänglig på fler språk. 
@@ -29,7 +29,7 @@ Microsoft tillhandahåller global teknisk, för försäljnings-, fakturerings-oc
 
 Innan du skapar en supportbegäran kan du gå igenom följande resurser och leta efter svar och information. 
 
-* För innehåll som information eller kod exempel för IT-proffs och utvecklare, se den [tekniska dokumentationen på docs.Microsoft.com](https://docs.microsoft.com/azure/active-directory/).
+* För innehåll som information eller kod exempel för IT-proffs och utvecklare, se den [tekniska dokumentationen på docs.Microsoft.com](../index.yml).
 
 * [Microsofts tekniska community](https://techcommunity.microsoft.com/) är den plats där våra IT-proffs och kunder kan samar beta, dela och lära sig. [Informations centret för Microsofts tekniska community](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) -tjänster används för meddelanden, blogg inlägg, ask-mig-allt (AMA)-interaktioner med experter, med mera. Du kan också [ansluta till communityn för att skicka in dina idéer](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
@@ -100,4 +100,4 @@ Se sidan [kontakta Microsoft Support för](https://portal.office.com/Support/Con
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Teknisk dokumentation på docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)
+* [Teknisk dokumentation på docs.microsoft.com](../index.yml)

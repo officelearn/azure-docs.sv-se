@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202241"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297798"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>API för webbsökning i Bing svars struktur och svars typer  
 
@@ -435,7 +435,7 @@ Om Bing avgör att användaren kan ha tänkt att söka efter något annat, inneh
 
 Svar från API för webbsökning i Bing kan innehålla följande rubriker:
 
-| Huvud | Beskrivning |
+| Sidhuvud | Beskrivning |
 |-|-|
 |`X-MSEdge-ClientID`|Det unika ID som Bing har tilldelat till användaren|
 |`BingAPIs-Market`|Marknaden som användes för att uppfylla begäran|
@@ -445,7 +445,7 @@ Det är särskilt viktigt att spara klient-ID och returnera det till efterfölja
 
 Men när du anropar API för webbsökning i Bing från java script kan webbläsarens inbyggda säkerhetsfunktioner (CORS) förhindra åtkomst till värdena i dessa huvuden.
 
-Om du vill få åtkomst till sidhuvudena kan du göra API för webbsökning i Bing begäran via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+Om du vill få åtkomst till sidhuvudena kan du göra API för webbsökning i Bing begäran via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som filtrerar svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy så att vår [självstudie](tutorial-bing-web-search-single-page-app.md) kan komma åt de valfria klient rubrikerna. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i en kommandotolk.
 

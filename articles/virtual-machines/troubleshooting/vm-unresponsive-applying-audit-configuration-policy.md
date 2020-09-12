@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942198"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299532"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>Den virtuella datorn svarar inte när konfigurations principen för gransknings principen tillämpas
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller steg för att lösa problem där den virtuella dat
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn, ser du att skärm bilden visar att operativ systemet (OS) har stannat under en start med meddelandet **tillämpar konfigurations principen för gransknings principer**.
+När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar att operativ systemet (OS) inte svarade under en start med meddelandet att **använda konfigurations principen för gransknings principer**.
 
   ![Operativ systemet startar med meddelandet: "tillämpar konfigurations principen för gransknings principer"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

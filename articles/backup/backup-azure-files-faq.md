@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824737"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377428"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -30,7 +30,7 @@ Kontrollera om Azure-filresursen redan skyddas i samma Recovery Services-valv el
 
 Ja. Skydd av Azure-filresurser som är anslutna till Sync-grupper har Aktiver ATS.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>När jag försökte säkerhetskopiera filresurser klickade jag på ett lagringskonto för att identifiera filresurserna i kontot, Men jag skyddar dem inte. Hur gör jag för att skyddar du dessa fil resurser med andra valv?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>När jag försöker säkerhetskopiera fil resurser har jag valt ett lagrings konto för att identifiera fil resurserna i det. Men jag skyddar dem inte. Hur gör jag för att skyddar du dessa fil resurser med andra valv?
 
 När du försöker säkerhetskopiera och väljer ett lagrings konto för att identifiera fil resurser i det registreras lagrings kontot med valvet som detta görs från. Om du väljer att skydda fil resurserna med ett annat valv [avregistrerar](manage-afs-backup.md#unregister-a-storage-account) du det valda lagrings kontot från det här valvet.
 

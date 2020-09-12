@@ -1,25 +1,20 @@
 ---
-title: Tagga en virtuell Azure Linux-dator
-description: Lär dig mer om att tagga en virtuell Azure Linux-dator som skapats i Azure med hjälp av distributions modellen för Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
-ms.service: virtual-machines-linux
+title: Tagga en virtuell Azure-dator med hjälp av CLI
+description: Lär dig mer om att tagga en virtuell dator med hjälp av Azure CLI.
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: memccror
+ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a830f6eb604bb1173a7a552ad5f81c936f02d5fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1a417e7cff4c7afb601861ddfe09eec171f0cf15
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500529"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320621"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Tagga en virtuell Linux-dator i Azure
 I den här artikeln beskrivs olika sätt att tagga en virtuell Linux-dator i Azure via distributions modellen för Resource Manager. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resurs grupp. Azure har för närvarande stöd för upp till 50 Taggar per resurs och resurs grupp. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller läggs till i en befintlig resurs. Observera att Taggar endast stöds för resurser som skapats via distributions modellen för Resource Manager.
@@ -62,5 +57,5 @@ Nu när vi har använt taggar till våra resurser Azure CLI och portalen, tar vi
 [Azure CLI environment]: ../../azure-resource-manager/management/manage-resources-cli.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
-[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
-[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md
+[Understanding your Azure Bill]: ../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../../cost-management-billing/manage/usage-rate-card-overview.md

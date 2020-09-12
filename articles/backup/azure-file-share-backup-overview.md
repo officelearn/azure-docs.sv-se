@@ -3,12 +3,12 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180022"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378091"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
@@ -52,9 +52,9 @@ Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets k
 
 Det finns två kostnader som är associerade med säkerhets kopierings lösningen för Azure File Share:
 
-1. **Kostnad för ögonblicks bild lagring**: de lagrings kostnader som uppstår för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen [här](https://azure.microsoft.com/pricing/details/storage/files/) 
+1. **Kostnad för ögonblicks bild lagring**: de lagrings kostnader som uppstår för ögonblicks bilder faktureras tillsammans med Azure Files användning enligt pris informationen [här](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Skyddad instans avgift** : från och med 1 september 2020 debiteras kunderna en skyddad instans avgift enligt pris informationen som anges [här](https://azure.microsoft.com/en-in/pricing/details/backup/) . Den skyddade instans avgiften beror på den totala storleken på skyddade fil resurser i ett lagrings konto.
+2. **Skyddad instans avgift**: från och med 1 september 2020 debiteras kunderna en skyddad instans avgift enligt pris informationen som anges [här](https://azure.microsoft.com/pricing/details/backup/). Den skyddade instans avgiften beror på den totala storleken på skyddade fil resurser i ett lagrings konto.
 
 Om du vill få detaljerade uppskattningar för säkerhets kopiering av Azure-filresurser kan du ladda ned den detaljerade [Azure Backup pris uppskattningen](https://aka.ms/AzureBackupCostEstimates).  
 

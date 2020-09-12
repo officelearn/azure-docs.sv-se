@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267861"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400695"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -65,12 +65,12 @@ Distributioner och versioner som stöds:
 - Debian 9, 8, 7
 - RHEL 7, 6,7 +
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
 * Kommandot wget, om du inte redan har det: kör `sudo apt-get install wget` .
-* En befintlig Azure-prenumeration och ett befintligt lagrings konto i den för att lagra data.
+* En befintlig Azure-prenumeration och ett befintligt allmänt lagrings konto för lagring av data i.  Lagrings konton för generell användning stöder tabell lagring som krävs.  Ett Blob Storage-konto kommer inte att fungera.
 
 ### <a name="sample-installation"></a>Exempel installation
 

@@ -1,18 +1,18 @@
 ---
 title: Lägg till ett skript i en återställnings plan i Azure Site Recovery
 description: Lär dig hur du lägger till ett VMM-skript i en återställnings plan för haveri beredskap för virtuella Hyper-V-datorer i VMM-moln.
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130132"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425882"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Lägga till ett VMM-skript i en återställnings plan
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du skapar ett System Center Virtual Machine Mana
 
 Publicera eventuella kommentarer eller frågor längst ned i den här artikeln eller på [sidan Microsoft Q&en fråga för Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du kan använda PowerShell-skript i dina återställnings planer. För att kunna nås från återställnings planen måste du skriva skriptet och placera skriptet i VMM-biblioteket. Tänk på följande när du skriver skriptet:
 

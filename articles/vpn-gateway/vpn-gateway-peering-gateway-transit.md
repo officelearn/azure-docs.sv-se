@@ -7,14 +7,14 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.date: 03/25/2018
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: b5649c804cb21a221ca287711380c91846f55306
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 16a53c440bc818a65175cf6a4a92cd007349e3b4
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031702"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421347"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -60,7 +60,7 @@ De konton som du använder för att skapa peer-kopplade virtuella nätverk måst
 |Virtuellt nätverk|Distributionsmodell|Roll|Behörigheter|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Ej tillämpligt|
+| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|E.t.|
 |Spoke-Classic|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 

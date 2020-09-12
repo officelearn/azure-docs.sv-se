@@ -2,17 +2,17 @@
 title: Skapa en frontend-dörr med HTTP till HTTPS-omdirigering med hjälp av Azure Portal
 description: Lär dig hur du skapar en frontend-dörr med Omdirigerad trafik från HTTP till HTTPS med hjälp av Azure Portal.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: 05699c827af251b890de4c6f195df5872bfbe364
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: fe2159f0eeb9d01081e6a25e7a88ceff4f1e361c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743617"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399698"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en frontend-dörr med HTTP till HTTPS-omdirigering med hjälp av Azure Portal
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 > * Lägg till en anpassad domän med TLS/SSL-certifikat 
 > * Konfigurera HTTPS-omdirigering på den anpassade domänen
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Skapa en frontend-dörr med en befintlig Web App-resurs
 

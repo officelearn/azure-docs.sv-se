@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: a5a201a9f993db2be00645d8d60a11c5be9cdbe0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554904"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89304106"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -100,7 +100,7 @@ Image Builder skapar en virtuell dator med en D1v2 VM-storlek, och lagrings utry
 Azure Image Builder distribuerar avbildningen till dina valda regioner, vilket kan innebära att det tar betalt för nätverket.
 
 ## <a name="hyper-v-generation"></a>Hyper-V-generering
-Image Builder för närvarande stöder Hyper-V generation 1-avbildningar och virtuella datorer.
+Image Builder har för närvarande endast stöd för att skapa Hyper-V generation (gen1) 1-avbildningar i Azure-galleriet för delad avbildning (SIG) eller hanterad avbildning. Om du vill skapa Gen2-avbildningar måste du använda en käll Gen2 avbildning och distribuera till VHD. Därefter måste du skapa en hanterad avbildning från den virtuella hård disken och mata in den i SIG som en Gen2-avbildning.
  
 ## <a name="next-steps"></a>Nästa steg 
  

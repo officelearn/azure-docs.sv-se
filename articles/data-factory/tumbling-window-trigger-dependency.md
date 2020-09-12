@@ -2,21 +2,21 @@
 title: Skapa rullande Window trigger-beroenden
 description: Lär dig hur du skapar beroende för en rullande fönster utlösare i Azure Data Factory.
 services: data-factory
-ms.author: daperlov
-author: djpmsft
-manager: anandsub
+ms.author: chez
+author: chez-charlie
+manager: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82870032"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421851"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Skapa ett beroende för utlösare för rullande fönster
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ En demonstration om hur du skapar beroende pipelines i Azure Data Factory med ut
 
 Om du vill skapa ett beroende på en utlösare väljer du **Utlösare > avancerad > nytt**och väljer sedan utlösaren så att den är beroende av lämplig förskjutning och storlek. Välj **Slutför** och publicera data Factory-ändringarna för att beroendena ska börja gälla.
 
-![Beroende skapande](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Beroende skapande")
+![Beroende skapande](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Beroende skapande")
 
 ## <a name="tumbling-window-dependency-properties"></a>Egenskaper för rullande Window-beroende
 
@@ -79,11 +79,11 @@ En utlösare för rullande fönster med ett beroende har följande egenskaper:
 
 Följande tabell innehåller en lista med attribut som behövs för att definiera ett rullande fönster-beroende.
 
-| **Egenskapsnamn** | **Beskrivning**  | **Typ** | **Obligatoriskt** |
+| **Egenskaps namn** | **Beskrivning**  | **Typ** | **Obligatoriskt** |
 |---|---|---|---|
 | typ  | Alla befintliga rullande fönster-utlösare visas i den här List rutan. Välj utlösaren att ta beroende av.  | TumblingWindowTriggerDependencyReference eller SelfDependencyTumblingWindowTriggerReference | Ja |
 | offset | Förskjutning av beroende utlösare. Ange ett värde i intervall format och både negativa och positiva förskjutningar tillåts. Den här egenskapen är obligatorisk om utlösaren är beroende av sig själv och i alla andra fall är den valfri. Self-Dependency måste alltid vara en negativ förskjutning. Om inget värde anges är fönstret detsamma som själva utlösaren. | Tidsintervall<br/>(hh: mm: SS) | Själv-beroende: Ja<br/>Övrigt: Nej |
-| ikoner | Storlek på fönstret beroende rullande. Ange ett positivt TimeSpan-värde. Den här egenskapen är valfri. | Tidsintervall<br/>(hh: mm: SS) | No  |
+| ikoner | Storlek på fönstret beroende rullande. Ange ett positivt TimeSpan-värde. Den här egenskapen är valfri. | Tidsintervall<br/>(hh: mm: SS) | Inga  |
 
 > [!NOTE]
 > En utlösare för rullande fönster kan vara beroende av högst fem andra utlösare.
@@ -133,41 +133,53 @@ Nedan visas illustrationer av scenarier och användning av rullande-fönster ege
 
 ### <a name="dependency-offset"></a>Beroende förskjutning
 
-![Förskjutnings exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Förskjutnings exempel")
+![Förskjutnings exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Förskjutnings exempel")
 
 ### <a name="dependency-size"></a>Beroende storlek
 
-![Storleks exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "Storleks exempel")
+![Storleks exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Storleks exempel")
 
 ### <a name="self-dependency"></a>Själv beroende
 
-![Själv beroende](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Själv beroende")
+![Själv beroende](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Själv beroende")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Beroende av en annan utlösare för rullande fönster
 
 En daglig telemetri bearbetnings jobb beroende på ett annat dagligt jobb som sammanställer de senaste sju dagarna och genererar löpande fönster i sju dagar:
 
-![Beroende exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Beroende exempel")
+![Beroende exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Beroende exempel")
 
 ### <a name="dependency-on-itself"></a>Beroende av sig själv
 
 Ett dagligt jobb utan luckor i jobbets utdata:
 
-![Självbetjänings exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Självbetjänings exempel")
+![Självbetjänings exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Självbetjänings exempel")
 
 ## <a name="monitor-dependencies"></a>Övervaka beroenden
 
-Du kan övervaka beroende kedjan och motsvarande fönster från sidan utlösare för att köra övervakning. Gå till **övervakning > trigger-körningar**. I kolumnen åtgärder kan du köra utlösaren igen eller visa dess beroenden.
+Du kan övervaka beroende kedjan och motsvarande fönster från sidan utlösare för att köra övervakning. Gå till  **övervakning > trigger-körningar**. Om en utlösare för rullande fönster har beroenden kommer Utlösarens namn att innehålla en hyperlänk till vyn över beroende övervakning.  
 
-![Övervaka utlösarkörningar](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Övervaka utlösarkörningar")
+![Övervaka utlösarkörningar](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Övervaka Utlösare körs – hela rullande fönster beroende vy")
 
-Om du klickar på Visa utlösare beroenden kan du se status för beroenden. Om en av beroende utlösare Miss lyckas, måste du köra om det för att den beroende utlösaren ska köras. En utlösare för rullande fönster väntar på beroenden i sju dagar innan tids gränsen uppnåddes.
+Klicka dig igenom Utlösarens namn för att Visa utlösare beroenden. Den högra panelen visar detaljerad körnings information för utlösare, till exempel RunID, fönster tid, status och så vidare.
 
-![Övervaka beroenden](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Övervaka beroenden")
+![Övervaka listvy för beroenden](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Övervaka listvy för beroenden")
+
+Du kan se status för beroenden och Windows för varje beroende utlösare. Om en av beroende utlösare Miss lyckas måste du köra om den för att den beroende utlösaren ska köras.
+
+En utlösare för rullande fönster väntar på beroenden i _sju dagar_ innan tids gränsen uppnåddes. Efter sju dagar går det inte att köra utlösaren.
 
 Om du vill visa ett mer visuellt objekt för utlösare för beroende väljer du vyn Gantt-schema.
 
-![Övervaka beroenden](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Övervaka beroenden")
+![Övervaka beroende Gantt-diagram](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Övervaka beroende Gantt chart View")
+
+Transparenta rutor visar beroende fönster för varje nedströms beroende utlösare, medan fyllda färgade rutor ovan visar att enskilda fönster körs. Här följer några tips för att tolka vyn Gantt-diagram:
+
+* Den transparenta rutan återges blått när beroende fönster är i väntande eller kör tillstånd
+* När alla fönster har slutförts för en beroende utlösare blir den transparenta rutan grön
+* Den transparenta rutan återges röd när vissa beroende fönster Miss lyckas. Leta efter en fylld röd ruta för att identifiera körnings fönstret
+
+Om du vill köra ett fönster i Gantt-schemat igen, väljer du rutan heldragen färg för fönstret och en åtgärds panel visas med information och kör om alternativ
 
 ## <a name="next-steps"></a>Nästa steg
 

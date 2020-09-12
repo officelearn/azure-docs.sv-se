@@ -2,20 +2,20 @@
 title: Övervakning av Azure Traffic Manager-slutpunkt | Microsoft Docs
 description: Den här artikeln kan hjälpa dig att förstå hur Traffic Manager använder slut punkts övervakning och automatisk slut punkts växling för att hjälpa Azure-kunder att distribuera program med hög tillgänglighet
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: rohink
-ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80757271"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392841"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning för Traffic Manager
 
@@ -67,10 +67,10 @@ Med inställningen profil status kan du aktivera eller inaktivera en speciell pr
 
 Status för slut punkts övervakare är ett Traffic Manager-genererat värde som visar slut punktens status. Du kan inte ändra den här inställningen manuellt. Status för slut punkts övervakning är en kombination av resultaten av slut punkts övervakning och den konfigurerade slut punkts statusen. De möjliga värdena för status för slut punkts övervakning visas i följande tabell:
 
-| Profilstatus | Slut punkts status | Status för slut punkts övervakare | Obs! |
+| Profilstatus | Slut punkts status | Status för slut punkts övervakare | Kommentarer |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inaktiv |Profilen har inaktiverats. Även om slut punktens status är aktive rad, har profil statusen (inaktive rad) företräde. Slut punkter i inaktiverade profiler övervakas inte. En NXDOMAIN svars kod returneras för DNS-frågan. |
-| &lt;alla&gt; |Disabled |Disabled |Slut punkten har inaktiverats. Inaktiverade slut punkter övervakas inte. Slut punkten ingår inte i DNS-svar, vilket innebär att den inte tar emot trafik. |
+| Inaktiverad |Enabled |Inaktiv |Profilen har inaktiverats. Även om slut punktens status är aktive rad, har profil statusen (inaktive rad) företräde. Slut punkter i inaktiverade profiler övervakas inte. En NXDOMAIN svars kod returneras för DNS-frågan. |
+| &lt;alla&gt; |Inaktiverad |Inaktiverad |Slut punkten har inaktiverats. Inaktiverade slut punkter övervakas inte. Slut punkten ingår inte i DNS-svar, vilket innebär att den inte tar emot trafik. |
 | Enabled |Enabled |Online |Slut punkten övervakas och är felfri. Den ingår i DNS-svar och kan ta emot trafik. |
 | Enabled |Enabled |Degraderad |Hälso kontroller för slut punkts övervakningen fungerar inte. Slut punkten ingår inte i DNS-svar och tar inte emot trafik. <br>Ett undantag till detta är om alla slut punkter är degraderade, vilket innebär att alla av dem anses vara returnerade i fråge svaret.</br>|
 | Enabled |Enabled |CheckingEndpoint |Slut punkten övervakas, men resultatet från den första avsökningen har ännu inte tagits emot. CheckingEndpoint är ett tillfälligt tillstånd som vanligt vis inträffar omedelbart efter att en slut punkt har lagts till eller Aktiver ATS i profilen. En slut punkt i det här läget ingår i DNS-svar och kan ta emot trafik. |
@@ -85,9 +85,9 @@ Mer information om hur status för slut punkts övervakning beräknas för kapsl
 
 Profil övervaknings statusen är en kombination av den konfigurerade profil statusen och status värden för slut punkts övervakaren för alla slut punkter. De möjliga värdena beskrivs i följande tabell:
 
-| Profil status (som konfigurerat) | Status för slut punkts övervakare | Status för profil övervakare | Obs! |
+| Profil status (som konfigurerat) | Status för slut punkts övervakare | Status för profil övervakare | Kommentarer |
 | --- | --- | --- | --- |
-| Disabled |&lt;en &gt; eller en profil utan definierade slut punkter. |Disabled |Profilen har inaktiverats. |
+| Inaktiverad |&lt;en &gt; eller en profil utan definierade slut punkter. |Inaktiverad |Profilen har inaktiverats. |
 | Enabled |Status för minst en slut punkt har degraderats. |Degraderad |Granska de enskilda slut punkts status värdena för att avgöra vilka slut punkter som kräver ytterligare uppmärksamhet. |
 | Enabled |Statusen för minst en slut punkt är online. Inga slut punkter har försämrad status. |Online |Tjänsten accepterar trafik. Ingen ytterligare åtgärd krävs. |
 | Enabled |Status för minst en slut punkt är CheckingEndpoint. Inga slut punkter har statusen online eller degraderas. |CheckingEndpoints |Detta över gångs tillstånd inträffar när en profil skapas eller aktive ras. Slut punktens hälso tillstånd kontrol leras för första gången. |

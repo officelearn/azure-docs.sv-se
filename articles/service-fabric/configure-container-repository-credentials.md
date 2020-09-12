@@ -4,12 +4,12 @@ description: Konfigurera autentiseringsuppgifter för lagrings plats för att la
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934981"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421432"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Konfigurera autentiseringsuppgifter för databasen för ditt program för att ladda ned behållar avbildningar
 
@@ -83,6 +83,10 @@ Här är ett exempel på vad som kan läggas till i `Hosting` avsnittet i Cluste
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
+          },
+          {
+        "name": "DefaultMSIEndpointForTokenAuthentication",
+        "value": "URI"
           }
         ]
       },
@@ -117,6 +121,25 @@ Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bild
 
     > [!NOTE]
     > Flaggan `UseDefaultRepositoryCredentials` inställt på sant när `UseTokenAuthenticationCredentials` värdet är true orsakar ett fel under distributionen.
+
+### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Använda token-autentiseringsuppgifter utanför Azures globala moln
+
+När du använder token-baserade autentiseringsuppgifter för registret hämtar Service Fabric en token för den virtuella datorns räkning så att den blir tillgänglig för ACR. Service Fabric begär som standard en token vars mål grupp är den globala Azure-molnets slut punkt. Om du distribuerar till en annan moln instans, t. ex. Azure Germany eller Azure Government, måste du åsidosätta standardvärdet för parametern `DefaultMSIEndpointForTokenAuthentication` . Om du inte distribuerar till en särskild miljö ska du inte åsidosätta den här parametern. Om du gör det ersätts standardvärdet, vilket är
+
+```
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
+```
+
+med lämplig resurs slut punkt för din miljö. För [Azure Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)skulle till exempel åsidosättningen vara 
+
+```json
+{
+    "name": "DefaultMSIEndpointForTokenAuthentication",
+    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
+}
+```
+
+[Läs mer om att hämta token för skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## <a name="next-steps"></a>Nästa steg
 

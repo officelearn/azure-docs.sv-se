@@ -3,20 +3,20 @@ title: Azure-front dörr – vanliga frågor och svar
 description: Den här sidan innehåller svar på vanliga frågor om Azures front dörr
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
-ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.author: duau
+ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760421"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399743"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -92,8 +92,8 @@ Om du vill låsa ditt program för att endast acceptera trafik från din specifi
 - Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azure-klientens Server dels IP-adressutrymme och Azures infrastruktur tjänster. Se IP-informationen nedan för att ACLing din server del:
  
     - Mer information finns i avsnittet om *AzureFrontDoor. backend* i [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för IP-adressintervall för IPv4-backend-IP-adresser eller också kan du använda service tag- *AzureFrontDoor. backend* i dina [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
-    - Klient delens IP-utrymme för **IPv6** -Server delen, som omfattas av tjänst tag gen, visas inte i JSON-filen för Azure IP-intervall. Om du letar efter explicit IPv6-adressintervall är den för närvarande begränsad till`2a01:111:2050::/44`
-    - Azures [grundläggande infrastruktur tjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och`169.254.169.254`
+    - Klient delens IP-utrymme för **IPv6** -Server delen, som omfattas av tjänst tag gen, visas inte i JSON-filen för Azure IP-intervall. Om du letar efter explicit IPv6-adressintervall är den för närvarande begränsad till `2a01:111:2050::/44`
+    - Azures [grundläggande infrastruktur tjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
 
     > [!WARNING]
     > Front dörrens IP-utrymme kan ändras senare, men vi kommer att se till att vi har integrerat med [Azure IP-intervall och service Taggar](https://www.microsoft.com/download/details.aspx?id=56519)innan det inträffar. Vi rekommenderar att du prenumererar på [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för ändringar eller uppdateringar.

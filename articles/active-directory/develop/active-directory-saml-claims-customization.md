@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552840"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421466"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -56,7 +56,7 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Standard** | Microsoft Identity Platform använder standard käll formatet. |
+| **Standardvärde** | Microsoft Identity Platform använder standard käll formatet. |
 | **Permanent** | Microsoft Identity Platform kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Microsoft Identity Platform kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Microsoft Identity Platform kommer att använda ospecificerat som NameID-format. |
@@ -68,7 +68,7 @@ En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och 
 
 Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | E-post | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |
@@ -88,11 +88,11 @@ Du kan också tilldela ett konstant värde (statisk) till alla anspråk som du d
 
 1. Ange det konstanta värdet utan citat tecken i **källattributet** enligt din organisation och klicka på **Spara**.
 
-    ![Öppna avsnittet användarattribut &-anspråk i Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Avsnittet org attributes & Claims i Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. Det konstanta värdet visas som nedan.
 
-    ![Öppna avsnittet användarattribut &-anspråk i Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Avsnittet Redigera attribut &-anspråk i Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Särskilda anspråk – transformeringar
 
@@ -121,7 +121,7 @@ Så här använder du en omvandling till ett användar-attribut:
 2. Välj funktionen i list rutan för omvandling. Beroende på vilken funktion du väljer måste du ange parametrar och ett konstant värde som ska utvärderas i omvandlingen. Se tabellen nedan för mer information om tillgängliga funktioner.
 3. Om du vill använda flera omvandlingar klickar du på **Lägg till omvandling**. Du kan använda högst två omvandlingar till ett anspråk. Du kan till exempel först extrahera e-postprefixet för `user.mail` . Skapa sedan strängen versaler.
 
-   ![Redigera värdet för NameID (namn identifierare)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Transformering av flera anspråk](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 Du kan använda följande funktioner för att transformera anspråk.
 
@@ -129,8 +129,8 @@ Du kan använda följande funktioner för att transformera anspråk.
 |----------|-------------|
 | **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com ). |
 | **Anslut ()** | Skapar ett nytt värde genom att koppla ihop två attribut. Du kan också använda en avgränsare mellan de två attributen. Vid omvandling av NameID-anspråk är kopplingen begränsad till en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet ( joe_smith@contoso.com ) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän kommer detta att resultera i joe_smith@contoso.onmicrosoft.com . |
-| **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
-| **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
+| **ToLowercase()** | Konverterar tecknen i det valda attributet till gemener. |
+| **ToUppercase()** | Konverterar tecknen i det valda attributet till versaler. |
 | **Contains ()** | Matar ut ett attribut eller en konstant om indata matchar det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens e-postadress om den innehåller domänen " @contoso.com ", annars vill du spara User Principal Name. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: User. email<br/>*Värde*: " @contoso.com "<br/>Parameter 2 (utdata): User. email<br/>Parameter 3 (utdata om det inte finns någon matchning): User. UserPrincipalName |
 | **EndWith()** | Matar ut ett attribut eller en konstant om indata slutar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens medarbetar-ID om anställnings-ID: t slutar med "000", annars vill du spara ett attribut för tillägg. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: User. Anställningsnr<br/>*Värde*: "000"<br/>Parameter 2 (utdata): User. Anställningsnr<br/>Parameter 3 (utdata om det inte finns någon matchning): User. extensionAttribute1 |
 | **StartWith()** | Matar ut ett attribut eller en konstant om indatan börjar med det angivna värdet. Annars kan du ange en annan utdata om det inte finns någon matchning.<br/>Om du till exempel vill generera ett anspråk där värdet är användarens anställnings-ID om landet/regionen börjar med "US", annars vill du spara ett attribut för tillägg. Det gör du genom att konfigurera följande värden:<br/>*Parameter 1 (indata)*: användare. land<br/>*Värde*: "US"<br/>Parameter 2 (utdata): User. Anställningsnr<br/>Parameter 3 (utdata om det inte finns någon matchning): User. extensionAttribute1 |

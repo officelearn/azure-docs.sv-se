@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0525f305e130247fd88ee2858c79cbfd0a15283e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206831"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400848"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Använda hanterade identiteter för att få åtkomst till App Configuration
 
@@ -73,7 +73,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
     ![Lägga till en hanterad identitet](./media/add-managed-identity.png)
 
-1. Valfritt: om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tillhandahålla Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Valfritt: om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tilldela en Key Vault åtkomst princip](/azure/key-vault/assign-access-policy-portal).
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 

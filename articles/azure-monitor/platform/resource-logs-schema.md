@@ -3,13 +3,13 @@ title: Tjänster och scheman som stöds av Azure-resurs loggar
 description: Förstå tjänster och händelse schema som stöds för Azures resurs loggar.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/15/2020
-ms.openlocfilehash: acd661467e90b4915daa2f3eb31f34fd350dc9f5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/01/2020
+ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226471"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421925"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Gemensamt och tjänstspecifikt schema för Azure-resurs loggar
 
@@ -49,7 +49,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Tjänst | Schema & dokument |
 | --- | --- |
 | Azure Active Directory | [Översikt](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), schema för [Gransknings logg](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [inloggnings tillägg](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
+| Analysis Services | [Azure Analysis Services-Konfigurera diagnostisk loggning](../../analysis-services/analysis-services-logging.md) |
 | API Management | [API Management resurs loggar](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Programgateways |[Loggning för Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -64,8 +64,8 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Azure-datautforskaren | [Azure Datautforskaren-loggar](/azure/data-explorer/using-diagnostic-logs) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL loggar](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Databricks | [Diagnostisk loggning i Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
-| Digital Twins | [Konfigurera Digitals dubblare-diagnostik](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
+| Azure Databricks | [Diagnostisk loggning i Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Digital Twins | [Konfigurera Azure Digitals dubblare-diagnostik](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs-loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat är inte tillgängligt. |
 | Azure Firewall | Schemat är inte tillgängligt. |
@@ -78,7 +78,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
 | Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
+| Search |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus loggar](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database loggning](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Jobbloggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

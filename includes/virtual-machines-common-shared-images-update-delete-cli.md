@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 213fec9e7d9da56d34f79fee7e677b0e6bbd7a63
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187355"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303960"
 ---
 ## <a name="update-resources"></a>Uppdatera resurser
 
@@ -65,6 +65,28 @@ az sig image-version update \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --add publishingProfile.targetRegions  name=eastus
+```
+
+Det här exemplet illustrerar hur du använder [AZ sig-avbildning – versions uppdatering](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) för att utesluta den här avbildnings versionen från att användas som den *senaste* avbildningen.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=true
+```
+
+I det här exemplet visas hur du använder [AZ sig-avbildning – versions uppdatering](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) för att inkludera den här avbildnings versionen i den *senaste* avbildningen.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=false
 ```
 
 ## <a name="delete-resources"></a>Ta bort resurser

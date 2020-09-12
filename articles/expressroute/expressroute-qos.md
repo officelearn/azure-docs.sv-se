@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: QoS-krav'
 description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera QoS. Skype för företag/röst tjänster diskuteras.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: cherylmc
-ms.openlocfilehash: 37c8b760ada12bd8f54c78ac6a0ea228d113b6c2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 871af5b767e8cfe10db3a0a1c15c47340e25581f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536994"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395034"
 ---
 # <a name="expressroute-qos-requirements"></a>QoS-krav för ExpressRoute
 Skype för företag har olika arbetsbelastningar som kräver särskild QoS-behandling. Om du tänker använda rösttjänster via ExpressRoute bör du följa kraven som beskrivs nedan.
@@ -31,7 +31,7 @@ Följande tabell innehåller en lista över DSCP-markeringar som används av Mic
 | **Röst** |EF (46) |Skype/Microsoft Teams/Lync röst |
 | **Ej** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Appdelning | 
-| **Standard** |AF11 (10) |Filöverföring |
+| **Standardvärde** |AF11 (10) |Filöverföring |
 | |CS0 (0) |Annat |
 
 * Du bör klassificera arbetsbelastningarna och markera rätt DSCP-värden. Följ riktlinjerna [här](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) om hur du anger DSCP-markeringar i nätverket.

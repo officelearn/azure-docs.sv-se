@@ -1,39 +1,41 @@
 ---
-title: Metod tips för Azure Maps Route Service | Microsoft Azure Maps
+title: Metod tips för Azure Maps Route Service i Microsoft Azure Maps
 description: Lär dig hur du dirigerar fordon med hjälp av Route Service från Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/11/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b957453758b9b8e34989877516a9083f06a85ed8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132219"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400796"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
 
 API: er för väg riktning och väg mat ris i Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route) kan användas för att beräkna uppskattade ankomst tider (ETAs) för varje begärd väg. Väg-API: er kan se faktorer som information om trafik i real tid och historiska trafikdata, till exempel vanliga väg hastigheter på den begärda dagen i veckan och tid på dagen. API: erna returnerar de kortaste eller snabbaste vägarna som är tillgängliga för flera mål i taget i följd eller i optimerad ordning, baserat på tid eller avstånd. Användare kan också begära särskilda vägar och information för avvisare, cyklister och kommersiella bilar som Last bilar. I den här artikeln ska vi dela de bästa metoderna för att anropa Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route)och du får lära dig att:
 
-* Välj mellan API: er för väg riktningar och mat ris Dirigerings-API: et
-* Begär historiska och förväntade res tider baserat på data i real tid och historisk trafik
-* Begär flödes information, t. ex. tid och avstånd, för hela vägen och varje steg i vägen
-* Begär routning för ett kommersiellt fordon, som en Last bil
-* Begär trafik information längs en väg, t. ex. sylt och avgifts information
-* Begär en väg som består av ett eller flera stopp (waypoints)
-* Optimera en väg av ett eller flera stopp för att få den bästa ordningen för att besöka varje stopp (waypoint)
-* Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
-* Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
+> [!div class="checklist"]
+> * Välj mellan API: er för väg riktningar och mat ris Dirigerings-API: et
+> * Begär historiska och förväntade res tider baserat på data i real tid och historisk trafik
+> * Begär flödes information, t. ex. tid och avstånd, för hela vägen och varje steg i vägen
+> * Begär routning för ett kommersiellt fordon, som en Last bil
+> * Begär trafik information längs en väg, t. ex. sylt och avgifts information
+> * Begär en väg som består av ett eller flera stopp (waypoints)
+> * Optimera en väg av ett eller flera stopp för att få den bästa ordningen för att besöka varje stopp (waypoint)
+> * Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
+> * Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill ringa till Azure Maps-API: er behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Den primära nyckeln kallas även primär prenumerations nyckel eller prenumerations nyckel.
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 
-Information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md). Om du vill ha mer information om Route Serviceens omfattning [kan du läsa](routing-coverage.md)mer om disponering.
+Mer information om omfattningen av Route Service finns i [Operationsföljd täckning](routing-coverage.md).
 
 I den här artikeln används [Postman-appen](https://www.postman.com/downloads/) för att bygga rest-anrop, men du kan välja vilken API utvecklings miljö som helst.
 
@@ -133,43 +135,23 @@ Som standard returnerar Route-tjänsten en matris med koordinater. Svaret inneh�
 
 Följande bild visar- `points` elementet.
 
-<center>
-
-![punkt lista](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
-
-</center>
+![Punkt element](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 Expandera `point` elementet om du vill se en lista över koordinater för sökvägen:
 
-<center>
-
-![punkt lista](media/how-to-use-best-practices-for-routing/points-list-img.png)
-
-</center>
+![Element för utökade punkter](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 API: er för väg riktningar stöder olika format för instruktioner som kan användas genom att ange parametern **instructionsType** . Använd **instructionsType = Codet**för att formatera instruktioner för enkel dator bearbetning. Använd **instructionsType = taggade** för att visa instruktioner som text för användaren. Dessutom kan instruktioner formateras som text där vissa element i anvisningarna är markerade och instruktionen visas med särskild formatering. Mer information finns i [listan över instruktions typer som stöds](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 När instruktioner begärs returnerar svaret ett nytt element med namnet `guidance` . `guidance`Elementet innehåller två delar av information: vägbeskrivningar och sammanfattande instruktioner.
 
-<center>
-
 ![Typ av anvisningar](media/how-to-use-best-practices-for-routing/instructions-type-img.png)
-
-</center>
 
 `instructions`-Elementet innehåller instruktioner för tur och retur för resan och `instructionGroups` har sammanfattande instruktioner. Varje instruktions Sammanfattning omfattar ett segment av resan som kan omfatta flera vägar. API: erna kan returnera information om avsnitt i en väg. till exempel koordineras intervallet för en trafiks sylt eller den aktuella trafik hastigheten.
 
-<center>
-
 ![Aktivera instruktioner](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
-</center>
-
-<center>
-
 ![Sammanfattande instruktioner](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
-
-</center>
 
 ## <a name="request-a-route-for-a-commercial-vehicle"></a>Begära en väg för ett kommersiellt fordon
 
@@ -185,11 +167,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 Route API returnerar vägvisningar som hanterar Last bils och det farliga avfallet. Du kan läsa flödes instruktionerna genom att expandera- `guidance` elementet.
 
-<center>
-
 ![Truck med klass 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
-
-</center>
 
 ### <a name="sample-query"></a>Exempelfråga
 
@@ -201,11 +179,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 Svaret nedan är för en Last bil som bär ett farligt material i klass 9, vilket är mindre farligt än ett farligt material av klass 1. När du expanderar `guidance` elementet för att läsa anvisningarna ser du att vägvisningar inte är samma. Det finns mer flödes instruktioner för trucken som bär klass 1 farligt material.
 
-<center>
+
 
 ![Truck med klass 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
-</center>
+
 
 ## <a name="request-traffic-information-along-a-route"></a>Begära trafik information längs en väg
 
@@ -221,19 +199,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 Svaret innehåller de avsnitt som är lämpliga för trafik längs de koordinater som anges.
 
-<center>
-
-![trafik avsnitt](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
-
-</center>
+![Trafik avsnitt](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
 Det här alternativet kan användas för att färga avsnitten när du återger kartan, som i bilden nedan: 
 
-<center>
-
-![trafik avsnitt](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
-
-</center>
+![Färgade avsnitt som återges på kartan](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 ## <a name="calculate-and-optimize-a-multi-stop-route"></a>Beräkna och optimera en multi-Stop-väg
 
@@ -257,19 +227,13 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 Svaret beskriver sökvägen till 140 851 meter och det skulle ta 9 991 sekunder att överföra sökvägen.
 
-<center>
-
 ![Icke-optimerat svar](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
-
-</center>
 
 Bilden nedan visar den sökväg som skapas från den här frågan. Den här sökvägen är en möjlig väg. Det är inte den optimala sökvägen baserat på tid eller avstånd.
 
-<center>
-
 ![Icke-optimerad avbildning](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-</center>
+
 
 Den här Route waypoint-ordningen är: 0, 1, 2, 3, 4, 5 och 6.
 
@@ -283,19 +247,11 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 Svaret beskriver sökvägen till 91 814 meter och det skulle ta 7 797 sekunder att överföra sökvägen. Rese avståndet och res tiden är båda lägre eftersom API: et returnerade den optimerade vägen.
 
-<center>
-
-![Icke-optimerat svar](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
-
-</center>
+![Optimerat svar](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 Bilden nedan visar den sökväg som skapas från den här frågan.
 
-<center>
-
-![Icke-optimerad avbildning](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
-
-</center>
+![Optimerad bild](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 Den optimala vägen har följande waypoint: 0, 5, 1, 2, 4, 3 och 6.
 
@@ -315,11 +271,7 @@ När du anropar [API: er för post vägs riktningar](https://docs.microsoft.com/
 
 Bilden nedan är ett exempel på hur du kan återge alternativa vägar med angivna avvikelse gränser för tid och avstånd.
 
-<center>
-
 ![Alternativa vägar](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
-
-</center>
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Använda routningstjänsten i en webbapp
 

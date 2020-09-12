@@ -2,17 +2,17 @@
 title: Publicera en rot-eller Apex-domän till en befintlig front dörr – Azure Portal
 description: Lär dig att publicera en rot-eller Apex-domän till en befintlig front dörr med hjälp av Azure Portal.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743600"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399596"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Registrera en rotdomän eller basdomän på din Front Door
 Azures front dörr använder CNAME-poster för att verifiera domän ägarskap för onboarding av anpassade domäner. Dessutom exponeras inte klient delens IP-adress som är kopplad till din profil för klient delen och du kan därför inte mappa din Apex-domän till en IP-adress, om avsikten är att publicera den till Azures front dörr.
@@ -62,7 +62,7 @@ I den här artikeln kan du se hur du:
 ## <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din anpassade domän
 
 1. Klicka på den anpassade domänen som lades till och under avsnittet **anpassad https för domän**ändrar du status till **aktive rad**.
-2. Välj **certifikat hanterings typ** att _"Använd mitt eget certifikat"_.
+2. Välj  **certifikat hanterings typ** att _"Använd mitt eget certifikat"_.
 
 > [!WARNING]
 > Hanterings typen för hanterade certifikat från Front dörren stöds för närvarande inte för spets-eller rot domäner. Det enda alternativet som är tillgängligt för att aktivera HTTPS på en Apex eller rotdomän för front dörr använder ditt eget anpassade TLS/SSL-certifikat på Azure Key Vault.

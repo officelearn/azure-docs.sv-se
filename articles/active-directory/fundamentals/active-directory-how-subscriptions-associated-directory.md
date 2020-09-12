@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd095939009c39c48456d330f975303f06a841a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267538"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426103"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten
 
@@ -26,18 +26,18 @@ En Azure-prenumeration har en förtroende relation med Azure Active Directory (A
 
 Flera prenumerationer kan lita på samma Azure AD-katalog. Varje prenumeration kan bara lita på en enda katalog.
 
-Om din prenumeration går ut förlorar du åtkomsten till alla andra resurser som är associerade med prenumerationen. Azure AD-katalogen finns dock kvar i Azure. Du kan associera och hantera katalogen med en annan Azure-prenumeration.
+En eller flera Azure-prenumerationer kan upprätta en förtroende relation med en instans av Azure Active Directory (Azure AD) för att autentisera och auktorisera säkerhets objekt och enheter mot Azure-tjänster.  När en prenumeration går ut är den betrodda instansen av Azure AD-tjänsten kvar, men säkerhets principerna förlorar åtkomst till Azure-resurser.
 
-När en användare registrerar sig för en moln tjänst från Microsoft skapas en Azure AD-klient som standard och användaren blir medlem i rollen global administratör. När du lägger till en prenumeration i en befintlig katalog är du inte tilldelad rollen som global administratör.
+När en användare registrerar sig för en moln tjänst från Microsoft skapas en ny Azure AD-klient och användaren blir medlem i rollen global administratör. Men när en prenumerations ägare ansluts till en befintlig klient organisation är ägaren inte tilldelad rollen som global administratör.
 
 Alla användare har en enda *arbets* katalog för autentisering. Dina användare kan också vara gäster i andra kataloger. Du kan se både hem-och gäst kataloger för varje användare i Azure AD.
 
 > [!Important]
-> När du kopplar en prenumeration till en annan katalog förlorar användare som har roller som tilldelats med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
+> När du kopplar en prenumeration till en annan katalog, förlorar användare som har roller som har tilldelats med hjälp av [rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/role-assignments-portal.md) åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
 >
 > Principtilldelningar tas också bort från en prenumeration när prenumerationen associeras med en annan katalog.
 >
-> Om du flyttar ditt Azure Kubernetes service-kluster (AKS) till en annan prenumeration eller flyttar klustrets ägande prenumeration till en ny klient kan klustret förlora funktioner på grund av förlorade roll tilldelningar och tjänstens huvud namn. Mer information om AKS finns i [Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/).
+> Om du flyttar ditt Azure Kubernetes service-kluster (AKS) till en annan prenumeration eller flyttar klustrets ägande prenumeration till en ny klient kan klustret förlora funktioner på grund av förlorade roll tilldelningar och tjänstens huvud namn. Mer information om AKS finns i [Azure Kubernetes service (AKS)](../../aks/index.yml).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -55,7 +55,7 @@ Innan du kan koppla eller lägga till din prenumeration ska du utföra följande
 - Logga in med ett konto som:
 
   - Har en [ägar](../../role-based-access-control/built-in-roles.md#owner) roll tilldelning för prenumerationen. Information om hur du tilldelar ägar rollen finns i [lägga till eller ta bort Azure roll tilldelningar med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md).
-  - Finns både i den aktuella katalogen och i den nya katalogen. Den aktuella katalogen är kopplad till prenumerationen. Du kopplar den nya katalogen till prenumerationen. Mer information om hur du får åtkomst till en annan katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../b2b/add-users-administrator.md).
+  - Finns både i den aktuella katalogen och i den nya katalogen. Den aktuella katalogen är kopplad till prenumerationen. Du kopplar den nya katalogen till prenumerationen. Mer information om hur du får åtkomst till en annan katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../external-identities/add-users-administrator.md).
 
 - Se till att du inte använder en Azure Cloud Service Providers (CSP)-prenumeration (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), en intern Microsoft-prenumeration (MS-AZR-0015P) eller en Microsoft Imagine-prenumeration (MS-AZR-0144P).
 
@@ -81,7 +81,7 @@ Följ dessa steg om du vill associera en befintlig prenumeration till din Azure 
 
    Det kan ta flera timmar innan allting visas korrekt. Om det verkar ta för lång tid, kontrol lera det **globala prenumerations filtret**. Kontrol lera att den flyttade prenumerationen inte är dold. Du kan behöva logga ut från Azure Portal och logga in igen för att se den nya katalogen.
 
-Att ändra prenumerations katalogen är en åtgärd på tjänst nivå, så den påverkar inte prenumerationens fakturerings ägande. Konto administratören kan fortfarande ändra tjänst administratör från [konto Center](https://account.azure.com/subscriptions). Om du vill ta bort den ursprungliga katalogen måste du överföra prenumerations fakturerings ägarskapet till en ny konto administratör. Mer information om hur du överför fakturerings ägarskap finns i [överföra ägarskap för en Azure-prenumeration till ett annat konto](../../cost-management-billing/manage/billing-subscription-transfer.md).
+Att ändra prenumerations katalogen är en åtgärd på tjänst nivå, så den påverkar inte prenumerationens fakturerings ägande. Om du vill ta bort den ursprungliga katalogen måste du överföra prenumerations fakturerings ägarskapet till en ny konto administratör. Mer information om hur du överför fakturerings ägarskap finns i [överföra ägarskap för en Azure-prenumeration till ett annat konto](../../cost-management-billing/manage/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Steg efter associationen
 

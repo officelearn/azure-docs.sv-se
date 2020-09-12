@@ -2,18 +2,18 @@
 title: Felsök haveri beredskap för Hyper-V med Azure Site Recovery
 description: Beskriver hur du felsöker katastrof återställnings problem med Hyper-V till Azure-replikering med hjälp av Azure Site Recovery
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
-ms.author: rajanaki
-ms.openlocfilehash: 1b3fdd93902709541f4a22e652c34973158ad9c7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132437"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426130"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
 
@@ -135,7 +135,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Detaljer**
+**Felkod** | **Meddelande** | **Information**
 --- | --- | ---
 **0x800700EA** | "Hyper-V kunde inte skapa en ögonblicks bild uppsättning för VSS för virtuell dator: mer data är tillgängliga. (0x800700EA). Generering av ögonblicks bild uppsättning för VSS kan inte utföras om säkerhets kopiering pågår.<br/><br/> Det gick inte att utföra replikering för den virtuella datorn: fler data är tillgängliga. | Kontrol lera om den virtuella datorn har dynamisk disk aktive rad. Det stöds inte.
 **0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
@@ -157,7 +157,7 @@ All Hyper-V-replikering loggas i Hyper-V-VMMS\Admin-loggen som finns i **program
 
 ### <a name="event-log-locations"></a>Händelse logg platser
 
-**Händelseloggen** | **Detaljer** |
+**Händelseloggen** | **Information** |
 --- | ---
 **Program-och tjänst loggar/Microsoft/VirtualMachineManager/server/admin** (VMM-Server) | Loggar för att felsöka VMM-problem.
 **Program-och tjänst loggar/MicrosoftAzureRecoveryServices/replikering** (Hyper-V-värd) | Loggar för att felsöka problem med Microsoft Azure Recovery Services agent. 

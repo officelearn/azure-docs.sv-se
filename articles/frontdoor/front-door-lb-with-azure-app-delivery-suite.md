@@ -3,20 +3,20 @@ title: Azure frontend-belastnings utjämning med Azures program leverans Suite |
 description: Den här artikeln hjälper dig att lära dig hur Azure rekommenderar belastnings utjämning med sin Application Delivery Suite
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 685ee9feaf057e4f2fae3cfe016624806f1ad00c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80875290"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399471"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
@@ -81,7 +81,7 @@ Följande diagram visar arkitekturen för det här scenariot:
 > Det här exemplet är bara en av många möjliga konfigurationer av de belastnings Utjämnings tjänster som Azure erbjuder. Traffic Manager, front dörren, Application Gateway och Load Balancer kan blandas och matchas mot bästa möjliga belastnings Utjämnings behov. Om t. ex. TLS/SSL-avlastning eller Layer 7-bearbetning inte behövs, kan Load Balancer användas i stället för Application Gateway.
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

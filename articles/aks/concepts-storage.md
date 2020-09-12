@@ -3,13 +3,13 @@ title: Koncept – lagring i Azure Kubernetes Services (AKS)
 description: Lär dig mer om lagring i Azure Kubernetes service (AKS), inklusive volymer, beständiga volymer, lagrings klasser och anspråk
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406970"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421160"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Lagrings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -32,8 +32,6 @@ Traditionella volymer för lagring och hämtning av data skapas som Kubernetes-r
 
 - *Azure-diskar* kan användas för att skapa en Kubernetes *DataDisk* -resurs. Diskar kan använda Azure Premium Storage, som backas upp av högpresterande SSD eller Azure standard Storage, som backas upp av vanliga hård diskar. Använd Premium Storage för de flesta arbets belastningar för produktion och utveckling. Azure-diskar monteras som *ReadWriteOnce*, så de är bara tillgängliga för en enda pod. För lagrings volymer som kan nås av flera poddar samtidigt använder du Azure Files.
 - *Azure Files* kan användas för att montera en SMB 3,0-resurs som backas upp av ett Azure Storage konto till poddar. Med filer kan du dela data över flera noder och poddar. Filer kan använda Azure standard Storage som backas upp av vanliga hård diskar, eller Azure Premium-lagring, som backas upp av SSD med höga prestanda.
-> [!NOTE] 
-> Azure Files stöd för Premium Storage i AKS-kluster som kör Kubernetes 1,13 eller högre.
 
 I Kubernetes kan volymer representera mer än bara en traditionell disk där information kan lagras och hämtas. Kubernetes-volymer kan också användas som ett sätt att mata in data i en POD för användning av behållarna. Vanliga ytterligare volym typer i Kubernetes är:
 
@@ -55,12 +53,18 @@ En PersistentVolume kan skapas *statiskt* av en kluster administratör eller *dy
 
 Om du vill definiera olika lagrings nivåer, till exempel Premium och standard, kan du skapa en *StorageClass*. StorageClass definierar också *reclaimPolicy*. Den här reclaimPolicy styr beteendet för den underliggande Azure Storage-resursen när Pod tas bort och den permanenta volymen kanske inte längre krävs. Den underliggande lagrings resursen kan tas bort eller sparas för användning med en framtida pod.
 
-I AKS skapas fyra inledande StorageClasses:
+I AKS skapas fyra initialer `StorageClasses` för klustret med hjälp av plugin-program för in-Tree-lagring:
 
-- *standard* – använder Azure StandardSSD Storage för att skapa en hanterad disk. Anspråks principen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
-- *Managed-Premium* – använder Azure Premium Storage för att skapa en hanterad disk. Reclaim-principen igen anger att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
-- *azurefile* – använder Azure standard Storage för att skapa en Azure-filresurs. Anspråks principen anger att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
-- *azurefile – Premium* – använder Azure Premium Storage för att skapa en Azure-filresurs. Anspråks principen anger att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
+- `default` – Använder Azure StandardSSD Storage för att skapa en hanterad disk. Med anspråks principen ser du till att den underliggande Azure-disken tas bort när den permanenta volym som används tas bort.
+- `managed-premium` – Använder Azure Premium Storage för att skapa en hanterad disk. Reclaim-principen igen säkerställer att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen.
+- `azurefile` – Använder Azure standard Storage för att skapa en Azure-filresurs. Reclaim-principen garanterar att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
+- `azurefile-premium` – Använder Azure Premium Storage för att skapa en Azure-filresurs. Reclaim-principen garanterar att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
+
+För kluster som använder det nya [CSI (container Storage Interface) externt plugin-program (för hands version) skapas följande ytterligare `StorageClasses` :
+- `managed-csi` – Använder Azure StandardSSD lokalt redundant lagring (LRS) för att skapa en hanterad disk. Med anspråks principen ser du till att den underliggande Azure-disken tas bort när den permanenta volym som används tas bort. Lagrings klassen konfigurerar även de permanenta volymerna som ska kunna utökas, du behöver bara redigera det beständiga volym anspråket med den nya storleken.
+- `managed-csi-premium` – Använder Azure Premium lokalt redundant lagring (LRS) för att skapa en hanterad disk. Reclaim-principen igen säkerställer att den underliggande Azure-disken tas bort när den permanenta volym som användes är borttagen. På samma sätt tillåter den här lagrings klassen att permanenta volymer expanderas.
+- `azurefile-csi` – Använder Azure standard Storage för att skapa en Azure-filresurs. Reclaim-principen garanterar att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
+- `azurefile-csi-premium` – Använder Azure Premium Storage för att skapa en Azure-filresurs. Reclaim-principen garanterar att den underliggande Azure-filresursen tas bort när den permanenta volym som användes är borttagen.
 
 Om ingen StorageClass har angetts för en beständig volym används standard-StorageClass. Var försiktig när du begär beständiga volymer så att de använder rätt lagrings utrymme som du behöver. Du kan skapa en StorageClass för ytterligare behov med hjälp av `kubectl` . I följande exempel används Premium-Managed Disks och anger att den underliggande Azure-disken ska *behållas* när Pod tas bort:
 

@@ -3,7 +3,7 @@ title: Hantera Azure Traffic Manager-profiler | Microsoft Docs
 description: Den här artikeln hjälper dig att skapa, inaktivera, aktivera och ta bort en Azure Traffic Manager-profil.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
-ms.author: rohink
-ms.openlocfilehash: 9da534642bc2e48878667d262309037963fcdc62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 7bb5559f21289a40b6c75a3481680ab5b2c1c269
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711586"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392892"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Hantera en Azure Traffic Manager-profil
 

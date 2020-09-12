@@ -3,41 +3,39 @@ title: Metod tips för Azure Maps Search Service | Microsoft Azure Maps
 description: Lär dig hur du använder de bästa metoderna när du använder Search Service från Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6565d8056ae8106bd93b7dd096bc709010ec5c3f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064266"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400712"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Metod tips för Azure Maps Search Service
 
 Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) innehåller API: er som erbjuder olika funktioner som hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Exempel: med[fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) kan användare söka efter en adress eller ett intresse punkt (POI).
 
 Den här artikeln förklarar hur du använder ljud metoder när du anropar data från Azure Maps Search Service. Du lär dig följande:
+> [!div class="checklist"]
+> * Bygg frågor för att returnera relevanta matchningar
+> * Begränsa Sök Resultat
+> * Lär dig skillnaderna mellan resultat typer
+> * Läs adress Sök-svars strukturen
 
-* Bygg frågor för att returnera relevanta matchningar
-* Begränsa Sök Resultat
-* Lär dig skillnaderna mellan resultat typer
-* Läs adress Sök-svars strukturen
+## <a name="prerequisites"></a>Krav
 
-## <a name="prerequisites"></a>Förutsättningar
+1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 
-Om du vill ringa till API: erna för Azure Maps tjänsten behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
-
-Information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
-
-> [!TIP]
-> Om du vill fråga Search Service kan du använda [Postman-appen](https://www.getpostman.com/apps) för att bygga REST API-anrop. Eller så kan du använda valfri API-utvecklings miljö som du föredrar.
+I den här artikeln används [Postman-appen](https://www.postman.com/downloads/) för att bygga rest-anrop, men du kan välja vilken API utvecklings miljö som helst.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Metod tips för adresser för att koda
 
-När du söker efter en fullständig eller partiell adress med hjälp av Azure Maps Search Service läser API: et nyckelord från din Sök fråga. Sedan returnerar den longitud-och latitud-koordinaterna för adressen. Den här processen kallas för *kodning*. 
+När du söker efter en fullständig eller partiell adress med hjälp av Azure Maps Search Service läser API: et nyckelord från din Sök fråga. Sedan returnerar den longitud-och latitud-koordinaterna för adressen. Den här processen kallas för *kodning*.
 
 Möjligheten att koda i ett land/en region beror på tillgängligheten för väg data och att det är en bra kodning av tjänsten. Mer information om Azure Maps funktioner för att koda efter land eller region finns i lands [kodnings täckning](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
@@ -79,9 +77,9 @@ Vi rekommenderar att du använder Azure Maps [Sök i fuzzy API](https://docs.mic
 
 #### <a name="usage-examples"></a>Användningsexempel
 
-* `idxSet=POI`– Sök endast i POI: er. 
+* `idxSet=POI` – Sök endast i POI: er. 
 
-* `idxSet=PAD,Addr`– Sök endast adresser. `PAD`anger punkt adressen och `Addr` anger adress intervallet.
+* `idxSet=PAD,Addr` – Sök endast adresser. `PAD` anger punkt adressen och `Addr` anger adress intervallet.
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Omvänd-landskod och filter för en geografisk enhets typ
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707301"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441637"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Upprepnings bar kopia i Azure Data Factory
 
@@ -104,7 +104,7 @@ Kopierings aktiviteten körde rensnings skriptet för att ta bort motsvarande da
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mekanism 2: använda sliceIdentifierColumnName
 > [!IMPORTANT]
-> SliceIdentifierColumnName stöds för närvarande inte för Azure SQL Data Warehouse. 
+> För närvarande stöds inte sliceIdentifierColumnName för Azure Synapse Analytics (tidigare SQL Data Warehouse). 
 
 Den andra mekanismen för att uppnå repeterbarhet är genom att ha en dedikerad kolumn (sliceIdentifierColumnName) i mål tabellen. Den här kolumnen används av Azure Data Factory för att säkerställa att källa och mål är synkroniserade. Den här metoden fungerar när det är flexibelt att ändra eller definiera mål SQL-tabellens schema. 
 
@@ -151,5 +151,5 @@ På samma sätt som för mekanism 1 rensar kopierings aktiviteten automatiskt da
 Läs följande artiklar om koppling för fullständiga JSON-exempel: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

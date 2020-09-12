@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: flytta en offentlig peering till Microsoft-peering'
 description: Den här artikeln visar hur du flyttar din offentliga peering till Microsoft-peering på ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.author: cherylmc
-ms.openlocfilehash: 2f6b3ec93498ab58ba67a2ca08199feaa2da73ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738370"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401426"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Flytta offentlig peering till Microsoft-peering
 

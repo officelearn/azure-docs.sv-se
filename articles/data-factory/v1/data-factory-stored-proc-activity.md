@@ -1,6 +1,6 @@
 ---
 title: SQL Server lagrad procedur aktivitet
-description: Lär dig hur du kan använda den SQL Server lagrade procedur aktiviteten för att anropa en lagrad procedur i en Azure SQL Database eller Azure SQL Data Warehouse från en Data Factory pipeline.
+description: Lär dig hur du kan använda den SQL Server lagrade procedur aktiviteten för att anropa en lagrad procedur i en Azure SQL Database eller Azure Synapse Analytics från en Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c64c40e96c0ff5864e5b9c9d34bad896c0b03d91
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319092"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441705"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server lagrad procedur aktivitet
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -41,13 +41,13 @@ Du använder data omvandlings aktiviteter i en Data Factory [pipeline](data-fact
 Du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i något av följande data lager i företaget eller på en virtuell Azure-dator (VM):
 
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (tidigare SQL Data Warehouse)
 - SQL Server databas. Om du använder SQL Server installerar du Data Management Gateway på samma dator som är värd för databasen eller på en annan dator som har åtkomst till databasen. Data Management Gateway är en komponent som ansluter data källor lokalt/på virtuella Azure-datorer med moln tjänster på ett säkert och hanterat sätt. Mer information finns i [Data Management Gateway](data-factory-data-management-gateway.md) artikel.
 
 > [!IMPORTANT]
-> När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information finns i [anropa lagrad procedur från kopierings aktivitet](data-factory-invoke-stored-procedure-from-copy-activity.md). Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties) [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Det går inte att anropa en lagrad procedur medan data kopieras till en Azure SQL Data Warehouse med hjälp av en kopierings aktivitet. Men du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i en SQL Data Warehouse.
+> När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information finns i [anropa lagrad procedur från kopierings aktivitet](data-factory-invoke-stored-procedure-from-copy-activity.md). Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties) [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Det går inte att anropa en lagrad procedur medan data kopieras till Azure Synapse Analytics med hjälp av en kopierings aktivitet. Men du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i Azure Synapse Analytics.
 >
-> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties) [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties) [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
+> När du kopierar data från Azure SQL Database eller SQL Server eller Azure Synapse Analytics kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
 I följande genom gång används den lagrade procedur aktiviteten i en pipeline för att anropa en lagrad procedur i Azure SQL Database.
 
@@ -70,7 +70,7 @@ I följande genom gång används den lagrade procedur aktiviteten i en pipeline 
     
     ![Exempeldata](./media/data-factory-stored-proc-activity/sample-data.png)
 
-    I det här exemplet är den lagrade proceduren i en Azure SQL Database. Om den lagrade proceduren finns i en Azure SQL Data Warehouse och SQL Server databas är metoden liknande. För en SQL Server databas måste du installera en [Data Management Gateway](data-factory-data-management-gateway.md).
+    I det här exemplet är den lagrade proceduren i en Azure SQL Database. Om den lagrade proceduren är i Azure Synapse Analytics och SQL Server Database är metoden liknande. För en SQL Server databas måste du installera en [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Skapa följande **lagrade procedur** som infogar data i i **sampletable**.
 
     ```SQL
@@ -90,10 +90,10 @@ I följande genom gång används den lagrade procedur aktiviteten i en pipeline 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **ny** på den vänstra menyn, klicka på **information + analys**och klicka på **Data Factory**.
 
-    ![Ny datafabrik](media/data-factory-stored-proc-activity/new-data-factory.png)
+    ![Ny data fabrik 1](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. På bladet **ny data fabrik** anger du **SProcDF** som namn. Azure Data Factory namn är **globalt unika**. Du måste ge prefixet namnet på data fabriken med ditt namn för att kunna skapa fabriken.
 
-   ![Ny datafabrik](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   ![Ny data fabrik 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. Välj din **Azure-prenumeration**.
 5. För **resurs grupp**utför du något av följande steg:
    1. Klicka på **Skapa nytt** och ange ett namn för resurs gruppen.
@@ -111,7 +111,7 @@ När du har skapat data fabriken skapar du en länkad Azure SQL-tjänst som län
 1. Klicka på **författare och distribuera** på bladet **Data Factory** för **SProcDF** för att starta Data Factory redigeraren.
 2. Klicka på **nytt data lager** i kommando fältet och välj **Azure SQL Database**. Du bör se JSON-skriptet för att skapa en länkad Azure SQL-tjänst i redigeraren.
 
-   ![Nytt data lager](media/data-factory-stored-proc-activity/new-data-store.png)
+   ![Nytt data lager 1](media/data-factory-stored-proc-activity/new-data-store.png)
 3. I JSON-skriptet gör du följande ändringar:
 
    1. Ersätt `<servername>` med namnet på servern.
@@ -119,17 +119,17 @@ När du har skapat data fabriken skapar du en länkad Azure SQL-tjänst som län
    3. Ersätt `<username@servername>` med det användar konto som har åtkomst till databasen.
    4. Ersätt `<password>` med lösen ordet för användar kontot.
 
-      ![Nytt data lager](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      ![Nytt data lager 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
 4. Klicka på **distribuera** i kommando fältet för att distribuera den länkade tjänsten. Bekräfta att du ser AzureSqlLinkedService i trädvyn till vänster.
 
-    ![trädvy med länkad tjänst](media/data-factory-stored-proc-activity/tree-view.png)
+    ![trädvy med länkad tjänst 1](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
-Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet även om den lagrade proceduren inte skapar några data. Det beror på att det är den utgående data uppsättningen som styr aktivitetens schema (hur ofta aktiviteten körs per timme, dagligen osv.). Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning** (en data uppsättning som pekar på en tabell som inte faktiskt innehåller utdata från den lagrade proceduren). Denna dummy-datauppsättning används endast för att ange schemat för körning av den lagrade procedur aktiviteten.
+Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet även om den lagrade proceduren inte skapar några data. Det beror på att det är den utgående data uppsättningen som styr aktivitetens schema (hur ofta aktiviteten körs per timme, dagligen osv.). Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller Azure Synapse Analytics eller en SQL Server databas där du vill att den lagrade proceduren ska köras. Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning** (en data uppsättning som pekar på en tabell som inte faktiskt innehåller utdata från den lagrade proceduren). Denna dummy-datauppsättning används endast för att ange schemat för körning av den lagrade procedur aktiviteten.
 
 1. Klicka på **... Mer information** om verktygsfältet får du genom att klicka på **ny data uppsättning**och sedan på **Azure SQL**. **Ny data mängd** i kommando fältet och välj **Azure SQL**.
 
-    ![trädvy med länkad tjänst](media/data-factory-stored-proc-activity/new-dataset.png)
+    ![trädvy med länkad tjänst 2](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Kopiera/klistra in följande JSON-skript i JSON-redigeraren.
 
     ```JSON
@@ -200,13 +200,13 @@ Observera följande egenskaper:
 ### <a name="monitor-the-pipeline"></a>Övervaka pipeline
 1. Klicka på **X** för att stänga bladen i Data Factory-redigeraren och för att gå tillbaka till Data Factory-bladet och klicka på **Diagram**.
 
-    ![diagram panel](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    ![diagram panel 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
 2. I **diagramvyn**visas en översikt över pipelines och data uppsättningar som används i den här självstudien.
 
-    ![diagram panel](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    ![diagram panel 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. I diagramvyn dubbelklickar du på data uppsättningen `sprocsampleout` . Du ser sektorerna i klart läge. Det bör finnas fem segment eftersom en sektor skapas för varje timme mellan start tiden och slut tiden från JSON.
 
-    ![diagram panel](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    ![diagram panel 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. När en sektor har statusen **klar** kör du en `select * from sampletable` fråga mot databasen för att kontrol lera att data har infogats i tabellen med den lagrade proceduren.
 
    ![Utdata](./media/data-factory-stored-proc-activity/output.png)
@@ -277,7 +277,7 @@ På samma sätt kan du länka aktiviteten lagra procedur med **underordnade akti
 > [!IMPORTANT]
 > När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information finns i [anropa lagrad procedur från kopierings aktivitet](data-factory-invoke-stored-procedure-from-copy-activity.md). Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties) [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
 > 
-> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties) [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties) [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
+> När du kopierar data från Azure SQL Database eller SQL Server eller Azure Synapse Analytics kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av egenskapen **sqlReaderStoredProcedureName** . Mer information finns i följande artiklar om koppling: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
 ## <a name="json-format"></a>JSON-format
 Här är JSON-formatet för att definiera en lagrad procedur aktivitet:
@@ -303,15 +303,15 @@ Här är JSON-formatet för att definiera en lagrad procedur aktivitet:
 
 Följande tabell beskriver de här JSON-egenskaperna:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | name | Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |No |
+| description |Text som beskriver vad aktiviteten används för |Inga |
 | typ | Måste vara inställt på: **SqlServerStoredProcedure** | Ja |
-| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |No |
-| utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Ja |
-| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL Database, Azure SQL Data Warehouse eller SQL Server som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
-| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |No |
+| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Inga |
+| utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller Azure Synapse Analytics eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Ja |
+| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL Database, Azure Synapse Analytics eller SQL Server som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
+| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Inga |
 
 ## <a name="passing-a-static-value"></a>Överför ett statiskt värde
 Nu ska vi överväga att lägga till en annan kolumn med namnet "scenario" i tabellen som innehåller ett statiskt värde med namnet "Document Sample".

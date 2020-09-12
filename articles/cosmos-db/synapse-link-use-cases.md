@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814424"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319244"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för nära realtidsanalys
+# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för analys i nästan realtid
 
 [Azure Synapse-länken](synapse-link.md) för Azure Cosmos DB är en inbyggd hybrid transaktions-och analys bearbetnings funktion (HTAP) i molnet som gör det möjligt att köra nära real tids analys över drift data. Synapse-länken skapar en tätt sömlös integrering mellan Azure Cosmos DB och Azure Synapse Analytics.
 
@@ -86,7 +86,7 @@ Följande är en arkitektur som utnyttjar molnets inbyggda HTAP-funktioner i Azu
 
 Synapse-länk för Azure Cosmos DB användnings fall:
 
-* **Förbered & träna förutsägande pipeline:** Historiska drift data från IoT-enhetens sensorer kan användas för att träna förutsägelse modeller, till exempel avvikande detektorer. Dessa avvikelse detektorer distribueras sedan tillbaka till gränsen för övervakning i real tid. En sådan positiv användnings-slinga möjliggör kontinuerlig omskolning av förutsägande modeller.
+* **Förbered & träna förutsägande pipeline:** Historiska drift data från IoT-enhetens sensorer kan användas för att träna förutsägelse modeller, till exempel avvikande detektorer. Dessa avvikelsedetektorer distribueras sedan tillbaka till gränsen för övervakning i realtid. En sådan positiv användnings-slinga möjliggör kontinuerlig omskolning av förutsägande modeller.
 
 * **Funktions rapportering:** Med tillväxten av digitala dubbla initiativ samlar företag stora mängder drift data från ett stort antal sensorer för att bygga en digital kopia av varje dator. Dessa data befogenheter BI måste förstå trender för historiska data utöver real tids program över senaste frekventa data.
 
@@ -134,7 +134,7 @@ Mer information finns i följande dokument:
 
 * [Azure Synapse-länk för Azure Cosmos DB](synapse-link.md) 
 
-* [Azure Cosmos DB analys lager](analytical-store-introduction.md)
+* [Azure Cosmos DB-analysarkiv](analytical-store-introduction.md)
 
 * [Arbeta med Azure Synapse-länk för Azure Cosmos DB](configure-synapse-link.md)
 
@@ -142,4 +142,4 @@ Mer information finns i följande dokument:
 
 * [Apache Spark i Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [SQL Server utan/på begäran i Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Stöd för SQL Server utan körning i Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

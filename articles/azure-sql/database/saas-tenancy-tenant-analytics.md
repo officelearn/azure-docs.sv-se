@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043520"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437402"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analys av flera klienter med extraherade data – en-klient-app
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ SaaS-program för flera innehavare har vanligt vis en mängd klient data som lag
 
 Det är enkelt att komma åt data för alla klienter när alla data bara finns i en databas med flera innehavare. Men åtkomsten är mer komplex när den distribueras i skala över potentiellt tusentals databaser. Ett sätt att molndata komplexiteten och minimera effekten av analys frågor på transaktions data är att extrahera data till ett syfte som är utformat för analys databaser eller informations lager.
 
-I den här självstudien presenteras ett komplett analys scenario för Wingtip ticks SaaS-program. Först används *elastiska jobb* för att extrahera data från varje klient databas och läsa in dem i tillfälliga tabeller i ett analys lager. Analytics Store kan antingen vara en SQL Database eller en SQL Data Warehouse. För storskalig data extrahering rekommenderas [Azure Data Factory](../../data-factory/introduction.md) .
+I den här självstudien presenteras ett komplett analys scenario för Wingtip ticks SaaS-program. Först används *elastiska jobb* för att extrahera data från varje klient databas och läsa in dem i tillfälliga tabeller i ett analys lager. Analytics Store kan vara antingen en SQL Database eller en SQL-pool. För storskalig data extrahering rekommenderas [Azure Data Factory](../../data-factory/introduction.md) .
 
 Sedan omvandlas aggregerade data till en uppsättning av [stjärn schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central fakta tabell plus relaterade dimensions tabeller.  För Wingtip-biljetter:
 

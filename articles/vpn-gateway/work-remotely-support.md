@@ -2,17 +2,17 @@
 title: 'Fjärrhantering med P2S: Azure VPN Gateway'
 description: Den här sidan beskriver hur du kan utnyttja VPN Gateway för att aktivera fjärr anslutning på grund av COVID-19-Pandemic.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 302706b67900bd0dd82aabfa750bba48918b134a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a70f7ccd1c3ca078bab0ff473283b505c0ded316
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525372"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441569"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Fjärran sluten arbete med Azure VPN Gateway punkt-till-plats
 
@@ -75,7 +75,7 @@ Information om hur du konfigurerar en plats-till-plats-VPN-tunnel finns i [den h
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Konfigurera en P2S-anslutning – Azure AD-autentisering](openvpn-azure-ad-tenant.md)
 

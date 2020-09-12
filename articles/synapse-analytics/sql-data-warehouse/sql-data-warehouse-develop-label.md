@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4459547300f5dfc7b7c22d1e531b928a13aa66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213439"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459155"
 ---
 # <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Använda etiketter för instrument frågor i Synapse SQL-pool
 
 I den här artikeln finns tips för att utveckla lösningar med etiketter till instrument frågor i SQL-poolen.
 
-Tips om hur du använder etiketter till instrument frågor i Azure SQL Data Warehouse för att utveckla lösningar.
+Tips för att använda etiketter för att utforma frågor i Azure Synapse Analytics för utveckling av lösningar.
 
 ## <a name="what-are-labels"></a>Vad är etiketter?
 

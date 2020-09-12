@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981443"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440838"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metod tips för att använda Azure Data Lake Storage Gen1
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 stöder möjligheten att aktivera en brand vägg och begr
 
 ![Brand Väggs inställningar i Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Brand Väggs inställningar i Data Lake Storage Gen1")
 
-När brand väggen är aktive rad har endast Azure-tjänster som HDInsight, Data Factory, SQL Data Warehouse, osv åtkomst till Data Lake Storage Gen1. På grund av de interna Network Address Translation som används av Azure stöder Data Lake Storage Gen1 brand väggen inte begränsning av vissa tjänster av IP och är bara avsedd för begränsningar för slut punkter utanför Azure, till exempel lokalt.
+När brand väggen har Aktiver ATS har endast Azure-tjänster som HDInsight, Data Factory, Azure Synapse Analytics (tidigare SQL Data Warehouse) osv. åtkomst till Data Lake Storage Gen1. På grund av de interna Network Address Translation som används av Azure stöder Data Lake Storage Gen1 brand väggen inte begränsning av vissa tjänster av IP och är bara avsedd för begränsningar för slut punkter utanför Azure, till exempel lokalt.
 
 ## <a name="performance-and-scale-considerations"></a>Överväganden för prestanda och skalning
 
@@ -101,7 +101,7 @@ Nedan visas de tre vanligaste alternativen för att dirigera replikering mellan 
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Skalnings gränser**     | Begränsas av arbetsnoder        | Begränsas av max enheter för data förflyttning i molnet        | Begränsas av Analytics-enheter        |
-|**Stöder kopiering av delta**     |   Ja      | Nej         | Nej         |
+|**Stöder kopiering av delta**     |   Ja      | Inga         | Inga         |
 |**Inbyggd dirigering**     |  Nej (Använd Oozie-flöde eller cron-jobb)       | Ja        | Nej (Använd Azure Automation-eller Windows-Schemaläggaren)         |
 |**Fil system som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Flera, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL, WASB till ADL (endast samma region)        |
 |**OS-stöd**     |Alla operativ system som kör Hadoop         | E.t.          | Windows 10         |

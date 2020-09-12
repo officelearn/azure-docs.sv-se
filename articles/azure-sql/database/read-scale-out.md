@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 06/26/2020
-ms.openlocfilehash: cf9f48b0907d3bfe1d07dcffcc0d0b9534f74c83
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 09/03/2020
+ms.openlocfilehash: 2e7c931d6d99187b4ee7985be19374048c226312
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135888"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442232"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Använd skrivskyddade repliker för att avlasta skrivskyddade arbets belastningar
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Som en del av [arkitekturen för hög tillgänglighet](high-availability-sla.md#premium-and-business-critical-service-tier-availability)etablerades varje databas och hanterad instans på tjänst nivån Premium och affärskritisk automatiskt med en primär skrivskyddad replik och flera sekundära skrivskyddade repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen *Läs skalbar* kan du avlasta skrivskyddade arbets belastningar med beräknings kapaciteten för en av de skrivskyddade replikerna, i stället för att köra dem på den skrivskyddade repliken. På så sätt kan vissa skrivskyddade arbets belastningar isoleras från de Läs-och skriv arbets belastningarna och påverkar inte deras prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. På tjänst nivåerna Premium och Affärskritisk kan program få prestanda för delar med denna ytterligare kapacitet utan extra kostnad.
+Som en del av [arkitekturen för hög tillgänglighet](high-availability-sla.md#premium-and-business-critical-service-tier-availability)etablerades varje enskild databas, Elastic pool-databas och hanterad instans i Premium-och affärskritisk tjänst nivån automatiskt med en primär Read-Write-replik och flera sekundära skrivskyddade repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen *Läs skalbar* kan du avlasta skrivskyddade arbets belastningar med beräknings kapaciteten för en av de skrivskyddade replikerna, i stället för att köra dem på den skrivskyddade repliken. På så sätt kan vissa skrivskyddade arbets belastningar isoleras från de Läs-och skriv arbets belastningarna och påverkar inte deras prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. På tjänst nivåerna Premium och Affärskritisk kan program få prestanda för delar med denna ytterligare kapacitet utan extra kostnad.
 
 Funktionen för *Läs skalning* är också tillgänglig i den storskaliga tjänst nivån när minst en sekundär replik skapas. Flera sekundära repliker kan användas för skrivskyddade belastnings Utjämnings arbets belastningar som kräver fler resurser än vad som är tillgängligt på en sekundär replik.
 
@@ -45,7 +45,7 @@ Om du vill säkerställa att programmet ansluter till den primära repliken oavs
 
 ## <a name="data-consistency"></a>Datakonsekvens
 
-En av fördelarna med repliker är att replikerna alltid är i ett transaktions konsekvent tillstånd, men vid olika tidpunkter kan det uppstå en liten fördröjning mellan olika repliker. Läs skalbarhet stöder konsekvens på sessionsläge. Det innebär att om den skrivskyddade sessionen återansluter efter ett anslutnings fel på grund av otillgänglig replik, kan den omdirigeras till en replik som inte är 100% uppdaterad med den skrivskyddade repliken. Om ett program skriver data med hjälp av en Read-Write-session och läser den direkt med en skrivskyddad session, är det möjligt att de senaste uppdateringarna inte visas direkt på repliken. Svars tiden orsakas av en åtgärd för att göra en asynkron transaktions logg.
+En av fördelarna med repliker är att replikerna alltid är i ett transaktions konsekvent tillstånd, men vid olika tidpunkter kan det uppstå en liten fördröjning mellan olika repliker. Läs skalbarhet stöder konsekvens på sessionsläge. Det innebär att om den skrivskyddade sessionen återansluter efter ett anslutnings fel på grund av otillgänglig replik, kan den omdirigeras till en replik som inte är 100% uppdaterad med den skrivskyddade repliken. På samma sätt gäller att om ett program skriver data med hjälp av en skrivbar session och läser den direkt med en skrivskyddad session, kanske de senaste uppdateringarna inte visas omedelbart på repliken. Svarstiden orsakas av en åtgärd för att göra om en asynkron transaktionslogg.
 
 > [!NOTE]
 > Replikering av fördröjningar i regionen är lågt och den här situationen är sällsynt. Information om hur du övervakar replikeringsfördröjning finns i [övervaka och felsöka skrivskyddad replikering](#monitoring-and-troubleshooting-read-only-replicas).
@@ -87,11 +87,11 @@ Ofta använda vyer är:
 
 | Name | Syfte |
 |:---|:---|
-|[sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Tillhandahåller Mät värden för resursutnyttjande under den senaste timmen, inklusive CPU, data-IO och logg Skriv användning i förhållande till begränsningar i tjänst målet.|
-|[sys. dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Tillhandahåller sammanställd wait-statistik för databas motor instansen. |
+|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Tillhandahåller Mät värden för resursutnyttjande under den senaste timmen, inklusive CPU, data-IO och logg Skriv användning i förhållande till begränsningar i tjänst målet.|
+|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Tillhandahåller sammanställd wait-statistik för databas motor instansen. |
 |[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Tillhandahåller hälso tillstånd för replik och synkronisering av statistik. Gör om kös Tor lek och gör om betygs ätt som indikatorer för data svars tid på den skrivskyddade repliken. |
 |[sys. dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Tillhandahåller prestanda räknare för databas motorn.|
-|[sys. dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Tillhandahåller körnings statistik per fråga, till exempel antal körningar, CPU-tid som använts osv.|
+|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Tillhandahåller körnings statistik per fråga, till exempel antal körningar, CPU-tid som använts osv.|
 |[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Tillhandahåller cachelagrade fråge planer. |
 |[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Tillhandahåller frågetext för en cachelagrad frågeplan.|
 |[sys. dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller förlopp för real tids fråga medan frågor körs.|
@@ -135,7 +135,7 @@ Du kan inaktivera och återaktivera Läs utskalning på enkla databaser och Elas
 > [!NOTE]
 > För enskilda databaser och Elastic pool-databaser, tillhandahålls möjligheten att inaktivera Läs skalning för bakåtkompatibilitet. Läs skalning kan inte inaktive ras på Affärskritisk hanterade instanser.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Du kan hantera inställningen för Läs skalning på bladet **Konfigurera** databas.
 

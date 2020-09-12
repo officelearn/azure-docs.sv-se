@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752095"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433457"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -218,7 +218,7 @@ az extension update --name aks-preview
 ### <a name="use-gen2-vms-on-new-clusters-preview"></a>Använda virtuella Gen2-datorer på nya kluster (förhands granskning)
 Konfigurera klustret för att använda Gen2 virtuella datorer för den valda SKU: n när klustret skapas. Använd `--aks-custom-headers` flaggan för att ange Gen2 som generationens virtuella datorer i ett nytt kluster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -227,7 +227,7 @@ Om du vill skapa ett vanligt kluster med virtuella datorer i generation 1 (gen1)
 ### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Använda virtuella Gen2-datorer på befintliga kluster (förhands granskning)
 Konfigurera en ny Node-pool så att den använder virtuella Gen2-datorer. Använd `--aks-custom-headers` flaggan för att ange Gen2 som generering av virtuella datorer för den noden.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -276,7 +276,7 @@ az extension update --name aks-preview
 
 Konfigurera klustret så att det använder tillfälliga OS-diskar när klustret skapas. Använd `--aks-custom-headers` flaggan för att ange ett tillfälligt operativ system som OS-disktyp för det nya klustret.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 
@@ -285,7 +285,7 @@ Om du vill skapa ett vanligt kluster med nätverks anslutna OS-diskar kan du gö
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Använd tillfälliga operativ system på befintliga kluster (förhands granskning)
 Konfigurera en ny Node-pool så att den använder tillfälliga OS-diskar. Använd `--aks-custom-headers` flaggan för att ange som OS-disktyp som typ av operativ system disk för den noden.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 

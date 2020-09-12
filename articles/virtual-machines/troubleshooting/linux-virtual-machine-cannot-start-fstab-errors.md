@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509060"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441671"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fstab-fel
 
@@ -107,7 +107,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 ### <a name="using-single-user-mode"></a>Använda enanvändarläge
 
 1. Anslut till [serie konsolen](./serial-console-linux.md).
-2. Använd [en serie](../linux/serial-console-grub-single-user-mode.md) konsol för att ta enanvändarläge för enanvändarläge
+2. Använd [en serie](serial-console-grub-single-user-mode.md) konsol för att ta enanvändarläge för enanvändarläge
 3. När den virtuella datorn har startats i enanvändarläge. Använd din text redigerare för att öppna filen fstab. 
 
    ```
@@ -119,7 +119,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
    > [!Note]
    > * Fält på varje rad avgränsas med tabbar eller blank steg. Tomma rader ignoreras. Rader som har ett nummer tecken (#) som det första tecknet är kommentarer. Kommenterade rader kan finnas kvar i fstab-filen, men de bearbetas inte. Vi rekommenderar att du kommenterar fstab-rader som du är osäker på i stället för att ta bort raderna.
    > * För att den virtuella datorn ska kunna återställa och starta ska fil system partitionerna vara de enda partitioner som krävs. Den virtuella datorn kan uppleva program fel om ytterligare kommenterade partitioner. Den virtuella datorn bör dock starta utan ytterligare partitioner. Du kan senare ta bort kommentarer till kommenterade rader.
-   > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Ta reda på fil systemets UUID genom att köra kommandot blkid. Om du vill ha mer information om syntaxen kan du köra kommandot man blkid.
    > * Alternativet nomisslyckande ser till att den virtuella datorn startar även om fil systemet är skadat eller om fil systemet inte finns vid start. Vi rekommenderar att du använder alternativet nomisslyckande i fstab-filen för att aktivera start för att fortsätta när fel uppstår i partitioner som inte krävs för att den virtuella datorn ska starta.
 
@@ -172,7 +172,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
    > [!Note]
    > * Fält på varje rad avgränsas med tabbar eller blank steg. Tomma rader ignoreras. Rader som har ett nummer tecken (#) som det första tecknet är kommentarer. Kommenterade rader kan finnas kvar i fstab-filen, men de bearbetas inte. Vi rekommenderar att du kommenterar fstab-rader som du är osäker på i stället för att ta bort raderna.
    > * För att den virtuella datorn ska kunna återställa och starta ska fil system partitionerna vara de enda partitioner som krävs. Den virtuella datorn kan uppleva program fel om ytterligare kommenterade partitioner. Den virtuella datorn bör dock starta utan ytterligare partitioner. Du kan senare ta bort kommentarer till kommenterade rader.
-   > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Ta reda på fil systemets UUID genom att köra kommandot blkid. Om du vill ha mer information om syntaxen kan du köra kommandot man blkid.
    > * Alternativet nomisslyckande ser till att den virtuella datorn startar även om fil systemet är skadat eller om fil systemet inte finns vid start. Vi rekommenderar att du använder alternativet nomisslyckande i fstab-filen för att aktivera start för att fortsätta när fel uppstår i partitioner som inte krävs för att den virtuella datorn ska starta.
 
@@ -216,7 +216,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
    > [!Note]
    > * Fält på varje rad avgränsas med tabbar eller blank steg. Tomma rader ignoreras. Rader som har ett nummer tecken (#) som det första tecknet är kommentarer. Kommenterade rader kan finnas kvar i fstab-filen, men de bearbetas inte. Vi rekommenderar att du kommenterar fstab-rader som du är osäker på i stället för att ta bort raderna.
    > * För att den virtuella datorn ska kunna återställa och starta ska fil system partitionerna vara de enda partitioner som krävs. Den virtuella datorn kan uppleva program fel om ytterligare kommenterade partitioner. Den virtuella datorn bör dock starta utan ytterligare partitioner. Du kan senare ta bort kommentarer till kommenterade rader.
-   > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Vi rekommenderar att du monterar data diskar på virtuella Azure-datorer med hjälp av fil system partitionens UUID. Kör till exempel följande kommando: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Ta reda på fil systemets UUID genom att köra kommandot blkid. Om du vill ha mer information om syntaxen kan du köra kommandot man blkid. Observera att den disk som du vill återställa nu har monterats på en ny virtuell dator. Även om UUID: na bör vara konsekventa är partitions-ID: n (till exempel "/dev/sda1") olika på den här virtuella datorn. Fil system partitionerna för den ursprungliga virtuella datorn som finns på en icke-systemhårddisk är inte tillgängliga för den virtuella återställnings datorn [med CLI-kommandon](./troubleshoot-recovery-disks-linux.md).
    > * Alternativet nomisslyckande ser till att den virtuella datorn startar även om fil systemet är skadat eller om fil systemet inte finns vid start. Vi rekommenderar att du använder alternativet nomisslyckande i fstab-filen för att aktivera start för att fortsätta när fel uppstår i partitioner som inte krävs för att den virtuella datorn ska starta.
 
@@ -235,7 +235,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 13. När du har skapat den virtuella datorn igen och du kan ansluta till den via SSH, vidta följande åtgärder:
     * Granska alla fstab-rader som har ändrats eller kommenterats ut under återställningen.
     * Kontrol lera att du använder UUID och alternativet nomisslyckande på lämpligt sätt.
-    * Testa eventuella fstab ändringar innan du startar om den virtuella datorn. Använd följande kommando för att göra detta:``$ sudo mount -a``
+    * Testa eventuella fstab ändringar innan du startar om den virtuella datorn. Använd följande kommando för att göra detta: ``$ sudo mount -a``
     * Skapa ytterligare en kopia av den korrigerade fstab-filen och Använd den i framtida återställnings scenarier.
 
 ## <a name="next-steps"></a>Nästa steg

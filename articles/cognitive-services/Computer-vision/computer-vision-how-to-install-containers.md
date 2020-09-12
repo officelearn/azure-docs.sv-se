@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13d483507092892187bc13dd23bfa51ed516c890
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545649"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441161"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
 
@@ -26,7 +26,7 @@ En enda Docker-behållare, *Läs*, är tillgänglig för visuellt innehåll. Med
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste uppfylla följande krav innan du använder behållarna:
 
@@ -55,6 +55,7 @@ Fyll i och skicka [formuläret för begäran](https://aka.ms/cognitivegate) för
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > Värddatorn *krävs* för att stödja AVX2. Containern fungerar *inte* korrekt utan AVX2-stöd.
 
@@ -68,14 +69,14 @@ Behållar avbildningar för läsning är tillgängliga.
 
 | Container | Container Registry/namn på lagrings plats/avbildning |
 |-----------|------------|
-| Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att ladda ned en behållar avbildning.
 
 ### <a name="docker-pull-for-the-read-container"></a>Docker pull för Läs behållaren
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -186,13 +187,16 @@ När det asynkrona inlägget har körts returneras en status kod för **HTTP 202
 }
 ```
 
+> [!IMPORTANT]
+> Om du distribuerar flera Läs behållare bakom en belastningsutjämnare, till exempel, under Docker Compose eller Kubernetes, måste du ha ett externt cacheminne. Eftersom bearbetnings behållaren och behållaren GET Request inte kan vara samma, lagrar ett externt cacheminne resultaten och delar över behållare. Mer information om cacheinställningar finns i [konfigurera visuellt innehåll Docker-behållare](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### <a name="synchronous-read"></a>Synkron läsning
 
 Du kan använda `POST /vision/v2.0/read/core/Analyze` åtgärden för att synkront läsa en avbildning. När bilden har lästs in helt och hållet returnerar API: et ett JSON-svar. Det enda undantaget är om ett fel inträffar. När ett fel inträffar returneras följande JSON:
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
@@ -283,7 +287,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ne
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [Konfigurera behållare](computer-vision-resource-container-config.md) för konfigurations inställningar
-* Läs [visuellt innehåll översikt](Home.md) och lär dig mer om att känna igen utskrift och handskriven text
+* Läs [visuellt innehåll översikt](overview.md) och lär dig mer om att känna igen utskrift och handskriven text
 * Mer information om de metoder som stöds av behållaren finns i [API för visuellt innehåll](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 * Läs vanliga [frågor och svar (FAQ)](FAQ.md) för att lösa problem som rör visuellt innehåll-funktioner.
 * Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)

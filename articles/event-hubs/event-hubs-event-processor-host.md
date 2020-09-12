@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs händelse bearbetnings värden i Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27b587e6562b5ba0c9bf28a52a00a9d8e7d9201c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010468"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319510"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 > [!NOTE]
@@ -87,6 +87,8 @@ Sedan instansierar du en [EventProcessorHost](/dotnet/api/microsoft.azure.eventh
 
 Slutligen registrerar konsumenterna [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) -instansen med Event Hubs tjänsten. Att registrera en händelse processor klass med en instans av EventProcessorHost startar händelse bearbetning. Registrering instruerar Event Hubss tjänsten att förväntar sig att konsument appen förbrukar händelser från några av dess partitioner, och för att anropa implementerings koden för [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) när den skickar händelser till förbrukning. 
 
+> [!NOTE]
+> ConsumerGroupName är Skift läges känsligt.  Ändringar i consumerGroupName kan leda till att alla partitioner läses in från strömmens start.
 
 ### <a name="example"></a>Exempel
 

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201641"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441229"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Metod tips för att läsa in data med Synapse SQL-pool
 
@@ -175,6 +175,6 @@ Det behövs inga andra ändringar i underliggande externa datakällor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om KOPIERINGs instruktionen eller polybasen när du skapar en process för att extrahera, läsa in och transformera (ELT) finns i [design ELT for SQL Data Warehouse](design-elt-data-loading.md).
+- Mer information om KOPIERINGs instruktionen eller polybasen när du utformar en process för att extrahera, läsa in och transformera (ELT) finns i [design ELT for Azure Synapse Analytics](design-elt-data-loading.md).
 - För en inläsnings kurs [använder du kopierings instruktionen för att läsa in data från Azure Blob Storage till SYNAPSE SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).

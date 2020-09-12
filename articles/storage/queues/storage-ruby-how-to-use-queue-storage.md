@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: ac47747f7789b23801900804522681e5a4b10e5a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078707"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459614"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Besök [Azure Storage teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/)
+* Besök [Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * Besök [Azure SDK för ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) -lagringsplatsen på GitHub
 
 En jämförelse mellan Azure Queue Service som diskuteras i den här artikeln och Azure Service Bus köer som beskrivs i artikeln [så här använder du Service Bus köer](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) , se [Azure-köer och Service Bus köer-jämförda och kontrasterande](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

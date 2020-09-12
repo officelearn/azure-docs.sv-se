@@ -8,38 +8,36 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
-ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233299"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458858"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
-Den här funktionen returnerar det datetime-värde som motsvarar början av varje datetime-Bucket, från standard ursprung svärdet `1900-01-01 00:00:00.000` .
+Den här funktionen returnerar det datetime-värde som motsvarar början av varje datetime-Bucket, från den tidstämpel som definieras av `origin` parametern eller som standard ursprung svärdet för `1900-01-01 00:00:00.000` om ursprungs parametern inte har angetts. 
 
 Se [datum-och tids data typer och funktioner &#40;Transact-SQL&#41;](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) för en översikt över alla data typer och funktioner för Transact-SQL-datum och-tid.
 
 [Konventioner för Transact-SQL-syntax](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET`använder ett standardvärdet för ursprungligt datum `1900-01-01 00:00:00.000` , d.v.s. 12:00 am på måndagen, januari 1 1900.
-
 ## <a name="syntax"></a>Syntax
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## <a name="arguments"></a>Argument
 
 *datePart*
 
-Den del av *datumet* som används med parametern "tal". t.ex. År, månad, minut, sekund osv.
+Den del av *datumet* som används med parametern "tal". Till exempel År, månad, minut, sekund osv.
 
 > [!NOTE]
-> `DATE_BUCKET`accepterar inte användardefinierade variabel motsvarigheter för *datepPart* -argumenten.
+> `DATE_BUCKET` accepterar inte användardefinierade variabel motsvarigheter för *datepPart* -argumenten.
   
 |*datePart*|Förkortningar|  
 |---|---|
@@ -54,11 +52,11 @@ Den del av *datumet* som används med parametern "tal". t.ex. År, månad, minut
 
 Det heltals värde som bestämmer bredden på Bucket tillsammans med argumentet *DatumDel* . Detta representerar bredden på dataPart-buckets från ursprungs tiden. **`This argument cannot be a negative integer value`**. 
 
-*ikraftträdande*
+*datum*
 
 Ett uttryck som kan matcha till något av följande värden:
 
-+ **ikraftträdande**
++ **datum**
 + **datetime**
 + **DateTimeOffset**
 + **datetime2**
@@ -67,15 +65,30 @@ Ett uttryck som kan matcha till något av följande värden:
 
 För *datum* `DATE_BUCKET` accepterar att ett kolumn uttryck, ett uttryck eller en användardefinierad variabel om de matchar någon av de data typer som anges ovan.
 
+**Kommer** 
+
+Ett valfritt uttryck som kan matcha till något av följande värden:
+
++ **datum**
++ **datetime**
++ **DateTimeOffset**
++ **datetime2**
++ **smalldatetime**
++ **tid**
+
+Data typen för `Origin` måste matcha `Date` Parameterns datatyp. 
+
+`DATE_BUCKET` använder ett standardvärdet för ursprungligt datum `1900-01-01 00:00:00.000` , d.v.s. 12:00 am på måndagen, januari 1 1900, om inget ursprungs värde har angetts för funktionen.
+
 ## <a name="return-type"></a>Returtyp
 
-Data typen returnerat värde för den här metoden är dynamisk. Retur typen beror på vilket argument som anges `date` . Om en giltig Indatatyp anges `date` `DATE_BUCKET` returneras samma datatyp. `DATE_BUCKET`genererar ett fel om en stränglitteral anges för `date` parametern.
+Data typen returnerat värde för den här metoden är dynamisk. Retur typen beror på vilket argument som anges `date` . Om en giltig Indatatyp anges `date` `DATE_BUCKET` returneras samma datatyp. `DATE_BUCKET` genererar ett fel om en stränglitteral anges för `date` parametern.
 
 ## <a name="return-values"></a>Retur värden
 
-### <a name="understanding-the-output-from-date_bucket"></a>Förstå utdata från`DATE_BUCKET`
+### <a name="understanding-the-output-from-date_bucket"></a>Förstå utdata från `DATE_BUCKET`
 
-`Date_Bucket`Returnerar det senaste datum-eller tids värdet, som motsvarar DatumDel och Number-parametern. I uttrycken nedan returneras till exempel `Date_Bucket` utdata-värdet för `2020-04-13 00:00:00.0000000` , eftersom utdata beräknas baserat på en veckas buckets från standard ursprungs tiden för `1900-01-01 00:00:00.000` . Värdet `2020-04-13 00:00:00.0000000` är 6276 veckor från ursprung svärdet för `1900-01-01 00:00:00.000` . 
+`Date_Bucket` Returnerar det senaste datum-eller tids värdet, som motsvarar DatumDel och Number-parametern. I uttrycken nedan returneras till exempel `Date_Bucket` utdata-värdet för `2020-04-13 00:00:00.0000000` , eftersom utdata beräknas baserat på en veckas buckets från standard ursprungs tiden för `1900-01-01 00:00:00.000` . Värdet `2020-04-13 00:00:00.0000000` är 6276 veckor från ursprung svärdet för `1900-01-01 00:00:00.000` . 
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
@@ -92,11 +105,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-Utdata för uttrycket nedan, som är 6275 veckor från ursprungs tiden.
+Utdata för uttrycket nedan är `2020-04-06 00:00:00.0000000` , vilket är 6275 veckor från standard start tiden `1900-01-01 00:00:00.000` .
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+Utdata för uttrycket nedan är `2020-06-09 00:00:00.0000000` , vilket är 75 veckor från den angivna ursprungs tiden `2019-01-01 00:00:00` .
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## <a name="datepart-argument"></a>DatumDel-argument
@@ -121,11 +142,15 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 
 ## <a name="date-argument"></a>datum argument  
 
-`DATE_BUCKET`returnera bas värdet som motsvarar `date` argumentets datatyp. I följande exempel returneras ett output-värde med datetime2-datatype. 
+`DATE_BUCKET` returnera bas värdet som motsvarar `date` argumentets datatyp. I följande exempel returneras ett output-värde med datetime2-datatype. 
 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## <a name="origin-argument"></a>ursprungs argument  
+
+Data typen för `origin` `date` argumenten och i måste vara samma. Om olika data typer används genereras ett fel.
 
 ## <a name="remarks"></a>Kommentarer
 
@@ -134,7 +159,7 @@ Använd `DATE_BUCKET` i följande satser:
 + GROUP BY
 + HAVING
 + ORDNA EFTER
-+ SELECT\<list>
++ SELECT \<list>
 + WHERE
 
 ## <a name="examples"></a>Exempel
@@ -239,7 +264,7 @@ Här är resultatuppsättningen.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Ange skalära under frågor och skalära funktioner som tal och datum
 
-I det här exemplet används skalära `MAX(OrderDate)` under frågor, som argument för *tal* och *datum*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`fungerar som ett artificiellt argument för parametern Number, för att visa hur du väljer ett *tal* argument från en värde lista.
+I det här exemplet används skalära `MAX(OrderDate)` under frågor, som argument för *tal* och *datum*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` fungerar som ett artificiellt argument för parametern Number, för att visa hur du väljer ett *tal* argument från en värde lista.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -268,6 +293,15 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### <a name="c-using-a-non-default-origin-value"></a>C. Använd ett värde som inte är standard ursprung
+
+I det här exemplet används ett icke-Orgin värde för att generera datum-buckets. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## <a name="see-also"></a>Se även
 

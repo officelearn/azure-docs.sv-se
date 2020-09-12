@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196108"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441110"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide till prestandajustering för kopieringsaktiviteter
 
@@ -32,7 +32,7 @@ Azure Data Factory kopierings aktivitet ger en första klass säker, tillförlit
 
 Azure tillhandahåller en uppsättning data lagrings-och informations lager lösningar i företags klass, och kopierings aktiviteten ger en mycket optimerad data inläsnings upplevelse som är enkel att konfigurera och konfigurera. Med bara en enda kopierings aktivitet kan du uppnå:
 
-* Läser in data **Azure SQL Data Warehouse** i Azure SQL Data Warehouse **1,2 Gbit/s**. För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Läser in data i **Azure Synapse Analytics** med **1,2 Gbit/s**. För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics (tidigare SQL Data Warehouse) under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Läsa in data i **Azure Blob Storage** med **1,0 Gbit/s**
 * Läser in data **Azure Data Lake Store** i Azure Data Lake Store **1,0 Gbit/s**
 
@@ -62,12 +62,12 @@ Som referens visas det kopierade data flödes numret i MBps i Mbit/s för den ak
 * För Hybrid kopiering mellan lokala och molnbaserade data lager, kördes varje gateway-nod på en dator som var skild från det lokala data lagret med specifikationen nedan. När en enskild aktivitet kördes på Gateway, förbrukade kopierings åtgärden bara en liten del av test datorns processor, minne eller nätverks bandbredd. Lär dig mer [om att tänka på Data Management Gateway](#considerations-for-data-management-gateway).
     <table>
     <tr>
-        <td>Processor</td>
+        <td>CPU</td>
         <td>32 kärnor 2,20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
         <td>Minne</td>
-        <td>128 GB</td>
+        <td>128 GB</td>
     </tr>
     <tr>
         <td>Nätverk</td>
@@ -183,9 +183,9 @@ Det är **viktigt** att komma ihåg att du debiteras utifrån den totala tiden f
 ## <a name="staged-copy"></a>Mellanlagrad kopia
 När du kopierar data från ett käll data lager till ett data lager för mottagare kan du välja att använda Blob Storage som ett interimistiskt mellanlagrings lager. Mellanlagring är särskilt användbart i följande fall:
 
-1. **Du vill mata in data från olika data lager i SQL Data Warehouse via PolyBase**. SQL Data Warehouse använder PolyBase som en mekanism för hög genom strömning för att läsa in stora mängder data i SQL Data Warehouse. Källdata måste dock vara i Blob Storage och måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i SQL Data Warehouse. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+1. **Du vill mata in data från olika data lager i Azure Synapse Analytics via PolyBase**. Azure Synapse Analytics använder PolyBase som en mekanism för hög genom strömning för att läsa in en stor mängd data i Azure Synapse Analytics. Källdata måste dock vara i Blob Storage och måste uppfylla ytterligare kriterier. När du läser in data från ett annat data lager än Blob Storage, kan du aktivera data kopiering via tillfällig mellanlagring av blob-lagring. I så fall utför Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan använder den PolyBase för att läsa in data i Azure Synapse Analytics. Mer information finns i [använda PolyBase för att läsa in data i Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics). För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 2. **Ibland tar det en stund att utföra en hybrid data förflyttning (det vill säga kopiera mellan ett lokalt data lager och ett moln data lager) över en långsam nätverks anslutning**. Du kan förbättra prestanda genom att komprimera data lokalt så att det tar mindre tid att flytta data till lagrings data lagret i molnet. Sedan kan du expandera data i mellanlagrings platsen innan du läser in den i mål data lagret.
-3. **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen, på grund av företagets IT-principer**. När du till exempel kopierar data från ett lokalt data lager till en Azure SQL Database mottagare eller en Azure SQL Data Warehouse mottagare måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan du dra nytta av gatewayen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Läs sedan in data i SQL Database eller SQL Data Warehouse från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
+3. **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen, på grund av företagets IT-principer**. När du t. ex. kopierar data från ett lokalt data lager till en Azure SQL Database mottagare eller en Azure Synapse Analytics-mottagare måste du aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företags brand väggen. I det här scenariot kan du dra nytta av gatewayen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Läs sedan in data i SQL Database eller Azure Synapse Analytics från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
 
 ### <a name="how-staged-copy-works"></a>Så här fungerar mellanlagrad kopiering
 När du aktiverar mellanlagrings funktionen kopieras först data från käll data lagret till lagrings data lagret (ta med din egen). Därefter kopieras data från mellanlagrings data lagringen till data lagret för mottagaren. Data Factory hanterar automatiskt flödet i två steg åt dig. Data Factory rensar också tillfälliga data från mellanlagringen när data förflyttningen är klar.
@@ -207,10 +207,10 @@ Konfigurera **enableStaging** -inställningen i kopierings aktivitet för att an
 
 | Egenskap | Beskrivning | Standardvärde | Obligatorisk |
 | --- | --- | --- | --- |
-| **enableStaging** |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |No |
-| **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |E.t. |Ja, när **enableStaging** är inställt på True |
-| **sökväg** |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg, skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |E.t. |No |
-| **enableCompression** |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |No |
+| **enableStaging** |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |Inga |
+| **linkedServiceName** |Ange namnet på en länkad [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) -eller [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) -tjänst som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i Azure Synapse Analytics via PolyBase. Du kan använda den i alla andra scenarier. |E.t. |Ja, när **enableStaging** är inställt på True |
+| **sökväg** |Ange den Blob Storage-sökväg som du vill ska innehålla de mellanlagrade data. Om du inte anger en sökväg, skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange endast en sökväg om du använder lagring med en signatur för delad åtkomst, eller om du vill att tillfälliga data ska finnas på en bestämd plats. |E.t. |Inga |
+| **enableCompression** |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Inga |
 
 Här är en exempel definition av kopierings aktiviteten med de egenskaper som beskrivs i föregående tabell:
 
@@ -262,7 +262,7 @@ Vi rekommenderar att du vidtar de här stegen för att justera prestandan för d
      * [Enheter för flytt av moln data](#cloud-data-movement-units)
      * [Mellanlagrad kopia](#staged-copy)
      * [Data Management Gateway skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Data Management Gateway](#considerations-for-data-management-gateway)
+   * [Gateway för datahantering](#considerations-for-data-management-gateway)
    * [Källa](#considerations-for-the-source)
    * [Kanalmottagare](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
@@ -282,7 +282,7 @@ Se till att det underliggande data lagret inte är överbelastat av andra arbets
 
 Information om Microsoft-datalager finns i avsnittet om [övervakning och justering](#performance-reference) som är specifika för data lager och hjälper dig att förstå prestanda egenskaper för data lager, minimera svars tider och maximera data flödet.
 
-Om du kopierar data från Blob Storage till SQL Data Warehouse bör du överväga att använda **PolyBase** för att öka prestandan. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) . För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Om du kopierar data från Blob Storage till Azure Synapse Analytics bör du överväga att använda **PolyBase** för att öka prestandan. Se [använda PolyBase för att läsa in data i Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) för mer information. För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Filbaserade data lager
 *(Inkluderar Blob Storage, Data Lake Store, Amazon S3, lokala fil system och lokala HDFS)*
@@ -292,7 +292,7 @@ Om du kopierar data från Blob Storage till SQL Data Warehouse bör du överväg
 * I det **lokala fil system** scenariot, där **Data Management Gateway** krävs, se avsnittet [överväganden för data Management Gateway](#considerations-for-data-management-gateway) .
 
 ### <a name="relational-data-stores"></a>Relations data lager
-*(Innehåller SQL Database; SQL Data Warehouse; Amazon-RedShift; SQL Server-databaser; och Oracle-, MySQL-, DB2-, Teradata-, Sybase-och PostgreSQL-databaser osv.)*
+*(Innehåller SQL Database; Azure Synapse Analytics; Amazon-RedShift; SQL Server-databaser; och Oracle-, MySQL-, DB2-, Teradata-, Sybase-och PostgreSQL-databaser osv.)*
 
 * **Data mönster**: tabellens schema påverkar kopiering av data flöde. En stor rad storlek ger bättre prestanda än liten rad storlek, för att kopiera samma mängd data. Orsaken är att databasen kan få mer effektiv hämtning av färre batchar med data som innehåller färre rader.
 * **Fråga eller lagrad procedur**: optimera logiken för frågan eller den lagrade proceduren som du anger i kopierings aktivitets källan för att hämta data mer effektivt.
@@ -304,7 +304,7 @@ Se till att det underliggande data lagret inte är överbelastat av andra arbets
 
 Information om Microsoft-datalager finns i [avsnittet om övervakning och justering](#performance-reference) som är specifika för data lager. Dessa avsnitt kan hjälpa dig att förstå prestanda egenskaperna för data lagring och hur du minimerar svars tiderna och maximerar data flödet.
 
-Om du kopierar data från **Blob Storage** till **SQL Data Warehouse**bör du överväga att använda **PolyBase** för att öka prestandan. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) . För en genom gång med ett användnings fall, se [load 1 TB till Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Om du kopierar data från **Blob Storage** till **Azure Synapse Analytics**kan du använda **PolyBase** för att öka prestandan. Se [använda PolyBase för att läsa in data i Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) för mer information. För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Filbaserade data lager
 *(Inkluderar Blob Storage, Data Lake Store, Amazon S3, lokala fil system och lokala HDFS)*
@@ -315,7 +315,7 @@ Om du kopierar data från **Blob Storage** till **SQL Data Warehouse**bör du ö
 * För scenarier med **lokala fil system** som kräver användning av **Data Management Gateway**, se avsnittet [överväganden för data Management Gateway](#considerations-for-data-management-gateway) .
 
 ### <a name="relational-data-stores"></a>Relations data lager
-*(Innehåller SQL Database, SQL Data Warehouse, SQL Server databaser och Oracle-databaser)*
+*(Innehåller SQL Database, Azure Synapse Analytics, SQL Server-databaser och Oracle-databaser)*
 
 * **Kopierings beteende**: beroende på de egenskaper som du har angett för **sqlSink**skriver kopierings aktiviteten data till mål databasen på olika sätt.
   * Som standard använder tjänsten för Mass kopiering API för att infoga data i läget append, vilket ger bästa möjliga prestanda.
@@ -419,7 +419,7 @@ Här följer prestanda övervakning och justering av referenser för några av d
 * Azure Blob Storage: [skalbarhets-och prestanda mål för Blob Storage](../../storage/blobs/scalability-targets.md) och [Check lista för prestanda och skalbarhet för Blob Storage](../../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [skalbarhets-och prestanda mål för](../../storage/tables/scalability-targets.md) [Check lista för tabell lagring och prestanda och skalbarhet för Table Storage](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: du kan [övervaka prestanda](../../sql-database/sql-database-single-database-monitor.md) och kontrol lera DTU-procenten (Database Transaction Unit)
-* Azure SQL Data Warehouse: dess funktion mäts i informations lager enheter (DWU: er). Se [hantera beräknings kraft i Azure SQL Data Warehouse (översikt)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure Synapse Analytics: dess funktion mäts i informations lager enheter (DWU: er). Se [hantera beräknings kraft i Azure Synapse Analytics (översikt)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [prestanda nivåer i Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * Lokala SQL Server: [övervaka och justera för prestanda](https://msdn.microsoft.com/library/ms189081.aspx)
 * Lokal fil Server: [prestanda justering för fil servrar](https://msdn.microsoft.com/library/dn567661.aspx)

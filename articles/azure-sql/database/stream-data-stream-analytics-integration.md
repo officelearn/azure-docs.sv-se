@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869872"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437079"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Strömma data till Azure SQL Database med Azure Stream Analytics integration (för hands version)
 
@@ -31,9 +31,9 @@ Användarna kan nu mata in, bearbeta, Visa och analysera real tids strömnings d
 - Enklare att använda med förhands gransknings data: Förhandsgranska inkommande data från händelse källan (Händelsehubben/IoT Hub) i kontexten för den valda tabellen
 
 > [!IMPORTANT]
-> Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics (tidigare Azure SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/sql-database-output.md).
+> Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics (tidigare SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/stream-analytics-define-outputs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 

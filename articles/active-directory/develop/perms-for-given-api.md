@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7b70460af8126199b19c18118897c93f0477791c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120736"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442211"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för ett angivet API 
+# <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för ett angivet API
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
 - Läs mer om hur klient program använder [delegerade och begär Anden om program behörighet](./developer-glossary.md#permissions) för att få åtkomst till resurser.
-- Se steg-för-steg-instruktioner om hur du [konfigurerar klient programmets behörighets begär Anden](./quickstart-register-app.md)
-- För mer djupgående, lär du dig hur resurs program exponerar [scope](./developer-glossary.md#scopes) och [program roller](./developer-glossary.md#roles) för klient program, som visas som delegerade respektive program behörigheter i Azure Portal. 
+- Se steg-för-steg-instruktioner om hur du [konfigurerar klient programmets behörighets begär Anden](./quickstart-configure-app-access-web-apis.md)
+- För mer djupgående, lär du dig hur resurs program exponerar [scope](./developer-glossary.md#scopes) och [program roller](./developer-glossary.md#roles) för klient program, som visas som delegerade respektive program behörigheter i Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 

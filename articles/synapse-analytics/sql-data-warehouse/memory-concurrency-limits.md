@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210669"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441688"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Minnes-och samtidiga gränser för Azure Synapse Analytics
 
@@ -55,9 +55,9 @@ Den högsta service nivån är DW30000c, som har 60 Compute-noder och en distrib
 
 Med introduktionen av [arbets belastnings grupper](sql-data-warehouse-workload-isolation.md)gäller inte längre begreppet samtidiga platser.  Resurser per begäran tilldelas i procent och anges i definitionen av arbets belastnings gruppen.  Men även om du tar bort samtidiga platser, finns det minimala mängder resurser som krävs per fråga baserat på service nivå.  Tabellen nedan definierar den minsta mängd resurser som krävs per fråga över tjänst nivåer och den associerade samtidigheten som kan uppnås.
 
-|Service nivå|Maximalt antal samtidiga frågor|Lägsta% som stöds för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Servicenivå|Maximalt antal samtidiga frågor|Lägsta% som stöds för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
-|DW100c|4|25 %|
+|DW100c|4|25 %|
 |DW200c|8|12,5%|
 |DW300c|12|8 %|
 |DW400c|16|6,25%|
@@ -83,7 +83,7 @@ För att säkerställa att varje fråga har tillräckligt med resurser för att 
 
 Följande tabell visar maximalt antal samtidiga frågor och samtidiga platser för varje [statisk resurs klass](resource-classes-for-workload-management.md).  
 
-| Service nivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av staticrc10 | Platser som används av staticrc20 | Platser som används av staticrc30 | Platser som används av staticrc40 | Platser som används av staticrc50 | Platser som används av staticrc60 | Platser som används av staticrc70 | Platser som används av staticrc80 |
+| Servicenivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av staticrc10 | Platser som används av staticrc20 | Platser som används av staticrc30 | Platser som används av staticrc40 | Platser som används av staticrc50 | Platser som används av staticrc60 | Platser som används av staticrc70 | Platser som används av staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -106,7 +106,7 @@ Följande tabell visar maximalt antal samtidiga frågor och samtidiga platser f�
 
 I följande tabell visas maximalt antal samtidiga frågor och samtidiga platser för varje [dynamisk resurs klass](resource-classes-for-workload-management.md). Dynamiska resurs klasser använder en procent andel av 3-10-22-70-minne för små och medel stora XLarge resurs klasser på alla service nivåer.
 
-| Service nivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
+| Servicenivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
@@ -125,7 +125,7 @@ I följande tabell visas maximalt antal samtidiga frågor och samtidiga platser 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-När det inte finns tillräckligt många lediga platser för att starta frågekörningen, placeras frågor i kö och körs utifrån prioritet.  Om det finns motsvarande prioritet körs frågor på en första, först ut-grunden.  När en fråga har slutförts och antalet frågor och platser faller under gränserna, SQL Data Warehouse släpper köade frågor.
+När det inte finns tillräckligt många lediga platser för att starta frågekörningen, placeras frågor i kö och körs utifrån prioritet.  Om det finns motsvarande prioritet körs frågor på en första, först ut-grunden.  När en fråga slutförs och antalet frågor och platser faller under gränserna, släpps köade frågor i Azure Synapse Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

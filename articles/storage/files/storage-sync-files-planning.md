@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c2d3237e629c7ed5d2931e15939b154e0239f259
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553115"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441107"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -136,9 +136,8 @@ Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamesp
  
 Så här visar du resultatet i CSV:
 ```powershell
-$errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
-    C:\results.csv -Encoding utf8
+$validation = Invoke-AzStorageSyncCompatibilityCheck C:\DATA
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Filsystemkompatibilitet
@@ -304,37 +303,37 @@ Azure File Sync är tillgängligt i följande regioner:
 
 | Azure-molnet | Geografisk region | Azure-region | Regions kod |
 |-------------|-------------------|--------------|-------------|
-| Offentlig | Asien | Asien, östra | `eastasia` |
-| Offentlig | Asien | Sydostasien | `southeastasia` |
-| Offentlig | Australien | Australien, östra | `australiaeast` |
-| Offentlig | Australien | Australien, sydöstra | `australiasoutheast` |
-| Offentlig | Brasilien | Brasilien, södra | `brazilsouth` |
-| Offentlig | Kanada | Kanada, centrala | `canadacentral` |
-| Offentlig | Kanada | Kanada, östra | `canadaeast` |
-| Offentlig | Europa | Norra Europa | `northeurope` |
-| Offentlig | Europa | Europa, västra | `westeurope` |
-| Offentlig | Frankrike | Frankrike, centrala | `francecentral` |
-| Offentlig | Frankrike | Frankrike, södra * | `francesouth` |
-| Offentlig | Indien | Indien, centrala | `centralindia` |
-| Offentlig | Indien | Indien, södra | `southindia` |
-| Offentlig | Japan | Japan, östra | `japaneast` |
-| Offentlig | Japan | Japan, västra | `japanwest` |
-| Offentlig | Korea | Sydkorea, centrala | `koreacentral` |
-| Offentlig | Korea | Sydkorea, södra | `koreasouth` |
-| Offentlig | Sydafrika | Sydafrika, norra | `southafricanorth` |
-| Offentlig | Sydafrika | Södra Afrika, västra * | `southafricawest` |
-| Offentlig | UAE | Förenade Arabemiraten Central * | `uaecentral` |
-| Offentlig | UAE | Förenade Arabemiraten, norra | `uaenorth` |
-| Offentlig | Storbritannien | Storbritannien, södra | `uksouth` |
-| Offentlig | Storbritannien | Storbritannien, västra | `ukwest` |
-| Offentlig | USA | Central US | `centralus` |
-| Offentlig | USA | East US | `eastus` |
-| Offentlig | USA | USA, östra 2 | `eastus2` |
-| Offentlig | USA | USA, norra centrala | `northcentralus` |
-| Offentlig | USA | USA, södra centrala | `southcentralus` |
-| Offentlig | USA | USA, västra centrala | `westcentralus` |
-| Offentlig | USA | USA, västra | `westus` |
-| Offentlig | USA | USA, västra 2 | `westus2` |
+| Offentliga | Asien | Asien, östra | `eastasia` |
+| Offentliga | Asien | Sydostasien | `southeastasia` |
+| Offentliga | Australien | Australien, östra | `australiaeast` |
+| Offentliga | Australien | Australien, sydöstra | `australiasoutheast` |
+| Offentliga | Brasilien | Brasilien, södra | `brazilsouth` |
+| Offentliga | Kanada | Kanada, centrala | `canadacentral` |
+| Offentliga | Kanada | Kanada, östra | `canadaeast` |
+| Offentliga | Europa | Norra Europa | `northeurope` |
+| Offentliga | Europa | Europa, västra | `westeurope` |
+| Offentliga | Frankrike | Frankrike, centrala | `francecentral` |
+| Offentliga | Frankrike | Frankrike, södra * | `francesouth` |
+| Offentliga | Indien | Indien, centrala | `centralindia` |
+| Offentliga | Indien | Indien, södra | `southindia` |
+| Offentliga | Japan | Japan, östra | `japaneast` |
+| Offentliga | Japan | Japan, västra | `japanwest` |
+| Offentliga | Korea | Sydkorea, centrala | `koreacentral` |
+| Offentliga | Korea | Sydkorea, södra | `koreasouth` |
+| Offentliga | Sydafrika | Sydafrika, norra | `southafricanorth` |
+| Offentliga | Sydafrika | Södra Afrika, västra * | `southafricawest` |
+| Offentliga | UAE | Förenade Arabemiraten Central * | `uaecentral` |
+| Offentliga | UAE | Förenade Arabemiraten, norra | `uaenorth` |
+| Offentliga | Storbritannien | Storbritannien, södra | `uksouth` |
+| Offentliga | Storbritannien | Storbritannien, västra | `ukwest` |
+| Offentliga | USA | Central US | `centralus` |
+| Offentliga | USA | East US | `eastus` |
+| Offentliga | USA | USA, östra 2 | `eastus2` |
+| Offentliga | USA | USA, norra centrala | `northcentralus` |
+| Offentliga | USA | USA, södra centrala | `southcentralus` |
+| Offentliga | USA | USA, västra centrala | `westcentralus` |
+| Offentliga | USA | USA, västra | `westus` |
+| Offentliga | USA | USA, västra 2 | `westus2` |
 | US Gov | USA | US Gov, Arizona | `usgovarizona` |
 | US Gov | USA | US Gov, Texas | `usgovtexas` |
 | US Gov | USA | US Gov, Virginia | `usgovvirginia` |

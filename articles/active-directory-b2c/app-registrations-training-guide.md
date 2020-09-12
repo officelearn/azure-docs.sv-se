@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116544"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433916"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Den nya Appregistreringar upplevelsen för Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Du kan uppnå den nya upplevelsen genom att gå till **Appregistreringar** i en 
 Azure AD B2C Appregistreringar-upplevelsen baseras på den allmänna [appens registrerings upplevelse](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) för alla Azure AD-klienter, men är skräddarsydda för Azure AD B2C klienter.
 
 ## <a name="whats-not-changing"></a>Vad ändras inte?
-- Dina program och relaterade konfigurationer kan hittas i den nya upplevelsen. Du behöver inte registrera programmen igen och användarna av dina program behöver inte logga in igen. 
+- Dina program och relaterade konfigurationer kan hittas i den nya upplevelsen. Du behöver inte registrera programmen igen och användarna av dina program behöver inte logga in igen.
 
 > [!NOTE]
 > Om du vill visa alla tidigare skapade program går du till bladet **Appregistreringar** och väljer fliken **alla program** . Då visas appar som skapats i den tidigare versionen, den nya upplevelsen och de som skapats i Azure AD-tjänsten.
@@ -43,7 +43,7 @@ Azure AD B2C Appregistreringar-upplevelsen baseras på den allmänna [appens reg
 
 -   Med **kombinerad app-registrering** kan du snabbt registrera en app, oavsett om det är en kundriktad app eller en app för att få åtkomst till Microsoft Graph.
 
-- I fönstret **slut punkter** kan du snabbt identifiera relevanta slut punkter för ditt scenario, inklusive OpenID Connect-konfiguration, SAML-metadata, Microsoft Graph API och [OAuth 2,0-slutpunkter för användar flödet](tokens-overview.md#endpoints). 
+- I fönstret **slut punkter** kan du snabbt identifiera relevanta slut punkter för ditt scenario, inklusive OpenID Connect-konfiguration, SAML-metadata, Microsoft Graph API och [OAuth 2,0-slutpunkter för användar flödet](tokens-overview.md#endpoints).
 
 - **API-behörigheter** och **exponera ett API** ger mer omfattande omfång, behörighet och godkännande hantering. Nu kan du även tilldela MS Graph-och Azure AD Graph-behörigheter till en app.
 
@@ -57,7 +57,7 @@ I den nya upplevelsen väljer du en Support konto typ från följande alternativ
 - Konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare).
 - Konton i en organisations katalog eller en identitets leverantör. För autentisering av användare med Azure AD B2C.
 
-Om du vill förstå de olika konto typerna väljer du **Hjälp mig att välja** i skapande upplevelsen. 
+Om du vill förstå de olika konto typerna väljer du **Hjälp mig att välja** i skapande upplevelsen.
 
 I den tidigare versionen har appar alltid skapats som kund program. För dessa appar anges konto typen till **konton i alla organisations kataloger eller identitets leverantörer. För autentisering av användare med Azure AD B2C**.
 > [!NOTE]
@@ -68,9 +68,9 @@ Du kan också använda det här alternativet om du vill använda Azure AD B2C so
 ## <a name="applications-for-devops-scenarios"></a>Program för DevOps-scenarier
 Du kan använda de andra konto typerna för att skapa en app för att hantera dina DevOps-scenarier, t. ex. genom att använda Microsoft Graph för att överföra principer för identitets miljö eller etablera användare. Lär dig [hur du registrerar ett Microsoft Graph program för att hantera Azure AD B2C-resurser](microsoft-graph-get-started.md).
 
-Du kanske inte ser alla Microsoft Graph behörigheter, eftersom många av de här behörigheterna inte gäller användare av Azure B2C-konsumenter. [Läs mer om att hantera användare med hjälp av Microsoft Graph](manage-user-accounts-graph-api.md).  
+Du kanske inte ser alla Microsoft Graph behörigheter, eftersom många av de här behörigheterna inte gäller användare av Azure B2C-konsumenter. [Läs mer om att hantera användare med hjälp av Microsoft Graph](manage-user-accounts-graph-api.md).
 
-## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Administrativa medgivande och offline_access-och OpenID-scope  
+## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Administrativa medgivande och offline_access-och OpenID-scope
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
 **OpenID** -omfattningen är nödvändig så att Azure AD B2C kan logga in användare i en app. **Offline_access** omfattning krävs för att utfärda uppdateringstoken för en användare. De här omfattningarna lades till tidigare och tilldelades administrativt godkännande som standard. Nu kan du enkelt lägga till behörigheter för de här omfången under skapande processen genom att se till att alternativet **bevilja administratörs medgivande till OpenID och offline_access behörigheter** är markerat. Annars kan Microsoft Graph behörigheter läggas till med administratörs medgivande i inställningarna för **API-behörigheter** för en befintlig app.
@@ -78,11 +78,11 @@ Du kanske inte ser alla Microsoft Graph behörigheter, eftersom många av de hä
 Läs mer om [behörigheter och medgivande](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plattformar/autentisering: svars webb adresser/omdirigerings-URI: er
-I den tidigare versionen hanterades de olika plattforms typerna under **Egenskaper** som svars-URL: er för webbappar/API: er och omdirigerings-URI för interna klienter. "Interna klienter" kallas även "offentliga klienter" och innehåller appar för iOS-, macOS-, Android-och andra program typer för mobiler och skriv bord. 
+I den tidigare versionen hanterades de olika plattforms typerna under **Egenskaper** som svars-URL: er för webbappar/API: er och omdirigerings-URI för interna klienter. "Interna klienter" kallas även "offentliga klienter" och innehåller appar för iOS-, macOS-, Android-och andra program typer för mobiler och skriv bord.
 
-I den nya upplevelsen kallas svars-URL: er och omdirigerings-URI: er båda omdirigerings-URI: er och finns i avsnittet **autentisering** av en app. Appregistreringar är inte begränsade till antingen en webbapp eller ett internt program. Du kan använda samma app-registrering för alla dessa plattforms typer genom att registrera respektive omdirigerings-URI: er. 
+I den nya upplevelsen kallas svars-URL: er och omdirigerings-URI: er båda omdirigerings-URI: er och finns i avsnittet **autentisering** av en app. Appregistreringar är inte begränsade till antingen en webbapp eller ett internt program. Du kan använda samma app-registrering för alla dessa plattforms typer genom att registrera respektive omdirigerings-URI: er.
 
-Omdirigerings-URI: er måste associeras med en app-typ, antingen webb eller offentlig (mobil och stationär dator). [Läs mer om omdirigerings-URI: er](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Omdirigerings-URI: er måste associeras med en app-typ, antingen webb eller offentlig (mobil och stationär dator). [Läs mer om omdirigerings-URI: er](../active-directory/develop/quickstart-register-app.md#add-a-redirect-uri)
 
 <!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 

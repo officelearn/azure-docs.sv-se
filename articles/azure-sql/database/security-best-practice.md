@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541727"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442113"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Det här dokumentet ger vägledning om hur du löser vanliga säkerhets krav fö
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Distributions erbjudanden som inte beskrivs i den här guiden
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (tidigare SQL Data Warehouse)
 - Virtuella Azure SQL-datorer (IaaS)
 - SQL Server
 
@@ -47,7 +47,7 @@ De avsedda mål grupperna för den här guiden är kunder som har frågor om hur
 - Sekretess personal
 - Säkerhets tekniker
 
-### <a name="using-this-guide"></a><a id="using"></a>Använda den här guiden
+### <a name="using-this-guide"></a><a id="using"></a> Använda den här guiden
 
 Det här dokumentet är avsett som en assistent till vår befintliga [Azure SQL Database säkerhets](security-overview.md) dokumentation.
 
@@ -501,7 +501,7 @@ Bästa praxis för att förhindra klient datorer och program med välkända sår
 
 **Implementera**:
 
-- Se till att klient datorer som ansluter till Azure SQL Database och SQL-hanterad instans använder [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
+- Se till att klient datorer som ansluter till Azure SQL Database och SQL-hanterad instans använder  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Bästa praxis**:
 
@@ -742,7 +742,7 @@ Identifiera kolumner som potentiellt innehåller känsliga data. Vad som anses v
 
 **Implementera**:
 
-- Använd SQL Audit och data klassificering i kombination.
+- Använd SQL Audit och dataklassificering i kombination.
   - I [SQL Database gransknings](../../azure-sql/database/auditing-overview.md) loggen kan du spåra åtkomst specifikt till känsliga data. Du kan också visa information, till exempel de data som har öppnats, samt dess känslighets etikett. Mer information finns i [data identifiering och klassificering](data-discovery-and-classification-overview.md) och [granskning av åtkomst till känsliga data](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Bästa praxis**:

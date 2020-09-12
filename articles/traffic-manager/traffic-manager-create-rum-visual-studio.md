@@ -3,21 +3,21 @@ title: Faktisk slutanvändarmätning med Visual Studio Mobile Center – Azure T
 description: Konfigurera ditt mobil program som utvecklats med Visual Studio Mobile Center för att skicka Faktisk slutanvändarmätning till Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: rohink
+ms.author: duau
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6c16e8541c703aa574e4ddae8ed01571e027b261
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 2d31f51c7af37ed6729900c5851113d8d1e9b587
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431947"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401341"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Så här skickar du Faktisk slutanvändarmätning till Traffic Manager med Visual Studio Mobile Center
 

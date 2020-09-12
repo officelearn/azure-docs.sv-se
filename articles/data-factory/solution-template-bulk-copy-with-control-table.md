@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629090"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441076"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Mass kopiering från en databas med en kontroll tabell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Om du vill kopiera data från ett informations lager i Oracle server, Netezza, Teradata eller SQL Server till Azure SQL Data Warehouse måste du läsa in stora mängder data från flera tabeller. Normalt måste data partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enda tabell. I den här artikeln beskrivs en mall som du kan använda i dessa scenarier.
+Om du vill kopiera data från ett informations lager i Oracle server, Netezza, Teradata eller SQL Server till Azure Synapse Analytics (tidigare SQL Data Warehouse) måste du läsa in stora mängder data från flera tabeller. Normalt måste data partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enda tabell. I den här artikeln beskrivs en mall som du kan använda i dessa scenarier.
 
- >! Obs! Om du vill kopiera data från ett litet antal tabeller med relativt små data volymer till SQL Data Warehouse, är det mer effektivt att använda [verktyget Azure Data Factory kopiera data](copy-data-tool.md). Mallen som beskrivs i den här artikeln är mer än du behöver för det scenariot.
+ >! Obs! Om du vill kopiera data från ett litet antal tabeller med relativt små data volymer till Azure Synapse Analytics, är det mer effektivt att använda [Azure Data Factory kopiera data-verktyget](copy-data-tool.md). Mallen som beskrivs i den här artikeln är mer än du behöver för det scenariot.
 
 ## <a name="about-this-solution-template"></a>Om den här lösnings mal len
 
@@ -44,7 +44,7 @@ Mallen definierar följande parametrar:
 - *Data_Destination_Container* är sökvägen till rotmappen där data kopieras till i mål arkivet. 
 - *Data_Destination_Directory* är katalog Sök vägen under roten där data kopieras till mål lagret. 
 
-De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara om det mål du väljer är filbaserad lagring. Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som mål Arkiv, krävs inte dessa parametrar. Men tabell namnen och schemat i SQL Data Warehouse måste vara samma som i käll databasen.
+De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara om det mål du väljer är filbaserad lagring. Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som mål Arkiv, krävs inte dessa parametrar. Men tabell namnen och schemat i Azure Synapse Analytics måste vara desamma som i käll databasen.
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
@@ -94,10 +94,10 @@ De sista tre parametrarna, som definierar sökvägen i mål lagret, visas bara o
 
     ![Granska resultatet](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Valfritt Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som data mål måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av SQL Data Warehouse PolyBase. Mallen genererar automatiskt en container Sök väg för Blob Storage. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
+9. Valfritt Om du väljer "Azure Synapse Analytics (tidigare SQL DW)" som data mål måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av Azure Synapse Analytics PolyBase. Mallen genererar automatiskt en container Sök väg för Blob Storage. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
     
     ![PolyBase-inställning](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        
 ## <a name="next-steps"></a>Nästa steg
 
-- [introduktion till Azure Data Factory](introduction.md)
+- [Introduktion till Azure Data Factory](introduction.md)

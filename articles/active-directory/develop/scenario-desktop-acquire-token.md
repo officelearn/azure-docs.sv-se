@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141303"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440940"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Skriv bords app som anropar webb-API: er: Hämta en token
 
@@ -38,7 +38,7 @@ Webb-API: et definieras med dess `scopes` . Vad som händer i ditt program är m
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Obligatoriska parametrar
 
-`AcquireTokenInteractive`har endast en obligatorisk parameter, ``scopes`` som innehåller en uppräkning av strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph, finns de obligatoriska omfattningarna i API-referensen för varje Microsoft Graph-API i avsnittet med namnet "Permissions". Om du till exempel vill [Visa användarens kontakter](/graph/api/user-list-contacts)måste omfattningen "User. Read", "Contacts. Read" användas. Mer information finns i [referens för Microsoft Graph-behörigheter](/graph/permissions-reference).
+`AcquireTokenInteractive` har endast en obligatorisk parameter, ``scopes`` som innehåller en uppräkning av strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph, finns de obligatoriska omfattningarna i API-referensen för varje Microsoft Graph-API i avsnittet med namnet "Permissions". Om du till exempel vill [Visa användarens kontakter](/graph/api/user-list-contacts)måste omfattningen "User. Read", "Contacts. Read" användas. Mer information finns i [referens för Microsoft Graph-behörigheter](/graph/permissions-reference).
 
 På Android måste du också ange den överordnade aktiviteten genom `.WithParentActivityOrWindow` att använda, som du ser, så att token återgår till den överordnade aktiviteten efter interaktionen. Om du inte anger det genereras ett undantag vid anrop `.ExecuteAsync()` .
 
@@ -183,7 +183,7 @@ På Android måste du också ange den överordnade aktiviteten genom `.WithParen
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Användar gränssnittet är viktigt eftersom det är interaktivt. `AcquireTokenInteractive`har en speciell valfri parameter som kan ange, för plattformar som stöder den, det överordnade användar gränssnittet. När det används i ett Skriv bords program, `.WithParentActivityOrWindow` har en annan typ, som är beroende av plattformen.
+Användar gränssnittet är viktigt eftersom det är interaktivt. `AcquireTokenInteractive` har en speciell valfri parameter som kan ange, för plattformar som stöder den, det överordnade användar gränssnittet. När det används i ett Skriv bords program, `.WithParentActivityOrWindow` har en annan typ, som är beroende av plattformen.
 
 ```csharp
 // net45
@@ -211,17 +211,17 @@ WithParentActivityOrWindow(object parent).
 
 #### <a name="withprompt"></a>WithPrompt
 
-`WithPrompt()`används för att styra interaktivitet med användaren genom att ange en prompt.
+`WithPrompt()` används för att styra interaktivitet med användaren genom att ange en prompt.
 
 ![Bild som visar fälten i prompt strukturen. Dessa konstant värden styr interaktivitet med användaren genom att definiera den typ av prompt som visas av metoden WithPrompt ().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 Klassen definierar följande konstanter:
 
-- ``SelectAccount``tvingar STS att presentera dialog rutan konto val som innehåller konton som användaren har en session för. Det här alternativet är användbart när programutvecklare vill låta användarna välja mellan olika identiteter. Det här alternativet MSAL för att skicka ``prompt=select_account`` till identitets leverantören. Det här alternativet är standardinställningen. Det är ett bra jobb att tillhandahålla bästa möjliga upplevelse baserat på tillgänglig information, till exempel konto och närvaro för en session för användaren. Ändra det inte om du inte har en lämplig anledning att göra det.
-- ``Consent``gör det möjligt för programutvecklaren att tvinga användaren att tillfrågas om medgivande, även om medgivande beviljades tidigare. I det här fallet skickar MSAL `prompt=consent` till identitets leverantören. Det här alternativet kan användas i vissa säkerhetsfokuserade program där organisationens styrning kräver att användaren visas i dialog rutan medgivande varje gången programmet används.
-- ``ForceLogin``gör det möjligt för programutvecklaren att be användaren att ange autentiseringsuppgifter för tjänsten, även om användaren inte behöver göra något. Det här alternativet kan vara användbart för att låta användaren logga in igen om det inte går att förvärva en token. I det här fallet skickar MSAL `prompt=login` till identitets leverantören. Ibland används den i säkerhetsfokuserade program där organisationens styrning kräver att användaren loggar in på nytt varje gång de kommer åt specifika delar av ett program.
-- ``Never``(endast för .NET 4,5 och WinRT) uppmanas inte användaren, utan försöker i stället använda den cookie som är lagrad i den dolda inbäddade vyn. Mer information finns i Web views in MSAL.NET. Det kan hända att du inte kan använda det här alternativet. I så fall, `AcquireTokenInteractive` genererar ett undantag för att meddela att en användar gränssnitts interaktion krävs. Du måste använda en annan `Prompt` parameter.
-- ``NoPrompt``Det går inte att skicka någon prompt till identitets leverantören. Det här alternativet är användbart endast för Azure Active Directory (Azure AD) B2C Redigera profil principer. Mer information finns i [Azure AD B2C information](https://aka.ms/msal-net-b2c-specificities).
+- ``SelectAccount`` tvingar STS att presentera dialog rutan konto val som innehåller konton som användaren har en session för. Det här alternativet är användbart när programutvecklare vill låta användarna välja mellan olika identiteter. Det här alternativet MSAL för att skicka ``prompt=select_account`` till identitets leverantören. Det här alternativet är standardinställningen. Det är ett bra jobb att tillhandahålla bästa möjliga upplevelse baserat på tillgänglig information, till exempel konto och närvaro för en session för användaren. Ändra det inte om du inte har en lämplig anledning att göra det.
+- ``Consent`` gör det möjligt för programutvecklaren att tvinga användaren att tillfrågas om medgivande, även om medgivande beviljades tidigare. I det här fallet skickar MSAL `prompt=consent` till identitets leverantören. Det här alternativet kan användas i vissa säkerhetsfokuserade program där organisationens styrning kräver att användaren visas i dialog rutan medgivande varje gången programmet används.
+- ``ForceLogin`` gör det möjligt för programutvecklaren att be användaren att ange autentiseringsuppgifter för tjänsten, även om användaren inte behöver göra något. Det här alternativet kan vara användbart för att låta användaren logga in igen om det inte går att förvärva en token. I det här fallet skickar MSAL `prompt=login` till identitets leverantören. Ibland används den i säkerhetsfokuserade program där organisationens styrning kräver att användaren loggar in på nytt varje gång de kommer åt specifika delar av ett program.
+- ``Never`` (endast för .NET 4,5 och WinRT) uppmanas inte användaren, utan försöker i stället använda den cookie som är lagrad i den dolda inbäddade vyn. Mer information finns i Web views in MSAL.NET. Det kan hända att du inte kan använda det här alternativet. I så fall, `AcquireTokenInteractive` genererar ett undantag för att meddela att en användar gränssnitts interaktion krävs. Du måste använda en annan `Prompt` parameter.
+- ``NoPrompt`` Det går inte att skicka någon prompt till identitets leverantören. Det här alternativet är användbart endast för Azure Active Directory (Azure AD) B2C Redigera profil principer. Mer information finns i [Azure AD B2C information](https://aka.ms/msal-net-b2c-specificities).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
@@ -253,7 +253,7 @@ Värden för `end Url` är alltid `redirectUri` . Fånga `end Url` genom att gö
 
 ##### <a name="withcustomwebui-is-an-extensibility-point"></a>WithCustomWebUi är en utöknings punkt
 
-`WithCustomWebUi`är en utöknings punkt som du kan använda för att tillhandahålla ditt eget användar gränssnitt i offentliga klient program. Du kan också låta användaren gå igenom/Authorize-slutpunkten för identitets leverantören och låta dem logga in och godkänna dem. MSAL.NET kan sedan lösa in autentiserings koden och hämta en token. Den används till exempel i Visual Studio för att låta electrons-program (till exempel Visual Studio feedback) tillhandahålla webb interaktionen, men lämna den till MSAL.NET för att göra merparten av arbetet. Du kan också använda den om du vill tillhandahålla UI-automatisering. I offentliga klient program använder MSAL.NET bevis nyckeln för Code Exchange (PKCE) standard för att säkerställa att säkerheten respekteras. Endast MSAL.NET kan lösa in koden. Mer information finns i [RFC 7636 – bevis nyckel för kod utbyte av offentliga OAuth-klienter](https://tools.ietf.org/html/rfc7636).
+`WithCustomWebUi` är en utöknings punkt som du kan använda för att tillhandahålla ditt eget användar gränssnitt i offentliga klient program. Du kan också låta användaren gå igenom/Authorize-slutpunkten för identitets leverantören och låta dem logga in och godkänna dem. MSAL.NET kan sedan lösa in autentiserings koden och hämta en token. Den används till exempel i Visual Studio för att låta electrons-program (till exempel Visual Studio feedback) tillhandahålla webb interaktionen, men lämna den till MSAL.NET för att göra merparten av arbetet. Du kan också använda den om du vill tillhandahålla UI-automatisering. I offentliga klient program använder MSAL.NET bevis nyckeln för Code Exchange (PKCE) standard för att säkerställa att säkerheten respekteras. Endast MSAL.NET kan lösa in koden. Mer information finns i [RFC 7636 – bevis nyckel för kod utbyte av offentliga OAuth-klienter](https://tools.ietf.org/html/rfc7636).
 
   ```csharp
   using Microsoft.Identity.Client.Extensions;
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ Om du vill logga in en domän användare på en domän eller en Azure AD-anslute
   - Eller så måste klient administratören tidigare ha samtyckt till alla användare i klienten för att kunna använda programmet.
   - Med andra ord:
     - Antingen har du som utvecklare valt knappen **bevilja** i Azure Portal själv.
-    - Eller så har en innehavaradministratör valt knappen **bevilja/återkalla administratörs medgivande för {klient domän}** på fliken **API-behörigheter** i registreringen för programmet. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Eller så har en innehavaradministratör valt knappen **bevilja/återkalla administratörs medgivande för {klient domän}** på fliken **API-behörigheter** i registreringen för programmet. Mer information finns i [lägga till behörigheter för åtkomst till ditt webb-API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - Eller så har du gett ett sätt för användare att godkänna programmet. Mer information finns i [begära individuell användar medgivande](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - Eller så har du angett ett sätt för klient organisations administratören att samtycka till programmet. Mer information finns i [Administratörs medgivande](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
@@ -1161,8 +1161,8 @@ Om du inte gör något extra i .NET Framework-och .NET Core varar token i minnet
 Klasser och gränssnitt som ingår i cachelagring av token cache är följande typer:
 
 - ``ITokenCache``, som definierar händelser för att prenumerera på begär Anden om cachelagring av token och metoder för att serialisera eller deserialisera cachen i olika format (ADAL v 3.0, MSAL 2. x och MSAL 3. x = ADAL v).
-- ``TokenCacheCallback``är ett återanrop som skickas till händelserna så att du kan hantera serialiseringen. De anropas med argument av typen ``TokenCacheNotificationArgs`` .
-- ``TokenCacheNotificationArgs``innehåller bara programmet ``ClientId`` och en referens till den användare som token är tillgänglig för.
+- ``TokenCacheCallback`` är ett återanrop som skickas till händelserna så att du kan hantera serialiseringen. De anropas med argument av typen ``TokenCacheNotificationArgs`` .
+- ``TokenCacheNotificationArgs`` innehåller bara programmet ``ClientId`` och en referens till den användare som token är tillgänglig för.
 
   ![Diagram över cachelagring av token-cache](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 

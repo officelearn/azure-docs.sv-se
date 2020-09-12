@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84048807"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437453"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, Azure Synapse Analytics, Data Factory och Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 I den här självstudien får du gå igenom ett scenario från slut punkt till slut punkt. Scenariot visar hur analys över klient data kan göra det möjligt för program varu leverantörer att fatta smarta beslut. Med hjälp av data som extraheras från varje klient databas använder du analyser för att få insikter om klient beteende, inklusive deras användning av SaaS-programmet Wingtip ticks. I det här scenariot ingår tre steg:
 
-1. **Extrahera data** från varje klient databas till ett analys lager, i det här fallet en SQL Data Warehouse.
+1. **Extrahera data** från varje klient databas till ett analys lager, i det här fallet en SQL-pool.
 2. **Optimera de extraherade data** för analys bearbetning.
 3. Använd **Business Intelligence** -verktyg för att dra nytta av användbara insikter som hjälper dig att fatta beslut.
 
@@ -45,7 +45,7 @@ SaaS-program innehåller en potentiell mängd klient data i molnet. Dessa data k
 
 Det är enkelt att komma åt data för alla klienter när alla data bara finns i en databas med flera innehavare. Men åtkomsten är mer komplex när den distribueras i stor skala över tusentals databaser. Ett sätt att molndata komplexiteten är att extrahera data till en Analytics-databas eller ett informations lager för frågor.
 
-I den här självstudien presenteras ett scenario från slut punkt till slut punkt för Wingtip Ticket-programmet. Först används [Azure Data Factory (ADF)](../../data-factory/introduction.md) som Orchestration-verktyg för att extrahera biljett försäljning och relaterade data från varje klient databas. Dessa data läses in i mellanlagrings tabeller i ett analys lager. Analytics-butiken kan antingen vara en SQL Database eller en SQL Data Warehouse. I den här självstudien används [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) som analys lager.
+I den här självstudien presenteras ett scenario från slut punkt till slut punkt för Wingtip Ticket-programmet. Först används [Azure Data Factory (ADF)](../../data-factory/introduction.md) som Orchestration-verktyg för att extrahera biljett försäljning och relaterade data från varje klient databas. Dessa data läses in i mellanlagrings tabeller i ett analys lager. Analytics-butiken kan antingen vara en SQL Database eller en SQL-pool. I den här självstudien används [Azure Synapse Analytics (tidigare SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) som analys lager.
 
 Sedan omvandlas de extraherade data till en uppsättning med [stjärn schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central fakta tabell plus relaterade dimensions tabeller:
 
@@ -83,11 +83,11 @@ Den här självstudien utforskar analys över biljett försäljnings data. I det
     - **$DemoScenario**  =  **1** Köp biljetter för händelser på alla platser
 2. Tryck på **F5** för att köra skriptet och skapa biljett inköps historik för alla platser. Med 20 klienter genererar skriptet flera tusentals biljetter och kan ta 10 minuter eller mer.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Distribuera SQL Data Warehouse, Data Factory och Blob Storage
+### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Distribuera Azure Synapse Analytics, Data Factory och Blob Storage
 
-I Wingtip biljetter-appen distribueras klientens transaktions data över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, belastning och transformering (ELT) av dessa data till data lagret. För att läsa in data i SQL Data Warehouse mest effektiv extraherar ADF data till mellanliggande BLOB-filer och använder [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) för att läsa in data till data lagret.
+I Wingtip biljetter-appen distribueras klientens transaktions data över flera databaser. Azure Data Factory (ADF) används för att dirigera extrahering, belastning och transformering (ELT) av dessa data till data lagret. För att läsa in data i Azure Synapse Analytics (tidigare SQL Data Warehouse), extraherar ADF data till mellanliggande BLOB-filer och använder [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) för att läsa in data till data lagret.
 
-I det här steget distribuerar du ytterligare resurser som används i självstudien: en SQL Data Warehouse som kallas _tenantanalytics_, en Azure Data Factory som kallas _dbtodwload- \<user\> _och ett Azure Storage-konto som kallas _wingtipstaging \<user\> _. Lagrings kontot används för att tillfälligt lagra extraherade datafiler som blobbar innan de läses in i data lagret. Det här steget distribuerar även data lagrets schema och definierar de ADF-pipeliner som dirigerar ELT-processen.
+I det här steget distribuerar du de ytterligare resurser som används i självstudien: en SQL-pool med namnet _tenantanalytics_, en Azure Data Factory som kallas _dbtodwload- \<user\> _och ett Azure Storage-konto som kallas _wingtipstaging \<user\> _. Lagrings kontot används för att tillfälligt lagra extraherade datafiler som blobbar innan de läses in i data lagret. Det här steget distribuerar även data lagrets schema och definierar de ADF-pipeliner som dirigerar ELT-processen.
 
 1. I PowerShell ISE öppnar du *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* och anger:
     - **$DemoScenario**  =  **2** distribuera klient analys data lager, Blob Storage och Data Factory
@@ -122,7 +122,7 @@ I Object Explorer:
 1. Klicka **på \<user\> wingtipstaging** lagrings konto för att utforska de objekt som finns.
 1. Klicka på **blobs** -panelen
 1. Klicka på behållaren **configfile**
-1. Kontrol lera att **configfile** innehåller en JSON-fil **med namnetTableConfig.jspå**. Den här filen innehåller namn på käll-och mål tabell, kolumn namn och spår kolumn namn.
+1. Kontrol lera att **configfile** innehåller en JSON-fil ** med namnetTableConfig.jspå**. Den här filen innehåller namn på käll-och mål tabell, kolumn namn och spår kolumn namn.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
 
@@ -159,7 +159,7 @@ De tre kapslade pipelinen är: SQLDBToDW, DBCopy och TableCopy.
 
 **Pipeliner 3-TableCopy** använder rad versions nummer i SQL Database (_ROWVERSION_) för att identifiera rader som har ändrats eller uppdaterats. Den här aktiviteten söker upp start-och slut rads versionen för att extrahera rader från käll tabellerna. **CopyTracker** -tabellen som lagras i varje klient databas spårar den sista raden som extraheras från varje käll tabell i varje körning. Nya eller ändrade rader kopieras till motsvarande mellanlagrings tabeller i data lagret: **raw_Tickets**, **raw_Customers**, **raw_Venues**och **raw_Events**. Slutligen är den sista rad versionen Sparad i **CopyTracker** -tabellen som ska användas som den första rad versionen för nästa extrahering.
 
-Det finns också tre parametriserade länkade tjänster som länkar data fabriken till SQL-databaserna, mål SQL Data Warehouse och mellanliggande blob-lagring. På fliken **författare** klickar du på **anslutningar** för att utforska de länkade tjänsterna, som du ser i följande bild:
+Det finns också tre parametriserade länkade tjänster som länkar data fabriken till SQL-SQL-databaserna, SQL-adresspoolen och mellanliggande blob-lagring. På fliken **författare** klickar du på **anslutningar** för att utforska de länkade tjänsterna, som du ser i följande bild:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ Det finns tre data uppsättningar som motsvarar de tre länkade tjänsterna och 
   
 ### <a name="data-warehouse-pattern-overview"></a>Översikt över informations lager mönster
 
-Azure Synapse (tidigare Azure SQL Data Warehouse) används som analys lager för att utföra agg regering på klient data. I det här exemplet används PolyBase för att läsa in data till data lagret. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![ loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse (tidigare SQL Data Warehouse) används som analys lager för att utföra agg regering på klient data. I det här exemplet används PolyBase för att läsa in data till data lagret. Rå data läses in i tillfälliga tabeller som har en identitets kolumn för att hålla reda på rader som har omvandlats till stjärn schema tabeller. Följande bild visar inläsnings mönstret: ![ loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 SCD-typ 1-dimensions tabeller (långsamt ändring av dimension) används i det här exemplet. Varje dimension har en surrogat nyckel definierad med en identitets kolumn. Som bästa praxis är datum dimensions tabellen i förväg ifylld för att spara tid. För de andra dimensions tabellerna visas en CREATE TABLE som Välj... (CTAS)-instruktionen används för att skapa en temporär tabell som innehåller befintliga ändrade och icke-ändrade rader, tillsammans med surrogat nycklar. Detta görs med IDENTITY_INSERT = på. Nya rader infogas sedan i tabellen med IDENTITY_INSERT = OFF. För enkel återställning ändras namnet på den befintliga dimensions tabellen och den temporära tabellen byter namn till den nya dimensions tabellen. Innan varje körning tas den gamla dimensions tabellen bort.
 

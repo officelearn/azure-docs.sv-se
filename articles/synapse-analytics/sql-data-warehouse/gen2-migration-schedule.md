@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207727"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441008"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Uppgradera SQL-poolen till Gen2
 
@@ -30,9 +30,9 @@ Microsoft hjälper till att minska kostnaden på ingångs nivå för att köra e
 
 I följande tabell sammanfattas efter region när den nedre Gen2 beräknings nivån är tillgänglig och när automatiska uppgraderingar startar. Datumen kan komma att ändras. Kom tillbaka till se när din region blir tillgänglig.
 
-\*anger att ett angivet schema för regionen inte är tillgängligt för tillfället.
+\* anger att ett angivet schema för regionen inte är tillgängligt för tillfället.
 
-| **Nationella** | **Lägre tillgängliga Gen2** | **Automatiska uppgraderingar börjar** |
+| **Region** | **Lägre tillgängliga Gen2** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
 | Kanada, östra |Den 1 juni 2020 |Den 1 juli 2020 |
 | Kina, östra |\* |\* |
@@ -127,10 +127,10 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 ## <a name="next-steps"></a>Nästa steg
 
 - [Uppgraderings steg](upgrade-to-latest-generation.md)
-- [Underhålls fönster](maintenance-scheduling.md)
+- [Underhållsfönster](maintenance-scheduling.md)
 - [Övervakaren resurs hälsa](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Granska innan du påbörjar en migrering](upgrade-to-latest-generation.md#before-you-begin)
 - [Uppgradera på plats och uppgradera från en återställnings punkt](upgrade-to-latest-generation.md)
 - [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore-points.md)
 - [Lär dig hur du återställer till Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Öppna en SQL Data Warehouse support förfrågan](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Öppna en support förfrågan för Azure Synapse Analytics](https://go.microsoft.com/fwlink/?linkid=857950)

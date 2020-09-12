@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985232"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459427"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Fel sökning av anslutnings problem och andra fel med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Azure-infrastrukturen har kapacitet att dynamiskt omkonfigurera servrar vid öka
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista över felkoder för tillfälliga fel
 
-| Felkod | Severity | Beskrivning |
+| Felkod | Allvarlighetsgrad | Beskrivning |
 | ---:| ---:|:--- |
 | 4060 |16 |Det går inte att öppna databasen%. &#x2a;LS som begärdes av inloggningen. Inloggningen misslyckades. Mer information finns i [fel 4000 till 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod% d.<br/><br/>Du får det här felet när tjänsten är avstängd på grund av program varu-eller maskin varu uppgraderingar, maskin varu fel eller andra problem med redundansväxling. Felkoden (% d) i meddelandet om fel 40197 ger ytterligare information om vilken typ av fel eller redundans som har inträffat. Några exempel på fel koderna är inbäddade i meddelandet om fel 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Om du återansluter automatiskt ansluts du till en felfri kopia av databasen. Ditt program måste fånga fel 40197, logga den inbäddade felkoden (% d) i meddelandet för fel sökning och försöka ansluta till SQL Database tills resurserna är tillgängliga och anslutningen upprättas igen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
@@ -119,7 +119,7 @@ Tjänst administratören kan normalt använda följande steg för att lägga til
 4. Om SQL-inloggningens användar namn inte finns skapar du det genom att följa dessa steg:
 
    1. I SSMS dubbelklickar du på **säkerhet** för att expandera den.
-   2. Högerklicka på **Inloggningar** och välj sedan **Ny inloggning**.
+   2. Högerklicka på **inloggningar**och välj sedan **ny inloggning**.
    3. I det genererade skriptet med plats hållare redigerar du och kör följande SQL-fr åga:
 
    ```sql
@@ -128,10 +128,10 @@ Tjänst administratören kan normalt använda följande steg för att lägga til
    GO
    ```
 
-5. Dubbelklicka på **Databas**.
+5. Dubbelklicka på **databas**.
 6. Välj den databas som du vill ge användaren behörighet till.
-7. Dubbelklicka på **Säkerhet**.
-8. Högerklicka på **Användare** och välj **Ny användare**.
+7. Dubbelklicka på **säkerhet**.
+8. Högerklicka på **användare**och välj sedan **ny användare**.
 9. I det genererade skriptet med plats hållare redigerar du och kör följande SQL-fr åga:
 
    ```sql
@@ -194,13 +194,13 @@ Undvik det här problemet genom att prova någon av följande metoder:
 2. Ta reda på **indatabufferten** för huvud blocket.
 3. Finjustera frågan om huvud Blocker.
 
-   En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+   En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 Om databasen ständigt når gränsen trots att blockera och långvariga frågor, bör du överväga att uppgradera till en utgåva med fler resurs [versioner](https://azure.microsoft.com/pricing/details/sql-database/).
 
 Mer information om vyer för dynamisk hantering finns i [vyer för system dynamisk hantering](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-Mer information om databas gränser finns i [SQL Database resurs gränser för servrar](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Mer information om databas gränser finns i  [SQL Database resurs gränser för servrar](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
 ### <a name="error-10929-resource-id-1"></a>Fel 10929: resurs-ID: 1
 
@@ -261,7 +261,7 @@ Om du upprepade gånger stöter på det här felet kan du försöka lösa proble
 
 Överväg också att gruppera dina frågor. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Fel 40551: sessionen har avslut ATS på grund av överdriven TEMPDB-användning
 
@@ -292,11 +292,11 @@ Försök att minska antalet rader som körs omedelbart genom att implementera ba
 
 Undvik det här problemet genom att försöka optimera frågan.
 
-En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabell över ytterligare fel meddelanden för resurs styrning
 
-| Felkod | Severity | Beskrivning |
+| Felkod | Allvarlighetsgrad | Beskrivning |
 | ---:| ---:|:--- |
 | 10928 |20 |Resurs-ID:% d. % S-gränsen för databasen är% d och har nåtts. Mer information finns i [SQL Database resurs gränser för databaser med enkel och pool](resource-limits-logical-server.md).<br/><br/>Resurs-ID: t anger den resurs som har nått gränsen. Resurs-ID = 1 för arbets trådar. För sessioner är resurs-ID = 2.<br/><br/>Mer information om det här felet och hur du löser det finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
 | 10929 |20 |Resurs-ID:% d. % S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Resurs-ID: t anger den resurs som har nått gränsen. Resurs-ID = 1 för arbets trådar. För sessioner är resurs-ID = 2. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). <br/>Annars kan du försöka igen senare. |
@@ -311,7 +311,7 @@ En djupgående fel söknings procedur finns i finns [min fråga som körs i moln
 
 Följande fel är relaterade till att skapa och använda elastiska pooler:
 
-| Felkod | Severity | Beskrivning | Korrigerande åtgärd |
+| Felkod | Allvarlighetsgrad | Beskrivning | Korrigerande åtgärd |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagrings gräns. Lagrings användningen för den elastiska poolen får inte överskrida (% d) MB. Försök att skriva data till en databas när lagrings gränsen för den elastiska poolen har nåtts. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> |Överväg att öka DTU: er och/eller lägga till lagring till den elastiska poolen om det är möjligt för att öka lagrings gränsen, minska lagrings utrymmet som används av enskilda databaser i den elastiska poolen eller ta bort databaser från den elastiska poolen. För skalning av elastiska pooler, se [skala elastiska pool resurser](elastic-pool-scale.md).|
 | 10929 | 16 |% S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Information om resurs gränser finns i: <br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md). <br/> Annars kan du försöka igen senare. DTU/vCore min per databas; Max per databas för DTU/vCore. Det totala antalet samtidiga arbetare (begär Anden) över alla databaser i den elastiska poolen försökte överskrida poolens gräns. |Överväg att öka DTU: er-eller virtuella kärnor för den elastiska poolen om det är möjligt för att öka arbets gränsen, eller ta bort databaser från den elastiska poolen. |
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-När undantaget utlöses av frågor om frågor kommer du att märka en anrops stack som liknar följande (Observera referensen till klassen **SqlCommand** ). I den här situationen kan [du finjustera dina frågor](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+När undantaget utlöses av frågor om frågor kommer du att märka en anrops stack som liknar följande (Observera referensen till klassen **SqlCommand** ). I den här situationen kan [du finjustera dina frågor](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

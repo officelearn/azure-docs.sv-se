@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254227"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319300"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Distribuera ett tillstånds lösa program i PHP-programmet med Redis på Arc-aktiverade Kubernetes-kluster på Azure Stack Edge-GPU
 
@@ -28,7 +28,7 @@ Distributionen görs med hjälp av GitOps på Kubernetes-klustret på din Azure 
 Den här proceduren är avsedd för de som har granskat [Kubernetes-arbetsbelastningar på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-workload-management.md) och som är bekanta med begreppen [Vad är Azure Arc Enabled Kubernetes (för hands version)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan distribuera det tillstånds lösa programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 
@@ -57,7 +57,7 @@ Innan du kan distribuera det tillstånds lösa programmet måste du kontrol lera
       - I det lokala användar gränssnittet för din Azure Stack Edge-enhet går du till **Översikt** och noterar program varu numret för Kubernetes. 
       - Kontrol lera att dessa två versioner är kompatibla med den mappning som finns i den Kubernetes-version som stöds <!--insert link-->.
 
-1. Du har en [GitOps-konfiguration som du kan använda för att köra en Azure Arc-distribution](https://github.com/kagoyal/dbehaikudemo). Du kommer att använda följande `yaml` filer för att distribuera Azure Stack Edge-enheten.
+1. Du har en [GitOps-konfiguration som du kan använda för att köra en Azure Arc-distribution](https://github.com/kagoyal/dbehaikudemo). I det här exemplet ska du använda följande `yaml` filer för att distribuera Azure Stack Edge-enheten.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -132,7 +132,7 @@ Distributionen via GitOps-konfigurationen skapar ett `demotestguestbook` namn om
     [10.128.44.240]: PS>
     ```  
 
-1. I det här exemplet distribuerades klient dels tjänsten som typ: LoadBalancer. Du måste hitta IP-adressen för den här tjänsten för att kunna visa gäst boken. Kör följande kommando:
+1. I det här exemplet distribuerades klient dels tjänsten som typ: LoadBalancer. Du måste hitta IP-adressen för den här tjänsten för att kunna visa gäst boken. Kör följande kommando.
 
     `kubectl get service -n <your-namespace>`
     

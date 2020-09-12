@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987366"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440884"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Skydda poddar med Azure Policy (för hands version)
 
@@ -28,8 +28,8 @@ För att skydda AKS-poddar via Azure Policy måste du installera Azure Policy-ti
 
 Det här dokumentet förutsätter att du har följande som distribueras i den genom gång som är länkad ovan.
 
-* Registrera `Microsoft.ContainerService` och- `Microsoft.PolicyInsights` resurs leverantörer med`az provider register`
-* Registrerat `AKS-AzurePolicyAutoApprove` funktions flagga för förhands granskning med`az feature register`
+* Registrera `Microsoft.ContainerService` och- `Microsoft.PolicyInsights` resurs leverantörer med `az provider register`
+* Registrerat `AKS-AzurePolicyAutoApprove` funktions flagga för förhands granskning med `az feature register`
 * Azure CLI installerat med `aks-preview` tilläggs versionen 0.4.53 eller senare
 * Ett AKS-kluster i en version som stöds av 1,15 eller senare installerat med Azure Policy-tillägget
 
@@ -82,13 +82,13 @@ Båda de inbyggda initiativen skapas från definitioner som används i [Pod säk
 |Begränsa all användning av värd nätverk och portar|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Ja | Ja
 |Begränsa användningen av värd fil systemet|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Ja | Ja
 |Begränsa Linux-funktioner till [standard uppsättningen](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Ja | Ja
-|Begränsa användningen av definierade volym typer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Ja – tillåtna volym typer är `configMap` ,,, `emptyDir` `projected` `downwardAPI` ,`persistentVolumeClaim`|
+|Begränsa användningen av definierade volym typer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Ja – tillåtna volym typer är `configMap` ,,, `emptyDir` `projected` `downwardAPI` , `persistentVolumeClaim`|
 |Eskalering av privilegier till rot|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Ja |
 |Begränsa behållarens användar-och grupp-ID|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Ja|
 |Begränsa tilldelningen av en FSGroup som äger Pod-volymer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Ja – tillåtna regler är `runAsUser: mustRunAsNonRoot` , `supplementalGroup: mustRunAs 1:65536` , `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
-|Kräver seccomp-profil|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Ja, allowedProfiles är * `docker/default` eller`runtime/default` |
+|Kräver seccomp-profil|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Ja, allowedProfiles är * `docker/default` eller `runtime/default` |
 
-\*Docker/standard är föråldrad i Kubernetes sedan v 1.11
+\* Docker/standard är föråldrad i Kubernetes sedan v 1.11
 
 ### <a name="additional-optional-policies"></a>Ytterligare valfria principer
 
@@ -258,7 +258,7 @@ Så här tar du bort bas linje initiativ:
 
 Om du vill inaktivera Azure Policy-tillägget använder du kommandot [AZ AKS Disable-addons][az-aks-disable-addons] .
 
-```azure-cli
+```azurecli
 az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
 ```
 
@@ -285,7 +285,7 @@ Nedan visas en sammanfattning av funktions förändringar mellan Pod säkerhets 
 | Princip omfattning | Pod säkerhets principer är inte namnrymds | Constraint-mallar som används av Azure Policy är inte namnrymder.
 | Neka/granska/Mutations åtgärd | Pod säkerhets principer stöder endast neka-åtgärder. Mutation kan göras med standardvärden för Create-begäranden. Verifiering kan utföras under uppdaterings begär Anden.| Azure Policy stöder både gransknings & neka åtgärder. Mutation stöds inte ännu, men planerat.
 | Pod för säkerhets principer | Det finns ingen synlighet för kompatibilitet för poddar som fanns innan du aktiverade Pod säkerhets policy. Icke-kompatibla poddar som skapats efter aktivering av Pod-säkerhetsprinciper nekas. | Icke-kompatibla poddar som fanns innan Azure-principer tillämpades skulle visas i princip överträdelser. Icke-kompatibla poddar som skapats efter aktivering av Azure-principer nekas om principer anges med en neka-inverkan.
-| Så här visar du principer för klustret | `kubectl get psp` | `kubectl get constrainttemplate`-Alla principer returneras.
+| Så här visar du principer för klustret | `kubectl get psp` | `kubectl get constrainttemplate` -Alla principer returneras.
 | Pod säkerhets princip standard-privilegie rad | En privilegie rad Pod säkerhets princip resurs skapas som standard när funktionen aktive ras. | Privilegierat läge innebär ingen begränsning, vilket innebär att det motsvarar att inte ha någon Azure Policy tilldelning.
 | [Pod säkerhets princip standard-bas linje/standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | Användaren installerar en POD-princip bas linje resurs. | Azure Policy tillhandahåller ett [inbyggt bas linje initiativ](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) som mappar till den grundläggande säkerhets principen för pod.
 | [Pod säkerhets princip standard-begränsad](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | Användaren installerar en säkerhets princip begränsad resurs för pod. | Azure Policy tillhandahåller ett [inbyggt begränsat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) skydd som mappar till den begränsade säkerhets principen för pod.

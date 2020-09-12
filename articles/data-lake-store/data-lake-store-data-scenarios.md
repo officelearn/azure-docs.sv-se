@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193675"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441059"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen1 för Big data-krav
 
@@ -78,7 +78,7 @@ De flesta typer av HDInsight-kluster (Hadoop, HBase, Storm) stöder Data Lake St
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Data som lagras i lokala eller IaaS Hadoop-kluster
 Stora mängder data kan lagras i befintliga Hadoop-kluster, lokalt på datorer som använder HDFS. Hadoop-klustren kan finnas i en lokal distribution eller vara i ett IaaS-kluster på Azure. Det kan finnas krav på att kopiera sådana data till Azure Data Lake Storage Gen1 för ett engångs sätt eller på ett återkommande sätt. Det finns olika alternativ som du kan använda för att åstadkomma detta. Nedan visas en lista med alternativ och tillhör ande kompromisser.
 
-| Metod | Information | Fördelar | Att tänka på |
+| Metod | Information | Fördelar | Överväganden |
 | --- | --- | --- | --- |
 | Använd Azure Data Factory (ADF) för att kopiera data direkt från Hadoop-kluster till Azure Data Lake Storage Gen1 |[ADF stöder HDFS som en data Källa](../data-factory/connector-hdfs.md) |ADF tillhandahåller direkt support för HDFS och den första klassens slut punkt till slut punkt-hantering och övervakning |Kräver att Data Management Gateway distribueras lokalt eller i IaaS-klustret |
 | Exportera data från Hadoop som filer. Kopiera sedan filerna till Azure Data Lake Storage Gen1 med lämplig mekanism. |Du kan kopiera filer till Azure Data Lake Storage Gen1 med: <ul><li>[Azure PowerShell för Windows OS](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Anpassad app med valfri Data Lake Storage Gen1-SDK</li></ul> |Kom igång snabbt. Kan göra anpassade uppladdningar |Multi-Step-process som omfattar flera tekniker. Hantering och övervakning kommer att växa för att bli en utmaning över tiden med hänsyn till verktygets anpassade karaktär |
@@ -130,5 +130,5 @@ Du kan använda en blandning av tjänster för att skapa visuella representation
 
 ![Visualisera data i Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualisera data i Data Lake Storage Gen1")
 
-* Du kan börja med att använda [Azure Data Factory för att flytta data från data Lake Storage gen1 till Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Därefter kan du [integrera Power BI med Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) för att skapa visuell representation av data.
+* Du kan börja med [att använda Azure Data Factory för att flytta data från data Lake Storage gen1 till Azure Synapse Analytics (tidigare SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
+* Därefter kan du [integrera Power BI med Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) för att skapa visuell representation av data.

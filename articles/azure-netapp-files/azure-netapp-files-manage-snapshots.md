@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950348"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459101"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
-Azure NetApp Files har stöd för att skapa ögonblicks bilder och använda ögonblicks bilder för att schemalägga automatisk skapande av ögonblicks bilder.  Du kan också återställa en ögonblicks bild till en ny volym.  
+Azure NetApp Files har stöd för att skapa ögonblicks bilder och använda ögonblicks bilder för att schemalägga automatisk skapande av ögonblicks bilder.  Du kan också återställa en ögonblicks bild till en ny volym eller återställa en enskild fil med hjälp av en klient.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Skapa en ögonblicks bild på begäran för en volym
 
@@ -165,7 +165,62 @@ För närvarande kan du bara återställa en ögonblicks bild till en ny volym.
     Den nya volymen använder samma protokoll som ögonblicks bilden använder.   
     Den nya volymen som ögonblicks bilden återställs till visas på bladet volymer.
 
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>Återställa en fil från en ögonblicks bild med hjälp av en klient
+
+Om du inte vill [återställa hela ögonblicks bilden till en volym](#restore-a-snapshot-to-a-new-volume)kan du välja att återställa en fil från en ögonblicks bild med hjälp av en klient som har volymen monterad.  
+
+Den monterade volymen innehåller en ögonblicks bilds katalog med namnet  `.snapshot` (i NFS-klienter) eller `~snapshot` (i SMB-klienter) som är tillgänglig för klienten. Katalogen för ögonblicks bilder innehåller under kataloger som motsvarar ögonblicks bilderna av volymen. Varje under katalog innehåller filerna i ögonblicks bilden. Om du av misstag tar bort eller skriver över en fil, kan du återställa filen till den överordnade katalogen för skriv skydd genom att kopiera filen från en under katalog i ögonblicks bild till katalogen för Läs-och skriv åtgärder. 
+
+Om du har markerat kryss rutan Dölj ögonblicks bilds Sök väg när du skapade volymen döljs ögonblicks bild katalogen. Du kan visa status för Dölj ögonblicks bilds Sök väg för volymen genom att välja volymen. Du kan redigera alternativet Dölj ögonblicks bild Sök väg genom att klicka på **Redigera** på volymens sida.  
+
+![Redigera alternativ för ögonblicks bild av volym](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Återställa en fil med hjälp av en Linux NFS-klient 
+
+1. Använd `ls` Linux-kommandot för att visa en lista över filen som du vill återställa från `.snapshot` katalogen. 
+
+    Exempel:
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Använd `cp` kommandot för att kopiera filen till den överordnade katalogen.  
+
+    Exempel: 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Återställa en fil med hjälp av en Windows-klient 
+
+1. Om `~snapshot` katalogen på volymen är dold, [Visa dolda objekt](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) i den överordnade katalogen som ska visas `~snapshot` .
+
+    ![Visa dolda objekt](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Navigera till under katalogen i `~snapshot` för att hitta den fil som du vill återställa.  Högerklicka på filen. Välj **Kopiera**.  
+
+    ![Kopiera fil som ska återställas](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Återgå till den överordnade katalogen. Högerklicka på den överordnade katalogen och välj `Paste` att klistra in filen i katalogen.
+
+    ![Klistra in fil som ska återställas](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. Du kan också högerklicka på den överordnade katalogen, välja **Egenskaper**, klicka på fliken **tidigare versioner** om du vill se en lista över ögonblicks bilder och välja **Återställ** för att återställa en fil.  
+
+    ![Egenskaper tidigare versioner](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förstå lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Azure NetApp Files ögonblicks bilder 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

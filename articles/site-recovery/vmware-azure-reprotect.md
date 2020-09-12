@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292781"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441501"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Skydda datorer igen från Azure till lokalt
 
@@ -46,6 +46,9 @@ Aktivera replikering. Du kan återaktivera skyddet för vissa virtuella datorer 
 
 - Om du skyddar en återställnings plan måste du ange värden för varje skyddad dator.
 - Om de virtuella datorerna tillhör en replikeringsgrupp för konsekvens för flera virtuella datorer kan de bara skyddas med en återställnings plan. Virtuella datorer i en replikeringsgrupp måste använda samma huvud mål Server
+
+>[!NOTE]
+>Mängden data som skickas från Azure till erstwhile-källan under återaktivering kan vara något mellan 0 byte och summan av disk storleken för alla skyddade datorer och kan inte beräknas.
 
 ### <a name="before-you-start"></a>Innan du börjar
 

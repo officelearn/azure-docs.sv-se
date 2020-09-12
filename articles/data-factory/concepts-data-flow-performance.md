@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212038"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434239"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -80,7 +80,7 @@ Det dynamiska intervallet använder Spark-dynamiska intervall baserat på de kol
 
 Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade data kolumner. För att undvika separering av partitionen bör du ha en god förståelse för dina data innan du använder det här alternativet. De värden som du anger för uttrycket används som en del av en partitions funktion. Du kan ange antalet fysiska partitioner.
 
-### <a name="key"></a>Nyckel
+### <a name="key"></a>Tangent
 
 Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
 
@@ -126,7 +126,7 @@ Data flöden priss ätts i vCore, vilket innebär att både kluster storlek och 
 
 ### <a name="time-to-live"></a>Time to live
 
-Varje data flödes aktivitet snurrar som standard ett nytt kluster baserat på IR-konfigurationen. Kluster start tiden tar några minuter och data bearbetningen kan inte starta förrän den är klar. Om pipelinen innehåller flera **sekventiella** data flöden kan du aktivera ett TTL-värde (Time to Live). Om du anger ett TTL-värde för en viss tids period, är ett kluster aktivt under en viss tids period när körningen har slutförts. Om ett nytt jobb startar med IR under TTL-tiden återanvänds det befintliga klustret och start tiden på några sekunder i stället för minuter. När det andra jobbet har slutförts kommer klustret återigen att vara i drift för TTL-tiden.
+Varje data flödes aktivitet snurrar som standard ett nytt kluster baserat på IR-konfigurationen. Kluster start tiden tar några minuter och data bearbetningen kan inte starta förrän den är klar. Om pipelinen innehåller flera **sekventiella** data flöden kan du aktivera ett TTL-värde (Time to Live). Om du anger ett TTL-värde för en viss tids period, är ett kluster aktivt under en viss tids period när körningen har slutförts. Om ett nytt jobb börjar använda IR under TTL-tiden kommer det att återanvända det befintliga klustret och start tiden minskas avsevärt. När det andra jobbet har slutförts kommer klustret återigen att vara i drift för TTL-tiden.
 
 Endast ett jobb kan köras i ett enskilt kluster i taget. Om det finns ett tillgängligt kluster, men två data flöden startar, använder bara ett aktivt kluster. Det andra jobbet kommer att skapa ett eget isolerat kluster.
 

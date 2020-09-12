@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9909b92e58d73c9578d3d17a7bbf24fe2924fae2
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797091"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319533"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser i Azure Active Directorys portalen
 
@@ -35,7 +35,7 @@ Det finns flera tillgängliga licens planer för Azure AD-tjänsten, inklusive:
 
 - Azure AD Premium P2
 
-För detaljerad information om varje licens plan och tillhör ande licens information, se [vilken licens du behöver?](https://azure.microsoft.com/pricing/details/active-directory/). Information om hur du registrerar dig för Azure AD Premium licens planer finns [här](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+För detaljerad information om varje licens plan och tillhör ande licens information, se [vilken licens du behöver?](https://azure.microsoft.com/pricing/details/active-directory/). Information om hur du registrerar dig för Azure AD Premium licens planer finns [här](./active-directory-get-started-premium.md).
 
 Alla Microsoft-tjänster är inte tillgängliga på alla platser. Innan du kan tilldela en licens till en grupp måste du ange **användnings platsen** för alla medlemmar. Du kan ange det här värdet i **avsnittet &gt; Azure Active Directory &gt; profil &gt; Inställningar för användare** i Azure AD. Alla användare vars användnings plats inte har angetts ärver platsen för Azure AD-organisationen.
 

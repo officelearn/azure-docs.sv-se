@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640488"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441926"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Konfigurera SAML-baserad enkel inloggning
 
@@ -51,7 +51,6 @@ Du bör hämta värdena från program leverantören. Du kan ange värdena manuel
 | **Inloggnings-URL** | Obligatorisk | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Office 365 eller Azure AD Mina appar. När en användare startar programmet från Office 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom IdP.|
 | **Vidarebefordransstatus** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
 | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
-
 
 ## <a name="user-attributes-and-claims"></a>Användarattribut och anspråk 
 

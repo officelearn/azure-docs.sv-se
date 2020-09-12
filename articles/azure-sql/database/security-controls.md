@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 97d2cd8e9ba51e4fc6ebab8459b04f4f37e876d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668431"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442096"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Säkerhets kontroller för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Obs! |
+| Säkerhets kontroll | Ja/nej | Kommentarer |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja | Gäller endast för [SQL Database](../index.yml) . |
 | Stöd för Azure Virtual Network-injektering| Ja | Gäller endast för [SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) . |
@@ -35,7 +35,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Obs!|
+| Säkerhets kontroll | Ja/nej | Kommentarer|
 |---|---|--|
 | Stöd för Azure-övervakning, till exempel Log Analytics eller Application Insights| Ja | SecureSphere, SIEM-lösningen från Imperva, stöds också via [Azure Event Hubs](../event-hubs/../index.yml) integration via [SQL-granskning](../../azure-sql/database/auditing-overview.md). |
 | Kontroll – plan och hantering – plan loggning och granskning| Ja | Ja endast för vissa händelser |
@@ -43,14 +43,14 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Obs!|
+| Säkerhets kontroll | Ja/nej | Kommentarer|
 |---|---|--|
 | Autentisering| Ja | Azure Active Directory (Azure AD) |
-| Auktorisering| Ja | Ingen |
+| Auktorisering| Ja | Inget |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Obs! |
+| Säkerhets kontroll | Ja/nej | Kommentarer |
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Kallas "kryptering i användning", enligt beskrivningen i artikeln [Always Encrypted](always-encrypted-certificate-store-configure.md). Kryptering på Server sidan använder [transparent data kryptering](transparent-data-encryption-tde-overview.md).|
 | Kryptering under överföring:<ul><li>Azure ExpressRoute-kryptering</li><li>Kryptering i ett virtuellt nätverk</li><li>Kryptering mellan virtuella nätverk</ul>| Ja | Använda HTTPS. |
@@ -60,16 +60,16 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Obs!|
+| Säkerhets kontroll | Ja/nej | Kommentarer|
 |---|---|--|
-| Konfiguration – hanterings stöd, till exempel konfiguration av versioner| No  | Ingen |
+| Konfiguration – hanterings stöd, till exempel konfiguration av versioner| Inga  | Inget |
 
 ## <a name="additional-security-controls-for-sql-database"></a>Ytterligare säkerhets kontroller för SQL Database
 
-| Säkerhets kontroll | Ja/nej | Obs!|
+| Säkerhets kontroll | Ja/nej | Kommentarer|
 |---|---|--|
 | Förebyggande: sårbarhets bedömning | Ja | Se [SQL sårbarhet Assessment service hjälper dig att identifiera databas sårbarheter](sql-vulnerability-assessment.md). |
-| Förebyggande: data identifiering och klassificering  | Ja | Se [Azure SQL Database och SQL Data Warehouse data identifiering & klassificering](data-discovery-and-classification-overview.md). |
+| Förebyggande: data identifiering och klassificering  | Ja | Se [Azure SQL Database och Azure Synapse Analytics data discovery & klassificering](data-discovery-and-classification-overview.md). |
 | Identifiering: Hot identifiering | Ja | Se [Avancerat skydd för Azure SQL Database](threat-detection-overview.md). |
 
 ## <a name="next-steps"></a>Nästa steg

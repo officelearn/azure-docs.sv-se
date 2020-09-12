@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631474"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440906"
 ---
 # <a name="using-openfaas-on-aks"></a>Använda OpenFaaS på AKS
 
 [OpenFaaS][open-faas] är ett ramverk för att skapa Server funktioner med hjälp av behållare. Som ett projekt med öppen källkod har det fått stor skala i communityn. Det här dokumentet innehåller information om hur du installerar och använder OpenFaas i ett AKS-kluster (Azure Kubernetes service).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra stegen i den här artikeln behöver du följande.
 
@@ -72,7 +72,7 @@ helm upgrade openfaas --install openfaas/openfaas \
     --set serviceType=LoadBalancer
 ```
 
-Resultat:
+Utdata:
 
 ```output
 NAME:   openfaas
@@ -91,7 +91,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 En offentlig IP-adress har skapats för åtkomst till OpenFaaS-gatewayen. Använd kommandot [kubectl get service][kubectl-get] för att hämta den här IP-adressen. Det kan ta en stund innan IP-adressen har tilldelats till tjänsten.
@@ -141,7 +142,7 @@ Använd sväng för att anropa funktionen. Ersätt IP-adressen i följande exemp
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
-Resultat:
+Utdata:
 
 ```output
  _   _      _ _            _
@@ -208,7 +209,7 @@ Läs in data i databasen.
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
-Resultat:
+Utdata:
 
 ```output
 2018-02-19T14:42:14.313+0000    connected to: localhost
@@ -234,7 +235,7 @@ Testa funktionen med hjälp av sväng. Uppdatera IP-adressen med OpenFaaS gatewa
 curl -s http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Resultat:
+Utdata:
 
 ```json
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]
@@ -244,7 +245,7 @@ Du kan också testa funktionen i OpenFaaS-ANVÄNDARGRÄNSSNITTET.
 
 ![alternativ text](media/container-service-serverless/OpenFaaSUI.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Du kan fortsätta att lära dig med OpenFaaS-workshopen genom en uppsättning praktiska labb övningar som beskriver ämnen, till exempel hur du skapar din egen GitHub-robot, använder hemligheter, visar mått och automatisk skalning.
 

@@ -1,36 +1,36 @@
 ---
-title: 'Azure VPN Gateway: Konfigurera paket fångster'
-description: Lär dig mer om paket avbildnings funktioner som du kan använda på VPN-gatewayer.
+title: 'Azure VPN Gateway: Konfigurera paket fångst'
+description: Lär dig mer om paket insamlings funktioner som du kan använda på VPN-gatewayer för att begränsa orsaken till ett problem.
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2019
+ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3ba3046367ceece6bf0ddf157451025c79977324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077215"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441603"
 ---
-# <a name="configure-packet-captures-for-vpn-gateways"></a>Konfigurera paket avbildningar för VPN-gatewayer
+# <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurera paket fångst för VPN-gatewayer
 
-Anslutnings-och prestandarelaterade problem är ofta komplicerade och tar mycket tid och behöver bara för att begränsa orsaken till problemet. Möjligheten att fånga paket minskar avsevärt tiden för att begränsa problemet till vissa delar av nätverket, t. ex. om problemet finns på kund sidan av nätverket, på Azure-sidan av nätverket eller någonstans i mellan. När problemet har begränsats är det mycket mer effektivt att felsöka och vidta åtgärder.
+Anslutnings-och prestanda relaterade problem är ofta komplicerade. Det kan ta lång tid och ansträngningar att bara minska orsaken till problemet. Paket fångst kan hjälpa dig att begränsa omfattningen av ett problem till vissa delar av nätverket. Det kan hjälpa dig att avgöra om problemet finns på kund sidan av nätverket, på Azure-sidan av nätverket eller någonstans i mellan. När du har begränsat problemet är det mer effektivt att felsöka och vidta åtgärder.
 
-Det finns några vanliga tillgängliga verktyg för paket fångst. Att hämta relevanta paket insamlingar med dessa verktyg kan vara besvärligt, särskilt när du arbetar med stora volym trafik scenarier. Filtrerings funktioner som tillhandahålls av en VPN-gateway paket fångst blir en större differentiering. Du kan använda en VPN gateway-paket avbildning utöver de vanligaste verktygen för paket insamling.
+Det finns några vanliga verktyg för paket insamling. Att hämta relevanta paket insamlingar med dessa verktyg kan vara besvärligt, särskilt i trafik scenarier med stora volymer. De filtrerings funktioner som tillhandahålls av Azure VPN Gateway Packet Capture är en större differentiering. Du kan använda VPN Gateway paket avbildning tillsammans med vanliga tillgängliga paket insamlings verktyg.
 
-## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Filtrerings funktioner för paket insamling i VPN gateway
+## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Filtrerings funktioner för VPN Gateway paket insamling
 
-Paket avbildningar för VPN gateway kan köras på gatewayen eller på en specifik anslutning beroende på kundernas behov. Du kan också köra paket fångster på flera tunnlar samtidigt. Du kan fånga enkel trafik, IKE-och ESP-trafik och interna paket tillsammans med filtrering på en VPN-gateway.
+Du kan köra VPN Gateway paket avbildning på gatewayen eller en speciell anslutning, beroende på dina behov. Du kan också köra paket fångst på flera tunnlar samtidigt. Du kan fånga enkelriktad eller dubbelriktad trafik, IKE-och ESP-trafik och interna paket tillsammans med filtrering på en VPN-gateway.
 
-Att använda ett filter med fem tupler (käll under nät, mål under nät, källport, målport, protokoll) och TCP-flaggor (SYN, ACK, FIN, URG, PSH, min) är användbart när du isolerar problem med hög volym trafik.
+Det är praktiskt att använda ett filter med fem tupler (käll under nät, mål under nät, källport, målport, protokoll) och TCP-flaggor (SYN, ACK, FIN, URG, PSH och per användning) när du isolerar problem med hög volym trafik.
 
-Se ett exempel på JSON-och JSON-schema med förklaringar av varje egenskap. Observera också vissa begränsningar när du kör paket avbildningarna:
-- I schemat visas filtret som en matris, men för närvarande kan endast ett filter användas i taget.
-- Det går inte att använda flera paket avbildningar i hela gatewayen samtidigt.
-- Flera paket avbildningar samtidigt är inte tillåtna i samma anslutning. Du kan köra paket fångster på olika anslutningar samtidigt.
-- Högst fem paket avbildningar kan köras parallellt per Gateway. De här paket avbildningarna kan vara en kombination av paket hämtning i hela gateway eller per avbildning av anslutnings paket.
+Följande exempel på JSON och ett JSON-schema innehåller förklaringar av varje egenskap. Här följer några begränsningar som du bör tänka på när du kör paket fångster:
+- I det schema som visas här är filtret en matris, men för närvarande kan endast ett filter användas i taget.
+- Du kan inte köra flera paket avbildningar i hela gatewayen på samma gång.
+- Du kan inte köra flera paket avbildningar på samma gång. Du kan köra flera paket insamlingar på olika anslutningar samtidigt.
+- Högst fem paket avbildningar kan köras parallellt per Gateway. De här paket avbildningarna kan vara en kombination av paket-och paket fångster per anslutning.
 
 ### <a name="example-json"></a>Exempel-JSON
 ```JSON-interactive
@@ -316,9 +316,9 @@ Se ett exempel på JSON-och JSON-schema med förklaringar av varje egenskap. Obs
 }
 ```
 
-## <a name="setup-packet-capture-using-powershell"></a>Konfigurera paket avbildning med PowerShell
+## <a name="set-up-packet-capture-by-using-powershell"></a>Konfigurera paket avbildning med hjälp av PowerShell
 
-Se exemplen nedan för PowerShell-kommandon för att starta och stoppa paket fångster. Mer information om parameter alternativ finns i detta PowerShell- [dokument](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+I följande exempel visas PowerShell-kommandon som startar och stoppar paket fångster. Mer information om parameter alternativ finns i [detta PowerShell-dokument](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Starta paket fångst för en VPN-gateway
 
@@ -326,7 +326,7 @@ Se exemplen nedan för PowerShell-kommandon för att starta och stoppa paket få
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Valfri parameter **– katalogen** kan användas för att tillämpa filter.
+Du kan använda den valfria parametern `-FilterData` om du vill använda ett filter.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Stoppa paket fångst för en VPN-gateway
 
@@ -340,7 +340,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Valfri parameter **– katalogen** kan användas för att tillämpa filter.
+Du kan använda den valfria parametern `-FilterData` om du vill använda ett filter.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Stoppa paket fångst på en VPN gateway-anslutning
 
@@ -350,10 +350,11 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## <a name="key-considerations"></a>Viktiga överväganden
 
-- Att köra paket dum par kan påverka prestandan. Kom ihåg att stoppa paket fångsten när det inte behövs.
-- Föreslagen minsta paket hämtnings tid är 600 sekunder. Att ha kortare hämtnings tid för paketet kanske inte ger fullständiga data på grund av synkroniseringsproblem mellan flera komponenter på sökvägen.
+- Att köra paket fångst kan påverka prestandan. Kom ihåg att stoppa paket fångsten när du inte behöver den.
+- Föreslagen minsta paket hämtnings tid är 600 sekunder. På grund av synkroniseringsproblem mellan flera komponenter på sökvägen kanske inte kortare paket insamlingar ger fullständiga data.
 - Paket insamlings data genereras i PCAP-format. Använd wireshark eller andra program som ofta är tillgängliga för att öppna PCAP-filer.
+- Paket fångster stöds inte på principbaserad gatewayer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om VPN Gateway finns i [about VPN gateway](vpn-gateway-about-vpngateways.md)
+Mer information om VPN Gateway finns i [VPN gateway?](vpn-gateway-about-vpngateways.md).

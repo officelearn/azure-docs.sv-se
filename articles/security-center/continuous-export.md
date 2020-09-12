@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612392"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433948"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -36,12 +36,12 @@ Med de här verktygen kan du:
 |Versions tillstånd:|Allmänt tillgänglig|
 |Priset|Kostnadsfri nivå|
 |Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)<br>Måste också ha Skriv behörighet för mål resursen|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Ja](./media/icons/yes-icon.png) Kina, gov (till Event Hub), andra gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>Konfigurera en löpande export
+## <a name="set-up-a-continuous-export"></a>Konfigurera en löpande export
 
 Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log Analytics arbets yta eller Azure Event Hubs.
 
@@ -55,12 +55,24 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
 
 1. Välj den datatyp som du vill exportera och välj bland filtren för varje typ (till exempel endast exportera aviseringar med hög allvarlighets grad).
 
+1. Om ditt val till exempel innehåller någon av dessa fyra rekommendationer, kan du inkludera resultaten av sårbarhets utvärderingen tillsammans med dem:
+
+    - Avgöranden för sårbarhets bedömning på SQL-databaser bör åtgärdas
+    - Utvärderings resultat av säkerhets risker på dina SQL-servrar på datorer bör åtgärdas (för hands version)
+    - Säkerhets risker i Azure Container Registry avbildningar bör åtgärdas (drivs av Qualys)
+    - Säkerhets risker på dina virtuella datorer bör åtgärdas
+
+    Om du vill inkludera undersöknings resultaten med dessa rekommendationer aktiverar du alternativet **Inkludera säkerhets resultat** .
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration" :::
+
+
 1. I området "Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
 
 1. Välj **Spara**.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>Konfigurera kontinuerlig export via REST API
+## <a name="set-up-continuous-export-via-the-rest-api"></a>Konfigurera kontinuerlig export via REST API
 
 Funktionen för kontinuerlig export kan konfigureras och hanteras via Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Använd detta API för att skapa eller uppdatera automatiseringar för export till någon av följande möjliga destinationer:
 
@@ -83,7 +95,7 @@ Läs mer om automations-API: et i [REST API-dokumentationen](https://docs.micros
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Konfigurera SIEM-integrering via Azure Event Hubs
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Konfigurera SIEM-integrering via Azure Event Hubs
 
 Azure Event Hubs är en bra lösning för program mässigt som förbrukar alla strömmande data. För Azure Security Center aviseringar och rekommendationer är det det bästa sättet att integrera med en SIEM från tredje part.
 

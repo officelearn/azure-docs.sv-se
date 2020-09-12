@@ -1,6 +1,6 @@
 ---
 title: Data Management Gateway för Data Factory
-description: Konfigurera en datagateway för att flytta data mellan lokala platser och molnet. Använd Data Management Gateway i Azure Data Factory för att flytta dina data.
+description: Använd Data Management Gateway i Azure Data Factory för att flytta dina data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087103"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441127"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -71,7 +71,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
@@ -121,7 +121,7 @@ Om du vill skapa en gateway i portalen och hämta nyckeln från sidan **Konfigur
     ![Hämta länk i portalen](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. På sidan **Konfigurera** klickar du på **Återskapa nyckel**. Klicka på Ja i varnings meddelandet när du har läst det noggrant.
 
-    ![Återskapa nyckel](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Knappen återskapa nyckel](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Klicka på knappen Kopiera bredvid nyckeln. Nyckeln kopieras till Urklipp.
 
     ![Kopiera nyckel](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -133,14 +133,14 @@ Följande bild visar några av de Brick ikoner som visas.
 
 Om du flyttar markören över system fältets ikon/meddelande visas information om statusen för gatewayen/uppdaterings åtgärden i ett popup-fönster.
 
-### <a name="ports-and-firewall"></a>Portar och brandvägg
+### <a name="ports-and-firewall"></a>Portar och brand vägg
 Det finns två brand väggar som du måste tänka på: **företags brand väggen** som körs på den centrala routern i organisationen och **Windows-brandväggen** konfigurerad som daemon på den lokala dator där gatewayen är installerad.
 
 ![brand väggar](./media/data-factory-data-management-gateway/firewalls2.png)
 
 På företags brand Väggs nivå måste du konfigurera följande domäner och utgående portar:
 
-| Domännamn | Portar | Description |
+| Domännamn | Portar | Beskrivning |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
 | *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
@@ -150,15 +150,15 @@ På företags brand Väggs nivå måste du konfigurera följande domäner och ut
 På Windows brand Väggs nivå är dessa utgående portar normalt aktiverade. Om inte kan du konfigurera domänerna och portarna på samma sätt på gateway-datorn.
 
 > [!NOTE]
-> 1. Baserat på dina källor/mottagare kan du behöva vitlista ytterligare domäner och utgående portar i företagets/Windows-brandväggen.
-> 2. För vissa moln databaser (till exempel: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access)osv.) kan du behöva vitlista IP-adressen för gateway-datorn i brand Väggs konfigurationen.
+> 1. Baserat på dina källor/mottagare kan du behöva tillåta ytterligare domäner och utgående portar i företagets/Windows-brandväggen.
+> 2. För vissa moln databaser (till exempel: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access)osv.) kan du behöva tillåta IP-adressen för gateway-datorn i brand Väggs konfigurationen.
 >
 >
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Kopiera data från ett käll data lager till ett data lager för mottagare
 Kontrol lera att brand Väggs reglerna är korrekt aktiverade i företags brand väggen, Windows-brandväggen på gateway-datorn och själva data lagret. Genom att aktivera de här reglerna kan gatewayen ansluta till både källan och mottagaren. Aktivera regler för varje data lager som ingår i kopierings åtgärden.
 
-Gör så här om du till exempel vill kopiera från **ett lokalt data lager till en Azure SQL Database mottagare eller en Azure SQL Data Warehouse mottagare**:
+Om du till exempel vill kopiera från **ett lokalt data lager till en Azure SQL Database mottagare eller en Azure Synapse Analytics-mottagare (tidigare SQL Data Warehouse)**, gör du så här:
 
 * Tillåt utgående **TCP** -kommunikation på port **1433** för både Windows-brandväggen och företags brand väggen.
 * Konfigurera brand Väggs inställningarna för logisk SQL Server för att lägga till IP-adressen för gateway-datorn i listan över tillåtna IP-adresser.
@@ -175,7 +175,7 @@ Om företagets nätverks miljö använder en proxyserver för att få åtkomst t
 
 Gatewayen använder proxyservern för att ansluta till moln tjänsten. Klicka på **ändra** länk under den första installationen. Dialog rutan **proxyinställningar** visas.
 
-![Ange proxy med Konfigurations hanteraren](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Ange proxy med Konfigurations hanteraren 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 Det finns tre konfigurations alternativ:
 
@@ -194,7 +194,7 @@ När gatewayen har registrerats kan du använda Data Management Gateway Configur
 
 Du kan visa och uppdatera HTTP-proxyn med hjälp av Configuration Manager-verktyget.
 
-![Ange proxy med Konfigurations hanteraren](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Ange proxy med Konfigurations hanteraren 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > Om du konfigurerar en proxyserver med NTLM-autentisering körs Gateway-värd tjänsten under domän kontot. Om du ändrar lösen ordet för domän kontot senare måste du komma ihåg att uppdatera konfigurations inställningarna för tjänsten och sedan starta om det. På grund av detta krav rekommenderar vi att du använder ett dedikerat domän konto för att få åtkomst till proxyservern som inte kräver att du uppdaterar lösen ordet ofta.
@@ -233,13 +233,13 @@ Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder
 > [!IMPORTANT]
 > Glöm inte att uppdatera **både** diahost.exe.config och diawp.exe.config.
 
-Förutom dessa punkter måste du också se till att Microsoft Azure är i företagets vitlista. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Förutom dessa punkter måste du också se till att Microsoft Azure finns i ditt företags lista över tillåtna. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Möjliga problem för brand Väggs-och proxy server-relaterade problem
 Om det uppstår fel som liknar följande, beror det förmodligen på felaktig konfiguration av brand väggen eller proxyservern, som blockerar Gateway från att ansluta till Data Factory för att autentisera sig själv. Se föregående avsnitt för att kontrol lera att din brand vägg och proxyserver är korrekt konfigurerade.
 
 1. När du försöker registrera gatewayen visas följande fel: "Det gick inte att registrera Gateway-nyckeln. Innan du försöker registrera Gateway-nyckeln igen bekräftar du att data Management Gateway är i ett anslutet tillstånd och att den Data Management Gateway värd tjänsten har startats. "
-2. När du öppnar Configuration Manager visas status som "frånkopplad" eller "anslutning". När du visar Windows-händelseloggar, under "Loggboken" > "program-och tjänst loggar" > "Data Management Gateway", visas fel meddelanden, till exempel följande fel:`Unable to connect to the remote server`
+2. När du öppnar Configuration Manager visas status som "frånkopplad" eller "anslutning". När du visar Windows-händelseloggar, under "Loggboken" > "program-och tjänst loggar" > "Data Management Gateway", visas fel meddelanden, till exempel följande fel: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Öppna port 8050 för kryptering av autentiseringsuppgifter
@@ -425,7 +425,7 @@ Det här avsnittet innehåller steg för att flytta Gateway-klienten från en da
     ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. På sidan **Konfigurera** i portalen klickar du på **Återskapa nyckel** i kommando fältet och klickar på **Ja** för varnings meddelandet. Klicka på **knappen Kopiera** bredvid nyckel text som kopierar nyckeln till Urklipp. Gatewayen på den gamla datorn slutar att fungera så snart du återskapar nyckeln.
 
-    ![Återskapa nyckel](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Återskapa nyckel 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Klistra in **nyckeln** i text rutan på sidan **registrera Gateway** i **Data Management Gateway Configuration Manager** på din dator. valfritt Klicka på kryss rutan **Visa Gateway-nyckel** för att se nyckel texten.
 
     ![Kopiera nyckel och registrera](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)

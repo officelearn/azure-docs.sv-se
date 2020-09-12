@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135545"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459529"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
@@ -97,7 +97,7 @@ Medlemmar i communityn kan skicka in hanterings lösningar till Azures snabb sta
 
    Du måste [Installera Azure CLI](/cli/azure/install-azure-cli) innan du kör kommandona CLI reference.  Om du vill kan du också använda Azure Cloud Shell för att slutföra stegen i den här artikeln.  Azure Cloud Shell är en interaktiv gränssnitts miljö som du använder via webbläsaren.  Starta Cloud Shell med någon av följande metoder:
 
-   - Öppna Cloud Shell genom att gå till[https://shell.azure.com](https://shell.azure.com)
+   - Öppna Cloud Shell genom att gå till [https://shell.azure.com](https://shell.azure.com)
 
    - Välj knappen **Cloud Shell** på Meny raden i det övre högra hörnet i [Azure Portal](https://portal.azure.com)
 
@@ -109,18 +109,18 @@ Medlemmar i communityn kan skicka in hanterings lösningar till Azures snabb sta
     az login
     ```
 
-1. Installera `log-analytics` tillägget
+1. Installera `log-analytics-solution` tillägget
 
-   `log-analytics`Kommandot är ett experiment tillägg till kärnan i Azure CLI. Läs mer om tilläggs referenser i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+   `log-analytics-solution`Kommandot är ett experiment tillägg till kärnan i Azure CLI. Läs mer om tilläggs referenser i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    Följande varning förväntas.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Installera en lösning med Azure CLI
@@ -159,7 +159,6 @@ Alla övervaknings lösningar kräver en [Log Analytics arbets yta](../platform/
 
 * Varje installation av en lösning kan bara använda en Log Analytics arbets yta och ett Automation-konto. Du kan installera lösningen separat i flera arbets ytor.
 * Om en lösning kräver ett Automation-konto måste Log Analytics arbets yta och Automation-konto länkas till varandra. En Log Analytics-arbetsyta kan bara länkas till ett Automation-konto och ett Automation-konto kan bara länkas till en Log Analytics arbets yta.
-* För att länkas måste Log Analytics-arbetsytan och automation-kontot finnas i samma prenumeration, men kan finnas i olika resurs grupper som distribueras till samma region. Undantaget är en arbets yta i regionen USA, östra och ett Automation-konto i USA, östra 2.
 
 När du installerar en lösning via Azure Marketplace uppmanas du att ange en arbets yta och ett Automation-konto. Länken mellan dem skapas om de inte redan är länkade.
 

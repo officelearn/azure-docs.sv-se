@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081193"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442079"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Så här data källor för data källor i Azure Data Catalog
 
@@ -29,7 +29,7 @@ Data profilering undersöker data i data källan som registreras och samlar in s
 
 Följande data källor har stöd för data profilering:
 
-* SQL Server (inklusive Azure SQL DB och Azure SQL Data Warehouse) tabeller och vyer
+* SQL Server (inklusive Azure SQL DB-och Azure Synapse Analytics)-tabeller och-vyer
 * Oracle-tabeller och vyer
 * Teradata-tabeller och vyer
 * Hive-tabeller

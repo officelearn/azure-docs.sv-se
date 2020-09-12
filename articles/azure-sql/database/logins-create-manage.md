@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290092"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441178"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 I den här artikeln får du lära dig om:
 
-- Alternativ för att konfigurera Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) för att göra det möjligt för användare att utföra administrativa uppgifter och komma åt data som lagras i dessa databaser.
+- Alternativ för att konfigurera Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics (tidigare SQL Data Warehouse) för att göra det möjligt för användare att utföra administrativa uppgifter och komma åt data som lagras i dessa databaser.
 - Åtkomst-och behörighets konfigurationen efter att du har skapat en ny server.
 - Hur du lägger till inloggningar och användar konton i huvud databasen och användar kontona och sedan tilldelar de här kontona administratörs behörighet.
 - Hur du lägger till användar konton i användar databaser, antingen kopplade till inloggningar eller som inneslutna användar konton.
@@ -48,8 +48,8 @@ När en användare försöker ansluta till en databas, anger de ett användar ko
 
 **Inloggningar och användare**: ett användar konto i en databas kan associeras med en inloggning som lagras i huvud databasen eller som kan vara ett användar namn som lagras i en enskild databas.
 
-- En **inloggning** är ett enskilt konto i huvud databasen, till vilket ett användar konto i en eller flera databaser kan länkas. Med en inloggning lagras autentiseringsuppgifterna för användar kontot med inloggningen.
-- Ett **användar konto** är ett enskilt konto i en databas som kan vara, men som inte behöver vara länkat till en inloggning. Med ett användar konto som inte är länkat till en inloggning lagras autentiseringsinformation med användar kontot.
+- En **inloggning** är ett enskilt konto i huvud databasen, till vilket ett användar konto i en eller flera databaser kan länkas. Med en inloggning lagras autentiseringsuppgifterna för användarkontot med inloggningen.
+- Ett **användar konto** är ett enskilt konto i en databas som kan vara, men som inte behöver vara länkat till en inloggning. Med ett användarkonto som inte är länkat till en inloggning lagras autentiseringsinformation med användarkontot.
 
 [**Behörighet att komma**](security-overview.md#authorization) åt data och utföra olika åtgärder hanteras med databas roller och explicita behörigheter. Auktorisering syftar på de behörigheter som tilldelats en användare och avgör vad användaren får göra. Auktoriseringen styrs av ditt användar kontos databas [roll medlemskap](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) och [behörigheter på objekt nivå](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Ett bra tips är att du ska ge användare så få behörigheter som möjligt.
 
@@ -94,7 +94,7 @@ I det här läget konfigureras servern eller den hanterade instansen bara för �
   - Lägg till användar kontot i `dbmanager` , `loginmanager` rollen eller både och i `master` databasen med instruktionen [Alter Role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (för Azure Synapse, Använd [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) -instruktionen).
 
   > [!NOTE]
-  > `dbmanager`och- `loginmanager` roller gäller **inte** för DISTRIBUTIONer av SQL-hanterade instanser.
+  > `dbmanager` och- `loginmanager` roller gäller **inte** för DISTRIBUTIONer av SQL-hanterade instanser.
 
   Medlemmar i dessa [särskilda huvud databas roller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) för Azure SQL Database har behörighet att skapa och hantera databaser eller för att skapa och hantera inloggningar. I databaser som skapats av en användare som är medlem i `dbmanager` rollen mappas medlemmen till den `db_owner` fasta databas rollen och kan logga in på och hantera databasen med hjälp av `dbo` användar kontot. De här rollerna har inga uttryckliga behörigheter utanför Master-databasen.
 

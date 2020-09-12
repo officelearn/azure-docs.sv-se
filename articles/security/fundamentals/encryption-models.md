@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143741"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645742"
 ---
 # <a name="data-encryption-models"></a>Datakrypteringsmodeller
 
@@ -157,7 +157,7 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | QnA Maker                        | Ja                | Ja                | -                  |
 | Speech Services                  | Ja                | Ja                | -                  |
 | Translator Text                  | Ja                | Ja                | -                  |
-| Power BI                         | Ja                | För hands version, RSA 2048-bitars | -                  |
+| Power BI                         | Ja                | Ja, RSA 4096-bitars  | -                  |
 | **Analys**                    |                    |                    |                    |
 | Azure Stream Analytics           | Ja                | EJ TILLÄMPLIGT\*              | -                  |
 | Event Hubs                       | Ja                | Ja                | -                  |
@@ -175,7 +175,7 @@ De Azure-tjänster som har stöd för varje krypterings modell:
 | Container Instances              | Ja                | Ja                | -                  |
 | Container Registry               | Ja                | Ja                | -                  |
 | **Beräkning**                      |                    |                    |                    |
-| Virtual Machines                 | Ja                | Ja                | -                  |
+| Virtuella datorer                 | Ja                | Ja                | -                  |
 | Skalnings uppsättning för virtuell dator        | Ja                | Ja                | -                  |
 | SAP HANA                         | Ja                | Ja                | -                  |
 | App Service                      | Ja                | Ja\*\*            | -                  |

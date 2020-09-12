@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320195"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646078"
 ---
 # <a name="collect-data-from-models-in-production"></a>Samla in data från modeller i produktion
 
@@ -67,11 +67,11 @@ Sökvägen till utdata i bloben följer den här syntaxen:
 
 - Du behöver ett AKS-kluster. Information om hur du skapar en och distribuerar till den finns i [distribuera och var](how-to-deploy-and-where.md).
 
-- [Konfigurera din miljö](how-to-configure-environment.md) och installera [Azure Machine Learning övervaknings-SDK: n](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+- [Konfigurera din miljö](how-to-configure-environment.md) och installera [Azure Machine Learning övervaknings-SDK: n](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 ## <a name="enable-data-collection"></a>Aktivera datainsamling
 
-Du kan aktivera [data insamling](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
+Du kan aktivera [data insamling](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) oavsett vilken modell du distribuerar via Azure Machine Learning eller andra verktyg.
 
 Om du vill aktivera data insamling måste du:
 
@@ -149,7 +149,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analysera modell data med Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> Analysera modell data med Power BI
 
 1. Ladda ned och öppna [Power BI Desktop](https://www.powerbi.com).
 
@@ -185,7 +185,7 @@ Du kan välja ett verktyg för att analysera data som samlas in i blob-lagringen
 
 1. Börja skapa dina anpassade rapporter på dina modell data.
 
-### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analysera modell data med Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analysera modell data med Azure Databricks
 
 1. Skapa en [Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 

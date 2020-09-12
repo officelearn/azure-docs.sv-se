@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 description: Den här artikeln innehåller en översikt över DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032892"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375252"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 
@@ -24,7 +24,7 @@ En lista över SharePoint-versioner som stöds och DPM-versioner som krävs för
 
 Det finns några saker du behöver bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du fortsätter kontrollerar du att du har uppfyllt alla [krav för att använda Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) för att skydda arbets belastningar. Vissa uppgifter för krav är: skapa ett säkerhets kopierings valv, Hämta autentiseringsuppgifter för valvet, installera Azure Backup Agent och registrera DPM/Azure Backup Server med valvet.
 
@@ -53,7 +53,7 @@ Information om hur du återställer ett SharePoint-objekt från en disk med DPM 
    > Eftersom SharePoint-servergruppen är skyddad för långsiktig kvarhållning i Azure är ingen katalog information (metadata) tillgänglig på DPM-servern. När en innehålls databas för SharePoint-databasen måste återställas måste du därför katalogisera SharePoint-servergruppen igen.
    >
    >
-3. Klicka på **ny katalog**.
+3. Välj **ny katalog**.
 
     ![DPM SharePoint-Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Information om hur du återställer ett SharePoint-objekt från en disk med DPM 
 
     ![DPM SharePoint-Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    När fil förteckningen har slutförts ändras statusen till *lyckades*. Klicka på **Stäng**.
+    När fil förteckningen har slutförts ändras statusen till *lyckades*. Välj **Stäng**.
 
     ![DPM SharePoint-Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Klicka på det SharePoint-objekt som visas på fliken DPM- **återställning** för att hämta strukturen för innehålls databasen. Högerklicka på objektet och klicka sedan på **Återställ**.
+4. Välj det SharePoint-objekt som visas på fliken DPM- **återställning** för att hämta struktur för innehålls databasen. Högerklicka på objektet och välj sedan **Återställ**.
 
     ![DPM SharePoint-Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Följ återställnings stegen tidigare i den här artikeln för att återställa en SharePoint-innehålls databas från disken.

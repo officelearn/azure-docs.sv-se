@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: ebc921e319b5ac16cb39001b5ffba5de48727d84
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c4f3ccce03f91b0567980d55b59bfb15d6985bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181943"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299753"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -34,9 +34,9 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Beteende analys av virtuella datorer (och säkerhets aviseringar)](threat-protection.md)|✔|✔|✔|Standard|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Just-in-time-åtkomst till virtuella datorer](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Ursprunglig sårbarhets bedömning](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
-|[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Övervakning av filintegritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
@@ -58,9 +58,9 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Standard|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Nätverksbaserade säkerhets aviseringar](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Just-in-Time VM-åtkomst](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Just-in-time-åtkomst till virtuella datorer](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Ursprunglig sårbarhets bedömning](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
-|[Övervakning av fil integritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Övervakning av filintegritet](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Anpassningsbara programkontroller](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Nätverks karta](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
@@ -91,13 +91,13 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 
 | Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
-| Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Yes |
-| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Yes |
-| Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Linux Server-serien  | No | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | No | Ja  **\***  |
+| Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Ja |
+| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
+| Trend Micro – djup säkerhet | Windows Server-familjen  | Inga | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
+| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
+| McAfee v10 + | Linux Server-serien  | Inga | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Inga | Ja  **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 

@@ -8,16 +8,18 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 73d583cb371876cefc10c982dbe66f6e15bddf03
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932618"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375235"
 ---
-# <a name="ncast4_v3-series"></a>NCasT4_v3-serien 
+# <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3-serien (för hands version) 
 
 De virtuella datorerna i NCasT4_v3 serien drivs av [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU-och AMD EPYC 7V12-processorer (Rom). De virtuella datorerna har upp till 4 NVIDIA T4-GPU: er med 16 GB minne vardera, upp till 64 non-multitråded AMD EPYC 7V12 (Roma) processor kärnor och 440 GiB av system minnet. De här virtuella datorerna är idealiska för att köra ML-och AI-arbetsbelastningar som använder CUDA, TensorFlow, Pytorch, caffe och andra ramverk eller grafik arbets belastningar med NVIDIA GRID-teknik. NCasT4_v3-serien är idealisk för att köra en härlednings arbets belastning.
+
+Du kan [skicka en begäran](https://aka.ms/NCT4v3Preview) som ska ingå i förhands gransknings programmet.
 
 <br>
 

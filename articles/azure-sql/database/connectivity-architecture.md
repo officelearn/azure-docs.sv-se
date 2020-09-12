@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d48ca3685dca36157307e7cb4b3d25261c243aa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 10108fdf4f2b7090eaeaa4b378992c2e94d3b04c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705749"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489586"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Anslutnings arkitektur för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ Om du ansluter inifrån Azure får anslutningarna som standard en anslutnings pr
 
 ![arkitektur översikt](./media/connectivity-architecture/connectivity-azure.png)
 
-## <a name="connectivity-from-outside-of-azure"></a>Anslutning från utanför Azure
+## <a name="connectivity-from-outside-of-azure"></a>Anslutning utanför Azure
 
 Om du ansluter från en plats utanför Azure har anslutningarna som standard en anslutnings princip `Proxy` . En princip i `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
 
@@ -94,6 +94,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
 | Tyskland, centrala      | 51.4.144.100       |
 | Tyskland, norra öst   | 51.5.144.179       |
+| Tyskland, västra centrala | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | Indien, centrala        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
 | Indien, västra           | 104.211.160.80     |

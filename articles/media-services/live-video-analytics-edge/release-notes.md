@@ -3,12 +3,12 @@ title: Video analys i real tid för IoT Edge viktig information – Azure
 description: Det här avsnittet innehåller viktig information om real tids analys av IoT Edge-versioner, förbättringar, fel korrigeringar och kända problem.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055455"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645827"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Viktig information om live video analys i IoT Edge
 
@@ -32,7 +32,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > I snabb starterna och självstudierna använder distributions manifestet en tagg på 1 (Real-Video-Analytics: 1). Det innebär att bara att omdistribuera sådana manifest bör uppdatera modulen på din gräns > enheter.
 
-## <a name="new-features"></a>Nya funktioner 
+### <a name="new-features"></a>Nya funktioner 
 
 * Du kan nu få hög data överförings prestanda mellan direktsända video analyser på IoT Edge och ditt anpassade tillägg med gRPC Framework. Se [det här](analyze-live-video-use-your-grpc-model-quickstart.md) för att komma igång.
 * En bredare regional distribution av Real video analys och endast moln tjänsten har uppdaterats.  
@@ -40,7 +40,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * [Inställningarna](https://aka.ms/lva-edge/setup-resources-for-samples) för snabb start har också uppdaterats med stöd för nya regioner.
     * Det finns inget anrop till åtgärden för alla som redan har konfigurerat resurser
 
-## <a name="bug-fixes"></a>Felkorrigeringar 
+### <a name="bug-fixes"></a>Felkorrigeringar 
 
 * Ta bort användningen av ett föråldrat Azure-tillägg i konfigurations skriptet
 

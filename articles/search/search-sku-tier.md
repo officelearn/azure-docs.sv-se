@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922811"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661093"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -39,7 +39,7 @@ De flesta funktioner är tillgängliga på alla nivåer, inklusive kostnads fria
 
 Nivåerna särskiljs av:
 
-+ Antal index och indexerare som du kan skapa
++ Antal index och indexerare (max gränser)
 + Storlek och hastighet för partitioner (fysisk lagring)
 
 Nivån som du väljer avgör fakturerings priset. Följande skärm bild från Azure Portal visar tillgängliga nivåer, minus priser (som du hittar i portalen och på [prissättnings sidan](https://azure.microsoft.com/pricing/details/search/). **Kostnads fri**, **Basic**och **standard** är de vanligaste nivåerna.

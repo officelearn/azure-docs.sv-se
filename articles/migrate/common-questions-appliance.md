@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050683"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514551"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -21,7 +21,7 @@ I den här artikeln besvaras vanliga frågor om Azure Migrate-enheten. Om du har
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Vad är Azure Migrates apparaten?
 
-Azure Migrate-installationen är en förenklad apparat som verktyget Azure Migrate: Server bedömning använder för att identifiera och utvärdera lokala servrar. Verktyget Azure Migrate: Migreringsverktyg för Server använder också installationen av en agent lös migrering av lokala virtuella VMware-datorer.
+Azure Migrate-installationen är en förenklad enhet som verktyget Azure Migrate: Server bedömning använder för att identifiera och utvärdera fysiska eller virtuella servrar från lokalt eller i ett moln. Verktyget Azure Migrate: Migreringsverktyg för Server använder också installationen av en agent lös migrering av lokala virtuella VMware-datorer.
 
 Här är mer information om Azure Migrate-enheten:
 
@@ -35,13 +35,14 @@ Här är mer information om Azure Migrate-enheten:
 
 Enheten kan distribueras på följande sätt:
 
-- Använda en mall för virtuella VMware-datorer och virtuella Hyper-V-datorer (ägg-mall för VMware eller VHD för Hyper-V).
-- Om du inte vill använda en mall eller om du är i Azure Government kan du distribuera-installationen för VMware eller Hyper-V med hjälp av ett PowerShell-skript.
-- För fysiska servrar distribuerar du alltid enheten med hjälp av ett skript.
+- Använda en mall för identifiering av virtuella VMware-datorer (. ÄGG fil) och virtuella Hyper-V-datorer (. VHD-fil) för att skapa en ny virtuell dator som är värd för-enheten.
+- Om du inte vill använda en mall kan du distribuera-installationen på en befintlig fysisk eller virtuell dator för identifiering av virtuella VMware-datorer eller virtuella Hyper-V-datorer med ett PowerShell-installations skript som är tillgängligt för hämtning i en zip-fil från portalen.
+- För fysiska eller virtuella servrar från lokalt eller i ett moln distribuerar du alltid installationen med hjälp av ett skript på en befintlig server.
+- För Azure Government kan alla tre apparater bara distribueras med hjälp av PowerShell-installationsprogrammet.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Hur ansluter-enheten till Azure?
 
-Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute.
+Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute. Se till att dessa [URL: er](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) är vit listas för att enheten ska kunna ansluta till Azure.
 
 - För att kunna använda Azure ExpressRoute för Azure Migrate replikeringstrafik krävs Microsoft-peering eller en befintlig offentlig peering (offentlig peering är föråldrad för nya återställnings skapande).
 - Replikering över Azure-ExpressRoute med endast aktive rad privat peering stöds inte.
@@ -66,6 +67,7 @@ I följande artiklar finns information om data som Azure Migrates apparaten saml
 
 - **Virtuell VMware-dator**: [Granska](migrate-appliance.md#collected-data---vmware) insamlade data.
 - **Virtuell Hyper-V-dator**: [Granska](migrate-appliance.md#collected-data---hyper-v) insamlade data.
+- **Fysiska eller virtuella servrar**:[Granska](migrate-appliance.md#collected-data---physical) insamlade data.
 
 ## <a name="how-is-data-stored"></a>Hur lagras data?
 
@@ -107,8 +109,7 @@ Ett projekt kan ha flera anslutna enheter. En installation kan dock bara kopplas
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Kan Azure Migrate utrustning/-replikering ansluta till samma vCenter?
 
-Ja. Du kan lägga till både Azure Migrate-installationen (som används för utvärdering och agent lös VMware-migrering) och replikeringstjänsten (som används för agentbaserade migrering av virtuella VMware-datorer) till samma vCenter-Server.
-
+Ja. Du kan lägga till både Azure Migrate-installationen (som används för utvärdering och agent lös VMware-migrering) och replikeringstjänsten (som används för agentbaserade migrering av virtuella VMware-datorer) till samma vCenter-Server. Men se till att du inte konfigurerar båda enheterna på samma virtuella dator och inte stöds för närvarande.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer eller servrar kan jag identifiera med en apparat?
 
@@ -124,7 +125,9 @@ Men om du tar bort resurs gruppen raderas även andra registrerade enheter, den 
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>Kan jag använda enheten med en annan prenumeration eller ett annat projekt?
 
-När du har använt enheten för att initiera identifieringen kan du inte konfigurera om den för användning med en annan Azure-prenumeration och du kan inte använda den i ett annat Azure Migrate projekt. Du kan inte heller identifiera virtuella datorer på en annan instans av vCenter Server. Konfigurera en ny installation för dessa uppgifter.
+Om du vill använda installationen med en annan prenumeration eller ett annat projekt måste du konfigurera om den befintliga installationen genom att köra PowerShell-installationsprogrammet för det speciella scenariot (VMware/Hyper-V/fysisk) på installations datorn. Skriptet kommer att rensa befintliga komponenter och inställningar för installationen för att distribuera en ny installation. Se till att rensa webbläsarens cacheminne innan du börjar använda Konfigurations hanteraren för nyligen distribuerade installationer.
+
+Du kan inte heller återanvända en befintlig Azure Migrate projekt nyckel på en omkonfigurerad installation. Se till att generera en ny nyckel från den önskade prenumerationen/projektet för att slutföra registreringen av produkten.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Kan jag konfigurera enheten på en virtuell Azure-dator?
 

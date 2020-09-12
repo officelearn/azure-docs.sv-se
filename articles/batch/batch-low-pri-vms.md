@@ -3,14 +3,14 @@ title: Köra arbets belastningar på kostnads effektiva virtuella datorer med l�
 description: Lär dig hur du etablerar virtuella datorer med låg prioritet för att minska kostnaderna för Azure Batch arbets belastningar.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816702"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568463"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
 
@@ -18,7 +18,7 @@ Azure Batch erbjuder virtuella datorer med låg prioritet (VM) för att minska k
 
 Virtuella datorer med låg prioritet drar nytta av överskotts kapacitet i Azure. När du anger virtuella datorer med låg prioritet i dina pooler kan Azure Batch använda detta överskott, om det är tillgängligt.
 
-Kompromissen med att använda virtuella datorer med låg prioritet är att de virtuella datorerna kanske inte är tillgängliga för tilldelning eller kan avbrytas när som helst, beroende på tillgänglig kapacitet. Därför är de flesta virtuella datorer med låg prioritet lämplig för vissa typer av arbets belastningar. Använd virtuella datorer med låg prioritet för batch-och asynkron bearbetning av arbets belastningar där jobbets slut för ande tid är flexibelt och arbetet distribueras över flera virtuella datorer.
+Kompromissen med att använda virtuella datorer med låg prioritet är att de virtuella datorerna inte alltid ska vara tillgängliga för tilldelning eller som kan avbrytas när som helst, beroende på tillgänglig kapacitet. Därför är de flesta virtuella datorer med låg prioritet lämplig för vissa typer av arbets belastningar. Använd virtuella datorer med låg prioritet för batch-och asynkron bearbetning av arbets belastningar där jobbets slut för ande tid är flexibelt och arbetet distribueras över flera virtuella datorer.
 
 Virtuella datorer med låg prioritet erbjuds till ett avsevärt minskat pris jämfört med dedikerade virtuella datorer. Pris information finns i [batch-priser](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -123,7 +123,7 @@ Noder i poolen har en egenskap som anger om noden är en dedikerad eller låg pr
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-När en eller flera noder i en pool blockeras, returnerar en List Nodes-åtgärd på poolen fortfarande noderna. Det aktuella antalet noder med låg prioritet förblir oförändrat, men de noderna **har statusen inställd på väntetillstånd.** Batch försöker hitta de virtuella datorerna och, om de lyckas, gå igenom **skapandet** och **Starta** sedan tillstånd innan de blir tillgängliga för uppgifts körning, precis som nya noder.
+När en eller flera noder i den virtuella datorns konfigurations grupper blockeras, returnerar en List nod på poolen fortfarande de noderna. Det aktuella antalet noder med låg prioritet förblir oförändrat, men de noderna **har statusen inställd på väntetillstånd.** Batch försöker hitta de virtuella datorerna och, om de lyckas, gå igenom **skapandet** och **Starta** sedan tillstånd innan de blir tillgängliga för uppgifts körning, precis som nya noder.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Skala en pool som innehåller virtuella datorer med låg prioritet
 
@@ -155,10 +155,11 @@ Jobb och aktiviteter kräver lite ytterligare konfiguration för noder med låg 
 
 ## <a name="handling-preemption"></a>Hantera avstängningen
 
-Virtuella datorer kan ibland vara blockerade. När avstängningen händer gör batch följande:
+Virtuella datorer kan ibland vara avblockerade. När detta inträffar köas de aktiviteter som kördes på de virtuella datorerna i den tidigare noden och körs igen.
+
+För konfigurations pooler för virtuella datorer gör batch också följande:
 
 -   De virtuella datorernas tillstånd har uppdaterats **till att**blockeras.
--   Om aktiviteter kördes på de virtuella datorerna i den tidigare noden, köas dessa aktiviteter och körs igen.
 -   Den virtuella datorn tas bort effektivt, vilket leder till förlust av data som lagras lokalt på den virtuella datorn.
 -   Poolen försöker kontinuerligt nå mål antalet tillgängliga noder med låg prioritet. När ersättnings kapaciteten hittas behåller noderna sina ID: n, men de initieras på nytt, så att du kan **skapa** och **Starta** tillstånd innan de är tillgängliga för schemaläggning.
 -   Antalet avstängningen är tillgängliga som ett mått i Azure Portal.
@@ -168,7 +169,7 @@ Virtuella datorer kan ibland vara blockerade. När avstängningen händer gör b
 Nya mått är tillgängliga i [Azure Portal](https://portal.azure.com) för noder med låg prioritet. Dessa mått är:
 
 - Antal noder med låg prioritet
-- Antal kärnor med låg prioritet 
+- Antal kärnor med låg prioritet
 - Antal misslyckade noder
 
 Visa mått i Azure Portal:
@@ -177,10 +178,10 @@ Visa mått i Azure Portal:
 2. Välj **mått** från avsnittet **övervakning** .
 3. Välj de mått som du vill använda i listan **tillgängliga mått** .
 
-![Mått för noder med låg prioritet](media/batch-low-pri-vms/low-pri-metrics.png)
+![Skärm bild som visar mått val för noder med låg prioritet.](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
-* Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
-* Börja planera flytten från virtuella datorer med låg prioritet till virtuella datorer med dekor prioritet. Om du använder virtuella datorer med låg prioritet med **konfigurations pooler för moln tjänster** planerar du att flytta till konfigurationer för **virtuella datorer** .
+- Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+- Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
+- Börja planera flytten från virtuella datorer med låg prioritet till virtuella datorer med dekor prioritet. Om du använder virtuella datorer med låg prioritet med **konfigurations pooler för moln tjänster** planerar du att flytta till konfigurationer för **virtuella datorer** .

@@ -8,60 +8,51 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: 53e5331ab36d5466bd5cdb495ac505dae29e57bf
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142306"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375896"
 ---
-# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Granska och publicera ett erbjudande på den kommersiella Marketplace
+# <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Granska och publicera ett erbjudande på den kommersiella Marketplace
 
-Den här artikeln visar hur du kan använda Partner Center för att skicka in ditt erbjudande till Preview, förhandsgranska ditt erbjudande och sedan publicera det på Microsofts kommersiella marknads platser. Vi tar också upp hur du kontrollerar publicerings statusen när den går igenom publicerings stegen. Du måste redan ha skapat ett erbjudande som du vill publicera.
+Den här artikeln visar hur du använder Partner Center för att skicka in ditt erbjudande för publicering, för hands version av ditt erbjudande och sedan publicera det på den kommersiella Marketplace. Vi tar också upp hur du kontrollerar publicerings statusen när den går igenom publicerings stegen. Du måste redan ha skapat ett erbjudande som du vill publicera.
 
-## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Gå till ditt erbjudande på den kommersiella Marketplace
+## <a name="offer-status"></a>Erbjudande status
 
-1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
-3. På fliken **Översikt** under **erbjudanden**visas en av följande status indikatorer i kolumnen **status** för varje erbjudande.
+Du kan granska din erbjudande status på fliken **Översikt** på instrument panelen för extern Marketplace i [partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En av följande status indikatorer visas i kolumnen **status** för varje erbjudande.
 
-    | Status | Beskrivning |
-    | ------------ | ------------- |
-    | Draft | Erbjudandet har skapats men det har inte publicerats. |
-    | Publicering pågår | Erbjudandet fungerar på ett sätt genom publicerings processen. |
-    | Åtgärd krävs | Vi har identifierat ett kritiskt problem under certifieringen eller under en annan publicerings fas. |
-    | Förhandsgranskning | Vi har certifierat erbjudandet, som nu väntar en slutgiltig verifiering av utgivaren. Välj **Go Live** för att publicera erbjudandet Live. |
-    | Direktsändning | Erbjudandet är Live på Marketplace och kan ses och förvärvas av kunder. |
-    | Väntande stoppa försäljning | Utgivare valde "stoppa försäljning" på ett erbjudande eller en plan, men åtgärden har ännu inte slutförts. |
-    | Inte tillgängligt i Marketplace | Ett tidigare publicerat erbjudande i Marketplace har tagits bort. |
-    |||
+| Status | Beskrivning |
+| ------------ | ------------- |
+| Draft | Erbjudandet har skapats men det har inte publicerats. |
+| Publicering pågår | Erbjudandet fungerar på ett sätt genom publicerings processen. |
+| Åtgärd krävs | Vi har identifierat ett kritiskt problem under certifieringen eller under en annan publicerings fas. |
+| Förhandsgranskning | Vi har certifierat erbjudandet, som nu väntar en slutgiltig verifiering av utgivaren. Välj **Go Live** för att publicera erbjudandet Live. |
+| Direktsändning | Erbjudandet är Live på Marketplace och kan ses och förvärvas av kunder. |
+| Väntande stoppa försäljning | Utgivare valde "stoppa försäljning" på ett erbjudande eller en plan, men åtgärden har ännu inte slutförts. |
+| Inte tillgängligt i Marketplace | Ett tidigare publicerat erbjudande i Marketplace har tagits bort. |
+|||
 
-4. I kolumnen **erbjudande alias** väljer du det erbjudande du vill förhandsgranska och publicera.
+## <a name="validation-and-publishing-steps"></a>Validerings-och publicerings steg
 
-## <a name="submit-your-offer-to-preview"></a>Skicka ditt erbjudande till för hands version
-
-1. Om du vill skicka ditt erbjudande till för hands version väljer du **Granska och publicera** i det övre högra hörnet i portalen. Sidan **Granska och publicera** visas.
-1. Kontrol lera att kolumnen **status** för varje sida säger **slutförd**. De tre möjliga statusarna är följande:
+När du är redo att skicka in ett erbjudande om publicering väljer du **Granska och publicera** i det övre högra hörnet i portalen. Sidan **Granska och publicera** visar status för varje sida för ditt erbjudande, som kan vara något av följande:
 
    - **Inte startat** – sidan är ofullständig.
    - **Ofullständig** – sidan saknar nödvändig information eller innehåller fel som behöver åtgärdas. Du måste gå tillbaka till sidan och uppdatera den.
    - **Klar** – sidan har slutförts. Alla nödvändiga data har angetts och det finns inga fel.
 
-1. Om någon av sidorna har en annan status än **slutförd**väljer du sidans namn i kolumnen **sida** , korrigerar problemet, sparar sidan och väljer sedan **Granska och publicera** igen för att återgå till den här sidan.
-1. När alla sidor har slutförts, i rutan **kommentarer för certifiering** , anger du test instruktioner till certifierings teamet för att se till att appen testas korrekt. Ge eventuella kompletterande anteckningar som hjälper dig att förstå din app.
-1. Om du vill skicka publicerings erbjudandet väljer du **publicera**. Sidan **erbjudande översikt** visas och visar publicerings status.
+Om någon av sidorna har en annan status än **fullständig**, måste du korrigera problemet på sidan och sedan gå tillbaka till sidan **Granska och publicera** för att kontrol lera att statusen nu visas som **slutförd**. Vissa erbjudande typer kräver testning. I så fall visas ett fält **för certifiering** där du måste ange test instruktioner till certifierings teamet och eventuella kompletterande kommentarer som hjälper dig att förstå din app.
 
-## <a name="validation-and-publishing-steps"></a>Validerings-och publicerings steg
-
-När du har valt **publicera**fortsätter validerings-och publicerings processerna i ordning. Den vanligaste publicerings processen visas i den här tabellen:
+När alla sidor har slutförts och du har angett tillämpliga test anteckningar väljer du **publicera** för att påbörja processerna för validering och publicering. Faserna och den övergripande sekvensen kan variera beroende på vilken typ av erbjudande du publicerar. I följande tabell visas ett möjligt publicerings flöde. Varje fas förklaras i detalj i följande avsnitt.
 
 | Fas | Vad händer |
 | ------------ | ------------- | ------------- |
-| Automatiserad verifiering | Vi bearbetar en uppsättning automatiserade verifieringar. |
-| Certifiering | Vi utför manuella verifieringar. |
-| Skapa för hands version | List sidan för för hands versionen av erbjudandet är tillgänglig för alla som har en för hands versions länk. Om ditt erbjudande kommer att säljas via Microsoft (transactable) kan bara den mål grupp som du har angett på sidan för **hands version** av erbjudandet köpa och få åtkomst till erbjudandet om testning. |
-| Utgivarens utloggning | Vi skickar dig ett e-postmeddelande med en begäran om att förhandsgranska och godkänna ditt erbjudande. |
-| Publicera | Vi kör en serie steg för att kontrol lera att för hands versions erbjudandet publiceras Live till den kommersiella marknads platsen. |
+| [Automatiserad verifiering](#automated-validation-phase) | Vi bearbetar en uppsättning automatiserade verifieringar. |
+| [Certifiering](#certification-phase) | Vi utför manuella verifieringar. |
+| [Skapa för hands version](#preview-creation-phase) | List sidan för för hands versionen av erbjudandet är tillgänglig för alla som har en för hands versions länk. Om ditt erbjudande kommer att säljas via Microsoft (transactable) kan bara den mål grupp som du har angett på sidan för **hands version** av erbjudandet köpa och få åtkomst till erbjudandet om testning. |
+| [Utgivarens utloggning](#publisher-sign-off-phase) | Vi skickar dig ett e-postmeddelande med en begäran om att förhandsgranska och godkänna ditt erbjudande. |
+| [Publicera](#publish-phase) | Vi kör en serie steg för att kontrol lera att för hands versions erbjudandet publiceras Live till den kommersiella marknads platsen. |
 |||
 
 ## <a name="automated-validation-phase"></a>Automatiserad validerings fas
@@ -102,7 +93,7 @@ Varje erbjudande typ kontrollerar en uppsättning nödvändiga bas Berättigande
 
 #### <a name="content-validation"></a>Innehålls validering
 
-Informationen som angavs när du skapade erbjudandet kontrol leras för kvalitet och relevans. Dessa kontroller granskar dina poster för information om Marketplace-listor, prissättning, tillgänglighet, associerade planer och så vidare. För att uppfylla registrerings villkoren för Azure Marketplace och Microsoft AppSource, kommer vi att validera att erbjudandet innehåller:
+Informationen som angavs när du skapade erbjudandet kontrol leras för kvalitet och relevans. Dessa kontroller granskar dina poster för information om Marketplace-listor, prissättning, tillgänglighet, associerade planer och så vidare. För att uppfylla registrerings villkoren för Microsoft AppSource och Azure Marketplace, kommer vi att validera att erbjudandet innehåller:
 
 - En rubrik som korrekt beskriver erbjudandet
 - Välskrivna beskrivningar som ger en grundlig översikt och ett värde förslag
@@ -128,7 +119,7 @@ Om erbjudandet Miss lyckas med någon av inställningarna för registrering, tek
 
 Den här rapporten innehåller beskrivningar av eventuella principer som misslyckats, tillsammans med gransknings anteckningar. Läs den här e-postrapporten, åtgärda eventuella problem, gör uppdateringar till ditt erbjudande vid behov och skicka erbjudandet på nytt med hjälp av den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center. Du kan skicka in erbjudandet igen så många gånger som behövs tills du skickar certifieringen.
 
-## <a name="preview-creation-phase"></a>Fasen skapande av för hands version
+## <a name="preview-creation-phase"></a>Fasen Skapa förhandsversion
 
 Under skapandet av för hands versionen skapar vi en version av ditt erbjudande som bara är tillgänglig för den mål grupp som du har angett på sidan för **förhands granskning** av ditt erbjudande. För hands versionen av ditt erbjudande är inte tillgänglig för någon utanför förhands gransknings gruppen förrän du publicerar erbjudandet Live.
 
@@ -141,21 +132,18 @@ När erbjudandet är klart för att du ska kunna granska och vara inloggad skick
 
 Följande skärm bild visar sidan **erbjudande översikt** för ett SaaS-erbjudande. De verifierings steg som visas på den här sidan varierar beroende på erbjudande typen och de val du gjorde när du skapade erbjudandet.
 
-![Visar sidan erbjudande översikt för ett erbjudande i Partner Center. Knappen gå live och för hands versions länkarna visas.](./partner-center-portal/media/publish-status-publisher-signoff.png)
+![Visar sidan erbjudande översikt för ett erbjudande i Partner Center. Knappen gå live och för hands versions länkarna visas.](./media/publish-status-publisher-signoff.png)
 
-### <a name="to-preview-your-offer-and-sign-off"></a>För hands version av erbjudandet och signeringen
+### <a name="previewing-and-approving-your-offer"></a>För hands Grans kar och godkänner ditt erbjudande
 
-1. På sidan **erbjudande översikt** väljer du länken under knappen **gå live** för att förhandsgranska ditt erbjudande.
+> [!IMPORTANT]
+> Om du vill kontrol lera inköps-och installations flödet från slut punkt till slut punkt köper du ditt erbjudande när det är i för hands version. Meddela först Microsoft med ett [support ärende](https://aka.ms/marketplacesupport) för att se till att vi inte behandlar någon avgift.
 
-   > [!NOTE]
-   > Det finns en länk till antingen AppSource Preview, Azure Marketplace Preview eller båda beroende på vilka alternativ du valde när du skapade erbjudandet. Om du har valt att sälja ditt erbjudande via Microsoft kan alla som har lagts till i förhands gransknings gruppen testa förvärvet och distributionen av ditt erbjudande för att säkerställa att det uppfyller dina krav under det här skedet.
+På sidan **erbjudande översikt** visas förhands gransknings länkar under knappen **gå live** . Det finns en länk till antingen AppSource Preview, Azure Marketplace Preview eller båda beroende på vilka alternativ du valde när du skapade erbjudandet. Om du har valt att sälja ditt erbjudande via Microsoft kan alla som har lagts till i förhands gransknings gruppen testa förvärvet och distributionen av ditt erbjudande för att säkerställa att det uppfyller dina krav under det här skedet.
 
-1. Om du vill göra ändringar efter att ha förhandsgranskat erbjudandet kan du redigera och skicka om för att publicera en ny för hands version. Mer information finns i [Uppdatera ett befintligt erbjudande i den kommersiella marknads platsen](./partner-center-portal/update-existing-offer.md).
+När du har godkänt din för hands version väljer du **Go Live** för att publicera erbjudandet Live på den kommersiella marknads platsen. 
 
-1. När du har godkänt din för hands version för att publicera erbjudandet Live på den kommersiella Marketplace väljer du **Go Live**.
-
-   > [!TIP]
-   > Om ditt erbjudande redan är aktivt och tillgängligt för allmänheten på Marketplace, är de uppdateringar du gör inte aktiva förrän du väljer **Go Live**.
+Om du vill göra ändringar efter att ha granskat erbjudandet kan du redigera och skicka begäran om publicering. Om ditt erbjudande redan är aktivt och tillgängligt för allmänheten på Marketplace, är de uppdateringar du gör inte aktiva förrän du väljer **Go Live*. Mer information finns i [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Publicerings fas
 
@@ -183,10 +171,6 @@ Nu när du har valt att sätta igång med ditt erbjudande, vilket gör det tillg
 
 När dessa verifierings kontroller har slutförts är ditt erbjudande Live på Marketplace.
 
-### <a name="reporting-usage-of-preview-and-other-internal-usage"></a>Rapportering av användning av för hands version och annan intern användning
+## <a name="next-steps"></a>Nästa steg
 
-Om du vill kontrol lera inköps-och installations flödet från slut punkt till slut punkt köper du ditt erbjudande när det är i för hands version. Meddela först Microsoft med ett [support ärende](https://aka.ms/marketplacesupport) för att se till att vi inte behandlar någon avgift.
-
-## <a name="next-step"></a>Nästa steg
-
-[Få åtkomst till analys rapporter för den kommersiella marknads platsen i Partner Center](./partner-center-portal/analytics.md)
+[Få åtkomst till analys rapporter för den kommersiella marknads platsen i Partner Center](partner-center-portal/analytics.md)

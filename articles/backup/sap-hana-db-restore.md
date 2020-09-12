@@ -3,12 +3,12 @@ title: Återställa SAP HANA databaser på virtuella Azure-datorer
 description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006320"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375320"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
 
@@ -24,33 +24,33 @@ Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-d
 
 * Återställ till en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Observera följande innan du återställer en databas:
 
-* Du kan bara återställa databasen till en SAP HANA instans i samma region
+* Du kan bara återställa databasen till en SAP HANA instans som är i samma region.
 
-* Mål instansen måste registreras med samma valv som källan
+* Mål instansen måste registreras med samma valv som källan.
 
 * Azure Backup kan inte identifiera två olika SAP HANAs instanser på samma virtuella dator. Det går inte att återställa data från en instans till en annan på samma virtuella dator.
 
 * Kontrol lera statusen för **säkerhets kopierings beredskap** för att säkerställa att mål SAP HANAs instansen är redo för återställning:
 
-  1. Öppna valvet där mål SAP HANAs instansen är registrerad
+  1. Öppna valvet där mål SAP HANAs instansen är registrerad.
 
-  1. På instrument panelen för valvet, under **komma igång**, väljer du **säkerhets kopiering**
+  1. På instrument panelen för valvet, under **komma igång**, väljer du **säkerhets kopiering**.
 
       ![Säkerhets kopiering i valvets instrument panel](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. Under **säkerhets kopiering**under **vad vill du säkerhetskopiera? väljer du** **SAP HANA i virtuell Azure-dator**
+  1. Under **säkerhets kopiering**under **vad vill du säkerhetskopiera? väljer du** **SAP HANA i Azure VM**.
 
       ![Välj SAP HANA i virtuell Azure-dator](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Klicka på **Visa information** under **identifiera databaser i virtuella datorer**
+  1. Under **identifiera databaser i virtuella datorer**väljer du **Visa information**.
 
       ![Visa detaljer](media/sap-hana-db-restore/view-details.png)
 
-  1. Granska **beredskap för säkerhets kopieringen** för den virtuella mål datorn
+  1. Granska **beredskap för säkerhets kopieringen** för den virtuella mål datorn.
 
       ![Skyddade servrar](media/sap-hana-db-restore/protected-servers.png)
 

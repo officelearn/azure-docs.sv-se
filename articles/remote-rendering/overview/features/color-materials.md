@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021389"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613769"
 ---
 # <a name="color-materials"></a>Färgmaterial
 
@@ -50,6 +50,13 @@ Följande egenskaper är speciella för färg material:
   1. **AlphaBlended:** Det här läget liknar genomskinlighets läget för PBR-material. Den bör användas för att se på material som glas.
 
   1. **Tillsats:** Det här läget är det enklaste och mest effektiva genomskinlighets läget. Material bidraget läggs till i den återgivna avbildningen. Det här läget kan användas för att simulera glödande (men fortfarande genomskinliga) objekt, till exempel markörer som används för att markera viktiga objekt.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# ColorMaterial-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# RemoteManager. CreateMaterial ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ ColorMaterial-klass](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
+* [C++ RemoteManager:: CreateMaterial ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Nästa steg
 

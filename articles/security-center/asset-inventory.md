@@ -40,7 +40,7 @@ Till gångs hanterings möjligheterna för det här verktyget är väsentliga oc
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|Alla användare|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 

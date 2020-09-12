@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080189"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276192"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Hybrid identitets överväganden för Azure Government molnet
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs överväganden för att integrera en hybrid miljö 
 > [!NOTE]
 > Om du vill integrera en lokal Microsoft Azure Active Directory (Azure AD)-miljö med Azure Government molnet måste du uppgradera till den senaste versionen av [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-En fullständig lista över USA myndighets departementets slut punkter finns i [dokumentationen](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+En fullständig lista över USA myndighets departementets slut punkter finns i [dokumentationen](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>Direkt autentisering i Azure AD
 

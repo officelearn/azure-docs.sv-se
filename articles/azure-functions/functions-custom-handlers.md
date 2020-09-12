@@ -1,30 +1,29 @@
 ---
 title: Azure Functions anpassade hanterare (förhands granskning)
 description: Lär dig hur du använder Azure Functions med valfri språk-eller körnings version.
-author: craigshoemaker
-ms.author: cshoe
-ms.date: 3/18/2020
+author: anthonychu
+ms.author: antchu
+ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85052581"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294602"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions anpassade hanterare (förhands granskning)
 
-Varje Functions-App körs av en språkspecifik hanterare. Även om Azure Functions stöder många [språk hanterare](./supported-languages.md) som standard, finns det fall där du kanske vill ha ytterligare kontroll över appens körnings miljö. Anpassade hanterare ger dig den här ytterligare kontrollen.
+Varje Functions-App körs av en språkspecifik hanterare. Även om Azure Functions stöder många [språk hanterare](./supported-languages.md) som standard, finns det fall där du kanske vill använda andra språk eller körningar.
 
 Anpassade hanterare är lätta webb servrar som tar emot händelser från Functions-värden. Alla språk som stöder HTTP-primitiver kan implementera en anpassad hanterare.
 
 Anpassade hanterare passar bäst för situationer där du vill:
 
-- Implementera en Function-app på ett språk som inte stöds officiellt.
-- Implementera en Function-app i en språk version eller runtime stöds inte som standard.
-- Ger mer detaljerad kontroll över körnings miljön för Function-appar.
+- Implementera en Function-app på ett språk som inte stöds för närvarande, till exempel Go och Rust.
+- Implementera en Function-app i en körning som inte stöds för närvarande, till exempel DENO.
 
-Med anpassade hanterare stöds alla [utlösare och indata-och utgående bindningar](./functions-triggers-bindings.md) via [tilläggs paket](./functions-bindings-register.md).
+Med anpassade hanterare kan du använda [utlösare och indata och utdata-bindningar](./functions-triggers-bindings.md) via [tilläggs paket](./functions-bindings-register.md).
 
 ## <a name="overview"></a>Översikt
 
@@ -32,104 +31,105 @@ I följande diagram visas relationen mellan Functions-värden och en webb server
 
 ![Översikt över Azure Functions anpassad hanterare](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
 
-- Händelser utlöser en begäran som skickas till Functions-värden. Händelsen har antingen en RAW HTTP-nyttolast (för HTTP-utlösta funktioner utan bindningar) eller en nytto last som innehåller data för inkommande bindning för funktionen.
-- Funktions värden skickar sedan begäran till webb servern genom att utfärda en [nytto last för begäran](#request-payload).
-- Webb servern kör den enskilda funktionen och returnerar en [svars nytto Last](#response-payload) till Functions-värden.
-- Functions-värden skickar svaret som en utgående data bindning till målet.
+1. Varje händelse utlöser en begäran som skickas till Functions-värden. En händelse är en utlösare som stöds av Azure Functions.
+1. Funktions värden skickar sedan en [begäran om nytto Last](#request-payload) till webb servern. Nytto lasten innehåller utlösare och data bindnings data och andra metadata för funktionen.
+1. Webb servern kör den enskilda funktionen och returnerar en [svars nytto Last](#response-payload) till Functions-värden.
+1. Funktions värden skickar data från svaret till funktionens utgående bindningar för bearbetning.
 
-En Azure Functions-app som implementeras som en anpassad hanterare måste konfigurera *host.jspå* och *function.jspå* filer enligt några konventioner.
+En Azure Functions-app som implementeras som en anpassad hanterare måste konfigurera *host.jspå*, *local.settings.jspå*och *function.jspå* filer enligt några få konventioner.
 
 ## <a name="application-structure"></a>Program struktur
 
 Om du vill implementera en anpassad hanterare behöver du följande aspekter av ditt program:
 
 - En *host.jspå* filen i roten för din app
+- En *local.settings.jspå* filen i roten för din app
 - En *function.jspå* fil för varje funktion (inuti en mapp som matchar funktions namnet)
 - Ett kommando, ett skript eller en körbar fil som kör en webb server
 
-Följande diagram visar hur dessa filer ser ut i fil systemet för en funktion med namnet "order".
+Följande diagram visar hur dessa filer ser ut i fil systemet för en funktion med namnet "MyQueueFunction" och en anpassad hanterare med namnet *handler.exe*.
 
 ```bash
-| /order
+| /MyQueueFunction
 |   function.json
 |
 | host.json
+| local.settings.json
+| handler.exe
 ```
 
 ### <a name="configuration"></a>Konfiguration
 
-Programmet konfigureras via *host.jsi* filen. Den här filen visar de funktioner som är värdar för att skicka begär Anden genom att peka på en webb server som kan bearbeta HTTP-händelser.
+Programmet konfigureras via *host.jspå* och *local.settings.jspå* filer.
 
-En anpassad hanterare definieras genom att konfigurera *host.jspå* filen med information om hur du kör webb servern via `httpWorker` avsnittet.
+#### <a name="hostjson"></a>host.jspå
 
-```json
-{
-    "version": "2.0",
-    "httpWorker": {
-        "description": {
-            "defaultExecutablePath": "server.exe"
-        }
-    }
-}
-```
+*host.jspå* visar de funktioner som är värdar för att skicka begär Anden genom att peka på en webb server som kan bearbeta http-händelser.
 
-`httpWorker`Avsnittet pekar på ett mål som definieras av `defaultExecutablePath` . Körnings målet kan antingen vara ett kommando, en körbar fil eller en fil där webb servern är implementerad.
-
-För skriptbaserade appar `defaultExecutablePath` pekar du på skript språkets körning och `defaultWorkerPath` pekar på skript filens plats. I följande exempel visas hur en JavaScript-app i Node.js konfigureras som en anpassad hanterare.
+En anpassad hanterare definieras genom att konfigurera *host.jspå* filen med information om hur du kör webb servern via `customHandler` avsnittet.
 
 ```json
 {
-    "version": "2.0",
-    "httpWorker": {
-        "description": {
-            "defaultExecutablePath": "node",
-            "defaultWorkerPath": "server.js"
-        }
+  "version": "2.0",
+  "customHandler": {
+    "description": {
+      "defaultExecutablePath": "handler.exe"
     }
+  }
 }
 ```
 
-Du kan också skicka argument med hjälp av `arguments` matrisen:
+`customHandler`Avsnittet pekar på ett mål som definieras av `defaultExecutablePath` . Körnings målet kan antingen vara ett kommando, en körbar fil eller en fil där webb servern är implementerad.
+
+Använd `arguments` matrisen för att skicka argument till den körbara filen. Argument stöder expandering av miljövariabler (program inställningar) med `%%` notation.
+
+Du kan också ändra arbets katalogen som används av den körbara filen med `workingDirectory` .
 
 ```json
 {
-    "version": "2.0",
-    "httpWorker": {
-        "description": {
-            "defaultExecutablePath": "node",
-            "defaultWorkerPath": "server.js",
-            "arguments": [ "--argument1", "--argument2" ]
-        }
+  "version": "2.0",
+  "customHandler": {
+    "description": {
+      "defaultExecutablePath": "app/handler.exe",
+      "arguments": [
+        "--database-connection-string",
+        "%DATABASE_CONNECTION_STRING%"
+      ],
+      "workingDirectory": "app"
     }
+  }
 }
 ```
 
-Argument krävs för många fel söknings installationer. Mer information finns i avsnittet [fel sökning](#debugging) .
-
-> [!NOTE]
-> *host.jspå* filen måste finnas på samma nivå i katalog strukturen som den webb server som körs. Vissa språk och verktygs kedjor kanske inte placerar filen i program roten som standard.
-
-#### <a name="bindings-support"></a>Stöd för bindningar
+##### <a name="bindings-support"></a>Stöd för bindningar
 
 Standard utlösare tillsammans med indata-och utgående bindningar är tillgängliga genom att referera till [tilläggs paket](./functions-bindings-register.md) i *host.jsi* filen.
+
+#### <a name="localsettingsjson"></a>local.settings.json
+
+*local.settings.jspå* definierar program inställningar som används när du kör Function-appen lokalt. Eftersom det kan innehålla hemligheter bör *local.settings.js* vara exkluderat från käll kontroll. Använd program inställningarna i Azure i stället.
+
+För anpassade hanterare, ange `FUNCTIONS_WORKER_RUNTIME` till `Custom` i *local.settings.jspå*.
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "Custom"
+  }
+}
+```
+
+> [!NOTE]
+> `Custom` kanske inte identifieras som en giltig körnings miljö för Linux Premium-eller App Service-planerna. Om det är ditt distributions mål, ange `FUNCTIONS_WORKER_RUNTIME` en tom sträng.
 
 ### <a name="function-metadata"></a>Function-metadata
 
 När den används med en anpassad hanterare är *function.jsi* innehållet inte annorlunda än hur du definierar en funktion under någon annan kontext. Det enda kravet är att *function.jspå* filer måste finnas i en mapp med namnet som matchar funktions namnet.
 
-### <a name="request-payload"></a>Begär nytto Last
+Följandefunction.jskonfigurerar en funktion som har en utlösare för kön och en utgående bindning * för* kö. Eftersom den finns i en mapp med namnet *MyQueueFunction*definierar den en funktion med namnet *MyQueueFunction*.
 
-Nytto lasten för begäran för rena HTTP-funktioner är nytto lasten för RAW HTTP-begäran. Rena HTTP-funktioner definieras som Functions utan några indata-eller utdata-bindningar som returnerar ett HTTP-svar.
-
-En annan typ av funktion som innehåller antingen indata, utgående bindningar eller utlöses via en annan händelse källa än HTTP har en anpassad nytto last för begäran.
-
-Följande kod representerar en nytto last för begäran. Nytto lasten innehåller en JSON-struktur med två medlemmar: `Data` och `Metadata` .
-
-`Data`Medlemmen innehåller nycklar som matchar indata och utlösnings namn som definieras i matrisen för bindningar i *function.jsi* filen.
-
-`Metadata`Medlemmen inkluderar [metadata som genereras från händelse källan](./functions-bindings-expressions-patterns.md#trigger-metadata).
-
-De bindningar som definierats i följande *function.jspå* filen:
+**MyQueueFunction/function.jspå**
 
 ```json
 {
@@ -152,26 +152,34 @@ De bindningar som definierats i följande *function.jspå* filen:
 }
 ```
 
-En nytto last för begäran som liknar det här exemplet returneras:
+### <a name="request-payload"></a>Begär nytto Last
+
+När ett Queue-meddelande tas emot skickar Functions-värden en HTTP POST-begäran till den anpassade hanteraren med en nytto Last i bröd texten.
+
+Följande kod representerar en nytto last för begäran. Nytto lasten innehåller en JSON-struktur med två medlemmar: `Data` och `Metadata` .
+
+`Data`Medlemmen innehåller nycklar som matchar indata och utlösnings namn som definieras i matrisen för bindningar i *function.jsi* filen.
+
+`Metadata`Medlemmen inkluderar [metadata som genereras från händelse källan](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
 ```json
 {
-    "Data": {
-        "myQueueItem": "{ message: \"Message sent\" }"
-    },
-    "Metadata": {
-        "DequeueCount": 1,
-        "ExpirationTime": "2019-10-16T17:58:31+00:00",
-        "Id": "800ae4b3-bdd2-4c08-badd-f08e5a34b865",
-        "InsertionTime": "2019-10-09T17:58:31+00:00",
-        "NextVisibleTime": "2019-10-09T18:08:32+00:00",
-        "PopReceipt": "AgAAAAMAAAAAAAAAAgtnj8x+1QE=",
-        "sys": {
-            "MethodName": "QueueTrigger",
-            "UtcNow": "2019-10-09T17:58:32.2205399Z",
-            "RandGuid": "24ad4c06-24ad-4e5b-8294-3da9714877e9"
-        }
+  "Data": {
+    "myQueueItem": "{ message: \"Message sent\" }"
+  },
+  "Metadata": {
+    "DequeueCount": 1,
+    "ExpirationTime": "2019-10-16T17:58:31+00:00",
+    "Id": "800ae4b3-bdd2-4c08-badd-f08e5a34b865",
+    "InsertionTime": "2019-10-09T17:58:31+00:00",
+    "NextVisibleTime": "2019-10-09T18:08:32+00:00",
+    "PopReceipt": "AgAAAAMAAAAAAAAAAgtnj8x+1QE=",
+    "sys": {
+      "MethodName": "QueueTrigger",
+      "UtcNow": "2019-10-09T17:58:32.2205399Z",
+      "RandGuid": "24ad4c06-24ad-4e5b-8294-3da9714877e9"
     }
+  }
 }
 ```
 
@@ -181,135 +189,52 @@ Efter konvention formateras funktions svaren som nyckel/värde-par. Nycklar som 
 
 | <nobr>Nytto Last nyckel</nobr>   | Datatyp | Kommentarer                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Innehåller svars värden som definieras av `bindings` matrisen *function.jspå* fil.<br /><br />Om en funktion till exempel har kon figurer ATS med en utgående bindning för Blob Storage med namnet BLOB, `Outputs` innehåller en nyckel med namnet `blob` , som är inställd på blobens värde. |
+| `Outputs`     | objekt    | Innehåller svars värden som definieras av `bindings` matrisen i *function.jspå*.<br /><br />Om en funktion till exempel har kon figurer ATS med en utgående bindning för kö med namnet "myQueueOutput", `Outputs` innehåller en nyckel med namnet `myQueueOutput` , som anges av den anpassade hanteraren till de meddelanden som skickas till kön. |
 | `Logs`        | matris     | Meddelanden visas i loggarna Functions-anrop.<br /><br />När du kör i Azure visas meddelanden i Application Insights. |
 | `ReturnValue` | sträng    | Används för att tillhandahålla ett svar när utdata har kon figurer ATS som `$return` i *function.jsi* filen. |
 
-Se [exemplet för en exempel nytto Last](#bindings-implementation).
+Detta är ett exempel på en nytto last för svar.
+
+```json
+{
+  "Outputs": {
+    "res": {
+      "body": "Message enqueued"
+    },
+    "myQueueOutput": [
+      "queue message 1",
+      "queue message 2"
+    ]
+  },
+  "Logs": [
+    "Log message 1",
+    "Log message 2"
+  ],
+  "ReturnValue": "{\"hello\":\"world\"}"
+}
+```
 
 ## <a name="examples"></a>Exempel
 
-Anpassade hanterare kan implementeras på alla språk som stöder HTTP-händelser. Även om Azure Functions [har fullt stöd för Java Script och Node.js](./functions-reference-node.md), visar följande exempel hur du implementerar en anpassad hanterare med hjälp av java script i Node.js i syfte att få instruktioner.
+Anpassade hanterare kan implementeras på alla språk som har stöd för att ta emot HTTP-händelser. I följande exempel visas hur du implementerar en anpassad hanterare med hjälp av programmeringsspråket go.
 
-> [!TIP]
-> När du är en guide för att lära dig hur du implementerar en anpassad hanterare på andra språk kan de Node.js-baserade exemplen som visas här också vara användbara om du vill köra en Functions-app i en version av Node.js som inte stöds.
-
-## <a name="http-only-function"></a>Funktionen endast HTTP
-
-Följande exempel visar hur du konfigurerar en HTTP-utlöst funktion utan ytterligare bindningar eller utdata. Scenariot som implementeras i det här exemplet innehåller en funktion `http` som heter som accepterar en `GET` eller `POST` .
-
-Följande kodfragment visar hur en begäran till funktionen består.
-
-```http
-POST http://127.0.0.1:7071/api/hello HTTP/1.1
-content-type: application/json
-
-{
-  "message": "Hello World!"
-}
-```
-
-<a id="hello-implementation" name="hello-implementation"></a>
-
-### <a name="implementation"></a>Implementering
-
-I en mapp med namnet *http*konfigureras den http-utlösta funktionen i filen *function.js* .
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": ["get", "post"]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ]
-}
-```
-
-Funktionen har kon figurer ATS för att acceptera både- `GET` och- `POST` begär Anden och resultatvärdet anges via ett argument med namnet `res` .
-
-I appens rot är *host.jspå* filen konfigurerad att köra Node.js och peka `server.js` filen.
-
-```json
-{
-    "version": "2.0",
-    "httpWorker": {
-        "description": {
-            "defaultExecutablePath": "node",
-            "defaultWorkerPath": "server.js"
-        }
-    }
-}
-```
-
-Filen *server.js* -filen implementerar en webb server och http-funktion.
-
-```javascript
-const express = require("express");
-const app = express();
-
-app.use(express.json());
-
-const PORT = process.env.FUNCTIONS_HTTPWORKER_PORT;
-
-const server = app.listen(PORT, "localhost", () => {
-  console.log(`Your port is ${PORT}`);
-  const { address: host, port } = server.address();
-  console.log(`Example app listening at http://${host}:${port}`);
-});
-
-app.get("/hello", (req, res) => {
-  res.json("Hello World!");
-});
-
-app.post("/hello", (req, res) => {
-  res.json({ value: req.body });
-});
-```
-
-I det här exemplet används Express för att skapa en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär Anden via `FUNCTIONS_HTTPWORKER_PORT` .
-
-Funktionen definieras i sökvägen till `/hello` . `GET`begär Anden hanteras genom att returnera ett enkelt JSON-objekt och `POST` begär Anden har åtkomst till begär ande texten via `req.body` .
-
-Vägen för funktionen order finns här `/hello` och inte `/api/hello` eftersom Functions-värden proxyerar begäran till den anpassade hanteraren.
-
->[!NOTE]
->`FUNCTIONS_HTTPWORKER_PORT`Är inte den offentliga porten som används för att anropa funktionen. Den här porten används av Functions-värden för att anropa den anpassade hanteraren.
-
-## <a name="function-with-bindings"></a>Funktion med bindningar
+### <a name="function-with-bindings"></a>Funktion med bindningar
 
 Scenariot som implementeras i det här exemplet innehåller en funktion med namnet `order` som godkänner en `POST` med en nytto last som representerar en produkt order. När en order skickas till funktionen skapas ett Queue Storage meddelande och ett HTTP-svar returneras.
 
-```http
-POST http://127.0.0.1:7071/api/order HTTP/1.1
-content-type: application/json
-
-{
-  "id": 1005,
-  "quantity": 2,
-  "color": "black"
-}
-```
-
 <a id="bindings-implementation" name="bindings-implementation"></a>
 
-### <a name="implementation"></a>Implementering
+#### <a name="implementation"></a>Implementering
 
 I en mapp med namnet *order*konfigurerar *function.js* filen för http-utlöst funktion.
+
+**order/function.jspå**
 
 ```json
 {
   "bindings": [
     {
       "type": "httpTrigger",
-      "authLevel": "function",
       "direction": "in",
       "name": "req",
       "methods": ["post"]
@@ -328,135 +253,333 @@ I en mapp med namnet *order*konfigurerar *function.js* filen för http-utlöst f
     }
   ]
 }
-
 ```
 
 Den här funktionen definieras som en [http-utlöst funktion](./functions-bindings-http-webhook-trigger.md) som returnerar ett [http-svar](./functions-bindings-http-webhook-output.md) och matar ut ett [kö lagrings](./functions-bindings-storage-queue-output.md) meddelande.
 
-I appens rot är *host.jspå* filen konfigurerad att köra Node.js och peka `server.js` filen.
+I appens rot är *host.jspå* fil konfigurerad att köra en körbar fil med namnet `handler.exe` ( `handler` i Linux eller MacOS).
 
 ```json
 {
-    "version": "2.0",
-    "httpWorker": {
-        "description": {
-            "defaultExecutablePath": "node",
-            "defaultWorkerPath": "server.js"
-        }
+  "version": "2.0",
+  "customHandler": {
+    "description": {
+      "defaultExecutablePath": "handler.exe"
     }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[1.*, 2.0.0)"
+  }
 }
 ```
 
-Filen *server.js* -filen implementerar en webb server och http-funktion.
+Detta är HTTP-begäran som skickas till Functions-körningen.
 
-```javascript
-const express = require("express");
-const app = express();
+```http
+POST http://127.0.0.1:7071/api/order HTTP/1.1
+Content-Type: application/json
 
-app.use(express.json());
-
-const PORT = process.env.FUNCTIONS_HTTPWORKER_PORT;
-
-const server = app.listen(PORT, "localhost", () => {
-  console.log(`Your port is ${PORT}`);
-  const { address: host, port } = server.address();
-  console.log(`Example app listening at http://${host}:${port}`);
-});
-
-app.post("/order", (req, res) => {
-  const message = req.body.Data.req.Body;
-  const response = {
-    Outputs: {
-      message: message,
-      res: {
-        statusCode: 200,
-        body: "Order complete"
-      }
-    },
-    Logs: ["order processed"]
-  };
-  res.json(response);
-});
+{
+  "id": 1005,
+  "quantity": 2,
+  "color": "black"
+}
 ```
 
-I det här exemplet används Express för att skapa en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär Anden via `FUNCTIONS_HTTPWORKER_PORT` .
+Functions-körningen skickar sedan följande HTTP-begäran till den anpassade hanteraren:
 
-Funktionen definieras i sökvägen till `/order` .  Vägen för funktionen order finns här `/order` och inte `/api/order` eftersom Functions-värden proxyerar begäran till den anpassade hanteraren.
+```http
+POST http://127.0.0.1:<FUNCTIONS_CUSTOMHANDLER_PORT>/order HTTP/1.1
+Content-Type: application/json
 
-När `POST` förfrågningar skickas till den här funktionen exponeras data genom några punkter:
-
-- Begär ande texten är tillgänglig via`req.body`
-- De data som publiceras till funktionen är tillgängliga via`req.body.Data.req.Body`
-
-Funktionens svar är formaterat i ett nyckel/värde-par där `Outputs` medlemmen innehåller ett JSON-värde där nycklarna matchar utdata som definieras i *function.jsi* filen.
-
-Genom att ange ett värde `message` som motsvarar det meddelande som kom från begäran, och `res` till det förväntade http-svaret, skickar den här funktionen ett meddelande till Queue Storage och returnerar ett HTTP-svar.
-
-## <a name="debugging"></a>Felsökning
-
-Om du vill felsöka appen anpassad hanterare för funktioner måste du lägga till lämpliga argument för språket och körnings miljön för att aktivera fel sökning.
-
-Om du till exempel vill felsöka ett Node.js-program, `--inspect` skickas flaggan som ett argument i *host.js* filen.
-
-```json
 {
-    "version": "2.0",
-    "httpWorker": {
-        "description": {
-            "defaultExecutablePath": "node",
-            "defaultWorkerPath": "server.js",
-            "arguments": [ "--inspect" ]
-        }
+  "Data": {
+    "req": {
+      "Url": "http://localhost:7071/api/order",
+      "Method": "POST",
+      "Query": "{}",
+      "Headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "Params": {},
+      "Body": "{\"id\":1005,\"quantity\":2,\"color\":\"black\"}"
     }
+  },
+  "Metadata": {
+  }
 }
 ```
 
 > [!NOTE]
-> Konfigurationen för fel sökning är en del av din *host.jsi* filen, vilket innebär att du kan behöva ta bort vissa argument innan du distribuerar till produktion.
+> Vissa delar av nytto lasten togs bort för det kortfattat.
 
-Med den här konfigurationen kan du starta funktionens värd process med hjälp av följande kommando:
+*handler.exe* är det program som kompileras med anpassad hanterare som kör en webb server och svarar på att fungera som anrops begär Anden från funktions värden.
 
-```bash
-func host start
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "log"
+    "net/http"
+    "os"
+)
+
+type InvokeRequest struct {
+    Data     map[string]json.RawMessage
+    Metadata map[string]interface{}
+}
+
+type InvokeResponse struct {
+    Outputs     map[string]interface{}
+    Logs        []string
+    ReturnValue interface{}
+}
+
+func orderHandler(w http.ResponseWriter, r *http.Request) {
+    var invokeRequest InvokeRequest
+
+    d := json.NewDecoder(r.Body)
+    d.Decode(&invokeRequest)
+
+    var reqData map[string]interface{}
+    json.Unmarshal(invokeRequest.Data["req"], &reqData)
+
+    outputs := make(map[string]interface{})
+    outputs["message"] = reqData["Body"]
+
+    resData := make(map[string]interface{})
+    resData["body"] = "Order enqueued"
+    outputs["res"] = resData
+    invokeResponse := InvokeResponse{outputs, nil, nil}
+
+    responseJson, _ := json.Marshal(invokeResponse)
+
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(responseJson)
+}
+
+func main() {
+    customHandlerPort, exists := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT")
+    if !exists {
+        customHandlerPort = "8080"
+    }
+    mux := http.NewServeMux()
+    mux.HandleFunc("/order", orderHandler)
+    fmt.Println("Go server Listening on: ", customHandlerPort)
+    log.Fatal(http.ListenAndServe(":"+customHandlerPort, mux))
+}
 ```
 
-När processen har startats kan du koppla en fel sökare och trycka på Bryt punkter.
+I det här exemplet kör den anpassade hanteraren en webb server för att hantera HTTP-händelser och är inställd på att lyssna efter begär Anden via `FUNCTIONS_CUSTOMHANDLER_PORT` .
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+Även om functions-värden tog emot ursprunglig HTTP-begäran på `/api/order` , anropar den den anpassade hanteraren med hjälp av funktions namnet (dess mappnamn). I det här exemplet definieras funktionen i sökvägen till `/order` . Värden skickar den anpassade hanteraren en HTTP-begäran på sökvägen till `/order` .
 
-Följande exempel är en exempel konfiguration som visar hur du kan konfigurera din *launch.jspå* en fil för att ansluta din app till Visual Studio Code-felsökaren.
+När `POST` begär Anden skickas till den här funktionen är utlösarens data och funktions-metadata tillgängliga via texten HTTP-begäran. Den ursprungliga HTTP-begäran om brödtext kan nås i nytto lasten `Data.req.Body` .
 
-Det här exemplet är för Node.js, så du kan behöva ändra det här exemplet för andra språk eller körningar.
+Funktionens svar är formaterat i nyckel/värde-par där `Outputs` medlemmen innehåller ett JSON-värde där nycklarna matchar utdata som definieras i *function.jsi* filen.
+
+Detta är ett exempel på en nytto last som denna hanterare returnerar till Functions-värden.
 
 ```json
 {
-  "version": "0.2.0",
-  "configurations": [
+  "Outputs": {
+    "message": "{\"id\":1005,\"quantity\":2,\"color\":\"black\"}",
+    "res": {
+      "body": "Order enqueued"
+    }
+  },
+  "Logs": null,
+  "ReturnValue": null
+}
+```
+
+Genom att ange `message` utdata som motsvarar de order data som kom från begäran, kommer funktionen att mata ut data till den konfigurerade kön. Funktions värden returnerar också det HTTP-svar som kon figurer ATS i `res` anroparen.
+
+### <a name="http-only-function"></a>Funktionen endast HTTP
+
+För HTTP-utlösta funktioner utan ytterligare bindningar eller utdata kanske du vill att din hanterare ska arbeta direkt med HTTP-begäran och-svar i stället för [begäran](#request-payload) och [svars](#response-payload) nytto laster för anpassad hanterare. Det här beteendet kan konfigureras i *host.jspå* med `enableForwardingHttpRequest` inställningen.
+
+> [!IMPORTANT]
+> Det primära syftet med funktionen anpassad hanterare är att aktivera språk och körningar som för närvarande inte har stöd för första klassen på Azure Functions. Det kan vara möjligt att köra webb program med anpassade hanterare, Azure Functions inte är en omvänd standardproxy. Vissa funktioner som svars strömning, HTTP/2 och WebSockets är inte tillgängliga. Vissa komponenter i HTTP-begäran, till exempel vissa huvuden och vägar kan vara begränsade. Ditt program kan också få överdriven [kall start](functions-scale.md#cold-start).
+>
+> Överväg att köra dina webbappar på [Azure App Service](../app-service/overview.md)för att åtgärda dessa omständigheter.
+
+Följande exempel visar hur du konfigurerar en HTTP-utlöst funktion utan ytterligare bindningar eller utdata. Scenariot som implementeras i det här exemplet innehåller en funktion `hello` som heter som accepterar en `GET` eller `POST` .
+
+<a id="hello-implementation" name="hello-implementation"></a>
+
+#### <a name="implementation"></a>Implementering
+
+I en mapp med namnet *Hej*konfigurerar *function.jsfilen för* http-utlöst funktion.
+
+**Hej/function.jspå**
+
+```json
+{
+  "bindings": [
     {
-      "name": "Attach to Node Functions",
-      "type": "node",
-      "request": "attach",
-      "port": 9229,
-      "preLaunchTask": "func: host start"
+      "type": "httpTrigger",
+      "authLevel": "anonymous",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
     }
   ]
 }
 ```
 
+Funktionen har kon figurer ATS för att acceptera både- `GET` och- `POST` begär Anden och resultatvärdet anges via ett argument med namnet `res` .
+
+I roten av appen är *host.jspå* filen konfigurerad för att köras `handler.exe` och `enableForwardingHttpRequest` har angetts till `true` .
+
+```json
+{
+  "version": "2.0",
+  "customHandler": {
+    "description": {
+      "defaultExecutablePath": "handler.exe"
+    },
+    "enableForwardingHttpRequest": true
+  }
+}
+```
+
+`enableForwardingHttpRequest` `true` I så fall skiljer sig beteendet för http-funktioner från standard beteendet för anpassade hanterare på följande sätt:
+
+* HTTP-begäran innehåller inte de anpassade hanterings [begär Anden som begär](#request-payload) nytto Last. I stället anropar Functions-hanteraren hanteraren med en kopia av den ursprungliga HTTP-begäran.
+* Funktions värden anropar hanteraren med samma sökväg som den ursprungliga begäran, inklusive parametrar för frågesträng.
+* Funktions värden returnerar en kopia av hanterarens HTTP-svar som svar på den ursprungliga begäran.
+
+Följande är en POST-begäran till Functions-värden. Funktions värden skickar sedan en kopia av begäran till den anpassade hanteraren på samma sökväg.
+
+```http
+POST http://127.0.0.1:7071/api/hello HTTP/1.1
+Content-Type: application/json
+
+{
+  "message": "Hello World!"
+}
+```
+
+Filen fil *hanterare. go* implementerar en webb server och en http-funktion.
+
+```go
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "net/http"
+    "os"
+)
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "application/json")
+    if r.Method == "GET" {
+        w.Write([]byte("hello world"))
+    } else {
+        body, _ := ioutil.ReadAll(r.Body)
+        w.Write(body)
+    }
+}
+
+func main() {
+    customHandlerPort, exists := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT")
+    if !exists {
+        customHandlerPort = "8080"
+    }
+    mux := http.NewServeMux()
+    mux.HandleFunc("/api/hello", helloHandler)
+    fmt.Println("Go server Listening on: ", customHandlerPort)
+    log.Fatal(http.ListenAndServe(":"+customHandlerPort, mux))
+}
+```
+
+I det här exemplet skapar den anpassade hanteraren en webb server som hanterar HTTP-händelser och är inställd på att lyssna efter begär Anden via `FUNCTIONS_CUSTOMHANDLER_PORT` .
+
+`GET` begär Anden hanteras genom att returnera en sträng och `POST` begär Anden har åtkomst till begär ande texten.
+
+Vägen för funktionen order här är `/api/hello` samma som den ursprungliga begäran.
+
+>[!NOTE]
+>`FUNCTIONS_CUSTOMHANDLER_PORT`Är inte den offentliga porten som används för att anropa funktionen. Den här porten används av Functions-värden för att anropa den anpassade hanteraren.
+
 ## <a name="deploying"></a>Deploy
 
-En anpassad hanterare kan distribueras till nästan alla Azure Functions värd alternativ (se [begränsningar](#restrictions)). Om din hanterare kräver anpassade beroenden (till exempel språk körning) kan du behöva använda en [anpassad behållare](./functions-create-function-linux-custom-image.md).
+En anpassad hanterare kan distribueras till alla Azure Functions-värd alternativ. Om hanteraren kräver operativ system-eller plattforms beroenden (till exempel språk körning) kan du behöva använda en [anpassad behållare](./functions-create-function-linux-custom-image.md).
+
+När du skapar en Function-app i Azure för anpassade hanterare rekommenderar vi att du väljer .NET Core som stack. En anpassad stack för anpassade hanterare kommer att läggas till i framtiden.
 
 Om du vill distribuera en app för anpassad hanterare med Azure Functions Core Tools kör du följande kommando.
 
 ```bash
-func azure functionapp publish $functionAppName --no-build --force
+func azure functionapp publish $functionAppName
 ```
+
+> [!NOTE]
+> Se till att alla filer som krävs för att köra den anpassade hanteraren finns i mappen och ingår i distributionen. Om din anpassade hanterare är en binär körbar fil eller har plattformsspecifika beroenden ser du till att dessa filer matchar mål distributions plattformen.
 
 ## <a name="restrictions"></a>Begränsningar
 
-- Webb servern måste starta inom 60 sekunder.
+- Webb servern för anpassad hanterare måste starta inom 60 sekunder.
 
 ## <a name="samples"></a>Exempel
 
 Exempel på hur du implementerar funktioner på flera olika språk hittar du i [exemplen för anpassade hanterare GitHub lagrings platsen](https://github.com/Azure-Samples/functions-custom-handlers) .
+
+## <a name="troubleshooting-and-support"></a>Fel sökning och support
+
+### <a name="trace-logging"></a>Spårnings loggning
+
+Om processen för anpassad hanterare inte kan starta eller om det uppstår problem med att kommunicera med Functions-värden kan du öka funktions programmets loggnings nivå för `Trace` att se fler diagnostiska meddelanden från värden.
+
+Om du vill ändra funktions programmets standard loggnings nivå konfigurerar du `logLevel` inställningen i `logging` avsnittet i *host.jspå*.
+
+```json
+{
+  "version": "2.0",
+  "customHandler": {
+    "description": {
+      "defaultExecutablePath": "handler.exe"
+    }
+  },
+  "logging": {
+    "logLevel": {
+      "default": "Trace"
+    }
+  }
+}
+```
+
+Funktions värden utvärderar extra logg meddelanden inklusive information som rör den anpassade hanterings processen. Använd loggarna för att undersöka problem med att starta en anpassad hanterare-process eller anropa funktioner i din anpassade hanterare.
+
+Lokalt skrivs loggar ut till-konsolen.
+
+I Azure, [fråga Application Insights spårningar](functions-monitoring.md#query-telemetry-data) för att Visa logg meddelanden. Om din app genererar en hög mängd loggar, skickas bara en del av logg meddelanden till Application Insights. [Inaktivera sampling](functions-monitoring.md#configure-sampling) för att se till att alla meddelanden loggas.
+
+### <a name="test-custom-handler-in-isolation"></a>Testa anpassad hanterare i isolering
+
+Appar för anpassad hantering är en webb Server process, så det kan vara bra att starta den på ett eget och testa funktions anrop genom att skicka modeller av [http-begäranden](#request-payload) med ett verktyg som t. ex. [vändning](https://curl.haxx.se/) eller [Postman](https://www.postman.com/).
+
+Du kan också använda den här strategin i dina CI/CD-pipelines för att köra automatiserade tester på din anpassade hanterare.
+
+### <a name="execution-environment"></a>Körnings miljö
+
+Anpassade hanterare körs i samma miljö som en typisk Azure Functions app. Testa din hanterare för att säkerställa att miljön innehåller alla beroenden som krävs för att köra. För appar som kräver ytterligare beroenden kan du behöva köra dem med hjälp av en [anpassad behållar avbildning](functions-create-function-linux-custom-image.md) som finns på Azure Functions [Premium-plan](functions-premium-plan.md).
+
+### <a name="get-support"></a>Få support
+
+Om du behöver hjälp med anpassade hanterare i en Function-app kan du skicka en begäran via vanliga Support kanaler. På grund av de många möjliga språken som används för att bygga anpassade hanterings appar är stödet dock inte obegränsat.
+
+Support är tillgängligt om functions-värden har problem med att starta eller kommunicera med den anpassade hanterings processen. För problem som är specifika för den egna bearbetningen av din anpassade hanterings process, till exempel problem med det valda språket eller ramverket, kan support teamet inte tillhandahålla hjälp i det här sammanhanget.

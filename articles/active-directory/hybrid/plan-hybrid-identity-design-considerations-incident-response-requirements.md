@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109279"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278419"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Fastställ krav på incident svar för din hybrid identitets lösning
-Stora eller medel stora organisationer kommer förmodligen att ha [svar på säkerhets incidenter](https://technet.microsoft.com/library/cc700825.aspx) på plats för att hjälpa dem att vidta åtgärder i enlighet med nivån av incident. Identitets hanterings systemet är en viktig komponent i incident svars processen eftersom den kan användas för att identifiera vem som utför en speciell åtgärd mot målet. Hybrid identitets lösningen måste kunna tillhandahålla övervaknings-och rapporterings funktioner som kan utnyttjas av den för att vidta åtgärder för att identifiera och minimera ett potentiellt hot. I en typisk incident svars plan kommer du att ha följande faser som en del av planen:
+Stora eller medel stora organisationer kommer förmodligen att ha [svar på säkerhets incidenter](/previous-versions/tn-archive/cc700825(v=technet.10)) på plats för att hjälpa dem att vidta åtgärder i enlighet med nivån av incident. Identitets hanterings systemet är en viktig komponent i incident svars processen eftersom den kan användas för att identifiera vem som utför en speciell åtgärd mot målet. Hybrid identitets lösningen måste kunna tillhandahålla övervaknings-och rapporterings funktioner som kan utnyttjas av den för att vidta åtgärder för att identifiera och minimera ett potentiellt hot. I en typisk incident svars plan kommer du att ha följande faser som en del av planen:
 
 1. Första utvärderingen.
 2. Incident kommunikation.
@@ -69,4 +69,3 @@ Under skade kontrollen och risk minsknings fasen är det viktigt att snabbt mins
 
 ## <a name="see-also"></a>Se även
 [Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
-

@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: cd2b9848ef1358c1aeaaed43e55d9914ac701564
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267113"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291287"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Strömma innehåll med CDN-integrering
 
@@ -32,7 +32,7 @@ Det populära innehållet kommer att betjänas direkt från CDN-cachen så läng
 Du måste också fundera över hur anpassningsbar strömning fungerar. Varje enskilt video fragment cachelagras som sin egen entitet. Anta till exempel att en viss video är bevakad första gången. Om visnings programmet hoppar över att titta bara några sekunder här och där finns det bara videofragment som är associerade med vad den person som bevakar cachelagrar i CDN. Med anpassningsbar strömning har du normalt 5 till 7 olika bit hastigheter för video. Om en person tittar på en bit hastighet och en annan person tittar på en annan bit hastighet, är de båda cachelagrade separat i CDN. Även om två personer tittar på samma bit hastighet kan de strömmas över olika protokoll. Varje protokoll (HLS, MPEG-streck, Smooth Streaming) cachelagras separat. Varje bit hastighet och protokoll cachelagras separat och endast de video fragment som har begärts cachelagras.
 
 Förutom test miljön rekommenderar vi att CDN aktive ras för både standard-och Premium-slutpunkter för direkt uppspelning. Varje typ av slut punkt för direkt uppspelning har en annan data flödes gräns som stöds.
-Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Exempel på dessa är:
+Det är svårt att göra en exakt beräkning för maximalt antal samtidiga strömmar som stöds av en strömnings slut punkt eftersom det finns olika faktorer att ta med i beräkningen. Dessa omfattar:
 
 - Högsta antal bit hastigheter som används för strömning
 - Beteende för förbuffring och växling i spelaren. Spelarna försöker överföra segment från ett ursprung och använda belastnings hastigheten för att beräkna den anpassade bit hastighets växlingen. Om en strömmande slut punkt blir nära mättnad kan svars tiderna variera och spelarna börjar växla till lägre kvalitet. Eftersom detta minskar belastningen på de strömmande slut punkts spelarna kan du skala tillbaka till högre kvalitet och skapa oönskade växlings utlösare.

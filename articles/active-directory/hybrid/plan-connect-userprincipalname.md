@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680029"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279609"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
 
@@ -25,7 +25,7 @@ Attributvärdet UserPrincipalName är Azure AD-användarnamnet för användar ko
 ## <a name="upn-terminology"></a>UPN-terminologi
 Följande terminologi används i den här artikeln:
 
-|Term|Beskrivning|
+|Period|Beskrivning|
 |-----|-----|
 |Första domän|Standard domänen (onmicrosoft.com) i Azure AD-klienten. Till exempel contoso.onmicrosoft.com.|
 |Microsoft Online E-mail routing-adress (MOERA)|Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD-domänen som ett &lt; smek namn för &gt;&#64;&lt; inledande domän &gt; .|
@@ -56,7 +56,7 @@ Om du vill aktivera alternativt inloggnings-ID med Azure AD behövs inga ytterli
 
 ![Overifierade domäner](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Mer information finns i [Konfigurera alternativt inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) och [inloggnings konfiguration för Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+Mer information finns i [Konfigurera alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) och [inloggnings konfiguration för Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>UPN-suffix som inte verifierats
 Om attributet lokalt UserPrincipalName/alternativt inloggnings-ID inte har verifierats med Azure AD-klienten, anges värdet för Azure AD UserPrincipalName-attributvärdet till MOERA. Azure AD beräknar MOERA från Azure AD-smek namn-attributet och den första Azure AD-domänen som ett &lt; smek namn för &gt;&#64;&lt; inledande domän &gt; .
@@ -92,17 +92,17 @@ Följande är exempel scenarier för hur UPN beräknas baserat på det aktuella 
 Lokalt användar objekt:
 - Smek-smek namn: &lt; inte angivet&gt;
 - proxyAddresses: { SMTP:us1@contoso.com }
-- eus2@contoso.com
-- userPrincipalNameus3@contoso.com
+- e us2@contoso.com
+- userPrincipalName us3@contoso.com
 
 Synkroniserade användarobjektet med Azure AD-klienten för första gången
 - Ange attributet Azure AD-smek namn till primärt SMTP-adressprefix.
-- Ange MOERA till &lt; smek namn &gt;&#64;&lt; inledande domän &gt; .
+- Ange MOERA till  &lt; smek namn &gt;&#64;&lt; inledande domän &gt; .
 - Ställ in Azure AD UserPrincipalName-attributet på MOERA.
 
 Användar objekt för Azure AD-klient organisation:
 - Smek namn: us1           
-- UserPrincipalNameus1@contoso.onmicrosoft.com
+- UserPrincipalName us1@contoso.onmicrosoft.com
 
 
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenario 2: icke-verifierat UPN-suffix – ange lokalt smek namn-attribut
@@ -112,8 +112,8 @@ Användar objekt för Azure AD-klient organisation:
 Lokalt användar objekt:
 - Smek namn: US4
 - proxyAddresses: { SMTP:us1@contoso.com }
-- eus2@contoso.com
-- userPrincipalNameus3@contoso.com
+- e us2@contoso.com
+- userPrincipalName us3@contoso.com
 
 Synkronisera uppdatering på lokalt smek namn-attribut till Azure AD-klienten
 - Uppdatera attributet Azure AD-smek namn med ett lokalt smek namn-attribut.
@@ -121,7 +121,7 @@ Synkronisera uppdatering på lokalt smek namn-attribut till Azure AD-klienten
 
 Användar objekt för Azure AD-klient organisation:
 - Smek namn: US4
-- UserPrincipalNameus1@contoso.onmicrosoft.com
+- UserPrincipalName us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: icke-verifierat UPN-suffix – uppdatera lokalt userPrincipalName-attribut
 
@@ -130,8 +130,8 @@ Användar objekt för Azure AD-klient organisation:
 Lokalt användar objekt:
 - Smek namn: US4
 - proxyAddresses: { SMTP:us1@contoso.com }
-- eus2@contoso.com
-- userPrincipalNameus5@contoso.com
+- e us2@contoso.com
+- userPrincipalName us5@contoso.com
 
 Synkronisera uppdatering av lokalt userPrincipalName-attribut till Azure AD-klienten
 - Uppdatering på lokala userPrincipalName-attribut utlöser omräkning av MOERA-och Azure AD UserPrincipalName-attribut.
@@ -140,7 +140,7 @@ Synkronisera uppdatering av lokalt userPrincipalName-attribut till Azure AD-klie
 
 Användar objekt för Azure AD-klient organisation:
 - Smek namn: US4
-- UserPrincipalNameus4@contoso.onmicrosoft.com
+- UserPrincipalName us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: icke-verifierat UPN-suffix – uppdatera primär SMTP-adress och lokalt e-postattribut
 
@@ -149,15 +149,15 @@ Användar objekt för Azure AD-klient organisation:
 Lokalt användar objekt:
 - Smek namn: US4
 - proxyAddresses: { SMTP:us6@contoso.com }
-- eus7@contoso.com
-- userPrincipalNameus5@contoso.com
+- e us7@contoso.com
+- userPrincipalName us5@contoso.com
 
 Synkronisera uppdatering på lokalt e-postattribut och primär SMTP-adress till Azure AD-klient
 - Efter den inledande synkroniseringen av användarobjektet kommer uppdateringar till det lokala e-postattributet och den primära SMTP-adressen inte påverka Azure AD-smek namn eller UserPrincipalName-attributet.
 
 Användar objekt för Azure AD-klient organisation:
 - Smek namn: US4
-- UserPrincipalNameus4@contoso.onmicrosoft.com
+- UserPrincipalName us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenario 5: verifierat UPN-suffix – uppdatera lokalt userPrincipalName domänsuffix
 
@@ -166,8 +166,8 @@ Användar objekt för Azure AD-klient organisation:
 Lokalt användar objekt:
 - Smek namn: US4
 - proxyAddresses: { SMTP:us6@contoso.com }
-- eus7@contoso.com
-- userPrincipalNameus5@verified.contoso.com
+- e us7@contoso.com
+- userPrincipalName us5@verified.contoso.com
 
 Synkronisera uppdatering av lokalt userPrincipalName-attribut till Azure AD-klienten
 - Uppdatering på lokalt userPrincipalName-attribut utlöser omräkning av Azure AD UserPrincipalName-attribut.
@@ -175,8 +175,8 @@ Synkronisera uppdatering av lokalt userPrincipalName-attribut till Azure AD-klie
 
 Användar objekt för Azure AD-klient organisation:
 - Smek namn: US4     
-- UserPrincipalNameus5@verified.contoso.com
+- UserPrincipalName us5@verified.contoso.com
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 - [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)
 - [Anpassad installation av Azure AD Connect](how-to-connect-install-custom.md)

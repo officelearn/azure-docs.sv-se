@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918034"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294874"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Skapa en enkel fråga i Azure Kognitiv sökning
 
@@ -37,13 +37,13 @@ Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-b
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
-  ![Begärandehuvud i Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Parametrar för set-begär ande huvud för Postman](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Ange URL för begäran
 
 Begäran är ett GET-kommando som paras ihop med en URL som innehåller Azure Kognitiv sökning-slutpunkten och Sök strängen.
 
-  ![Begärandehuvud i Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Hämta rubrik för Postman-förfrågan](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL-kompositionen har följande element:
 

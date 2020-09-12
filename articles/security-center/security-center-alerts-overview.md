@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519615"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278147"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
@@ -23,7 +23,7 @@ I Azure Security Center finns det många olika typer av aviseringar för många 
 
 Säkerhets aviseringar utlöses av avancerade identifieringar och är bara tillgängliga på standard nivån för Azure Security Center. Det finns en kostnadsfri utvärderingsversion. Du kan uppgradera från sidan för **pris & inställningar** . Läs mer om [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Svara på dagens hot <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Svara på dagens hot <a name="respond-threats"> </a>
 
 Hoten i dag ser helt annorlunda ut mot för 20 år sedan. Tidigare hade företag vanligt vis bara bekymrat sig om att det finns en webbplats för enskilda angripare som främst hade intresse av att se vad de kunde göra. Dagens angripare är mycket mer sofistikerade och organiserade. De har ofta specifika ekonomiska och strategiska mål. De har också fler resurser till hands eftersom de kan finansieras av stater eller kriminella organisationer.
 

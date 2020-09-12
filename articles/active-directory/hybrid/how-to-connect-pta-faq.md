@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071439"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280170"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -29,7 +29,7 @@ Den här artikeln behandlar vanliga frågor om Azure Active Directory (Azure AD)
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Vilken av metoderna för att logga in på Azure AD, direktautentisering, Password-hash-synkronisering och Active Directory Federation Services (AD FS) (AD FS), ska jag välja?
 
-Läs [den här guiden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) för en jämförelse av de olika inloggnings metoderna för Azure AD och hur du väljer rätt inloggnings metod för din organisation.
+Läs [den här guiden](./choose-ad-authn.md) för en jämförelse av de olika inloggnings metoderna för Azure AD och hur du väljer rätt inloggnings metod för din organisation.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Är direkt autentisering en kostnads fri funktion?
 
@@ -39,7 +39,7 @@ Direktautentisering är en kostnads fri funktion. Du behöver inte några betald
 
 Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azure AD.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) med direktautentisering?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../conditional-access/overview.md) med direktautentisering?
 
 Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
@@ -148,7 +148,7 @@ Nej, det här scenariot stöds _inte_ .
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Varför behöver jag ett globalt administratörs konto med enbart moln för att möjliggöra direktautentisering?
 
-Vi rekommenderar att du aktiverar eller inaktiverar direkt autentisering med hjälp av ett globalt administratörs konto för molnet. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). På så sätt ser du till att du inte blir utelåst från din klient.
+Vi rekommenderar att du aktiverar eller inaktiverar direkt autentisering med hjälp av ett globalt administratörs konto för molnet. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../fundamentals/add-users-azure-active-directory.md). På så sätt ser du till att du inte blir utelåst från din klient.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Hur gör jag för att inaktivera direkt autentisering?
 
@@ -184,4 +184,3 @@ Innehavare som skapats efter den 15 juni 2015 har standard beteende för synkron
 - [Djupgående säkerhets](how-to-connect-pta-security-deep-dive.md)information: få djupgående teknisk information om funktionen för direkt autentisering.
 - [Azure AD sömlös SSO](how-to-connect-sso.md): Lär dig mer om den här kompletterande funktionen.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet för att fil nya funktions begär Anden.
-

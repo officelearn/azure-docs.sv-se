@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416510"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290199"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverks-peering
 
@@ -126,11 +126,12 @@ Om du vill att virtuella nätverk ska kommunicera ibland, men inte alltid, i st�
   - *Initierad:* När du skapar peer-kopplingen till det andra virtuella nätverket från det första virtuella nätverket *initieras*peering-statusen. 
   - *Ansluten:* När du skapar peer-kopplingen från det andra virtuella nätverket till det första virtuella nätverket är dess peering-status *ansluten*. Om du visar peering-statusen för det första virtuella nätverket ser du att dess status har ändrats från *initierad* till *ansluten*. Det gick inte att upprätta peering förrän peering-statusen för båda de virtuella nätverkets peering är *ansluten*.
 - När du peer-koppla ett virtuellt nätverk som skapats via Resource Manager med ett virtuellt nätverk som skapats via den klassiska distributions modellen, konfigurerar du bara en peering för det virtuella nätverk som distribueras via Resource Manager. Du kan inte konfigurera peering för ett virtuellt nätverk (klassisk) eller mellan två virtuella nätverk som distribueras via den klassiska distributions modellen. När du skapar peer-kopplingen från det virtuella nätverket (Resource Manager) till det virtuella nätverket (klassisk) *uppdateras*peering-statusen och ändras sedan strax till *ansluten*.
-- En peering upprättas mellan två virtuella nätverk. Peer kopplingar är inte transitiva. Om du skapar peering mellan:
-  - VirtualNetwork1 & VirtualNetwork2
-  - VirtualNetwork2 & VirtualNetwork3
+- En peering upprättas mellan två virtuella nätverk. Motparter själva är inte transitiva. Om du skapar peering mellan:
+  - VirtualNetwork1 & VirtualNetwork2-VirtualNetwork1 & VirtualNetwork2
+  - VirtualNetwork2 & VirtualNetwork3-VirtualNetwork2 & VirtualNetwork3
 
-  Det finns ingen peering mellan VirtualNetwork1 och VirtualNetwork3 via VirtualNetwork2. Om du vill skapa en virtuell nätverks-peering mellan VirtualNetwork1 och VirtualNetwork3 måste du skapa en peering mellan VirtualNetwork1 och VirtualNetwork3.
+
+  Det finns ingen peering mellan VirtualNetwork1 och VirtualNetwork3 via VirtualNetwork2. Om du vill skapa en virtuell nätverks-peering mellan VirtualNetwork1 och VirtualNetwork3 måste du skapa en peering mellan VirtualNetwork1 och VirtualNetwork3. Det finns ingen peering mellan VirtualNetwork1 och VirtualNetwork3 via VirtualNetwork2. Om du vill att VirtualNetwork1 och VirtualNetwork3 ska kommunicera direkt måste du skapa en explicit peering mellan VirtualNetwork1 och VirtualNetwork3 eller gå igenom en NVA i Hubbs nätverket.  
 - Du kan inte matcha namn i peer-kopplat virtuella nätverk med hjälp av standard namn matchning i Azure. Om du vill matcha namn i andra virtuella nätverk måste du använda [Azure DNS för privata domäner](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller en anpassad DNS-server. Information om hur du konfigurerar en egen DNS-Server finns i [namn matchning med hjälp av en egen DNS-Server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Resurser i peer-kopplade virtuella nätverk i samma region kan kommunicera med varandra med samma bandbredd och svars tid som om de fanns i samma virtuella nätverk. Varje virtuell dator storlek har dock sin egen maximala nätverks bandbredd. Mer information om maximal nätverks bandbredd för olika storlekar på virtuella datorer finns i storlekar för virtuella [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -eller [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -datorer.
 - Ett virtuellt nätverk kan peer-kopplas till ett annat virtuellt nätverk och även anslutas till ett annat virtuellt nätverk med en virtuell Azure-nätverksgateway. När virtuella nätverk är anslutna via både peering och en gateway, flödar trafiken mellan de virtuella nätverken genom peering-konfigurationen, i stället för gatewayen.
@@ -146,7 +147,7 @@ De konton som du använder för att arbeta med peering av virtuella nätverk må
 
 Om ditt konto inte har tilldelats någon av de tidigare rollerna, måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats nödvändiga åtgärder från följande tabell:
 
-| Åtgärd                                                          | Name |
+| Action                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Krävs för att skapa en peering från ett virtuellt nätverk A till virtuellt nätverk B. virtuellt nätverk A måste vara ett virtuellt nätverk (Resource Manager)          |
 | Microsoft. Network/virtualNetworks/peer/Action                   | Krävs för att skapa en peering från virtuellt nätverk B (Resource Manager) till virtuellt nätverk A                                                       |

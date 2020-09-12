@@ -3,12 +3,12 @@ title: Använda Azure DevTest Labs för utbildning | Microsoft Docs
 description: Den här artikeln innehåller detaljerade steg som du kan följa för att ställa in ett labb för utbildning i Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a4b39d104d2ffdb45c23db2ad16cc4ee4627fb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2de9550c62f04286a4f9ad42238bfefb9846477
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484153"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294857"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Använda Azure DevTest Labs för utbildning
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier förutom utveckling/testning. Ett av dessa scenarier är att ställa in ett labb för utbildning. Med Azure DevTest Labs kan du skapa ett labb där du kan ange anpassade mallar som varje fordonsbaserad kan använda för att skapa identiska och isolerade miljöer för utbildning. Du kan använda principer för att säkerställa att inlärnings miljöer endast är tillgängliga för varje tågen när de behöver dem och innehåller tillräckligt med resurser – till exempel virtuella datorer – krävs för utbildningen. Slutligen kan du enkelt dela labbet med eleverna, som de har åtkomst till med ett klick.
@@ -44,7 +44,7 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    
    | Uppgift | Detta får du får lära dig |
    | --- | --- |
-   | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan vitlista Azure Marketplace-avbildningar; gör bara tillgängligt för val av de bilder du vill använda för träningen. |
+   | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan tillåta Azure Marketplace-avbildningar; gör bara tillgängligt för val av de bilder du vill använda för träningen. |
    | [Skapa en anpassad avbildning](devtest-lab-create-template.md) |Skapa en anpassad avbildning genom att förinstallera den program vara du behöver för utbildningen så att eleverna snabbt kan skapa en virtuell dator med hjälp av den anpassade avbildningen. |
 3. **Skapa åter användnings bara mallar för utbildnings datorer** 
    
@@ -91,4 +91,3 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    | [Skapa ett labb med en Resource Manager-mall](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Skapa labb i Azure DevTest Labs med Resource Manager-mallar. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

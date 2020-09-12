@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550179"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279779"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Functions reference
 I Azure AD Connect används funktioner för att manipulera ett attributvärde under synkroniseringen.  
@@ -117,14 +117,14 @@ Funktionerna med typerna **mvbin**, **mvstr**och **mvref** kan bara användas me
   * [Reparationer](#count)
   * [Objekt](#item)
   * [ItemOrNull](#itemornull)
-  * [Anslut](#join)
+  * [Join](#join)
   * [RemoveDuplicates](#removeduplicates)
   * [Del](#split)
 * **Program flöde**
   * [Fel](#error)
   * [IIF](#iif)
   * [Välj](#select)
-  * [Växel](#switch)
+  * [Switch](#switch)
   * [Vilken](#where)
   * [För](#with)
 * **Text**
@@ -426,9 +426,9 @@ Funktionen CGuid konverterar sträng representationen av ett GUID till dess bin�
 Funktionen contains hittar en sträng inuti ett multi-värde-attribut
 
 **Uttryck**  
-`num Contains (mvstring attribute, str search)`– Skift läges känsligt  
+`num Contains (mvstring attribute, str search)` – Skift läges känsligt  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`– Skift läges känsligt
+`num Contains (mvref attribute, str search)` – Skift läges känsligt
 
 * attribut: det multi-värde-attribut som ska genomsökas.
 * Sök: sträng att söka efter i attributet.
@@ -450,7 +450,7 @@ Om attributet proxyAddresses har en primär e-postadress (anges med versaler "SM
 Funktionen ConvertFromBase64 konverterar det angivna base64-kodade värdet till en vanlig sträng.
 
 **Uttryck**  
-`str ConvertFromBase64(str source)`– antar Unicode för kodning  
+`str ConvertFromBase64(str source)` – antar Unicode för kodning  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Källa: Base64-kodad sträng  
@@ -660,7 +660,7 @@ Funktionen FormatDateTime används för att formatera en DateTime till en strän
 * format: en sträng som representerar det format som ska konverteras till.
 
 **!**  
-Möjliga värden för formatet hittar du här: [anpassade datum-och tids format för funktionen format](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Möjliga värden för formatet hittar du här: [anpassade datum-och tids format för funktionen format](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exempel:**  
 
@@ -1275,7 +1275,7 @@ Funktionen StringFromSid konverterar en byte mat ris som innehåller en säkerhe
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Växel
+### <a name="switch"></a>Switch
 **Beskrivning:**  
 Funktionen switch används för att returnera ett enskilt värde baserat på utvärderade villkor.
 

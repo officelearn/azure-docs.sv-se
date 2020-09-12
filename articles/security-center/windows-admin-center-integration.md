@@ -1,21 +1,21 @@
 ---
-title: Så här integrerar du Windows administrations Center med Azure Security Center | Microsoft Docs
+title: Så här skyddar du Windows administrations Center servrar med Azure Security Center
 description: Den här artikeln förklarar hur du integrerar Azure Security Center med Windows administrations Center
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 9eae210818cf623078090503deefc6295dab7164
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076355"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277501"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrera Azure Security Center med administrations Center för Windows
+# <a name="protect-windows-admin-center-resources-with-security-center"></a>Skydda resurser i Windows administrations Center med Security Center
 
 Windows administrations Center är ett hanterings verktyg för dina Windows-servrar. Det är en enda plats för system administratörer som har till gång till de flesta av de vanligaste administratörs verktygen. Inifrån Windows administrations Center kan du direkt publicera dina lokal-servrar i Azure Security Center. Du kan sedan Visa en sammanfattning av dina säkerhets rekommendationer och aviseringar direkt i Windows administrations Center-upplevelsen.
 
@@ -31,7 +31,7 @@ När du har registrerat en server från Windows administrations Center till Azur
 
 Genom att kombinera dessa två verktyg blir Security Center det enda fönstret av glas för att visa all din säkerhets information, oavsett resurs: skydda dina Windows administrations Center-hanterade lokal-servrar, dina virtuella datorer och eventuella ytterligare PaaS-arbetsbelastningar.
 
-## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Registrera Windows administrations Center-hanterade servrar i Security Center
+## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Publicera Windows administrations Center-hanterade servrar i Security Center
 
 1. I Windows administrations Center väljer du en av dina servrar och i fönstret **verktyg** väljer du tillägget Azure Security Center:
 
@@ -54,16 +54,16 @@ Genom att kombinera dessa två verktyg blir Security Center det enda fönstret a
     > Det kan ta en stund innan rekommendationerna visas. Beroende på din server aktivitet får du faktiskt inte ta emot *några* aviseringar. Om du vill generera test aviseringar för att testa att dina aviseringar fungerar korrekt, följer du anvisningarna i [proceduren för att verifiera aviseringar](security-center-alert-validation.md).
 
 
-## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Visa säkerhets rekommendationer och aviseringar i Windows administrations Center
+## <a name="view-security-recommendations-and-alerts-in-windows-admin-center"></a>Visa säkerhets rekommendationer och aviseringar i Windows administrations Center
 
 När du har registrerat dig kan du Visa aviseringar och rekommendationer direkt i Azure Security Centers delen av Windows administrations Center. Klicka på en rekommendation eller en avisering om du vill visa dem i Azure Portal. Där får du ytterligare information och lär dig hur du kan åtgärda problem.
 
 [![Security Center rekommendationer och aviseringar som visas i administrations Center för Windows](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visa säkerhets rekommendationer och aviseringar för Windows administrations Center hanterade servrar i Security Center
+## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Se säkerhets rekommendationer och aviseringar för hanterade Windows administrations Center-servrar i Security Center
 Från Azure Security Center:
 
-* Öppna **compute &-appar** och klicka på fliken **virtuella datorer och datorer** om du vill se säkerhets rekommendationer för alla dina Windows administrations Center-servrar. gör så här:
+* Öppna **compute &-appar** och klicka på fliken **virtuella datorer och datorer** om du vill visa säkerhets rekommendationer för alla dina Windows administrations Center-servrar. Filtrera listan efter resurs "Server" som visas här:
 
     [![Visa säkerhets rekommendationer för Windows administrations Center hanterade servrar](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
 

@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182385"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276209"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (Azure AD) Connect Health. Vanliga frågor och svar om hur du använder tjänsten, inklusive fakturerings modellen, funktioner, begränsningar och support.
@@ -70,10 +70,10 @@ Azure AD Connect Health stöds inte i Tyskland-molnet, förutom [rapport funktio
 
 | Roller | Funktioner | Stöds i tyskt moln |
 | ------ | --------------- | --- |
-| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | No |
-|  | Fel rapport för synkronisering | Yes |
-| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | No |
-| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | No |
+| Anslut hälsa för synkronisering | Övervakning/Insight/Alerts/analys | Inga |
+|  | Fel rapport för synkronisering | Ja |
+| Anslut hälsa för ADFS | Övervakning/Insight/Alerts/analys | Inga |
+| Anslut hälsa för tillägg | Övervakning/Insight/Alerts/analys | Inga |
 
 Konfigurera [installations kravet](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) enligt detta för att säkerställa att agent anslutningen för Connect Health för synkronisering är korrekt.
 
@@ -190,18 +190,18 @@ CheckForMS17-010
 
 **F: Varför kan PowerShell-cmdleten <i>Get-MsolDirSyncProvisioningError</i> Visa mindre synkroniseringsfel i resultatet?**
 
-<i>Get-MsolDirSyncProvisioningError</i> returnerar bara DirSync-etablerings fel. Förutom att Anslut hälso portalen visar även andra synkroniseringsfel, till exempel export fel. Detta är konsekvent med Azure AD Connect delta-resultatet. Läs mer om [Azure AD Connect synkroniseringsfel](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+<i>Get-MsolDirSyncProvisioningError</i> returnerar bara DirSync-etablerings fel. Förutom att Anslut hälso portalen visar även andra synkroniseringsfel, till exempel export fel. Detta är konsekvent med Azure AD Connect delta-resultatet. Läs mer om [Azure AD Connect synkroniseringsfel](./tshoot-connect-sync-errors.md).
 
 **F: Varför genereras inte AD FS-granskningar?**
 
-Använd PowerShell-cmdleten <i>Get-ADFSProperties-AuditLevel</i> för att säkerställa att gransknings loggar inte är inaktiverat. Läs mer om [AD FS gransknings loggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observera att om det finns avancerade gransknings inställningar som skickas till ADFS-servern skrivs eventuella ändringar med auditpol.exe över (händelse om programmet som genereras inte har kon figurer ATS). I det här fallet ställer du in den lokala säkerhets principen för att logga program som skapats och lyckats.
+Använd PowerShell-cmdleten <i>Get-ADFSProperties-AuditLevel</i> för att säkerställa att gransknings loggar inte är inaktiverat. Läs mer om [AD FS gransknings loggar](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observera att om det finns avancerade gransknings inställningar som skickas till ADFS-servern skrivs eventuella ändringar med auditpol.exe över (händelse om programmet som genereras inte har kon figurer ATS). I det här fallet ställer du in den lokala säkerhets principen för att logga program som skapats och lyckats.
 
 **F: När blir agent certifikatet automatiskt förnyat innan det upphör att gälla?**
 Agent certifieringen kommer att förnyas automatiskt **6 månader** innan dess förfallo datum. Om den inte förnyas bör du kontrol lera att agentens nätverks anslutning är stabil. Du kan även lösa problemet genom att starta om Agent tjänsterna eller uppdatera till den senaste versionen.
 
 
 ## <a name="related-links"></a>Relaterade länkar
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health åtgärder](how-to-connect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md)

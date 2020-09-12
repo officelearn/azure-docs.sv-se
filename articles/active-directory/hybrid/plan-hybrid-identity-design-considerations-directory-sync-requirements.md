@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500d226fcb60646becc49144f206dcb0dee49bd8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381169"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278402"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Fastställa krav för katalog synkronisering
 Synkronisering innebär att du kan ge användarna en identitet i molnet baserat på deras lokala identitet. Oavsett om de kommer att använda ett synkroniserat konto för autentisering eller federerad autentisering måste användarna fortfarande ha en identitet i molnet.  Den här identiteten måste upprätthållas och uppdateras regelbundet.  Uppdateringarna kan ta många formulär, från rubriken ändringar till lösen ords ändringar.  
@@ -64,7 +64,7 @@ Du måste också bestämma katalog synkroniseringen säkerhets krav och begräns
   * Kommer du att kunna öppna de brand Väggs portar som krävs för att stödja synkronisering?
 * Har du en katastrof återställnings plan för synkroniseringstjänsten?
 * Har du ett konto med rätt behörigheter för alla skogar som du vill synkronisera med?
-  * Om ditt företag inte vet svaret på den här frågan kan du läsa avsnittet "behörigheter för Lösenordssynkronisering" i artikeln installera tjänsten [Azure Active Directory Sync](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) och ta reda på om du redan har ett konto med dessa behörigheter eller om du behöver skapa ett.
+  * Om ditt företag inte vet svaret på den här frågan kan du läsa avsnittet "behörigheter för Lösenordssynkronisering" i artikeln installera tjänsten [Azure Active Directory Sync](/previous-versions/azure/azure-services/dn757602(v=azure.100)#BKMK_CreateAnADAccountForTheSyncService) och ta reda på om du redan har ett konto med dessa behörigheter eller om du behöver skapa ett.
 * Om du har multifaktorautentisering kan Sync-servern hämta till varje skog?
 
 > [!NOTE]
@@ -77,4 +77,3 @@ Du måste också bestämma katalog synkroniseringen säkerhets krav och begräns
 
 ## <a name="see-also"></a>Se även
 [Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
-

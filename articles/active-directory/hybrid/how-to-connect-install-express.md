@@ -15,12 +15,12 @@ ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714fe5d1bdaddac2873194ab066f304e72bdde67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358879"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279677"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Expressinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.
@@ -42,13 +42,13 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
    Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](tshoot-connect-connectivity.md).
 6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Nästa**.  
    ![Anslut till AD DS](./media/how-to-connect-install-express/connectad.png)
-7. Sidan [**Konfigurera Azure AD-inloggning**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](../active-directory-domains-add-azure-portal.md) under [kravfasen](how-to-connect-install-prerequisites.md).
+7. Sidan [**Konfigurera Azure AD-inloggning**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](../fundamentals/add-custom-domain.md) under [kravfasen](how-to-connect-install-prerequisites.md).
    ![Overifierade domäner](./media/how-to-connect-install-express/unverifieddomain.png)  
    Om den här sidan visas granskar du alla domäner som har markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner.
 8. Klicka på **Installera** på skärmen Klart att konfigurera.
    * Du kan också välja att avmarkera kryssrutan **Starta synkroniseringen så fort konfigurationen är klar** på sidan Klart att konfigurera. Du måste avmarkera kryssrutan om du vill göra ytterligare konfigurationsinställningar, t.ex. [filtrering](how-to-connect-sync-configure-filtering.md). Om du avmarkerar det här alternativet konfigurerar guiden synkronisering men lämnar schemaläggaren inaktiverad. Den körs inte förrän du aktiverar den manuellt genom att [köra installationsguiden igen](how-to-connect-installation-wizard.md).
    * Om du låter kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** vara markerad utlöses omedelbart en fullständig synkronisering mot Microsoft Azure Active Directory för alla användare, grupper och kontakter.
-   * Om du har Exchange i din lokala Active Directory kan du också välja att aktivera [**Exchange-hybridinstallation**](https://technet.microsoft.com/library/jj200581.aspx). Aktivera det här alternativet om du planerar att ha Exchange-postlådor både i molnet och lokalt samtidigt.
+   * Om du har Exchange i din lokala Active Directory kan du också välja att aktivera [**Exchange-hybridinstallation**](/exchange/exchange-hybrid). Aktivera det här alternativet om du planerar att ha Exchange-postlådor både i molnet och lokalt samtidigt.
      ![Redo att konfigurera Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. När installationen är klar klickar du på **Avsluta**.
 10. När installationen har slutförts kan du logga ut och logga in igen innan du använder Synchronization Service Manager eller Synchronization Rule Editor.
@@ -71,7 +71,7 @@ Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Director
 
 ## <a name="related-documentation"></a>Relaterad dokumentation
 
-| Ämne | Länk |
+| Avsnitt | Länk |
 | --- | --- |
 | Översikt över Azure AD Connect | [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)
 | Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](how-to-connect-install-custom.md) |

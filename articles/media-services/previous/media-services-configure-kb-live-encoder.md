@@ -33,7 +33,7 @@ Det här avsnittet visar hur du konfigurerar [HAVISION KB Live Encoder](https://
 
 I den här självstudien visas hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer-verktyget (AMSE). Det här verktyget körs bara på Windows-datorer. Om du använder Mac eller Linux använder du Azure Portal för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 *   Åtkomst till en Haivision KB-kodare som kör SW v 5.01 eller senare.
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
 * Se till att en slut punkt för direkt uppspelning körs. Mer information finns i [Hantera strömnings slut punkter i ett Media Services konto](media-services-portal-manage-streaming-endpoints.md)

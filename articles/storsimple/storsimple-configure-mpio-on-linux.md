@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183644"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294721"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 I den här artikeln beskrivs de steg som krävs för att konfigurera multipath i/o (MPIO) på din CentOS 6,6-värd Server. Värd servern är ansluten till din Microsoft Azure StorSimple enhet för hög tillgänglighet via iSCSI-initierare. Den beskriver i detalj den automatiska identifieringen av flera Sök vägs enheter och den speciella installationen enbart för StorSimple volymer.
@@ -352,7 +352,7 @@ Det kan också vara värt att kontrol lera att du faktiskt kan se vissa diskar e
 
 * Använd följande kommando för att genomsöka SCSI-bussen:
   
-    `$ rescan-scsi-bus.sh`(del av sg3_utils-paketet)
+    `$ rescan-scsi-bus.sh` (del av sg3_utils-paketet)
 * Ange följande kommandon:
   
     `$ dmesg | grep sd*`
@@ -377,9 +377,9 @@ Upprepa det här kommandot för alla anslutna nätverks gränssnitt på iSCSI-m�
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-F. Jag är inte säker på att min enhet är vit listas.
+F. Jag är osäker på om enheten är tillåten.
 
-A. För att kontrol lera om enheten är vit listas, Använd följande interaktiva kommando för fel sökning:
+A. För att kontrol lera om enheten tillåts, Använd följande interaktiva kommando för fel sökning:
 
 ```console
 multipathd -k
@@ -441,7 +441,7 @@ Mer information finns i [fel sökning för flera sökvägar](https://access.redh
 | &nbsp; |`chkconfig multipathd on` </br> ELLER </br> `mpathconf -with_chkconfig y` |Aktivera daemon för flera sökvägar till start vid start |
 | &nbsp; |`multipathd -k` |Starta den interaktiva konsolen för fel sökning |
 | &nbsp; |`multipath -l` |Visa en lista över flera sökvägar anslutningar och enheter |
-| &nbsp; |`mpathconf --enable` |Skapa en Sample mulitpath. conf-fil i`/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Skapa en Sample mulitpath. conf-fil i `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Nästa steg
@@ -449,4 +449,3 @@ När du konfigurerar MPIO på Linux-värden kan du också behöva referera till 
 
 * [Konfigurera MPIO på CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Tränings guide för Linux](http://linux-training.be/linuxsys.pdf)
-

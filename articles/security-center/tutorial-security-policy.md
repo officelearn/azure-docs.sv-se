@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519362"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277671"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetspolicyer
 
@@ -40,7 +40,7 @@ Security Center erbjuder följande alternativ för att arbeta med säkerhets pri
 * **Lägg till regler för efterlevnadsprinciper** -Security Centers instrument panelen för kontroll av efterlevnad visar status för alla utvärderingar i din miljö i samband med en viss standard eller regel (till exempel Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-v2020). Mer information finns i [förbättra din regelefterlevnad](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Hantera dina säkerhets principer
+## <a name="manage-your-security-policies"></a>Hantera dina säkerhets principer
 
 Visa dina säkerhetsprinciper i Security Center:
 
@@ -54,7 +54,7 @@ Visa dina säkerhetsprinciper i Security Center:
 
 1. Sidan säkerhets princip för den prenumerationen eller hanterings gruppen visas. Den visar de tillgängliga och tilldelade principerna.
 
-   ![princip skärm](./media/tutorial-security-policy/security-policy-page.png)
+   ![princip sida](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Om det finns en etikett "MG ärvd" tillsammans med standard principen, innebär det att principen har tilldelats till en hanterings grupp och ärvts av den prenumeration som du visar.
@@ -111,11 +111,11 @@ Mer information om rekommendationer finns i [hantera säkerhets rekommendationer
 
 1. Välj **Visa gällande princip**.
 
-   ![Inaktivera princip](./media/tutorial-security-policy/view-effective-policy.png)
+   ![Visa princip](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Välj den tilldelade principen.
 
-   ![Inaktivera princip](./media/tutorial-security-policy/security-policy.png)
+   ![Välj princip](./media/tutorial-security-policy/security-policy.png)
 
 1. I avsnittet **parametrar** söker du efter principen som anropar rekommendationen som du vill inaktivera. Välj **inaktive rad** i list rutan.
 

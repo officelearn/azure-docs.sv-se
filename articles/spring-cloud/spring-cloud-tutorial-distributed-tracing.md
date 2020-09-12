@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1e3579f79f9daa80c3d3f2206be7a76cc5505e80
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037027"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294007"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Använd distribuerad spårning med Azure våren Cloud
 
@@ -26,9 +26,9 @@ I den här artikeln lär du dig hur du:
 > * Visa beroende kartor för mikrotjänst program.
 > * Sök spårnings data med olika filter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa de här procedurerna behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att etablera och köra en moln tjänst för Azure våren.
+Om du vill följa de här procedurerna behöver du en moln tjänst för Azure våren som redan är etablerad och körs. Slutför [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart.md) för att etablera och köra en moln tjänst för Azure våren.
     
 ## <a name="add-dependencies"></a>Lägg till beroenden
 

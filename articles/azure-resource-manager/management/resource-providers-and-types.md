@@ -1,15 +1,15 @@
 ---
 title: Resurs leverantörer och resurs typer
-description: Beskriver de resurs leverantörer som stöder Resource Manager, deras scheman och tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
+description: Beskriver de resurs leverantörer som stöder Azure Resource Manager. Den beskriver scheman, tillgängliga API-versioner och de regioner som kan vara värdar för resurserna.
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 581b653c6d4769f7777b0ca56f136d25443c1ae4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500018"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278895"
 ---
 # <a name="azure-resource-providers-and-types"></a>Resursproviders och resurstyper i Azure
 
@@ -30,6 +30,16 @@ Du kan utföra de här stegen via Azure Portal, Azure PowerShell eller Azure CLI
 
 En lista som mappar resurs leverantörer till Azure-tjänster finns i [Resource providers för Azure-tjänster](azure-services-resource-providers.md).
 
+## <a name="register-resource-provider"></a>Registrera resursprovider
+
+Innan du använder en resurs leverantör måste du registrera resurs leverantören för din Azure-prenumeration. I det här steget konfigurerar du din prenumeration så att den fungerar med resurs leverantören. Omfånget för registreringen är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt.
+
+Den här artikeln visar hur du kontrollerar registrerings status för en resurs leverantör och registrerar den efter behov. Du måste ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Behörigheten ingår i rollerna deltagare och ägare.
+
+Program koden blockerar inte skapandet av resurser för en resurs leverantör som är i **registrerings** tillstånd. När du registrerar resurs leverantören utförs åtgärden individuellt för varje region som stöds. För att skapa resurser i en region behöver registreringen bara slutföras i den regionen. Om du inte blockerar resurs leverantören i registrerings tillstånd kan ditt program fortsätta mycket tidigare än att vänta på att alla regioner ska slutföras.
+
+Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
+
 ## <a name="azure-portal"></a>Azure Portal
 
 Så här visar du alla resurs leverantörer och registrerings status för din prenumeration:
@@ -45,9 +55,7 @@ Så här visar du alla resurs leverantörer och registrerings status för din pr
 
     ![Visa resurs leverantörer](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Omfånget för registreringen är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt. Om du vill registrera en resurs leverantör måste du ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera en resurs leverantör genom att välja **Registrera**. I föregående skärm bild är **register** länken markerad för **Microsoft. skiss**.
-
-    Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
+6. Registrera en resurs leverantör genom att välja **Registrera**. I föregående skärm bild är **register** länken markerad för **Microsoft. skiss**.
 
 Så här visar du information om en viss resurs leverantör:
 
@@ -65,7 +73,7 @@ Så här visar du information om en viss resurs leverantör:
 
     ![Välj resurs typ](./media/resource-providers-and-types/select-resource-type.png)
 
-6. Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Dessutom kan det finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen. Resurs läsaren visar giltiga platser för resurs typen.
+6. Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Det kan också finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen. Resurs läsaren visar giltiga platser för resurs typen.
 
     ![Visa platser](./media/resource-providers-and-types/show-locations.png)
 
@@ -95,7 +103,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Omfånget för registreringen är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt. Om du vill registrera en resurs leverantör måste du ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Den här åtgärden ingår i rollerna Deltagare och Ägare.
+Om du vill registrera en resurs leverantör använder du:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,8 +117,6 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
-
-Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
 
 Om du vill se information om en viss resurs leverantör använder du:
 
@@ -162,7 +168,7 @@ Returnerar:
 2015-07-01
 ```
 
-Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Dessutom kan det finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen.
+Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Det kan också finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen.
 
 Använd för att hämta de platser som stöds för en resurs typ.
 
@@ -200,15 +206,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Omfånget för registreringen är alltid prenumerationen. Som standard registreras många resurs leverantörer automatiskt. Du kan dock behöva registrera vissa resurs leverantörer manuellt. Om du vill registrera en resurs leverantör måste du ha behörighet att utföra `/register/action` åtgärden för resurs leverantören. Den här åtgärden ingår i rollerna Deltagare och Ägare.
+Om du vill registrera en resurs leverantör använder du:
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 Som returnerar ett meddelande om att registreringen pågår.
-
-Du kan inte avregistrera en resurs leverantör när du fortfarande har resurs typer från den resurs leverantören i din prenumeration.
 
 Om du vill se information om en viss resurs leverantör använder du:
 
@@ -266,7 +270,7 @@ Result
 2015-07-01
 ```
 
-Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Dessutom kan det finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen.
+Resource Manager stöds i alla regioner, men resurserna som du distribuerar kanske inte stöds i alla regioner. Det kan också finnas begränsningar i din prenumeration som hindrar dig från att använda vissa regioner som stöder resursen.
 
 Använd för att hämta de platser som stöds för en resurs typ.
 

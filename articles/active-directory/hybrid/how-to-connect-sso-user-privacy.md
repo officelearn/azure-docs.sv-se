@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467b9b2e613e43b95007142a120d39be1272de93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357842"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278606"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Användarsekretess och sömlös enkel inloggning för Azure AD
 
@@ -64,7 +64,7 @@ Mer information om relaterade Azure AD Connect GDPR-krav finns i [den här artik
 
 ### <a name="note-about-domain-controller-logs"></a>Observera om domänkontrollanter loggar
 
-Om gransknings loggning har Aktiver ATS kan den här produkten generera säkerhets loggar för dina domänkontrollanter. Läs den här [artikeln](https://technet.microsoft.com/library/dd277403.aspx)om du vill veta mer om hur du konfigurerar gransknings principer.
+Om gransknings loggning har Aktiver ATS kan den här produkten generera säkerhets loggar för dina domänkontrollanter. Läs den här [artikeln](/previous-versions/tn-archive/dd277403(v=technet.10))om du vill veta mer om hur du konfigurerar gransknings principer.
 
 ## <a name="next-steps"></a>Nästa steg
 

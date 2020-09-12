@@ -15,12 +15,12 @@ ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358250"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280153"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory djupgående säkerhets djup
 
@@ -38,14 +38,14 @@ De avsnitt som beskrivs är:
 Dessa är viktiga säkerhets aspekter av den här funktionen:
 - Den bygger på en säker arkitektur för flera innehavare som tillhandahåller isolering av inloggnings begär Anden mellan klienter.
 - Lokala lösen ord lagras aldrig i molnet i något formulär.
-- Lokala autentiseringsbegäranden som lyssnar efter och svarar på begär Anden om lösen ords validering bara gör utgående anslutningar inifrån nätverket. Det finns inget krav på att installera dessa autentiseringsprinciper i ett perimeternätverk (DMZ). Som bästa praxis ska du behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+- Lokala autentiseringsbegäranden som lyssnar efter och svarar på begär Anden om lösen ords validering bara gör utgående anslutningar inifrån nätverket. Det finns inget krav på att installera dessa autentiseringsprinciper i ett perimeternätverk (DMZ). Som bästa praxis ska du behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Endast standard portar (80 och 443) används för utgående kommunikation från Authentication-agenter till Azure AD. Du behöver inte öppna inkommande portar i brand väggen. 
   - Port 443 används för all autentiserad utgående kommunikation.
   - Port 80 används bara för att ladda ned listor över återkallade certifikat (CRL) för att säkerställa att inga av de certifikat som används av den här funktionen har återkallats.
   - En fullständig lista över nätverks kraven finns i [Azure Active Directory direktautentisering: snabb start](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Lösen ord som användare anger under inloggningen krypteras i molnet innan de lokala autentiserings agenter accepterar dem för verifiering mot Active Directory.
 - HTTPS-kanalen mellan Azure AD och den lokala Autentiseringstjänsten skyddas med hjälp av ömsesidig autentisering.
-- Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
+- Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../conditional-access/overview.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Komponenter som ingår
 
@@ -59,8 +59,8 @@ Allmän information om drift, tjänster och data säkerhet i Azure AD finns i s�
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Installation och registrering av autentiseringsprinciper
 
 Autentiseringsprinciper installeras och registreras med Azure AD när du använder något av följande:
-   - [Aktivera direkt autentisering genom Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature)
-   - [Lägg till fler autentiseringsmetoder för att säkerställa hög tillgänglighet för inloggnings begär Anden](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-4-ensure-high-availability) 
+   - [Aktivera direkt autentisering genom Azure AD Connect](./how-to-connect-pta-quick-start.md#step-2-enable-the-feature)
+   - [Lägg till fler autentiseringsmetoder för att säkerställa hög tillgänglighet för inloggnings begär Anden](./how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) 
    
 Att hämta en autentiserings agent arbetar omfattar tre huvud faser:
 
@@ -73,11 +73,11 @@ I följande avsnitt beskrivs de här faserna i detalj.
 ### <a name="authentication-agent-installation"></a>Installation av autentiseringstjänst
 
 Endast globala administratörer kan installera en autentiseringstjänst (med Azure AD Connect eller fristående) på en lokal server. Vid installationen läggs två nya poster till **Control Panel**i program-  >  **Programs**  >  **och funktions** listan i kontroll panelen:
-- Själva appen för autentisering av agent. Det här programmet körs med [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) -behörigheter.
-- Uppdaterings programmet som används för att automatiskt uppdatera Autentiseringstjänsten. Det här programmet körs med [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) -behörighet.
+- Själva appen för autentisering av agent. Det här programmet körs med [NetworkService](/windows/win32/services/networkservice-account) -behörigheter.
+- Uppdaterings programmet som används för att automatiskt uppdatera Autentiseringstjänsten. Det här programmet körs med [LocalSystem](/windows/win32/services/localsystem-account) -behörighet.
 
 >[!IMPORTANT]
->Av säkerhets synpunkt bör administratören behandla servern som kör PTA-agenten som om den vore en domänkontrollant.  PTA agent-servrarna bör vara härdade längs samma rader som beskrivs i [Skydda domänkontrollanter mot angrepp](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
+>Av säkerhets synpunkt bör administratören behandla servern som kör PTA-agenten som om den vore en domänkontrollant.  PTA agent-servrarna bör vara härdade längs samma rader som beskrivs i [Skydda domänkontrollanter mot angrepp](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="authentication-agent-registration"></a>Registrering av autentiseringsprovider
 
@@ -107,7 +107,7 @@ Autentiserings agenter använder följande steg för att registrera sig för Azu
     -  Ingen av de andra Azure AD-tjänsterna använder den här certifikat utfärdaren.
     - Certifikatets ämne (unikt namn eller DN) har angetts till ditt klient-ID. Detta unika namn är ett GUID som unikt identifierar din klient. Detta DN omfångerar certifikatet för användning endast med din klient.
 6. Azure AD lagrar Authentication agentens offentliga nyckel i en databas i Azure SQL Database, som bara Azure AD har åtkomst till.
-7. Certifikatet (utfärdat i steg 5) lagras på den lokala servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) plats). Den används av både autentiseringstjänsten och uppdaterings programmen.
+7. Certifikatet (utfärdat i steg 5) lagras på den lokala servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_LOCAL_MACHINE](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_LOCAL_MACHINE) plats). Den används av både autentiseringstjänsten och uppdaterings programmen.
 
 ### <a name="authentication-agent-initialization"></a>Initiering av autentiserings agent
 
@@ -144,7 +144,7 @@ Direktautentisering hanterar en användar inloggnings förfrågan enligt följan
 8. Azure AD STS placerar begäran om lösen ords verifiering, som består av användar namnet och de krypterade lösen ords värdena, till den Service Bus Queue som är unik för din klient.
 9. Eftersom de initierade autentiseringsinställningarna är permanenta anslutna till Service Bus kön, hämtar en av de tillgängliga autentiseringsmetoderna en begäran om lösen ords validering.
 10. Authentication-agenten hittar det krypterade lösen ordet som är särskilt för dess offentliga nyckel, genom att använda en identifierare och dekrypterar den med hjälp av dess privata nyckel.
-11. Autentiseringstjänsten försöker verifiera användar namnet och lösen ordet mot lokala Active Directory med hjälp av [Win32 LogonUser API: et](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) med parametern **dwLogonType** inställd på **LOGON32_LOGON_NETWORK**. 
+11. Autentiseringstjänsten försöker verifiera användar namnet och lösen ordet mot lokala Active Directory med hjälp av [Win32 LogonUser API: et](/windows/win32/api/winbase/nf-winbase-logonusera) med parametern **dwLogonType** inställd på **LOGON32_LOGON_NETWORK**. 
     - Detta API är samma API som används av Active Directory Federation Services (AD FS) (AD FS) för att logga in användare i ett federerat inloggnings scenario.
     - Detta API är beroende av standard lösnings processen i Windows Server för att hitta domänkontrollanten.
 12. Autentiseringstjänsten tar emot resultatet från Active Directory, till exempel lyckad, användar namn eller lösen ord eller lösen ordet har upphört att gälla.
@@ -179,7 +179,7 @@ Förnya en Autentiseringstyps förtroende med Azure AD:
     - Använd Azure AD-rot certifikat utfärdaren för att signera certifikatet.
     - Ange certifikatets ämne (unikt namn eller DN) till klient-ID: t, ett GUID som unikt identifierar din klient. DN omfångerar certifikatet enbart till din klient organisation.
 6. Azure AD lagrar den nya offentliga nyckeln för Autentiseringstjänsten i en databas i Azure SQL Database att den bara har åtkomst till. Det gör också att den gamla offentliga nyckeln som är kopplad till Authentication agent ogiltig förklaras.
-7. Det nya certifikatet (utfärdat i steg 5) lagras sedan på servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) plats).
+7. Det nya certifikatet (utfärdat i steg 5) lagras sedan på servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_CURRENT_USER](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_CURRENT_USER) plats).
     - Eftersom processen för förnyelse av förtroende inträffar icke-interaktivt (utan den globala administratörens närvaro), har Autentiseringstjänsten inte längre åtkomst för att uppdatera det befintliga certifikatet på den CERT_SYSTEM_STORE_LOCAL_MACHINE platsen. 
     
    > [!NOTE]
@@ -190,7 +190,7 @@ Förnya en Autentiseringstyps förtroende med Azure AD:
 
 Uppdaterings programmet uppdaterar automatiskt Autentiseringstjänsten när en ny version (med fel korrigeringar eller prestanda förbättringar) släpps. Uppdaterings programmet hanterar inte några förfrågningar om lösen ords verifiering för din klient.
 
-Azure AD är värd för den nya versionen av program varan som ett signerat **Windows Installer paket (MSI)**. MSI signeras med hjälp av [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) med SHA256 som Digest-algoritm. 
+Azure AD är värd för den nya versionen av program varan som ett signerat **Windows Installer paket (MSI)**. MSI signeras med hjälp av [Microsoft Authenticode](/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537359(v=vs.85)) med SHA256 som Digest-algoritm. 
 
 ![Automatisk uppdatering](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 
@@ -203,7 +203,7 @@ Så här uppdaterar du en autentiseringsnyckel automatiskt:
 4. Uppdaterings tjänsten kör MSI. Den här åtgärden omfattar följande steg:
 
    > [!NOTE]
-   > Uppdaterings tjänsten körs med [lokala system](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) privilegier.
+   > Uppdaterings tjänsten körs med [lokala system](/windows/win32/services/localsystem-account) privilegier.
 
     - Stoppar tjänsten Authentication agent
     - Installerar den nya versionen av Autentiseringstjänsten på servern

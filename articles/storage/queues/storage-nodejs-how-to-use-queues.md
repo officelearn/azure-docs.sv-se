@@ -1,79 +1,96 @@
 ---
-title: Använd Azure Queue Storage från Node.js-Azure Storage
-description: Lär dig hur du använder Azure-Kötjänst för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden. Exempel som skrivs i Node.js.
+title: Så här använder du Azure Queue Storage från Node.js-Azure Storage
+description: Lär dig att använda Azure-Kötjänst för att skapa och ta bort köer. Lär dig att infoga, hämta och ta bort meddelanden med hjälp av Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 12/08/2016
+ms.date: 08/31/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 53bd4905cf4b8829d65ce2b10c85260ff3f8926c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 18e184ed126aab8d03867db7b6b7d28c88644366
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210527"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288822"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Använd Azure Queue Service för att skapa och ta bort köer från Node.js
+# <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Så här använder du Azure Queue Storage från Node.js
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
-
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av Microsoft Azure Kötjänst. Exemplen skrivs med hjälp av Node.js-API: et. De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
 
-> [!IMPORTANT]
-> Den här artikeln hänvisar till den äldre versionen av Azure Storage klient biblioteket för Java Script. För att komma igång med den senaste versionen kan du se [snabb start: Azure Queue Storage klient bibliotek för Java Script](storage-quickstart-queues-nodejs.md)
+Den här guiden visar hur du utför vanliga scenarier med hjälp av Microsoft Azure Kötjänst. Exemplen skrivs med hjälp av Node.js-API: et. De scenarier som beskrivs är att infoga, granska, hämta och ta bort Kömeddelanden. Lär dig också att skapa och ta bort köer.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-nodejs-application"></a>Skapa ett Node.js program
-Skapa ett tomt Node.js-program. Instruktioner för hur du skapar ett Node.js program finns [i skapa en Node.js webbapp i Azure App Service](../../app-service/quickstart-nodejs.md), [skapa och distribuera ett Node.js program till en Azure-moln tjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) med hjälp av Windows PowerShell eller [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+## <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
+
+Om du vill skapa en tom Node.js-app, se [skapa en Node.js webbapp i Azure App Service][Create a Node.js web app in Azure App Service], [skapa och distribuera ett Node.js program till en Azure-moln tjänst][Build and deploy a Node.js application to an Azure Cloud Service] med hjälp av Windows PowerShell eller [Visual Studio Code][Visual Studio Code].
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
-Om du vill använda Azure Storage behöver du Azure Storage SDK för Node.js, som innehåller en uppsättning av praktiska bibliotek som kommunicerar med lagrings REST tjänsterna.
+
+[Azure Storage klient bibliotek för Java Script][Azure Storage client library for JavaScript] innehåller en uppsättning av praktiska bibliotek som kommunicerar med lagrings rest tjänsterna.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Hämta paketet med hjälp av Node Pack Manager (NPM)
-1. Använd ett kommando rads gränssnitt som **PowerShell** (Windows,) **Terminal** (Mac) eller **bash** (UNIX) och navigera till mappen där du skapade exempel programmet.
-2. Skriv **npm install azure-storage** i kommandofönstret. Kommandot returnerar utdata liknande dem i exemplet nedan.
- 
-    ```bash
-    azure-storage@0.5.0 node_modules\azure-storage
-    +-- extend@1.2.1
-    +-- xmlbuilder@0.4.3
-    +-- mime@1.2.11
-    +-- node-uuid@1.4.3
-    +-- validator@3.22.2
-    +-- underscore@1.4.4
-    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-    +-- xml2js@0.2.7 (sax@0.5.2)
-    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-    ```
 
-3. Du kan köra **ls** -kommandot manuellt för att kontrol lera att en mapp för **Node- \_ moduler** har skapats. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
+1. Använd ett kommando rads gränssnitt som PowerShell (Windows), Terminal (Mac) eller bash (UNIX) och navigera till mappen där du skapade exempel programmet.
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+1. Skriv **NPM installera \@ Azure/Storage – Queue** i kommando fönstret.
+
+1. Verifiera att en mapp för **Node- \_ moduler** har skapats. I den mappen hittar du ** \@ Azure/Storage-kösystemet** , som innehåller klient biblioteket som du behöver för att komma åt lagringen.
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
+1. Skriv **npm install azure-storage** i kommandofönstret.
+
+1. Verifiera att en mapp för **Node- \_ moduler** har skapats. I den mappen hittar du **Azure-Storage-** paketet, som innehåller de bibliotek som du behöver för att komma åt lagringen.
+
+---
 
 ### <a name="import-the-package"></a>Importera paketet
-Använd anteckningar eller något annat text redigerings program och Lägg till följande i den översta **server.js** filen för programmet där du tänker använda Storage:
+
+Använd kod redigeraren och Lägg till följande i den övre JavaScript-filen där du tänker använda köer.
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ImportStatements":::
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Konfigurera en Azure Storage anslutning
-Azure-modulen läser miljövariablerna AZURE \_ Storage \_ -kontot och \_ \_ åtkomst nyckeln för Azure Storage \_ , eller \_ \_ anslutnings strängen för Azure Storage \_ för information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen när du anropar **createQueueService**.
+---
 
-## <a name="how-to-create-a-queue"></a>Gör så här: skapa en kö
+## <a name="how-to-create-a-queue"></a>Så skapar du en resurs
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+Följande kod hämtar värdet för en miljö variabel som kallas `AZURE_STORAGE_CONNECTION_STRING` och använder den för att skapa ett [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient) -objekt. **QueueServiceClient** -objektet används sedan för att skapa ett [QueueClient](/javascript/api/@azure/storage-queue/queueclient) -objekt. Med **QueueClient** -objektet kan du arbeta med en speciell kö.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_CreateQueue":::
+
+Om kön redan finns genereras ett undantag.
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
+Azure-modulen läser miljövariablerna `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY` , eller `AZURE_STORAGE_CONNECTION_STRING` information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen när du anropar **createQueueService**.
+
 Följande kod skapar ett **QueueService** -objekt som gör att du kan arbeta med köer.
 
 ```javascript
 var queueSvc = azure.createQueueService();
 ```
 
-Använd metoden **createQueueIfNotExists** , som returnerar den angivna kön om den redan finns eller skapar en ny kö med det angivna namnet om den inte redan finns.
+Anropa **createQueueIfNotExists** -metoden för att skapa en ny kö med det angivna namnet eller returnera kön om den redan finns.
 
 ```javascript
 queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
@@ -85,30 +102,19 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 
 Om kön har skapats `result.created` är sant. Om kön finns `result.created` är false.
 
-### <a name="filters"></a>Filter
-Valfria filtrerings åtgärder kan tillämpas på åtgärder som utförs med hjälp av **QueueService**. Filtrerings åtgärder kan omfatta loggning, automatiskt försök igen osv. Filter är objekt som implementerar en metod med signaturen:
+---
 
-```javascript
-function handle (requestOptions, next)
-```
+## <a name="how-to-insert-a-message-into-a-queue"></a>Så här infogar du ett meddelande i en kö
 
-När du har bearbetat på begäran-alternativen måste metoden anropa "Nästa" för att skicka ett motanrop med följande signatur:
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
 
-```javascript
-function (returnObject, finalCallback, next)
-```
+Anropa metoden [SendMessage](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) om du vill lägga till ett meddelande i en kö.
 
-I det här återanropet, och efter bearbetning av returnObject (svaret från begäran till servern), måste återanropet antingen anropas härnäst om det finns för att fortsätta bearbeta andra filter eller bara anropa finalCallback för att avsluta tjänst anropet.
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_AddMessage":::
 
-Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. Följande skapar ett **QueueService** -objekt som använder **ExponentialRetryPolicyFilter**:
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
 
-```javascript
-var retryOperations = new azure.ExponentialRetryPolicyFilter();
-var queueSvc = azure.createQueueService().withFilter(retryOperations);
-```
-
-## <a name="how-to-insert-a-message-into-a-queue"></a>Så här gör du: infoga ett meddelande i en kö
-Om du vill infoga ett meddelande i en kö använder du metoden **createMessage** för att skapa ett nytt meddelande och lägger till det i kön.
+Om du vill infoga ett meddelande i en kö anropar du **createMessage** -metoden för att skapa ett nytt meddelande och lägger till det i kön.
 
 ```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
@@ -118,8 +124,21 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Gör så här: granska vid nästa meddelande
-Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden **peekMessages** . Som standard tittar **peekMessages** i ett enda meddelande.
+---
+
+## <a name="how-to-peek-at-the-next-message"></a>Granska nästa meddelande
+
+Du kan granska meddelanden i kön utan att ta bort dem från kön genom att anropa metoden **peekMessages** .
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+Som standard tittar [peekMessages](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) i ett enda meddelande. Följande exempel tittar på de första fem meddelandena i kön. Om färre än fem meddelanden visas returneras bara de synliga meddelandena.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_PeekMessage":::
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
+Som standard tittar **peekMessages** i ett enda meddelande.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -131,43 +150,23 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 
 `result`Innehåller meddelandet.
 
-> [!NOTE]
-> Om du använder **peekMessages** när det inte finns några meddelanden i kön returneras inget fel, men inga meddelanden returneras.
-> 
-> 
+---
 
-## <a name="how-to-dequeue-the-next-message"></a>Gör så här: ta bort nästa meddelande i kö
-Bearbetning av ett meddelande är en process i två steg:
+Anrop av **peekMessages** när det inte finns några meddelanden i kön returnerar inte ett fel. Inga meddelanden returneras dock.
 
-1. Ta bort kön för meddelandet.
-2. Ta bort meddelandet.
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Ändra innehållet i ett köade meddelande
 
-Om du vill ta bort ett meddelande från kön använder du **GetMessage**. Detta gör meddelandena osynliga i kön, så inga andra klienter kan bearbeta dem. När ditt program har bearbetat ett meddelande anropar du **deleteMessage** för att ta bort det från kön. Följande exempel hämtar ett meddelande och tar sedan bort det:
+I följande exempel uppdateras texten i ett meddelande.
 
-```javascript
-queueSvc.getMessages('myqueue', function(error, results, response){
-  if(!error){
-    // Message text is in results[0].messageText
-    var message = results[0];
-    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
-      if(!error){
-        //message deleted
-      }
-    });
-  }
-});
-```
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
 
-> [!NOTE]
-> Som standard är ett meddelande endast dolt i 30 sekunder, efter vilket det är synligt för andra klienter. Du kan ange ett annat värde med hjälp av `options.visibilityTimeout` with **GetMessage**.
-> 
-> [!NOTE]
-> Om du använder **GetMessage** när det inte finns några meddelanden i kön returneras inget fel, men inga meddelanden returneras.
-> 
-> 
+Ändra innehållet i ett meddelande på plats i kön genom att anropa [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här gör du: ändra innehållet i ett köat meddelande
-Du kan ändra innehållet i ett meddelande på plats i kön med **updateMessage**. I följande exempel uppdateras texten i ett meddelande:
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
+Ändra innehållet i ett meddelande på plats i kön genom att anropa **updateMessage**. 
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -183,13 +182,73 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Gör så här: ytterligare alternativ för att avköa meddelanden
+---
+
+## <a name="how-to-dequeue-a-message"></a>Ta ett meddelande ur kö
+
+Att köa ett meddelande är en process i två steg:
+
+1. Hämta meddelandet.
+
+1. Ta bort meddelandet.
+
+Följande exempel hämtar ett meddelande och tar sedan bort det.
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+Anropa [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) -metoden för att få ett meddelande. Anropet gör meddelandena osynliga i kön, så inga andra klienter kan bearbeta dem. När ditt program har bearbetat ett meddelande anropar du [deleteMessage](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) för att ta bort det från kön.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessage":::
+
+Som standard är ett meddelande endast dolt i 30 sekunder. Efter 30 sekunder är det synligt för andra klienter. Du kan ange ett annat värde genom att ange [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) när du anropar **receiveMessages**.
+
+Anrop av **receiveMessages** när det inte finns några meddelanden i kön returnerar inte ett fel. Inga meddelanden kommer dock att returneras.
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
+Anropa **GetMessage** -metoden för att få ett meddelande. Anropet gör meddelandena osynliga i kön, så inga andra klienter kan bearbeta dem. När ditt program har bearbetat ett meddelande anropar du **deleteMessage** för att ta bort det från kön.
+
+```javascript
+queueSvc.getMessages('myqueue', function(error, results, response){
+  if(!error){
+    // Message text is in results[0].messageText
+    var message = results[0];
+    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
+      if(!error){
+        //message deleted
+      }
+    });
+  }
+});
+```
+
+Som standard är ett meddelande endast dolt i 30 sekunder. Efter 30 sekunder är det synligt för andra klienter. Du kan ange ett annat värde med hjälp av `options.visibilityTimeout` with **GetMessage**.
+
+Om du använder **GetMessage** när det inte finns några meddelanden i kön returneras inget fel. Inga meddelanden kommer dock att returneras.
+
+---
+
+## <a name="additional-options-for-dequeuing-messages"></a>Ytterligare alternativ för demsmq-meddelanden
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+Det finns två sätt att anpassa meddelande hämtning från en kö:
+
+* [Options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) – hämta en batch med meddelanden (upp till 32.)
+* [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) – ange en längre eller kortare tids gräns för insikt.
+
+I följande exempel används metoden **receiveMessages** för att hämta fem meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `for` loop. Den anger också timeout för insikter till fem minuter för alla meddelanden som returneras av den här metoden.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessages":::
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
 Det finns två sätt att anpassa meddelande hämtning från en kö:
 
 * `options.numOfMessages` – Hämta en batch med meddelanden (upp till 32.)
 * `options.visibilityTimeout` -Ange en längre eller kortare tids gräns för insikt.
 
-I följande exempel används metoden **GetMessage** för att få 15 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en for-slinga. Den anger också timeout för insikter till fem minuter för alla meddelanden som returneras av den här metoden.
+I följande exempel används metoden **GetMessage** för att få 15 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `for` loop. Den anger också timeout för insikter till fem minuter för alla meddelanden som returneras av den här metoden.
 
 ```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
@@ -208,8 +267,19 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här gör du: Hämta Kölängd
-**GetQueueMetadata** Returnerar metadata om kön, inklusive det ungefärliga antalet meddelanden som väntar i kön.
+---
+
+## <a name="how-to-get-the-queue-length"></a>Så här hämtar du Kölängd
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+[GetProperties](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) -metoden returnerar metadata om kön, inklusive det ungefärliga antalet meddelanden som väntar i kön.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_QueueLength":::
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
+**GetQueueMetadata** -metoden returnerar metadata om kön, inklusive det ungefärliga antalet meddelanden som väntar i kön.
 
 ```javascript
 queueSvc.getQueueMetadata('myqueue', function(error, results, response){
@@ -219,7 +289,18 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Gör så här: Visa lista över köer
+---
+
+## <a name="how-to-list-queues"></a>Så här listar du köer
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+Anropa [QueueServiceClient. listQueues]()om du vill hämta en lista över köer. Om du vill hämta en lista som filtrerats efter ett särskilt prefix anger du [Options. prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) i ditt anrop till **listQueues**.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ListQueues":::
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
 Använd **listQueuesSegmented**om du vill hämta en lista över köer. Om du vill hämta en lista som filtrerats efter ett angivet prefix använder du **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -230,9 +311,22 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-Om det inte går att returnera alla köer `result.continuationToken` kan användas som den första parametern för **listQueuesSegmented** eller den andra parametern för **listQueuesSegmentedWithPrefix** för att hämta fler resultat.
+Om alla köer inte kan returneras skickar du `result.continuationToken` som den första parametern för **listQueuesSegmented** eller den andra parametern för **listQueuesSegmentedWithPrefix** för att hämta fler resultat.
 
-## <a name="how-to-delete-a-queue"></a>Så här gör du: ta bort en kö
+---
+
+## <a name="how-to-delete-a-queue"></a>Så här tar du bort en kö
+
+# <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
+
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden [deleteQueue](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) på **QueueClient** -objektet.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DeleteQueue":::
+
+Om du vill rensa alla meddelanden från en kö utan att ta bort den, anropa [clearMessages](/javascript/api/@azure/storage-queue/queueclient#clearmessages-queueclearmessagesoptions-).
+
+# <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
+
 Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **deleteQueue** på objektet köobjekt.
 
 ```javascript
@@ -243,108 +337,21 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-Om du vill rensa alla meddelanden från en kö utan att ta bort den, använder du **clearMessages**.
+Om du vill rensa alla meddelanden från en kö utan att ta bort den, anropa **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Gör så här: arbeta med signaturer för delad åtkomst
-Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till köer utan att ange ditt lagrings konto namn eller nycklar. SAS används ofta för att ge begränsad åtkomst till dina köer, till exempel att tillåta en mobilapp att skicka meddelanden.
+---
 
-Ett betrott program, till exempel en molnbaserad tjänst, genererar en SAS med **generateSharedAccessSignature** i **QueueService**och ger den ett icke betrott eller delvis betrott program. Till exempel en mobilapp. Signaturen för delad åtkomst genereras med hjälp av en princip, som definierar mellan vilket start- och slutdatum signaturen för delad åtkomst är giltig, samt vilken åtkomstnivå SAS-innehavaren beviljas.
+[!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-I följande exempel skapas en ny princip för delad åtkomst som gör att SAS-innehavaren kan lägga till meddelanden i kön och förfaller 100 minuter efter den tidpunkt då den skapades.
+## <a name="next-steps"></a>Nästa steg
 
-```javascript
-var startDate = new Date();
-var expiryDate = new Date(startDate);
-expiryDate.setMinutes(startDate.getMinutes() + 100);
-startDate.setMinutes(startDate.getMinutes() - 100);
-
-var sharedAccessPolicy = {
-  AccessPolicy: {
-    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-    Start: startDate,
-    Expiry: expiryDate
-  }
-};
-
-var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
-var host = queueSvc.host;
-```
-
-Observera att värd informationen också måste anges, eftersom den krävs när SAS-innehavaren försöker komma åt kön.
-
-Klient programmet använder sedan SAS med **QueueServiceWithSAS** för att utföra åtgärder mot kön. Följande exempel ansluter till kön och skapar ett meddelande.
-
-```javascript
-var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
-sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
-  if(!error){
-    //message added
-  }
-});
-```
-
-Eftersom SAS genererades med Lägg till åtkomst, skulle ett fel returneras om ett försök gjordes att läsa, uppdatera eller ta bort meddelanden.
-
-### <a name="access-control-lists"></a>Listor för åtkomstkontroll
-Du kan också använda en åtkomstkontrollista (ACL) för att definiera åtkomstprincipen för en signatur för delad åtkomst. Detta är användbart om du vill tillåta att flera klienter får åtkomst till kön, men ger olika åtkomst principer för varje klient.
-
-En åtkomstkontrollista implementeras med hjälp av en matris med åtkomstprinciper, med ett ID som associeras med varje princip. I följande exempel definieras två principer. en för "Användare1" och en för "användare2":
-
-```javascript
-var sharedAccessPolicy = {
-  user1: {
-    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
-    Start: startDate,
-    Expiry: expiryDate
-  },
-  user2: {
-    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-    Start: startDate,
-    Expiry: expiryDate
-  }
-};
-```
-
-Följande exempel hämtar den aktuella ACL: en för **kön**och lägger sedan till de nya principerna med **setQueueAcl**. Med den här metoden kan du göra följande:
-
-```javascript
-var extend = require('extend');
-queueSvc.getQueueAcl('myqueue', function(error, result, response) {
-  if(!error){
-    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
-    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
-      if(!error){
-        // ACL set
-      }
-    });
-  }
-});
-```
-
-När du har angett ACL: en, kan du skapa en SAS baserad på ID för en princip. I följande exempel skapas en ny signatur för delad åtkomst för ”user2”:
-
-```javascript
-queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
-```
-
-## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Besök [Azure Storage-teamets blogg][Azure Storage Team Blog].
-* Besök [Azure Storage SDK för Node][Azure Storage SDK for Node] -lagringsplatsen på GitHub.
+* Besök [Azure Storage teamets blogg][Azure Storage Team Blog] och lär dig vad som är nytt
+* Besök [Azure Storage klient bibliotek för Java Script][Azure Storage client library for JavaScript] -lagringsplats på GitHub
 
-
-
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-
-[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
-
-[Azure Portal]: https://portal.azure.com
-
-[Skapa en Node.js-webbapp i Azure App Service](../../app-service/quickstart-nodejs.md)
-
-[Skapa och distribuera en Node.js-app till en Azure-molntjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
-
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-
-[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
+[Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
+[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+[Build and deploy a Node.js application to an Azure Cloud Service]: ../../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Create a Node.js web app in Azure App Service]: ../../app-service/quickstart-nodejs.md
+[Visual Studio Code]: https://code.visualstudio.com/docs/nodejs/nodejs-tutorial

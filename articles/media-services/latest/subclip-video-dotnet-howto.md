@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 827fa21fd7f0a3179fb1ed3cd01a461a785829b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1725fab30ddb4d40e0bf5345683588c878658052
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257406"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296574"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Under klipp en video vid kodning med Media Services-.NET
 
@@ -27,7 +27,7 @@ Du kan trimma eller under klipp en video när du kodar den med ett [jobb](/rest/
 
 Följande C#-exempel skapar ett jobb som trimmar en video i en till gång när den skickar ett kodnings jobb. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen som beskrivs i det här avsnittet måste du:
 

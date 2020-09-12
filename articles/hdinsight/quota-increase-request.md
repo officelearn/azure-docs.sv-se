@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079623"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291678"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Begäran om kvot ökar för Azure HDInsight
 
@@ -65,7 +65,7 @@ Utför följande steg för att begära en kvot ökning:
 1. På fliken **Granska och skapa** väljer du **skapa**.
 
 > [!NOTE]  
-> Om du behöver öka HDInsight Core-kvoten i en privat region [skickar du en vitlista-begäran](https://aka.ms/canaryintwhitelist).
+> Om du behöver öka HDInsight Core-kvoten i en privat region [skickar du en godkänd list förfrågan](https://aka.ms/canaryintwhitelist).
 
 Du kan [kontakta supporten för att begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 

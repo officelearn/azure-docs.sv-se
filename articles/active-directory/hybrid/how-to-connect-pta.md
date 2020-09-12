@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa763c875b06bd7e22be0e814838f2e79b24e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358029"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279473"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användarinloggning med Azure Active Directory-direktautentisering
 
@@ -31,7 +31,7 @@ Med hjälp av Azure Active Directory (Azure AD) genom strömnings autentisering 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Den här funktionen är ett alternativ till [synkronisering av lösen ords-hash i Azure AD](how-to-connect-password-hash-synchronization.md), vilket ger samma fördelar med att Cloud-autentisering används för organisationer. Vissa organisationer vill tvinga sina lokala Active Directory säkerhets-och lösen ords principer, kan dock välja att använda direktautentisering i stället. Läs [den här guiden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) för en jämförelse av de olika inloggnings metoderna för Azure AD och hur du väljer rätt inloggnings metod för din organisation.
+Den här funktionen är ett alternativ till [synkronisering av lösen ords-hash i Azure AD](how-to-connect-password-hash-synchronization.md), vilket ger samma fördelar med att Cloud-autentisering används för organisationer. Vissa organisationer vill tvinga sina lokala Active Directory säkerhets-och lösen ords principer, kan dock välja att använda direktautentisering i stället. Läs [den här guiden](./choose-ad-authn.md) för en jämförelse av de olika inloggnings metoderna för Azure AD och hur du väljer rätt inloggnings metod för din organisation.
 
 ![Direkt autentisering i Azure AD](./media/how-to-connect-pta/pta1.png)
 
@@ -42,14 +42,14 @@ Du kan kombinera direktautentisering med funktionen för [sömlös enkel inloggn
 - *En utmärkt användarupplevelse*
   - Användarna använder samma lösen ord för att logga in i både lokala och molnbaserade program.
   - Användarna tillbringar mindre tid på att prata med IT-supportavdelningen för att lösa problem som rör lösen ord.
-  - Användare kan utföra uppgifter för [lösen ords hantering](../authentication/active-directory-passwords-overview.md) i molnet via självbetjäning.
+  - Användare kan utföra uppgifter för [lösen ords hantering](../authentication/concept-sspr-howitworks.md) i molnet via självbetjäning.
 - *Enkelt att distribuera & administrera*
   - Det behövs inga komplexa lokala distributioner eller nätverks konfiguration.
   - Behöver bara en Lightweight-agent för att installeras lokalt.
   - Inga hanterings kostnader. Agenten får automatiskt förbättringar och fel korrigeringar.
 - *Skydda*
   - Lokala lösen ord lagras aldrig i molnet i något formulär.
-  - Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
+  - Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../conditional-access/overview.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
   - Agenten gör bara utgående anslutningar inifrån nätverket. Det finns därför inget krav på att installera agenten i ett perimeternätverk, även kallat DMZ.
   - Kommunikationen mellan en agent och Azure AD skyddas med certifikatbaserad autentisering. Dessa certifikat förnyas automatiskt med några månader av Azure AD.
 - *Högt tillgänglighet*
@@ -59,8 +59,8 @@ Du kan kombinera direktautentisering med funktionen för [sömlös enkel inloggn
 
 - Har stöd för användar inloggning i alla webbläsarbaserade program och i Microsoft Office-klient program som använder [modern autentisering](https://aka.ms/modernauthga).
 - Inloggnings användar namn kan antingen vara det lokala standard användar namnet ( `userPrincipalName` ) eller ett annat attribut som kon figurer ATS i Azure AD Connect (kallas `Alternate ID` ).
-- Funktionen fungerar sömlöst med [villkorliga åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner som Multi-Factor Authentication (MFA) för att skydda dina användare.
-- Integrerad med molnbaserad [lösen ords hantering via självbetjäning](../authentication/active-directory-passwords-overview.md), inklusive tillbakaskrivning av lösen ord till lokala Active Directory och lösen ords skydd genom förbjuda vanliga lösen ord.
+- Funktionen fungerar sömlöst med [villkorliga åtkomst](../conditional-access/overview.md) funktioner som Multi-Factor Authentication (MFA) för att skydda dina användare.
+- Integrerad med molnbaserad [lösen ords hantering via självbetjäning](../authentication/concept-sspr-howitworks.md), inklusive tillbakaskrivning av lösen ord till lokala Active Directory och lösen ords skydd genom förbjuda vanliga lösen ord.
 - Miljöer med flera skogar stöds om det finns skogs förtroenden mellan dina AD-skogar och om routning av namnsuffix har kon figurer ATS korrekt.
 - Det är en kostnads fri funktion, och du behöver inte några betalda versioner av Azure AD för att använda den.
 - Den kan aktive ras via [Azure AD Connect](whatis-hybrid-identity.md).

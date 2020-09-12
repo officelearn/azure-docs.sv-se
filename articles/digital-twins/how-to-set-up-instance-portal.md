@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 300a11c36b11230d2bd75534f152a0a5955743ed
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181805"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280034"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -36,7 +36,7 @@ Börja med att välja _skapa en resurs_ på Start sidan för Azure-tjänster en 
 
 Sök efter *Azure Digitals dubbla* i sökrutan och välj tjänsten **Azure Digitals (för hands version)** från resultaten. Välj knappen _skapa_ för att skapa en ny instans av tjänsten.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj skapa från sidan Azure Digitals dubblare tjänst":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj "skapa" från sidan Azure Digitals dubblare tjänst":::
 
 Fyll i värdena som visas nedan på sidan *skapa resurs* :
 * **Prenumeration**: den Azure-prenumeration du använder
@@ -102,7 +102,7 @@ Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats beh
 
 Börja med att navigera till [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) i Azure Portal (du kan använda den här länken eller hitta den med Portal Sök fältet). Välj *Appregistreringar* på menyn tjänst och sedan *+ ny registrering*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Vy av sidan Azure AD-tjänst i Azure Portal, markera meny alternativet Appregistreringar och knappen + ny registrering":::
+:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Vy av sidan Azure AD-tjänst i Azure Portal, markera meny alternativet "Appregistreringar" och knappen "+ ny registrering"":::
 
 På sidan *Registrera en program* som följer fyller du i de begärda värdena:
 * **Namn**: ett visnings namn för Azure AD-program som ska associeras med registreringen
@@ -162,5 +162,9 @@ Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . De
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
+Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
+* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
+
+Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
 * [*Instruktion: skriva kod för app-autentisering*](how-to-authenticate-client.md)

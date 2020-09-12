@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447102"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279269"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: aktiverar tillbakaskrivning av enhet
 > [!NOTE]
@@ -31,10 +31,10 @@ ms.locfileid: "87447102"
 
 Följande dokumentation innehåller information om hur du aktiverar funktionen tillbakaskrivning av enhet i Azure AD Connect. Tillbakaskrivning av enhet används i följande scenarier:
 
-* Aktivera [Windows Hello för företag med distribution av hybrid certifikats förtroende](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Aktivera [Windows Hello för företag med distribution av hybrid certifikats förtroende](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Aktivera villkorlig åtkomst baserat på enheter till ADFS (2012 R2 eller senare) skyddade program (förtroenden för förlitande part).
 
-Detta ger ytterligare säkerhet och garantier för att åtkomst till program endast beviljas till betrodda enheter. Mer information om villkorlig åtkomst finns i [hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) och [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Detta ger ytterligare säkerhet och garantier för att åtkomst till program endast beviljas till betrodda enheter. Mer information om villkorlig åtkomst finns i [hantera risker med villkorlig åtkomst](../conditional-access/overview.md) och [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../devices/overview.md).
 
 > [!IMPORTANT]
 > <li>Enheter måste finnas i samma skog som användarna. Eftersom enheter måste skrivas tillbaka till en enda skog, stöder den här funktionen för närvarande inte en distribution med flera användar skogar.</li>
@@ -83,7 +83,7 @@ Tillbakaskrivning av enhet bör nu fungera korrekt. Tänk på att det kan ta upp
    ![Lista med registrerade enheter i Active Directory administrations Center](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Aktivera villkorlig åtkomst
-Detaljerade anvisningar för att aktivera det här scenariot finns i [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Detaljerade anvisningar för att aktivera det här scenariot finns i [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../devices/overview.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Kryss rutan tillbakaskrivning är fortfarande inaktive rad
@@ -126,9 +126,8 @@ Verifiera konfigurationen i Active Directory:
 ![Felsöka, verifiera behörigheter för enhets registrerings konfiguration](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Ytterligare information
-* [Hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
-* [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Hantera risker med villkorlig åtkomst](../conditional-access/overview.md)
+* [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../devices/overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).
-

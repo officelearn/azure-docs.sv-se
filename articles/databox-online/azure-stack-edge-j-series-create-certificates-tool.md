@@ -37,7 +37,7 @@ Du kan använda verktyget Azure Stack Hub readiness Checker (AzsReadinessChecker
 - VPN-certifikat
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera följande om du vill skapa kund service representanter för Azure Stack Edge-enhets distribution: 
 

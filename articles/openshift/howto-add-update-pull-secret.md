@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: pull-hemlighet, Aro, OpenShift, Red Hat
-ms.openlocfilehash: 3351052db63f095bfca5f0b91f26e1013319c582
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100167"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294755"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Lägg till eller uppdatera din Red Hat pull-hemlighet i ett Azure Red Hat OpenShift 4-kluster
 
-Den här guiden beskriver hur du lägger till eller uppdaterar din Red Hat pull-hemlighet för ett befintligt Azure Red Hat OpenShift 4. x-kluster.
+Den här guiden beskriver hur du lägger till eller uppdaterar din Red Hat pull-hemlighet för ett befintligt Azure Red Hat OpenShift (ARO) 4. x-kluster.
 
 Om du skapar ett kluster för första gången kan du lägga till din pull-hemlighet när du skapar klustret. Mer information om hur du skapar ett ARO-kluster med Red Hat pull-hemlighet finns i [skapa ett Azure Red Hat OpenShift 4-kluster](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
 
@@ -29,13 +29,13 @@ När du skapar ett ARO-kluster utan att lägga till en Red Hat pull-hemlighet, s
 
 Det här avsnittet beskriver hur du uppdaterar en pull-hemlighet med ytterligare värden från Red Hat pull-hemlighet.
 
-1. Hämta hemligheten som heter `pull-secret` i OpenShift-config-namnrymden och spara den i en separat fil genom att köra följande kommando: 
+1. Hämta hemligheten som heter `pull-secret` i `openshift-config` namn området och spara den i en separat fil genom att köra följande kommando: 
 
     ```console
     oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
     ```
 
-    Dina utdata bör likna följande (Observera att det faktiska hemliga värdet har tagits bort):
+    Dina utdata bör likna följande. (Observera att det faktiska hemliga värdet har tagits bort.)
 
     ```json
     {
@@ -47,7 +47,7 @@ Det här avsnittet beskriver hur du uppdaterar en pull-hemlighet med ytterligare
     }
     ```
 
-2. Navigera till din [Red Hat OpenShift Cluster Manager-Portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) och klicka på **Hämta pull-hemlighet.** Din Red Hat pull-hemlighet kommer att se ut så här (Observera att de faktiska hemliga värdena har tagits bort):
+2. Gå till [Red Hat OpenShift Cluster Manager-portalen](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) och välj **Hämta pull-hemlighet**. Din Red Hat pull-hemlighet kommer att se ut så här. (Observera att de faktiska hemliga värdena har tagits bort.)
 
     ```json
     {
@@ -75,7 +75,7 @@ Det här avsnittet beskriver hur du uppdaterar en pull-hemlighet med ytterligare
 3. Redigera den pull-hemliga fil som du fick från klustret genom att lägga till i poster som finns i din Red Hat pull-hemlighet. 
 
     > [!IMPORTANT]
-    > Om du inkluderar `cloud.openshift.com` posten från din Red Hat pull-hemlighet kommer klustret att börja skicka telemetridata till Red Hat. Inkludera bara det här avsnittet om du vill skicka telemetridata. Annars lämnar du följande avsnitt.
+    > Om du inkluderar `cloud.openshift.com` posten från din Red Hat pull-hemlighet kommer klustret att börja skicka telemetridata till Red Hat. Inkludera bara det här avsnittet om du vill skicka telemetridata. Annars lämnar du följande avsnitt.    
     > ```json
     > {
     >         "cloud.openshift.com": {
@@ -86,13 +86,14 @@ Det här avsnittet beskriver hur du uppdaterar en pull-hemlighet med ytterligare
 
     > [!CAUTION]
     > Ta inte bort eller ändra du är `arosvc.azurecr.io` posten från din pull-hemlighet. Det här avsnittet behövs för att klustret ska fungera korrekt.
+
     ```json
     "arosvc.azurecr.io": {
                 "auth": "<my-aroscv.azurecr.io-secret>"
             }
     ```
 
-    Den slutgiltiga filen bör se ut så här (Observera att de faktiska hemliga värdena har tagits bort):
+    Den slutgiltiga filen bör se ut ungefär så här. (Observera att de faktiska hemliga värdena har tagits bort.)
 
     ```json
     {
@@ -120,20 +121,21 @@ Det här avsnittet beskriver hur du uppdaterar en pull-hemlighet med ytterligare
     }
     ```
 
-4. Se till att filen är en giltig JSON-fil. Det finns många sätt att verifiera din JSON. I följande exempel används JQ:
+4. Kontrol lera att filen är en giltig JSON-fil. Det finns många sätt att verifiera din JSON. I följande exempel används JQ:
+
     ```json
     cat pull-secret.json | jq
     ```
 
     > [!NOTE]
-    > Om det finns ett fel i filen kan du se det `parse error` .
+    > Om det finns ett fel i filen visas det som `parse error` .
 
 ## <a name="add-your-pull-secret-to-your-cluster"></a>Lägg till din pull-hemlighet till klustret
 
-Kör följande kommando för att uppdatera din pull-hemlighet:
+Kör följande kommando för att uppdatera din pull-hemlighet.
 
 > [!NOTE]
-> Om du kör det här kommandot kommer klusternoderna att starta om en i taget som de uppdaterar. 
+> Genom att köra det här kommandot kommer klusternoderna att starta om en och en när de uppdateras. 
 
 ```console
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=./pull-secret.json
@@ -151,9 +153,9 @@ När hemligheten har angetts är du redo att aktivera Red Hat Certified-operatö
 oc edit configs.samples.operator.openshift.io/cluster -o yaml
 ```
 
-Ändra `spec.architectures.managementState` `status.architecture.managementState` värdena och från `Removed` till `Managed` . 
+Ändra `spec.architectures.managementState` värdena och `status.architecture.managementState` från `Removed` till `Managed` . 
 
-Följande YAML-kodfragment visar bara relevanta avsnitt i den redigerade yaml-filen.
+Följande YAML-kodfragment visar bara relevanta avsnitt i den redigerade YAML-filen:
 
 ```yaml
 apiVersion: samples.operator.openshift.io/v1
@@ -181,9 +183,9 @@ Kör sedan följande kommando för att redigera konfigurations filen för operat
 oc edit operatorhub cluster -o yaml
 ```
 
-Ändra `Spec.Sources.Disabled` och `Status.Sources.Disabled` värden från `true` till `false` för alla källor som du vill aktivera.
+Ändra `Spec.Sources.Disabled` värdena och `Status.Sources.Disabled` från `true` till `false` för alla källor som du vill aktivera.
 
-Följande YAML-kodfragment visar bara relevanta avsnitt i den redigerade yaml-filen.
+Följande YAML-kodfragment visar bara relevanta avsnitt i den redigerade YAML-filen:
 
 ```yaml
 Name:         cluster

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 22f0c63c2b60b6c72ad297492045df17e10dd06c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268330"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290131"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Felsök problem i Azure Stack Edge GPU-enhet 
 
@@ -140,7 +140,7 @@ Fel listorna kompileras från identifierade scenarier och kan användas för sj�
 
 Här är de fel som kan visas under konfigurationen av Azure Resource Manager för åtkomst till enheten. 
 
-| **Problem/fel** |  **Upplösning** | 
+| **Problem/fel** |  **Lösning** | 
 |------------|-----------------|
 |Allmänna frågor|<li>[Kontrol lera att gräns enheten är korrekt konfigurerad](#verify-the-device-is-configured-properly).<li> [Kontrol lera att klienten är korrekt konfigurerad](#verify-the-client-is-configured-properly)|
 |Add-AzureRmEnvironment: ett fel uppstod när begäran skickades.<br>På rad: 1 tecken: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|Det här felet innebär att din Azure Stack Edge-enhet inte kan kontaktas eller har kon figurer ATS korrekt. Kontrol lera att gräns enheten och klienten är korrekt konfigurerade. Vägledning finns i raden **allmänna problem** i den här tabellen.|
@@ -184,17 +184,17 @@ Här är de fel som kan visas under konfigurationen av Azure Resource Manager f�
 
 Här är felen som rör Blob Storage på Azure Stack Edge/Data Box Gateway-enhet.
 
-| **Problem/fel** |  **Upplösning** | 
+| **Problem/fel** |  **Lösning** | 
 |--------------------|-----------------|
 |Det gick inte att hämta underordnade resurser. Värdet för ett av HTTP-huvudena har fel format.| I **Redigera** -menyn väljer du **mål Azure Stack API: er**. Starta sedan om Azure Storage Explorer.|
 |getaddrinfo ENOTFOUND <accountname> . blob. <serialnumber> .. microsoftdatabox.com|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på den här sökvägen: `C:\Windows\System32\drivers\etc\hosts` på Windows eller `/etc/hosts` i Linux.|
 |Det gick inte att hämta underordnade resurser.<br> Information: självsignerat certifikat |Importera SSL-certifikatet för enheten till Azure Storage Explorer: <ol><li>Hämta certifikatet från Azure Portal. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).</li><li>Välj SSL-certifikat på **Redigera** -menyn och välj sedan **Importera certifikat**.</li></ol>|
-|AzCopy-kommandot verkar låsa sig en minut innan det här felet visas:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `C:\Windows\System32\drivers\etc\hosts` .|
-|AzCopy-kommandot verkar låsa sig en minut innan det här felet visas:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
-|AzCopy-kommandot verkar låsa sig i 20 minuter innan det här felet visas:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `/etc/hosts` .|
-|AzCopy-kommandot verkar låsa sig i 20 minuter innan det här felet visas:<br>`Error parsing source location… The SSL connection could not be established`. |Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
-|AzCopy-kommandot verkar låsa sig i 20 minuter innan det här felet visas:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `/etc/hosts` .|
-|AzCopy-kommandot verkar låsa sig i 20 minuter innan det här felet visas: `Error parsing source location… The SSL connection could not be established` .|Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
+|AzCopy-kommandot slutar svara i minuter innan det här felet visas:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `C:\Windows\System32\drivers\etc\hosts` .|
+|AzCopy-kommandot slutar svara i minuter innan det här felet visas:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
+|AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `/etc/hosts` .|
+|AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas:<br>`Error parsing source location… The SSL connection could not be established`. |Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
+|AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `/etc/hosts` .|
+|AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas: `Error parsing source location… The SSL connection could not be established` .|Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Värdet för ett av HTTP-huvudena har fel format.|Den installerade versionen av Microsoft Azure Storages biblioteket för python stöds inte av Data Box-enhet. Se Azure Data Box Blob Storage-krav för versioner som stöds.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED]...| Innan du kör python anger du REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade SSL-certifikatfil (se hur du [hämtar certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. Till exempel på Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |Anslutnings tiden är slut.|Logga in på Azure Stack Edge och kontrol lera att den är olåst. När enheten startas om förblir den låst tills någon loggar in.|

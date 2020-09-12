@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73664416"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278093"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Jämföra baslinjer med hjälp av övervakning av filintegritet (FIM)
 
@@ -41,7 +41,7 @@ Standardvärdena för FIM-Hive är ett bekvämt sätt att övervaka rekursiva ä
 >[!NOTE]
 > Rekursiva kontroller gäller endast för rekommenderade säkerhets strukturer och inte anpassade register Sök vägar.  
 
-## <a name="adding-a-custom-registry-check"></a>Lägga till en anpassad register kontroll
+## <a name="add-a-custom-registry-check"></a>Lägg till en anpassad register kontroll
 
 FIM-slutpunkter börjar genom att identifiera egenskaper för ett tillförlitligt tillstånd för operativ systemet och program som stöds.  I det här exemplet kommer vi att fokusera på konfigurationerna för lösen ords principer för Windows Server 2008 och högre.
 
@@ -73,14 +73,14 @@ FIM-slutpunkter börjar genom att identifiera egenskaper för ett tillförlitlig
 
       ![Aktivera FIM i ett register](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Spåra ändringar i Windows-filer
+## <a name="track-changes-to-windows-files"></a>Spåra ändringar i Windows-filer
 
 1. I text rutan **Ange sökväg** i fönstret **Lägg till Windows-fil för ändringsspårning** anger du den mapp som innehåller de filer som du vill spåra. I exemplet i följande figur finns **contoso-webbappen** i D:\ enhet i mappstrukturen för **ContosWebApp** .  
 1. Skapa en anpassad Windows-filpost genom att ange ett namn på inställnings klassen, aktivera rekursion och ange den översta mappen med ett jokertecken (*).
 
     ![Aktivera FIM på en fil](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Hämtar ändrings data
+## <a name="retrieve-change-data"></a>Hämta ändrings data
 
 Data för fil integritets övervakning finns i tabell uppsättningen för Azure Log Analytics/ConfigurationChange.  
 

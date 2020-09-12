@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269156"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295572"
 ---
 # <a name="input-metadata"></a>Inkommande metadata
 
@@ -71,8 +71,8 @@ Innehåller en samling av AssetFile-element för kodnings jobbet.
 | **Profil** |Video spårets profil. <br /><br />Exempel: `"Profile": "Main"`|
 | **Nivå** |Video spårets nivå. <br /><br />Exempel: `"Level": "3.2"`|
 | **PixelFormat** |Video spårets bild punkts format. <br /><br />Exempel: `"PixelFormat": "yuv420p"`|
-| **Bredd**<br />Obligatorisk |Kodad video bredd i bild punkter. <br /><br />Exempel: `"Width": "1280"`|
-| **Höjd**<br />Obligatorisk |Kodad video höjd i bild punkter.<br /><br />Exempel: `"Height": "720"` |
+| **LED**<br />Obligatorisk |Kodad video bredd i bild punkter. <br /><br />Exempel: `"Width": "1280"`|
+| **Våghöjd**<br />Obligatorisk |Kodad video höjd i bild punkter.<br /><br />Exempel: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Obligatorisk |Täljare för bild förhållande i bild förhållande.<br /><br />Exempel: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Obligatorisk |Nämnare för bild förhållande i bild. <br /><br />Exempel: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Bild förhållande – täljare för video exempel. <br /><br />Exempel: `"SampleAspectRatioNumerator": 1.0`|

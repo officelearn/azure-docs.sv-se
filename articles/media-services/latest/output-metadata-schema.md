@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267215"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289380"
 ---
 # <a name="output-metadata"></a>Utgående metadata
 
@@ -55,8 +55,8 @@ Varje fysisk AssetFile kan innehålla i noll eller flera videor spårar överlag
 | **FourCC**<br />Obligatorisk | Video-codec FourCC-kod som rapporteras av ffmpeg.  <br /><br />Exempel: `"FourCC": "avc1"`|
 | **Profil** |H264,-profil (gäller endast H264,-codec).  <br /><br />Exempel: `"Profile": "High"` |
 | **Nivå** |H264,-nivå (gäller endast H264,-codec).  <br /><br />Exempel: `"Level": "3.2"`|
-| **Bredd**<br />Obligatorisk |Kodad video bredd i bild punkter.  <br /><br />Exempel: `"Width": "1280"`|
-| **Höjd**<br />Obligatorisk |Kodad video höjd i bild punkter.  <br /><br />Exempel: `"Height": "720"`|
+| **LED**<br />Obligatorisk |Kodad video bredd i bild punkter.  <br /><br />Exempel: `"Width": "1280"`|
+| **Våghöjd**<br />Obligatorisk |Kodad video höjd i bild punkter.  <br /><br />Exempel: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Obligatorisk|Täljare för bild förhållande i bild förhållande.  <br /><br />Exempel: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Obligatorisk |Nämnare för bild förhållande i bild.  <br /><br />Exempel: `"DisplayAspectRatioDenominator": 9.0`|
 | **Bildfrekvens**<br />Obligatorisk |Uppmätt video bild Rute frekvens i. 3F-format.  <br /><br />Exempel: `"Framerate": 29.970`|

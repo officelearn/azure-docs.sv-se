@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698605"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279660"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: utforma begrepp
 Syftet med det här dokumentet är att beskriva områden som måste ses över under implementeringen av Azure AD Connect. Det här dokumentet är ett djupgående att ta del av vissa områden och dessa begrepp beskrivs kortfattat i andra dokument.
@@ -165,7 +165,7 @@ Under analysen (steg 4), om attributet har kon figurer ATS på ett eller flera o
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Inverkan på AD FS eller Federations konfiguration från tredje part
 Om du använder Azure AD Connect för att hantera distribution lokalt AD FS, uppdaterar Azure AD Connect automatiskt anspråks reglerna så att de använder samma AD-attribut som sourceAnchor. Detta säkerställer att ImmutableID-anspråket som genereras av ADFS överensstämmer med sourceAnchor-värdena som exporteras till Azure AD.
 
-Om du hanterar AD FS utanför Azure AD Connect eller om du använder Federations servrar från tredje part för autentisering måste du manuellt uppdatera anspråks reglerna för ImmutableID-anspråk så att de överensstämmer med sourceAnchor-värdena som exporteras till Azure AD enligt beskrivningen i artikel avsnittet [ändra AD FS anspråks regler](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Guiden returnerar följande varning när installationen är klar:
+Om du hanterar AD FS utanför Azure AD Connect eller om du använder Federations servrar från tredje part för autentisering måste du manuellt uppdatera anspråks reglerna för ImmutableID-anspråk så att de överensstämmer med sourceAnchor-värdena som exporteras till Azure AD enligt beskrivningen i artikel avsnittet [ändra AD FS anspråks regler](./how-to-connect-fed-management.md#modclaims). Guiden returnerar följande varning när installationen är klar:
 
 ![Federations konfiguration från tredje part](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
@@ -193,7 +193,7 @@ John är en användare i contoso.com. Du vill att John ska använda det lokala U
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Icke-dirigerbart lokala domäner och UPN för Azure AD
 Vissa organisationer har icke-flyttbara domäner, t. ex. contoso. local eller enkla enkla domän etiketter som contoso. Du kan inte verifiera en icke-dirigerbart domän i Azure AD. Azure AD Connect kan bara synkronisera till en verifierad domän i Azure AD. När du skapar en Azure AD-katalog skapar den en dirigerbart domän som blir standard domän för din Azure AD, till exempel contoso.onmicrosoft.com. Därför är det nödvändigt att verifiera en annan dirigerbart domän i ett sådant scenario om du inte vill synkronisera till standard domänen onmicrosoft.com.
 
-Läs [Lägg till ditt anpassade domän namn för att Azure Active Directory](../active-directory-domains-add-azure-portal.md) för mer information om att lägga till och verifiera domäner.
+Läs [Lägg till ditt anpassade domän namn för att Azure Active Directory](../fundamentals/add-custom-domain.md) för mer information om att lägga till och verifiera domäner.
 
 Azure AD Connect identifierar om du kör i en icke-dirigerbart domän miljö och korrekt varnar dig när du går vidare med Express inställningar. Om du arbetar i en icke-dirigerbart domän är det troligt att användarens UPN-namn också har icke-dirigerbart suffix. Om du till exempel kör under contoso. local föreslår Azure AD Connect att du använder anpassade inställningar i stället för att använda Express inställningar. Med anpassade inställningar kan du ange det attribut som ska användas som UPN för att logga in på Azure när användarna har synkroniserats till Azure AD.
 

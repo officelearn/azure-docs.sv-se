@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6a61a4a26176ee353d1f182579e1f8d80a95aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356006"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275910"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller återställnings stegen.
@@ -55,7 +55,7 @@ Kontrol lera först om synkroniseringstjänsten fortfarande körs eller inte:
 5. Försök starta tjänsten om den inte körs. Om tjänsten har startats kan du hoppa över [databas](#shrink-the-database) steget och gå till [data steget ta bort körnings historik](#delete-run-history-data) . Annars fortsätter du med [att krympa databas](#shrink-the-database) steget.
 
 ### <a name="shrink-the-database"></a>Krymp databasen
-Använd Shrink-åtgärden för att frigöra tillräckligt med DB-utrymme för att starta synkroniseringstjänsten. Den frigör DB-utrymme genom att ta bort blank steg i databasen. Det här steget är bästa ansträngning eftersom det inte garanterar att du alltid kan återställa utrymme. Läs mer om Krympnings åtgärden i den här artikeln [Krymp en databas](https://msdn.microsoft.com/library/ms189035.aspx).
+Använd Shrink-åtgärden för att frigöra tillräckligt med DB-utrymme för att starta synkroniseringstjänsten. Den frigör DB-utrymme genom att ta bort blank steg i databasen. Det här steget är bästa ansträngning eftersom det inte garanterar att du alltid kan återställa utrymme. Läs mer om Krympnings åtgärden i den här artikeln [Krymp en databas](/sql/relational-databases/databases/shrink-a-database?view=sql-server-ver15).
 
 > [!IMPORTANT]
 > Hoppa över det här steget om du kan få synkroniseringstjänsten att köras. Vi rekommenderar inte att du krymper SQL DB eftersom den kan leda till dåliga prestanda på grund av ökad fragmentering.
@@ -100,8 +100,8 @@ Det här steget är att minska sannolikheten för att det ska gå att köra prob
 
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Långsiktig lösning – migrera till fullständig SQL
 I allmänhet är problemet ett exempel på att databas storleken på 10 GB inte längre räcker för Azure AD Connect att synkronisera din lokala Active Directory till Azure AD. Vi rekommenderar att du växlar till att använda den fullständiga versionen av SQL Server. Du kan inte direkt ersätta en LocalDB i en befintlig Azure AD Connect-distribution med den fullständiga SQL-versionens databas. Istället måste du distribuera en ny Azure AD Connect-server med den fullständiga versionen av SQL. Vi rekommenderar att du gör en swingmigrering med den nya Azure AD Connect-servern (med SQL DB) distribuerad som en mellanlagringsserver bredvid den befintliga Azure AD Connect-servern (med LocalDB). 
-* Instruktioner för hur du konfigurerar fjärr-SQL med Azure AD Connect finns i artikeln [Anpassad installation av Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* I artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration) finns det information om swingmigrering för Azure AD Connect-uppgradering.
+* Instruktioner för hur du konfigurerar fjärr-SQL med Azure AD Connect finns i artikeln [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md).
+* I artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](./how-to-upgrade-previous-version.md#swing-migration) finns det information om swingmigrering för Azure AD Connect-uppgradering.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

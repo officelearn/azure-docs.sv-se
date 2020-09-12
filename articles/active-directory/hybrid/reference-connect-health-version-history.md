@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc0417fc6f97501566f03d7eae0e4274d1dbced
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182351"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279422"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directorys teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.  
@@ -30,7 +30,7 @@ Azure Active Directorys teamet uppdaterar regelbundet Azure AD Connect Health me
 > Anslut hälso agenter uppdateras automatiskt när en ny version släpps. Kontrol lera att inställningarna för automatisk uppgradering är aktiverade från Azure Portal.
 >
 
-Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect installationen. Läs mer om [Azure AD Connect versions historik](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) för feedback, rösta på [Connect Health User Voice Channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect installationen. Läs mer om [Azure AD Connect versions historik](./reference-connect-version-history.md) för feedback, rösta på [Connect Health User Voice Channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
 ## <a name="april-2020"></a>April 2020
 **Agent uppdatering**
@@ -260,4 +260,4 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect 
 * Enklare agent distribution med autentiseringsuppgifter för global administratör i Azure AD.  
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [att övervaka din lokala identitets infrastruktur och synkroniseringstjänst i molnet](whatis-hybrid-identity-health.md).
+Lär dig mer om [att övervaka din lokala identitets infrastruktur och synkroniseringstjänst i molnet](./whatis-azure-ad-connect.md).

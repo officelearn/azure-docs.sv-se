@@ -30,7 +30,7 @@ Den här artikeln visar hur du kommer igång med att skapa Azure Functions som a
 
 Om du vill utforska och distribuera befintliga Azure Functions som använder Azure Media Services kan du kolla [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här lagrings platsen innehåller exempel som använder Media Services för att Visa arbets flöden som är relaterade till att mata in innehåll direkt från Blob Storage, kodning och skrivning av innehåll till Blob Storage. Den innehåller också exempel på hur du övervakar jobb meddelanden via Webhooks och Azure-köer. Du kan också utveckla dina funktioner baserat på exemplen i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) -lagringsplatsen. Distribuera funktionerna genom att trycka på knappen **distribuera till Azure** .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
 - Om du ska skapa Azure Functions som utför åtgärder på ditt Azure Media Services-konto (AMS) eller lyssnar på händelser som skickats av Media Services, bör du skapa ett AMS-konto enligt beskrivningen [här](media-services-portal-create-account.md).

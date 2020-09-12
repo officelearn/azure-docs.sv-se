@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279558"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,55 +30,55 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 - **Meddelande**: fel 403.
 
-- **Orsak**:`The Databricks access token has expired.`
+- **Orsak**: `The Databricks access token has expired.`
 
 - **Rekommendation**: som standard är Azure Databricks åtkomsttoken giltig i 90 dagar. Skapa en ny token och uppdatera den länkade tjänsten.
 
 ### <a name="error-code-3201"></a>Felkod: 3201
 
-- **Meddelande**:`Missing required field: settings.task.notebook_task.notebook_path.`
+- **Meddelande**: `Missing required field: settings.task.notebook_task.notebook_path.`
 
-- **Orsak**:`Bad authoring: Notebook path not specified correctly.`
+- **Orsak**: `Bad authoring: Notebook path not specified correctly.`
 
 - **Rekommendation**: Ange antecknings bokens sökväg i Databricks-aktiviteten.
 
 <br/> 
 
-- **Meddelande**:`Cluster... does not exist.`
+- **Meddelande**: `Cluster... does not exist.`
 
-- **Orsak**:`Authoring error: Databricks cluster does not exist or has been deleted.`
+- **Orsak**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
 - **Rekommendation**: kontrol lera att Databricks-klustret finns.
 
 <br/> 
 
-- **Meddelande**:`Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
+- **Meddelande**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
-- **Orsak**:`Bad authoring.`
+- **Orsak**: `Bad authoring.`
 
 - **Rekommendation**: Ange antingen absoluta sökvägar för arbets ytans adresserings scheman eller `dbfs:/folder/subfolder/foo.py` för filer som lagras i Databricks File System (DFS).
 
 <br/> 
 
-- **Meddelande**:`{0} LinkedService should have domain and accessToken as required properties.`
+- **Meddelande**: `{0} LinkedService should have domain and accessToken as required properties.`
 
-- **Orsak**:`Bad authoring.`
-
-- **Rekommendation**: verifiera den [länkade tjänst definitionen](compute-linked-services.md#azure-databricks-linked-service).
-
-<br/> 
-
-- **Meddelande**:`{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
-
-- **Orsak**:`Bad authoring.`
+- **Orsak**: `Bad authoring.`
 
 - **Rekommendation**: verifiera den [länkade tjänst definitionen](compute-linked-services.md#azure-databricks-linked-service).
 
 <br/> 
 
-- **Meddelande**:`Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+- **Meddelande**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
 
-- **Orsak**:`Bad authoring.`
+- **Orsak**: `Bad authoring.`
+
+- **Rekommendation**: verifiera den [länkade tjänst definitionen](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/> 
+
+- **Meddelande**: `Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+
+- **Orsak**: `Bad authoring.`
 
 - **Rekommendation**: se fel meddelandet.
 
@@ -86,17 +86,17 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 ### <a name="error-code-3202"></a>Felkod: 3202
 
-- **Meddelande**:`There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
+- **Meddelande**: `There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
 
-- **Orsak**:`Too many Databricks runs in an hour.`
+- **Orsak**: `Too many Databricks runs in an hour.`
 
 - **Rekommendation**: kontrol lera alla pipeliner som använder den här Databricks-arbetsytan för att skapa takten för jobbet. Om pipelines startade för många Databricks-körningar i mängd, migrerar du några pipelines till en ny arbets yta.
 
 <br/> 
 
-- **Meddelande**:`Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
+- **Meddelande**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
-- **Orsak**:`Authoring error: No value provided for the parameter.`
+- **Orsak**: `Authoring error: No value provided for the parameter.`
 
 - **Rekommendation**: kontrol lera pipeline-JSON och se till att alla parametrar i baseParameters Notebook anger ett värde som inte är tomt.
 
@@ -110,7 +110,7 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 ### <a name="error-code-3203"></a>Felkod: 3203
 
-- **Meddelande**:`The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
+- **Meddelande**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
 
 - **Orsak**: klustret avslutades. För interaktiva kluster kan det här problemet vara ett tävlings tillstånd.
 
@@ -118,7 +118,7 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 ### <a name="error-code-3204"></a>Felkod: 3204
 
-- **Meddelande**:`Job execution failed.`
+- **Meddelande**: `Job execution failed.`
 
 - **Orsak**: fel meddelanden indikerar olika problem, till exempel ett oväntat kluster tillstånd eller en speciell aktivitet. Ofta visas inget fel meddelande.
 
@@ -126,7 +126,7 @@ Information om anslutnings problem, till exempel ett problem med kopierings akti
 
 ### <a name="error-code-3208"></a>Felkod: 3208
 
-- **Meddelande**:`An error occurred while sending the request.`
+- **Meddelande**: `An error occurred while sending the request.`
 
 - **Orsak**: nätverks anslutningen till Databricks-tjänsten avbröts.
 
@@ -138,7 +138,7 @@ Följande tabell gäller för U-SQL.
  
 ### <a name="error-code-2709"></a>Felkod: 2709
 
-- **Meddelande**:`The access token is from the wrong tenant.`
+- **Meddelande**: `The access token is from the wrong tenant.`
 
 - **Orsak**: felaktig Azure Active Directory (Azure AD)-klient.
 
@@ -146,7 +146,7 @@ Följande tabell gäller för U-SQL.
 
 <br/>
 
-- **Meddelande**:`We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
+- **Meddelande**: `We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
 
 - **Orsak**: det här felet orsakas av begränsning på data Lake Analytics.
 
@@ -154,7 +154,7 @@ Följande tabell gäller för U-SQL.
 
 <br/> 
 
-- **Meddelande**:`This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
+- **Meddelande**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
 - **Orsak**: det här felet orsakas av begränsning på data Lake Analytics.
 
@@ -162,7 +162,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2705"></a>Felkod: 2705
 
-- **Meddelande**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Meddelande**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
 - **Orsak**: tjänstens huvud namn eller certifikat har inte åtkomst till filen i lagrings utrymmet.
 
@@ -170,7 +170,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2711"></a>Felkod: 2711
 
-- **Meddelande**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Meddelande**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
 - **Orsak**: tjänstens huvud namn eller certifikat har inte åtkomst till filen i lagrings utrymmet.
 
@@ -178,7 +178,7 @@ Följande tabell gäller för U-SQL.
 
 <br/> 
 
-- **Meddelande**:`Cannot find the 'Azure Data Lake Store' file or folder.`
+- **Meddelande**: `Cannot find the 'Azure Data Lake Store' file or folder.`
 
 - **Orsak**: sökvägen till U-SQL-filen är felaktig eller också har autentiseringsuppgifterna för den länkade tjänsten inte åtkomst.
 
@@ -186,7 +186,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2704"></a>Felkod: 2704
 
-- **Meddelande**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Meddelande**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
 - **Orsak**: tjänstens huvud namn eller certifikat har inte åtkomst till filen i lagrings utrymmet.
 
@@ -194,7 +194,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2707"></a>Felkod: 2707
 
-- **Meddelande**:`Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and 'DataLakeAnalyticsUri'.`
+- **Meddelande**: `Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and 'DataLakeAnalyticsUri'.`
 
 - **Orsak**: det data Lake Analytics kontot i den länkade tjänsten är felaktigt.
 
@@ -202,7 +202,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2703"></a>Felkod: 2703
 
-- **Meddelande**:`Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error Id:").`
+- **Meddelande**: `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error Id:").`
 
 - **Orsak**: felet är från data Lake Analytics.
 
@@ -214,7 +214,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3602"></a>Felkod: 3602
 
-- **Meddelande**:`Invalid HttpMethod: '%method;'.`
+- **Meddelande**: `Invalid HttpMethod: '%method;'.`
 
 - **Orsak**: den HttpMethod som anges i aktivitets nytto lasten stöds inte av Azure Function-aktiviteten.
 
@@ -222,11 +222,11 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3603"></a>Felkod: 3603
 
-- **Meddelande**:`Response Content is not a valid JObject.`
+- **Meddelande**: `Response Content is not a valid JObject.`
 
 - **Orsak**: Azure-funktionen som anropades returnerade inte en JSON-nyttolast i svaret. Azure Data Factory (ADF) Azure Function-aktivitet stöder endast JSON-svars innehåll.
 
-- **Rekommendation**: Uppdatera Azure-funktionen för att returnera en giltig JSON-nyttolast, till exempel en C#-funktion kan returnera`(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
+- **Rekommendation**: Uppdatera Azure-funktionen för att returnera en giltig JSON-nyttolast, till exempel en C#-funktion kan returnera `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
 ### <a name="error-code-3606"></a>Felkod: 3606
 
@@ -238,7 +238,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3607"></a>Felkod: 3607
 
-- **Meddelande**:`Azure function activity missing function name.`
+- **Meddelande**: `Azure function activity missing function name.`
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
@@ -246,7 +246,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3608"></a>Felkod: 3608
 
-- **Meddelande**:`Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
+- **Meddelande**: `Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
 
 - **Orsak**: Azure Function-information i aktivitets definitionen kan vara felaktig.
 
@@ -254,7 +254,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3609"></a>Felkod: 3609
 
-- **Meddelande**:`Azure function activity missing functionAppUrl.`
+- **Meddelande**: `Azure function activity missing functionAppUrl.`
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
@@ -262,7 +262,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3610"></a>Felkod: 3610
 
-- **Meddelande**:`There was an error while calling endpoint.`
+- **Meddelande**: `There was an error while calling endpoint.`
 
 - **Orsak**: funktions webb adressen kan vara felaktig.
 
@@ -270,7 +270,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3611"></a>Felkod: 3611
 
-- **Meddelande**:`Azure function activity missing Method in JSON.`
+- **Meddelande**: `Azure function activity missing Method in JSON.`
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
@@ -278,7 +278,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-3612"></a>Felkod: 3612
 
-- **Meddelande**:`Azure function activity missing LinkedService definition in JSON.`
+- **Meddelande**: `Azure function activity missing LinkedService definition in JSON.`
 
 - **Orsak**: Azure Function aktivitets definition har inte slutförts.
 
@@ -288,7 +288,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4101"></a>Felkod: 4101
 
-- **Meddelande**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+- **Meddelande**: `AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
 - **Orsak**: felaktigt format eller saknar egenskaps definition `%propertyName;` .
 
@@ -296,7 +296,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4110"></a>Felkod: 4110
 
-- **Meddelande**:`AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
+- **Meddelande**: `AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
 
 - **Orsak**: aktivitets definitionen för AzureMLExecutePipeline har inte slutförts.
 
@@ -304,7 +304,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4111"></a>Felkod: 4111
 
-- **Meddelande**:`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+- **Meddelande**: `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
 
 - **Orsak**: felaktig aktivitets definition.
 
@@ -312,7 +312,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4112"></a>Felkod: 4112
 
-- **Meddelande**:`AzureMLService linked service has invalid value for property '%propertyName;'.`
+- **Meddelande**: `AzureMLService linked service has invalid value for property '%propertyName;'.`
 
 - **Orsak**: felaktigt format eller en definition av egenskapen% PropertyName; saknas.
 
@@ -320,7 +320,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4121"></a>Felkod: 4121
 
-- **Meddelande**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Orsak**: autentiseringsuppgifterna som används för att komma åt Azure Machine Learning har upphört att gälla.
 
@@ -328,7 +328,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4122"></a>Felkod: 4122
 
-- **Meddelande**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Orsak**: autentiseringsuppgifterna som angavs i Azure Machine Learning länkade tjänsten är ogiltiga eller har inte behörighet för åtgärden.
 
@@ -336,7 +336,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4123"></a>Felkod: 4123
 
-- **Meddelande**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Orsak**: egenskaperna för aktiviteten, som `pipelineParameters` är ogiltiga för pipelinen Azure Machine Learning (ml).
 
@@ -344,7 +344,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4124"></a>Felkod: 4124
 
-- **Meddelande**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Orsak**: slut punkten för den publicerade Azure ml-pipelinen finns inte.
 
@@ -352,7 +352,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4125"></a>Felkod: 4125
 
-- **Meddelande**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Meddelande**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Orsak**: ett Server fel uppstod på Azure Machine Learning.
 
@@ -360,7 +360,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-4126"></a>Felkod: 4126
 
-- **Meddelande**:`Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
+- **Meddelande**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **Orsak**: körningen av Azure ml-pipeline misslyckades.
 
@@ -370,7 +370,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2103"></a>Felkod: 2103
 
-- **Meddelande**:`Please provide value for the required property '%propertyName;'.`
+- **Meddelande**: `Please provide value for the required property '%propertyName;'.`
 
 - **Orsak**: det obligatoriska värdet för egenskapen har inte angetts.
 
@@ -378,7 +378,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2104"></a>Felkod: 2104
 
-- **Meddelande**:`The type of the property '%propertyName;' is incorrect.`
+- **Meddelande**: `The type of the property '%propertyName;' is incorrect.`
 
 - **Orsak**: den angivna egenskaps typen är inte korrekt.
 
@@ -386,7 +386,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2105"></a>Felkod: 2105
 
-- **Meddelande**:`An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
+- **Meddelande**: `An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
 
 - **Orsak**: egenskapens värde är ogiltigt eller har inte det förväntade formatet.
 
@@ -394,7 +394,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2106"></a>Felkod: 2106
 
-- **Meddelande**:`The storage connection string is invalid. %errorMessage;`
+- **Meddelande**: `The storage connection string is invalid. %errorMessage;`
 
 - **Orsak**: anslutnings strängen för lagrings platsen är ogiltig eller har fel format.
 
@@ -402,7 +402,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2108"></a>Felkod: 2108
 
-- **Meddelande**:`Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **Meddelande**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
 - **Orsak**: begäran misslyckades på grund av ett underliggande problem, till exempel nätverks anslutning, DNS-fel, verifiering av Server certifikat eller tids gräns.
 
@@ -410,7 +410,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2110"></a>Felkod: 2110
 
-- **Meddelande**:`The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
+- **Meddelande**: `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
 
 - **Orsak**: den länkade tjänsten som angetts i aktiviteten är felaktig.
 
@@ -418,7 +418,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2111"></a>Felkod: 2111
 
-- **Meddelande**:`The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
+- **Meddelande**: `The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
 
 - **Orsak**: typen för den angivna egenskapen är inte korrekt.
 
@@ -426,7 +426,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2112"></a>Felkod: 2112
 
-- **Meddelande**:`The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
+- **Meddelande**: `The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
 
 - **Orsak**: moln typen stöds inte eller kunde inte fastställas för lagring från EndpointSuffix.
 
@@ -434,7 +434,7 @@ Följande tabell gäller för U-SQL.
 
 ### <a name="error-code-2128"></a>Felkod: 2128
 
-- **Meddelande**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Meddelande**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
 - **Orsak**: nätverks anslutning, DNS-fel, verifiering av Server certifikat eller tids gräns.
 
@@ -446,15 +446,15 @@ Följande tabell gäller för Azure Batch.
  
 ### <a name="error-code-2500"></a>Felkod: 2500
 
-- **Meddelande**:`Hit unexpected exception and execution failed.`
+- **Meddelande**: `Hit unexpected exception and execution failed.`
 
-- **Orsak**:`Can't launch command, or the program returned an error code.`
+- **Orsak**: `Can't launch command, or the program returned an error code.`
 
 - **Rekommendation**: kontrol lera att den körbara filen finns. Om programmet har startats kontrollerar du att *stdout.txt* och *stderr.txt* har överförts till lagrings kontot. Det är en bra idé att inkludera loggar i koden för fel sökning.
 
 ### <a name="error-code-2501"></a>Felkod: 2501
 
-- **Meddelande**:`Cannot access user batch account; please check batch account settings.`
+- **Meddelande**: `Cannot access user batch account; please check batch account settings.`
 
 - **Orsak**: felaktig nyckel för batch-åtkomst eller poolnamn.
 
@@ -462,7 +462,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2502"></a>Felkod: 2502
 
-- **Meddelande**:`Cannot access user storage account; please check storage account settings.`
+- **Meddelande**: `Cannot access user storage account; please check storage account settings.`
 
 - **Orsak**: felaktigt lagrings konto namn eller åtkomst nyckel.
 
@@ -470,17 +470,17 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2504"></a>Felkod: 2504
 
-- **Meddelande**:`Operation returned an invalid status code 'BadRequest'.`
+- **Meddelande**: `Operation returned an invalid status code 'BadRequest'.`
 
 - **Orsak**: för många filer i den `folderPath` anpassade aktiviteten. Den totala storleken på `resourceFiles` får inte vara mer än 32 768 tecken.
 
 - **Rekommendation**: ta bort onödiga filer eller zip-filer och Lägg till ett zippa-kommando för att extrahera dem.
    
-   Använd till exempel`powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
+   Använd till exempel `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
 
 ### <a name="error-code-2505"></a>Felkod: 2505
 
-- **Meddelande**:`Cannot create Shared Access Signature unless Account Key credentials are used.`
+- **Meddelande**: `Cannot create Shared Access Signature unless Account Key credentials are used.`
 
 - **Orsak**: anpassade aktiviteter stöder bara lagrings konton som använder en åtkomst nyckel.
 
@@ -488,7 +488,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2507"></a>Felkod: 2507
 
-- **Meddelande**:`The folder path does not exist or is empty: ...`
+- **Meddelande**: `The folder path does not exist or is empty: ...`
 
 - **Orsak**: inga filer finns i lagrings kontot på den angivna sökvägen.
 
@@ -496,25 +496,25 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2508"></a>Felkod: 2508
 
-- **Meddelande**:`There are duplicate files in the resource folder.`
+- **Meddelande**: `There are duplicate files in the resource folder.`
 
 - **Orsak**: flera filer med samma namn finns i olika undermappar för folderPath.
 
 - **Rekommendation**: sammanslagen mappstruktur för anpassade aktiviteter under folderPath. Om du behöver bevara mappstrukturen zip-filerna och extrahera dem i Azure Batch med hjälp av ett zippa-kommando.
    
-   Använd till exempel`powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
+   Använd till exempel `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
 
 ### <a name="error-code-2509"></a>Felkod: 2509
 
-- **Meddelande**:`Batch url ... is invalid; it must be in Uri format.`
+- **Meddelande**: `Batch url ... is invalid; it must be in Uri format.`
 
-- **Orsak**: batch-URL: er måste likna`https://mybatchaccount.eastus.batch.azure.com`
+- **Orsak**: batch-URL: er måste likna `https://mybatchaccount.eastus.batch.azure.com`
 
 - **Rekommendation**: se fel beskrivningen.
 
 ### <a name="error-code-2510"></a>Felkod: 2510
 
-- **Meddelande**:`An error occurred while sending the request.`
+- **Meddelande**: `An error occurred while sending the request.`
 
 - **Orsak**: batch-URL: en är ogiltig.
 
@@ -524,7 +524,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-200"></a>Felkod: 200
 
-- **Meddelande**:`Unexpected error happened: '%error;'.`
+- **Meddelande**: `Unexpected error happened: '%error;'.`
 
 - **Orsak**: det finns ett internt tjänst problem.
 
@@ -532,7 +532,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-201"></a>Felkod: 201
 
-- **Meddelande**:`JobType %jobType; is not found.`
+- **Meddelande**: `JobType %jobType; is not found.`
 
 - **Orsak**: det finns en ny jobbtyp som inte stöds av ADF.
 
@@ -540,7 +540,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-202"></a>Felkod: 202
 
-- **Meddelande**:`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
+- **Meddelande**: `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
 - **Orsak**: fel meddelandet innehåller information om vad som gått fel.
 
@@ -548,7 +548,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-203"></a>Felkod: 203
 
-- **Meddelande**:`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
+- **Meddelande**: `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
 - **Orsak**: fel meddelandet innehåller information om vad som gått fel.
 
@@ -556,7 +556,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-204"></a>Felkod: 204
 
-- **Meddelande**:`The resumption token is missing for runId '%runId;'.`
+- **Meddelande**: `The resumption token is missing for runId '%runId;'.`
 
 - **Orsak**: det finns ett internt tjänst problem.
 
@@ -564,7 +564,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-205"></a>Felkod: 205
 
-- **Meddelande**:`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
+- **Meddelande**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
 
 - **Orsak**: ett fel uppstod när HDI på begäran skapades.
 
@@ -572,7 +572,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-206"></a>Felkod: 206
 
-- **Meddelande**:`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Meddelande**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
 
 - **Orsak**: det uppstod ett internt problem med tjänsten som orsakade felet.
 
@@ -580,7 +580,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-207"></a>Felkod: 207
 
-- **Meddelande**:`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Meddelande**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
 
 - **Orsak**: det uppstod ett internt fel vid försök att fastställa regionen från det primära lagrings kontot.
 
@@ -588,7 +588,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-208"></a>Felkod: 208
 
-- **Meddelande**:`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Meddelande**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
 
 - **Orsak**: det uppstod ett internt fel vid försök att läsa tjänstens huvud namn eller instansiera MSI-autentiseringen.
 
@@ -598,7 +598,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2300"></a>Felkod: 2300
 
-- **Meddelande**:`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
+- **Meddelande**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
 - **Orsak**: fel meddelandet innehåller ett meddelande som liknar `The remote name could not be resolved.` . Den angivna kluster-URI: n kan vara ogiltig.
 
@@ -635,7 +635,7 @@ Följande tabell gäller för Azure Batch.
     1. Anslut till din aktiva Head-nod som Ambari-server på den aktiva Head-noden med SSH. 
     1. Starta om den aktiva Head-noden.
 
-       Mer information hittar du i fel söknings dokumentationen för Azure HDInsight. Till exempel:
+       Mer information hittar du i fel söknings dokumentationen för Azure HDInsight. Exempel:
 
        * [Ambari UI 502-fel](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
        * [RpcTimeoutException för Apache Spark Thrift-Server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
@@ -651,7 +651,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2301"></a>Felkod: 2301
 
-- **Meddelande**:`Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
+- **Meddelande**: `Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
 
 - **Orsak**: HDInsight-kluster eller-tjänsten har problem.
 
@@ -661,7 +661,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2302"></a>Felkod: 2302
 
-- **Meddelande**:`Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
+- **Meddelande**: `Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
 
 - **Orsak**: jobbet skickades till HDI-klustret och misslyckades där.
 
@@ -683,7 +683,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2303"></a>Felkod: 2303
 
-- **Meddelande**:`Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
+- **Meddelande**: `Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
 
 - **Orsak**: jobbet skickades till HDI-klustret och misslyckades där.
 
@@ -705,7 +705,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2304"></a>Felkod: 2304
 
-- **Meddelande**:`MSI authentication is not supported on storages for HDI activities.`
+- **Meddelande**: `MSI authentication is not supported on storages for HDI activities.`
 
 - **Orsak**: de länkade lagrings tjänsterna som används i den länkade tjänsten eller HDI-aktiviteten i HDInsight (HDI) konfigureras med en MSI-autentisering som inte stöds.
 
@@ -713,7 +713,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2305"></a>Felkod: 2305
 
-- **Meddelande**:`Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
+- **Meddelande**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
 - **Orsak**: anslutnings informationen för HDI-klustret är felaktig, den angivna användaren har inte behörighet att utföra den begärda åtgärden, eller så har HDInsight-tjänsten problem med att svara på begär Anden från ADF.
 
@@ -721,7 +721,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2306"></a>Felkod: 2306
 
-- **Meddelande**:`An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
+- **Meddelande**: `An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
 
 - **Orsak**: JSON-filen som angavs för skript åtgärden är ogiltig.
 
@@ -731,7 +731,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2310"></a>Felkod: 2310
 
-- **Meddelande**:`Failed to submit Spark job. Error: '%message;'`
+- **Meddelande**: `Failed to submit Spark job. Error: '%message;'`
 
 - **Orsak**: ADF försökte skapa en batch i ett Spark-kluster med livy API (livy/batch), men tog emot ett fel.
 
@@ -741,7 +741,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2312"></a>Felkod: 2312
 
-- **Meddelande**:`Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **Meddelande**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **Orsak**: det gick inte att utföra jobbet på HDInsight Spark-klustret.
 
@@ -751,7 +751,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2313"></a>Felkod: 2313
 
-- **Meddelande**:`The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
+- **Meddelande**: `The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
 
 - **Orsak**: gruppen togs bort i HDInsight Spark-klustret.
 
@@ -761,7 +761,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2328"></a>Felkod: 2328
 
-- **Meddelande**:`Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **Meddelande**: `Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
 - **Orsak**: fel meddelandet ska visa information om vad som gått fel.
 
@@ -769,7 +769,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2329"></a>Felkod: 2329
 
-- **Meddelande**:`Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **Meddelande**: `Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
 - **Orsak**: fel meddelandet ska visa information om vad som gått fel.
 
@@ -777,7 +777,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2331"></a>Felkod: 2331
 
-- **Meddelande**:`The file path should not be null or empty.`
+- **Meddelande**: `The file path should not be null or empty.`
 
 - **Orsak**: den angivna fil Sök vägen är tom.
 
@@ -785,7 +785,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2340"></a>Felkod: 2340
 
-- **Meddelande**:`HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
+- **Meddelande**: `HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
 
 - **Orsak**: den länkade tjänsten HDInsightOnDemand stöder inte körning via SelfHosted IR.
 
@@ -793,7 +793,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2341"></a>Felkod: 2341
 
-- **Meddelande**:`HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
+- **Meddelande**: `HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
 
 - **Orsak**: den angivna URL-adressen är inte i rätt format.
 
@@ -801,7 +801,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2342"></a>Felkod: 2342
 
-- **Meddelande**:`Failed to connect to HDInsight cluster: '%errorMessage;'.`
+- **Meddelande**: `Failed to connect to HDInsight cluster: '%errorMessage;'.`
 
 - **Orsak**: antingen är de angivna autentiseringsuppgifterna fel för klustret, eller så uppstod ett nätverks konfigurations-eller anslutnings problem, eller så har IR-anslutningen problem att ansluta till klustret.
 
@@ -809,7 +809,7 @@ Följande tabell gäller för Azure Batch.
     1. Kontrol lera att autentiseringsuppgifterna är korrekta genom att öppna HDInsight-klustrets Ambari-användargränssnitt i en webbläsare.
     1. Om klustret är i Virtual Network (VNet) och en IR med egen värd används, måste HDI-URL: en vara den privata URL: en i virtuella nätverk, och ska ha "-int" i listan efter kluster namnet.
     
-       Till exempel ändra `https://mycluster.azurehdinsight.net/` till `https://mycluster-int.azurehdinsight.net/` . Observera `-int` efter `mycluster` , men före`.azurehdinsight.net`
+       Till exempel ändra `https://mycluster.azurehdinsight.net/` till `https://mycluster-int.azurehdinsight.net/` . Observera `-int` efter `mycluster` , men före `.azurehdinsight.net`
     1. Om klustret finns i VNet används det lokala IR-nätverket, och den privata URL: en användes, och anslutningen fortfarande misslyckades, men anslutningen fortfarande misslyckades, men den virtuella datorn där IR har installerats hade problem med att ansluta till HDI. 
     
        Anslut till den virtuella datorn där IR är installerat och öppna Ambari-ANVÄNDARGRÄNSSNITTET i en webbläsare. Använd den privata URL: en för klustret. Den här anslutningen bör fungera från webbläsaren. Om den inte gör det kontaktar du HDInsight support team för ytterligare hjälp.
@@ -819,15 +819,15 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2343"></a>Felkod: 2343
 
-- **Meddelande**:`User name and password cannot be null or empty to connect to the HDInsight cluster.`
+- **Meddelande**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Orsak**: användar namnet eller lösen ordet är tomt.
+- **Orsak**: antingen användar namnet eller lösen ordet är tomt.
 
 - **Rekommendation**: ange rätt autentiseringsuppgifter för att ansluta till HDI och försök igen.
 
 ### <a name="error-code-2345"></a>Felkod: 2345
 
-- **Meddelande**:`Failed to read the content of the hive script. Error: '%message;'`
+- **Meddelande**: `Failed to read the content of the hive script. Error: '%message;'`
 
 - **Orsak**: skript filen finns inte eller också kunde inte ADF ansluta till platsen för skriptet.
 
@@ -835,7 +835,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2346"></a>Felkod: 2346
 
-- **Meddelande**:`Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
+- **Meddelande**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
 - **Orsak**: ADF försökte upprätta en Open Database Connectivity-anslutning (ODBC) till HDI-klustret och den misslyckades med ett fel.
 
@@ -855,7 +855,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2347"></a>Felkod: 2347
 
-- **Meddelande**:`Hive execution through ODBC failed with error message '%message;'.`
+- **Meddelande**: `Hive execution through ODBC failed with error message '%message;'.`
 
 - **Orsak**: ADF skickade Hive-skriptet för körning till HDI-klustret via ODBC-anslutning och skriptet har misslyckats på HDI.
 
@@ -875,7 +875,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2348"></a>Felkod: 2348
 
-- **Meddelande**:`The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
+- **Meddelande**: `The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
 
 - **Orsak**: de länkade tjänst egenskaperna för lagring har inte angetts korrekt.
 
@@ -883,7 +883,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2350"></a>Felkod: 2350
 
-- **Meddelande**:`Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
+- **Meddelande**: `Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
 
 - **Orsak**: autentiseringsuppgifterna som angavs för att ansluta till lagrings platsen där filerna ska placeras är felaktiga, eller så finns inte filerna där.
 
@@ -891,7 +891,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2351"></a>Felkod: 2351
 
-- **Meddelande**:`Could not open the file '%filePath;' in container/fileSystem '%container;'.`
+- **Meddelande**: `Could not open the file '%filePath;' in container/fileSystem '%container;'.`
 
 - **Orsak**: filen finns inte på den angivna sökvägen.
 
@@ -899,7 +899,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2352"></a>Felkod: 2352
 
-- **Meddelande**:`The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
+- **Meddelande**: `The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
 
 - **Orsak**: egenskaperna för den länkade fil lagrings tjänsten har inte angetts korrekt.
 
@@ -907,7 +907,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2353"></a>Felkod: 2353
 
-- **Meddelande**:`The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
+- **Meddelande**: `The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
 
 - **Orsak**: de länkade tjänst egenskaperna för skript lagring har inte angetts korrekt.
 
@@ -915,7 +915,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2354"></a>Felkod: 2354
 
-- **Meddelande**:`The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
+- **Meddelande**: `The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
 
 - **Orsak**: den länkade tjänst typen för lagring stöds inte av aktiviteten.
 
@@ -925,7 +925,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2355"></a>Felkod: 2355
 
-- **Meddelande**:`The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
+- **Meddelande**: `The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
 - **Orsak**: det angivna värdet för `commandEnvironment` är felaktigt.
 
@@ -940,7 +940,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2356"></a>Felkod: 2356
 
-- **Meddelande**:`The commandEnvironment already contains a variable named '%variableName;'.`
+- **Meddelande**: `The commandEnvironment already contains a variable named '%variableName;'.`
 
 - **Orsak**: det angivna värdet för `commandEnvironment` är felaktigt.
 
@@ -955,7 +955,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2357"></a>Felkod: 2357
 
-- **Meddelande**:`The certificate or password is wrong for ADLS Gen 1 storage.`
+- **Meddelande**: `The certificate or password is wrong for ADLS Gen 1 storage.`
 
 - **Orsak**: de angivna autentiseringsuppgifterna är felaktiga.
 
@@ -963,7 +963,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2358"></a>Felkod: 2358
 
-- **Meddelande**:`The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
+- **Meddelande**: `The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
 
 - **Orsak**: det angivna värdet för den obligatoriska egenskapen `TimeToLive` har ett ogiltigt format. 
 
@@ -971,7 +971,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2359"></a>Felkod: 2359
 
-- **Meddelande**:`The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
+- **Meddelande**: `The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
 
 - **Orsak**: det angivna värdet för egenskapen `roles` är ogiltigt.
 
@@ -979,7 +979,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2360"></a>Felkod: 2360
 
-- **Meddelande**:`The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
+- **Meddelande**: `The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
 
 - **Orsak**: den angivna anslutnings strängen för `HCatalogLinkedService` är ogiltig.
 
@@ -987,7 +987,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2361"></a>Felkod: 2361
 
-- **Meddelande**:`Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
+- **Meddelande**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
 - **Orsak**: det gick inte att skapa klustret och ADF fick inget fel tillbaka från HDInsight-tjänsten.
 
@@ -995,7 +995,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2362"></a>Felkod: 2362
 
-- **Meddelande**:`Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
+- **Meddelande**: `Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
 
 - **Orsak**: den tillhandahållna ytterligare lagringen var inte Azure Blob Storage.
 
@@ -1005,7 +1005,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2128"></a>Felkod: 2128
 
-- **Meddelande**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Meddelande**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
 - **Orsak**: det här problemet beror på nätverks anslutningen, ett DNS-fel, en verifiering av Server certifikat eller en tids gräns.
 
@@ -1013,7 +1013,7 @@ Följande tabell gäller för Azure Batch.
 
 ### <a name="error-code-2108"></a>Felkod: 2108
 
-- **Meddelande**:`Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **Meddelande**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
 - **Orsak**: begäran misslyckades på grund av ett underliggande problem, t. ex. nätverks anslutning, ett DNS-fel, en verifiering av Server certifikat eller en tids gräns.
 
@@ -1053,6 +1053,11 @@ Så här använder du **Fiddler** för att skapa en http-session för det överv
 1. Gå **till:**  >  **Spara**  >  **alla sessioner**.
 
 Mer information finns i [komma igång med Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
+## <a name="general"></a>Allmänt
+
+### <a name="activity-stuck-issue"></a>Problem med aktivitet som fastnat
+När du observerar att aktiviteten körs mycket längre än vad som händer i din normala körning utan att det uppstår något steg, kan det hända att den fastnar. Du kan försöka att avbryta och försöka se om det hjälper. Om det är en kopierings aktivitet kan du lära dig mer om prestanda övervakning och fel sökning från [Felsök kopierings aktivitets prestanda](copy-activity-performance-troubleshooting.md). om det är ett data flöde, lär du dig att [mappa data flöden prestanda](concepts-data-flow-performance.md) -och justerings guide.
 
 ## <a name="next-steps"></a>Nästa steg
 

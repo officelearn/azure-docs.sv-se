@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423158"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279507"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -116,7 +116,7 @@ De säkra poängen, som baseras på CIS-kontroller (Center for Internet Security
 **Information**: Följ [säkerhets rekommendationerna](../../security-center/security-center-recommendations.md) i Security Center som startar med högst prioritets objekt.
 
 **Bästa praxis**: integrera Security Center aviseringar i din lösning för säkerhets information och händelse hantering (Siem).   
-**Information**: de flesta organisationer med en Siem använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytikers svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Mer information finns i [Exportera säkerhets aviseringar och rekommendationer](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Information**: de flesta organisationer med en Siem använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytikers svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Mer information finns i [Exportera säkerhets aviseringar och rekommendationer](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Bästa praxis**: integrera Azure-loggar med din Siem.   
 **Information**: Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
@@ -149,7 +149,7 @@ Använd följande metod tips för DevOps för att se till att ditt företag och 
 Du kan använda [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) för att etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall för att distribuera programmet flera gånger i varje skede av programmets livs cykel.
 
 **Bästa praxis**: att bygga och distribuera automatiskt till Azure-webbappar eller moln tjänster.  
-**Information**: du kan konfigurera Azure DevOps Projects att [automatiskt bygga och distribuera](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) till Azure-webbappar eller moln tjänster. Azure DevOps distribuerar automatiskt binärfilerna när du har gjort en build till Azure efter varje kod incheckning. Paket Bygg processen motsvarar paket kommandot i Visual Studio och publicerings stegen motsvarar kommandot Publicera i Visual Studio.
+**Information**: du kan konfigurera Azure DevOps Projects att  [automatiskt bygga och distribuera](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) till Azure-webbappar eller moln tjänster. Azure DevOps distribuerar automatiskt binärfilerna när du har gjort en build till Azure efter varje kod incheckning. Paket Bygg processen motsvarar paket kommandot i Visual Studio och publicerings stegen motsvarar kommandot Publicera i Visual Studio.
 
 **Bästa praxis**: automatiserad versions hantering.  
 **Information**: [Azure-pipeline](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) är en lösning för automatisering av distribution av flera steg och hantering av versions processen. Skapa hanterade pipeliner för kontinuerlig distribution för att få ut snabbt, enkelt och ofta. Med Azure-pipelines kan du automatisera din versions process och du kan ha fördefinierade arbets flöden för godkännande. Distribuera lokalt och i molnet, utöka och anpassa efter behov.
@@ -226,4 +226,4 @@ Se [metod tips och mönster för Azure-säkerhet](best-practices-and-patterns.md
 
 Följande resurser är tillgängliga för att ge mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
 * [Azure Security Team-bloggen](https://blogs.msdn.microsoft.com/azuresecurity/) – för uppdaterad information om det senaste i Azure-säkerhet
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post tillsecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post till secure@microsoft.com

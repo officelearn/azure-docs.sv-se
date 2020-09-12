@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356635"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277212"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till den senaste
 I det här avsnittet beskrivs de olika metoder som du kan använda för att uppgradera din Azure Active Directory (Azure AD) Connect-installationen till den senaste versionen. Vi rekommenderar att du håller dig uppdaterad med utgåvorna av Azure AD Connect. Du använder också stegen i avsnittet flytta [migrering](#swing-migration) när du gör en betydande konfigurations ändring.
@@ -54,7 +54,7 @@ Om du har gjort ändringar i de färdiga reglerna för synkronisering är de hä
 
 Vid uppgradering på plats kan det finnas ändringar som kräver att vissa synkroniserings aktiviteter (inklusive steget fullständig import och fullständig synkronisering) körs när uppgraderingen har slutförts. Om du vill skjuta upp sådana aktiviteter läser du avsnittet [hur du skjuter upp fullständig synkronisering efter uppgraderingen](#how-to-defer-full-synchronization-after-upgrade).
 
-Om du använder Azure AD Connect med en anslutning som inte är standard (till exempel allmän LDAP-anslutning och allmän SQL-anslutning) måste du uppdatera motsvarande anslutnings konfiguration i [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) efter uppgradering på plats. Mer information om hur du uppdaterar anslutnings konfigurationen finns i artikel avsnitt [Connector version versions historik-fel sökning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Om du inte uppdaterar konfigurationen kommer import-och export körnings stegen inte att fungera korrekt för anslutnings tjänsten. Följande fel meddelande visas i program händelse loggen med meddelandet *"sammansättnings version i AAD Connector Configuration (" X.X.xxx. X ") är tidigare än den faktiska versionen (" X.X.XXX. X ") för" C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ".*
+Om du använder Azure AD Connect med en anslutning som inte är standard (till exempel allmän LDAP-anslutning och allmän SQL-anslutning) måste du uppdatera motsvarande anslutnings konfiguration i [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) efter uppgradering på plats. Mer information om hur du uppdaterar anslutnings konfigurationen finns i artikel avsnitt [Connector version versions historik-fel sökning](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Om du inte uppdaterar konfigurationen kommer import-och export körnings stegen inte att fungera korrekt för anslutnings tjänsten. Följande fel meddelande visas i program händelse loggen med meddelandet *"sammansättnings version i AAD Connector Configuration (" X.X.xxx. X ") är tidigare än den faktiska versionen (" X.X.XXX. X ") för" C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ".*
 
 ## <a name="swing-migration"></a>Swingmigrering
 Om du har en komplex distribution eller många objekt kan det vara opraktiskt att göra en uppgradering på plats i Live-systemet. För vissa kunder kan den här processen ta flera dagar – och under den tiden bearbetas inga delta ändringar. Du kan också använda den här metoden när du planerar att göra betydande ändringar i konfigurationen och du vill testa dem innan de skickas till molnet.
@@ -108,7 +108,7 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar ska äg
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. När uppgraderingen är klar kör du följande cmdlet för att ta reda på vilka åsidosättningar som har lagts till:`Get-ADSyncSchedulerConnectorOverride | fl`
+2. När uppgraderingen är klar kör du följande cmdlet för att ta reda på vilka åsidosättningar som har lagts till: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > Åsidosättningarna är anslutningsspecifika. I följande exempel har steget fullständig import och fullständig synkronisering lagts till både i den lokala AD-anslutningen och Azure AD-anslutaren.
@@ -117,7 +117,7 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar ska äg
 
 3. Anteckna de befintliga åsidosättningarna som har lagts till.
    
-4. Om du vill ta bort åsidosättningarna för både fullständig import och fullständig synkronisering på en godtycklig koppling kör du följande cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Om du vill ta bort åsidosättningarna för både fullständig import och fullständig synkronisering på en godtycklig koppling kör du följande cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Om du vill ta bort åsidosättningarna för alla anslutningar kör du följande PowerShell-skript:
 
@@ -128,12 +128,12 @@ Det kan finnas situationer där du inte vill att dessa åsidosättningar ska äg
    }
    ```
 
-5. Kör följande cmdlet för att återuppta Schemaläggaren:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Kör följande cmdlet för att återuppta Schemaläggaren: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Kom ihåg att köra de nödvändiga stegen för synkronisering vid din tidigaste bekvämlighet. Du kan antingen utföra dessa steg manuellt med hjälp av Synchronization Service Manager eller lägga till åsidosättningarna med cmdleten Set-ADSyncSchedulerConnectorOverride.
 
-Om du vill lägga till åsidosättningarna för både fullständig import och fullständig synkronisering på en godtycklig koppling kör du följande cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Om du vill lägga till åsidosättningarna för både fullständig import och fullständig synkronisering på en godtycklig koppling kör du följande cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>Felsökning
 Följande avsnitt innehåller fel sökning och information som du kan använda om du stöter på problem med att uppgradera Azure AD Connect.
@@ -144,7 +144,7 @@ När du uppgraderar Azure AD Connect från en tidigare version kan du trycka på
 
 ![Fel](./media/how-to-upgrade-previous-version/error1.png)
 
-Det här felet beror på att Azure Active Directory-anslutningen med identifierare, b891884f-051e-4a83-95af-2544101c9083, inte finns i den aktuella Azure AD Connect konfigurationen. Du kan kontrol lera detta genom att öppna ett PowerShell-fönster, köra cmdleten`Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+Det här felet beror på att Azure Active Directory-anslutningen med identifierare, b891884f-051e-4a83-95af-2544101c9083, inte finns i den aktuella Azure AD Connect konfigurationen. Du kan kontrol lera detta genom att öppna ett PowerShell-fönster, köra cmdleten `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

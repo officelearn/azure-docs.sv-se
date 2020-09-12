@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358131"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279541"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användarsekretess och Azure Active Directory-direktautentisering
 
@@ -67,7 +67,7 @@ Mer information om relaterade Azure AD Connect GDPR-krav finns i [den här artik
 
 ### <a name="delete-authentication-agent-event-logs"></a>Ta bort händelse loggar för autentiserings agent
 
-Den här produkten kan också skapa **händelse loggar i Windows**. Läs [den här artikeln](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)om du vill veta mer.
+Den här produkten kan också skapa **händelse loggar i Windows**. Läs [den här artikeln](/windows/win32/wes/windows-event-log)om du vill veta mer.
 
 Om du vill visa loggar som är relaterade till genom strömnings agenten öppnar du **Loggboken** programmet på-servern och kontrollerar under **program-och tjänst Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Följ dessa steg om du vill schemalägga att skriptet ska köras var 48: e timme
  
 ### <a name="note-about-domain-controller-logs"></a>Observera om domänkontrollanter loggar
 
-Om gransknings loggning har Aktiver ATS kan den här produkten generera säkerhets loggar för dina domänkontrollanter. Läs den här [artikeln](https://technet.microsoft.com/library/dd277403.aspx)om du vill veta mer om hur du konfigurerar gransknings principer.
+Om gransknings loggning har Aktiver ATS kan den här produkten generera säkerhets loggar för dina domänkontrollanter. Läs den här [artikeln](/previous-versions/tn-archive/dd277403(v=technet.10))om du vill veta mer om hur du konfigurerar gransknings principer.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs sekretess policyn för Microsoft på säkerhets Center](https://www.microsoft.com/trustcenter)

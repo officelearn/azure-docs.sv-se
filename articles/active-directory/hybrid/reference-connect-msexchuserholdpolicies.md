@@ -14,18 +14,18 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74213079"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279405"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies och cloudMsExchUserHoldPolicies
 I följande referens dokument beskrivs de attribut som används av Exchange och det korrekta sättet att redigera standard reglerna för synkronisering.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Vad är msExchUserHoldPolicies och cloudMsExchUserHoldPolicies?
-Det finns två typer av [undantag](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) som är tillgängliga för en Exchange-Server: kvarhållning av undantag och på plats. När tvister har Aktiver ATS spärras alla objekt i post lådan.  En på-plats-plats används endast för att bevara de objekt som uppfyller villkoren i en Sök fråga som du har definierat med hjälp av eDiscovery-verktyget på plats.
+Det finns två typer av [undantag](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) som är tillgängliga för en Exchange-Server: kvarhållning av undantag och på plats. När tvister har Aktiver ATS spärras alla objekt i post lådan.  En på-plats-plats används endast för att bevara de objekt som uppfyller villkoren i en Sök fråga som du har definierat med hjälp av eDiscovery-verktyget på plats.
 
 Attributen MsExchUserHoldPolcies och cloudMsExchUserHoldPolicies tillåter lokala AD och Azure AD för att avgöra vilka användare som är under ett undantag beroende på om de använder lokalt Exchange eller Exchange Online.
 

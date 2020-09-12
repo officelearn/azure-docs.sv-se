@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359763"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279949"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Korrigera ändrade standard regler i Azure AD Connect
 
@@ -89,7 +89,7 @@ Behåll **omfångs filter** tomt. Det innebär att regeln gäller för alla obje
 
 Behåll **kopplings regler** tomma. Det innebär att regeln använder det kopplings villkor som definierats i standard standard regeln. Detta är ett annat skäl till att inte inaktivera eller ta bort standard standard regeln. Om det inte finns något kopplings villkor flödar inte attributet. 
 
-Lägg till lämpliga omvandlingar för attributet. Du kan tilldela en konstant för att göra ett konstant värde flöde till målattributet. Du kan använda direkt mappning mellan käll-eller mål-attributet. Du kan också använda ett uttryck för attributet. Här är olika [uttrycks funktioner](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) som du kan använda.
+Lägg till lämpliga omvandlingar för attributet. Du kan tilldela en konstant för att göra ett konstant värde flöde till målattributet. Du kan använda direkt mappning mellan käll-eller mål-attributet. Du kan också använda ett uttryck för attributet. Här är olika [uttrycks funktioner](./reference-connect-sync-functions-reference.md) som du kan använda.
 
 #### <a name="add-an-outbound-sync-rule"></a>Lägg till en regel för utgående synkronisering
 Om du vill länka attributet till mål katalogen måste du skapa en utgående regel. Det innebär att källan är metaversum och att målet är det anslutna systemet. Om du vill skapa en utgående regel startar du **Redigeraren för regler för synkronisering**, ändrar **riktningen** till **utgående**och väljer **Lägg till ny regel**. 
@@ -102,7 +102,7 @@ Precis som med regeln för inkommande trafik kan du använda en egen namngivning
 
 Behåll **omfångs filter** och **Anslut till regler** tomma. Fyll i omvandlingen som konstant, direkt eller uttryck. 
 
-Nu vet du hur du gör ett nytt attribut för ett användar objekt flöde från Active Directory till Azure Active Directory. Du kan använda de här stegen för att mappa alla attribut från alla objekt till källa och mål. Mer information finns i [skapa anpassade regler för synkronisering](how-to-connect-create-custom-sync-rule.md) och [förbereda för att etablera användare](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Nu vet du hur du gör ett nytt attribut för ett användar objekt flöde från Active Directory till Azure Active Directory. Du kan använda de här stegen för att mappa alla attribut från alla objekt till källa och mål. Mer information finns i [skapa anpassade regler för synkronisering](how-to-connect-create-custom-sync-rule.md) och [förbereda för att etablera användare](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Åsidosätt värdet för ett befintligt attribut
 Du kanske vill åsidosätta värdet för ett attribut som redan har mappats. Om du till exempel alltid vill ange ett null-värde för ett attribut i Azure AD skapar du bara en regel för inkommande trafik. Gör värdet konstant, `AuthoritativeNull` och flöda till målattributet. 
@@ -194,6 +194,3 @@ Om du vill åtgärda reglerna för att ändra tillbaka till standardinställning
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)
 - [Anpassade inställningar](how-to-connect-install-custom.md)
-
-
-

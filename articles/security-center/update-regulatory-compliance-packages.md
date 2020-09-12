@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32ee0135d4d991a9afe229747f8cb66916a12e7f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522614"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277450"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Anpassa uppsättningen standarder i din instrument panel för regelefterlevnad
 
@@ -46,7 +46,7 @@ Dessutom kan du lägga till **Azure Security benchmark**, de Microsoft-baserade,
 Ytterligare standarder kommer att stödjas på instrument panelen när de blir tillgängliga. 
 
 
-## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>Lägga till en regel standard på din instrument panel
+## <a name="add-a-regulatory-standard-to-your-dashboard"></a>Lägg till en regel standard på din instrument panel
 
 Följande steg beskriver hur du lägger till ett paket för att övervaka efterlevnaden av en av de regler som stöds.
 
@@ -93,4 +93,4 @@ Information om annat relaterat material finns i följande artiklar:
 
 - [Benchmark för Azure-säkerhet](https://docs.microsoft.com/azure/security/benchmarks/introduction)
 - [Instrument panel för övervakning av gällande säkerhets Center](security-center-compliance-dashboard.md)
-- [Arbeta med säkerhetsprinciper](tutorial-security-policy.md)
+- [Arbeta med säkerhetspolicyer](tutorial-security-policy.md)

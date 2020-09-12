@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446988"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275931"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
 Den här artikeln hjälper dig att hitta felsöknings information om vanliga problem i samband med Azure AD-direktautentisering.
 
 >[!IMPORTANT]
->Om du har problem med att logga in användare med direkt autentisering inaktiverar du inte funktionen eller avinstallerar direktautentisering genom att inte ha ett globalt administratörs konto för molnet för att gå vidare. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). Det här steget är kritiskt och säkerställer att du inte blir utelåst från din klient.
+>Om du har problem med att logga in användare med direkt autentisering inaktiverar du inte funktionen eller avinstallerar direktautentisering genom att inte ha ett globalt administratörs konto för molnet för att gå vidare. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../fundamentals/add-users-azure-active-directory.md). Det här steget är kritiskt och säkerställer att du inte blir utelåst från din klient.
 
 ## <a name="general-issues"></a>Allmänna frågor
 
@@ -72,10 +72,10 @@ För att bekräfta att detta är problemet, måste du först testa att direktaut
  ``` 
 4. När du uppmanas att ange autentiseringsuppgifter anger du samma användar namn och lösen ord som används för att logga in på ( https://login.microsoftonline.com) .
 
-Om du får samma användar namn/lösen ord-fel innebär det att direktautentisering fungerar som den ska och att problemet kan vara att det lokala UPN: et inte är dirigerbart. Mer information finns i [Konfigurera alternativt inloggnings-ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Om du får samma användar namn/lösen ord-fel innebär det att direktautentisering fungerar som den ska och att problemet kan vara att det lokala UPN: et inte är dirigerbart. Mer information finns i [Konfigurera alternativt inloggnings-ID]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 > [!IMPORTANT]
-> Om Azure AD Connect servern inte är domänansluten, ett krav som anges i [Azure AD Connect: krav](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), uppstår ett ogiltigt användar namn och lösen ord.
+> Om Azure AD Connect servern inte är domänansluten, ett krav som anges i [Azure AD Connect: krav](./how-to-connect-install-prerequisites.md#installation-prerequisites), uppstår ett ogiltigt användar namn och lösen ord.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Orsaker till inloggnings försök i Azure Active Directory administrations Center (kräver Premium-licens)
 
@@ -98,7 +98,7 @@ Navigera till **Azure Active Directory**  ->  **inloggningar** i [Azure Active D
 | 80011 | Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln. | Om problemet ständigt är reproducerat, installerar och registrerar du en ny autentiseringstjänst. Och avinstallera den aktuella.
 
 >[!IMPORTANT]
->Direkt autentiserings agenter autentiserar Azure AD-användare genom att verifiera sina användar namn och lösen ord mot Active Directory genom att anropa [Win32 LogonUser-API: et](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Det innebär att om du har ställt in inställningen "logga in på" i Active Directory för att begränsa åtkomsten till arbets stationer måste du lägga till servrar som är värdar för direktautentisering till listan över "inloggningar till"-servrar. Om du inte gör det blockeras användarna från att logga in på Azure AD.
+>Direkt autentiserings agenter autentiserar Azure AD-användare genom att verifiera sina användar namn och lösen ord mot Active Directory genom att anropa [Win32 LogonUser-API: et](/windows/win32/api/winbase/nf-winbase-logonusera). Det innebär att om du har ställt in inställningen "logga in på" i Active Directory för att begränsa åtkomsten till arbets stationer måste du lägga till servrar som är värdar för direktautentisering till listan över "inloggningar till"-servrar. Om du inte gör det blockeras användarna från att logga in på Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Installations problem för autentiserings agent
 

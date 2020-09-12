@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a16e989a6da8daa4a290c7eaa4363eef09c9749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356346"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276039"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Felsöka ett attribut som inte synkroniseras i Azure AD Connect
 
@@ -80,15 +80,15 @@ Innan du undersöker synkroniseringsproblem, ska vi förstå **Azure AD Connect*
 * På samma sätt kan du Visa **Azure Active Directory kopplings utrymmes** objekt och kan generera **förhands granskningen** för att visa ett attributarkiv från **metaversum** till **anslutnings utrymmet** och vice versa, på det här sättet kan du undersöka varför ett attribut inte synkroniseras.
 
 ## <a name="recommended-documents"></a>**Rekommenderade dokument**
-* [Azure AD Connect synkronisering: tekniska begrepp](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
-* [Azure AD Connect synkronisering: förstå arkitekturen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
-* [Azure AD Connect synkronisering: förstå deklarativ etablering](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Azure AD Connect synkronisering: förstå uttryck för deklarativ etablering](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
-* [Azure AD Connect-synkronisering: Förstå standardkonfigurationen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Azure AD Connect synkronisering: förstå användare, grupper och kontakter](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Azure AD Connect synkronisering: skugg-attribut](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Azure AD Connect synkronisering: tekniska begrepp](./how-to-connect-sync-technical-concepts.md)
+* [Azure AD Connect synkronisering: förstå arkitekturen](./concept-azure-ad-connect-sync-architecture.md)
+* [Azure AD Connect synkronisering: förstå deklarativ etablering](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Azure AD Connect synkronisering: förstå uttryck för deklarativ etablering](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Azure AD Connect-synkronisering: Förstå standardkonfigurationen](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Azure AD Connect synkronisering: förstå användare, grupper och kontakter](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Azure AD Connect synkronisering: skugg-attribut](./how-to-connect-syncservice-shadow-attributes.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Azure AD Connect synkronisering](how-to-connect-sync-whatis.md).
 - [Vad är hybrid identitet?](whatis-hybrid-identity.md).

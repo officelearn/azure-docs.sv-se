@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245509"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280221"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect synkronisering: förstå uttryck för deklarativ etablering
 Azure AD Connect Sync bygger på deklarativ etablering först i Forefront Identity Manager 2010. Du kan använda den fullständiga affärs logiken för identitets integrering utan att behöva skriva kompilerad kod.
 
 En viktig del av deklarativ etablering är det uttrycks språk som används i Attribute-flöden. Språket som används är en del av Microsoft® Visual Basic® för program (VBA). Det här språket används i Microsoft Office och användare med erfarenhet av VBScript kan också identifiera det. Deklarativ etablerings uttrycks språk använder bara Functions och är inte ett strukturerat språk. Det finns inga metoder eller instruktioner. Funktionerna är i stället kapslade till Express-programflöde.
 
-Mer information finns i [Välkommen till Visual Basic for Applications språk referens för Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Mer information finns i [Välkommen till Visual Basic for Applications språk referens för Office 2013](/office/vba/api/overview/language-reference).
 
 Attributen har strikt typ. En funktion accepterar bara attribut av rätt typ. Det är också Skift läges känsligt. Både funktions namn och attributnamn måste ha rätt Skift läge eller ett fel genereras.
 
@@ -82,10 +82,10 @@ Operatorerna utvärderas vänster till höger och har samma utvärderings priori
 ## <a name="multi-valued-attributes"></a>Attribut med flera värden
 Funktionerna kan användas på både enkelvärdesattribut och attribut med flera värden. För attribut med flera värden fungerar funktionen över alla värden och tillämpar samma funktion på alla värden.
 
-Till exempel:  
-`Trim([proxyAddresses])`Gör en trimning av alla värden i proxyAddress-attributet.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Ersätt domänen med för varje värde med @-sign @contoso.com .  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Leta efter SIP-adressen och ta bort den från värdena.
+Exempel:  
+`Trim([proxyAddresses])` Gör en trimning av alla värden i proxyAddress-attributet.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Ersätt domänen med för varje värde med @-sign @contoso.com .  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Leta efter SIP-adressen och ta bort den från värdena.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om konfigurations modellen i att [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
@@ -100,4 +100,3 @@ Till exempel:
 **Referensämnen**
 
 * [Azure AD Connect Sync: Functions reference](reference-connect-sync-functions-reference.md)
-

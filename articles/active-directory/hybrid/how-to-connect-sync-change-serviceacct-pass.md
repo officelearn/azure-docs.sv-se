@@ -17,19 +17,19 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385100"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278045"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändra lösen ordet för ADSync-tjänstkontot
 Om du ändrar lösen ordet för ADSync-tjänstkontot kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat om lösen ordet för ADSync-tjänstkontot. 
 
 Azure AD Connect, som en del av Synchronization Services, använder en krypterings nyckel för att lagra lösen orden för AD DS-anslutningsprogrammet och ADSync-tjänstkontot.  Dessa konton krypteras innan de lagras i-databasen. 
 
-Krypterings nyckeln som används skyddas med hjälp av [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI skyddar krypterings nyckeln med **ADSync-tjänstkontot**. 
+Krypterings nyckeln som används skyddas med hjälp av [Windows Data Protection (DPAPI)](/previous-versions/ms995355(v=msdn.10)). DPAPI skyddar krypterings nyckeln med **ADSync-tjänstkontot**. 
 
 Om du behöver ändra lösen ordet för tjänst kontot kan du använda procedurerna i att [överge krypterings nyckeln för ADSync-tjänstekontot](#abandoning-the-adsync-service-account-encryption-key) för att åstadkomma detta.  Dessa procedurer bör också användas om du behöver överge krypterings nyckeln av någon anledning.
 
@@ -84,9 +84,9 @@ Först kan du stoppa tjänsten i Windows Service Control Manager.  Kontrol lera 
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mapp:`'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
+3. Navigera till mapp: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
-4. Kör kommandot:`./miiskmu.exe /a`
+4. Kör kommandot: `./miiskmu.exe /a`
 
 ![Verktyget Azure AD Connect Sync Encryption Key](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 

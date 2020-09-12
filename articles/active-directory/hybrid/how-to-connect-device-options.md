@@ -16,12 +16,12 @@ ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedf1419a763fe0b0f528bee6e1b48e435ec0e2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90d8cc39174f6392b0c532948305fa713535f0c9
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360035"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279235"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: enhets alternativ
 
@@ -45,6 +45,5 @@ Följande dokumentation innehåller information om de olika enhets alternativ so
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera hybrid Azure AD-anslutning](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [Konfigurera hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-plan.md)
 * [Konfigurera/inaktivera tillbakaskrivning av enhet](how-to-connect-device-writeback.md)
-

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179155"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278691"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel med duplicerade attribut
 
@@ -133,7 +133,7 @@ Efter föregående steg kan användaren komma åt den ursprungliga resursen, som
 
 ## <a name="failures-and-error-messages"></a>Fel och fel meddelanden
 **Användaren med ett attribut som är i konflikt är mjuk borttagning i Azure Active Directory. Se till att användaren är hårt borttagen innan du försöker igen.**  
-Användaren med ett attribut i konflikt i Azure AD bör rensas innan du kan använda Fix. Ta en titt på [hur du tar bort användaren permanent i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) innan du försöker utföra korrigeringen igen. Användaren tas också bort automatiskt efter 30 dagar i läget Soft Deleted. 
+Användaren med ett attribut i konflikt i Azure AD bör rensas innan du kan använda Fix. Ta en titt på [hur du tar bort användaren permanent i Azure AD](../fundamentals/active-directory-users-restore.md) innan du försöker utföra korrigeringen igen. Användaren tas också bort automatiskt efter 30 dagar i läget Soft Deleted. 
 
 **Det går inte att uppdatera käll ankare till molnbaserad användare i din klient organisation.**  
 Molnbaserad användare i Azure AD ska inte ha käll ankare. Uppdatering av käll ankare stöds inte i det här fallet. Manuell korrigering krävs från lokalt. 

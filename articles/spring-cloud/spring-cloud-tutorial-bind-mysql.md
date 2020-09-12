@@ -7,24 +7,24 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ef202bb3ba82b48aca75c7f934aecb3f5fbe0a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0287bc8a11c359acce5fbf12d3a51e99a9f5420e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070762"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297152"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Bind en Azure Database for MySQL-instans till ditt Azure våren Cloud-program 
 
 Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att behöva konfigurera ditt våren Boot-program manuellt. Den här artikeln visar hur du binder ditt program till din Azure Database for MySQL-instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En distribuerad Azure våren Cloud-instans
 * Ett Azure Database for MySQL konto
 * Azure CLI
 
-Om du inte har en distribuerad Azure våren-moln instans följer du anvisningarna i [snabb start: starta ett Azure våren Cloud-program genom att använda Azure Portal](spring-cloud-quickstart-launch-app-portal.md) för att distribuera din första våren Cloud-App.
+Om du inte har en distribuerad Azure våren-moln instans följer du anvisningarna i [snabb start: starta ett Azure våren Cloud-program genom att använda Azure Portal](spring-cloud-quickstart.md) för att distribuera din första våren Cloud-App.
 
 ## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Bind din app till din Azure Database for MySQL-instans
 

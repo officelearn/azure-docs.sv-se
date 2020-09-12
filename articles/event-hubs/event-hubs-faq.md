@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537188"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288975"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -70,8 +70,8 @@ Se följande tabell för utgående portar som du måste öppna för att kunna an
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Se [använda Event Hubs från Kafka-program](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Vilka IP-adresser behöver jag för att vitlista?
-Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för dina anslutningar:
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>Vilka IP-adresser måste jag tillåta?
+Följ dessa steg om du vill hitta rätt IP-adresser som ska läggas till i listan över tillåtna anslutningar för dina anslutningar:
 
 1. Kör följande kommando från en kommando tolk: 
 
@@ -270,5 +270,5 @@ Mer information om service avtal finns på sidan [service nivå avtal](https://a
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Översikt över Event Hubs](./event-hubs-about.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+* [Skapa en Händelsehubben](event-hubs-create.md)
 * [Event Hubs automatiskt bred mitt](event-hubs-auto-inflate.md)

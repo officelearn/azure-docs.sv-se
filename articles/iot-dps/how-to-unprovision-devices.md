@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974844"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294398"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Så här avetablerar du enheter som tidigare var automatiskt etablerade 
 
@@ -57,22 +57,10 @@ Om du vill se en lista över enheter som har etablerats via en registrerings gru
 Med registrerings grupper finns det två scenarier att tänka på:
 
 - Avetablera alla enheter som har etablerats via en registrerings grupp:
-  1. Inaktivera registrerings gruppen för att svartlista signerings certifikatet. 
+  1. Inaktivera registrerings gruppen om du inte vill att signerings certifikatet ska tillåtas. 
   2. Använd listan över etablerade enheter för registrerings gruppen för att inaktivera eller ta bort varje enhet från identitets registret för respektive IoT Hub. 
   3. När du har inaktiverat eller tagit bort alla enheter från sina respektive IoT-hubbar kan du ta bort registrerings gruppen om du vill. Tänk på att om du tar bort registrerings gruppen och det finns en aktive rad registrerings grupp för ett signerings certifikat som är högre upp i certifikat kedjan för en eller flera av enheterna, kan enheterna omregistreras. 
 
 - Så här avetablerar du en enskild enhet från en registrerings grupp:
   1. Skapa en inaktive rad enskild registrering för sitt löv certifikat (Device). Detta återkallar åtkomsten till etablerings tjänsten för enheten samtidigt som den ger åtkomst till andra enheter som har registrerings gruppens signerings certifikat i kedjan. Ta inte bort den inaktiverade enskilda registreringen för enheten. På så sätt kan enheten omregistrera sig via registrerings gruppen. 
   2. Använd listan över etablerade enheter för registrerings gruppen för att hitta den IoT-hubb som enheten etablerades till och inaktivera eller ta bort den från hubbens identitets register. 
-  
-  
-
-
-
-
-
-
-
-
-
-

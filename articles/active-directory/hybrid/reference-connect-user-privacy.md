@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60455796"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279575"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Användar sekretess och Azure AD Connect 
 
@@ -43,7 +43,7 @@ En Azure AD Connect Sync-Server lagrar följande användar sekretess data:
 
 Azure AD Connect kunder bör använda följande rikt linjer när de tar bort användar data:
 1.  Ta bort innehållet i mappen som innehåller Azure AD Connect installations loggen regelbundet, minst var 48: e timme
-2.  Den här produkten kan också skapa händelse loggar.  Om du vill veta mer om loggar för händelse loggar kan du läsa [dokumentationen här](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+2.  Den här produkten kan också skapa händelse loggar.  Om du vill veta mer om loggar för händelse loggar kan du läsa [dokumentationen här](/windows/win32/wes/windows-event-log).
 
 Data om en person tas bort automatiskt från Azure AD Connect-databasen när personens data tas bort från käll systemet där det kom från. Ingen speciell åtgärd från administratörer krävs för att vara GDPR-kompatibel.  Det kräver dock att Azure AD Connect data synkroniseras med data källan minst varannan dag.
 

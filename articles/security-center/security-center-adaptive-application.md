@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691487"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276770"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -76,7 +76,7 @@ Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill
     - **Rekommenderade** – grupper av datorer som kör samma program konsekvent och som inte har någon konfigurerad lista över tillåtna. Vi rekommenderar att du aktiverar anpassningsbara program kontroller för dessa grupper.
     
       > [!TIP]
-      > Om du ser ett grupp namn med prefixet "REVIEWGROUP" innehåller den datorer med en delvis konsekvent lista över program. Security Center kan inte se ett mönster, men du rekommenderas att granska den här gruppen för att se om _du_ kan definiera vissa regler för anpassningsbara program kontroller manuellt enligt beskrivningen i [Redigera en grupps kontroll regel för anpassningsbara program kontroller](#editing-a-groups-adaptive-application-controls-rule).
+      > Om du ser ett grupp namn med prefixet "REVIEWGROUP" innehåller den datorer med en delvis konsekvent lista över program. Security Center kan inte se ett mönster, men du rekommenderas att granska den här gruppen för att se om _du_ kan definiera vissa regler för anpassningsbara program kontroller manuellt enligt beskrivningen i [Redigera en grupps kontroll regel för anpassningsbara program kontroller](#edit-a-groups-adaptive-application-controls-rule).
       >
       > Du kan också flytta datorer från den här gruppen till andra grupper enligt beskrivningen i [flytta en dator från en grupp till en annan](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Redigera en grupps regel för anpassningsbar program kontroll
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Redigera en grupps regel för anpassningsbar program kontroll
 
 Du kan välja att redigera listan över tillåtna för en grupp datorer på grund av kända ändringar i din organisation. 
 
@@ -150,7 +150,7 @@ Redigera reglerna för en grupp datorer:
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Att svara på "tillåten-regler i din princip för anpassningsbar program kontroll ska uppdateras" rekommendation
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Svara på "tillåten regler i din princip för anpassningsbar program kontroll ska uppdateras" rekommendation
 
 Den här rekommendationen visas när Security Center Machine Learning identifierar potentiellt legitima beteenden som inte tidigare har tillåtits. Rekommendationen föreslår nya regler för dina befintliga definitioner för att minska antalet falska positiva varningar.
 
@@ -167,7 +167,7 @@ Så här åtgärdar du problemen:
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Granska aviseringar och överträdelser
+## <a name="audit-alerts-and-violations"></a>Granska aviseringar och överträdelser
 
 1. Från Security Center menyn väljer du **adaptiva program kontroller**.
 
@@ -199,7 +199,7 @@ När du flyttar en dator från en grupp till en annan så ändras den program ko
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Hantera program kontroller via REST API 
+## <a name="manage-application-controls-via-the-rest-api"></a>Hantera program kontroller via REST API 
 
 Använd vår REST API för att hantera dina anpassningsbara program kontroller program mässigt. 
 

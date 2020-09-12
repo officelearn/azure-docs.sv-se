@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291304"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Konfigurera en våren Cloud config Server-instans för din tjänst
 
@@ -22,7 +22,7 @@ Våren Cloud config tillhandahåller stöd för Server-och klient sidan för en 
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
-* En Azure våren Cloud-tjänst som redan har tillhandahållits och körs. Information om hur du konfigurerar och startar en Azure våren Cloud-tjänst finns i [snabb start: starta ett Java våren-program med hjälp av Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+* En Azure våren Cloud-tjänst som redan har tillhandahållits och körs. Information om hur du konfigurerar och startar en Azure våren Cloud-tjänst finns i [snabb start: starta ett Java våren-program med hjälp av Azure CLI](spring-cloud-quickstart.md).
 
 ## <a name="restriction"></a>Begränsning
 
@@ -227,7 +227,7 @@ Azure våren Cloud kan komma åt git-databaser som är offentliga, säkra med SS
 
 ## <a name="delete-your-app-configuration"></a>Ta bort din app-konfiguration
 
-När du har sparat en konfigurations fil visas knappen **ta bort app-konfiguration** på fliken **konfiguration** . om du väljer den här knappen raderas dina befintliga inställningar helt och hållet. Du bör välja den om du vill ansluta din konfigurations Server instans till en annan källa, till exempel flytta från GitHub till Azure DevOps.
+När du har sparat en konfigurations fil visas knappen **ta bort app-konfiguration** på fliken **konfiguration** . Om du väljer den här knappen raderas dina befintliga inställningar helt. Du bör välja den om du vill ansluta din konfigurations Server instans till en annan källa, till exempel flytta från GitHub till Azure DevOps.
 
 
 

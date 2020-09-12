@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135869"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291117"
 ---
 # <a name="safe-url-list"></a>Lista över säkra webbadresser
 
@@ -31,8 +31,8 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
-| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | Ej tillämpligt |
-| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/security-overview.md#azure-platform-considerations) | Ej tillämpligt |
+| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
+| 168.63.129.16 | 80 | [Hälso övervakning av sessions värd](../virtual-network/security-overview.md#azure-platform-considerations) | E.t. |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
@@ -60,7 +60,7 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 >
 >1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
 >2. Öppna **logg boken**och gå sedan till **Windows loggar**  >  **Application**  >  **WVD-agent** och leta efter händelse-ID 3701.
->3. Vitlista de URL: er som du hittar under händelse-ID 3701. URL: erna under händelse-ID 3701 är landsspecifika. Du måste upprepa den avblockerande processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
+>3. Avblockera de URL: er som du hittar under händelse-ID 3701. URL: erna under händelse-ID 3701 är landsspecifika. Du måste upprepa den avblockerande processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
 
 ## <a name="remote-desktop-clients"></a>Fjärrskrivbordsklienter
 

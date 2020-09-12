@@ -1,7 +1,7 @@
 ---
 title: Transaktionsreplikering
 titleSuffix: Azure SQL Managed Instance
-description: Lär dig mer om att använda SQL Server Transaktionsreplikering med Azure SQL-hanterad instans.
+description: Lär dig mer om att använda SQL Server Transaktionsreplikering med Azure SQL-hanterad instans (för hands version).
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -12,14 +12,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920134"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290522"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>Transaktionell replikering med Azure SQL-hanterad instans
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Transaktionell replikering med Azure SQL-hanterad instans (för hands version)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Transaktionsreplikering är en funktion i Azure SQL-hanterad instans och SQL Server som gör att du kan replikera data från en tabell i en Azure SQL-hanterad instans eller en SQL Server instans till tabeller som placeras på fjärrdatabaser. Med den här funktionen kan du synkronisera flera tabeller i olika databaser. 
@@ -43,7 +43,7 @@ Nyckel komponenterna i Transaktionsreplikering är **utgivare**, **distributör*
 
 ![replikering med SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Role | Azure SQL Database | Hanterad Azure SQL-instans |
+| Roll | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
 | **Publisher** | Inga | Ja |
 | **Möjligheter** | Inga | Ja|

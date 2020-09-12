@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6efff54d2c28659af27161ab4cd4753302210006
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358420"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280204"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory direktautentisering: aktuella begränsningar
 
@@ -43,9 +43,9 @@ Följande scenarier stöds:
 
 Följande scenarier stöds _inte_ :
 
-- Identifiering av användare med [läckta autentiseringsuppgifter](../reports-monitoring/concept-risk-events.md#leaked-credentials).
+- Identifiering av användare med [läckta autentiseringsuppgifter](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services kräver att hash-synkronisering av lösen ord är aktiverat på klienten. Klienter som använder _direkt autentisering fungerar_ därför inte för scenarier som behöver Azure AD Domain Services.
-- Direkt autentisering är inte integrerat med [Azure AD Connect Health](whatis-hybrid-identity-health.md).
+- Direkt autentisering är inte integrerat med [Azure AD Connect Health](./whatis-azure-ad-connect.md).
 
 > [!IMPORTANT]
 > Som en lösning _för scenarier som_ inte stöds (förutom Azure AD Connect Health-integrering) aktiverar du synkronisering av lösen ords-hash på sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features) i guiden Azure AD Connect.

@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077925"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292732"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst för dig själv till grupper eller program i åtkomst granskningar för Azure AD
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur du granskar din egen åtkomst till en grupp elle
 Det första steget för att utföra en åtkomst granskning är att hitta och öppna åtkomst granskningen.
 
 >[!IMPORTANT]
-> Det kan uppstå fördröjningar i att ta emot e-post och det kan ta upp till 24 timmar. Vitlista azure-noreply@microsoft.com för att se till att du får alla e-postmeddelanden.
+> Det kan uppstå fördröjningar i att ta emot e-post och det kan ta upp till 24 timmar. Lägg till azure-noreply@microsoft.com i listan med betrodda mottagare och se till att du får alla e-postmeddelanden.
 
 1. Sök efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Här är ett exempel på ett e-postmeddelande för att granska din åtkomst till en grupp.
 
@@ -106,7 +106,7 @@ Du kan prova den nya upplevelsen med det uppdaterade användar gränssnittet i m
 ### <a name="email"></a>E-post
 
 >[!IMPORTANT]
-> Det kan uppstå fördröjningar i att ta emot e-post och det kan ta upp till 24 timmar. Vitlista azure-noreply@microsoft.com för att se till att du får alla e-postmeddelanden.
+> Det kan uppstå fördröjningar i att ta emot e-post och det kan ta upp till 24 timmar. Lägg till azure-noreply@microsoft.com i listan med betrodda mottagare och se till att du får alla e-postmeddelanden.
 
 1. Sök efter ett e-postmeddelande från Microsoft som ber dig att granska åtkomst. Du kan se ett exempel på ett e-postmeddelande nedan:
 
@@ -123,7 +123,7 @@ Du kan prova den nya upplevelsen med det uppdaterade användar gränssnittet i m
 
 Du kan också visa dina väntande åtkomst granskningar genom att använda webbläsaren för att öppna min åtkomst.
 
-1. Logga in till min åtkomst påhttps://myaccess.microsoft.com/
+1. Logga in till min åtkomst på https://myaccess.microsoft.com/
 
 2. Välj **åtkomst granskningar** på menyn i det vänstra sid fältet för att se en lista över väntande åtkomst granskningar som har tilldelats dig.
 

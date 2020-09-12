@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245480"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279320"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect synkronisering: förstå användare, grupper och kontakter
 Det finns flera olika anledningar till varför du skulle ha flera Active Directory skogar och det finns flera olika distributions topologier. Vanliga modeller är en konto-resurs distribution och GAL sync'ed-skogar efter en sammanslagning & förvärv. Även om det finns rena modeller är även hybrid modeller vanliga. Standard konfigurationen i Azure AD Connect Sync förutsätter ingen viss modell, men beroende på hur användar matchning har valts i installations guiden kan olika beteenden observeras.
@@ -39,9 +39,9 @@ Viktiga saker att tänka på när du synkroniserar grupper från Active Director
 
 * Azure AD Connect exkluderar inbyggda säkerhets grupper från katalog synkronisering.
 
-* Azure AD Connect stöder inte synkronisering av [primära grupp medlemskap](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) till Azure AD.
+* Azure AD Connect stöder inte synkronisering av [primära grupp medlemskap](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) till Azure AD.
 
-* Azure AD Connect stöder inte synkronisering av [medlemskap i dynamiska distributions grupper](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) till Azure AD.
+* Azure AD Connect stöder inte synkronisering av [medlemskap i dynamiska distributions grupper](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) till Azure AD.
 
 * Så här synkroniserar du en Active Directory grupp till Azure AD som en e-postaktiverad grupp:
 
@@ -76,4 +76,3 @@ När ett objekt har exporter ATS till Azure AD är det inte tillåtet att ändra
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Azure AD Connect synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
-

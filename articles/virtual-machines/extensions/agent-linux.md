@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269129"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279711"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 
@@ -53,7 +53,7 @@ Microsoft Azure Linux-agenten (waagent) hanterar Linux & FreeBSD-etablering och 
 * **VM-tillägg**
   
   * Inmatnings komponent som skapats av Microsoft och partners till virtuella Linux-datorer (IaaS) för att aktivera automatisering av program vara och konfiguration
-  * Referens implementering för VM-tillägg på[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Referens implementering för VM-tillägg på [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Kommunikation
 Informations flödet från plattformen till agenten sker via två kanaler:
@@ -92,6 +92,9 @@ Linux-agenten är beroende av vissa system paket för att fungera korrekt:
 * Verktyg för text bearbetning: sed, grep
 * Nätverks verktyg: IP-Route
 * Kernel-stöd för att montera UDF-filsystem.
+
+Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+
 
 ## <a name="installation"></a>Installation
 Installation med hjälp av ett RPM-eller DEB-paket från distributionens paket lagring är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](../linux/endorsed-distros.md) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser.

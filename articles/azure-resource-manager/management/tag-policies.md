@@ -3,12 +3,12 @@ title: Principer för att tagga resurser
 description: Beskriver de Azure-principer som du kan tilldela för att säkerställa taggens kompatibilitet.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82147856"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293751"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>Tilldela principer för tagg-kompatibilitet
 
@@ -16,7 +16,7 @@ Du använder [Azure policy](../../governance/policy/overview.md) för att tillä
 
 ## <a name="policies"></a>Principer
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

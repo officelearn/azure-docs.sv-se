@@ -45,7 +45,7 @@ Den här artikeln visar hur du
 
 Du hittar definitioner av olika Media Services .NET-Azure Functions (inklusive det som visas i den här artikeln) [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra vägledningen:
 

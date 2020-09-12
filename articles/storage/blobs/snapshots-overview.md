@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230341"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295416"
 ---
 # <a name="blob-snapshots"></a>BLOB-ögonblicksbilder
 
@@ -90,25 +90,25 @@ Följande scenarier visar hur avgifterna påförs för en Block-Blob och dess ö
 
 I Scenario 1 har bas-bloben inte uppdaterats efter att ögonblicks bilden togs, så avgifterna debiteras bara för unika block 1, 2 och 3.
 
-![Diagram 1 som visar fakturering för unika block i bas-blob och ögonblicks bild](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagram 1 visar fakturering för unika block i bas-blob och ögonblicks bild.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenario 2
 
 I scenario 2 har bas-bloben uppdaterats, men ögonblicks bilden har inte det. Block 3 har uppdaterats och även om det innehåller samma data och samma ID är det inte samma som för Block 3 i ögonblicks bilden. Det innebär att kontot debiteras för fyra block.
 
-![Diagram 2 visar fakturering för unika block i bas-blob och ögonblicks bild](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagram 2 visar fakturering för unika block i bas-blob och ögonblicks bild.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenario 3
 
 I scenario 3 har bas-bloben uppdaterats, men ögonblicks bilden har inte det. Block 3 har ersatts med block 4 i bas-blobben, men ögonblicks bilden visar fortfarande Block 3. Det innebär att kontot debiteras för fyra block.
 
-![Diagram 3 som visar fakturering för unika block i bas-blob och ögonblicks bild](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagram 3 visar fakturering för unika block i bas-blob och ögonblicks bild.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenario 4
 
 I Scenario 4 har bas-bloben uppdaterats helt och innehåller inget av de ursprungliga blocken. Kontot debiteras därför för alla åtta unika block.
 
-![Diagram 4 som visar fakturering för unika block i bas-blob och ögonblicks bild](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagram 4 visar fakturering för unika block i bas-blob och ögonblicks bild.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Undvik att anropa metoder som skriver över hela blobben och uppdatera i stället enskilda block för att hålla kostnaderna nere.
@@ -128,6 +128,10 @@ I följande tabell beskrivs fakturerings beteendet för en BLOB eller ögonblick
 | En ögonblicks bild | Ögonblicks bilden på den nya nivån och bas-bloben på den ursprungliga nivån samt eventuella unika block i andra ögonblicks bilder. <sup>1</sup> |
 
 <sup>1</sup> Om det finns andra tidigare versioner eller ögonblicks bilder som inte har flyttats från ursprungs nivån debiteras dessa versioner eller ögonblicks bilder utifrån antalet unika block som de innehåller, enligt beskrivningen i [fakturering när BLOB-nivån inte har angetts explicit](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Följande diagram illustrerar hur objekt faktureras när en blob med ögonblicks bilder flyttas till en annan nivå.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagram över hur objekt faktureras när en blob med ögonblicks bilder tas i nivå.":::
 
 Det går inte att göra en återställning av nivån för en BLOB, version eller ögonblicks bild. Om du flyttar en blob till en ny nivå och sedan flyttar tillbaka den till den ursprungliga nivån debiteras du för objektets fullständiga innehålls längd även om det delar block med andra objekt på den ursprungliga nivån.
 

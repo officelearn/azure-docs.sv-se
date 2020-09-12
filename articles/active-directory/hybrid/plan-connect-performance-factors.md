@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253502"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279592"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
 
@@ -30,7 +30,7 @@ Azure AD Connect synkroniserar din Active Directory till Azure AD. Den här serv
 | Skala| Antalet objekt, t. ex. användare, grupper och organisationsenheter, som ska hanteras av Azure AD Connect. |
 | Maskinvara| Maskin vara (fysisk eller virtuell) för den Azure AD Connect och beroende prestanda kapaciteten för varje maskin varu komponent, inklusive konfiguration av processor, minne, nätverk och hård disk. |
 | Konfiguration| Hur Azure AD Connect bearbetar kataloger och information. |
-| Läsa in| Frekvens för objekt ändringar. Belastningarna kan variera mellan en timme, en dag eller en vecka. Beroende på komponent kan du behöva utforma för hög belastning eller genomsnittlig belastning. |
+| Inläsning| Frekvens för objekt ändringar. Belastningarna kan variera mellan en timme, en dag eller en vecka. Beroende på komponent kan du behöva utforma för hög belastning eller genomsnittlig belastning. |
 
 Syftet med det här dokumentet är att beskriva de faktorer som påverkar prestandan för Azure AD Connect etablerings motorn. Stora eller komplexa organisationer (organisationer som håller på att tillhandahålla fler än 100 000 objekt) kan använda rekommendationerna för att optimera sina Azure AD Connect implementering, om de drabbas av eventuella prestanda problem som beskrivs här. De andra komponenterna i Azure AD Connect, till exempel [Azure AD Connect hälsa](how-to-connect-health-agent-install.md) och agenter, omfattas inte här.
 
@@ -43,7 +43,7 @@ Följande diagram visar en hög nivå arkitektur för etablerings motorn som ans
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-Etablerings motorn ansluter till varje Active Directory skog och till Azure AD. Processen med att läsa information från varje katalog kallas importera. Export syftar på att uppdatera katalogerna från etablerings motorn. Synkronisering utvärderar reglerna för hur objekten kommer att flöda i etablerings motorn. För en djupare inblick kan du referera till [Azure AD Connect Sync: förstå arkitekturen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+Etablerings motorn ansluter till varje Active Directory skog och till Azure AD. Processen med att läsa information från varje katalog kallas importera. Export syftar på att uppdatera katalogerna från etablerings motorn. Synkronisering utvärderar reglerna för hur objekten kommer att flöda i etablerings motorn. För en djupare inblick kan du referera till [Azure AD Connect Sync: förstå arkitekturen](./concept-azure-ad-connect-sync-architecture.md).
 
 Azure AD Connect använder följande mellanlagringsplatser, regler och processer för att tillåta synkronisering från Active Directory till Azure AD:
 
@@ -52,7 +52,7 @@ Azure AD Connect använder följande mellanlagringsplatser, regler och processer
 * **Regler för synkronisering** – de bestämmer vilka objekt som ska skapas (projiceras) eller ansluts till objekt i MV. Reglerna för synkronisering bestämmer också vilka attributvärden som ska kopieras eller omvandlas till och från katalogerna.
 * **Kör profiler** – sammanställer process stegen för att kopiera objekt och deras attributvärden enligt reglerna för synkronisering mellan mellanlagringsområdet och anslutna kataloger.
 
-Det finns olika körnings profiler för att optimera etablerings motorns prestanda. De flesta organisationer använder standard scheman och kör profiler för normala åtgärder, men vissa organisationer kan behöva [ändra schemat](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) eller utlösa andra körnings profiler för att uppfylla vanliga situationer. Följande körnings profiler är tillgängliga:
+Det finns olika körnings profiler för att optimera etablerings motorns prestanda. De flesta organisationer använder standard scheman och kör profiler för normala åtgärder, men vissa organisationer kan behöva [ändra schemat](./how-to-connect-sync-feature-scheduler.md) eller utlösa andra körnings profiler för att uppfylla vanliga situationer. Följande körnings profiler är tillgängliga:
 
 ### <a name="initial-sync-profile"></a>Inledande profilsynkronisering
 
@@ -109,7 +109,7 @@ Sync process Runtime har följande prestanda egenskaper:
 
 Storleken på den Active Directory topologi som du vill importera är den enda faktorn som påverkar prestandan och den övergripande tiden som de interna komponenterna i etablerings motorn tar.
 
-[Filtrering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) ska användas för att minska objekten till synkroniserat. Det förhindrar att onödiga objekt bearbetas och exporteras till Azure AD. Följande metoder för filtrering är tillgängliga i prioritetsordning:
+[Filtrering](./how-to-connect-sync-configure-filtering.md) ska användas för att minska objekten till synkroniserat. Det förhindrar att onödiga objekt bearbetas och exporteras till Azure AD. Följande metoder för filtrering är tillgängliga i prioritetsordning:
 
 
 
@@ -130,7 +130,7 @@ Många permanenta [från kopplings objekt](concept-azure-ad-connect-sync-archite
 
 ### <a name="attribute-flows"></a>Attribut flöden
 
-Attribut flöden är processen för att kopiera eller omvandla attributvärden för objekt från en ansluten katalog till en annan ansluten katalog. De har definierats som en del av reglerna för synkronisering. Till exempel när telefonnumret för en användare ändras i Active Directory, kommer telefonnumret i Azure AD att uppdateras. Organisationer kan [ändra attributet flöden](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration) till olika krav för Suite. Vi rekommenderar att du kopierar befintliga attribut flöden innan du ändrar dem.
+Attribut flöden är processen för att kopiera eller omvandla attributvärden för objekt från en ansluten katalog till en annan ansluten katalog. De har definierats som en del av reglerna för synkronisering. Till exempel när telefonnumret för en användare ändras i Active Directory, kommer telefonnumret i Azure AD att uppdateras. Organisationer kan [ändra attributet flöden](./how-to-connect-sync-change-the-configuration.md) till olika krav för Suite. Vi rekommenderar att du kopierar befintliga attribut flöden innan du ändrar dem.
 
 Enkla omdirigeringar, som att flöda ett attributvärde till ett annat attribut, påverkar inte materialets prestanda. Ett exempel på en omdirigering flödar ett mobiltelefon nummer i Active Directory till arbets telefonnumret i Azure AD.
 
@@ -181,7 +181,7 @@ Storleken på din käll Active Directorys topologi påverkar SQL Database-presta
 
 
 - Använd den [rekommenderade maskin varu konfigurationen](how-to-connect-install-prerequisites.md) baserat på din implementerings storlek för Azure AD Connect-servern.
-- När du uppgraderar Azure AD Connect i storskaliga distributioner bör du överväga att använda [metoden flytta migrering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration)för att se till att du har den lägsta stillestånds tiden och bästa tillförlitlighet. 
+- När du uppgraderar Azure AD Connect i storskaliga distributioner bör du överväga att använda [metoden flytta migrering](./how-to-upgrade-previous-version.md#swing-migration)för att se till att du har den lägsta stillestånds tiden och bästa tillförlitlighet. 
 - Använd SSD för SQL Database för bästa möjliga skriv prestanda.
 - Filtrera Active Directory omfattning så att den endast innehåller objekt som måste tillhandahållas i Azure AD med hjälp av domän-, ORGANISATIONSENHETs-eller filtrerings filtrering.
 - Om du behöver ändra standardvärdena för attributvärden, kopierar du först regeln och ändrar sedan kopian och inaktiverar den ursprungliga regeln. Kom ihåg att köra en fullständig synkronisering igen.

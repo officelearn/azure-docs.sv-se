@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 17e39a7b94384827af19b2362d478456cde8f167
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181467"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280102"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurera en digital Azure-instans och autentisering (CLI)
 
@@ -150,5 +150,9 @@ Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . De
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
+Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
+* [AZ DT-referens](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
+
+Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
 * [*Instruktion: skriva kod för app-autentisering*](how-to-authenticate-client.md)

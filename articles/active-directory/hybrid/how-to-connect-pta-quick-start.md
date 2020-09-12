@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849882"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280187"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory direktautentisering: snabb start
 
@@ -33,7 +33,7 @@ Med direkt autentisering i Azure Active Directory (Azure AD) kan användarna log
 >Om du migrerar från AD FS (eller andra Federations tekniker) till direktautentisering, rekommenderar vi starkt att du följer vår detaljerade distributions guide publicerad [här](https://aka.ms/adfstoPTADPDownload).
 
 >[!NOTE]
->Om du distribuerar vidarekoppling med Azure Government molnet kan du Visa [hybrid identitets överväganden för Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+>Om du distribuerar vidarekoppling med Azure Government molnet kan du Visa [hybrid identitets överväganden för Azure Government](./reference-connect-government-cloud.md).
 
 Följ de här anvisningarna för att distribuera direktautentisering på klienten:
 
@@ -42,12 +42,12 @@ Följ de här anvisningarna för att distribuera direktautentisering på kliente
 Se till att följande krav är uppfyllda.
 
 >[!IMPORTANT]
->Av säkerhets synpunkt bör administratören behandla servern som kör PTA-agenten som om den vore en domänkontrollant.  PTA agent-servrarna bör vara härdade längs samma rader som beskrivs i [Skydda domänkontrollanter mot angrepp](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
+>Av säkerhets synpunkt bör administratören behandla servern som kör PTA-agenten som om den vore en domänkontrollant.  PTA agent-servrarna bör vara härdade längs samma rader som beskrivs i [Skydda domänkontrollanter mot angrepp](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
-1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient organisation om dina lokala tjänster kraschar eller blir otillgängliga. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
-2. Lägg till ett eller flera [anpassade domän namn](../active-directory-domains-add-azure-portal.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
+1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient organisation om dina lokala tjänster kraschar eller blir otillgängliga. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../fundamentals/add-users-azure-active-directory.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
+2. Lägg till ett eller flera [anpassade domän namn](../fundamentals/add-custom-domain.md) i Azure AD-klienten. Användarna kan logga in med ett av dessa domän namn.
 
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 
@@ -55,12 +55,12 @@ Se till att följande krav är uppfyllda.
 2. Installera den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) på den server som identifierades i föregående steg. Om du redan har Azure AD Connect kört, se till att versionen är 1.1.750.0 eller senare.
 
     >[!NOTE]
-    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering tillsammans med direktautentisering kan du läsa [Azure AD Connect viktig information](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
+    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering tillsammans med direktautentisering kan du läsa [Azure AD Connect viktig information](./reference-connect-version-history.md).
 
 3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare, med TLS 1,2 aktiverat) där du kan köra fristående autentiserings agenter. Dessa ytterligare servrar behövs för att säkerställa hög tillgänglighet för begär Anden att logga in. Lägg till servrarna i samma Active Directory skog som de användare vars lösen ord du behöver validera.
 
     >[!IMPORTANT]
-    >I produktions miljöer rekommenderar vi att du har minst 3 autentiserings agenter som körs på din klient. Det finns en system gräns på 40-autentiseringspaket per klient. Och bästa praxis är att behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >I produktions miljöer rekommenderar vi att du har minst 3 autentiserings agenter som körs på din klient. Det finns en system gräns på 40-autentiseringspaket per klient. Och bästa praxis är att behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Om det finns en brand vägg mellan dina servrar och Azure AD konfigurerar du följande objekt:
    - Se till att autentiserings agenter kan göra *utgående* begär anden till Azure AD över följande portar:
@@ -120,7 +120,7 @@ I det här skedet kan användare från alla hanterade domäner i din klient logg
 Om du planerar att distribuera direktautentisering i en produktions miljö bör du installera ytterligare fristående autentiserings agenter. Installera de här autentiseringsinställningarna på _andra_ servrar än den som kör Azure AD Connect. Den här inställningen ger dig hög tillgänglighet för användar inloggnings begär Anden.
 
 >[!IMPORTANT]
->I produktions miljöer rekommenderar vi att du har minst 3 autentiserings agenter som körs på din klient. Det finns en system gräns på 40-autentiseringspaket per klient. Och bästa praxis är att behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>I produktions miljöer rekommenderar vi att du har minst 3 autentiserings agenter som körs på din klient. Det finns en system gräns på 40-autentiseringspaket per klient. Och bästa praxis är att behandla alla servrar som kör autentiseringsprinciper som system på nivå 0 (se [referens](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Att installera flera direktautentisering för direktautentisering säkerställer hög tillgänglighet, men inte deterministisk belastnings utjämning mellan Authentication Agents. Ta reda på hur många autentiseringsmetoder du behöver för din klient genom att tänka på den högsta och genomsnittliga belastningen för de inloggnings begär Anden som du förväntar dig att se på din klient. Som riktmärke kan en enda autentiserings-agent hantera 300 till 400-autentiseringar per sekund på en standard processor på 4 kärnor, 16 GB RAM-Server.
 

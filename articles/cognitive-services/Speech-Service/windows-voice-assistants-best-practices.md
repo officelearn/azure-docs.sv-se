@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714788"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293650"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Design assistents upplevelser för Windows 10
 
@@ -118,9 +118,9 @@ Många datorer är bärbara men inte alltid inom kundens räckvidd. De kan vara 
 
 Assistenterna bör därför följa rikt linjerna i det här avsnittet för att hålla dig säker. Interaktionen ovanför låset sker när Windows-användaren inte är autentiserad. Det innebär att i allmänhet **bör inström till assistenten även behandlas som oautentiserad**.
 
-- Assistenter bör **implementera en färdighets vitlista för att identifiera kunskaper som bekräftas säkert och är säkra** att komma åt via låset.
+- Assistenter bör **implementera en lista över tillåtna kunskaper för att identifiera kunskaper som bekräftas och är säkra** att komma åt ovanför låset.
 - Tekniker-ID-tekniker kan spela en roll för att minska riskerna, men högtalar-ID är inte en lämplig ersättning för Windows-autentisering.
-- Kunskaps vitlista bör överväga tre olika typer av åtgärder eller kunskaper:
+- Listan över tillåtna kunskaper bör överväga tre olika typer av åtgärder eller kunskaper:
 
 | **Åtgärds klass** | **Beskrivning** | **Exempel (inte en fullständig lista)** |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ Assistenterna bör därför följa rikt linjerna i det här avsnittet för att h
 
 För contoso är allmän information kring offentlig information säker utan autentisering. Kundspecifik information, till exempel antalet ägda resurser är förmodligen säkert med högtalar-ID. Köp-eller försäljnings lager bör dock aldrig tillåtas utan Windows-autentisering.
 
-För att ytterligare skydda upplevelsen, **Weblinks eller andra app-to-app-lanseringar blockeras alltid av Windows tills kunden loggar in.** Som en sista utväg förbehåller Microsoft rätten att ta bort ett program från vitlista av aktiverade assistenter om ett allvarligt säkerhets problem inte åtgärdas inom rimlig tid.
+För att ytterligare skydda upplevelsen, **Weblinks eller andra app-to-app-lanseringar blockeras alltid av Windows tills kunden loggar in.** Som en sista utväg förbehåller Microsoft rätten att ta bort ett program från listan över tillåtna aktiverade assistenter om ett allvarligt säkerhets problem inte åtgärdas inom rimlig tid.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>Design vägledning för för hands versionen av röst aktivering
 

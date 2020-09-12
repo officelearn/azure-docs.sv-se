@@ -3,12 +3,12 @@ title: Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare |
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare för att övervaka Kubernetes-kluster som finns på Azure Stack eller annan miljö.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498907"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398389"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
 
@@ -34,7 +34,7 @@ Följande konfigurationer stöds officiellt med Azure Monitor för behållare.
 
 - Åtkomst kontroll som stöds: Kubernetes RBAC och icke-RBAC
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du har följande innan du börjar:
 
@@ -71,9 +71,11 @@ Kontrol lera att du har följande innan du börjar:
 
 Att aktivera Azure Monitor för behållare för Hybrid Kubernetes-klustret består av att utföra följande steg i ordning.
 
-1. Konfigurera din Log Analytics arbets yta med container Insights-lösning.
+1. Konfigurera din Log Analytics arbets yta med container Insights-lösning.   
 
 2. Aktivera Azure Monitor for containers HELM-diagrammet med Log Analytics-arbetsytan.
+
+Mer information om övervakning av lösningar i Azure Monitor [här](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Lägga till Azure Monitor containers-lösningen
 
@@ -334,7 +336,7 @@ När du har distribuerat diagrammet kan du granska data för ditt hybrid Kuberne
 
 Från och med diagram version 2.7.1 stöder diagrammet att du anger proxy-slutpunkten med `omsagent.proxy` diagram parametern. Detta gör det möjligt att kommunicera via proxyservern. Kommunikation mellan Azure Monitor för behållare-agenten och Azure Monitor kan vara en HTTP-eller HTTPS-proxyserver, och både anonym och grundläggande autentisering (användar namn/lösen ord) stöds.
 
-Konfiguration svärdet för proxyn har följande syntax:`[protocol://][user:password@]proxyhost[:port]`
+Konfiguration svärdet för proxyn har följande syntax: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Om proxyservern inte kräver autentisering måste du fortfarande ange ett psuedo användar namn/lösen ord. Detta kan vara valfritt användar namn eller lösen ord.
@@ -347,7 +349,7 @@ Konfiguration svärdet för proxyn har följande syntax:`[protocol://][user:pass
 |proxyhost | Adress eller FQDN för proxyservern |
 |port | Valfritt port nummer för proxyservern |
 
-Exempel: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+Exempelvis: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
 Om du anger protokollet som **http**skapas HTTP-begäranden med hjälp av SSL/TLS-säker anslutning. Proxyservern måste ha stöd för SSL/TLS-protokoll.
 

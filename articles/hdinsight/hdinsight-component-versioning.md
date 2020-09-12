@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 5c3586e9ba405cb5a7338b8f7f22858a238b9271
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717259"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394337"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Apache-komponenter och versioner som är tillgängliga för Azure HDInsight
 
@@ -44,7 +44,7 @@ De komponent versioner som är associerade med HDInsight-kluster versioner visas
 | Apache Mahout          | -             | 0.9.0 +                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.4.4         | 2.3.2.                      |
-| Apache Livy            | 0,5           | 0,4.                        |
+| Apache Livy            | 0.5           | 0,4.                        |
 | Apache Kafka           | 2.1.1         | 1,1                         |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
@@ -78,7 +78,7 @@ I den här tabellen listas de versioner av HDInsight som är tillgängliga i Azu
 | HDInsight-version | OPERATIVSYSTEM FÖR VIRTUELL DATOR | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet i Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4-LTS |September 24, 2018 | | |Ja |Ja |
-| HDInsight 3,6 |Ubuntu 16.0.4-LTS |4 april 2017      | * 31 juni 2021 |31 juni 2021 |Ja |Ja |
+| HDInsight 3,6 |Ubuntu 16.0.4-LTS |4 april 2017      | * 30 juni 2021 |30 juni 2021 |Ja |Ja |
 
 * Vi utökar support tidsram för vissa kluster typer för HDInsight 3,6
 
@@ -86,7 +86,7 @@ I den här tabellen listas de versioner av HDInsight som är tillgängliga i Azu
 |---------------------------------|-------------------|-----------------------------------|-----------------------------|
 | HDInsight 3,6 Hadoop            | 2.7.3             | 31 december 2020                      | 30 juni 2021               |
 | HDInsight 3,6 Spark             | 2.3               | 31 december 2020                      | 30 juni 2021               |
-| HDInsight 3,6 Spark             | 2,2               | Dras tillbaka den 30 juni 2020          |                             |
+| HDInsight 3,6 Spark             | 2.2               | Dras tillbaka den 30 juni 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Dras tillbaka den 30 juni 2020          |                             |
 | HDInsight 3,6-Kafka             | 1,1               | 31 december 2020                      | 30 juni 2021               |
 | HDInsight 3,6-Kafka             | 1,0               | Dras tillbaka den 30 juni 2020.         |                             |

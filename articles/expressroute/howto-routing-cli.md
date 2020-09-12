@@ -2,25 +2,25 @@
 title: 'Azure-ExpressRoute: Konfigurera peering: CLI'
 description: Den här artikeln hjälper dig att skapa och etablera privat, offentlig och Microsoft-peering av en ExpressRoute-krets. I artikeln får du även se hur man kontrollerar status, uppdaterar eller tar bort peerings för din krets.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 04/24/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: cbde41bd79409255e1ebf5145548ea260ac8581d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c20b0741f12ee2cab40d8f5b53c51ad537801bf2
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727049"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393181"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Skapa och ändra peering för en ExpressRoute-krets med CLI
 
 Den här artikeln hjälper dig att skapa och hantera konfiguration/peering av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med CLI. Du kan också kontrol lera status, uppdatera eller ta bort och avetablera peer-kopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Offentlig peering](about-public-peering.md)
@@ -187,7 +187,7 @@ Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
-## <a name="azure-private-peering"></a><a name="private"></a>Azures privata peering
+## <a name="azure-private-peering"></a><a name="private"></a>Privat peering i Azure
 
 Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Azures konfiguration för privata peering för en ExpressRoute-krets.
 

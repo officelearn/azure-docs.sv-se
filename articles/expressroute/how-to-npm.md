@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: Konfigurera NPM för kretsar'
 description: Konfigurera molnbaserad nätverks övervakning (NPM) för Azure ExpressRoute-kretsar. Detta omfattar övervakning över ExpressRoute privata peering och Microsoft-peering.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
-ms.author: cherylmc
-ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738387"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393686"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
@@ -107,7 +107,7 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
    * Om du väljer att ansluta till **Operations Manager**, på sidan **konfiguration av hanterings grupp** , anger du **hanterings gruppens namn**, **hanterings servern**och **hanterings Server porten**. Klicka sedan på **Nästa**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * På sidan **agent åtgärds konto** väljer du antingen **lokalt system** konto eller **domän konto eller lokalt dator konto**. Klicka sedan på **Nästa**.
+   * På sidan **agent åtgärds konto** väljer du antingen **lokalt system** konto eller  **domän konto eller lokalt dator konto**. Klicka sedan på **Nästa**.
 
      ![Konto](./media/how-to-npm/10.png)
 6. På sidan **klar att installera** granskar du dina val och klickar sedan på **Installera**.

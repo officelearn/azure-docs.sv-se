@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dc53eacf456d1e7c1926c6d7f20e343b3a84340d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078052"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398331"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -693,7 +693,8 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 - [Konfigurera hanterad identitet för att distribuera Azure Resource Manager miljöer i DevTest Labs](use-managed-identities-environments.md)
 - [Konfigurera hanterad identitet för att distribuera virtuella datorer i DevTest Labs](enable-managed-identities-lab-vms.md)
 - [Så här skapar du ett nyckel valv](../key-vault/quick-create-portal.md)
-- [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/managed-identity.md)
+- [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
+- [Så här tilldelar du en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center övervakning:** Ja
 

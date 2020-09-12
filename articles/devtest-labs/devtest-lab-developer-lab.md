@@ -3,12 +3,12 @@ title: Använda Azure DevTest Labs för utvecklare | Microsoft Docs
 description: Lär dig mer om Azure DevTest Labs funktioner som kan användas för att uppfylla kraven för utvecklare och detaljerade steg som du kan följa för att ställa in ett labb.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b4f195f843e30ad1a56bad7d5b9ca9e73888783b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293025"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296251"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Använd Azure DevTest Labs för utvecklare
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier, men ett av de primära involverar användning av DevTest Labs som värd för utvecklingsdatorer för utvecklare. I det här scenariot har DevTest Labs följande fördelar:
@@ -43,7 +43,7 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    
    | Uppgift | Detta får du får lära dig |
    | --- | --- |
-   | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan vitlista Azure Marketplace-avbildningar, vilket gör det möjligt att välja enbart de avbildningar som du vill använda för utvecklarna.|
+   | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan tillåta Azure Marketplace-avbildningar, vilket gör det möjligt att välja enbart de avbildningar som du vill använda för utvecklarna.|
    | [Skapa en anpassad avbildning](devtest-lab-create-template.md) |Skapa en anpassad avbildning genom att förinstallera den program vara du behöver så att utvecklare snabbt kan skapa en virtuell dator med hjälp av den anpassade avbildningen.|
    | [Lär dig mer om image Factory](./devtest-lab-faq.md#blog-post) |Titta på en video som beskriver hur du konfigurerar och använder en avbildnings fabrik.|
 

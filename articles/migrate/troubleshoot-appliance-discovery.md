@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640590"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296523"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -38,7 +38,7 @@ Om du får felet "den tillhandahållna manifest filen är ogiltig: ogiltig OVF-m
 
 Detta kan inträffa om installations datorn finns bakom en proxyserver.
 
-- Se till att du anger autentiseringsuppgifter för auktorisering om proxyn behöver dem.
+- Ange autentiseringsuppgifterna om proxyn behöver dem.
 - Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar lägger du till [dessa URL: er](migrate-appliance.md#url-access) i en lista över tillåtna.
 - Om du använder en avlyssnings-proxy för att ansluta till Internet importerar du det till den virtuella datorns dator med [de här stegen](./migrate-appliance.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5609df554e78996e50dcc57e200bb1dc1282cfb0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230508"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394099"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azures säkerhets bas linje för Azure Functions
 
@@ -541,7 +541,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Azure Function-appar ska avgränsas av Virtual Network (VNet)/Subnet och taggas på lämpligt sätt.
 
-Du kan också använda privata slut punkter för att utföra nätverks isolering. En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst (till exempel: HTTPs-slutpunkt för Azure Functions app) som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Privata slut punkter är i (för hands version) för Function-appar som körs i Premium-planen. Se till att privata slut punkter inte längre är i (för hands version) innan du använder dem med produktions arbets belastningar.
+Du kan också använda privata slut punkter för att utföra nätverks isolering. En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst (till exempel: HTTPs-slutpunkt för Azure Functions app) som drivs av en privat Azure-länk. Den privata slutpunkten använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet. Privata slut punkter är i (för hands version) för Function-appar som körs i Premium-planen. Se till att privata slut punkter inte längre är i (för hands version) innan du använder dem med produktions arbets belastningar.
 
 - [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
@@ -960,7 +960,9 @@ Så här skapar du en intern ASE:
 
 - [Använda hanterade identiteter för App Service och Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/general/managed-identity.md)
+* [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
+
+* [Så här tilldelar du en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md)
 
 - [Använd Key Vault referenser för App Service och Azure Functions](../app-service/app-service-key-vault-references.md)
 

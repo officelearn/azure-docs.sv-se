@@ -1,6 +1,6 @@
 ---
 title: Publicera fjärr skrivbord med Azure AD App proxy | Microsoft Docs
-description: Beskriver grunderna för Azure AD-programproxy-kopplingar.
+description: Beskriver hur du konfigurerar app proxy med RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019530"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396768"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera fjärr skrivbord med Azure AD-programproxy
 
@@ -135,7 +135,7 @@ Konfigurationen som beskrivs i den här artikeln är till för åtkomst till fj�
 
 | Autentiseringsmetod | Klient konfiguration som stöds |
 | --------------------- | ------------------------------ |
-| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer + RDS ActiveX-tillägg |
+| Förautentisering    | Webb server för fjärr skrivbord – Windows 7/10 med Internet Explorer eller [Edge krom IE-läge](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS-tillägg |
 | Förautentisering    | Webb klient för fjärrskrivbordsgateway – HTML5 kompatibel webbläsare, till exempel Microsoft Edge, Internet Explorer 11, Google Chrome, Safari eller Mozilla Firefox (v 55.0 och senare) |
 | Genomströmning | Andra operativ system som stöder Microsoft Fjärrskrivbord programmet |
 

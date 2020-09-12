@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9bdea0998b5d6b4c10a96d2ef593f46d6b7c02bf
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2656bf93cb9c29ded4b9dde49f0caba91c1654b7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267011"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295639"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Koda med en anpassad transformering-REST
 
@@ -32,7 +32,7 @@ När du skapar anpassade för inställningar gäller följande aspekter:
 * Alla värden för höjd och bredd på AVC-innehåll måste vara en multipel av 4.
 * I Azure Media Services v3 är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från för inställningarna med våra v2-API: er, som använde kilobit/sekund som enhet. Om bit hastigheten i v2 exempelvis angavs som 128 (kilobit/sekund), skulle den vara inställd på 128000 (bitar/sekund) i v3.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 - [Skapa ett Media Services-konto](./create-account-howto.md). <br/>Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 - [Konfigurera PostMan för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).<br/>Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 

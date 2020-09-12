@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: länka ett virtuellt nätverk till en krets: CLI'
 description: Den här artikeln visar hur du länkar virtuella nätverk (virtuella nätverk) till ExpressRoute-kretsar med hjälp av distributions modellen och CLI för Resource Manager.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: cherylmc
-ms.openlocfilehash: 3d51409baf9d5ca6ce90f1367ac128d7d47a9757
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: duau
+ms.openlocfilehash: ac36e303cbeaf5167b5bbec3cea503c37b276058
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325261"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393215"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med CLI
 

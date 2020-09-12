@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b51eb7e59e32985363d83c3d515fa7f54babac1f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179462"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296472"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
@@ -39,20 +39,20 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | Azure AD Connect Health Agent installeras på varje målserver | Azure AD Connect Health kräver att hälsotillståndsagenterna är installerade och konfigurerade på målservrarna för att kunna ta emot data och tillhandahålla funktioner för övervakning och analys. <br /><br />För att exempelvis få data från AD FS-infrastrukturen måste agenten installeras på AD FS och proxyservrarna för webbappen. På samma sätt måste agenten installeras på domänkontrollanterna för att hämta data i din lokala AD DS-infrastruktur. <br /><br /> |
 | Utgående anslutning till Azure-tjänstens slutpunkter | Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om du har blockerat utgående anslutningar med Brandväggar kontrollerar du att följande slutpunkter finns med i listan över tillåtna anslutningar. Se [Utgående anslutning för webbadresser](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Utgående anslutningar baserat på IP-adresser | Information om IP-adressbaserad filtrering för brandväggar finns i [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).|
-| TLS-kontroll för utgående trafik filtreras eller inaktive ras | Det kan hända att agent registrerings steget eller data överförings åtgärderna Miss lyckas om det finns en TLS-kontroll eller upphör för utgående trafik på nätverks lagret. Läs mer om [att konfigurera TLS-kontroll](https://technet.microsoft.com/library/ee796230.aspx) |
-| Brandväggsportar på servern som agenten körs på |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.<br /><br /><li>TCP-port 443</li><li>TCP-port 5671</li> <br />Observera att port 5671 inte längre krävs för den senaste versionen av agenten. Uppgradera till den senaste versionen så att endast port 443 krävs. Läs mer om att [aktivera brandväggsportar](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| TLS-kontroll för utgående trafik filtreras eller inaktive ras | Det kan hända att agent registrerings steget eller data överförings åtgärderna Miss lyckas om det finns en TLS-kontroll eller upphör för utgående trafik på nätverks lagret. Läs mer om [att konfigurera TLS-kontroll](/previous-versions/tn-archive/ee796230(v=technet.10)) |
+| Brandväggsportar på servern som agenten körs på |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.<br /><br /><li>TCP-port 443</li><li>TCP-port 5671</li> <br />Observera att port 5671 inte längre krävs för den senaste versionen av agenten. Uppgradera till den senaste versionen så att endast port 443 krävs. Läs mer om att [aktivera brandväggsportar](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)) |
 | Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Till exempel: https:\//sts.contoso.com</li> Läs mer om [hur du konfigurerar IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Om du har en proxyserver i nätverket kan du läsa Obs!|
 | Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2008 R2 levereras med PowerShell v2.0, vilket inte är tillräckligt för agenten. Uppdatera PowerShell enligt beskrivningen under [Agentinstallation på Windows Server 2008 R2-servrar](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
 |Inaktivera FIPS|FIPS stöds inte av Azure AD Connect Health-agenter.|
 
 
 > [!NOTE]
-> Om du har en mycket låst och mycket begränsad miljö behöver du vitlista de URL: er som anges i tjänst slut punkts listorna nedan förutom de som anges i den tillåtna säkerhets konfigurationen för förbättrad säkerhet i IE ovan. 
+> Om du har en mycket låst och mycket begränsad miljö måste du lägga till de URL: er som anges i tjänst slut punkts listorna nedan förutom de som anges i den tillåtna säkerhets konfigurationen för IE utökad säkerhet ovan. 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Utgående anslutning till Azure-tjänstens slutpunkter
 
- Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutning blockeras med hjälp av brand väggar kontrollerar du att följande URL: er inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller inspektion av dessa URL: er, men tillåt dem som andra Internet trafik. De tillåter kommunikation med Azure AD Connect Health tjänst slut punkter. Lär dig hur du [kontrollerar utgående anslutningar med test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om utgående anslutning blockeras med hjälp av brand väggar kontrollerar du att följande URL: er inte blockeras som standard. Inaktivera inte säkerhetsövervakning eller inspektion av dessa URL: er, men tillåt dem som andra Internet trafik. De tillåter kommunikation med Azure AD Connect Health tjänst slut punkter. Lär dig hur du [kontrollerar utgående anslutningar med test-AzureADConnectHealthConnectivity](#test-connectivity-to-azure-ad-connect-health-service).
 
 | Domänmiljö | Nödvändiga Azure-tjänsteslutpunkter |
 | --- | --- |
@@ -170,7 +170,7 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 9. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**. Detta bör vara aktiverat som standard.
 10. Öppna ett PowerShell-fönstret och kör följande kommando: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer om [AD FS-granskningsförbättringen i Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
+Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer om [AD FS-granskningsförbättringen i Windows Server 2016](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Så här hittar du AD FS-granskningsloggar
@@ -394,7 +394,7 @@ Rollparametern har för närvarande följande värden:
 
 ## <a name="related-links"></a>Relaterade länkar
 
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health-åtgärder](how-to-connect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md)
 * [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md)

@@ -1,18 +1,18 @@
 ---
 title: Azures säkerhets bas linje för Logic Apps
-description: Azures säkerhets bas linje för Logic Apps
+description: Logic Apps säkerhets bas linje ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: logic-apps
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 263f018155aa6effada3d509c907d825b65a8d45
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228400"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296098"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azures säkerhets bas linje för Logic Apps
 
@@ -24,7 +24,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](../security/
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
+*Mer information finns i [säkerhets principen för Azure-säkerhet: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
@@ -36,41 +36,41 @@ När du skapar din ISE kan du välja att använda antingen interna eller externa
 
 Kontrol lera att alla virtuella nätverk under nät distributioner som är relaterade till din ISE har en nätverks säkerhets grupp som tillämpas med nätverks åtkomst kontroller som är specifika för programmets betrodda portar och källor. Använd privat länk när du distribuerar dina Logi Kap par i en ISE. Med Azures privata länk kan du få åtkomst till Azure PaaS Services och Azure-värdbaserade kund tjänster/partner tjänster över en privat slut punkt i det virtuella nätverket. Om du har ett speciellt användnings fall kan du uppfylla det här kravet genom att implementera Azure-brandväggen. För att minska komplexiteten när du skapar säkerhets regler, använder du tjänst taggar som representerar grupper med IP-adressprefix för en speciell Azure-tjänst.
 
-* [Förstå anslutningar för Logic Apps](../connectors/apis-list.md)
+- [Förstå anslutningar för Logic Apps](../connectors/apis-list.md)
 
-* [Förstå service märken i Azure](../virtual-network/service-tags-overview.md)
+- [Förstå service märken i Azure](../virtual-network/service-tags-overview.md)
 
-* [Förstå åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)](./connect-virtual-network-vnet-isolated-environment-overview.md)
+- [Förstå åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)](connect-virtual-network-vnet-isolated-environment-overview.md)
 
-* [Förstå Virtual Network tjänstens slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Förstå Virtual Network tjänstens slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-* [Förstå privat Azure-länk](../private-link/private-link-overview.md)
+- [Förstå privat Azure-länk](../private-link/private-link-overview.md)
 
-* [Förstå åtkomst till ISE-slutpunkt](./connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
+- [Förstå åtkomst till ISE-slutpunkt](connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
 
-* [Så här skapar du en Virtual Network](../virtual-network/quick-create-portal.md)
+- [Så här skapar du en Virtual Network](../virtual-network/quick-create-portal.md)
 
-* [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
+- [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Distribuera och konfigurera Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
+- [Distribuera och konfigurera Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Så här aktiverar du åtkomst för ISE](./connect-virtual-network-vnet-isolated-environment.md#enable-access-for-ise)
+- [Så här aktiverar du åtkomst för ISE](connect-virtual-network-vnet-isolated-environment.md#enable-access-for-ise)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvars område**: delat
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverks gränssnitt
 
 **Vägledning**: om du kör Logi Kap par i en integrerings tjänst miljö (ISE) som använder en extern åtkomst punkt kan du använda en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett Azure Storage konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-* [Förstå åtkomst till ISE-slutpunkt](./connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
+- [Förstå åtkomst till ISE-slutpunkt](connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
 
-* [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+- [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
+- [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -78,7 +78,7 @@ Kontrol lera att alla virtuella nätverk under nät distributioner som är relat
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för webb program som körs på Azure App Service-eller beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: inte tillämpligt
 
@@ -94,21 +94,21 @@ Använd Azure Security Center just-in-Time Network Access för att konfigurera N
 
 Använd Azure Security Center anpassad nätverks härdning för att rekommendera NSG-konfigurationer som begränsar portar och käll-IP-adresser baserat på faktisk trafik och hot information.
 
-* [Så här säkrar du inkommande anrop till Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
+- [Så här säkrar du inkommande anrop till Logic Apps](logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
-* [Så här begränsar du inkommande IP-adresser](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+- [Så här begränsar du inkommande IP-adresser](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-* [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
+- [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
 
-* [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
+- [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
+- [Förstå Azure Security Center integrerad Hot information](/azure/security-center/security-center-alerts-service-layer)
 
-* [Förstå Azure Security Center anpassad nätverks härdning](../security-center/security-center-adaptive-network-hardening.md)
+- [Förstå Azure Security Center anpassad nätverks härdning](../security-center/security-center-adaptive-network-hardening.md)
 
-* [Förstå Azure Security Center just-in-Time-nätverk Access Control](../security-center/security-center-just-in-time.md)
+- [Förstå Azure Security Center just-in-Time-nätverk Access Control](../security-center/security-center-just-in-time.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -120,33 +120,33 @@ Om du vill ge ytterligare skydd och information om nätverks trafiken kan du ref
 
 Annars kan du utnyttja en lösning från tredje part från Marketplace för att uppfylla det här kravet.
 
-* [Förstå åtkomst till ISE-slutpunkt](./connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
+- [Förstå åtkomst till ISE-slutpunkt](connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
 
-* [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+- [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
+- [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
 
-* [Så här integrerar du API Management i ett internt virtuellt nätverk med Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
+- [Så här integrerar du API Management i ett internt virtuellt nätverk med Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Så här förstår du WAF-åtkomst loggar](../web-application-firewall/ag/web-application-firewall-logs.md#access-log)
+- [Så här förstår du WAF-åtkomst loggar](../web-application-firewall/ag/web-application-firewall-logs.md#access-log)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera nätverksbaserade intrångs identifiering/system för skydd mot intrång (ID/IP-adresser)
 
-**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll. Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
+**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll.  Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 Distribuera den brand Väggs lösning som du väljer för var och en av organisationens nätverks gränser för att upptäcka och/eller neka skadlig trafik.
 
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-* [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
+- [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Konfigurera aviseringar med Azure-brandväggen](../firewall/threat-intel.md)
+- [Konfigurera aviseringar med Azure-brandväggen](../firewall/threat-intel.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -154,13 +154,13 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 **Vägledning**: om du kör Logic Apps i en integrerings tjänst miljö (ISE) distribuerar du Azure Application Gateway.
 
-* [Så här integrerar du API Management i ett internt virtuellt nätverk med Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
+- [Så här integrerar du API Management i ett internt virtuellt nätverk med Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Så här konfigurerar du Application Gateway att använda HTTPS](../application-gateway/create-ssl-portal.md)
+- [Så här konfigurerar du Application Gateway att använda HTTPS](../application-gateway/create-ssl-portal.md) 
 
-* [Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway](../application-gateway/overview.md)
+- [Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway](../application-gateway/overview.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -168,9 +168,9 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 **Vägledning**: för resurser som behöver åtkomst till dina Azure Logic Apps-instanser använder du tjänst taggar för virtuella nätverk för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange namnet på service tag gen (t. ex. LogicApps, LogicAppsManagement) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
-* [Mer information om att använda service märken](../virtual-network/service-tags-overview.md)
+- [Mer information om att använda service märken](../virtual-network/service-tags-overview.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -178,17 +178,17 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 **Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser som är relaterade till dina Azure Logic Apps-instanser med Azure policy. Använd Azure Policy alias i namn områdena "Microsoft. Logic" och "Microsoft. Network" om du vill skapa anpassade principer för att granska eller tillämpa nätverks konfigurationen för dina Azure Logic Apps-instanser. Du kan också använda inbyggda princip definitioner som:
 
-Diagnostikloggar i Logic Apps ska vara aktive rad
+- Diagnostikloggar i Logic Apps ska vara aktive rad
 
-DDoS Protection standard ska vara aktive rad
+- DDoS Protection standard ska vara aktive rad
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
+- [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -200,15 +200,15 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-* [Så här skapar du en Virtual Network](../virtual-network/quick-create-portal.md)
+- [Så här skapar du en Virtual Network](../virtual-network/quick-create-portal.md)
 
-* [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
+- [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Lista över Azure Policy definitioner för Logic Apps](./policy-samples.md)
+- [Lista över Azure Policy definitioner för Logic Apps](/azure/logic-apps/policy-samples)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -216,23 +216,23 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Logic Apps-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
 
-* [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view)
 
-* [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
+*Mer information finns i [säkerhets benchmark för Azure: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
 **Vägledning**: Microsoft hanterar den tids källa som används för Azure-resurser, till exempel Azure Logic Apps för tidsstämplar i loggarna.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: Microsoft
 
@@ -240,15 +240,15 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 **Vägledning**: om du vill få bättre fel söknings information om dina Logi Kap par under körningen kan du konfigurera och använda Azure Monitor loggar för att registrera och lagra information om körnings data och händelser, t. ex. utlösa händelser, köra händelser och åtgärds händelser i en Log Analytics arbets yta. Azure Monitor hjälper dig att övervaka molnet och lokala miljöer så att du enklare kan underhålla deras tillgänglighet och prestanda. Genom att använda Azure Monitor loggar kan du skapa logg frågor som hjälper dig att samla in och granska den här informationen. Du kan också använda dessa diagnostikdata med andra Azure-tjänster, till exempel Azure Storage och Azure Event Hubs.
 
-Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
+Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part. 
 
-* [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Så här konfigurerar du Azure Monitor loggar och samlar in diagnostikdata för Azure Logic Apps](./monitor-logic-apps-log-analytics.md)
+- [Så här konfigurerar du Azure Monitor loggar och samlar in diagnostikdata för Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -256,15 +256,15 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en
 
 **Vägledning**: om du vill få bättre fel söknings information om dina Logi Kap par under körningen kan du konfigurera och använda Azure Monitor loggar för att registrera och lagra information om körnings data och händelser, t. ex. utlösa händelser, köra händelser och åtgärds händelser i en Log Analytics arbets yta. Azure Monitor hjälper dig att övervaka molnet och lokala miljöer så att du enklare kan underhålla deras tillgänglighet och prestanda. Genom att använda Azure Monitor loggar kan du skapa logg frågor som hjälper dig att samla in och granska den här informationen. Du kan också använda dessa diagnostikdata med andra Azure-tjänster, till exempel Azure Storage och Azure Event Hubs.
 
-Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
+Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part. 
 
-* [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Så här konfigurerar du Azure Monitor loggar och samlar in diagnostikdata för Azure Logic Apps](./monitor-logic-apps-log-analytics.md)
+- [Så här konfigurerar du Azure Monitor loggar och samlar in diagnostikdata för Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -272,7 +272,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: inte tillämpligt
 
@@ -282,11 +282,11 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en
 
 I Azure Monitor anger du logg kvarhållningsperiod för loggar som är kopplade till dina Azure Logic Apps instanser enligt organisationens regler för efterlevnad.
 
-* [Övervaka körnings status, granska utlösarens historik och konfigurera aviseringar för Azure Logic Apps](./monitor-logic-apps.md)
+- [Övervaka körnings status, granska utlösarens historik och konfigurera aviseringar för Azure Logic Apps](monitor-logic-apps.md)
 
-* [Ange parametrar för logg bevarande](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Ange parametrar för logg bevarande](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -296,17 +296,17 @@ I Azure Monitor anger du logg kvarhållningsperiod för loggar som är kopplade 
 
 Du kan också aktivera inställningar för Azure aktivitets loggs diagnostik och skicka loggarna till en Log Analytics-arbetsyta. Utför frågor i Log Analytics för att söka efter termer, identifiera trender, analysera mönster och tillhandahålla många andra insikter baserat på de aktivitets logg data som kan ha samlats in för Azure Logic Apps.
 
-Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
+Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part. 
 
-* [Så här konfigurerar du Azure Monitor loggar och samlar in diagnostikdata för Azure Logic Apps](./monitor-logic-apps-log-analytics.md)
+- [Så här konfigurerar du Azure Monitor loggar och samlar in diagnostikdata för Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-* [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-* [Samla in och analysera Azure-aktivitets loggar i Log Analytics i Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Samla in och analysera Azure-aktivitets loggar i Log Analytics i Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
 
-* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -316,13 +316,13 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en
 
 Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
-* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Hantera aviseringar i Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+- [Hantera aviseringar i Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Så här aviserar du om Log Analytics-loggdata](../azure-monitor/learn/tutorial-response.md)
+- [Så här aviserar du om Log Analytics-loggdata](../azure-monitor/learn/tutorial-response.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -330,7 +330,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 **Vägledning**: ej tillämpligt; Azure Logic Apps bearbetar eller skapar inte relaterade loggar mot skadlig kod.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: inte tillämpligt
 
@@ -338,7 +338,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 **Vägledning**: ej tillämpligt; Azure Logic Apps bearbetar eller skapar inte DNS-relaterade loggar.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: inte tillämpligt
 
@@ -346,13 +346,13 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: inte tillämpligt
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
+*Mer information finns i [Azures säkerhets benchmark: identitets-och åtkomst kontroll](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
@@ -362,15 +362,15 @@ För att enkelt komma åt andra resurser som skyddas av Azure Active Directory (
 
 Varje begär ande slut punkt i en Logic app har en signatur för delad åtkomst (SAS) i slut punktens URL. Om du delar slut punkts-URL: en för en begärd utlösare med andra parter kan du generera återanrops-URL: er som använder vissa nycklar och som har förfallo datum. På så sätt kan du sömlöst återställa nycklar eller begränsa åtkomsten till att utlösa din Logi Kap par baserat på ett angivet tidsintervall.
 
-* [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](./create-managed-service-identity.md)
+- [Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](create-managed-service-identity.md)
 
-* [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
+- [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](logic-apps-securing-a-logic-app.md#sas)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -382,11 +382,11 @@ Om grundläggande autentisering används måste du ange ett användar namn och l
 
 Om du använder infrastruktur som kod bör du undvika att lagra lösen ord i kod och i stället använda Azure Key Vault för att lagra och hämta autentiseringsuppgifter.
 
-* [Skydda och komma åt data i Logic Apps](logic-apps-securing-a-logic-app.md)
+- [Skydda och komma åt data i Logic Apps](logic-apps-securing-a-logic-app.md)
 
-* [Så här ställer du in och hämtar en hemlighet från Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Så här ställer du in och hämtar en hemlighet från Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -395,59 +395,60 @@ Om du använder infrastruktur som kod bör du undvika att lagra lösen ord i kod
 **Vägledning**: skapa standard procedurer för användning av dedikerade administrativa konton. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton.
 
 För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du dessutom använda rekommendationer från Azure Security Center eller inbyggda Azure-principer, t. ex.:
+
 - Det bör finnas fler än en ägare som tilldelats din prenumeration
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 
-* [Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version)](../security-center/security-center-identity-access.md)
+- [Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version)](../security-center/security-center-identity-access.md)
 
-* [Använda Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Använda Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Använd Azure Active Directory enkel inloggning (SSO)
 
 **Vägledning**: Använd en Azure App-registrering (tjänstens huvud namn) för att hämta en token som kan användas för att interagera med dina Recovery Services-valv via API-anrop.
 
-Många anslutningar kräver också att du först skapar en anslutning till mål tjänsten eller systemet och anger autentiseringsuppgifter för autentisering eller annan konfigurations information innan du kan använda en utlösare eller åtgärd i din Logic app. Du måste till exempel auktorisera en anslutning till ett Twitter-konto för att komma åt data eller för att publicera åt dig.]
+Många anslutningar kräver också att du först skapar en anslutning till mål tjänsten eller systemet och anger autentiseringsuppgifter för autentisering eller annan konfigurations information innan du kan använda en utlösare eller åtgärd i din Logic app. Du måste till exempel auktorisera en anslutning till ett Twitter-konto för att komma åt data eller för att publicera åt dig.
 
 För kopplingar som använder Azure Active Directory (Azure AD) OAuth, skapar en anslutning en inloggning till tjänsten, till exempel Office 365, Salesforce eller GitHub, där din åtkomsttoken är krypterad och lagras säkert i ett Azure Secret Store. Andra anslutningar, till exempel FTP och SQL, kräver en anslutning som har konfigurations information, till exempel Server adressen, användar namnet och lösen ordet. Dessa anslutnings konfigurations uppgifter krypteras och lagras på ett säkert sätt.
 
-* [Så här anropar du Azure REST API: er](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+- [Så här anropar du Azure REST API: er](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Registrera klient programmet (tjänstens huvud namn) med Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
+- [Registrera klient programmet med Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [API-information för Workflow triggers](/rest/api/logic/workflowtriggers)
+- [API-information för Workflow triggers](/rest/api/logic/workflowtriggers)
 
-* [Förstå kopplings konfiguration](../connectors/apis-list.md)
+- [Förstå kopplings konfiguration](../connectors/apis-list.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory-baserad åtkomst
 
 **Vägledning**: Aktivera Azure Active Directory (AD) Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-* [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
+- [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: Använd säkra, Azure-hanterade arbets stationer för administrativa uppgifter
 
 **Vägledning**: Använd Paw (Privileged Access Workstation) med Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-* [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -457,11 +458,11 @@ För kopplingar som använder Azure Active Directory (Azure AD) OAuth, skapar en
 
 Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-* [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
+- [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Förstå identifieringar av Azure AD-risker](../active-directory/identity-protection/overview-identity-protection.md)
+- [Förstå identifieringar av Azure AD-risker](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -471,11 +472,11 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 Dessutom har varje begär ande slut punkt i en Logic app en signatur för delad åtkomst (SAS) i slut punktens URL. Du kan begränsa din Logic app så att den endast accepterar begär Anden från vissa IP-adresser.
 
-* [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-* [Förstå hur du begränsar inkommande IP-adresser i Logic Apps](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+- [Förstå hur du begränsar inkommande IP-adresser i Logic Apps](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -486,28 +487,32 @@ Dessutom har varje begär ande slut punkt i en Logic app en signatur för delad 
 Om det finns stöd i Logic Apps kan du använda en hanterad identitet för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, snarare än autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
 Azure Logic Apps stöder både systemtilldelade och användarspecifika hanterade identiteter. Logikappen kan använda antingen den systemtilldelade identiteten eller en enskild användartilldelad identitet, som du kan dela i en grupp av logikappar, men inte båda. För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
-- HTTP
-- Azure Functions
-- Azure API Management
-- Azure App Services
 
-* [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+-  HTTP
 
-* [Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](./create-managed-service-identity.md)
+-  Azure Functions
 
-**Azure Security Center övervakning**: ej tillämpligt
+-  Azure API Management
+
+-  Azure App Services 
+
+- [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+
+- [Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](create-managed-service-identity.md)
+
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
-**Vägledning**: Azure Active Directory (AD) innehåller loggar för att hjälpa dig att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
+**Vägledning**: Azure Active Directory (AD) innehåller loggar för att hjälpa dig att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-* [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
+- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/)
 
-* [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
+- [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -519,25 +524,25 @@ Du har åtkomst till Azure AD-inloggning, gransknings-och risk händelse logg k�
 
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för Azure AD-användarkonton och skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Du kan konfigurera önskade logg aviseringar i Log Analytics.
 
-* [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-* [Aktivera Azure-kontroll på kort](../sentinel/quickstart-onboard.md)
+- [Aktivera Azure-kontroll på kort](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: avisering om beteende för beteende för konto inloggning
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: varning vid inloggnings beteende för konto
 
-**Vägledning**: Använd funktioner i Azure AD-risk och identitets skydd för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
+**Vägledning**: Använd funktioner i Azure AD-risk och identitets skydd för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning. 
 
-* [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
+- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
 
-* [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
-* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -545,23 +550,23 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Vägledning**: inte tillgänglig för tillfället. Customer Lockbox stöds ännu inte för Azure Logic Apps.
 
-* [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
+- [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
+*Mer information finns i [Azure Security benchmark: Data Protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
 
-* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -573,19 +578,19 @@ För Logic Apps som behöver direkt åtkomst till resurser i ett virtuellt Azure
 
 När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Ditt val bestämmer om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket.
 
-Implementera dessutom isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC).
+Implementera dessutom isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure Active Directory rollbaserad åtkomst kontroll.
 
-* [Förstå anslutningar för Logic Apps](../connectors/apis-list.md)
+- [Förstå anslutningar för Logic Apps](../connectors/apis-list.md)
 
-* [Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)](./connect-virtual-network-vnet-isolated-environment-overview.md)
+- [Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)](connect-virtual-network-vnet-isolated-environment-overview.md)
 
-* [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription) 
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create) 
 
-* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -593,13 +598,13 @@ Implementera dessutom isolering med separata prenumerationer och hanterings grup
 
 **Vägledning**: inte tillgänglig för tillfället. funktionerna för data identifiering, klassificering och förlust av förlust är ännu inte tillgängliga för Azure Logic Apps.
 
-Utnyttja en lösning från en tredje part från Azure Marketplace på nätverks-perimeter som övervakar för obehörig överföring av känslig information och blockerar sådana överföringar, samtidigt som de meddelar information om informations säkerhet.
+Utnyttja en lösning från en tredje part från Azure Marketplace på nätverks-perimeter som övervakar för obehörig överföring av känslig information och blockerar sådana överföringar, samtidigt som de meddelar information om informations säkerhet. 
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-* [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: delat
 
@@ -607,23 +612,21 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och h
 
 **Vägledning**: kryptera all känslig information under överföring. I Azure Logic Apps krypteras alla data under en Logic app-körning under överföringen med hjälp av Transport Layer Security (TLS) och rest. När du visar den logiska appens körnings historik autentiserar Logic Apps åtkomsten och tillhandahåller länkar till indata och utdata för begär Anden och svar för varje körning. För åtgärder som hanterar lösen ord, hemligheter, nycklar eller annan känslig information vill du dock hindra andra från att visa och komma åt dessa data. Om din Logic app till exempel får en hemlighet från Azure Key Vault att använda vid autentisering av en HTTP-åtgärd, vill du dölja hemligheten från vyn.
 
-Begär ande utlösare stöder endast Transport Layer Security (TLS) 1,2 för inkommande begär Anden. Se till att alla klienter som ansluter till dina Azure-resurser kan förhandla TLS 1,2 eller senare. Utgående anrop med stöd för HTTP-anslutning Transport Layer Security (TLS) 1,0, 1,1 och 1,2.
+Begär ande utlösare stöder endast Transport Layer Security (TLS) 1,2 för inkommande begär Anden. Se till att alla klienter som ansluter till dina Azure-resurser kan förhandla TLS 1,2 eller senare. Utgående anrop med stöd för HTTP-anslutning Transport Layer Security (TLS) 1,0, 1,1 och 1,2. 
 
 Följ Azure Security Center rekommendationer för kryptering i vila och kryptering under överföring, i förekommande fall.
 
-* [Säker åtkomst och data i Azure Logic Apps](logic-apps-securing-a-logic-app.md)
+- [Skydda åtkomst och data i Azure Logic Apps inkommande anrop till begär ande-baserade utlösare](logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
-* [Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
+- [Säker åtkomst och data i Azure Logic Apps utgående samtal till andra tjänster och system](logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 
-* [Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
+- [Förstå kryptering i överföring med Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Förstå kryptering i överföring med Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
+- [Förstå data kryptering – i vila med Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Förstå data kryptering – i vila med Azure](../security/fundamentals/encryption-atrest.md)
+- [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-* [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
-
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: delat
 
@@ -633,25 +636,26 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-* [Säker åtkomst för körning av historik data](logic-apps-securing-a-logic-app.md#access-to-run-history-data)
+- [Säker åtkomst för körning av historik data](logic-apps-securing-a-logic-app.md#access-to-run-history-data)
 
-* [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: delat
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
-**Vägledning**: du kan endast tillåta vissa användare eller grupper att köra vissa uppgifter, till exempel hantera, redigera och Visa Logic Apps. Om du vill kontrol lera deras behörigheter använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att du kan tilldela de anpassade eller inbyggda rollerna till medlemmarna i din Azure-prenumeration:
+**Vägledning**: du kan endast tillåta vissa användare eller grupper att köra vissa uppgifter, till exempel hantera, redigera och Visa Logic Apps. Om du vill kontrol lera deras behörigheter använder du Azure rollbaserad Access Control (RBAC) så att du kan tilldela anpassade eller inbyggda roller till medlemmarna i din Azure-prenumeration:
+
 - Logic app-deltagare: låter dig hantera Logi Kap par, men du kan inte ändra åtkomsten till dem.
 - Logic app-operator: låter dig läsa, aktivera och inaktivera Logic Apps, men du kan inte redigera eller uppdatera dem.
 
 Om du vill hindra andra från att ändra eller ta bort din Logic app kan du använda Azure Resource lock. Den här funktionen förhindrar andra från att ändra eller ta bort produktions resurser.
 
-* [Säker åtkomst till Azure Logic Apps åtgärder](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Säker åtkomst till Azure Logic Apps åtgärder](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -659,9 +663,9 @@ Om du vill hindra andra från att ändra eller ta bort din Logic app kan du anv�
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser. Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-* [Data skydd för Azure-kunder](../security/fundamentals/protection-customer-data.md)
+- [Data skydd för Azure-kunder](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: Microsoft
 
@@ -671,9 +675,9 @@ Om du vill hindra andra från att ändra eller ta bort din Logic app kan du anv�
 
 När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi Kap par, och du vill ha mer kontroll över de krypterings nycklar som används av Azure Storage, kan du konfigurera, använda och hantera din egen nyckel med hjälp av Azure Key Vault. Den här funktionen kallas även "Bring Your Own Key" (BYOK) och din nyckel kallas för "kundhanterad nyckel".
 
-* [Kryptera data i vila för integrerings tjänst miljöer i Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
+- [Kryptera data i vila för integrerings tjänst miljöer i Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -681,73 +685,73 @@ När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i Azure Logic Apps samt andra kritiska eller relaterade resurser.
 
-* [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
+*Mer information finns i [Azure Security benchmark: sårbarhet Management](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
-**Vägledning**: [ej tillämpligt; Microsoft utför sårbarhets hantering på underliggande system som stöder Azure Logic Apps.]
+**Vägledning**: ej tillämpligt; Microsoft utför sårbarhets hantering på de underliggande system som har stöd för Azure Logic Apps.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Distribuera automatiserad hanterings lösning för operativ system
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Distribuera automatiserad korrigerings hanterings lösning för program varu titlar från tredje part
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5,4: jämför sökningar efter säkerhets risker
 
 **Vägledning**: ej tillämpligt; Microsoft utför sårbarhets hantering på de underliggande system som har stöd för Azure Logic Apps.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Använd en risk klassificerings process för att prioritera reparation av identifierade säkerhets risker
 
 **Vägledning**: ej tillämpligt; Microsoft utför sårbarhets hantering på de underliggande system som har stöd för Azure Logic Apps.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Mer information finns i [Azure Security benchmark: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
-**Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk, portar och protokoll osv.) i din prenumeration (er). Se till att du har rätt (Läs) behörigheter i din klient organisation och räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
+**Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (t. ex. data bearbetning, lagring, nätverk, portar och protokoll osv.) i din prenumeration (er).  Se till att du har rätt (Läs) behörigheter i din klient organisation och räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
 Även om klassiska Azure-resurser kan identifieras via resurs diagram, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-* [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
+- [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Förstå Azure RBAC](../role-based-access-control/overview.md)
+- [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -755,9 +759,9 @@ När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi
 
 **Vägledning**: Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -766,46 +770,47 @@ När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer om det behövs för att organisera och spåra Azure-resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
 Använd dessutom Azure Policy för att ange begränsningar för den typ av resurser som kan skapas i kund prenumerationer med hjälp av följande inbyggda princip definitioner:
+
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-* [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
 
-* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla en inventering av godkända Azure-resurser
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla inventering av godkända Azure-resurser
 
 **Vägledning**: skapa en inventering av godkända Azure-resurser (t. ex. anslutningar) och godkänd program vara för beräknings resurser enligt organisationens behov.
 
 Obs! på grund av Googles principer för data och sekretess kan du endast använda Gmail Connector med Google-godkända tjänster. Den här situationen utvecklas och kan påverka andra Google-anslutningar i framtiden.
 
-* [Lista över alla Logic Apps kopplingar](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- [Lista över alla Logic Apps kopplingar](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
-* [Förstå problem och begränsningar för Gmail-kopplingar](/connectors/gmail/#known-issues-and-limitations)
+- [Förstå problem och begränsningar för Gmail-kopplingar](/connectors/gmail/#known-issues-and-limitations)
 
-* [Mer information om Googles sekretess policy](../connectors/connectors-google-data-security-privacy-policy.md)
+- [Mer information om Googles sekretess policy](../connectors/connectors-google-data-security-privacy-policy.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: övervaka för ej godkända Azure-resurser
 
-**Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i dina prenumerationer.
+**Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i dina prenumerationer. 
 
-Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
+Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenumerationer.  Se till att alla Azure-resurser som finns i miljön är godkända.
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
+- [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -813,37 +818,38 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: ta bort icke godkända Azure-resurser och program
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="68-use-only-approved-applications"></a>6,8: Använd endast godkända program
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
-**Ansvar**: kund
+**Ansvars område**: inte tillämpligt
 
 ### <a name="69-use-only-approved-azure-services"></a>6,9: Använd endast godkända Azure-tjänster
 
 **Vägledning**: Använd Azure policy för att ange begränsningar för den typ av resurser som kan skapas i kund prenumerationer med hjälp av följande inbyggda princip definitioner:
+
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
+- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -851,7 +857,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -859,9 +865,9 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: Konfigurera villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-* [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -869,7 +875,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -877,23 +883,23 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: resurser som är relaterade till dina Logic Apps som krävs för affärs åtgärder, men som kan ådra sig högre risk för organisationen, bör isoleras inom en egen virtuell dator och/eller ett virtuellt nätverk och tillräckligt säkert med antingen en Azure-brandvägg eller en nätverks säkerhets grupp.
 
-Logic Apps som krävs för affärs åtgärder, men kan ådra sig högre risk för organisationen, bör isoleras när det är möjligt via separata resurs grupper med specifika behörigheter och Azure RBAC-gränser.
+Logic Apps som krävs för affärs åtgärder, men kan ådra sig högre risk för organisationen, bör isoleras när det är möjligt via separata resurs grupper med specifika behörigheter och RBAC-gränser.
 
-* [Så här skapar du ett virtuellt nätverk](../virtual-network/quick-create-portal.md)
+- [Så här skapar du ett virtuellt nätverk](../virtual-network/quick-create-portal.md) 
 
-* [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
+- [Så här skapar du en NSG med en säkerhets konfiguration](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create) 
 
-* [Skydda åtkomsten till Logic Apps via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Skydda åtkomsten till Logic Apps via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
+*Mer information finns i [Azure Security benchmark: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
@@ -903,21 +909,21 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 Använd också skyddade parametrar för att skydda känsliga data och hemligheter.
 
-* [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Blockera anslutningar som skapats av anslutningar i Azure Logic Apps](./block-connections-connectors.md)
+- [Blockera anslutningar som skapats av anslutningar i Azure Logic Apps](block-connections-connectors.md)
 
-* [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
+- [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
+- [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Förstå säkra åtgärds parametrar](logic-apps-securing-a-logic-app.md#secure-action-parameters)
+- [Förstå säkra åtgärds parametrar](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-* [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
+- [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -925,7 +931,7 @@ Använd också skyddade parametrar för att skydda känsliga data och hemlighete
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -939,23 +945,23 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 Se också till att du skyddar data i körnings historiken med hjälp av döljande.
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
-* [Blockera anslutningar som skapats av anslutningar i Azure Logic Apps](./block-connections-connectors.md)
+- [Blockera anslutningar som skapats av anslutningar i Azure Logic Apps](block-connections-connectors.md)
 
-* [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
+- [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
+- [Så här distribuerar du Azure Resource Manager mallar för Azure Logic Apps](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Säker åtkomst för att köra tidigare indata och utdata](logic-apps-securing-a-logic-app.md#obfuscate)
+- [Säker åtkomst för att köra tidigare indata och utdata](logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Säker åtkomst till parameter indata](logic-apps-securing-a-logic-app.md#secure-action-parameters)
+- [Säker åtkomst till parameter indata](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-* [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
+- [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -963,7 +969,7 @@ Se också till att du skyddar data i körnings historiken med hjälp av döljand
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: delat
 
@@ -973,13 +979,13 @@ Se också till att du skyddar data i körnings historiken med hjälp av döljand
 
 Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript Object Notation (JSON), vilken bör granskas för att säkerställa att konfigurationerna uppfyller/överskrider säkerhets kraven för din organisation.
 
-* [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
-* [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
+- [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -987,7 +993,7 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -995,9 +1001,9 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Logic" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy alias för att skapa anpassade principer för att granska eller tillämpa nätverks konfigurationen för dina Azure-resurser. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1005,7 +1011,7 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1013,9 +1019,9 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Logic" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure-resurser.
 
-* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1023,27 +1029,27 @@ Dessutom har Azure Resource Manager möjlighet att exportera mallen i JavaScript
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: Hantera Azure-hemligheter på ett säkert sätt
 
-**Vägledning**: säkra indata och utdata i Logic app-programhistoriken med hjälp av döljande. Om du distribuerar över olika miljöer bör du överväga att parametriserade värdena i din Logic Apps arbets flödes definition som varierar beroende på dessa miljöer. På så sätt kan du undvika hårdkodade data med hjälp av en Azure Resource Manager mall för att distribuera din Logi Kap par, skydda känsliga data genom att definiera säkra parametrar och skicka dessa data som separata indata via mallens parametrar genom att använda en parameter fil. Du kan använda Key Vault för att lagra känsliga data och använda säkra mallparametrar som hämtar dessa värden från Key Vault vid distributionen. Sedan kan du referera till nyckel valvet och hemligheterna i parameter filen.
+**Vägledning**: säkra indata och utdata i Logic app-programhistoriken med hjälp av döljande. Om du distribuerar över olika miljöer bör du överväga att parametriserade värdena i din Logic Apps arbets flödes definition som varierar beroende på dessa miljöer. På så sätt kan du undvika hårdkodade data med hjälp av en Azure Resource Manager mall för att distribuera din Logi Kap par, skydda känsliga data genom att definiera säkra parametrar och skicka dessa data som separata indata via mallens parametrar genom att använda en parameter fil. Du kan använda Key Vault för att lagra känsliga data och använda säkra mallparametrar som hämtar dessa värden från Key Vault vid distributionen. Sedan kan du referera till nyckel valvet och hemligheterna i parameter filen. 
 
 När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi Kap par, och du vill ha mer kontroll över de krypterings nycklar som används av Azure Storage, kan du konfigurera, använda och hantera din egen nyckel med hjälp av Azure Key Vault. Den här funktionen kallas även "Bring Your Own Key" (BYOK) och din nyckel kallas för "kundhanterad nyckel".
 
-* [Skydda indata och utdata i körnings historiken i Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
+- [Skydda indata och utdata i körnings historiken i Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
+- [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Säker åtkomst till parameter indata i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+- [Säker åtkomst till parameter indata i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
-* [Överför säkra parameter värden under distributionen med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+- [Överför säkra parameter värden under distributionen med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
+- [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1052,62 +1058,63 @@ När du skapar en integrerings tjänst miljö (ISE) som är värd för dina Logi
 **Vägledning**: för att enkelt komma åt andra resurser som skyddas av Azure Active Directory (Azure AD) och autentisera din identitet utan att logga in, kan din Logic app använda en hanterad identitet (tidigare HANTERAD TJÄNSTIDENTITET eller MSI) i stället för autentiseringsuppgifter eller hemligheter. Azure hanterar den här identiteten åt dig och hjälper till att skydda dina autentiseringsuppgifter eftersom du inte måste ange eller rotera hemligheter.
 
 För närvarande har endast vissa inbyggda utlösare och åtgärder stöd för hanterade identiteter, inte hanterade anslutningar eller anslutningar, till exempel:
+
 - HTTP
 - Azure Functions
 - Azure API Management
 - Azure App Services
 
-* [Så här autentiserar du åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](./create-managed-service-identity.md)
+- [Så här autentiserar du åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](create-managed-service-identity.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
-**Vägledning**: säkra indata och utdata i Logic app-programhistoriken med hjälp av döljande. Om du distribuerar över olika miljöer bör du överväga att parametriserade värdena i din Logic Apps arbets flödes definition som varierar beroende på dessa miljöer. På så sätt kan du undvika hårdkodade data med hjälp av en Azure Resource Manager mall för att distribuera din Logi Kap par, skydda känsliga data genom att definiera säkra parametrar och skicka dessa data som separata indata via mallens parametrar genom att använda en parameter fil. Du kan använda Key Vault för att lagra känsliga data och använda säkra mallparametrar som hämtar dessa värden från Key Vault vid distributionen. Sedan kan du referera till nyckel valvet och hemligheterna i parameter filen.
+**Vägledning**: säkra indata och utdata i Logic app-programhistoriken med hjälp av döljande. Om du distribuerar över olika miljöer bör du överväga att parametriserade värdena i din Logic Apps arbets flödes definition som varierar beroende på dessa miljöer. På så sätt kan du undvika hårdkodade data med hjälp av en Azure Resource Manager mall för att distribuera din Logi Kap par, skydda känsliga data genom att definiera säkra parametrar och skicka dessa data som separata indata via mallens parametrar genom att använda en parameter fil. Du kan använda Key Vault för att lagra känsliga data och använda säkra mallparametrar som hämtar dessa värden från Key Vault vid distributionen. Sedan kan du referera till nyckel valvet och hemligheterna i parameter filen. 
 
-Du kan också implementera autentiseringsuppgifterna för autentisering för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+Du kan också implementera autentiseringsuppgifterna för autentisering för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
 
-* [Skydda indata och utdata i körnings historiken i Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
+- [Skydda indata och utdata i körnings historiken i Azure Logic Apps](logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
+- [Säkerhets rekommendationer för parametrar](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Säker åtkomst till parameter indata i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+- [Säker åtkomst till parameter indata i Azure Logic Apps](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
-* [Överför säkra parameter värden under distributionen med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+- [Överför säkra parameter värden under distributionen med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
+*Mer information finns i [Azure Security benchmark: skydd mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd en centralt hanterad program vara mot skadlig kod
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser. Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden som har stöd för Azure-tjänster (till exempel Azure Logic Apps), men det körs inte på kund innehållet.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
 
-**Vägledning**: Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden som har stöd för Azure-tjänster (till exempel Azure Backup), men det körs inte på ditt innehåll.
+**Vägledning**: Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden som har stöd för Azure-tjänster (till exempel Azure Backup), men det körs inte på ditt innehåll. 
 
-Genomsök alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage osv.
+Genomsök alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage osv. 
 
-Använd Azure Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton.
+Använd Azure Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton. 
 
-* [Förstå Microsofts program mot skadlig kod för Azure Cloud Services och Virtual Machines](../security/fundamentals/antimalware.md)
+- [Förstå Microsofts program mot skadlig kod för Azure Cloud Services och Virtual Machines](../security/fundamentals/antimalware.md)
 
-* [Förstå Azure Security Centers hot identifiering för data tjänster](../security-center/threat-protection.md)
+- [Förstå Azure Security Centers hot identifiering för data tjänster](/azure/security-center/security-center-alerts-data-services)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1115,15 +1122,15 @@ Använd Azure Security Center s hot identifiering för data tjänster för att i
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
+*Mer information finns i [Azure Security benchmark: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Säkerställ regelbunden automatisk säkerhets kopiering
 
 **Vägledning**: implementera en lösning för haveri beredskap (Dr) så att du kan skydda data, snabbt återställa de resurser som har stöd för kritiska affärs funktioner och fortsätta driften att underhålla verksamhets kontinuitet (BC).
 
@@ -1131,11 +1138,11 @@ Den här strategin för haveri beredskap fokuserar på att konfigurera din prim�
 
 Dessutom bör du expandera din Logic Apps-underliggande arbets flödes definition till en Azure Resource Manager-mall. Den här mallen definierar infrastruktur, resurser, parametrar och annan information för etablering och distribution av din Logic app.
 
-* [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
+- [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
-* [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
+- [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1149,15 +1156,15 @@ Dessutom bör du expandera din Logic Apps-underliggande arbets flödes definitio
 
 Varje begär ande slut punkt i en Logic app har en signatur för delad åtkomst (SAS) i slut punktens URL. Om du använder Azure Key Vault för att lagra dina hemligheter, se till att vanliga automatiserade säkerhets kopieringar av nycklar och URL: er sker.
 
-* [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
+- [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
-* [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
+- [Automatisera distribution för Azure Logic Apps med hjälp av Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
 
-* [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
+- [Skydda åtkomst och data i Azure Logic Apps med hjälp av SAS](logic-apps-securing-a-logic-app.md#sas)
 
-* [Säkerhetskopiera Key Vault nycklar](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [Säkerhetskopiera Key Vault nycklar](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1167,63 +1174,63 @@ Varje begär ande slut punkt i en Logic app har en signatur för delad åtkomst 
 
 Testa återställning av säkerhetskopierade nycklar som hanteras av kunden. Observera att detta endast gäller för Logic Apps som körs i integrerings tjänst miljöer (ISE).
 
-* [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
+- [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
-* [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
+- [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-* [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault-nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: din strategi för haveri beredskap bör fokusera på att konfigurera din primära Logic-app för redundans till en standby-eller säkerhets kopierings-Logic-app på en annan plats där Azure Logic Apps också är tillgängligt. På så sätt kan den sekundära åtgärden ta på arbetet om den primära förlusten uppstår, avbrott eller haverier. Den här strategin kräver att din sekundära Logic-app och beroende resurser redan har distribuerats och är redo på den alternativa platsen.
+**Vägledning**: din strategi för haveri beredskap bör fokusera på att konfigurera din primära Logic-app för redundans till en standby-eller säkerhets kopierings-Logic-app på en annan plats där Azure Logic Apps också är tillgängligt. På så sätt kan den sekundära åtgärden ta på arbetet om den primära förlusten uppstår, avbrott eller haverier. Den här strategin kräver att din sekundära Logic-app och beroende resurser redan har distribuerats och är redo på den alternativa platsen. 
 
 Skydda säkerhets kopiering av Kundhanterade nycklar. Observera att detta endast gäller för Logic Apps som körs i integrerings tjänst miljöer (ISE).
 
 Aktivera mjuk borttagning och rensning av skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-* [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
+- [Lär dig mer om verksamhets kontinuitet och haveri beredskap för Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
-* [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
+- [Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-* [Så här aktiverar du skydd mot mjuk borttagning och rensning i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Så här aktiverar du skydd mot mjuk borttagning och rensning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](../security/benchmarks/security-control-incident-response.md).*
+*Mer information finns i [Azure Security benchmark: incident svar](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
-**Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
+**Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten. 
 
-* [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-* [Microsoft Security Response Centers Beskrivning av en incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+- [Microsoft Security Response Centers Beskrivning av en incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-* [Utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa dig att skapa en egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa dig att skapa en egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
 
-**Vägledning**: Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen.
+**Vägledning**: Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen. 
 
-Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
+Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
-* [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
+- [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-* [Använd taggar till att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
+- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1231,9 +1238,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: utföra övningar för att testa dina Systems funktioner för incident svar på en vanlig takt för att hjälpa till att skydda dina Azure-resurser. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-* [NIST-guide för att testa, träna och träna program för IT-planer och funktioner](https://csrc.nist.gov/publications/detail/sp/800-84/final)
+- [NIST-guide för att testa, träna och träna program för IT-planer och funktioner](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1241,9 +1248,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-* [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
+- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
@@ -1251,11 +1258,11 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker för Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-* [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
+- [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
 
-* [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
@@ -1263,29 +1270,29 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: Använd funktionen för arbets flödes automatisering i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
 
-* [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
+- [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Mer information finns i [övningen för Azure Security benchmark: inträngande tester och röda team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
 **Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer. Använd Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program.
 
-* [Inträngande test regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Inträngande test regler för engagemang](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud röd team indelning](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud röd team indelning](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center övervakning**: ej tillämpligt
+**Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvars område**: delat
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
-- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)
+- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)

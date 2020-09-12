@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115653"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292908"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -93,13 +93,13 @@ Programmen använder olika autentiserings flöden för att logga in användare o
 
 ### <a name="single-page-application"></a>Enkelsidig app
 
-Många moderna webbappar skapas som program på en enda sida på klient sidan. Dessa program använder Java Script eller ett ramverk som vinkel, Vue.js och React.js. Dessa program körs i en webbläsare.
+Många moderna webbappar skapas som program på en enda sida på klient sidan. Dessa program använder Java Script eller ett ramverk som till exempel vinkel, Vue och reagera. Dessa program körs i en webbläsare.
 
-Program med en enda sida skiljer sig från traditionella webbappar på Server sidan med avseende på autentiserings-egenskaper. Med hjälp av Microsoft Identity Platform kan program med en enda sida logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er.
+Program med en enda sida skiljer sig från traditionella webbappar på Server sidan med avseende på autentiserings-egenskaper. Med hjälp av Microsoft Identity Platform kan program med en enda sida logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er. Microsoft Identity Platform erbjuder två typer av tilldelning för JavaScript-program: 
 
-![Ett program med en enda sida](media/scenarios/spa-app.svg)
-
-Mer information finns i [program med en enda sida](scenario-spa-overview.md).
+| MSAL.js (2. x) | MSAL.js (1. x) |
+|---|---|
+| ![En programautentisering med en enda sida](media/scenarios/spa-app-auth.svg) | ![Ett program med en enda sida, implicit](media/scenarios/spa-app.svg) |
 
 ### <a name="web-app-that-signs-in-a-user"></a>Webbapp som loggar in en användare
 
@@ -109,7 +109,7 @@ Hjälpa till att skydda en webbapp som loggar in en användare:
 
 - Om du utvecklar i .NET använder du ASP.NET eller ASP.NET Core med ASP.NET OpenID Connect mellan. Att skydda en resurs innebär att verifiera säkerhetstoken, som görs av IdentityModel- [tilläggen för .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) och inte MSAL-bibliotek.
 
-- Om du utvecklar i Node.js använder du Passport.js.
+- Om du utvecklar i Node.js använder du [Passport.js](https://github.com/AzureAD/passport-azure-ad).
 
 Mer information finns i [webbapp som loggar in användare](scenario-web-app-sign-user-overview.md).
 
@@ -196,7 +196,14 @@ Scenarier som innefattar att förvärva token mappas också till OAuth 2,0-auten
  </thead>
  <tbody>
   <tr>
-   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Auth code" src="media/scenarios/spa-app-auth.svg"></a></td>
+   <td><a href="scenario-spa-overview.md">Ensidesapp</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Auktoriseringskod</a> med PKCE</td>
+   <td>Arbets-eller skol konton, personliga konton och Azure Active Directory B2C (Azure AD B2C)</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Implicit" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Ensidesapp</a></td>
    <td><a href="v2-oauth2-implicit-grant-flow.md">Implicit</a></td>
    <td>Arbets-eller skol konton, personliga konton och Azure Active Directory B2C (Azure AD B2C)</td>
@@ -293,7 +300,8 @@ I Windows-kolumnen i följande tabell beskrivs varje tid av .NET Core .NET Frame
 
 |Scenario  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [Ensidesapp](scenario-spa-overview.md) <br/>[![App med en sida](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [Ensidesapp](scenario-spa-overview.md) <br/>[![App-autentisering med en sida](media/scenarios/spa-app-auth.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [Ensidesapp](scenario-spa-overview.md) <br/>[![En app med en enda sida implicit](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md) <br/>[![Webbapp som loggar in användare](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
 | [Webbapp som anropar webb-API:er](scenario-web-app-call-api-overview.md) <br/> <br/>[![Webbapp som anropar webb-API:er](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>Kolv + MSAL python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>Kolv + MSAL python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>Kolv + MSAL python
 | [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) <br/> <br/>[ ![ Stationär app som anropar webb-API: er](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![ Enhets kod flöde](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python <br/> ![iOS/mål C eller Swift](media/sample-v2-code/small_logo_iOS.png) MSAL. objc |

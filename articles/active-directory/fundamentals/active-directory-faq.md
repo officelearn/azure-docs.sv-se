@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d88873dafd5a3ffac3f0135d877ff407427ffd6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: afb6adc38fd44366b837119518622dd8931f9096
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179869"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565573"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -29,7 +29,7 @@ Mer information finns i [Vad är Azure Active Directory?](active-directory-whati
 ## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
 **F: Varför visas "inga prenumerationer hittades" när jag försöker komma åt Azure AD i Azure Portal?**
 
-**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du inte har en betald Office 365-eller Azure AD-prenumeration måste du aktivera ett kostnads fritt [Azure-konto](https://azure.microsoft.com/free/
+**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du inte har någon betald Microsoft 365 eller Azure AD-prenumeration måste du aktivera ett kostnads fritt [Azure-konto](https://azure.microsoft.com/free/
 ) eller en betald prenumeration.
 
 Mer information finns i:
@@ -37,13 +37,13 @@ Mer information finns i:
 * [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**F: Vad är förhållandet mellan Azure AD, Office 365 och Azure?**
+**F: Vad är förhållandet mellan Azure AD, Microsoft 365 och Azure?**
 
-**S:** Azure AD tillhandahåller gemensamma identitets- och åtkomstfunktioner för alla webbtjänster. Oavsett om du använder Office 365, Microsoft Azure, Intune eller andra tjänster använder du redan Azure AD för hjälp med inloggnings- och åtkomsthantering för alla dessa tjänster.
+**S:** Azure AD tillhandahåller gemensamma identitets- och åtkomstfunktioner för alla webbtjänster. Oavsett om du använder Microsoft 365, Microsoft Azure, Intune eller andra, använder du redan Azure AD för att aktivera inloggning och åtkomst hantering för alla dessa tjänster.
 
 Alla användare som har ställts in för att använda webbtjänster definieras som användarkonton i en eller flera Azure AD-instanser. Du kan ställa in dessa konton för kostnadsfria Azure AD-funktioner, till exempel programåtkomst i molnet.
 
-Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra webbtjänster som Office 365 och Microsoft Azure med heltäckande hanterings- och säkerhetslösningar i företagsklass.
+Azure AD-betalda tjänster som Enterprise Mobility + Security kompletterar andra webb tjänster som Microsoft 365 och Microsoft Azure med omfattande hanterings-och säkerhetslösningar i företags skala.
 
 ---
 
@@ -55,7 +55,7 @@ Om andra behöver logga in och få åtkomst till tjänster med samma prenumerati
 
 Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som global administratör för katalogen. Den globala administratören har åtkomst till alla funktioner i Azure AD-katalogen. Azure AD har en annan uppsättning administratörs roller för att hantera katalog-och Identity-relaterade funktioner. Dessa administratörer kommer att ha åtkomst till olika funktioner i Azure Portal. Administratörens roll bestämmer vad de kan göra, t. ex. skapa eller redigera användare, tilldela administrativa roller till andra, återställa användar lösen ord, hantera användar licenser eller hantera domäner.  Mer information om Azure AD Directory-administratörer och deras roller finns i [tilldela en användare till administratörs roller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md) och [tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
-Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security andra webbtjänster, som Office 365 och Microsoft Azure, med heltäckande hanterings- och säkerhetslösningar i företagsklass.
+Dessutom har Azure AD-betal tjänster som Enterprise Mobility + Security kompletterar andra webb tjänster, till exempel Microsoft 365 och Microsoft Azure, med omfattande hanterings-och säkerhetslösningar i företags skala.
 
 ---
 **F: Finns det någon rapport som visar när mina Azure AD-användarlicenser upphör att gälla?**
@@ -90,16 +90,16 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 ---
 **F: Tillhandahåller Azure AD en självbetjäningsportal för användare i organisationen?**
 
-**S:** Ja, Azure AD ger tillgång till [Azure AD-åtkomstpanelen](https://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är en Office 365-kund kan du hitta många av funktionerna i [office 365-portalen](https://portal.office.com).
+**S:** Ja, Azure AD ger tillgång till [Azure AD-åtkomstpanelen](https://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är Microsoft 365 kund kan du hitta många av funktionerna i [Office 365-portalen](https://portal.office.com).
 
-Mer information finns i [Introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information finns i [Introduktion till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 **F: Kan Azure AD hjälpa mig att hantera min lokala infrastruktur?**
 
 **S:** Ja. Azure AD Premium-versionen tillhandahåller Azure AD Connect Health. Azure AD Connect Health hjälper dig att övervaka och få insyn i den lokala identitetsinfrastrukturen och synkroniseringstjänsterna.  
 
-Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../hybrid/whatis-hybrid-identity-health.md).  
+Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](../hybrid/whatis-azure-ad-connect.md).  
 
 ---
 ## <a name="password-management"></a>Lösenordshantering
@@ -112,7 +112,7 @@ Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synk
 
 **S:** Tillbakaskrivningen av lösenord fungerar i realtid.
 
-Mer information finns i [Komma igång med lösenordshantering](../authentication/quickstart-sspr.md).
+Mer information finns i [Komma igång med lösenordshantering](../authentication/tutorial-enable-sspr.md).
 
 ---
 **F: Kan jag använda tillbakaskrivning av lösenord med lösenord som hanteras av en administratör?**
@@ -121,11 +121,11 @@ Mer information finns i [Komma igång med lösenordshantering](../authentication
 
 <a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](../authentication/active-directory-passwords-faq.md).
 ---
-**F: Vad gör jag om jag inte kommer ihåg mitt befintliga Office 365-/Azure AD-lösenord när jag försöker ändra mitt lösenord?**
+**F: Vad kan jag göra om jag inte kan komma ihåg mitt befintliga Microsoft 365/Azure AD-lösenord vid försök att ändra mitt lösen ord?**
 
 **S:** För den här typen av situation finns det ett par alternativ.  Använd självbetjäning för återställning av lösenord (SSPR) om det är tillgängligt.  Huruvida SSPR fungerar eller ej beror på hur det är konfigurerat.  Mer information finns i avsnittet som beskriver [Hur portalen för lösenordsåterställning fungerar](../authentication/howto-sspr-deployment.md).
 
-För Office 365-användare kan administratören återställa lösenordet med hjälp av stegen som beskrivs i [Återställa användares lösenord](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+För Microsoft 365 användare kan administratören återställa lösen ordet med hjälp av stegen som beskrivs i [återställa användar lösen ord](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 För Azure AD-konton kan administratörer återställa lösenord med någon av följande metoder:
 
@@ -171,7 +171,7 @@ Mer information finns i:
 **S:** Med Azure AD kan användarna visa och komma åt sina program på flera olika sätt, t.ex.:
 
 * Azure AD-åtkomstpanelen
-* Startprogrammet för Office 365
+* Microsoft 365 Application starta
 * Direkt inloggning till federerade appar
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
@@ -184,8 +184,8 @@ Mer information finns i [slut användar upplevelser för program](../manage-apps
 
 Mer information finns i:
 
-* [Autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md)
-* [Active Directory autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Autentiseringsscenarier för Azure AD](../develop/authentication-vs-authorization.md)
+* [Active Directory autentiseringsprotokoll](/previous-versions/azure/dn151124(v=azure.100))
 * [Enkel inloggning för program i Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
@@ -200,7 +200,7 @@ Mer information finns i [Så här tillhandahåller du säker fjärråtkomst till
 
 **A:** Med villkorlig åtkomst i Azure AD kan du tilldela en unik åtkomst princip för varje program. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
 
-Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](../conditional-access/overview.md).
+Mer information finns i [Skydda åtkomsten till Microsoft 365 och andra appar som är anslutna till Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **F: Vad är automatisk användar etablering för SaaS-appar?**

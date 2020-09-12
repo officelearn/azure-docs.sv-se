@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ab0b90e08d51602979e31486a1a446731f66e5ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1917ded59275c7a456e8d2fd25412afc91a1327c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320943"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650644"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Träna och registrera en keras klassificerings modell med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,9 +40,9 @@ Kör den här koden i någon av följande miljöer:
 
  - Din egen Jupyter Notebook Server
 
-    - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
     - [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
-    - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` särskilt`utils.py`
+    - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` särskilt `utils.py`
 
     Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa ett [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objekt.
+[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa ett [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) objekt.
 
 Skapa ett objekt för arbets ytan från `config.json` filen som skapats i [avsnittet krav](#prerequisites).
 
@@ -133,7 +133,7 @@ Mer information om beräknings mål finns i artikeln [Vad är en Compute Target]
 
 ## <a name="create-a-tensorflow-estimator-and-import-keras"></a>Skapa en TensorFlow-uppskattning och importera keras
 
-[TensorFlow-uppskattningen](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) ger ett enkelt sätt att starta TensorFlow utbildnings jobb på beräknings mål. Eftersom keras körs ovanpå TensorFlow kan du använda TensorFlow-uppskattningen och importera keras-biblioteket med `pip_packages` argumentet.
+[TensorFlow-uppskattningen](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true) ger ett enkelt sätt att starta TensorFlow utbildnings jobb på beräknings mål. Eftersom keras körs ovanpå TensorFlow kan du använda TensorFlow-uppskattningen och importera keras-biblioteket med `pip_packages` argumentet.
 
 Hämta först data från data lagrets data lager med hjälp av `Dataset` klassen.
 
@@ -144,7 +144,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-TensorFlow-uppskattningen implementeras via den generiska [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Skapa dessutom en ord lista `script_params` som innehåller inställningarna för DNN. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
+TensorFlow-uppskattningen implementeras via den generiska [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) klassen, som kan användas för att stödja eventuella ramverk. Skapa dessutom en ord lista `script_params` som innehåller inställningarna för DNN. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -167,7 +167,7 @@ est = TensorFlow(source_directory=script_folder,
 
 ## <a name="submit-a-run"></a>Skicka in en körning
 
-[Kör-objektet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
+[Kör-objektet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
 
 ```Python
 run = exp.submit(est)

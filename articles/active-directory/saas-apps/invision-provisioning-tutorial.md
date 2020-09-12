@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0e8d40f5543832dc3a76e44abc54f406cce1d4a6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 7fde4a82ff3a9e0cfa67e8ce5afeebc000757b7c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147668"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462062"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Självstudie: Konfigurera insikter för automatisk användar etablering
 
@@ -144,7 +144,7 @@ Den här åtgärden startar den första synkroniseringen av alla användare och 
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
 
 1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
-2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
 3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Ytterligare resurser

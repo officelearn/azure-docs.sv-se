@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653315"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651580"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -63,6 +63,8 @@ Advisor identifierar tabeller som inte har aktuell [tabell statistik](../synapse
 
 Advisor-analys kan indikera att ditt program som ansluter till en MySQL-server kanske inte hanterar anslutningar effektivt. Det här tillståndet kan leda till onödig resursförbrukning och övergripande program svars tid. För att förbättra anslutningshanteringen rekommenderar vi att du minskar antalet kortvariga anslutningar och eliminerar onödiga inaktiva anslutningar. Du kan göra dessa förbättringar genom att konfigurera en server sidans anslutningspool, som ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Uppdatera din aktuella Compute Management SDK-version till den senaste versionen
+Advisor identifierar prenumerationer som har åtgärder som använder inaktuella SDK-versioner för beräknings hantering. Detta kan påverka säkerheten och prestandan för dina arbets belastningar och därför rekommenderar Advisor att du växlar till den senaste versionen av Compute Management SDK. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cacheminnet i Azure Synapse Analytics-tabeller för att öka prestanda för frågor
 
@@ -165,7 +167,7 @@ Den här rekommendationen visar Azure Data Explorer-tabeller som har ett stort a
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Förbättra prestanda genom att optimera storleken på temporära MySQL-tabeller
 Advisor-analysen anger att MySQL-servern kan bli onödigt I/O-overhead på grund av en låg temporär tabell parameter inställningar. Det här kan leda till onödiga diskbaserade transaktioner och sämre prestanda. Vi rekommenderar att du ökar värdena för parametrarna ”tmp_table_size” och ”max_heap_table_size” så att du minskar antalet diskbaserade transaktioner. [Läs mer](https://aka.ms/azure_mysql_tmp_table)
 
-## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuera data i Server gruppen för att distribuera arbets belastningen mellan noder
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuera data i servergruppen för att distribuera arbetsbelastningen mellan noder
 Advisor identifierar de Server grupper där data inte har distribuerats utan kvar på koordinatorn. Baserat på detta rekommenderar Advisor att för full citus-förmåner distribuerar data på arbetsnoder för dina Server grupper. Detta förbättrar prestanda för frågor genom att använda resursen för varje nod i Server gruppen. [Läs mer](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Få åtkomst till prestanda rekommendationer i Advisor

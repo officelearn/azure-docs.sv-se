@@ -4,12 +4,12 @@ description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågn
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420217"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565845"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](./app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -58,6 +58,7 @@ Aviseringarna utlöses av vår leverantörsspecifika Machine Learning-algoritm s
 * En jämförelse av antalet misslyckade procent av de senaste 20 minuterna i priset under de senaste 40 minuterna och de senaste sju dagarna och letar efter betydande avvikelser som överstiger X-gånger som standard avvikelsen.
 * Använder en anpassad gräns för minsta antal misslyckade procent, vilket varierar beroende på appens volym för begär Anden/beroenden.
 * Det finns logik som automatiskt kan lösa det utlösma aviserings övervaknings villkoret, om problemet inte längre upptäcks i 8-24 timmar.
+  Obs: i den aktuella designen. ett meddelande eller en åtgärd skickas inte när en avisering om Smart identifiering har åtgärd ATS. Du kan kontrol lera om en avisering om Smart identifiering har lösts i Azure Portal.
 
 ## <a name="configure-alerts"></a>Konfigurera varningar
 

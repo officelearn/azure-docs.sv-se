@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020294"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613924"
 ---
 # <a name="entities"></a>Entiteter
 
@@ -21,7 +21,7 @@ En *entitet* representerar ett rörligt objekt i utrymme och är det grundlägga
 
 Entiteter har en transformering som definieras av en position, rotation och skala. Själva entiteten har inte någon funktion som kan ha någon funktion. I stället läggs beteendet till i-komponenter som är kopplade till entiteter. Om du till exempel bifogar ett [CutPlaneComponent](../overview/features/cut-planes.md)  skapas ett klipp plan i entitetens position.
 
-Den viktigaste aspekten av själva entiteten är hierarkin och den resulterande hierarkiska omvandlingen. Till exempel när flera entiteter är kopplade som underordnade till en delad överordnad entitet, kan alla dessa entiteter flyttas, roteras och skalas i dem samtidigt genom att ändra den överordnade entitetens omvandling.
+Den viktigaste aspekten av själva entiteten är hierarkin och den resulterande hierarkiska omvandlingen. Till exempel när flera entiteter är kopplade som underordnade till en delad överordnad entitet, kan alla dessa entiteter flyttas, roteras och skalas i dem samtidigt genom att ändra den överordnade entitetens omvandling. Entitetens `enabled` tillstånd kan också användas för att stänga av synlighet och svar på Ray-sändningar för ett fullständigt under diagram i hierarkin.
 
 En entitet ägs unikt av dess överordnade, vilket innebär att när det överordnade objektet förstörs, `Entity.Destroy()` så är dess underordnade och alla anslutna [komponenter](components.md). Därför utförs borttagning av en modell från scenen genom att anropar `Destroy` rotnoden i en modell, som returneras av `AzureSession.Actions.LoadModelAsync()` eller dess SAS-variant `AzureSession.Actions.LoadModelFromSASAsync()` .
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>Frågar efter rums gränser
 
 Bindnings frågor är asynkrona anrop som används i en fullständig objektorienterad hierarki, med en entitet som en rot. Se det dedikerade kapitlet om [objekt gränser](object-bounds.md).
@@ -137,6 +136,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 Frågan kommer att lyckas även om objektet inte innehåller några metadata.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C#-enhets klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RemoteManager. CreateEntity ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C++-klass för entitet](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager:: CreateEntity ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>Nästa steg
 

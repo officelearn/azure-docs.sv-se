@@ -1,20 +1,20 @@
 ---
 title: Azure Monitor för nätverk (för hands version)
-description: En snabb översikt för Azure Monitor för nätverk som ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration.
+description: En snabb översikt för Azure Monitor för nätverk som tillhandahåller en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128683"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646566"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
-Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration. Den avancerade Sök funktionen hjälper till att identifiera resurs beroenden, vilket möjliggör scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på den värdbaserade webbplatsen.
+Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration. Med den avancerade Sök funktionen kan du identifiera resurs beroenden som möjliggör scenarier som att identifiera resurser som är värdar för din webbplats genom att söka efter namnet på den värdbaserade webbplatsen.
 
 **Översikts** sidan för Azure Monitor för nätverk är ett smidigt sätt att visualisera inventeringen av dina nätverks resurser tillsammans med resurs hälsa och aviseringar. Den är uppdelad i fyra viktiga funktions områden:
 
@@ -30,7 +30,7 @@ Vyn resurs hälsa och aviseringar kan anpassas med hjälp av filter som **prenum
 
 Du kan använda sökrutan för att söka efter resurser och associerade resurser. Till exempel är en offentlig IP-adress kopplad till en Application Gateway. Om du söker efter offentliga IP DNS-namn identifieras både offentlig IP-adress och tillhör ande Application Gateway.
 
-![Sök](media/network-insights-overview/search.png)
+![Search](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health och mått
@@ -52,11 +52,11 @@ I rutnätet **aviseringar** till höger får du en översikt över alla aviserin
 
 ![Application Gateway vy](media/network-insights-overview/application-gateway.png)
 
-**Beroende** vyn för Application Gateway ger en förenklad vy över hur klient delens IP-adresser är anslutna till lyssnare, regler och backend-pool. De anslutande kanterna är färgkodade och ger ytterligare information baserat på Server delens hälso tillstånd. Vyn innehåller också en detaljerad vy över Application Gateway mått och mått för alla relaterade Server dels pooler, till exempel VMSS och VM-instanser.
+**Beroende** vyn för Application Gateway ger en förenklad vy över hur klient delens IP-adresser är anslutna till lyssnare, regler och backend-pool. De anslutande kanterna är färgkodade och ger ytterligare information baserat på Server delens hälso tillstånd. Vyn innehåller också en detaljerad vy över Application Gateway mått och mått för alla relaterade Server dels pooler, till exempel virtuell dators skalnings uppsättning och virtuella dator instanser.
 
 ![Beroende vy](media/network-insights-overview/dependency-view.png)
 
-Med det beroende diagrammet kan du enkelt navigera till konfigurations inställningar. Högerklicka på en backend-pool för att få åtkomst till andra funktioner. Om till exempel backend-poolen är en virtuell dator kan du direkt komma åt VM-insikter och Network Watcher anslutnings fel sökning för att identifiera anslutnings problem.
+Med det beroende diagrammet kan du enkelt navigera till konfigurations inställningar. Högerklicka på en backend-pool för att få åtkomst till andra funktioner. Om backend-poolen till exempel är en virtuell dator kan du få direkt åtkomst till den virtuella datorns insikter och Network Watcher anslutningen för att felsöka och identifiera anslutnings problem.
 
 ![Meny för beroende vy](media/network-insights-overview/dependency-view-menu.png)
 
@@ -66,7 +66,7 @@ Sök-och filter fältet i beroende vyn ger ett smidigt sätt att söka igenom gr
 
 Olika filter ger hjälp att begränsa till en specifik sökväg och tillstånd. Välj till exempel endast *ohälsosamt* från List rutan **hälso status** för att visa alla kanter där tillståndet är *dåligt*.
 
-Klicka på **vyn detaljerad statistik** för att starta en förkonfigurerad arbets bok med detaljerade mått för programgatewayen, alla resurser för Server dels poolen och klient dels-IP-adresser. 
+Klicka på **vyn detaljerad statistik** för att starta en förkonfigurerad arbets bok med detaljerade mått för programgatewayen, alla resurser för Server delens pool och klient-IP-adresser. 
 
 ## <a name="next-steps"></a>Nästa steg 
 

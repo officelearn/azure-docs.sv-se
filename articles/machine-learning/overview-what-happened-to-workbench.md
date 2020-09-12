@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: 6be41ab4b172a6d111d9ff648cfd85a2ab026b9a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6d62c9aa7be1511cdac6404ac7c42200677e56fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553673"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651606"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -68,7 +68,7 @@ Börja träna dina modeller och spåra körhistorik med hjälp av nya CLI och SD
 
 Du förlorar inte någon kod eller något arbete. I den äldre versionen är projekt molnentiteter med en lokal katalog. I den senaste versionen kopplar du lokala kataloger till Azure Machine Learning arbets ytan med hjälp av en lokal konfigurations fil. Se ett [diagram över den senaste arkitekturen](concept-azure-machine-learning-architecture.md).
 
-Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver bara skapa en konfigurationsfil i denna katalog och referera till den i koden för att ansluta till din arbetsyta. Om du vill fortsätta att använda den lokala katalogen som innehåller dina filer och skript, anger du katalogens namn i python-kommandot ["experiment. Submit"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) eller med `az ml project attach` kommandot cli.  Exempel:
+Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver bara skapa en konfigurationsfil i denna katalog och referera till den i koden för att ansluta till din arbetsyta. Om du vill fortsätta att använda den lokala katalogen som innehåller dina filer och skript, anger du katalogens namn i python-kommandot ["experiment. Submit"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) eller med `az ml project attach` kommandot cli.  Exempel:
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)

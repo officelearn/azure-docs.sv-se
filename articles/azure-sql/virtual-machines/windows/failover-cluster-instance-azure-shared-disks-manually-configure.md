@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: ffb739affac68898f6ed5ff1d972d3fd4a70df2f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055268"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611797"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ I den här artikeln förklaras hur du skapar en instans av en redundanskluster (
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -217,7 +217,6 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="limitations"></a>Begränsningar
 
-- Endast SQL Server 2019 på Windows Server 2019 stöds. 
 - Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) .
 
 ## <a name="next-steps"></a>Nästa steg

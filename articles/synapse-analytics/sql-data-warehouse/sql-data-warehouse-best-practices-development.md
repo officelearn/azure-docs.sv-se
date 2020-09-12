@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0bd15da523281a52d36c9ed1336244aa21eb48cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206707"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457914"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Bästa metoder för utveckling för Synapse SQL-pool
 
@@ -122,6 +122,6 @@ Om du inte hittar det du letar efter i den här artikeln kan du prova att använ
 
 På [sidan Microsoft Q&en fråga för Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) kan du skicka frågor till andra användare och till produkt gruppen för Azure Synapse.  Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  
 
-Om du föredrar att ställa dina frågor i Stack Overflow finns det även ett [Stack Overflow-forum för Azure SQL Data Warehouse](https://stackoverflow.com/questions/tagged/azure-sqldw).
+Om du föredrar att ställa dina frågor på Stack Overflow har vi också ett [Azure Synapse Analytics Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
 Använd feedback-sidan för [Azure-Synapse](https://feedback.azure.com/forums/307516-sql-data-warehouse) för att skapa funktions begär Anden.  Genom att skicka in dina egna önskemål eller rösta fram andras förfrågningar hjälper du oss att prioritera funktioner.

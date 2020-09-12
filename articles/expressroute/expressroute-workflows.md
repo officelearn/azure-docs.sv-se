@@ -2,18 +2,18 @@
 title: 'Azure-ExpressRoute: arbets flöde för krets konfiguration'
 description: På den här sidan visas arbets flödet för konfiguration av ExpressRoute-kretsar och peering
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.author: cherylmc
+ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 229b7c145fa38443d2bc5f99005078ffa7f77065
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814084"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565931"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Arbetsflöden i ExpressRoute för kretsetablering och kretstillstånd
 
@@ -86,7 +86,7 @@ Aktivera privat peering för att ansluta till virtuella datorer och moln tjänst
 
 #### <a name="for-microsoft-peering"></a>För Microsoft-peering
 
-Aktivera detta för att få åtkomst till Microsoft onlinetjänster, till exempel Office 365. Dessutom är alla Azure PaaS-tjänster tillgängliga via Microsoft-peering. Du måste se till att du använder en separat proxy/Edge för att ansluta till Microsoft än den som du använder för Internet. Att använda samma gräns för både ExpressRoute och Internet kommer att orsaka asymmetrisk Routning och orsaka anslutnings avbrott för nätverket.
+Aktivera detta för att få åtkomst till Microsoft onlinetjänster, till exempel Microsoft 365. Dessutom är alla Azure PaaS-tjänster tillgängliga via Microsoft-peering. Du måste se till att du använder en separat proxy/Edge för att ansluta till Microsoft än den som du använder för Internet. Att använda samma gräns för både ExpressRoute och Internet kommer att orsaka asymmetrisk Routning och orsaka anslutnings avbrott för nätverket.
 
 * Peering-undernät för sökväg 1 (/30) – måste vara offentlig IP
 * Peering-undernät för sökväg 2 (/30) – måste vara offentlig IP

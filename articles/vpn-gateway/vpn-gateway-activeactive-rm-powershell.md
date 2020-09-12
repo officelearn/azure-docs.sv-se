@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 3747be15f7a15d3d47af2d3495eea2315d40a044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419911"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440787"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiva, aktiva S2S VPN-anslutningar med Azure VPN-gatewayer
 
@@ -411,7 +411,7 @@ I det här steget aktiverar du aktivt-aktivt läge och uppdaterar gatewayen. I e
 
 * Du kan inte ändra en äldre SKU till en av de nya SKU: erna med det här steget. Du kan bara ändra storlek på en äldre SKU till en annan äldre SKU som stöds. Du kan till exempel inte ändra SKU från standard till VpnGw1 (även om VpnGw1 stöds för aktiv-aktiv) eftersom standard är en äldre SKU och VpnGw1 är en aktuell SKU. Mer information om hur du ändrar storlek och migrerar SKU: er finns i [Gateway-SKU: er](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Om du vill ändra storlek på en aktuell SKU, till exempel VpnGw1 till VpnGw3, kan du göra det med hjälp av det här steget eftersom SKU: er finns i samma SKU-serie. Det gör du genom att använda värdet:```-GatewaySku VpnGw3```
+* Om du vill ändra storlek på en aktuell SKU, till exempel VpnGw1 till VpnGw3, kan du göra det med hjälp av det här steget eftersom SKU: er finns i samma SKU-serie. Det gör du genom att använda värdet: ```-GatewaySku VpnGw3```
 
 Om du inte behöver ändra storlek på gatewayen när du använder detta i din miljö behöver du inte ange-GatewaySku. Observera att i det här steget måste du ange Gateway-objektet i PowerShell för att utlösa den faktiska uppdateringen. Uppdateringen kan ta 30 till 45 minuter, även om du inte ändrar storlek på din gateway.
 

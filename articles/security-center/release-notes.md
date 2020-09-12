@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: f3aeccd30a9c89c2a43dfb85d4a57274037ec05f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177252"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569262"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -28,6 +28,104 @@ Azure-säkerhet ligger i aktiv utveckling och tar emot förbättringar kontinuer
 - Föråldrade funktioner
 
 Den här sidan uppdateras regelbundet, så du kan uppdatera den ofta. Om du söker efter objekt som är äldre än sex månader hittar du dem i [arkivet för vad som är nytt i Azure Security Center](release-notes-archive.md).
+
+
+## <a name="september-2020"></a>September 2020
+
+Uppdateringar i september omfattar:
+
+- [Rön om sårbarhets bedömning är nu tillgängliga i löpande export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Förhindra felaktig säkerhet genom att tvinga rekommendationer när du skapar nya resurser](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
+- [Bättre rekommendationer för nätverks säkerhets grupp](#network-security-group-recommendations-improved)
+- [Föråldrad för hands version AKS-rekommendation "Pod Security Policies definieras i Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [E-postaviseringar från Azure Security Center bättre](#email-notifications-from-azure-security-center-improved)
+- [Säkra Poäng omfattar inte för hands versions rekommendationer](#secure-score-doesnt-include-preview-recommendations)
+- [Rekommendationerna innehåller nu en allvarlighets grad och aktualitets intervallet](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Rön om sårbarhets bedömning är nu tillgängliga i löpande export
+
+Använd kontinuerlig export för att strömma aviseringar och rekommendationer i real tid till Azure Event Hubs, Log Analytics arbets ytor eller Azure Monitor. Därifrån kan du integrera dessa data med Siem (till exempel Azure Sentinel, Power BI, Azure Datautforskaren med mera.
+
+Security Center s verktyg för integrerad sårbarhets bedömning returnerar resultat om dina resurser som åtgärds bara rekommendationer i en överordnad rekommendation, till exempel säkerhets risker i dina virtuella datorer, bör åtgärdas. 
+
+Säkerhets resultaten är nu tillgängliga för export genom löpande export när du väljer rekommendationer och aktiverar alternativet **Inkludera säkerhets resultat** .
+
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration" :::
+
+Relaterade sidor:
+
+- [Security Center är en integrerad lösning för sårbarhets bedömning för Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
+- [Security Center är en integrerad lösning för sårbarhets bedömning för Azure Container Registry avbildningar](monitor-container-security.md)
+- [Löpande export](continuous-export.md)
+
+### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>Förhindra felaktig säkerhet genom att tvinga rekommendationer när du skapar nya resurser
+
+Fel konfiguration av säkerhet är en stor orsak till säkerhets incidenter. Security Center kan nu hjälpa till *att förhindra* fel konfiguration av nya resurser med avseende på särskilda rekommendationer. 
+
+Den här funktionen kan hjälpa till att hålla arbets belastningarna säkra och stabilisera dina säkra poäng.
+
+Att framtvinga en säker konfiguration, som baseras på en viss rekommendation, erbjuds i två lägen:
+
+- Genom att använda Azure Policy **neka** kan du förhindra att resurser som inte är felfria skapas
+
+- Med alternativet **tillämpa** kan du dra nytta av Azure policys **DeployIfNotExist** -påverkan och automatiskt reparera icke-kompatibla resurser när de skapas
+ 
+Detta är tillgängligt för de valda säkerhets rekommendationerna och finns överst på sidan med resurs information.
+
+Läs mer i [förhindra felaktig konfiguration med tvinga/neka-rekommendationer](prevent-misconfigurations.md).
+
+###  <a name="network-security-group-recommendations-improved"></a>Bättre rekommendationer för nätverks säkerhets grupp
+
+Följande säkerhets rekommendationer relaterade till nätverks säkerhets grupper har förbättrats för att minska vissa instanser av falska positiva identifieringar.
+
+- Alla nätverks portar bör vara begränsade på NSG som är kopplade till den virtuella datorn
+- Hanterings portar bör stängas på dina virtuella datorer
+- Virtuella datorer som är riktade mot Internet bör skyddas med nätverks säkerhets grupper
+- Undernät ska associeras med en nätverks säkerhets grupp
+
+
+### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Föråldrad för hands version AKS-rekommendation "Pod Security Policies definieras i Kubernetes Services"
+
+Förhands gransknings rekommendationen "Pod Security Policies" måste definieras i Kubernetes Services ", vilket beskrivs i dokumentationen för [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/use-pod-security-policies) .
+
+Funktionen Pod Security Policy (för hands version) är inställd för utfasning och kommer inte längre att vara tillgänglig efter den 15 oktober 2020 i Azure Policy för AKS.
+
+När Pod säkerhets princip (förhands granskning) är föråldrad måste du inaktivera funktionen på alla befintliga kluster med hjälp av den föråldrade funktionen för att utföra framtida kluster uppgraderingar och hålla koll på Azure-supporten.
+
+
+### <a name="email-notifications-from-azure-security-center-improved"></a>E-postaviseringar från Azure Security Center bättre
+
+Följande delar av e-postmeddelandena om säkerhets aviseringar har förbättrats: 
+
+- Har lagt till möjligheten att skicka e-postmeddelanden om aviseringar för alla allvarlighets nivåer
+- Har lagt till möjligheten att meddela användare med olika RBAC-roller i prenumerationen
+- Vi meddelar proaktivt prenumerations ägare som standard på aviseringar med hög allvarlighets grad (som har hög sannolikhet för att vara äkta)
+- Vi har tagit bort fältet telefonnummer från konfigurations sidan för e-postaviseringar
+
+Läs mer i [Konfigurera e-postaviseringar för säkerhets aviseringar](security-center-provide-security-contact-details.md).
+
+
+### <a name="secure-score-doesnt-include-preview-recommendations"></a>Säkra Poäng omfattar inte för hands versions rekommendationer 
+
+Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån.
+
+När nya hot upptäcks görs nya säkerhets rådgivning i Security Center via nya rekommendationer. För att undvika oväntade ändringar av dina säkra poäng och för att tillhandahålla en respitperiod där du kan utforska nya rekommendationer innan de påverkar dina resultat, ingår rekommendationer som har flaggats som för **hands version** inte längre i beräkningarna av dina säkra poäng. De bör fortfarande åtgärdas när så är möjligt, så att när förhands gransknings perioden är slut bidrar de till dina poäng.
+
+För **hands versions** rekommendationer återges inte heller en resurs "ohälsosam".
+
+Ett exempel på en förhands gransknings rekommendation:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Rekommendation med förhands gransknings flaggan":::
+
+[Läs mer om säkra Poäng](secure-score-security-controls.md).
+
+
+### <a name="recommendations-now-include-a-severity-indicator-and-the-freshness-interval"></a>Rekommendationerna innehåller nu en allvarlighets grad och aktualitets intervallet
+
+På informations sidan för rekommendationer finns nu en indikator för aktualitets intervall (när det är relevant) och en tydlig visning av rekommendationens allvarlighets grad.
+
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Sidan rekommendation visar aktualitet och allvarlighets grad":::
+
 
 
 ## <a name="august-2020"></a>Augusti 2020
@@ -489,7 +587,7 @@ Skapa ett anpassat initiativ i Azure policy, Lägg till principer till den och p
 
 Nu har vi även lagt till alternativet för att redigera metadata för anpassade rekommendationer. Alternativen för metadata omfattar allvarlighets grad, reparations steg, Hot information och mycket annat.  
 
-Lär dig mer om [att förbättra dina anpassade rekommendationer med detaljerad information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Lär dig mer om [att förbättra dina anpassade rekommendationer med detaljerad information](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
 
 
@@ -550,79 +648,3 @@ Om du har prenumerationer på den kostnads fria pris nivån kommer deras säkra 
 Lär dig mer om [identitets-och åtkomst rekommendationer](recommendations-reference.md#recs-identity).
 
 Läs mer om [övervakning av identitet och åtkomst](security-center-identity-access.md).
-
-
-## <a name="march-2020"></a>Mars 2020
-
-Uppdateringar i mars inkluderar:
-- [Arbets flödes automatisering är nu allmänt tillgänglig](#workflow-automation-is-now-generally-available)
-- [Integrering av Azure Security Center med administrations Center för Windows](#integration-of-azure-security-center-with-windows-admin-center)
-- [Skydd för Azure Kubernetes-tjänsten](#protection-for-azure-kubernetes-service)
-- [Förbättrad just-in-Time-upplevelse](#improved-just-in-time-experience)
-- [Två säkerhets rekommendationer för webb program som är föråldrade](#two-security-recommendations-for-web-applications-deprecated)
-
-
-### <a name="workflow-automation-is-now-generally-available"></a>Arbets flödes automatisering är nu allmänt tillgänglig
-
-Funktionen för automatisering av arbets flöden i Azure Security Center är nu allmänt tillgänglig. Använd den för att automatiskt utlösa Logic Apps om säkerhets aviseringar och rekommendationer. Dessutom är manuella utlösare tillgängliga för aviseringar och alla rekommendationer som har alternativet snabb korrigering tillgängligt.
-
-Varje säkerhets program innehåller flera arbets flöden för incident svar. De här processerna kan omfatta att meddela relevanta intressenter, starta en ändrings hanterings process och tillämpa vissa åtgärder för reparation. Säkerhets experter rekommenderar att du automatiserar så många steg som beskrivs i de här procedurerna. Automation minskar kostnaderna och kan förbättra säkerheten genom att se till att process stegen utförs snabbt, konsekvent och enligt dina fördefinierade krav.
-
-Mer information om automatiska och manuella Security Center-funktioner för att köra arbets flöden finns i [arbets flödes automatisering](workflow-automation.md).
-
-Lär dig mer om att [skapa Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
-
-
-### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integrering av Azure Security Center med administrations Center för Windows
-
-Nu kan du flytta dina lokala Windows-servrar från Windows administrations Center direkt till Azure Security Center. Security Center blir sedan den enda rutan med glas för att Visa säkerhets information för alla dina Windows administrations Center-resurser, inklusive lokala servrar, virtuella datorer och ytterligare PaaS arbets belastningar.
-
-När du har flyttat en server från Windows administrations Center till Azure Security Center kan du:
-
-- Visa säkerhets aviseringar och rekommendationer i Security Center tillägget för Windows administrations Center.
-- Visa säkerhets position och hämta ytterligare detaljerad information om dina hanterade Windows administrations Center-servrar i Security Center inom Azure Portal (eller via ett API).
-
-Läs mer om [hur du integrerar Azure Security Center med administrations Center för Windows](windows-admin-center-integration.md).
-
-
-### <a name="protection-for-azure-kubernetes-service"></a>Skydd för Azure Kubernetes-tjänsten
-
-Azure Security Center utökar dess behållar säkerhetsfunktioner för att skydda Azure Kubernetes service (AKS).
-
-Den populära plattforms Kubernetes med öppen källkod har antagits så mycket att den nu är bransch standard för behållar dirigering. Trots den här omfattande implementeringen finns det fortfarande brist på förståelse för hur du skyddar en Kubernetes-miljö. Att skydda angrepps ytorna i ett behållar program kräver expert kunskaper för att säkerställa att infrastrukturen konfigureras säkert och ständigt övervakas för potentiella hot.
-
-Security Center försvaret omfattar:
-
-- **Identifiering och synlighet** – kontinuerlig identifiering av hanterade AKS-instanser i prenumerationer som registrerats på Security Center.
-- **Säkerhets rekommendationer** – användbara rekommendationer som hjälper dig att följa säkerhets metoder för AKS. Dessa rekommendationer ingår i dina säkra Poäng för att se till att de visas som en del av din organisations säkerhets position. Ett exempel på en AKS rekommendation som du kan se är "rollbaserad åtkomst kontroll ska användas för att begränsa åtkomsten till ett Kubernetes service-kluster".
-- **Hot skydd** – genom kontinuerlig analys av din AKS-distribution, Security Center varnar dig om hot och skadlig aktivitet som har identifierats på värd-och AKS kluster nivå.
-
-Lär dig mer om [Azure Kubernetes Services-integration med Security Center](azure-kubernetes-service-integration.md).
-
-Läs mer om [behållar säkerhetsfunktionerna i Security Center](container-security.md).
-
-
-### <a name="improved-just-in-time-experience"></a>Förbättrad just-in-Time-upplevelse
-
-Funktionerna, åtgärden och gränssnittet för Azure Security Center just-in-Time-verktyg som skyddar hanterings portarna har förbättrats på följande sätt: 
-
-- **Motiverings fält** – när du begär åtkomst till en virtuell dator (VM) via sidan just-in-time i Azure Portal, är ett nytt valfritt fält tillgängligt för att ange en motivering för begäran. Information som anges i det här fältet kan spåras i aktivitets loggen. 
-- **Automatisk rensning av redundanta regler för just-in-Time (JIT)** – när du uppdaterar en JIT-princip körs automatiskt ett rensnings verktyg för att kontrol lera giltigheten för hela ruleset. Verktyget söker efter avvikelser mellan regler i principen och reglerna i NSG. Om ett matchnings fel upptäcks i rensnings verktyget, bestäms orsaken och när det är säkert att göra det, tar bort inbyggda regler som inte behövs längre. Rengöringen tar aldrig bort regler som du har skapat. 
-
-Lär dig mer om [funktionen för JIT-åtkomst](security-center-just-in-time.md).
-
-
-### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Två säkerhets rekommendationer för webb program som är föråldrade
-
-Två säkerhets rekommendationer relaterade till webb program är föråldrade: 
-
-- Reglerna för webb program på IaaS NSG: er bör vara härdade.
-    (Relaterad princip: NSG: er-reglerna för webb program på IaaS bör vara härdade)
-
-- Åtkomst till App Services bör vara begränsad.
-    (Relaterad princip: åtkomst till App Services ska vara begränsad [för hands version])
-
-Dessa rekommendationer visas inte längre i Security Center listan över rekommendationer. De relaterade principerna kommer inte längre att ingå i initiativet med namnet "Security Center default".
-
-Läs mer om [säkerhets rekommendationer](recommendations-reference.md).
-

@@ -4,14 +4,14 @@ description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092498"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612072"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -29,7 +29,7 @@ Klicka på bilden nedan om du vill titta på en [video demonstration](https://az
 
 ![skärm bild av sidan projekt information i Azure Portal](media/hpc-cache-create-basics.png)
 
-I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen. Se till att prenumerationen finns på [åtkomst](hpc-cache-prerequisites.md#azure-subscription) listan.
+I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 I **tjänst information**anger du cache-namn och följande attribut:
 
@@ -133,9 +133,9 @@ nets/<cache_subnet_name>"``
   | Cachestorlek | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 GB    | ja         | nej          | nej          |
-  | 6144 GB    | yes         | ja         | Nej          |
-  | 12288 GB   | yes         | ja         | yes         |
-  | 24576 GB   | Nej          | ja         | yes         |
+  | 6144 GB    | ja         | ja         | nej          |
+  | 12288 GB   | ja         | ja         | ja         |
+  | 24576 GB   | nej          | ja         | ja         |
   | 49152 GB   | nej          | nej          | ja         |
 
   Läs avsnittet **Ange cache-kapacitet** i fliken Portal instruktioner för viktig information om priser, data flöde och hur du ändrar cacheminnet för ditt arbets flöde.

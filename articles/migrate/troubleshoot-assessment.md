@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020362"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645643"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -147,7 +147,8 @@ Detta kan inträffa om Hyper-V-virtualisering är aktiverat på den fysiska serv
 
 ## <a name="dependency-visualization-in-azure-government"></a>Beroende visualisering i Azure Government
 
-Azure Migrate är beroende av Tjänstkarta för funktionerna för beroende visualisering. Eftersom Tjänstkarta för närvarande inte är tillgängligt i Azure Government är den här funktionen inte tillgänglig i Azure Government.
+Det finns inte stöd för agentbaserade beroende analyser i Azure Government. Använd agent lös beroende analys.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>Beroenden visas inte efter agent installation
 
@@ -160,7 +161,7 @@ För virtuella Windows-datorer:
 
     ![Status för MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-För virtuella Linux-datorer måste du kontrol lera att installations kommandona för MMA och beroende agenten lyckades.
+För virtuella Linux-datorer måste du kontrol lera att installations kommandona för MMA och beroende agenten lyckades. Läs mer om fel söknings vägledning [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -181,7 +182,6 @@ I Azure Migrate Server utvärdering, med agent beroende analys, kan du [visualis
 ## <a name="machines-show-install-agent"></a>Datorer visar "installera agent"
 
 När du har migrerat datorer med beroende visualisering aktive rad till Azure kan datorerna Visa åtgärden "installera agent" i stället för "Visa beroenden" på följande sätt:
-
 
 - När migreringen till Azure är inaktive rad stängs lokala datorer av och motsvarande virtuella datorer är i Azure. De här datorerna hämtar en annan MAC-adress.
 - Datorerna kan också ha en annan IP-adress, baserat på om du har bevarat den lokala IP-adressen eller inte.

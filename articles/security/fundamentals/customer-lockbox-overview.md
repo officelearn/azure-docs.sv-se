@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
-ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735444"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650969"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox för Microsoft Azure
 
@@ -25,6 +25,49 @@ Customer Lockbox för Microsoft Azure ger ett gränssnitt för kunder som kan gr
 Den här artikeln beskriver hur Customer Lockbox begär Anden initieras, spåras och lagras för senare granskningar och granskningar.
 
 Customer Lockbox är nu allmänt tillgänglig och för närvarande aktiverat för fjärr skrivbords åtkomst till virtuella datorer.
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Tjänster och scenarier som stöds i för hands version
+
+Följande tjänster är nu i för hands version för Customer Lockbox:
+
+- API Management
+- Azure App Service
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Synapse Analytics
+- Cognitive Services
+- Container Registry
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Kubernetes Service
+- Azure Data Box
+- HDInsight
+- Functions
+- Azure Storage
+- Azure SQL-databas
+- Azure-datautforskaren
+- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar)
+- Azure-prenumerations överföringar
+
+Om du vill aktivera Customer Lockbox för dessa förhands gransknings erbjudanden för din organisation kan du registrera dig för [Customer lockbox för offentlig för hands version av Azure](https://aka.ms/customerlockbox/insiderprogram)
+
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Tjänster och scenarier som stöds i allmän tillgänglighet
+
+Följande tjänster och scenarier är för närvarande allmänt tillgängliga för Customer Lockbox.
+
+### <a name="remote-desktop-access-to-virtual-machines"></a>Fjärr skrivbords åtkomst till virtuella datorer
+
+Customer Lockbox är för närvarande aktiverat för förfrågningar om fjärr skrivbords åtkomst till virtuella datorer. Följande arbets belastningar stöds:
+- PaaS (Platform as a Service) – Azure Cloud Services (webb roll och arbets roll)
+- IaaS (Infrastructure as a Service) – Windows och Linux (endast Azure Resource Manager)
+- Skalnings uppsättning för virtuella datorer – Windows och Linux
+
+> [!NOTE]
+> IaaS klassiska instanser stöds inte av Customer Lockbox. Om du har arbets belastningar som körs på IaaS klassiska instanser rekommenderar vi att du migrerar dem från klassiska till Resource Manager-distributions modeller. Instruktioner finns i [plattforms stöd för migrering av IaaS-resurser från klassisk till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+
+#### <a name="detailed-audit-logs"></a>Detaljerade gransknings loggar
+
+För scenarier som involverar åtkomst till fjärr skrivbord kan du använda Windows-händelseloggen för att granska de åtgärder som vidtagits av Microsoft-teknikern. Överväg att använda Azure Security Center för att samla in dina händelse loggar och kopiera data till din arbets yta för analys. Mer information finns [i data insamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -65,7 +108,7 @@ Följande steg beskriver ett typiskt arbets flöde för en Customer Lockbox beg�
 
     ![Azure Customer Lockbox – Visa väntande begäran](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. Den angivna god kännaren kan också välja **ID för tjänstbegäran** för att se begäran om support ärende som skapades av den ursprungliga användaren. Den här informationen innehåller en kontext för varför Microsoft Support aktive ras och historiken för det rapporterade problemet. Till exempel:
+10. Den angivna god kännaren kan också välja **ID för tjänstbegäran** för att se begäran om support ärende som skapades av den ursprungliga användaren. Den här informationen innehåller en kontext för varför Microsoft Support aktive ras och historiken för det rapporterade problemet. Exempel:
 
     ![Azure Customer Lockbox – Visa begäran om support ärende](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
@@ -91,40 +134,9 @@ Som exempel:
 
 ![Azure Customer Lockbox-aktivitets loggar](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Tjänster och scenarier som stöds i allmän tillgänglighet
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Customer Lockbox integrering med Azures säkerhets prestanda
 
-Följande tjänster och scenarier är för närvarande allmänt tillgängliga för Customer Lockbox.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Fjärr skrivbords åtkomst till virtuella datorer
-
-Customer Lockbox är för närvarande aktiverat för förfrågningar om fjärr skrivbords åtkomst till virtuella datorer. Följande arbets belastningar stöds:
-- PaaS (Platform as a Service) – Azure Cloud Services (webb roll och arbets roll)
-- IaaS (Infrastructure as a Service) – Windows och Linux (endast Azure Resource Manager)
-- Skalnings uppsättning för virtuella datorer – Windows och Linux
-
-> [!NOTE]
-> IaaS klassiska instanser stöds inte av Customer Lockbox. Om du har arbets belastningar som körs på IaaS klassiska instanser rekommenderar vi att du migrerar dem från klassiska till Resource Manager-distributions modeller. Instruktioner finns i [plattforms stöd för migrering av IaaS-resurser från klassisk till Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Detaljerade gransknings loggar
-
-För scenarier som involverar åtkomst till fjärr skrivbord kan du använda Windows-händelseloggen för att granska de åtgärder som vidtagits av Microsoft-teknikern. Överväg att använda Azure Security Center för att samla in dina händelse loggar och kopiera data till din arbets yta för analys. Mer information finns [i data insamling i Azure Security Center](../../security-center/security-center-enable-data-collection.md).
-
-## <a name="supported-services-and-scenarios-in-preview"></a>Tjänster och scenarier som stöds i för hands version
-
-Följande tjänster är nu i för hands version för Customer Lockbox:
-
-- Azure Storage
-
-- Azure SQL-databas
-
-- Azure-datautforskaren
-
-- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar)
-
-- Azure-prenumerations överföringar
-
-Om du vill aktivera Customer Lockbox för dessa förhands gransknings erbjudanden för din organisation kan du registrera dig för [Customer lockbox för offentlig för hands version av Azure](https://aka.ms/customerlockbox/insiderprogram)
-
+Vi har lanserat en ny bas linje kontroll ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) i Azures säkerhets benchmark som täcker Customer lockbox tillämplighet. Kunderna kan nu dra nytta av benchmark för att granska Customer Lockbox tillämpligheten för en tjänst.
 
 ## <a name="exclusions"></a>Undantag
 

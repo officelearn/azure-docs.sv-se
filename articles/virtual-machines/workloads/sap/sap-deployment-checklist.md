@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651734"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650702"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -213,7 +213,7 @@ Under den här fasen distribuerar du vanligt vis utvecklings system, enhets test
 12. När arbets belastningen används registrerar du resurs förbrukningen för systemen i Azure. Jämför den här förbrukningen med poster från din gamla plattform. Justera storleken på den virtuella datorn för framtida distributioner om du ser att du har stora skillnader. Tänk på att när du downsize, lagring och nätverks bandbredder för virtuella datorer kommer också att minskas.
     - [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. Experimentera med system kopierings funktioner och-processer. Målet är att göra det enkelt för dig att kopiera ett utvecklings system eller ett test system, så projekt teamen kan snabbt få nya system. Överväg att använda [SAP-Lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) för dessa uppgifter.
+13. Experimentera med system kopierings funktioner och-processer. Målet är att göra det enkelt för dig att kopiera ett utvecklings system eller ett test system, så projekt teamen kan snabbt få nya system. 
 14. Optimera och finslipa din grupps Azure-rollbaserade åtkomst, behörigheter och processer för att se till att du har separering av uppgifter. Se till att alla team kan utföra sina uppgifter i Azure-infrastrukturen.
 15. Öva, testa och dokumentera metoder för hög tillgänglighet och haveri beredskap för att göra det möjligt för personalen att utföra dessa uppgifter. Identifiera brister och anpassa nya Azure-funktioner som du integrerar i dina distributioner.
 

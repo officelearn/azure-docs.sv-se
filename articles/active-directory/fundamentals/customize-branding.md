@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f664f55f2870f4f0e06f3a96a3f2b7ae91e7a378
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796802"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565862"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till anpassning till din organisations Azure Active Directory inloggnings sida
-Använd organisationens logo typ och egna färg scheman för att ge ett enhetligt utseende på dina Azure Active Directory-inloggnings sidor (Azure AD). Dina inloggnings sidor visas när användarna loggar in i din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitets leverantör.
+Använd organisationens logo typ och egna färg scheman för att ge ett enhetligt utseende på dina Azure Active Directory-inloggnings sidor (Azure AD). Dina inloggnings sidor visas när användarna loggar in i din organisations webbaserade appar, till exempel Microsoft 365, som använder Azure AD som identitets leverantör.
 
 >[!NOTE]
->Om du lägger till anpassad anpassning måste du använda Azure Active Directory Premium 1, Premium 2 eller Basic-versioner, eller ha en Office 365-licens. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Om du lägger till anpassad anpassning måste du använda Azure Active Directory Premium 1, Premium 2 eller Basic-versioner, eller ha en Microsoft 365 licens. Mer information om licenser och versioner finns i [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure AD Premium och Basic stöds inte för närvarande i den Azure-tjänst som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din inloggnings sida för Azure AD
 Du kan anpassa dina inloggnings sidor för Azure AD, som visas när användarna loggar in till din organisations klientbaserade appar, till exempel `https://outlook.com/contoso.com` eller när de skickar en domän variabel, till exempel `https://passwordreset.microsoftonline.com/?whr=contoso.com` .
@@ -32,7 +32,7 @@ Du kan anpassa dina inloggnings sidor för Azure AD, som visas när användarna 
 Din anpassade anpassning visas inte direkt när användarna går till webbplatser som www- \. Office.com. Användaren måste i stället logga in innan din anpassade anpassning visas. När användaren har loggat in kan anpassningen ta 15 minuter eller längre visas. 
 
 > [!NOTE]
-> Alla anpassnings element är valfria. Om du t. ex. anger en banderoll med ingen bakgrunds bild visas logo typen på inloggnings sidan med en standard bakgrunds bild från mål platsen (till exempel Office 365).<br><br>Dessutom överförs inte inloggnings sidan till personliga Microsoft-konton. Om dina användare eller affärs gäster loggar in med en personlig Microsoft-konto, visar inte inloggnings sidan anpassningen av din organisation.
+> Alla anpassnings element är valfria. Om du t. ex. anger en banderoll med ingen bakgrunds bild visas logo typen på inloggnings sidan med en standard bakgrunds bild från mål webbplatsen (till exempel Microsoft 365).<br><br>Dessutom överförs inte inloggnings sidan till personliga Microsoft-konton. Om dina användare eller affärs gäster loggar in med en personlig Microsoft-konto, visar inte inloggnings sidan anpassningen av din organisation.
 
 ### <a name="to-customize-your-branding"></a>Anpassa din anpassning
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
@@ -66,13 +66,13 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
            Du kan anpassa text för inloggnings sidan som du har angett. Om du vill börja med ett nytt stycke använder du tangenten Enter två gånger. Du kan också ändra textformateringen så att den innehåller fetstil, kursiv stil, en understruken eller klicknings bara länk. Använd följande syntax för att lägga till formatering i text: 
 
-          > Aktuell```[text](link)``` 
+          > Aktuell ```[text](link)``` 
           
-          > Fet: ``` **text** ``` eller``` __text__ ``` 
+          > Fet: ``` **text** ``` eller ``` __text__ ``` 
           
-          > Kursiv stil: ``` *text* ``` eller``` _text_ ``` 
+          > Kursiv stil: ``` *text* ``` eller ``` _text_ ``` 
           
-          > Strykning``` ++text++ ``` 
+          > Strykning ``` ++text++ ``` 
 
     - **Avancerade inställningar**
             
@@ -80,7 +80,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
         - **Bakgrunds färg på inloggnings sidan.** Ange den hexadecimala färgen (till exempel vitt är #FFFFFF) som ska visas i stället för bakgrunds bilden i anslutnings situationer med låg bandbredd. Vi rekommenderar att du använder den primära färgen på banderollen eller din organisations färg.
 
-        - **Bild av kvadratisk logo typ.** Välj en. png-bild (önskad) eller. jpg-bild av organisationens logo typ som visas för användarna under installationen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas bara på klienter som använder [Windows autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösen ords post sidor i andra Windows 10-upplevelser. I vissa fall kan den också visas i dialog rutan medgivande.
+        - **Bild av kvadratisk logo typ.** Välj en. png-bild (önskad) eller. jpg-bild av organisationens logo typ som visas för användarna under installationen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas bara på klienter som använder [Windows autopilot]( /windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösen ords post sidor i andra Windows 10-upplevelser. I vissa fall kan den också visas i dialog rutan medgivande.
         
             Bilden får inte vara större än 240x240 bild punkter och måste ha en fil storlek på mindre än 10 KB. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden kanske inte matchar din logo typ bakgrund. Vi rekommenderar också att du inte lägger till utfyllnad runt bilden eller ser till att din logo typ är liten.
     
@@ -88,7 +88,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
         
         - **Visa alternativet för att förbli inloggad.** Du kan välja att låta dina användare förbli inloggade på Azure AD tills de uttryckligen loggar ut. Om du väljer **Nej**är det här alternativet dolt och användarna måste logga in varje gången webbläsaren stängs och öppnas igen.
 
-            Mer information om hur du konfigurerar och felsöker alternativet för att förbli inloggad finns i avsnittet [om att förbli inloggad? "för Azure AD-konton](keep-me-signed-in.md)
+            Den här funktionen är endast tillgänglig för det anpassade varumärkes objekt och inte för språkspecifika objekt. Mer information om hur du konfigurerar och felsöker alternativet för att förbli inloggad finns i avsnittet [om att förbli inloggad? "för Azure AD-konton](keep-me-signed-in.md)
         
             >[!NOTE]
             >För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna välja att fortsätta vara inloggade. Om du ställer in den här inställningen till **No** (Nej) kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
@@ -134,7 +134,7 @@ Du kan inte ändra den ursprungliga konfigurationens språk från standard språ
 
     Sidan **contoso – företagets varumärkes anpassning** för att visa den nya franska konfigurationen.
 
-    ![Contoso-sidan för företags anpassning, där standard konfigurationen visas](media/customize-branding/company-branding-french-config.png)
+    ![Contoso-sidan för företags anpassning med den nya språk konfigurationen som visas](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>Lägg till anpassad anpassning till sidor
 Lägg till anpassad anpassning till sidor genom att ändra slutet på URL: en med texten `?whr=yourdomainname` . Den här ändringen fungerar på flera sidor, inklusive installations sidan Multi-Factor Authentication (MFA), installations sidan för lösen ords återställning via självbetjäning (SSPR) och inloggnings sidan.

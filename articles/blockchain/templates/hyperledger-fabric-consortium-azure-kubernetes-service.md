@@ -1,17 +1,17 @@
 ---
-title: Ledger-konsortiet i Azure Kubernetes service (AKS)
+title: Distribuera en huvud boks infrastrukturs konsortium i Azure Kubernetes-tjänsten
 description: Så här distribuerar och konfigurerar du ett huvud nätverk för ett huvud nätverk i Azure Kubernetes service
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d23a0120aafb4dc3e6952b40959a20f9a3456614
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226886"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651569"
 ---
-# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
+# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuera en huvud boks infrastrukturs konsortium i Azure Kubernetes-tjänsten
 
 Du kan använda huvud strukturen i Kubernetes-mallen (AKS) för att distribuera och konfigurera ett huvud nätverk för ett huvud nätverk i Azure.
 

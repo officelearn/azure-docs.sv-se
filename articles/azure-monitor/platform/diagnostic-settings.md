@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135444"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614038"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
@@ -43,7 +43,7 @@ Följande video vägleder dig genom cirkulations plattforms loggar med diagnosti
 ## <a name="destinations"></a>Mål
 Plattforms loggar och-mått kan skickas till målen i följande tabell. 
 
-| Mål | Description |
+| Mål | Beskrivning |
 |:---|:---|
 | [Log Analytics arbets yta](design-logs-deployment.md) | Genom att skicka loggar och mått till en Log Analytics arbets yta kan du analysera dem med andra övervaknings data som samlas in av Azure Monitor använda kraftfulla logg frågor och även använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. |
 | [Event Hubs](/azure/event-hubs/) | Genom att skicka loggar och mått till Event Hubs kan du strömma data till externa system, till exempel Siem för tredje part och andra Log Analytics-lösningar.  |
@@ -100,7 +100,7 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
      - **AllMetrics** dirigerar en resurss plattforms mått till Azure logs Store, men i logg formuläret. De här måtten skickas vanligt vis endast till Azure Monitor Metrics Time-Series-databas. Skickar dem till Azure Monitor loggar Store (som är sökbart via Log Analytics) du integrerar dem i frågor som söker i andra loggar. Det här alternativet kanske inte är tillgängligt för alla resurs typer. När det stöds visas [Azure Monitor mått som stöds](metrics-supported.md) för vilka mått som samlas in för de olika resurs typerna.
 
        > [!NOTE]
-       > Se limitatation för routning av mått till Azure Monitor loggar tidigare i den här artikeln.  
+       > Se begränsning av routnings mått för att Azure Monitor loggar tidigare i den här artikeln.  
 
 
      - **Loggar** visar de olika kategorierna som är tillgängliga beroende på resurs typen. Kontrol lera de kategorier som du vill dirigera till ett mål.

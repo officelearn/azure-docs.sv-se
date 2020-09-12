@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930680"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645581"
 ---
 # <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 Om du vill skapa en Azure-filresurs måste du svara på tre frågor om hur du ska använda den:
@@ -32,7 +32,7 @@ Om du vill skapa en Azure-filresurs måste du svara på tre frågor om hur du sk
 
 Mer information om dessa tre alternativ finns i [Planera för en Azure Files distribution](storage-files-planning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Den här artikeln förutsätter att du redan har skapat en Azure-prenumeration. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -231,7 +231,7 @@ Det här kommandot kommer inte att fungera om lagrings kontot finns i ett virtue
 > Namnet på filresursen får bara innehålla gemener. Fullständig information om namngivning av fil resurser och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### <a name="create-a-hot-or-cool-file-share"></a>Skapa en frekvent eller svag fil resurs
-En fil resurs i ett **GPv2-lagrings konto (General Purpose v2)** kan innehålla transaktions optimerade, frekventa eller häftiga fil resurser (eller en blandning av dessa). Transaktions optimerade resurser är tillgängliga i alla Azure-regioner, men frekventa och häftiga fil resurser är bara tillgängliga [i en delmängd av regioner](storage-files-planning.md#storage-tiers). Du kan skapa en frekvent eller låg fil resurs med hjälp av Azure PowerShell Preview-modulen eller Azure CLI. 
+Ett **GPv2-lagrings konto (General Purpose v2)** kan innehålla transaktions optimerade, frekventa eller häftiga fil resurser (eller en blandning av dessa). Transaktions optimerade resurser är tillgängliga i alla Azure-regioner, men frekventa och häftiga fil resurser är bara tillgängliga [i en delmängd av regioner](storage-files-planning.md#storage-tiers). Du kan skapa en frekvent eller låg fil resurs med hjälp av Azure PowerShell Preview-modulen eller Azure CLI. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Azure Portal har ännu inte stöd för att skapa frekventa och häftiga fil resurser eller flytta befintliga transaktioner optimerade fil resurser till frekvent eller låg frekvent. Läs anvisningarna för att skapa en fil resurs med PowerShell eller Azure CLI.

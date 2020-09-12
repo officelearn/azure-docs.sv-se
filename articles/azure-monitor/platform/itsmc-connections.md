@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035033"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536199"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](./itsmc-overview.md).
@@ -31,7 +31,7 @@ Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa deta
 
 I följande avsnitt finns information om hur du ansluter System Center Service Manager-produkten till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att följande krav är uppfyllda:
 
@@ -39,7 +39,7 @@ Se till att följande krav är uppfyllda:
 - Service Manager webb program (webbapp) distribueras och konfigureras. Information om Web App finns [här](#create-and-deploy-service-manager-web-app-service).
 - Hybrid anslutning har skapats och kon figurer ATS. Mer information: [Konfigurera hybrid anslutningen](#configure-the-hybrid-connection).
 - Versioner av Service Manager som stöds: 2012 R2 eller 2016.
-- Användar roll: [Avancerad operatör](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Användar roll:  [Avancerad operatör](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Anslutnings procedur
 
@@ -176,7 +176,7 @@ Följande exempel bild visar information om en lyckad anslutning:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow-versioner som stöds: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
@@ -234,7 +234,7 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 | **Användarnamn**   | Skriv det integrations användar namn som du skapade i ServiceNow-appen för att stödja anslutningen till ITSMC. Mer information: [skapa ServiceNow app User Role](#create-integration-user-role-in-servicenow-app).|
 | **Lösenord**   | Ange lösen ordet som är kopplat till det här användar namnet. **Obs!** användar namn och lösen ord används enbart för att skapa autentiseringstoken och lagras inte var som helst i ITSMC-tjänsten.  |
 | **Server-URL**   | Ange URL: en för den ServiceNow-instans som du vill ansluta till ITSMC. URL: en måste peka på en SaaS-version som stöds med suffixet ". servicenow.com".|
-| **Klient-ID**   | Ange det klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om hur du genererar klient-ID och hemlighet: [OAuth-installation](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **Klient-ID**   | Ange det klient-ID som du vill använda för OAuth2-autentisering, som du skapade tidigare.  Mer information om hur du genererar klient-ID och hemlighet:   [OAuth-installation](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Client Secret (Klienthemlighet)**   | Ange klient hemligheten som genererats för detta ID.   |
 | **Omfång för data synkronisering**   | Välj de ServiceNow arbets objekt som du vill synkronisera till Azure Log Analytics via ITSMC.  De valda värdena importeras till Log Analytics.   **Alternativ:**  Incidenter och ändrings begär Anden.|
 | **Synkronisera data** | Ange antalet senaste dagar som du vill att data ska visas. **Maxgräns**: 120 dagar. |
@@ -265,7 +265,7 @@ Användaren följer följande procedur:
 2. Efter installationen går du till det vänstra navigerings fältet för ServiceNow-instansen, söker och väljer Microsoft OMS Integrator.  
 3. Klicka på **installations check lista**.
 
-   Statusen visas som **inte slutförd** om användar rollen ännu inte har skapats.
+   Statusen visas som  **inte slutförd** om användar rollen ännu inte har skapats.
 
 4. I text rutorna bredvid **skapa integrations användare**anger du användar namnet för den användare som kan ansluta till ITSMC i Azure.
 5. Ange lösen ordet för den här användaren och klicka på **OK**.  
@@ -298,8 +298,12 @@ När användaren har skapats flyttas statusen för **kontrol lera installations 
 
 Följande avsnitt innehåller information om hur du ansluter din bestyrkande produkt till ITSMC i Azure.
 
+> [!NOTE]
+> 
+> Från och med 1 – okt-2020-ITSM-integrering med Azure-avisering kommer inte längre att vara aktive rad för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
+> Befintliga ITSM-anslutningar kommer att stödjas.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att följande krav är uppfyllda:
 
@@ -352,7 +356,12 @@ Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](./itsmc-overview.md
 
 Följande avsnitt innehåller information om hur du ansluter din Cherwell-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+> [!NOTE]
+> 
+> Från och med 1 – okt-2020 Cherwell ITSM-integrering med Azure-avisering kommer inte längre att aktive ras för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
+> Befintliga ITSM-anslutningar kommer att stödjas.
+
+### <a name="prerequisites"></a>Krav
 
 Se till att följande krav är uppfyllda:
 
@@ -362,7 +371,7 @@ Se till att följande krav är uppfyllda:
 
 ### <a name="connection-procedure"></a>Anslutnings procedur
 
-Använd följande procedur för att skapa en upphandlings anslutning:
+Använd följande procedur för att skapa en Cherwell-anslutning:
 
 1. I Azure Portal går du till **alla resurser** och letar efter **Servicedesk (YourWorkspaceName)**
 

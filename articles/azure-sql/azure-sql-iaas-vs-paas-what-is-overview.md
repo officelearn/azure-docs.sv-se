@@ -1,6 +1,5 @@
 ---
 title: Vad är Azure SQL?
-titleSuffix: " "
 description: 'Lär dig mer om de olika alternativen i Azure SQL-serien med tjänster: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på Azure VM.'
 services: sql-database
 ms.service: sql-database
@@ -13,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 344e52da8ef41e26ab0bfa7ef8e09a31f5d135ca
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280859"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611831"
 ---
 # <a name="what-is-azure-sql"></a>Vad är Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,6 +31,11 @@ Azure SQL är en familj av hanterade, säkra och intelligenta produkter som anv�
 Azure SQL bygger på den välbekanta SQL Server motorn, så att du kan migrera program snabbt och fortsätta att använda verktygen, språken och resurserna som du är van vid. Dina kunskaper och erfarenhet till molnet, så att du kan göra ännu mer med det du redan har. 
 
 Lär dig hur varje produkt passar in i Microsofts Azure SQL data-plattform för att matcha det rätta alternativet för dina affärs behov. Oavsett om du prioriterar kostnads besparingar eller minimal administration kan den här artikeln hjälpa dig att avgöra vilken metod som passar bäst för de affärs krav du bryr dig om.
+
+
+Om du är nybörjare på Azure SQL kan du titta närmare *på Azure SQL-* video från vår djupgående [Azure SQL-video serie](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
+
 
 
 ## <a name="overview"></a>Översikt
@@ -85,7 +89,7 @@ Azure SQL Database erbjuder följande distributions alternativ:
   - Som en [*enskild databas*](database/single-database-overview.md) med en egen uppsättning resurser som hanteras via en [logisk SQL-Server](database/logical-servers.md). En enda databas liknar en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) i SQL Server. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program. Alternativen för [storskalig](database/service-tier-hyperscale.md) och [Server](database/serverless-tier-overview.md) lös är tillgängliga.
   - En [*elastisk pool*](database/elastic-pool-overview.md), som är en samling databaser med en delad uppsättning resurser som hanteras via en [logisk SQL-Server](database/logical-servers.md). Enskilda databaser kan flyttas till och från en elastisk pool. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program med hjälp av SaaS program mönster för flera innehavare. Elastiska pooler ger en kostnads effektiv lösning för att hantera prestanda för flera databaser som har varierande användnings mönster.
 
-### <a name="azure-sql-managed-instance"></a>Hanterad Azure SQL-instans
+### <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
 
 Den [hanterade Azure SQL-instansen](managed-instance/sql-managed-instance-paas-overview.md) hamnar i bransch kategorin för *PaaS (Platform-as-a-Service)* och är bäst för de flesta migreringar till molnet. SQL-hanterad instans är en samling system-och användar databaser med en delad uppsättning resurser som lyfter och Skift klar.  
 - Bäst för nya program eller befintliga lokala program som vill använda de senaste stabila SQL Server funktionerna och som migreras till molnet med minimala ändringar. En instans av SQL-hanterad instans liknar en instans av [Microsoft SQL Server databas motor](https://docs.microsoft.com/sql/database-engine/sql-server-database-engine-overview) som erbjuder delade resurser för databaser och ytterligare funktioner som omfattas av instanser. 
@@ -115,7 +119,7 @@ I allmänhet kan SQL Database och SQL-hanterad instans dramatiskt öka antalet d
 | Lokala program kan komma åt data i Azure SQL Database. | [Inbyggd implementering av virtuella nätverk](managed-instance/vnet-existing-add-subnet.md) och anslutning till din lokala miljö med hjälp av Azure Express Route eller VPN gateway. | Med virtuella SQL-datorer kan du ha program som körs delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Mer information om hybrid moln lösningar finns i [utöka lokala data lösningar till molnet](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
-## <a name="cost"></a>Cost (Kostnad)
+## <a name="cost"></a>Cost
 
 Oavsett om du är en dålig för kontanter eller ett team i ett etablerat företag som arbetar under tätt budget begränsningar, är den begränsade finansieringen ofta den primära driv rutinen när du bestämmer dig för att vara värd för dina databaser. I det här avsnittet får du lära dig om fakturerings-och licensierings grunderna i Azure som är kopplade till Azure SQL-serien med tjänster.  Du lär dig också hur du beräknar den totala programkostnaden.
 

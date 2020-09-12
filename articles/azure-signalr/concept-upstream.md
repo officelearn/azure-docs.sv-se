@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559447"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514245"
 ---
 # <a name="upstream-settings"></a>Överordnade inställningar
 
-Överordnad är en funktion som gör det möjligt för Azure SignalR-tjänsten att skicka meddelanden och anslutnings händelser till en uppsättning slut punkter i Server fritt läge. Du kan använda uppströms för att anropa en nav-metod från klienter i Server lös läge och låta slut punkter bli aviserade när klient anslutningar är anslutna eller frånkopplade.
+Överordnad är en förhands gransknings funktion som gör att Azure SignalR service kan skicka meddelanden och anslutnings händelser till en uppsättning slut punkter i Server fritt läge. Du kan använda uppströms för att anropa en nav-metod från klienter i Server lös läge och låta slut punkter bli aviserade när klient anslutningar är anslutna eller frånkopplade.
 
 > [!NOTE]
 > Endast Server fritt läge kan konfigurera överordnade inställningar.
@@ -40,7 +40,7 @@ Du kan Parameterisera webb adressen för att stödja olika mönster. Det finns t
 |kategori| En kategori kan vara något av följande värden: <ul><li>**anslutningar**: anslutnings livs längds händelser. Den utlöses när en klient anslutning ansluts eller kopplas från. Den innehåller anslutna och frånkopplade händelser.</li><li>**meddelanden**: utlöses när klienter anropar en nav-metod. Den innehåller alla andra händelser, förutom de i kategorin **anslutningar** .</li></ul>|
 |händelse| I kategorin **meddelanden** är en händelse målet i ett [anrops meddelande](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) som klienter skickar. För kategorin **anslutningar** används endast *anslutna* och *frånkopplade* .|
 
-Dessa fördefinierade parametrar kan användas i URL-mönstret. Parametrarna ersätts med ett angivet värde när du utvärderar den överordnade URL: en. Ett exempel: 
+Dessa fördefinierade parametrar kan användas i URL-mönstret. Parametrarna ersätts med ett angivet värde när du utvärderar den överordnade URL: en. Exempel: 
 ```
 http://host.com/{hub}/api/{category}/{event}
 ```
@@ -60,6 +60,10 @@ Du kan ange regler för *nav regler*, *kategori regler*och *händelse regler* se
 - Använd ett kommatecken (,) för att koppla flera händelser. Matchar till exempel `connected, disconnected` de anslutna och frånkopplade händelserna.
 - Använd det fullständiga händelse namnet för att matcha händelsen. Matchar till exempel `connected` den anslutna händelsen.
 
+> [!NOTE]
+> Om du använder Azure Functions-och [signal utlösare](../azure-functions/functions-bindings-signalr-service-trigger.md)exponerar signal utlösaren en enda slut punkt i följande format: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
+> Du kan bara konfigurera URL-mallen till denna URL.
+
 ### <a name="authentication-settings"></a>Autentiseringsinställningar
 
 Du kan konfigurera autentisering för varje överordnat inställnings objekt separat. När du konfigurerar autentisering anges en token i `Authentication` rubriken för det överordnade meddelandet. För närvarande stöder Azure Signaling-tjänsten följande autentiseringstyper:
@@ -78,7 +82,7 @@ När du väljer `ManagedIdentity` måste du aktivera en hanterad identitet i Azu
 3. Lägg till URL: er under **mönster för överordnad URL**. Sedan visas standardvärdet i inställningar som **Hub-regler** .
 4. Om du vill ange inställningar för **Hubbs regler**, **händelse regler**, **kategori regler**och **överordnad autentisering**, väljer du värdet för **nav-regler**. En sida där du kan redigera inställningar visas:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Överordnade inställningar":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Information om överordnade inställningar":::
 
 5. Om du vill ange en **överordnad autentisering**, se till att du har aktiverat en hanterad identitet först. Välj sedan **Använd hanterad identitet**. Beroende på dina behov kan du välja valfria alternativ under **resurs-ID för autentisering**. Mer information finns i [Managed identiteter för Azure SignalR service](howto-use-managed-identity.md) .
 
@@ -139,17 +143,17 @@ Innehålls typ: Application/JSON
 
 #### <a name="disconnected"></a>Frånkopplad
 
-Innehålls typ:`application/json`
+Innehålls typ: `application/json`
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |Fel |sträng |Fel meddelandet för en stängd anslutning. Tom när anslutningar stängs utan fel.|
 
 #### <a name="invocation-message"></a>Anrops meddelande
 
-Innehålls typ: `application/json` eller`application/x-msgpack`
+Innehålls typ: `application/json` eller `application/x-msgpack`
 
-|Name  |Typ  |Beskrivning  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |InvocationId |sträng | En valfri sträng som representerar ett anrops meddelande. Hitta information om [anrop](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Mål |sträng | Samma som händelsen och samma som målet i ett [anrops meddelande](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |

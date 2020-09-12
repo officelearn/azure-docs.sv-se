@@ -3,14 +3,14 @@ title: Använda redigerings-och körnings nycklar – LUIS
 description: Första gången du använder Language Understanding (LUIS) behöver du inte skapa någon redigerings nyckel. När du tänker publicera appen måste du använda din runtime-slutpunkt för att skapa och tilldela appen körnings nyckel.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496907"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565913"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -25,14 +25,18 @@ Skriv-och körnings resurser för förutsägelse ger autentisering till din LUIS
 
 LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 
-|Nyckel|Syfte|Kognitiv tjänst`kind`|Kognitiv tjänst`type`|
+|Resurs|Syfte|Kognitiv tjänst `kind`|Kognitiv tjänst `type`|
 |--|--|--|--|
-|Redigerings nyckel|Få åtkomst till och hantera data för program med redigering, utbildning, publicering och testning. Skapa en LUIS redigerings nyckel om du tänker program mässigt redigera LUIS-appar.<br><br>Syftet med `LUIS.Authoring` nyckeln är att du ska kunna:<br>* hantera Language Understanding appar och modeller program mässigt, inklusive utbildning och publicering<br> * kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
-|Fråga förutsägelse nyckel| Slut punkts begär Anden för fråga. Skapa en LUIS-förutsägelse innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av start resursen. |`LUIS`|`Cognitive Services`|
+|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) om du tänker redigera Luis Apps programtically eller från Luis-portalen. Du måste först [migrera ditt Luis-konto](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) för att kunna länka dina Azure authroring-resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). <br><br> Det finns en nivå avialable för LUIS Authoring-resursen:<br> * **F0 Authoring-resurs** som ger dig 1 miljon kostnads fria redigerings transaktioner och 1000 kostnads fria förutsägelse slut punkter per månad. |`LUIS.Authoring`|`Cognitive Services`|
+|Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigeringen eller start resursen. <br><br> Det finns två nivåer avialble för förutsägelse resursen:<br> * **F0 förutsägelse resurs** som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad<br> * **S0 förutsägelse resurs** som är den betalda nivån. [Läs mer om pris information](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Detta skapas av standardvärde om du väljer alternativet Start resurs när du först registrerar TP-LUIS. Start nyckeln kommer dock att bli föråldrad och alla LUIS-användare kommer att behöva [migrera sina konton](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) och länka sina Luis-program till en redigerings resurs. Den här resursen ger dig inte behörighet för rollbaserad åtkomst kontroll som till redigerings resursen. <br><br> Precis som för att skapa resurser ger start resursen dig 1 miljon av de kostnads fria redigerings transaktionerna och 1000 kostnads fria förutsägelse slut punkts begär Anden.|-|Inte en Azure-resurs|
 |[Resurs nyckel för multi-service för kognitiva tjänster](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Slut punkts begär Anden för förfrågan som delas med LUIS och andra Cognitive Services som stöds.|`CognitiveServices`|`Cognitive Services`|
-|Starter|Kostnads fri redigering (utan rollbaserad åtkomst kontroll) via LUIS-portalen eller API: er (inklusive SDK: er), kostnads fria 1 000 förutsägelse slut punkter per månad via en webbläsare, API eller SDK|-|Inte en Azure-resurs|
 
-När processen för att skapa Azure-resurser är färdig [tilldelar du nyckeln](#assign-a-resource-to-an-app) till appen i Luis-portalen.
+
+> [!Note]
+> Det finns två typer av F0-resurser (kostnads fri nivå) som LUIS tillhandahåller. En för att redigera transaktioner och en för förutsägelse transaktioner. Om du får slut på ledig kvot för förutsägelse transaktioner ser du till att du faktiskt använder den F0 förutsägelse resurs som ger dig 10 000 kostnads fria transaktioner och inte den redigerings resurs som ger dig 1000 förutsägelse transaktioner månads vis.
+
+När processen för att skapa Azure-resurser är färdig [tilldelar du resursen](#assign-a-resource-to-an-app) till appen i Luis-portalen.
 
 Det är viktigt att du skapar LUIS-appar i [regioner](luis-reference-regions.md#publishing-regions) där du vill publicera och fråga.
 
@@ -121,7 +125,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Åtkomst för att fråga förutsägelse slut punkten styrs av en inställning på sidan **program information** i avsnittet **Hantera** .
 
-|[Privat slut punkt](#runtime-security-for-private-apps)|[Offentlig slutpunkt](#runtime-security-for-public-apps)|
+|[Privat slutpunkt](#runtime-security-for-private-apps)|[Offentlig slutpunkt](#runtime-security-for-public-apps)|
 |:--|:--|
 |Tillgängligt för ägare och deltagare|Tillgängligt för ägare, deltagare och någon annan som känner till app-ID|
 
@@ -173,8 +177,8 @@ Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=
 
 Resurs `kind` :
 
-* Redigerings`LUIS.Authoring`
-* Förutsägelse`LUIS`
+* Redigerings `LUIS.Authoring`
+* Förutsägelse `LUIS`
 
 1. Logga in på Azure CLI:
 
@@ -211,15 +215,19 @@ Du kan tilldela en redigerings resurs för en enskild app eller för alla appar 
 
 ## <a name="assign-a-resource-to-an-app"></a>Tilldela en resurs till en app
 
-Du kan tilldela en till en app med följande procedur.
+Observera att om du inte har någon Azure-prenumeration kan du inte tilldela eller skapa en ny resurs. Du måste först gå vidare och skapa en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/en-us/free/) och sedan återgå till Luis för att skapa en ny resurs från portalen.
 
-1. Logga in på [Luis-portalen](https://www.luis.ai)och välj sedan en app från listan **Mina appar** .
-1. Gå till sidan för att **hantera > Azure-resurser** .
+Du kan tilldela eller skapa en redigerare eller en förutsägelse resurs till ett program med följande procedur:
+
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj sedan en app från listan **Mina appar**
+1. Gå till sidan för att **hantera > Azure-resurser**
 
     ![Välj hanterings > Azure-resurser i LUIS-portalen för att tilldela en resurs till appen.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Välj fliken förutsägelse eller redigering av resurs och välj sedan knappen **Lägg till förutsägelse resurs** eller **Lägg till redigering resurs** .
-1. Välj fälten i formuläret för att hitta rätt resurs och välj sedan **Spara**.
+1. Välj fliken förutsägelse eller redigering av resurs och välj sedan knappen **Lägg till förutsägelse resurs** eller **Lägg till redigerings resurs**
+1. Välj fälten i formuläret för att hitta rätt resurs och välj sedan **Spara**
+1. Om du inte har en befintlig resurs kan du skapa en genom att välja "skapa en ny LUIS-resurs?" längst ned i fönstret
+
 
 ### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>Tilldela körnings resurs för körning av fråga utan att använda LUIS-portalen
 

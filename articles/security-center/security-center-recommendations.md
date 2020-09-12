@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 11043d6686bd762b1c0a9827c7edb2230487cc72
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263243"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595452"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Säkerhetsrekommendationer i Azure Security Center 
 I det här avsnittet beskrivs hur du visar och förstår rekommendationerna i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
@@ -57,6 +57,7 @@ Security Center analyserar dina resursers säkerhets tillstånd för att identif
 
     Sidan innehåller:
 
+    - **Tillämpa** och **neka** knappar på rekommendationer som stöds (se [förhindra felaktig konfiguration med tvinga/neka-rekommendationer](prevent-misconfigurations.md))
     - **Allvarlighets grad**
     - **Aktualitets intervall**  (i förekommande fall) 
     - **Beskrivning** – en kort beskrivning av problemet
@@ -68,10 +69,19 @@ Security Center analyserar dina resursers säkerhets tillstånd för att identif
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Inte tillämpliga resurser på grund av orsaker.":::
 
+## <a name="preview-recommendations"></a>För hands versions rekommendationer
 
+Rekommendationer som har flaggats som **förhands granskning** ingår inte i beräkningarna av dina säkra poäng.
+
+De bör fortfarande åtgärdas när så är möjligt, så att när förhands gransknings perioden är slut bidrar de till dina poäng.
+
+Ett exempel på en förhands gransknings rekommendation:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Rekommendation med förhands gransknings flaggan":::
  
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lanserat säkerhets rekommendationer i Security Center. Lär dig hur du åtgärdar rekommendationerna:
 
-* [Åtgärda rekommendationer](security-center-remediate-recommendations.md) – lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
+- [Åtgärda rekommendationer](security-center-remediate-recommendations.md) – lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
+- [Förhindra felaktig konfiguration med tvinga/neka-rekommendationer](prevent-misconfigurations.md).

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 6662beec47d663f92e453f52d190e41518108b0d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 170f20cbd3405ea6af8aef5650e4dd7ebeaeef7f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191487"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458220"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
 
@@ -29,7 +29,7 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | API för Server Sidan |[WebHDFS-kompatibel REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop-filsystem-klient |Ja |Ja |
 | Data åtgärder-autentisering |Baserat på [Azure Active Directory identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter – [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md) och [signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
-| Data åtgärder – autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT (JSON Web Token) som utfärdats av Azure Active Directory |Hash-baserad Message Authentication Code (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
+| Data åtgärder – autentiseringsprotokoll |[OpenID Connect](https://openid.net/connect/). Anrop måste innehålla en giltig JWT-(JSON Web-token) som utfärdas av Azure Active Directory.|Hash-baserad Message Authentication Code (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
 | Data åtgärder-auktorisering |POSIX Access Control listor (ACL: er).  ACL: er baserade på Azure Active Directory identiteter kan ställas in på fil-och mappnivå. |För auktorisering på konto nivå – Använd [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, container-eller BLOB-auktorisering – Använd [signatur nycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgänglig |
 | Vilande data kryptering |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv</li></ul></ul> |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv (för hands version)</li></ul><li>Kryptering av klientsidan</li></ul> |
@@ -37,7 +37,7 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | SDK: er för utvecklare |.NET, Java, python, Node.js |.NET, Java, python, Node.js, C++, ruby, PHP, go, Android, iOS |
 | Analys arbets belastnings prestanda |Optimerade prestanda för arbets belastningar med parallell analys. Högt data flöde och IOPS. |Optimerade prestanda för arbets belastningar med parallell analys. |
 | Storleks begränsningar |Inga begränsningar för konto storlekar, fil storlekar eller antal filer |För vissa gränser, se [skalbarhets mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md) och [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md). Större konto gränser tillgängliga genom att kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/) |
-| GEO-redundans |Lokalt redundant (flera kopior av data i en Azure-region) |Lokalt redundant (LRS), zon redundant (ZRS), globalt redundant (GRS), Läs åtkomst globalt redundant (RA-GRS). Mer information finns [här](../storage/common/storage-redundancy.md) |
+| Geo-redundans |Lokalt redundant (flera kopior av data i en Azure-region) |Lokalt redundant (LRS), zon redundant (ZRS), globalt redundant (GRS), Läs åtkomst globalt redundant (RA-GRS). Mer information finns [här](../storage/common/storage-redundancy.md) |
 | Tjänsttillstånd |Allmänt tillgänglig |Allmänt tillgänglig |
 | Regional tillgänglighet |Se [här](https://azure.microsoft.com/regions/#services) |Tillgängligt i alla Azure-regioner |
 | Pris |Se [prissättning](https://azure.microsoft.com/pricing/details/data-lake-store/) |Se [prissättning](https://azure.microsoft.com/pricing/details/storage/) |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194474"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490096"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Viktig information för gateway för datahantering
 > [!NOTE]
@@ -26,7 +26,7 @@ En av utmaningarna för modern data integrering är att flytta data till och fr�
 
 Se följande artiklar för detaljerad information om Data Management Gateway och hur du använder det:
 
-*  [Data Management Gateway](data-factory-data-management-gateway.md)
+*  [Gateway för datahantering](data-factory-data-management-gateway.md)
 *  [Flytta data mellan lokalt och molnet med hjälp av Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
@@ -39,14 +39,14 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 ## <a name="earlier-versions"></a>Tidigare versioner
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Funktioner
-- Du kan lägga till DNS-poster i vitlista Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Du kan hitta respektive DNS-post på Azure Portal (Data Factory-> "författare och distribuera"-> "gateways"-> "serviceUrls" (i JSON)
+- Du kan lägga till DNS-poster för att tillåta Service Bus i stället för att tillåta alla Azure IP-adresser från din brand vägg (om det behövs). Du kan hitta respektive DNS-post på Azure Portal (Data Factory-> "författare och distribuera"-> "gateways"-> "serviceUrls" (i JSON)
 - HDFS Connector stöder nu självsignerat offentligt certifikat genom att låta dig hoppa över TLS-verifiering.
 - Åtgärdat: problem med Gateway offline under uppdateringen (på grund av klock skevning)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Funktioner
--   Du kan lägga till DNS-poster i vitlista Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Mer information finns här.
+-   Du kan lägga till DNS-poster för att tillåta Service Bus snarare än att tillåta alla Azure IP-adresser från din brand vägg (om det behövs). Mer information finns här.
 -   Nu kan du kopiera data till/från en enda Block-Blob upp till 4,75 TB, vilket är den högsta tillåtna storleken för Block-Blob. (den tidigare gränsen var 195 GB).
 -   Fast: problem med slut på minne när flera små filer har zippats under kopierings aktiviteten.
 -   Fixed: index out of Range-problem vid kopiering från dokument databas till SQL Server med idempotens-funktionen.
@@ -198,7 +198,7 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 
 *  Stöd för diagnostikverktyg på Configuration Manager
 *  Stöd tabell kolumner för tabell data källor för Azure Data Factory
-*  Stöd för SQL DW för Azure Data Factory
+*  Stöd för Azure Synapse Analytics för Azure Data Factory
 *  Stöd för reclusive i BlobSource och FileSource för Azure Data Factory
 *  Support CopyBehavior – MergeFiles, PreserveHierarchy och FlattenHierarchy i BlobSink och FileSink med binär kopia för Azure Data Factory
 *  Stöd för kopierings aktivitets rapporterings förlopp för Azure Data Factory

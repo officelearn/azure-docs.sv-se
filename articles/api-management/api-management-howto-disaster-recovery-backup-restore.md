@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c0af87dc8e38c6d5184cec4614b47d2ae4a24ca
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830265"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458288"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
 
@@ -149,10 +149,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 där:
 
--   `subscriptionId`-ID för den prenumeration som innehåller den API Management-tjänst som du försöker säkerhetskopiera
--   `resourceGroupName`– namnet på resurs gruppen för din Azure API Management-tjänst
--   `serviceName`– namnet på den API Management tjänst som du skapar en säkerhets kopia av som anges när den skapas
--   `api-version`-Ersätt med`2018-06-01-preview`
+-   `subscriptionId` -ID för den prenumeration som innehåller den API Management-tjänst som du försöker säkerhetskopiera
+-   `resourceGroupName` – namnet på resurs gruppen för din Azure API Management-tjänst
+-   `serviceName` – namnet på den API Management tjänst som du skapar en säkerhets kopia av som anges när den skapas
+-   `api-version` -Ersätt med `2018-06-01-preview`
 
 I bröd texten i begäran anger du namnet på Azure Storage-kontot, åtkomst nyckeln, namn på BLOB container och säkerhets kopians namn:
 
@@ -198,10 +198,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 där:
 
--   `subscriptionId`-ID för den prenumeration som innehåller API Management tjänsten som du återställer en säkerhets kopia till
--   `resourceGroupName`– namnet på den resurs grupp som innehåller Azure API Management-tjänsten som du återställer en säkerhets kopia till
--   `serviceName`– namnet på API Managements tjänsten som återställs till angivet när den skapades
--   `api-version`-Ersätt med`2018-06-01-preview`
+-   `subscriptionId` -ID för den prenumeration som innehåller API Management tjänsten som du återställer en säkerhets kopia till
+-   `resourceGroupName` – namnet på den resurs grupp som innehåller Azure API Management-tjänsten som du återställer en säkerhets kopia till
+-   `serviceName` – namnet på API Managements tjänsten som återställs till angivet när den skapades
+-   `api-version` -Ersätt med `2018-06-01-preview`
 
 Ange platsen för säkerhets kopian i bröd texten i begäran. Det innebär att du kan lägga till namnet på Azure Storage-kontot, åtkomst nyckeln, namnet på BLOB-behållaren och namnet på säkerhets kopian:
 
@@ -234,7 +234,7 @@ Kolla in följande resurser för olika genom gångar av säkerhets kopierings-/�
 
 -   [Replikera Azure API Management-konton](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatisera API Management-säkerhetskopiering och -återställning med Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: säkerhetskopiera och återställa konfigurationen](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) 
+-   [Azure API Management: säkerhetskopiera och återställa konfigurationen](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
      _Metoden som beskrivs av Stuart överensstämmer inte med den officiella vägledningen, men det är intressant._
 
 [backup an api management service]: #step1

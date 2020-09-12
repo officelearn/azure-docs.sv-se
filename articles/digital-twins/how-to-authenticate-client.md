@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c211c0e5ef0b39f778db7c922fafc735e2411068
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930051"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614008"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
@@ -25,7 +25,7 @@ Det finns två sätt att exempel kod i den här artikeln. Du kan använda den so
 
 Du kan också läsa mer om API: er och SDK: er för Azure Digitals i [*anvisningar: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-scripted.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
 
@@ -34,7 +34,7 @@ Om du vill fortsätta måste du ha ett klient-app-projekt där du skriver koden.
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Autentisering och klient skapande: .NET (C#) SDK
 
 Ta först med följande paket i projektet för att använda .NET SDK och autentiseringsinställningar för den här instruktionen:
-* `Azure.DigitalTwins.Core` (version `1.0.0-preview.2` )
+* `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 
 Beroende på vilka verktyg du väljer kan du inkludera paketen med hjälp av Visual Studio Package Manager eller `dotnet` kommando rads verktyget. 
@@ -104,7 +104,7 @@ Om du inte använder .NET kan du välja att skapa ett SDK-bibliotek på ett valf
 
 I det här avsnittet beskrivs hur du autentiserar i så fall.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Först bör du slutföra stegen för att skapa en anpassad SDK med AutoRest med hjälp av stegen i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 

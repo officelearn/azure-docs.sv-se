@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat med ett skript
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skript
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5be6f161724b8ab555c406ebf6e75072d7902eda
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929983"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514415"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en installation med ett skript
 
@@ -20,7 +20,7 @@ Du kan distribuera-installationen för VMware-och Hyper-V-datorer med hjälp av 
 - Om du vill konfigurera en installation för fysiska servrar kan du bara använda ett skript. Följ [den här artikeln](how-to-set-up-appliance-physical.md).
 - Följ [den här artikeln](deploy-appliance-script-government.md)om du vill konfigurera en installation i ett Azure Government moln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skriptet konfigurerar Azure Migrate-installationen på en befintlig fysisk eller virtuell dator.
 
@@ -51,7 +51,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
     **Integritetsalgoritm** | **Ladda ned** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
 
 
 
@@ -100,7 +100,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
     **Scenario** | **Ladda ned** | **SHA256**
     --- | --- | ---
-    Hyper-V (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    Hyper-V (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a476422c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
 
 ### <a name="run-the-script"></a>Kör skriptet
 

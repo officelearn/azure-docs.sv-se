@@ -9,18 +9,18 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056383"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500138"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuera en gateway med egen värd till Kubernetes
 
 Den här artikeln beskriver stegen för att distribuera den lokala gateway-komponenten i Azure API Management till ett Kubernetes-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 - Skapa ett Kubernetes-kluster.
@@ -63,7 +63,7 @@ Den här artikeln beskriver stegen för att distribuera den lokala gateway-kompo
 ## <a name="production-deployment-considerations"></a>Överväganden vid produktions distribution
 
 ### <a name="access-token"></a>Åtkomsttoken
-Utan en giltig åtkomsttoken kan en lokal gateway inte komma åt och hämta konfigurations data från slut punkten för den associerade API Managements tjänsten. Åtkomsttoken kan vara giltig i högst 30 dagar. Den måste återskapas och klustret har kon figurer ATS med en ny token, antingen manuellt eller via automatisering innan det går ut. 
+Utan en giltig åtkomsttoken kan en lokal gateway inte komma åt och hämta konfigurations data från slut punkten för den associerade API Managements tjänsten. Åtkomsttoken kan vara giltig i högst 30 dagar. Den måste återskapas och klustret har kon figurer ATS med en ny token, antingen manuellt eller via automatisering innan det går ut.
 
 När du automatiserar uppdatering av token ska du använda [denna hanterings-API-åtgärd](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) för att generera en ny token. Information om hur du hanterar Kubernetes-hemligheter finns på [Kubernetes-webbplatsen](https://kubernetes.io/docs/concepts/configuration/secret).
 
@@ -106,6 +106,9 @@ DNS-namnmatchning spelar en viktig roll i en lokal gateways möjlighet att anslu
 YAML-filen som tillhandahölls i Azure Portal tillämpar standard principen för [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) . Den här principen gör att namn matchnings begär Anden som inte matchas av kluster-DNS kan vidarebefordras till den överordnade DNS-server som har ärvts från noden.
 
 Mer information om namn matchning i Kubernetes finns på [Kubernetes-webbplatsen](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Överväg att anpassa [DNS-principen](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) eller [DNS-konfigurationen](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) efter behov.
+
+### <a name="external-traffic-policy"></a>Extern trafik princip
+YAML-filen som tillhandahölls i fältet Azure Portals uppsättningar `externalTrafficPolicy` i [serviceobjektet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) till `Local` . Detta bevarar IP-adressen för anroparen (tillgänglig i [kontexten för begäran](api-management-policy-expressions.md#ContextVariables)) och inaktiverar belastnings utjämning över noder, vilket eliminerar nätverks hopp som orsakas av den. Tänk på att den här inställningen kan orsaka asymmetrisk distribution av trafik i distributioner med olika antal Gateway-poddar per nod.
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Anpassade domän namn och SSL-certifikat
 

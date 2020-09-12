@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653281"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611625"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,8 +51,8 @@ SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning
 |**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
 |**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Ja|Nej|Ja |
-|**Azure Blob-cache**|Nej|Nej|Ja|
+|**Stöder FileStream**|Ja|Inga|Ja |
+|**Azure Blob-cache**|Inga|Inga|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
 
@@ -66,7 +66,7 @@ Resten av det här avsnittet visar fördelarna och begränsningarna för varje l
 **Fördelar**: 
 - Användbart för program som vill migrera till Azure samtidigt som du behåller HADR-arkitekturen (hög tillgänglighet och haveri beredskap) som är. 
 - Kan migrera klustrade program till Azure på grund av stödet för SCSI-PR (SCSI persistent reservation). 
-- Har stöd för delade Azure-Premium SSD för alla versioner av SQL Server och delade Azure Ultra-Disklagring för SQL Server 2019. 
+- Har stöd för delade Azure-Premium SSD och Azure Ultra disk Storage.
 - Kan använda en enda delad disk eller Stripa flera delade diskar för att skapa en delad lagringspool. 
 - Stöder FILESTREAM.
 
@@ -153,10 +153,11 @@ För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines e
 
 Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för SQL Server virtuella datorer när agenten har installerats om i läget för förenklad hantering.
 
-### <a name="msdtc"></a>MSDTC   
-Azure Virtual Machines stöder MSDTC på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
+### <a name="msdtc"></a>MSDTC 
 
-I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidigare eftersom:
+Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) eller på SQL Server virtuella datorer som använder Azure delade diskar. 
+
+I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidigare med klustrade delade volymer på grund av följande:
 
 - Det går inte att konfigurera den klustrade MSDTC-resursen att använda delad lagring. Om du skapar en MSDTC-resurs i Windows Server 2016 visas inga delade lagrings enheter som är tillgängliga för användning, även om lagring är tillgängligt. Det här problemet har åtgärd ATS i Windows Server 2019.
 - Den grundläggande belastningsutjämnaren hanterar inte RPC-portar.

@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 70e965e26d3b82cdc63a3c0e147919b8b40585af
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 69987210d69855b0fcaa676e406ec6a1c02a4d85
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146597"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650607"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "89146597"
 Med Azure Machine Learning kan du enkelt skicka ditt utbildnings skript till [olika beräknings mål](how-to-set-up-training-targets.md), med hjälp av ett [RunConfiguration-objekt](how-to-set-up-training-targets.md#whats-a-run-configuration) och ett ScriptRunConfig- [objekt](how-to-set-up-training-targets.md#submit). Det här mönstret ger dig mycket flexibilitet och maximal kontroll.
 
 
-Klassen uppskattning gör det enklare att träna modeller med djup inlärning och förstärknings inlärning. Det ger en abstraktion på hög nivå som gör att du enkelt kan skapa körnings konfiguration. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript med hjälp av valfritt ramverk som du väljer (till exempel scikit-information) på alla beräknings mål du väljer, oavsett om det är en lokal dator, en enskild virtuell dator i Azure eller ett GPU-kluster i Azure. För PyTorch-, TensorFlow-, kedje-och förstärknings aktiviteter Azure Machine Learning tillhandahåller även de olika [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)-, [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)-, [kedje](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)-och [förstärknings inlärnings](how-to-use-reinforcement-learning.md) uppskattningarna för att förenkla användningen av dessa ramverk.
+Klassen uppskattning gör det enklare att träna modeller med djup inlärning och förstärknings inlärning. Det ger en abstraktion på hög nivå som gör att du enkelt kan skapa körnings konfiguration. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) för att skicka utbildnings skript med hjälp av valfritt ramverk som du väljer (till exempel scikit-information) på alla beräknings mål du väljer, oavsett om det är en lokal dator, en enskild virtuell dator i Azure eller ett GPU-kluster i Azure. För PyTorch-, TensorFlow-, kedje-och förstärknings aktiviteter Azure Machine Learning tillhandahåller även de olika [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true)-, [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true)-, [kedje](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true)-och [förstärknings inlärnings](how-to-use-reinforcement-learning.md) uppskattningarna för att förenkla användningen av dessa ramverk.
 
 ## <a name="train-with-an-estimator"></a>Träna med en uppskattning
 
@@ -111,12 +111,12 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Koden ovan visar följande nya parametrar för `Estimator` konstruktorn:
 
-Parameter | Beskrivning | Default
+Parameter | Beskrivning | Standardvärde
 --|--|--
 `custom_docker_image`| Namnet på den avbildning som du vill använda. Ange bara avbildningar som är tillgängliga i offentliga Docker-databaser (i det här fallet Docker Hub). Använd konstruktorns parameter i stället om du vill använda en avbildning från en privat Docker-lagringsplats `environment_definition` .| `None`
 `node_count`| Antal noder som ska användas för ditt utbildnings jobb. | `1`
 `process_count_per_node`| Antal processer (eller "arbetare") som ska köras på varje nod. I det här fallet använder du de `2` GPU: er som är tillgängliga på varje nod.| `1`
-`distributed_training`| [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) -objekt för att starta distribuerad utbildning med MPI-backend.  | `None`
+`distributed_training`| [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) -objekt för att starta distribuerad utbildning med MPI-backend.  | `None`
 
 
 Slutligen skickar du utbildnings jobbet:
@@ -129,7 +129,7 @@ print(run.get_portal_url())
 
 När du har tränat modellen kan du spara och registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md).
 
-Genom att köra följande kod registrerar du modellen på din arbets yta och gör den tillgänglig för referens med namn i fjärrstyrda beräknings kontexter eller distributions skript. [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)Mer information och ytterligare parametrar finns i referens dokumenten.
+Genom att köra följande kod registrerar du modellen på din arbets yta och gör den tillgänglig för referens med namn i fjärrstyrda beräknings kontexter eller distributions skript. [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)Mer information och ytterligare parametrar finns i referens dokumenten.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)

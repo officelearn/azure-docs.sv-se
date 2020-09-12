@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144897"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650829"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Om du vill veta mer om beräknings instanser, inklusive hur du installerar paket
 
 [Stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#clean-up-resources)om du vill sluta att debiteras för beräknings kostnader.
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Virtuell dator för datavetenskap
 
 DSVM är en anpassad avbildning av en virtuell dator (VM). Det är utformat för data vetenskaps arbete som är förkonfigurerat med:
 
@@ -81,7 +81,7 @@ Så här använder du DSVM som utvecklings miljö:
 
     * Azure Portal:
 
-        * [Skapa en Data Science Virtual Machine med Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Skapa en Ubuntu-Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
         * [Skapa en Data Science Virtual Machine med Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
@@ -185,7 +185,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   Det tar flera minuter att installera SDK: n. Mer information om installations alternativ finns i [installations guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)för.
+   Det tar flera minuter att installera SDK: n. Mer information om installations alternativ finns i [installations guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)för.
 
 1. Installera andra paket för Machine Learning-experimentering.
 
@@ -285,7 +285,7 @@ Skapa ett [Databricks-kluster](https://docs.microsoft.com/azure/azure-databricks
 
 Använd de här inställningarna:
 
-| Inställning |Gäller för| Värde |
+| Inställningen |Gäller för| Värde |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
 | Databricks Runtime |alltid|Non-ML runtime 6,5 (Scala 2,11, Spark 2.4.3) |
@@ -361,7 +361,7 @@ Använd om du vill använda den här filen från din kod `ws=Workspace.from_conf
 
 Du kan skapa konfigurations filen på tre sätt:
 
-* **Använd  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: för att skriva en *config.jspå* en fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config.js* till andra utvecklings miljöer.
+* **Använd  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)**: för att skriva en *config.jspå* en fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config.js* till andra utvecklings miljöer.
 
 * **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du  **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
 
@@ -389,4 +389,4 @@ Du kan skapa konfigurations filen på tre sätt:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Träna en modell](tutorial-train-models-with-aml.md) på Azure Machine Learning med MNIST-datauppsättningen
-- Visa [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens
+- Visa [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -referens

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 09/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520217"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611610"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -41,7 +41,7 @@ Sammanfatta de två icke-exklusiva huvud scenarierna med SAML:
 | Mitt program förväntar sig en SAML-kontroll för att slutföra en autentisering. | **Azure AD B2C fungerar som identitets leverantör (IdP)**<br />Azure AD B2C fungerar som en SAML-IdP i programmen. | Den här artikeln. |
 | Mina användare behöver en enkel inloggning med en SAML-kompatibel identitets leverantör som ADFS, Salesforce eller Shibboleth.  | **Azure AD B2C fungerar som tjänst leverantör (SP)**<br />Azure AD B2C fungerar som en tjänst leverantör vid anslutning till SAML Identity Provider. Det är en Federations-proxy mellan ditt program och SAML Identity Provider.  | <ul><li>[Konfigurera inloggning med ADFS som ett SAML-IdP med anpassade principer](identity-provider-adfs2016-custom.md)</li><li>[Konfigurera inloggning med en Salesforce-SAML-Provider med anpassade principer](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför stegen i [Kom igång med anpassade principer i Azure AD B2C](custom-policy-get-started.md). Du behöver den anpassade principen *SocialAndLocalAccounts* från start paketet för anpassad princip som beskrivs i artikeln.
 * Grundläggande förståelse för Security Assertion Markup Language-protokollet (SAML).
@@ -274,7 +274,7 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 1. Ange ett **namn** för programmet. Till exempel *SAMLApp1*.
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://localhost` . Du ändrar det här värdet senare i program registreringens manifest.
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 
 ### <a name="42-update-the-app-manifest"></a>4,2 uppdatera app-manifestet
 
@@ -354,7 +354,8 @@ För att slutföra den här självstudien med vårt [SAML-testprogram][samltest]
 
 Välj **Logga in** och visa en användar inloggnings skärm. Vid inloggning utfärdas en SAML-kontroll tillbaka till exempel programmet.
 
-## <a name="enable-encypted-assertions"></a>Aktivera krypterat-intyg
+## <a name="enable-encrypted-assertions-optional"></a>Aktivera krypterade intyg (valfritt)
+
 Om du vill kryptera SAML-kontroller som skickas tillbaka till tjänst leverantören använder Azure AD B2C tjänst leverantörens offentliga nyckel certifikat. Den offentliga nyckeln måste finnas i SAML-metadata som anges i ovanstående ["samlMetadataUrl"](#samlmetadataurl) som en nyckel beskrivning med användning av "kryptering".
 
 Följande är ett exempel på en nyckel beskrivning för SAML-metadata med en användnings uppsättning som kryptering:
@@ -369,35 +370,50 @@ Följande är ett exempel på en nyckel beskrivning för SAML-metadata med en an
 </KeyDescriptor>
 ```
 
-Om du vill aktivera Azure AD B2C för att skicka krypterade intyg anger du **WantsEncryptedAssertion** till sant i den förlitande partens tekniska profil som visas nedan.
+Om du vill aktivera Azure AD B2C skicka krypterade intyg anger du **WantsEncryptedAssertion** -objektet till `true` i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile). Du kan också konfigurera algoritmen som används för att kryptera SAML-kontrollen. Mer information finns i metadata för den [förlitande partens tekniska profil](relyingparty.md#metadata). 
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="contoso.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin_saml"
-  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
- ..
- ..
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2"/>
-      <Metadata>
-          <Item Key="WantsEncryptedAssertions">true</Item>
-      </Metadata>
-     ..
-     ..
-     ..
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
 ```
+
+## <a name="enable-identity-provider-initiated-flow-optional"></a>Aktivera flöde för initierad identitetsprovider (valfritt)
+
+I initierat flöde för identitetsprovider initieras inloggnings processen av identitets leverantören (Azure AD B2C), som skickar ett oönskat SAML-svar till tjänst leverantören (ditt förlitande parts program). Om du vill aktivera flödet för initierad identitetsprovider anger du **IdpInitiatedProfileEnabled** -objektet till `true` i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile).
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="IdpInitiatedProfileEnabled">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+Om du vill logga in eller registrera en användare via ett initierat flöde för identitetsprovider använder du följande URL:
+
+```
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+```
+
+Ersätt följande värden:
+
+* **klient organisations** namn med ditt klient namn
+* **princip-namn** med ditt SAML-princip namn för förlitande part
 
 ## <a name="sample-policy"></a>Exempel-princip
 

@@ -2,24 +2,24 @@
 title: 'VPN Gateway: Azure AD-klient för P2S VPN-anslutningar: Azure AD-autentisering'
 description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74999b2bf1a34e3c7b8190dd04206b2b541c465f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 01fe9331d4063ae45a5d30aa3546d6338d30822d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087041"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89499968"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
 
 När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering eller RADIUS-autentisering. Men när du använder det öppna VPN-protokollet kan du också använda Azure Active Directory autentisering. Den här artikeln hjälper dig att skapa en Azure AD-klient för P2S Open VPN-autentisering.
 
 > [!NOTE]
-> Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
+> Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar och kräver Azure VPN-klienten, som bara är tillgänglig för Windows 10.
 >
 
 
@@ -55,7 +55,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 4. Ge sedan administrativt medgivande. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
-    Offentlig
+    Offentliga
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent

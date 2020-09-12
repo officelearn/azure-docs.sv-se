@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022436"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458305"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudie: Använda Video Indexer-API:t
 
@@ -36,7 +36,6 @@ Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](h
    > * Du måste använda samma provider som du använde när du registrerade dig för Video Indexer.
    > * Personliga Google-och Microsoft-konton (Outlook/Live) kan bara användas för utvärderings konton. Konton som är anslutna till Azure kräver Azure AD.
    > * Det kan bara finnas ett aktivt konto per e-post. Om en användare försöker logga in med user@gmail.com för LinkedIn och senare med user@gmail.com för Google visas en felsida i den senare, vilket säger att användaren redan finns.
-
 2. Prenumerera.
 
     Välj fliken [produkter](https://api-portal.videoindexer.ai/products) . Välj sedan auktorisering och prenumerera.
@@ -46,7 +45,7 @@ Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](h
     > [!NOTE]
     > Nya användare prenumererar automatiskt på Auktorisering.
     
-    När du prenumererar kan du se din prenumeration och dina primära och sekundära nycklar. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De bör inte vara tillgängliga på klient sidan (. js,. html och så vidare).
+    När du prenumererar kan du hitta prenumerationen under **produkter**som du har  ->  **tillstånd**för. På sidan prenumeration hittar du de primära och sekundära nycklarna. Nycklarna ska vara skyddade. Nycklarna ska bara användas av din serverkod. De bör inte vara tillgängliga på klient sidan (. js,. html och så vidare).
 
     ![Prenumeration och nycklar i Video Indexer Developer-portalen](./media/video-indexer-use-apis/video-indexer-api03.png)
 

@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029322"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611912"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalnings uppsättning för virtuell dator som använder Tillgänglighetszoner
 
@@ -22,13 +22,17 @@ Du kan skapa en skalnings uppsättning mellan Tillgänglighetszoner för att sky
 
 ## <a name="availability-considerations"></a>Överväganden för tillgänglighet
 
-När du distribuerar en skalnings uppsättning i en eller flera zoner från och med API version *2017-12-01*har du möjlighet att distribuera med "Max spridning" eller "statisk 5 fel domän spridning". Med maximal spridning sprider skalnings uppsättningen dina virtuella datorer i så många fel domäner som möjligt inom varje zon. Spridningen kan vara över större eller mindre än fem fel domäner per zon. Med "statisk 5 fel domän spridning" sprider skalnings uppsättningen dina virtuella datorer över exakt fem fel domäner per zon. Om skalnings uppsättningen inte kan hitta fem distinkta fel domäner per zon för att uppfylla tilldelnings förfrågan, Miss lyckas begäran.
+När du distribuerar en regional (icke-zonindelade) skalnings uppsättning till en eller flera zoner från och med API version *2017-12-01*har du följande tillgänglighets alternativ:
+- Maximal spridning (platformFaultDomainCount = 1)
+- Statisk fast spridning (platformFaultDomainCount = 5)
+- Spridningen är justerad med lagrings disk fel domäner (platforFaultDomainCount = 2 eller 3)
+
+Med maximal spridning sprider skalnings uppsättningen dina virtuella datorer i så många fel domäner som möjligt inom varje zon. Spridningen kan vara över större eller mindre än fem fel domäner per zon. Med statisk fast spridning sprider skalnings uppsättningen dina virtuella datorer över exakt fem fel domäner per zon. Om skalnings uppsättningen inte kan hitta fem distinkta fel domäner per zon för att uppfylla tilldelnings förfrågan, Miss lyckas begäran.
 
 **Vi rekommenderar att du distribuerar med maximal spridning för de flesta arbets belastningar**, eftersom den här metoden ger bästa möjliga spridning i de flesta fall. Om du behöver repliker som ska spridas mellan olika maskin varu isolerings enheter, rekommenderar vi att du sprider över Tillgänglighetszoner och använder maximal spridning i varje zon.
 
-Med maximal spridning visas bara en feldomän i vyn skalnings uppsättning för virtuell dator instans och i instansens metadata, oavsett hur många fel domäner som de virtuella datorerna sprids över. Spridningen i varje zon är implicit.
-
-Om du vill använda maximal spridning anger du *platformFaultDomainCount* till *1*. Ange *platformFaultDomainCount* till *5*om du vill använda statiska fem fel i domän spridning. I API version *2017-12-01*är *platformFaultDomainCount* standardvärdet *1* för skalnings uppsättningar med en zon och flera zoner. För närvarande stöds endast statiska fem fel domän spridning för regionala (icke-zonindelade) skalnings uppsättningar.
+> [!NOTE]
+> Med maximal spridning visas bara en feldomän i vyn skalnings uppsättning för virtuell dator instans och i instansens metadata, oavsett hur många fel domäner som de virtuella datorerna sprids över. Spridningen i varje zon är implicit.
 
 ### <a name="placement-groups"></a>Placeringsgrupper
 

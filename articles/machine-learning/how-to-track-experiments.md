@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723851"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650628"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Aktivera loggning i Azure ML-utbildningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,17 +37,17 @@ Loggarna kan hjälpa dig att diagnostisera fel och varningar eller spåra presta
 
 ## <a name="data-types"></a>Datatyper
 
-Du kan logga flera data typer, inklusive skalära värden, listor, tabeller, bilder, kataloger med mera. Mer information och python-kod exempel för olika data typer finns på [referens sidan kör klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
+Du kan logga flera data typer, inklusive skalära värden, listor, tabeller, bilder, kataloger med mera. Mer information och python-kod exempel för olika data typer finns på [referens sidan kör klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
 
 ## <a name="interactive-logging-session"></a>Interaktiv Logging-session
 
-Interaktiva loggnings sessioner används vanligt vis i Notebook-miljöer. Metoden [experiment. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) startar en interaktiv inloggningssession. Alla mått som loggas under sessionen läggs till i körnings posten i experimentet. Metoden [Run. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) avslutar sessionerna och markerar kör som slutförd.
+Interaktiva loggnings sessioner används vanligt vis i Notebook-miljöer. Metoden [experiment. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) startar en interaktiv inloggningssession. Alla mått som loggas under sessionen läggs till i körnings posten i experimentet. Metoden [Run. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) avslutar sessionerna och markerar kör som slutförd.
 
 ## <a name="scriptrunconfig-logs"></a>ScriptRunConfig-loggar
 
-I det här avsnittet får du lära dig hur du lägger till loggnings kod i ScriptConfig-körningar. Du kan använda klassen [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) för att kapsla in skript och miljöer för upprepnings bara körningar. Du kan också använda det här alternativet för att Visa widgeten för Visual Jupyter Notebooks för övervakning.
+I det här avsnittet får du lära dig hur du lägger till loggnings kod i ScriptConfig-körningar. Du kan använda klassen [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) för att kapsla in skript och miljöer för upprepnings bara körningar. Du kan också använda det här alternativet för att Visa widgeten för Visual Jupyter Notebooks för övervakning.
 
-Det här exemplet utför en parameter svep över alpha-värden och fångar in resultaten med hjälp av metoden [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) .
+Det här exemplet utför en parameter svep över alpha-värden och fångar in resultaten med hjälp av metoden [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----) .
 
 1. Skapa ett utbildnings skript som innehåller loggnings logiken `train.py` .
 

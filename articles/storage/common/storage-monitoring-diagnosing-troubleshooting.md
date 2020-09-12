@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011046"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462011"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -134,7 +134,7 @@ Lagrings mått lagrar bara kapacitets mått för Blob-tjänsten eftersom blobbar
 >
 >
 
-Information om hur du uppskattar storleken på olika lagrings objekt, till exempel blobbar, finns i blogg inlägget [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Information om hur du uppskattar storleken på olika lagrings objekt, till exempel blobbar, finns i blogg inlägget [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Övervaka tillgänglighet
 Du bör övervaka tillgängligheten för lagrings tjänsterna i ditt lagrings konto genom att övervaka värdet i kolumnen **tillgänglighet** i tabellerna för tim-eller minut mått – **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. Kolumnen **tillgänglighet** innehåller ett procent värde som anger tillgängligheten för tjänsten eller den API-åtgärd som representeras av raden ( **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd).
@@ -559,7 +559,7 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Namn | Värde |
+| Name | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697 Z |
 | Åtgärdstyp     | GetBlobProperties            |

@@ -3,12 +3,12 @@ title: Installera den anslutna dator agenten med Windows PowerShell DSC
 description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar (för hands version) med Windows PowerShell DSC.
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 25d6e435c261a83bf81c15d5dd445a936d48a08b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213076"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565828"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Så här installerar du den anslutna dator agenten med hjälp av Windows PowerShell DSC
 
@@ -82,7 +82,7 @@ När du har installerat agenten och konfigurerat den för att ansluta till Azure
 
 Den här resursen kan läggas till i befintliga DSC-konfigurationer för att representera en slutpunkt-till-slutpunkt-konfiguration för en dator. Du kanske exempelvis vill lägga till den här resursen i en konfiguration som anger säkra inställningar för operativ systemet.
 
-[CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) -modulen från PowerShell-galleriet kan användas för att skapa en [sammansatt resurs](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) av exempel konfigurationen för att ytterligare förenkla kombinera konfigurationer.
+[CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) -modulen från PowerShell-galleriet kan användas för att skapa en [sammansatt resurs](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) av exempel konfigurationen för att ytterligare förenkla kombinera konfigurationer.
 
 ## <a name="next-steps"></a>Nästa steg
 

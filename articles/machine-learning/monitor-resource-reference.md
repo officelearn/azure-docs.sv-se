@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82856028"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650590"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Data referens för Azure Machine Learning-övervakning
 
@@ -195,7 +195,7 @@ Följande är dimensioner som kan användas för att filtrera körnings mått:
 | Dimension | Beskrivning |
 | ---- | ---- |
 | ComputeType | Den beräknings typ som används för körningen. |
-| PipelineStepType | Den typ av [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) som används i körningen. |
+| PipelineStepType | Den typ av [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) som används i körningen. |
 | PublishedPipelineId | ID för den publicerade pipelinen som används i körningen. |
 | RunType | Typ av körning. |
 

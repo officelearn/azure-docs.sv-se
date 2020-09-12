@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650476"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440702"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -88,7 +88,7 @@ Rekommendationerna för cachelagring för Azure Premium-diskar nedan förutsätt
 **Rekommendation: som ett resultat av dessa observerade I/O-mönster genom SAP HANA ska cachelagring för de olika volymerna med Azure Premium Storage ställas in som:**
 
 - **/Hana/data** – ingen cachelagring eller cachelagring av läsning
-- **/Hana/log** – ingen cachelagring – undantag för M-och Mv2-serien där Skrivningsaccelerator ska aktive ras utan cachelagring av läsning. 
+- **/Hana/log** – ingen cachelagring – undantag för virtuella datorer i M-och Mv2-serien där Azure Skrivningsaccelerator ska aktive ras 
 - **/Hana/Shared** – cachelagring för läsning
 - **OS-disk** – ändra inte standardvärdet för cachelagring som anges av Azure när den virtuella datorn skapades
 
@@ -236,6 +236,10 @@ I den här konfigurationen behåller du **/Hana/data** -och **/Hana/log** -volym
 
 Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidigare i den här artikeln. De listade rekommendationerna är en kompromiss mellan storleks rekommendationerna av SAP och det maximala lagrings utrymmet som de olika VM-typerna tillhandahåller.
 
+> [!NOTE]
+> Azure Ultra disk tvingar fram minst 2 IOPS per GB disk kapacitet
+
+
 | VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /Hana/data volym | /Hana/data I/O-genomflöde | /Hana/data IOPS | /Hana/log volym | /Hana/log I/O-genomflöde | /Hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 Mbit/s | 2 500 | 80 GB | 250 MB | 1800 |
@@ -249,11 +253,11 @@ Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidiga
 | M64s | 1 000 GiB | 1 000 MB/s |  1 200 GB | 600 Mbit/s | 5 000 | 512 GB | 250 Mbit/s  | 2 500 |
 | M64ms | 1 750 GiB | 1 000 MB/s | 2 100 GB | 600 Mbit/s | 5 000 | 512 GB | 250 Mbit/s  | 2 500 |
 | M128s | 2 000 GiB | 2 000 MB/s |2 400 GB | 750 Mbit/s | 7 000 | 512 GB | 250 Mbit/s  | 2 500 | 
-| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 750 Mbit/s |7 000 | 512 GB | 250 Mbit/s  | 2 500 | 
+| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 750 Mbit/s |9 600 | 512 GB | 250 Mbit/s  | 2 500 | 
 | M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 500 GB | 750 Mbit/s | 7 000 | 512 GB | 250 Mbit/s  | 2 500 | 
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 750 Mbit/s | 7 000 | 512 GB | 250 Mbit/s  | 2 500 | 
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 000 Mbit/s | 9,000 | 512 GB | 400 Mbit/s  | 4 000 | 
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 Mbit/s | 9,000 | 512 GB | 400 Mbit/s  | 4 000 |   
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 750 Mbit/s | 14 400 | 512 GB | 250 Mbit/s  | 2 500 | 
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 000 Mbit/s | 14 400 | 512 GB | 400 Mbit/s  | 4 000 | 
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 Mbit/s | 28 800 | 512 GB | 400 Mbit/s  | 4 000 |   
 
 **Värdena i listan är avsedda att vara en start punkt och måste utvärderas mot de verkliga kraven.** Fördelen med Azure Ultra disk är att värdena för IOPS och data flöde kan anpassas utan att du behöver stänga av den virtuella datorn eller stoppa arbets belastningen som tillämpas på systemet.   
 
@@ -267,7 +271,7 @@ Azure NetApp Files tillhandahåller interna NFS-resurser som kan användas för 
 > [!IMPORTANT]
 > Det NFS v3-protokoll som implementeras på Azure NetApp Files stöds **inte** för användning för **/Hana/data** och **/Hana/log**. Användningen av NFS 4,1 är obligatorisk för **/Hana/data** -och **/Hana/log** -volymer från en funktionell punkt i vyn. För **/Hana/Shared** -volymen kan NFS v3 eller NFS v 4.1-protokollet användas från en funktionell punkt i vyn.
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver och SAP HANA:
 
 - Den minsta kapacitets poolen är 4 TiB.  

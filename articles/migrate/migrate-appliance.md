@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927531"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514364"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -121,7 +121,7 @@ download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
 graph.windows.net | Logga in på din Azure-prenumeration.
 login.microsoftonline.us  | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate.
 management.usgovcloudapi.net | Skapa Azure AD-appar för att kunna kommunicera med tjänsten Azure Migrate.
-dc.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
+*.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
 *. vault.usgovcloudapi.net | Hantera hemligheter i Azure Key Vault.
 aka.ms/* | Tillåt åtkomst till aka-länkar. Används för uppdateringar av Azure Migrates enheten.
 download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
@@ -180,7 +180,7 @@ IPv6-adresser | datorn. Guest.Net
 Läs data flöde (MB per sekund) | net. Received. Average
 Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
 **Information om lager Sök väg** | 
-Namn | fönster. GetType (). Namn
+Name | fönster. GetType (). Namn
 Typ av underordnat objekt | fönster. ChildType
 Referens information | fönster. MoRef
 Överordnad information | Container. parent
@@ -227,7 +227,7 @@ Här är de funktions data som installationen samlar in från varje virtuell dat
 
 **Data**  | **PowerShell-cmdlet** | **Egenskap**
 --- | --- | ---
-Namn  | Get-WindowsFeature  | Namn
+Name  | Get-WindowsFeature  | Name
 Funktions typ | Get-WindowsFeature  | FeatureType
 Överordnad  | Get-WindowsFeature  | Överordnad
 
@@ -237,7 +237,7 @@ Här är SQL Server-metadata som enheten samlar in från virtuella datorer som k
 
 **Data**  | **Registerplats**  | **Nyckel**
 --- | --- | ---
-Namn  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
 Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
@@ -248,7 +248,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 Data  | WMI-klass  | Egenskap för WMI-klass
 --- | --- | ---
-Namn  | Win32_operatingsystem  | Caption
+Name  | Win32_operatingsystem  | Caption
 Version  | Win32_operatingsystem  | Version
 Arkitektur  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Här är de installerade program data som installationen samlar in från varje v
 
 Data  | Kommando
 --- | --- 
-Namn | RPM, dpkg-fråga, fäst
+Name | RPM, dpkg-fråga, fäst
 Version | RPM, dpkg-fråga, fäst
 Leverantör | RPM, dpkg-fråga, fäst
 
@@ -268,7 +268,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 **Data**  | **Kommando** 
 --- | --- | ---
-Namn <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Name <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arkitektur | uname
 
 
@@ -507,7 +507,7 @@ Om du kör en äldre version för någon av komponenterna måste du avinstallera
 
 1. Om du vill söka efter de senaste versionerna av service-tjänsterna [laddar du ned](https://aka.ms/latestapplianceservices) LatestComponents.jspå filen.
 2.    När du har laddat ned öppnar du LatestComponents.jsfilen i anteckningar.
-3. Hitta den senaste tjänst versionen i filen och nedladdnings länken för den. Ett exempel:
+3. Hitta den senaste tjänst versionen i filen och nedladdnings länken för den. Exempel:
 
     "Namn": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 

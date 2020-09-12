@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829602"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440685"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Felsöka måttdiagram
 
@@ -110,7 +110,7 @@ Som standard lagras mått för gästoperativsystem i ett Azure Storage-konto, so
 
 1. Kontrollera att lagringskontot inte skyddas av brandväggen. Azure Portal behöver åtkomst till lagringskontot för att kunna hämta måttdata och rita diagrammen.
 
-1. Använd [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrollera att måtten matas till lagringskontot. Om måtten inte samlas in följer du anvisningarna i [felsökningsguiden för Azure Diagnostics-tillägget](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Använd [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrol lera att måtten flödar till lagrings kontot. Om måtten inte samlas in följer du anvisningarna i [felsökningsguiden för Azure Diagnostics-tillägget](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Nästa steg
 

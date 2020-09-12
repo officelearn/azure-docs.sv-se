@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321504"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650721"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurera data delningar och kors validering i automatiserad maskin inlärning
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig de olika alternativen för att konfigurera
 
 När du använder AutoML för att skapa flera ML-modeller i Azure Machine Learning måste varje underordnad körning verifiera den relaterade modellen genom att beräkna kvalitets måtten för modellen, till exempel precision eller AUC viktad. Dessa mått beräknas genom att jämföra förutsägelserna som gjorts med varje modell med verkliga etiketter från tidigare observationer i verifierings data. 
 
-AutoML experiment utför automatisk modell validering. I följande avsnitt beskrivs hur du kan anpassa verifierings inställningarna ytterligare med [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+AutoML experiment utför automatisk modell validering. I följande avsnitt beskrivs hur du kan anpassa verifierings inställningarna ytterligare med [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 En låg kod eller ingen kod får [du i skapa dina automatiserade Machine Learning-experiment i Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ För den här artikeln behöver du
 
 ## <a name="default--data-splits-and-cross-validation"></a>Standard data delning och kors validering
 
-Använd [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) -objektet för att definiera dina experiment-och utbildnings inställningar. Observera att endast de parametrar som krävs har definierats i följande kodfragment, det vill säga parametrarna för `n_cross_validation` eller `validation_ data` **inte** ingår.
+Använd [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) -objektet för att definiera dina experiment-och utbildnings inställningar. Observera att endast de parametrar som krävs har definierats i följande kodfragment, det vill säga parametrarna för `n_cross_validation` eller `validation_ data` **inte** ingår.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Ange storlek för validerings uppsättning
 
-I det här fallet tillhandahålls endast en enda data uppsättning för experimentet. Det vill säga att `validation_data` parametern **inte** anges och att den angivna data uppsättningen tilldelas till `training_data` parametern.  I ditt `AutoMLConfig` objekt kan du ange `validation_size` att parametern ska innehålla en del av tränings data för verifiering. Det innebär att verifierings uppsättningen delas av AutoML från den ursprungliga `training_data` som tillhandahålls. Värdet måste vara mellan 0,0 och 1,0 (till exempel 0,2 betyder att 20% av data hålls kvar för verifierings data).
+I det här fallet tillhandahålls endast en enda data uppsättning för experimentet. Det vill säga att `validation_data` parametern **inte** anges och att den angivna data uppsättningen tilldelas till  `training_data` parametern.  I ditt `AutoMLConfig` objekt kan du ange `validation_size` att parametern ska innehålla en del av tränings data för verifiering. Det innebär att verifierings uppsättningen delas av AutoML från den ursprungliga `training_data` som tillhandahålls. Värdet måste vara mellan 0,0 och 1,0 (till exempel 0,2 betyder att 20% av data hålls kvar för verifierings data).
 
 Se följande kod exempel:
 

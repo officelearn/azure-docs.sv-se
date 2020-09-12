@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: b462ebd25a7dac4f215d599aa0dfa8665965fb2f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c81230a5b32ddb1487bf59e8e43dbb96328d8620
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180957"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513974"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -44,14 +44,14 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 1. Undanta följande mappar från Antivirus genomsökning:
 
-    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
     Ersätt `C:\` med bokstaven för din *systemen het*.
 
 1. Undanta följande tre processer som körs i en virtuell dator från Antivirus genomsökning:
 
     - IaasWLPluginSvc.exe
-    - IaasWorkloadCoordinaorService.exe
+    - IaaSWorkloadCoordinatorService.exe
     - TriggerExtensionJob.exe
 
 1. SQL innehåller också några rikt linjer för att arbeta med antivirus program. Mer information finns i [den här artikeln](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) .

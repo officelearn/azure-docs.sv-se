@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fc8e8de817c1b311e3252c7399a09ed1c9eb7031
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144795"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651507"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du konfigurerar och tränar en uppskattnings Regressions modell i Time-serien med hjälp av automatisk maskin inlärning, AutoML, i [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+I den här artikeln får du lära dig hur du konfigurerar och tränar en uppskattnings Regressions modell i Time-serien med hjälp av automatisk maskin inlärning, AutoML, i [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 En låg kod upplevelse finns i [självstudien: prognostisera efter frågan med automatiserad maskin inlärning](tutorial-automated-ml-forecast.md) för ett exempel på en uppskattning av tids serier med hjälp av automatisk maskin inlärning i [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -93,7 +93,7 @@ test_labels = test_data.pop(label).values
 ```
 
 > [!IMPORTANT]
-> När du tränar en modell för att förutsäga framtida värden kan du se till att alla funktioner som används i träningen kan användas när du kör förutsägelser för din avsedda horisont. När du skapar en prognos för efter frågan kan du till exempel öka inlärnings precisionen med en funktion för det aktuella lager priset. Men om du planerar att prognostisera med lång horisont kanske du inte kan förutsäga framtida lager värden som motsvarar framtida tids serie punkter och modell precisionen kan bli lidande.
+> När du tränar en modell för att förutsäga framtida värden kan du se till att alla funktioner som används i träningen kan användas när du kör förutsägelser för din avsedda horisont. <br> <br>När du skapar en prognos för efter frågan kan du till exempel öka inlärnings precisionen med en funktion för det aktuella lager priset. Men om du planerar att prognostisera med lång horisont kanske du inte kan förutsäga framtida lager värden som motsvarar framtida tids serie punkter och modell precisionen kan bli lidande.
 
 <a name="config"></a>
 
@@ -101,11 +101,11 @@ test_labels = test_data.pop(label).values
 
 Du kan ange separata tåg-och validerings uppsättningar direkt i `AutoMLConfig` objektet.   Läs mer om [AutoMLConfig](#configure-experiment).
 
-Vid Prognosticering av tids serier används automatiskt **kors validering av spårade ursprung (ROCV)** när du skickar utbildningen och verifierings data tillsammans och ställer in antalet kors validerings veck med `n_cross_validations` parametern i `AutoMLConfig` . ROCV delar upp serien i utbildning och validerings data med hjälp av en start tid. När du drar ursprunget i tiden genererar det kors validerings vecket. Den här strategin bevarar tids seriens data integritet och eliminerar risken för data läckage
+För tids serie prognoser används endast **rullande ursprung mellan validering (ROCV)** för validering som standard. Skicka inlärnings-och verifierings data tillsammans och ange antalet kors validerings veck med `n_cross_validations` parametern i din `AutoMLConfig` . ROCV delar upp serien i utbildning och validerings data med hjälp av en start tid. När du drar ursprunget i tiden genererar det kors validerings vecket. Den här strategin bevarar tids seriens data integritet och eliminerar risken för data läckage
 
-![alternativ text](./media/how-to-auto-train-forecast/ROCV.svg)
+![kors validering av rullande ursprung](./media/how-to-auto-train-forecast/ROCV.svg)
 
-För andra alternativ för kors validering och data delning, se [Konfigurera data delning och kors validering i AutoML](how-to-configure-cross-validation-data-splits.md).
+Du kan också ta med dina egna verifierings data, Läs mer i [Konfigurera data delning och kors validering i AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 
 ```python
@@ -118,7 +118,7 @@ automl_config = AutoMLConfig(task='forecasting',
 Lär dig mer om hur AutoML använder kors validering för att [förhindra överanpassning av modeller](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Konfigurationen för en prognos modell liknar installationen av en standard Regressions modell, men vissa funktionalisering-steg och konfigurations alternativ finns specifikt för Time Series-data. 
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Konfigurationen för en prognos modell liknar installationen av en standard Regressions modell, men vissa funktionalisering-steg och konfigurations alternativ finns specifikt för Time Series-data. 
 
 ### <a name="featurization-steps"></a>Funktionalisering-steg
 
@@ -163,13 +163,13 @@ featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy"
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
 
-Om du använder Azure Machine Learning Studio för experimentet går du till [instruktions artikeln](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Om du använder Azure Machine Learning Studio för experimentet läser du så [här anpassar du funktionalisering i Studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ### <a name="configuration-settings"></a>Konfigurationsinställningar
 
 Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. 
 
-I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) finns mönster för utformning av syntax.
+I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) finns mönster för utformning av syntax.
 
 | Parameter &nbsp; namn | Beskrivning | Krävs |
 |-------|-------|-------|
@@ -245,7 +245,11 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
+> [!Warning]
+> När du aktiverar DNN för experiment som skapats med SDK inaktive ras [bästa modell förklaringar](how-to-machine-learning-interpretability-automl.md) .
+
 Om du vill aktivera DNN för ett AutoML-experiment som skapats i Azure Machine Learning Studio kan du läsa [uppgifts typ inställningarna i Studio instruktion](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+
 
 Med automatisk ML får användare både interna Time-och djup inlärnings modeller som en del av rekommendations systemet. 
 
@@ -254,7 +258,6 @@ Modeller| Beskrivning | Fördelar
 Prophet (för hands version)|Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Om du vill utnyttja den här modellen installerar du den lokalt med `pip install fbprophet` . | Korrekt & snabb, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie.
 Auto-ARIMA (för hands version)|Autoregressiva Integrated glidande medelvärde (ARIMA) fungerar bäst när data är Station ära. Det innebär att dess statistiska egenskaper, t. ex. medelvärdet och var Ian sen är konstant över hela uppsättningen. Om du till exempel vänder en mynt är sannolikheten för att du får 50%, oavsett om du vänder idag, imorgon eller nästa år.| Perfekt för univariate-serien, eftersom de tidigare värdena används för att förutsäga framtida värden.
 ForecastTCN (för hands version)| ForecastTCN är en neurala-nätverks modell som är utformad för att ta itu med de mest krävande prognos uppgifterna, vilket fångar icke-linjära lokala och globala trender i dina data samt relationer mellan tids serier.|Kan använda komplexa trender i dina data och skalas enkelt till största av data uppsättningar.
-
 
 Visa [Notebook Production Forecasting-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) för ett detaljerat kod exempel som utnyttjar hyperoptimerade.
 
@@ -266,8 +269,7 @@ Anta till exempel att du vill förutse energi efter frågan. Du kanske vill läg
 
 Tabellen visar den resulterande funktions teknik som inträffar när Window aggregation används. Kolumner för **minimum, maximum** och **Sum** genereras i ett glidande fönster av tre baserat på de definierade inställningarna. Varje rad har en ny beräknad funktion, när det gäller tidsstämpeln för den 8 september 2017 4:10:00 de högsta, lägsta och sammanlagda värdena beräknas utifrån värdena för **efter frågan** den 8 september 2017 1:10:00-3:10:00. Det här fönstret innehåller tre skiften och fyller i data för de återstående raderna.
 
-![alternativ text](./media/how-to-auto-train-forecast/target-roll.svg)
-
+![mål för rullande fönster](./media/how-to-auto-train-forecast/target-roll.svg)
 
 Visa en python code-exempel som använder den angivna [mål funktionen för mängd funktions fönster](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
@@ -336,5 +338,8 @@ Se [exempel antecknings böcker för Prognosticering](https://github.com/Azure/M
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Följ [själv studie kursen](tutorial-auto-train-models.md) för att lära dig hur du skapar experiment med automatiserad maskin inlärning.
-* Visa [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens dokumentation.
+* Läs mer om [hur och var du distribuerar en modell](how-to-deploy-and-where.md).
+* Lär dig mer om [tolkning: modell förklaringar i Automatisk maskin inlärning (för hands version)](how-to-machine-learning-interpretability-automl.md). 
+* Lär dig hur du tränar flera modeller med AutoML i [många modeller lösnings acceleratorer](https://aka.ms/many-models).
+* Följ [själv studie kursen](tutorial-auto-train-models.md) för ett slut punkt till slut punkts exempel för att skapa experiment med automatiserad maskin inlärning.
+

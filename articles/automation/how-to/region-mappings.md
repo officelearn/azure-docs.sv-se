@@ -1,27 +1,29 @@
 ---
 title: Regioner som stöder länkade Log Analytics-arbetsytor
-description: Den här artikeln beskriver de region mappningar som stöds mellan ett Automation-konto och en Log Analytics arbets yta.
+description: I den här artikeln beskrivs de region mappningar som stöds mellan ett Automation-konto och en Log Analytics arbets yta som relaterar till vissa funktioner i Azure Automation.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447867"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440668"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
-I Azure Automation kan du aktivera Uppdateringshantering, Ändringsspårning och inventering och Starta/stoppa virtuella datorer när de inte används funktioner för dina virtuella datorer. Endast vissa regioner kan dock användas för att länka en Log Analytics-arbetsyta och ett Automation-konto i din prenumeration. Region mappningarna gäller endast Automation-kontot och Log Analytics-arbetsytan. Log Analytics-arbetsytan och automation-kontot måste finnas i samma prenumeration, men kan finnas i olika resurs grupper som distribueras till samma region. Mer information finns i [Log Analytics arbets yta och Automation-konto](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+I Azure Automation kan du aktivera Uppdateringshantering, Ändringsspårning och inventering och Starta/stoppa virtuella datorer när de inte används funktioner för dina servrar och virtuella datorer. Dessa funktioner är beroende av en Log Analytics arbets yta och måste därför länka arbets ytan till ett Automation-konto. Men endast vissa regioner stöds för att länka ihop dem. I allmänhet gäller mappningen *inte* om du planerar att länka ett Automation-konto till en arbets yta som inte har dessa funktioner aktiverade.
+
+Den här artikeln innehåller mappningar som stöds för att kunna aktivera och använda de här funktionerna i ditt Automation-konto.
+
+Mer information finns i [Log Analytics arbets yta och Automation-konto](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mappningar som stöds
+
+> [!NOTE]
+> Som du ser i följande tabell kan endast en mappning finnas mellan Log Analytics och Azure Automation.
 
 Följande tabell visar de mappningar som stöds:
 
@@ -52,7 +54,7 @@ Följande tabell visar de mappningar som stöds:
 
 ## <a name="unlink-a-workspace"></a>Ta bort länk till en arbets yta
 
-Om du bestämmer dig för att du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken för ditt konto direkt från Azure Portal. Innan du fortsätter måste du först [ta bort](move-account.md#remove-features) Uppdateringshantering, ändringsspårning och inventering och starta/stoppa virtuella datorer när de inte används om du använder dem. Om du inte tar bort dem kan du inte slutföra länknings åtgärden. 
+Om du bestämmer dig för att du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken för ditt konto direkt från Azure Portal. Innan du fortsätter måste du först [ta bort](move-account.md#remove-features) Uppdateringshantering, ändringsspårning och inventering och starta/stoppa virtuella datorer när de inte används om du använder dem. Om du inte tar bort dem kan du inte slutföra länknings åtgärden.
 
 När funktionerna har tagits bort kan du följa stegen nedan för att ta bort länken till ditt Automation-konto.
 
@@ -68,7 +70,7 @@ När funktionerna har tagits bort kan du följa stegen nedan för att ta bort l�
 4. Om du använde Uppdateringshantering kanske du vill ta bort följande objekt som inte längre behövs:
 
     * Uppdaterings scheman: varje har ett namn som matchar en uppdaterings distribution som du har skapat.
-    * Hybrid Worker-grupper som har skapats för funktionen: var och en har ett namn som liknar `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8` .
+    * Hybrid Worker-grupper som har skapats för funktionen: var och en har ett namn som liknar  `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8` .
 
 5. Om du använder Starta/stoppa virtuella datorer när de inte används kan du, om du vill, ta bort följande objekt som inte längre behövs:
 

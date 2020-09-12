@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8a86c1df5925097fa85d09590b59f8f30fde41d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aed0c83bfa61f6afdbdcca3c10dbd5fac3f823d3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296329"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458186"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Använd Query parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du kan dra nytta av parallellisering i Azure Stream Analytics. Du lär dig hur du skalar Stream Analytics jobb genom att konfigurera inpartitioner och justera analys frågans definition.
@@ -41,7 +41,7 @@ När du arbetar med Stream Analytics kan du dra nytta av partitionering i utdata
 -   Event Hubs (du måste uttryckligen ange partitionsnyckel)
 -   IoT Hub (du måste uttryckligen ange partitionsnyckel)
 -   Service Bus
-- SQL och SQL Data Warehouse med valfri partitionering: Mer information finns på [sidan utdata till Azure SQL Database](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL-och Azure Synapse-analys med valfri partitionering: Mer information finns på [sidan utdata till Azure SQL Database](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
 Power BI stöder inte partitionering. Du kan dock fortfarande partitionera indatamängden enligt beskrivningen i [det här avsnittet](#multi-step-query-with-different-partition-by-values) 
 
@@ -279,7 +279,7 @@ I följande observationer används ett Stream Analytics jobb med en tillstånds 
 |    5 000   |   18 |  P4   |
 |    10 000  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) har stöd för skrivning parallellt, som kallas Ärv partitionering, men är inte aktiverat som standard. Att aktivera ärva partitionering, tillsammans med en helt parallell fråga, är dock inte tillräckligt för att uppnå högre data flöden. SQL Write-dataflödena är beroende av databas konfigurationen och tabell schemat. I artikeln [SQL-utdata](./stream-analytics-sql-output-perf.md) finns mer information om de parametrar som kan maximera Skriv data flödet. Som anges i [Azure Stream Analytics utdata till Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artikel skalar den här lösningen inte linjärt som en helt parallell pipeline utöver 8 partitioner och kan behöva partitionera om innan SQL-utdata (se [i](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKU: er krävs för att hantera höga IO-priser tillsammans med kostnader för att logga säkerhets kopieringar på några minuter.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  har stöd för skrivning parallellt, som kallas Ärv partitionering, men är inte aktiverat som standard. Att aktivera ärva partitionering, tillsammans med en helt parallell fråga, är dock inte tillräckligt för att uppnå högre data flöden. SQL Write-dataflödena är beroende av databas konfigurationen och tabell schemat. I artikeln [SQL-utdata](./stream-analytics-sql-output-perf.md) finns mer information om de parametrar som kan maximera Skriv data flödet. Som anges i [Azure Stream Analytics utdata till Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artikel skalar den här lösningen inte linjärt som en helt parallell pipeline utöver 8 partitioner och kan behöva partitionera om innan SQL-utdata (se [i](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKU: er krävs för att hantera höga IO-priser tillsammans med kostnader för att logga säkerhets kopieringar på några minuter.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Inmatnings frekvens (händelser per sekund) | Enheter för strömning | Utgående resurser  |

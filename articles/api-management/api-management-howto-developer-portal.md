@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852165"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614059"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -31,9 +31,9 @@ I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterad
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!NOTE]
-> <a name="migrate-from-legacy"></a>Den nya Developer-portalen är inte kompatibel med den äldre Developer-portalen och automatisk migrering är inte möjlig. Du måste manuellt återskapa innehållet (sidor, text, mediefiler) och anpassa utseendet på den nya portalen. I [självstudien för Developer-portalen](api-management-howto-developer-portal-customize.md) hittar du vägledning.
+> <a name="migrate-from-legacy"></a> Den nya Developer-portalen är inte kompatibel med den äldre Developer-portalen och automatisk migrering är inte möjlig. Du måste manuellt återskapa innehållet (sidor, text, mediefiler) och anpassa utseendet på den nya portalen. I [självstudien för Developer-portalen](api-management-howto-developer-portal-customize.md) hittar du vägledning.
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Hanterade och egen värdbaserade versioner
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Hanterade och egen värdbaserade versioner
 
 Du kan bygga din utvecklings Portal på två sätt:
 
@@ -67,27 +67,27 @@ Portal komponenterna kan delas upp logiskt i två kategorier: *kod* och *innehå
 
 Portalen baseras på en anpassad förgrening av [Paperbits-ramverket](https://paperbits.io/). De ursprungliga Paperbits-funktionerna har utökats för att tillhandahålla API Management-/regionsspecifika widgetar (till exempel en lista över API: er, en lista över produkter) och en koppling till API Management tjänsten för att spara och hämta innehåll.
 
-## <a name="frequently-asked-questions"></a><a name="faq"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Vanliga frågor och svar
 
 I det här avsnittet svarar vi på vanliga frågor om Developer-portalen, som är av allmän natur. För frågor som är speciella för den självbetjänings versionen, se [wiki-avsnittet i GitHub-lagringsplatsen](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Hur kan jag migrera från för hands versionen av portalen?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Hur kan jag migrera från för hands versionen av portalen?
 
-Med hjälp av för hands versionen av Developer-portalen etablerade du att förhands gransknings innehållet i API Managements tjänsten. Standard innehållet har ändrats avsevärt i den allmänt tillgängliga versionen för bättre användar upplevelse. Den innehåller också nya widgetar.
+När du först startade för hands versionen av Developer-portalen etablerade du för hands versionen av dess standard innehåll i API Managements tjänsten. Standard innehållet har ändrats avsevärt i den allmänt tillgängliga versionen. Till exempel innehåller för hands versionen av standard innehållet inte OAuth-knappar på inloggnings sidorna, den använder olika widgetar för att Visa API: er och förlitar sig på begränsade funktioner för att strukturera utvecklings portalens sidor. Även om det finns skillnader i innehållet uppdateras portalens motor (inklusive underliggande widgetar) automatiskt varje gång du publicerar din Developer-Portal.
 
-Om du använder den hanterade versionen återställer du portalens innehåll genom att klicka på **Återställ innehåll** i menyn **åtgärder** . Om du bekräftar åtgärden tas allt innehåll i portalen bort och det nya standard innehållet etableras. Portalens motor har uppdaterats automatiskt i din API Management-tjänst.
+Om du har anpassat din portal baserat på för hands versionen av innehållet kan du fortsätta att använda den som den är och placera nya widgetar manuellt på portalens sidor. Annars rekommenderar vi att du ersätter portalens innehåll med det nya standard innehållet.
+
+Om du vill återställa innehållet i en hanterad portal klickar du på **Återställ innehåll** i menyn **åtgärder** . Den här åtgärden tar bort allt innehåll i portalen och etablerar nytt standard innehåll. Du kommer att förlora alla anpassningar och ändringar i utvecklings portalen. Det **går inte att ångra den här åtgärden**.
 
 ![Återställ Portal innehåll](media/api-management-howto-developer-portal/reset-content.png)
 
-Om du använder den själv värdbaserade versionen använder du `scripts/cleanup.bat` och `scripts/generate.bat` från GitHub-lagringsplatsen för att ta bort befintligt innehåll och etablera nytt innehåll. Se till att du uppgraderar din portal kod till den senaste versionen från GitHub-databasen i förväg.
+Om du använder den själv värdbaserade versionen kör `scripts.v2/cleanup.bat` och `scripts.v2/generate.bat` skript från GitHub-lagringsplatsen för att ta bort befintligt innehåll och etablera nytt innehåll. Se till att uppgradera din portal kod till den senaste versionen från GitHub-databasen i förväg.
 
-Om du inte vill återställa portalens innehåll kan du överväga att använda nyligen tillgängliga widgetar på alla sidor. Befintliga widgetar har uppdaterats automatiskt till de senaste versionerna.
-
-Om portalen etablerades efter det allmänna tillgänglighets meddelandet bör den redan ha det nya standard innehållet. Ingen åtgärd krävs från din sida.
+Om du först ansluter till portalen efter det allmänna tillgänglighets meddelandet i november 2019 bör det redan vara en funktion som det nya standard innehållet och ingen ytterligare åtgärd krävs.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Har portalen alla funktioner i den äldre portalen?
 
-Developer-portalen stöder inte längre *program* och *problem*.
+Developer-portalen stöder inte längre *program*, *problem*och direkt integrering med Facebook, Microsoft, Twitter och Google som identitets leverantörer (du kan använda Azure AD B2C i stället).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>Har den äldre portalen föråldrats?
 
@@ -145,7 +145,7 @@ När du har konfigurerat delegering måste du [publicera portalen](api-managemen
 
 De flesta konfigurations ändringar (till exempel VNet, inloggning och produkt villkor) kräver [att portalen publiceras om](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Jag får ett CORS-fel när jag använder den interaktiva konsolen
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Jag får ett CORS-fel när jag använder den interaktiva konsolen
 
 Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Lös CORS-problemet genom att lägga till [en CORS-princip](api-management-cross-domain-policies.md#CORS) på dina API: er.
 
@@ -217,7 +217,7 @@ Anrops felen kan också orsakas av ett TLS/SSL-certifikat, som är tilldelat en 
 | Apple Safari                | Ja<sup>1</sup> |
 | Google Chrome               | Ja<sup>1</sup> |
 | Microsoft Edge              | Ja<sup>1</sup> |
-| Microsoft Internet Explorer | Nej              |
+| Microsoft Internet Explorer | Inga              |
 | Mozilla Firefox             | Ja<sup>1</sup> |
 
  <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>

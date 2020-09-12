@@ -2,17 +2,17 @@
 title: Azures över-nätverks anslutning
 description: På den här sidan beskrivs ett program scenario för anslutning mellan nätverk och lösning baserad på funktioner i Azure-nätverk.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: rambala
-ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f13e3c03c0cfd747c7819d95a5fb98560db861c4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124961"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398077"
 ---
 # <a name="cross-network-connectivity"></a>Anslutning mellan nätverk
 
@@ -42,7 +42,7 @@ I följande tabell visas effektiva vägar för en virtuell dator i den Fabrikam-
 
 I den här artikeln går vi igenom steg för steg och diskuterar hur du uppnår önskade kors anslutningar med följande funktioner i Azure-nätverket:
 
-* [Peering för virtuellt nätverk][Virtual network peering] 
+* [Peering för virtuella nätverk][Virtual network peering] 
 * [ExpressRoute anslutning för virtuellt nätverk][connection]
 * [Global Reach][Global Reach] 
 

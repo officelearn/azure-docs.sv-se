@@ -2,17 +2,17 @@
 title: Om ExpressRoute virtuella nätverksgateway – Azure | Microsoft Docs
 description: 'Läs om virtuella nätverks-gatewayer för ExpressRoute. Den här artikeln innehåller information om Gateway-SKU: er och typer.'
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: mialdrid
-ms.openlocfilehash: e7779e0638ea61c70758394dc212910ba8f1d7f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 65e44acd1fe6ecb389f81cbd0ed88d1c161dfcdb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081142"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397873"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Om ExpressRoute-gatewayer för virtuella nätverk
 

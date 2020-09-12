@@ -6,19 +6,21 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410857"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399964"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>NSG service-taggar för Azure HDInsight
 
 Azure HDInsight Service-taggar för nätverks säkerhets grupper (NSG: er) är grupper med IP-adresser för hälso-och hanterings tjänster. Dessa grupper bidrar till att minimera komplexiteten vid skapande av säkerhets regler. [Service Taggar](../virtual-network/security-overview.md#service-tags) tillåter inkommande trafik från vissa IP-adresser utan att ange var och en av [hanterings-IP-adresserna](hdinsight-management-ip-addresses.md) i din NSG: er.
 
 HDInsight-tjänsten hanterar dessa service märken. Du kan inte skapa en egen service tag eller ändra en befintlig tagg. Microsoft hanterar de adressprefix som matchar tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
+
+Om du vill använda en viss region och service tag-numret inte har dokumenterats på den här sidan kan du använda [API: et för identifiering av service tag](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) för att hitta din service tag. Du kan också hämta [JSON-filen för service tag](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) och söka efter önskad region.
 
 ## <a name="get-started-with-service-tags"></a>Kom igång med service märken
 
@@ -54,7 +56,7 @@ Om du vill ta reda på vilka service märken som ska läggas till för din regio
 
 Om klustret finns i en region som anges i den här tabellen, behöver du bara lägga till en enda regional service-tagg till din NSG.
 
-| Land | Region | Tjänsttagg |
+| Country | Region | Tjänsttagg |
 | ---- | ---- | ---- |
 | Australien | Australien, östra | HDInsight. AustraliaEast |
 | &nbsp; | Australien, sydöstra | HDInsight. AustraliaSoutheast |
@@ -94,16 +96,16 @@ Om klustret till exempel har skapats i `East US 2` regionen måste du lägga til
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Land | Region | Tjänsttagg |
+| Country | Region | Tjänsttagg |
 | ---- | ---- | ---- |
 | USA | USA, östra 2 | HDInsight. EastUS2 |
-| &nbsp; | USA, centrala | HDInsight. centrala |
+| &nbsp; | Central US | HDInsight. centrala |
 | &nbsp; | NorthCentral oss | HDInsight. Usanorracentrala |
 | &nbsp; | USA, södra centrala | HDInsight. Usasödracentrala |
-| &nbsp; | USA, östra | HDInsight. öst |
+| &nbsp; | East US | HDInsight. öst |
 | &nbsp; | USA, västra | HDInsight. väst |
 | Japan | Japan, östra | HDInsight. Japanöstra |
-| Europa | Europa, norra | HDInsight. Europanorra |
+| Europa | Norra Europa | HDInsight. Europanorra |
 | &nbsp; | Europa, västra| HDInsight. WestEurope |
 | Asien | Asien, östra | HDInsight. Asienöstra |
 | &nbsp; | Sydostasien | HDInsight. Sydostasien |

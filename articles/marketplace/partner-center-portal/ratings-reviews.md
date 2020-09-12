@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304198"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419188"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Klassificering & recensioner Analytics-instrumentpanelen i Partner Center
 
@@ -33,7 +33,7 @@ På instrument panelen visas en grafisk representation av följande kund aktivit
 - Klassificering & granskningar  
 - Granska kommentarer
 
-Använd butik-flikar i **Marketplace** för att visa ditt erbjudande Microsoft AppSource och Azure Marketplace-mått separat. Om du vill visa vissa erbjudande mått väljer du erbjudandet i list rutan erbjudande.
+Använd fliken **marknads insikter** för att visa ditt erbjudande Microsoft AppSource och Azure Marketplace-mått separat. Om du vill visa vissa erbjudande mått väljer du erbjudandet i list rutan erbjudande.
 
 ### <a name="ratings--reviews-summary"></a>Sammanfattning av klassificerings & recensioner
 

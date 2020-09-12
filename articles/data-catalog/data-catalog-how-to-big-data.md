@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523459"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443151"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Så här katalogiserar du Big data i Azure Data Catalog
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523459"
 
 **Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Det är allt som hjälper människor att upptäcka, förstå och använda data källor och hjälpa organisationer att få mer värde än befintliga data källor, inklusive big data.
 
-**Azure Data Catalog** stöder registrering av Azures lagrings blobbar och kataloger samt Hadoop HDFS-filer och kataloger. Den delvis strukturerade typen av data källor ger stor flexibilitet. Men för att få ut det mesta värdet för att registrera dem med **Azure Data Catalog**måste användarna fundera över hur data källorna är ordnade.
+**Azure Data Catalog** stöder registrering av Azure Storage-blobbar och kataloger samt Hadoop HDFS-filer och kataloger. Den delvis strukturerade typen av data källor ger stor flexibilitet. Men för att få ut det mesta värdet för att registrera dem med **Azure Data Catalog**måste användarna fundera över hur data källorna är ordnade.
 
 ## <a name="directories-as-logical-data-sets"></a>Kataloger som logiska data uppsättningar
 

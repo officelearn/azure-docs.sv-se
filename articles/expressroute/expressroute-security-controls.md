@@ -3,16 +3,16 @@ title: 'Azure-ExpressRoute: säkerhets kontroller'
 description: Lär dig mer om säkerhets kontroller i Azure ExpressRoute, som är kvaliteter eller funktioner som hjälper till att förhindra, identifiera och reagera på säkerhets risker.
 services: expressroute
 ms.service: expressroute
-author: msmbaldwin
+author: duongau
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 6a4589d1aa768548f2ae9ffa01f289c823c0b2e5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 24057de44f3d28df96bcb93e89af9c3afa6fa3c6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192426"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394915"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Säkerhets kontroller för Azure-ExpressRoute
 
@@ -24,10 +24,10 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Kommentarer |
 |---|---|--|
-| Stöd för tjänst slut punkt| Ej tillämpligt |  |
-| Stöd för VNet-injektering| Ej tillämpligt | |
+| Stöd för tjänst slut punkt| E.t. |  |
+| Stöd för VNet-injektering| E.t. | |
 | Stöd för nätverks isolering och brand vägg| Ja | Varje kund ingår i en egen routningsdomän och dirigeras sedan till sitt eget VNet |
-| Stöd för Tvingad tunnel trafik| Ej tillämpligt | Via Border Gateway Protocol (BGP). |
+| Stöd för Tvingad tunnel trafik| E.t. | Via Border Gateway Protocol (BGP). |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
@@ -35,7 +35,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [ExpressRoute-övervakning, mått och aviseringar](expressroute-monitoring-metrics-alerts.md).|
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
-| Loggning och granskning av data planet| Nej |   |
+| Loggning och granskning av data planet| Inga |   |
 
 ## <a name="identity"></a>Identitet
 
@@ -48,10 +48,10 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Kommentarer |
 |---|---|--|
-| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Ej tillämpligt | ExpressRoute lagrar inte kund information. |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ej tillämpligt |  |
-| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt | |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Nej | |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  E.t. | ExpressRoute lagrar inte kund information. |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | E.t. |  |
+| Kryptering på kolumn nivå (Azure Data Services)| E.t. | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Inga | |
 | Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |
 
 

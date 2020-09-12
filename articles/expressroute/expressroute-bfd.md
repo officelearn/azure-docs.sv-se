@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: Konfigurera BFD'
 description: Den här artikeln innehåller anvisningar om hur du konfigurerar BFD (identifiering av dubbelriktad vidarebefordran) över privat peering av en ExpressRoute-krets.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
-ms.author: rambala
-ms.openlocfilehash: ec9c6248f4054329bd3cd9b74855964c4acf72c4
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.author: duau
+ms.openlocfilehash: db2f45da0193ac648d58c0be9773f36e542ed917
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855149"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397618"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD över ExpressRoute
 
@@ -68,7 +68,7 @@ Mellan BFD-peer-datorer fastställer överföringshastigheten för de två peer-
 >Om du har konfigurerat geo-redundanta ExpressRoute-kretsar eller använda VPN-anslutning från plats till plats som säkerhets kopiering, aktivering av BFD skulle hjälpa till att växla snabbare efter ett ExpressRoute anslutnings fel. 
 >
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information eller hjälp finns i följande länkar:
 

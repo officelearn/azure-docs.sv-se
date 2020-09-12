@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386171"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400151"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 
@@ -33,7 +33,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Inom *30 minuter* efter att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES systemtilldelade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och genererar ett behörighets fel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
 
@@ -47,7 +47,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
   |----------|-------|
   | **Nyckel typ** | RSA |
   | **Nyckel storlek för RSA** | 2048 |
-  | **Aktiverad** | Yes |
+  | **Aktiverad** | Ja |
   |||
 
   ![Skapa din kund hanterade krypterings nyckel](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -225,7 +225,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
    1. När du är klar med fönstret **åtkomst principer** väljer du **Spara**.
 
-Mer information finns i [tillhandahålla Key Vault autentisering med en hanterad identitet](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
+Mer information finns i [så här autentiserar du till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-portal).
 
 ## <a name="next-steps"></a>Nästa steg
 

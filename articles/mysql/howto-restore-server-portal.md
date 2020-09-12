@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119233"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421092"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MySQL med hjälp av Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Säkerhets kopiering sker automatiskt
 Azure Database for MySQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MySQL-server och-databas](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -37,7 +37,7 @@ När du skapar en server via Azure Portal, är **pris nivå** fönstret där du 
 Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 Kvarhållningsperioden för säkerhets kopior kan ändras på en server genom följande steg:
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj din Azure Database for MySQL-server. Den här åtgärden öppnar **översikts** sidan.
 3. Välj **pris nivå** på menyn under **Inställningar**. Med skjutreglaget kan du ändra **kvarhållningsperioden för säkerhets kopior** till dina preferenser mellan 7 och 35 dagar.
 I skärm bilden nedan har den ökats till 34 dagar.
@@ -72,6 +72,12 @@ Följande steg återställer exempel servern till en tidpunkt:
 5. När återställningen är klar letar du upp den nya server som har skapats för att verifiera att data har återställts som förväntat.
 
 Den nya servern som skapats av återställning vid olika tidpunkter har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt som väljs. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
+
+När återställningen är klar finns det dessutom två server parametrar som återställs till standardvärdena (och kopieras inte från den primära servern) efter återställnings åtgärden
+*   time_zone – det här värdet ställs in på standardvärdet **system**
+*   event_scheduler – event_scheduler har angetts till **av** på den återställda servern
+
+Du måste kopiera över värdet från den primära servern och ange det på den återställda servern genom att konfigurera om [Server parametern](howto-server-parameters.md)
 
 Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern. Brand Väggs regler från den ursprungliga servern återställs.
 

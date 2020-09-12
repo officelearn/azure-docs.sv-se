@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285449"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418593"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -36,7 +36,7 @@ Differentiella ögonblicks bild säkerhets kopieringar sker minst en gång per d
 
 Säkerhets kopieringar av transaktions loggar sker var femte minut. 
 
-### <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
+### <a name="backup-retention"></a>Kvarhållningsperiod för säkerhetskopior
 
 Säkerhets kopior bevaras baserat på inställningen för kvarhållning av säkerhets kopior på servern. Du kan välja en kvarhållningsperiod på 7 till 35 dagar. Standard kvarhållningsperioden är 7 dagar. Du kan ställa in kvarhållningsperioden när servern skapas eller senare genom att uppdatera säkerhets kopierings konfigurationen med [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) eller [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration). 
 
@@ -76,6 +76,13 @@ Den uppskattade återställnings tiden beror på flera faktorer, till exempel da
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
 Oberoende av ditt alternativ för säkerhets kopiering kan du utföra en återställning till vilken tidpunkt som helst inom lagrings perioden för säkerhets kopiorna. En ny server skapas i samma Azure-region som den ursprungliga servern. Den skapas med den ursprungliga serverns konfiguration för pris nivån, beräknings generering, antalet virtuella kärnor, lagrings storlek, kvarhållning av säkerhets kopior och alternativet för redundans.
+
+> [!NOTE]
+> Det finns två server parametrar som återställs till standardvärdena (och kopieras inte över från den primära servern) efter återställnings åtgärden
+> * time_zone – det här värdet ställs in på standardvärdet **system**
+> * event_scheduler – event_scheduler har angetts till **av** på den återställda servern
+>
+> Du måste ange dessa Server parametrar genom att konfigurera om [Server parametern](howto-server-parameters.md)
 
 Återställning av tidpunkt är användbart i flera scenarier. Till exempel när en användare oavsiktligt tar bort data, släpper en viktig tabell eller databas, eller om ett program av misstag skriver över bra data med felaktiga data på grund av ett program fel.
 

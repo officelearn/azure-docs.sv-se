@@ -8,18 +8,18 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705052"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378720"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
 Marketplace-förmåner ger dig till gång till ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via Microsofts kommersiella marknads plats, kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal.
 
-Programmet skapar en positiv feedback-slinga: fördelarna med varje steg i tillväxten hjälper dig att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform.
+Programmet skapar en positiv feedback-slinga: fördelarna med varje steg i tillväxten hjälper dig att gå vidare till nästa steg, vilket hjälper dig att utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella Marketplace som plattform.
 
 Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](../determine-your-listing-type.md#choose-a-listing-option).
 
@@ -36,9 +36,9 @@ För att kontrol lera att du har behörighet för Marketplace-programmet för ma
 Dina steg för att komma igång är enkla:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
-2. Gå till [instrument panelen](https://partner.microsoft.com/dashboard/directory)för partner Center och välj fliken **försäljning och marknadsföring** på Marketplace-förmåner för att se din lista över förmåner.
-3. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
-4. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
+1. Om du vill se en lista över förmåner går du till sidan med [marknads](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) förmåner i Partner Center och väljer fliken **försäljning och marknadsföring** .
+1. Om du vill aktivera försäljnings-och marknadsförings förmåner måste du först tilldela en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
+1. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
 
     1. Välj en användare i listan. Om den användare som du vill tilldela inte finns i listan kan du lägga till nya användare i **konto inställningar**.
     1. Ange en e-postadress för den användare som skiljer sig från den e-postadress som är kopplad till ditt företags Partner Center-konto. Vi kommer att skicka anvisningar via e-post om hur du använder dina Marketplace Rewards-förmåner till din utsedda marknadsföringskontakts e-postadress.
@@ -48,7 +48,7 @@ Dina steg för att komma igång är enkla:
 ## <a name="technical-benefits"></a>Tekniska fördelar
 
 1. Du kan använda din tekniska fördel för att begära teknisk support under fasen försäljning, design, distribution och utveckling av appar i dina moln-och hybrid lösningar. Om du vill be om hjälp fyller du i formuläret för begäran och väljer **skicka begäran**.
-2. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
+1. Hur du utnyttjar fördelarna med Azures sponsring kommer att delas via ett e-postmeddelande när du låser upp dessa förmåner.
 
 >[!NOTE]
 >Om erbjudandet har varit Live i mer än fyra veckor och du inte har fått ett meddelande, kan du checka in Partner Center och ta reda på vem i din organisation som äger erbjudandet. De bör ha kommunikation och nästa steg. Om du inte kan fastställa ägaren eller om ägaren har lämnat företaget öppnar du ett support ärende på https://aka.ms/marketplacepublishersupport .

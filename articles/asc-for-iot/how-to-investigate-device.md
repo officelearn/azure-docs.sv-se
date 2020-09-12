@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab9b396f72ddd35638519ab69f17e034479e0d5a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311038"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504918"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Undersök en misstänkt IoT-enhet
 
@@ -39,7 +39,7 @@ Som standard lagrar Azure Security Center för IoT dina säkerhets aviseringar o
 Hitta din Log Analytics-arbetsyta för data lagring:
 
 1. Öppna din IoT-hubb,
-1. Under **säkerhet**klickar du på **Översikt**och väljer sedan **Inställningar**.
+1. Under **säkerhet**väljer du **Inställningar**och sedan **data insamling**.
 1. Ändra konfigurations information för Log Analytics arbets ytan.
 1. Klicka på **Spara**.
 

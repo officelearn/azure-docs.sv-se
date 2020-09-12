@@ -3,14 +3,14 @@ title: Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 description: Den här artikeln beskriver hur du skickar jobb status och jobb strömmar i Runbook till Azure Monitor loggar.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/22/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004757"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397446"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar
 
@@ -22,37 +22,57 @@ Azure Automation kan skicka Runbook-jobbets status och jobb strömmar till arbet
 * Korrelera jobb mellan Automation-konton.
 * Använd anpassade vyer och Sök frågor för att visualisera dina Runbook-resultat, status för Runbook-jobb och andra relaterade nyckel indikatorer eller mått.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites-and-deployment-considerations"></a>Krav och distributions överväganden
+## <a name="prerequisites"></a>Krav
 
 För att börja skicka dina Automation-loggar till Azure Monitor loggar behöver du:
 
 * Den senaste versionen av [Azure PowerShell](/powershell/azure/).
-* En Log Analytics-arbetsyta. Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/overview.md).
+
+* En Log Analytics arbets yta och dess resurs-ID. Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/overview.md).
+
 * Resurs-ID för ditt Azure Automation-konto.
 
-Använd följande kommando för att hitta resurs-ID: t för ditt Azure Automation-konto:
+## <a name="how-to-find-resource-ids"></a>Hitta resurs-ID: n
 
-```powershell-interactive
-# Find the ResourceId for the Automation account
-Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
-```
+1. Använd följande kommando för att hitta resurs-ID: t för ditt Azure Automation-konto:
 
-Kör följande PowerShell-kommando för att hitta resurs-ID för din Log Analytics arbets yta:
+    ```powershell-interactive
+    # Find the ResourceId for the Automation account
+    Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
+    ```
 
-```powershell-interactive
-# Find the ResourceId for the Log Analytics workspace
-Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
-```
+2. Kopiera värdet för **ResourceID**.
+
+3. Använd följande kommando för att hitta resurs-ID: t för din Log Analytics arbets yta:
+
+    ```powershell-interactive
+    # Find the ResourceId for the Log Analytics workspace
+    Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+    ```
+
+4. Kopiera värdet för **ResourceID**.
+
+Inkludera parametern om du vill returnera resultat från en speciell resurs grupp `-ResourceGroupName` . Mer information finns i [Get-AzResource](/powershell/module/az.resources/get-azresource).
 
 Om du har mer än ett Automation-konto eller en arbets yta i resultatet av föregående kommandon, kan du hitta namn och andra relaterade egenskaper som ingår i det fullständiga resurs-ID: t för ditt Automation-konto genom att utföra följande:
 
-1. I Azure Portal väljer du ditt Automation-konto på sidan **Automation-konton** . 
-2. Välj **Egenskaper**under **konto inställningar**på sidan för det valda Automation-kontot.  
-3. På sidan **Egenskaper** noterar du informationen som visas nedan.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. I Azure Portal väljer du ditt Automation-konto på sidan **Automation-konton** .
+1. Välj **Egenskaper**under **konto inställningar**på sidan för det valda Automation-kontot.
+1. På sidan **Egenskaper** noterar du informationen som visas nedan.
 
     ![Egenskaper för Automation-konto](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+
+## <a name="configure-diagnostic-settings"></a>Konfigurera diagnostikinställningar
+
+Inställningarna för Automation-diagnostik stöder vidarebefordran av följande plattforms loggar och mått data:
+
+* JobLogs
+* JobStreams
+* DSCNodeStatus
+* Mått-totalt antal jobb, den totala uppdaterings distributions datorn körs, den totala uppdaterings distributionen körs
+
+Om du vill börja skicka dina Automation-loggar till Azure Monitor loggar kan du läsa [skapa diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md) för att förstå funktionen och metoderna som är tillgängliga för att konfigurera diagnostikinställningar för att skicka plattforms loggar.
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor logg poster
 
@@ -102,40 +122,11 @@ Azure Automation diagnostik skapar du två typer av poster i Azure Monitor logga
 | ResourceProvider | Resurs leverantören. Värdet är MICROSOFT. Automatiska. |
 | ResourceType | Resurs typen. Värdet är AUTOMATIONACCOUNTS. |
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurera integration med Azure Monitor loggar
-
-1. Starta Windows PowerShell från **Start** skärmen på datorn.
-2. Kör följande PowerShell-kommandon och redigera värdena för `$automationAccountId` och `$workspaceId` med värdena från föregående avsnitt.
-
-   ```powershell-interactive
-   $workspaceId = "resource ID of the log analytics workspace"
-   $automationAccountId = "resource ID of your Automation account"
-
-   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
-   ```
-
-När skriptet har körts kan det ta en timme innan du börjar se poster i Azure Monitor loggar för nya `JobLogs` eller `JobStreams` skrivna.
-
-Om du vill se loggarna kör du följande fråga i Log Analytics-loggs ökning:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
-
-### <a name="verify-configuration"></a>Verifiera konfigurationen
-
-För att bekräfta att ditt Automation-konto skickar loggar till din Log Analytics-arbetsyta, kontrollerar du att diagnostiken är korrekt konfigurerad på Automation-kontot med hjälp av följande PowerShell-kommando.
-
-```powershell-interactive
-Get-AzDiagnosticSetting -ResourceId $automationAccountId
-```
-
-I utdata kontrollerar du att:
-
-* Under `Logs` `Enabled` är värdet sant.
-* `WorkspaceId`anges till `ResourceId` värdet för din Log Analytics-arbetsyta.
-
 ## <a name="view-automation-logs-in-azure-monitor-logs"></a>Visa Automation-loggar i Azure Monitor loggar
 
-Nu när du har börjat skicka loggen med automatiserings jobb till Azure Monitor loggar ska vi se vad du kan göra med dessa loggar i Azure Monitor loggar.
+Nu när du har börjat skicka dina strömmar och loggar till Azure Monitor loggar ska vi se vad du kan göra med dessa loggar i Azure Monitor loggar.
 
-Kör följande fråga för att se loggarna:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Kör följande fråga för att se loggarna: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Skicka ett e-postmeddelande när ett Runbook-jobb Miss lyckas eller pausas
 
@@ -145,7 +136,7 @@ Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning fö
 
 1. Klicka på **Visa loggar**på översikts sidan för Log Analytics-arbetsyta.
 
-2. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Du kan också gruppera efter Runbook-namnet genom att använda:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Du kan också gruppera efter Runbook-namnet genom att använda: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Om du ställer in loggar från fler än ett Automation-konto eller en prenumeration på din arbets yta, kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Du hittar namnet på Automation-kontot i `Resource` fältet i sökningen `JobLogs` .
 
@@ -163,26 +154,41 @@ Förutom aviseringar vid fel kan du hitta när ett Runbook-jobb har ett icke-avs
 
 ### <a name="view-job-streams-for-a-job"></a>Visa jobb strömmar för ett jobb
 
-När du felsöker ett jobb kanske du också vill titta på jobb strömmarna. Följande fråga visar alla data strömmar för ett enda jobb med GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:
+När du felsöker ett jobb kanske du också vill titta på jobb strömmarna. Följande fråga visar alla data strömmar för ett enda jobb med GUID `2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0` :
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0"
+| sort by TimeGenerated asc
+| project ResultDescription
+```
 
 ### <a name="view-historical-job-status"></a>Visa historisk jobb status
 
 Slutligen kanske du vill visualisera jobb historiken över tid. Du kan använda den här frågan för att söka efter status för dina jobb över tid.
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
-<br> ![Log Analytics historik jobb status diagram](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
-
-## <a name="remove-diagnostic-settings"></a>Ta bort diagnostikinställningar
-
-Om du vill ta bort den diagnostiska inställningen från Automation-kontot kör du följande kommando:
-
-```powershell-interactive
-$automationAccountId = "[resource ID of your Automation account]"
-
-Remove-AzDiagnosticSetting -ResourceId $automationAccountId
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started"
+| summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)
 ```
+
+![Log Analytics historik jobb status diagram](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)
+
+### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrera jobb status utdata som konverterats till ett JSON-objekt
+
+Nyligen ändrade vi beteendet för hur Automation-loggdata skrivs till `AzureDiagnostics` tabellen i Log Analytics-tjänsten, där den inte längre delar upp JSON-egenskaperna i separata fält. Om du har konfigurerat din Runbook för att formatera objekt i utdataströmmen i JSON-format som separata kolumner, är det nödvändigt att konfigurera om dina frågor för att parsa fältet till ett JSON-objekt för att få åtkomst till dessa egenskaper. Detta görs med hjälp av [parseJSON](../azure-monitor/log-query/json-data-structures.md#parsejson) för att komma åt ett visst JSON-element i en känd sökväg.
+
+En Runbook formaterar till exempel egenskapen *ResultDescription* i UTDATASTRÖMMEN i JSON-format med flera fält. Om du vill söka efter status för jobb som är i ett felaktigt tillstånd enligt vad som anges i ett fält med namnet **status**, använder du den här exempel frågan för att söka i *ResultDescription* med statusen **misslyckades**:
+
+```kusto
+AzureDiagnostics
+| where Category == 'JobStreams'
+| extend jsonResourceDescription = parse_json(ResultDescription)
+| where jsonResourceDescription.Status == 'Failed'
+```
+
+![Log Analytics historisk JSON-format för jobb ström](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

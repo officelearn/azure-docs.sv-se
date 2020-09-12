@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 33f35dc2a8224f496e040b66b2b92bc4c2ec4682
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03dbc481950ed2a020a26dc3af8668c516b66115
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984841"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436023"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-VPN-anslutning till ett VNet med intern Azure-certifikatautentisering: Azure Portal
 
@@ -163,7 +163,7 @@ I dialog rutan nätverk letar du upp den klient profil som du vill använda, ang
 
 Mer information finns i [install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Om du har problem med att ansluta kontrollerar du att den virtuella Nätverksgatewayen inte använder en grundläggande SKU. Basic SKU stöds inte för Mac-klienter.
 
-  ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Anslut")
+  ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Ansluta")
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Så här verifierar du anslutningen
 

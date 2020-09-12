@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f4a345fe62a1d13a6be7dc71ecc0529fec2a6a4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932584"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401511"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -80,9 +80,9 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | datum |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForWindows | sträng |
 | typeHandlerVersion | 1,0 | int |
@@ -206,7 +206,7 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
 Observera följande begränsningar/krav:
 - Key Vault begränsningar:
   - Det måste finnas vid tidpunkten för distributionen 
-  - Key Vault åtkomst princip har angetts för VM/VMSS-identitet med MSI
+  - Key Vault åtkomst princip måste anges för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support

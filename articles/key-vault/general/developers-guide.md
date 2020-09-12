@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585873"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394762"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -67,7 +67,7 @@ Innan du börjar arbeta med nycklar, hemligheter eller certifikat i ditt nyckel 
 - [Ange och hämta ett certifikat med CLI](../certificates/quick-create-cli.md)
 - [Ange och hämta ett certifikat med PowerShell](../certificates/quick-create-powershell.md)
 - [Ange och hämta ett certifikat med Azure Portal](../certificates/quick-create-portal.md)
-- [Nycklar åtgärder med REST](/rest/api/keyvault/#certificate-operations)
+- [Certifikat åtgärder med REST](/rest/api/keyvault/#certificate-operations)
 - [Ange och hämta ett certifikat med python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Koda med Key Vault
@@ -125,7 +125,7 @@ Följande artiklar och scenarier innehåller en detaljerad vägledning för att 
 - [Använda Key Vault för utöknings bar nyckel hantering med SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -SQL Server-anslutning för Azure Key Vault aktiverar SQL Server och SQL-in-a-VM för att utnyttja Azure Key Vault-tjänsten som en EKM-Provider (Extensible Key Management) för att skydda dess krypterings nycklar för program länken. Transparent datakryptering, kryptering av säkerhets kopior och kryptering på kolumn nivå.
 - [Hur du distribuerar certifikat till virtuella datorer från Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) – ett moln program som körs på en virtuell dator i Azure behöver ett certifikat. Hur får du det här certifikatet till den virtuella datorn idag?
 - [Distribuera Azure Web App-certifikat via Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) innehåller steg-för-steg-instruktioner för distribution av certifikat som lagras i Key Vault som en del av [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) erbjudandet.
-- [Bevilja behörighet till många program för att komma åt ett nyckel valv](group-permissions-for-apps.md) Key Vault åtkomst kontroll principen stöder upp till 1024 poster. Du kan dock skapa en Azure Active Directory säkerhets grupp. Lägg till alla associerade tjänst huvud namn i säkerhets gruppen och ge sedan åtkomst till den här säkerhets gruppen till Key Vault.
+- Tilldela en åtkomst princip ([CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  -[Portal](assign-access-policy-portal.md)). Key Vault stöder upp till 1024 åtkomst till princip poster. Om du vill stanna kvar i den här gränsen med användare skapar du Azure Active Directory säkerhets grupper, lägger till alla associerade tjänst huvud namn i gruppen och ger sedan gruppen åtkomst till Key Vault.
 - Mer detaljerad information om hur du integrerar och använder nyckel valv med Azure finns i [Ryan Jones "Azure Resource Manager Template exempel for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Använda Key Vault mjuk borttagning med CLI](soft-delete-cli.md) guidar dig genom användningen och livs cykeln för ett nyckel valv och olika Key Vault-objekt med mjuk borttagning aktiverat.
 - [Använda Key Vault mjuk borttagning med PowerShell](soft-delete-powershell.md) vägleder dig genom användningen och livs cykeln för ett nyckel valv och olika Key Vault-objekt med mjuk borttagning aktiverat.

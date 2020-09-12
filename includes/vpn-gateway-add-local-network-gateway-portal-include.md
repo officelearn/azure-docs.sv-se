@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/04/2019
+ms.date: 09/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9648f4c16e8d266bbdd504d4a7599b67a5c846b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059d15090204c2fce0fddd4b80f4954755ea8f65
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73523915"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89449634"
 ---
 1. Från [Azure Portal](https://portal.azure.com) -menyn väljer du **skapa en resurs**. 
 
-   ![Skapa en resurs i Azure Portal](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
+   ![Skapa en resurs på Azure-portalen](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
 2. I fältet **Sök på Marketplace skriver du** **lokal nätverksgateway**och trycker sedan på **RETUR** för att söka. En lista med resultat returneras. Klicka på **Lokal nätverksgateway** och sedan på knappen **Skapa** för att öppna sidan **Skapa lokal nätverksgateway**.
 
    ![Skapa den lokala nätverksgatewayen](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Skapa den lokala nätverksgatewayen")
@@ -26,7 +26,7 @@ ms.locfileid: "73523915"
 
    - **Namn:** Ange ett namn för ditt lokala gateway-objekt.
    - **IP address:** Det här är den offentliga IP-adressen för den VPN-enhet som du vill att Azure ska ansluta till. Ange en giltig offentlig IP-adress. Om du inte har IP-adressen just nu kan du använda de värden som visas i exemplet. Du behöver dock gå tillbaka och ersätta platshållar-IP-adressen med den offentliga IP-adressen för din VPN-enhet. Azure kommer annars inte kunna ansluta.
-   - **Adressutrymme** refererar till adressintervallen för det nätverk som detta lokala nätverk representerar. Du kan lägga till flera adressintervall. Kontrollera att intervallen du anger här inte överlappar intervallen för andra nätverk som du vill ansluta till. Azure vidarebefordrar det adressintervall som du anger till den lokala VPN-enhetens IP-adress. *Använd egna värden här om du vill ansluta till din lokala plats. Använd inte de värden som visas i exemplet*.
+   - **Adress utrymmet** avser adress intervallen för det nätverk som det lokala objektet representerar (ditt lokala nätverk). Du lägger till de adress utrymmen som du vill dirigera till ditt lokala nätverk. Du kan lägga till flera adressintervall. Kontrollera att intervallen du anger här inte överlappar intervallen för andra nätverk som du vill ansluta till. Azure vidarebefordrar det adressintervall som du anger till den lokala VPN-enhetens IP-adress. *Använd egna värden här om du vill ansluta till din lokala plats. Använd inte de värden som visas i exemplet*.
    - **Konfigurera BGP-inställningar:** Använd endast vid konfigurering av BGP. Annars ska detta inte väljas.
    - **Prenumeration:** Kontrollera att korrekt prenumeration visas.
    - **Resursgrupp:** Välj den resursgrupp som du vill använda. Du kan antingen skapa en ny resursgrupp eller välja en som du redan har skapat.

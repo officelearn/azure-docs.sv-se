@@ -2,18 +2,18 @@
 title: 'Azure-ExpressRoute: ARP-tabeller – fel sökning'
 description: Den här sidan innehåller instruktioner för hur du hämtar ARP-tabeller för en ExpressRoute-krets
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5819717443de1d5742d46994dca2f23579e527a0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9272bb8bac2054d7a02a7eac8c214395a86ceebf
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986464"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394864"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributions modellen för Resource Manager
 > [!div class="op_single_selector"]
@@ -193,7 +193,7 @@ Age InterfaceProperty IpAddress  MacAddress
 * Du ser ingen ARP-tabell för en peering om det finns problem på Microsoft-sidan. 
 * Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Ange att du har problem med Layer 2-anslutning. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * Validera Layer 3-konfigurationer för din ExpressRoute-krets
   * Hämta väg Sammanfattning för att fastställa tillstånd för BGP-sessioner 
   * Hämta routningstabellen för att avgöra vilka prefix som annonseras via ExpressRoute

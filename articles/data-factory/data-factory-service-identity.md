@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037604"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434953"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -32,7 +32,7 @@ När du skapar en data fabrik kan du skapa en hanterad identitet tillsammans med
 Hanterad identitet för Data Factory fördelar följande funktioner:
 
 - [Lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md), i vilket fall Data Factory-hanterad identitet används för Azure Key Vault autentisering.
-- Anslutningar inklusive [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)och [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Anslutningar inklusive [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)och [Azure Synapse Analytics (tidigare SQL Data Warehouse)](connector-azure-sql-data-warehouse.md).
 - [Webb aktivitet](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Generera hanterad identitet

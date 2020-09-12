@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 09/02/2020
+ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271730"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393827"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
 
@@ -98,7 +98,7 @@ Utgivaren kan också ladda upp pris kalkyl bladet till en tillfällig lagrings p
 
 ## <a name="new-core-sizes-added-on-722019"></a>Nya kärn storlekar som lagts till på 7/2/2019
 
-VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storlekar för virtuella Azure-datorer (baserat på antalet kärnor).  De nya priserna är för kärn storlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga virtuella datorer har nya priser för dessa kärnor automatiskt beräknats baserat på aktuella priser.  Utgivare har fram till den 1 augusti 2019 att granska ytterligare priser och göra önskade ändringar.  Efter det här datumet börjar de automatiskt beräknade priserna för de nya kärn storlekarna att gälla, om de inte redan publiceras om av utgivaren.
+VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storlekar för virtuella Azure-datorer (baserat på antalet kärnor).  De nya priserna är för kärn storlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga virtuella datorer har nya priser för dessa kärnor automatiskt beräknats baserat på aktuella priser. Utgivare har fram till den 1 augusti 2019 att granska ytterligare priser och göra önskade ändringar.  Efter det här datumet börjar de automatiskt beräknade priserna för de nya kärn storlekarna att gälla, om de inte redan publiceras om av utgivaren.
 
 ## <a name="regions"></a>Regioner
 
@@ -121,7 +121,7 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | CR         | Costa Rica           | CRC               |
 | HR         | Kroatien              | HRK               |
 | CY         | Cypern               | EUR               |
-| CZ         | Tjeckien       | CZK               |
+| CZ         | Czechia       | CZK               |
 | DK         | Danmark              | DKK               |
 | DO         | Dominikanska republiken   | USD               |
 | EC         | Ecuador              | USD               |
@@ -151,7 +151,6 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litauen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Nordmakedonien      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexico               | MXN               |
@@ -160,6 +159,7 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | NL         | Nederländerna          | EUR               |
 | NZ         | Nya Zeeland          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | Nordmakedonien      | MKD               |
 | NO         | Norge               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |

@@ -2,18 +2,18 @@
 title: 'ExpressRoute: länka ett VNet till en krets: Azure Portal'
 description: Lär dig att skapa en anslutning för att länka ett virtuellt nätverk till en Azure ExpressRoute-krets med hjälp av Azure Portal.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ad222e55f1e3051266c1398d76c8d246e342aba9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 56508503c199b1f822ce8f181689a236f3a0af18
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190930"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395833"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Länka ett virtuellt nätverk till en ExpressRoute-krets med Azure-portalen
 > [!div class="op_single_selector"]

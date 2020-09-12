@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921274"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378805"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Bygg in landnings sidan för ditt SaaS-erbjudande i kommersiellt marknads plats
 
@@ -38,15 +38,15 @@ Landnings sidan innehåller vanligt vis följande:
 I följande avsnitt får du hjälp med processen att skapa en landnings sida:
 
 1. [Skapa en Azure AD-App-registrering](#create-an-azure-ad-app-registration) för landnings sidan.
-2. [Använd ett kod exempel som utgångs punkt](#use-a-code-sample-as-a-starting-point) för din app.
-3. [Lös identifierings-token för Marketplace-inköp](#resolve-the-marketplace-purchase-identification-token) som lagts till URL: en av den kommersiella Marketplace.
-4. [Läs information från anspråk som kodats i ID-token](#read-information-from-claims-encoded-in-the-id-token), som togs emot från Azure AD efter inloggning, som skickades med begäran.
-5. [Använd Microsoft Graph API](#use-the-microsoft-graph-api) för att samla in ytterligare information, efter behov.
-6. [Använd två Azure AD-appar för att förbättra säkerheten i produktionen](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Använd ett kod exempel som utgångs punkt](#use-a-code-sample-as-a-starting-point) för din app.
+1. [Använd två Azure AD-appar för att förbättra säkerheten i produktionen](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Lös identifierings-token för Marketplace-inköp](#resolve-the-marketplace-purchase-identification-token) som lagts till URL: en av den kommersiella Marketplace.
+1. [Läs information från anspråk som kodats i ID-token](#read-information-from-claims-encoded-in-the-id-token), som togs emot från Azure AD efter inloggning, som skickades med begäran.
+1. [Använd Microsoft Graph API](#use-the-microsoft-graph-api) för att samla in ytterligare information, efter behov.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-App-registrering
 
-Den kommersiella marknads platsen är helt integrerad med Azure AD. Köpare kommer till Marketplace som autentiserats med ett [Azure AD-konto eller Microsoft-konto (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Efter köpet går köparen från den kommersiella marknads platsen till din landnings sidas URL för att aktivera och hantera prenumerationen på ditt SaaS-program. Du måste låta köparen logga in till ditt program med Azure AD SSO. (Landnings sidans URL anges på erbjudandets [tekniska konfigurations](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) sida.
+Den kommersiella marknads platsen är helt integrerad med Azure AD. Köpare kommer till Marketplace som autentiserats med ett [Azure AD-konto eller Microsoft-konto (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Efter köpet går köparen från den kommersiella marknads platsen till din landnings sidas URL för att aktivera och hantera prenumerationen på ditt SaaS-program. Du måste låta köparen logga in till ditt program med Azure AD SSO. (Landnings sidans URL anges på erbjudandets [tekniska konfigurations](plan-saas-offer.md#technical-information) sida.
 
 Det första steget för att använda identiteten är att se till att din landnings sida registreras som ett Azure AD-program. Genom att registrera programmet kan du använda Azure AD för att autentisera användare och begära åtkomst till användar resurser. Det kan anses vara programmets definition, som gör att tjänsten vet hur token ska utfärdas till appen baserat på appens inställningar.
 
@@ -82,7 +82,7 @@ Detta gör det möjligt för lösningen att fungera i scenarier som ser till att
 När köparen skickas till landnings sidan läggs en token till i URL-parametern. Den här token skiljer sig från både Azure AD-utfärdade token och åtkomsttoken som används för tjänst-till-tjänst-autentisering och används som indata för [API: erna för SaaS-uppfyllande](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) anrop för att hämta information om prenumerationen. Precis som med alla anrop till SaaS-API: er, autentiseras din tjänst-till-tjänst-begäran med en åtkomsttoken som baseras på appens Azure AD Application ID-användare för tjänst-till-tjänst-autentisering.
 
 > [!NOTE]
-> I de flesta fall är det bättre att göra det här anropet från ett andra program med en enda klient. Se [använda två Azure AD-appar för att förbättra säkerheten i produktion](#use-two-azure-ad-apps-to-improve-security-in-production) senare i den här artikeln.
+> I de flesta fall är det bättre att göra det här anropet från ett andra program med en enda klient. Se [använda två Azure AD-appar för att förbättra säkerheten i produktionen](#use-two-azure-ad-apps-to-improve-security-in-production) tidigare i den här artikeln.
 
 ### <a name="request-an-access-token"></a>Begär en åtkomsttoken
 
@@ -131,4 +131,4 @@ De flesta appar som är registrerade med Azure AD tilldelar delegerade behörigh
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett SaaS-erbjudande på den kommersiella Marketplace](./partner-center-portal/create-new-saas-offer.md)
+- [Så här skapar du ett SaaS-erbjudande på den kommersiella Marketplace](create-new-saas-offer.md)

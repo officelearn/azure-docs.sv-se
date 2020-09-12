@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute Private peering: konfigurera IPsec-transportläge – Windows-värdar'
 description: Så här aktiverar du IPsec-transportläge mellan virtuella Azure Windows-datorer och lokala Windows-värdar via ExpressRoute privata peering med hjälp av grup princip objekt och organisationsenheter.
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737265"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396496"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPsec-transportläge för privat ExpressRoute-peering
 
@@ -161,7 +161,7 @@ Skapa en filter lista som anger krypterad HTTP-trafik med mål porten 8080.
 2. I fältet **Namn:** anger du ett namn för IP-filterlistan. Till exempel **Azure-onpremises-HTTP8080**. Klicka sedan på **Lägg till**.
 
    [![25]][25]
-3. På sidan **Beskrivning av IP-filter och speglad egenskap** väljer du **speglad**. Den speglade inställningen matchar paket som går i båda riktningarna, vilket möjliggör tvåvägs kommunikation. Klicka sedan på **Nästa**.
+3. På sidan **Beskrivning av IP-filter och speglad egenskap** väljer du **speglad**. Den speglade inställningen matchar paket som går i båda riktningarna, vilket möjliggör tvåvägs kommunikation. Klicka på **Nästa**.
 
    [![26]][26]
 4. På sidan källa för **IP-trafikkälla** väljer du **en speciell IP-adress eller ett undernät**i list rutan **käll adress:** . 
@@ -246,7 +246,7 @@ Lägg till IPsec-principen i **IP-filterlistan** och **filter åtgärden** som d
 4. **Nätverks typ** definierar vilken nätverks anslutning som associeras med säkerhets principen. Välj **alla nätverks anslutningar**och klicka sedan på **Nästa**.
 
    [![44]][44]
-5. Välj den IP-filterlista som du skapade tidigare, **Azure-onpremises-HTTP8080**och klicka sedan på **Nästa**.
+5. Välj den IP-filterlista som du skapade tidigare,  **Azure-onpremises-HTTP8080**och klicka sedan på **Nästa**.
 
    [![45]][45]
 6. Välj den befintliga filter åtgärdens **kryptering** som du skapade tidigare.

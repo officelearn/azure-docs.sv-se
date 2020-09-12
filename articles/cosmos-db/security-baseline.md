@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99985ba8540a347977b9eaf2e733a308fa777b97
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231409"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401630"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
 
@@ -890,9 +890,11 @@ Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/a
 
 Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity
+Så här autentiserar du till Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Så här tilldelar du en Key Vault åtkomst princip: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center övervakning**: Ja
 

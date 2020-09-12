@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 7025d042fa021c6ee5311566d66bfd090dbd06cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851587"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443202"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
 I den här artikeln ges en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Lär dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * [Visual Studio 2013, 2015 eller 2017](https://www.visualstudio.com/)
 * [Python Tools för Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools för VS 2013][Azure SDK Tools for VS 2013] eller  
@@ -288,7 +288,7 @@ else
 #### <a name="pscmd"></a>ps.cmd
 Visual Studio-mallarna ska ha skapat en **ps.cmd**-fil i **. / bin**-mappen. Detta gränssnittsskript anropar PowerShell-omslutningsskripten ovan och tillhandahåller loggning baserat på namnet på den anropade PowerShell-omslutningen. Detta är vad som bör finnas i den, om filen inte skapades. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0
@@ -337,7 +337,7 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 * [Tabelltjänst][Table Service]
 * [Kötjänst][Queue Service]
 * [Service Bus köer][Service Bus Queues]
-* [Service Bus-avsnitt][Service Bus Topics]
+* [Service Bus ämnen][Service Bus Topics]
 
 <!--Link references-->
 

@@ -3,20 +3,20 @@ title: Azure frontend – säkerhet på program nivå | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå hur Azures front dörr gör det möjligt att skydda och skydda dina Programserver delar
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471803"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399947"
 ---
 # <a name="application-layer-security-with-front-door"></a>Säkerhet på program nivå med front dörr
 Azures front dörr tillhandahåller funktioner för webb program skydd för att skydda dina webb program mot nätverks attacker och vanliga webb sårbarheter utnyttjar som SQL-inmatning eller Cross Site Scripting (XSS). Aktive rad för http (s)-frontend, den främre dörrens program nivå säkerhet, är globalt distribuerat och alltid aktiverat, och stoppar skadliga attacker på Azures nätverks gräns, långt bort från dina Server delar. Med extra säkerhet och prestanda optimering ger front dörren snabba och säkra webb upplevelser för dina slutanvändare.

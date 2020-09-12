@@ -2,21 +2,21 @@
 title: 'Azure-ExpressRoute: Konfigurera peering: klassisk'
 description: Den här artikeln vägleder dig genom stegen för att skapa och etablera privat, offentlig och Microsoft-peering av en ExpressRoute-krets. I artikeln får du även se hur man kontrollerar status, uppdaterar eller tar bort peerings för din krets.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc
-ms.openlocfilehash: 9cad8a157121c0ccb53674301572b02410e030cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a4a3bad1e868fa0e75611630ffb5db5ba13126b6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736245"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395561"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Skapa och ändra peering för en ExpressRoute-krets (klassisk)
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Video-privat peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -44,7 +44,7 @@ Dessa anvisningar gäller endast för kretsar som skapats med tjänst leverantö
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
-## <a name="azure-private-peering"></a>Azures privata peering
+## <a name="azure-private-peering"></a>Privat peering i Azure
 
 Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar och tar bort Azures privata peeringskonfiguration för en ExpressRoute-krets. 
 
@@ -147,7 +147,7 @@ Du kan ta bort peering-konfigurationen genom att köra följande cmdlet. Du mås
 Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 ```
 
-## <a name="azure-public-peering"></a>Azures offentliga peering
+## <a name="azure-public-peering"></a>Offentlig peering i Azure
 
 Det här avsnittet innehåller anvisningar om hur du skapar, hämtar, uppdaterar och tar bort Azures offentliga peeringskonfiguration för en ExpressRoute-krets.
 

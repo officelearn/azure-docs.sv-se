@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/20/2017
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 00291373ae1e30eca2fdf5f9435fc2201a492e40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988063"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400168"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Översikt över konfigurationer för VPN-enheter för partner
 Den här artikeln innehåller en översikt över hur du konfigurerar lokala VPN-enheter för anslutning till Azure VPN-gatewayer. Ett Azure-exempel för virtuella Azure-nätverk och VPN-gateway används för att visa hur du ansluter till olika lokala VPN-enheters konfigurationer med samma parametrar.
@@ -43,7 +43,7 @@ I det här avsnittet visas parametrarna för de exempel som beskrivs i föregåe
 | * Lokalt BGP-ASN         | 65050                        |
 | * Lokal BGP peer-IP     | 10.52.255.254                |
 
-\*Valfri parameter för endast BGP.
+\* Valfri parameter för endast BGP.
 
 ### <a name="sample-powershell-script"></a>Exempel på PowerShell-skript
 Det här avsnittet innehåller ett exempel skript som hjälper dig att komma igång. Detaljerade anvisningar finns i [skapa en S2S VPN-anslutning med hjälp av PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).

@@ -2,17 +2,17 @@
 title: 'ExpressRoute: Konfigurera anpassade aviseringar för annonserade vägar'
 description: Den här artikeln visar hur du använder Azure Automation och Logic Apps för att övervaka antalet vägar som annonseras från ExpressRoute-gatewayen till lokala nätverk för att förhindra att gränsen på 200-vägar påträffas.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
-ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738489"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401732"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
 
@@ -78,7 +78,7 @@ Som standard tilldelas **deltagar** rollen till tjänstens huvud namn som använ
 
 2. Välj **roller** för att visa den roll definition som används.
 
-   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Tilldela roll":::
+   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Tilldela rollen":::
 
 ## <a name="create-and-configure-runbooks"></a><a name="runbooks"></a>Skapa och konfigurera Runbooks
 
@@ -247,7 +247,7 @@ När du kör PowerShell-skriptet samlas en lista med värden in:
 
 * Antal nätverks prefix som annonseras från ExpressRoute-gatewayen till den andra BGP-peer (peer2)
 
-* Tidsstämpel
+* Timestamp
 
 * Status, klassificerad som:
 
@@ -257,7 +257,7 @@ När du kör PowerShell-skriptet samlas en lista med värden in:
 
 * Aviserings meddelande för utförlig beskrivning av statusen (OK, AVISERING, varning)
 
-PowerShell-skriptet konverterar insamlad information till JSON-utdata. I Runbook används PowerShell-cmdleten [Write-output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) som utdataström för att kommunicera information till klienten.
+PowerShell-skriptet konverterar insamlad information till JSON-utdata. I Runbook används PowerShell-cmdleten [Write-output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  som utdataström för att kommunicera information till klienten.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. validera runbooken
 
@@ -314,7 +314,7 @@ En Logic app får åtkomst till andra appar, tjänster och plattformen via anslu
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Logga in":::
 
-4. Skriv ett **anslutnings namn**, Lägg till ditt **klient-ID** (program-ID), **klient hemlighet**och klient **-ID**. Välj sedan **skapa**.
+4. Skriv ett **anslutnings namn**, Lägg till ditt **klient-ID** (program-ID), **klient hemlighet**och klient **-ID**. Välj sedan **Skapa**.
 
    :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Anslut med tjänstens huvud namn":::
 
@@ -431,7 +431,7 @@ Logic Apps innehåller många e-postanslutningar. I det här exemplet lägger vi
 
 1. Välj **Office 365 Outlook**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/email.png" alt-text="Skicka e-post":::
+   :::image type="content" source="./media/custom-route-alert-portal/email.png" alt-text="Skicka e-postmeddelande":::
 
 2. I listan **åtgärder** väljer du **Skicka ett e-postmeddelande (v2)**.
 

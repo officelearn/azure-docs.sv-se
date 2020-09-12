@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877989"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443168"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Använd Visuellt innehåll container med Kubernetes och Helm
 
@@ -25,9 +25,9 @@ Ett alternativ för att hantera dina Visuellt innehåll behållare lokalt är at
 
 Följande krav gäller innan du använder Visuellt innehåll behållare lokalt:
 
-| Krävs | Syfte |
+| Obligatorisk | Syfte |
 |----------|---------|
-| Azure-konto | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][free-azure-account] konto innan du börjar. |
+| Azure-konto | Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
 | Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från behållar registret. Kubernetes krävs också innan Helm, som är Kubernetes Package Manager. |
 | Helm CLI | Installera [Helm CLI][helm-install], som används för att installera ett Helm-diagram (definition av container paket). |
 | Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**|
@@ -48,9 +48,9 @@ Värddatorn förväntas ha ett tillgängligt Kubernetes-kluster. I den här sjä
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Dela Docker-autentiseringsuppgifter med Kubernetes-klustret
 
-Om du vill tillåta Kubernetes- `docker pull` klustret till de konfigurerade avbildningarna från `containerpreview.azurecr.io` behållar registret måste du överföra Docker-autentiseringsuppgifterna till klustret. Kör [`kubectl create`][kubectl-create] kommandot nedan för att skapa en *Docker-register hemlighet* baserat på de autentiseringsuppgifter som tillhandahålls från behållar registrets åtkomst krav.
+Om du vill tillåta Kubernetes-klustret till `docker pull` de konfigurerade avbildningarna från `containerpreview.azurecr.io` behållar registret måste du överföra Docker-autentiseringsuppgifterna till klustret. Kör [`kubectl create`][kubectl-create] kommandot nedan för att skapa en *Docker-register hemlighet* baserat på de autentiseringsuppgifter som tillhandahålls från behållar registrets åtkomst krav.
 
-Kör följande kommando från det kommando rads gränssnitt du väljer. Se till att ersätta `<username>`, `<password>`och `<email-address>` med autentiseringsuppgifterna för behållar registret.
+Kör följande kommando från det kommando rads gränssnitt du väljer. Se till att ersätta `<username>` , `<password>` och `<email-address>` med autentiseringsuppgifterna för behållar registret.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -74,13 +74,13 @@ Följande utdata skrivs ut till-konsolen när hemligheten har skapats.
 secret "containerpreview" created
 ```
 
-Verifiera att hemligheten har skapats genom att köra [`kubectl get`][kubectl-get] med- `secrets` flaggan.
+Verifiera att hemligheten har skapats genom att köra med- [`kubectl get`][kubectl-get] `secrets` flaggan.
 
 ```console
 kubectl get secrets
 ```
 
-Att `kubectl get secrets` köra skriver ut alla konfigurerade hemligheter.
+Att köra `kubectl get secrets` skriver ut alla konfigurerade hemligheter.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
@@ -89,16 +89,25 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurera Helm för distribution
 
-Börja med att skapa en mapp med namnet *Read*och klistra sedan in följande yaml-innehåll i en ny fil med namnet *Chart. yml*.
+Börja med att skapa en mapp med namnet *Read*. Klistra sedan in följande YAML-innehåll i en ny fil med namnet `chart.yaml` :
 
 ```yaml
-apiVersion: v1
+apiVersion: v2
 name: read
 version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+dependencies:
+- name: rabbitmq
+  condition: read.image.args.rabbitmq.enabled
+  version: ^6.12.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
+- name: redis
+  condition: read.image.args.redis.enabled
+  version: ^6.0.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Om du vill konfigurera standardvärdena för Helm-diagrammet kopierar du och klistrar in följande `values.yaml`yaml i en fil med namnet. Ersätt kommentarerna `# {ENDPOINT_URI}` och `# {API_KEY}` med dina egna värden.
+Om du vill konfigurera standardvärdena för Helm-diagrammet kopierar du och klistrar in följande YAML i en fil med namnet `values.yaml` . Ersätt `# {ENDPOINT_URI}` kommentarerna och `# {API_KEY}` med dina egna värden. Konfigurera resultExpirationPeriod, Redis och RabbitMQ om det behövs.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -107,7 +116,7 @@ read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry: containerpreview.azurecr.io/
+    registry:  containerpreview.azurecr.io/
     repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
@@ -115,25 +124,52 @@ read:
       eula: accept
       billing: # {ENDPOINT_URI}
       apikey: # {API_KEY}
+      
+      # Result expiration period setting. Specify when the system should clean up recognition results.
+      # For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.
+      # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
+      resultExpirationPeriod: 1
+      
+      # Redis storage, if configured, will be used by read container to store result records.
+      # A cache is required if multiple read containers are placed behind load balancer.
+      redis:
+        enabled: false # {true/false}
+        password: password
+
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # placed behind load balancer.
+      rabbitmq:
+        enabled: false # {true/false}
+        rabbitmq:
+          username: user
+          password: password
 ```
 
 > [!IMPORTANT]
-> Om värdena `billing` och `apikey` inte har angetts upphör tjänsterna att gälla efter 15 min. Det går inte heller att verifiera eftersom tjänsterna inte är tillgängliga.
+> - Om `billing` värdena och `apikey` inte har angetts upphör tjänsterna att gälla efter 15 minuter. Verifieringen Miss lyckas på samma sätt eftersom tjänsterna inte är tillgängliga.
+> 
+> - Om du distribuerar flera Läs behållare bakom en belastningsutjämnare, till exempel, under Docker Compose eller Kubernetes, måste du ha ett externt cacheminne. Eftersom bearbetnings behållaren och behållaren GET Request inte kan vara samma, lagrar ett externt cacheminne resultaten och delar över behållare. Mer information om cacheinställningar finns i [konfigurera visuellt innehåll Docker-behållare](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+>
 
-Skapa en mapp för *mallar* under *Läs* katalogen. Kopiera och klistra in följande YAML i en fil med `deployment.yaml`namnet. `deployment.yaml` Filen fungerar som en Helm-mall.
+Skapa en mapp för *mallar* under *Läs* katalogen. Kopiera och klistra in följande YAML i en fil med namnet `deployment.yaml` . `deployment.yaml`Filen fungerar som en Helm-mall.
 
 > Mallar genererar MANIFEST filer, som är YAML-formaterade resurs beskrivningar som Kubernetes kan förstå. [– Helm diagram mal len guide][chart-template-guide]
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: read
+  labels:
+    app: read-deployment
 spec:
+  selector:
+    matchLabels:
+      app: read-app
   template:
     metadata:
       labels:
-        app: read-app
+        app: read-app       
     spec:
       containers:
       - name: {{.Values.read.image.name}}
@@ -147,14 +183,23 @@ spec:
           value: {{.Values.read.image.args.billing}}
         - name: apikey
           value: {{.Values.read.image.args.apikey}}
+        args:        
+        - ReadEngineConfig:ResultExpirationPeriod={{ .Values.read.image.args.resultExpirationPeriod }}
+        {{- if .Values.read.image.args.rabbitmq.enabled }}
+        - Queue:RabbitMQ:HostName={{ include "rabbitmq.hostname" . }}
+        - Queue:RabbitMQ:Username={{ .Values.read.image.args.rabbitmq.rabbitmq.username }}
+        - Queue:RabbitMQ:Password={{ .Values.read.image.args.rabbitmq.rabbitmq.password }}
+        {{- end }}      
+        {{- if .Values.read.image.args.redis.enabled }}
+        - Cache:Redis:Configuration={{ include "redis.connStr" . }}
+        {{- end }}
       imagePullSecrets:
-      - name: {{.Values.read.image.pullSecret}}
-
+      - name: {{.Values.read.image.pullSecret}}      
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: read
+  name: read-service
 spec:
   type: LoadBalancer
   ports:
@@ -163,6 +208,21 @@ spec:
     app: read-app
 ```
 
+I mappen samma *mallar* kopierar du och klistrar in följande hjälp funktioner i `helpers.tpl` . `helpers.tpl` definierar användbara funktioner som hjälper dig att skapa Helm-mallen.
+
+```yaml
+{{- define "rabbitmq.hostname" -}}
+{{- printf "%s-rabbitmq" .Release.Name -}}
+{{- end -}}
+
+{{- define "redis.connStr" -}}
+{{- $hostMaster := printf "%s-redis-master:6379" .Release.Name }}
+{{- $hostSlave := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
+{{- $connTail := "ssl=False,abortConnect=False" -}}
+{{- printf "%s,%s,%s,%s" $hostMaster $hostSlave $passWord $connTail -}}
+{{- end -}}
+```
 Mallen anger en belastnings Utjämnings tjänst och distributionen av din behållare/avbildning för läsning.
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes-paketet (Helm-diagrammet)
@@ -235,7 +295,7 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 Mer information om hur du installerar program med Helm i Azure Kubernetes service (AKS) [finns här][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Cognitive Services behållare][cog-svcs-containers]
+> [Cognitive Services-containrar][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

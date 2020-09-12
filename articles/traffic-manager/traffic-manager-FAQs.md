@@ -3,20 +3,20 @@ title: Vanliga frågor och svar om Azure Traffic Manager
 description: Den här artikeln innehåller svar på vanliga frågor om Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: rohink
-ms.openlocfilehash: 2a3293cac15636ddf29df24cc1eff471aee25ec1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.author: duau
+ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926543"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400185"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -497,7 +497,7 @@ Den överordnade profilen utför inte hälso kontroller på den underordnade dir
 
 I följande tabell beskrivs beteendet för Traffic Manager hälso kontroller för en kapslad slut punkt.
 
-| Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Anteckningar |
+| Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Kommentarer |
 | --- | --- | --- |
 | Inaktiverat Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
 | Försämrad. Minst en underordnad profil slut punkt är i ett degraderat tillstånd. |Online: antalet Online-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>CheckingEndpoint: antalet online-och CheckingEndpoint-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>Degraderad: annars. |Trafiken dirigeras till en slut punkt med status CheckingEndpoint. Om MinChildEndpoints har angetts för hög försämras slut punkten alltid. |

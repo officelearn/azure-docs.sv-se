@@ -3,20 +3,20 @@ title: Azure front dörr – URL-omdirigering | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå hur Azures front dörr stöder URL-omdirigering för deras vägar, om den är konfigurerad.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295481"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399046"
 ---
 # <a name="url-redirect"></a>URL-omdirigering
 Du kan använda Azures frontend-dörr för att dirigera om trafik. Du kan omdirigera trafik på flera nivåer (protokoll, värdnamn, sökväg, frågesträng) och alla funktioner kan konfigureras för enskilda mikrotjänster eftersom omdirigeringen är sökväg-baserad. Detta fören klar program konfigurationen, optimerar resursanvändningen och har stöd för nya omdirigerings scenarier, inklusive global och Sök vägs baserad omdirigering.
@@ -43,7 +43,7 @@ Du kan ange det protokoll som ska användas för omdirigering. Detta gör att en
 Som en del av konfigureringen av en Omdirigerad routning kan du också ändra värdnamn eller domän för omdirigerings förfrågan. Du kan ange det här fältet om du vill ändra värd namnet i URL: en för omdirigeringen eller på annat sätt bevara värd namnet från den inkommande begäran. Därför kan du använda det här fältet för att dirigera om alla förfrågningar `https://www.contoso.com/*` som skickas till `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Målsökväg
-I de fall där du vill ersätta Sök vägs segmentet för en URL som en del av omdirigeringen kan du ange det här fältet med värdet för ny sökväg. Annars kan du välja att bevara värdet för sökvägen som en del av omdirigeringen. Därför kan du använda det här fältet för att omdirigera alla begär Anden som skickas till `https://www.contoso.com/\*` till `https://www.contoso.com/redirected-site` .
+I de fall där du vill ersätta Sök vägs segmentet för en URL som en del av omdirigeringen kan du ange det här fältet med värdet för ny sökväg. Annars kan du välja att bevara värdet för sökvägen som en del av omdirigeringen. Därför kan du använda det här fältet för att omdirigera alla begär Anden som skickas till `https://www.contoso.com/\*` till  `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parametrar för frågesträng
 Du kan även ersätta Frågesträngens parametrar i den omdirigerade URL: en. För att ersätta en befintlig frågesträng från URL: en för inkommande begäran anger du fältet till Ersätt och anger sedan lämpligt värde. Annars kan du behålla den ursprungliga uppsättningen frågesträngar genom att ange fältet till "Preserve". Som exempel kan du använda det här fältet för att omdirigera all trafik som skickas till `https://www.contoso.com/foo/bar` till `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 

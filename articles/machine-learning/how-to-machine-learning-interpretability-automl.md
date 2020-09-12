@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306425"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419120"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Tolkning: modell förklaringar i automatiserad Machine Learning (för hands version)
 
@@ -39,6 +39,14 @@ I den här artikeln kan du se hur du:
 ## <a name="interpretability-during-training-for-the-best-model"></a>Tolkning under utbildning för bästa modell
 
 Hämta förklaringen från `best_run` , som innehåller förklaringar för de funktioner som har utvecklats.
+
+> [!Warning]
+> Tolkning, bästa modell förklaring, är inte tillgänglig för experiment med automatisk ML-prognoser som rekommenderar följande algoritmer som bästa modell: 
+> * ForecastTCN
+> * Medelvärde 
+> * Naive
+> * Säsongs genomsnitt 
+> * Säsongs Naive
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Hämtnings bar funktions prioritet från artefakt arkivet
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>Tolkning under härledning
+## <a name="interpretability-during-inference"></a>Tolkning under härledning
 
 I det här avsnittet får du lära dig hur du operationalisera en automatiserad ML-modell med den förklaring som användes för att beräkna förklaringarna i föregående avsnitt.
 

@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010945"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426273"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skripttillägg för Windows
 
@@ -23,7 +23,7 @@ Det anpassade skript tillägget laddar ned och kör skript på virtuella Azure-d
 
 Det här dokumentet beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!NOTE]  
 > Använd inte anpassat skript tillägg för att köra Update-AzVM med samma virtuella dator som parametern, eftersom det väntar på sig själv.  
@@ -60,6 +60,7 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * Skripten kan köra i 90 minuter. Längre körningar gör att etableringen av tillägget misslyckas.
 * Lägg inte in omstarter i skriptet eftersom det leder till problem med andra tillägg som installeras. Tillägget fortsätter inte efter omstarten.
 * Om du har ett skript som gör en omstart, sedan installerar program och kör skript, kan du schemalägga omstarten med en schemalagd aktivitet i Windows eller använda verktyg som DSC, chef eller Puppet-tillägg.
+* Vi rekommenderar inte att du kör ett skript som gör att VM-agenten stoppas eller uppdateras. Detta kan ge tillägget i ett över gångs tillstånd, vilket leder till en tids gräns.
 * Tillägget kör bara ett skript en gång. Om du vill köra ett skript vid varje start måste du använda tillägget för att skapa en schemalagd uppgift i Windows.
 * Om du vill schemalägga när ett skript ska köras använder du tillägget för att skapa en schemalagd uppgift i Windows.
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du behöver mer frekventa statusuppdateringar för ett skript som körs måste du skapa en egen lösning.
@@ -121,9 +122,9 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | datum |
 | utgivare | Microsoft.Compute | sträng |
 | typ | CustomScriptExtension | sträng |
 | typeHandlerVersion | 1,10 | int |
@@ -141,7 +142,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 * `commandToExecute`: (**krävs**, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord, eller om dina fileUris är känsliga.
 * `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.
-* `timestamp`(valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
+* `timestamp` (valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
 * `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter `fileUris` för lagring måste alla vara URL: er för Azure-blobar.
 * `storageAccountKey`: (valfritt, sträng) åtkomst nyckeln för lagrings kontot
 * `managedIdentity`: (valfritt, JSON-objekt) den [hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för nedladdning av fil (er)
@@ -291,7 +292,7 @@ Om du vill distribuera tillägget för anpassat skript i en skalnings uppsättni
 
 Om du vill distribuera tillägget för anpassat skript på klassiska virtuella datorer kan du använda Azure Portal eller de klassiska Azure PowerShell-cmdletarna.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Navigera till den klassiska VM-resursen. Välj **tillägg** under **Inställningar**.
 
@@ -319,7 +320,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Kör följande kommando för att se distributions status för tillägg för en virtuell dator:
 

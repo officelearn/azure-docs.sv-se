@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: design för katastrof återställning'
 description: Den här sidan innehåller arkitektur rekommendationer för haveri beredskap när du använder Azure-ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
-ms.author: rambala
-ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 0c85272989a362da77b01af7bb1fe968516e53b6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081176"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398010"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Design för haveri beredskap med ExpressRoute privat peering
 
@@ -114,7 +114,7 @@ I det första scenariot kan vi utforma haveri beredskap, så att all trafik mell
 
 Scenario 1 illustreras i följande diagram. I diagrammet indikerar gröna linjer sökvägar för trafikflöde mellan VNet1 och lokala nätverk. De blå linjerna indikerar vägar för trafikflöde mellan VNet2 och lokala nätverk. Heldragna linjer anger önskad sökväg i stabilt läge och de streckade linjerna indikerar trafik Sök vägen vid en ExpressRoute-krets som har ett stabilt tillstånds trafikflöde. 
 
-[![7]][7]
+[![3,7]][7]
 
 Du kan skapa scenariot med anslutnings vikt för att påverka virtuella nätverk för att föredra anslutning till den lokala peering-platsen ExpressRoute för den lokala nätverks bindnings trafiken. För att slutföra lösningen måste du se till att symmetriskt flöde för trafikflödet återställs. Du kan använda lokal inställning på iBGP-sessionen mellan BGP-routrarna (där ExpressRoute-kretsar avslutas på den lokala sidan) för att föredra en ExpressRoute-krets. Lösningen illustreras i följande diagram. 
 

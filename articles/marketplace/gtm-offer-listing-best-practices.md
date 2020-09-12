@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816277"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420939"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -34,7 +34,7 @@ Kategorier och branscher för en annan onlinebutik kan tillämpas på olika type
 
 | Onlinebutik | Kategorier <br>per onlinebutik | Kategorier <br>per onlinebutik | Branscher <br> för AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Erbjudande typ**   |  **Azure Marketplace**  | **AppSource**  |
+| **Erbjudandetyp**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
 | Container | X | |
 | Rådgivningstjänster | | | X |
@@ -48,11 +48,11 @@ Kategorier och branscher för en annan onlinebutik kan tillämpas på olika type
 
 ### <a name="categories"></a>Kategorier
 
-Microsoft AppSource och Azure Marketplace är två olika onlinebutiker som hanterar unika kund krav. Azure Marketplace riktar sig IT-proffs och utvecklare som skapar lösningar på Azure.  Microsoft AppSource riktar sig till företags användare som söker företag och/eller SaaS program, Dynamics 365-tillägg, Microsoft 365 tillägg och Power Platform-appar.
+Microsoft AppSource och Azure Marketplace är onlinebutiker som erbjuder olika lösnings typer. Azure Marketplace erbjuder IT-lösningar som bygger på eller för Azure.  Microsoft AppSource erbjuder affärs lösningar som bransch SaaS program, Dynamics 365-tillägg, Microsoft 365-tillägg och Power Platform-appar.
 
-Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål mål gruppen. Ditt erbjudande publiceras till Microsoft AppSource eller Azure Marketplace beroende på erbjudande typen, transaktions funktioner för val av erbjudande och kategori/under kategori. 
+Kategorier och under Kategorier mappas till varje onlinebutik utifrån lösnings typen. Ditt erbjudande publiceras till Microsoft AppSource eller Azure Marketplace beroende på erbjudande typen, transaktions funktioner för val av erbjudande och kategori/under kategori. 
 
-Välj kategorier och under kategorier som passar bäst för ditt erbjudande och din avsedda mål grupp. Du kan välja:
+Välj kategorier och under kategorier som bäst överensstämmer med din lösnings typ. Du kan välja:
 
 * Upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
 * Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kan du fortfarande bara identifiera i den valda kategorin.

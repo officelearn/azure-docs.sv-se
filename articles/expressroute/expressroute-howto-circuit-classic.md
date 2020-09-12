@@ -2,18 +2,18 @@
 title: 'Azure-ExpressRoute: ändra en krets: PowerShell: klassisk'
 description: Den här artikeln vägleder dig igenom stegen för att kontrol lera status, uppdatera eller ta bort och avetablera din ExpressRoute klassiska distributions modell krets.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 801032e3df9dcb778fa4e591ef37eabc317e997a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073344"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396292"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Ändra en ExpressRoute-krets med PowerShell (klassisk)
 
@@ -21,7 +21,7 @@ ms.locfileid: "89073344"
 > * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure Resource Manager mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >

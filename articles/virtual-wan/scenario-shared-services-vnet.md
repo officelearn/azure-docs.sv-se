@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006493"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399998"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: dirigera till delade tjänster virtuella nätverk
 
@@ -22,9 +22,9 @@ När du arbetar med virtuell WAN-routning för virtuella WAN finns det några ti
 
 Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Utforma
+## <a name="design"></a><a name="design"></a>Design
 
-Vi kan använda en anslutnings mat ris för att sammanfatta kraven i det här scenariot. I matrisen beskriver varje cell om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde.
+Vi kan använda en anslutnings mat ris för att sammanfatta kraven i det här scenariot. I matrisen beskriver varje cell om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde. Ett "X" innebär att anslutningen tillhandahålls av Virtual WAN:
 
 **Anslutnings mat ris**
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f1e95c1244d327478862c3919481394d974ea42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270346"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419273"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure (för hands version)
 
@@ -61,6 +61,10 @@ Mer information om definitioner av inbyggda Azure-roller finns i [inbyggda rolle
 Den nya Azure RBAC-behörighets modellen för Key Vault ger ett alternativ till åtkomst princips modellen för valv. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Aktivera Azure RBAC-behörigheter på Key Vault
+
+Under för hands versionen måste du använda Azure RBAC-taggen (Microsoft_Azure_KeyVault_RBACEnabled = true) för att se de nya behörighets modell alternativen.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Om du ställer in Azure RBAC-behörighets modell inaktive ras alla behörigheter för åtkomst principer. Det kan orsaka avbrott när motsvarande Azure-roller inte är tilldelade.
@@ -206,15 +210,13 @@ Mer information om hur du skapar anpassade roller finns i:
 
 [Anpassade roller i Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-Kontrol lera bilaga för tillgängliga åtgärder: **tillgängliga åtgärder**
-
 ## <a name="known-limits-and-performance"></a>Kända begränsningar och prestanda
 
 -   2000 Azure-roll tilldelningar per prenumeration
 
 -   Svars tid för roll tilldelningar: vid aktuell förväntad prestanda tar det upp till 10 minuter (600 sekunder) efter att roll tilldelningarna har ändrats för att rollen ska tillämpas
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
 - [Översikt över Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Själv studie kurs om anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)

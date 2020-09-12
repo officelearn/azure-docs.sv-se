@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar och konfigurerar Ultra disks i ett Azure 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650187"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420871"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Använd Azure Ultra disks på Azure Kubernetes service (för hands version)
 
@@ -21,11 +21,6 @@ Den här funktionen kan bara ställas in när klustret skapas eller när en nod 
 
 > [!IMPORTANT]
 > Azure Ultra disks kräver att nodepools distribueras i tillgänglighets zoner och regioner som har stöd för dessa diskar samt endast vissa VM-serier. Se [**omfattning och begränsningar för Ultra disks ga**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="prerequisites"></a>Krav
-
-- Se till att `EnableUltraSSD` funktions flaggan är aktive rad.
-- Se till att du har det senaste `aks-preview` [CLI-tillägget][az-extension-add] installerat.
 
 ### <a name="register-the-enableultrassd-preview-feature"></a>Registrera `EnableUltraSSD` förhands gransknings funktionen
 
@@ -78,7 +73,7 @@ Skapa en Azure-resurs grupp:
 az group create --name myResourceGroup --location westus2
 ```
 
-Skapa AKS-klustret med hanterad Azure AD-integrering och Azure RBAC för Kubernetes-auktorisering.
+Skapa AKS-klustret med stöd för Ultra disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>Skapa ett beständigt volym anspråk
 
-Ett permanent volym anspråk (PVC) används för att automatiskt etablera lagring baserat på en lagrings klass. I det här fallet kan en PVC använda en av de i förväg skapade lagrings klasserna för att skapa en standard-eller Premium Azure-hanterad disk.
+Ett permanent volym anspråk (PVC) används för att automatiskt etablera lagring baserat på en lagrings klass. I det här fallet kan en PVC använda den tidigare skapade lagrings klassen för att skapa en Ultra-disk.
 
 Skapa en fil med namnet `azure-ultra-disk-pvc.yaml` och kopiera i följande manifest. Anspråket begär en disk med namnet `ultra-disk` *1000 GB* i storlek med *ReadWriteOnce* -åtkomst. Lagrings klassen *Ultra-disk-SC* har angetts som lagrings klass.
 

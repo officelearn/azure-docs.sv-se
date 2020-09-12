@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816260"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420616"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -40,7 +40,7 @@ Typen IoT Edge module-erbjudande är en bestämd typ av behållare som körs på
 
 **Välja den högra onlinebutiken**
 
-IoT Edge moduler publiceras bara på Azure Marketplace. AppSource gäller inte. Mer information om skillnaderna och mål grupp i onlinebutiker finns i [bestämma publicerings alternativ](determine-your-listing-type.md).
+IoT Edge moduler publiceras bara på Azure Marketplace. AppSource gäller inte. Mer information om skillnaderna i onlinebutiker finns i [avgöra publicerings alternativet](determine-your-listing-type.md).
 
 **Fakturerings alternativ**
 
@@ -54,7 +54,7 @@ I samtliga fall bör IoT Edge moduler välja alternativet för **Transact** -pub
 
 Alla villkor för Microsoft Azure Marketplace-avtal och-principer gäller för IoT Edge modul-erbjudanden.  Dessutom finns det krav och tekniska krav för IoT Edge moduler.  
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande krav:
 
@@ -75,6 +75,5 @@ De primära tekniska kraven för en IoT Edge modul, för att det ska bli certifi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig mer](https://azuremarketplace.microsoft.com/sell) om den kommersiella marknads platsen.
 - Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra ditt erbjudande.
 - [Skapa ett IoT Edge modul-erbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) i Partner Center.

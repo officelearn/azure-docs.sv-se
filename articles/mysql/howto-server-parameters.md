@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: f592d6fb8fed3f15bd11d5e6ebe6ee358953748c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8a988895cd8999d15c32d7056d35abf40aeaba7e
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837236"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420701"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for MySQL att använda Azure Portal
 
@@ -24,7 +24,7 @@ Azure Database for MySQL stöder konfiguration av vissa Server parametrar. I den
 ![Sidan Azure Portal Server parametrar](./media/howto-server-parameters/auzre-portal-server-parameters.png)
 3. Leta upp de inställningar du behöver för att justera. Granska kolumnen **Beskrivning** för att förstå syfte och tillåtna värden.
 ![Räkna upp listruta](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Klicka på **Spara** för att spara ändringarna.
+4. Klicka på  **Spara** för att spara ändringarna.
 ![Spara eller ta bort ändringar](./media/howto-server-parameters/4-save_parameters.png)
 5. Om du har sparat nya värden för parametrarna kan du alltid återställa allt tillbaka till standardvärdena genom att välja **Återställ alla till standard**.
 ![Återställ alla till standard](./media/howto-server-parameters/5-reset_parameters.png)
@@ -34,11 +34,14 @@ Azure Database for MySQL stöder konfiguration av vissa Server parametrar. I den
 Om den server parameter som du vill uppdatera inte visas i Azure Portal, kan du välja att ange parametern på anslutnings nivå med `init_connect` . Detta anger Server parametrarna för varje klient som ansluter till servern. 
 
 1. Under avsnittet **Inställningar** klickar du på **Server parametrar** för att öppna sidan Server parametrar för Azure Database for MySQL-servern.
-2. Sök efter`init_connect`
+2. Sök efter `init_connect`
 3. Lägg till Server parametrarna i formatet: `SET parameter_name=YOUR_DESIRED_VALUE` i värde kolumnen värde.
 
     Du kan till exempel ändra teckenuppsättningen för servern genom att ställa in på `init_connect``SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
 4. Klicka på **Spara** för att spara ändringarna.
+
+>[!Note]
+> `init_connect` kan användas för att ändra parametrar som inte kräver superprivilegier på sessions nivå. Du kan kontrol lera om du kan ange parametern med hjälp av `init_connect` , köra `set session parameter_name=YOUR_DESIRED_VALUE;` kommandot och om det uppstår fel med **åtkomst nekad. du måste ha super Privileges** -fel och du kan inte ange parametern med init_connect.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
 

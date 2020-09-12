@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 09/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385730"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418916"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -53,7 +53,7 @@ Det första läget i den här tekniska profilen är att generera en kod. Nedan v
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| identifier | Ja | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| beteckning | Ja | Identifieraren som identifierar den användare som behöver verifiera koden senare. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
 
@@ -73,12 +73,13 @@ Följande inställningar kan användas för att konfigurera läget för kodgener
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60` ; Max: `1200` ; Standard: `600` . |
-| CodeLength | No | Längden på koden. Standardvärdet är `6`. |
-| CharacterSet | No | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
-| NumRetryAttempts | No | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
+| CodeExpirationInSeconds | Inga | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60` ; Max: `1200` ; Standard: `600` . |
+| CodeLength | Inga | Längden på koden. Standardvärdet är `6`. |
+| CharacterSet | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
+| NumRetryAttempts | Inga | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
+| NumCodeGenerationAttempts | Inga | Antalet tillåtna försök per identifierare för högsta antal kodgenerering. Standardvärdet är 10 om inget värde anges. |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `GenerateCode` . |
-| ReuseSameCode | No | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
+| ReuseSameCode | Inga | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="example"></a>Exempel
 
@@ -94,6 +95,7 @@ Följande exempel `TechnicalProfile` används för att generera en kod:
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
@@ -105,7 +107,7 @@ Följande exempel `TechnicalProfile` används för att generera en kod:
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verifiera kod
+## <a name="verify-code"></a>Verifiera koden
 
 Det andra läget i den här tekniska profilen är att verifiera en kod. Nedan visas de alternativ som kan konfigureras för det här läget.
 
@@ -115,7 +117,7 @@ Det andra läget i den här tekniska profilen är att verifiera en kod. Nedan vi
 
 | ClaimReferenceId | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| identifier | Ja | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
+| beteckning | Ja | Identifieraren som identifierar den användare som tidigare har genererat en kod. Den används ofta som identifierare för det mål där koden levereras, till exempel e-postadress eller telefonnummer. |
 | otpToVerify | Ja | Verifierings koden som anges av användaren. |
 
 **InputClaimsTransformations** -elementet kan innehålla en samling av **InputClaimsTransformation** -element som används för att ändra de inloggade anspråken eller generera nya innan de skickas till eng ång slö sen lösen ords protokollets Provider.
@@ -141,11 +143,12 @@ Följande metadata kan användas för att konfigurera fel meddelanden som visas 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | No | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
-| UserMessageIfMaxRetryAttempted | No | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
-| UserMessageIfInvalidCode | No | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
-| UserMessageIfVerificationFailedRetryAllowed | No | Meddelandet som ska visas för användaren om de har angett en ogiltig kod, och användaren får ange rätt kod.  |
-|UserMessageIfSessionConflict|No| Meddelandet som ska visas för användaren om det inte går att verifiera koden.|
+| UserMessageIfSessionDoesNotExist | Inga | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
+| UserMessageIfMaxRetryAttempted | Inga | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
+| UserMessageIfMaxNumberOfCodeGenerated | Inga | Meddelandet som ska visas för användaren om kodgenerering har överskridit det högsta tillåtna antalet försök. |
+| UserMessageIfInvalidCode | Inga | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
+| UserMessageIfVerificationFailedRetryAllowed | Inga | Meddelandet som ska visas för användaren om de har angett en ogiltig kod, och användaren får ange rätt kod.  |
+|UserMessageIfSessionConflict|Inga| Meddelandet som ska visas för användaren om det inte går att verifiera koden.|
 
 ### <a name="example"></a>Exempel
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: bbea0accc79cafb6fea3f1438a71250dc02f4d62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77982bb8e001670ec1db57405e746cd849024278
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311007"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504901"
 ---
 # <a name="access-your-security-data"></a>Komma åt dina säkerhets data
 
@@ -31,8 +31,8 @@ Azure Security Center for IoT lagrar säkerhets aviseringar, rekommendationer oc
 Konfigurera vilken Log Analytics arbets yta som används:
 
 1. Öppna din IoT Hub.
-1. Klicka på bladet **Översikt** under avsnittet **säkerhet**
-1. Klicka på **Inställningar**och ändra Log Analytics arbets ytans konfiguration.
+1. Klicka på bladet **Inställningar** under avsnittet **säkerhet** .
+1. Klicka på **data insamling**och ändra Log Analytics arbets ytans konfiguration.
 
 För att få åtkomst till aviseringar och rekommendationer i Log Analytics-arbetsytan efter konfigurationen:
 

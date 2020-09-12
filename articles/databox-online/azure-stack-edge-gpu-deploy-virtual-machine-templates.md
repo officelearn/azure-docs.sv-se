@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268167"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419834"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Distribuera virtuella datorer på Azure Stack Edge-GPU-enhet via mallar
 
@@ -167,7 +167,7 @@ Kopiera eventuella disk avbildningar som ska användas i sid-blobar i det lokala
 
     ![Importera slut punkts certifikat för Blob Storage](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
 
-    - Om du använder enhets genererade certifikat hämtar och konverterar du slut punkt `.cer` certifikatet för Blob Storage till ett `.pem` format. Kör följande kommando: 
+    - Om du använder enhets genererade certifikat hämtar och konverterar du slut punkt `.cer` certifikatet för Blob Storage till ett `.pem` format. Kör följande kommando. 
     
         ```powershell
         PS C:\windows\system32> Certutil -encode 'C:\myasegpu1_Blob storage (1).cer' .\blobstoragecert.pem
@@ -245,11 +245,14 @@ Filen `CreateImageAndVnet.parameters.json` tar följande parametrar:
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -501,7 +504,7 @@ Distribuera mallen för att skapa virtuella datorer `CreateVM.json` . Den här m
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,7 +550,27 @@ Distribuera mallen för att skapa virtuella datorer `CreateVM.json` . Den här m
         
         PS C:\07-30-2020>
     ```   
- 
+Du kan också köra `New-AzureRmResourceGroupDeployment` kommandot asynkront med `–AsJob` parametern. Här är ett exempel på utdata när cmdleten körs i bakgrunden. Du kan sedan fråga statusen för jobbet som skapas med hjälp av `Get-Job` cmdleten.
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. Kontrol lera om den virtuella datorn har kon figurer ATS. Kör följande kommando:
 
     `Get-AzureRmVm`
@@ -555,7 +578,19 @@ Distribuera mallen för att skapa virtuella datorer `CreateVM.json` . Den här m
 
 ## <a name="connect-to-a-vm"></a>Ansluta till en virtuell dator
 
+Stegen för att ansluta kan vara olika beroende på om du har skapat ett Windows eller en virtuell Linux-dator.
+
+### <a name="connect-to-windows-vm"></a>Anslut till virtuell Windows-dator
+
+Följ dessa steg för att ansluta till en virtuell Windows-dator.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Anslut till virtuell Linux-dator
+
+Följ dessa steg för att ansluta till en virtuell Linux-dator.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 

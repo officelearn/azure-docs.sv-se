@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87421509326ef8837a9787ed01a70915c7c5aafa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230746"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393436"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Azures säkerhets bas linje för Container Instances
 
@@ -988,7 +988,9 @@ Använd Azure Policy för att ange begränsningar för den typ av resurser som k
 
 * [Så här skapar du en Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/general/managed-identity.md)
+* [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
+
+* [Så här tilldelar du en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md)
 
 * [Använda hanterade identiteter med Azure Container Instances](./container-instances-managed-identity.md)
 

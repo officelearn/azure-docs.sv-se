@@ -1,25 +1,27 @@
 ---
-title: Azure Talarigenkänning-tjänst
+title: Talarigenkänning översikt – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Talarigenkänning innehåller algoritmer som verifierar och identifierar högtalare genom sina unika röst egenskaper. Talarigenkänning används för att besvara frågan "Vem talar?".
+description: Talarigenkänning innehåller algoritmer som verifierar och identifierar högtalare genom sina unika röst egenskaper med röst biometry. Talarigenkänning används för att besvara frågan "Vem talar?". Den här artikeln är en översikt över fördelarna och funktionerna i Talarigenkännings tjänsten.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: högtalar igenkänning, röst biometry
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780893"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397267"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>Vad är Azure Talarigenkänning-tjänsten?
+# <a name="what-is-speaker-recognition"></a>Vad är talarigenkänning?
 
-Tjänsten Talarigenkänning tillhandahåller algoritmer som verifierar och identifierar högtalare genom sina unika röst egenskaper. Talarigenkänning används för att besvara frågan "Vem talar?". Du ger ljudutbildnings data för en enskild talare, vilket skapar en registrerings profil baserat på högtalar röstens unika egenskaper. Du kan sedan stryka ljud röst exempel mot den här profilen för att kontrol lera att högtalaren är samma person (högtalar verifiering) eller kors kontroll ljud röst exempel mot en *grupp* med registrerade högtalar profiler, för att se om den matchar någon profil i gruppen (högtalar identifiering). Som kontrast Diarization grupperar [högtalare](batch-transcription.md#speaker-separation-diarization) segment av ljud efter talare i en batch-åtgärd.
+Tjänsten Talarigenkänning tillhandahåller algoritmer som verifierar och identifierar högtalare genom sina unika röst egenskaper med röst biometry. Talarigenkänning används för att besvara frågan "Vem talar?". Du ger ljudutbildnings data för en enskild talare, vilket skapar en registrerings profil baserat på högtalar röstens unika egenskaper. Du kan sedan stryka ljud röst exempel mot den här profilen för att kontrol lera att högtalaren är samma person (högtalar verifiering) eller kors kontroll ljud röst exempel mot en *grupp* med registrerade högtalar profiler, för att se om den matchar någon profil i gruppen (högtalar identifiering). Som kontrast Diarization grupperar [högtalare](batch-transcription.md#speaker-separation-diarization) segment av ljud efter talare i en batch-åtgärd.
 
 ## <a name="speaker-verification"></a>Talarverifiering
 

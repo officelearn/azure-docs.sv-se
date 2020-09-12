@@ -2,22 +2,22 @@
 title: 'ExpressRoute: länka ett VNet till en krets: Azure PowerShell'
 description: Det här dokumentet innehåller en översikt över hur du länkar virtuella nätverk (virtuella nätverk) till ExpressRoute-kretsar med hjälp av distributions modellen för Resource Manager och PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/20/2018
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: c8fd3bc4a2efd90857d0696491102790b069d5e1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 49f259178020dd0e8e4f24aed67869aefd73b037
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984159"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395850"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Koppla ett virtuellt nätverk till en ExpressRoute-krets
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)

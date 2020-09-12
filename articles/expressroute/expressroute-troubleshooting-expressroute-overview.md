@@ -2,18 +2,18 @@
 title: 'Azure-ExpressRoute: kontrol lera anslutningen – fel söknings guide'
 description: Den här sidan innehåller instruktioner om fel sökning och validering av slut punkt till slut punkt för en ExpressRoute-krets.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
-ms.author: rambala
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 4525ea6e23c4f1c2c96ab2beb21e8bfd5b66ca50
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204215"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401749"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrol lera och felsöka ExpressRoute-anslutningen. ExpressRoute utökar ett lokalt nätverk till Microsoft-molnet via en privat anslutning som ofta fören klar av en anslutnings leverantör. ExpressRoute-anslutningen omfattar vanligt vis tre olika nätverks zoner, enligt följande:
@@ -36,7 +36,7 @@ Syftet med det här dokumentet är att hjälpa användarna att identifiera om oc
 
 ## <a name="overview"></a>Översikt
 Följande diagram visar den logiska anslutningen för ett kund nätverk till Microsoft-nätverk med ExpressRoute.
-[![1]][1]
+[![81.1]][1]
 
 I föregående diagram indikerar talen viktiga nätverks punkter. Dessa nätverks platser refereras i den här artikeln vid tidpunkten med deras associerade nummer. Beroende på ExpressRoute-anslutnings modell – molnets Exchange-samplacering, punkt-till-punkt-Ethernet-anslutning eller alla-till-alla (IPVPN)--nätverks punkterna 3 och 4 kan vara växlar (skikt 2 enheter) eller routrar (Layer 3-enheter). Det finns inga nätverks punkter 3 och 4 i den direkta anslutnings modellen. i stället är CEs (2) direkt ansluten till msee via mörk fiber. De viktiga nätverks punkterna illustreras på följande sätt:
 
@@ -316,7 +316,7 @@ Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Se
 StatusCode: 400
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081992"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418892"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
 
@@ -40,7 +40,7 @@ För närvarande stöder Azure båda lägena för VPN-gatewayer: routning-basera
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Azure Gateway-SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE-version**          | IKEv1                       | IKEv2                            | IKEv1 och IKEv2                         |
-| **Bekräftat. S2S-anslutningar** | **1**                       | 10                               | 30                     |
+| **Högsta antal S2S-anslutningar** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
 
 Med den anpassade IPsec/IKE-principen kan du nu konfigurera Azure Route-baserade VPN-gatewayer för att använda prefixbaserade trafik väljare med alternativet "**PolicyBasedTrafficSelectors**" för att ansluta till lokala PRINCIPBASERADE VPN-enheter. Med den här funktionen kan du ansluta från ett virtuellt Azure-nätverk och en VPN-gateway till flera lokala principbaserade VPN/brand Väggs enheter och ta bort den enskilda anslutnings gränsen från de aktuella Azure-principbaserad VPN-gatewayerna.

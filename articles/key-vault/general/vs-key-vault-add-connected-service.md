@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 3d39ad2016da1525658944f4f13185e9df9855af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007102"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378873"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -22,7 +22,7 @@ I den här självstudien får du lära dig hur du enkelt kan lägga till allt du
 
 Mer information om de ändringar som anslutna tjänster gör i projektet för att aktivera Key Vault finns i [Key Vault Connected service – vad hände med mitt ASP.NET 4.7.1-projekt](#how-your-aspnet-framework-project-is-modified) eller [Key Vault Connected service – vad hände med mitt ASP.net Core-projekt](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 version 16,3** eller senare [Ladda ned den nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -201,6 +201,6 @@ Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har följt den här självstudien konfigureras Key Vault behörigheter för att köras med din egen Azure-prenumeration, men det kanske inte är önskvärt för ett produktions scenario. Du kan skapa en hanterad identitet för att hantera Key Vault åtkomst för din app. Se [tillhandahålla Key Vault autentisering med en hanterad identitet](/azure/key-vault/managed-identity).
+Om du har följt den här självstudien konfigureras Key Vault behörigheter för att köras med din egen Azure-prenumeration, men det kanske inte är önskvärt för ett produktions scenario. Du kan skapa en hanterad identitet för att hantera Key Vault åtkomst för din app. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-portal).
 
 Läs mer om hur du Key Vault utveckling genom att läsa [Key Vault Developer ' s guide](developers-guide.md).

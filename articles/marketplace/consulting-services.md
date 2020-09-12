@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814730"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419762"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -22,16 +22,16 @@ Konsult tjänster erbjuder kundspecifika engagemang. Utgivare har möjlighet att
 
 ## <a name="compare-consulting-services"></a>Jämför konsult tjänster
 
-De kommersiella Marketplace-onlinebutiker, Microsoft AppSource och Azure Marketplace, är justerade med mål grupper och moln produkter för att hjälpa kunderna att hitta vad de behöver. Varje onlinebutik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två onlinebutiker finns i [jämföra Microsoft AppSource och Azure Marketplace](comparing-appsource-azure-marketplace.md).
+De kommersiella Marketplace-onlinebutiker, Microsoft AppSource och Azure Marketplace, är justerade med lösnings typer och moln produkter för att hjälpa kunderna att hitta vad de behöver. Varje onlinebutik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två onlinebutiker finns i [jämföra Microsoft AppSource och Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Konsult tjänst erbjudanden som baseras på Dynamics 365, Power Apps och Power BI är berättigade att listas på AppSource. Om du vill ha mer information kan du hämta PDF-filen med [rikt linjer för Microsoft AppSource konsult tjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) .
 
 Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är berättigade att listas på Azure Marketplace. Mer information finns i [publicera ett erbjudande för Azure-konsulttjänster](./partner-center-portal/create-consulting-service-offer.md) och [publicera ett erbjudande för hanterade tjänster på Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
-> Konsult tjänster på Azure Marketplace bör fokusera på erbjudanden för en teknisk publik och framhäva Azures tekniska lösningar och tjänster.
+> Konsult tjänster i Azure Marketplace bör fokusera på tekniska lösningar och tjänster i Azure.
 >
-> Konsult tjänster i AppSource bör fokusera på erbjudanden för användare med expertis i att leverera kvalitets lösningar för Dynamics 365, Power BI eller Power Apps.
+> Konsult tjänster i AppSource bör fokusera på affärs lösningar för Dynamics 365, Power BI eller Power Apps.
  
 > [!TIP]
 > Om du vill publicera på Azure Marketplace väljer du **Azure**i list rutan **primär produkt** i Partner Center.
@@ -131,7 +131,7 @@ Erbjudanden måste vara av minst en av följande fem tjänst typer:
 > * **Personligen** – på plats på en kunds eller en partners anläggning.
 > * **Praktiskt taget** – via distans samtal, webb konferenser eller fjärrimplementering.
 
-När du har konfigurerat de tidigare listade elementen, kontrollerar innehålls gransknings teamet att din erbjudande beskrivning är informativ och slutförd för mål gruppen. 
+När du har konfigurerat de tidigare listade elementen, kontrollerar innehålls gransknings teamet att din erbjudande beskrivning är informativ och fullständig. 
 
 ### <a name="the-listing-title"></a>Rubrik för registreringen
 
@@ -171,9 +171,5 @@ Här följer några markdown-tips:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det, lär du dig hur du kan [Utöka din moln verksamhet med Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-
-Registrera dig och börja arbeta i Partner Center:
-
-* [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra ditt erbjudande.
-* Mer information finns i [skapa ett konsult tjänst erbjudande](./partner-center-portal/create-consulting-service-offer.md) .
+- [Utveckla din moln verksamhet med Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- [Skapa ett konsulttjänsterbjudande](./partner-center-portal/create-consulting-service-offer.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852094"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400032"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
@@ -46,7 +46,7 @@ Följande anslutnings mat ris sammanfattar de flöden som stöds i det här scen
 | **Icke-NVA virtuella nätverk**| &#8594; |   Statisk |      X   |        X     |      X    |
 | **Grenar**     | &#8594; |   Statisk |      X   |        X     |      X    |
 
-Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) får ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde. Tänk också på följande:
+Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) får ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde. Ett "X" innebär att anslutningen tillhandahålls internt av Virtual WAN och "static" innebär att anslutningen tillhandahålls av Virtual WAN med statiska vägar. Tänk också på följande:
 
 * NVA ekrar hanteras inte av virtuella WAN-nätverk. Det innebär att de mekanismer som de kommer att kommunicera med andra virtuella nätverk eller grenar bevaras av användaren. Anslutning till NVA VNet tillhandahålls av en VNet-peering och en standard väg till 0.0.0.0/0 som pekar på NVA som nästa hopp bör gälla anslutning till Internet, till andra ekrar och till grenar
 * NVA-virtuella nätverk kommer att veta om sina egna NVA ekrar, men inte om NVA ekrar kopplade till andra NVA virtuella nätverk. I tabell 1, VNet 2 vet till exempel VNet 5 och VNet 6, men inte andra ekrar som VNet 7 och VNet 8. En statisk väg krävs för att mata in andra ekrars prefix i NVA virtuella nätverk

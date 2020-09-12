@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f816c95b5e210e86e2215cadf8407f442d69ebe
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476240"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401681"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Skapa en roll tilldelnings bara grupp i Azure Active Directory
 
-Du kan bara tilldela en roll till en grupp som har skapats med egenskapen "isAssignableToRole" inställd på True, eller så har du skapat den i Azure AD-portalen med **Azure AD-roller som du kan tilldela gruppen** aktiverade. Det här gruppattributet gör gruppen ett som kan tilldelas till en roll i Azure Active Directory (Azure AD). Den här artikeln beskriver hur du skapar den här särskilda typen av grupp.
+Du kan bara tilldela en roll till en grupp som har skapats med egenskapen "isAssignableToRole" inställd på True, eller så har du skapat den i Azure AD-portalen med **Azure AD-roller som du kan tilldela gruppen** aktiverade. Det här gruppattributet gör gruppen ett som kan tilldelas till en roll i Azure Active Directory (Azure AD). Den här artikeln beskriver hur du skapar den här särskilda typen av grupp. **Obs:** En grupp med egenskapen isAssignableToRole inställt på True får inte vara av typen dynamiskt medlemskap. Mer information finns i [använda en grupp för att hantera roll tilldelningar för Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
 
 ## <a name="using-azure-ad-admin-center"></a>Använda Azure AD administrations Center
 
@@ -128,4 +128,4 @@ För den här typen av grupp `isPublic` kommer alltid att vara falskt och `isSec
 
 - [Tilldela en roll till en moln grupp](roles-groups-assign-role.md)
 - [Använd moln grupper för att hantera roll tilldelningar](roles-groups-concept.md)
-- [Fel söknings roller tilldelade till moln grupper](roles-groups-faq-troubleshooting.md)
+- [Felsökningsroller tilldelade till molngrupper](roles-groups-faq-troubleshooting.md)

@@ -1,6 +1,6 @@
 ---
-title: Hantera medgivande till program och utvärdera medgivande begär Anden – Azure AD
-description: Lär dig hur du hanterar medgivande begär anden när användar tillstånd är inaktiverat eller begränsat och hur du utvärderar en begäran om klient organisations administratörs medgivande till ett program.
+title: Hantera medgivande till program och utvärdera medgivande förfrågningar i Azure Active Directory
+description: Lär dig hur du hanterar medgivande begär anden när användar medgivande är inaktiverat eller begränsat och hur du utvärderar en begäran om klient organisations administratörs medgivande till ett program i Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763201"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420463"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Hantera medgivande till program och utvärdera medgivande begär Anden
 
@@ -76,7 +75,7 @@ I följande lista finns några rekommendationer att tänka på när du utvärder
 
 * **Förstå de behörigheter som begärs.**
 
-   Behörigheterna som begärs av programmet visas i [frågan om medgivande](../develop/application-consent-experience.md). Om behörighets rubriken expanderas visas behörighetens beskrivning. Beskrivningen för program behörigheter upphör vanligt vis i "utan en inloggad användare". Beskrivningen för delegerade behörigheter upphör vanligt vis med "för den inloggade användarens räkning." Behörigheter för Microsoft Graph API beskrivs i [Microsoft Graph referens referens] – Se dokumentationen för andra API: er för att förstå vilka behörigheter de visar.
+   Behörigheterna som begärs av programmet visas i [frågan om medgivande](../develop/application-consent-experience.md). Om behörighets rubriken expanderas visas behörighetens beskrivning. Beskrivningen för program behörigheter upphör vanligt vis i "utan en inloggad användare". Beskrivningen för delegerade behörigheter upphör vanligt vis med "för den inloggade användarens räkning." Behörigheter för Microsoft Graph API beskrivs i referens för [Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference) – Läs dokumentationen för andra API: er för att förstå de behörigheter som de visar.
 
    Om du inte förstår att en behörighet begärs ska du *inte bevilja medgivande*.
 
@@ -95,27 +94,29 @@ I följande lista finns några rekommendationer att tänka på när du utvärder
 ## <a name="granting-consent-as-an-administrator"></a>Bevilja medgivande som administratör
 
 ### <a name="granting-tenant-wide-admin-consent"></a>Bevilja administratörs medgivande för hela klienten
-
 Se [bevilja klient organisations medgivande till ett program](grant-admin-consent.md) med stegvisa instruktioner för att bevilja administratörs behörighet för hela klienten från Azure Portal, med hjälp av Azure AD PowerShell eller från själva frågan om medgivande.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Bevilja medgivande för en speciell användares räkning
-
-I stället för att bevilja medgivande för hela organisationen kan en administratör också använda [Microsft-Graph API](https://docs.microsoft.com/graph/use-the-api) för att bevilja medgivande till delegerade behörigheter för en enskild användares räkning. Mer information finns i [få åtkomst för en användares räkning](https://docs.microsoft.com/graph/auth-v2-user).
+I stället för att bevilja medgivande för hela organisationen kan en administratör också använda [Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) för att bevilja medgivande till delegerade behörigheter för en enskild användares räkning. Mer information finns i [få åtkomst för en användares räkning](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Begränsa användar åtkomsten till program
-
 Användares åtkomst till program kan fortfarande begränsas även när klient organisationens administratörs medgivande har beviljats. Mer information om hur du kräver användar tilldelning till ett program finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
 
 Mer en bredare översikt, inklusive hur du hanterar ytterligare komplexa scenarier, finns i [använda Azure AD för program åtkomst hantering](what-is-access-management.md).
 
+## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Inaktivera alla framtida användar medgivande åtgärder för alla program
+Om du inaktiverar användar medgivande för hela katalogen kan slutanvändarna inte godkänna något program. Administratörer kan fortfarande godkänna användarens räkning. Om du vill veta mer om program medgivande och varför du kanske inte vill godkänna, Läs [förstå användar-och administratörs medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+
+Följ dessa steg om du vill inaktivera alla framtida användar medgivande åtgärder i hela katalogen:
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
+2.  Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
+3.  Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
+4.  Välj **användare och grupper** på navigerings menyn.
+5.  Välj **Användarinställningar**.
+6.  Inaktivera alla framtida medgivande åtgärder genom att ange att **användarna ska kunna tillåta att appar kommer åt sina data** genom att växla till **Nej** och klicka på knappen **Spara** .
+
 ## <a name="next-steps"></a>Nästa steg
-
-[Fem steg för att skydda din identitets infrastruktur](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
-
-[Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
-
-[Konfigurera hur slutanvändare godkänner program](configure-user-consent.md)
-
-[Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
-
-[Azure AD på StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Fem steg för att skydda din identitets infrastruktur](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
+* [Konfigurera hur slutanvändare godkänner program](configure-user-consent.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)

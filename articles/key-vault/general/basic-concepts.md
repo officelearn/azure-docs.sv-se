@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167306"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89379009"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault grundläggande begrepp
 
@@ -33,7 +33,7 @@ Här följer andra viktiga villkor:
 
 - **Resursgrupp**: resursgruppen är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som passar din organisation bäst.
 
-- **Tjänstens huvud namn**: ett tjänst huvud namn i Azure är en säkerhets identitet som användare skapade appar, tjänster och automatiserings verktyg använder för att få åtkomst till särskilda Azure-resurser. Tänk på det som "användar identitet" (användar namn och lösen ord eller certifikat) med en speciell roll och tätt kontrollerade behörigheter. Ett huvudnamn för tjänsten bör bara behöva utföra vissa åtgärder, till skillnad från en allmän användaridentitet. Det förbättrar säkerheten om du endast beviljar den lägsta behörighets nivå som krävs för att utföra dess hanterings uppgifter.
+- **Säkerhets objekt**: ett Azure-säkerhetsobjekt är en säkerhets identitet som användare skapade appar, tjänster och automatiserings verktyg använder för att få åtkomst till särskilda Azure-resurser. Tänk på det som "användar identitet" (användar namn och lösen ord eller certifikat) med en speciell roll och tätt kontrollerade behörigheter. Ett säkerhets objekt behöver bara göra vissa saker, till skillnad från en allmän användar identitet. Det förbättrar säkerheten om du endast beviljar den lägsta behörighets nivå som krävs för att utföra dess hanterings uppgifter. Ett säkerhets objekt som används med ett program eller en tjänst kallas särskilt för **tjänstens huvud namn**.
 
 - [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): Azure AD är Active Directory-tjänsten för en klientorganisation. Varje katalog har en eller flera domäner. En katalog kan ha många prenumerationer som är associerade med den, men endast en klientorganisation.
 

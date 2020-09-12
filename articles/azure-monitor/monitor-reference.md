@@ -3,15 +3,15 @@ title: Vad övervakas av Azure Monitor
 description: Referens för alla tjänster och andra resurser som övervakas av Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
-ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
+ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080872"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435413"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -57,7 +57,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 
 | Tjänst | Mått | Loggar | Insight | Kommentarer |
 |:---|:---|:---|:---|:---|
-|Active Directory | Inga | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory | Nej | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Inga | Inga | Inga |  |
 |Active Directory Domain Services | Inga | Ja | Inga |  |
 |Aktivitetslogg | Inga | Ja | Inga | |
@@ -120,7 +120,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |IoT Hub | Ja | Ja | Inga |  |
 |Key Vault | Ja | Ja | [Ja](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Inga | Inga | [Ja](insights/container-insights-overview.md)  |  |
-|Load Balancer | Ja | Ja | Inga |  |
+|Load Balancer | Ja | Inga | Inga |  |
 |Logic Apps | Ja | Ja | Inga |  |
 |Machine Learning Service | Inga | Inga | Inga |  |
 |Managed Applications  | Inga | Inga | Inga |  |
@@ -145,17 +145,17 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Resource Graph | Inga | Inga | Inga |  |
 |Resource Manager | Inga | Inga | Inga |  |
 |Butiks sökning – efter Bing | Inga | Inga | Inga |  |
-|Sök | Ja | Ja | Inga |  |
+|Search | Ja | Ja | Inga |  |
 |Service Bus | Ja | Ja | Inga |  |
 |Service Fabric | Inga | Ja | Inga | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
 |Registrerings Portal | Inga | Inga | Inga |  |
 |Site Recovery | Inga | Ja | Inga |  |
 |Vår moln tjänst | Inga | Inga | Inga |  |
-|SQL Data Warehouse | Ja | Ja | Inga |  |
+|Azure Synapse Analytics | Ja | Ja | Inga |  |
 |SQL Database | Ja | Ja | Inga |  |
 |SQL Server Stretch Database | Ja | Ja | Inga |  |
 |Stack | Inga | Inga | Inga |  |
-|Lagring | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
+|Storage | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
 |Storage cache | Inga | Inga | Inga |  |
 |Tjänster för synkronisering av lagring | Inga | Inga | Inga |  |
 |Stream Analytics | Ja | Ja | Inga |  |
@@ -164,7 +164,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Traffic Manager | Ja | Ja | Inga |  |
 |Universell utskrift | Inga | Inga | Inga |  |
 |Virtual Machine Scale Sets | Inga | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
-|Virtual Machines | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Virtuella datorer | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Network | Ja | Ja | [Ja](insights/network-insights-overview.md) |  |
 |Virtual Network NSG flödes loggar | Inga | Ja | Inga |  |
 |VPN Gateway | Ja | Ja | Inga |  |
@@ -177,7 +177,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 | Produkt/tjänst | Beskrivning |
 |:---|:---|
 | [Azure Automation](../automation/index.yml) | Hantera uppdateringar av operativ system och spåra ändringar på Windows-och Linux-datorer. Se [ändringsspårning](../automation/change-tracking.md) och [uppdateringshantering](../automation/update-management/update-mgmt-overview.md). |
-| [Azure Information Protection](/azure/information-protection/) | Klassificera och eventuellt skydda dokument och e-postmeddelanden. Se [Central rapportering för Azure information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
+| [Azure Information Protection ](/azure/information-protection/) | Klassificera och eventuellt skydda dokument och e-postmeddelanden. Se [Central rapportering för Azure information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Samla in och analysera säkerhets händelser och utför hot analyser. Se [data insamling i Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Ansluter till olika källor, inklusive Office 365 och Amazon Web Services Cloud trailer. Se [Anslut data källor](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Skapa en diagnostisk inställning för att skicka loggar till Azure Monitor. Se [Skicka logg data till lagring, Event Hub eller Log Analytics i Intune (för hands version)](/intune/fundamentals/review-logs-using-azure-monitor).  |

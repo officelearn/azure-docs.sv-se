@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415804"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435572"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läs in data från Office 365 med hjälp av Azure Data Factory
 
@@ -37,7 +37,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name *LoadFromOffice365Demo* är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_**LoadFromOffice365Demo**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
     * **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
-    * **Version**: Välj **v2**.
+    * **Version**: Välj **V2**.
     * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. De data lager som används av Data Factory kan finnas på andra platser och regioner. Dessa data lager omfattar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
 
 3. Välj **Skapa**.
@@ -63,7 +63,7 @@ Den här artikeln visar hur du använder Data Factory _läsa in data från Offic
 
 2. I fönstret ny data uppsättning väljer du **Office 365**och väljer sedan **Fortsätt**.
  
-3. Du är nu på fliken Kopiera aktivitets konfiguration. Klicka på knappen **Redigera** bredvid data uppsättningen Office 365 för att fortsätta med data konfigurationen.
+3. Du är nu på fliken Kopiera aktivitets konfiguration. Klicka på knappen **redigera** bredvid Office 365-datauppsättningen för att fortsätta med data konfigurationen.
 
     ![Konfigurera Office 365 data uppsättning allmänt](./media/load-office-365-data/transition-to-edit-dataset.png)
  
@@ -147,7 +147,7 @@ Gå nu till Azures Azure-Blob Storage och kontrol lera att Office 365-data har e
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till följande artikel om du vill lära dig mer om Azure SQL Data Warehouse-support: 
+Gå vidare till följande artikel om du vill lära dig mer om Azure Synapse Analytics (tidigare SQL Data Warehouse) support: 
 
 > [!div class="nextstepaction"]
 >[Office 365-anslutningsapp](connector-office-365.md)

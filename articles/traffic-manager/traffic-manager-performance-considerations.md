@@ -3,20 +3,20 @@ title: Prestanda överväganden för Azure Traffic Manager | Microsoft Docs
 description: Förstå prestanda på Traffic Manager och testa prestanda för din webbplats när du använder Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: rohink
-ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938545"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392678"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestandaöverväganden för Traffic Manager
 
@@ -74,7 +74,7 @@ Verktygen på dessa platser mäter DNS-fördröjning och visar de matchade IP-ad
 
     Den här platsen visar mer detaljerad DNS-information, inklusive CNAME-och A-poster. Se till att kontrol lera "färga utdata" och "stats" under alternativ och välj "alla" under namnservrar.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Om Traffic Manager Traffic routing-metoder](traffic-manager-routing-methods.md)
 

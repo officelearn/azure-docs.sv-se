@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710158"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443032"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -59,7 +59,7 @@ I följande avsnitt beskrivs de JSON-egenskaper som används för att definiera 
 
 Följande tabell innehåller beskrivningar av de JSON-element som är speciella för en Amazon RedShift-länkad tjänst.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **bastyp** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
 | **servernamn** |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
@@ -74,7 +74,7 @@ En lista över de avsnitt och egenskaper som är tillgängliga för att definier
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i arkivet. Avsnittet **typeProperties** för en data uppsättning av typen **RelationalTable**, som innehåller Amazon RedShift-datauppsättningen, har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **tableName** |Namnet på tabellen i Amazon RedShift-databasen som den länkade tjänsten refererar till. |Nej (om egenskapen **fråga** för en kopierings aktivitet av typen **RelationalSource** har angetts) |
 
@@ -84,16 +84,16 @@ En lista över avsnitt och egenskaper som är tillgängliga för att definiera a
 
 För kopierings aktiviteten, när källan är av typen **AmazonRedshiftSource**, finns följande egenskaper i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **frågeterm** | Använd den anpassade frågan för att läsa data. |Nej (om egenskapen **TableName** för en data uppsättning anges) |
-| **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | No |
+| **redshiftUnloadSettings** | Innehåller egenskaps gruppen när du använder kommandot RedShift **Unload** . | Inga |
 | **s3LinkedServiceName** | Amazon S3 som används som ett interimistiskt lager. Den länkade tjänsten anges med ett Azure Data Factory namn av typen **en awsaccesskey**. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 | **bucketName** | Anger den Amazon S3-Bucket som ska användas för att lagra interims data. Om den här egenskapen inte anges genererar kopiera aktivitet automatiskt en Bucket. | Krävs när du använder egenskapen **redshiftUnloadSettings** |
 
 Du kan också använda **RelationalSource** -typen, som innehåller Amazon Redshift, med följande egenskap i avsnittet **typeProperties** . OBS! den här käll typen har inte stöd för kommandot RedShift **Unload** .
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **frågeterm** |Använd den anpassade frågan för att läsa data. | Nej (om egenskapen **TableName** för en data uppsättning anges) |
 
@@ -101,13 +101,13 @@ Du kan också använda **RelationalSource** -typen, som innehåller Amazon Redsh
 
 Kommandot Amazon RedShift [**Unload**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) tar bort resultatet från en fråga till en eller flera filer på Amazon S3. Det här kommandot rekommenderas av Amazon för att kopiera stora data mängder från RedShift.
 
-**Exempel: kopiera data från Amazon RedShift till Azure SQL Data Warehouse**
+**Exempel: kopiera data från Amazon RedShift till Azure Synapse Analytics (tidigare SQL Data Warehouse)**
 
-Det här exemplet kopierar data från Amazon RedShift till Azure SQL Data Warehouse. Exemplet använder kommandot RedShift **Unload** , mellanlagrade kopierings data och Microsoft PolyBase.
+Det här exemplet kopierar data från Amazon RedShift till Azure Synapse Analytics. Exemplet använder kommandot RedShift **Unload** , mellanlagrade kopierings data och Microsoft PolyBase.
 
-För det här exemplet använder kopierings aktiviteten först bort data från Amazon RedShift till Amazon S3 enligt konfigurationen i alternativet **redshiftUnloadSettings** . Därefter kopieras data från Amazon S3 till Azure Blob Storage enligt vad som anges i alternativet **stagingSettings** . Slutligen laddar PolyBase data till SQL Data Warehouse. Alla interimistiska format hanteras av kopierings aktiviteten.
+För det här exemplet använder kopierings aktiviteten först bort data från Amazon RedShift till Amazon S3 enligt konfigurationen i alternativet  **redshiftUnloadSettings** . Därefter kopieras data från Amazon S3 till Azure Blob Storage enligt vad som anges i alternativet **stagingSettings** . Slutligen laddar PolyBase data i Azure Synapse Analytics. Alla interimistiska format hanteras av kopierings aktiviteten.
 
-![Kopiera arbets flöde från Amazon RedShift till SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Kopiera arbets flöde från Amazon RedShift till Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -333,7 +333,7 @@ Följande mappningar används när kopierings aktiviteten konverterar data från
 | INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |Enskilt |
+| REAL |Enkel |
 | DUBBEL PRECISION |Double |
 | BOOLESKT |Sträng |
 | CHAR |Sträng |

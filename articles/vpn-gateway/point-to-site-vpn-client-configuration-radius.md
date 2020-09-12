@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986551"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419919"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera konfigurationsfiler för VPN-klienten för P2S RADIUS-autentisering
 
@@ -45,7 +45,7 @@ Du kan konfigurera autentisering av användar namn/lösen ord för att antingen 
 
 När du konfigurerar autentisering av användar namn/lösen ord kan du bara skapa en konfiguration för autentiseringsprotokollet EAP-MSCHAPv2 username/Password. I-kommandona `-AuthenticationMethod` är `EapMSChapv2` .
 
-### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. generera konfigurationsfiler för VPN-klienten
+### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. generera konfigurationsfiler för VPN-klienten
 
 Du kan generera VPN-klientens konfigurationsfiler genom att använda Azure Portal eller genom att använda Azure PowerShell.
 
@@ -80,7 +80,7 @@ Om du vill hämta tidigare genererade konfigurationsfiler för klienter använde
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. Konfigurera VPN-klienter
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. Konfigurera VPN-klienter
 
 Du kan konfigurera följande VPN-klienter:
 
@@ -184,11 +184,11 @@ Du kan skapa VPN-klienters konfigurationsfiler för RADIUS-certifikatautentiseri
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-I-kommandona `-AuthenticationMethod` är `EapTls` . Vid certifikatautentisering verifierar-klienten RADIUS-servern genom att verifiera dess certifikat. `-RadiusRootCert`är CER-filen som innehåller rot certifikatet som används för att verifiera RADIUS-servern.
+I-kommandona `-AuthenticationMethod` är `EapTls` . Vid certifikatautentisering verifierar-klienten RADIUS-servern genom att verifiera dess certifikat. `-RadiusRootCert` är CER-filen som innehåller rot certifikatet som används för att verifiera RADIUS-servern.
 
 Varje VPN-klienten het kräver ett installerat klient certifikat. Ibland har en Windows-enhet flera klient certifikat. Under autentiseringen kan det leda till att en popup-dialog ruta visas med en lista över alla certifikat. Användaren måste sedan välja det certifikat som ska användas. Rätt certifikat kan filtreras ut genom att ange det rot certifikat som klient certifikatet ska kedja till. 
 
-`-ClientRootCert`är CER-filen som innehåller rot certifikatet. Det är en valfri parameter. Om den enhet som du vill ansluta från bara har ett klient certifikat behöver du inte ange den här parametern.
+`-ClientRootCert` är CER-filen som innehåller rot certifikatet. Det är en valfri parameter. Om den enhet som du vill ansluta från bara har ett klient certifikat behöver du inte ange den här parametern.
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="certfiles"></a>1. generera konfigurationsfiler för VPN-klienten
 
@@ -211,7 +211,7 @@ Om du vill hämta tidigare genererade konfigurationsfiler för klienter använde
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. Konfigurera VPN-klienter
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. Konfigurera VPN-klienter
 
 Du kan konfigurera följande VPN-klienter:
 

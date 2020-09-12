@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265260"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397312"
 ---
 # <a name="live-event-types-comparison"></a>Jämförelse av händelse typer i real tid
 
@@ -86,8 +86,7 @@ Om bidrags flödet är av 720p eller högre, kodas **Default720p** för för ins
 | 200 |340 |192 |30 |Hög |
 
 > [!NOTE]
-> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrollera att det bara finns ett lager vid 720p och högst 6 lager. Ange också att du begär en för inställning för en vanlig Live-kodare.
-> De exakta värdena för bit hastigheterna och lösningarna kan justeras med tiden
+> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange önskad tabell med video upplösning och bit hastigheter. Anpassning av bit hastighet för ljud kodning stöds inte. Kontrollera att det bara finns ett lager vid 720p och högst 6 lager. Ange också att du begär en för inställning.
 
 ### <a name="output-video-streams-for-default1080p"></a>Utgående video strömmar för Default1080p
 
@@ -103,8 +102,7 @@ Om bidrags flödet är av 1080p-upplösning kommer **Default1080p** -förvalet a
 | 200 |320 |180 |30 |Hög |
 
 > [!NOTE]
-> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrol lera att det bara finns ett lager i 1080p och högst 6 lager. Ange också att du begär en för inställning för en Premium1080p Live-kodare.
-> De exakta värdena för bit hastigheterna och lösningarna kan justeras med tiden.
+> Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrol lera att det bara finns ett lager i 1080p och högst 6 lager. Ange också att du begär en för inställning för en Premium1080p Live-kodare. De exakta värdena för bit hastigheterna och lösningarna kan justeras med tiden.
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Mata ut ljud ström för Default720p och Default1080p
 

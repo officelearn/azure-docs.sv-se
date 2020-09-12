@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783239"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569058"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använda Azure Security Center-rekommendationer för att förbättra säkerheten
+
 Du kan minska risken för en betydande säkerhets händelse genom att konfigurera en säkerhets princip och sedan implementera de rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhets principer och rekommendationer i Security Center för att minimera en säkerhets attack. 
 
 Security Center kör automatiskt kontinuerliga genomsökningar för att analysera säkerhets statusen för dina Azure-resurser. När Security Center identifierar potentiella säkerhets problem skapas rekommendationer som vägleder dig genom processen med att konfigurera de säkerhets kontroller som krävs. Security Center uppdaterar sina rekommendationer inom 24 timmar, med följande undantag:
@@ -66,6 +67,11 @@ Som en del av de dagliga övervaknings aktiviteterna loggar Jeff in på Azure oc
 6. Jeff har flera virtuella datorer som är riktade mot Internet och eftersom deras portar exponeras, så är de oroar att en angripare kan få kontroll över servrarna. Så Jeff väljer att använda [**just-in-Time VM-åtkomst**](security-center-just-in-time.md).
 
 Jeff fortsätter att gå igenom rekommendationerna med hög prioritet och medelhög prioritet och fatta beslut om implementeringen. För varje rekommendation tittar Jeff på den detaljerade informationen som tillhandahålls av Security Center för att förstå vilka resurser som påverkas, vad den säkra poängen påverkar, vad varje rekommendation innebär och åtgärder för att minimera varje problem.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Använd rekommendationer för att förhindra felaktig säkerhets konfiguration
+
+För att se till att användarna inte skapar resurser som har negativ inverkan på Jeffs poäng, konfigurerar de alternativen Genomdriv och neka på de rekommendationer som är viktigast för dem. Läs mer i [förhindra felaktig konfiguration med tvinga/neka-rekommendationer](prevent-misconfigurations.md).
+
 
 ## <a name="conclusion"></a>Slutsats
 Övervaknings rekommendationer i Security Center hjälper dig att undvika säkerhets risker innan ett angrepp uppstår. När du reparerar rekommendationer kan du förbättra dina säkra poäng och dina arbets belastningar position. Security Center identifierar automatiskt nya resurser som du distribuerar, utvärderar dem mot din säkerhets princip och ger nya rekommendationer för att skydda dem.

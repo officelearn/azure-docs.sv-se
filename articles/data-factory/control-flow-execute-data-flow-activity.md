@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726981"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485045"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -56,12 +56,12 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 
 Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
 -------- | ----------- | -------------- | --------
-data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
-integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | No
-Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | No
-Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | No
-mellanlagring. linkedService | Om du använder en SQL DW-källa eller-mottagare är det lagrings konto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om data flödet läser eller skriver till en SQL DW
-mellanlagring. folderPath | Om du använder en SQL DW-källa eller mottagare, är mappsökvägen i Blob Storage-kontot som används för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till en SQL DW
+dataflöde | Referens till det data flöde som körs | DataFlowReference | Ja
+integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | Inga
+Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Inga
+Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Inga
+mellanlagring. linkedService | Om du använder en Azure Synapse Analytics-källa eller-mottagare är det lagrings konto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om data flödet läser eller skriver till en Azure Synapse-analys
+mellanlagring. folderPath | Om du använder en Azure Synapse Analytics-källa eller handfat, används mappsökvägen i Blob Storage-kontot för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till Azure Synapse Analytics
 
 ![Kör data flöde](media/data-flow/activity-data-flow.png "Kör data flöde")
 
@@ -86,7 +86,7 @@ För pipeline-körningar är klustret ett jobb kluster, vilket tar flera minuter
 
 ### <a name="polybase"></a>PolyBase
 
-Om du använder en Azure SQL Data Warehouse som mottagare eller källa måste du välja en mellanlagringsplats för din PolyBase-inläsning. PolyBase tillåter satsvis inläsning i bulk i stället för att läsa in data rad för rad. PolyBase minskar drastiskt inläsnings tiden i SQL DW.
+Om du använder en Azure Synapse-analys (tidigare SQL Data Warehouse) som mottagare eller källa, måste du välja en mellanlagringsplats för grupp inläsningen för PolyBase. PolyBase tillåter satsvis inläsning i bulk i stället för att läsa in data rad för rad. PolyBase minskar drastiskt inläsnings tiden till Azure Synapse Analytics.
 
 ## <a name="parameterizing-data-flows"></a>Parameters-data flöden
 

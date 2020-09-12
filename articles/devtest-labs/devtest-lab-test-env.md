@@ -3,12 +3,12 @@ title: Använd Azure DevTest Labs för VM-och PaaS-testmiljöer | Microsoft Docs
 description: Lär dig hur du använder Azure DevTest Labs för virtuella PaaS-och test miljö scenarier.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9207c070c13c5e276a6ab95e3bcf1bb8671dc382
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 978071aa160098612a5effebfb30d5d58b777df7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272911"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299838"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Använd Azure DevTest Labs för VM-och PaaS-testmiljöer
 
@@ -46,7 +46,7 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    
    | Uppgift | Detta får du får lära dig |
    | --- | --- |
-   | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan vitlista Azure Marketplace-avbildningar, vilket gör det möjligt att välja enbart de avbildningar som du vill använda för testare.|
+   | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan tillåta Azure Marketplace-avbildningar, vilket gör det möjligt att välja enbart de avbildningar som du vill använda för testare.|
    | [Skapa en anpassad avbildning](devtest-lab-create-template.md) |Skapa en anpassad avbildning genom att förinstallera den program vara du behöver så att testare snabbt kan skapa en virtuell dator med hjälp av den anpassade avbildningen.|
    | [Lär dig mer om image Factory](./devtest-lab-faq.md#blog-post) |Titta på en video som beskriver hur du konfigurerar och använder en avbildnings fabrik.|
 

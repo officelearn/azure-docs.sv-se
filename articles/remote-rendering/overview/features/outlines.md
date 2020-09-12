@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3b4ba62072e26f16a0e39416c9ae346d1acefd9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997531"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613704"
 ---
 # <a name="outline-rendering"></a>Konturrendering
 
@@ -29,7 +29,7 @@ Klassen `OutlineSettings` innehåller inställningar som rör globala dispositio
 | `PulseRateHz`    | flyt   | Den hastighet med vilken kon tur variationer per sekund|
 | `PulseIntensity` | flyt   | Intensiteten för kon tur pulsen. Måste vara mellan 0,0 för ingen pulsning och 1,0 för hel pulsning. Intensitet anger den minsta opaciteten för konturen som `MinOpacity = 1.0 - PulseIntensity` . |
 
-![Beskriver ](./media/outlines.png) effekterna av att ändra `color` parametern från gult (vänster) till Magenta (mitt) och `pulseIntensity` från 0 till 0,8 (höger).
+![Ett objekt som återges tre gånger med olika dispositions parametrar som ](./media/outlines.png) används för att ändra `color` parametern från gult (vänster) till Magenta (mitt) och `pulseIntensity` från 0 till 0,8 (höger).
 
 ## <a name="example"></a>Exempel
 
@@ -60,6 +60,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 ## <a name="performance"></a>Prestanda
 
 Kon tur åter givning kan ha en betydande inverkan på åter givnings prestanda. Den här effekten varierar beroende på förhållandet mellan valda och icke-valda objekt för en viss ram.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# RemoteManager. OutlineSettings-egenskap](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [C++ RemoteManager:: OutlineSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
 ## <a name="next-steps"></a>Nästa steg
 

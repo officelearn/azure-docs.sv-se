@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021321"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613675"
 ---
 # <a name="pbr-materials"></a>PBR-material
 
@@ -55,7 +55,7 @@ Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Ege
 
   Om både ett värde för värde och en metall karta anges, är det slutliga värdet produkten av de två.
 
-  ![metallhet och grovhet](./media/metalness-roughness.png)
+  ![Sfärer som återges med olika värden för metall och ojämnheter](./media/metalness-roughness.png)
 
   I bilden ovan ser klotet ut i det nedre högra hörnet ut som ett verkligt metall material, den nedre vänstra delen ser ut som keramisk eller plast. Albedo-färgen ändras också enligt fysiska egenskaper. Med ökande ojämnheter förlorar materialet reflektions skärpa.
 
@@ -63,13 +63,13 @@ Kärn idén med fysiskt baserad åter givning är att använda *BaseColor*, *Ege
 
 * **occlusionMap** och **aoScale:** [omgivande ocklusion](https://en.wikipedia.org/wiki/Ambient_occlusion) gör objekt med crevices att titta mer realistiskt genom att lägga till skuggor i Occluded områden. Ocklusion värde sträcker `0.0` sig från till `1.0` , där `0.0` betyder mörkhet (Occluded) och `1.0` innebär ingen Occlusions. Om en 2D-struktur anges som en ocklusion-karta, aktive ras den och *aoScale* fungerar som en multiplikator.
 
-  ![Ocklusion-karta](./media/boom-box-ao2.gif)
+  ![Ett objekt som återges med och utan omgivande ocklusion](./media/boom-box-ao2.gif)
 
 * **transparent:** För PBR-material finns det bara en genomskinlighets inställning: den är aktive rad eller inte. Opaciteten definieras av albedo-färgens alfa kanal. När den är aktive rad anropas en mer komplex åter givnings pipeline för att rita halv genomskinliga ytor. Azure-fjärrrendering implementerar OIT (True [order Dependent Transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) ).
 
   Genomskinliga geometrier är dyra att återge. Om du bara behöver hål i en yta, till exempel för löv till ett träd, är det bättre att använda alfa Urklipp i stället.
 
-  ![Meddelande om genomskinlighet ](./media/transparency.png) i bilden ovan, hur den högra sfären är helt transparent, men reflektionen är fortfarande synlig.
+  ![Kloter som återges med noll till fullständiga genomskinlighets ](./media/transparency.png) meddelanden i bilden ovan, hur den högra sfären är helt transparent, men reflektionen är fortfarande synlig.
 
   > [!IMPORTANT]
   > Om något material ska växlas från ogenomskinligt till transparent vid körning måste åter givningen använda *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md). Den här begränsningen gäller inte för material som konverteras som genomskinligt material att börja med.
@@ -80,6 +80,13 @@ I Azure fjärrrendering används mikroaspekten Cook Torrance Micro-Face BRDF med
 
  Ett alternativ till den *metall-och tuffa PBR-* modell som används i Azure Remote rendering är en *spegel-Glossiness PBR-* modell. Den här modellen kan representera en bredare mängd material. Men det är dyrare och fungerar vanligt vis inte bra för real tids fall.
 Det är inte alltid möjligt att konvertera från *spegel-Glossiness* till *Metaly-grovhet* eftersom det finns *(diffusion, spegel)* värdepar som inte kan konverteras till *(BaseColor, metaly)*. Konverteringen i den andra riktningen är enklare och mer exakt eftersom alla *(BaseColor, metall)* par motsvarar väldefinierade *(diffusa, spegel)* par.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# PbrMaterial-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager. CreateMaterial ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ PbrMaterial-klass](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager:: CreateMaterial ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Nästa steg
 

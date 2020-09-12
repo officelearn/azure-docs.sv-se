@@ -1,18 +1,18 @@
 ---
 title: Ansluta till virtuella Azure-datorer med en lokal redundans med Azure Site Recovery
 description: Beskriver hur du ansluter till virtuella Azure-datorer efter en redundansväxling från en lokal plats till Azure med hjälp av Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770500"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568786"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ansluta till virtuella Azure-datorer efter redundansväxling från lokal plats 
 
@@ -96,19 +96,19 @@ Att behålla IP-adresser kräver följande steg:
 
 ### <a name="failover-example"></a>Exempel på redundans
 
-Nu ska vi titta på ett exempel.
+Vi tittar på ett exempel.
 
 - Det fiktiva företagets Sparbanken är värd för sina affärsappar lokalt som de är värdar för sina mobilappar i Azure.
 - De ansluter lokalt till Azure via plats-till-plats-VPN. 
 - Sparbanken använder Site Recovery för att replikera lokala datorer till Azure.
 - Sina lokala appar använder hårdkodade IP-adresser så att de vill behålla samma IP-adresser i Azure.
 - Lokala datorer som kör apparna körs i tre undernät:
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Deras appar som körs i Azure finns i Azure VNet **Azure-nätverket** i två undernät:
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 För att behålla adresserna är det här det som de gör.
 

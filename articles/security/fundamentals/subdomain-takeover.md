@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: e378ffe00be9215c692a832e232fac7e866ab3c9
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890832"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514619"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -27,27 +27,33 @@ I den här artikeln beskrivs det vanliga säkerhetshot för under domän Överta
 
 ## <a name="what-is-subdomain-takeover"></a>Vad är under domän överköps?
 
-Under domänens övertag Ande är ett vanligt hot mot hög allvarlighets grad för organisationer som regelbundet skapar och tar bort många resurser. En under domän överköps kan uppstå när du har en DNS-post som pekar på en deetablerad Azure-resurs. Sådana DNS-poster kallas även "Dangling DNS"-poster. CNAME-poster är särskilt sårbara för det här hotet.
+Under domänens övertag Ande är ett vanligt hot mot hög allvarlighets grad för organisationer som regelbundet skapar och tar bort många resurser. En under domän överköps kan uppstå när du har en [DNS-post](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) som pekar på en Deetablerad Azure-resurs. Sådana DNS-poster kallas även "Dangling DNS"-poster. CNAME-poster är särskilt sårbara för det här hotet. Under domänens övertag ande gör det möjligt för skadliga aktörer att omdirigera trafik som är avsedd för en organisations domän till en plats som utför skadlig aktivitet.
 
 Ett vanligt scenario för en under domän överköps:
 
-1. En webbplats skapas. 
+1. **FLIKAR**
 
-    I det här exemplet `app-contogreat-dev-001.azurewebsites.net` .
+    1. Du etablerar en Azure-resurs med ett fullständigt kvalificerat domän namn (FQDN) för `app-contogreat-dev-001.azurewebsites.net` .
 
-1. En CNAME-post läggs till i DNS som pekar på webbplatsen. 
+    1. Du tilldelar en CNAME-post i din DNS-zon med den under domän `greatapp.contoso.com` som dirigerar trafik till Azure-resursen.
 
-    I det här exemplet skapades följande egna namn: `greatapp.contoso.com` .
+1. **AVETABLERING**
 
-1. Efter några månader behövs inte längre platsen, så den tas bort **utan att** motsvarande DNS-post tas bort. 
+    1. Azure-resursen har avetablerats eller tagits bort efter att den inte längre behövs. 
+    
+        I det här läget `greatapp.contoso.com` *bör* CNAME-posten tas bort från din DNS-zon. Om CNAME-posten inte tas bort annonseras den som en aktiv domän men dirigerar inte trafik till en aktiv Azure-resurs. Detta är definitionen av en DNS-post av typen "Dangling".
 
-    Posten CNAME DNS är nu "Dangling".
+    1. Dangling-underdomänen, `greatapp.contoso.com` , är nu sårbar och kan tas över genom att tilldelas till en annan Azure-prenumerations resurs.
 
-1. Nästan omedelbart efter att webbplatsen har tagits bort, identifierar en hot aktör den saknade platsen och skapar en egen webbplats på `app-contogreat-dev-001.azurewebsites.net` .
+1. **ÖVERTAG Ande**
 
-    Nu är trafiken avsedd för `greatapp.contoso.com` att gå till hot skådespelarens Azure-webbplats och hot aktörens kontroll av det innehåll som visas. 
+    1. Med hjälp av vanligt tillgängliga metoder och verktyg, identifierar en hot aktör Dangling-underdomänen.  
 
-    Dangling DNS utnyttjades och Contosos under domän "GreatApp" har varit ett skadelidande för under domän övertag Ande. 
+    1. Hot aktören etablerar en Azure-resurs med samma fullständiga domän namn för den resurs som du tidigare kontrollerat. I det här exemplet `app-contogreat-dev-001.azurewebsites.net` .
+
+    1. Trafik som skickas till under domänen `myapp.contoso.com` dirigeras nu till den skadliga aktörens resurs där de styr innehållet.
+
+
 
 ![Under domän överköps från en avetablerad webbplats](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -63,17 +69,85 @@ Dangling DNS-poster gör det möjligt för hot aktörer att ta kontroll över de
 
 - **Cookie-fångst från misstänkta besökare** – det är vanligt att webbappar exponerar sessionscookies till under domäner (*. contoso.com), vilket innebär att alla under domäner kan komma åt dem. Hot aktörer kan använda under domän uppköp för att bygga en äkta utseende sida, lura obehöriga användare att besöka den och skörda sina cookies (även säkra cookies). En vanlig felbegrepp är att använda SSL-certifikat för att skydda din webbplats, och dina användares cookies, från en övertag Ande. En hot aktör kan dock använda den kapade under domänen som ska användas för och ta emot ett giltigt SSL-certifikat. Giltiga SSL-certifikat ger dem åtkomst till säkra cookies och kan öka den uppfattade giltighet på den skadliga webbplatsen ytterligare.
 
-- **Phishing-kampanjer** – autentiska under domäner kan användas i nät fiske kampanjer. Detta gäller för skadliga webbplatser och även för MX-poster som gör det möjligt för hot aktör att ta emot e-post som är adresserade till en legitim under domän till ett säkert märke.
+- **Phishing-kampanjer** – autentiska under domäner kan användas i phishing-kampanjer. Detta gäller för skadliga webbplatser och för MX-poster som gör det möjligt för hot aktör att ta emot e-post som är adresserade till en legitim under domän till ett säkert märke.
 
 - **Ytterligare risker** – skadliga webbplatser kan användas för att eskalera till andra klassiska attacker som XSS, CSRF, CORS bypass och mer.
 
 
 
-## <a name="preventing-dangling-dns-entries"></a>Förhindra Dangling DNS-poster
+## <a name="identify-dangling-dns-entries"></a>Identifiera Dangling DNS-poster
+
+Använd Microsofts GitHub PowerShell-verktyg ["Get-DanglingDnsRecords"](https://aka.ms/DanglingDNSDomains)för att identifiera DNS-poster i din organisation som kan vara Dangling.
+
+Med det här verktyget kan Azure-kunder lista alla domäner med en CNAME som är kopplad till en befintlig Azure-resurs som skapades på prenumerationer eller klienter.
+
+Om dina CNAME finns i andra DNS-tjänster och pekar på Azure-resurser, anger du CNAME-filerna i en indatafil till verktyget.
+
+Verktyget stöder de Azure-resurser som anges i följande tabell. Verktyget extraherar eller tar sig som indata, alla innehavarens CNAME.
+
+
+| Tjänst                   | Typ                                        | FQDNproperty                               | Exempel                         |
+|---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
+| Azure Front Door          | Microsoft. Network/frontdoors                | egenskaper. cName                           | `abc.azurefd.net`               |
+| Azure Blob Storage        | Microsoft. Storage/storageaccounts           | Properties. blobar. blob           | `abc. blob.core.windows.net`    |
+| Azure CDN                 | Microsoft. CDN/profiler/slut punkter            | egenskaper. hostName                        | `abc.azureedge.net`             |
+| Offentliga IP-adresser       | Microsoft. Network/publicipaddresses         | Properties. dnsSettings. FQDN                | `abc.EastUs.cloudapp.azure.com` |
+| Azure Traffic Manager     | Microsoft. Network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
+| Azure Container-instans  | Microsoft. containerinstance/containergroups | egenskaper. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
+| Azure API Management      | Microsoft. API Management/Service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
+| Azure App Service         | Microsoft. Web/Sites                         | egenskaper. defaultHostName                 | `abc.azurewebsites.net`         |
+| Azure App Service-platser | Microsoft. Web/Sites/lotss                   | egenskaper. defaultHostName                 | `abc-def.azurewebsites.net`     |
+
+
+
+### <a name="prerequisites"></a>Krav
+
+Kör frågan som en användare som har:
+
+- minst åtkomst nivå till Azure-prenumerationer
+- Läs åtkomst till Azure Resource Graph
+
+Om du är global administratör för din organisations klient kan du höja ditt konto så att det har åtkomst till alla dina organisations prenumerationer med hjälp av vägledningen i [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+
+
+> [!TIP]
+> Azure Resource Graph har begränsnings-och växlings gränser som du bör tänka på om du har en stor Azure-miljö. [Lär dig mer](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) om att arbeta med stora data uppsättningar för Azure-resurser. 
+> 
+> Verktyget använder prenumerations batching för att undvika dessa begränsningar.
+
+### <a name="run-the-script"></a>Kör skriptet
+
+Det finns två versioner av skriptet, båda har samma indataparametrar och ger liknande utdata:
+
+|Skript  |Information  |
+|---------|---------|
+|**Get-DanglingDnsRecordsPsCore.ps1**    |Parallellt läge stöds bara i PowerShell version 7 och högre, annars körs seriellt läge.|
+|**Get-DanglingDnsRecordsPsDesktop.ps1** |Stöds endast i PowerShell Desktop/version som är lägre än 6, eftersom det här skriptet använder [Windows-arbetsflöde](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
+
+Läs mer och ladda ned PowerShell-skripten från GitHub: https://aka.ms/DanglingDNSDomains .
+
+## <a name="remediate-dangling-dns-entries"></a>Åtgärda Dangling DNS-poster 
+
+Granska dina DNS-zoner och identifiera CNAME-poster som är Dangling eller har tagits över. Om under domäner är Dangling eller har tagits bort tar du bort de utsatta under domänerna och minimerar riskerna med följande steg:
+
+1. Från DNS-zonen tar du bort alla CNAME-poster som pekar på FQDN för resurser som inte längre har tillhandahållits.
+
+1. Om du vill aktivera trafik som ska dirigeras till resurser i din kontroll, etablera ytterligare resurser med de FQDN: er som anges i CNAME-posterna i Dangling-underdomänerna.
+
+1. Granska program koden för referenser till specifika under domäner och uppdatera eventuella felaktiga eller inaktuella under domän referenser.
+
+1. Undersök om kompromisser har inträffat och vidta åtgärder enligt organisationens svars procedurer för incidenter. Tips och metod tips för att undersöka det här problemet finns nedan.
+
+    Om din program logik är sådan att hemligheter, till exempel OAuth-autentiseringsuppgifter, har skickats till under domänen Dangling eller om sekretess känslig information har skickats till Dangling-underdomänerna, kan dessa data ha exponerats för tredje part.
+
+1. Ta reda på varför CNAME-posten inte togs bort från din DNS-zon när resursen avetablerats och vidta åtgärder för att se till att DNS-poster uppdateras korrekt när Azure-resurser avetableras i framtiden.
+
+
+## <a name="prevent-dangling-dns-entries"></a>Förhindra Dangling DNS-poster
 
 Att se till att din organisation har implementerat processer för att förhindra Dangling DNS-poster och den resulterande under domänens övertag Ande är en viktig del av ditt säkerhets program.
 
-De förebyggande åtgärder som är tillgängliga för dig idag visas nedan.
+Vissa Azure-tjänster erbjuder funktioner som hjälper dig att skapa förebyggande åtgärder och beskrivs nedan. Andra metoder för att förhindra det här problemet måste upprättas genom organisationens bästa praxis eller standard operativa procedurer.
 
 
 ### <a name="use-azure-dns-alias-records"></a>Använd Azure DNS Ali Aset poster
@@ -121,110 +195,6 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
         - Du äger – bekräfta att du äger alla resurser som dina DNS-under domäner är riktade till.
 
     - Underhålla en tjänst katalog för Azures fullständiga kvalificerade domän namn (FQDN) och program ägare. Skapa tjänst katalogen genom att köra följande skript i Azure Resource Graph. Det här skriptet Projects innehåller FQDN-slutpunktens information om de resurser som du har åtkomst till och matar ut dem i en CSV-fil. Om du har åtkomst till alla prenumerationer för din klient, tar skriptet hänsyn till alla prenumerationer som visas i följande exempel skript. Om du vill begränsa resultatet till en speciell uppsättning prenumerationer redigerar du skriptet som det visas.
-
-        >[!IMPORTANT]
-        > **Behörigheter** – kör frågan som en användare som har åtkomst till alla dina Azure-prenumerationer. 
-        >
-        > **Begränsningar** – Azure Resource Graph har begränsnings-och växlings gränser som du bör tänka på om du har en stor Azure-miljö. [Lär dig mer](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) om att arbeta med stora data uppsättningar för Azure-resurser. Följande exempel skript använder prenumerations-batching för att undvika dessa begränsningar.
-
-        ```powershell
-        
-            # Fetch the full array of subscription IDs.
-            $subscriptions = Get-AzSubscription
-
-            $subscriptionIds = $subscriptions.Id
-                    # Output file path and names
-                    $date = get-date
-                    $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
-                    $fdate #log to console
-                    $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
-                    $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
-                    $fpath = $rpath + $rname
-                    $fpath #This is the output file of FQDN report.
-
-            # queries
-            $allTypesFqdnsQuery = "where type in ('microsoft.network/frontdoors',
-                                    'microsoft.storage/storageaccounts',
-                                    'microsoft.cdn/profiles/endpoints',
-                                    'microsoft.network/publicipaddresses',
-                                    'microsoft.network/trafficmanagerprofiles',
-                                    'microsoft.containerinstance/containergroups',
-                                    'microsoft.web/sites',
-                                    'microsoft.web/sites/slots')
-                        | extend FQDN = case(
-                            type =~ 'microsoft.network/frontdoors', properties['cName'],
-                            type =~ 'microsoft.storage/storageaccounts', parse_url(tostring(properties['primaryEndpoints']['blob'])).Host,
-                            type =~ 'microsoft.cdn/profiles/endpoints', properties['hostName'],
-                            type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
-                            type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
-                            type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
-                            type =~ 'microsoft.web/sites', properties['defaultHostName'],
-                            type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
-                            '')
-                        | project id, type, name, FQDN
-                        | where isnotempty(FQDN)";
-
-            $apiManagementFqdnsQuery = "where type =~ 'microsoft.apimanagement/service'
-                        | project id, type, name,
-                            gatewayUrl=parse_url(tostring(properties['gatewayUrl'])).Host,
-                            portalUrl =parse_url(tostring(properties['portalUrl'])).Host,
-                            developerPortalUrl = parse_url(tostring(properties['developerPortalUrl'])).Host,
-                            managementApiUrl = parse_url(tostring(properties['managementApiUrl'])).Host,
-                            gatewayRegionalUrl = parse_url(tostring(properties['gatewayRegionalUrl'])).Host,
-                            scmUrl = parse_url(tostring(properties['scmUrl'])).Host,
-                            additionaLocs = properties['additionalLocations']
-                        | mvexpand additionaLocs
-                        | extend additionalPropRegionalUrl = tostring(parse_url(tostring(additionaLocs['gatewayRegionalUrl'])).Host)
-                        | project id, type, name, FQDN = pack_array(gatewayUrl, portalUrl, developerPortalUrl, managementApiUrl, gatewayRegionalUrl, scmUrl,             
-                            additionalPropRegionalUrl)
-                        | mvexpand FQDN
-                        | where isnotempty(FQDN)";
-
-            $queries = @($allTypesFqdnsQuery, $apiManagementFqdnsQuery);
-
-            # Paging helper cursor
-            $Skip = 0;
-            $First = 1000;
-
-            # If you have large number of subscriptions, process them in batches of 2,000.
-            $counter = [PSCustomObject] @{ Value = 0 }
-            $batchSize = 2000
-            $response = @()
-
-            # Group the subscriptions into batches.
-            $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
-
-            foreach($query in $queries)
-            {
-                # Run the query for each subscription batch with paging.
-                foreach ($batch in $subscriptionsBatch)
-                { 
-                    $Skip = 0; #Reset after each batch.
-
-                    $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
-                    else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
-                    $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
-                }
-            }
-
-            # View the completed results of the query on all subscriptions
-            $response | Export-Csv -Path $fpath -Append  
-
-        ```
-
-        Lista över typer och deras `FQDNProperty` värden som anges i föregående resurs diagram fråga:
-
-        |Resursnamn  | `<ResourceType>`  | `<FQDNproperty>`  |
-        |---------|---------|---------|
-        |Azure Front Door|Microsoft. Network/frontdoors|egenskaper. cName|
-        |Azure Blob Storage|Microsoft. Storage/storageaccounts|Properties. blobar. blob|
-        |Azure CDN|Microsoft. CDN/profiler/slut punkter|egenskaper. hostName|
-        |Offentliga IP-adresser|Microsoft. Network/publicipaddresses|Properties. dnsSettings. FQDN|
-        |Azure Traffic Manager|Microsoft. Network/trafficmanagerprofiles|Properties. dnsConfig. FQDN|
-        |Azure Container-instans|Microsoft. containerinstance/containergroups|egenskaper. ipAddress. FQDN|
-        |Azure API Management|Microsoft. API Management/Service|Properties. hostnameConfigurations. hostName|
-        |Azure App Service|Microsoft. Web/Sites|egenskaper. defaultHostName|
-        |Azure App Service-platser|Microsoft. Web/Sites/lotss|egenskaper. defaultHostName|
 
 
 - **Skapa procedurer för reparation:**

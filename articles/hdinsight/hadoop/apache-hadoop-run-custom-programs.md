@@ -1,25 +1,25 @@
 ---
 title: Köra anpassade MapReduce-program – Azure HDInsight
 description: När och hur du kör anpassade Apache MapReduce-program i Azure HDInsight-kluster.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 8751a54393f310c1d5a77ccbfdb553ee3643f74a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1dcc2a944fc527e4cbc8c7c1072503377ecb5798
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080116"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505275"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Köra anpassade MapReduce-program
 
 Apache Hadoop-baserade Big data system som HDInsight möjliggör data bearbetning med en mängd olika verktyg och tekniker. I följande tabell beskrivs de största fördelarna och övervägandena för var och en.
 
-| Frågans mekanism | Fördelar | Att tänka på |
+| Frågans mekanism | Fördelar | Överväganden |
 | --- | --- | --- |
 | **Apache Hive med HiveQL** | <ul><li>En utmärkt lösning för batchbearbetning och analys av stora mängder oföränderliga data, för data Sammanfattning och för frågor på begäran. Den använder en välbekant SQL-liknande syntax.</li><li>Den kan användas för att skapa permanenta data tabeller som enkelt kan partitioneras och indexeras.</li><li>Flera externa tabeller och vyer kan skapas över samma data.</li><li>Den har stöd för en enkel data lager implementering som ger enorma skalbara och fel tolerans funktioner för data lagring och bearbetning.</li></ul> | <ul><li>Det kräver att källdata har minst viss identifierbar struktur.</li><li>Det är inte lämpligt för real tids frågor och uppdateringar på radnivå. Det är bäst att använda batch-jobb över stora mängder data.</li><li>Det kanske inte går att utföra vissa typer av komplexa bearbetnings uppgifter.</li></ul> |
 | **Apache gris som använder gris Latin** | <ul><li>En utmärkt lösning för att manipulera data som uppsättningar, sammanslagning och filtrering av data uppsättningar, tillämpa funktioner på poster eller grupper med poster och för att omstrukturera data genom att definiera kolumner, gruppera värden eller konvertera kolumner till rader.</li><li>Den kan använda en arbets flödes-baserad metod som en sekvens med åtgärder för data.</li></ul> | <ul><li>SQL-användare kan hitta gris Latin är mindre välbekant och svårare att använda än HiveQL.</li><li>Standardutdata är vanligt vis en textfil och kan vara svårare att använda med visualiserings verktyg som Excel. Normalt skiktar du en Hive-tabell över utdata.</li></ul> |

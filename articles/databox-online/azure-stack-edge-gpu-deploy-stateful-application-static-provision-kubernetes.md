@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254380"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462725"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Använda kubectl för att köra ett Kubernetes tillstånds känsligt program med en PersistentVolume på din Azure Stack Edge-enhet
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du distribuerar ett tillstånds känsligt program me
 Den här proceduren är avsedd för de som har granskat [Kubernetes-lagringen på Azure Stack Edge-enhet](azure-stack-edge-gpu-kubernetes-storage.md) och som är bekanta med begreppen [Kubernetes-lagring](https://kubernetes.io/docs/concepts/storage/).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan distribuera det tillstånds känsliga programmet måste du kontrol lera att du har slutfört följande krav på enheten och klienten som du ska använda för att få åtkomst till enheten:
 
@@ -55,7 +55,10 @@ Du är redo att distribuera ett tillstånds känsligt program på Azure Stack Ed
 
 ## <a name="provision-a-static-pv"></a>Etablera ett statiskt PV
 
-Om du vill konfigurera ett PV statiskt måste du skapa en resurs på enheten. Följ de här stegen för att etablera ett PV mot din SMB-eller NFS-resurs. 
+Om du vill konfigurera ett PV statiskt måste du skapa en resurs på enheten. Följ de här stegen för att etablera ett PV mot din SMB-resurs. 
+
+> [!NOTE]
+> Det speciella exemplet som används i den här instruktions artikeln fungerar inte med NFS-resurser. I allmänhet kan NFS-resurser tillhandahållas på din Azure Stack Edge-enhet med program som inte är databaser.
 
 1. Välj om du vill skapa en Edge-resurs eller en lokal lokal resurs. Följ instruktionerna i [Lägg till en resurs](azure-stack-edge-manage-shares.md#add-a-share) för att skapa en resurs. Se till att markera kryss rutan för att **använda resurs med Edge Compute**.
 
@@ -71,7 +74,7 @@ Om du vill konfigurera ett PV statiskt måste du skapa en resurs på enheten. F�
 
         ![Montera befintlig lokal resurs för PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Anteckna resurs namnet. När den här resursen skapas skapas ett permanent volym objekt automatiskt i Kubernetes-klustret som motsvarar den SMB-eller NFS-resurs som du skapade. 
+1. Anteckna resurs namnet. När den här resursen skapas skapas ett permanent volym objekt automatiskt i Kubernetes-klustret som motsvarar den SMB-resurs som du skapade. 
 
 ## <a name="deploy-mysql"></a>Distribuera MySQL
 
@@ -147,7 +150,7 @@ Alla `kubectl` kommandon som du använder för att skapa och hantera tillstånds
               claimName: mysql-pv-claim
     ```
     
-2. Kopiera och Spara som en `mysql-pv.yml` fil i samma mapp som du sparade `mysql-deployment.yml` . Om du vill använda den SMB-eller NFS-resurs som du tidigare skapade med `kubectl` , anger du `volumeName` fältet i PVC-objektet till namnet på resursen. 
+2. Kopiera och Spara som en `mysql-pv.yml` fil i samma mapp som du sparade `mysql-deployment.yml` . Om du vill använda den SMB-resurs som du tidigare skapade med `kubectl` , anger du `volumeName` fältet i PVC-objektet till namnet på resursen. 
 
     > [!NOTE] 
     > Kontrol lera att YAML-filerna har rätt indrag. Du kan kontrol lera med [yaml luddfri](http://www.yamllint.com/) för att validera och sedan Spara.
@@ -158,8 +161,8 @@ Alla `kubectl` kommandon som du använder för att skapa och hantera tillstånds
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -289,7 +292,6 @@ Alla `kubectl` kommandon som du använder för att skapa och hantera tillstånds
 
 ## <a name="verify-mysql-is-running"></a>Verifiera att MySQL körs
 
-Föregående YAML-fil skapar en tjänst som låter en POD i klustret komma åt databasen. Tjänst alternativet clusterIP: ingen tillåter att tjänstens DNS-namn matchas direkt till Pod-IP-adressen. Detta är optimalt om du bara har en POD bakom en tjänst och du inte tänker öka antalet poddar.
 
 Om du vill köra ett kommando mot en behållare i en pod som kör MySQL, skriver du:
 

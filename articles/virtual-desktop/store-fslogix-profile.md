@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009417"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568701"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop
 
@@ -29,7 +29,7 @@ I följande tabeller jämförs lagrings lösningarna Azure Storage erbjudanden f
 |Plattforms tjänst|Ja, Azure – inbyggd lösning|Ja, Azure – inbyggd lösning|Ingen, egen hantering|
 |Regional tillgänglighet|Alla regioner|[Välj regioner](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Alla regioner|
 |Redundans|Lokalt redundant/zon-redundant/Geo-redundant|Lokalt redundant|Lokalt redundant/zon-redundant/Geo-redundant|
-|Nivåer och prestanda|Standard<br>Premium<br>Upp till max 100 000 IOPS per resurs med 5 Gbit/s per resurs med cirka 3 MS svars tid|Standard<br>Premium<br>Extremt<br>Upp till 320k (16K) IOPS med 4,5 Gbit/s per volym vid ungefär 1 MS svars tid|Standard HDD: gränser för upp till 500 IOPS per disk<br>Standard SSD: upp till 4 000 IOPS-gränser per disk<br>Premium SSD: upp till 20 000 IOPS per disk<br>Vi rekommenderar Premium diskar för Lagringsdirigering|
+|Nivåer och prestanda|Standard<br>Premium<br>Upp till max 100 000 IOPS per resurs med 5 Gbit/s per resurs med cirka 3 MS svars tid|Standard<br>Premium<br>Ultra<br>Upp till 320k (16K) IOPS med 4,5 Gbit/s per volym vid ungefär 1 MS svars tid|Standard HDD: gränser för upp till 500 IOPS per disk<br>Standard SSD: upp till 4 000 IOPS-gränser per disk<br>Premium SSD: upp till 20 000 IOPS per disk<br>Vi rekommenderar Premium diskar för Lagringsdirigering|
 |Kapacitet|100 TiB per resurs|100 TiB per volym, upp till 12,5 PiB per prenumeration|Maximalt 32 TiB per disk|
 |Nödvändig infrastruktur|Minsta resurs storlek 1 GiB|Pool för minsta kapacitet 4 TiB, minsta volym storlek 100 GiB|Två virtuella datorer på Azure IaaS (+ Cloud vittne) eller minst tre virtuella datorer utan och kostnader för diskar|
 |Protokoll|SMB 2.1/3. och REST|NFSv3, NFSv 4.1 (för hands version), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
@@ -51,7 +51,7 @@ Mer information om FSLogix profil behållare, användar profil diskar och andra 
 
 Kom igång med någon av de här självstudierna om du är redo att skapa dina egna FSLogix-profil behållare:
 
-- [Komma igång med FSLogix profil behållare på Azure Files i det virtuella Windows-skrivbordet](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Komma igång med FSLogix profil behållare på Azure Files i det virtuella Windows-skrivbordet](create-file-share.md)
 - [Skapa en FSLogix profil behållare för en värd-pool med Azure NetApp-filer](create-fslogix-profile-container.md)
 - Anvisningarna i [distribuera en skalbar fil server med två noder Lagringsdirigering för UPD-lagring i Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) gäller också när du använder en FSLogix profil behållare i stället för en användar profil disk
 

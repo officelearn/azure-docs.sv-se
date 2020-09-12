@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4de0014abfde32fc4b863afe1cc9000b25d30e83
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137645"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503879"
 ---
 # <a name="two-class-decision-forest-module"></a>Modul för besluts skog i två klass
 
@@ -76,7 +76,6 @@ Mer information finns i [besluts skogar](https://go.microsoft.com/fwlink/?LinkId
   
 5.  Ange ett tal för att begränsa det maximala djupet för besluts träden för att begränsa det maximala djupet för **besluts träd**. Att öka djupet i trädet kan öka precisionen på risken för viss överanpassning och ökad inlärnings tid.
   
-6.  För **antalet slumpmässiga delningar per nod**anger du antalet delningar som ska användas när du skapar varje nod i trädet. En *delning* innebär att funktionerna i varje nivå i trädet (noden) är slumpmässigt uppdelade.
   
 7.  För **minsta antal sampel per lövnod**anger du det minsta antal fall som krävs för att skapa en terminalsession (löv) i ett träd.
   

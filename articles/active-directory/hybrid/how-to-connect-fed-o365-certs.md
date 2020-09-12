@@ -1,6 +1,6 @@
 ---
-title: Certifikat förnyelse för Office 365 och Azure AD-användare | Microsoft Docs
-description: I den här artikeln beskrivs hur 365 du löser problem med e-postmeddelanden som meddelar dem om att förnya ett certifikat med e-post.
+title: Certifikat förnyelse för Microsoft 365 och Azure AD-användare | Microsoft Docs
+description: I den här artikeln beskrivs Microsoft 365 användarna hur de kan lösa problem med e-postmeddelanden som meddelar dem om att förnya ett certifikat.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,14 +16,14 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830459"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661454"
 ---
-# <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya Federations certifikat för Office 365 och Azure Active Directory
+# <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Förnya Federations certifikat för Microsoft 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
 För lyckad federation mellan Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS) (AD FS) bör de certifikat som används av AD FS för att signera säkerhetstoken till Azure AD matcha vad som har kon figurer ATS i Azure AD. Eventuella matchnings fel kan leda till trasigt förtroende. Azure AD säkerställer att den här informationen hålls synkroniserad när du distribuerar AD FS och Webbprogramproxy (för extra nät åtkomst).
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller ytterligare information om hur du hanterar certifi
 * Du använder en identitets leverantör från tredje part.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Standard konfiguration av AD FS för certifikat för tokensignering
-Token signering och token dekryptering av certifikat är vanligt vis självsignerade certifikat och är lämpliga i ett år. AD FS innehåller som standard en process för automatisk förnyelse som heter **AutoCertificateRollover**. Om du använder AD FS 2,0 eller senare uppdaterar Office 365 och Azure AD automatiskt ditt certifikat innan det upphör att gälla.
+Token signering och token dekryptering av certifikat är vanligt vis självsignerade certifikat och är lämpliga i ett år. AD FS innehåller som standard en process för automatisk förnyelse som heter **AutoCertificateRollover**. Om du använder AD FS 2,0 eller senare uppdaterar Microsoft 365 och Azure AD ditt certifikat automatiskt innan det upphör att gälla.
 
 ### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Förnya meddelande från Microsoft 365 administrations Center eller ett e-postmeddelande
 > [!NOTE]
@@ -58,7 +58,7 @@ Azure AD försöker övervaka federationsmetadata och uppdaterar de token signer
 >
 >
 
-## <a name="check-if-the-certificates-need-to-be-updated"></a>Kontrol lera om certifikaten behöver uppdateras<a name="managecerts"></a>
+## <a name="check-if-the-certificates-need-to-be-updated"></a>Kontrol lera om certifikaten behöver uppdateras <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>Steg 1: kontrol lera status för AutoCertificateRollover
 Öppna PowerShell på AD FS-servern. Kontrol lera att värdet för AutoCertificateRollover är inställt på sant.
 
@@ -104,15 +104,15 @@ Om tumavtrycken i båda utdata matchar dina certifikat synkroniseras med Azure A
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Steg 3: kontrol lera om certifikatet håller på att gå ut
 I utdata från antingen get-MsolFederationProperty eller get-AdfsCertificate, söker du efter datumet under "inte efter". Om datumet är mindre än 30 dagar långt bör du vidta åtgärder.
 
-| AutoCertificateRollover | Certifikat som synkroniseras med Azure AD | Federationsmetadata är offentligt tillgängliga | Bestämma | Åtgärd |
+| AutoCertificateRollover | Certifikat som synkroniseras med Azure AD | Federationsmetadata är offentligt tillgängliga | Bestämma | Action |
 |:---:|:---:|:---:|:---:|:---:|
 | Ja |Ja |Ja |- |Det behövs ingen åtgärd. Se [förnya token signerings certifikat automatiskt](#autorenew). |
-| Ja |Nej |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
-| No |- |- |Mindre än 30 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
+| Ja |Inga |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
+| Inga |- |- |Mindre än 30 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
 
 \[-] Spelar ingen roll
 
-## <a name="renew-the-token-signing-certificate-automatically-recommended"></a>Förnya token signerings certifikatet automatiskt (rekommenderas)<a name="autorenew"></a>
+## <a name="renew-the-token-signing-certificate-automatically-recommended"></a>Förnya token signerings certifikatet automatiskt (rekommenderas) <a name="autorenew"></a>
 Du behöver inte utföra några manuella steg om båda följande stämmer:
 
 * Du har distribuerat Webbprogramproxy, som kan ge åtkomst till federationsmetadata från extra nätet.
@@ -129,18 +129,18 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 var `(your_FS_name)` ersätts med det värd namn för Federations tjänsten som organisationen använder, till exempel FS.contoso.com.  Om du kan kontrol lera att båda inställningarna har slutförts behöver du inte göra något annat.  
 
 Exempel: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
-## <a name="renew-the-token-signing-certificate-manually"></a>Förnya token signerings certifikatet manuellt<a name="manualrenew"></a>
+## <a name="renew-the-token-signing-certificate-manually"></a>Förnya token signerings certifikatet manuellt <a name="manualrenew"></a>
 Du kan välja att förnya token signerings certifikat manuellt. Följande scenarier kan till exempel fungera bättre för manuell förnyelse:
 
 * Token signerings certifikat är inte självsignerade certifikat. Den vanligaste orsaken till detta är att din organisation hanterar AD FS certifikat som har registrerats från en organisations certifikat utfärdare.
 * Nätverks säkerhet tillåter inte att federationsmetadata är offentligt tillgängliga.
 
-I dessa scenarier måste du uppdatera din Office 365-domän varje gång du uppdaterar certifikaten för Token-signering.
+I dessa scenarion måste du uppdatera din Microsoft 365-domän varje gång du uppdaterar certifikaten för Token-signering med hjälp av PowerShell-kommandot Update-MsolFederatedDomain.
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Steg 1: kontrol lera att AD FS har nya token signerings certifikat
 **Konfiguration som inte är standard**
 
-Om du använder en icke-standardkonfiguration av AD FS (där **AutoCertificateRollover** har angetts till **false**) använder du förmodligen anpassade certifikat (inte självsignerade). Mer information om hur du förnyar AD FS token signerings certifikat finns i [rikt linjer för kunder som inte använder AD FS självsignerade certifikat](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Om du använder en icke-standardkonfiguration av AD FS (där **AutoCertificateRollover** har angetts till **false**) använder du förmodligen anpassade certifikat (inte självsignerade). Mer information om hur du förnyar AD FS token signerings certifikat finns i [certifikat krav för federerade servrar](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers).
 
 **Federationsmetadata är inte offentligt tillgängliga**
 
@@ -162,8 +162,8 @@ Om du använder en icke-standardkonfiguration av AD FS (där **AutoCertificateRo
 
 Två certifikat bör visas nu, varav ett har ett **NotAftert** datum på ungefär ett år i framtiden och för vilka **IsPrimary** -värdet är **falskt**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Steg 2: uppdatera de nya token signerings certifikaten för Office 365-förtroendet
-Uppdatera Office 365 med de nya token signerings certifikat som ska användas för förtroendet enligt följande.
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-microsoft-365-trust"></a>Steg 2: uppdatera de nya token signerings certifikaten för Microsoft 365 förtroende
+Uppdatera Microsoft 365 med de nya token signerings certifikat som ska användas för förtroendet enligt följande.
 
 1. Öppna Microsoft Azure Active Directory-modul för Windows PowerShell.
 2. Kör $cred = Get-Credential. När du uppmanas att ange autentiseringsuppgifter för den här cmdleten skriver du autentiseringsuppgifterna för ditt moln tjänst administratörs konto.
@@ -176,7 +176,7 @@ Uppdatera Office 365 med de nya token signerings certifikat som ska användas f�
 >
 
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect"></a>Reparera Azure AD-förtroende med hjälp av Azure AD Connect<a name="connectrenew"></a>
+## <a name="repair-azure-ad-trust-by-using-azure-ad-connect"></a>Reparera Azure AD-förtroende med hjälp av Azure AD Connect <a name="connectrenew"></a>
 Om du har konfigurerat AD FS-gruppen och Azure AD-förtroende med Azure AD Connect kan du använda Azure AD Connect för att identifiera om du behöver vidta några åtgärder för dina certifikat för tokensignering. Om du behöver förnya certifikaten kan du använda Azure AD Connect för att göra det.
 
 Mer information finns i [Reparera förtroendet](how-to-connect-fed-management.md).
@@ -188,4 +188,4 @@ Som standard är AD FS konfigurerad för att generera certifikat för Token-sign
 
 Azure AD försöker hämta ett nytt certifikat från Federations tjänstens metadata 30 dagar innan det aktuella certifikatet upphör att gälla. Om ett nytt certifikat inte är tillgängligt vid den tiden fortsätter Azure AD att övervaka metadata enligt regelbundna dags intervall. Så snart det nya certifikatet är tillgängligt i metadata, uppdateras Federations inställningarna för domänen med den nya certifikat informationen. Du kan använda `Get-MsolDomainFederationSettings` för att kontrol lera om du ser det nya certifikatet i NextSigningCertificate/SigningCertificate.
 
-Mer information om token för signering av certifikat i AD FS finns i [Hämta och konfigurera Token signering och token dekryptering av certifikat för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)
+Mer information om token för signering av certifikat i AD FS finns i [Hämta och konfigurera Token signering och token dekryptering av certifikat för AD FS](/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

@@ -4,13 +4,13 @@ description: Lär dig hur du skapar ett kluster som distribuerar noder över til
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 08/13/2020
-ms.openlocfilehash: f24351c5f77e6c00365497d5e6deeefea8271cb9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 09/04/2020
+ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871419"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489144"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -150,7 +150,8 @@ Name:       aks-nodepool1-28993262-vmss000004
 Nu har vi två ytterligare noder i zon 1 och 2. Du kan distribuera ett program som består av tre repliker. Vi kommer att använda NGINX som exempel:
 
 ```console
-kubectl run nginx --image=nginx --replicas=3
+kubectl create deployment nginx --image=nginx
+kubectl scale deployment nginx --replicas=3
 ```
 
 Genom att Visa noder där dina poddar körs, ser du att poddar körs på noderna som motsvarar tre olika tillgänglighets zoner. Med kommandot `kubectl describe pod | grep -e "^Name:" -e "^Node:"` i ett bash-gränssnitt skulle du till exempel få utdata som liknar detta:

@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013596"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613733"
 ---
 # <a name="debug-rendering"></a>Rendering av felsökning
 
@@ -19,7 +19,7 @@ API för fel söknings åter givning innehåller en uppsättning globala alterna
 
 ## <a name="available-debug-rendering-effects"></a>Tillgängliga fel söknings åter givnings effekter
 
-|Inställning                          | Effekt                               |
+|Inställningen                          | Effekt                               |
 |---------------------------------|:-------------------------------------|
 |Bild Rute räknare                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar det aktuella ram-ID: t för Server sidan, som kontinuerligt ökar när åter givningen fortsätter. |
 |Antal polygoner                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar den aktuella åter givnings mängden av polygoner, samma värde som efter frågas av [prestanda frågor på Server sidan](performance-queries.md)| 
@@ -74,6 +74,10 @@ De tillhandahållna effekterna ger dock ingen detaljerad introspektionsfunktione
 
 * Att aktivera text överlägg innebär lite till ingen prestanda.
 * Aktivering av tråd Rams läge medför en icke-trivial prestanda, men det kan variera beroende på scenen. För komplexa scener kan det här läget orsaka att bild frekvensen släpps under 60-Hz-målet.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C++ RemoteManager::D ebugRenderingSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Nästa steg
 

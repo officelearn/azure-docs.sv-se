@@ -3,12 +3,12 @@ title: Programarkitektur för Azure Migrate
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919751"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514583"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Programarkitektur för Azure Migrate
 
@@ -62,15 +62,15 @@ Data som samlas in av klienten för alla distributions scenarier sammanfattas i 
 
 ## <a name="discovery-and-collection-process"></a>Process för identifiering och insamling
 
-![Arkitektur](./media/migrate-appliance-architecture/architecture.png)
+![Arkitektur](./media/migrate-appliance-architecture/architecture1.png)
 
 Enheten kommunicerar med vCenter-servrar och Hyper-V-värdar/-kluster med följande process.
 
 1. **Starta identifiering**:
-    - När du startar identifieringen på Hyper-V-enheten kommunicerar den med Hyper-V-värdarna på WinRM-portarna 5985 (HTTP) och 5986 (HTTPS).
+    - När du startar identifieringen på Hyper-V-enheten kommunicerar den med Hyper-V-värdarna på WinRM-port 5985 (HTTP).
     - När du startar identifiering på VMware-enheten kommunicerar den med vCenter-servern på TCP-port 443 som standard. OM vCenter-servern lyssnar på en annan port kan du konfigurera den i installations programmets webbapp.
 2. **Samla in metadata och prestanda data**:
-    - Enheten använder en Common Information Model-session (CIM) för att samla in virtuella Hyper-V-Datadata från Hyper-V-värden på portarna 5985 och 5986.
+    - Enheten använder en Common Information Model-session (CIM) för att samla in virtuella Hyper-V-Datadata från Hyper-V-värden på port 5985.
     - Enheten kommunicerar med port 443 som standard för att samla in virtuella VMware-Datadata från vCenter Server.
 3. **Skicka data**: enheten skickar insamlade data till Azure Migrate Server utvärdering och migrering av Azure Migrate Server över SSL-port 443. Enheten kan ansluta till Azure via Internet, eller så kan du använda ExpressRoute med offentlig/Microsoft-peering.
     - För prestanda data samlar enheten in real tids användnings data.
@@ -81,17 +81,12 @@ Enheten kommunicerar med vCenter-servrar och Hyper-V-värdar/-kluster med följa
     - Vid Server migrering börjar installations programmet samla in VM-data och replikerar dem till Azure.
 4. **Utvärdera och migrera**: nu kan du skapa utvärderingar från de metadata som samlas in av installations programmet med hjälp av Azure Migrate Server bedömning. Dessutom kan du börja migrera virtuella VMware-datorer med hjälp av Azure Migrate Server-migrering för att dirigera agent lös VM-replikering.
 
-
-
-
-
 ## <a name="appliance-upgrades"></a>Installations program
 
 Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten uppdateras. Detta sker automatiskt eftersom automatisk uppdatering är aktiverat på enheten som standard. Du kan ändra den här standardinställningen för att uppdatera agenterna manuellt.
 
 Du inaktiverar automatisk uppdatering i registret genom att ange HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" till 0 (DWORD).
 
- 
 
 ## <a name="next-steps"></a>Nästa steg
 

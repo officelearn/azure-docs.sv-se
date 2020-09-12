@@ -1,29 +1,26 @@
 ---
-title: Bearbeta ändrings flöde i Azure Blob Storage (förhands granskning) | Microsoft Docs
+title: Bearbeta ändrings flöde i Azure Blob Storage | Microsoft Docs
 description: Lär dig hur du bearbetar ändringar i flödes loggar i ett .NET-klient program
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018968"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568259"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Bearbeta ändrings flöde i Azure Blob Storage (förhands granskning)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Bearbeta ändrings flöde i Azure Blob Storage
 
 Ändra feed innehåller transaktions loggar för alla ändringar som sker i blobbar och blob-metadata i ditt lagrings konto. Den här artikeln visar hur du läser ändringar av flödes poster med hjälp av processor biblioteket för BLOB Change-feed.
 
-Läs mer om ändrings flödet [i ändra feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> Ändrings flödet är i en offentlig för hands version och är tillgänglig i begränsade regioner. Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md). Biblioteket Change feed processor kan ändras mellan nu och när det här biblioteket blir allmänt tillgängligt.
+Mer information om ändrings flödet finns i [ändra feed i Azure Blob Storage](storage-blob-change-feed.md).
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Hämta processor biblioteket för BLOB Change feed
 
@@ -219,4 +216,4 @@ Start tiden som du anger avrundas nedåt till närmaste timme och slut tiden avr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att ändra flödes loggar. Se [ändra feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md)
+Lär dig mer om att ändra flödes loggar. Se [ändra feed i Azure Blob Storage](storage-blob-change-feed.md)

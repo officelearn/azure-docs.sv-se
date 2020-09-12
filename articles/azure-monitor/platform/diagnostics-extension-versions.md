@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305099"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568668"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Windows Azure-diagnostik Extension (WAD) konfigurations schema versioner och historik
 Den här artikeln innehåller versions historiken för de [Azure-diagnostik-tillägg för Windows (wad)](diagnostics-extension-overview.md) schema versioner som ingår i Microsoft Azure SDK.  
@@ -23,15 +23,15 @@ Den här artikeln innehåller versions historiken för de [Azure-diagnostik-till
 |------------------|-------------------------------|------|  
 |1.x               |1,0                            |plugin-program|  
 |2,0 – 2,4         |1,0                            |plugin-program|  
-|2.5               |1.2                            |utöka|  
+|2,5               |1,2                            |utöka|  
 |2,6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
 |2.8               |1.5                            |"|  
 |2.9               |1.6                            |"|
-|2,96              |1.7                            |"|
+|2,96              |1,7                            |"|
 |2,96              |1.8                            |"|
 |2,96              |1.8.1                          |"|
-|2,96              |1.9                            |"|
+|2,96              |1,9                            |"|
 |2,96              |1,11                           |"|
 
 
@@ -160,7 +160,7 @@ Du har lagt till Sinks-elementet och möjligheten att skicka diagnostikdata till
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2,6 och diagnostiskt tillägg 1,3
 Följande ändringar har gjorts för moln tjänst projekt i Visual Studio. (Dessa ändringar gäller även senare versioner av Azure SDK.)
 
-* Den lokala emulatorn stöder nu diagnostik. Den här ändringen innebär att du kan samla in diagnostikdata och se till att programmet skapar rätt spår när du utvecklar och testar i Visual Studio. Anslutnings strängen `UseDevelopmentStorage=true` möjliggör insamling av diagnostikdata medan du kör ditt moln tjänst projekt i Visual Studio med hjälp av Azure Storage-emulatorn. Alla diagnostikdata samlas in i lagrings kontot (utvecklings lagring).
+* Den lokala emulatorn stöder nu diagnostik. Den här ändringen innebär att du kan samla in diagnostikdata och se till att programmet skapar rätt spår när du utvecklar och testar i Visual Studio. Anslutnings strängen `UseDevelopmentStorage=true` möjliggör insamling av diagnostikdata medan du kör ditt moln tjänst projekt i Visual Studio med hjälp av Azure Storage emulatorn. Alla diagnostikdata samlas in i lagrings kontot (utvecklings lagring).
 * Anslutnings strängen för det diagnostiska lagrings kontot (Microsoft. WindowsAzure. plugin-program. Diagnostics. ConnectionString) lagras en gång i tjänst konfigurations filen (. cscfg). I Azure SDK 2,5 angavs ditt lagrings konto för diagnostik i filen Diagnostics. wadcfgx.
 
 Det finns några viktiga skillnader mellan hur anslutnings strängen fungerade i Azure SDK 2,4 och tidigare och hur den fungerar i Azure SDK 2,6 och senare.

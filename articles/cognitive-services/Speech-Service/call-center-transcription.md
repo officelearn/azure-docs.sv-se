@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636134"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462742"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
 
@@ -60,7 +60,7 @@ Det är inte ovanligt för 35 procent av ett support samtal att vara vad vi kall
 
 ### <a name="translation"></a>Översättning
 
-Vissa företag experimenterar med att tillhandahålla översatta avskrifter från support samtal på främmande språk så att leverans ansvariga kan förstå den världs omfattande upplevelsen av sina kunder. Våra [översättnings](translation.md) funktioner är inte överskridna. Vi kan översätta ljud till ljud eller ljud till text för ett stort antal språk.
+Vissa företag experimenterar med att tillhandahålla översatta avskrifter från support samtal på främmande språk så att leverans ansvariga kan förstå den världs omfattande upplevelsen av sina kunder. Våra [översättnings](/azure/cognitive-services/speech-service/speech-translation) funktioner är inte överskridna. Vi kan översätta ljud till ljud eller ljud till text för ett stort antal språk.
 
 ### <a name="text-to-speech"></a>Text till tal
 
@@ -103,7 +103,7 @@ Internt använder vi tekniken ovan för att stödja Microsofts kund samtal i bat
 
 Vissa företag krävs för att kunna skriva av konversationer i real tid. Real tids avskrifter kan användas för att identifiera nyckel ord och utlösare söker efter innehåll och resurser som är relevanta för konversationen, för att övervaka sentiment, för att förbättra tillgängligheten eller för att tillhandahålla översättningar för kunder och agenter som inte är inbyggda högtalare.
 
-Vi rekommenderar att du använder [tal-SDK](speech-sdk.md)för scenarier som kräver avskrifter i real tid. För närvarande är tal-till-text tillgängligt på [fler än 20 språk](language-support.md)och SDK är tillgängligt i C++, C#, Java, python, Node. js, mål-C och Java Script. Det finns exempel på varje språk på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). De senaste nyheterna och uppdateringarna finns i [viktig information](releasenotes.md).
+Vi rekommenderar att du använder [tal-SDK](speech-sdk.md)för scenarier som kräver avskrifter i real tid. För närvarande är tal-till-text tillgängligt på [fler än 20 språk](language-support.md)och SDK är tillgängligt i C++, C#, Java, Python, Node.js, mål-C och Java Script. Det finns exempel på varje språk på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). De senaste nyheterna och uppdateringarna finns i [viktig information](releasenotes.md).
 
 Internt använder vi teknikerna ovan för att analysera i real tids kund samtal i real tid när de sker, vilket visas i följande diagram.
 

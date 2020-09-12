@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: Konfigurera peering'
 description: I den här artikeln dokumenteras stegen för att skapa och tillhandahålla ExpressRoute privat och Microsoft-peering. Den här artikeln visar också hur du kontrollerar status, uppdaterar eller tar bort peer-kopplingar för en krets.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: duau
+ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542916"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395731"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 

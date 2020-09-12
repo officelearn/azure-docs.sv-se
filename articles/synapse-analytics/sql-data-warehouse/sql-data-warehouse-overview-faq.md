@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482538"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462657"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
 
@@ -27,7 +27,7 @@ A. Azure Synapse är en analys tjänst som samlar ihop data lager och stor data 
 
 F. Vad hände med att Azure SQL Data Warehouse?
 
-A. Azure Synapse är Azure SQL Data Warehouse (SQL DW) har utvecklats. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure dataSynapses är Azure SQL Data Warehouse Evolved. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 F. Vad är Synapse SQL-pool?
 
@@ -75,7 +75,7 @@ A. [Support biljetter](sql-data-warehouse-get-started-create-support-ticket.md) 
 
 F. Vilka data typer stöds?
 
-A. Se [data typer](sql-data-warehouse-tables-data-types.md).
+A. Se  [data typer](sql-data-warehouse-tables-data-types.md).
 
 F. Vilka tabell funktioner stöder?
 

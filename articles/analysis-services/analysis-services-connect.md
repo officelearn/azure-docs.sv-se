@@ -4,16 +4,16 @@ description: Lär dig hur du ansluter till och hämtar data från en Analysis Se
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 170cf0081e6671451ece6dc2924ae7e418f520a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506782"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489025"
 ---
 # <a name="connecting-to-servers"></a>Ansluta till servrar
 
@@ -76,6 +76,24 @@ Använd det Windows-konto som kör den aktuella processen.
 ## <a name="connect-using-an-odc-file"></a>Anslut med hjälp av en. ODC-fil
 
 Med äldre versioner av Excel kan användarna ansluta till en Azure Analysis Services-server med hjälp av en ODC-fil (Office Data Connection). Mer information finns i [skapa en ODC-fil (Office Data Connection)](analysis-services-odc.md).
+
+## <a name="connect-as-a-linked-server-from-sql-server"></a>Anslut som en länkad server från SQL Server
+
+SQL Server kan ansluta till en Azure Analysis Services resurs som en [länkad server](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) genom att ange MSOLAP som Provider för data källa. Innan du konfigurerar en länkad server anslutning måste du installera det senaste [MSOLAP-klient biblioteket](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (Provider). 
+
+För att länkade Server anslutningar ska Azure Analysis Services, måste MSOLAP-providern instansieras utanför SQL Server processen. När du konfigurerar alternativ för länkad server kontrollerar du att alternativet **Tillåt InProcess** **inte är markerat**.
+
+Om **Tillåt** inaktivitet är markerat och providern instansieras i SQL Server processen returneras följande fel:
+
+```
+OLE DB provider "MSOLAP" for linked server "(null)" returned message "The following system error occurred: ".
+
+OLE DB provider "MSOLAP" for linked server "(null)" returned message "The connection failed because user credentials are needed and Sign-In UI is not allowed.".
+
+Msg 7303, Level 16, State 1, Line 2
+Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked server "(null)".
+```
+
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: dpalled
-ms.openlocfilehash: 8d9b166d4ac9290a0389eac23f9d6882f667e1a0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 43d3e80c66d54e3f7518246f7d75c5661995578c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856110"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489042"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Lägger till stöd för lång datatyp i Azure Time Series Insights Gen2
 
@@ -33,7 +33,7 @@ Om du påverkas av något av följande fall gör du de rekommenderade ändringar
 
 Om något av fallen gäller dig, gör du ändringar i din modell. Uppdatera Time Series-uttrycket (TSX) i variabel definitionen med de rekommenderade ändringarna. Uppdatera båda:
 
-- Azure Time Series Insights TSD-Utforskare
+- Azure Time Series Insights Explorer
 - Alla anpassade klienter som använder våra API: er
 
 Beroende på din IoT-lösning och begränsningar kanske du inte har insyn i de data som skickas till din Azure Time Series Insights Gen2-miljö. Om du är osäker på om dina data endast är integrala eller både integrala och inintegrala har du några alternativ:

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642477"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489535"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Vad är Azure SQL Edge (för hands version)?
 
@@ -67,7 +67,7 @@ Med Azure SQL Edge kan du utveckla och underhålla program enklare och mer produ
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) – ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer från SQL Server till SQL Database.
 - [SQL Server data tools i Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) – ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, SQL-databaser, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) – ett kostnads fritt, nedladdnings Bart plattforms oberoende databas verktyg för data Professional med Microsoft-serien lokala och molnbaserade data plattformar på Windows, MacOS och Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs) – en kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, MacOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för att fråga Microsoft SQL Server, Azure SQL Database och Azure SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs) – en kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, MacOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för frågor Microsoft SQL Server, Azure SQL Database och Azure Synapse Analytics.
 
 
 ## <a name="next-steps"></a>Nästa steg

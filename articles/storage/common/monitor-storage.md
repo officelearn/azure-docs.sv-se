@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure Storage | Microsoft Docs
+title: Övervaknings Azure Storage | Microsoft Docs
 description: Lär dig hur du övervakar prestanda och tillgänglighet för Azure Storage. Övervaka Azure Storage data, lär dig mer om konfiguration och analys av mått-och loggdata.
 author: normesta
 services: storage
@@ -9,14 +9,14 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2cc275028b64c3df06e2c0275bc0f4ac21fa0f6e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020158"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500427"
 ---
-# <a name="monitor-azure-storage"></a>Övervaka Azure Storage
+# <a name="monitoring-azure-storage"></a>Övervaknings Azure Storage
 
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure Storage och hur du kan använda funktionerna i Azure Monitor för att analysera aviseringar för dessa data.
 
@@ -30,7 +30,7 @@ När du har viktiga program och affärs processer som förlitar sig på Azure-re
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
 Azure Storage skapar övervaknings data med hjälp av [Azure Monitor](../../azure-monitor/overview.md), som är en fullständig stack övervaknings tjänst i Azure. Azure Monitor innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser och resurser i andra moln och lokalt. 
 
-Mer information om Azure Monitor finns i [övervaka Azure-resurser med Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md). I artikeln beskrivs följande ämnen:
+Börja med artikeln [övervakning av Azure-resurser med Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) som beskriver följande:
 
 - Vad är Azure Monitor?
 - Kostnader för övervakning
@@ -40,7 +40,7 @@ Mer information om Azure Monitor finns i [övervaka Azure-resurser med Azure Mon
 
 Följande avsnitt bygger på den här artikeln genom att beskriva de specifika data som samlats in från Azure Storage. Exempel visar hur du konfigurerar data insamling och analyserar data med Azure-verktyg.
 
-## <a name="monitor-data-from-azure-storage"></a>Övervaka data från Azure Storage
+## <a name="monitoring-data-from-azure-storage"></a>Övervaknings data från Azure Storage
 
 Azure Storage samlar in samma typer av övervaknings data som andra Azure-resurser, som beskrivs i [övervaka data från Azure-resurser](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Mer information om loggar och mått som skapats av Azure Storage finns i [Azure Storage övervaknings data referens](monitor-storage-reference.md).
 
@@ -90,7 +90,7 @@ Du måste också ange de kategorier av åtgärder som du vill samla in loggar f�
 | StorageWrite | Skriv åtgärder för objekt. |
 | StorageDelete | Ta bort åtgärder för objekt. |
 
-## <a name="analyze-metric-data"></a>Analysera mått data
+## <a name="analyzing-metric-data"></a>Analysera mått data
 
 Du kan analysera mått för Azure Storage med mått från andra Azure-tjänster med hjälp av Metrics Explorer. Öppna Metrics Explorer genom att välja **mått** på **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
@@ -115,7 +115,7 @@ Alla mät värden för Azure Storage finns i följande namnrymder:
 För en lista över alla Azure Monitor-support-mått, som innehåller Azure Storage, se [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 
-### <a name="access-metrics"></a>Åtkomst mått
+### <a name="accessing-metrics"></a>Åtkomst till mått
 
 > [!TIP]
 > Om du vill visa Azure CLI-eller .NET-exempel väljer du de motsvarande flikarna som visas här.
@@ -133,7 +133,7 @@ I det här exemplet ersätter du `<resource-ID>` plats hållaren med resurs-ID f
    Get-AzMetricDefinition -ResourceId $resourceId
 ```
 
-#### <a name="read-metric-values"></a>Läs mått värden
+#### <a name="reading-metric-values"></a>Läser mått värden
 
 Du kan läsa mått värden på konto nivå för ditt lagrings konto eller den enskilda lagrings tjänsten, till exempel BLOB, fil, tabell eller Queue Service. Använd cmdleten [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) .
 
@@ -203,7 +203,7 @@ I följande exempel visas hur du listar en mått definition på konto nivån:
 
 ```
 
-#### <a name="read-account-level-metric-values"></a>Läs mått värden på konto nivå
+#### <a name="reading-account-level-metric-values"></a>Läser mått värden på konto nivå
 
 I följande exempel visas hur du läser `UsedCapacity` data på konto nivå:
 
@@ -249,7 +249,7 @@ I följande exempel visas hur du läser `UsedCapacity` data på konto nivå:
 
 ```
 
-#### <a name="read-multidimensional-metric-values"></a>Läsa flerdimensionella mått värden
+#### <a name="reading-multidimensional-metric-values"></a>Läser flerdimensionella mått värden
 
 För flerdimensionella mått måste du definiera metadata-filter om du vill läsa mått data för vissa dimensions värden.
 
@@ -304,7 +304,7 @@ I följande exempel visas hur du läser mått data för måttet som stöder mult
 
 ---
 
-## <a name="analyze-log-data"></a>Analysera loggdata
+## <a name="analyzing-log-data"></a>Analysera loggdata
 
 Du kan komma åt resurs loggar antingen som en BLOB i ett lagrings konto, som händelse data eller genom att logga analys frågor.
 
@@ -313,7 +313,7 @@ En detaljerad referens för de fält som visas i dessa loggar finns i [Azure Sto
 > [!NOTE]
 > Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Den här för hands versionen aktiverar loggar för blobbar (som innehåller Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1 och lagrings konton för generell användning v2. Klassiska lagrings konton stöds inte.
 
-### <a name="access-logs-in-a-storage-account"></a>Åtkomst till loggar i ett lagrings konto
+### <a name="accessing-logs-in-a-storage-account"></a>Åtkomst till loggar i ett lagrings konto
 
 Loggar visas som blobbar som lagras i en behållare på mål lagrings kontot. Data samlas in och lagras i en enda blob som en linje avgränsad JSON-nyttolast. Namnet på blobben följer denna namngivnings konvention:
 
@@ -323,7 +323,7 @@ Här är ett exempel:
 
 `https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
-### <a name="access-logs-in-an-event-hub"></a>Åtkomst loggar i en Event Hub
+### <a name="accessing-logs-in-an-event-hub"></a>Komma åt loggar i en Event Hub
 
 Loggar som skickas till en Event Hub lagras inte som en fil, men du kan kontrol lera att händelsehubben har fått logg informationen. I Azure Portal går du till händelsehubben och kontrollerar att antalet **inkommande meddelanden** är större än noll. 
 
@@ -331,7 +331,7 @@ Loggar som skickas till en Event Hub lagras inte som en fil, men du kan kontrol 
 
 Du kan komma åt och läsa loggdata som skickas till händelsehubben med hjälp av säkerhets information och verktyg för händelse hantering och övervakning. Mer information finns i [vad kan jag göra med övervaknings data som skickas till min Event Hub?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
 
-### <a name="access-logs-in-a-log-analytics-workspace"></a>Åtkomst loggar i en Log Analytics-arbetsyta
+### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Komma åt loggar i en Log Analytics-arbetsyta
 
 Du kan komma åt loggar som skickas till en Log Analytics arbets yta genom att använda Azure Monitor logg frågor.
 

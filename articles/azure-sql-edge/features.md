@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
-ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/03/2020
+ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539218"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462709"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funktioner som stöds i Azure SQL Edge (för hands version) 
 
@@ -67,12 +67,12 @@ I följande lista finns SQL Server 2019 på Linux-funktioner som inte stöds fö
 | Område | Funktion eller tjänst som inte stöds |
 |-----|-----|
 | **Databas design** | InMemory OLTP och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering. |
-| &nbsp; | `HierarchyID`datatyp och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering. |
-| &nbsp; | `Spatial`datatyp och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering. |
+| &nbsp; | `HierarchyID` datatyp och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering. |
+| &nbsp; | `Spatial` datatyp och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering. |
 | &nbsp; | Sträck ut DB och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering. |
 | &nbsp; | Full text index och Sök, och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering.|
 | &nbsp; | `FileTable`, `FILESTREAM` , och relaterade DDL-kommandon och Transact-SQL-funktioner, katalogfiler och vyer för dynamisk hantering.|
-| **Databasmotor** | Replikering. Observera att du kan konfigurera Azure SQL Edge som en push-prenumerant av en replikeringstopologi. |
+| **Databas motor** | Replikering. Observera att du kan konfigurera Azure SQL Edge som en push-prenumerant av en replikeringstopologi. |
 | &nbsp; | PolyBase. Observera att du kan konfigurera Azure SQL Edge som mål för externa tabeller i PolyBase. |
 | &nbsp; | Språk utöknings Bart med Java och Spark. |
 | &nbsp; | Active Directory-integrering. |
@@ -89,6 +89,10 @@ I följande lista finns SQL Server 2019 på Linux-funktioner som inte stöds fö
 | &nbsp; | CLR-beroende datum-och tids katalogs visningar, Functions och frågeuttryck. |
 | &nbsp; | Buffertpooltillägget. |
 | &nbsp; | Database mail. |
+| &nbsp; | Service Broker |
+| &nbsp; | Principbaserad hantering |
+| &nbsp; | Hanterings informations lager |
+| &nbsp; | Inneslutna databaser |
 | **SQL Server Agent** |  Under system: CmdExec, PowerShell, Queue Reader, SSIS, SSAS och SSRS. |
 | &nbsp; | Aviseringar. |
 | &nbsp; | Hanterad säkerhets kopiering. |

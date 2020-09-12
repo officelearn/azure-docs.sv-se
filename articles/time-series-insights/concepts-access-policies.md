@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5e8cb5e062db5c66fc093bf67c97caba15f407a3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856118"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489127"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs de två typerna av Azure Time Series Insights åtko
 
 ## <a name="sign-in-to-azure-time-series-insights"></a>Logga in på Azure Time Series Insights
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Leta upp din Azure Time Series Insights-miljö genom att ange `Time Series Insights environments` i sökrutan. **Search** Välj `Time Series Insights environments` i Sök resultaten.
 1. Välj din Azure Time Series Insights-miljö i listan.
 
@@ -124,4 +124,4 @@ Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights
 
 * Läs [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md) för Azure Active Directory registrerings steg för appar.
 
-* Visa [din miljö i Azure Time Series Insights TSD-Utforskare](./time-series-insights-update-explorer.md).
+* Visa [din miljö i Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).

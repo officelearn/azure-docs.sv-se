@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522881"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484960"
 ---
 # <a name="data-access-strategies"></a>Dataåtkomststrategier
 
@@ -55,8 +55,8 @@ Mer information om de mekanismer för nätverks säkerhet som stöds på data la
     |                              | Azure Database for MariaDB, MySQL, PostgreSQL       | -                | -                   | Ja             | -            | Ja                  |
     |                              | Azure File Storage                                  | Ja              | -                   | Ja             | -            | .                    |
     |                              | Azure Storage (BLOB, ADLS Gen2)                     | Ja              | Ja (endast MSI-autentisering) | Ja             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml  | Ja (endast Azure SQL DB/DW)        | -                   | Ja             | -            | Ja                  |
-    |                              | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | yes      | Ja                 | Ja             | -            | -                    |
+    |                              | Azure SQL DB, Azure Synapse Analytics), SQL ml  | Ja (endast Azure SQL DB/DW)        | -                   | Ja             | -            | Ja                  |
+    |                              | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | ja      | Ja                 | Ja             | -            | -                    |
     | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.    | -                | -                   | Ja             | -            | -                    |
     | Azure-laaS                   | SQL Server, Oracle osv.                          | -                | -                   | Ja             | Ja          | -                    |
     | Lokala laaS              | SQL Server, Oracle osv.                          | -                | -                   | Ja             | -            | -                    |
@@ -73,7 +73,7 @@ Mer information om de mekanismer för nätverks säkerhet som stöds på data la
     |                                | Azure Database for MariaDB, MySQL, PostgreSQL               | Ja       | -                   |
     |                                | Azure File Storage                                            | Ja       | -                   |
     |                                | Azure Storage (blogg, ADLS Gen2)                             | Ja       | Ja (endast MSI-autentisering) |
-    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL ml          | Ja       | -                   |
+    |                                | Azure SQL DB, Azure Synapse Analytics), SQL ml          | Ja       | -                   |
     |                                | Azure Key Vault (för hämtning av hemligheter/anslutnings sträng) | Ja       | Ja                 |
     | Andra data lager för PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage osv.              | Ja       | -                   |
     | Azure-laaS                     | SQL Server, Oracle osv.                                  | Ja       | -                   |

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/06/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783662"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505209"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -32,7 +32,7 @@ Du kan se en snabb video som talar om hur du aktiverar åtkomst granskningar:
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
@@ -100,22 +100,31 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
 
 1. Om du vill ange vad som händer när en granskning har slutförts expanderar du avsnittet **när inställningarna slutförs** .
 
-    ![Skapa en åtkomst granskning-när inställningarna slutförs](./media/create-access-review/upon-completion-settings.png)
+    ![Skapa en åtkomst granskning-när inställningarna slutförs](./media/create-access-review/upon-completion-settings-new.png)
 
-1. Om du vill ta bort åtkomsten för nekade användare automatiskt anger du **Använd automatiskt tillämpa resultat till resurs** för att **Aktivera**. Om du vill tillämpa resultaten manuellt när granskningen är klar ställer du in växeln på **inaktivera**.
+2. Om du vill ta bort åtkomsten för nekade användare automatiskt anger du **Använd automatiskt tillämpa resultat till resurs** för att **Aktivera**. Om du vill tillämpa resultaten manuellt när granskningen är klar ställer du in växeln på **inaktivera**.
 
-1. Använd listan **ska inte svara** på listan om du vill ange vad som händer för användare som inte granskas av granskaren under gransknings perioden. Den här inställningen påverkar inte användare som har granskats manuellt av granskarna. Om den sista granskaren av beslutet är neka tas användarens åtkomst bort.
+3. Använd listan **om granskare inte svarar** för att ange vad som händer för användare som inte granskas av granskaren under gransknings perioden. Den här inställningen påverkar inte användare som har granskats manuellt av granskarna. Om den sista granskaren av beslutet är neka tas användarens åtkomst bort.
 
     - **Ingen ändring** – lämna användarens åtkomst oförändrad
     - **Ta bort åtkomst** – ta bort användares åtkomst
     - **Godkänn åtkomst** – Godkänn användarens åtkomst
     - **Ta rekommendationer** – beakta systemets rekommendation om att neka eller godkänna användarens fortsatta åtkomst
 
+4. Förhandsgranskningsvyn Använd åtgärden som ska tillämpas på nekade användare för att ange vad som händer med gäst användare om de nekas.
+    - **Alternativ 1** tar bort nekad användares åtkomst till gruppen eller programmet som granskas, men de kommer fortfarande att kunna logga in till klienten. 
+    - **Alternativ 2** blockerar nekade användare från att logga in på klienten, oavsett om de har åtkomst till andra resurser. Om det var fel eller om en administratör bestämmer sig för att återaktivera en åtkomst, kan de göra det inom 30 dagar efter att användaren har inaktiverats. Om ingen åtgärd vidtas för de inaktiverade användarna tas de bort från klienten.
+
+Om du vill veta mer om metod tips för att ta bort gäst användare som inte längre har åtkomst till resurser i organisationen läser du artikeln [med rubriken använd Azure AD Identity Governance för att granska och ta bort externa användare som inte längre har resurs åtkomst.](access-reviews-external-users.md).
+
+>[!NOTE]
+> Åtgärd som ska tillämpas på nekade användare fungerar bara om du tidigare har begränsat en granskning till gäst användare (se avsnittet **skapa en eller flera åtkomst granskningar** steg 8)
+
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
 1. Om du vill ange ytterligare inställningar expanderar du avsnittet **Avancerade inställningar** .
 
-    ![Skapa en åtkomst granskning – avancerade inställningar](./media/create-access-review/advanced-settings-preview.png)
+    ![Skapa en åtkomst granskning – avancerade inställningar](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Ange **Visa rekommendationer** för att **Aktivera** för att Visa granskarna system rekommendationer baserat på användarens åtkomst information.
 

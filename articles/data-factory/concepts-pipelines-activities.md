@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497666"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442998"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 
@@ -26,9 +26,9 @@ ms.locfileid: "86497666"
 I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.
 
 ## <a name="overview"></a>Översikt
-En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. En pipeline kan till exempel innehålla en uppsättning aktiviteter som matar in och rensar loggdata, och sedan startar ett mappnings data flöde för att analysera loggdata. Pipelinen låter dig hantera aktiviteterna som en uppsättning i stället för var och en. Du distribuerar och schemalägger pipelinen i stället för aktiviteterna oberoende av varandra.
+En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter som tillsammans utför en uppgift. En pipeline kan till exempel innehålla en uppsättning aktiviteter som matar in och rensar loggdata, och sedan startar ett mappningsdataflöde för att analysera loggdata. Pipelinen gör att du kan hantera aktiviteterna som en uppsättning i stället för var och en. Du distribuerar och schemalägger pipelinen i stället för aktiviteterna oberoende av varandra.
 
-Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från SQL Server till en Azure-Blob Storage. Använd sedan en data flödes aktivitet eller en Databricks-anteckningsbok-aktivitet för att bearbeta och transformera data från Blob Storage till en Azure Synapse Analytics-pool som Business Intelligence rapporterings lösningar bygger på.
+Aktiviteterna i en pipeline definierar åtgärder som ska utföras på dina data. Du kan till exempel använda en kopierings aktivitet för att kopiera data från SQL Server till en Azure-Blob Storage. Använd sedan en data flödes aktivitet eller en Databricks-anteckningsbok-aktivitet för att bearbeta och transformera data från Blob Storage till en Azure Synapse Analytics-pool som Business Intelligence rapporterings lösningar bygger på.
 
 Data Factory har tre grupperingar av aktiviteter: [data förflyttnings aktiviteter](copy-activity-overview.md), [data omvandlings aktiviteter](transform-data.md)och [kontroll aktiviteter](control-flow-web-activity.md). En aktivitet kan ha noll eller flera [indatauppsättningar](concepts-datasets-linked-services.md) och kan producera en eller flera [utdatauppsättningar](concepts-datasets-linked-services.md). I följande diagram visas förhållandet mellan pipeline, aktivitet och datauppsättning i Data Factory:
 
@@ -57,7 +57,7 @@ Datatransformeringsaktivitet | Compute-miljö
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) | Azure VM
-[Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse eller SQL Server
+[Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (tidigare SQL Data Warehouse) eller SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Anpassad aktivitet](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks-anteckningsbok](transform-data-databricks-notebook.md) | Azure Databricks
@@ -76,7 +76,7 @@ Kontrollaktivitet | Beskrivning
 [Filter](control-flow-filter-activity.md) | Använda ett filter uttryck för en indatakälla
 [För varje](control-flow-for-each-activity.md) | ForEach-aktiviteten definierar ett upprepat kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
 [Hämta metadata](control-flow-get-metadata-activity.md) | GetMetadata-aktiviteten kan användas till att hämta metadata för data i Azure Data Factory.
-[If-villkorsaktivitet](control-flow-if-condition-activity.md) | If-villkoret kan användas grenbaserat på villkor som utvärderas som sanna eller falska. If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Den utvärderar en uppsättning aktiviteter när villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till`false.`
+[If-villkorsaktivitet](control-flow-if-condition-activity.md) | If-villkoret kan användas grenbaserat på villkor som utvärderas som sanna eller falska. If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Den utvärderar en uppsättning aktiviteter när villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false.`
 [Sökningsaktivitet](control-flow-lookup-activity.md) | Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter.
 [Ange variabel](control-flow-set-variable-activity.md) | Ange värdet för en befintlig variabel.
 [Tills-aktivitet](control-flow-until-activity.md) | Implementerar Do-Until-loop som liknar Do-Until-loopstrukturen i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory.
@@ -108,12 +108,12 @@ Så här definieras en pipeline i JSON-format:
 
 Tagga | Beskrivning | Typ | Obligatorisk
 --- | ----------- | ---- | --------
-name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | Sträng | Ja
-beskrivning | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
+name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | Sträng | Ja
+description | Ange texten som beskriver vad pipeline används till. | Sträng | Inga
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
-parametrar | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Lista | Nej
-samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills de tidigare är klara | Antal | Nej 
-anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Nej
+parametrar | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Lista | Inga
+samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills de tidigare är klara | Tal | Inga 
+anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Inga
 
 ## <a name="activity-json"></a>Aktivitets-JSON
 Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två huvudtyper av aktiviteter: körnings- och kontrollaktiviteter.
@@ -143,13 +143,13 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
 Tagga | Beskrivning | Krävs
 --- | ----------- | ---------
-name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Ja</li></ul>
-beskrivning | Text som beskriver vad aktiviteten används till | Ja
+name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Ja</li></ul>
+description | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Se avsnittet [data förflyttnings](#data-movement-activities)aktiviteter, [data omvandling](#data-transformation-activities)och [kontroll av aktiviteter](#control-flow-activities) för olika typer av aktiviteter. | Ja
 linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning-batchbedömningsaktivitet, lagrad proceduraktivitet. <br/><br/>Nej för alla andra
-typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
-policy | Principer som påverkar körningsbeteende för aktiviteten. Den här egenskapen innehåller en tids gräns och ett omprövnings beteende. Om inget värde anges används standardvärden. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Nej
-dependsOn | Den här egenskapen används till att definiera aktivitetsberoenden och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency) | Nej
+typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga
+policy | Principer som påverkar körningsbeteende för aktiviteten. Den här egenskapen innehåller en tids gräns och ett omprövnings beteende. Om inget värde anges används standardvärden. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Inga
+dependsOn | Den här egenskapen används till att definiera aktivitetsberoenden och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency) | Inga
 
 ### <a name="activity-policy"></a>Aktivitetsprincip
 Principer påverkar körningsbeteendet hos en aktivitet och ger konfigurationsalternativ. Aktivitetsprinciper är bar tillgängliga för körningsaktiviteter.
@@ -185,8 +185,8 @@ Principer påverkar körningsbeteendet hos en aktivitet och ger konfigurationsal
 JSON-namn | Beskrivning | Tillåtna värden | Obligatorisk
 --------- | ----------- | -------------- | --------
 timeout | Anger tidsgränsen för aktivitetens körning. | Tidsintervall | Nej. Standardtidsgränsen är 7 dagar.
-retry | Max. antal omförsök | Heltal | Nej. Standardvärdet är 0
-retryIntervalInSeconds | Fördröjningen mellan omförsök i sekunder | Heltal | Nej. Standardvärdet är 30 sekunder
+retry | Max. antal omförsök | Integer | Nej. Standardvärdet är 0
+retryIntervalInSeconds | Fördröjningen mellan omförsök i sekunder | Integer | Nej. Standardvärdet är 30 sekunder
 secureOutput | När värdet är true anses utdata från aktivitet vara säker och loggas inte för övervakning. | Boolesk | Nej. Standardvärdet är false.
 
 ### <a name="control-activity"></a>Kontrollaktivitet
@@ -208,11 +208,11 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 
 Tagga | Beskrivning | Krävs
 --- | ----------- | --------
-name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Ja</li><ul>
-beskrivning | Text som beskriver vad aktiviteten används till | Ja
+name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Ja</li><ul>
+description | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
-typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
-dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [aktivitets beroende](#activity-dependency). | Nej
+typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga
+dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [aktivitets beroende](#activity-dependency). | Inga
 
 ### <a name="activity-dependency"></a>Aktivitetsberoende
 Aktivitets beroende definierar hur efterföljande aktiviteter beror på tidigare aktiviteter, vilket fastställer villkoret för om du vill fortsätta att köra nästa uppgift. En aktivitet kan vara beroende av en eller flera tidigare aktiviteter med olika beroendevillkor.

@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002782"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468648"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -115,7 +115,7 @@ För varje distributions namn är platsen oföränderlig. Du kan inte skapa en d
 
 ## <a name="deployment-scopes"></a>Distributions omfång
 
-När du distribuerar till en prenumeration kan du rikta in dig på prenumerationen eller eventuella resurs grupper i prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+När du distribuerar till en prenumeration kan du rikta en prenumeration och eventuella resurs grupper i prenumerationen. Du kan inte distribuera till en annan prenumeration än mål prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
 
 De resurser som definieras i avsnittet resurser i mallen tillämpas på prenumerationen.
 
@@ -145,7 +145,7 @@ Om du vill rikta en resurs grupp i prenumerationen lägger du till en kapslad di
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,19 @@ Om du vill rikta en resurs grupp i prenumerationen lägger du till en kapslad di
 }
 ```
 
+I den här artikeln hittar du mallar som visar hur du distribuerar resurser till olika omfång. En mall som skapar en resurs grupp och distribuerar ett lagrings konto till den finns i [skapa resurs grupper och resurser](#create-resource-group-and-resources). För en mall som skapar en resurs grupp, använder ett lås på den och tilldelar en roll för resurs gruppen, se [åtkomst kontroll](#access-control).
+
 ## <a name="use-template-functions"></a>Använda mall funktioner
 
 För distributioner på prenumerations nivå finns det några viktiga överväganden när du använder mallarna:
 
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Använd funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) för att hämta resurs-ID för resurser som distribueras på prenumerations nivå.
+* Använd inte [resourceId ()](template-functions-resource.md#resourceid) för att hämta resurs-ID för resurser som distribueras på prenumerations nivå.
 
-  Om du till exempel vill hämta resurs-ID för en princip definition använder du:
+  Använd i stället funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+
+  Om du till exempel vill hämta resurs-ID för en princip definition som distribueras till en prenumeration använder du:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +424,7 @@ Du kan [definiera](../../governance/policy/concepts/definition-structure.md) och
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

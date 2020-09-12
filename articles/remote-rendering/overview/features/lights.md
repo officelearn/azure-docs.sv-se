@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022154"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613653"
 ---
 # <a name="scene-lighting"></a>Scenbelysning
 
@@ -69,6 +69,17 @@ Det finns inga ytterligare egenskaper.
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
 Ljusa källor har en betydande inverkan på åter givnings prestanda. Använd dem noggrant och endast om det krävs av programmet. Alla statiska globala belysnings villkor, inklusive en statisk riktad komponent, kan uppnås med en [anpassad luft rummets struktur](sky.md), utan ytterligare åter givnings kostnad.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# LightComponentBase-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# PointLightComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [C++ LightComponentBase-klass](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
+* [C++ PointLightComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
+* [C++ SpotLightComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
+* [C++ DirectionalLightComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>Nästa steg
 

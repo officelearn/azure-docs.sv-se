@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114667"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468546"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Distribuera Cloud Shell till ett virtuellt Azure-nätverk
 > [!NOTE]
@@ -52,7 +52,7 @@ I det valda virtuella nätverket måste ett dedikerat undernät användas för C
 En nätverks profil är en mall för nätverks konfiguration för Azure-resurser som anger vissa nätverks egenskaper för resursen.
 
 ### <a name="azure-relay"></a>Azure Relay
-En [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) tillåter två slut punkter som inte kan kontaktas direkt för kommunikation. I det här fallet används den för att tillåta administratörens webbläsare att kommunicera med behållaren i det privata nätverket.
+En [Azure Relay](../azure-relay/relay-what-is-it.md) tillåter två slut punkter som inte kan kontaktas direkt för kommunikation. I det här fallet används den för att tillåta administratörens webbläsare att kommunicera med behållaren i det privata nätverket.
 
 Azure Relay-instansen som används för Cloud Shell kan konfigureras för att styra vilka nätverk som kan komma åt behållar resurser: 
 - Tillgängligt från det offentliga Internet: i den här konfigurationen är Cloud Shell ett sätt att nå ut i övrigt interna resurser utanför. 
@@ -66,7 +66,7 @@ Som i standard Cloud Shell krävs ett lagrings konto när du använder Cloud She
 
 * Under för hands versionen stöds färre regioner för Cloud Shell i ett virtuellt nätverk. Detta är för närvarande begränsat till: väst och WestCentralUS.
 
-* [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) inte är en kostnads fri tjänst kan du se deras [priser](https://azure.microsoft.com/pricing/details/service-bus/). I Cloud Shell scenariot används en hybrid anslutning för varje administratör medan de använder Cloud Shell. Anslutningen stängs av automatiskt när Cloud Shell-sessionen har slutförts.
+* [Azure Relay](../azure-relay/relay-what-is-it.md) inte är en kostnads fri tjänst kan du se deras [priser](https://azure.microsoft.com/pricing/details/service-bus/). I Cloud Shell scenariot används en hybrid anslutning för varje administratör medan de använder Cloud Shell. Anslutningen stängs av automatiskt när Cloud Shell-sessionen har slutförts.
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
 
@@ -114,4 +114,4 @@ Anslut till Cloud Shell får du en fråga om den första körningen. Välj önsk
 ![Visar de Cloud Shell isolerade VNET-inställningarna för första upplevelse.](media/private-vnet/vnet-settings.png)
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer om virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Lär dig mer om virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md)

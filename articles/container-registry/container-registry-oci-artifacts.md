@@ -4,14 +4,14 @@ description: Skicka och ta emot OCI-artefakter (Open container Initiative) med e
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 08/12/2020
 ms.author: stevelas
-ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371060"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485011"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Push-överför och hämta en OCI-artefakt med ett Azure Container Registry
 
@@ -54,7 +54,7 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login`använder Docker-klienten för att ange en Azure Active Directory token i `docker.config` filen. Docker-klienten måste vara installerad och igång för att slutföra det enskilda autentiseringsschemat.
+> `az acr login` använder Docker-klienten för att ange en Azure Active Directory token i `docker.config` filen. Docker-klienten måste vara installerad och igång för att slutföra det enskilda autentiseringsschemat.
 
 ## <a name="push-an-artifact"></a>Skicka en artefakt
 
@@ -148,6 +148,36 @@ Om du vill ta bort artefakten från Azure Container Registry använder du komman
 az acr repository delete \
     --name myregistry \
     --image samples/artifact:1.0
+```
+
+## <a name="example-build-docker-image-from-oci-artifact"></a>Exempel: bygga Docker-avbildning från OCI-artefakt
+
+Käll koden och binärfiler för att bygga en behållar avbildning kan lagras som OCI-artefakter i ett Azure Container Registry. Du kan referera till en käll artefakt som bygg kontext för en [ACR-aktivitet](container-registry-tasks-overview.md). I det här exemplet visas hur du lagrar en Dockerfile som en OCI-artefakt och sedan refererar artefakten för att skapa en behållar avbildning.
+
+Skapa till exempel en Dockerfile med en rad:
+
+```bash
+echo "FROM hello-world" > hello-world.dockerfile
+```
+
+Logga in på mål behållar registret.
+
+```azurecli
+az login
+az acr login --name myregistry
+```
+
+Skapa och skicka en ny OCI-artefakt till mål registret med hjälp av `oras push` kommandot. I det här exemplet anges standard medie typen för artefakten.
+
+```bash
+oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+```
+
+Kör kommandot [AZ ACR build](/cli/azure/acr#az-acr-build) för att skapa Hello-World-avbildningen med den nya artefakten som bygg kontext:
+
+```azurecli
+az acr build --registry myregistry --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/hello-world:1.0
 ```
 
 ## <a name="next-steps"></a>Nästa steg

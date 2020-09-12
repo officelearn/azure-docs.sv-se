@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f1778d1f37217a5f65624be2fcc6c58c68002931
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2f9feb75cf46eee4329c9392771fe2e329a1d6d5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013290"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613619"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: Render
 
@@ -24,7 +24,7 @@ Med * :::no-loc text="single-sided"::: åter givnings* inställningen kan du anp
 > [!CAUTION]
 > :::no-loc text="single-sided":::Åter givnings inställningen är en experimentell funktion. Den kan tas bort igen i framtiden. Ändra inte standardinställningen, om det inte löser ett kritiskt problem i ditt program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 :::no-loc text="single-sided":::Åter givnings inställningen har bara en påverkan för maskor som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med `opaqueMaterialDefaultSidedness` alternativet inställt på `SingleSided` . Som standard är det här alternativet inställt på `DoubleSided` .
 
@@ -65,6 +65,11 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
     settings->SetMode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# RemoteManager. SingleSidedSettings-egenskap](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
+* [C++ RemoteManager:: SingleSidedSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
 
 ## <a name="next-steps"></a>Nästa steg
 

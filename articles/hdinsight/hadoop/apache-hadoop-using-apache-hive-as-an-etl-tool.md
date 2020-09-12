@@ -1,19 +1,19 @@
 ---
 title: Använda Apache Hive som ETL-verktyg – Azure HDInsight
 description: Använd Apache Hive för att extrahera, transformera och läsa in data (ETL) i Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 1627fccb49f0ddbf7a3a0a42f5a483059101dae2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9b9dcd683915c17ae6909ebb88927d275e9a5896
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076070"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505292"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använd Apache Hive som ett ETL-verktyg (Extract, Transform och Load)
 
@@ -69,19 +69,19 @@ Data källor är vanligt vis externa data som kan matchas med befintliga data i 
 Du kan använda Hive för att mata ut data till olika typer av mål, inklusive:
 
 * En Relations databas, till exempel SQL Server eller Azure SQL Database.
-* Ett informations lager, t. ex. Azure SQL Data Warehouse.
+* Ett informations lager, till exempel Azure Synapse Analytics.
 * Excel.
 * Azure Table och Blob Storage.
 * Program eller tjänster som kräver att data bearbetas i vissa format eller som filer som innehåller vissa typer av informations strukturer.
 * Ett JSON-dokument lagrar som Azure Cosmos DB.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 ETL-modellen används vanligt vis när du vill:
 
-`*`Läs in strömmande data eller stora volymer av halv strukturerade eller ostrukturerade data från externa källor till ett befintligt databas-eller informations system.
-`*`Rensa, transformera och verifiera data innan du läser in dem, kanske genom att använda mer än ett omvandlings pass genom klustret.
-`*`Generera rapporter och visualiseringar som uppdateras regelbundet. Om rapporten till exempel tar för lång tid att generera under dagen kan du schemalägga rapporten så att den körs på natten. Om du vill köra en Hive-fråga automatiskt kan du använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) och PowerShell.
+`*` Läs in strömmande data eller stora volymer av halv strukturerade eller ostrukturerade data från externa källor till ett befintligt databas-eller informations system.
+`*` Rensa, transformera och verifiera data innan du läser in dem, kanske genom att använda mer än ett omvandlings pass genom klustret.
+`*` Generera rapporter och visualiseringar som uppdateras regelbundet. Om rapporten till exempel tar för lång tid att generera under dagen kan du schemalägga rapporten så att den körs på natten. Om du vill köra en Hive-fråga automatiskt kan du använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) och PowerShell.
 
 Om målet för data inte är en databas kan du skapa en fil i rätt format i frågan, till exempel en CSV. Den här filen kan sedan importeras till Excel eller Power BI.
 

@@ -6,24 +6,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/30/2020
-ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.date: 09/04/2020
+ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705885"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484875"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
 Det publicerings alternativ som du väljer för ditt erbjudande relaterar direkt till både behörighets kraven och GTM-förmånerna för kommersiella platser. Det är viktigt att valet av publicerings alternativ och erbjudande typ definierar hur användarna ska interagera med ditt kommersiella Marketplace-erbjudande.
 
-Om du vill konfigurera ditt erbjudande måste du förstå följande viktiga kommersiella Marketplace-koncept: publicerings alternativ, erbjudande typer och konfiguration samt anrop till åtgärd som styr hur och var ditt erbjudande presenteras i de kommersiella onlinebutiker online.
+Om du vill konfigurera ditt erbjudande måste du förstå följande viktiga kommersiella Marketplace-koncept: publicerings alternativ, erbjudande typer och konfiguration och list alternativ som styr hur och var ditt erbjudande presenteras i de kommersiella onlinebutiker online.
 
 I den här artikeln lär du dig att:
 
 - Hur du fastställer en lämplig onlinebutik för din lösning.
-- Vilka publicerings alternativ och anrop till åtgärd som är tillgängliga i varje onlinebutik.
+- Vilka publicerings alternativ och list alternativ som finns tillgängliga i varje onlinebutik.
 - Vilka erbjudande typer som är tillgängliga för varje publicerings alternativ.
 
 ## <a name="commercial-marketplace-publishing-options"></a>Publicerings alternativ för kommersiell Marketplace
@@ -53,37 +53,37 @@ De List alternativ som är tillgängliga erbjuder differentierade kund engageman
 
 | **Publicerings alternativ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| **Lista** | En enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell Marketplace-användare att be dig att ansluta till kunden via **kontakten mig** samtal till åtgärd. |
-| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. Anrop till åtgärd som används för alternativet för utvärdering av utvärdering är antingen **kostnads fri utvärderings version** eller **test enhet**. |
-| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. Anropet till åtgärd är att **Hämta det nu**.
-| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. Anropet till åtgärd är att **Hämta det nu**.|
+| **Lista** | En enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell Marketplace-användare att begära att du ansluter till kunden via alternativ för **kontakt** listan. |
+| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. De List alternativ som används för publicerings alternativet för utvärdering är antingen **kostnads fria utvärderings versioner** eller **test enheter**. |
+| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. List alternativet hämtas **nu**.
+| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. List alternativet hämtas **nu**.|
 
 > [!Note]
 > När du använder alternativet för Transact-publicering är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Läs mer i artikeln om de [kommersiella Transact-funktionerna i Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="selecting-an-online-store"></a>Välja en onlinebutik
 
-Varje onlinebutik tjänar unika kund krav och riktar sig till specifika mål grupper. Din erbjudande typ, Transact-funktioner och kategori avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål mål gruppen:
+I varje onlinebutik används olika kund krav för affärs-och IT-lösningar. Din erbjudande typ, Transact-funktioner och kategori avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje onlinebutik utifrån den typ av lösning som du publicerar:
 
-**Microsoft AppSource** riktas till företags användare som söker efter branschspecifika eller bransch lösningar och konsult tjänster för Dynamics 365, Microsoft 365 och Power Platform.
+**Microsoft AppSource** erbjuder affärs lösningar, till exempel bransch lösningar och konsult tjänster, för Dynamics 365, Microsoft 365 och Power Platform.
 
-**Azure Marketplace** riktar sig till IT-proffs och utvecklare som söker efter lösningar som skapats för eller på Azure samt konsult tjänster som påskyndar användningen av Azure.
+**Azure Marketplace** erbjuder IT-lösningar som skapats för eller på Azure, samt konsult tjänster som påskyndar kundernas användning av Azure.
 
-Välj den kategori och under kategori som bäst passar din mål grupp. Till exempel bör en brand vägg för webbaserade program publiceras på Azure Marketplace, under kategorin säkerhet, eftersom den avsedda mål gruppen är IT-proffs. En app för hantering av kontrakt bör i stället publiceras till AppSource under försäljnings kategorin eftersom den avsedda mål gruppen är företags användare. Om du väljer fel kategori eller under kategori kan ditt erbjudande publiceras till fel onlinebutik.
+Välj den kategori och under kategori som bäst överensstämmer med din lösnings typ. En brand vägg för webbaserade program är till exempel en IT-lösning som ska publiceras på Azure Marketplace, under kategorin säkerhet. En app för kontrakt hantering är en affärs lösning som ska publiceras på AppSource under försäljnings kategorin. Om du väljer fel kategori eller under kategori kan ditt erbjudande publiceras till fel onlinebutik.
 
 ### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publicera till båda onlinebutiker (endast SaaS-erbjudanden)
 
-SaaS-erbjudanden kan publiceras på Azure Marketplace eller AppSource. Om ditt SaaS-erbjudande är avsett för *både* en teknisk publik (Azure Marketplace) och en företags mål grupp (AppSource) väljer du en kategori och/eller en under kategori som gäller för varje onlinebutik. Erbjudanden som publiceras i båda onlinebutiker bör ha ett värde förslag som sträcker sig till IT-proffs *och* företags användare.
+SaaS-erbjudanden kan publiceras på Azure Marketplace eller AppSource. Om ditt SaaS-erbjudande är *både* en IT-lösning (Azure Marketplace) och en företags lösning (AppSource), väljer du en kategori och/eller en under kategori som gäller för varje onlinebutik. Erbjudanden som publiceras i båda onlinebutiker bör ha ett värde som en IT-lösning *och* en affärs lösning.
 
 > [!IMPORTANT]
-> SaaS-erbjudanden med avgiftsbelagda faktureringar är tillgängliga via Azure Marketplace och Azure Portal. SaaS-erbjudanden med enbart privata planer är tillgängliga via Azure Portal.
+> SaaS-erbjudanden med [avgiftsbelagda faktureringar](partner-center-portal/saas-metered-billing.md) är tillgängliga via Azure Marketplace och Azure Portal. SaaS-erbjudanden med enbart privata planer är tillgängliga via Azure Portal.
 
 | Avgiftsbelagd fakturering | Offentligt abonnemang | Privat plan | Tillgängligt i: |
 |---|---|---|---|
-| Ja             | Ja         | Nej           | Azure Marketplace och Azure Portal |
+| Ja             | Ja         | Inga           | Azure Marketplace och Azure Portal |
 | Ja             | Ja         | Ja          | Azure Marketplace och Azure Portal * |
-| Ja             | Nej          | Ja          | Endast Azure Portal |
-| Nej              | Nej          | Ja          | Endast Azure Portal |
+| Ja             | Inga          | Ja          | Endast Azure Portal |
+| Inga              | Inga          | Ja          | Endast Azure Portal |
 
 &#42; privat plan för erbjudandet är endast tillgängligt via Azure Portal
 
@@ -91,7 +91,7 @@ Ett erbjudande med till exempel fakturering och enbart privat plan (ingen offent
 
 ### <a name="categories"></a>Kategorier
 
-Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål mål gruppen. Välj de kategorier och under kategorier som bäst passar ditt erbjudande och den avsedda mål gruppen. Du kan välja:
+Kategorier och under Kategorier mappas till varje onlinebutik utifrån lösnings typen. Välj de kategorier och under kategorier som bäst passar din lösning. Du kan välja:
 
 - Minst en och upp till två kategorier. Du kan välja en primär kategori och en sekundär kategori.
 - Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om du inte väljer någon under kategori kommer ditt erbjudande fortfarande att kunna identifieras under den valda kategorin.
@@ -100,6 +100,4 @@ Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål m
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du bestämmer dig för ett publicerings alternativ kan du [välja den erbjudande typ](./publisher-guide-by-offer-type.md) som ska användas för att presentera ditt erbjudande.
-- Granska behörighets kraven i avsnittet publicerings alternativ per erbjudande typ för att slutföra valet och konfigurationen av ditt erbjudande.
-- Granska publicerings mönstren per onlinebutik för att få exempel på hur din lösning mappar till en erbjudande typ och konfiguration.
+- När du har bestämt dig för ett publicerings alternativ granskar du [publicerings guiden per erbjudande typ](./publisher-guide-by-offer-type.md).

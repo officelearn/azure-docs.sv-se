@@ -1,24 +1,24 @@
 ---
 title: Publicerings guide för erbjudande för Microsoft AppSource
-description: Steg-för-steg-guide och publicera check listor för att publicera appar till Microsoft AppSource för Office 365, Dynamics 365, Power Apps och Power BI.
+description: Steg-för-steg-guide och publicera check listor för att publicera appar till Microsoft AppSource för Microsoft 365, Dynamics 365, Power Apps och Power BI.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: c0052b515d87ecb744783d57942d2557fc1db913
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110291"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484824"
 ---
-# <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Erbjudande publicerings guide för Office 365, Dynamics 365, Power Apps och Power BI
+# <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Erbjudande publicerings guide för Microsoft 365, Dynamics 365, Power Apps och Power BI
 
-Microsoft AppSource innehåller erbjudanden som bygger på eller utökar Office 365, Dynamics 365, Power Apps och Power BI. Var och en av dessa produkter har en detaljerad dokumentation som hjälper dig i publicerings processen. 
+Microsoft AppSource innehåller erbjudanden som bygger på eller utökar Microsoft 365, Dynamics 365, Power Apps och Power BI. Var och en av dessa produkter har en detaljerad dokumentation som hjälper dig i publicerings processen. 
 
-AppSource har betalat, lista och utvärderings erbjudanden, med åtgärds anrop för att *Hämta det nu*, *kontakta mig*och *Testa nu*.
+AppSource har betalat, lista och utvärderings erbjudanden, med list alternativen *Hämta det nu*, *kontakta mig*och *prova nu*.
 
 ## <a name="product-specific-guides"></a>Produktspecifika guider
 
@@ -26,7 +26,7 @@ Länkar till publicering av processer och rikt linjer för varje erbjudande typ 
 
 | Produkt    | Publicerings vägledning  |
 | :------------------- | :-------------------|
-| Office 365 | Granska [publicerings processen och rikt linjerna](/office/dev/store/submit-to-appsource-via-partner-center). |
+| Microsoft 365 | Granska [publicerings processen och rikt linjerna](/office/dev/store/submit-to-appsource-via-partner-center). |
 | Dynamics 365 Business Central | Information om hur du publicerar ett erbjudande i Partner Center finns i [skapa ett nytt Dynamics 365 Business Central-erbjudande](./partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Finance and Operations | När du skapar för Enterprise Edition bör du läsa igenom [publicerings processen och rikt linjerna](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>Information om hur du publicerar ett erbjudande i Partner Center finns i [skapa en ny Dynamics 365 for Operations-erbjudande](./partner-center-portal/create-new-operations-offer.md).  |
 | Dynamics 365 för Customer Engagement | Granska [publicerings processen och rikt linjerna](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>Information om hur du publicerar ett erbjudande i Partner Center finns i [skapa en ny Dynamics 365 för kund engagemang & Power Apps-erbjudande](./partner-center-portal/create-new-customer-engagement-offer.md).  |

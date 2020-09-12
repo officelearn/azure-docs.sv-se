@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: Konfigurera Global Reach'
 description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk och aktivera Global Reach.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: jaredro
-ms.openlocfilehash: ddf4625b8e638f7cb13999136ec5aa1afc99418a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738421"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395459"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurera ExpressRoute Global Reach
 
@@ -101,7 +101,7 @@ Om de två kretsarna inte finns i samma Azure-prenumeration behöver du behörig
 
 När föregående åtgärd har slutförts kommer du att ha anslutning mellan dina lokala nätverk på båda sidorna genom dina två ExpressRoute-kretsar.
 
-## <a name="verify-the-configuration"></a>Kontrollera konfigurationen
+## <a name="verify-the-configuration"></a>Verifiera konfigurationen
 
 Använd följande kommando för att kontrol lera konfigurationen på kretsen där konfigurationen gjordes (till exempel krets 1 i föregående exempel).
 ```azurepowershell-interactive

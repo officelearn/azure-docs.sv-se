@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759622"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650483"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge-användning och diagnostik-data konfiguration
 
@@ -72,7 +72,7 @@ Om du vill inaktivera data insamling för användning och diagnostik på Azure S
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Inaktivera användning och diagnostik med hjälp av MSSQL. conf-filen
 
-Om du vill inaktivera data insamling för användning och diagnostik på Azure SQL Edge lägger du till följande filer i filen MSSQL. conf på den permanenta lagrings enheten som är mappad till mappen/var/opt/MSSQL/i SQL Edge-modulen. Mer information om hur du konfigurerar Azure SQL Edge med hjälp av MSSQL. conf-filen finns i [Konfigurera med hjälp av MSSQL. conf-filen](configure.md#configure-by-using-an-mssqlconf-file).
+Om du vill inaktivera data insamling för användning och diagnostik på Azure SQL Edge lägger du till följande rader i filen MSSQL. conf på den permanenta lagrings enheten som är mappad till mappen/var/opt/MSSQL/i SQL Edge-modulen. Mer information om hur du konfigurerar Azure SQL Edge med hjälp av MSSQL. conf-filen finns i [Konfigurera med hjälp av MSSQL. conf-filen](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]

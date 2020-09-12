@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-javascript
 - devx-track-csharp
-ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e1de8b5c35c2f62c65b2bdd4751df86127010ad
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017693"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015134"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -361,7 +361,12 @@ Certifikat som stöds är:
 
 En enhet kan antingen använda ett X. 509-certifikat eller en säkerhetstoken för autentisering, men inte båda.
 
-Mer information om autentisering med hjälp av certifikat utfärdare finns i [enhets autentisering med X. 509 CA-certifikat](iot-hub-x509ca-overview.md).
+Följande funktioner stöds inte för enheter som använder X. 509 CA-autentisering:
+
+* HTTPS, MQTT över WebSockets och AMQP över WebSockets-protokoll.
+* Fil överföringar (alla protokoll).
+
+Mer information om autentisering med hjälp av certifikat utfärdare finns i [enhets autentisering med X. 509 CA-certifikat](iot-hub-x509ca-overview.md). Information om hur du överför och verifierar en certifikat utfärdare med IoT Hub finns i [Konfigurera X. 509 säkerhet i Azure IoT Hub](iot-hub-security-x509-get-started.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrera ett X. 509-certifikat för en enhet
 
@@ -443,7 +448,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till IoT Hub.
 
-| Behörighet | Anteckningar |
+| Behörighet | Kommentarer |
 | --- | --- |
 | **RegistryRead** |Ger Läs behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **RegistryReadWrite** |Ger Läs-och Skriv behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: ac9ff084476f37348b72bdb42b9b74660132b762
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7d29408c126844615666a4ab217027b6ae1d037d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254652"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659956"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul från Azure Marketplace på Azure Stack Edge GPU-enhet
 
@@ -28,14 +28,12 @@ I den här artikeln kan du se hur du:
 
 GPU-exemplet i den här artikeln innehåller PyTorch-och TensorFlow-kod för att testa processor mot GPU.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att du har:
 
 - Du har åtkomst till en GPU-aktiverad Azure Stack Edge-enhet med en nod. Enheten aktive ras med en resurs i Azure. 
-- Du har konfigurerat Compute på den här enheten. 
-    - Följ stegen i [Självstudier: Konfigurera Compute på Azure Stack Edge-enheten](azure-stack-edge-gpu-deploy-configure-compute.md).
-    - Glöm inte att 
+- Du har konfigurerat Compute på den här enheten. Följ stegen i [Självstudier: Konfigurera Compute på Azure Stack Edge-enheten](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Följande utvecklings resurser på en Windows-klient:
     - [Visual Studio Code](https://code.visualstudio.com/)  
     - [Azure IoT Edge-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).   

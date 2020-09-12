@@ -5,16 +5,16 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021655"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007799"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Aktivera zon haveri beredskap för virtuella Azure-datorer
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Aktivera haveri beredskap för virtuella Azure-datorer mellan tillgänglighets zoner
 
 Den här artikeln beskriver hur du replikerar, redundansväxlas och återställer virtuella Azure-datorer från en tillgänglighets zon till en annan inom samma Azure-region.
 
@@ -27,6 +27,8 @@ Site Recovery Service bidrar till din strategi för affärs kontinuitet och have
 
 Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon har ett eller flera data Center. 
 
+[Läs den här artikeln](../resource-mover/move-region-availability-zone.md)om du vill flytta virtuella datorer till en tillgänglighets zon i en annan region.
+
 ## <a name="using-availability-zones-for-disaster-recovery"></a>Använda Tillgänglighetszoner för haveri beredskap 
 
 Normalt används Tillgänglighetszoner för att distribuera virtuella datorer i en konfiguration med hög tillgänglighet. De kan vara för nära varandra för att fungera som en katastrof återställnings lösning i händelse av natur katastrofer.
@@ -37,7 +39,7 @@ I vissa fall kan dock Tillgänglighetszoner utnyttjas för haveri beredskap:
 
 - Många andra kunder har komplicerad nätverks infrastruktur och vill inte återskapa den i en sekundär region på grund av den associerade kostnaden och komplexiteten. Zon-till-zon haveri beredskap minskar komplexiteten eftersom det utnyttjar redundanta nätverks koncept i Tillgänglighetszoner att göra konfigurationen mycket enklare. Sådana kunder föredrar enkelhet och kan också använda Tillgänglighetszoner för haveri beredskap.
 
-- I vissa regioner som inte har någon kopplad region inom samma juridiska jurisdiktion (t. ex. Sydostasien), kan zon-till-zon haveri beredskap fungera som den inloggade lösningen för haveri beredskap, eftersom program och data inte korsar nationella gränser. 
+- I vissa regioner som inte har någon kopplad region inom samma juridiska jurisdiktion (t. ex. Sydostasien), kan zon-till-zon haveri beredskap fungera som den inloggade lösningen för haveri beredskap, eftersom program och data inte flyttas över nationella gränser. 
 
 - Zon till zon haveri beredskap innebär att data replikeras över kortare avstånd jämfört med Azure till Azure Disaster Recovery och därför kan du se lägre latens och därmed sänka den.
 
@@ -69,8 +71,8 @@ Innan du distribuerar zonen till zon haveri beredskap för dina virtuella datore
 |---------|---------|
 |Klassiska virtuella datorer   |     Stöds inte    |
 |Virtuella ARM-datorer    |    Stöds    |
-|Azure Disk Encryption v1 (dubbel pass, med AAD)     |     Stöds |
-|Azure Disk Encryption v2 (enskilt pass, utan AAD)    |    Stöds    |
+|Azure Disk Encryption v1 (dubbla pass, med Azure Active Directory (Azure AD))     |     Stöds   |
+|Azure Disk Encryption v2 (enskilt pass, utan Azure AD)    |    Stöds    |
 |Ohanterade diskar    |    Stöds inte    |
 |Hanterade diskar    |    Stöds    |
 |Kundhanterade nycklar    |    Stöds    |
@@ -127,6 +129,6 @@ De steg som måste följas för att köra en haveri beredskap, redundansväxla, 
 
 Om du vill utföra en haveri beredskaps granskning följer du stegen som beskrivs [här](./azure-to-azure-tutorial-dr-drill.md).
 
-Om du vill utföra en redundans och skydda virtuella datorer i den sekundära zonen följer du stegen som beskrivs [här](./azure-to-azure-tutorial-failover-failback.md).
+Om du vill utföra en redundansväxling och skydda virtuella datorer i den sekundära zonen följer du stegen som beskrivs [här](./azure-to-azure-tutorial-failover-failback.md).
 
 För återställning efter fel till den primära zonen följer du stegen som beskrivs [här](./azure-to-azure-tutorial-failback.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053175"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004790"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab` .
@@ -34,7 +34,7 @@ Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du 
 uname -r
 ```
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Se till att CIFS-utils-paketet är installerat.**  
@@ -69,7 +69,7 @@ uname -r
 
 * **Den senaste versionen av kommando rads gränssnittet för Azure (CLI).** Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och välj operativ system. Om du föredrar att använda Azure PowerShell-modulen i PowerShell 6 + kan du se till att anvisningarna nedan visas för Azure CLI.
 
-* **Se till att port 445 är öppen**: SMB kommunicerar via TCP-port 445 – kontrol lera om brand väggen inte blockerar TCP-portarna 445 från klient datorn.  Ersätt **<dina-resurs grupps>** och **<ditt-storage – konto>**
+* **Se till att port 445 är öppen**: SMB kommunicerar via TCP-port 445 – kontrol lera om brand väggen inte blockerar TCP-portarna 445 från klient datorn.  Ersätt `<your-resource-group>` och `<your-storage-account>` kör sedan följande skript:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -98,7 +98,7 @@ Om du vill använda en Azure-filresurs med din Linux-distribution måste du skap
 
 Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 
-### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montera Azure-filresursen på begäran med`mount`
+### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montera Azure-filresursen på begäran med `mount`
 1. **Skapa en mapp för monterings punkten**: Ersätt `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
 
     ```bash
@@ -114,6 +114,7 @@ Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 1. **Använd monterings kommandot för att montera Azure-filresursen**. I exemplet nedan är den lokala Linux-filen och mappens behörigheter standard 0755, vilket innebär att läsa, skriva och köra för ägaren (baserat på ägaren till filen/katalogen Linux), läsa och köra för användare i ägar gruppen och läsa och köra för andra i systemet. Du kan använda `uid` och `gid` monterings alternativ för att ange användar-ID och grupp-ID för monteringen. Du kan också använda `dir_mode` och `file_mode` för att ange anpassade behörigheter som önskade. Mer information om hur du anger behörigheter finns i [UNIX numerisk notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) på wikipedia. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -133,7 +134,7 @@ Du kan montera samma Azure-filresurs till flera monterings punkter om du vill.
 
 När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath` för att demontera resursen.
 
-### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Skapa en permanent monterings punkt för Azure-filresursen med`/etc/fstab`
+### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Skapa en permanent monterings punkt för Azure-filresursen med `/etc/fstab`
 1. **Skapa en mapp för monterings punkten**: en mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under/mnt. Följande kommando skapar till exempel en ny katalog, ersätter `<your-resource-group>` , `<your-storage-account>` och `<your-file-share>` med lämplig information för din miljö:
 
     ```bash
@@ -176,6 +177,7 @@ När du är färdig med Azure-filresursen kan du använda `sudo umount $mntPath`
 1. **Använd följande kommando för att lägga till följande rad `/etc/fstab` **i exemplet nedan, den lokala Linux-filen och mappens behörigheter standard 0755, vilket innebär Läs-, skriv-och körnings behörighet för ägaren (baserat på ägaren till filen/katalogen Linux), läsa och köra för användare i ägar gruppen och läsa och köra för andra i systemet. Du kan använda `uid` och `gid` monterings alternativ för att ange användar-ID och grupp-ID för monteringen. Du kan också använda `dir_mode` och `file_mode` för att ange anpassade behörigheter som önskade. Mer information om hur du anger behörigheter finns i [UNIX numerisk notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) på wikipedia.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -248,22 +250,22 @@ Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` f
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04 + | Yes |
-| Debian 8-9 | No |
-| Debian 10 + | Yes |
-| Fedora 29 + | Yes |
-| CentOS 7 | No | 
-| CentOS 8 + | Yes |
-| Red Hat Enterprise Linux 6. x-7. x | No |
-| Red Hat Enterprise Linux 8 + | Yes |
-| openSUSE skottår 15,0 | No |
-| openSUSE skottår 15.1 + | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11. x-12. x | No |
-| SUSE Linux Enterprise 15 | No |
-| SUSE Linux Enterprise 15,1 | No |
+| Ubuntu 14.04-16.04 | Inga |
+| Ubuntu 18.04 | Ja |
+| Ubuntu 19.04 + | Ja |
+| Debian 8-9 | Inga |
+| Debian 10 + | Ja |
+| Fedora 29 + | Ja |
+| CentOS 7 | Inga | 
+| CentOS 8 + | Ja |
+| Red Hat Enterprise Linux 6. x-7. x | Inga |
+| Red Hat Enterprise Linux 8 + | Ja |
+| openSUSE skottår 15,0 | Inga |
+| openSUSE skottår 15.1 + | Ja |
+| openSUSE Tumbleweed | Ja |
+| SUSE Linux Enterprise 11. x-12. x | Inga |
+| SUSE Linux Enterprise 15 | Inga |
+| SUSE Linux Enterprise 15,1 | Inga |
 
 Du kan kontrol lera om din Linux-distribution stöder `disable_legacy_dialects` modulen modul via följande kommando.
 

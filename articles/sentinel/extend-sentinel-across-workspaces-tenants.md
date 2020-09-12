@@ -1,6 +1,6 @@
 ---
 title: Utöka Azure Sentinel över arbets ytor och klienter | Microsoft Docs
-description: Så här arbetar du med flera klienter i Azure Sentinel för MSSP-tjänstleverantörer.
+description: Så här utökar du analys funktionerna i Azure Sentinel mellan arbets ytor och klienter.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519021"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019333"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Utöka Azure Sentinel för arbetsytor och klientorganisationer
 
@@ -34,7 +34,7 @@ Du kan få fullständig nytta av Azure Sentinel-upplevelsen när du använder en
 | Efterlevnad och efterlevnad | En arbets yta är kopplad till en angiven region. Om data måste behållas i olika [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/geographies/) områden för att uppfylla myndighets krav, måste de delas upp i separata arbets ytor. |  |
 | Dataägarskap | Gränserna för data ägarskap, till exempel av dotter bolag eller dotter bolag, är bättre avgränsade med separata arbets ytor. |  |
 | Flera Azure-klienter | Azure Sentinel stöder data insamling från Microsoft-och Azure SaaS-resurser inom en egen Azure Active Directory (Azure AD)-klient gränsen. Därför kräver varje Azure AD-klient en separat arbets yta. |  |
-| Detaljerad data åtkomst kontroll | En organisation kan behöva tillåta olika grupper i eller utanför organisationen för att få åtkomst till vissa av de data som samlas in av Azure Sentinel. Till exempel:<br><ul><li>Resurs ägarens åtkomst till data som rör sina resurser</li><li>Regional eller dotter SOCs ' till gång till data som är relevanta för deras delar av organisationen</li></ul> | Använd RBAC-eller [tabell nivå RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) för [resurs](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) |
+| Detaljerad data åtkomst kontroll | En organisation kan behöva tillåta olika grupper i eller utanför organisationen för att få åtkomst till vissa av de data som samlas in av Azure Sentinel. Exempel:<br><ul><li>Resurs ägarens åtkomst till data som rör sina resurser</li><li>Regional eller dotter SOCs ' till gång till data som är relevanta för deras delar av organisationen</li></ul> | Använd RBAC-eller [tabell nivå RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) för [resurs](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) |
 | Detaljerade inställningar för kvarhållning | Tidigare var flera arbets ytor det enda sättet att ange olika bevarande perioder för olika data typer. Detta behövs inte längre i många fall, tack vare införandet av inställningar för kvarhållning av tabell nivå. | Använd [Inställningar för kvarhållning av tabell nivå](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) eller automatisera [borttagning av data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Dela fakturering | Genom att placera arbets ytor i separata prenumerationer kan de faktureras till olika parter. | Användnings rapportering och över debitering |
 | Äldre arkitektur | Användningen av flera arbets ytor kan leda till en historisk design som har tagit hänsyn till begränsningar eller bästa praxis som inte är längre än sant. Det kan också vara ett godtyckligt design val som kan ändras för att bättre hantera Azure Sentinel.<br><br>Exempel:<br><ul><li>Använda en standard arbets yta per prenumeration när du distribuerar Azure Security Center</li><li>Behovet av detaljerad åtkomst kontroll eller inställningar för kvarhållning, vilka lösningar som är relativt nya</li></ul> | Återskapa arbets ytor |
@@ -94,6 +94,13 @@ En funktion kan också förenkla en union som används ofta. Du kan till exempel
 
 Du kan sedan skriva en fråga i båda arbets ytorna genom att börja med `unionSecurityEvent | where ...` .
 
+#### <a name="scheduled-alerts"></a>Schemalagda aviseringar
+
+Frågor över arbets ytor kan nu inkluderas i schemalagda aviseringar i analys regler, beroende på följande begränsningar:
+
+- Upp till 10 arbets ytor kan inkluderas i en enda fråga.
+- Azure Sentinel måste distribueras på varje arbets yta som refereras till i frågan.
+
 > [!NOTE] 
 > Att fråga flera arbets ytor i samma fråga kan påverka prestanda och rekommenderas därför endast när logiken kräver den här funktionen.
 
@@ -121,13 +128,6 @@ Tilläggs funktioner mellan olika arbets ytor gör det möjligt för ditt hot Hu
 Om du vill konfigurera och hantera flera Azure Sentinel-arbetsytor måste du automatisera användningen av Azure Sentinel Management-API: et. Mer information om hur du automatiserar distributionen av Azure Sentinel-resurser, inklusive varnings regler, jakt frågor, arbets böcker och spel böcker, finns i [utöka Azure Sentinel: API: er, integrering och hantering av automatisering](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
 Mer information finns i [distribuera och hantera Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) och [kombinera Azure Lighthouse med Sentinel DevOps-funktioner](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) för en sammanslagen metod för att hantera Azure Sentinel som kod och för att distribuera och konfigurera resurser från en privat GitHub-lagringsplats. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>Vad stöds inte i arbets ytor?
-
-Följande funktioner stöds inte i arbets ytor:
-
-- En schemalagd varnings regel kan inte köras mellan arbets ytor med en fråga för flera arbets ytor.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Hantera arbets ytor över klient organisationer med Azure Lighthouse
 

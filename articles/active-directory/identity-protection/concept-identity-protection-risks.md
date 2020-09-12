@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047113"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016409"
 ---
 # <a name="what-is-risk"></a>Vad är risker?
 
@@ -29,6 +29,8 @@ Identitets skydd ger organisationer till gång till kraftfulla resurser för att
 ## <a name="risk-types-and-detection"></a>Risk typer och identifiering
 
 Det finns två typer av risk **användare** och **inloggning** och två typer av identifiering eller beräkning i **real tid** och **offline**.
+
+Real tids identifieringar kanske inte visas i rapportering i fem till tio minuter. Offline-identifieringar kanske inte visas i rapportering i två till fyra timmar.
 
 ### <a name="user-risk"></a>Användarrisk
 

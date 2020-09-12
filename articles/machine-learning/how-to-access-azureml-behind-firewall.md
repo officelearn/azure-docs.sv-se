@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 443649826e821014e0e9918526a363a944b5eceb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889948"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660002"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
@@ -92,4 +92,4 @@ URL: er som krävs för Azure Government regionerna.
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal](../firewall/tutorial-firewall-deploy-portal.md)
-* [Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network](how-to-enable-virtual-network.md)
+* [Skydda Azure ML-experimenterings- och slutsatsdragningsjobb i ett virtuellt Azure-nätverk](how-to-network-security-overview.md)

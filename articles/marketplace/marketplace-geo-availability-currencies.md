@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826777"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651008"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -50,14 +50,14 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Kanada                              | CA        | CAD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Porslin\**                            | CN        | Saknas          |
+| Porslin\**                            | CN        | E.t.          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
 | Kroatien                             | HR        | EUR          |
 | Curaçao                             | FELAKTIG        | USD          |
 | Cypern                              | CY        | EUR          |
-| Tjeckien                      | CZ        | EUR          |
+| Czechia                      | CZ        | EUR          |
 | Danmark                             | DK        | DKK          |
 | Dominikanska republiken                  | DO        | USD          |
 | Ecuador                             | EC        | USD          |
@@ -99,7 +99,6 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Litauen                           | LT        | EUR          |
 | Luxemburg                          | LU        | EUR          |
 | Folkrepubliken Kinas särskilda administrativa region Macao                           | MO        | USD          |
-| Nordmakedonien                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MK        | USD          |
@@ -115,6 +114,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Nya Zeeland                         | NZ        | NZD          |
 | Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
+| Nordmakedonien                     | MK        | USD          |
 | Norge                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
@@ -166,7 +166,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* För kunder i Brasilien använder Marketplace via Cloud solution providers (CSP) USD.
+\* För kunder i Brasilien använder commcercial Marketplace via Cloud solution providers (CSP) USD.
 
 \** Endast kostnads fria och BYOL VM-avbildningar.
 
@@ -177,24 +177,26 @@ För alla avgiftsbelagda erbjudande typer har du möjlighet att ange priser i US
 För att justera ett pris innan du publicerar, exportera bara pris kalkyl bladet, ändra det och ladda upp det med ändringar.
 
 > [!NOTE]
-> När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
+> När du har publicerat ett pris för en marknad i planen kan du inte ändra det. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
 
 Priset för ett erbjudande visas alltid för kunder i sin lokala valuta. Det pris du väljer i Partner Center konverteras till kundernas lokala valuta enligt växelkursen vid den tidpunkt då du sparade priset i Partner Center. Det pris som visas för kunder i onlinebutiker ändras inte, såvida du inte publicerar erbjudandet igen.
 
 Microsoft tar emot betalningar från kunder i sin lokala valuta och du betalar i din lokala valuta. Microsoft konverterar kundens lokala valuta till din lokala valuta med hjälp av växelkursen för inköps dagen.
 
 > [!NOTE]
-> Microsoft konverterar priset för priser med hjälp av Microsoft stats byte-priset.
+> Microsoft konverterar priset för priser med hjälp av Microsoft stats växelkurser.
+
+[![Valuta konverterings flödet.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>Hämtar valuta information via API
 
 Enskilda priser (som, beroende på hur de har ställts in, kan ha påverkats av växelkurserna på den dag då de sparades) kan hämtas med hjälp av ett API. valuta information kan inte.
 
-Mer information om hur du anger pris för vissa erbjudande typer finns i följande artiklar:
+Mer information om hur du anger priser för vissa erbjudande typer finns i följande artiklar:
 
 - [Skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md)
 - [Skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md)
-- [Skapa ett erbjudande för virtuella datorer i Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Skapa ett erbjudande för virtuell Azure-dator](partner-center-portal/azure-vm-create-offer.md)
 - [Skapa ett konsulttjänsterbjudande](partner-center-portal/create-consulting-service-offer.md)
 - [Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Skapa ett erbjudande för Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)

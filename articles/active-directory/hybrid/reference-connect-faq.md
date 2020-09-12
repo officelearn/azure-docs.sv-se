@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256687"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014641"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
@@ -34,13 +34,13 @@ Microsoft rekommenderar att du skärper Azure AD Connect-servern för att minska
 
 Du kan läsa mer här: 
 
-* [Skydda administratörer grupper](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Skydda administratörer grupper](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Skydda inbyggda administratörs konton](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Skydda inbyggda administratörs konton](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Säkerhets förbättring och skydd genom att minska attack ytorna](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Säkerhets förbättring och skydd genom att minska attack ytorna](/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Minska den Active Directory angrepps ytan](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Minska den Active Directory angrepps ytan](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **F: kommer installationen att fungera om den globala administratörs administratören för Azure Active Directory (Azure AD) har 2FA) aktiverat?**  
 Från och med februari 2016-versioner stöds det här scenariot.
@@ -139,10 +139,10 @@ Nej, Azure AD Connect har inte stöd för en ren IPv6-miljö.
 Nej, det finns inte stöd för att använda Azure AD Connect över NAT. 
 
 ## <a name="federation"></a>Federation
-**F: Vad gör jag om jag får ett e-postmeddelande som ber mig förnya mitt Office 365-certifikat?**  
+**F: Vad gör jag om jag får ett e-postmeddelande som ber mig förnya mitt Microsoft 365-certifikat?**  
 Information om hur du förnyar certifikatet finns i [Förnya certifikat](how-to-connect-fed-o365-certs.md).
 
-**F: Jag har angett "uppdatera förlitande part" automatiskt för den förlitande parten i Office 365. Måste jag vidta några åtgärder när mitt token signerings certifikat automatiskt rullar?**  
+**F: Jag har angett "uppdatera förlitande part" automatiskt för den Microsoft 365 förlitande parten. Måste jag vidta några åtgärder när mitt token signerings certifikat automatiskt rullar?**  
 Använd rikt linjerna som beskrivs i artikeln [Förnya certifikat](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Miljö
@@ -152,17 +152,17 @@ Nej. Om du ändrar Server namnet renderas inte Synkroniseringsmotorn för att an
 **F: är regler för nästa generations kryptografiska (NGC) som stöds på en FIPS-aktiverad dator?**  
 Nej.  De stöds inte.
 
-**F. om jag inaktiverade en synkroniserad enhet (till exempel: HAADJ) i Azure Portal, varför den aktive ras igen?**<br>
+**C. Om jag inaktiverade en synkroniserad enhet (till exempel: HAADJ) i Azure Portal, varför den aktive ras igen?**<br>
 Synkroniserade enheter kan vara skapade eller hanterade lokalt. Om en synkroniserad enhet har Aktiver ATS lokalt kan den aktive ras på nytt i Azure Portal även om tidigare har inaktiverats av en administratör. Om du vill inaktivera en synkroniserad enhet använder du den lokala Active Directory för att inaktivera dator kontot.
 
-**F. om jag blockerar användar inloggning på Office 365 eller Azure AD-portalen för synkroniserade användare, varför den avblockeras vid inloggning igen?**<br>
+**C. Om jag blockerar användar inloggning på Microsoft 365 eller Azure AD-portalen för synkroniserade användare, varför den är avblockerad vid inloggning?**<br>
 Synkroniserade användare kan ha skapats eller hanterats lokalt. Om kontot är aktiverat lokalt kan det avblockera inloggnings blocket som har placerats av administratören.
 
 ## <a name="identity-data"></a>Identitets data
 **F: Varför matchar inte attributet userPrincipalName (UPN) i Azure AD det lokala UPN?**  
 Mer information finns i följande artiklar:
 
-* [Användar namn i Office 365, Azure eller Intune matchar inte det lokala UPN eller alternativa inloggnings-ID](https://support.microsoft.com/kb/2523192)
+* [Användar namn i Microsoft 365, Azure eller Intune matchar inte det lokala UPN eller alternativa inloggnings-ID](https://support.microsoft.com/kb/2523192)
 * [Ändringarna synkroniseras inte med Azure Active Directory Sync-verktyget när du har ändrat UPN för ett användar konto för att använda en annan federerad domän](https://support.microsoft.com/kb/2669550)
 
 Du kan också konfigurera Azure AD så att Synkroniseringsmotorn kan uppdatera UPN, enligt beskrivningen i [Azure AD Connect Sync service-funktioner](how-to-connect-syncservice-features.md).
@@ -253,19 +253,19 @@ Ja, automatisk uppgradering uppgraderar också Azure AD Connect Health.
 Ja, du kan uppgradera en Azure AD Connect-Server automatiskt i mellanlagrings läge.
 
 **F: om den automatiska uppgraderingen Miss lyckas och Azure AD Connect servern inte startar, vad ska jag göra?**  
-I sällsynta fall startar inte tjänsten Azure AD Connect när du har utfört uppgraderingen. I sådana fall löser det vanligt vis problemet genom att starta om servern. Om tjänsten Azure AD Connect fortfarande inte startar öppnar du ett support ärende. Mer information finns i [skapa en tjänstbegäran för att kontakta supporten för Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
+I sällsynta fall startar inte tjänsten Azure AD Connect när du har utfört uppgraderingen. I sådana fall löser det vanligt vis problemet genom att starta om servern. Om tjänsten Azure AD Connect fortfarande inte startar öppnar du ett support ärende. Mer information finns i [skapa en tjänstbegäran att kontakta Microsoft 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **F: Jag är inte säker på vad riskerna är när jag uppgraderar till en nyare version av Azure AD Connect. Kan du ringa mig för att hjälpa mig med uppgraderingen?**  
-Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Connect öppnar du ett support ärende i [skapa en tjänstbegäran för att kontakta Office 365-supporten](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+Om du behöver hjälp med att uppgradera till en nyare version av Azure AD Connect öppnar du ett support ärende för [att skapa en tjänstbegäran att kontakta Microsoft 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## <a name="operational-best-practice"></a>Metod tips för användning    
 Nedan följer några metod tips som du bör implementera när du synkroniserar mellan Windows Server Active Directory och Azure Active Directory.
 
-**Använd Multi-Factor Authentication för alla synkroniserade konton** Azure Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering via en rad enkla att använda autentiseringsmetoder. Användare kan kanske inte anropas för MFA baserat på konfigurations beslut som en administratör gör. Du kan läsa mer om MFA här:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Använd Multi-Factor Authentication för alla synkroniserade konton** Azure Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering via en rad enkla att använda autentiseringsmetoder. Användare kan kanske inte anropas för MFA baserat på konfigurations beslut som en administratör gör. Du kan läsa mer om MFA här: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
-**Följ säkerhets rikt linjerna för Azure AD Connect Server** Azure AD Connect servern innehåller kritiska identitets data och bör behandlas som en komponent på nivå 0 som dokumenteras i den [Active Directory administrativa nivå modellen](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Läs även våra [rikt linjer för att skydda din AADConnect-Server](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+**Följ säkerhets rikt linjerna för Azure AD Connect Server** Azure AD Connect servern innehåller kritiska identitets data och bör behandlas som en komponent på nivå 0 som dokumenteras i den [Active Directory administrativa nivå modellen](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Läs även våra [rikt linjer för att skydda din AADConnect-Server](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 
-**Aktivera PHS för identifiering av läckta autentiseringsuppgifter** Hash-synkronisering av lösen ord möjliggör även [läcka autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) för ditt hybrid konto. Microsoft arbetar tillsammans med mörka webb forskare och juridiska myndigheter för att hitta offentligt tillgängliga användar namn/lösen ord. Om något av dessa par matchar användarens, flyttas det associerade kontot till hög risk. 
+**Aktivera PHS för identifiering av läckta autentiseringsuppgifter** Hash-synkronisering av lösen ord möjliggör även [läcka autentiseringsuppgifter](../identity-protection/concept-identity-protection-risks.md) för ditt hybrid konto. Microsoft arbetar tillsammans med mörka webb forskare och juridiska myndigheter för att hitta offentligt tillgängliga användar namn/lösen ord. Om något av dessa par matchar användarens, flyttas det associerade kontot till hög risk. 
 
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -275,11 +275,11 @@ Nedan följer några metod tips som du bör implementera när du synkroniserar m
 
 * Sök i KB efter tekniska lösningar på vanliga problem med att avbryta frågor om stöd för Azure AD Connect.
 
-[Sidan Microsoft Q&en fråga för Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Sidan Microsoft Q&en fråga för Azure Active Directory](/answers/topics/azure-active-directory.html)
 
-* Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD-communityn](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Sök efter tekniska frågor och svar eller Ställ egna frågor genom att gå till [Azure AD-communityn](/answers/topics/azure-active-directory.html).
 
-[Få support för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Få support för Azure AD](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 **F: Varför ser jag händelserna 6311 och 6401 uppstår efter synkroniseringsfel?**
 

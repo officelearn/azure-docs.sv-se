@@ -2,19 +2,15 @@
 title: Hantera scheman i Azure Automation
 description: Den här artikeln beskriver hur du skapar och arbetar med ett schema i Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187361"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004620"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Hantera scheman i Azure Automation
 
@@ -28,17 +24,17 @@ Om du vill schemalägga en Runbook i Azure Automation starta vid en viss tid lä
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>PowerShell-cmdletar som används för att få åtkomst till scheman
 
-Cmdletarna i följande tabell skapar och hanterar Automation-scheman med PowerShell. De levereras som en del av [AZ-modulerna](modules.md#az-modules). 
+Cmdletarna i följande tabell skapar och hanterar Automation-scheman med PowerShell. De levereras som en del av [AZ-modulerna](modules.md#az-modules).
 
 | Cmdletar | Beskrivning |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Hämtar ett schema. |
-| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Hämtar schemalagda Runbooks. |
-| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Skapar ett nytt schema. |
-| [Registrera – AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associerar en Runbook med ett schema. |
-| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Tar bort ett schema. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Anger egenskaperna för ett befintligt schema. |
-| [Avregistrera-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Kopplar bort en Runbook från ett schema. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Hämtar ett schema. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Hämtar schemalagda Runbooks. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Skapar ett nytt schema. |
+| [Registrera – AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Associerar en Runbook med ett schema. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Tar bort ett schema. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Anger egenskaperna för ett befintligt schema. |
+| [Avregistrera-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Kopplar bort en Runbook från ett schema. |
 
 ## <a name="create-a-schedule"></a>Skapa ett schema
 
@@ -49,23 +45,33 @@ Du kan skapa ett nytt schema för dina Runbooks i Azure Portal eller med PowerSh
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Skapa ett nytt schema i Azure Portal
 
-1. I Azure Portal, från ditt Automation-konto, väljer du **scheman** under avsnittet **delade resurser** till vänster.
-1. Välj **Lägg till ett schema** högst upp på sidan.
-1. I fönstret **nytt schema** anger du ett namn och anger en beskrivning för det nya schemat.
-1. Välj om schemat ska köras en gång eller när schemat ska köras genom att välja **en gång** eller **återkommande**. Om du väljer en **gång**, anger du en start tid och väljer sedan **skapa**. Om du väljer **återkommande**anger du en start tid. För **Upprepa varje**väljer du hur ofta du vill att runbooken ska upprepas. Välj per timme, dag, vecka eller månad.
-    1. Om du väljer **vecka**visas vecko dagarna som du kan välja bland. Välj så många dagar som du vill. Den första körningen av ditt schema sker på den första dagen som väljs efter start tiden. Om du till exempel vill välja ett helg schema väljer du lördag och söndag.
-    
-       ![Inställning av återkommande helg schema](../media/schedules/week-end-weekly-recurrence.png)
+1. Från ditt Automation-konto väljer du **scheman** under **delade resurser**i den vänstra rutan.
+2. På sidan **scheman** väljer du **Lägg till ett schema**.
+3. Ange ett namn på sidan **nytt schema** och ange en beskrivning för det nya schemat.
 
-    2. Om du väljer **månad**får du olika alternativ. Välj antingen **månads dagar** eller **vecko dagar**för alternativet **månatlig förekomst** . Om du väljer **månads dagar**visas en kalender så att du kan välja så många dagar som du vill. Om du väljer ett datum, till exempel 31 som inte inträffar under den aktuella månaden, körs inte schemat. Om du vill att schemat ska köras den senaste dagen väljer du **Ja** under **kör på sista dagen i månaden**. Om du väljer **vecko dagar**visas alternativet **Upprepa varje** . Välj **första**, **andra**, **tredje**, **fjärde**eller **sista**. Slutligen väljer du en dag som ska upprepas.
+    >[!NOTE]
+    >Automation-scheman stöder inte för närvarande specialtecken i schema namnet.
+    >
 
-       ![Månads schema på första, femtonde och sista dagen i månaden](../media/schedules/monthly-first-fifteenth-last.png)
+4. Välj om schemat körs en gång eller om schemat ska köras genom att välja **en gång** eller **återkommande**. Om du väljer en **gång**, anger du en start tid och väljer sedan **skapa**. Om du väljer **återkommande**anger du en start tid. För **Upprepa varje**väljer du hur ofta du vill att runbooken ska upprepas. Välj per timme, dag, vecka eller månad.
 
-1. När du är klar väljer du **skapa**.
+    * Om du väljer **vecka**visas vecko dagarna som du kan välja bland. Välj så många dagar som du vill. Den första körningen av ditt schema sker på den första dagen som väljs efter start tiden. Om du till exempel vill välja ett helg schema väljer du lördag och söndag.
+
+    ![Inställning av återkommande helg schema](../media/schedules/week-end-weekly-recurrence.png)
+
+    * Om du väljer **månad**får du olika alternativ. Välj antingen **månads dagar** eller **vecko dagar**för alternativet **månatlig förekomst** . Om du väljer **månads dagar**visas en kalender så att du kan välja så många dagar som du vill. Om du väljer ett datum, till exempel 31 som inte inträffar under den aktuella månaden, körs inte schemat. Om du vill att schemat ska köras den senaste dagen väljer du **Ja** under **kör på sista dagen i månaden**. Om du väljer **vecko dagar**visas alternativet **Upprepa varje** . Välj **första**, **andra**, **tredje**, **fjärde**eller **sista**. Slutligen väljer du en dag som ska upprepas.
+
+    ![Månads schema på första, femtonde och sista dagen i månaden](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. När du är klar väljer du **skapa**.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Skapa ett nytt schema med PowerShell
 
-Använd cmdleten [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) för att skapa scheman. Du anger start tiden för schemat och hur ofta den ska köras. I följande exempel visas hur du skapar många olika schema scenarier.
+Använd cmdleten [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) för att skapa scheman. Du anger start tiden för schemat och hur ofta den ska köras. I följande exempel visas hur du skapar många olika schema scenarier.
+
+>[!NOTE]
+>Automation-scheman stöder inte för närvarande specialtecken i schema namnet.
+>
 
 #### <a name="create-a-one-time-schedule"></a>Skapa ett engångs schema
 
@@ -128,7 +134,7 @@ En runbook kan länkas till flera scheman och ett schema kan vara kopplat till f
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Länka ett schema till en Runbook med PowerShell
 
-Använd cmdleten [register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) för att länka ett schema. Du kan ange värden för runbookens parametrar med parametern Parametrar . Mer information om hur du anger parameter värden finns [i starta en Runbook i Azure Automation](../start-runbooks.md).
+Använd cmdleten [register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) för att länka ett schema. Du kan ange värden för runbookens parametrar med parametern Parametrar . Mer information om hur du anger parameter värden finns [i starta en Runbook i Azure Automation](../start-runbooks.md).
 I följande exempel visas hur du länkar ett schema till en Runbook med hjälp av en Azure Resource Manager-cmdlet med parametrar.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ När du inaktiverar ett schema körs inte längre någon Runbook som är länkad
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Inaktivera ett schema från Azure Portal
 
-1. I ditt Automation-konto väljer du **scheman** under **delade resurser**.
+1. I ditt Automation-konto väljer du **scheman** under **delade resurser**i den vänstra rutan.
 1. Välj namnet på ett schema för att öppna informations fönstret.
 1. Ändringen har **Aktiver ATS** till **Nej**.
 
@@ -164,7 +170,7 @@ När du inaktiverar ett schema körs inte längre någon Runbook som är länkad
 
 ### <a name="disable-a-schedule-with-powershell"></a>Inaktivera ett schema med PowerShell
 
-Använd cmdleten [set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) för att ändra egenskaperna för ett befintligt schema. Om du vill inaktivera schemat anger du falskt för `IsEnabled` parametern.
+Använd cmdleten [set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) för att ändra egenskaperna för ett befintligt schema. Om du vill inaktivera schemat anger du falskt för `IsEnabled` parametern.
 
 I följande exempel visas hur du inaktiverar ett schema för en Runbook med hjälp av en Azure Resource Manager-cmdlet.
 
@@ -181,13 +187,13 @@ När du är redo att ta bort dina scheman kan du antingen använda Azure Portal 
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Ta bort ett schema med hjälp av Azure Portal
 
-1. I ditt Automation-konto väljer du **scheman** under **delade resurser**.
-2. Klicka på namnet på ett schema för att öppna informations fönstret.
+1. I ditt Automation-konto väljer du **scheman** under **delade resurser**i den vänstra rutan.
+2. Välj namnet på ett schema för att öppna informations fönstret.
 3. Klicka på **Ta bort**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Ta bort ett schema med PowerShell
 
-Du kan använda `Remove-AzAutomationSchedule` cmdleten som visas nedan om du vill ta bort ett befintligt schema. 
+Du kan använda `Remove-AzAutomationSchedule` cmdleten som visas nedan om du vill ta bort ett befintligt schema.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

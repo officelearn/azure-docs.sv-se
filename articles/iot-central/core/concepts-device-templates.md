@@ -7,12 +7,13 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: device-developer
+ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337117"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015100"
 ---
 # <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
@@ -160,10 +161,10 @@ I följande exempel visas definitionen av miljö sensor gränssnittet:
 
 I det här exemplet visas två egenskaper, en typ av telemetri och två kommandon. En minimal fält Beskrivning har:
 
-- `@type`för att ange typen av funktion: `Telemetry` , `Property` , eller `Command` .  I vissa fall innehåller typen en semantisk typ som gör det möjligt för IoT Central att göra vissa antaganden om hur värdet ska hanteras.
-- `name`för telemetri-värdet.
-- `schema`för att ange data typen för Telemetrin eller egenskapen. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
-- `commandType`anger hur kommandot ska hanteras.
+- `@type` för att ange typen av funktion: `Telemetry` , `Property` , eller `Command` .  I vissa fall innehåller typen en semantisk typ som gör det möjligt för IoT Central att göra vissa antaganden om hur värdet ska hanteras.
+- `name` för telemetri-värdet.
+- `schema` för att ange data typen för Telemetrin eller egenskapen. Det här värdet kan vara en primitiv typ, till exempel Double, Integer, Boolean eller String. Komplexa objekt typer, matriser och Maps stöds också.
+- `commandType` anger hur kommandot ska hanteras.
 
 Valfria fält, till exempel visnings namn och beskrivning, gör att du kan lägga till mer information i gränssnittet och funktionerna.
 

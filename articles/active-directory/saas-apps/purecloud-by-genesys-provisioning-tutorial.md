@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1397aa350ccc3114954902a6bfd02826cdff965f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553292"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015185"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Självstudie: Konfigurera PureCloud av gener för automatisk användar etablering
 
@@ -31,7 +31,7 @@ I den här självstudien beskrivs de steg du behöver utföra i båda PureCloud 
 > * Etablera grupper och grupp medlemskap i PureCloud av gener
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial) till PureCloud av gener (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -106,11 +106,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
      |aktiv|Boolesk|
      |displayName|Sträng|
      |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
-     |rubrik|Sträng|
+     |title|Sträng|
      |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
      |phoneNumbers [typ EQ "Work"]. värde|Sträng|
      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
+     |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|Sträng|
+     
 
 10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper för att PureCloud av gener**.
 
@@ -144,6 +146,10 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 * Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
 * Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
 * Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Ändringslogg
+
+09/10 – stöd för företags-attributet "employeeNumber" har lagts till.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

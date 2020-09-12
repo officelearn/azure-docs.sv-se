@@ -3,12 +3,12 @@ title: Mått varningar från Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln granskar rekommenderade mått varningar som är tillgängliga från Azure Monitor för behållare i offentlig för hands version.
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563372"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019894"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Rekommenderade mått varningar (förhands granskning) från Azure Monitor för behållare
 
@@ -18,7 +18,7 @@ Den här artikeln granskar erfarenheten och ger vägledning om hur du konfigurer
 
 Om du inte är bekant med Azure Monitor aviseringar, se [Översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md) innan du börjar. Om du vill veta mer om mått aviseringar, se [mått varningar i Azure Monitor](../platform/alerts-metric-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera följande:
 
@@ -39,7 +39,7 @@ Innan du börjar ska du kontrol lera följande:
 
 För att varna om vad som är viktigt, innehåller Azure Monitor för behållare följande mått aviseringar för dina AKS-kluster:
 
-|Namn| Beskrivning |Standard tröskel |
+|Name| Beskrivning |Standard tröskel |
 |----|-------------|------------------|
 |Genomsnittlig container-CPU% |Beräknar Genomsnittlig CPU-användning per behållare.|När den genomsnittliga CPU-användningen per container är större än 95%.| 
 |Genomsnittlig container i arbets minnet% |Beräknar Genomsnittligt arbets minne som används per container.|När genomsnittlig användning av arbets minne per behållare är större än 95%. |
@@ -144,7 +144,7 @@ De grundläggande stegen är följande:
 
 2. Om du vill distribuera en anpassad mall via portalen väljer du **skapa en resurs** från [Azure Portal](https://portal.azure.com).
 
-3. Sök efter **mall**och välj sedan **mall**. spridningen.
+3. Sök efter **mall**och välj sedan **malldistribution**.
 
 4. Välj **Skapa**.
 
@@ -157,7 +157,7 @@ De grundläggande stegen är följande:
 8. På sidan **Anpassad distribution** anger du följande och när du har slutfört Välj **köp** för att distribuera mallen och skapa varnings regeln.
 
     * Resursgrupp
-    * Location
+    * Plats
     * Aviseringsnamn
     * Resurs-ID för kluster
 

@@ -1,10 +1,10 @@
 ---
 title: Anslut data källor till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter data källor som Microsoft Threat Protection, Microsoft 365 och Office 365, Azure AD, ATP och Cloud App Security till Azure Sentinel.
+description: Lär dig hur du ansluter data källor som Microsoft 365 Defender (tidigare Microsoft Threat Protection), Microsoft 365 och Office 365, Azure AD, ATP och Cloud App Security till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
-manager: angrobe
+manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,32 +13,31 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555520"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659628"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
-När du har aktiverat Azure Sentinel måste du först ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar, Microsoft 365 källor (inklusive Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.
+När du har aktiverat Azure Sentinel måste du först ansluta dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft 365 Defender (tidigare lösningar för Microsoft Threat Protection), Microsoft 365 källor (inklusive Office 365), Azure AD, Microsoft Defender för identitet (tidigare Azure ATP), Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda common Event format (CEF), syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.
 
 1. På menyn väljer du **data kopplingar**. På den här sidan kan du se en fullständig lista över de anslutningar som Azure Sentinel tillhandahåller och deras status. Välj den anslutning som du vill ansluta och välj **Öppna kopplings sida**. 
 
-   ![Data insamlare](./media/collect-data/collect-data-page.png)
+   ![Galleri för data anslutningar](./media/collect-data/collect-data-page.png)
 
 1. På sidan för den aktuella anslutningen ser du till att du har uppfyllt alla krav och följer anvisningarna för att ansluta data till Azure Sentinel. Det kan ta lite tid innan loggarna börjar synkronisera med Azure Sentinel. När du har anslutit visas en sammanfattning av data i grafen med **mottagna data** och anslutnings status för data typerna.
 
-   ![Anslut insamlare](./media/collect-data/opened-connector-page.png)
+   ![Konfigurera data anslutningar](./media/collect-data/opened-connector-page.png)
   
 1. Klicka på fliken **Nästa steg** om du vill hämta en lista över innehåll i Azure Sentinel som är färdiga för den aktuella data typen.
 
-   ![Data insamlare](./media/collect-data/data-insights.png)
+   ![Nästa steg för kopplingar](./media/collect-data/data-insights.png)
  
-
 ## <a name="data-connection-methods"></a>Dataanslutningsmetoder
 
 Följande data anslutnings metoder stöds av Azure Sentinel:
@@ -48,13 +47,13 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
     - [Azure-aktivitet](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) gransknings loggar och inloggnings loggar
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Microsoft Defender för identitet](connect-azure-atp.md) (tidigare Azure Advanced Threat Protection)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Security Center](connect-azure-security-center.md)
+    - [Azure Defender](connect-azure-security-center.md) (tidigare Azure Security Center)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domännamnserver](connect-dns.md)
     - [Office 365](connect-office-365.md)
-    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Microsoft Defender för slut punkt](connect-microsoft-defender-advanced-threat-protection.md) (tidigare Microsoft Defender Avancerat skydd)
     - [Microsoft-brandväggen för webbaserade program](connect-microsoft-waf.md)
     - [Windows-brandvägg](connect-windows-firewall.md)
     - [Windows säkerhetshändelser](connect-windows-security-events.md)
@@ -135,8 +134,8 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 | WireData | [Anslut tråd data](../azure-monitor/insights/wire-data.md) | &#10007; | |
 | WindowsFirewall | [Anslut Windows-brandväggen](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Ansluta Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
-| AATP SecurityAlert  | [Ansluta till Azure ATP](connect-azure-atp.md) | &#10003; | |
-| ASC-SecurityAlert  | [Ansluta till Azure Security Center](connect-azure-security-center.md)  | &#10003; | |
+| AATP SecurityAlert  | [Anslut Microsoft Defender för identitet](connect-azure-atp.md) (tidigare Azure ATP) | &#10003; | |
+| ASC-SecurityAlert  | [Ansluta Azure Defender](connect-azure-security-center.md) (tidigare Azure Security Center)  | &#10003; | |
 | MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |

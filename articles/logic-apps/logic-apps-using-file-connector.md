@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065963"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659922"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
 
 * Åtkomst till den dator som har det fil system som du vill använda. Om du till exempel installerar datagatewayen på samma dator som fil systemet behöver du kontots autentiseringsuppgifter för den datorn.
 
-* Ett e-postkonto från en provider som stöds av Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något.
+* Ett e-postkonto från en provider som stöds av Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](/connectors/). Den här Logic-appen använder ett arbets-eller skol konto. Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något.
 
   > [!IMPORTANT]
   > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -70,12 +70,12 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
 
    | Egenskap | Krävs | Värde | Beskrivning |
    | -------- | -------- | ----- | ----------- |
-   | **Anslutnings namn** | Yes | <*anslutnings namn*> | Det namn som du vill använda för anslutningen |
-   | **Rotmapp** | Yes | <*rot-mapp-namn*> | Rotmappen för ditt fil system, till exempel om du har installerat din lokala datagateway, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverks resurs som datorn har åtkomst till. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen som används för relativa sökvägar för alla filrelaterade åtgärder. |
-   | **Autentiseringstyp** | No | <*typ av autentisering*> | Den typ av autentisering som fil systemet använder: **Windows** |
-   | **Användarnamn** | Yes | <*domain* > \\ domän < *användar namn*> <p>\- eller - <p><*lokal* > \\ dator < *användar namn*> | Användar namnet för den dator där du har fil systemets mapp. <p>Om din fil system katalog finns på samma dator som den lokala datagatewayen kan du använda <användar namn för *lokal dator* > \\ < *username*>. |
-   | **Lösenord** | Yes | <*ditt lösen ord*> | Lösen ordet för datorn där du har fil systemet |
-   | **nyckeln** | Yes | <*installerat – Gateway-namn*> | Namnet på din tidigare installerade Gateway |
+   | **Anslutnings namn** | Ja | <*anslutnings namn*> | Det namn som du vill använda för anslutningen |
+   | **Rotmapp** | Ja | <*rot-mapp-namn*> | Rotmappen för ditt fil system, till exempel om du har installerat din lokala datagateway, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverks resurs som datorn har åtkomst till. <p>Exempelvis: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen som används för relativa sökvägar för alla filrelaterade åtgärder. |
+   | **Autentiseringstyp** | Inga | <*typ av autentisering*> | Den typ av autentisering som fil systemet använder: **Windows** |
+   | **Användarnamn** | Ja | <*domain* > \\ domän < *användar namn*> <p>\- eller - <p><*lokal* > \\ dator < *användar namn*> | Användar namnet för den dator där du har fil systemets mapp. <p>Om din fil system katalog finns på samma dator som den lokala datagatewayen kan du använda <användar namn för *lokal dator* > \\ < *username*>. |
+   | **Lösenord** | Ja | <*ditt lösen ord*> | Lösen ordet för datorn där du har fil systemet |
+   | **nyckeln** | Ja | <*installerat – Gateway-namn*> | Namnet på din tidigare installerade Gateway |
    |||||
 
 1. När du är klar väljer du **Skapa**.

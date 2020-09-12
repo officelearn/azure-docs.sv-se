@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758953"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016766"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Ansluta en RuuviTag-sensor till ditt Azure IoT Central-program
 
-*Den här artikeln gäller lösnings byggare och enhets utvecklare.*
+*Den här artikeln gäller lösnings byggare.*
 
 I den här artikeln beskrivs hur du kan ansluta en RuuviTag-sensor till ditt Microsoft Azure IoT Central program med hjälp av Solution Builder.
 
@@ -45,8 +45,8 @@ Om du vill publicera en RuuviTag-sensor i din Azure IoT Central-programinstans m
 
 Så här lägger du till en RuuviTag enhets mal len:
 
-1. Gå till fliken ***mallar*** i det vänstra fönstret och välj **+ ny**: ![ Skapa ny enhets mall ](./media/howto-connect-ruuvi/devicetemplate-new.png) sidan ger dig ett alternativ för att ***skapa en anpassad mall*** eller ***använda en förkonfigurerad enhets mall***
-1. Välj enhets mal len RuuviTag i listan med förkonfigurerade enhetsspecifika mallar enligt nedan: ![ Välj enhets mal len för RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Gå till fliken ***mallar*** i det vänstra fönstret och välj **+ ny**:  ![ Skapa ny enhets mall ](./media/howto-connect-ruuvi/devicetemplate-new.png) sidan ger dig ett alternativ för att ***skapa en anpassad mall*** eller ***använda en förkonfigurerad enhets mall***
+1. Välj enhets mal len RuuviTag i listan med förkonfigurerade enhetsspecifika mallar enligt nedan:  ![ Välj enhets mal len för RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. Välj ***Nästa: anpassa*** för att fortsätta till nästa steg.
 1. På nästa skärm väljer du ***skapa*** för att publicera enhets mal len C500 i ditt IoT Central-program.
 
@@ -69,12 +69,12 @@ Om du inte har någon fysisk RuuviTag-enhet kan du skapa en simulerad RuuviTag s
 Så här skapar du en simulerad RuuviTag:
 
 1. Välj **enheter > RuuviTag**.
-1. Välj **+ ny**.
+1. Välj **+ Ny**.
 1. Ange ett unikt **enhets-ID** och ett eget **enhets namn**.  
 1. Aktivera **simulerad** inställning.
 1. Välj **Skapa**.  
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Om du är enhets utvecklare är några förslag på nästa steg att:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273209"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649746"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -47,87 +47,7 @@ Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längr
 
 Varje kapacitets enhet består av högst: 1 beräknings enhet, 2500 beständiga anslutningar och 2,22 – Mbps-genomflöde.
 
-Vägledning för beräknings enhet:
-
-- **Standard_v2** – varje beräknings enhet kan ha cirka 50 anslutningar per sekund med RSA 2048-bitars TLS-certifikat.
-- **WAF_v2** – varje beräknings enhet har stöd för cirka 10 samtidiga begär Anden per sekund för 70-30% blandning av trafik med 70% begär Anden som är mindre än 2 KB get/post och återstående högre. WAF prestanda påverkas inte av svars storleken för närvarande.
-
-> [!NOTE]
-> Varje instans kan för närvarande stödja ca 10 kapacitets enheter.
-> Antalet begär Anden som en beräknings enhet kan hantera beror på olika kriterier som TLS-certifikat nyckel storlek, algoritm för nyckel utbyte, huvud skrivning av huvuden och i händelse av WAF inkommande begär ande storlek. Vi rekommenderar att du utför Programtester för att fastställa begär ande frekvens per beräknings enhet. Både kapacitets enheten och beräknings enheten görs tillgängliga som ett mått innan faktureringen påbörjas.
-
-I följande tabell visas exempel priser och är endast för illustrations syfte.
-
-**Priser i östra USA**:
-
-|              SKU-namn                             | Fast pris ($/timme)  | Pris för kapacitets enhet ($/CU-hr)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0,0080                          |
-| WAF_v2                                            |    0.36             | 0,0144                          |
-
-Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Exempel 1**
-
-En Application Gateway Standard_v2 tillhandahålls utan automatisk skalning i manuellt skalnings läge med en fast kapacitet på fem instanser.
-
-Fast pris = 744 (timmar) * $0,20 = $148,8 <br>
-Kapacitets enheter = 744 (timmar) * 10 kapacitets enhet per instans * 5 instanser * $0,008 per kapacitets enhet timme = $297,6
-
-Total pris = $148,8 + $297,6 = $446,4
-
-**Exempel 2**
-
-En Application Gateway standard_v2 tillhandahålls under en månad, utan minsta antal instanser, och under den tiden tar den emot 25 nya TLS-anslutningar/SEK, i genomsnitt 8,88-Mbit/s-data överföring. Förutsatt att anslutningar är korta, är ditt pris:
-
-Fast pris = 744 (timmar) * $0,20 = $148,8
-
-Kapacitets enhets pris = 744 (timmar) * max (25/50 beräknings enhet för anslutningar/SEK, 8.88/2.22 kapacitets enhet för data flöde) * $0,008 = 744 * 4 * 0,008 = $23,81
-
-Total pris = $148.8 + 23.81 = $172,61
-
-Som du kan se debiteras du bara för fyra kapacitets enheter, inte för hela instansen. 
-
-> [!NOTE]
-> Funktionen Max returnerar det största värdet i ett värde par.
-
-
-**Exempel 3**
-
-En Application Gateway standard_v2 skapas i en månad, med minst fem instanser. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
-
-Fast pris = 744 (timmar) * $0,20 = $148,8
-
-Kapacitets enhets pris = 744 (timmar) * max (0/50 beräknings enhet för anslutningar/SEK, 0/2.22 kapacitets enhet för data flöde) * $0,008 = 744 * 50 * 0,008 = $297,60
-
-Total pris = $148.80 + 297.60 = $446,4
-
-I det här fallet debiteras du för alla de fem instanserna, även om det inte finns någon trafik.
-
-**Exempel 4**
-
-En Application Gateway standard_v2 tillhandahålls för en månad, med minst fem instanser, men den här gången är ett genomsnitt på 125-Mbit/s-data överföring och 25 TLS-anslutningar per sekund. Förutsatt att det inte finns någon trafik och anslutningar är korta, är ditt pris:
-
-Fast pris = 744 (timmar) * $0,20 = $148,8
-
-Kapacitets enhets pris = 744 (timmar) * max (25/50 beräknings enhet för anslutningar/SEK, 125/2.22 kapacitets enhet för data flöde) * $0,008 = 744 * 57 * 0,008 = $339,26
-
-Total pris = $148.80 + 339.26 = $488,06
-
-I det här fallet debiteras du för de fullständiga fem instanserna, plus sju kapacitets enheter (som är 7/10 av en instans).  
-
-**Exempel 5**
-
-En Application Gateway WAF_v2 har tillhandahållits för en månad. Under den här tiden får den 25 nya TLS-anslutningar/SEK, vilket är medelvärdet av data överföring på 8,88 Mbit/s och gör 80 per sekund. Förutsatt att anslutningarna är korta livs längd och beräkningen av beräknings enheter för programmet stöder 10 RPS per beräknings enhet blir priset:
-
-Fast pris = 744 (timmar) * $0,36 = $267,84
-
-Kapacitets enhets pris = 744 (timmar) * max (beräknings enhet max (25/50 för anslutningar/SEK, 80/10 WAF RPS), 8.88/2.22 kapacitets enhet för data flöde) * $0,0144 = 744 * 8 * 0,0144 = $85,71
-
-Total pris = $267,84 + $85,71 = $353,55
-
-> [!NOTE]
-> Funktionen Max returnerar det största värdet i ett värde par.
+Mer information finns i [förstå priser](understanding-pricing.md).
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Skala Application Gateway och WAF v2
 
@@ -180,7 +100,7 @@ I det här avsnittet beskrivs funktioner och begränsningar för v2-SKU: n som s
 |--|--|
 |Certifikat för autentisering|Stöds inte.<br>Mer information finns i [Översikt över TLS to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
-|Användardefinierad väg (UDR) i Application Gateway undernät|Stöds (vissa scenarier). I för hands version.<br> Mer information om vilka scenarier som stöds finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|Användardefinierad väg (UDR) i Application Gateway undernät|Stöds (vissa scenarier). I för hands version.<br> Mer information om vilka scenarier som stöds finns i [Application Gateway konfigurations översikt](configuration-infrastructure.md#supported-user-defined-routes).|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Prestanda loggar i Azure Diagnostics|Stöds inte.<br>Azure-mått ska användas.|
 |Fakturering|Faktureringen är schemalagd för att starta den 1 juli 2019.|

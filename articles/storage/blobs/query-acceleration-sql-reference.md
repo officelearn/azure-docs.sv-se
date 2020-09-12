@@ -1,28 +1,25 @@
 ---
-title: Språk referens för Query acceleration SQL (för hands version)
+title: Språk referens för Query acceleration SQL
 titleSuffix: Azure Storage
 description: Lär dig hur du använder SQL-syntax för frågekörning.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193409"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659571"
 ---
-# <a name="query-acceleration-sql-language-reference-preview"></a>Språk referens för Query acceleration SQL (för hands version)
+# <a name="query-acceleration-sql-language-reference"></a>Språk referens för Query acceleration SQL
 
 Query acceleration stöder ett ANSI SQL-liknande språk för att uttrycka frågor över BLOB-innehåll.  SQL-dialekten för frågekörning är en delmängd av ANSI SQL, med en begränsad uppsättning data typer, operatorer osv., men den utökas också på ANSI SQL för att ge stöd för frågor över hierarkiskt strukturerade data format, t. ex. JSON. 
-
-> [!NOTE]
-> Funktionen för acceleration av frågor finns i offentlig för hands version och är tillgänglig i regionerna Kanada, centrala och Frankrike, centrala. Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) . Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adls/qa-preview-signup). 
 
 ## <a name="select-syntax"></a>Välj syntax
 
@@ -66,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |TIMESTAMP|En tidpunkt.                           |
 |BOOLESKT  |Sant eller falskt.                             |
 
-När du läser värden från CSV-formaterade data läses alla värden som strängar.  Sträng värden kan konverteras till andra typer med hjälp av CAST-uttryck.  Värden kan vara implicit omvandlas till andra typer beroende på kontext. Mer information finns i [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+När du läser värden från CSV-formaterade data läses alla värden som strängar.  Sträng värden kan konverteras till andra typer med hjälp av CAST-uttryck.  Värden kan vara implicit omvandlas till andra typer beroende på kontext. Mer information finns i [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## <a name="expressions"></a>Uttryck
 
@@ -80,15 +77,36 @@ I CSV-formaterade data kan fält också refereras till av ordnings tal, som för
 
 Följande standard-SQL-operatorer stöds:
 
-``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
+|Operator|Beskrivning|
+|--|--|
+|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Jämför likheten mellan två uttryck (en jämförelse operator).|
+|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Testar om ett uttryck inte är lika med ett annat uttryck (en jämförelse operator).|
+|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Jämför två uttryck som inte är lika med (en jämförelse operator).|
+|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Jämför två uttryck för mindre än (en jämförelse operator).|
+|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Jämför två uttryck för mindre än eller lika med (en jämförelse operator).|
+|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Jämför två uttryck för större än (en jämförelse operator). |
+|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Jämför två uttryck för större än eller lika med (en jämförelse operator).|
+|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Adderar två tal. Denna additiona aritmetiska operator kan också lägga till ett tal, i dagar, till ett datum.|
+|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Subtraherar två tal (en aritmetisk under traktions operator). |
+|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Dividerar ett tal med ett annat (en aritmetisk divisions operator).|
+|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplicerar två uttryck (en aritmetisk operator för multiplikation).|
+|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Returnerar resten av ett tal dividerat med ett annat.|
+|[SÄRSKILT](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Utför en bitvis logisk och åtgärd mellan två heltals värden.|
+|[ELLER](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Utför en bitvis logisk eller åtgärd mellan två angivna heltals värden som översatta till binära uttryck i Transact-SQL-uttryck.|
+|[Ogiltigt](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negerar en boolesk Indatatyp.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konverterar ett uttryck med en datatyp till en annan.|
+|[DELAS](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Anger ett intervall som ska testas.|
+|[FÖR](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Anger om ett angivet värde matchar ett värde i en under fråga eller en lista.|
+|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Returnerar ett null-värde om de två angivna uttrycken är lika.|
+|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Utvärderar argumenten i ordning och returnerar det aktuella värdet för det första uttrycket som ursprungligen inte utvärderas till NULL.|
 
-Om data typer till vänster och höger om en operator skiljer sig åt kommer den automatiska konverteringen att utföras enligt de regler som anges här: [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Om data typer till vänster och höger om en operator skiljer sig åt kommer den automatiska konverteringen att utföras enligt de regler som anges här: [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 SQL-språket för Query acceleration stöder bara en liten del av de data typer som beskrivs i artikeln.  Se avsnittet [data typer](#data-types) i den här artikeln.
 
 ### <a name="casts"></a>Sändningar
 
-SQL-språket för frågespråk stöder CAST-operatorn, enligt reglerna här: [data typs konvertering (databas motor)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+SQL-språket för frågespråk stöder CAST-operatorn, enligt reglerna här: [data typs konvertering (databas motor)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 SQL-språket för frågespråk stöder bara en liten delmängd av de data typer som beskrivs i artikeln.  Se avsnittet [data typer](#data-types) i den här artikeln.
 
@@ -96,7 +114,16 @@ SQL-språket för frågespråk stöder bara en liten delmängd av de data typer 
 
 SQL-språket för frågespråk stöder följande SQL-standardfunktioner:
 
-``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+|Funktion|Beskrivning|
+|--|--|
+|CHAR_LENGTH    | Returnerar längden i tecken i sträng uttrycket, om sträng uttrycket är av en tecken data typ; annars returneras längden i byte för sträng uttrycket (det minsta heltal som inte är mindre än antalet bitar dividerat med 8). (Den här funktionen är samma som CHARACTER_LENGTH-funktionen.)|
+|CHARACTER_LENGTH    |Returnerar längden i tecken i sträng uttrycket, om sträng uttrycket är av en tecken data typ; annars returneras längden i byte för sträng uttrycket (det minsta heltal som inte är mindre än antalet bitar dividerat med 8). (Den här funktionen är samma som funktionen CHAR_LENGTH|
+|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Returnerar ett tecken uttryck efter konvertering av versaler till gemener.|
+|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Returnerar ett tecken uttryck med gemena tecken som konverterats till versaler.|
+|[UNDER sträng](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Returnerar en del av ett tecken-, binär-, text-eller bild uttryck i SQL Server.|
+|[REDUCERA](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Tar bort blank steg tecken (32) eller andra angivna tecken från början och slutet av en sträng.|
+|LEDANDE    |Beskrivning|
+|AVSLUTANDE    |Beskrivning|
 
 Här är några exempel:
 
@@ -108,16 +135,6 @@ Här är några exempel:
 |UPPER|``SELECT UPPER('AbCdEfG') from BlobStorage``|``ABCDEFG``|
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
-
-Funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) hjälper dig att söka efter ett mönster. Här följer några exempel som använder funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) för att söka i data strängen ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
-
-|Söka i data|Exempel|
-|--|--|
-|``SELECT _1, _2, _3 from BlobStorage where _2 LIKE 'a%'``|``abc,abd,cd\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a[bcd]c``|``abc,abd,cd\n``|
-|``SELECT _1 from BlobStorage where _2 LIKE '[^xyz]%'``|``abc\ntest\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a_``|``abc,abd,cd\n``|
-|``SELECT _2,_3 from BlobStorage where _3 LIKE '[g-h]_![[a-j]' Escape '!'``|``xc%d^e,gh[i\n``|
 
 ### <a name="date-functions"></a>Datumfunktioner
 
@@ -133,14 +150,12 @@ SQL-språket för frågespråk stöder år, månad, dag, timme, minut, sekund f�
 
 Exempel:
 
-```sql
-DATE_ADD(datepart, quantity, timestamp)
-DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
+SQL DATE_ADD (DatumDel, Quantity, Quantity) DATE_ADD (minut, 1, CAST (' 2017-01-02T03:04:05.006 Z "som tidsstämpel)
 ```
 
-#### <a name="date_diff-function"></a>DATE_DIFF funktion
+#### DATE_DIFF function
 
-SQL-språket för frågespråk stöder år, månad, dag, timme, minut, sekund för ``DATE_DIFF`` funktionen.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -220,12 +235,12 @@ Ett SELECT-uttryck kan innehålla antingen ett eller flera projektioner eller et
 
 |Uttryck|Beskrivning|
 |--|--|
-|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster som matchade predikatet-uttrycket.|
-|[COUNT (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster för vilka uttrycket inte är null.|
-|[MEDEL (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Returnerar medelvärdet av uttryck som inte är null-värden.|
-|[MIN (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Returnerar det minsta värdet för uttrycket som inte är null.|
-|[Max (uttryck](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Returnerar det högsta värdet för uttrycket som inte är null.|
-|[SUM (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Returnerar summan av alla värden som inte är null i uttrycket.|
+|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returnerar antalet poster som matchade predikatet-uttrycket.|
+|[COUNT (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returnerar antalet poster för vilka uttrycket inte är null.|
+|[MEDEL (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Returnerar medelvärdet av uttryck som inte är null-värden.|
+|[MIN (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Returnerar det minsta värdet för uttrycket som inte är null.|
+|[MAX (uttryck](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Returnerar det högsta värdet för uttrycket som inte är null.|
+|[SUM (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Returnerar summan av alla värden som inte är null i uttrycket.|
 
 ### <a name="missing"></a>INGEN
 
@@ -235,7 +250,7 @@ Ett SELECT-uttryck kan innehålla antingen ett eller flera projektioner eller et
 
 ## <a name="table-descriptors"></a>Tabell beskrivningar
 
-Tabell namnet är alltid för CSV-data `BlobStorage` .  Ett exempel:
+Tabell namnet är alltid för CSV-data `BlobStorage` .  Exempel:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -287,7 +302,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 Frågan hämtar alla fält men väljer bara latitud.
 
-Om du bara vill komma åt `dimensions` JSON-cellvärdet kan du använda referera till objektet i din fråga. Ett exempel:
+Om du bara vill komma åt `dimensions` JSON-cellvärdet kan du använda referera till objektet i din fråga. Exempel:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -323,6 +338,6 @@ I de flesta fall är storleken på varje grupp något högre än det tal som du 
 
 ## <a name="see-also"></a>Se även
 
-- [Azure Data Lake Storage fråga om acceleration (för hands version)](data-lake-storage-query-acceleration.md)
-- [Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)](data-lake-storage-query-acceleration-how-to.md)
+- [Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration.md)
+- [Filtrera data med hjälp av Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration-how-to.md)
 

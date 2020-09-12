@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194067"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005028"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Lösen ords principer och konto begränsningar i Azure Active Directory
 
@@ -43,13 +43,13 @@ Följande tabell beskriver de användar namns principer som gäller för både l
 
 En lösen ords princip tillämpas på alla användar konton som skapas och hanteras direkt i Azure AD. Den här lösen ords principen kan inte ändras, men du kan [Konfigurera anpassade förbjudna lösen ord för lösen ords skydd i Azure AD](tutorial-configure-custom-password-protection.md).
 
-Lösen ords principen gäller inte för användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect.
+Lösen ords principen gäller inte för användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect, om du inte aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 Följande alternativ för lösen ords princip definieras:
 
 | Egenskap | Krav |
 | --- | --- |
-| Tillåtna tecken |<ul><li>A – Ö</li><li>a-ö</li><li>0 – 9</li> <li>@ # $% ^ & *-_! + = [] {} &#124; \: ',. ? / \`~ " ( ) ;</li> <li>tomt utrymme</li></ul> |
+| Tillåtna tecken |<ul><li>A – Ö</li><li>a-ö</li><li>0 – 9</li> <li>@ # $% ^ & *-_! + = [] {} &#124; \: ',. ? / \` ~ " ( ) ;</li> <li>tomt utrymme</li></ul> |
 | Tecken tillåts inte | Unicode-tecken. |
 | Lösen ords begränsningar |<ul><li>Minst 8 tecken och högst 256 tecken.</li><li>Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Tal (0-9).</li><li>Symboler (se tidigare lösen ords begränsningar).</li></ul></li></ul> |
 | Giltighets tid för lösen ord (högsta ålder för lösen ord) |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av `Set-MsolPasswordPolicy` cmdleten från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |

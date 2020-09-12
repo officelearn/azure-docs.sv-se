@@ -2,23 +2,19 @@
 title: Hantera certifikat i Azure Automation
 description: Den här artikeln beskriver hur du arbetar med certifikat för åtkomst av Runbooks och DSC-konfigurationer.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/02/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 61e2cdf63e5553ba8d796115284dad9a538c2b81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6220cfb5649995e54338f245b4cb62511b89a2c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056272"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004705"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Hantera certifikat i Azure Automation
 
-Azure Automation lagrar certifikat säkert för åtkomst av Runbooks och DSC-konfigurationer med hjälp av cmdleten [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) för Azure Resource Manager-resurser. Med säker certifikat lagring kan du skapa Runbooks och DSC-konfigurationer som använder certifikat för autentisering, eller lägga till dem i Azure eller från resurser från tredje part.
+Azure Automation lagrar certifikat säkert för åtkomst av Runbooks och DSC-konfigurationer med hjälp av cmdleten [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate) för Azure Resource Manager-resurser. Med säker certifikat lagring kan du skapa Runbooks och DSC-konfigurationer som använder certifikat för autentisering, eller lägga till dem i Azure eller från resurser från tredje part.
 
 >[!NOTE]
 >Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Automation med hjälp av en unik nyckel som genereras för varje Automation-konto. Automation lagrar nyckeln i den systemhanterade Key Vaults tjänsten. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
@@ -29,10 +25,10 @@ Cmdletarna i följande tabell skapar och hanterar Automation-certifikat med Powe
 
 |Cmdlet |Beskrivning|
 | --- | ---|
-|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Hämtar information om ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Du kan bara hämta själva certifikatet med hjälp av den interna `Get-AutomationCertificate` cmdleten.|
-|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Skapar ett nytt certifikat i Automation.|
-|[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Tar bort ett certifikat från Automation.|
-|[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikat filen och inställning av lösen ordet för en **PFX** -fil.|
+|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate)|Hämtar information om ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Du kan bara hämta själva certifikatet med hjälp av den interna `Get-AutomationCertificate` cmdleten.|
+|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)|Skapar ett nytt certifikat i Automation.|
+|[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate)|Tar bort ett certifikat från Automation.|
+|[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikat filen och inställning av lösen ordet för en **PFX** -fil.|
 
 Cmdleten [Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) kan också användas för att ladda upp ett tjänst certifikat för den angivna moln tjänsten.
 
@@ -64,7 +60,8 @@ När du skapar ett nytt certifikat laddar du upp en CER-eller PFX-fil som ska au
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>Skapa ett nytt certifikat med Azure Portal
 
-1. Från ditt Automation-konto väljer du **till gångar**  >  **certifikat**  >  **Lägg till ett certifikat**.
+1. Från ditt Automation-konto väljer du **certifikat** under **delad resurs**i den vänstra rutan.
+1. På sidan **certifikat** väljer du **Lägg till ett certifikat**.
 1. I fältet **namn** anger du ett namn för certifikatet.
 1. Om du vill bläddra efter en **CER** -eller **PFX** -fil går du till **överför en certifikat fil**och väljer **Välj en fil**. Om du väljer en **. pfx** -fil anger du ett lösen ord och anger om det kan exporteras.
 1. Välj **skapa** för att spara den nya certifikat till gången.
@@ -127,7 +124,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>Hämta ett certifikat
 
-Använd den interna cmdleten för att hämta ett certifikat `Get-AutomationCertificate` . Du kan inte använda cmdleten [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) eftersom den returnerar information om certifikat till gången, men inte själva certifikatet.
+Använd den interna cmdleten för att hämta ett certifikat `Get-AutomationCertificate` . Du kan inte använda cmdleten [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate) eftersom den returnerar information om certifikat till gången, men inte själva certifikatet.
 
 ### <a name="textual-runbook-example"></a>Exempel på text Runbook
 
@@ -147,7 +144,7 @@ Lägg till en aktivitet för den interna `Get-AutomationCertificate` cmdleten i 
 
 ![Skärm bild som visar hur du lägger till ett certifikat på arbets ytan](../media/certificates/automation-certificate-add-to-canvas.png)
 
-Följande bild visar ett exempel på hur du använder ett certifikat i en grafisk Runbook. 
+Följande bild visar ett exempel på hur du använder ett certifikat i en grafisk Runbook.
 
 ![Skärm bild av ett exempel på grafisk redigering](../media/certificates/graphical-runbook-add-certificate.png)
 
@@ -167,5 +164,4 @@ print cert
 
 * Mer information om de cmdletar som används för att komma åt certifikat finns [i hantera moduler i Azure Automation](modules.md).
 * Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
-* Mer information om DSC-konfigurationer finns i [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md). 
-
+* Mer information om DSC-konfigurationer finns i [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md).

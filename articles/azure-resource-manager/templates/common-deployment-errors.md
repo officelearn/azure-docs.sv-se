@@ -3,13 +3,13 @@ title: Felsök vanliga distributionsfel
 description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med hjälp av Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008176"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650948"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
@@ -75,7 +75,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | StorageAccountNotFound | Kontrol lera prenumerationen, resurs gruppen och namnet på det lagrings konto som du försöker använda. | |
 | SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort ser du till att de tillhör samma virtuella nätverk. | [Flera nätverkskort](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | Det går inte att komma åt en angiven prenumeration för distribution. Det kan bero på att prenumerations-ID: t är felaktigt, att användaren som distribuerar mallen inte har tillräcklig behörighet för att distribuera till prenumerationen, eller att prenumerations-ID: t har fel format. När du använder kapslade distributioner för att [distribuera mellan omfattningar](cross-scope-deployment.md)anger du GUID för prenumerationen. | |
-| SubscriptionNotRegistered | När du distribuerar nätverks resurser registreras Microsoft. Network Resource-providern automatiskt i prenumerationen. Ibland slutförs inte den automatiska registreringen i tid. För att undvika det här tillfälliga felet registrerar du Microsoft. Network Resource-providern innan du distribuerar. | [Lös registrering](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | När du distribuerar en resurs måste resurs leverantören vara registrerad för din prenumeration. När du använder en Azure Resource Manager mall för distribution registreras resurs leverantören automatiskt i prenumerationen. Ibland slutförs inte den automatiska registreringen i tid. För att undvika det här tillfälliga felet registrerar du resurs leverantören före distributionen. | [Lös registrering](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution över omfång](cross-scope-deployment.md) |
 

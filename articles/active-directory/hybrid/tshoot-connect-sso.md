@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355921"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016273"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -29,7 +29,7 @@ Den här artikeln hjälper dig att hitta felsöknings information om vanliga pro
 - I några fall kan det ta upp till 30 minuter att aktivera sömlös SSO.
 - Om du inaktiverar och återaktiverar sömlös SSO på din klient, kommer användarna inte att få enkel inloggning till sina cachelagrade Kerberos-biljetter, vanligt vis giltiga i 10 timmar, ha upphört att gälla.
 - Om sömlös SSO lyckas har användaren inte möjlighet att välja **Behåll mig inloggad**. På grund av det här problemet fungerar inte [SharePoint-och OneDrive-mappnings scenarier](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) .
-- Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. Andra versioner stöds inte. i dessa versioner anger användarna sina användar namn, men inte lösen ord, för inloggning. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
+- Microsoft 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. Andra versioner stöds inte. i dessa versioner anger användarna sina användar namn, men inte lösen ord, för inloggning. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
 - Sömlös SSO fungerar inte i privat bläddringsläge på Firefox.
 - Sömlös SSO fungerar inte i Internet Explorer när utökat skyddat läge är aktiverat.
 - Sömlös enkel inloggning fungerar inte i mobila webbläsare på iOS och Android.
@@ -74,9 +74,9 @@ Bläddra till **Azure Active Directory**  >  **inloggningar** i [Azure Active Di
 Använd följande check lista för att felsöka sömlösa SSO-problem:
 
 - Se till att funktionen sömlös SSO är aktive rad i Azure AD Connect. Om du inte kan aktivera funktionen (till exempel på grund av en blockerad port) bör du kontrol lera att du har alla [krav](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) på plats.
-- Om du har aktiverat både [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös SSO på din klient organisation kontrollerar du att problemet inte är med Azure AD Join. SSO från Azure AD Join prioriteras över sömlös SSO om enheten både är registrerad med Azure AD och domänanslutna. Med SSO från Azure AD Join ser användaren en inloggnings panel som säger "ansluten till Windows".
+- Om du har aktiverat både [Azure AD Join](../devices/overview.md) och sömlös SSO på din klient organisation kontrollerar du att problemet inte är med Azure AD Join. SSO från Azure AD Join prioriteras över sömlös SSO om enheten både är registrerad med Azure AD och domänanslutna. Med SSO från Azure AD Join ser användaren en inloggnings panel som säger "ansluten till Windows".
 - Kontrol lera att Azure AD-URL: en ( `https://autologon.microsoftazuread-sso.com` ) är en del av användarens intranät zon inställningar.
-- Se till att företags enheten är ansluten till Active Directorys domänen. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md) för att sömlös inloggning ska fungera.
+- Se till att företags enheten är ansluten till Active Directorys domänen. Enheten behöver _inte_ vara [Azure AD-ansluten](../devices/overview.md) för att sömlös inloggning ska fungera.
 - Se till att användaren är inloggad på enheten via ett Active Directory domän konto.
 - Se till att användarens konto är från en Active Directory skog där sömlös SSO har kon figurer ATS.
 - Kontrol lera att enheten är ansluten till företags nätverket.
@@ -106,7 +106,7 @@ Om fel sökningen inte hjälper kan du manuellt återställa funktionen på klie
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Steg 1: importera sömlös SSO PowerShell-modul
 
-1. Börja med att ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Börja med att ladda ned och installera [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Bläddra till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importera den sömlösa SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\AzureADSSO.psd1` .
 

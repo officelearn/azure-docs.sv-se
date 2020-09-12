@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607338"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007765"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -46,7 +46,7 @@ Om du vill veta mer kan du visa videon på [Varför sälja via Marketplace](http
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Finns det en registrerings avgift för Microsoft Commercial Marketplace?
 
-Nej, det kostar inget att publicera erbjudanden på vår kommersiella marknads plats. Vi behåller en liten procent andel av försäljningen, som en transaktions avgift och investerar den i Marketplace-anslags programmet, plattforms innovation och kommersiella Marketplace-åtgärder. Den här transaktions avgiften är minskad för [Azure IP Co-Sälj motiverade-](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) erbjudanden.
+Nej, det kostar inget att publicera erbjudanden på vår kommersiella marknads plats. Vi behåller en liten procent andel av försäljningen, som en transaktions avgift och investerar den i Marketplace-anslags programmet, plattforms innovation och kommersiella Marketplace-åtgärder. Den här transaktions avgiften är minskad för [Azure IP Co-Sälj motiverade-](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) erbjudanden och för betalda SaaS-erbjudanden på AppSource som är kopplade till en Microsoft Teams-app eller minst två Microsoft 365-tillägg (Excel, PowerPoint, Word, Outlook och SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Hur gör jag för att registrera dig för att vara utgivare på Microsoft Commercial Marketplace?
 
@@ -320,7 +320,7 @@ Här är några resurser som hjälper dig att komma igång:
 Vi rekommenderar följande resurser:
 
 - Information om hur du ansluter till Microsoft partner community finns [Microsoft AppSource och Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222).
-- Lär dig mer om och gå med i [programmet Microsoft kommersiell Marketplace Insiders](https://crmnamvoc1runtime.crm.dynamics.com/cbdbd59b-ab3d-47bf-8a1c-7452f8e49970/marketplaceinsiders).
+- Lär dig mer om och gå med i [programmet Microsoft kommersiell Marketplace Insiders](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743).
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Var kan jag lära mig mer om Partner Center?
 
@@ -340,7 +340,7 @@ Information om Microsoft administrations Center finns i [hantera program prenume
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Var kan jag läsa om Azure Government och Azure Government Marketplace?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
-- [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center)
+- [Säkerhetscenter](https://www.microsoft.com/trust-center)
 - [Dokumentation om Azure Government](../azure-government/index.yml)
 - [Azure Government Marketplace](../azure-government/documentation-government-manage-marketplace.md)
 - [Azure Government efterlevnad](../azure-government/documentation-government-plan-compliance.md)

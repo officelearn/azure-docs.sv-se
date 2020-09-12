@@ -1,6 +1,6 @@
 ---
 title: Hantera dina organisationer från min konto Portal – Azure AD
-description: Hur du visar och lämnar organisationer som är anslutna till ditt arbets-eller skol konto från sidan organisationer i min konto Portal.
+description: Hur du visar och lämnar organisationer som du har åtkomst till från sidan organisationer i mitt konto Portal.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798184"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005079"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera dina anslutna organisationer från sidan organisationer
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Hantera organisationer som du har åtkomst till i mitt konto Portal
 
-Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera organisationer (vanligt vis organisationens namn) som är anslutet till ditt arbets-eller skol konto. Det finns två typer av organisationer som visas på sidan **organisationer** :
+Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera organisationer (vanligt vis organisationens namn) som du har åtkomst till. Det finns två typer av organisationer som visas på sidan **organisationer** :
 
 - **Hem organisation.** Din hem organisation är den organisation som äger ditt arbets-eller skol konto. Du kan inte lämna din hem organisation.
 
@@ -30,7 +30,7 @@ Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera orga
 - **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](../users-groups-roles/index.yml).
+>Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som används av ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Visa dina organisationer
 
@@ -44,7 +44,7 @@ Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera orga
 
     ![Sidan organisationer](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Granska dina andra associerade organisationer och se till att du känner igen alla organisationer som är anslutna till ditt konto.
+4. Granska dina andra organisationer och se till att du känner igen alla organisationer som du har åtkomst till.
 
 ## <a name="leave-an-organization"></a>Lämna en organisation
 

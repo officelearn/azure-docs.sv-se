@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799573"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657956"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 
@@ -43,12 +43,13 @@ Arbets böcker är för närvarande kompatibla med följande data Källor:
 
 Arbets böcker ger en omfattande uppsättning funktioner för visualisering av dina data. Detaljerade exempel på varje visualiserings typ kan du se exempel länkarna nedan:
 
-* [Text](workbooks-visualizations.md#text)
-* [Diagram](workbooks-visualizations.md#charts)
-* [Rutnät](workbooks-visualizations.md#grids)
-* [Ordnar](workbooks-visualizations.md#tiles)
-* [Träd](workbooks-visualizations.md#trees)
-* [Diagram](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Diagram](workbooks-chart-visualizations.md)
+* [Rutnät](workbooks-grid-visualizations.md)
+* [Ordnar](workbooks-tile-visualizations.md)
+* [Träd](workbooks-tree-visualizations.md)
+* [Diagram](workbooks-graph-visualizations.md)
+* [Sammansatt fält](workbooks-composite-bar.md)
 
 ![Exempel på arbets boks visualiseringar](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ När det gäller den här arbets boken är upplevelsen interaktiv. Du kan juster
 
 ### <a name="editing-mode"></a>Redigerings läge
 
-Du måste växla till redigerings läge genom att välja **Redigera**för att förstå hur den här arbets boks mal len placeras tillsammans. 
+Du måste växla till redigerings läge genom att välja **Redigera**för att förstå hur den här arbets boks mal len placeras tillsammans.
 
-![Skärm bild av mall för program haveri analys](./media/workbooks-overview/edit.png)
+![Skärm bild av knappen Redigera i arbets böcker.](./media/workbooks-overview/edit.png)
 
 När du har växlat till redigerings läget visas ett antal **redigerings** rutor till höger som motsvarar varje enskild aspekt av arbets boken.
 

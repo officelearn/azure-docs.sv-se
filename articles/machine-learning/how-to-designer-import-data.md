@@ -5,17 +5,17 @@ description: Lär dig hur du importerar data till Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495379"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006992"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importera data till Azure Machine Learning designer (förhands granskning)
 
@@ -38,19 +38,28 @@ Du kan också registrera utdata för alla designer-moduler som en data uppsättn
 
 1. Välj den modul som matar ut de data som du vill registrera.
 
-1. I fönstret Egenskaper väljer du **utdata**  >  **register data uppsättning**.
+1. I fönstret Egenskaper väljer du **utdata + loggar**  >  **registrera data uppsättning**.
 
     ![Skärm bild som visar hur du navigerar till alternativet registrera data uppsättning](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Om modulen utdata är i tabell format måste du välja att registrera utdata som en **fil data uppsättning** eller en **tabell data uppsättning**.
+
+ - **Fil data uppsättningen** registrerar modulens installationsmapp som en fil data uppsättning. Mappen utdata innehåller en data fil och de meta-filer som designern använder internt. Välj det här alternativet om du vill fortsätta att använda den registrerade data uppsättningen i designern. 
+
+ - **Tabell data uppsättning** registrerar endast modulens utdatafil som en tabell data uppsättning. Det här formatet används enkelt av andra verktyg, till exempel i automatiserade Machine Learning eller python SDK. Välj det här alternativet om du planerar att använda den registrerade data uppsättningen utanför designern.  
+
+
+
 ### <a name="use-a-dataset"></a>Använd en data uppsättning
 
-Du hittar dina registrerade data uppsättningar i modulen modul under **data uppsättningar**  >  **mina data uppsättningar**. Om du vill använda en data uppsättning drar du och släpper den på pipeline-arbetsytan. Anslut sedan utdataporten för data uppsättningen till andra moduler i paletten.
+Du hittar dina registrerade data uppsättningar i modulen modul under **data uppsättningar**. Om du vill använda en data uppsättning drar du och släpper den på pipeline-arbetsytan. Anslut sedan utdataporten för data uppsättningen till andra moduler på arbets ytan. 
 
 ![Skärm bild som visar platsen för sparade data uppsättningar i design verktyget](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> Designern stöder för närvarande endast bearbetning av [tabell data uppsättningar](how-to-create-register-datasets.md#dataset-types). Om du vill använda [fil data uppsättningar](how-to-create-register-datasets.md#dataset-types)använder du Azure Machine Learning SDK som finns för python och R.
+> Designern stöder [data uppsättnings version](how-to-version-track-datasets.md). Ange data uppsättnings version i egenskaps panelen för data uppsättnings modulen.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Importera data med modulen importera data
 
@@ -81,7 +90,7 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 Designern identifierar internt följande data typer:
 
 * Sträng
-* Heltal
+* Integer
 * Decimal
 * Boolesk
 * Date
@@ -94,7 +103,7 @@ Modulerna i designern är begränsade till beräknings målets storlek. För st�
 
 ## <a name="access-data-in-a-virtual-network"></a>Få åtkomst till data i ett virtuellt nätverk
 
-Om din arbets yta finns i ett virtuellt nätverk måste du utföra ytterligare konfigurations steg för att visualisera data i designern. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [nätverks isolering under träning &s härledning med privata virtuella nätverk](how-to-enable-virtual-network.md#machine-learning-studio).
+Om din arbets yta finns i ett virtuellt nätverk måste du utföra ytterligare konfigurations steg för att visualisera data i designern. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk](how-to-enable-studio-virtual-network.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

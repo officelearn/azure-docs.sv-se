@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4f724297f216267dadda31be4bd548eb241b9845
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266977"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660280"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -33,7 +33,7 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 
 **VMware** | **Information**
 --- | ---
-**vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5 eller 6,7.
+**vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5, 6,7 eller 7,0.<br/><br/> Det finns för närvarande inte stöd för att identifiera virtuella VMware-datorer genom att tillhandahålla ESXi-värd information i installationen.
 **Behörigheter** | Server utvärderingen behöver ett vCenter Server skrivskyddat konto för identifiering och utvärdering.<br/><br/> Om du vill göra en program identifiering eller beroende visualisering måste kontot ha behörighet att aktivera för **Virtual Machines**  >  **gäst åtgärder**.
 
 ## <a name="vm-requirements"></a>Krav för virtuell dator
@@ -74,7 +74,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/><br/> VMware Tools-versionen måste vara senare än 10.2.0.
 **PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Krav för beroende analys (utan agent)
@@ -89,7 +89,7 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 **vCenter Server autentiseringsuppgifter** | Beroende visualisering behöver ett vCenter Server-konto med skrivskyddad åtkomst och behörigheter som är aktiverade för Virtual Machines > gäst åtgärder.
 **VM-behörigheter för Windows** |  För beroende analys behöver Azure Migrate-enheten ett domän administratörs konto eller ett lokalt administratörs konto för att få åtkomst till virtuella Windows-datorer.
 **Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Linux-konto** | För beroende analys måste Azure Migrate-installationen ha ett användar konto med rot behörighet på Linux-datorer.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
+**Linux-konto** | För beroende analys måste Azure Migrate-installationen ha ett användar konto med rot behörighet på Linux-datorer.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE. Ange dessa funktioner med följande kommandon: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/netstat
 **Agenter som krävs** | Ingen agent krävs på de datorer som du vill analysera.
 **VMware-verktyg** | VMware-verktyg (senare än 10,2) måste installeras och köras på varje virtuell dator som du vill analysera.
 

@@ -1,40 +1,36 @@
 ---
-title: Principer och villkor för affärs platser | Azure
-description: Microsofts principer och villkor för affärs platser gäller för alla utgivare och erbjudanden i Microsoft Azure Marketplace.
+title: Principer och villkor för affärs platser, Azure Marketplace
+description: Microsofts principer och villkor för affärs platser gäller för alla utgivare och erbjudanden i Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 06/26/2020
-ms.openlocfilehash: ffa6762d03b0ef189edf9887cfdf0fdd8788ef2d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/09/2020
+ms.openlocfilehash: cd936307eaacc7b2a46bac23c8fcfc9e2769135c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121052"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006728"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Principer och villkor för den kommersiella marknadsplatsen
 
 >[!Note]
->"Microsoft Commercial Marketplace" syftar på en Microsoft-ägda eller drifts oberoende plattform, med namn, genom vilken erbjudanden kan presenteras eller förvärvas av kunder. Om inget annat anges innehåller den kommersiella Marketplace Microsoft Azure Marketplace och Microsoft AppSource.
+>"Microsoft Commercial Marketplace" syftar på en Microsoft-ägda eller drifts oberoende plattform, med namn, genom vilken erbjudanden kan presenteras eller förvärvas av kunder. Om inget annat anges innehåller den kommersiella Marketplace Microsoft AppSource och Azure Marketplace.
 
-Tack för ditt intresse för att publicera erbjudanden på den kommersiella marknads platsen. Vi strävar efter att samar beta med dig för att bygga en omfattande källa till moln lösningar och en rad affärs erbjudanden som nöjda kunder världen över och hjälper dig att bygga din verksamhet.
+Tack för ditt intresse för att publicera erbjudanden på den kommersiella marknads platsen. Vi strävar efter att samar beta med dig för att bygga en omfattande källa till moln lösningar och en samling affärs erbjudanden som både nöjda kunder världen över och hjälper dig att bygga din verksamhet.
 
-Erbjudanden på Marketplace måste följa våra principer och villkor. Vi uppdaterar dessa principer och termer från tid till att hjälpa till att garantera en bra kund upplevelse och ge partner möjlighet att lyckas. Om du har feedback om våra principer eller villkor kan du meddela oss genom att kommentera i [Azure Marketplace och Microsoft AppSource forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Erbjudanden på den kommersiella marknaden måste följa våra principer och villkor. Vi uppdaterar dessa från tid till att ge en bättre kund upplevelse och hjälpa våra partner att lyckas. Om du vill lämna feedback om våra principer eller villkor, se [Microsoft AppSource och Azure Marketplace-forumet](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
 ## <a name="policies-and-terms"></a>Policyer och villkor
 
 * [Certifieringsprinciper för Commercial Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
-* [Deltagande principer](https://docs.microsoft.com/legal/marketplace/participation-policy)
-
 * [Principer för klassificering och recension](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
-* [Villkor för Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
+* [Azure Marketplace-villkor](https://docs.microsoft.com/legal/marketplace/terms)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-step"></a>Nästa steg
 
 Besök sidan för [publicerings guide för kommersiella platser](./marketplace-publishers-guide.md) .
-
----

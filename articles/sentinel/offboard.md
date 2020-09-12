@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581692"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662007"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Ta bort Azure Sentinel från din arbets yta
 
@@ -48,13 +48,13 @@ När från kopplingen har identifierats börjar offboarding-processen.
 
 -   AWS
 
--   Säkerhets aviseringar från Microsoft Services (Azure ATP, Microsoft Cloud App Security inklusive Cloud Discovery Shadow IT repor ting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
+-   Säkerhets aviseringar för Microsoft-tjänster: Microsoft Defender för identitet (*tidigare Azure ATP*) Microsoft Cloud App Security inklusive Cloud Discovery Shadow IT repor ting, Azure AD Identity Protection, Microsoft Defender för slut punkt (*tidigare Microsoft Defender ATP*), Azure Defender (*tidigare Azure Security Center*)
 
 -   Hotinformation
 
--   Vanliga säkerhets loggar (inklusive CEF-baserade loggar, Barracuda och syslog) (om du har Azure Security Center kommer dessa loggar att fortsätta att samlas in.)
+-   Vanliga säkerhets loggar (inklusive CEF-baserade loggar, Barracuda och syslog) (om du har Azure Defender kommer dessa loggar att fortsätta att samlas in.)
 
--   Windows säkerhets händelser (om du har Azure Security Center fortsätter dessa loggar att samlas in.)
+-   Windows säkerhets händelser (om du har Azure Defender kommer dessa loggar att fortsätta att samlas in.)
 
 Inom de första 48 timmarna går det inte längre att komma åt data-och analys reglerna (inklusive automatiserings konfiguration i real tid) eller fråga i Azure Sentinel.
 

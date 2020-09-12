@@ -4,12 +4,12 @@ description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ac742aae88b3e3c62ffca857dcb690fa71434482
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936528"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006767"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -31,7 +31,7 @@ Exemplet som vi ska använda här är ett [MVC-program](/aspnet/core/tutorials/f
 > [!NOTE]
 > ASP.NET Core 3. X kräver [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) eller senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett fungerande ASP.NET Core program. Om du behöver skapa ett ASP.NET Core program följer du den här [ASP.net Core själv studie kursen](/aspnet/core/getting-started/).
 - En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
@@ -106,7 +106,7 @@ För Visual Studio för Mac använder du den [manuella vägledningen](#enable-ap
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Ett exempel:
+    Exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -122,6 +122,7 @@ För Visual Studio för Mac använder du den [manuella vägledningen](#enable-ap
 ### <a name="user-secrets-and-other-configuration-providers"></a>Användar hemligheter och andra konfigurations leverantörer
 
 Om du vill lagra Instrumentation-nyckeln i ASP.NET Core användar hemligheter eller hämta den från en annan Konfigurationsprovider, kan du använda överlagringen med en `Microsoft.Extensions.Configuration.IConfiguration` parameter. Till exempel `services.AddApplicationInsightsTelemetry(Configuration);`.
+Från och med Microsoft. ApplicationInsights. AspNetCore version [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` kommer anrop automatiskt att läsa Instrumentation-nyckeln från `Microsoft.Extensions.Configuration.IConfiguration` programmet. Du behöver inte uttryckligen ange `IConfiguration` .
 
 ## <a name="run-your-application"></a>Köra ditt program
 
@@ -158,17 +159,17 @@ Föregående steg räcker för att hjälpa dig att börja samla in telemetri på
 
 1. I `_ViewImports.cshtml` lägger du till insprutning:
 
-    ```cshtml
-        @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-    ```
+```cshtml
+    @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+```
 
 2. I `_Layout.cshtml` infogar du i `HtmlHelper` slutet av `<head>` avsnittet men före andra skript. Om du vill rapportera anpassad JavaScript-telemetri från sidan, infogar du den efter det här kodfragmentet:
 
-    ```cshtml
-        @Html.Raw(JavaScriptSnippet.FullScript)
-        </head>
-    ```
-    
+```cshtml
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    </head>
+```
+
 Du kan också använda `FullScript` är tillgänglig från och med `ScriptBody` SDK v 2.14. Använd detta om du behöver styra `<script>` taggen för att ange en säkerhets princip för innehåll:
 
 ```cshtml
@@ -183,7 +184,7 @@ Om projektet inte innehåller `_Layout.cshtml` kan du fortfarande lägga till [�
 
 ## <a name="configure-the-application-insights-sdk"></a>Konfigurera Application Insights SDK
 
-Du kan anpassa Application Insights SDK för ASP.NET Core om du vill ändra standard konfigurationen. Användare av Application Insights ASP.NET SDK kan vara bekanta med att ändra konfigurationen genom att använda `ApplicationInsights.config` eller genom att ändra `TelemetryConfiguration.Active` . Du ändrar konfigurationen på olika sätt för ASP.NET Core. Lägg till ASP.NET Core SDK i programmet och konfigurera den med hjälp av ASP.NET Core inbyggd [beroende inmatning](/aspnet/core/fundamentals/dependency-injection). Gör nästan alla konfigurations ändringar i `ConfigureServices()` -metoden för din `Startup.cs` klass, om du inte är inriktad på annat sätt. I följande avsnitt finns mer information.
+Du kan anpassa Application Insights SDK för ASP.NET Core om du vill ändra standard konfigurationen. Användare av Application Insights ASP.NET SDK kan vara bekanta med att ändra konfigurationen genom att använda `ApplicationInsights.config` eller genom att ändra `TelemetryConfiguration.Active` . För ASP.NET Core är nästan alla konfigurations ändringar gjorda i `ConfigureServices()` -metoden för din `Startup.cs` klass, om du inte är inriktad på annat sätt. I följande avsnitt finns mer information.
 
 > [!NOTE]
 > I ASP.NET Core program stöds inte ändring av konfiguration genom att ändra `TelemetryConfiguration.Active` .
@@ -208,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Standardvärde
+|Inställningen | Beskrivning | Standardvärde
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera `RequestTrackingTelemetryModule` | true
@@ -221,8 +222,25 @@ Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 |EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartbeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | true
 |AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | true
 |RequestCollectionOptions.TrackExceptions | Aktivera/inaktivera rapportering av ohanterad undantags spårning i modulen för begärans insamling. | falskt i netstandard 2.0 (eftersom undantag spåras med ApplicationInsightsLoggerProvider), annars sant.
+|EnableDiagnosticsTelemetryModule | Aktivera/inaktivera `DiagnosticsTelemetryModule` . Om du inaktiverar detta kommer följande inställningar att ignoreras. `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) för den senaste listan.
+
+### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150-beta3--above"></a>Konfigurations rekommendation för Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0-beta3 & ovan
+
+Från och med Microsoft. ApplicationInsights. AspNetCore SDK [-version 2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) rekommenderar vi att du konfigurerar varje inställning som är tillgänglig i `ApplicationInsightsServiceOptions` , inklusive instrumentationkey med program `IConfiguration` instansen. Inställningarna måste ligga under avsnittet "ApplicationInsights", som du ser i exemplet nedan. I följande avsnitt från appsettings.jskonfigurerar du Instrumentation-nyckeln och inaktiverar även insamling av anpassningsbara samplings-och prestanda räknare.
+
+```json
+{
+    "ApplicationInsights": {
+    "InstrumentationKey": "putinstrumentationkeyhere",
+    "EnableAdaptiveSampling": false,
+    "EnablePerformanceCounterCollectionModule": false
+    }
+}
+```
+
+Om `services.AddApplicationInsightsTelemetry(aiOptions)` används, åsidosätter detta inställningarna från `Microsoft.Extensions.Configuration.IConfiguration` .
 
 ### <a name="sampling"></a>Samling
 
@@ -473,4 +491,3 @@ De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](
 * [Använd API: et](./api-custom-events-metrics.md) för att skicka egna händelser och mått för en detaljerad vy över appens prestanda och användning.
 * Använd [tillgänglighets test](./monitor-web-app-availability.md) för att kontrol lera att din app ständigt är i hela världen.
 * [Beroendeinmatning i ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
-

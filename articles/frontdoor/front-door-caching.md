@@ -3,20 +3,20 @@ title: Azure frontend-cachelagring | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå hur Azures front dörr övervakar hälso tillståndet för dina arbets ändar
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056966"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024289"
 ---
 # <a name="caching-with-azure-front-door"></a>Cachelagring med Azures front dörr
 Följande dokument anger beteendet för front dörren med routningsregler som har aktiverat cachelagring. Front dörren är en modern Content Delivery Network (CDN) och så vidare med dynamisk webbplats acceleration och belastnings utjämning, stöder den även cachelagring-beteenden precis som andra CDN.
@@ -88,13 +88,22 @@ Med front dörren kan du styra hur filer cachelagras för en webbegäran som inn
 - **Cachelagra varje unik URL**: i det här läget behandlas varje begäran med en unik URL, inklusive frågesträngen, som en unik till gång med sin egen cache. Till exempel, svaret från Server delen för en begäran om `www.example.ashx?q=test1` cachelagras i front dörrens miljö och returneras för efterföljande cacheminnen med samma frågesträng. En begäran om `www.example.ashx?q=test2` cachelagras som en separat till gång med en egen tids-till-Live-inställning.
 
 ## <a name="cache-purge"></a>Rensning av cache
-Front dörren kommer att cachelagra till gångar tills till gångens TTL (Time-to-Live) går ut. När TTL-värdet för till gången har gått ut, kommer den främre dörren att hämta en ny uppdaterad kopia av till gången för att betjäna klientbegäran och lagra cachen när en klient begär till gången.
-</br>Det bästa sättet att se till att användarna alltid får den senaste kopian av dina till gångar är att version till dina till gångar för varje uppdatering och publicera dem som nya URL: er. Front dörren kommer omedelbart att hämta de nya till gångarna för nästa klient begär Anden. Ibland kanske du vill rensa cachelagrat innehåll från alla Edge-noder och tvinga dem att hämta nya, uppdaterade till gångar. Detta kan bero på uppdateringar i ditt webb program eller för att snabbt uppdatera till gångar som innehåller felaktig information.
 
-</br>Välj vilka till gångar du vill rensa från Edge-noderna. Om du vill rensa alla till gångar klickar du på kryss rutan rensa alla. Annars skriver du sökvägen till varje till gång som du vill tömma i text rutan sökväg. Under formaten stöds i sökvägen.
-1. **Enkel sökväg rensa**: ta bort enskilda till gångar genom att ange den fullständiga sökvägen till till gången (utan protokollet och domänen), med fil namns tillägget, till exempel/Pictures/strasbourg.png;
-2. **Jokertecken**: asterisk ( \* ) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt med/ \* i sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av/ \* , till exempel/Pictures/ \* .
-3. **Rot domän rensning**: Rensa roten för slut punkten med "/" i sökvägen.
+Frontend-dörr cachelagrar till gångar tills till gångens TTL (Time-to-Live) går ut. När TTL-värdet för till gången har upphört att gälla när en klient begär till gång, hämtar den främre dörr miljön en ny uppdaterad kopia av till gången för att betjäna klientbegäran och lagra cachen.
+
+Det bästa sättet att se till att användarna alltid får den senaste kopian av dina till gångar är att version till dina till gångar för varje uppdatering och publicera dem som nya URL: er. Front dörren kommer omedelbart att hämta de nya till gångarna för nästa klient begär Anden. Ibland kanske du vill rensa cachelagrat innehåll från alla Edge-noder och tvinga dem att hämta nya, uppdaterade till gångar. Detta kan bero på uppdateringar i ditt webb program eller för att snabbt uppdatera till gångar som innehåller felaktig information.
+
+Välj de till gångar som du vill rensa från Edge-noderna. Om du vill rensa alla till gångar väljer du **Rensa alla**. Annars anger du sökvägen till varje till gång som du vill rensa i **sökväg**.
+
+Dessa format stöds i listor med sökvägar som ska rensas:
+
+- **Enkel sökväg rensa**: rensa enskilda till gångar genom att ange den fullständiga sökvägen till till gången (utan protokollet och domänen), med fil namns tillägget, till exempel/Pictures/strasbourg.png;
+- **Jokertecken**: asterisk ( \* ) kan användas som jokertecken. Rensa alla mappar, undermappar och filer under en slut punkt med/ \* i sökvägen eller ta bort alla undermappar och filer under en särskild mapp genom att ange mappen följt av/ \* , till exempel/Pictures/ \* .
+- **Rot domän rensning**: Rensa roten för slut punkten med "/" i sökvägen.
+
+> [!NOTE]
+> **Rensar jokertecken domäner**: om du anger cachelagrade sökvägar för rensning enligt beskrivningen i det här avsnittet gäller inte domäner som är associerade med den främre dörren. För närvarande stöder vi inte att domäner med jokertecken rensas direkt. Du kan rensa sökvägar från vissa under domäner genom att ange specifik-underdomänen och rensnings Sök vägen. Till exempel, om min frontend-dörr har `*.contoso.com` , kan jag rensa till gångar i min under domän `foo.contoso.com` genom att skriva `foo.contoso.com/path/*` . För närvarande är det imited att ange värd namn i rensnings innehålls Sök vägen, om det är tillämpligt.
+>
 
 Rensningar av cacheminnen på front dörren är inte Skift läges känsliga. Dessutom är de frågesträngen oberoende, vilket innebär att en URL rensas och alla frågesträngar tas bort. 
 
@@ -102,7 +111,7 @@ Rensningar av cacheminnen på front dörren är inte Skift läges känsliga. Des
 Följande ordning på rubriker används för att avgöra hur länge ett objekt lagras i cacheminnet:</br>
 1. Cache-Control: s-MaxAge =\<seconds>
 2. Cache-kontroll: max-ålder =\<seconds>
-3. Upphör att gälla\<http-date>
+3. Upphör att gälla \<http-date>
 
 Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex. Cache-Control: Private, Cache-Control: no-cache och Cache-Control: No-Store har besvarats. Men om det finns flera begär anden i en POP för samma URL, kan de dela svaret. Om det inte finns någon cache-kontroll är standard beteendet att AFD cachelagrar resursen för X-tid där X plockas slumpmässigt mellan 1 och tre dagar.
 

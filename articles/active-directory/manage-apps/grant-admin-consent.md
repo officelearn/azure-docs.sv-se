@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501022"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667600"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
@@ -25,22 +25,19 @@ Lär dig hur du fören klar användar upplevelsen genom att bevilja en klients a
 
 Mer information om samtycker till program finns i [Azure Active Directory medgivande Framework](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att bevilja administratörs tillåtelse för hela klienten måste du logga in som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), en [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller en [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > När ett program har beviljats administratörs medgivande kan alla användare logga in på appen om den inte har kon figurer ATS för att kräva användar tilldelning. För att begränsa vilka användare som kan logga in i ett program, kräver användar tilldelning och tilldelar sedan användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
 >
-> Rollen global administratör krävs för att ge administrativt medgivande för Microsoft Graph API.
->
-
+> Rollen global administratör krävs för att ge administrativt tillstånd för program behörigheter till Microsoft Graph API.
 
 > [!WARNING]
 > Om du beviljar administratörs medgivande för klient organisationer till ett program får appen och appens utgivare åtkomst till din organisations data. Noggrant granska de behörigheter som programmet begär innan medgivande beviljas.
 >
-> Rollen global administratör krävs för att ge administrativt medgivande för Microsoft Graph API.
->
+> Rollen global administratör krävs för att ge administrativt tillstånd för program behörigheter till Microsoft Graph API.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Bevilja administratörs medgivande från Azure Portal
 
@@ -56,6 +53,9 @@ Så här beviljar du ett administrativt medgivande till en app som anges i **fö
 4. Välj **behörigheter** och klicka sedan på **bevilja administrativt medgivande**.
 5. Granska de behörigheter som programmet kräver noggrant.
 6. Om du samtycker till de behörigheter som krävs för programmet måste du bevilja medgivande. Annars klickar du på **Avbryt** eller Stäng fönstret.
+
+> [!WARNING]
+> Om du beviljar ett klient organisations medgivande via **företags program** återkallar du alla behörigheter som tidigare har beviljats för hela klient organisationen. Behörigheter som tidigare har beviljats av användare i ett eget ställe påverkas inte. 
 
 ### <a name="grant-admin-consent-in-app-registrations"></a>Bevilja administratörs medgivande i Appregistreringar
 
@@ -82,10 +82,13 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 där:
 
-* `{client-id}`är programmets klient-ID (även kallat app-ID).
-* `{tenant-id}`är organisationens klient-ID eller ett verifierat domän namn.
+* `{client-id}` är programmets klient-ID (även kallat app-ID).
+* `{tenant-id}` är organisationens klient-ID eller ett verifierat domän namn.
 
 Som alltid bör du noga granska de behörigheter som ett program begär innan medgivande beviljas.
+
+> [!WARNING]
+> Om du beviljar administratörs medgivande via den här URL: en så återkallar du alla behörigheter som tidigare har beviljats för hela klienten. Behörigheter som tidigare har ggranted av användare i ett eget ställe kommer inte att påverkas. 
 
 ## <a name="next-steps"></a>Nästa steg
 

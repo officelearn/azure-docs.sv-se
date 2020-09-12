@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082649"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019673"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurera operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster
 
@@ -22,8 +22,8 @@ ms.locfileid: "86082649"
 
 HDInsight ger stöd för att utföra vanliga uppgifter i klustret, till exempel att installera OS-korrigeringsfiler, säkerhets uppdateringar och starta om noder. Dessa uppgifter utförs med hjälp av följande två skript som kan köras som [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md)och som kon figurer ATS med parametrar:
 
-- `schedule-reboots.sh`-Gör en omedelbar omstart eller Schemalägg en omstart på klusternoderna.
-- `install-updates-schedule-reboots.sh`-Installera alla uppdateringar, endast kernel + säkerhets uppdateringar eller bara kernel-uppdateringar.
+- `schedule-reboots.sh` -Gör en omedelbar omstart eller Schemalägg en omstart på klusternoderna.
+- `install-updates-schedule-reboots.sh` -Installera alla uppdateringar, endast kernel + säkerhets uppdateringar eller bara kernel-uppdateringar.
 
 > [!NOTE]  
 > Skript åtgärder tillämpar inte automatiskt uppdateringar för alla framtida uppdaterings cykler. Kör skripten varje gången nya uppdateringar måste tillämpas för att installera uppdateringarna och starta sedan om den virtuella datorn.
@@ -32,11 +32,16 @@ HDInsight ger stöd för att utföra vanliga uppgifter i klustret, till exempel 
 
 Korrigering på en representativ icke-produktions miljö innan du distribuerar till produktion. Utveckla en plan för att testa systemet på ett bra sätt innan du korrigerar den faktiska korrigeringen.
 
-Från tid till gång, från en SSH-session med klustret, kan du få ett meddelande om att en uppgradering är tillgänglig. Meddelandet kan se ut ungefär så här:
+Från tid till gång, från en SSH-session med klustret, kan det hända att du får ett meddelande om att säkerhets uppdateringar är tillgängliga. Meddelandet kan se ut ungefär så här:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 Uppdatering är valfri och du behöver.
@@ -64,6 +69,9 @@ Skriptet [install-updates-Schedule-reboots.sh](https://hdiconfigactions.blob.cor
 
 > [!NOTE]
 > Du måste markera ett skript som beständigt när du har tillämpat det på ett befintligt kluster. Annars kommer alla nya noder som skapats med skalnings åtgärder att använda standard uppdaterings schemat. Om du använder skriptet som en del av processen för att skapa kluster sparas det automatiskt.
+
+> [!NOTE]
+> Alternativet för schemalagd omstart görs en automatisk omstart av de korrigerade klusternoderna under en period på 12 till 24 timmar och tar hänsyn till hög tillgänglighet, uppdaterings domän och fel domän överväganden. Schemalagd omstart avslutar inte pågående arbets belastningar, men kan ta bort kluster kapaciteten under tiden när noderna inte är tillgängliga, vilket leder till längre bearbetnings tider. 
 
 ## <a name="next-steps"></a>Nästa steg
 

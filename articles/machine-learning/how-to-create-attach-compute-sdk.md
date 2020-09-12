@@ -1,5 +1,5 @@
 ---
-title: Skapa beräknings resurser med python SDK
+title: Skapa utbildning & distribuera computes (python)
 titleSuffix: Azure Machine Learning
 description: Använd Azure Machine Learning python SDK för att skapa utbildnings resurser för utbildning och distribution (beräknings mål) för maskin inlärning
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147628"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662542"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Skapa beräknings mål för modell utbildning och distribution med python SDK
 
@@ -31,8 +31,12 @@ I den här artikeln använder du Azure Machine Learning python SDK för att skap
 ## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
-* [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>Begränsningar
+
+Några av de scenarier som anges i det här dokumentet är markerade som för __hands version__. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Vad är ett beräknings mål?
 
@@ -55,16 +59,33 @@ Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 * [Virtuella fjärrdatorer](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Beräknings mål för härledning
+
+När du utför en härledning skapar Azure Machine Learning en Docker-behållare som är värd för modellen och tillhör ande resurser som krävs för att använda den. Den här behållaren används sedan i något av följande distributions scenarier:
+
+* Som en __webb tjänst__ som används för real tids härledning. Webb tjänst distributioner använder något av följande beräknings mål:
+
+    * [Lokal dator](#local)
+    * [Azure Machine Learning-beräkningsinstans](#instance)
+    * [Azure Container Instances](#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (för hands version). Distribution till Azure Functions baseras bara på Azure Machine Learning för att bygga Docker-behållaren. Därifrån distribueras den med hjälp av Azure Functions. Mer information finns i [distribuera en maskin inlärnings modell till Azure Functions (för hands version)](how-to-deploy-functions.md).
+
+* Som en slut punkt för __batch-härledning__ som används för att regelbundet bearbeta batchar med data. Batch-inferences använder [Azure Machine Learning beräknings kluster](#amlcompute).
+
+* Till en __IoT-enhet__ (för hands version). Distribution till en IoT-enhet förlitar sig bara på Azure Machine Learning för att bygga Docker-behållaren. Därifrån distribueras den med hjälp av Azure IoT Edge. Mer information finns i [distribuera som en IoT Edge modul (för hands version)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Lokal dator
 
-När du använder den lokala datorn för utbildning behöver du inte skapa något beräknings mål.  [Skicka bara utbildnings körningen](how-to-set-up-training-targets.md) från den lokala datorn.
+När du använder den lokala datorn för **utbildning**behöver du inte skapa något beräknings mål.  [Skicka bara utbildnings körningen](how-to-set-up-training-targets.md) från den lokala datorn.
+
+När du använder den lokala datorn för att få en **härledning**måste du ha Docker installerat. Utför distributionen genom att använda [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) för att definiera den port som webb tjänsten ska använda. Använd sedan den normala distributions processen enligt beskrivningen i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning beräknings kluster
 
 Azure Machine Learning Compute Cluster är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en beräkning med en enda eller flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
-Du kan använda Azure Machine Learning Compute för att distribuera inlärnings processen över ett kluster av processor-eller GPU-datornoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Du kan använda Azure Machine Learning Compute för att distribuera en Training-eller batch-härledning i ett kluster av processor-eller GPU-datornoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Azure Machine Learning Compute har standard gränser, till exempel antalet kärnor som kan allokeras. Mer information finns i [Hantera och begära kvoter för Azure-resurser](how-to-manage-quotas.md).
 
@@ -87,7 +108,7 @@ Azure Machine Learning Compute kan återanvändas över körningar. Beräkningen
 
     Eller så kan du skapa och koppla en beständig Azure Machine Learning beräknings resurs i [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
-Nu när du har kopplat data bearbetningen är nästa steg att [skicka in utbildnings körningen](how-to-set-up-training-targets.md).
+Nu när du har kopplat beräkningen är nästa steg att [skicka in utbildnings körningen](how-to-set-up-training-targets.md) eller [köra batch-härledning](how-to-use-parallel-run-step.md).
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Sänk din beräknings kluster kostnad
 
@@ -201,8 +222,15 @@ Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätve
         instance.wait_for_completion(show_output=True)
     ```
 
-Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](how-to-set-up-training-targets.md)
+Nu när du har kopplat beräkningen och konfigurerat din körning är nästa steg att [Skicka utbildningen](how-to-set-up-training-targets.md) eller [distribuera en modell för härledning](how-to-deploy-local-container-notebook-vm.md).
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container-instans
+
+Azure Container Instances (ACI) skapas dynamiskt när du distribuerar en modell. Du kan inte skapa eller koppla ACI till din arbets yta på något annat sätt. Mer information finns i [distribuera en modell till Azure Container instances](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Med Azure Kubernetes service (AKS) kan du välja mellan olika konfigurations alternativ när de används med Azure Machine Learning. Mer information finns i [så här skapar och ansluter du Azure Kubernetes-tjänsten](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Virtuella fjärrdatorer
 
@@ -437,7 +465,7 @@ except ComputeTargetException:
 Ett mer detaljerat exempel finns i en [exempel antecknings bok](https://aka.ms/pl-adla) på GitHub.
 
 > [!TIP]
-> Azure Machine Learning pipelines kan bara arbeta med data som lagras i standard data lagret för det Data Lake Analytics kontot. Om de data du behöver arbeta med finns i ett lager som inte är standard kan du använda en [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) för att kopiera data före träning.
+> Azure Machine Learning pipelines kan bara arbeta med data som lagras i standard data lagret för det Data Lake Analytics kontot. Om de data du behöver arbeta med finns i ett lager som inte är standard kan du använda en [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) för att kopiera data före träning.
 
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer
 

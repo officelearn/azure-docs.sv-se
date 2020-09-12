@@ -16,29 +16,29 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542237"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016086"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut synkroniserade till Azure Active Directory
 I det här avsnittet visas de attribut som synkroniseras med Azure AD Connect Sync.  
 Attributen grupperas av den relaterade Azure AD-appen.
 
 ## <a name="attributes-to-synchronize"></a>Attribut som ska synkroniseras
-En vanlig fråga är *vilken lista med minsta attribut som ska synkroniseras*. Standardvärdet och den rekommenderade metoden är att behålla standardattributen så att en fullständig GAL (global adress lista) kan skapas i molnet och för att få alla funktioner i Office 365-arbetsbelastningar. I vissa fall finns det attribut som din organisation inte vill synkronisera till molnet eftersom dessa attribut innehåller känsliga eller PII-data (personligt identifierbar information), som i det här exemplet:  
+En vanlig fråga är *vilken lista med minsta attribut som ska synkroniseras*. Standardvärdet och den rekommenderade metoden är att behålla standardattributen så att en fullständig GAL (global adress lista) kan skapas i molnet och för att få alla funktioner i Microsoft 365 arbets belastningar. I vissa fall finns det attribut som din organisation inte vill synkronisera till molnet eftersom dessa attribut innehåller känsliga personliga data, t. ex. i det här exemplet:  
 ![Felaktiga attribut](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-I det här fallet börjar du med listan med attribut i det här avsnittet och identifierar de attribut som skulle innehålla känsliga eller PII-data och kan inte synkroniseras. Avmarkera sedan attributen under installationen med hjälp av [filtrering av Azure AD-appar och-attribut](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+I det här fallet börjar du med listan med attribut i det här avsnittet och identifierar de attribut som skulle innehålla personliga data och inte kan synkroniseras. Avmarkera sedan attributen under installationen med hjälp av [filtrering av Azure AD-appar och-attribut](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > När du avmarkerar attribut bör du vara försiktig och bara avmarkera dessa attribut absolut inte möjligt att synkronisera. Om du avmarkerar andra attribut kan det påverka funktionerna negativt.
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="microsoft-365-apps-for-enterprise"></a>Microsoft 365-appar för företag
 | Attributnamn | Användare | Kommentar |
 | --- |:---:| --- |
 | accountEnabled |X |Definierar om ett konto är aktiverat. |
@@ -52,7 +52,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | userPrincipalName |X |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | - |X |X | | |
@@ -64,7 +64,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| beskrivning | | |X | |
+| description | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -166,7 +166,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | |synkroniserades bara en gång från Azure AD till Exchange Online efter vilken Exchange Online blir källan till behörighet för det här attributet och senare ändringar inte kan synkroniseras från den lokala platsen. Se ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) om du vill ha mer information.|
-| rubrik |X |X | | |
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userCertificate |X |X | | |
@@ -175,7 +175,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>sharepoint online
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | authOrig |X |X |X | |
@@ -185,7 +185,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -248,7 +248,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | |synkroniserades bara en gång från Azure AD till Exchange Online efter vilken Exchange Online blir källan till behörighet för det här attributet och senare ändringar inte kan synkroniseras från den lokala platsen. Se ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) om du vill ha mer information.|
-| rubrik |X |X | | |
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region
@@ -257,7 +257,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Team och Skype för företag – Online
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
@@ -265,7 +265,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | co |X |X | | |
 | company |X |X | | |
 | avdelning |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | förnamn |X |X | | |
@@ -299,13 +299,13 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | |synkroniserades bara en gång från Azure AD till Exchange Online efter vilken Exchange Online blir källan till behörighet för det här attributet och senare ändringar inte kan synkroniseras från den lokala platsen. Se ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) om du vill ha mer information.|
-| rubrik |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | nomenklatur |X | |X |Eget namn eller alias. Oftast är prefixet för [mail]-värdet. |
@@ -320,12 +320,12 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | userPrincipalName |X | | |Detta UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="intune"></a>Intune
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
 | MailNickName |X |X |X | |
@@ -338,7 +338,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
@@ -346,7 +346,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| beskrivning |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | förnamn |X |X | | |
@@ -365,7 +365,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| rubrik |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
@@ -375,9 +375,9 @@ Den här gruppen är en uppsättning attribut som används som de minimala attri
 * Yammer (endast användare förbrukas)
 * [Hybrid samarbets scenarier för företag till företag (B2B) över org som erbjuds av resurser som SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalogen inte används för att stödja Office 365, Dynamics eller Intune. Den har en liten uppsättning Core-attribut. Observera att enkel inloggning eller etablering till vissa tredjepartsprogram kräver att du konfigurerar synkronisering av attribut utöver de attribut som beskrivs här. Program kraven beskrivs i [själv studie kursen om SaaS-appar](../saas-apps/tutorial-list.md) för varje program.
+Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalogen inte används för att stödja Microsoft 365, Dynamics eller Intune. Den har en liten uppsättning Core-attribut. Observera att enkel inloggning eller etablering till vissa tredjepartsprogram kräver att du konfigurerar synkronisering av attribut utöver de attribut som beskrivs här. Program kraven beskrivs i [själv studie kursen om SaaS-appar](../saas-apps/tutorial-list.md) för varje program.
 
-| Attributnamn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | nomenklatur |X | |X | |
@@ -397,7 +397,7 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
 ## <a name="windows-10"></a>Windows 10
-En Windows 10-domänansluten dator (enhet) synkroniserar vissa attribut till Azure AD. Mer information om scenarier finns i [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](../active-directory-azureadjoin-devices-group-policy.md). Dessa attribut synkroniseras alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten Windows 10-dator identifieras genom att attributet userCertificate har fyllts i.
+En Windows 10-domänansluten dator (enhet) synkroniserar vissa attribut till Azure AD. Mer information om scenarier finns i [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](../devices/hybrid-azuread-join-plan.md). Dessa attribut synkroniseras alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten Windows 10-dator identifieras genom att attributet userCertificate har fyllts i.
 
 | Attributnamn | Enhet | Kommentar |
 | --- |:---:| --- |
@@ -422,7 +422,7 @@ De här attributen för **användaren** är förutom de andra appar som du har v
 ## <a name="exchange-hybrid-writeback"></a>Exchange hybrid tillbakaskrivning
 Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när du väljer att aktivera **Exchange hybrid**. Beroende på din Exchange-version kan färre attribut synkroniseras.
 
-| Attributnamn (lokal AD) | Attributnamn (Connect UI) | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn (lokal AD) | Attributnamn (Connect UI) | Användare | Kontakt | Group | Kommentar |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-extern-Directory-Object-ID |X | | |Härlett från cloudAnchor i Azure AD. Det här attributet är nytt i Exchange 2016 och Windows Server 2016 AD. |
 | msExchArchiveStatus| MS-ArchiveStatus |X | | |Online-Arkiv: gör det möjligt för kunder att arkivera e-post. |

@@ -10,17 +10,17 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018067"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661729"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du felsöker och felsöker [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Azure Machine Learning designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+I den här artikeln får du lära dig hur du felsöker och felsöker [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) och [Azure Machine Learning designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
@@ -33,7 +33,7 @@ Följande tabell innehåller vanliga problem under utveckling av pipeline, med m
 | Tvetydiga fel med beräknings mål | Försök att ta bort och återskapa Compute-mål. Det går snabbt och kan lösa vissa tillfälliga problem genom att återskapa beräknings mål. |
 | Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad `allow_reuse` kommer parametern i steget att ställas in på `False` . |
 | Pipelinen körs inte nödvändigt vis | Om du vill se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla från dina käll kods kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory` parametern i ett pipeline-steg-objekt för att peka på den isolerade katalogen för det steget och se till att du inte använder samma `source_directory` sökväg för flera steg. |
-
+| Steg sakta ner över utbildningens epoker eller andra funktioner för upprepning | Försök att byta fil skrivning, inklusive loggning, från `as_mount()` till `as_upload()` . **Monterings** läget använder ett virtualiserat virtualiserat fil system och laddar upp hela filen varje gången det läggs till. |
 
 ## <a name="debugging-techniques"></a>Fel söknings tekniker
 
@@ -148,7 +148,7 @@ När du skickar en pipeline-körning och stannar på sidan redigering kan du hit
 1. I den högra rutan i modulen går du till fliken  **utdata + loggar** .
 1. Expandera den högra rutan och välj **70_driver_log.txt** för att visa filen i webbläsaren. Du kan också hämta loggar lokalt.
 
-    ![Fönster för utökad utdata i designern](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Fönster för utökad utdata i designern](./media/how-to-debug-pipelines/designer-logs.png)? View = Azure-ml-py&bevara-Visa = sant)? Visa = Azure-ml-py&bevara-Visa = sant)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Hämta loggar från pipeline-körningar
 
@@ -174,6 +174,6 @@ I vissa fall kan du behöva interaktivt felsöka python-koden som används i ML-
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se SDK-referensen för hjälp med [azureml-pipeline – Core-](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) paketet och [azureml-pipeline-steg-](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) paketet.
+* Se SDK-referensen för hjälp med [azureml-pipeline – Core-](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) paketet och [azureml-pipeline-steg-](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) paketet.
 
 * Se listan över [designers undantag och felkoder](algorithm-module-reference/designer-error-codes.md).

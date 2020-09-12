@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507526"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004280"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om ev
 ## <a name="status-updates"></a>Status uppdateringar
 
 # <a name="in-progress"></a>[Pågår](#tab/in-progress-ip)
+### <a name="october-2020"></a>Oktober 2020
+
+Nya SQL-gatewayer läggs till i följande regioner:
+
+- Tyskland, västra centrala: 51.116.240.0, 51.116.248.0
+
+Dessa SQL-gatewayer ska börja acceptera kund trafik den 12 oktober 2020. 
+
 ### <a name="september-2020"></a>September 2020
 Nya SQL-gatewayer läggs till i följande regioner. Dessa SQL-gatewayer ska börja acceptera kund trafik den **15 September 2020**:
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660433"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Välj **Nästa** för att öppna **formuläret data lager och fil markering**. I det här formuläret väljer du var du vill ladda upp din data uppsättning. standard lagrings behållare som skapas automatiskt med din arbets yta eller Välj en lagrings behållare som du vill använda för experimentet. 
     
-        1. Om dina data ligger bakom ett virtuellt nätverk måste du aktivera funktionen **hoppa över verifiering** för att se till att arbets ytan kan komma åt dina data. Lär dig mer om [nätverks isolering och sekretess](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. Om dina data ligger bakom ett virtuellt nätverk måste du aktivera funktionen **hoppa över verifiering** för att se till att arbets ytan kan komma åt dina data. Mer information finns i [använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk](how-to-enable-studio-virtual-network.md). 
     
     1. Välj **Bläddra** för att ladda upp data filen för din data uppsättning. 
 
@@ -104,7 +104,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     Fält|Beskrivning
     ---|---
-    Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
+    Namn på beräkning| Ange ett unikt namn som identifierar din beräknings kontext.
     Prioritet för virtuell dator| Virtuella datorer med låg prioritet är billigare men garanterar inte Compute-noderna. 
     Typ av virtuell dator| Välj CPU eller GPU för typ av virtuell dator.
     Storlek för virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
@@ -120,11 +120,14 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. Mer information finns i [aktivitets typer som stöds](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. För **klassificering**kan du också aktivera djup inlärning som används för text featurizations.
+    1. För **klassificering**kan du också aktivera djup inlärning.
+    
+        Om djup inlärning är aktiverat begränsas verifieringen till _train_validation delning_. [Läs mer om verifierings alternativ](how-to-configure-cross-validation-data-splits.md).
+
 
     1. För **prognoser** kan du 
     
-        1. Aktivera djup inlärning
+        1. Aktivera djup inlärning.
     
         1. Välj *tids kolumn*: den här kolumnen innehåller de tids data som ska användas.
 
@@ -135,10 +138,10 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     Ytterligare konfigurationer|Beskrivning
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#primary-metric).
-    Förklara bästa modell | Välj om du vill aktivera eller inaktivera, för att visa att den rekommenderade bästa modellen är förklarad.
-    Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
+    Förklara bästa modell | Välj om du vill aktivera eller inaktivera för att visa förklaringar för den rekommenderade bästa modellen. <br> Den här funktionen är för närvarande inte tillgänglig för [vissa algoritmer för Prognosticering](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet. <br><br> Att tillåta algoritmer är bara tillgängligt för [SDK-experiment](how-to-configure-auto-train.md#supported-models). <br> Se de [modeller som stöds för varje aktivitets typ](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
     Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)*: hur lång tid det tar att köra utbildnings jobbet. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
-    Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-cross-validation-data-splits.md#prerequisites).
+    Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. <br> [Läs mer om kors validering](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognosticering stöder endast mellanvalidering av n:te vikning.
     Samtidighet| *Max. antal samtidiga iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer.
 
 1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** tillämpas standard funktionalisering-teknikerna. I **Visa funktionalisering-inställningar** kan du ändra dessa standardvärden och anpassa dem efter behov. Lär dig hur du [anpassar featurizations](#customize-featurization). 
@@ -162,7 +165,7 @@ Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så
 Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
 Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (t. ex. booleska värden).
 Max| Max värde för kolumnen. 
-Count| Totalt antal saknade och icke-saknade poster i kolumnen.
+Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
 Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
 Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
 Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
@@ -205,9 +208,9 @@ Fliken **Modeller** innehåller en lista över de modeller som skapats ordnade e
 
 ## <a name="deploy-your-model"></a>Distribuera din modell
 
-När du har den bästa modellen till hands är det dags att distribuera den som en webb tjänst för att förutse nya data.
+När du har den bästa modellen tillhands är det dags att distribuera den som en webbtjänst för att göra förutsägelser på nya data.
 
-Med automatisk ML får du hjälp med att distribuera modellen utan att skriva kod:
+Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
 
 1. Du har ett par alternativ för distribution. 
 
@@ -217,7 +220,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
         1. Välj **distribuera** längst upp till vänster i fönstret. 
 
     + Alternativ 2: om du vill distribuera en speciell modell iteration från det här experimentet.
-        1. Välj önskad modell på fliken **modeller**
+        1. Välj den önskade modellen på fliken **Modeller**
         1. Välj **distribuera** längst upp till vänster i fönstret.
 
 1. Fyll i fönstret **distribuera modell** .
@@ -226,20 +229,20 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
-    Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)*.
-    Compute-namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
+    Typ av beräkning| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)*.
+    Namn på beräkning| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.
-    Använda anpassade distributions till gångar| Aktivera den här funktionen om du vill överföra ditt eget bedömnings skript och miljö fil. [Lär dig mer om bedömnings skript](how-to-deploy-and-where.md).
+    Använda anpassade distributions till gångar| Aktivera den här funktionen om du vill överföra ditt eget bedömnings skript och miljö fil. [Läs mer om bedömningsskript](how-to-deploy-and-where.md).
 
     >[!Important]
-    > Fil namn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Får innehålla bindestreck, under streck, punkter och alfanumeriska tecken mellan. Blank steg är inte tillåtna.
+    > Fil namn måste vara under 32 tecken och måste börja och sluta med alfanumeriska tecken. Får innehålla bindestreck, understreck, punkter och alfanumeriska tecken mellan. Blanksteg är inte tillåtna.
 
-    Menyn *Avancerat* erbjuder standard distributions funktioner, till exempel inställningar för [data insamling](how-to-enable-app-insights.md) och resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
+    På menyn *Avancerat* finns standardfunktioner för distribution som [datainsamling](how-to-enable-app-insights.md) och inställningar för resursutnyttjande. Om du vill åsidosätta dessa standardinställningar gör du det på den här menyn.
 
-1. Välj **Distribuera**. Distributionen kan ta ungefär 20 minuter att slutföra.
-    När distributionen har påbörjats visas fliken **modell Sammanfattning** . Se distributions förloppet i avsnittet **distributions status** . 
+1. Välj **Distribuera**. Det kan ta ungefär 20 minuter att slutföra distributionen.
+    När distributionen börjar visas fliken **Modellsammanfattning**. Distributionsförloppet visas i avsnittet **Distributionsstatus**. 
 
-Nu har du en fungerande webb tjänst för att generera förutsägelser! Du kan testa förutsägelserna genom att fråga tjänsten från [Power BI inbyggda Azure Machine Learning-supporten](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Nu har du ett fungerande webbtjänst för att generera förutsägelser! Du kan testa förutsägelserna genom att fråga tjänsten via [Power BI:s inbyggda Azure Machine Learning-stöd](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Nästa steg
 

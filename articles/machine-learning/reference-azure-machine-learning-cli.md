@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: f037ea30a1507d4736db7f837e5286701db030e0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 3803b9770d3caf3f45f109b62145677a38c5bcc2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146714"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657197"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplet
 
 ## <a name="prerequisites"></a>Krav
 
-* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -246,7 +246,7 @@ Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings 
     > [!TIP]
     > `az ml folder attach`Kommandot skapar en `.azureml` under katalog som innehåller två exempel på runconfig-filer. 
     >
-    > Om du har ett Python-skript som skapar ett kör konfigurations objekt program mässigt kan du använda [RunConfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) för att spara det som en RunConfig-fil.
+    > Om du har ett Python-skript som skapar ett kör konfigurations objekt program mässigt kan du använda [RunConfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) för att spara det som en RunConfig-fil.
     >
     > Du hittar det fullständiga runconfig-schemat i den här [JSON-filen](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). Schemat är självdokumenterande genom `description` nyckeln för varje objekt. Det finns dessutom uppräkningar för möjliga värden och ett mallkod i slutet.
 
@@ -366,7 +366,7 @@ Följande kommandon visar hur du skapar, registrerar och listar Azure Machine Le
 
 ### <a name="environment-configuration-schema"></a>Konfigurations schema för miljö
 
-Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `azureml_environment.json` som kan ändras och används för att skapa anpassade miljö konfigurationer med cli. Objektet på den översta nivån mappas löst till [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klassen i python SDK. 
+Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `azureml_environment.json` som kan ändras och används för att skapa anpassade miljö konfigurationer med cli. Objektet på den översta nivån mappas löst till [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) klassen i python SDK. 
 
 ```json
 {
@@ -410,17 +410,17 @@ Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `
 }
 ```
 
-Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel `environmentVariables` mappas fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klassen.
+Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel `environmentVariables` mappas fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) klassen.
 
 | JSON-fält | Typ | Beskrivning |
 |---|---|---|
 | `name` | `string` | Miljöns namn. Starta inte namn med **Microsoft** eller **azureml**. |
 | `version` | `string` | Version av miljön. |
 | `environmentVariables` | `{string: string}` | En hash-mappning av miljö variabel namn och-värden. |
-| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) | Objekt som definierar den python-miljö och-tolk som ska användas på mål beräknings resurser. |
-| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Definierar inställningar för att anpassa Docker-avbildningen som är byggd för miljöns specifikationer. |
-| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | I avsnittet konfigureras Spark-inställningar. Den används endast när Framework är inställt på PySpark. |
-| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Konfigurerar beroenden för Databricks-bibliotek. |
+| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)Hat definierar den python-miljö och-tolk som ska användas på mål beräknings resurser. |
+| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py&preserve-view=true) | Definierar inställningar för att anpassa Docker-avbildningen som är byggd för miljöns specifikationer. |
+| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py&preserve-view=true) | I avsnittet konfigureras Spark-inställningar. Den används endast när Framework är inställt på PySpark. |
+| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py&preserve-view=true) | Konfigurerar beroenden för Databricks-bibliotek. |
 | `inferencingStackVersion` | `string` | Anger den inferencing stack-version som läggs till i avbildningen. Lämna det här fältet för att undvika att lägga till en inferencing-stack `null` . Giltigt värde: "senaste". |
 
 ## <a name="ml-pipeline-management"></a>ML pipeline-hantering

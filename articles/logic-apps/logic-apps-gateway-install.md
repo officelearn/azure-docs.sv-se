@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386137"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660477"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -26,14 +26,14 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
   * Ditt Azure-konto måste vara antingen ett arbets konto eller ett skol konto, som ser ut som `username@contoso.com` . Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton, till exempel @hotmail.com eller @outlook.com .
 
     > [!NOTE]
-    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din adress se ut `username@domain.onmicrosoft.com` . Ditt konto lagras i en Azure AD-klient. I de flesta fall är användarens huvud namn (UPN) för ditt Azure-konto detsamma som din e-postadress.
+    > Om du har registrerat dig för ett Microsoft 365 erbjudande och inte angav din e-postadress för arbetet kan din adress se ut `username@domain.onmicrosoft.com` . Ditt konto lagras i en Azure AD-klient. I de flesta fall är användarens huvud namn (UPN) för ditt Azure-konto detsamma som din e-postadress.
 
     Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är associerad med en Microsoft-konto måste du först [skapa en Azure AD-klient](../active-directory/develop/quickstart-create-new-tenant.md) eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din Azure-prenumeration. Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
 
@@ -142,7 +142,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i de här ämnena:
 
-* [Justera kommunikations inställningarna för den lokala datagatewayen](/data-integration/gateway/service-gateway-communication)
+* [Justera kommunikationsinställningar för den lokala datagatewayen](/data-integration/gateway/service-gateway-communication)
 * [Konfigurera proxyinställningar för den lokala datagatewayen](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
@@ -268,4 +268,4 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 * [Ansluta till lokala data från Logic Apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise-integrerings funktioner](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Anslutningsprogram för Azure Logic Apps](../connectors/apis-list.md)
+* [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md)

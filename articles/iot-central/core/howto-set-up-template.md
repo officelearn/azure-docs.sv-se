@@ -7,13 +7,15 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: a75fbeb9a12f61f827411e56c57ff6a4460ab083
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.custom:
+- contperfq1
+- device-developer
+ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136277"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019248"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiera en ny IoT-enhetstyp i Azure IoT Central-programmet
 
@@ -130,7 +132,7 @@ I följande tabell visas konfigurations inställningarna för en telemetri-funkt
 | Enhet | En enhet för telemetri-värdet, till exempel **mph**, **%** eller ** &deg; C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
 | Kommentar | Eventuella kommentarer om telemetri-funktionerna. |
-| Description | En beskrivning av telemetri-funktionen. |
+| Beskrivning | En beskrivning av telemetri-funktionen. |
 
 ### <a name="properties"></a>Egenskaper
 
@@ -151,7 +153,7 @@ I följande tabell visas konfigurations inställningarna för en egenskaps funkt
 | Enhet | En enhet för egenskap svärdet, till exempel **mph**, **%** eller ** &deg; C**. |
 | Visa enhet | En visnings enhet för användning på instrument paneler och formulär. |
 | Kommentar | Kommentarer om egenskaps funktionen. |
-| Description | En beskrivning av egenskaps funktionen. |
+| Beskrivning | En beskrivning av egenskaps funktionen. |
 
 ### <a name="commands"></a>Kommandon
 
@@ -166,9 +168,9 @@ I följande tabell visas konfigurations inställningarna för en kommando funkti
 | Typ av kapacitet | Kommandoprompt. |
 | Kommando | `SynchronousExecutionType`. |
 | Kommentar | Eventuella kommentarer om kommando funktionen. |
-| Description | En beskrivning av kommando funktionen. |
+| Beskrivning | En beskrivning av kommando funktionen. |
 | Förfrågan | Om aktive rad, en definition av Request-parametern, inklusive: namn, visnings namn, schema, enhet och visnings enhet. |
-| Svar | Om aktive rad, en definition av kommando svaret, inklusive: namn, visnings namn, schema, enhet och visnings enhet. |
+| Svarsåtgärder | Om aktive rad, en definition av kommando svaret, inklusive: namn, visnings namn, schema, enhet och visnings enhet. |
 
 ## <a name="manage-an-interface"></a>Hantera ett gränssnitt
 

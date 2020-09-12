@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157950"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017106"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt Azure IoT Central-program
 
-
-
-Den här artikeln beskriver hur, som en operatör, för att hantera enheter i ditt Azure IoT Central-program. Som operatör kan du:
+Den här artikeln beskriver hur du, som en operatör, hanterar enheter i ditt Azure IoT Central-program. Som operatör kan du:
 
 - Använd sidan **enheter** för att visa, lägga till och ta bort enheter som är anslutna till ditt Azure IoT Central-program.
 - Underhåll en uppdaterad inventering av dina enheter.

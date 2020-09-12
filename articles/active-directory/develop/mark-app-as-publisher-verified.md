@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477693"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006952"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Markera din app som verifierad av utgivare (förhandsversion)
+# <a name="mark-your-app-as-publisher-verified"></a>Markera din app som verifierad av utgivare
 
 När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av sina Microsoft Partner Network-konton (MPN) och har associerat MPN-kontot med sin program registrering. Den här artikeln beskriver hur du slutför processen för [utgivar verifiering (för hands version)](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Snabbstart
 Om du redan har registrerat dig i Microsoft Partner Network (MPN) och har uppfyllt [kraven](publisher-verification-overview.md#requirements)kan du komma igång direkt: 
 
-1. Gå till [registrerings portalen](https://aka.ms/PublisherVerificationPreview)för Preview-appen.
+1. Gå till [registrerings portalen för appen](https://aka.ms/PublisherVerificationPreview).
 
 1. Välj en app och klicka på **varumärkes anpassning**. 
 
@@ -37,7 +37,7 @@ Om du redan har registrerat dig i Microsoft Partner Network (MPN) och har uppfyl
 Mer information om särskilda förmåner, krav och vanliga frågor finns i [översikten](publisher-verification-overview.md).
 
 
-## <a name="mark-your-app-as-publisher-verified"></a>Markera din app som utgivare verifierad
+## <a name="mark-your-app-as-publisher-verified"></a>Markera din app som verifierad av utgivare
 Se till att du har uppfyllt [kraven](publisher-verification-overview.md#requirements)och följ sedan de här stegen för att markera dina appar som utgivare verifierad.  
 
 1. Se till att du är inloggad med ett organisations konto (Azure AD) som har behörighet att göra ändringar i de appar som du vill markera som utgivare verifierad och på MPN-kontot i Partner Center. 
@@ -46,7 +46,7 @@ Se till att du har uppfyllt [kraven](publisher-verification-overview.md#requirem
 
     - Den här användaren måste ha följande roller i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD). 
 
-1. Navigera till för hands versionen av appens registrerings Portal:  
+1. Gå till registrerings portalen för appen:  
 
 1. Klicka på en app som du vill markera som utgivare verifierad och öppna bladet anpassning. 
 

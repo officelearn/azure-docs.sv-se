@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Uppdateringshantering
 description: Den här artikeln innehåller en översikt över den Uppdateringshantering funktionen som implementerar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660916"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024155"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -18,8 +18,8 @@ Du kan använda Uppdateringshantering i Azure Automation för att hantera operat
 
 Du kan aktivera Uppdateringshantering för virtuella datorer på följande sätt:
 
-* Från ditt [Azure Automation-konto](update-mgmt-enable-automation-account.md) för en eller flera Azure-datorer.
-* Manuellt för datorer som inte är Azure-datorer.
+* Från ditt [Azure Automation-konto](update-mgmt-enable-automation-account.md) för en eller flera Azure-datorer och datorer som inte är Azure-datorer.
+* Manuellt för datorer som inte är Azure-datorer, inklusive datorer eller servrar som är registrerade med [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md) (för hands version).
 * För en enskild virtuell Azure-dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) -och [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) -datorer.
 * För [flera virtuella Azure-datorer](update-mgmt-enable-portal.md) genom att välja dem från sidan virtuella datorer i Azure Portal.
 
@@ -40,21 +40,17 @@ Datorer som hanteras med Uppdateringshantering använder följande konfiguration
 * Automation Hybrid Runbook Worker
 * Microsoft Update eller Windows Server Update Services (WSUS) för Windows-datorer
 
-I följande diagram illustreras hur Uppdateringshantering utvärderar och tillämpar säkerhets uppdateringar på alla anslutna Windows Server-och Linux-datorer på en arbets yta:
+I följande diagram illustreras hur Uppdateringshantering utvärderar och tillämpar säkerhets uppdateringar på alla anslutna Windows Server-och Linux-servrar på en arbets yta:
 
 ![Uppdateringshantering arbets flöde](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-Uppdateringshantering kan användas för att distribuera datorer internt i flera prenumerationer i samma klient organisation.
+Uppdateringshantering kan användas för att distribuera internt till datorer i flera prenumerationer i samma klient organisation.
 
-När ett paket har frigjorts tar det 2 till 3 timmar innan korrigeringen visas för Linux-datorer för utvärdering. För Windows-datorer tar det 12 till 15 timmar innan korrigeringen visas för utvärderingen när den har släppts.
-
-När en dator har slutfört en sökning efter uppdateringens efterlevnad vidarebefordrar agenten informationen i bulk till Azure Monitor loggar. På en Windows-dator körs kompatibilitetskontroll var 12: e timme som standard.
+När ett paket har frigjorts tar det 2 till 3 timmar innan korrigeringen visas för Linux-datorer för utvärdering. För Windows-datorer tar det 12 till 15 timmar innan korrigeringen visas för utvärderingen när den har släppts. När en dator har slutfört en genomsökning för att uppdatera kompatibilitet, vidarebefordrar agenten informationen i bulk till Azure Monitor loggar. På en Windows-dator körs kompatibilitetskontroll var 12: e timme som standard. För en Linux-dator utförs genomsökningen varje timme som standard. Om den Log Analytics agenten startas om startas en kompatibilitetskontroll inom 15 minuter.
 
 Förutom genomsöknings schemat startas genomsökningen efter uppdateringens kompatibilitet inom 15 minuter från det Log Analytics agenten startas om, innan installationen installeras och efter installationen av uppdateringen.
 
-För en Linux-dator utförs genomsökningen varje timme som standard. Om den Log Analytics agenten startas om startas en kompatibilitetskontroll inom 15 minuter.
-
-Uppdateringshantering rapporterar hur upp datorn är baserad på vilken källa du är konfigurerad att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till WSUS, beroende på när WSUS senast synkroniserades med Microsoft Update, kan resultatet skilja sig från vad Microsoft Update visar. Detta är detsamma för Linux-datorer som kon figurer ATS för att rapportera till en lokal lagrings platsen i stället för till en offentlig lagrings platsen.
+Uppdateringshantering rapporterar hur upp datorn är baserad på vilken källa du är konfigurerad att synkronisera med. Om Windows-datorn är konfigurerad för att rapportera till [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), beroende på när WSUS senast synkroniserades med Microsoft Update, kan resultatet skilja sig från vad Microsoft Update visar. Detta är detsamma för Linux-datorer som kon figurer ATS för att rapportera till en lokal lagrings platsen i stället för till en offentlig lagrings platsen.
 
 > [!NOTE]
 > För att rapporten ska kunna rapporteras till tjänsten måste vissa URL: er och portar vara aktiverade för Uppdateringshantering. Mer information om dessa krav finns i [nätverks konfiguration](../automation-hybrid-runbook-worker.md#network-planning).
@@ -176,13 +172,13 @@ I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöde
 
 Uppdateringshantering söker igenom hanterade datorer efter data med hjälp av följande regler. Det kan ta mellan 30 minuter och 6 timmar för instrument panelen att Visa uppdaterade data från hanterade datorer.
 
-* Varje Windows-dator – Uppdateringshantering görs en genomsökning två gånger per dag för varje dator. Var 15: e minut frågar den den senaste uppdaterings tiden till Windows-API: n för att fastställa om statusen har ändrats. Om statusen har ändrats startar Uppdateringshantering en sökning efter kompatibiliteten.
+* Varje Windows-dator – Uppdateringshantering görs en genomsökning två gånger per dag för varje dator.
 
 * Varje Linux-dator – Uppdateringshantering genomsöks varje timme.
 
 Den genomsnittliga data användningen per Azure Monitor loggar för en dator som använder Uppdateringshantering är cirka 25 MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras, beroende på din miljö. Vi rekommenderar att du övervakar din miljö för att hålla koll på din exakta användning. Mer information om hur du analyserar Azure Monitor loggar data användning finns i [Hantera användning och kostnad](../../azure-monitor/platform/manage-cost-storage.md).
 
-## <a name="network-planning"></a><a name="ports"></a>Nätverks planering
+## <a name="network-planning"></a><a name="ports"></a>Planera för nätverk
 
 Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen med de här adresserna sker via port 443.
 
@@ -256,9 +252,10 @@ En Azure [Resource Manager-mall](update-mgmt-enable-template.md) är tillgängli
 
 Här är hur du kan aktivera Uppdateringshantering och välja datorer som ska hanteras:
 
-* [Från en virtuell dator](update-mgmt-enable-vm.md)
-* [Från att bläddra flera datorer](update-mgmt-enable-portal.md)
+* [Från en virtuell Azure-dator](update-mgmt-enable-vm.md)
+* [Från att bläddra bland flera virtuella Azure-datorer](update-mgmt-enable-portal.md)
 * [Från ett Azure Automation konto](update-mgmt-enable-automation-account.md)
+* För Arc-aktiverade servrar (förhands granskning) eller datorer som inte är Azure-datorer installerar du [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md) och [aktiverar sedan datorer i arbets ytan](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) för att uppdateringshantering.
 
 ## <a name="next-steps"></a>Nästa steg
 

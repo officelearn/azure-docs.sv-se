@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926957"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007051"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Flytta din Azure Kognitiv sökning-tjänst till en annan Azure-region
 
@@ -23,7 +23,13 @@ Ibland kan kunder fråga om att flytta en Sök tjänst till en annan region. Fö
 > [!NOTE]
 > I Azure Portal har alla tjänster ett kommando för att **Exportera mall** . När det gäller Azure Kognitiv sökning ger det här kommandot en grundläggande definition av en tjänst (namn, plats, nivå, replik och partition), men känner inte igen innehållet i din tjänst, inte heller med nycklar, roller eller loggar. Även om kommandot finns rekommenderar vi inte att du använder det för att flytta en Sök tjänst.
 
-## <a name="guidance-for-moving-a-service"></a>Vägledning för att flytta en tjänst
+## <a name="prerequisites"></a>Krav
+
++ Kontrollera att tjänsterna och funktionerna som kontot använder stöds i målregionen.
+
++ För förhandsgranskningsfunktioner ska du kontrollera att din prenumeration är vitlistad för målregionen.
+
+## <a name="prepare-and-move"></a>Förbered och flytta
 
 1. Identifiera beroenden och relaterade tjänster för att förstå den fulla effekten av att flytta en tjänst om du behöver flytta mer än bara Azure Kognitiv sökning.
 
@@ -41,7 +47,9 @@ Ibland kan kunder fråga om att flytta en Sök tjänst till en annan region. Fö
 
 1. Uppdatera klient program och test paket för att använda det nya tjänst namnet och API-nycklarna och testa alla program.
 
-1. Ta bort den gamla tjänsten när den nya tjänsten är fullständigt testad och fungerar.
+## <a name="discard-or-clean-up"></a>Ta bort eller rensa
+
+Ta bort den gamla tjänsten när den nya tjänsten är fullständigt testad och fungerar. Borttagning av tjänsten tar automatiskt bort allt innehåll som är associerat med tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

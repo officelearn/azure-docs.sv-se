@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003532"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024068"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Använda Azure Frontend-API:er för autentisering
 
 I det här avsnittet beskriver vi hur du använder API: et för autentisering och hantering av sessioner.
 
 > [!CAUTION]
-De funktioner som beskrivs i det här kapitlet utfärdar REST-anrop på servern internt. För alla REST-anrop kommer att skicka dessa kommandon för ofta att orsaka att servern begränsar och returnerar fel. Värdet för `SessionGeneralContext.HttpResponseCode` medlemmen i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
+> De funktioner som beskrivs i det här kapitlet utfärdar REST-anrop på servern internt. För alla REST-anrop kommer att skicka dessa kommandon för ofta att orsaka att servern begränsar och returnerar fel. Värdet för `SessionGeneralContext.HttpResponseCode` medlemmen i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
 
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo

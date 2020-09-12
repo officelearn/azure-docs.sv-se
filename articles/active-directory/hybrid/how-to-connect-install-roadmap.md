@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bee5ba92f6795df6635dc98a19cabaeb9692a470
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358743"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662142"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -40,7 +40,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 [Efter installationen](how-to-connect-post-installation.md) bör du kontrollera att allt fungerar som förväntat och tilldela licenser till användarna.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Nästa steg för att installera Azure AD Connect
-|Ämne |Länk|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./how-to-connect-install-express.md)|
@@ -49,14 +49,14 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 |Efter installation | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
-Det är bra att vara förberedd om det skulle uppstå [driftproblem](how-to-connect-sync-operations.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-staging-server.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-staging-server.md).
+Det är bra att vara förberedd om det skulle uppstå [driftproblem](./how-to-connect-sync-staging-server.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-staging-server.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-staging-server.md).
 
-|Ämne |Länk|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Topologier som stöds | [Topologier för Azure AD Connect](plan-connect-topologies.md)|
 |Designbegrepp | [Designbegrepp för Azure AD Connect](plan-connect-design-concepts.md)|
 |Konton som används för installation | [Mer information om Azure AD Connect-autentiseringsuppgifter och -behörigheter](reference-connect-accounts-permissions.md)|
-|Driftplanering | [Azure AD Connect-synkronisering: Driftåtgärder och saker att tänka på](how-to-connect-sync-operations.md)|
+|Driftplanering | [Azure AD Connect-synkronisering: Driftåtgärder och saker att tänka på](./how-to-connect-sync-staging-server.md)|
 |Alternativ för användarinloggning | [Alternativ för Azure AD Connect användar inloggning](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Konfigurera synkroniseringsfunktioner
@@ -66,7 +66,7 @@ Azure AD Connect har flera funktioner som du kan aktivera om du vill eller som �
 
 [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md) synkroniserar lösenordshashen i Active Directory med Azure AD. Slutanvändare kan använda samma lösenord lokalt och i molnet men hanterar det endast på en plats. Eftersom din lokala Active Directory används som auktoritet kan du också använda en egen lösenordsprincip.
 
-Med [tillbakaskrivning av lösenord](../authentication/quickstart-sspr.md) kan dina användare ändra och återställa sina lösenord i molnet och tillämpa din lokala lösenordsprincip.
+Med [tillbakaskrivning av lösenord](../authentication/tutorial-enable-sspr.md) kan dina användare ändra och återställa sina lösenord i molnet och tillämpa din lokala lösenordsprincip.
 
 Med [tillbakaskrivning av enheter](how-to-connect-device-writeback.md) kan en enhet som är registrerad i Azure AD skrivas tillbaka till lokala Active Directory så att den kan användas för villkorlig åtkomst.
 
@@ -75,12 +75,12 @@ Funktionen [förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-pr
 Funktionen [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md) är aktiverad som standard för installationer med standardinställningar och säkerställer att Azure AD Connect alltid är uppdaterat med den senaste versionen.
 
 ### <a name="next-steps-to-configure-sync-features"></a>Nästa steg för att konfigurera synkroniseringsfunktioner
-|Ämne |Länk|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Konfigurera filtrering | [Azure AD Connect-synkronisering: Konfigurera filtrering](how-to-connect-sync-configure-filtering.md)|
 |Synkronisering av lösenordshash | [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md)|
 |Direktautentisering | [Direktautentisering](how-to-connect-pta.md)
-|Tillbakaskrivning av lösenord | [Komma igång med lösen ords hantering](../authentication/quickstart-sspr.md)|
+|Tillbakaskrivning av lösenord | [Komma igång med lösen ords hantering](../authentication/tutorial-enable-sspr.md)|
 |Tillbakaskrivning av enheter | [Aktivera tillbakaskrivning av enheter i Azure AD Connect](how-to-connect-device-writeback.md)|
 |Förhindra oavsiktliga borttagningar | [Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Automatisk uppgradering | [Azure AD Connect: Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md)|
@@ -95,7 +95,7 @@ Om du inte har arbetat med en synkroniseringstopologi förut är det bäst att b
 Konfigurationsmodellen i synkroniseringsverktyget kallas för [deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md). De avancerade attributflödena använder [funktioner](reference-connect-sync-functions-reference.md) för att uttrycka attributtransformationer. Du kan se och granska hela konfigurationen med hjälp av verktyg som medföljer Azure AD Connect. Om du behöver göra konfigurationsändringar ser du till att du följer [metodtipsen](how-to-connect-sync-best-practices-changing-default-configuration.md) så att det är lättare att integrera nya versioner.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Nästa steg för att anpassa Azure AD Connect-synkroniseringen
-|Ämne |Länk|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Alla artiklar om Azure AD Connect-synkronisering | [Azure AD Connect synkronisering](how-to-connect-sync-whatis.md)|
 |Tekniska begrepp | [Azure AD Connect synkronisering: tekniska begrepp](how-to-connect-sync-technical-concepts.md)|
@@ -119,12 +119,12 @@ AD FS kan konfigureras att ge stöd för [flera domäner](how-to-connect-install
 Om ADFS-servern inte har konfigurerats att automatiskt uppdatera certifikat från Azure AD eller om du använder en annan lösning än en ADFS-lösning så meddelas du när du behöver [uppdatera certifikaten](how-to-connect-fed-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Nästa steg för att konfigurera federationsfunktioner
-|Ämne |Länk|  
+|Avsnitt |Länk|  
 | --- | --- |
 |Alla AD FS-artiklar | [Azure AD Connect och federation](how-to-connect-fed-whatis.md)|
 |Konfigurera AD FS med underdomäner | [Stöd för flera domäner för federering med Azure AD](how-to-connect-install-multiple-domains.md)|
 |Hantera AD FS-servergrupp | [Hantering och anpassning av AD FS med Azure AD Connect](how-to-connect-fed-management.md)|
-|Uppdatera federationscertifikat manuellt | [Förnya federationscertifikat för Office 365 och Azure AD](how-to-connect-fed-o365-certs.md)|
+|Uppdatera federationscertifikat manuellt | [Förnya Federations certifikat för Microsoft 365 och Azure AD](how-to-connect-fed-o365-certs.md)|
 
 
 ## <a name="get-started-with-azure-ad-connect-health"></a>Komma igång med Azure AD Connect Health
@@ -169,7 +169,7 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
    - **Åtkomst till data** från Azure AD-katalogen integritet endast av Microsoft i fel söknings syfte: om det här alternativet är aktiverat kan Microsoft komma åt samma data som visas av användaren. Den här informationen kan vara användbar för fel sökning och för att ge nödvändig hjälp. Det här alternativet är inaktiverat som standard
 * **Role based access control (IAM)** (Rollbaserad åtkomstkontroll) är avsnittet för att hantera åtkomst till Connect Health-data i rollbasen. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)

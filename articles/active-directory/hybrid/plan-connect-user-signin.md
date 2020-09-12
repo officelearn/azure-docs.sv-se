@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331271"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657146"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect user sign-in options (Alternativ för användarinloggning i Azure AD Connect)
 Med Azure Active Directory (Azure AD) Connect kan användarna logga in i både molnet och lokala resurser med samma lösen ord. I den här artikeln beskrivs viktiga begrepp för varje identitets modell som hjälper dig att välja den identitet som du vill använda för att logga in på Azure AD.
@@ -47,9 +47,9 @@ Azure AD stöder följande autentiseringsmetoder:
    * **Direktautentisering (PTA)** – det här alternativet liknar lösen ordets hash-synkronisering, men ger en enkel lösen ords validering med lokala program varu agenter för organisationer med principer för hög säkerhets-och efterlevnadsprinciper.
 * **Federerad autentisering** – när du väljer den här autentiseringsmetoden kommer Azure AD att lämna autentiseringsprocessen till ett separat betrott autentiseringsschema, till exempel AD FS eller ett Federations system från tredje part, för att verifiera användarens inloggning. 
 
-För de flesta organisationer som bara vill aktivera användar inloggning till Office 365, SaaS-program och andra Azure AD-baserade resurser, rekommenderar vi att du använder standard alternativet för synkronisering av lösen ords hash.
+För de flesta organisationer som bara vill aktivera användar inloggning för att Microsoft 365, SaaS-program och andra Azure AD-baserade resurser, rekommenderar vi att du använder standard alternativet för synkronisering av lösen ords hash.
  
-Detaljerad information om hur du väljer en autentiseringsmetod finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../../security/fundamentals/choose-ad-authn.md)
+Detaljerad information om hur du väljer en autentiseringsmetod finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](./choose-ad-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Synkronisering av lösenordshash
 Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD. När lösen ord ändras eller återställs lokalt synkroniseras de nya hasharna för lösen ord till Azure AD omedelbart så att användarna alltid kan använda samma lösen ord för moln resurser och lokala resurser. Lösen orden skickas aldrig till Azure AD eller lagras i Azure AD i klartext. Du kan använda Password-hash-synkronisering tillsammans med tillbakaskrivning av lösen ord för att aktivera självbetjäning för återställning av lösen ord i Azure AD.
@@ -139,12 +139,12 @@ På inloggnings sidan för Azure AD visas de UPN-suffix som har definierats för
 Du kan klicka på knappen Uppdatera för att hämta den senaste statusen för de anpassade domänerna från Azure AD igen.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Välja attributet för User Principal Name i Azure AD
-Attributet userPrincipalName är det attribut som användarna använder när de loggar in på Azure AD och Office 365. Du bör kontrol lera domänerna (även kallade UPN-suffix) som används i Azure AD innan användarna synkroniseras.
+Attributet userPrincipalName är det attribut som användarna använder när de loggar in på Azure AD och Microsoft 365. Du bör kontrol lera domänerna (även kallade UPN-suffix) som används i Azure AD innan användarna synkroniseras.
 
 Vi rekommenderar starkt att du behåller standardattributet userPrincipalName. Om det här attributet är nonroutable och inte kan verifieras, är det möjligt att välja ett annat attribut (e-post, till exempel) som attributet som innehåller inloggnings-ID: t. Detta kallas för alternativ-ID. Attributvärdet för alternativ-ID måste följa RFC 822-standarden. Du kan använda ett alternativt ID med både lösen ord för enkel inloggning och Federation SSO som inloggnings lösning.
 
 > [!NOTE]
-> Att använda ett alternativt ID är inte kompatibelt med alla Office 365-arbetsbelastningar. Mer information finns i [Konfigurera alternativt inloggnings-ID](https://technet.microsoft.com/library/dn659436.aspx).
+> Att använda ett alternativt ID är inte kompatibelt med alla Microsoft 365 arbets belastningar. Mer information finns i [Konfigurera alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -155,7 +155,7 @@ För följande information antar vi att vi är intresserade av UPN-suffixet cont
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Snabb inställningar/Password-hash-synkronisering
 
-| Status | Inverkan på användarens inloggnings upplevelse i Azure |
+| Stat | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |
 | Inte tillagt |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalogen. Användare som har UPN lokalt med suffixet kan @contoso.com inte använda sina lokala UPN för att logga in på Azure. De måste i stället använda ett nytt UPN som tillhandahålls av Azure AD genom att lägga till suffixet för standard Azure AD-katalogen. Om du till exempel synkroniserar användare till Azure AD-katalogen azurecontoso.onmicrosoft.com får den lokala användaren user@contoso.com ett UPN för user@azurecontoso.onmicrosoft.com . |
 | Inte verifierad |I det här fallet har vi en anpassad domän-contoso.com som har lagts till i Azure AD-katalogen. Men det har inte verifierats ännu. Om du går vidare med att synkronisera användare utan att verifiera domänen, tilldelas användarna ett nytt UPN av Azure AD, precis som i scenariot "inte tillagt". |
@@ -166,7 +166,7 @@ Du kan inte skapa en federation med default. onmicrosoft.com-domänen i Azure AD
 
 Om du valde Federations alternativet för användar inloggning **med AD FS**måste du ha en anpassad domän för att kunna fortsätta skapa en federation i Azure AD. För vår diskussion innebär det att vi bör ha en anpassad domän contoso.com som lagts till i Azure AD-katalogen.
 
-| Status | Inverkan på användarens inloggnings upplevelse i Azure |
+| Stat | Inverkan på användarens inloggnings upplevelse i Azure |
 |:---:|:--- |
 | Inte tillagt |I det här fallet gick det Azure AD Connect inte att hitta någon matchande anpassad domän för UPN-suffixet contoso.com i Azure AD-katalogen. Du måste lägga till en anpassad domän contoso.com om du vill att användarna ska logga in med hjälp av AD FS med sitt lokala UPN (t user@contoso.com . ex.). |
 | Inte verifierad |I det här fallet visas Azure AD Connect med lämplig information om hur du kan verifiera din domän i ett senare skede. |

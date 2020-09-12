@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e2f72cc0ea6851caaf5d0db2f17f8e16473d420e
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272509"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667554"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -25,7 +25,7 @@ Azure Security Center s hot skydd ger omfattande försvar för din miljö:
 
 * **Skydd mot hot för Azure Compute-resurser**: Windows-datorer, Linux-datorer, Azure App service och Azure-behållare
 
-* **Skydd mot hot för Azure-data resurser**: SQL Database och SQL Data Warehouse, Azure Storage och Azure Cosmos DB
+* **Skydd mot hot för Azure-data resurser**: SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse), Azure Storage och Azure Cosmos DB
 
 * **Hot skydd för Azure Service**Layers: Azure-nätverksnivå, Azure Management layer (Azure Resource Manager) (för hands version) och Azure Key Vault (förhands granskning)
 
@@ -119,7 +119,7 @@ Mer information om App Service-planer finns i [App Service planer](https://azure
 |Versions tillstånd:|Allmänt tillgänglig|
 |Priset|Standard-nivå|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratören** kan stänga aviseringar.<br>**Säkerhets läsaren** kan visa resultat.|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
@@ -131,19 +131,19 @@ Mer information om App Service-planer finns i [App Service planer](https://azure
 
 
 
-## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Skydd mot hot för SQL Database och SQL Data Warehouse <a name="data-sql"></a>
+## <a name="threat-protection-for-sql-database-and-azure-synapse-analytics-formerly-sql-data-warehouse"></a>Skydd mot hot för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) <a name="data-sql"></a>
 
 Avancerat skydd för Azure SQL Database identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella sårbarheter eller SQL-injektering, samt avvikande databas åtkomst och fråga mönster.
 
-Avancerat skydd för Azure SQL Database och SQL är en del av paketet med Unified [Data Security (Ads)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) Unified-paketet för avancerade SQL-säkerhetsfunktioner, som omfattar Azure SQL Database, Azure SQL-hanterade instanser, Azure SQL Data Warehouse-databaser och SQL-servrar på Azure Virtual Machines.
+Avancerat skydd för Azure SQL Database och SQL är en del av det enhetliga paketet [Advanced Data Security (Ads)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) Unified för avancerade SQL-säkerhetsfunktioner, täcker Azure SQL Database, Azure SQL-hanterade instanser, Azure Synapse Analytics-databaser (tidigare SQL Data Warehouse) och SQL-servrar på Azure Virtual Machines.
 
 Mer information finns i:
 
 * [Så här aktiverar du Avancerat skydd för Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Så här aktiverar du Avancerat skydd för SQL-servrar på Azure Virtual Machines](security-center-iaas-advanced-data.md)
-* [Listan med aviseringar om skydd mot hot för SQL Database och SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [Listan med aviseringar om skydd mot hot för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 
@@ -155,7 +155,7 @@ Mer information finns i:
 |----|:----|
 |Versions tillstånd:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (för hands version)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (för hands version)|
 |Priset|Standard-nivå|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -164,8 +164,6 @@ Mer information finns i:
 Skydd mot hot för Azure Storage identifierar potentiellt skadlig aktivitet på dina Azure Storage-konton. Dina data kan skyddas oavsett om de lagras som BLOB-behållare, fil resurser eller data sjöar.
 
 Det här skydds lagret gör att du kan åtgärda hot *utan* att du behöver vara säkerhets expert, och hjälper dig att hantera dina säkerhets övervaknings system.
-
-Dina lagrings konton är skyddade 
 
 ### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Vilken typ av aviseringar skyddar skydd för Azure Storage?
 
@@ -204,7 +202,7 @@ Mer information finns i:
 
 
 
-## <a name="threat-protection-for-azure-cosmos-db"></a>Skydd mot hot för Azure Cosmos DB <a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Skydd mot Azure Cosmos DB (för hands version) <a name="cosmos-db"></a>
 
 Azure Cosmos DB-aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos DB-konton.
 

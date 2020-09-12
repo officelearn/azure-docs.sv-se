@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230389"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651645"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -173,7 +173,9 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 > [!WARNING]
 > Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
-* **Azure Portal**: om du går direkt för att visa din arbets yta från en resurs länk från SDK eller portalen kan du inte visa **översikts** sidan för normal med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta går du direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söker efter arbets ytans namn.
+* **Azure Portal**: 
+  * Om du går direkt till din arbets yta från en resurs länk från SDK eller Azure Portal kan du inte Visa standard **översikts** sidan med prenumerations information i tillägget. I det här scenariot kan du inte heller byta till en annan arbets yta. Om du vill visa en annan arbets yta går du direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söker efter namnet på arbets ytan.
+  * Alla till gångar (data uppsättningar, experiment, beräkningar och så vidare) är bara tillgängliga i [Azure Machine Learning Studio](https://ml.azure.com). De är *inte* tillgängliga från Azure Portal.
 
 * **Webbläsare som stöds i Azure Machine Learning Studio-webb portalen**: Vi rekommenderar att du använder den senaste webbläsaren som är kompatibel med operativ systemet. Följande webbläsare stöds:
   * Microsoft Edge (den nya Microsoft Edge, senaste versionen. Inte Microsoft Edge Legacy)
@@ -239,7 +241,7 @@ Begränsningar och kända problem för data avvikelse Övervakare:
     1. På fliken **data uppsättnings övervakning** väljer du länken experimentera för att kontrol lera körnings statusen.  Den här länken är längst till höger i tabellen.
     1. Om körningen har slutförts kontrollerar du driv rutins loggarna för att se hur många mått som har genererats eller om det finns några varnings meddelanden.  Hitta driv rutins loggar på fliken **utdata + loggar** när du har klickat på ett experiment.
 
-* Om SDK `backfill()` -funktionen inte genererar förväntade utdata kan det bero på ett autentiseringsfel.  När du skapar beräkningen för att skicka in den här funktionen ska du inte använda `Run.get_context().experiment.workspace.compute_targets` .  Använd i stället [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) , till exempel följande för att skapa den beräkning som du skickar till den `backfill()` funktionen: 
+* Om SDK `backfill()` -funktionen inte genererar förväntade utdata kan det bero på ett autentiseringsfel.  När du skapar beräkningen för att skicka in den här funktionen ska du inte använda `Run.get_context().experiment.workspace.compute_targets` .  Använd i stället [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) , till exempel följande för att skapa den beräkning som du skickar till den `backfill()` funktionen: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -251,7 +253,7 @@ Begränsningar och kända problem för data avvikelse Övervakare:
    compute = ws.compute_targets.get("xxx")
    ```
 
-## <a name="azure-machine-learning-designer"></a>Azure Machine Learning designer
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
 
 * **Förberedelse tid för lång beräkning:**
 
@@ -294,7 +296,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     Azure ML tillhandahåller också branschspecifika uppskattningar för TensorFlow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att de viktigaste Ramverks beroendena är installerade för din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
  
     Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
-    De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+    De Ramverks-/regionsspecifika beroendena visas i respektive Framework-dokumentation – [kedjar](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
@@ -303,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod har stängts av**: i de flesta fall, om du stöter på "AbortedError: Horovod har stängts av" det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna kallas `70_driver_logs` . I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enklare att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade Horovod stänger du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
 
-* **Körning eller experimentering**: experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
+* **Körning eller experimentering**: experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
 
     Permanent borttagning av enskilda experiment eller körningar stöds inte för närvarande. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
 
@@ -337,6 +339,8 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
+ 
+* **Prognosticering R2-poängen är alltid noll**: det här problemet uppstår om de angivna tränings data har tids serier som innehåller samma värde för de sista `n_cv_splits`  +  `forecasting_horizon` data punkterna. Om det här mönstret förväntas i din tids serie kan du byta det primära måttet till normaliserat genomsnitts fel i roten.
  
 * **TensorFlow**: från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera TensorFlow och Använd det med dina automatiserade ML-experiment genom att installera TensorFlow = = 1.12.0 via CondaDependecies. 
  

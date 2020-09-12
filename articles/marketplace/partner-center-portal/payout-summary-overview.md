@@ -1,27 +1,27 @@
 ---
-title: Översikt över utbetalnings översikt – Azure Marketplace
+title: Översikt över utbetalnings översikt, Azure Marketplace
 description: Sammanfattningen av utbetalningen visar information om de pengar som du har fått med erbjudandet. Du kan också se när du får betalningar och hur mycket du betalar.
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 708fc2c0783bdefa4ac4fa4b73f10733bba0bc04
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479820"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006932"
 ---
 # <a name="payout-summary-overview"></a>Översikt över utbetalningssammanfattning
 
 [Sammanfattningen av utbetalningen](./payout-summary.md) visar information om de pengar som du har fått av Microsoft. Du kan också se när du får betalningar och hur mycket du betalar.
 
-Om du säljer erbjudanden i Azure Marketplace ser du också information om lyckade utbetalningar i sammanfattningen av utbetalningen. Mer information om Azure Marketplace-betalning finns i [principer för att delta i Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) och [Microsoft Azure Marketplace Publisher-avtal](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Om du säljer erbjudanden i Azure Marketplace ser du också information om lyckade utbetalningar i sammanfattningen av utbetalningen. Mer information om Azure Marketplace-betalning finns i [få betalt i handels Marketplace](./get-paid.md) och [Microsoft Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> För att bli berättigad till utbetalning måste du ha uppnått [betalnings tröskeln](./payment-thresholds-methods-timeframes.md) på $50. Mer information om betalnings tröskeln finns i [Microsoft Azure Marketplace Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+> För att bli berättigad till utbetalning måste du ha uppnått betalnings tröskeln på $50. Mer information finns i [Microsoft Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Om du vill visa utbetalnings information loggar du in på [partner Center](https://partner.microsoft.com/dashboard/home) och väljer utbetalnings ikonen i det övre högra hörnet på skärmen:
 
@@ -29,7 +29,7 @@ Om du vill visa utbetalnings information loggar du in på [partner Center](https
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 
-Detta är roller och behörigheter för att få åtkomst till utbetalnings rapporten:
+Följande är roller och behörigheter för att få åtkomst till utbetalnings rapporten:
 
 | Rapporter/sidor | Kontoinnehavare | Ansvarig | Utvecklare | Företags deltagare | Ekonomi deltagare | Rika marknads föraren |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,13 +45,13 @@ Detta är roller och behörigheter för att få åtkomst till utbetalnings rappo
 
 ## <a name="payment-schedules"></a>Betalnings scheman
 
-För en diskussion om betalnings scheman, inklusive anläggnings perioder, partner synlighet och när kunden använder ett kredit kort eller en faktura, se avsnittet [betalnings planer](./payout-policy-details.md#payment-schedules) i avsnittet **utbetalnings information** .
+För en diskussion om betalnings scheman, inklusive anläggnings perioder, partner synlighet och när kunden använder ett kredit kort eller en faktura, se avsnittet [betalnings planer](./payout-policy-details.md#payment-schedules) i artikeln om **utbetalnings information** .
 
 ## <a name="transaction-history-download-export"></a>Hämta export av transaktions historik
 
 Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan transaktions historik. Detta inkluderar typ, datum, tillhör ande transaktions belopp, kund, produkt och annan transaktionell information som är relaterad till stimulans programmet.
 
-| Kolumnnamn | Description |
+| Kolumnnamn | Beskrivning |
 | --- | --- |
 | earningId | Unikt ID för varje tilltjänande |
 | participantId | Den primära identiteten för partnern enligt programmet |

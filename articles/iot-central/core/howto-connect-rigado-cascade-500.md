@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758241"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016851"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Ansluta en Rigado kaskad 500-gateway-enhet till ditt Azure IoT Central-program
 
-*Den här artikeln gäller lösnings byggare och enhets utvecklare.*
+*Den här artikeln gäller lösnings byggare.*
 
 I den här artikeln beskrivs hur du kan ansluta en Rigado kaskad 500-gateway-enhet till ditt Microsoft Azure IoT Central-program i en Solution Builder. 
 
@@ -51,7 +51,7 @@ Lägga till en enhets mal len Cascade 500:
 
 Du måste nu hämta **omfångs-ID** och **primär nyckel** för ditt Azure IoT Central-program för att kunna ansluta kaskad 500-enheten. 
 
-1. Navigera till **Administration** i det vänstra fönstret och klicka på **enhets anslutning**. 
+1. Navigera till **Administration**  i det vänstra fönstret och klicka på **enhets anslutning**. 
 2. Anteckna **omfångs-ID:** t för ditt IoT Central-program.
 ![App-scope-ID](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 3. Klicka nu på **Visa nycklar** och anteckna primär nyckelns primär **Primary key** 
@@ -65,7 +65,7 @@ När enheten är ansluten till Internet kommer Rigado att kunna push-överföra 
 
 Den här uppdateringen kommer att tillämpa IoT Central anslutnings information på kaskad 500-enheten och den visas i enhets listan. 
 
-![Primärnyckel](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Enhets lista](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 Du är nu redo att använda din C500-enhet i ditt IoT Central-program!
 

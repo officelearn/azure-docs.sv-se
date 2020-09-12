@@ -4,20 +4,19 @@ description: Lär dig hur du distribuerar behållare i Azure Container Instances
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927444"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656994"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du hämtar behållar avbildningar som lagras i ett Azure Container Registry när du distribuerar till Azure Container Instances. Ett rekommenderat sätt att konfigurera register åtkomst är att skapa ett Azure Active Directory tjänstens huvud namn och lösen ord och lagra inloggnings uppgifterna i ett Azure Key Vault.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 **Azure Container Registry**: du behöver ett Azure Container Registry-och minst en behållar avbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register kan du läsa [skapa ett behållar register med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -31,6 +30,9 @@ Azure Container Registry ger ytterligare [autentiseringsalternativ](../container
 
 > [!NOTE]
 > Du kan inte autentisera till Azure Container Registry för att hämta avbildningar under distribution av container grupper genom att använda en [hanterad identitet](container-instances-managed-identity.md) som kon figurer ATS i samma container grupp.
+
+> [!NOTE]
+> Du kan inte hämta bilder från [Azure Container Registry](../container-registry/container-registry-vnet.md) distribueras till en Azure-Virtual Network just nu.
 
 I följande avsnitt skapar du ett Azure Key Vault och ett huvud namn för tjänsten och lagrar autentiseringsuppgifterna för tjänstens huvud namn i valvet. 
 

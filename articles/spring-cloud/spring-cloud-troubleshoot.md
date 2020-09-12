@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083692"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669763"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Felsök vanliga problem med Azure våren Cloud
 
@@ -48,18 +48,23 @@ När du felsöker program krascher startar du genom att kontrol lera programmets
 * Om identifierings statusen är _upp_går du till mått för att kontrol lera programmets hälso tillstånd. Kontrol lera följande mått:
 
 
-  - `TomcatErrorCount`(_Tomcat. global. error_): alla våren Application-undantag räknas här. Om det här talet är stort går du till Azure Log Analytics för att kontrol lera program loggarna.
+  - `TomcatErrorCount` (_Tomcat. global. error_): alla våren Application-undantag räknas här. Om det här talet är stort går du till Azure Log Analytics för att kontrol lera program loggarna.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): den maximala mängden minne som är tillgängligt för programmet. Beloppet kan vara odefinierat, eller så kan det ändras med tiden om det har definierats. Om den har definierats, är mängden använt och allokerat minne alltid mindre än eller lika med max. Men en minnesallokering kan Miss lyckas med ett `OutOfMemoryError` meddelande om tilldelningen försöker öka det använda minnet som *används > dedikerat*, även om det *används <= Max* är sant. I sådana fall kan du försöka öka den maximala heap-storleken genom att använda- `-Xmx` parametern.
+  - `AppMemoryMax` (_JVM. Memory. Max_): den maximala mängden minne som är tillgängligt för programmet. Beloppet kan vara odefinierat, eller så kan det ändras med tiden om det har definierats. Om den har definierats, är mängden använt och allokerat minne alltid mindre än eller lika med max. Men en minnesallokering kan Miss lyckas med ett `OutOfMemoryError` meddelande om tilldelningen försöker öka det använda minnet som *används > dedikerat*, även om det *används <= Max* är sant. I sådana fall kan du försöka öka den maximala heap-storleken genom att använda- `-Xmx` parametern.
 
-  - `AppMemoryUsed`(_JVM. Memory. används_): mängden minne i byte som för närvarande används av programmet. För en normal inläsning av Java-program utgör den här mått serien ett *sågtandade* -mönster där minnes användningen ständigt ökar och minskar i små steg och plötsligt släpper ett parti, och sedan upprepas mönstret. Den här Mät serien inträffar på grund av skräp insamling i Java Virtual Machine, där samlings åtgärder representerar droppar i sågtandade-mönstret.
+  - `AppMemoryUsed` (_JVM. Memory. används_): mängden minne i byte som för närvarande används av programmet. För en normal inläsning av Java-program utgör den här mått serien ett *sågtandade* -mönster där minnes användningen ständigt ökar och minskar i små steg och plötsligt släpper ett parti, och sedan upprepas mönstret. Den här Mät serien inträffar på grund av skräp insamling i Java Virtual Machine, där samlings åtgärder representerar droppar i sågtandade-mönstret.
     
     Det här måttet är viktigt för att hjälpa till att identifiera minnes problem, till exempel:
     * En minnes nedbrytning i början.
     * Överspännings minnes tilldelning för en speciell logik Sök väg.
     * Gradvisa minnes läckor.
-
   Mer information finns i [mått](spring-cloud-concept-metrics.md).
+  
+* Om programmet inte kan starta kontrollerar du att programmet har giltiga JVM-parametrar. Om JVM-minnet är för högt kan följande fel meddelande visas i loggarna:
+
+  >"nödvändigt minne 2728741K är större än 2000 tillgängligt för tilldelning"
+
+
 
 Mer information om Azure Log Analytics finns [i kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
@@ -138,7 +143,7 @@ Om avsökningen avbryts kan du fortfarande använda följande kommando för att 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Observera dock att en Azure våren Cloud Service-instans bara kan utlösa ett build-jobb för ett käll paket på en gång. Mer information finns i [distribuera ett program](spring-cloud-quickstart-launch-app-portal.md) och [Konfigurera en utvecklings miljö i Azure våren Cloud](spring-cloud-howto-staging-environment.md).
+Observera dock att en Azure våren Cloud Service-instans bara kan utlösa ett build-jobb för ett käll paket på en gång. Mer information finns i [distribuera ett program](spring-cloud-quickstart.md) och [Konfigurera en utvecklings miljö i Azure våren Cloud](spring-cloud-howto-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>Det går inte att registrera mitt program
 
@@ -193,7 +198,7 @@ Miljövariabler meddelar moln ramverket för Azure våren att se till att Azure 
 Leta upp den underordnade noden med namnet `systemEnvironment` .  Den här noden innehåller programmets miljövariabler.
 
 > [!IMPORTANT]
-> Kom ihåg att återställa miljö variablernas exponering innan du gör programmet tillgängligt för allmänheten.  Gå till Azure Portal, leta upp sidan konfiguration i programmet och ta bort den här miljövariabeln: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
+> Kom ihåg att återställa miljö variablernas exponering innan du gör programmet tillgängligt för allmänheten.  Gå till Azure Portal, leta upp sidan konfiguration i programmet och ta bort den här miljövariabeln:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Jag kan inte hitta mått eller loggar för mitt program
 

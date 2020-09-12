@@ -7,15 +7,17 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+- device-developer
+ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337100"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018204"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
@@ -147,10 +149,10 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Grupp primär nyckel från SAS-IoT-enheter registrerings grupp":::
 
-1. Använd verktyget [DPS-keygen](https://www.npmjs.com/package/dps-keygen) för att generera SAS-nycklar för enheten. Använd gruppens primära nyckel från föregående steg. Enhets-ID: n måste vara gemener:
+1. Använd `az iot central device compute-device-key` kommandot för att generera enhetens SAS-nycklar. Använd gruppens primära nyckel från föregående steg. Enhets-ID: n måste vara gemener:
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. OEM: en blinkar varje enhet med ett enhets-ID, en genererad SAS-nyckel för enheten och värdet för programmets **ID-omfång** .
@@ -195,12 +197,12 @@ IoT Central stöder följande mekanismer för attestering för enskilda registre
 - **Attestering av symmetrisk nyckel:** Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med DPS-instansen. Om du vill skapa en enskild registrering som använder symmetriska nycklar öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **signaturen för delad åtkomst (SAS)** som mekanismen. Ange base64-kodade primära och sekundära nycklar och spara ändringarna. Använd **ID-omfånget**, **enhets-ID**: t och antingen den primära eller sekundära nyckeln för att ansluta din enhet.
 
     > [!TIP]
-    > För testning kan du använda **openssl** för att generera base64-kodade nycklar:`openssl rand -base64 64`
+    > För testning kan du använda **openssl** för att generera base64-kodade nycklar: `openssl rand -base64 64`
 
 - **X. 509-certifikat:** Om du vill skapa en enskild registrering med X. 509-certifikat, öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **certifikat (X. 509)** som mekanism. Enhets certifikat som används med en enskild registrerings post har ett krav på att utfärdaren och ämnet CN anges till enhets-ID: t.
 
     > [!TIP]
-    > För testning kan du använda [verktyg för Azure IoT Device Provisioning-enheten SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) att generera ett självsignerat certifikat:`node create_test_cert.js device "mytestdevice"`
+    > För testning kan du använda [verktyg för Azure IoT Device Provisioning-enheten SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) att generera ett självsignerat certifikat: `node create_test_cert.js device "mytestdevice"`
 
 - **Trusted Platform Module (TPM) attestering:** En [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) är en typ av modul för maskin varu säkerhet. Att använda en TPM är ett av de säkraste sätten att ansluta en enhet. I den här artikeln förutsätter vi att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskreta, inbyggda program eller integrerade TPM: er. Använd inte programvaru-TPM: er i produktion. Om du vill skapa en enskild registrering som använder en TPM öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **TPM** som mekanism. Ange TPM-bekräftelse nyckeln och spara anslutnings informationen för enheten.
 

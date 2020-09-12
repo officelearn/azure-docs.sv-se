@@ -6,44 +6,72 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563802"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015644"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 
 Med pull-modellen för ändrings flöden kan du använda Azure Cosmos DB ändra feed i din egen takt. Eftersom du redan kan göra med en [bytes processor](change-feed-processor.md)kan du använda pull-modellen för ändrings flöden för att parallellisera bearbetningen av ändringar i flera bytes konsumenter.
 
 > [!NOTE]
-> Pull-modellen för ändrings flöden är för närvarande [en för hands version i Azure Cosmos dB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) . För hands versionen är inte tillgänglig ännu för andra SDK-versioner.
+> Pull-modellen för ändrings flöden är för närvarande [en för hands version i Azure Cosmos dB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview) . För hands versionen är inte tillgänglig ännu för andra SDK-versioner.
+
+## <a name="comparing-with-change-feed-processor"></a>Jämför med byte av byte av flödes processor
+
+Många scenarier kan bearbeta ändrings flödet med hjälp av antingen [change feed-processorn](change-feed-processor.md) eller pull-modellen. Pull-modellens fortsättnings-och förändrings behållar behållar behållare är båda bok märken för det senast bearbetade objektet (eller objekt gruppen) i ändrings flödet.
+
+Du kan dock inte konvertera fortsättnings-token till en Lease container (eller vice versa).
+
+> [!NOTE]
+> I de flesta fall när du behöver läsa från ändrings flödet är det enklaste alternativet att använda processorn för [byte av byte](change-feed-processor.md).
+
+Du bör överväga att använda pull-modellen i följande scenarier:
+
+- Läs ändringar från en viss partitionsnyckel
+- Styr i vilken takt klienten får ändringar för bearbetning
+- Utföra en engångs läsning av befintliga data i ändrings flödet (till exempel för att göra en datamigrering)
+
+Här är några viktiga skillnader mellan processorn för förändrings matnings processor och pull-modell:
+
+|Funktion  | Ändringsflödesprocessor| Hämta modell |
+| --- | --- | --- |
+| Hålla koll på den aktuella punkten vid bearbetning av ändrings flöde | Lån (lagras i en Azure Cosmos DB container) | Fortsättnings-token (lagras i minnet eller sparas manuellt) |
+| Möjlighet att spela upp tidigare ändringar | Ja, med push-modell | Ja, med pull-modell|
+| Söker efter framtida ändringar | Söker automatiskt efter ändringar baserat på användardefinierad `WithPollInterval` | Manuell |
+| Bearbeta ändringar från hela behållaren | Ja, och automatiskt parallellt över flera trådar/datorer som konsumeras från samma behållare| Ja, och manuellt parallellt med FeedTokens |
+| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Ja|
+| Support nivå | Allmänt tillgänglig | Förhandsgranskning |
 
 ## <a name="consuming-an-entire-containers-changes"></a>Konsumera en hel behållares ändringar
 
-Du kan skapa en `FeedIterator` för att bearbeta ändrings flödet med hjälp av pull-modellen. När du skapar en första `FeedIterator` , kan du ange ett valfritt `StartTime` i `ChangeFeedRequestOptions` . När inget anges är den `StartTime` aktuella tiden.
+Du kan skapa en `FeedIterator` för att bearbeta ändrings flödet med hjälp av pull-modellen. När du skapar en första `FeedIterator` måste du ange ett obligatoriskt `ChangeFeedStartFrom` värde som består av både start positionen för att läsa ändringar samt önskad `FeedRange` . `FeedRange`Är ett intervall med värden för partitionsnyckel och anger vilka objekt som ska läsas från den ändrade feeden med den aktuella `FeedIterator` .
+
+Du kan välja att ange `ChangeFeedRequestOptions` en `PageSizeHint` . `PageSizeHint`Är det maximala antalet objekt som kommer att returneras på en enda sida.
 
 Det `FeedIterator` kommer att finnas i två varianter. Förutom exemplen nedan som returnerar enhets objekt kan du också få svar med `Stream` stöd. Med strömmar kan du läsa data utan att först avserialiseras, vilket sparar på klient resurserna.
 
 Här är ett exempel på hur du hämtar en `FeedIterator` som returnerar enhets objekt, i det här fallet ett `User` objekt:
 
 ```csharp
-FeedIterator<User> iteratorWithPOCOS = container.GetChangeFeedIterator<User>();
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
 ```
 
 Här är ett exempel på hur du kan hämta en `FeedIterator` som returnerar en `Stream` :
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning());
 ```
 
-Med hjälp av en `FeedIterator` kan du enkelt bearbeta en hel behållares ändrings flöde i din egen takt. Här är ett exempel:
+Om du inte anger en `FeedRange` till a `FeedIterator` kan du bearbeta en hel behållares ändrings flöde i din egen takt. Här är ett exempel som börjar läsa alla ändringar som börjar vid aktuell tidpunkt:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
+FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now());
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -61,7 +89,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 I vissa fall kanske du bara vill bearbeta ändringar i en viss partitionsnyckel. Du kan hämta en `FeedIterator` för en speciell partitionsnyckel och bearbeta ändringarna på samma sätt som du kan för en hel behållare.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
+FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue"))));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -86,11 +114,11 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 
 När du hämtar en lista över FeedRanges för din behållare får du en `FeedRange` per [fysisk partition](partition-data.md#physical-partitions).
 
-Med hjälp av en `FeedRange` kan du skapa en `FeedIterator` för att parallellisera bearbetning av ändrings flödet över flera datorer eller trådar. Till skillnad från föregående exempel som visade hur du hämtar en enskild `FeedIterator` för hela behållaren kan du använda `FeedRange` för att hämta flera FeedIterators som kan bearbeta ändrings flödet parallellt.
+Med hjälp av en `FeedRange` kan du skapa en `FeedIterator` för att parallellisera bearbetning av ändrings flödet över flera datorer eller trådar. Till skillnad från föregående exempel som visade hur du hämtar en `FeedIterator` för hela behållaren eller en enskild partitionsnyckel, kan du använda FeedRanges för att hämta flera FeedIterators som kan bearbeta ändrings flödet parallellt.
 
 I de fall där du vill använda FeedRanges måste du ha en Orchestrator-process som erhåller FeedRanges och distribuerar dem till dessa datorer. Distributionen kan vara:
 
-* Använder `FeedRange.ToJsonString` och distribuerar detta sträng värde. Konsumenterna kan använda det här värdet med`FeedRange.FromJsonString`
+* Använder `FeedRange.ToJsonString` och distribuerar detta sträng värde. Konsumenterna kan använda det här värdet med `FeedRange.FromJsonString`
 * Om distributionen är i processen skickar du `FeedRange` objekt referensen.
 
 Här är ett exempel som visar hur du läser från början av behållarens ändrings flöde med två hypotetiska separata datorer som läses parallellt:
@@ -98,7 +126,7 @@ Här är ett exempel som visar hur du läser från början av behållarens ändr
 Dator 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -113,7 +141,7 @@ while (iteratorA.HasMoreResults)
 Dator 2:
 
 ```csharp
-FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ranges[1], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
 while (iteratorB.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorB.ReadNextAsync();
@@ -130,7 +158,7 @@ while (iteratorB.HasMoreResults)
 Du kan spara positionen `FeedIterator` genom att skapa en fortsättnings-token. En fortsättnings-token är ett sträng värde som håller koll på dina FeedIterator senaste bearbetade ändringar. Detta gör `FeedIterator` att du senare kan återuppta den här tidpunkten. Följande kod läser igenom ändrings flödet sedan containern skapades. När inga fler ändringar är tillgängliga behåller den en fortsättnings-token så att förbrukningen av ändrings flödet kan återupptas senare.
 
 ```csharp
-FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
 
 string continuation = null;
 
@@ -146,32 +174,10 @@ while (iterator.HasMoreResults)
 }
 
 // Some time later
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation));
 ```
 
 Så länge Cosmos-containern fortfarande finns går det inte att ändra en FeedIterators fortsättnings-token.
-
-## <a name="comparing-with-change-feed-processor"></a>Jämför med byte av byte av flödes processor
-
-Många scenarier kan bearbeta ändrings flödet med hjälp av antingen [change feed-processorn](change-feed-processor.md) eller pull-modellen. Pull-modellens fortsättnings-och förändrings behållar behållar behållare är båda bok märken för det senast bearbetade objektet (eller objekt gruppen) i ändrings flödet.
-Du kan dock inte konvertera fortsättnings-token till en Lease container (eller vice versa).
-
-Du bör överväga att använda pull-modellen i följande scenarier:
-
-- Läser ändringar från en viss partitionsnyckel
-- Styra i vilken takt klienten får ändringar för bearbetning
-- Göra en engångs läsning av befintliga data i ändrings flödet (till exempel för att göra en datamigrering)
-
-Här är några viktiga skillnader mellan processorn för förändrings matnings processor och pull-modell:
-
-|Funktion  | Ändringsflödesprocessor| Hämta modell |
-| --- | --- | --- |
-| Hålla koll på den aktuella punkten vid bearbetning av ändrings flöde | Lån (lagras i en Azure Cosmos DB container) | Fortsättnings-token (lagras i minnet eller sparas manuellt) |
-| Möjlighet att spela upp tidigare ändringar | Ja, med push-modell | Ja, med pull-modell|
-| Söker efter framtida ändringar | Söker automatiskt efter ändringar baserat på användardefinierad`WithPollInterval` | Manuell |
-| Bearbeta ändringar från hela behållaren | Ja, och automatiskt parallellt över flera trådar/datorer som konsumeras från samma behållare| Ja, och manuellt parallellt med FeedTokens |
-| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Ja|
-| Support nivå | Allmänt tillgänglig | Förhandsgranskning |
 
 ## <a name="next-steps"></a>Nästa steg
 

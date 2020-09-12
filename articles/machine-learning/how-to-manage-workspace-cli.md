@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167648"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661636"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -155,7 +155,7 @@ Om du vill begränsa åtkomsten till din arbets yta till ett virtuellt nätverk 
 * `--pe-vnet-name`: Det befintliga virtuella nätverket som den privata slut punkten ska skapas i.
 * `--pe-subnet-name`: Namnet på det undernät som den privata slut punkten ska skapas i. Standardvärdet är `default`.
 
-Mer information om hur du använder en privat slut punkt och ett virtuellt nätverk med din arbets yta finns i [nätverks isolering och sekretess](how-to-enable-virtual-network.md).
+Mer information om hur du använder en privat slut punkt och ett virtuellt nätverk med din arbets yta finns i [Översikt över virtuell nätverks isolering och sekretess](how-to-network-security-overview.md).
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Kundhanterad nyckel och arbets yta med hög arbets belastning
 
@@ -190,7 +190,7 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
 > [!IMPORTANT]
 > Du behöver inte ange alla befintliga resurser. Du kan ange en eller flera. Du kan till exempel ange ett befintligt lagrings konto så skapas de andra resurserna av arbets ytan.
 
-+ **Azure Storage konto**:`az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage konto**: `az storage account show --name <storage-account-name> --query "id"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för ditt lagrings konto:
 
@@ -217,13 +217,13 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**:`az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för nyckel valvet:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**:`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     Svaret från det här kommandot liknar följande text och är ID: t för behållar registret:
 

@@ -5,17 +5,17 @@ description: Lär dig hur du tränar en modell och konfigurerar en pipeline för
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319617"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661493"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Köra batchförutsägelser med Azure Machine Learning Designer (förhandsversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,9 +71,12 @@ I det här avsnittet skapar du en data mängds parameter för att ange en annan 
    
     Ange ett namn för parametern eller acceptera standardvärdet.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Publicera din batch inferencing-pipeline
+    > [!div class="mx-imgBorder"]
+    > ![Ange data uppsättning som pipeline-parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-Nu är du redo att distribuera inferencing-pipeline. Detta kommer att distribuera pipelinen och göra den tillgänglig för andra att använda.
+## <a name="publish-your-batch-inference-pipeline"></a>Publicera en pipeline för batch-härledning
+
+Nu är du redo att distribuera härlednings pipelinen. Detta kommer att distribuera pipelinen och göra den tillgänglig för andra att använda.
 
 1. Välj sedan knappen **Publicera**.
 
@@ -126,9 +129,7 @@ Du hittar information om hur du använder pipelines slut punkter och publicerade
 
 Du kan hitta REST-slutpunkten för en pipeline-slutpunkt på panelen kör översikt. Genom att anropa slut punkten förbrukar du den publicerade standard pipelinen.
 
-Du kan också använda en publicerad pipeline på sidan **publicerade pipeliner** . Välj en publicerad pipeline och hitta resten av slut punkten för den. 
-
-![Information om REST-slutpunkt](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+Du kan också använda en publicerad pipeline på sidan **publicerade pipeliner** . Välj en publicerad pipeline så kan du hitta resten av slut punkten för den i den **publicerade översikts** panelen till höger om diagrammet. 
 
 Om du vill göra ett REST-anrop behöver du ett OAuth 2,0-värde för Authentication-typ. I följande [själv studie kurs](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) finns mer information om hur du konfigurerar autentisering till din arbets yta och gör ett parameter rest-anrop.
 
@@ -142,7 +143,7 @@ När du publicerar en pipeline kan du välja att göra den till den nya standard
 
 Du kan också ange en ny standard-pipeline på fliken **publicerade pipelines** i slut punkten.
 
-![Ange standard pipeline](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Sidan Ange standard pipeline i publicerings pipelinen](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,25 +1,25 @@
 ---
-title: Konfigurera objekt replikering (för hands version)
+title: Konfigurera objektreplikering
 titleSuffix: Azure Storage
 description: Lär dig hur du konfigurerar objekt replikering till asynkron kopiering av block-blobbar från en behållare i ett lagrings konto till ett annat.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228332"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018840"
 ---
-# <a name="configure-object-replication-for-block-blobs-preview"></a>Konfigurera objekt replikering för block-blobar (för hands version)
+# <a name="configure-object-replication-for-block-blobs"></a>Konfigurera objekt replikering för block-blobar
 
-Objekt replikering (för hands version) kopierar asynkront block blobbar mellan ett käll lagrings konto och ett mål konto. Mer information om objekt replikering finns i [Object Replication (för hands version)](object-replication-overview.md).
+Objekt replikeringen kopierar asynkront block blobbar mellan ett käll lagrings konto och ett mål konto. Mer information om objekt replikering finns i [objekt replikering](object-replication-overview.md).
 
 När du konfigurerar objekt replikering skapar du en replikeringsprincip som anger käll lagrings kontot och mål kontot. En replikeringsprincip innehåller en eller flera regler som anger en käll behållare och en mål behållare och anger vilka block-blobar som ska replikeras i käll behållaren.
 
@@ -31,17 +31,23 @@ Den här artikeln beskriver hur du konfigurerar objekt replikering för ditt lag
 
 Innan du konfigurerar objekt replikering skapar du käll-och mål lagrings konton om de inte redan finns. Båda kontona måste vara generella-syfte v2-lagrings konton. Mer information finns i [skapa ett Azure Storage-konto](../common/storage-account-create.md).
 
-Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Och ett mål konto får inte ha fler än två käll konton. Käll- och målkontona kan finnas i olika regioner. Du kan konfigurera separata replikeringsprinciper för att replikera data till varje mål konto.
+Objekt replikering kräver att BLOB-versioner aktive ras för både käll-och mål kontot och att BLOB Change-feeden är aktiverat för käll kontot. Mer information om BLOB-versioner finns i [BLOB-versioner](versioning-overview.md). Mer information om ändrings flöden finns i [ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md). Tänk på att aktivering av dessa funktioner kan leda till ytterligare kostnader.
 
-Innan du börjar ska du kontrol lera att du har registrerat dig för följande funktions förändringar:
+Ett lagrings konto kan fungera som käll konto för upp till två mål konton. Käll-och mål kontona kan finnas i samma region eller i olika regioner. De kan också finnas i olika prenumerationer och i olika Azure Active Directory-klienter (Azure AD). Det går bara att skapa en replikeringsprincip för varje konto par.
 
-- [Objekt replikering (för hands version)](object-replication-overview.md)
-- [BLOB-versioner](versioning-overview.md)
-- [Ändra stöd för feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md)
+När du konfigurerar objekt replikering skapar du en replikeringsprincip på mål kontot via Azure Storage resurs leverantör. När replikeringsprincipen har skapats tilldelar Azure Storage den ett princip-ID. Du måste sedan associera den replikeringsprincipen med käll kontot med hjälp av princip-ID: t. Princip-ID: t på käll-och mål kontona måste vara desamma för att replikeringen ska äga rum.
+
+Om du vill konfigurera en princip för objekt replikering för ett lagrings konto måste du ha tilldelats rollen som Azure Resource Manager **Contributor** , som är begränsad till lagrings kontots nivå eller högre. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azure Role-baserade Access Control (RBAC)-dokumentationen.
+
+### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Konfigurera objekt replikering när du har åtkomst till båda lagrings kontona
+
+Om du har åtkomst till både käll-och mål lagrings kontona kan du konfigurera principen för objekt replikering på båda kontona.
+
+Innan du konfigurerar objekt replikering i Azure Portal skapar du käll-och mål behållare i deras respektive lagrings konton, om de inte redan finns. Aktivera också BLOB-versioner och ändra feed på käll kontot och aktivera BLOB-versioner på mål kontot.
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
-Innan du konfigurerar objekt replikering i Azure Portal skapar du käll-och mål behållare i deras respektive lagrings konton, om de inte redan finns. Du kan också aktivera BLOB-versioner och ändra feed på käll kontot och aktivera BLOB-versioner på mål kontot.
+Azure Portal skapar automatiskt principen på käll kontot när du har konfigurerat det för mål kontot.
 
 Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
@@ -63,39 +69,19 @@ Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
 1. Som standard är kopierings omfånget inställt på att bara kopiera nya objekt. Om du vill kopiera alla objekt i behållaren eller kopiera objekt från ett anpassat datum och en anpassad tid, väljer du länken **ändra** och konfigurerar kopierings omfånget för behållar paret.
 
-    Följande bild visar en anpassad kopierings omfattning.
+    Följande bild visar en anpassad kopierings omfattning som kopierar objekt från ett angivet datum och tid.
 
     :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Skärm bild som visar en anpassad kopierings omfattning för objekt replikering":::
 
 1. Välj **Spara och tillämpa** för att skapa replikeringsprincipen och påbörja replikering av data.
 
+När du har konfigurerat objekt replikering visar Azure Portal replikeringsprincipen och reglerna, som du ser i följande bild.
+
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Skärm bild som visar princip för objekt replikering i Azure Portal":::
+
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill skapa en replikeringsprincip med PowerShell måste du först installera [2.0.1-för hands](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) version eller senare av AZ. Storage PowerShell-modulen. Följ de här stegen för att installera Preview-modulen:
-
-1. Avinstallera tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
-
-1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-    Stäng PowerShell-fönstret och öppna det igen när du har installerat PowerShellGet.
-
-1. Installera den senaste versionen av Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Installera AZ. Storage Preview-modulen:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
-Mer information om hur du installerar Azure PowerShell finns i [installera Azure PowerShell med PowerShellGet](/powershell/azure/install-az-ps).
+Om du vill skapa en replikeringsprincip med PowerShell installerar du först version [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) eller senare av AZ. Storage PowerShell-modulen. Mer information om hur du installerar Azure PowerShell finns i [installera Azure PowerShell med PowerShellGet](/powershell/azure/install-az-ps).
 
 I följande exempel visas hur du skapar en replikeringsprincip på käll-och mål kontona. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
 
@@ -162,32 +148,22 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill skapa en replikeringsprincip med Azure CLI måste du först installera förhands gransknings tillägget för Azure Storage.:
+Om du vill skapa en replikeringsprincip med Azure CLI måste du först installera Azure CLI version 2.11.1 eller senare. Mer information finns i [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
+
+Aktivera sedan BLOB-versioner på käll-och mål lagrings kontona och aktivera ändra feed på käll kontot. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
 
 ```azurecli
-az extension add -n storage-or-preview
-```
-
-Logga sedan in med dina Azure-autentiseringsuppgifter:
-
-```azurecli
-az login
-```
-
-Aktivera BLOB-versioner på käll-och mål lagrings kontona och aktivera ändra feed på käll kontot. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
-
-```azurecli
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
@@ -242,12 +218,110 @@ Skapa principen på käll kontot med hjälp av princip-ID: t.
 ```azurecli
 az storage account or-policy show \
     --resource-group <resource-group> \
-    --name <dest-storage-account> \
+    --account-name <dest-storage-account> \
     --policy-id <policy-id> |
-    --az storage account or-policy create --resource-group <resource-group> \
-    --name <source-storage-account> \
+    az storage account or-policy create --resource-group <resource-group> \
+    --account-name <source-storage-account> \
     --policy "@-"
 ```
+
+---
+
+### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Konfigurera objekt replikering när du har åtkomst till mål kontot
+
+Om du inte har behörighet till käll lagrings kontot kan du konfigurera objekt replikering på mål kontot och ange en JSON-fil som innehåller princip definitionen till en annan användare för att skapa samma princip på käll kontot. Om käll kontot till exempel finns i en annan Azure AD-klient från mål kontot använder du den här metoden för att konfigurera objekt replikering. 
+
+Tänk på att du måste tilldelas rollen som Azure Resource Managers **deltagare** som är begränsad till nivån för mål lagrings kontot eller högre för att kunna skapa principen. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azure Role-baserade Access Control (RBAC)-dokumentationen.
+
+I följande tabell sammanfattas vilka värden som ska användas för princip-ID i JSON-filen i varje scenario.
+
+| När du skapar JSON-filen för det här kontot... | Ange princip-ID: t till det här värdet... |
+|-|-|
+| Mål konto | Standardvärdet för sträng *värde.* Azure Storage skapar princip-ID: t åt dig. |
+| Käll konto | Princip-ID: t returnerade när du laddar ned en JSON-fil som innehåller de regler som definierats på mål kontot. |
+
+I följande exempel definieras en replikeringsprincip på mål kontot med en enda regel som matchar prefixet *b* och anger den minsta skapande tiden för blobbar som ska replikeras. Kom ihåg att ersätta värden inom vinkelparenteser med dina egna värden:
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "<source-account>",
+    "destinationAccount": "<dest-account>",
+    "rules": [
+      {
+        "ruleId": "default",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2020-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+
+Följ dessa steg om du vill konfigurera objekt replikering på mål kontot med en JSON-fil i Azure Portal:
+
+1. Skapa en lokal JSON-fil som definierar replikeringsprincipen på mål kontot. Ange **policyId** -fältet som **standard** så att Azure Storage definierar princip-ID: t.
+
+    Ett enkelt sätt att skapa en JSON-fil som definierar en replikeringsprincip är att först skapa en princip för redundanstest mellan två lagrings konton i Azure Portal. Du kan sedan hämta reglerna för replikering och ändra JSON-filen efter behov.
+
+1. Navigera till inställningarna för **objekt replikering** för mål kontot i Azure Portal.
+1. Välj **Ladda upp regler för uppladdning av replikering**.
+1. Ladda upp JSON-filen. Azure Portal visar principen och reglerna som kommer att skapas, som du ser i följande bild.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Skärm bild som visar hur du laddar upp en JSON-fil för att definiera en replikeringsprincip":::
+
+1. Välj **överför** för att skapa replikeringsprincipen på mål kontot.
+
+Du kan sedan hämta en JSON-fil som innehåller princip definitionen som du kan ge till en annan användare att konfigurera käll kontot. Följ dessa steg om du vill ladda ned denna JSON-fil:
+
+1. Navigera till inställningarna för **objekt replikering** för mål kontot i Azure Portal.
+1. Välj knappen **mer** bredvid den princip som du vill ladda ned och välj sedan **Hämta regler**, som du ser i följande bild.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Skärm bild som visar hur du laddar ned regler för replikering till en JSON-fil":::
+
+1. Spara JSON-filen på den lokala datorn om du vill dela den med en annan användare för att konfigurera principen på käll kontot.
+
+Den nedladdade JSON-filen innehåller princip-ID: t som Azure Storage skapats för principen på mål kontot. Du måste använda samma princip-ID om du vill konfigurera objekt replikering på käll kontot.
+
+Tänk på att överföring av en JSON-fil för att skapa en replikeringsprincip för mål kontot via Azure Portal inte automatiskt skapar samma princip i käll kontot. En annan användare måste skapa principen på käll kontot innan Azure Storage börjar replikera objekt.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Om du vill hämta en JSON-fil som innehåller replikeringsprincipen för mål kontot från PowerShell anropar du kommandot [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) för att returnera principen. Konvertera sedan principen till JSON och spara den som en lokal fil, som du ser i följande exempel. Kom ihåg att ersätta värden inom vinkelparenteser och fil Sök vägen med dina egna värden:
+
+```powershell
+$rgName = "<resource-group>"
+$destAccountName = "<destination-storage-account>"
+
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
+```
+
+Om du vill använda JSON-filen för att definiera replikeringsprincipen på käll kontot med PowerShell hämtar du den lokala filen och konverterar från JSON till ett objekt. Anropa sedan kommandot [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) för att konfigurera principen för käll kontot, som du ser i följande exempel. Kom ihåg att ersätta värden inom vinkelparenteser och fil Sök vägen med dina egna värden:
+
+```powershell
+$object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $object.PolicyId `
+    -SourceAccount $object.SourceAccount `
+    -DestinationAccount $object.DestinationAccount `
+    -Rule $object.Rules
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+E.t.
 
 ---
 
@@ -300,4 +374,6 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över objekt replikering (för hands version)](object-replication-overview.md)
+- [Översikt över objekt replikering](object-replication-overview.md)
+- [Aktivera och hantera BLOB-versioner](versioning-enable.md)
+- [Bearbeta ändrings flöde i Azure Blob Storage](storage-blob-change-feed-how-to.md)

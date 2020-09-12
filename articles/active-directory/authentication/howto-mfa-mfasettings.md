@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179411"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023847"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -102,7 +102,7 @@ Utför följande steg för att aktivera och konfigurera bedrägeri aviseringar:
 
 Välj **Azure Active Directory**  >  **Sign-ins**  >  **information om**Azure Active Directory inloggningar. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar och visas i **"resultat information"** som MFA nekad, bedrägeri kod angiven.
  
-## <a name="notifications"></a>Aviseringar
+## <a name="notifications"></a>Meddelanden
 
 E-postaviseringar kan konfigureras när användare rapporterar bedrägeri aviseringar. Dessa meddelanden skickas vanligt vis till identitets administratörer, eftersom användarens konto uppgifter sannolikt komprometteras. I följande exempel visas hur ett meddelande om bedrägeri aviseringar ser ut så här:
 
@@ -242,7 +242,10 @@ Funktionen _betrodda_ IP-adresser i Azure Multi-Factor Authentication kringgår 
 
 Om din organisation distribuerar NPS-tillägget för att tillhandahålla MFA till lokala program, ser käll-IP-adressen alltid vara den NPS-server som autentiseringen försöker flöda genom.
 
-| Typ av Azure AD-klient | Alternativ för betrodda IP-funktioner | |:---|:---| två steg | Hanterad | Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå Multi-Factor Authentication för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras. | | Federerad | **Alla federerade användare**: alla federerade användare som loggar in från i organisationen kan kringgå Multi-Factor Authentication. Användarna kringgår verifieringen genom att använda ett anspråk som utfärdats av Active Directory Federation Services (AD FS) (AD FS).<br/>Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå Multi-Factor Authentication för användare som loggar in från företagets intranät. |
+| Typ av Azure AD-klient | Alternativ för betrodda IP-funktioner |
+|:--- |:--- |
+| Hanterade |Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå Multi-Factor Authentication för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras.|
+| Federerade |**Alla federerade användare**: alla federerade användare som loggar in från i organisationen kan kringgå Multi-Factor Authentication. Användarna kringgår verifieringen genom att använda ett anspråk som utfärdats av Active Directory Federation Services (AD FS) (AD FS).<br/>Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå Multi-Factor Authentication för användare som loggar in från företagets intranät. |
 
 Överanvändning av betrodda IP-arbeten är bara inifrån företagets intranät. Om du väljer alternativet **alla federerade användare** och en användare loggar in utanför företagets intranät, måste användaren autentisera med hjälp av Multi-Factor Authentication. Processen är densamma även om användaren presenterar ett AD FS-anspråk.
 

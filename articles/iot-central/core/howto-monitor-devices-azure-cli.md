@@ -6,15 +6,15 @@ ms.author: viviali
 ms.date: 03/27/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b9cf8b862f77af833016d6aabb0ccae7bea8e24a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497434"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015984"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Övervaka enhetsanslutningar med Azure CLI
 
@@ -24,9 +24,9 @@ Använd Azure CLI IoT-tillägget för att se meddelanden som dina enheter skicka
 
 [Mer information finns i referensen för Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-+ Azure CLI installerat och är version 2.0.7 eller högre. Kontrol lera versionen av Azure CLI genom att köra `az --version` . Lär dig hur du installerar och uppdaterar från [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Azure CLI installerat och är version 2.7.0 eller högre. Kontrol lera versionen av Azure CLI genom att köra `az --version` . Lär dig hur du installerar och uppdaterar från [Azure CLI-dokument](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Ett arbets-eller skol konto i Azure som har lagts till som en användare i ett IoT Central-program.
 
 ## <a name="install-the-iot-central-extension"></a>Installera IoT Central-tillägget
@@ -43,7 +43,7 @@ Kontrol lera versionen av tillägget genom att köra:
 az --version
 ```
 
-Du bör se att Azure-IoT-tillägget är 0.8.1 eller högre. Om så inte är fallet kör du:
+Du bör se att Azure-IoT-tillägget är 0.9.9 eller högre. Om så inte är fallet kör du:
 
 ```azurecli
 az extension update --name azure-iot
@@ -68,14 +68,14 @@ Kopiera **program-ID**i **Administration/program inställningar**. Du använder 
 Övervaka meddelanden som skickas till din IoT Central-app från dina enheter. Utdata innehåller alla rubriker och anteckningar.
 
 ```azurecli
-az iot central app monitor-events --app-id <app-id> --properties all
+az iot central diagnostics monitor-events --app-id <app-id> --properties all
 ```
 
 ### <a name="view-device-properties"></a>Visa enhets egenskaper
 Visa aktuella egenskaper för läsning och läsning/skrivning för en specifik enhet.
 
 ```azurecli
-az iot central device-twin show --app-id <app-id> --device-id <device-id>
+az iot central device twin show --app-id <app-id> --device-id <device-id>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

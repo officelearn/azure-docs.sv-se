@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548874"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661859"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 I den här artikeln beskrivs de inbyggda konfigurations reglerna. Den dokumenterar reglerna och hur dessa regler påverkar konfigurationen. Den vägleder dig också genom standard konfigurationen av Azure AD Connect Sync. Målet är att läsaren förstår hur konfigurations modellen, med namnet deklarativ etablering, fungerar i ett verkligt exempel. Den här artikeln förutsätter att du redan har installerat och konfigurerat Azure AD Connect Sync med hjälp av installations guiden.
@@ -181,7 +181,7 @@ När du utvärderar regler för synkronisering måste endast en Synkroniseringsr
 
 Om du tittar på bilden ovan kan du se att regeln försöker ansluta till **objectSID** med **msExchMasterAccountSid** (Exchange) och **msRTCSIP-OriginatorSid** (Lync), vilket är vad vi förväntar dig i en skog för konto-resurs. Du hittar samma regel på alla skogar. Antagandet är att varje skog kan vara antingen ett konto eller en resurs skog. Den här konfigurationen fungerar även om du har konton som är aktiva i en enda skog och inte behöver anslutas.
 
-#### <a name="transformations"></a>Transformationer
+#### <a name="transformations"></a>Transformeringar
 Transformerings avsnittet definierar alla attributarkiv som gäller för målobjektet när objekten är anslutna och omfångs filtret är uppfyllt. Om du går tillbaka till **AccountEnabled för AD – User-** , hittar du följande omvandlingar:
 
 ![Fliken omvandlingar i regel redigeraren för synkronisering](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
@@ -223,7 +223,7 @@ Vi vet nu nog om regler för synkronisering för att kunna förstå hur konfigur
 | Name | Kommentar |
 |:--- |:--- |
 | I från AD – användar anslutning |Regel för anslutning av anslutnings utrymmes objekt med metaversum. |
-| I från AD – UserAccount aktiverat |Attribut krävs för inloggning till Azure AD och Office 365. Vi vill ha dessa attribut från det aktiverade kontot. |
+| I från AD – UserAccount aktiverat |Attribut krävs för inloggning till Azure AD och Microsoft 365. Vi vill ha dessa attribut från det aktiverade kontot. |
 | I från AD – användare common från Exchange |Attribut hittades i den globala adress listan. Vi förutsätter att data kvaliteten är bäst i skogen där vi har hittat användarens post låda. |
 | I från AD – vanlig användare |Attribut hittades i den globala adress listan. Om vi inte hittar någon post låda kan andra anslutna objekt bidra till attributvärdet. |
 | I från AD – användar utbyte |Finns bara om Exchange har identifierats. Den flödar alla Exchange-attribut för infrastrukturen. |

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121178"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015814"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -42,9 +42,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Appar med en sida (Java Script)
 
-Många moderna appar har en fristående app från en sida som främst är skriven i Java Script, ofta med ett ramverk som vinkel, reagera eller Vue. Slut punkten för Microsoft Identity Platform stöder de här apparna med hjälp av [OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md).
+Många moderna appar har en fristående app från en sida som främst är skriven i Java Script, ofta med ett ramverk som vinkel, reagera eller Vue. Slut punkten för Microsoft Identity Platform stöder de här apparna med hjälp av [OpenID Connect](v2-protocols-oidc.md) -protokollet för autentisering och antingen [OAuth 2,0-implicit tilldelnings flöde](v2-oauth2-implicit-grant-flow.md) eller den senaste [OAuth 2,0-auktoriseringskod + PKCE-flödet](v2-oauth2-auth-code-flow.md) för auktorisering (se nedan).
 
-I det här flödet tar appen emot en kod från Microsoft Identity Platform `authorize` -slutpunkten och löser den för token och uppdateringstoken med hjälp av webb förfrågningar över webbplatser. Uppdateringstoken upphör att gälla var 24: e timme och appen måste begära en annan kod.
+Flödes diagrammet nedan visar OAuth 2,0-auktoriseringskod (med information kring PKCE utelämnad), där appen tar emot en kod från Microsoft Identity Platform `authorize` -slutpunkten och löser in den för token och uppdaterar token med webb förfrågningar över olika webbplatser. Uppdateringstoken upphör att gälla var 24: e timme och appen måste begära en annan kod. Förutom åtkomst-token `id_token` begär en som representerar den inloggade användaren till klient programmet vanligt vis även genom samma flöde och/eller en separat OpenID Connect-begäran (visas inte här).
 
 ![Kod flöde för SPA-appar](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 

@@ -11,23 +11,23 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984783"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434290"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Använd Azure Active Directory autentisering
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure Active Directory (Azure AD)-autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD.
+Azure Active Directory (Azure AD)-autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure AD.
 
 > [!NOTE]
 > Den här artikeln gäller för Azure SQL Database, SQL-hanterad instans och Azure Synapse Analytics.
 
-Med Azure AD-autentisering kan du hantera identiteter för databasanvändare och andra Microsoft-tjänster på en enda central plats. Central ID-hantering ger en enda plats för hantering av databasanvändare och förenklar behörighetshanteringen. Här är några av fördelarna:
+Med Azure AD-autentisering kan du centralt hantera identiteterna för databasanvändare och andra Microsoft-tjänster på en central plats. Central ID-hantering ger en enda plats för hantering av databasanvändare och förenklar behörighetshanteringen. Här är några av fördelarna:
 
 - Det är ett alternativ till att SQL Server autentisering.
 - Det hjälper till att stoppa spridningen av användar identiteter mellan servrar.
@@ -168,7 +168,7 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
 - En översikt över inloggningar, användare, databas roller och behörigheter i SQL Database finns i [inloggningar, användare, databas roller och behörigheter](logins-create-manage.md).
 - Mer information om huvudkonton finns i [Huvudkonton](https://msdn.microsoft.com/library/ms181127.aspx).
 - Mer information om databasroller finns [Databasroller](https://msdn.microsoft.com/library/ms189121.aspx).
-- En syntax för att skapa Azure AD server-huvudobjekt (inloggningar) för SQL-hanterad instans finns i [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- En syntax för att skapa Azure AD server-huvudobjekt (inloggningar) för SQL-hanterad instans finns i  [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Mer information om brandväggsregler i SQL Database finns [SQL Database-brandväggsregler](firewall-configure.md).
 
 <!--Image references-->

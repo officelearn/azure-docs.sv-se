@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225690"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594364"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory hanterad Virtual Network (förhands granskning)
 
@@ -43,7 +43,7 @@ Fördelar med att använda hanterade Virtual Network:
 
 ![ADF Managed Virtual Network-arkitektur](./media/managed-vnet/managed-vnet-architecture-diagram.png)
 
-## <a name="managed-private-endpoints"></a>Hanterade privata slut punkter
+## <a name="managed-private-endpoints"></a>Hanterade privata slutpunkter
 
 Hanterade privata slut punkter är privata slut punkter som skapats i den Azure Data Factory hanterade Virtual Network att upprätta en privat länk till Azure-resurser. Azure Data Factory hanterar de här privata slut punkterna för din räkning. 
 
@@ -59,7 +59,7 @@ Privat slut punkt använder en privat IP-adress i den hanterade Virtual Network 
 > Vi rekommenderar att du skapar hanterade privata slut punkter för att ansluta till alla dina Azure-datakällor. 
  
 > [!WARNING]
-> Om ett PaaS data lager (BLOB, ADLS Gen2, SQL DW) har skapat en privat slut punkt som redan har skapats mot den, och även om den tillåter åtkomst från alla nätverk, skulle ADF endast kunna komma åt den med hanterad privat slut punkt. Se till att du skapar en privat slut punkt i sådana scenarier. 
+> Om ett PaaS data lager (BLOB, ADLS Gen2, Azure Synapse Analytics) har skapat en privat slut punkt som redan har skapats mot den, och även om den tillåter åtkomst från alla nätverk, skulle ADF bara kunna komma åt den med hanterad privat slut punkt. Se till att du skapar en privat slut punkt i sådana scenarier. 
 
 En privat slut punkts anslutning skapas i ett väntande tillstånd när du skapar en hanterad privat slut punkt i Azure Data Factory. Ett arbets flöde för godkännande har initierats. Ägaren till den privata länk resursen ansvarar för att godkänna eller avvisa anslutningen.
 
@@ -83,6 +83,23 @@ Under data källor finns stöd för att ansluta via en privat länk från ADF-ha
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure privat länk-tjänst
+- Azure Search
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure-databas för MariaDB
+
+### <a name="supported-regions"></a>Regioner som stöds
+- East US
+- USA, östra 2
+- USA, västra centrala
+- USA, västra 2
+- USA, södra centrala
+- Central US
+- Norra Europa
+- Europa, västra
+- Storbritannien, södra
+- Sydostasien
+- Australien, östra
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Utgående kommunikation via offentlig slut punkt från ADF-hanterad Virtual Network
 - Endast port 443 är öppen för utgående kommunikation.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036376"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440617"
 ---
 # <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet
 
@@ -30,7 +30,7 @@ När du har skapat och publicerat en pipeline i Azure Data Factory kan du associ
 
 Om du vill övervaka körningen av kopierings aktiviteten går du till Data Factory- **redigeraren & övervaka** användar gränssnitt. På fliken **övervaka** ser du en lista över pipeliner som körs. Klicka på länken **pipelin namn** för att få åtkomst till listan över aktivitets körningar i pipeline-körningen.
 
-![Körning av övervaka kopierings aktivitet](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Övervaka pipelinekörning](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 På den här nivån kan du se länkar för att kopiera aktivitetens indata, utdata och fel (om kopierings aktiviteten körs Miss lyckas), samt statistik som varaktighet/status. Om du klickar på knappen **information** (glasögon) bredvid kopiera aktivitets namnet får du djupgående information om kopierings aktiviteten. 
 
@@ -38,7 +38,7 @@ På den här nivån kan du se länkar för att kopiera aktivitetens indata, utda
 
 I den här grafiska övervaknings vyn visar Azure Data Factory information om körningen av kopierings aktiviteten, inklusive lästa/skrivna volymer, antal filer/rader med data som har kopierats från källa till mottagare, data flöde, de konfigurationer som tillämpas för ditt kopierings scenario, steg för kopierings aktiviteten med motsvarande varaktighet och information. Se [den här tabellen](#monitor-programmatically) för varje möjlig mått och dess detaljerade beskrivning. 
 
-När du kör en kopierings aktivitet i Data Factory visas i vissa fall **"prestanda justerings tips"** längst upp i vyn kopiera aktivitets övervakning som du ser i exemplet. Tipsen visar vilken Flask hals som identifieras av ADF för den speciella kopierings körningen, tillsammans med förslag på vad som ska ändras för att förbättra kopieringen av data. Läs mer om [automatiska prestanda justerings tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+När du kör en kopierings aktivitet i Data Factory visas i vissa fall **"prestanda justerings tips"**  längst upp i vyn kopiera aktivitets övervakning som du ser i exemplet. Tipsen visar vilken Flask hals som identifieras av ADF för den speciella kopierings körningen, tillsammans med förslag på vad som ska ändras för att förbättra kopieringen av data. Läs mer om [automatiska prestanda justerings tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 Den nedre **körnings informationen och varaktigheten** beskriver de viktigaste stegen som kopierings aktiviteten går igenom, vilket är särskilt användbart för att felsöka kopierings prestandan. Flask halsen för din kopierings körning är den som har den längsta varaktigheten. Se [fel sökning av prestanda för kopierings aktivitet](copy-activity-performance-troubleshooting.md) på för vad varje steg representerar och detaljerad fel söknings vägledning.
 
@@ -67,7 +67,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | dataflöde | Hastighet för data överföring. | Flytt ALS nummer, i kbit/s |
 | sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int32-värde (ingen enhet) |
 | sinkPeakConnections| Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten.| Int32-värde (ingen enhet) |
-| sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolesk |
+| sqlDwPolyBase | Om PolyBase används när data kopieras till Azure Synapse Analytics (tidigare SQL Data Warehouse). | Boolesk |
 | redshiftUnload | Anger om borttagning används när data kopieras från RedShift. | Boolesk |
 | hdfsDistcp | Om DistCp används när data kopieras från HDFS. | Boolesk |
 | effectiveIntegrationRuntime | Integrerings körningen (IR) eller körningar som används för att starta aktivitets körningen i formatet `<IR name> (<region if it's Azure IR>)` . | Text (sträng) |
@@ -163,6 +163,6 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-\-[Översikt över kopierings aktivitet](copy-activity-overview.md)
+\- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
 
 \- [Kopiera aktivitetsprestanda](copy-activity-performance.md)

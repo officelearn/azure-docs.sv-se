@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311576"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434545"
 ---
 # <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
 
@@ -32,7 +32,7 @@ Börja med att utföra följande steg för att skapa den första appens registre
 1. Logga in på [Azure-portalen](https://portal.azure.com). Om ditt konto har åtkomst till flera klienter väljer du filtret **katalog + prenumeration** på den översta menyn och väljer sedan den klient som ska innehålla den app-registrering som du håller på att skapa.
 1. Sök efter och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** under **Hantera**.
-1. Välj **ny registrering**, ange ett **namn** för programmet och välj de **konto typer som stöds** för programmet. Ange **ingen** **omdirigerings-URI**. En beskrivning av de olika konto typerna finns i [Registrera ett nytt program med hjälp av Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Välj **ny registrering**, ange ett **namn** för programmet och välj de **konto typer som stöds** för programmet. Ange **ingen** **omdirigerings-URI**. En beskrivning av de olika konto typerna finns i [Registrera ett nytt program med hjälp av Azure Portal](quickstart-register-app.md).
 1. Välj **Registrera** för att skapa appens registrering.
 
 Konfigurera sedan appens registrering med en **omdirigerings-URI** för att ange var Microsoft Identity Platform ska omdirigera klienten tillsammans med alla säkerhetstoken. Använd de steg som är lämpliga för den version av MSAL.js som du använder i ditt program:

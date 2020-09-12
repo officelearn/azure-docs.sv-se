@@ -1,14 +1,14 @@
 ---
 title: Så här skyddar du din resurs-hierarki – Azure-styrning
 description: Lär dig hur du skyddar din resurs-hierarki med hierarkiska inställningar som inkluderar inställning av standard hanterings gruppen.
-ms.date: 08/10/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056626"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469787"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Så här skyddar du din resurs-hierarki
 
@@ -31,7 +31,26 @@ Som standard läggs en ny prenumeration i en klient till som medlem i rot hanter
 
 Genom att tillåta att standard hanterings gruppen för nya prenumerationer definieras kan styrnings konstruktioner för hela organisationen tillämpas på rot hanterings gruppen och en separat hanterings grupp med princip tilldelningar eller Azure-roll tilldelningar som är mer lämpade för en ny prenumeration kan definieras.
 
-Om du vill konfigurera den här inställningen anropas [inställningarna för hierarki](/rest/api/resources/hierarchysettings) REST API slut punkten. Det gör du genom att använda följande REST API URI-och Body-format. Ersätt `{rootMgID}` med ID för din rot hanterings grupp och `{defaultGroupID}` med ID för hanterings gruppen som ska vara standard hanterings grupp:
+### <a name="set-default-management-group-in-portal"></a>Ange standard hanterings grupp i portalen
+
+Följ dessa steg om du vill konfigurera den här inställningen i Azure Portal:
+
+1. Använd Sök fältet för att söka efter och välja hanterings grupper.
+
+1. I rot hanterings gruppen väljer du **information** bredvid namnet på hanterings gruppen.
+
+1. Under **Inställningar**väljer du **Inställningar för hierarki**.
+
+1. Välj knappen **ändra standard hanterings grupp** .
+
+   > [!NOTE]
+   > Om knappen **ändra standard hanterings grupp** är inaktive rad är antingen hanterings gruppen som visas inte rot hanterings gruppen, eller så har ditt säkerhets objekt inte de behörigheter som krävs för att ändra inställningarna för hierarkin.
+
+1. Välj en hanterings grupp i hierarkin och Använd knappen **Välj** .
+
+### <a name="set-default-management-group-with-rest-api"></a>Ange standard hanterings grupp med REST API
+
+Om du vill konfigurera den här inställningen med REST API, anropas slut punkten för [hierarki inställningar](/rest/api/resources/hierarchysettings) . Det gör du genom att använda följande REST API URI-och Body-format. Ersätt `{rootMgID}` med ID för din rot hanterings grupp och `{defaultGroupID}` med ID för hanterings gruppen som ska vara standard hanterings grupp:
 
 - REST API-URI
 
@@ -55,7 +74,24 @@ Om du vill ange standard hanterings gruppen tillbaka till rot hanterings gruppen
 
 Alla användare kan som standard skapa nya hanterings grupper inom en klient organisation. Administratörer för en klient organisation kan vilja bara ge dessa behörigheter till vissa användare för att upprätthålla konsekvens och överensstämmelse i hierarkin för hanterings grupper. Om den här inställningen är aktive rad måste en användare `Microsoft.Management/managementGroups/write` utföra åtgärden på rot hanterings gruppen för att skapa nya underordnade hanterings grupper.
 
-Om du vill konfigurera den här inställningen anropas [inställningarna för hierarki](/rest/api/resources/hierarchysettings) REST API slut punkten. Det gör du genom att använda följande REST API URI-och Body-format. Värdet är ett _booleskt_värde, så ange antingen **Sant** eller **falskt** för värdet. Värdet **True** aktiverar den här metoden för att skydda din hanterings grupp hierarki:
+### <a name="set-require-authorization-in-portal"></a>Ställ in Kräv auktorisering i portalen
+
+Följ dessa steg om du vill konfigurera den här inställningen i Azure Portal:
+
+1. Använd Sök fältet för att söka efter och välja hanterings grupper.
+
+1. I rot hanterings gruppen väljer du **information** bredvid namnet på hanterings gruppen.
+
+1. Under **Inställningar**väljer du **Inställningar för hierarki**.
+
+1. Växla mellan **Kräv behörigheter för att skapa nya hanterings grupper.** alternativ till på.
+
+   > [!NOTE]
+   > Om **Kräv behörigheter för att skapa nya hanterings grupper.** växling är inaktiverat, antingen är hanterings gruppen som visas inte rot hanterings gruppen, eller så har ditt säkerhets objekt inte de behörigheter som krävs för att ändra inställningarna för hierarkin.
+
+### <a name="set-require-authorization-with-rest-api"></a>Ange Kräv auktorisering med REST API
+
+Om du vill konfigurera den här inställningen med REST API, anropas slut punkten för [hierarki inställningar](/rest/api/resources/hierarchysettings) . Det gör du genom att använda följande REST API URI-och Body-format. Värdet är ett _booleskt_värde, så ange antingen **Sant** eller **falskt** för värdet. Värdet **True** aktiverar den här metoden för att skydda din hanterings grupp hierarki:
 
 - REST API-URI
 

@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 046cd30c0f93a468287c73573a3d18f4ba66221b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690229"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470076"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Skapa ett säkerhets kopierings program för Azure Red Hat OpenShift 4-kluster
 
@@ -23,7 +23,7 @@ I den här artikeln förbereder du din miljö för att skapa en säkerhets kopia
 > * Konfigurera förutsättningarna och installera nödvändiga verktyg
 > * Skapa en Azure Red Hat OpenShift 4 program säkerhets kopiering
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534353"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440600"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopierings aktivitet i Azure Data Factory
 
@@ -129,18 +129,18 @@ Följande mall för en kopierings aktivitet innehåller en fullständig lista ö
 
 | Egenskap | Beskrivning | Obligatoriskt? |
 |:--- |:--- |:--- |
-| typ | För en kopierings aktivitet anger du till`Copy` | Yes |
-| tillför | Ange den data uppsättning som du har skapat som pekar på käll data. Kopierings aktiviteten har endast stöd för en enda Indatatyp. | Yes |
-| utdata | Ange den data uppsättning som du har skapat som pekar på mottagar data. Kopierings aktiviteten har endast stöd för en enda utdata. | Yes |
-| typeProperties | Ange egenskaper för att konfigurera kopierings aktiviteten. | Yes |
-| källa | Ange typ av kopierings källa och motsvarande egenskaper för att hämta data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Yes |
-| sjönk | Ange typ av kopierings mottagare och motsvarande egenskaper för att skriva data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Yes |
-| translator | Ange explicita kolumn mappningar från källan till Sink. Den här egenskapen gäller när standard kopierings beteendet inte uppfyller dina behov.<br/>Mer information finns i [schema mappning i kopierings aktivitet](copy-activity-schema-and-type-mapping.md). | No |
-| dataIntegrationUnits | Ange ett mått som representerar den mängd potens som [Azure integration runtime](concepts-integration-runtime.md) använder för data kopiering. Dessa enheter kallades tidigare för moln data förflyttnings enheter (DMU). <br/>Mer information finns i [data integrerings enheter](copy-activity-performance-features.md#data-integration-units). | No |
-| parallelCopies | Ange den parallellitet som du vill att kopierings aktiviteten ska använda vid inläsning av data från källan och skrivning av data till mottagaren.<br/>Mer information finns i [parallell kopiering](copy-activity-performance-features.md#parallel-copy). | No |
-| bibehålla | Ange om du vill bevara metadata/ACL: er under data kopieringen. <br/>Mer information finns i [bevara metadata](copy-activity-preserve-metadata.md). |No |
-| enableStaging<br/>stagingSettings | Ange om du vill mellanlagra interims data i Blob Storage i stället för att kopiera data direkt från källa till mottagare.<br/>Information om användbara scenarier och konfigurations information finns i [mellanlagrad kopia](copy-activity-performance-features.md#staged-copy). | No |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du vill hantera inkompatibla rader när du kopierar data från källa till mottagare.<br/>Mer information finns i [fel tolerans](copy-activity-fault-tolerance.md). | No |
+| typ | För en kopierings aktivitet anger du till `Copy` | Ja |
+| tillför | Ange den data uppsättning som du har skapat som pekar på käll data. Kopierings aktiviteten har endast stöd för en enda Indatatyp. | Ja |
+| utdata | Ange den data uppsättning som du har skapat som pekar på mottagar data. Kopierings aktiviteten har endast stöd för en enda utdata. | Ja |
+| typeProperties | Ange egenskaper för att konfigurera kopierings aktiviteten. | Ja |
+| källa | Ange typ av kopierings källa och motsvarande egenskaper för att hämta data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Ja |
+| sjönk | Ange typ av kopierings mottagare och motsvarande egenskaper för att skriva data.<br/>Mer information finns i avsnittet "Kopiera aktivitets egenskaper" i den kopplings artikel som visas i [data lager och format som stöds](#supported-data-stores-and-formats). | Ja |
+| translator | Ange explicita kolumn mappningar från källan till Sink. Den här egenskapen gäller när standard kopierings beteendet inte uppfyller dina behov.<br/>Mer information finns i [schema mappning i kopierings aktivitet](copy-activity-schema-and-type-mapping.md). | Inga |
+| dataIntegrationUnits | Ange ett mått som representerar den mängd potens som [Azure integration runtime](concepts-integration-runtime.md) använder för data kopiering. Dessa enheter kallades tidigare för moln data förflyttnings enheter (DMU). <br/>Mer information finns i [data integrerings enheter](copy-activity-performance-features.md#data-integration-units). | Inga |
+| parallelCopies | Ange den parallellitet som du vill att kopierings aktiviteten ska använda vid inläsning av data från källan och skrivning av data till mottagaren.<br/>Mer information finns i [parallell kopiering](copy-activity-performance-features.md#parallel-copy). | Inga |
+| bibehålla | Ange om du vill bevara metadata/ACL: er under data kopieringen. <br/>Mer information finns i [bevara metadata](copy-activity-preserve-metadata.md). |Inga |
+| enableStaging<br/>stagingSettings | Ange om du vill mellanlagra interims data i Blob Storage i stället för att kopiera data direkt från källa till mottagare.<br/>Information om användbara scenarier och konfigurations information finns i [mellanlagrad kopia](copy-activity-performance-features.md#staged-copy). | Inga |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du vill hantera inkompatibla rader när du kopierar data från källa till mottagare.<br/>Mer information finns i [fel tolerans](copy-activity-fault-tolerance.md). | Inga |
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -183,7 +183,7 @@ Se [schema-och data typs mappning](copy-activity-schema-and-type-mapping.md) fö
 
 ## <a name="add-additional-columns-during-copy"></a>Lägg till ytterligare kolumner under kopieringen
 
-Förutom att kopiera data från käll data lagret till Sink kan du också konfigurera för att lägga till ytterligare data kolumner som ska kopieras till mottagaren. Ett exempel:
+Förutom att kopiera data från käll data lagret till Sink kan du också konfigurera för att lägga till ytterligare data kolumner som ska kopieras till mottagaren. Exempel:
 
 - När du kopierar från filbaserad källa lagrar du den relativa fil Sök vägen som en ytterligare kolumn att spåra från vilken fil data kommer från.
 - Lägg till en kolumn med ADF-uttryck för att koppla ADF-systemvariabler som pipeline-namn/pipeline-ID eller lagra andra dynamiska värden från den överordnade aktivitetens utdata.
@@ -200,7 +200,7 @@ Om du vill konfigurera den program mässigt lägger du till `additionalColumns` 
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| additionalColumns | Lägg till ytterligare data kolumner som ska kopieras till Sink.<br><br>Varje objekt i `additionalColumns` matrisen representerar en extra kolumn. `name`Kolumnens namn definieras och `value` anger kolumnens data värde.<br><br>Tillåtna data värden är:<br>- **`$$FILEPATH`**– en reserverad variabel indikerar att lagra källfilernas relativa sökväg till den mappsökväg som anges i data uppsättningen. Tillämpa på filbaserad källa.<br>- **Uttryck**<br>- **Statiskt värde** | No |
+| additionalColumns | Lägg till ytterligare data kolumner som ska kopieras till Sink.<br><br>Varje objekt i `additionalColumns` matrisen representerar en extra kolumn. `name`Kolumnens namn definieras och `value` anger kolumnens data värde.<br><br>Tillåtna data värden är:<br>- **`$$FILEPATH`** – en reserverad variabel indikerar att lagra källfilernas relativa sökväg till den mappsökväg som anges i data uppsättningen. Tillämpa på filbaserad källa.<br>- **Uttryck**<br>- **Statiskt värde** | Inga |
 
 **Exempel:**
 
@@ -248,8 +248,8 @@ När du kopierar data till SQL Database/Azure Synapse Analytics, om mål tabelle
 Den här funktionen stöds när du kopierar data från en källa till följande Sink-data lager. Du hittar alternativet på *ADF Authoring UI* – > *kopierings aktivitets mottagare* – > *tabell alternativ* – > *Automatisk skapande av tabell*eller `tableOption` egenskap i aktiviteten Sink-nyttolast.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
-- [Azure SQL Database Hanterad instans](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Hanterad Azure SQL Database-instans](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (tidigare SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Skapa mottagar tabeller](media/copy-activity-overview/create-sink-table.png)

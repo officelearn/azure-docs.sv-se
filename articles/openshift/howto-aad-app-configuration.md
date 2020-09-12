@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382920"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470093"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
@@ -30,7 +30,7 @@ Skapa en ny Azure Active Directory ägarens användare för att logga in i ditt 
 1. Gå till bladet [användare – alla användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
 2. Klicka på **+ ny användare** för att öppna fönstret **användare** .
 3. Ange ett **namn** för den här användaren.
-4. Skapa ett **användar namn** baserat på namnet på den klient som du skapade, med `.onmicrosoft.com` tillägg i slutet. Till exempel `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användar namnet. Du behöver den för att logga in på klustret.
+4. Skapa ett **användar namn** baserat på namnet på den klient som du skapade, med  `.onmicrosoft.com` tillägg i slutet. Till exempel `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användar namnet. Du behöver den för att logga in på klustret.
 5. Klicka på **katalog roll** för att öppna fönstret katalog roll och välj **ägare** och klicka sedan på **OK** längst ned i fönstret.
 6. I fönstret **användare** klickar du på **Visa lösen ord** och registrerar det tillfälliga lösen ordet. När du har loggat in första gången uppmanas du att återställa den.
 7. Klicka på **skapa** längst ned i fönstret för att skapa användaren.
@@ -86,9 +86,9 @@ Generera en klient hemlighet för autentisering av appen till Azure Active Direc
 
 ![Skärm bild av fönstret certifikat och hemligheter](./media/howto-create-tenant/create-key.png)
 
-Mer information om Azure Application objekt finns [i program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Mer information om Azure Application objekt finns [i program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera en app med slut punkten för Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera en app med slut punkten för Azure Active Directory v 1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Lägga till API-behörigheter
 
@@ -110,12 +110,12 @@ Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera e
 > [!IMPORTANT]
 > Synkronisering av gruppen kluster administratörer fungerar bara när medgivande har beviljats. En grön cirkel visas med en bock markering och ett meddelande "beviljat *prenumerations namn*" i kolumnen *admin medgivande krävs* .
 
-Mer information om hur du hanterar administratörer och andra roller finns i [lägga till eller ändra Azure-prenumerations administratörer](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Mer information om hur du hanterar administratörer och andra roller finns i [lägga till eller ändra Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Resurser
 
-* [Program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Snabbstart: Registrera en app med Azure Active Directory v1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Snabbstart: Registrera en app med Azure Active Directory v1.0-slutpunkten](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

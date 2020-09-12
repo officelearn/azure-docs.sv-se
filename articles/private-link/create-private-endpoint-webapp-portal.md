@@ -1,19 +1,19 @@
 ---
 title: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
-description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
+description: Den här artikeln förklarar hur du ansluter privat till en webbapp med hjälp av en privat Azure-slutpunkt
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d547546c3c0e0bbcdde65a654bf373ab7407be3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737401"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569479"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Anslut privat till en webbapp med hjälp av Azures privata slut punkt (för hands version)
 
@@ -65,7 +65,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 1. I Skapa en virtuell dator – grunder anger eller väljer du följande information:
 
    > [!div class="mx-imgBorder"]
-   >![Bas för virtuell dator][4]
+   >![Bas för virtuell dator ][4]
 
 1. Välj **Nästa: diskar**
 
@@ -94,7 +94,7 @@ I det här avsnittet ska du skapa en privat webbapp med en privat slut punkt til
 1. I skapa webbapp – grunderna anger eller väljer du den här informationen:
 
    > [!div class="mx-imgBorder"]
-   >![Web App Basic][6]
+   >![Web App Basic ][6]
 
 1. Välj **"granska + skapa"**
 
@@ -138,13 +138,13 @@ I det här avsnittet ska du skapa en privat webbapp med en privat slut punkt til
 
 1. Öppna den nedladdade RDP-filen.
 
-- Välj Anslut om du uppmanas att göra det.
-- Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+   - Välj Anslut om du uppmanas att göra det.
+   - Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
-> [!Note]
-> Du kan behöva välja fler alternativ > använda ett annat konto för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+   > [!Note]
+   > Du kan behöva välja fler alternativ > använda ett annat konto för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
-- Välj OK.
+   - Välj OK.
 
 1. Du kan få en certifikatvarning under inloggningen. Välj Ja eller Fortsätt om du får en certifikatvarning.
 
@@ -174,12 +174,21 @@ I det här avsnittet ska du ansluta privat till webbappen med hjälp av den priv
 1. I myVM kontrollerar du att webbappen inte är tillgänglig via den offentliga IP-adressen. Öppna en webbläsare och klistra in webbappens namn. du måste ha en 403-sida med otillåtna fel
 
    > [!div class="mx-imgBorder"]
-   >![Forbidden][17]
+   >![ett fel som inte tillåts vid försök att använda IP-adressen][17]
 
-> [!Important]
-> Eftersom den här funktionen finns i för hands version måste du hantera DNS-posten manuellt.
+   > [!Important]
+   > Eftersom den här funktionen finns i för hands version måste du hantera DNS-posten manuellt.
 
-1. Skapa värd posten, öppna Utforskaren och leta upp värd filen
+   För DNS har du två alternativ:
+   - Använd värd filen för den virtuella datorn 
+   - eller Använd tjänsten Azure DNS Private Zone.
+
+1. Första lösningen: du kan skapa en privat DNS-zon med namnet privatelink.azurewebsites.net och länka den till VNet
+1. Sedan måste du skapa två A-poster (appens namn och SCM-namn) med IP-adressen för din privata slut punkt
+   > [!div class="mx-imgBorder"]
+   >![Poster för privata DNS-zoner][21]
+
+1. Andra lösning: skapa värd posten, öppna Utforskaren och leta upp värd filen
 
    > [!div class="mx-imgBorder"]
    >![Värd fil][18]
@@ -214,7 +223,7 @@ I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk, 
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
 [2]: ./media/create-private-endpoint-webapp-portal/ipaddresses.png
 [3]: ./media/create-private-endpoint-webapp-portal/subnet.png
-[4]: ./media/create-private-endpoint-webapp-portal/virtualmachine.png
+[4]: ./media/create-private-endpoint-webapp-portal/virtual-machine.png
 [5]: ./media/create-private-endpoint-webapp-portal/vmnetwork.png
 [6]: ./media/create-private-endpoint-webapp-portal/webapp.png
 [7]: ./media/create-private-endpoint-webapp-portal/webappnetworking.png
@@ -231,6 +240,8 @@ I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk, 
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone-records.png
+
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

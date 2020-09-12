@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 8c2867fc5d57cf9ad6eb6bf2d90e02c61e320120
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146665"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651150"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Distribuerad utbildning med Azure Machine Learning
 
@@ -24,7 +24,7 @@ I distribuerad utbildning är arbets belastningen för att träna en modell att 
 
 ## <a name="deep-learning-and-distributed-training"></a>Djup inlärning och distribuerad utbildning 
 
-Det finns två huvudsakliga typer av distribuerade utbildningar: [data parallellitet](#data-parallelism) och [modell parallellitet](#model-parallelism). För distribuerad utbildning på djup inlärnings modeller stöder [Azure Machine Learning SDK i python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) integreringar med populära ramverk, PyTorch och TensorFlow. Båda ramverken använder data parallellitet för distribuerad utbildning och kan utnyttja [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) för att optimera beräknings hastigheter. 
+Det finns två huvudsakliga typer av distribuerade utbildningar: [data parallellitet](#data-parallelism) och [modell parallellitet](#model-parallelism). För distribuerad utbildning på djup inlärnings modeller stöder [Azure Machine Learning SDK i python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) integreringar med populära ramverk, PyTorch och TensorFlow. Båda ramverken använder data parallellitet för distribuerad utbildning och kan utnyttja [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) för att optimera beräknings hastigheter. 
 
 * [Distribuerad utbildning med PyTorch](how-to-train-pytorch.md#distributed-training)
 

@@ -2,13 +2,13 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 2265f1d31176052c7e7c358ee8ed4cb06fb50ee7
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002902"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469804"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
@@ -136,7 +136,7 @@ Om du vill rikta en annan hanterings grupp lägger du till en kapslad distributi
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-different-mg
                 }
             }
         }
@@ -172,7 +172,7 @@ Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapsla
               "properties": {
                 "mode": "Incremental",
                 "template": {
-                  nested-template
+                  nested-template-with-resources-in-resource-group
                 }
               }
             }
@@ -184,6 +184,8 @@ Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapsla
 }
 ```
 
+Om du vill använda en distribution av hanterings grupper för att skapa en resurs grupp i en prenumeration och distribuera ett lagrings konto till den resurs gruppen, se [distribuera till prenumeration och resurs grupp](#deploy-to-subscription-and-resource-group).
+
 ## <a name="use-template-functions"></a>Använda mall funktioner
 
 För distributioner av hanterings grupper finns det några viktiga saker att tänka på när du använder mall-funktioner:
@@ -191,87 +193,91 @@ För distributioner av hanterings grupper finns det några viktiga saker att tä
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionen [Subscription ()](template-functions-resource.md#subscription) stöds **inte** .
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används vid distributioner på hanterings grupps nivå. Ange inget värde för resurs grupps parametern.
+* Använd inte funktionen [resourceId ()](template-functions-resource.md#resourceid) för resurser som distribueras till hanterings gruppen.
 
-  Om du till exempel vill hämta resurs-ID för en princip definition använder du:
+  Använd i stället funktionen [extensionResourceId ()](template-functions-resource.md#extensionresourceid) för resurser som implementeras som tillägg för hanterings gruppen. Anpassade princip definitioner som distribueras till hanterings gruppen är tillägg för hanterings gruppen.
+
+  Använd följande för att hämta resurs-ID för en anpassad princip definition på hanterings grupps nivå:
   
   ```json
-  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
-  
-  Det returnerade resurs-ID: t har följande format:
+
+  Använd funktionen [tenantResourceId](template-functions-resource.md#tenantresourceid) för klient resurser som är tillgängliga i hanterings gruppen. Inbyggda princip definitioner är klient nivå resurser.
+
+  Om du vill hämta resurs-ID för en inbyggd princip definition använder du:
   
   ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
 ## <a name="azure-policy"></a>Azure Policy
 
-### <a name="define-policy"></a>Definiera princip
-
-I följande exempel visas hur du [definierar](../../governance/policy/concepts/definition-structure.md) en princip på hanterings grupps nivån.
+I följande exempel visas hur du [definierar](../../governance/policy/concepts/definition-structure.md) en princip på hanterings grupps nivån och tilldelar den.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMG": {
+            "type": "string",
+            "metadata": {
+                "description": "Target Management Group"
+            }
+        },
+        "allowedLocations": {
+            "type": "array",
+            "defaultValue": [
+                "australiaeast",
+                "australiasoutheast",
+                "australiacentral"
+            ],
+            "metadata": {
+                "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+            }
         }
-      }
-    }
-  ]
-}
-```
-
-### <a name="assign-policy"></a>Tilldela princip
-
-I följande exempel tilldelas en befintlig princip definition till hanterings gruppen. Om principen använder parametrar, anger du dem som ett objekt. Om principen inte tar parametrar använder du det tomma standard objektet.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
     },
-    "policyName": {
-      "type": "string"
+    "variables": {
+        "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+        "policyDefinition": "LocationRestriction"
     },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "name": "[variables('policyDefinition')]",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "policyType": "Custom",
+                "mode": "All",
+                "parameters": {
+                },
+                "policyRule": {
+                    "if": {
+                        "not": {
+                            "field": "location",
+                            "in": "[parameters('allowedLocations')]"
+                        }
+                    },
+                    "then": {
+                        "effect": "deny"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "name": "location-lock",
+            "apiVersion": "2019-09-01",
+            "dependsOn": [
+                "[variables('policyDefinition')]"
+            ],
+            "properties": {
+                "scope": "[variables('mgScope')]",
+                "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', variables('policyDefinition'))]"
+            }
+        }
+    ]
 }
 ```
 

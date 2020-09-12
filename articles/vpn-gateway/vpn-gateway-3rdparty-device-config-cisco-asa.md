@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2018
+ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082009"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426187"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/No BGP)
 Den här artikeln innehåller exempel på konfigurationer för att ansluta Cisco adaptiv Security-enheter (ASA) till Azure VPN-gatewayer. Exemplet gäller Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
@@ -62,7 +62,7 @@ I det här avsnittet visas parametrarna för exemplet.
 | * Lokal BGP peer-IP     | 10.52.255.254                |
 |                              |                              |
 
-\*Valfri parameter för endast BGP.
+\* Valfri parameter för endast BGP.
 
 ### <a name="ipsecike-policy-and-parameters"></a>IPsec/IKE-princip och parametrar
 I följande tabell visas de IPsec/IKE-algoritmer och parametrar som används i exemplet. Kontakta VPN-enhetens specifikationer för att kontrol lera vilka algoritmer som stöds för dina VPN-enheters modeller och versioner av inbyggd program vara.
@@ -80,7 +80,7 @@ I följande tabell visas de IPsec/IKE-algoritmer och parametrar som används i e
 | I förväg delad nyckel   | PreSharedKey                         |
 |                  |                                      |
 
-\*På vissa enheter måste IPsec-integritet vara ett null-värde när IPsec-krypteringsalgoritmen är AES-GCM.
+\* På vissa enheter måste IPsec-integritet vara ett null-värde när IPsec-krypteringsalgoritmen är AES-GCM.
 
 ### <a name="asa-device-support"></a>ASA-enhetens support
 

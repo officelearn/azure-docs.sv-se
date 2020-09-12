@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079784"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536463"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -168,11 +168,16 @@ Modeller returneras inte nödvändigt vis i exakt det dokument formulär de öve
 
 ### <a name="update-models"></a>Uppdatera modeller
 
-När en modell har laddats upp till din instans, är hela modell gränssnittet oföränderligt. Det innebär att det inte finns någon traditionell "redigering" av modeller.
+När en modell har laddats upp till din Azure Digital-instansen är hela modell gränssnittet oföränderligt. Det innebär att det inte finns någon traditionell "redigering" av modeller. Azure Digitals dubbla, tillåter inte heller åter överföring av samma modell.
 
-Om du i stället vill göra ändringar i en modell i Azure Digitals, är det möjligt att ladda upp en **nyare version** av samma modell. Under för hands versionen tillåter en modell version bara att du tar bort fält, inte lägger till nya fält (om du vill lägga till nya fält behöver du bara [skapa en helt ny modell](#create-models)).
+Om du i stället vill göra ändringar i en modell, t. ex. uppdatering `displayName` eller `description` – hur du gör detta, så är att ladda upp en **nyare version** av modellen. 
+
+#### <a name="model-versioning"></a>Versionshantering för modell
 
 Om du vill skapa en ny version av en befintlig modell börjar du med DTDL för den ursprungliga modellen. Uppdatera de fält som du vill ändra.
+
+>[!NOTE]
+>Under för hands versionen tillåter en modell version bara att du kan lägga till nya fält, inte ta bort befintliga. Om du vill ta bort fält ska du bara [skapa en helt ny modell](#create-models).
 
 Markera sedan detta som en nyare version av modellen genom att uppdatera `id` fältet i modellen. Det sista avsnittet i modell-ID: t, efter `;` , representerar modell numret. Om du vill visa att det nu är en mer uppdaterad version av den här modellen ökar du talet i slutet av `id` värdet till ett tal som är större än det aktuella versions numret.
 
@@ -188,7 +193,17 @@ version 2 av den här modellen kan se ut så här:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Ladda sedan upp den nya versionen av modellen till din instans. Det kommer att ta platsen för den gamla versionen och nya, dubbla, som du skapar med den här modellen använder den uppdaterade versionen.
+Ladda sedan upp den nya versionen av modellen till din instans. 
+
+Den här versionen av modellen kommer sedan att vara tillgänglig i din instans för att användas för digitala dubbla. Tidigare versioner av modellen skrivs **inte** över, så flera versioner av modellen kan finnas i din instans tills du [tar bort dem](#remove-models).
+
+#### <a name="impact-on-twins"></a>Påverkan på dubbla
+
+När du skapar en ny dubbla, eftersom den nya modell versionen och den gamla modell versionen finns, kan den nya, dubbla, använda antingen den nya versionen av modellen eller den äldre versionen.
+
+Det innebär också att uppladdning av en ny version av en modell inte automatiskt påverkar befintliga dubbla. De befintliga dubbla är helt enkelt fortfarande instanser av den gamla modell versionen.
+
+Du kan uppdatera de här befintliga dubblarna till den nya modell versionen genom att uppdatera dem, enligt beskrivningen i avsnittet [*Uppdatera en digital-enhets modell*](how-to-manage-twin.md#update-a-digital-twins-model) i *instruktionen så här: hantera digitala dubbla*. I samma korrigering måste du uppdatera båda **modell-ID: t** (till den nya versionen) och **alla fält som måste ändras på den dubbla för att den ska överensstämma med den nya modellen**.
 
 ### <a name="remove-models"></a>Ta bort modeller
 
@@ -273,6 +288,8 @@ Azures digitala dubblare förhindrar inte det här läget, så var noga med att 
 ## <a name="manage-models-with-cli"></a>Hantera modeller med CLI
 
 Modeller kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/05/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b14f3c241fd21d3d4f9c4e17ae95d8048139cec1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985576"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442879"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure-portalen
 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Azure Resource Manager-distributionsmodellen och användning av Azure-portalen. Du kan skapa konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell med hjälp av alternativen som beskrivs i följande artiklar:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -79,7 +79,7 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
     - **Prenumeration**: Välj den prenumeration som du vill använda.
     - **Resurs grupp**: TestRG1
     - **Plats**: östra USA
-    - **Delnät**
+    - **Undernät**
         - **Namn**: FrontEnd
         - **Adress intervall**: 10.1.0.0/24
     - **Gateway-undernät**:
@@ -104,7 +104,7 @@ Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-an
    - **Prenumeration**: Välj den prenumeration som du vill använda.
    - **Resurs grupp**: TestRG4
    - **Plats**: västra USA
-   - **Delnät** 
+   - **Undernät** 
       - **Namn**: FrontEnd
       - **Adress intervall**: 10.41.0.0/24
    - **GatewaySubnet** 

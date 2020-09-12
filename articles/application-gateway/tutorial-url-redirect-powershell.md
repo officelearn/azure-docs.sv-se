@@ -7,24 +7,23 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806035"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595282"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Skapa en programgateway med webbadressbaserad omdirigering med Azure PowerShell
 
-Du kan använda Azure PowerShell till att konfigurera [webbadressbaserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här artikeln skapar du backend-pooler med [virtuella datorers skalnings uppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
+Du kan använda Azure PowerShell till att konfigurera [webbadressbaserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här artikeln skapar du backend-pooler med  [virtuella datorers skalnings uppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Lägga till lyssnare och routningsregler
-> * Skapa VM-skalningsuppsättningar för serverdelspooler
+* Konfigurera nätverket
+* Skapa en programgateway
+* Lägga till lyssnare och routningsregler
+* Skapa VM-skalningsuppsättningar för serverdelspooler
 
 I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och dirigeras till samma serverdelspooler:
 
@@ -32,7 +31,7 @@ I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och d
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure CLI](tutorial-url-redirect-cli.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -2,17 +2,17 @@
 title: 'VPN Gateway: VPN-klienten för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering'
 description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c14d300e2c09316e0665ece3f3e15f7036d5b9a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 781d3aeea6a5568aec065ec4b1cbcfacb74836a6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525083"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434681"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Azure Active Directory autentisering: Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -20,6 +20,8 @@ Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta ti
 
 > [!NOTE]
 > Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
+>
+> Azure AD-autentisering kräver Azure VPN-klienten, som bara är tillgänglig för Windows 10.
 >
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Arbeta med klient profiler
@@ -88,11 +90,11 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
 1. Välj ellipserna bredvid den klient profil som du vill ta bort. Välj sedan **ta bort**.
 
-    ![ta bort](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Välj **ta bort** för att ta bort.
 
-    ![ta bort](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Skapa en anslutning
 
@@ -154,7 +156,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 

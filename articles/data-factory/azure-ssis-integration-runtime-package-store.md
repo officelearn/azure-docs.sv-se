@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/20/2020
-ms.openlocfilehash: 6455c186e05fc98b1ec340c152f9b3e5710f1dd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/06/2020
+ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087923"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505496"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Hantera paket med Azure-SSIS Integration Runtime-paket arkiv
 
@@ -57,7 +57,7 @@ När du har anslutit till din Azure-SSIS IR på SSMS kan du högerklicka på all
       > [!NOTE]
       > Import av SSIS-paket till Azure-SSIS IR-paket arkiv kan bara göras en i taget och kopierar dem helt enkelt till den underliggande MSDB/fil systemet/Azure Files samtidigt som deras SQL Server-/SSIS-version bevaras. 
       >
-      > Eftersom Azure-SSIS IR för närvarande har en standardkompatibilitetsnivå på 140, som är lika med **SQL Server 2017**, och kör paket med lägre versions hantering, uppgraderas de till SSIS 2017-paket vid körning. Det finns inte stöd för att köra paket med högre version.
+      > Eftersom Azure-SSIS IR för närvarande baseras på **SQL Server 2017**, uppgraderas dem till SSIS 2017-paket vid körning. Det finns inte stöd för att köra paket med högre version.
       >
       > Eftersom äldre SSIS-paket arkiv är kopplade till särskilda SQL Server-versioner och bara kan nås på SSMS för den versionen, måste dessutom lägre versions paket i de äldre SSIS-paketen exporteras till fil systemet först med den angivna SSMS versionen innan de kan importeras till Azure-SSIS IR paket lager med SSMS 2019 eller senare versioner.
       >
@@ -72,7 +72,7 @@ När du har anslutit till din Azure-SSIS IR på SSMS kan du högerklicka på all
       > [!NOTE]
       > Export av SSIS-paket från Azure-SSIS IR-paket arkiv kan bara utföras en i taget och göra det utan att byta skydds nivå, kopierar dem bara när de bevarar sina SQL Server/SSIS-versioner, annars uppgraderas de till SSIS 2019 eller senare versions paket.
       >
-      > Eftersom Azure-SSIS IR för närvarande har en standardkompatibilitetsnivå på 140, som är lika med **SQL Server 2017**, och kör paket med lägre versions hantering, uppgraderas de till SSIS 2017-paket vid körning. Det finns inte stöd för att köra paket med högre version.
+      > Eftersom Azure-SSIS IR för närvarande baseras på **SQL Server 2017**, uppgraderas dem till SSIS 2017-paket vid körning. Det finns inte stöd för att köra paket med högre version.
       >
       > Om du vill exportera flera SSIS-paket från Azure-SSIS IR-paket arkiv samtidigt som du växlar skydds nivån, kan du använda kommando rads verktyget [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) , se [distribuera flera paket med dtutil](#deploying-multiple-packages-with-dtutil).
 
@@ -88,7 +88,7 @@ När du har anslutit till din Azure-SSIS IR på SSMS kan du högerklicka på all
 
 ![Verktyg för körning av paket Pages 3 & 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
 
-Sidan **Allmänt**, **konfigurationer**, **körnings alternativ**och **loggnings** sidor i **verktyg för körning av paket** -dialogrutan motsvarar fliken **Inställningar** för aktiviteten kör SSIS-paket. På dessa sidor kan du ange krypterings lösen ordet för ditt paket och komma åt information för paket konfigurations filen. Du kan också ange dina autentiseringsuppgifter och egenskaper för paket körning, samt åtkomst information för loggmappen.  Sidan **Ange värden** i **verktyg för körning av paket** dialog rutan motsvarar **egenskapen åsidosättningar** för aktiviteten kör SSIS-paket där du kan ange dina befintliga paket egenskaper för åsidosättning. Mer information finns i [köra SSIS-paket som kör SSIS-paket aktiviteter i ADF-pipeline](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Sidan **Allmänt**, **konfigurationer**, **körnings alternativ**och **loggnings** sidor i **verktyg för körning av paket** -dialogrutan motsvarar fliken  **Inställningar** för aktiviteten kör SSIS-paket. På dessa sidor kan du ange krypterings lösen ordet för ditt paket och komma åt information för paket konfigurations filen. Du kan också ange dina autentiseringsuppgifter och egenskaper för paket körning, samt åtkomst information för loggmappen.  Sidan **Ange värden** i **verktyg för körning av paket** dialog rutan motsvarar **egenskapen åsidosättningar** för aktiviteten kör SSIS-paket där du kan ange dina befintliga paket egenskaper för åsidosättning. Mer information finns i [köra SSIS-paket som kör SSIS-paket aktiviteter i ADF-pipeline](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 När du väljer **Kör** -knappen skapas och aktive ras en ny ADF-pipeline med kör SSIS paket-aktivitet automatiskt. Om det redan finns en ADF-pipeline med samma inställningar kommer den att köras igen och en ny pipeline skapas inte. Aktiviteten ADF pipeline och kör SSIS-paket får namnet respektive `Pipeline_SSMS_YourPackageName_HashString` `Activity_SSMS_YourPackageName` .
 
@@ -124,7 +124,7 @@ Om du vill lyfta & att flytta dina lokala SSIS-arbetsbelastningar till SSIS i AD
 
 Du kan använda kommando rads verktyget [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) som medföljer SQL Server/SSIS-installationen för att distribuera flera paket i batchar. Den är baserad på en speciell SSIS-version, så om du använder den för att distribuera paket med lägre version utan att byta skydds nivå, kopieras de bara när du behåller sin SSIS-version. Om du använder den för att distribuera dem och samtidigt byta skydds nivå till den, kommer den att uppgraderas till dess SSIS-version.
 
- Eftersom Azure-SSIS IR för närvarande har en standardkompatibilitetsnivå på 140, som är lika med **SQL Server 2017**, och kör paket med lägre versions hantering, uppgraderas de till SSIS 2017-paket vid körning. Det finns inte stöd för att köra paket med högre version.
+ Eftersom Azure-SSIS IR för närvarande baseras på **SQL Server 2017**, uppgraderas dem till SSIS 2017-paket vid körning. Det finns inte stöd för att köra paket med högre version.
 
 För att undvika körnings uppgraderingar bör du därför använda dtutil 2017 som medföljer SQL Server/SSIS 2017-installationen för att distribuera paket som ska köras på Azure-SSIS IR i paket distributions modellen. Du kan ladda ned och installera den kostnads fria [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) för detta ändamål. När du har installerat hittar du dtutil 2017 på den här mappen: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn` .
 

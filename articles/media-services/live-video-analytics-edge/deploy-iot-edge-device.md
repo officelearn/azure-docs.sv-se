@@ -3,18 +3,18 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684107"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439630"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
 Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
@@ -38,7 +38,7 @@ Om du tänker använda real tids analys för att spela in video kontinuerligt i 
 
 Detta är ett valfritt steg. Du kan använda det här Azure CLI-kommandot för att göra det:
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1
 ```
 
@@ -47,7 +47,7 @@ Du kan använda det här kommandot för att starta slut punkten för direkt upps
 > [!IMPORTANT]
 > Din prenumeration kommer att börja debiteras nu.
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 

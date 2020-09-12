@@ -4,19 +4,19 @@ description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923865"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437334"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](../platform/diagnostics-extension-overview.md) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Översikts instrument panel](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar behöver du:
 
 * En [Azure](https://azure.com) -prenumeration. Logga in med din Microsoft-konto för Windows, Xbox Live eller andra moln tjänster från Microsoft. 
@@ -66,6 +66,8 @@ Om du utvecklar anpassade händelser för din nästa funktion medan den tidigare
 Undvik den här situationen genom att skapa separata resurser för varje build-konfiguration eller "stämpel" (utveckling, testning, produktion och så vidare) av systemet. Placera resurserna för varje versionskonfiguration i en separat resursgrupp. 
 
 Om du vill skicka Telemetrin till lämpliga resurser kan du konfigurera Application Insights SDK så att den hämtar en annan Instrumentation-nyckel, beroende på Build-konfigurationen. 
+
+Lär dig hur du [ställer in Instrumentation-nyckeln dynamiskt](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) för olika faser. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Skapa en Application Insights-resurs för varje roll
 
@@ -243,7 +245,7 @@ För en omfattande diagnostik kan du se vad som ledde till en misslyckad eller h
 
 För att uppnå den här vyn för arbets roller kan du använda en anpassad telemetri för att ange ett gemensamt Operation.Id-sammanhang för all telemetri. På så sätt kan du snabbt se om svars tiden eller fel problemet orsakades av ett beroende eller koden. 
 
-Så här gör du:
+Gör så här:
 
 * Ange correlationId i ett CallContext [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). I det här fallet använder vi fråge-ID som correlationId.
 * Lägg till en anpassad TelemetryInitializer-implementering för att ange Operation.Id till det correlationId som angavs tidigare. Ett exempel finns i [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).

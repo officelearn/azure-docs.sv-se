@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688102"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469923"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skapa inomhus Maps:
 
@@ -120,7 +120,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 4. Starta en ny **Get** http-metod på fliken Builder. Lägg till din Azure Maps primära prenumerations nyckel i `status URL` . Gör en **Get** -begäran på den `status URL` som du kopierade i steg 3. Det `status URL` ser ut som följande URL:
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     Om konverterings processen ännu inte har slutförts kan du se något som följande JSON-svar:
@@ -162,7 +162,7 @@ Exempel ritnings paketet ska konverteras utan fel eller varningar. Men om du få
 }
 ```
 
-## <a name="create-a-dataset"></a>Skapa en datauppsättning
+## <a name="create-a-dataset"></a>Skapa en datamängd
 
 Data uppsättningen är en samling kart funktioner, till exempel byggnader, nivåer och rum. Om du vill skapa en data uppsättning använder du [data uppsättningen Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Skapa-API: et för data uppsättningen tar `conversionId` för det konverterade ritnings paketet och returnerar en `datasetId` av de skapade data uppsättningarna. Stegen nedan visar hur du skapar en data uppsättning.
 
@@ -208,7 +208,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 3. Gör en **Get** -begäran `statusURL` för TILESET. Lägg till din Azure Maps primära prenumerations nyckel för autentisering. Begäran bör se ut som följande URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. När **Get** http-begäran har slutförts innehåller svars huvudet `tilesetId` för den skapade TILESET. Kopiera `tilesetId` .

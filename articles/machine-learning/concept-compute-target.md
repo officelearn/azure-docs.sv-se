@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146748"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651200"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -49,9 +49,9 @@ Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-
 En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. 
 
 Du kan skapa Azure Machine Learning beräknings instanser eller beräknings kluster från:
-* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+* [Azure Machine Learning-studio](how-to-create-attach-compute-studio.md)
 * Azure Portal
-* Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) -klasser
+* Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) -klasser
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (för hands version)
 * Resource Manager-mall. En exempel-mall finns i [create Azure Machine Learning Compute Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Machine Learning- [tillägget för Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
@@ -82,19 +82,19 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Inga |
-| Dv2 | Inga |  
-| DSv2 | Inga |  
-| FSv2 | Inga | 
+| D | Inget |
+| Dv2 | Inget |  
+| DSv2 | Inget |  
+| FSv2 | Inget | 
 | HBv2 | Godkännande krävs |  
 | HCS UPPDATERINGSKLIENTEN | Godkännande krävs |  
 | M | Godkännande krävs |
-| NC | Inga |    
+| NC | Inget |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Inga |
+| NV | Inget |
 | NVv3 | Godkännande krävs | 
 
 

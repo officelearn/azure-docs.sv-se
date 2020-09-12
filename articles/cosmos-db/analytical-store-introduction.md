@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815835"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505530"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -155,10 +155,15 @@ Analytiskt TTL på en behållare anges med hjälp av `AnalyticalStoreTimeToLiveI
 * Om detta är tillgängligt och värdet är inställt på ett positivt tal "n": objekt upphör att gälla från analys lagret "n" efter deras senaste ändrings tid i transaktions arkivet. Den här inställningen kan utnyttjas om du vill behålla dina användnings data under en begränsad tids period i analys lagret, oavsett lagring av data i transaktions arkivet
 
 Några saker att tänka på:
-*   När analys lagret har Aktiver ATS med ett analytiskt TTL-värde kan det uppdateras till ett annat giltigt värde senare. 
-*   Även om transaktions-TTL kan anges på behållarens eller objekt nivån, kan analytiskt TTL endast anges på behållar nivån för närvarande.
-*   Du kan få längre kvarhållning av dina drift data i analys lagret genom att ange analytiskt TTL->= transaktions-TTL på behållar nivån.
-*   Analys lagret kan göras för att spegla transaktions lagret genom att ställa in analys-TTL = transaktions-TTL.
+*   När analys lagret har Aktiver ATS med ett analytiskt TTL-värde kan det uppdateras till ett annat giltigt värde senare 
+*   När transaktions-TTL kan ställas in på behållaren eller objekt nivån, kan analytiskt TTL endast anges på behållar nivån för närvarande
+*   Du kan få längre kvarhållning av dina drift data i analys lagret genom att ställa in analytiskt TTL->= transaktions-TTL på behållar nivån
+*   Analys lagret kan göras för att spegla transaktions lagret genom att ställa in analys-TTL = transaktions-TTL
+
+När du aktiverar anaytical Store på en behållare:
+ * med hjälp av Azure Portal är analytiskt TTL inställt på standardvärdet-1. Du kan ändra det här värdet till n sekunder genom att navigera till behållar inställningar under Datautforskaren. 
+ 
+ * med hjälp av Azure SDK eller PowerShell eller CLI kan du aktivera analytiskt TTL genom att ställa in det på antingen-1 eller n. 
 
 Mer information finns i [så här konfigurerar du analytiskt TTL-värde på en behållare](configure-synapse-link.md#create-analytical-ttl).
 

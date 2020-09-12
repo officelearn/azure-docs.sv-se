@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 393185d2167e18df3f8c1319e7367efbc437de1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590344"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469430"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Konfigurera Azure Active Directory autentisering för ett Azure Red Hat OpenShift 4-kluster (CLI)
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Hämta dina företagsspecifika URL: er som ska användas för att konfigurera Azure Active Directory-programmet.
 
@@ -66,7 +66,7 @@ Du bör få tillbaka något som liknar det här. Anteckna det eftersom det här 
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>Skapa en manifest fil för att definiera de valfria anspråk som ska ingå i ID-token
 
-Programutvecklare kan använda [valfria anspråk](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) i sina Azure AD-program för att ange vilka anspråk de vill ha i token som skickas till deras program.
+Programutvecklare kan använda [valfria anspråk](../active-directory/develop/active-directory-optional-claims.md) i sina Azure AD-program för att ange vilka anspråk de vill ha i token som skickas till deras program.
 
 Du kan använda valfria anspråk för att:
 
@@ -127,7 +127,7 @@ az ad app permission add \
 
 Program som är registrerade i en Azure Active Directory-klient (Azure AD) är som standard tillgängliga för alla användare av klienten som autentiseras korrekt. Med Azure AD kan klient organisations administratörer och utvecklare begränsa en app till en särskild uppsättning användare eller säkerhets grupper i klienten.
 
-Följ anvisningarna i Azure Active Directory-dokumentationen för att [tilldela användare och grupper till appen](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Följ anvisningarna i Azure Active Directory-dokumentationen för att [tilldela användare och grupper till appen](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Konfigurera OpenID-autentisering för OpenShift
 

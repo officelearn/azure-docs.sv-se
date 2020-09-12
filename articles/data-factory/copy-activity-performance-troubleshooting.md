@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770989"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440532"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopierings aktivitet
 
@@ -142,7 +142,7 @@ Om kopierings prestandan inte motsvarar förväntad fel sökning av en enskild k
 
   - Kontrol lera den självbetjänings-och minnes användnings trenden i Azure Portal > din Data Factory-> översikts sida. Överväg att [skala upp/ut IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) om processor användningen är hög eller tillgängligt minne är lågt.
 
-  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Ett exempel:
+  - Använd bästa praxis för anslutnings data inläsning om detta gäller. Exempel:
 
     - När du kopierar data från [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)och [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)) aktiverar du alternativ för datapartitioner för att kopiera data parallellt.
 
@@ -179,7 +179,7 @@ Här är prestanda övervakning och justering av referenser för några av de da
 * Azure Blob Storage: [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md) och [Check lista för prestanda och skalbarhet för Blob Storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [skalbarhets-och prestanda mål för](../storage/tables/scalability-targets.md) [Check lista för tabell lagring och prestanda och skalbarhet för Table Storage](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: du kan [övervaka prestanda](../sql-database/sql-database-single-database-monitor.md) och kontrol lera DTU-procenten (Database Transaction Unit).
-* Azure SQL Data Warehouse: dess funktion mäts i informations lager enheter (DWU: er). Se [hantera beräknings kraft i Azure SQL Data Warehouse (översikt)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Synapse Analytics (tidigare SQL Data Warehouse): dess funktion mäts i informations lager enheter (DWU: er). Se [hantera beräknings kraft i Azure Synapse Analytics (översikt)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [prestanda nivåer i Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [övervaka och justera för prestanda](https://msdn.microsoft.com/library/ms189081.aspx).
 * Lokal fil Server: [prestanda justering för fil servrar](https://msdn.microsoft.com/library/dn567661.aspx).
@@ -187,7 +187,7 @@ Här är prestanda övervakning och justering av referenser för några av de da
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
 - [Guiden Kopiera aktivitets prestanda och skalbarhet](copy-activity-performance.md)
 - [Kopiera aktivitets prestanda optimerings funktioner](copy-activity-performance-features.md)
 - [Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure](data-migration-guidance-overview.md)

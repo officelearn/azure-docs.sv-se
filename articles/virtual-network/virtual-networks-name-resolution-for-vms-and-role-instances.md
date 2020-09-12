@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 46b3a782d93a55ed7f6eee6c76886f27c2652572
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087019"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469651"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i virtuella nätverk i Azure
 
@@ -86,7 +86,7 @@ Saker att tänka på när du använder Azure-angiven namn matchning:
 Omvänd DNS stöds i alla ARM-baserade virtuella nätverk. Du kan utfärda omvända DNS-frågor (PTR-frågor) om du vill mappa IP-adresser för virtuella datorer till FQDN: er för virtuella datorer.
 * Alla PTR-frågor för IP-adresser för virtuella datorer kommer att returnera FQDN: er för formatet \[ VMName \] . Internal.cloudapp.net
 * Vanlig sökning på FQDN: er för formatet \[ VMName \] . Internal.cloudapp.net kommer att matcha till den IP-adress som tilldelats den virtuella datorn.
-* Om det virtuella nätverket är länkat till en [Azure DNS privata zoner](../dns/private-dns-overview.md) som ett virtuellt register, kommer de omvända DNS-frågorna returnera två poster. En post kommer från formatet \[ VMName \] . [ privatednszonename] och andra skulle ha formatet \[ VMName \] . Internal.cloudapp.net
+* Om det virtuella nätverket är länkat till en [Azure DNS privata zoner](../dns/private-dns-overview.md) som ett virtuellt register, kommer de omvända DNS-frågorna returnera två poster. En post kommer att ha formatet \[ VMName \] . [ privatednszonename] och den andra kommer att ha formatet \[ VMName \] . Internal.cloudapp.net
 * Omvänd DNS-sökning är begränsad till ett angivet virtuellt nätverk även om det är peer-kopplat till andra virtuella nätverk. Omvända DNS-frågor (PTR-frågor) för IP-adresser för virtuella datorer som finns i peer-kopplade virtuella nätverk returnerar NXDOMAIN.
 * Om du vill inaktivera omvänd DNS-funktion i ett virtuellt nätverk kan du göra det genom att skapa en zon för omvänd sökning med [Azure DNS privata zoner](../dns/private-dns-overview.md) och länka zonen till det virtuella nätverket. Exempel: om IP-adressutrymmet för det virtuella nätverket är 10.20.0.0/16 kan du skapa en tom privat DNS-zon 20.10.in-addr. arpa och länka den till det virtuella nätverket. När du länkar zonen till det virtuella nätverket bör du inaktivera automatisk registrering på länken. Den här zonen åsidosätter standard zoner för omvänd sökning för det virtuella nätverket och eftersom den här zonen är tom kommer du att få NXDOMAIN för dina omvända DNS-frågor. I vår [snabb starts guide](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) finns mer information om hur du skapar en privat DNS-zon och länkar den till ett virtuellt nätverk.
 

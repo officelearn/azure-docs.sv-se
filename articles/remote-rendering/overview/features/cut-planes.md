@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b92bfad99c854f75c945121d352a7122d8c6db89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d5de8374f58eaf8dc83f54f05557b0a125191c34
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011607"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613723"
 ---
 # <a name="cut-planes"></a>Klippa ut planer
 
@@ -56,7 +56,6 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 }
 ```
 
-
 ### <a name="cutplanecomponent-properties"></a>Egenskaper för CutPlaneComponent
 
 Följande egenskaper visas i en klipp Plans komponent:
@@ -68,6 +67,11 @@ Följande egenskaper visas i en klipp Plans komponent:
 * `FadeColor` och `FadeLength`:
 
   Om alpha-värdet för *FadeColor* är skilt från noll, kommer pixlarna nära det avskurna planet att tonas mot RGB-delen av FadeColor. Styrkan i alfa kanalen avgör om den ska tonas helt mot tonings färgen eller bara delvis. *FadeLength* definierar över vilket avstånd som den här toningen ska äga rum.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# CutPlaneComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [C++ CutPlaneComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
 
 ## <a name="next-steps"></a>Nästa steg
 

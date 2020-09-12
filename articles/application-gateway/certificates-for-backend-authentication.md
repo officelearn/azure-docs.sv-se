@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f2abd2a42fb15b994803a48b97679ee8927233
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976548"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594432"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Skapa certifikat för att tillåta Server delen med Azure Application Gateway
 
@@ -21,10 +21,9 @@ För att kunna avsluta TLS måste Application Gateway kräva att Server dels ins
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
->
-> - Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)
-> - Exportera ett betrott rot certifikat från ett Server dels certifikat (för v2-SKU)
+
+- Exportera autentiseringscertifikat från ett Server dels certifikat (för v1 SKU)
+- Exportera ett betrott rot certifikat från ett Server dels certifikat (för v2-SKU)
 
 ## <a name="prerequisites"></a>Krav
 

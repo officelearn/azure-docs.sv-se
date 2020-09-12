@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189932"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437691"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,11 +91,11 @@ Zonens redundanta version av hög tillgänglighets arkitektur illustreras med f�
 
 ## <a name="accelerated-database-recovery-adr"></a>Accelererad databas återställning (ADR)
 
-[Accelererad databas återställning (ADR)](../accelerated-database-recovery.md) är en ny databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner. ADR är för närvarande tillgänglig för Azure SQL Database, Azure SQL-hanterad instans och Azure SQL Data Warehouse.
+[Accelererad databas återställning (ADR)](../accelerated-database-recovery.md) är en ny databas motor funktion som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner. ADR är för närvarande tillgänglig för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 ## <a name="testing-application-fault-resiliency"></a>Testa program Fels återhämtning
 
-Hög tillgänglighet är en grundläggande del av den SQL Database-och SQL-hanterade instans plattform som fungerar transparent för ditt databas program. Vi känner dock igen att du kanske vill testa hur de automatiska redundansväxlingen som initieras under planerade eller oplanerade händelser skulle påverka ett program innan du distribuerar det till produktion. Du kan utlösa en redundansväxling manuellt genom att anropa ett särskilt API för att starta om en databas, en elastisk pool eller en hanterad instans. I händelse av en redundant databas eller elastisk pool skulle API-anrop leda till omdirigering av klient anslutningar till den nya primära i en tillgänglighets zon som skiljer sig från tillgänglighets zonen för den gamla primära. Förutom att testa hur redundansväxlingen påverkar befintliga Databassessioner, kan du också kontrol lera om den ändrar prestandan från slut punkt till slut punkt på grund av ändringar i nätverks fördröjningen. Eftersom omstarten är påträngande och ett stort antal av dem kan stressa plattformen, är det bara ett failover-anrop som är tillåtet var 30: e minut för varje databas, elastisk pool eller hanterad instans.
+Hög tillgänglighet är en grundläggande del av SQL Database- och SQL Managed Instance-plattformen som fungerar transparent för ditt databasprogram. Vi förstår dock att du kan vilja testa hur de automatiska redundansväxlingar som initieras under planerade eller oplanerade händelser skulle påverka ett program innan du distribuerar det till produktion. Du kan utlösa en redundansväxling manuellt genom att anropa ett särskilt API för att starta om en databas, en elastisk pool eller en hanterad instans. I händelse av en redundant databas eller elastisk pool skulle API-anrop leda till omdirigering av klient anslutningar till den nya primära i en tillgänglighets zon som skiljer sig från tillgänglighets zonen för den gamla primära. Förutom att testa hur redundansväxlingen påverkar befintliga Databassessioner, kan du också kontrol lera om den ändrar prestandan från slut punkt till slut punkt på grund av ändringar i nätverks fördröjningen. Eftersom omstarten är påträngande och ett stort antal av dem kan stressa plattformen, är det bara ett failover-anrop som är tillåtet var 30: e minut för varje databas, elastisk pool eller hanterad instans.
 
 En redundansväxling kan initieras med PowerShell, REST API eller Azure CLI:
 

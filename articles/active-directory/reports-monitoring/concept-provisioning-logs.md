@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229879"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469872"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -41,7 +41,7 @@ I det här avsnittet får du en översikt över etablerings rapporten.
 
 ## <a name="prerequisites"></a>Krav
 
-### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
+### <a name="who-can-access-the-data"></a>Vem som kan komma åt data?
 * Användare i rollerna säkerhets administratör, säkerhets läsare, rapport läsare, program administratör och moln program administratör
 * Globala administratörer
 
@@ -85,7 +85,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter
@@ -99,7 +99,7 @@ I standardvyn kan du välja följande filter:
 - Action
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filtrera")
+![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -175,7 +175,7 @@ Detaljerna grupperas baserat på följande kategorier:
 - Sammanfattning
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabbar")
+![Information om etablering](./media/concept-provisioning-logs/provisioning-tabs.png "Tabbar")
 
 
 
@@ -190,7 +190,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Steg](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer
@@ -214,11 +214,13 @@ Fliken **Sammanfattning** ger en översikt över vad som hände och identifierar
 
 - Du kan använda attributet ändra ID som unik identifierare. Detta är till exempel användbart när du interagerar med produkt supporten.
 
-- Det finns för närvarande inget alternativ för att ladda ned etablerings data.
+- Det finns för närvarande inget alternativ för att ladda ned etablerings data som en CSV-fil, men du kan exportera data med hjälp av [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - Det finns för närvarande inget stöd för Log Analytics.
 
 - Du kan se hoppade händelser för användare som inte omfattas av omfånget. Detta förväntas, särskilt när Sync-omfånget är inställt på alla användare och grupper. Tjänsten kommer att utvärdera alla objekt i klienten, även de som ligger utanför omfånget. 
+
+- Etablerings loggarna är för närvarande inte tillgängliga i det offentliga molnet. Om du inte kan komma åt etablerings loggarna ska du använda gransknings loggarna som en tillfällig lösning.  
 
 ## <a name="error-codes"></a>Felkoder
 
@@ -244,6 +246,7 @@ Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hi
 |DuplicateSourceEntries | Det gick inte att slutföra åtgärden eftersom mer än en användare hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | När varje användare utvärderas försöker vi importera användaren från käll systemet. Det här felet uppstår vanligt vis när användaren som importeras saknar matchande egenskap som definierats i dina Attribute-mappningar. Utan ett värde som finns på användarobjektet för det matchande attributet kan vi inte utvärdera omfattnings-, matchnings-eller export ändringar. Obs! närvaro av det här felet anger inte att användaren är i omfånget eftersom vi ännu inte har utvärderat omfattning för användaren.|
 |EntrySynchronizationSkipped | Etablerings tjänsten har skickat frågan till käll systemet och identifierade användaren. Ingen ytterligare åtgärd vidtogs för användaren och de hoppades över. Det kan bero på att användaren är utanför omfånget eller att användaren redan finns i mål systemet utan ytterligare ändringar som krävs.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| När du utför en GET-begäran för att hämta en användare eller grupp, fick vi flera användare eller grupper i svaret. Vi förväntade dig att endast ta emot en användare eller grupp i svaret. Om [exempelvis](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)vi gör en get-begäran för att hämta en grupp och tillhandahåller ett filter för att undanta medlemmar och din scim-slutpunkt returnerar medlemmarna, kommer vi att utlösa det här felet.|
 
 ## <a name="next-steps"></a>Nästa steg
 

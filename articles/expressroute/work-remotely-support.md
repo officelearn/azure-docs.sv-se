@@ -2,17 +2,17 @@
 title: Använda Azure-ExpressRoute för att stödja fjärran vändare
 description: På den här sidan beskrivs hur du kan använda Azure-ExpressRoute för att aktivera fjärrhantering på grund av COVID-19-Pandemic.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/22/2020
-ms.author: ajitbhu
-ms.openlocfilehash: 18b30380ede0c95c7d039749a4d47f65e5824058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: d51f47b73fe572ce81d3e7b54f902f94fcd11b5b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738081"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567681"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Använda Azure-ExpressRoute för att skapa hybrid anslutningar som stöder fjärran vändare
 
@@ -31,18 +31,18 @@ Den här artikeln beskriver hur du kan utnyttja ExpressRoute, Azure, Microsoft N
 * [Så här ökar du bandbredden för befintliga ExpressRoute-kretsar](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [ExpressRoute-övervakning, mått och aviseringar](expressroute-monitoring-metrics-alerts.md#expressroute-gateway-connections-in-bitsseconds)
 * [Väg optimering över ExpressRoute](expressroute-optimize-routing.md)
-* [Azure-ExpressRoute för O365](https://docs.microsoft.com/office365/enterprise/azure-expressroute?redirectSourcePath=%252farticle%252f6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [Azure-ExpressRoute för Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Överväganden vid asymmetrisk routning](expressroute-asymmetric-routing.md)
 * [Så här öppnar du en support förfrågan i Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 * [Kontrollera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
 * Hämta ARP-tabell i [Resource Manager](expressroute-troubleshooting-arp-resource-manager.md) och [klassisk](expressroute-troubleshooting-arp-classic.md)
 * [Återställa en misslyckad krets](reset-circuit.md)
 * [Felsöka nätverks prestanda](expressroute-troubleshooting-network-performance.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Lär dig mer om ExpressRoute anslutnings modeller](expressroute-connectivity-models.md)
 * Läs mer om ExpressRoute-anslutningar och routningsdomäner. Se [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md)

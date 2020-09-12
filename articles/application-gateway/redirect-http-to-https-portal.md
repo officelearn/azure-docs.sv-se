@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804338"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594823"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med hjälp av Azure Portal
 
@@ -20,14 +20,13 @@ Du kan använda Azure Portal för att skapa en [Programgateway](overview.md) med
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Skapa ett självsignerat certifikat
-> * Konfigurera ett nätverk
-> * Skapa en programgateway med certifikatet
-> * Lägg till en regel för avlyssning och omdirigering
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
+* Skapa ett självsignerat certifikat
+* Konfigurera ett nätverk
+* Skapa en programgateway med certifikatet
+* Lägg till en regel för avlyssning och omdirigering
+* Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -133,7 +132,7 @@ Lägg först till lyssnaren med namnet min *lyssnare* för port 80.
 I det här exemplet skapar du en VM-skalningsuppsättning som ska tillhandahålla servrar till serverdelspoolen i programgatewayen.
 
 1. Välj **+ skapa en resurs**i det övre vänstra hörnet i portalen.
-2. Välj **Compute**.
+2. Välj **Beräkna**.
 3. Skriv *skalnings uppsättning* i rutan Sök och tryck på RETUR.
 4. Välj **skalnings uppsättning för virtuell dator**och välj sedan **skapa**.
 5. För **skalnings uppsättnings namn för virtuell dator**skriver du *myvmss*.
@@ -173,7 +172,7 @@ Slutligen måste du uppgradera skalnings uppsättningen med dessa ändringar.
 2. Gå till **Inställningar** och välj **Instanser**.
 3. Välj båda instanserna och välj sedan **Uppgradera**.
 4. Välj **Ja** för att bekräfta.
-5. När detta är klart går du tillbaka till **myAppGateway** och väljer **backend-pooler**. Nu bör du se att **appGatewayBackendPool** har två mål och att **myAppGatewaymyvmss** har noll mål.
+5. När detta är klart går du tillbaka till **myAppGateway** och väljer **backend-pooler**. Nu bör du se att **appGatewayBackendPool** har två mål och att  **myAppGatewaymyvmss** har noll mål.
 6. Välj **myAppGatewaymyvmss**och välj sedan **ta bort**.
 7. Välj **Ja** för att bekräfta.
 
@@ -215,7 +214,7 @@ Du kan hämta den offentliga IP-adressen för programmet från översikts sidan 
 1. Välj **myAppGateway**.
 2. På sidan **Översikt** noterar du IP-adressen under **klient DELENs offentliga IP-adress**.
 
-3. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, http://52.170.203.149
+3. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http://52.170.203.149
 
    ![Säkerhetsvarning](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

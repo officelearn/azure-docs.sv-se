@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076036"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462283"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -23,7 +23,7 @@ Med Hive kan du projicera strukturen på mycket ostrukturerade data. När du har
 
 HDInsight tillhandahåller flera kluster typer, som är anpassade för vissa arbets belastningar. Följande kluster typer används oftast för Hive-frågor:
 
-|Kluster typ |Description|
+|Kluster typ |Beskrivning|
 |---|---|
 |Interaktiv fråga|Ett Hadoop-kluster som tillhandahåller [LLAP-funktioner (Low latens Analytical Processing)](https://cwiki.apache.org/confluence/display/Hive/LLAP) för att förbättra svars tiderna för interaktiva frågor. Mer information finns i dokumentet [starta med interaktiv fråga i HDInsight](../interactive-query/apache-interactive-query-get-started.md) .|
 |Hadoop|Ett Hadoop-kluster som är anpassat för arbets belastningar för batch-bearbetning. Mer information finns i dokumentet [starta med Apache Hadoop i HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md) .|
@@ -100,7 +100,7 @@ Hive kan också utökas genom **användardefinierade funktioner (UDF)**. Med en 
 
 * [Använd en C#-användardefinierad funktion med Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Så här lägger du till en anpassad Apache Hive användardefinierad funktion i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Så här lägger du till en anpassad Apache Hive användardefinierad funktion i HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Ett exempel Apache Hive användardefinierad funktion för att konvertera datum-/tids format till Hive-tidsstämpel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -131,13 +131,13 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 I föregående exempel utför HiveQL-instruktionerna följande åtgärder:
 
-|Instruktion |Description |
+|Uttryck |Beskrivning |
 |---|---|
 |TA BORT TABELL|Om tabellen redan finns tar du bort den.|
 |SKAPA EXTERN TABELL|Skapar en ny **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data placeras kvar på den ursprungliga platsen och i det ursprungliga formatet.|
 |RAD FORMAT|Anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
 |LAGRAD SOM TEXTFILE-PLATS|Anger Hive var data lagras ( `example/data` katalogen) och lagras som text. Data kan finnas i en fil eller spridas över flera filer i katalogen.|
-|VÄLJ|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
+|SELECT|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
 |INPUT__FILE__NAME som%. log|Hive försöker tillämpa schemat på alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräp data i resultaten anger den här instruktionen Hive att vi bara ska returnera data från filer som slutar med. log.|
 
 > [!NOTE]  
@@ -164,7 +164,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Dessa instruktioner utför följande åtgärder:
 
-|Instruktion |Description |
+|Uttryck |Beskrivning |
 |---|---|
 |CREATE TABLE OM DEN INTE FINNS|Om tabellen inte finns skapar du den. Eftersom det **externa** nyckelordet inte används skapar den här instruktionen en intern tabell. Tabellen lagras i Hive-datalagret och hanteras fullständigt av Hive.|
 |LAGRAD SOM ORC|Lagrar data i optimerade rad kolumners (ORC)-format. ORC är ett mycket optimerat och effektivt format för att lagra Hive-data.|

@@ -3,16 +3,16 @@ title: Felsöka Azure Image Builder-tjänsten
 description: Felsök vanliga problem och fel när du använder tjänsten Azure VM Image Builder
 author: cynthn
 ms.author: danis
-ms.date: 08/07/2020
+ms.date: 09/03/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 754d9324137632b928e67bbe4c67a3e6c72e452a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068321"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459937"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Felsöka Azure Image Builder-tjänsten
 
@@ -209,7 +209,7 @@ Anpassningen. log innehåller följande steg:
     ```
 5. Avetablerings steg. Azure Image Builder lägger till en dold anpassning. Det här avetablerings steget ansvarar för att förbereda den virtuella datorn för inetablering. Den kör Windows Sysprep (med c:\DeprovisioningScript.ps1) eller i Linux waagent deetablering (med/tmp/DeprovisioningScript.sh). 
 
-    Till exempel:
+    Exempel:
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -247,7 +247,7 @@ Anpassnings problem.
 
 Granska loggen för att hitta de anpassade felen. Sök efter *(telemetri)*. 
 
-Till exempel:
+Exempel:
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -502,6 +502,28 @@ Orsaken kan vara ett problem med tids inställningen på grund av D1_V2 storleke
 
 Öka storleken på den virtuella datorn. Alternativt kan du lägga till en 60-sekunders anpassning av PowerShell-sömn för att undvika tids problemet.
 
+### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Avbryter Builder efter att kontexten för avbrutet kontext avbrutits
+
+#### <a name="error"></a>Fel
+```text
+PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
+PACKER OUT Cancelling build after receiving terminated
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling hook after context cancellation context canceled
+..
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling provisioning due to context cancellation: context canceled
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [ERROR] Remote command exited without exit status or exit signal.
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [INFO] RPC endpoint: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] 148974 bytes written for 'stdout'
+PACKER ERR 2020/03/26 22:11:25 [INFO] 0 bytes written for 'stderr'
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
+```
+#### <a name="cause"></a>Orsak
+Tjänsten Image Builder använder port 22 (Linux) eller 5986 (Windows) för att ansluta till den virtuella build-datorn, detta inträffar när tjänsten är frånkopplad från den virtuella build-datorn under en avbildnings version. Orsaker till från koppling kan variera, men aktivering eller konfiguration av brand väggar i skript kan blockera portarna ovan.
+
+#### <a name="solution"></a>Lösning
+Granska skripten för brand Väggs ändringar/-aktivering eller ändringar av SSH eller WinRM och se till att alla ändringar tillåter konstant anslutning mellan tjänsten och skapa en virtuell dator på portarna ovan. Om du vill ha mer information om nätverk i Image Builder kontrollerar du [kraven](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+
 ## <a name="devops-task"></a>DevOps-uppgift 
 
 ### <a name="troubleshooting-the-task"></a>Felsöka uppgiften
@@ -633,9 +655,9 @@ Om du har refererat till vägledningen och fortfarande inte kan felsöka problem
 Välja ärende produkt:
 ```bash
 Product Family: Azure
-Product: Virtual Machine Running Windows
-Support Topic: Management
-Support Subtopic: Issues with Azure Image Builder
+Product: Virtual Machine Running (Window\Linux)
+Support Topic: Azure Features
+Support Subtopic: Azure Image Builder
 ```
 
 ## <a name="next-steps"></a>Nästa steg

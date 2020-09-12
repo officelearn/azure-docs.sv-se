@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132831"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434477"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
@@ -30,7 +30,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. Storage*): allmänt tillgänglig i alla Azure-regioner.
 - **[Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgängliga i alla Azure-regioner.
-- **[Azure SQL Data Warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgängliga i alla Azure-regioner.
+- **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgänglig i alla Azure-regioner.
 - **[Azure Database for postgresql server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgänglig i Azure-regioner där databas tjänsten är tillgänglig.
 - **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): allmänt tillgänglig i Azure-regioner där databas tjänsten är tillgänglig.
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): allmänt tillgänglig i Azure-regioner där databas tjänsten är tillgänglig.
@@ -40,6 +40,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): allmänt tillgängliga i alla Azure-regioner.
 - **[Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): allmänt tillgänglig i alla Azure-regioner där ADLS gen1 är tillgängligt.
 - **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft. Web*): allmänt tillgänglig i alla Azure-regioner där App Service är tillgängligt.
+- **[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft. CognitiveServices*): allmänt tillgänglig i alla Azure-regioner där kognitiva tjänster är tillgängliga.
 
 **Offentlig för hands version**
 
@@ -148,7 +149,7 @@ Vanliga frågor och svar [Virtual Network finns i vanliga frågor och svar om se
 - [Konfigurera tjänstslutpunkter för virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
 - [Skydda ett Azure Storage-konto till ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Skydda en Azure SQL Database till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Skydda en Azure SQL Data Warehouse till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Skydda en Azure Synapse-analys till ett virtuellt nätverk](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Azure Service integration i virtuella nätverk](virtual-network-for-azure-services.md)
 - [Virtual Network tjänst slut punkts principer](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

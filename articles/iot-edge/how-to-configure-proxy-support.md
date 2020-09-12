@@ -3,17 +3,19 @@ title: Konfigurera enheter för nätverks-proxy – Azure IoT Edge | Microsoft D
 description: Så här konfigurerar du Azure IoT Edge Runtime och alla Internet-riktade IoT Edge-moduler för att kommunicera via en proxyserver.
 author: kgremban
 ms.author: kgremban
-ms.date: 3/10/2020
-ms.topic: conceptual
+ms.date: 09/03/2020
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- contperfq1
+ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687187"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500376"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet för att kommunicera via en proxyserver
 
@@ -21,29 +23,29 @@ IoT Edge enheter skickar HTTPS-begäranden till att kommunicera med IoT Hub. Om 
 
 Den här artikeln vägleder dig genom följande fyra steg för att konfigurera och sedan hantera en IoT Edge enhet bakom en proxyserver:
 
-1. **Installera IoT Edge runtime på enheten.**
+1. [**Installera IoT Edge runtime på enheten**](#install-the-runtime-through-a-proxy)
 
-   Installations skripten för IoT Edge hämtar paket och filer från Internet, så din enhet måste kommunicera via proxyservern för att utföra dessa förfrågningar. Detaljerade anvisningar finns i avsnittet [Installera körnings miljön via en proxy](#install-the-runtime-through-a-proxy) i den här artikeln. För Windows-enheter tillhandahåller installations skriptet även ett alternativ för [Offline-installation](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) .
+   Installations skripten för IoT Edge hämtar paket och filer från Internet, så din enhet måste kommunicera via proxyservern för att utföra dessa förfrågningar. För Windows-enheter tillhandahåller installations skriptet även ett alternativ för [Offline-installation](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) .
 
-   Det här steget är en engångs process som utförs på den IoT Edge enheten första gången du ställer in den. Samma anslutningar krävs också när du uppdaterar IoT Edge Runtime.
+   Det här steget är en engångs process för att konfigurera den IoT Edge enheten när du först konfigurerar den. Samma anslutningar krävs också när du uppdaterar IoT Edge Runtime.
 
-2. **Konfigurera Docker daemon och IoT Edge daemon på enheten.**
+2. [**Konfigurera Docker daemon och IoT Edge daemon på enheten**](#configure-the-daemons)
 
-   IoT Edge använder två bakgrunds program på enheten, som båda måste göra webb förfrågningar via proxyservern. IoT Edge daemon ansvarar för kommunikation med IoT Hub. Moby daemon ansvarar för behållar hantering, och kommunicerar med behållar register. Detaljerade anvisningar finns i avsnittet [Konfigurera daemonar](#configure-the-daemons) i den här artikeln.
+   IoT Edge använder två bakgrunds program på enheten, som båda måste göra webb förfrågningar via proxyservern. IoT Edge daemon ansvarar för kommunikation med IoT Hub. Moby daemon ansvarar för behållar hantering, och kommunicerar med behållar register.
 
-   Det här steget är en engångs process som utförs på den IoT Edge enheten första gången du ställer in den.
+   Det här steget är en engångs process för att konfigurera den IoT Edge enheten när du först konfigurerar den.
 
-3. **Konfigurera egenskaperna för IoT Edge agent i filen config. yaml på enheten.**
+3. [**Konfigurera egenskaperna för IoT Edge agent i filen config. yaml på enheten**](#configure-the-iot-edge-agent)
 
-   IoT Edge daemon startar edgeAgent-modulen från början, men edgeAgent-modulen ansvarar för att hämta distributions manifestet från IoT Hub och starta alla andra moduler. Konfigurera edgeAgent-modulens miljövariabler manuellt på själva enheten för att den IoT Edge agenten ska göra den första anslutningen till IoT Hub. Efter den första anslutningen kan du konfigurera edgeAgent-modulen från en annan plats. Detaljerade anvisningar finns i avsnittet [konfigurera IoT Edge agent](#configure-the-iot-edge-agent) i den här artikeln.
+   IoT Edge daemon startar edgeAgent-modulen från början. Sedan hämtar edgeAgent-modulen distributions manifestet från IoT Hub och startar alla andra moduler. Konfigurera edgeAgent-modulens miljövariabler manuellt på själva enheten för att den IoT Edge agenten ska göra den första anslutningen till IoT Hub. Efter den första anslutningen kan du konfigurera edgeAgent-modulen från en annan plats.
 
-   Det här steget är en engångs process som utförs på den IoT Edge enheten första gången du ställer in den.
+   Det här steget är en engångs process för att konfigurera den IoT Edge enheten när du först konfigurerar den.
 
-4. **För alla framtida modul distributioner ställer du in miljövariabler för alla moduler som kommunicerar via proxyservern.**
+4. [**För alla framtida modul distributioner ställer du in miljövariabler för alla moduler som kommunicerar via proxyn**](#configure-deployment-manifests)
 
-   När din IoT Edge-enhet har kon figurer ATS och anslutits till IoT Hub via proxyservern måste du upprätthålla anslutningen i alla framtida distributioner av modulen. Detaljerade anvisningar finns i avsnittet [Konfigurera distributions manifest](#configure-deployment-manifests) i den här artikeln.
+   När din IoT Edge-enhet har kon figurer ATS och anslutits till IoT Hub via proxyservern måste du upprätthålla anslutningen i alla framtida distributioner av modulen.
 
-   Det här steget är en fort löp ande process som utförs på distans, så att varje ny modul eller distributions uppdatering upprätthåller enhetens möjlighet att kommunicera via proxyservern.
+   Det här steget är en pågående process som har utförts på distans så att varje ny modul eller distributions uppdatering upprätthåller enhetens möjlighet att kommunicera via proxyservern.
 
 ## <a name="know-your-proxy-url"></a>Känner till din proxyservers URL
 
@@ -205,13 +207,13 @@ När din IoT Edge enhet har kon figurer ATS för att fungera med proxyservern m�
 
 Konfigurera alltid de två modulerna för körning, edgeAgent och edgeHub, för att kommunicera via proxyservern så att de kan underhålla en anslutning med IoT Hub. Om du tar bort proxyinformation från edgeAgent-modulen är det enda sättet att återupprätta anslutningen genom att redigera filen config. yaml på enheten, enligt beskrivningen i föregående avsnitt.
 
-Förutom modulerna edgeAgent och edgeHub kan andra moduler behöva proxy-konfigurationen. Dessa är moduler som behöver åtkomst till Azure-resurser förutom IoT Hub, till exempel Blob Storage, och måste ha den HTTPS_PROXY-variabel som har angetts för modulen i distributions manifest filen.
+Förutom modulerna edgeAgent och edgeHub kan andra moduler behöva proxy-konfigurationen. Moduler som behöver åtkomst till Azure-resurser förutom IoT Hub, till exempel Blob Storage, måste ha den HTTPS_PROXY variabel som anges i distributions manifest filen.
 
 Följande procedur gäller under den IoT Edge enhetens livs längd.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-När du använder guiden **Ange moduler** för att skapa distributioner för IoT Edge enheter, har alla moduler ett **miljö variabel** avsnitt som du kan använda för att konfigurera anslutningar till proxyservern.
+När du använder guiden **Ange moduler** för att skapa distributioner för IoT Edge enheter, finns det ett **miljövariabler** i varje modul där du kan konfigurera proxy server-anslutningar.
 
 Konfigurera IoT Edge agent och IoT Edge Hub-moduler genom att välja **körnings inställningar** i det första steget i guiden.
 
@@ -221,7 +223,7 @@ Lägg till miljövariabeln **https_proxy** i både modulen IoT Edge agent och Io
 
 ![Ange https_proxy miljö variabel](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
-Alla andra moduler som du lägger till i ett distributions manifest följer samma mönster. På den sida där du anger Modulnamn, finns det ett miljö variabel avsnitt.
+Alla andra moduler som du lägger till i ett distributions manifest följer samma mönster.
 
 ### <a name="json-deployment-manifest-files"></a>Manifest fil för JSON-distribution
 

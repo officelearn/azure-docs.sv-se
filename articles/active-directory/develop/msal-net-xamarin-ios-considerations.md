@@ -9,25 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73303d64d7ebeb94290819226e5e5944f95f6e42
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165710"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594058"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Att tänka på när du använder Xamarin iOS med MSAL.NET
-När du använder Microsoft Authentication Library för .NET (MSAL.NET) på Xamarin iOS bör du: 
+
+När du använder Microsoft Authentication Library för .NET (MSAL.NET) på Xamarin iOS bör du:
 
 - Åsidosätt och implementera `OpenUrl` funktionen i `AppDelegate` .
 - Aktivera nyckel rings grupper.
 - Aktivera delning av token cache.
 - Aktivera nyckel rings åtkomst.
-- Förstå kända problem med iOS 12 och autentisering.
+- Förstå kända problem med iOS 12 och iOS 13 och autentisering.
 
 ## <a name="implement-openurl"></a>Implementera OpenUrl
 
@@ -41,11 +42,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 }
 ```
 
-Utför även följande uppgifter: 
-* Definiera ett URL-schema.
+Utför även följande uppgifter:
+
+* Definiera ett omdirigerings-URI-schema.
 * Kräv att appen ska anropa en annan app.
-* Ha ett speciellt format för omdirigerings-URL: en.
-* Registrera omdirigerings-URL: en i [Azure Portal](https://portal.azure.com).
+* Ha ett enskilt formulär för omdirigerings-URI: n.
+* [Registrera en omdirigerings-URI](quickstart-register-app.md#add-a-redirect-uri) i Azure Portal.
 
 ### <a name="enable-keychain-access"></a>Aktivera nyckel rings åtkomst
 
@@ -54,6 +56,7 @@ Om du vill aktivera nyckel rings åtkomst kontrollerar du att programmet har en 
 Om du vill dra nytta av cachen och enkel inloggning (SSO) anger du åtkomst gruppen för nyckel ringar till samma värde i alla dina program.
 
 I det här exemplet i installations programmet används MSAL 4. x:
+
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
@@ -74,7 +77,7 @@ Aktivera också nyckel rings åtkomst i `Entitlements.plist` filen. Använd anti
 
 När du använder `WithIosKeychainSecurityGroup()` API: et lägger MSAL automatiskt till din säkerhets grupp i slutet av programmets *Team-ID* ( `AppIdentifierPrefix` ). MSAL lägger till din säkerhets grupp eftersom när du skapar ditt program i Xcode. Det är därför som rättigheterna i `Entitlements.plist` filen måste inkluderas `$(AppIdentifierPrefix)` före åtkomst gruppen för nyckel ringar.
 
-Mer information finns i dokumentationen om [iOS-rättigheter](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). 
+Mer information finns i dokumentationen om [iOS-rättigheter](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Aktivera delning av token cache i iOS-program
 
@@ -87,11 +90,7 @@ Om du vill aktivera denna cache-delning använder du `WithIosKeychainSecurityGro
 Tidigare i den här artikeln har du lärt dig att MSAL läggs till `$(AppIdentifierPrefix)` när du använder `WithIosKeychainSecurityGroup()` API: et. MSAL lägger till det här elementet eftersom Team-ID: t `AppIdentifierPrefix` ser till att endast program som har skapats av samma utgivare kan dela nyckel ringar.
 
 > [!NOTE]
-> `KeychainSecurityGroup`Egenskapen är föråldrad.
-> 
-> Från och med MSAL 2. x tvingade utvecklare sig att inkludera `TeamId` prefixet när de använde `KeychainSecurityGroup` egenskapen. Men från och med MSAL 2.7. x, kommer `iOSKeychainSecurityGroup` MSAL att lösa prefixet under körning när du använder den nya egenskapen `TeamId` . När du använder den här egenskapen ska du inte inkludera `TeamId` prefixet i värdet. Prefixet krävs inte.
->
-> Eftersom `KeychainSecurityGroup` egenskapen är föråldrad använder du `iOSKeychainSecurityGroup` egenskapen.
+> `KeychainSecurityGroup`Egenskapen är föråldrad. Använd `iOSKeychainSecurityGroup` egenskapen i stället. `TeamId`Prefixet krävs inte när du använder `iOSKeychainSecurityGroup` .
 
 ### <a name="use-microsoft-authenticator"></a>Använd Microsoft Authenticator
 
@@ -104,17 +103,55 @@ Programmet kan använda Microsoft Authenticator som en koordinator för att akti
 Mer information om hur du aktiverar en Service Broker finns i [använda Microsoft Authenticator eller Microsoft Intune företagsportal på Xamarin iOS-och Android-program](msal-net-use-brokers-with-xamarin-apps.md).
 
 ## <a name="known-issues-with-ios-12-and-authentication"></a>Kända problem med iOS 12 och autentisering
-Microsoft har publicerat en [säkerhets rekommendation](https://github.com/aspnet/AspNetCore/issues/4647) om inkompatibilitet mellan iOS 12 och vissa typer av autentisering. Inkompatibiliteten bryter mot sociala, WSFed och OIDC inloggningar. Säkerhets rekommendationen hjälper utvecklare att förstå hur de tar bort ASP.NET säkerhets begränsningar från sina program för att göra dem kompatibla med iOS 12.  
 
-När du utvecklar MSAL.NET-program på Xamarin iOS kan du se en oändlig loop när du försöker logga in på webbplatser från iOS 12. Det här beteendet liknar detta [ADAL-problem](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+Microsoft har publicerat en [säkerhets rekommendation](https://github.com/aspnet/AspNetCore/issues/4647) om inkompatibilitet mellan iOS 12 och vissa typer av autentisering. Inkompatibiliteten bryter mot sociala, WSFed och OIDC inloggningar. Säkerhets rekommendationen hjälper dig att förstå hur du tar bort ASP.NET säkerhets begränsningar från dina program så att de blir kompatibla med iOS 12.
+
+När du utvecklar MSAL.NET-program på Xamarin iOS kan du se en oändlig loop när du försöker logga in på webbplatser från iOS 12. Detta beteende liknar detta ADAL-problem på GitHub: [oändlig loop vid försök att logga in på webbplatsen från iOS 12 #1329](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329).
 
 Du kan också se en rast i ASP.NET Core OIDC-autentisering med iOS 12 Safari. Mer information finns i det här [webkit-problemet](https://bugs.webkit.org/show_bug.cgi?id=188165).
+
+## <a name="known-issues-with-ios-13-and-authentication"></a>Kända problem med iOS 13 och autentisering
+
+Om din app kräver villkorlig åtkomst eller stöd för certifikatautentisering, så kan appen kommunicera med Microsoft Authenticator Broker-appen. MSAL ansvarar sedan för att hantera begär Anden och svar mellan ditt program och Microsoft Authenticator.
+
+På iOS 13 gjorde Apple en brytande API-ändring genom att ta bort programmets möjlighet att läsa käll programmet när du tar emot ett svar från ett externt program via anpassade URL-scheman.
+
+Apples dokumentation för [UIApplicationOpenURLOptionsSourceApplicationKey](https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionssourceapplicationkey?language=objc) -tillstånd:
+
+> *Om begäran kommer från en annan app som tillhör ditt team, ställer UIKit in värdet för den här nyckeln till appens ID. Om Team identifieraren för den ursprungliga appen skiljer sig från Team-ID: n för den aktuella appen är värdet för nyckeln Nil.*
+
+Den här ändringen delas upp för MSAL eftersom den förlitar `UIApplication.SharedApplication.OpenUrl` sig på att verifiera kommunikationen mellan MSAL och Microsoft Authenticator-appen.
+
+I iOS 13 krävs dessutom utvecklaren för att tillhandahålla en presentations kontrollant när du använder `ASWebAuthenticationSession` .
+
+Din app påverkas om du skapar med Xcode 11 och använder antingen iOS-Broker eller `ASWebAuthenticationSession` .
+
+I sådana fall använder du [MSAL.NET 4.4.0 +](https://www.nuget.org/packages/Microsoft.Identity.Client/) för att aktivera lyckad autentisering.
+
+### <a name="additional-requirements"></a>Ytterligare krav
+
+- När du använder de senaste MSAL-biblioteken bör du se till att **Microsoft Authenticator version 6.3.19 +** är installerad på enheten.
+- När du uppdaterar till MSAL.NET 4.4.0 + uppdaterar du `LSApplicationQueriesSchemes` i filen *info. plist* och lägger till `msauthv3` :
+
+    ```xml
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+         <string>msauthv2</string>
+         <string>msauthv3</string>
+    </array>
+    ```
+
+    Lägger till `msauthv3` i *info. plist* krävs för att identifiera förekomsten av den senaste Microsoft Authenticator-appen på enheten som stöder iOS 13.
+
+## <a name="report-an-issue"></a>Rapportera ett problem
+
+Om du har frågor eller vill rapportera ett problem som du har hittat i MSAL.NET, öppnar du ett problem i lagrings platsen [AzureAD/Microsoft-Authentication-Library-for-dotNet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) på GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Information om egenskaper för Xamarin iOS finns i stycket om [iOS-/regionsspecifika överväganden](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) i följande exempel: s Readme.MD-fil:
 
-Exempel | Plattform | Description
+Exempel | Plattform | Beskrivning
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universell Windows-plattform (UWP) | En enkel Xamarin Forms-app som visar hur du använder MSAL för att autentisera Microsoft-personliga konton och Azure AD via Azure AD 2,0-slutpunkten. Appen visar också hur du använder den resulterande token för att få åtkomst till Microsoft Graph.
 

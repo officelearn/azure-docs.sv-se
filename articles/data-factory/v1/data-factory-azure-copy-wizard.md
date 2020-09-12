@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086848"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439018"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Guiden Azure Data Factory kopiering
 > [!NOTE]
@@ -31,7 +31,7 @@ Guiden Azure Data Factory kopiering fören klar processen med att mata in data, 
 ## <a name="designed-for-big-data"></a>Utformad för Big data
 Med den här guiden kan du enkelt flytta data från en mängd olika källor till destinationer på några minuter. När du har gått igenom guiden skapas en pipeline med en kopierings aktivitet automatiskt åt dig, tillsammans med beroende Data Factory entiteter (länkade tjänster och data uppsättningar). Inga ytterligare steg krävs för att skapa pipelinen.   
 
-![Välja datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Välj datakälla](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Stegvisa instruktioner för att skapa en exempel-pipeline för att kopiera data från en Azure-blob till en Azure SQL Database tabell finns i [själv studie kursen om guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
@@ -49,7 +49,7 @@ Du kan förhandsgranska en del av data från den valda data källan för att kon
 Schemat för indata kan inte matcha schemat för utdata i vissa fall. I det här scenariot måste du mappa kolumner från käll schemat till kolumner från mål schemat.
 
 > [!TIP]
-> När du kopierar data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse, om tabellen inte finns i mål lagret, Data Factory stödja automatisk tabell skapande med käll schema. Lär dig mer från [att flytta data till och från Azure SQL Data Warehouse med Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> När du kopierar data från SQL Server eller Azure SQL Database till Azure Synapse Analytics (tidigare SQL Data Warehouse), och om tabellen inte finns i mål lagret, Data Factory stödja automatisk tabell skapande med käll schema. Lär dig mer från [att flytta data till och från Azure Synapse Analytics med hjälp av Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Använd en nedrullningsbar listruta för att välja en kolumn från det käll schema som ska mappas till en kolumn i mål schemat. Kopierings guiden försöker förstå ditt mönster för kolumn mappning. Den använder samma mönster för resten av kolumnerna, så att du inte behöver markera varje kolumn separat för att slutföra schema mappningen. Om du vill kan du åsidosätta dessa mappningar genom att använda List rutorna för att mappa kolumnerna en i taget. Mönstret blir mer korrekt när du mappar fler kolumner. Kopierings guiden uppdaterar kontinuerligt mönstret och når i slut änden det högra mönstret för den kolumn mappning som du vill uppnå.     

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig mer om säkerhets kopiering och åt
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962000"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506703"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektiv säkerhets kopiering och återställning av diskar för virtuella Azure-datorer
 
@@ -268,6 +268,10 @@ Konfigurering av de selektiva diskarna för säkerhets kopiering för en virtuel
 När du aktiverar säkerhets kopiering med Azure Portal kan du välja alternativet **säkerhetskopiera endast operativ system disk** . Så du kan konfigurera säkerhets kopiering av din virtuella Azure-dator med OS-disk och undanta alla data diskar som är anslutna till den.
 
 ![Konfigurera säkerhets kopiering enbart för operativ system disken](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
+
+## <a name="using-azure-rest-api"></a>Använda Azure REST API
+
+Du kan konfigurera virtuella Azure-säkerhetskopieringar med några valda diskar eller så kan du ändra en befintlig VM-skydd så att det innehåller/undantar några diskar som dokumenteras [här](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
 
 ## <a name="selective-disk-restore"></a>Selektiv disk återställning
 

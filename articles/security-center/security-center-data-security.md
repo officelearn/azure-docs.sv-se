@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 115a01fe0b1edc343ed9efd324c4be3b53251566
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9047309854df27ac0721eee51e20d7ccc989f443
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519515"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459699"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 För att hjälpa kunder att förhindra, upptäcka och reagera på hot, Azure Security Center samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurations information, metadata, händelse loggar och mycket annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
@@ -65,7 +65,7 @@ För virtuella datorer och servrar som körs i andra miljöer, t.ex. lokalt, kan
 
 **Azure Security Center Storage**: Information om säkerhetsaviseringar, inklusive partneraviseringar lagras regionalt enligt platsen för den relaterade Azure-resursen, medan information om hälsostatus för säkerhet och rekommendationer lagras centralt i USA eller Europa, beroende på var kunden befinner sig. Artefakter lagras centralt i samma region som den virtuella datorn.
 
-## <a name="managing-data-collection-from-virtual-machines"></a>Hantera datainsamling från virtuella datorer
+## <a name="manage-data-collection-from-virtual-machines"></a>Hantera data insamling från virtuella datorer
 
 När du väljer att aktivera Security Center i Azure är datainsamling aktiverat för var och en av dina Azure-prenumerationer. Du kan också aktivera datainsamling för dina prenumerationer i avsnittet Säkerhetsprincip i Azure Security Center. När data insamling är aktiverat Azure Security Center etablerar Log Analytics agenten på alla befintliga virtuella Azure-datorer som stöds och eventuella nya som skapas.
 Log Analytics agent söker efter olika säkerhetsrelaterade konfigurationer och händelser i [ETW (Event tracing for Windows)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) spår. Dessutom utlöser operativsystemet händelselogghändelser när datorn körs. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Log Analytics agent läser händelse logg poster och ETW-spårning och kopierar dem till dina arbets ytor för analys. Log Analytics agenten aktiverar också process skapande händelser och kommando rads granskning.
@@ -90,4 +90,4 @@ I det här dokumentet har du lärt dig hur data hanteras och skyddas i Azure Sec
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig att övervaka hälso tillståndet för dina Azure-resurser
 * [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hur du hanterar och åtgärdar säkerhets aviseringar
 * [Övervaka partner lösningar med Azure Security Center](security-center-partner-solutions.md) – lär dig hur du övervakar dina partner lösningars hälso status.
-* [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure
+* [Azures säkerhets blogg](https://docs.microsoft.com/archive/blogs/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure

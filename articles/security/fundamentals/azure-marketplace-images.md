@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038281"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536390"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Säkerhets rekommendationer för Azure Marketplace-avbildningar
 
@@ -65,11 +65,3 @@ Kör alltid en säkerhets sårbarhets identifiering på avbildningen innan du sk
 
 Även om din organisation inte har avbildningar på Azure Marketplace bör du överväga att kontrol lera dina Windows-och Linux-bildkonfigurationer mot dessa rekommendationer.
 
-## <a name="contacting-customers"></a>Kontakta kunder
-
-Så här identifierar du kunder och deras kontakt-e-post:
-
-1.  I Cloud Partner Portal, på vänster järnväg, väljer du **insikter**.
-2.  På fliken **order och användning** använder du fälten **start datum** och **slutdatum** för att fråga användningen inom det datum intervall som krävs. Detta visar vilka Azure-prenumerationer som användes för erbjudandet varje dag. Exportera dessa data. 
-3.  På samma sätt går du till fliken **kund** och frågar och exporterar din kund bas.
-4.  Matcha prenumerations-ID: t från steg 2 till prenumerations-ID: t från steg 3 för att hitta nödvändig kund information.

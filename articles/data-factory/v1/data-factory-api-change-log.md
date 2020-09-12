@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74979010"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438950"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory-.NET API-ändrings logg
 > [!NOTE]
@@ -75,7 +75,7 @@ Funktions tillägg:
 ### <a name="feature-additions"></a>Funktions tillägg
 * Ny StorageFormat typ av [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) har lagts till för att kopiera filer i optimerade rad kolumner (Orc).
 * Lägg till [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) -och PolyBaseSettings-egenskaper till SqlDWSink.
-  * Gör det möjligt att använda PolyBase för att kopiera data till SQL Data Warehouse.
+  * Gör det möjligt att använda PolyBase för att kopiera data till Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 ## <a name="version-461"></a>Version 4.6.1
 ### <a name="bug-fixes"></a>Felkorrigeringar
@@ -154,7 +154,7 @@ Följande klasser har bytt namn. De nya namnen är de ursprungliga namnen för k
 | Gammalt namn | Nytt namn |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| Tabell |[Data uppsättning](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
+| Tabell |[Datamängd](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
 | TableProperties |[DatasetProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
 | TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
 | TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |
@@ -181,5 +181,5 @@ Följande klasser har bytt namn. De nya namnen är de ursprungliga namnen för k
 * **List** pipeline API returnerar bara sammanfattningen av en pipeline i stället för fullständig information. Till exempel innehåller aktiviteter i en pipeline-Sammanfattning endast namn och typ.
 
 ### <a name="feature-additions"></a>Funktions tillägg
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) -klassen stöder två nya egenskaper, **SliceIdentifierColumnName** och **SqlWriterCleanupScript**, för att stödja idempotenta-kopiering till Azure SQL Data Warehouse. Mer information om dessa egenskaper finns i [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) -artikeln.
-* Vi har nu stöd för att köra lagrade procedurer mot Azure SQL Database och Azure SQL Data Warehouse källor som en del av kopierings aktiviteten. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) -och [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) -klasserna har följande egenskaper: **SqlReaderStoredProcedureName** och **StoredProcedureParameters**. Se [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) och [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) artiklar på Azure.com för mer information om dessa egenskaper.  
+* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) -klassen stöder två nya egenskaper, **SliceIdentifierColumnName** och **SqlWriterCleanupScript**, för att stödja Idempotenta-kopiering till Azure Azure Synapse Analytics. Mer information om de här egenskaperna finns i artikeln om [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) .
+* Vi har nu stöd för att köra lagrade procedurer mot Azure SQL Database och Azure Synapse Analytics-källor som en del av kopierings aktiviteten. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) -och [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) -klasserna har följande egenskaper: **SqlReaderStoredProcedureName** och **StoredProcedureParameters**. Mer information om dessa egenskaper finns i artiklarna [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) och [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) på Azure.com.  

@@ -4,12 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180107"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500342"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -72,7 +72,7 @@ Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar sk
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan jag se schemalagda säkerhets kopierings jobb på menyn säkerhets kopierings jobb?
 
-Menyn **säkerhets** kopierings jobb visar bara säkerhets kopierings jobb på begäran. För schemalagt jobb använder du [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+På menyn **säkerhets kopierings jobb** visas alla schemalagda och på begäran-åtgärder, förutom de schemalagda logg säkerhets kopiorna eftersom de ofta kan vara frekventa. För schemalagda logg jobb använder du [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Läggs framtida databaser automatiskt till för säkerhetskopiering?
 

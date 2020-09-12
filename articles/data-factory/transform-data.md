@@ -1,6 +1,6 @@
 ---
 title: Omvandla data
-description: Lär dig hur du omformar data eller bearbetar data i Azure Data Factory att använda Hadoop, Machine Learning eller Azure Data Lake Analytics.
+description: Transformera data eller bearbeta data i Azure Data Factory att använda Hadoop, Machine Learning eller Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606619"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442793"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 
@@ -78,7 +78,7 @@ Med tiden måste förutsägande modeller i de Machine Learning bedömnings exper
 Se [använda Machine Learning aktiviteter](transform-data-using-machine-learning.md) för mer information om dessa Machine Learning-aktiviteter. 
 
 ### <a name="stored-procedure-activity"></a>Lagrad procedur aktivitet
-Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server databas i företaget eller i en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](transform-data-using-stored-procedure.md) .  
+Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), SQL Server databas i ditt företag eller en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](transform-data-using-stored-procedure.md) .  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
 Data Lake Analytics U-SQL-aktivitet kör ett U-SQL-skript i ett Azure Data Lake Analytics-kluster. Mer information finns i artikeln [data analys U-SQL-aktivitet](transform-data-using-data-lake-analytics.md) . 

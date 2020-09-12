@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 212ead54f0f8212ae251175d40873e7cec4e0240
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003040"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482682"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Konfigurera en tillgänglighets grupp för SQL Server på Azure VM (PowerShell & AZ CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder [PowerShell](/powershell/scripting/
 
 Distribution av tillgänglighets gruppen görs fortfarande manuellt via SQL Server Management Studio (SSMS) eller Transact-SQL (T-SQL). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera en tillgänglighets grupp som alltid är tillgänglig måste du ha följande krav: 
 
@@ -44,13 +44,13 @@ Du behöver följande konto behörigheter för att konfigurera tillgänglighets 
 - Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen. Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel: account@domain.com ). _Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret._
 - Domän användar kontot som styr SQL Server. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>Skapa ett lagrings konto som ett moln vittne
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
+
 Klustret behöver ett lagrings konto för att fungera som moln vittne. Du kan använda ett befintligt lagrings konto, eller så kan du skapa ett nytt lagrings konto. Om du vill använda ett befintligt lagrings konto kan du gå vidare till nästa avsnitt. 
 
 Följande kodfragment skapar lagrings kontot: 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Definiera metadata för Windows-redundanskluster
+## <a name="define-cluster-metadata"></a>Definiera kluster metadata
 
 Kommando gruppen Azure CLI [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) hanterar metadata för WSFC-tjänsten (Windows Server failover Cluster) som är värd för tillgänglighets gruppen. I kluster metadata ingår Active Directory domän, kluster konton, lagrings konton som ska användas som moln vittne och SQL Server version. Använd [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) för att definiera metadata för WSFC, så att när den första SQL Server VM läggs till skapas klustret enligt definitionen. 
 
@@ -183,6 +183,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## <a name="validate-cluster"></a>Verifiera kluster 
+
+För att ett redundanskluster ska kunna stödjas av Microsoft måste det klara kluster valideringen. Anslut till den virtuella datorn med den metod du föredrar, till exempel Remote Desktop Protocol (RDP) och kontrol lera att klustret klarar verifieringen innan du fortsätter. Om du inte gör det så låter klustret vara i ett tillstånd som inte stöds. 
+
+Du kan verifiera klustret med Klusterhanteraren för växling vid fel (FCM) eller följande PowerShell-kommando:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## <a name="create-availability-group"></a>Skapa tillgänglighets grupp
 

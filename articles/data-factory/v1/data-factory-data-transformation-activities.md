@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 74cf34438ca142302a6853e8e488b0c7188b162b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522371"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436305"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformera data i Azure Data Factory version 1
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Med tiden måste förutsägande modeller i de Machine Learning bedömnings exper
 Se [använda Machine Learning aktiviteter](data-factory-azure-ml-batch-execution-activity.md) för mer information om dessa Machine Learning-aktiviteter. 
 
 ## <a name="stored-procedure-activity"></a>Lagrad procedur aktivitet
-Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server databas i företaget eller i en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .  
+Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), SQL Server databas i ditt företag eller en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
 Data Lake Analytics U-SQL-aktivitet kör ett U-SQL-skript i ett Azure Data Lake Analytics-kluster. Mer information finns i artikeln [data analys U-SQL-aktivitet](data-factory-usql-activity.md) . 
@@ -93,7 +93,7 @@ Azure Data Factory stöder följande data omvandlings aktiviteter och beräkning
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
-| [Lagrad procedur](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse eller SQL Server |
+| [Lagrad procedur](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics eller SQL Server |
 | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] eller Azure Batch |
 

@@ -3,12 +3,12 @@ title: Så här frågar du efter loggar från Azure Monitor för behållare | Mi
 description: Azure Monitor för behållare samlar in Mät värden och loggdata och den här artikeln beskriver posterna och innehåller exempel frågor.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 12c32c84f2c2aef5d6d0817c11e1ef010f30ffcb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320297"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569687"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
@@ -20,16 +20,15 @@ I följande tabell finns information om de poster som samlats in av Azure Monito
 
 | Data | Datakälla | Datatyp | Fält |
 |------|-------------|-----------|--------|
-| Prestanda för värdar och behållare | Användnings statistik hämtas från cAdvisor och begränsningar från Kube-API: et | `Perf` | Dator, ObjectName, CounterName &#40;% processor tid, disk läsningar MB, disk skrivningar MB, minnes användning MB, nätverks mottagning byte, nätverks sändning byte, processor användning SEC, nätverks&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Container inventering | Docker | `ContainerInventory` | TimeGenerated, dator, container namn, ContainerHostname, image, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Container inventering | Kubelet | `ContainerInventory` | TimeGenerated, dator, container namn, ContainerHostname, image, ImageTag, ContainerState, ExitCode, EnvironmentVar, kommando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Behållar logg | Docker | `ContainerLog` | TimeGenerated, dator, avbildnings-ID, behållar namn, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Inventering av container nod | Kube-API | `ContainerNodeInventory`| TimeGenerated, dator, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Inventering av poddar i ett Kubernetes-kluster | Kube-API | `KubePodInventory` | TimeGenerated, dator, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, container status, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, kluster namn, PodIp, SourceSystem |
 | Inventering av noder som ingår i ett Kubernetes-kluster | Kube-API | `KubeNodeInventory` | TimeGenerated, dator, kluster namn, ClusterId, LastTransitionTimeReady, etiketter, status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes-händelser | Kube-API | `KubeEvents` | TimeGenerated, dator, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, meddelande, SourceSystem | 
 | Tjänster i Kubernetes-klustret | Kube-API | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Prestanda mått för noder som ingår i Kubernetes-klustret || Perf &#124; WHERE ObjectName = = "K8SNode" | Dator, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Prestanda mått för container delar i Kubernetes-klustret || Perf &#124; WHERE ObjectName = = "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Prestanda mått för noder som ingår i Kubernetes-klustret | Användnings statistik hämtas från cAdvisor och begränsningar från Kube-API: et | Perf &#124; WHERE ObjectName = = "K8SNode" | Dator, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Prestanda mått för container delar i Kubernetes-klustret | Användnings statistik hämtas från cAdvisor och begränsningar från Kube-API: et | Perf &#124; WHERE ObjectName = = "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Anpassade mått ||`InsightsMetrics` | Dator, namn, namn område, ursprung, SourceSystem, Taggar<sup>1</sup>, TimeGenerated, typ, Va, _ResourceId | 
 
 <sup>1</sup> egenskapen *taggar* representerar [flera dimensioner](../platform/data-platform-metrics.md#multi-dimensional-metrics) för motsvarande mått. Mer information om de mått som samlas in och lagras i `InsightsMetrics` tabellen och en beskrivning av post egenskaperna finns i [Översikt över InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).

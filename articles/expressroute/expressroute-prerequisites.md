@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: krav'
 description: Den här sidan innehåller en lista med de krav som ska vara uppfyllda innan du kan beställa en Azure ExpressRoute-krets. Den innehåller en check lista.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 87c8a7523222afd3ae4daeb8fb5824025e693cd1
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74083362"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569636"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -20,8 +20,8 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure-konto
-* Ett giltigt och aktivt Microsoft Azure-konto. Detta konto är nödvändigt för att kunna konfigurera ExpressRoute-kretsen. ExpressRoute-kretsar är resurser i Azure-prenumerationer. En Azure-prenumeration är ett krav även om anslutningen är begränsad till Microsofts moln tjänster som inte kommer från Azure, till exempel Office 365.
-* En aktiv prenumeration på Office 365 (om du använder Office 365-tjänster). Mer information finns i Särskilda krav för Office 365 i den här artikeln.
+* Ett giltigt och aktivt Microsoft Azure-konto. Detta konto är nödvändigt för att kunna konfigurera ExpressRoute-kretsen. ExpressRoute-kretsar är resurser i Azure-prenumerationer. En Azure-prenumeration är ett krav även om anslutningen är begränsad till Microsofts moln tjänster som inte kommer från Azure, till exempel Microsoft 365.
+* En aktiv Microsoft 365-prenumeration (om du använder Microsoft 365 Services). Mer information finns i avsnittet Microsoft 365 särskilda krav i den här artikeln.
 
 ## <a name="connectivity-provider"></a>Anslutningsleverantör
 
@@ -36,16 +36,16 @@ Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kont
 * **QoS**: Skype för företag har olika tjänster (till exempel: röst, video, text) som kräver särskild QoS-behandling. Du och din leverantör bör följa [QoS-kraven](expressroute-qos.md).
 * **Nätverkssäkerhet**: Fundera över [nätverkssäkerheten](../best-practices-network-security.md) när du ansluter till Microsoft Cloud via ExpressRoute.
 
-## <a name="office-365"></a>Office 365
-Om du planerar att aktivera Office 365 på ExpressRoute bör du läsa följande dokument för att få mer information om kraven för Office 365.
+## <a name="microsoft-365"></a>Microsoft 365
+Om du planerar att aktivera Microsoft 365 på ExpressRoute kan du läsa följande dokument för mer information om Microsoft 365 krav.
 
-* [Översikt över ExpressRoute för Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
-* [Routning med ExpressRoute för Office 365](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+* [Azure-ExpressRoute för Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
+* [Routning med ExpressRoute för Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
 * [Hög tillgänglighet och redundans med ExpressRoute](https://aka.ms/erhighavailability)
-* [Webbadresser och IP-adressintervall för Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-* [Nätverksplanering och prestandajustering för Office 365](https://support.office.com/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
-* [Räknare och verktyg för nätverksbandbredd](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
-* [Office 365-integration med lokala miljöer](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Microsoft 365-URL: er och IP-adressintervall](/microsoft-365/enterprise/urls-and-ip-address-ranges)
+* [Nätverks planering och prestanda justering för Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
+* [Planera nätverks-och migrering för Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
+* [Microsoft 365 integrering med lokala miljöer](/microsoft-365/enterprise/microsoft-365-integration)
 * [ExpressRoute på Office 365 – avancerade utbildningsvideor](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>Nästa steg

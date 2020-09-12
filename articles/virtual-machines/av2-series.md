@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ac3f31fecd53ddf1dd8bb81229c67cb4bb60c34e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437275"
 ---
 # <a name="av2-series"></a>Av2-serien
 
@@ -29,7 +29,7 @@ Direktmigrering: stöds
 Minnes bebetjänings uppdateringar: stöds
 
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s)
+| Storlek | V-kärna | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s)
 |---|---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |

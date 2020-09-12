@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146697"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651165"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
@@ -81,9 +81,9 @@ Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna d
 
 Det finns två typer av data uppsättningar: 
 
-+ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Om dina data redan har rensats och är redo att användas i övnings experiment, kan du [Hämta eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets till ditt beräknings mål.
++ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Om dina data redan har rensats och är redo att användas i övnings experiment, kan du [Hämta eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets till ditt beräknings mål.
 
-+ En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
++ En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
 
 Ytterligare data uppsättnings funktioner finns i följande dokumentation:
 

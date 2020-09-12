@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502707"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595273"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Dirigera webb trafik baserat på URL: en med hjälp av Azure CLI
 
@@ -23,17 +23,16 @@ Som en IT-administratör som hanterar webbtrafik vill du hjälpa dina kunder ell
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
-> * Skapa en resursgrupp för nätverksresurserna som du behöver
-> * Skapa nätverksresurserna
-> * Skapa en programgateway för trafik som kommer från ditt program
-> * Ange serverpooler och hanteringsregler för olika typer av trafik
-> * Skapa en skalningsuppsättning för varje pool så att poolen kan skalas automatiskt
-> * Kör ett test så att du kan kontrollera att de olika typerna av trafik går till rätt pool
+* Skapa en resursgrupp för nätverksresurserna som du behöver
+* Skapa nätverksresurserna
+* Skapa en programgateway för trafik som kommer från ditt program
+* Ange serverpooler och hanteringsregler för olika typer av trafik
+* Skapa en skalningsuppsättning för varje pool så att poolen kan skalas automatiskt
+* Kör ett test så att du kan kontrollera att de olika typerna av trafik går till rätt pool
 
 Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-url-route-powershell.md) eller [Azure Portal](create-url-route-portal.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

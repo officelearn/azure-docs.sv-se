@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612562"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482852"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurera en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper i Azure Virtual Machines
 
@@ -40,7 +40,7 @@ Visa relaterade artiklar:
 
 Genom att gå igenom den här artikeln skapar du och konfigurerar en belastningsutjämnare i Azure Portal. När processen har slutförts konfigurerar du klustret så att det använder IP-adressen från belastningsutjämnaren för tillgänglighets gruppens lyssnare.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Skapa och konfigurera belastningsutjämnaren i Azure Portal
+## <a name="create--configure-load-balancer"></a>Skapa & konfigurera belastnings utjämning 
 
 Utför följande steg i den här delen av aktiviteten:
 
@@ -67,11 +67,11 @@ Skapa först belastningsutjämnaren.
 
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
-   | **SKU** |**Standard**: krävs om SQL-instanserna finns i en annan tillgänglighets uppsättning än belastningsutjämnaren. </br> **Basic**: standard alternativet. |
+   | **SKU** |**Basic**: standard alternativet. Endast giltigt om SQL Server instanser finns i samma tillgänglighets uppsättning. </br> **Standard**: föredra. Giltig om SQL Server instanser finns i samma tillgänglighets uppsättning. Krävs om SQL Server instanserna finns i olika tillgänglighets zoner. |
    | **Virtuellt nätverk** |Välj det virtuella nätverk som SQL Servers instanserna finns i. |
    | **Undernät** |Välj det undernät som de SQL Server instanserna finns i. |
    | **Tilldelning av IP-adress** |**Statiskt** |
@@ -116,7 +116,7 @@ Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser s
 
 3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
    | **Protokoll** |**TCP** |
@@ -142,7 +142,7 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
 
 3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar reglerna för belastnings utjämning. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
@@ -234,7 +234,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
 
 7. Lägg till en hälso avsökning med hjälp av följande inställningar:
 
-   |Inställning |Värde
+   |Inställningen |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar avsökningen.
    |**Protokoll** |TCP
@@ -248,7 +248,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
 
 10. Konfigurera den nya regeln för belastnings utjämning med följande inställningar:
 
-    |Inställning |Värde
+    |Inställningen |Värde
     |:-----|:----
     |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln. 
     |**Klientdelens IP-adress** |Välj den IP-adress som du skapade. 
@@ -297,7 +297,7 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
 
 1. Skapa belastnings Utjämnings regeln med följande inställningar:
 
-   |Inställning |Värde
+   |Inställningen |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln för den distribuerade tillgänglighets gruppen. 
    |**Klientdelens IP-adress** |Använd samma IP-adress för klient delen som tillgänglighets gruppen.

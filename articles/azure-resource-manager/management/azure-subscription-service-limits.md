@@ -2,14 +2,13 @@
 title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/02/2020
+ms.openlocfilehash: b9b2b7217b854153f03d61713d8b4a1bcf5bfd9d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854087"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470178"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 
@@ -27,6 +26,9 @@ Mer information om priser för Azure finns i [Översikt över Azure-priser](http
 > När gränsen kan justeras innehåller tabellerna **standard gräns** och **maximal gräns** rubrik. Gränsen kan höjas över standard gränsen, men inte över max gränsen.
 >
 > Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](../templates/error-resource-quota.md).
+>
+> Termernas *mjuka gräns* och *hård gräns* används ofta för att beskriva den aktuella, justerbara gränsen (den mjuka gränsen) och den maximala gränsen (hård gräns). Om en gräns inte är justerbar, kommer det inte att finnas någon mjuk gräns, bara en hård gräns.
+>
 
 De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](../../cost-management-billing/manage/upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
 
@@ -75,6 +77,10 @@ Följande App Service gränser inkluderar gränser för Web Apps, Mobile Apps oc
 ## <a name="automation-limits"></a>Automation-begränsningar
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Azure cache för Redis-gränser
 

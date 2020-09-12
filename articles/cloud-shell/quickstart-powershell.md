@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: b50922d129fb4c72db1d6077a49c4d1309d5fe55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4a7f1453ec686cfa16d260101ba81f429ce1da0
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512987"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469464"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snabb start för PowerShell i Azure Cloud Shell
 
@@ -29,7 +29,7 @@ Det här dokumentet beskriver hur du använder PowerShell i Cloud Shell i [Azure
 
    ![Skärm bild som visar hur du startar Azure Cloud Shell från Azure Portal.](media/quickstart-powershell/shell-icon.png)
 
-2. Välj PowerShell-miljön i list rutan så kommer du att vara i Azure Drive`(Azure:)`
+2. Välj PowerShell-miljön i list rutan så kommer du att vara i Azure Drive `(Azure:)`
 
    ![Skärm bild som visar hur du väljer PowerShell-miljö för Azure Cloud Shell.](media/quickstart-powershell/environment-ps.png)
 
@@ -61,7 +61,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`till önskad prenumeration
+ 2. `cd` till önskad prenumeration
 
     ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
@@ -261,7 +261,7 @@ Om du vill autentisera till servrar eller virtuella datorer med SSH genererar du
 
 ### <a name="using-ssh"></a>Använda SSH
 
-Följ anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) för att skapa en ny VM-konfiguration med hjälp av Azure PowerShell-cmdletar.
+Följ anvisningarna [här](../virtual-machines/linux/quick-create-powershell.md) för att skapa en ny VM-konfiguration med hjälp av Azure PowerShell-cmdletar.
 Innan du ansluter till `New-AzVM` för att starta distributionen lägger du till en offentlig SSH-nyckel i VM-konfigurationen.
 Den nyskapade virtuella datorn innehåller den offentliga nyckeln på `~\.ssh\authorized_keys` platsen och aktiverar därmed en kostnads fri SSH-session med autentiseringsuppgifter till den virtuella datorn.
 
@@ -345,6 +345,6 @@ Skriv `exit` för att avsluta sessionen.
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
-[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
-[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

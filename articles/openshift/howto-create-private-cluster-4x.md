@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056779"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505360"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Skapa ett privat kluster i Azure Red Hat OpenShift 4
 
@@ -23,17 +23,35 @@ I den här artikeln förbereder du din miljö för att skapa Azure Red Hat OpenS
 > * Konfigurera förutsättningarna och skapa det virtuella nätverk och undernät som krävs
 > * Distribuera ett kluster med en privat API-Server slut punkt och en privat ingångs kontroll
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="register-the-resource-provider"></a>Registrera resursprovidern
+### <a name="register-the-resource-providers"></a>Registrera resurs leverantörer
 
-Sedan måste du registrera `Microsoft.RedHatOpenShift` resurs leverantören i din prenumeration.
+1. Om du har flera Azure-prenumerationer anger du det relevanta prenumerations-ID:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registrera `Microsoft.RedHatOpenShift` resurs leverantören:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. Registrera `Microsoft.Compute` resurs leverantören:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Registrera `Microsoft.Storage` resurs leverantören:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Hämta en Red Hat pull-hemlighet (valfritt)
 
@@ -63,7 +81,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
    CLUSTER=aro-cluster             # the name of your cluster
    ```
 
-1. **Skapa en resurs grupp**
+1. **Skapa en resursgrupp**
 
     En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med kommandot [AZ Group Create] [AZ-Group-Create].
 
@@ -141,7 +159,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Inaktivera privata slut punkts principer för undernät](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) i huvud under nätet.** Detta krävs för att kunna ansluta och hantera klustret.
+5. **[Inaktivera privata slut punkts principer för undernät](../private-link/disable-private-link-service-network-policy.md) i huvud under nätet.** Detta krävs för att kunna ansluta och hantera klustret.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -197,7 +215,7 @@ Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
 }
 ```
 
-Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser ut så här:`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser ut så här: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -207,7 +225,7 @@ Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser u
 ```
 
 >[!IMPORTANT]
-> För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) -kopplas med den Virtual Network klustret har distribuerats till.
+> För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](../virtual-network/virtual-network-peering-overview.md) -kopplas med den Virtual Network klustret har distribuerats till.
 
 Starta konsol-URL: en i en webbläsare och logga in med `kubeadmin` autentiseringsuppgifterna.
 
@@ -230,7 +248,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 ```
 
 >[!IMPORTANT]
-> För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) -kopplas med den Virtual Network klustret har distribuerats till.
+> För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](../virtual-network/virtual-network-peering-overview.md) -kopplas med den Virtual Network klustret har distribuerats till.
 
 Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. Ersätt **\<kubeadmin password>** med det lösen ord som du nyss hämtade.
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816037"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500393"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -60,7 +60,7 @@ När du skapar och kör Logi Kap par i en ISE får du samma användar upplevelse
   * Azure Automation, Azure Key Vault, Azure Event Grid och Azure Monitor loggar
   * FTP, SFTP-SSH, fil system och SMTP
   * SAP, IBM MQ, IBM DB2 och IBM 3270
-  * SQL Server Azure SQL Data Warehouse Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics Azure Cosmos DB
   * AS2, X12 och EDIFACT
 
   I sällsynta fall, om en ISE-anslutning är tillgänglig för ett lokalt system eller en data källa, kan du ansluta direkt utan att använda den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). Mer information finns i [åtkomst till lokala system](#on-premises) senare i det här avsnittet.
@@ -142,7 +142,7 @@ Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs
 
 ## <a name="integration-accounts-with-ise"></a>Integrations konton med ISE
 
-Du kan använda integrations konton med Logic Apps i en integrerings tjänst miljö (ISE). Dessa integrations konton måste dock använda *samma ISE* som de länkade Logic Apps. Logi Kap par i en ISE kan endast referera till de integrerings konton som finns i samma ISE. När du skapar ett integrations konto kan du välja din ISE som plats för ditt integrations konto. Information om hur priser och fakturering fungerar för integrations konton med en ISE finns i [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/).
+Du kan använda integrations konton med Logic Apps i en integrerings tjänst miljö (ISE). Dessa integrations konton måste dock använda *samma ISE* som de länkade Logic Apps. Logi Kap par i en ISE kan endast referera till de integrerings konton som finns i samma ISE. När du skapar ett integrations konto kan du välja din ISE som plats för ditt integrations konto. Information om hur priser och fakturering fungerar för integrations konton med en ISE finns i [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/). Information om begränsningar finns i [gränser för integrations konton](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 

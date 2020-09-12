@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 910d98558e5b949a76202cce48c2a210531d5c35
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042674"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459801"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -31,7 +31,7 @@ Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Ce
 |Versions tillstånd:|Allmänt tillgänglig|
 |Priset|Standard-nivå|
 |Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -249,7 +249,7 @@ I den här artikeln har du lärt dig att använda FIM (File Integrity Monitoring
 
 * [Ange säkerhets principer](tutorial-security-policy.md) --lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
 * [Hantera säkerhets rekommendationer](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
+* [Azures säkerhetsblogg](https://docs.microsoft.com/archive/blogs/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

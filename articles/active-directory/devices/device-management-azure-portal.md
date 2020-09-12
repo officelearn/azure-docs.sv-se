@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 569bc54d262e8611679c8aa86ed4dbfbed61aa79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442687"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhetsidentiteter med hjälp av Azure-portalen
 
@@ -118,7 +118,7 @@ Om du vill visa eller kopiera BitLocker-nycklarna måste du antingen vara ägare
 - Moln enhets administratör
 - Global administratör
 - Support administratör
-- Administratör för Intune-tjänsten
+- Intune Service-administratör
 - Säkerhetsadministratör
 - Säkerhetsläsare
 
@@ -161,7 +161,7 @@ Om du vill hantera enhets identiteter med Azure AD-portalen måste dessa enheter
 > [!NOTE]
 > Inställningen **Kräv Multi-factor auth för att ansluta enheter** gäller för enheter som antingen är Azure AD-anslutna eller Azure AD registrerade. Den här inställningen gäller inte för Hybrid Azure AD-anslutna enheter.
 
-- **Maximalt antal enheter** – med den här inställningen kan du välja maximalt antal Azure AD-anslutna eller Azure AD-registrerade enheter som en användare kan ha i Azure AD. Om en användare når den här kvoten kan de inte lägga till fler enheter förrän en eller flera av de befintliga enheterna tas bort. Standardvärdet är **20**.
+- **Maximalt antal enheter** – med den här inställningen kan du välja maximalt antal Azure AD-anslutna eller Azure AD-registrerade enheter som en användare kan ha i Azure AD. Om en användare når den här kvoten kan de inte lägga till fler enheter förrän en eller flera av de befintliga enheterna tas bort. Standardvärdet är **50**.
 
 > [!NOTE]
 > Inställningen för **maximalt antal enheter** gäller för enheter som antingen är Azure AD-anslutna eller Azure AD registrerade. Den här inställningen gäller inte för Hybrid Azure AD-anslutna enheter.

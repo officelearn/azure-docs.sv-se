@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836013"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462402"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
@@ -29,7 +29,7 @@ Aviserings typer:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Nätverksanalys
-* SQL Database- och SQL Data Warehouse-analys
+* Analys av SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)
 * Sammanhangsbaserad information
 
 Beroende på aviseringstypen kan kunderna hämta den information som krävs för att undersöka aviseringen med hjälp av följande resurser:
@@ -40,7 +40,7 @@ Beroende på aviseringstypen kan kunderna hämta den information som krävs för
 
 Kunder kan dela feedback om aviseringens beskrivning och relevans. Gå till själva aviseringen och välj knappen **Hade du nytta av detta?**. Välj orsak och ange en kommentar för att förklara din feedback. Vi övervakar ständigt den här feedbackkanalen för att förbättra våra aviseringar.
 
-## <a name="audit-log"></a>Gransknings logg
+## <a name="audit-log"></a>Granskningslogg
 
 Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](../azure-monitor/platform/platform-logs-overview.md)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
 
@@ -151,4 +151,4 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i A
 * [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md)
 * [Övervaka partner lösningar med Azure Security Center](security-center-partner-solutions.md) – lär dig hur du övervakar dina partner lösningars hälso status.
 * [Vanliga frågor och svar om Azure Security Center](faq-general.md) – Här finns vanliga frågor om tjänsten.
-* [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure
+* [Azures säkerhets blogg](https://docs.microsoft.com/archive/blogs/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure

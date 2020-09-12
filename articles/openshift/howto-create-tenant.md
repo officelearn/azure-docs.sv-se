@@ -6,16 +6,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694913"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469991"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Skapa en Azure AD-klient för Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift kräver en [Azure Active Directory-klient (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) som du kan använda för att skapa klustret. En *klient* organisation är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när de skapar en relation med Microsoft genom att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är distinkt och åtskild från andra Azure AD-klienter och har sina egna arbets-och skol identiteter och app-registreringar.
+Microsoft Azure Red Hat OpenShift kräver en [Azure Active Directory-klient (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) som du kan använda för att skapa klustret. En *klient* organisation är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när de skapar en relation med Microsoft genom att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är distinkt och åtskild från andra Azure AD-klienter och har sina egna arbets-och skol identiteter och app-registreringar.
 
 Om du inte redan har en Azure AD-klient kan du följa de här anvisningarna för att skapa en.
 
@@ -39,7 +39,7 @@ Så här skapar du en klient:
 
 ## <a name="resources"></a>Resurser
 
-Se [Azure Active Directory-dokumentationen](https://docs.microsoft.com/azure/active-directory/) för mer information om [Azure AD-klienter](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Se [Azure Active Directory-dokumentationen](../active-directory/index.yml) för mer information om [Azure AD-klienter](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

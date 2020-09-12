@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: NAT-krav för kretsar'
 description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera NAT för ExpressRoute-kretsar.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: a2c322c765d39a3afe4974ed88bf4dc18fd467a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521929"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569653"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoutes NAT-krav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera NAT. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av NAT som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte, måste du följa kraven som beskrivs nedan. 
@@ -20,7 +20,7 @@ För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du 
 Läs sidan [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md) om du vill få en översikt över de olika routningsdomänerna. För att uppfylla de offentliga IP-adresskraven för Azures offentliga och Microsofts peering, rekommenderar vi att du konfigurerar NAT mellan nätverket och Microsoft. Det här avsnittet innehåller en detaljerad beskrivning av den NAT-infrastruktur som du måste konfigurera.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>NAT-krav för Microsoft-peering
-Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan över tjänster innehåller Office 365-tjänster, till exempel Exchange Online, SharePoint Online och Skype för företag. Microsoft förväntas stödja dubbelriktad anslutning i Microsofts peering. Trafik till Microsofts molntjänster måste vara SNATed till giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket. Trafik som är avsedd för ditt nätverk från Microsofts molntjänster måste vara SNATed i din Internet-anslutning för att förhindra [asymmetrisk routning](expressroute-asymmetric-routing.md). Bilden nedan innehåller en övergripande bild av hur NAT ska konfigureras för Microsoft-peering.
+Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan över tjänster omfattar Microsoft 365 tjänster, till exempel Exchange Online, SharePoint Online och Skype för företag. Microsoft förväntas stödja dubbelriktad anslutning i Microsofts peering. Trafik till Microsofts molntjänster måste vara SNATed till giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket. Trafik som är avsedd för ditt nätverk från Microsofts molntjänster måste vara SNATed i din Internet-anslutning för att förhindra [asymmetrisk routning](expressroute-asymmetric-routing.md). Bilden nedan innehåller en övergripande bild av hur NAT ska konfigureras för Microsoft-peering.
 
 ![Diagram på hög nivå över hur NAT ska konfigureras för Microsoft-peering.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -34,7 +34,7 @@ Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som 
   > 
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Trafik från Microsoft till ditt nätverk
-* Vissa scenarier kräver att Microsoft initierar anslutningen till tjänstens slutpunkter som finns i ditt nätverk. Ett typexempel på scenariot är anslutningen till ADFS-servrar i ditt nätverk från Office 365. I sådana fall måste du meddela lämpliga prefix från ditt nätverk till Microsofts peering. 
+* Vissa scenarier kräver att Microsoft initierar anslutningen till tjänstens slutpunkter som finns i ditt nätverk. Ett typiskt exempel på scenariot är att ansluta till ADFS-servrar som finns i nätverket från Microsoft 365. I sådana fall måste du meddela lämpliga prefix från ditt nätverk till Microsofts peering. 
 * Du måste använda SNAT för Microsoft-trafik för din Internet-anslutning för tjänstens slutpunkter i nätverket för att förhindra [asymmetrisk routning](expressroute-asymmetric-routing.md). Begäranden **och svar** med en mål-IP-adress som matchar en väg som tagits emot via ExpressRoute skickas alltid till ExpressRoute. Asymmetrisk routning sker om en begäran tas emot via Internet när svaret skickas via ExpressRoute. Om du använder SNAT för den inkommande Microsoft-trafiken på Internet-anslutningen tvingas svarstrafiken tillbaka till Internet-anslutningen, vilket löser problemet.
 
 ![Asymmetrisk routning med ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)

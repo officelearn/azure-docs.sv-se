@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 08/14/2020
-ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586825"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462215"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -148,7 +148,7 @@ På fliken **grundläggande** väljer du länken **Konfigurera databas** i avsni
   
 **Ändra maskin varu generationen för en befintlig SQL-hanterad instans**
 
-# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure-portalen](#tab/azure-portal)
 
 På sidan SQL-hanterad instans väljer du **pris nivå** länk placerad under avsnittet Inställningar
 
@@ -188,7 +188,7 @@ Gen5 är tillgängligt i de flesta regioner i hela världen.
 
 #### <a name="fsv2-series"></a>Fsv2-serien
 
-Fsv2-serien är tillgänglig i följande regioner: Australien, centrala, Australien, östra, Australien, sydöstra, Brasilien, södra, centrala Kanada, Asien, östra, östra USA, centrala Frankrike, centrala Indien, västra USA, centrala Korea, södra Nord Europa, norra Europa, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA 2.
+Fsv2-serien är tillgänglig i följande regioner: Australien, centrala, Australien, östra, Australien, sydöstra, södra Brasilien, centrala Kanada, Asien, östra, östra USA, centrala Frankrike, centrala Indien, Korea, södra, Nord Europa, norra Europa, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA 2.
 
 
 #### <a name="m-series"></a>M-serien

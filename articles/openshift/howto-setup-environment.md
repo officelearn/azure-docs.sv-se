@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64b71c135126ebb540d5ccf72f829f83c74ed0b3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b468f967e68b72e3c9da276dc2077fc09256c895
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495326"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470042"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
 
@@ -37,9 +37,9 @@ az --version
 
 Den första raden med utdata kommer att ha CLI-versionen, till exempel `azure-cli (2.0.65)` .
 
-Här följer instruktioner för hur du [installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du behöver en ny installation eller en uppgradering.
+Här följer instruktioner för hur du [installerar Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) om du behöver en ny installation eller en uppgradering.
 
-Alternativt kan du använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). När du använder Azure Cloud Shell bör du välja **bash** -miljön om du planerar att följa tillsammans med själv studie serien [skapa och hantera en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+Alternativt kan du använda [Azure Cloud Shell](../cloud-shell/overview.md). När du använder Azure Cloud Shell bör du välja **bash** -miljön om du planerar att följa tillsammans med själv studie serien [skapa och hantera en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
 
 ## <a name="register-providers-and-features"></a>Registrera leverantörer och funktioner
 
@@ -103,7 +103,7 @@ Om du inte har en Azure AD att använda som klient för ditt Azure Red Hat OpenS
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Skapa en Azure AD-användare, en säkerhets grupp och ett program objekt
 
-För att kunna utföra uppgifter i klustret, till exempel att konfigurera lagring, måste du använda OpenShift i Azure Red Hat. Dessa behörigheter visas via ett [huvud namn för tjänsten](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). Du vill också skapa en ny Active Directory användare för att testa appar som körs på ditt Azure Red Hat OpenShift-kluster.
+För att kunna utföra uppgifter i klustret, till exempel att konfigurera lagring, måste du använda OpenShift i Azure Red Hat. Dessa behörigheter visas via ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Du vill också skapa en ny Active Directory användare för att testa appar som körs på ditt Azure Red Hat OpenShift-kluster.
 
 Följ instruktionerna i [skapa ett Azure AD-App-objekt och-användare](howto-aad-app-configuration.md) för att skapa ett huvud namn för tjänsten, generera en URL för klient hemlighet och autentiserings-motanrop för din app och skapa en ny Azure AD-säkerhetsgrupp och-användare för att få åtkomst till klustret.
 
@@ -115,4 +115,4 @@ Prova själv studie kursen:
 > [!div class="nextstepaction"]
 > [Skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli

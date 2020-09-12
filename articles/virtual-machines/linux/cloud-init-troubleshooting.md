@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510981"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434647"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Felsöka VM-etablering med Cloud-Init
 
@@ -21,7 +21,7 @@ Om du har skapat generaliserade anpassade avbildningar med Cloud-Init för att u
 
 Några exempel på problem med etableringen:
 - Den virtuella datorn har fastnat i "skapa" i 40 minuter och den virtuella datorns skapande har marker ATS som misslyckad
-- `CustomData`får inte bearbetas
+- `CustomData` får inte bearbetas
 - Den tillfälliga disken kan inte monteras
 - Användare skapas inte eller så finns det problem med användar åtkomsten
 - Nätverket har inte ställts in korrekt
@@ -29,7 +29,7 @@ Några exempel på problem med etableringen:
 
 Den här artikeln beskriver hur du felsöker Cloud-init. Mer detaljerad information finns i [Cloud-Init djupe](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Steg 1: testa distributionen utan att`customData`
+## <a name="step-1-test-the-deployment-without-customdata"></a>Steg 1: testa distributionen utan att `customData`
 
 Cloud-Init kan acceptera `customData` , som skickas till den när den virtuella datorn skapas. Först bör du se till att detta inte orsakar några problem med distributioner. Försök att konfigurera den virtuella datorn utan att överföra någon konfiguration. Om du hittar den virtuella datorn kan du fortsätta med stegen nedan, om du hittar den konfiguration som du skickar inte går att använda [steg 4](). 
 
@@ -56,7 +56,7 @@ När den virtuella datorn inte kan etableras visar Azure status för att skapa, 
 
 När den virtuella datorn körs behöver du loggarna från den virtuella datorn för att förstå varför etableringen misslyckades.  För att förstå varför VM-etableringen misslyckades, stoppa inte den virtuella datorn. Behåll den virtuella datorn som körs. Du måste behålla den felande virtuella datorn i ett körnings tillstånd för att kunna samla in loggar. Använd någon av följande metoder för att samla in loggarna:
 
-- [Seriekonsol](./serial-console-grub-single-user-mode.md)
+- [Seriekonsol](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Aktivera startdiagnostik](./tutorial-monitor.md#enable-boot-diagnostics) innan du skapar den virtuella datorn och [Visa](./tutorial-monitor.md#view-boot-diagnostics) dem under starten.
 
@@ -89,7 +89,7 @@ Här är mer information om vad du kan söka efter i varje Cloud-Init-logg.
 
 Som standard skrivs alla Cloud-Init-händelser med prioriteten fel sökning eller högre `/var/log/cloud-init.log` . Detta ger utförliga loggar för alla händelser som inträffade under initieringen av Cloud-init. 
 
-Till exempel:
+Exempel:
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -108,7 +108,7 @@ När du har hittat ett fel eller en varning läser du bakåt i Cloud-Init-loggen
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Om du har åtkomst till den [seriella konsolen](./serial-console-grub-single-user-mode.md)kan du försöka köra kommandot igen som Cloud-Init försökte köra.
+Om du har åtkomst till den [seriella konsolen](../troubleshooting/serial-console-grub-single-user-mode.md)kan du försöka köra kommandot igen som Cloud-Init försökte köra.
 
 Loggningen för `/var/log/cloud-init.log` kan också konfigureras om i/etc/cloud/cloud.cfg.d/05_logging. cfg. Mer information om Cloud-Init-loggning finns i dokumentationen om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -124,9 +124,9 @@ Om du fortfarande inte kan isolera varför Cloud-Init inte kunde etableras måst
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Steg 4: Undersök varför konfigurationen inte används
-Alla fel i Cloud-Init resulterar i ett oåterkalleligt etablerings fel. Om du till exempel använder `runcmd` modulen i en Cloud-Init-konfiguration kommer en kod som inte är noll från det kommando som körs att leda till att den virtuella dator etableringen Miss fungerar. Detta beror på att den körs efter grundläggande etablerings funktioner som sker i de första tre stegen i Cloud-init. Om du vill felsöka varför konfigurationen inte tillämpades granskar du loggarna i steg 3 och Cloud-Init-moduler manuellt. Till exempel:
+Alla fel i Cloud-Init resulterar i ett oåterkalleligt etablerings fel. Om du till exempel använder `runcmd` modulen i en Cloud-Init-konfiguration kommer en kod som inte är noll från det kommando som körs att leda till att den virtuella dator etableringen Miss fungerar. Detta beror på att den körs efter grundläggande etablerings funktioner som sker i de första tre stegen i Cloud-init. Om du vill felsöka varför konfigurationen inte tillämpades granskar du loggarna i steg 3 och Cloud-Init-moduler manuellt. Exempel:
 
-- `runcmd`– körs skripten utan fel? Kör konfigurationen manuellt från terminalen för att säkerställa att de körs som förväntat.
+- `runcmd` – körs skripten utan fel? Kör konfigurationen manuellt från terminalen för att säkerställa att de körs som förväntat.
 - Installerar paket – har den virtuella datorn åtkomst till paket arkiven?
 - Du bör också kontrol lera den `customData` data konfiguration som tillhandahölls för den virtuella datorn. den finns i `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt` .
 

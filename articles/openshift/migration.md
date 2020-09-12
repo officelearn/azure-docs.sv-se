@@ -1,18 +1,18 @@
 ---
-title: Migrera från en Azure Red Hat OpenShift 3,11 till Azure Red Hat OpenShift 4
-description: Migrera från en Azure Red Hat OpenShift 3,11 till Azure Red Hat OpenShift 4
+title: Migrera från Azure Red Hat OpenShift 3.11 till Azure Red Hat OpenShift 4
+description: Migrera från Azure Red Hat OpenShift 3.11 till Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migrering, Aro, OpenShift, Red Hat
-ms.openlocfilehash: 68e8be24273dfab490d2423b76c372f2ff9f2b38
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513265"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469753"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migrera från Azure Red Hat OpenShift 3,11 till Azure Red Hat OpenShift 4
 
@@ -100,7 +100,7 @@ Information om hur du konfigurerar dessa lagrings typer finns i [Konfigurera bes
 
 Azure Red Hat OpenShift 4 kan bygga avbildningar från din käll kod, distribuera dem och hantera deras livs cykel. För att möjliggöra detta ger Azure Red Hat OpenShift 4 ett [internt, integrerat behållar avbildnings register](https://docs.openshift.com/aro/4/registry/registry-options.html) som kan distribueras i din Azure Red Hat OpenShift-miljö för att hantera avbildningar lokalt.
 
-Om du använder externa register som [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [Red Hat Quay](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)-register eller ett [inaktiverat Red Hat-register](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), följer du stegen för att ange autentiseringsuppgifter för klustret så att klustret får åtkomst till databaserna.
+Om du använder externa register som [Azure Container Registry](../container-registry/index.yml), [Red Hat Quay](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)-register eller ett [inaktiverat Red Hat-register](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), följer du stegen för att ange autentiseringsuppgifter för klustret så att klustret får åtkomst till databaserna.
 
 ### <a name="monitoring"></a>Övervakning
 
@@ -128,4 +128,3 @@ az openshift delete --name $CLUSTER_NAME
 ```
 ## <a name="next-steps"></a>Nästa steg
 Kolla in Azure Red Hat OpenShift-dokumentationen som tillhandahålls av Red Hat [här](https://docs.openshift.com/aro/4/welcome/index.html).
-

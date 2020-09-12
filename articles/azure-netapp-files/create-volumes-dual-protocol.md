@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: dcdb3e8ce545227bc11cc60e3885c1a985ed34f4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134589"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460005"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Skapa en NFSv3-och SMB-volym (Dual-Protocol) för Azure NetApp Files
 
@@ -76,7 +76,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
     
         ![Skapa undernät](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Om du vill använda en befintlig ögonblicks bild princip på volymen klickar du på **Visa Avancerat avsnitt** för att expandera den och väljer en ögonblicks bilds princip på den nedrullningsbara menyn. 
+    * Om du vill använda en befintlig ögonblicks bilds princip på volymen klickar du på **Visa Avancerat avsnitt** för att expandera den, ange om du vill dölja sökvägen till ögonblicks bilden och välj en ögonblicks bilds princip på den nedrullningsbara menyn. 
 
         Information om hur du skapar en ögonblicks bilds princip finns i [Hantera ögonblicks bild principer](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 

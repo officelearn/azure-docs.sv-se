@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543392"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651093"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -71,7 +71,7 @@ Registrerade modeller identifieras med namn och version. Varje gång du registre
 Du kan inte ta bort en registrerad modell som används i en aktiv distribution.
 Mer information finns i avsnittet registrera modell i [Distribuera modeller](how-to-deploy-and-where.md#registermodel).
 
-### <a name="profile-models"></a>Profil modeller
+### <a name="profile-models"></a>Profilmodeller
 
 Azure Machine Learning kan hjälpa dig att förstå processor-och minnes kraven för tjänsten som skapas när du distribuerar din modell. Profilering testar tjänsten som kör din modell och returnerar information som processor användning, minnes användning och svars fördröjning. Det ger också en processor-och minnes rekommendation baserat på resursanvändningen.
 Mer information finns i avsnittet profilering i [Distribuera modeller](how-to-deploy-profile-model.md).
@@ -153,12 +153,12 @@ Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt t
 - Med [tolkning](how-to-machine-learning-interpretability.md) kan du förklara dina modeller, uppfylla regelefterlevnad och förstå hur modeller kommer till följd av angivna ingångar.
 - I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkningarna som används för att träna en modell.
 - Azure ML Model-registret fångar alla metadata som är associerade med din modell (vilket experiment tränade den, där den distribueras, om distributionerna är felfria).
-- [Med integrering med Azure](how-to-use-event-grid.md) kan du agera på händelser i ml-livscykel. Till exempel modell registrering, distribution, data drift och utbildning (körning)-händelser.
+- [Med integrering med Azure](how-to-use-event-grid.md)  kan du agera på händelser i ml-livscykel. Till exempel modell registrering, distribution, data drift och utbildning (körning)-händelser.
 
 > [!TIP]
 > Även om information om modeller och data uppsättningar samlas in automatiskt, kan du lägga till ytterligare information med hjälp av __taggar__. När du letar efter registrerade modeller och data uppsättningar i din arbets yta kan du använda taggar som ett filter.
 >
-> Ett valfritt steg är att associera en data uppsättning med en registrerad modell. Information om hur du refererar till en data uppsättning när du registrerar en modell finns i referens för [modell](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) klass.
+> Ett valfritt steg är att associera en data uppsättning med en registrerad modell. Information om hur du refererar till en data uppsättning när du registrerar en modell finns i referens för [modell](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true) klass.
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Meddela, automatisera och Avisera händelser i ML-livscykel

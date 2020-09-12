@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874766"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462249"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använda python-användardefinierade funktioner (UDF) med Apache Hive och Apache-gris i HDInsight
 
@@ -25,7 +25,7 @@ Python 2.7 installeras som standard på HDInsight 3,0 och senare. Apache Hive ka
 
 HDInsight innehåller även jython, som är en python-implementering som skrivits i Java. Jython körs direkt på Java Virtual Machine och använder inte direkt uppspelning. Jython är den rekommenderade python-tolken när du använder python med gris.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -38,7 +38,7 @@ HDInsight innehåller även jython, som är en python-implementering som skrivit
 
 ## <a name="storage-configuration"></a>Storage-konfiguration
 
-Ingen åtgärd krävs om det lagrings konto som används är av typen `Storage (general purpose v1)` eller `StorageV2 (general purpose v2)` .  Processen i den här artikeln kommer att generera utdata till minst `/tezstaging` .  En standard-Hadoop-konfiguration kommer att innehålla `/tezstaging` i `fs.azure.page.blob.dir` konfigurations variabeln `core-site.xml` för-tjänsten `HDFS` .  Den här konfigurationen innebär att utdata till katalogen är sid-blobbar som inte stöds för lagrings konto typen `BlobStorage` .  `BlobStorage`Ta bort `/tezstaging` från konfigurations variabeln för att använda den här artikeln `fs.azure.page.blob.dir` .  Konfigurationen kan nås från [Ambari-användargränssnittet](../hdinsight-hadoop-manage-ambari.md).  Annars får du fel meddelandet:`Page blob is not supported for this account type.`
+Ingen åtgärd krävs om det lagrings konto som används är av typen `Storage (general purpose v1)` eller `StorageV2 (general purpose v2)` .  Processen i den här artikeln kommer att generera utdata till minst `/tezstaging` .  En standard-Hadoop-konfiguration kommer att innehålla `/tezstaging` i `fs.azure.page.blob.dir` konfigurations variabeln `core-site.xml` för-tjänsten `HDFS` .  Den här konfigurationen innebär att utdata till katalogen är sid-blobbar som inte stöds för lagrings konto typen `BlobStorage` .  `BlobStorage`Ta bort `/tezstaging` från konfigurations variabeln för att använda den här artikeln `fs.azure.page.blob.dir` .  Konfigurationen kan nås från [Ambari-användargränssnittet](../hdinsight-hadoop-manage-ambari.md).  Annars får du fel meddelandet: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > Stegen i det här dokumentet gör följande antaganden:  
@@ -300,8 +300,8 @@ Ett Python-skript kan användas som ett UDF-skript från gris- `GENERATE` instru
 
 Om du vill ange python-tolken använder du `register` när du refererar till python-skriptet. I följande exempel registreras skript med gris som `myfuncs` :
 
-* **Så här använder du jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Använda C python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Så här använder du jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Använda C python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > När du använder jython kan sökvägen till pig_jython-filen vara antingen en lokal sökväg eller en WASBS://-sökväg. Men när du använder C python måste du referera till en fil i det lokala fil systemet på den nod som du använder för att skicka gris-jobbet.
@@ -319,7 +319,7 @@ Det här exemplet gör:
 
 1. Den första raden läser in exempel data filen `sample.log` i `LOGS` . Den definierar även varje post som en `chararray` .
 2. Nästa rad filtrerar bort alla null-värden och lagrar resultatet av åtgärden i `LOG` .
-3. Därefter itererar den över posterna i `LOG` och använder `GENERATE` för att anropa `create_structure` metoden i python/jython-skriptet som läses in som `myfuncs` . `LINE`används för att skicka den aktuella posten till funktionen.
+3. Därefter itererar den över posterna i `LOG` och använder `GENERATE` för att anropa `create_structure` metoden i python/jython-skriptet som läses in som `myfuncs` . `LINE` används för att skicka den aktuella posten till funktionen.
 4. Slutligen dumpas utdata till STDOUT med hjälp av `DUMP` kommandot. Det här kommandot visar resultatet när åtgärden har slutförts.
 
 ### <a name="create-file"></a>Skapa fil
@@ -594,7 +594,7 @@ Fel informationen (STDERR) och resultatet av jobbet (STDOUT) loggas också i HDI
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
-Om du behöver läsa in Python-moduler som inte tillhandahålls som standard, se [så här distribuerar du en modul till Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Om du behöver läsa in Python-moduler som inte tillhandahålls som standard, se [så här distribuerar du en modul till Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Andra sätt att använda gris, Hive och lära dig mer om hur du använder MapReduce finns i följande dokument:
 

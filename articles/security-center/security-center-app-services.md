@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec3fb8609612f3920e330da7922fdd1eb8883305
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080802"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459784"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Skydda dina Azure App Service-webbappar och API:er
 
@@ -32,7 +32,7 @@ När App Service plan aktive rad bedömer Security Center resurserna som omfatta
 Security Center utnyttjar molnets skala och den synlighet som Azure har som moln leverantör, för att övervaka för vanliga attacker från webb program. Security Center kan identifiera attacker på dina program och identifiera nya attacker – även om angripare befinner sig i rekognosering-fasen för att identifiera sårbarheter i flera Azure-värdbaserade program. Som en Azure-Native-tjänst är Security Center också i en unik position för att erbjuda värdbaserade säkerhets analyser som täcker underliggande datornoder för den här PaaS, vilket gör att Security Center kan upptäcka attacker mot webb program som redan utnyttjats. Mer information finns i [skydd mot Azure App Service](threat-protection.md#app-services).
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Aktivera övervakning och skydd av App Service
+## <a name="enable-monitoring-and-protection-of-app-service"></a>Aktivera övervakning och skydd av App Service
 
 1. I Azure Portal väljer du Security Center.
 2. Gå till **pris & inställningar** och välj en prenumeration.
@@ -64,4 +64,4 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [App Services](security-center-virtual-machine-protection.md#app-services): Visa en lista över App Service-miljöer med hälso översikter.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://docs.microsoft.com/archive/blogs/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525929"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462385"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
 
@@ -250,7 +250,7 @@ Håll dig frisk!
 
 **Exempel**
 - **Go**: nya snabb starter för [tal igenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) och [anpassad röst assistent](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Hitta exempel kod [här](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
-- **Java Script**: nya snabb starter för [text till tal](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript)-, [översättnings](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript)-och [Avsiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- **Java Script**: nya snabb starter för [text till tal](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript)-, [översättnings](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)-och [Avsiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Exempel på nyckelords igenkänning för [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) och [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **COVID – 19 förkortad-testning:** På grund av att det går att fjärrans luta under de senaste veckorna kunde vi inte göra så mycket manuella verifierings testningar som vanligt. Vi har inte gjort några ändringar som vi tror skulle kunna ha trasigt något och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
@@ -325,7 +325,7 @@ Håll dig frisk!
 - Java Script: stöd har lagts till för `FromHost API` att under lätta användningen av lokal behållare och suveräna moln. Se dokumentationen [här](speech-container-howto.md).
 - Java Script: vi följer nu `NODE_TLS_REJECT_UNAUTHORIZED` tack vare bidrag från [orgads](https://github.com/orgads). Se information [här](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - `OpenSSL` har uppdaterats till version 1.1.1 b och är statiskt länkat till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` katalogen i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
 - Vi har ändrat data typen som returnerades för C# `WordLevelTimingResult.Offset` från `int` till för `long` att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
@@ -366,7 +366,7 @@ Håll dig frisk!
 - Stöd har lagts till `KeywordRecognizer` för Windows (UWP), Android och iOS via NuGet-och Unity-paket
 - Java API för fjärrkonversation har lagts till för att göra konversations avskrifter i asynkrona batchar.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - Konversations beskrivare-funktioner flyttas under namnrymd `Microsoft.CognitiveServices.Speech.Transcription` .
 - En del av konversations beskrivar metoderna flyttas till den nya `Conversation` klassen.
@@ -673,7 +673,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Stöd för mål-C på iOS. Kolla vår [mål-C-snabb start för iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Stöd för Java Script i webbläsare. Kolla i vår [snabb start för Java Script](quickstart-js-browser.md).
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar.
   Mer information finns på [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
@@ -692,7 +692,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 
 - Visa ytterligare information om fel information om anslutnings fel.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - I Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` kräver funktionen inte längre en Sök vägs parameter. Nu identifieras sökvägen automatiskt på alla plattformar som stöds.
 - Get-accessorn för egenskapen `EndpointUrl` i Java och C# har tagits bort.
@@ -721,7 +721,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Igenkännings resultatet innehåller fler fält. De är förskjutna från början och varaktigheten för ljudet (både i Ticket) för den tolkade texten och ytterligare värden som representerar igenkännings status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout` .
 - Stöd för AuthorizationToken för att skapa fabriks instanser.
 
-**Bryta ändringar**
+**Icke-bakåtkompatibla ändringar**
 
 - Igenkännings händelser: `NoMatch` händelse typen slogs samman i `Error` händelsen.
 - SpeechOutputFormat i C# har bytt namn till `OutputFormat` för att hålla dig uppdaterad med C++.

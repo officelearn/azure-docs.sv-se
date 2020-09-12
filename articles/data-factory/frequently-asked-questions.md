@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187283"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440515"
 ---
 # <a name="azure-data-factory-faq"></a>Vanliga frågor och svar om Azure Data Factory
 
@@ -110,7 +110,7 @@ Det finns ingen hård gräns för antalet integration runtime-instanser som du k
 En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory innehåller fyra viktiga komponenter som fungerar tillsammans som en plattform där du kan skapa data drivna arbets flöden med steg för att flytta och transformera data.
 
 ### <a name="pipelines"></a>Pipelines
-En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbets enhet. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att behöva hantera varje aktivitet individuellt. Du kan kedja samman aktiviteterna i en pipeline för att kunna använda dem i tur och ordning, eller så kan du använda dem oberoende av varandra parallellt.
+En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbets enhet. Tillsammans utför aktiviteterna i en pipeline en uppgift. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att behöva hantera varje aktivitet individuellt. Du kan kedja samman aktiviteterna i en pipeline för att kunna använda dem i tur och ordning, eller så kan du använda dem oberoende av varandra parallellt.
 
 ### <a name="data-flows"></a>Dataflöden
 Data flöden är objekt som du skapar visuellt i Data Factory som transformerar data i skala på backend-tjänster. Du behöver inte förstå programmering eller Spark-internt. Du behöver bara utforma data omvandlings avsikten med grafer (mappning) eller kalkyl blad (Datatransformering).
@@ -190,7 +190,7 @@ Ange data flödes skriptet när Microsoft tillhandahåller hjälp eller fel sök
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Hur gör jag för att åtkomst till data genom att använda de andra 90 data uppsättnings typerna i Data Factory?
 
-Funktionen mappa data flöde tillåter för närvarande Azure SQL Database, Azure SQL Data Warehouse, avgränsade textfiler från Azure Blob Storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob Storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
+Funktionen mappa data flöde tillåter för närvarande Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), avgränsade textfiler från Azure Blob Storage eller Azure Data Lake Storage Gen2 och Parquet-filer från Blob Storage eller Data Lake Storage Gen2 internt för källa och mottagare. 
 
 Använd kopierings aktiviteten till att mellanlagra data från någon av de andra kopplingarna och kör sedan en data flödes aktivitet för att transformera data när de har mellanlagrats. Till exempel kommer din pipeline först att kopieras till Blob Storage och sedan använder en data flödes aktivitet en data uppsättning i källan för att transformera dessa data.
 
@@ -210,10 +210,10 @@ Datatransformering Data Flow stöds för närvarande i data fabriker som skapats
 * Australien, östra
 * Kanada, centrala
 * Indien, centrala
-* USA, östra
+* East US
 * USA, östra 2
 * Japan, östra
-* Europa, norra
+* Norra Europa
 * Sydostasien
 * USA, södra centrala
 * Storbritannien, södra
@@ -252,7 +252,7 @@ Datatransformering Data Flow stöder följande data typer i SQL. Du får ett ver
 * short
 * double
 * real
-* float
+* flyt
 * char
 * nchar
 * varchar
@@ -266,7 +266,7 @@ Datatransformering Data Flow stöder följande data typer i SQL. Du får ett ver
 * bigint
 * long
 * text
-* date
+* datum
 * datetime
 * datetime2
 * smalldatetime

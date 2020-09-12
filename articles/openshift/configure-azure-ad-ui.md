@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 10a7dc662993327b71d43c27f44d22166a3f3611
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590327"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469889"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurera Azure Active Directory autentisering för ett Azure Red Hat OpenShift 4-kluster (portal)
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -50,7 +50,7 @@ Gå till **översikten** och anteckna **program** -ID: t och katalog (klient) **
 
 ## <a name="configure-optional-claims"></a>Konfigurera valfria anspråk
 
-Programutvecklare kan använda [valfria anspråk](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) i sina Azure AD-program för att ange vilka anspråk de vill ha i token som skickas till deras program.
+Programutvecklare kan använda [valfria anspråk](../active-directory/develop/active-directory-optional-claims.md) i sina Azure AD-program för att ange vilka anspråk de vill ha i token som skickas till deras program.
 
 Du kan använda valfria anspråk för att:
 
@@ -68,7 +68,7 @@ Navigera till **token-konfiguration (för hands version)** och klicka på **Läg
 
 Program som är registrerade i en Azure Active Directory-klient (Azure AD) är som standard tillgängliga för alla användare av klienten som autentiseras korrekt. Med Azure AD kan klient organisations administratörer och utvecklare begränsa en app till en särskild uppsättning användare eller säkerhets grupper i klienten.
 
-Följ anvisningarna i Azure Active Directory-dokumentationen för att [tilldela användare och grupper till appen](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Följ anvisningarna i Azure Active Directory-dokumentationen för att [tilldela användare och grupper till appen](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Konfigurera OpenID-autentisering för OpenShift
 
@@ -100,7 +100,7 @@ Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser u
 
 Starta konsol-URL: en i en webbläsare och logga in med `kubeadmin` autentiseringsuppgifterna.
 
-Navigera till **Administration**, klicka på **kluster inställningar**och välj sedan fliken **global konfiguration** . Rulla för att välja **OAuth**.
+Navigera till **Administration**, klicka på **kluster inställningar**och välj sedan fliken **global konfiguration** . Bläddra för att välja **OAuth**.
 
 Rulla ned till Välj **Lägg till** under **identitets leverantörer** och välj **OpenID Anslut**.
 ![Välj OpenID Anslut från List rutan identitets leverantörer](media/aro4-oauth-idpdrop.png)

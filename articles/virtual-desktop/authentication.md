@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038666"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500308"
 ---
 # <a name="supported-authentication-methods"></a>Autentiseringsmetoder som stöds
 
@@ -43,9 +43,13 @@ Det här är de inloggnings metoder som stöds för närvarande:
 >[!NOTE]
 >Smartkort och Windows Hello kan bara använda Kerberos för att logga in. Att logga in med Kerberos kräver att en detaljerad information anges för domänkontrollanten.
 
+## <a name="hybrid-identity"></a>Hybrididentitet
+
+Windows Virtual Desktop stöder [Hybrid identiteter](../active-directory/hybrid/whatis-hybrid-identity.md) via Azure Active Directory (AD), inklusive de federerade med Active Directory Federation Services (AD FS) (ADFS). Eftersom användarna måste kunna identifieras via Azure AD stöder inte Windows Virtual Desktop fristående Active Directory distributioner med ADFS.
+
 ## <a name="single-sign-on-sso"></a>Enkel inloggning (SSO)
 
-Det virtuella Windows-skrivbordet stöder för närvarande inte Active Directory Federation Services (AD FS) (ADFS) för autentisering eller SSO.
+Det virtuella Windows-skrivbordet stöder för närvarande inte Active Directory Federation Services (AD FS) (ADFS) för SSO.
 
 Det enda sättet att undvika att uppmanas att ange dina autentiseringsuppgifter för sessionens värd är att spara dem i klienten. Vi rekommenderar att du bara gör detta med säkra enheter för att hindra andra användare från att komma åt dina resurser.
 

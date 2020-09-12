@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/11/2020
-ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186088"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440583"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -147,9 +147,9 @@ Om du väljer alternativet **Installera licensierad komponent** för den anpassa
 
    * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45**.
 
-   * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för kopplingar för CRM/ERP/marknadsföring/samarbets program, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2019,2**.
+   * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för kopplingar för CRM/ERP/marknadsföring/samarbets program, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020,1**.
 
-   * Om du väljer **KINGSWAYSOFT SSIS Productivity Pack** -komponenten kan du installera [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) Suite-komponenter från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **10,0**.
+   * Om du väljer **KINGSWAYSOFT SSIS Productivity Pack** -komponenten kan du installera [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) Suite-komponenter från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **20,1**.
 
    * Om du väljer **Theobald program varans xtract** -komponent kan du installera [xtract](https://theobald-software.com/en/xtract-is/) -serien för SAP-system (ERP, s/4HANA, BW) från Theobald program vara på din Azure-SSIS IR. Det gör du genom att dra & släpp/Ladda upp den produkt licens fil som du har köpt från dem i förväg i indata-rutan för **licens filen** . Den aktuella integrerade versionen är **6.1.1.3**.
 
@@ -325,7 +325,7 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
 
       * En *TERADATA* -mapp som innehåller ett anpassat installations skript (*main. cmd*), dess associerade fil (*install. cmd*) och installations paket (*. msi*). De här filerna installerar Teradata-kopplingarna, Teradata Parallel transporter (TPT) API och ODBC-drivrutinen på varje nod i Azure-SSIS IR Enterprise Edition. Med den här installationen kan du använda Teradata anslutnings hanteraren, källa och mål för att ansluta till Teradata-servern. 
       
-        Först [laddar du ned Teradata-verktyg och-verktyg 15. x zip-filen](http://partnerintelligence.teradata.com) (till exempel *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip*) och laddar sedan upp den tillsammans med de tidigare nämnda *. cmd* -och *MSI* -filerna till din behållare.
+        Först [laddar du ned Teradata-verktyg och-verktyg 15. x zip-filen](http://partnerintelligence.teradata.com) (till exempel  *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip*) och laddar sedan upp den tillsammans med de tidigare nämnda *. cmd* -och *MSI* -filerna till din behållare.
 
       * En *TLS 1,2* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att använda stark kryptering och säkrare nätverks protokoll (TLS 1,2) på varje nod i Azure-SSIS IR. Skriptet inaktiverar även äldre SSL/TLS-versioner.
 

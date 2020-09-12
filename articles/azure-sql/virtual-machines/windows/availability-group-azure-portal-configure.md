@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 46e2563b0d1c26c984616b523a367c8b2cff7aaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038570"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482808"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Konfigurera en tillgänglighets grupp för SQL Server på virtuell Azure-dator (Azure Portal för hands version)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ Använd Azure Portal för att skapa ett nytt kluster eller publicera ett befintl
    > Den här funktionen är för närvarande en för hands version och distribueras så om din önskade region inte är tillgänglig, kom tillbaka snart. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera en tillgänglighets grupp som alltid använder Azure Portal måste du ha följande krav: 
 
@@ -74,9 +74,14 @@ Om du inte redan har ett befintligt kluster kan du skapa det med hjälp av Azure
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Ange autentiseringsuppgifter för SQL-tjänstkontot, kluster operatörs konto och start konto för kluster":::
 
 1. Välj de SQL Server virtuella datorer som du vill lägga till i klustret. Tänk på om en omstart krävs, och fortsätt med försiktighet. Endast virtuella datorer som är registrerade med resurs leverantören för SQL-VM i fullständigt hanterbarhets läge och finns på samma plats, domän och i samma virtuella nätverk som den primära SQL Server VM kommer att visas. 
-1. Välj **Använd** för att skapa klustret. 
+1. Välj **Använd** för att skapa klustret. Du kan kontrol lera statusen för din distribution i **aktivitets loggen** som är tillgänglig från klock ikonen i det övre navigerings fältet. 
+1. För att ett redundanskluster ska kunna stödjas av Microsoft måste det klara kluster valideringen. Anslut till den virtuella datorn med önskad metod (till exempel Remote Desktop Protocol (RDP)) och kontrol lera att klustret klarar verifieringen innan du fortsätter. Om du inte gör det så låter klustret vara i ett tillstånd som inte stöds. Du kan verifiera klustret med Klusterhanteraren för växling vid fel (FCM) eller följande PowerShell-kommando:
 
-Du kan kontrol lera statusen för din distribution i **aktivitets loggen** som är tillgänglig från klock ikonen i det övre navigerings fältet. 
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+
 
 ### <a name="onboard-existing-cluster"></a>Publicera befintligt kluster
 
@@ -93,6 +98,8 @@ Det gör du på följande sätt:
 
 1. Granska inställningarna för klustret. 
 1. Välj **tillämpa** på publicera kluster och välj sedan **Ja** när du vill fortsätta.
+
+
 
 
 ## <a name="create-availability-group"></a>Skapa tillgänglighets grupp

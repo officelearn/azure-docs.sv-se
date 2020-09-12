@@ -5,19 +5,21 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: b7655f4cb13e80d6262c3d4871c1ab69f4a6a051
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bf6828ff96f5bff8a65b5f62793df8bf0e65a309
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905475"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595163"
 ---
 # <a name="hbv2-series"></a>HBv2-serien
 
 Virtuella datorer i HBv2-serien är optimerade för program som drivs av minnes bandbredd, till exempel flytande dynamik, analys av ändliga element och behållar simulering. HBv2 VM Feature 120 AMD EPYC 7742 processor kärnor, 4 GB RAM per CPU-kärna och ingen samtidig multitrådning. Varje HBv2 VM ger upp till 340 GB/s minnes bandbredd och upp till 4 teraFLOPS FP64-beräkning.
+
+HBv2-serie VM-funktioner 200 GB/SEK Mellanox HDR InfiniBand. De här virtuella datorerna är anslutna i ett icke-blockerande fat-träd för optimerad och konsekvent RDMA-prestanda. De här virtuella datorerna har stöd för anpassningsbar Routning och dynamisk ansluten transport (DCT, i tillägg till standard RC och UD transporter). Dessa funktioner förbättrar programmets prestanda, skalbarhet och konsekvens, och användningen av dem rekommenderas starkt.
 
 Premium Storage: stöds
 

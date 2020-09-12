@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39736f0a369064e1a825ba3f6975a01c5e9ecc40
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147641"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437249"
 ---
 # <a name="continuous-access-evaluation"></a>Utvärdering av kontinuerlig åtkomst
 
@@ -108,7 +108,7 @@ Om du inte använder CAE-kompatibla klienter blir din standardtoken för åtkoms
 1. I det här fallet nekar resurs leverantören åtkomst och skickar en 401 + anspråks utmaning tillbaka till klienten.
 1. Den CAE-kompatibla klienten förstår 401 +-anspråks utmaningen. Den kringgår cacheminnena och går tillbaka till steg 1 och skickar dess uppdateringstoken tillsammans med anspråks utmaningen tillbaka till Azure AD. Azure AD kommer sedan att utvärdera alla villkor och uppmana användaren att autentisera om i det här fallet.
 
-### <a name="user-condition-change-flow-public-preview"></a>Ändrings flöde för användar villkor (offentlig för hands version):
+### <a name="user-condition-change-flow-preview"></a>Ändrings flöde för användar villkor (för hands version):
 
 I följande exempel har en administratör för villkorlig åtkomst konfigurerat en plats baserad princip för villkorlig åtkomst för att endast tillåta åtkomst från vissa IP-intervall:
 
@@ -135,6 +135,13 @@ Från den här sidan kan du välja att begränsa de användare och grupper som s
 
 ## <a name="troubleshooting"></a>Felsökning
 
+### <a name="supported-location-policies"></a>Plats principer som stöds
+
+För CAE har vi bara insikter om namngivna IP-baserade namngivna platser. Vi har inga insikter på andra plats inställningar som [MFA-betrodda IP-adresser](../authentication/howto-mfa-mfasettings.md#trusted-ips) eller landsspecifika platser. När en användare kommer från en MFA-betrodd IP-adress eller betrodda platser som innehåller MFA-betrodda IP-adresser eller land, kommer CAE inte att tillämpas när användaren flyttar till en annan plats. I dessa fall kommer vi att utfärda en CAE-token för en timme utan omedelbar kontroll av IP-tvång.
+
+> [!IMPORTANT]
+> När du konfigurerar platser för utvärdering av kontinuerlig åtkomst ska du bara använda den [IP-baserade villkorliga åtkomst platsen](../conditional-access/location-condition.md#preview-features) och konfigurera alla IP-adresser, **inklusive både IPv4 och IPv6**, som kan visas av leverantören av identitets leverantören och resurser. Använd inte villkor för land eller den betrodda IP-funktionen som är tillgänglig på sidan tjänst inställningar för Azure Multi-Factor Authentication.
+
 ### <a name="ip-address-configuration"></a>Konfigurera IP-adress
 
 Identitets leverantören och resurs leverantörerna kan se olika IP-adresser. Detta matchnings fel kan inträffa på grund av nätverks-proxy-implementeringar i din organisation eller felaktiga IPv4/IPv6-konfigurationer mellan identitets leverantören och resurs leverantören. Exempel:
@@ -144,9 +151,6 @@ Identitets leverantören och resurs leverantörerna kan se olika IP-adresser. De
 - IP-adressen som identitets leverantören ser är en del av ett tillåtet IP-intervall i principen, men IP-adressen från resurs leverantören är inte.
 
 Om det här scenariot finns i din miljö för att undvika oändliga slingor, utfärdar Azure AD en en timme CAE-token och kommer inte att framtvinga ändring av klientens plats. Även i det här fallet har säkerheten förbättrats jämfört med traditionella token för en timme eftersom vi fortfarande bedömer de [andra händelserna](#critical-event-evaluation) förutom klient plats ändrings händelser.
-
-> [!IMPORTANT]
-> När du konfigurerar platser för utvärdering av kontinuerlig åtkomst ska du endast använda det [IP-baserade villkoret för villkorlig åtkomst plats](../conditional-access/location-condition.md). Använd inte villkor för land eller den betrodda IP-funktionen som är tillgänglig på sidan tjänst inställningar för Azure Multi-Factor Authentication.
 
 ### <a name="office-and-web-account-manager-settings"></a>Office-och Web Account Manager-inställningar
 

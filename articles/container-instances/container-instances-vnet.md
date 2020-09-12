@@ -3,14 +3,13 @@ title: Distribuera behållar grupp till Azure Virtual Network
 description: Lär dig hur du distribuerar en behållar grupp till ett nytt eller befintligt virtuellt Azure-nätverk med hjälp av kommando rads gränssnittet i Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f1678dee9c43d2ce9652018f0d09fe1738659f54
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c5eff486299a3974e8fb9b4b12d6bb74880c48d8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407157"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569398"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera containerinstanser i ett virtuellt Azure-nätverk
 
@@ -78,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-Utdata visar behållar gruppens IP-adress i det privata under nätet. Ett exempel:
+Utdata visar behållar gruppens IP-adress i det privata under nätet. Exempel:
 
 ```console
 10.0.0.4

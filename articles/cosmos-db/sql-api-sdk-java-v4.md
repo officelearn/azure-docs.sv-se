@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586223"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536408"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "88586223"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Våren data v2](sql-api-sdk-java-spring-v2.md)
 > * [Våren data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark-anslutning](sql-api-sdk-java-spark.md)
+> * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
@@ -68,7 +68,33 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 
 ## <a name="release-history"></a>Versions historik
 
-### <a name="440-beta1-unreleased"></a>4.4.0 – beta. 1 (frisläppt)
+### <a name="440-beta2-unreleased"></a>4.4.0 – beta. 2 (frisläppt)
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Fast RequestTimeoutException vid aktivering av tcnative.
+
+### <a name="440-beta1-2020-08-27"></a>4.4.0 – beta. 1 (2020-08-27)
+#### <a name="new-features"></a>Nya funktioner
+* Ett nytt API har lagts till för att effektivt läsa in många dokument (via lista över PK/ID-par eller alla dokument för en uppsättning PK-värden).
+* Nytt API har lagts till `deleteItem` .
+* Aktiverade frågans mått som standard.
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Fast NPE i `GatewayAddressCache` .
+* Korrigerar problem med frågans mått för noll objekts svar.
+* Bättre prestanda (minskad processor användning) för adress tolkning och autentisering med huvud nycklar.
+
+### <a name="432-beta2-2020-08-17"></a>4.3.2 – beta. 2 (2020-08-17)
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Inga ändringar från tidigare versioner, släpps för kompatibilitetsproblem med undermoduler för data.
+
+### <a name="432-beta1-2020-08-14"></a>4.3.2 – beta. 1 (2020-08-14)
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Ett problem har åtgärd ATS i RntbdServiceEndpoint för att undvika tidig stängning av en oanvänd TCP-anslutning.
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Åtgärdat problem med `GROUP BY` fråga, där det bara returnerade en sida.
+* Fast användar agent sträng format som följer rikt linjerna för central SDK.
+* Utökad diagnostikinformation för att inkludera diagnostik för frågeuttryck.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
 #### <a name="new-features"></a>Nya funktioner

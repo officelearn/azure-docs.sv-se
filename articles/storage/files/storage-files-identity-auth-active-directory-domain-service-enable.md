@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4aad485741abc1c0f54e14e00cd8654a8addbca
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: contperfq1
+ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930814"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500325"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering på Azure Files
 
@@ -24,7 +25,7 @@ Om du är nybörjare på Azure-filresurser rekommenderar vi att du läser vår [
 > Azure Files stöder Kerberos-autentisering med Azure AD DS med RC4-HMAC-kryptering. AES Kerberos-kryptering stöds inte ännu.
 > Azure Files stöder autentisering för Azure AD DS med fullständig synkronisering med Azure AD. Om du har aktiverat begränsad synkronisering i Azure AD DS som bara synkroniserar en begränsad uppsättning identiteter från Azure AD, stöds inte autentisering och auktorisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du aktiverar Azure AD över SMB för Azure-filresurser måste du kontrol lera att du har slutfört följande krav:
 
@@ -58,7 +59,7 @@ Innan du aktiverar Azure AD över SMB för Azure-filresurser måste du kontrol l
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Azure Files autentisering med Azure AD DS är tillgänglig i [alla offentliga Azure-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files autentisering med Azure AD DS är tillgängligt i [alla offentliga Azure-och gov-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Översikt över arbets flödet
 

@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för virtuella nätver
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542712"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482733"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ I den här artikeln fokuserar vi på nätverks anslutning och säkerhet för klu
 Virtuella nätverk ger grundläggande anslutning för AKS-noder och kunder för att få åtkomst till dina program. Det finns två olika sätt att distribuera AKS-kluster i virtuella nätverk:
 
 * **Kubernetes Network** – Azure hanterar de virtuella nätverks resurserna när klustret distribueras och använder [Kubernetes][kubenet] Kubernetes-pluginprogrammet.
-* **Azure cni Network** – distribuerar till ett befintligt virtuellt nätverk och använder [cni-plugin-programmet (Azure Container Network Interface)][cni-networking] . Poddar tar emot enskilda IP-adresser som kan vidarebefordra till andra nätverks tjänster eller lokala resurser.
+* **Azure cni Network** – distribuerar till ett virtuellt nätverk och använder [cni-plugin-programmet (Azure Container Network Interface)][cni-networking] . Poddar tar emot enskilda IP-adresser som kan vidarebefordra till andra nätverks tjänster eller lokala resurser.
 
 CNI (container Networking Interface) är ett oberoende protokoll som gör det möjligt för container runtime att göra förfrågningar till en nätverks leverantör. Azure-CNI tilldelar IP-adresser till poddar och noder, och tillhandahåller funktioner för IP-adress hantering (IPAM) när du ansluter till befintliga virtuella Azure-nätverk. Varje nod och Pod resurs får en IP-adress i det virtuella Azure-nätverket och ingen ytterligare Routning krävs för att kommunicera med andra resurser eller tjänster.
 
@@ -64,7 +64,7 @@ Kubernetes är lämpligt för små utvecklings-eller test arbets belastningar ef
 
 **Metod tips** om hur du distribuerar http-eller HTTPS-trafik till dina program med hjälp av ingress-resurser och styrenheter. Ingångs styrenheter ger ytterligare funktioner via en vanlig Azure Load Balancer och kan hanteras som interna Kubernetes-resurser.
 
-En Azure Load Balancer kan distribuera kund trafik till program i ditt AKS-kluster, men det är begränsat i vad den förstår för trafiken. En belastnings Utjämnings resurs arbetar på nivå 4 och distribuerar trafik baserat på protokoll eller portar. De flesta webb program som använder HTTP eller HTTPS bör använda Kuberenetes ingress-resurser och kontrollanter som arbetar på nivå 7. Ingress kan distribuera trafik baserat på programmets URL och hantera TLS/SSL-avslutning. Den här möjligheten minskar också antalet IP-adresser som du exponerar och mappar. Med en belastningsutjämnare behöver varje program vanligt vis en offentlig IP-adress som tilldelats och mappas till tjänsten i AKS-klustret. Med en ingress-resurs kan en enskild IP-adress distribuera trafik till flera program.
+En Azure Load Balancer kan distribuera kund trafik till program i ditt AKS-kluster, men det är begränsat i vad den förstår för trafiken. En belastnings Utjämnings resurs arbetar på nivå 4 och distribuerar trafik baserat på protokoll eller portar. De flesta webb program som använder HTTP eller HTTPS bör använda Kubernetes ingress-resurser och kontrollanter som arbetar på nivå 7. Ingress kan distribuera trafik baserat på programmets URL och hantera TLS/SSL-avslutning. Den här möjligheten minskar också antalet IP-adresser som du exponerar och mappar. Med en belastningsutjämnare behöver varje program vanligt vis en offentlig IP-adress som tilldelats och mappas till tjänsten i AKS-klustret. Med en ingress-resurs kan en enskild IP-adress distribuera trafik till flera program.
 
 ![Diagram över ingress trafikflöde i ett AKS-kluster](media/operator-best-practices-network/aks-ingress.png)
 

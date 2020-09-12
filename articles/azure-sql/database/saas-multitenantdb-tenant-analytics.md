@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249179"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442913"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analys av flera klienter med extraherade data-multi-Apps-appen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ SaaS-program som du utvecklar har till gång till en mängd klient data som lagr
 
 Det är enkelt att komma åt data för alla klienter när alla data bara finns i en databas med flera innehavare. Men åtkomsten är mer komplex när den distribueras i stor skala över tusentals databaser. Ett sätt att molndata komplexiteten är att extrahera data till en Analytics-databas eller ett informations lager. Sedan frågar du data lagret för att samla in insikter från biljett data för alla klienter.
 
-I den här självstudien presenteras ett komplett analys scenario för det här exemplet på SaaS-programmet. Först används elastiska jobb för att schemalägga extraheringen av data från varje klient databas. Data skickas till ett analys lager. Analytics Store kan antingen vara en SQL Database eller en SQL Data Warehouse. För storskalig data extrahering är [Azure Data Factory](../../data-factory/introduction.md) Commended.
+I den här självstudien presenteras ett komplett analys scenario för det här exemplet på SaaS-programmet. Först används elastiska jobb för att schemalägga extraheringen av data från varje klient databas. Data skickas till ett analys lager. Analytics Store kan antingen vara ett SQL Database eller en Azure Synapse Analytics (tidigare SQL Data Warehouse). För storskalig data extrahering är [Azure Data Factory](../../data-factory/introduction.md) Commended.
 
 Därefter förstörs sammanställda data i en uppsättning [stjärn schema](https://www.wikipedia.org/wiki/Star_schema) tabeller. Tabellerna består av en central fakta tabell plus relaterade dimensions tabeller:
 

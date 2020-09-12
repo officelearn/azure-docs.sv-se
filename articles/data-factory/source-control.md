@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949141"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595108"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -76,7 +76,7 @@ Båda metoderna öppnar konfigurations fönstret för lagrings inställningar.
 
 I konfigurations fönstret visas följande inställningar för Azure databaser Code-lagringsplatsen:
 
-| Inställning | Beskrivning | Värde |
+| Inställningen | Beskrivning | Värde |
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen.<br/> | Azure DevOps git eller GitHub |
 | **Azure Active Directory** | Ditt Azure AD-klient namn. | `<your tenant name>` |
@@ -242,13 +242,13 @@ Nedan visas några exempel på situationer som kan orsaka en inaktuell publiceri
 
 ## <a name="switch-to-a-different-git-repository"></a>Växla till en annan git-lagringsplats
 
-Om du vill växla till en annan git-lagringsplats klickar du på ikonen **git-lagrings platsen** i det övre högra hörnet på sidan Data Factory översikt. Om du inte ser ikonen rensar du din lokala webbläsares cacheminne. Välj ikonen för att ta bort associationen med den aktuella lagrings platsen.
+Om du vill växla till en annan git-lagringsplats går du till konfigurations sidan för git i hanterings navet under **käll kontroll**. Välj **Koppla från**. 
 
-![Git-ikon](media/author-visually/remove-repo.png)
+![Git-ikon](media/author-visually/remove-repository.png)
 
-När fönstret databas inställningar visas väljer du **ta bort git**. Ange data fabriks namnet och klicka på **Bekräfta** för att ta bort git-lagringsplatsen som är associerad med din data fabrik.
+Ange data fabriks namnet och klicka på **Bekräfta** för att ta bort git-lagringsplatsen som är associerad med din data fabrik.
 
-![Ta bort associationen med den aktuella git-lagrings platsen](media/author-visually/remove-repo2.png)
+![Ta bort associationen med den aktuella git-lagrings platsen](media/author-visually/remove-repository-2.png)
 
 När du har tagit bort associationen med den aktuella lagrings platsen kan du konfigurera git-inställningarna så att de använder en annan lagrings platsen och sedan importera befintliga Data Factory resurser till den nya lagrings platsen.
 

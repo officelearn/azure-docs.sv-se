@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
-ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72328719"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469906"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Använda hanterade identiteter för Azure-resurser i Azure Cloud Shell
 
@@ -43,8 +43,8 @@ Det lokala MSI-undersystemet cachelagrar tokens. Därför kan du anropa det så 
 
 Om du cachelagrar token i koden bör du vara beredd på att hantera scenarier där resursen indikerar att token har upphört att gälla.
 
-Om du vill hantera token-fel går du till [MSI-sidan om hur du svänger MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling)-åtkomsttoken.
+Om du vill hantera token-fel går du till [MSI-sidan om hur du svänger MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling)-åtkomsttoken.
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Hämta åtkomsttoken från virtuella MSI-datorer](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Läs mer om MSI](../active-directory/managed-identities-azure-resources/overview.md)  
+[Hämta åtkomsttoken från virtuella MSI-datorer](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)

@@ -11,20 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 827d66b51aa2080c4fb10209439d7781ddf787a7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210383"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436933"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om servern för dina databaser och elastiska pooler i [Azure SQL Database](sql-database-paas-overview.md) eller för dina databaser i [Azure-Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till databasen i Azure SQL Database och SQL Data Warehouse.
+*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om servern för dina databaser och elastiska pooler i [Azure SQL Database](sql-database-paas-overview.md) eller för dina databaser i [Azure-Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från särskilda undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till databasen i Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 > [!NOTE]
-> Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics.
+> Den här artikeln gäller för både Azure SQL Database-och Azure Synapse-analys. För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics.
 
 Om du vill skapa en regel för virtuellt nätverk måste du först vara en [tjänst slut punkt för virtuella nätverk][vm-virtual-network-service-endpoints-overview-649d] för att regeln ska referera till.
 
@@ -104,7 +104,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekt av att använda virtuella nätverks slut punkter med Azure Storage
 
-Azure Storage har implementerat samma funktion som gör att du kan begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen för ett Azure Storage-konto som används av Azure SQL Database kan du stöta på problem. Härnäst är en lista och en diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
+Azure Storage har implementerat samma funktion som gör att du kan begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen för ett Azure Storage-konto som används av Azure SQL Database kan du stöta på problem. Härnäst är en lista och diskussion om Azure SQL Database-och Azure Synapse Analytics-funktioner som påverkas av detta.
 
 ### <a name="azure-synapse-polybase-and-copy-statement"></a>Azure Synapse PolyBase och COPY-instruktion
 

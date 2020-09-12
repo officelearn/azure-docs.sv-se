@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049697"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437470"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -108,7 +108,7 @@ Det går inte att upprätta en anslutning till Azure Site Recovery tjänstens sl
 
 #### <a name="resolution"></a>Lösning
 
-Azure Site Recovery krävde åtkomst till [IP-intervall för Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) beroende på region. Kontrol lera att de nödvändiga IP-intervallen är tillgängliga från den virtuella datorn.
+Om du använder en regel/brand vägg för Azure nätverks säkerhets grupp (NSG) för att kontrol lera utgående nätverks anslutning på datorn finns det flera tjänst etiketter som måste tillåtas. [Läs mer](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problem 4: Azure-till-Azure-replikeringen misslyckades när nätverks trafiken går via en lokal proxyserver (151072)
 

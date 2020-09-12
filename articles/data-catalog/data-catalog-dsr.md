@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898153"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439092"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Data källor som stöds i Azure Data Catalog
 
@@ -26,7 +26,7 @@ Du kan publicera metadata med hjälp av ett offentligt API eller ett klick för 
        <td><b>Manuell inmatning</b></td>
        <td><b>Registrerings verktyg</b></td>
        <td><b>Öppna i-verktyg</b></td>
-       <td><b>Anteckningar</b></td>
+       <td><b>Kommentarer</b></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store katalog (endast gen 1)</td>
@@ -143,7 +143,7 @@ Du kan publicera metadata med hjälp av ett offentligt API eller ett klick för 
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse tabell</td>
+      <td>Azure Synapse Analytics-tabell</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ Du kan publicera metadata med hjälp av ett offentligt API eller ett klick för 
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse vy</td>
+      <td>Azure Synapse Analytics-vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -450,7 +450,7 @@ Om du vill se en speciell data källa som stöds, föreslår du (eller röstar s
 <table>
     <tr>
        <td><b>Typ av källa</b></td>
-       <td><b>Tillgångstyp</b></td>
+       <td><b>Till gångs typ</b></td>
        <td><b>Objekt typer</b></td>
        <td><b>DSL-struktur<b></td>
     </tr>
@@ -932,7 +932,7 @@ Om du vill se en speciell data källa som stöds, föreslår du (eller röstar s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -948,7 +948,7 @@ Om du vill se en speciell data källa som stöds, föreslår du (eller röstar s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -964,7 +964,7 @@ Om du vill se en speciell data källa som stöds, föreslår du (eller röstar s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -978,7 +978,7 @@ Om du vill se en speciell data källa som stöds, föreslår du (eller röstar s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

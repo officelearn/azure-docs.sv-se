@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: 10d901f73006051e8b1ddd02aeb36b229c6a7761
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 83509b5f452ab7cf88774561c12d7aa2cf3b46cf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270286"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482325"
 ---
 # <a name="how-to-export-fhir-data"></a>Så här exporterar du FHIR-data
 
@@ -42,3 +42,10 @@ Kommandot $export kan också användas för att exportera de data som identifier
 
 > [!IMPORTANT]
 > Observera att både rå export och de avidentifierade export skrivningar till samma Azure Storage-konto som anges i export konfigurationen. Vi rekommenderar att du använder olika behållare som motsvarar olika avidentifierade konfigurations-och hanterings användar åtkomst på behållar nivån.
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här artikeln har du lärt dig hur du exporterar FHIR-resurser med hjälp av kommandot $export, inklusive avidentifierade data. Sedan kan du konfigurera dina export data:
+ 
+>[!div class="nextstepaction"]
+>[Konfigurera export data](configure-export-data.md)

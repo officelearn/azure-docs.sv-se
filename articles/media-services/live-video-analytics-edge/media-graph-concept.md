@@ -3,12 +3,12 @@ title: Media Graph-koncept – Azure
 description: Med ett medie diagram kan du definiera var mediet ska samlas in, hur det ska bearbetas och var resultatet ska levereras. Den här artikeln innehåller en detaljerad beskrivning av media Graph-konceptet.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048438"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567951"
 ---
 # <a name="media-graph"></a>Mediegraf
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048438"
 
 Med ett medie diagram kan du definiera var mediet ska samlas in, hur det ska bearbetas och var resultatet ska levereras. Du kan göra detta genom att ansluta komponenter eller noder på önskat sätt. Diagrammet nedan innehåller en grafisk representation av ett medie diagram.  
 
-![En grafisk representation av ett medie diagram](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Mediegraf":::
 
 Live video analys på IoT Edge stöder olika typer av källor, processorer och mottagare.
 
@@ -39,7 +40,8 @@ Värdena för parametrarna i topologin anges när du skapar diagram instanser so
 
 Diagrammets livs cykel och diagram instanser visas i följande tillstånds diagram.
 
-![Graf-topologi och diagram instansen livs cykel](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graf-topologi och diagram instansen livs cykel":::
 
 Du börjar med att [skapa en diagram sto pol Ogin](direct-methods.md#graphtopologyset). För varje direktsända video flöde som du vill bearbeta med den här topologin [skapar du en diagram instans](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ Med filtret för RAM hastighet filtrera processor kan du sampla ramar från den 
 
 #### <a name="http-extension-processor"></a>Processor för HTTP-tillägg
 
-Med noden HTTP-tillägg kan du ansluta din egen IoT Edge-modul till ett medie diagram. Den här noden tar avkodade video ramar som inaktuella inmatade och vidarebefordrar sådana ramar till en HTTP REST-slutpunkt som exponeras av din modul. Den här noden har möjlighet att autentisera med REST-slutpunkten om det behövs. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till REST-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format.
+Med noden HTTP-tillägg kan du ansluta din egen IoT Edge-modul till ett medie diagram. Den här noden tar avkodade video ramar som inaktuella inmatade och vidarebefordrar sådana ramar till en HTTP REST-slutpunkt som exponeras av din modul. Den här noden har möjlighet att autentisera med REST-slutpunkten om det behövs. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till REST-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format. Läs mer om processorn [här](media-graph-extension-concept.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>gRPC förlängnings processor
 
-GRPC Extension processor-noden använder avkodade video ramar som inaktuella inmatade filer och vidarebefordrar sådana ramar till en [gRPC](terminology.md#grpc) -slutpunkt som exponeras av din modul. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till gRPC-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format.
+GRPC Extension processor-noden använder avkodade video ramar som inaktuella inmatade filer och vidarebefordrar sådana ramar till en [gRPC](terminology.md#grpc) -slutpunkt som exponeras av din modul. Noden stöder överföring av data med hjälp av [delat minne](https://en.wikipedia.org/wiki/Shared_memory) eller bädda in innehållet direkt i bröd texten i gRPC-meddelanden. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till gRPC-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format. Läs mer om processorn [här](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### <a name="signal-gate-processor"></a>Signal grind processor  
 

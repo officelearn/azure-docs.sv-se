@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921995"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439222"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Hur skalar jag SignalR-tjänsten med flera instanser?
 Den senaste tjänsten för SignalR service SDK stöder flera slut punkter för signalerande tjänst instanser. Du kan använda den här funktionen för att skala samtidiga anslutningar eller använda den för meddelanden över flera regioner.
@@ -27,7 +27,7 @@ Om nyckeln börjar med `Azure:SignalR:ConnectionString:` ska den vara i format `
 
 Du kan lägga till flera instans anslutnings strängar med följande `dotnet` kommandon:
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>

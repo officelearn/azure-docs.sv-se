@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771384"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536446"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 
 - I vyn beroende analys kan du för närvarande inte lägga till eller ta bort en server från en grupp.
 - En beroende karta för en grupp med servrar är inte tillgänglig för närvarande.
-- Det går inte att hämta beroende data i tabell format.
+- Insamling av beroende data kan konfigureras samtidigt för 400-servrar. Du kan analysera ett större antal servrar genom att sekvensera i batchar på 400.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -110,7 +110,7 @@ Varje rad i den exporterade CSV-filen motsvarar ett beroende som observerats ino
 
 I följande tabell sammanfattas fälten i den exporterade CSV-filen. Observera att fälten Server namn, program och process endast fylls i för servrar som har en agent lös beroende analys aktive rad.
 
-**Fältnamn** | **Detaljer**
+**Fältnamn** | **Information**
 --- | --- 
 Timeslot | Timeslot under vilken beroendet observerades. <br/> Beroende data samlas in över 6 timmars fack för närvarande.
 Käll Server namn | Namnet på käll datorn 

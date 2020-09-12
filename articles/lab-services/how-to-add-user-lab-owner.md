@@ -2,13 +2,13 @@
 title: Så här lägger du till ytterligare ägare till ett labb i Azure Lab Services
 description: Den här artikeln visar hur en administratör kan lägga till en användare som ägare till ett labb i Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 6671a3070dae672769eecf59d614d3b75455ef5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/04/2020
+ms.openlocfilehash: 4b46dd08a3b9527cdfc7bdf766ee4976e67656d0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445873"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482677"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Så här lägger du till ytterligare ägare till ett befintligt labb i Azure Lab Services
 Den här artikeln visar hur du, som administratör, kan lägga till ytterligare ägare till ett befintligt labb.
@@ -31,6 +31,9 @@ Om du vill lägga till en användare som ytterligare ägare till ett befintligt 
         ![Lägg till användare till rollen läsare för labb kontot ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
 
 ## <a name="add-user-to-the-owner-role-for-the-lab"></a>Lägg till användare i ägar rollen för labbet
+
+> [!NOTE]
+> Om användaren bara har läsar åtkomst i ett labb visas inte labbet i labs.azure.com.
 
 1. Gå tillbaka till **labb konto** sidan, Välj **alla labb** på den vänstra menyn.
 2. Välj det **labb** som du vill lägga till en användare till som en ägare. 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019987"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440566"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhets överväganden för data förflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -28,7 +28,7 @@ ms.locfileid: "84019987"
 
 Den här artikeln beskriver grundläggande säkerhets infrastruktur som tjänster för data flyttning i Azure Data Factory använder för att skydda dina data. Data Factory hanterings resurser bygger på Azures säkerhets infrastruktur och använder alla möjliga säkerhets åtgärder som erbjuds av Azure.
 
-I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pipelines-activities.md). En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Dessa pipeliner finns i den region där data fabriken skapades. 
+I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pipelines-activities.md). En pipeline är en logisk gruppering av aktiviteter som tillsammans utför en uppgift. Dessa pipeliner finns i den region där data fabriken skapades. 
 
 Även om Data Factory bara är tillgängligt i några regioner, är tjänsten för data flyttning [tillgänglig globalt](concepts-integration-runtime.md#integration-runtime-location) för att säkerställa att data efterlevs, effektivitets och minskade kostnader för utgående nätverks trafik. 
 
@@ -47,11 +47,11 @@ Data Factory har certifierats för:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). För den senaste listan över alla Azure Compliance-erbjudanden kontrollerar du https://aka.ms/AzureCompliance .
+Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). För den senaste listan över alla Azure Compliance-erbjudanden kontrollerar du  https://aka.ms/AzureCompliance .
 
 I den här artikeln granskar vi säkerhets aspekter i följande två scenarier för data förflyttning: 
 
-- **Moln scenario**: i det här scenariot är både din källa och ditt mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster som Salesforce och webb protokoll som FTP och OData. Hitta en fullständig lista över data källor som stöds i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Moln scenario**: i det här scenariot är både din källa och ditt mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure Synapse Analytics (tidigare SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webb protokoll som FTP och OData. Hitta en fullständig lista över data källor som stöds i  [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Hybrid scenario**: i det här scenariot finns antingen din källa eller ditt mål bakom en brand vägg eller i ett lokalt företags nätverk. Eller så är data lagret i ett privat nätverk eller virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -67,7 +67,7 @@ I den här artikeln granskar vi säkerhets aspekter i följande två scenarier f
 Om moln data lagringen stöder HTTPS eller TLS, är alla data överföringar mellan tjänster för data förflyttning i Data Factory och ett moln data lager via säker kanal HTTPS eller TLS.
 
 > [!NOTE]
-> Alla anslutningar till Azure SQL Database och Azure SQL Data Warehouse Kräv kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av JSON lägger du till egenskapen kryptering och anger den till **True** i anslutnings strängen. För Azure Storage kan du använda **https** i anslutnings strängen.
+> Alla anslutningar till Azure SQL Database och Azure Synapse Analytics kräver kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av JSON lägger du till egenskapen kryptering och anger den till **True** i anslutnings strängen. För Azure Storage kan du använda **https** i anslutnings strängen.
 
 > [!NOTE]
 > Om du vill aktivera kryptering i överföring samtidigt som du flyttar data från Oracle följer du något av alternativen nedan:
@@ -80,8 +80,8 @@ Om moln data lagringen stöder HTTPS eller TLS, är alla data överföringar mel
 ### <a name="data-encryption-at-rest"></a>Datakryptering i vila
 Vissa data lager stöder kryptering av data i vila. Vi rekommenderar att du aktiverar data krypterings mekanismen för dessa data lager. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Transparent datakryptering (TDE) i Azure SQL Data Warehouse skyddar mot hot mot skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av dina data i vila. Det här beteendet är transparent för klienten. Mer information finns [i skydda en databas i SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Transparent datakryptering (TDE) i Azure Synapse Analytics skyddar mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av dina data i vila. Det här beteendet är transparent för klienten. Mer information finns i [skydda en databas i Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database stöder även transparent data kryptering (TDE), som hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av data, utan att kräva ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [transparent data kryptering för SQL Database och informations lager](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -139,9 +139,9 @@ I följande tabell sammanfattas konfigurations rekommendationerna för nätverk 
 
 | Källa      | Mål                              | Konfiguration av nätverk                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
+| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
 
 I följande avbildningar visas användningen av integration runtime med egen värd för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute och IPSec VPN (med Azure Virtual Network):
 
@@ -153,10 +153,10 @@ I följande avbildningar visas användningen av integration runtime med egen vä
 
 ![IPSec VPN med Gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Brand Väggs konfigurationer och lista över tillåtna inställningar för IP-adresser
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Brand Väggs konfigurationer och lista över tillåtna inställningar för IP-adresser
 
 > [!NOTE] 
-> Du kan behöva hantera portar eller ställa in listan över tillåtna för domäner på företags brand Väggs nivå enligt de respektive data källorna. I den här tabellen används endast Azure SQL Database, Azure SQL Data Warehouse och Azure Data Lake Store som exempel.
+> Du kan behöva hantera portar eller ställa in listan över tillåtna för domäner på företags brand Väggs nivå enligt de respektive data källorna. I den här tabellen används endast Azure SQL Database, Azure Synapse Analytics och Azure Data Lake Store som exempel.
 
 > [!NOTE] 
 > Mer information om data åtkomst strategier i Azure Data Factory finns i [den här artikeln](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
@@ -169,7 +169,7 @@ Följande tabell innehåller utgående port-och domän krav för företags brand
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Du kan behöva hantera portar eller ställa in listan över tillåtna för domäner på företags brand Väggs nivå enligt de respektive data källorna. I den här tabellen används endast Azure SQL Database, Azure SQL Data Warehouse och Azure Data Lake Store som exempel.   
+> Du kan behöva hantera portar eller ställa in listan över tillåtna för domäner på företags brand Väggs nivå enligt de respektive data källorna. I den här tabellen används endast Azure SQL Database, Azure Synapse Analytics och Azure Data Lake Store som exempel.   
 
 Följande tabell innehåller krav på inkommande portar för Windows-brand väggen:
 
@@ -185,7 +185,7 @@ Vissa data lager i molnet kräver också att du tillåter IP-adressen för den d
 Följande moln data lager kräver att du tillåter IP-adressen för den egen värdbaserade integration runtime-datorn. Vissa av dessa data lager kan som standard inte kräva listan över tillåtna. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
@@ -198,7 +198,7 @@ Ja. Mer information finns [här](https://azure.microsoft.com/blog/sharing-a-self
 
 **Vilka är port kraven för integration runtime med egen värd att fungera?**
 
-Den egen värdbaserade integrerings körningen gör HTTP-baserade anslutningar till Internet. De utgående portarna 443 måste öppnas för integration runtime med egen värd för att ansluta. Öppna endast inkommande port 8060 på dator nivå (inte företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa eller mål, behöver du även öppna port 1433. Mer information finns i avsnittet om [brand Väggs konfiguration och lista över tillåtna inställningar för IP-adresser](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
+Den egen värdbaserade integrerings körningen gör HTTP-baserade anslutningar till Internet. De utgående portarna 443 måste öppnas för integration runtime med egen värd för att ansluta. Öppna endast inkommande port 8060 på dator nivå (inte företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure Synapse Analytics används som källa eller mål, behöver du även öppna port 1433. Mer information finns i avsnittet om [brand Väggs konfiguration och lista över tillåtna inställningar för IP-adresser](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Nästa steg

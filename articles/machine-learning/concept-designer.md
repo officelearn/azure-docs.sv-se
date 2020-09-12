@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012952"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651221"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning Designer (förhandsversion)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -86,14 +86,14 @@ En modul kan ha en uppsättning parametrar som du kan använda för att konfigur
 
 För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer tillgängliga, se [algoritmen & module Reference Overview](algorithm-module-reference/module-reference.md). Information om hur du väljer en algoritm finns i [lathund-bladet Azure Machine Learning algorithm](algorithm-cheat-sheet.md).
 
-## <a name="compute-resources"></a><a name="compute"></a>Beräknings resurser
+## <a name="compute-resources"></a><a name="compute"></a> Beräknings resurser
 
 Använd beräknings resurser från din arbets yta för att köra din pipeline och vara värd för dina distribuerade modeller som real tids slut punkter eller pipelines slut punkter (för batch-härledning). De beräknings mål som stöds är:
 
 | Beräkningsmål | Utbildning | Distribution |
 | ---- |:----:|:----:|
 | Azure Machine Learning Compute | ✓ | |
-| Azure Machine Learning beräknings instans | ✓ | |
+| Azure Machine Learning-beräkningsinstans | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute-målen är kopplade till din [Azure Machine Learning-arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
@@ -114,7 +114,7 @@ Publicerade pipelines är flexibla, de kan användas för att träna eller trän
 
 En publicerad pipeline körs på de beräknings resurser som du definierar i pipeline-utkastet för varje modul.
 
-Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) -objekt som SDK: n.
+Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) -objekt som SDK: n.
 
 ## <a name="next-steps"></a>Nästa steg
 

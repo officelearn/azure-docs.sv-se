@@ -3,15 +3,15 @@ title: Anpassa RDP-egenskaper med PowerShell – Azure
 description: Anpassa RDP-egenskaperna för virtuella Windows-datorer med PowerShell-cmdletar.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009111"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462232"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper (RDP) för en värd pool
 
@@ -22,7 +22,17 @@ Genom att anpassa en värd Pools egenskaper för Remote Desktop Protocol (RDP), 
 
 Se [Inställningar för RDP-filer som stöds](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) för en fullständig lista över vilka egenskaper som stöds och deras standardvärden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="default-rdp-file-properties"></a>Egenskaper för standard-RDP-fil
+
+RDP-filer har som standard följande egenskaper:
+
+|RDP-egenskap|På Skriv bordet|Som en RemoteApp|
+|---|---|---|
+|Läge för flera övervakare|Enabled|E.t.|
+|Aktiverade enhets omdirigeringar|Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort|Enheter, urklipp och skrivare|
+|Fjärr ljud läge|Spela lokalt|Spela lokalt|
+
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar följer du anvisningarna i [Konfigurera Windows Virtual Desktop PowerShell-modulen](powershell-module.md) för att konfigurera din PowerShell-modul och logga in på Azure.
 

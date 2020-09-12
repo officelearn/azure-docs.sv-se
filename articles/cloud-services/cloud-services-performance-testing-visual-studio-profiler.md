@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 503b1ca8c8f1ff06bbdd54316611d886fb1e9d87
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70094106"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462317"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda för en moln tjänst lokalt i Azure Compute-emulatorn med hjälp av Visual Studio profiler
 Det finns en mängd olika verktyg och tekniker för att testa prestanda för moln tjänster.
@@ -163,12 +163,12 @@ Grattis! Du har börjat med profileraren.
 * Om du har använt någon av profilerings kommandona från kommando raden, särskilt de globala inställningarna, kontrollerar du att VSPerfClrEnv/globaloff har anropats och att VsPerfMon.exe har avslut ATS.
 * Om du ser meddelandet "PRF0025: inga data har samlats in", kontrollerar du att den process som du har kopplat till har processor aktivitet. Program som inte gör något beräknings arbete kanske inte genererar några samplings data.  Det är också möjligt att processen avslutades innan någon sampling utfördes. Kontrol lera att körnings metoden för en roll som du profileringr inte avslutas.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Instrumentering av Azure-binärfiler i emulatorn stöds inte i Visual Studio profiler, men om du vill testa minnesallokering kan du välja det alternativet vid profilering. Du kan också välja samtidiga profilering, som hjälper dig att avgöra om trådar tar tid att konkurrera för lås, eller nivå interaktions profilering, som hjälper dig att spåra prestanda problem när du interagerar mellan olika nivåer av ett program, oftast mellan data nivån och en arbets roll.  Du kan visa databas frågorna som din app genererar och använder profilerings data för att förbättra din användning av databasen. Information om nivå interaktions profilering finns i genom gång av blogg inlägg [: använda nivån interaktions profiler i Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[3]: https://docs.microsoft.com/archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

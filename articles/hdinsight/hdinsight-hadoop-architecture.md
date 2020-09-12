@@ -1,19 +1,19 @@
 ---
 title: Apache Hadoop-arkitektur – Azure HDInsight
 description: Beskriver Apache Hadoop lagring och bearbetning i Azure HDInsight-kluster.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbd1303417f008da476356a274dde30d7d02d36f
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77162216"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505513"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-arkitektur i HDInsight
 
@@ -56,7 +56,7 @@ Om du vill ångra borttagningen av en fil från ditt lagrings konto, se:
 * [Mjuk borttagning för Azure Storage-blobar](../storage/blobs/storage-blob-soft-delete.md)
 * [Ångra borttagning av BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
 
-### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage gen 1
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
 [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 

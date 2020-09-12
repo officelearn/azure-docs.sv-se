@@ -3,19 +3,19 @@ title: Kubernetes-versioner som stöds i Azure Kubernetes Service
 description: Förstå Kubernetes-versionens support policy och livs cykel för kluster i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144625"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565385"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
-Kubernetes community släpper lägre versioner ungefär var tredje månad. Dessa versioner innehåller nya funktioner och förbättringar. Uppdaterings versioner är oftare (ibland veckovis) och är endast avsedda för viktiga fel korrigeringar i en lägre version. Dessa korrigerings versioner innehåller korrigeringar för säkerhets sårbarheter eller större buggar.
+Kubernetes community släpper lägre versioner ungefär var tredje månad. Nyligen Kubernetes-communityn har [ökat support perioden för varje version från 9 månader till 12 månader](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), från och med version 1,19. Dessa versioner innehåller nya funktioner och förbättringar. Uppdaterings versioner är oftare (ibland veckovis) och är avsedda för viktiga fel korrigeringar i en lägre version. Dessa korrigerings versioner innehåller korrigeringar för säkerhets sårbarheter eller större buggar.
 
 ## <a name="kubernetes-versions"></a>Kubernetes-versioner
 
@@ -41,8 +41,8 @@ Användarna bör sträva efter att köra den senaste korrigerings versionen av d
 
 AKS definierar en allmänt tillgänglig version, som en version som är aktive rad i alla service nivå mål eller SLA-mätningar och som är tillgänglig i alla regioner. AKS stöder tre sekundär-versioner av Kubernetes:
 
-* Den senaste sekundär versions versionen som släpps i AKS (som vi refererar till som N). 
-* Två tidigare del versioner. 
+* Den senaste sekundär versions versionen som släpps i AKS (som vi refererar till som N).
+* Två tidigare del versioner.
 * Varje lägre version som stöds har även stöd för högst två (2) stabila korrigeringar.
 * AKS kan också ha stöd för för hands versioner, som uttryckligen märks och omfattas av för [hands versions][preview-terms]villkor.
 
@@ -143,6 +143,10 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 \* Datum bekräftelse för väntande lansering av uppladdning.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+**Hur ofta ska jag förvänta mig att uppgradera Kubernetes-versioner för att stanna kvar i supporten?**
+
+Med beaktande av Kubernetes 1,19 [har communityn öppen källkod utökad support till 1 år](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS åtar sig att aktivera korrigeringar och stöd för att matcha de överordnade åtagandena minst. Det innebär att du börjar med AKS-kluster på 1,19, du kommer att kunna uppgradera minst en gång om året till en version som stöds. För versioner på 1,18 eller lägre finns support perioden på 9 månader, vilket kräver en uppgradering var 9: e månad för att stanna kvar på en version som stöds. Vi rekommenderar starkt att du testar nya versioner regelbundet och är redo att uppgradera till nyare versioner för att avbilda de senaste stabila förbättringarna i Kubernetes.
 
 **Vad händer när en användare uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 

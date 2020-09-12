@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526511"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436195"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fel i fil systemet
 
@@ -83,7 +83,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
    > [!Note]
    > Mer information om hur du använder en serie konsol för Linux finns i:
-   > * [Använd serie konsolen för att komma åt GRUB och enanvändarläge](../linux/serial-console-grub-single-user-mode.md)
+   > * [Använd serie konsolen för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md)
    > * [Använda en serie konsol för SysRq-och NMI-anrop](./serial-console-nmi-sysrq.md)
 
 2. Välj ikonen för strömbrytaren och välj sedan starta om virtuell dator. (Om serie konsolen inte är aktive rad eller inte ansluten visas inte knappen.)

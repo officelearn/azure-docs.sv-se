@@ -3,12 +3,12 @@ title: Konfigurera GPU-övervakning med Azure Monitor för behållare | Microsof
 description: Den här artikeln beskriver hur du kan konfigurera övervakning av Kubernetes-kluster med NVIDIA-och AMD GPU-aktiverade noder med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373315"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569704"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurera GPU-övervakning med Azure Monitor för behållare
 
@@ -22,7 +22,10 @@ Azure Monitor for containers stöder övervakning av GPU-kluster från följande
 
 - [EFFEKTIV](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor for containers startar automatiskt övervakning av GPU-användning på noder och GPU begär poddar och arbets belastningar genom att samla in följande mått vid 60sec-intervall och lagra dem i tabellen **InsightMetrics** :
+Azure Monitor for containers startar automatiskt övervakning av GPU-användning på noder och GPU begär poddar och arbets belastningar genom att samla in följande mått vid 60sec-intervall och lagra dem i **InsightMetrics** -tabellen.
+
+>[!NOTE]
+>När du har upprättat klustret med GPU-noder kontrollerar du att [GPU-drivrutinen](../../aks/gpu-cluster.md) installeras som krävs av AKS för att köra GPU-arbetsbelastningar. Azure Monitor for containers samlar in GPU-mått via GPU-drivrutinen poddar som körs i noden. 
 
 |Måttnamn |Mått dimension (Taggar) |Beskrivning |
 |------------|------------------------|------------|

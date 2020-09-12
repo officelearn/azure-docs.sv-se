@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9dbc66e3331325e9b79d0434fb452d01d69d550a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226751"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482597"
 ---
 # <a name="supported-data-types"></a>Datatyper som stöds
 
@@ -26,11 +26,11 @@ I följande tabell visas de data typer som stöds av Azure Time Series Insights 
 | **datetime** | Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Uttryckt i [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) -format. Datetime-egenskaper lagras alltid i UTC-format. Tids zons förskjutningar, om det är korrekt formaterat, används och sedan värden som lagras i UTC. Se [det här](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) avsnittet för mer information om miljöns tidstämpel egenskap och datetime-förskjutningar | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Om "eventProcessedLocalTime" är tids stämpling för händelse källan: `$event.$ts` . Om det är en annan JSON-egenskap: `$event.eventProcessedLocalTime.DateTime` eller `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **double** | Ett tal med dubbel precision 64-bit  | `"value": 31.0482941` | `$event.value.Double` eller `$event['value'].Double` |  `value_double`
 | **long** | Ett signerat 64-bitars heltal  | `"value" : 31` | `$event.value.Long` eller `$event['value'].Long` |  `value_long`
-| **nollängd** | Text värden måste bestå av giltig UTF-8. Null-och tomma strängar behandlas likadant. |  `"site": "DIM_MLGGG"`| `$event.site.String` eller `$event['site'].String`| `site_string`
-| **dynamisk** | En komplex (icke-primitiv) typ som består av antingen en matris eller en egenskaps uppsättning (ord lista). För närvarande lagras bara JSON-matriser med primitiver eller matriser med objekt som inte innehåller något av de TS-ID: n eller Tidsstämpelns egenskaper som är dynamiska. Läs den här [artikeln](./concepts-json-flattening-escaping-rules.md) för att förstå hur objekt kommer att förenklas och matriser kan vara avregistrerade. Nytto Last egenskaper som lagras som den här typen är bara tillgängliga genom att välja `Explore Events` i TSD Explorer för att Visa obehandlade händelser eller via [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   API: t för klient sidans tolkning. |  `"values": "[197, 194, 189, 188]"` | Det finns ännu inte stöd för att referera till dynamiska typer i ett Time Series-uttryck | `values_dynamic`
+| **sträng** | Text värden måste bestå av giltig UTF-8. Null-och tomma strängar behandlas likadant. |  `"site": "DIM_MLGGG"`| `$event.site.String` eller `$event['site'].String`| `site_string`
+| **dynamisk** | En komplex (icke-primitiv) typ som består av antingen en matris eller en egenskaps uppsättning (ord lista). För närvarande lagras bara JSON-matriser med primitiver eller matriser med objekt som inte innehåller något av de TS-ID: n eller Tidsstämpelns egenskaper som är dynamiska. Läs den här [artikeln](./concepts-json-flattening-escaping-rules.md) för att förstå hur objekt kommer att förenklas och matriser kan vara avregistrerade. Nytto Last egenskaper som lagras som den här typen är bara tillgängliga genom att välja `Explore Events` i Time Series Insights Explorer för att Visa obehandlade händelser eller via [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   API: t för klient sidans tolkning. |  `"values": "[197, 194, 189, 188]"` | Det finns ännu inte stöd för att referera till dynamiska typer i ett Time Series-uttryck | `values_dynamic`
 
 > [!NOTE]
-> 64-bitars heltals värden stöds, men det största talet som Azure Time Series Insights Explorer kan Express är 9 007 199 254 740 991 (2 ^ 53-1) på grund av JavaScript-begränsningar. Om du arbetar med siffror i din data modell ovanför detta kan du minska storleken genom att skapa en [tids serie modell variabel](/concepts-variables#numeric-variables) och [konvertera](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) värdet.
+> 64-bitars heltals värden stöds, men det största talet som Azure Time Series Insights Explorer kan Express är 9 007 199 254 740 991 (2 ^ 53-1) på grund av JavaScript-begränsningar. Om du arbetar med siffror i din data modell ovanför detta kan du minska storleken genom att skapa en [tids serie modell variabel](/azure/time-series-insights/concepts-variables#numeric-variables) och [konvertera](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) värdet.
 
 > [!NOTE]
 > **Sträng** typen kan inte ha värdet null:

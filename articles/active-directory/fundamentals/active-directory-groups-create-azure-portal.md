@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69367da8a732f383222836442406a495bf82a0db
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3dcbd8618dc0f2bae2eacc9ced67869d8209286a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892600"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565532"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory
 Du kan skapa en basgrupp med hjälp av Azure Active Directory (Azure AD)-portalen. I den här artikeln läggs en basgrupp till i en enskild resurs av resursägaren (administratören) och innehåller specifika medlemmar (anställda) som behöver åtkomst till den här resursen. Mer komplicerade scenarier, inklusive dynamiskt medlemskap och regelskapande, finns i [dokumentationen för Azure Active Directory-användarhantering](../users-groups-roles/index.yml).
@@ -28,7 +28,7 @@ Det finns flera grupper och medlemskaps typer. Följande information förklarar 
 
 ### <a name="group-types"></a>Grupp typer:
 - **Säkerhet**. Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. På det här sättet kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheterna för varje medlem individuellt. En säkerhets grupp kan ha användare, enheter, grupper och tjänstens huvud namn som medlemmar och användare och tjänstens huvud namn som ägare. Mer information om hur du hanterar åtkomst till resurser finns i [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md).
-- **Microsoft 365**. Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du även ge personer utanför organisationen tillgång till gruppen. En Microsoft 365 grupp kan bara ha användare som medlemmar. Både användare och tjänstens huvud namn kan vara ägare till en Microsoft 365 grupp. Mer information om Office 365-grupper finns i [Läs mer om Microsoft 365 grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+- **Microsoft 365**. Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du också ge personer utanför organisationen åtkomst till gruppen. En Microsoft 365 grupp kan bara ha användare som medlemmar. Både användare och tjänstens huvud namn kan vara ägare till en Microsoft 365 grupp. Mer information om Microsoft 365 grupper finns i [Läs mer om Microsoft 365 grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Medlemskaps typer:
 - **ATS.** Låter dig lägga till specifika användare som medlemmar i den här gruppen med unika behörigheter. I den här artikeln använder vi det här alternativet.
@@ -77,10 +77,9 @@ Du kan skapa en basgrupp och lägga till dina medlemmar på samma gång. Använd
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Aktivera eller inaktivera e-post för grupp Välkommen
 
-När en ny Microsoft 365 grupp skapas, oavsett om det är ett dynamiskt eller statiskt medlemskap, skickas ett välkomst meddelande till alla användare som läggs till i gruppen. När alla attribut för en användare eller enhet ändras bearbetas alla dynamiska grupp regler i organisationen för potentiella medlemskaps ändringar. Användare som läggs till får även välkomst meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+När en ny Microsoft 365 grupp skapas, oavsett om det är ett dynamiskt eller statiskt medlemskap, skickas ett välkomst meddelande till alla användare som läggs till i gruppen. När alla attribut för en användare eller enhet ändras bearbetas alla dynamiska grupp regler i organisationen för potentiella medlemskaps ändringar. Användare som läggs till får även välkomst meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hantera åtkomst till SaaS-appar med grupper](../users-groups-roles/groups-saasapps.md)
 - [Hantera grupper med PowerShell-kommandon](../users-groups-roles/groups-settings-v2-cmdlets.md)
-

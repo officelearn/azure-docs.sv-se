@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461709"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462368"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -101,11 +101,11 @@ I följande tabell visas kliv-hoten och innehåller några exempel på åtgärde
 | Hot | Säkerhets egenskap | Potentiella Azure-plattforms begränsningar |
 | --- | --- | --- |
 | Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
-| Manipulation | Integritet | Verifiera TLS/SSL-certifikat. |
-| Avvislighet | Oavvislig het | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
+| Manipulering | Integritet | Verifiera TLS/SSL-certifikat. |
+| Avvislighet | Oavvislighet | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
 | Avslöjande av information | Konfidentialitet | Kryptera känsliga data i vila med hjälp av [tjänst certifikat](/rest/api/appservice/certificates). |
-| Denial of Service (nekad tjänst) | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
-| Behörighets höjning | Auktorisering | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
+| Denial of Service | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
+| Behörighetshöjning | Auktorisering | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 
 ## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
 [Azure App Service](/azure/app-service/overview) är ett PaaS-erbjudande som gör att du kan skapa webb-och mobilappar för alla plattformar och enheter och ansluta till data var som helst, i molnet eller lokalt. App Service innehåller de webb-och mobil funktioner som tidigare levererades separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. Som en enda integrerad tjänst ger App Service en omfattande uppsättning funktioner för webb-, mobil-och integrations scenarier.
@@ -151,10 +151,10 @@ Fuzz-test är en metod för att hitta program fel (kod fel) genom att tillhandah
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln fokuserar vi på säkerhets fördelarna med en Azure PaaS-distribution och rekommenderade säkerhets metoder för moln program. Nu ska du läsa rekommendationer för att skydda dina PaaS webb-och mobil lösningar med hjälp av vissa Azure-tjänster. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse och Azure Storage. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga kommer länkar att tillhandahållas i följande lista:
+I den här artikeln fokuserar vi på säkerhets fördelarna med en Azure PaaS-distribution och rekommenderade säkerhets metoder för moln program. Nu ska du läsa rekommendationer för att skydda dina PaaS webb-och mobil lösningar med hjälp av vissa Azure-tjänster. Vi börjar med Azure App Service, Azure SQL Database och Azure Synapse Analytics och Azure Storage. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga kommer länkar att tillhandahållas i följande lista:
 
 - [Azure App Service](paas-applications-using-app-services.md)
-- [Azure SQL Database och Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database-och Azure Synapse-analys](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus
@@ -166,4 +166,4 @@ Se [metod tips och mönster för Azure-säkerhet](best-practices-and-patterns.md
 
 Följande resurser är tillgängliga för att ge mer allmän information om Azure-säkerhet och relaterade Microsoft-tjänster:
 * [Azure Security Team-bloggen](https://blogs.msdn.microsoft.com/azuresecurity/) – för uppdaterad information om det senaste i Azure-säkerhet
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post tillsecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – där säkerhets problem i Microsoft, inklusive problem med Azure, kan rapporteras eller via e-post till secure@microsoft.com

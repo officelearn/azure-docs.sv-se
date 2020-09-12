@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 08/17/2020
-ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551849"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434409"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurera och hantera Azure AD-autentisering med Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln visar hur du skapar och fyller i en Azure Active Directory-instans (Azure AD) och sedan använder Azure AD med [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory autentisering](authentication-aad-overview.md).
+Den här artikeln visar hur du skapar och fyller i en Azure Active Directory-instans (Azure AD) och sedan använder Azure AD med [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [azure Synapse Analytics (tidigare SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory autentisering](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Autentiseringsmetoder för Azure AD
 
@@ -190,7 +190,7 @@ Om du vill etablera en Azure AD-administratör kör du följande Azure PowerShel
 
 De cmdletar som används för att etablera och hantera Azure AD-administratör för din SQL-hanterade instans visas i följande tabell:
 
-| Cmdlet-namn | Description |
+| Cmdlet-namn | Beskrivning |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Etablerar en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. (Måste vara från den aktuella prenumerationen)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Tar bort en Azure AD-administratör för SQL-hanterad instans i den aktuella prenumerationen. |
@@ -279,7 +279,7 @@ Om du vill köra PowerShell-cmdlets måste Azure PowerShell vara installerad och
 
 Cmdletar som används för att etablera och hantera Azure AD-administratör för SQL Database och Azure-Synapse:
 
-| Cmdlet-namn | Description |
+| Cmdlet-namn | Beskrivning |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse. (Måste vara från den aktuella prenumerationen) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse.|
@@ -293,7 +293,7 @@ Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Gr
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Till exempel ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Endast Azure AD-visnings namn stöds för Azure AD-grupper.
+Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Exempelvis ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Endast Azure AD-visnings namn stöds för Azure AD-grupper.
 
 > [!NOTE]
 > Kommandot Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` förhindrar inte att du konfigurerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan vara etablerad, men kan inte ansluta till en databas.

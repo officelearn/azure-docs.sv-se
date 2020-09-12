@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826301"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462436"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Så här gör du: kör ett program med Fortanix enklaven Manager 
 
@@ -24,7 +24,7 @@ Börja köra ditt program i Azures konfidentiella data behandling med [Fortanix 
 Fortanix är en tredjeparts program varu leverantör med produkter och tjänster som bygger på Azure-infrastrukturen. Det finns andra leverantörer av tredje part som erbjuder liknande tjänster för konfidentiell behandling i Azure.
 
 > [!Note] 
- > DE PRODUKTER SOM REFERERAS I DETTA DOKUMENT ÄR INTE UNDERSTYRDA AV MICROSOFT. MICROSOFT TILLHANDAHÅLLER DEN HÄR INFORMATIONEN ENDAST SOM EN BEKVÄMLIGHET, OCH REFERENSEN TILL DESSA PRODUKTER FRÅN ANDRA TILLVERKARE ÄN MICROSOFT KRÄVER INTE MICROSOFT.
+ > De produkter som refereras i detta dokument är inte understyrda av Microsoft. Microsoft tillhandahåller den här informationen endast som en bekvämlighet, och referensen till dessa produkter från andra tillverkare än Microsoft kräver inte Microsoft.
 
 
 
@@ -33,7 +33,7 @@ Den här självstudien visar hur du konverterar program avbildningen till en kon
  För Fortanix support ansluter du till Fortanix- [slack-communityn](https://fortanix.com/community/) och använder kanal #enclavemanager.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte har ett Fortanix enklaven Manager-konto måste du [Registrera](https://em.fortanix.com/auth/sign-up) dig innan du börjar.
 1. Ett privat [Docker](https://docs.docker.com/) -register för att skicka konverterade program avbildningar.
@@ -43,7 +43,7 @@ Den här självstudien visar hur du konverterar program avbildningen till en kon
 > De kostnads fria utvärderings kontona har inte åtkomst till de virtuella datorerna som används i den här självstudien. Uppgradera till en prenumeration där du betalar per användning.
 
 ## <a name="add-an-application-to-fortanix-enclave-manager"></a>Lägga till ett program i Fortanix enklaven Manager
-1. Logga in på [FORTANIX EM](https://fortanix.com)
+1. Logga in på [Fortanix enklaven Manager (FORTANIX EM)](https://em.fortanix.com)
 1. Gå till sidan **konton** och välj **Lägg till konto** för att skapa ett nytt konto. 
     
 ![Skapa ett konto](media/how-to-fortanix-enclave-manager/create-account.png)
@@ -120,7 +120,7 @@ Om du skapar en Fortanix-Node-agent distribueras en virtuell dator, ett nätverk
 1. På den här sidan anger du information för att distribuera en virtuell dator. Mer specifikt är den virtuella datorn en DCsv2-serien Intel SGX-aktiverad virtuell dator från Azure med Fortanix Node Agent-programvara installerad. Med Node-agenten kan den konverterade avbildningen köras säkert på Intel SGX-noder i Azure.  Välj den **prenumeration** och **resurs grupp** där du vill distribuera den virtuella datorn och de tillhör ande resurserna. 
  
     > [!NOTE]
-    > Det finns begränsningar när du distribuerar virtuella datorer i DCsv2-serien i Azure. Du kan behöva begära kvot för ytterligare kärnor. Läs om [konfidentiella data behandlings lösningar på virtuella Azure-datorer](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) för mer information. 
+    > Det finns begränsningar när du distribuerar virtuella datorer i DCsv2-serien i Azure. Du kan behöva begära kvot för ytterligare kärnor. Läs om [konfidentiella data behandlings lösningar på virtuella Azure-datorer](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) för mer information. 
 
 1. Välj en tillgänglig region.
 1. Ange ett namn för den virtuella datorn i fältet **nodnamn** . 

@@ -4,21 +4,21 @@ description: Lär dig hur du övergår från Lagringsanalys mått (klassiska må
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 09/04/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f0357c153a068b1f857e4595fa17a9ac6bc22104
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078256"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500274"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Över gång till mått i Azure Monitor
 
-Den **31 augusti 2023** Lagringsanalys Mät värden, även kallade *klassiska mått* , kommer att dras tillbaka. Om du använder klassiska mått, se till att gå över till mått i Azure Monitor före det datumet. Den här artikeln hjälper dig att göra över gången.
+Den **31 augusti 2023** Lagringsanalys Mät värden, även kallade *klassiska mått* , kommer att dras tillbaka. Mer information finns i det [officiella meddelandet](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Om du använder klassiska mått, se till att gå över till mått i Azure Monitor före det datumet. Den här artikeln hjälper dig att göra över gången. 
 
 ## <a name="steps-to-complete-the-transition"></a>Steg för att slutföra över gången
 
@@ -59,7 +59,7 @@ Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](https:/
 
  Använd de här tabellerna för att identifiera vilka mått i Azure Monitor ger samma data som de mått som du för närvarande använder. 
 
-**Kapacitetsmått**
+**Kapacitets mått**
 
 | Klassiskt mått | Mått i Azure Monitor |
 | ------------------- | ----------------- |

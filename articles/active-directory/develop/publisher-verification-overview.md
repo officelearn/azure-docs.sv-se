@@ -1,6 +1,6 @@
 ---
 title: Översikt över utgivarens granskning – Microsoft Identity Platform | Azure
-description: Innehåller en översikt över utgivarens verifierings program (för hands version) för Microsoft Identity Platform. Visar en lista över fördelar, program krav och vanliga frågor och svar. När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett Microsoft Partner Network konto som har slutfört verifierings processen och associerat det här MPN-kontot med sin program registrering.
+description: Innehåller en översikt över utgivarens verifierings program för Microsoft Identity Platform. Visar en lista över fördelar, program krav och vanliga frågor och svar. När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett Microsoft Partner Network konto som har slutfört verifierings processen och associerat det här MPN-kontot med sin program registrering.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068481"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005799"
 ---
-# <a name="publisher-verification-preview"></a>Verifiering av utgivare (förhandsversion)
+# <a name="publisher-verification"></a>Utgivarens verifiering
 
-Utgivarens verifiering (för hands version) hjälper administratörer och slutanvändare att förstå äktheten hos programutvecklare som integreras med Microsoft Identity Platform. När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett [Microsoft Partner Network](https://partner.microsoft.com/membership) konto som har slutfört [verifierings](/partner-center/verification-responses) processen och ASSOCIERAt det här MPN-kontot med sin program registrering. 
+Utgivar verifieringen hjälper administratörer och slutanvändare att förstå äktheten hos programutvecklare som integreras med Microsoft Identity Platform. När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett [Microsoft Partner Network](https://partner.microsoft.com/membership) konto som har slutfört [verifierings](/partner-center/verification-responses) processen och ASSOCIERAt det här MPN-kontot med sin program registrering. 
 
 Ett blått "verifierat"-märke visas i frågan om godkännande i Azure AD och andra skärmar: ![ medgivande-prompt](./media/publisher-verification-overview/consent-prompt.png)
 

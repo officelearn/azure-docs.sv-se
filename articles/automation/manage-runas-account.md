@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530674"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005742"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Hantera ett Kör som-konto för Azure Automation
 
@@ -26,16 +26,16 @@ Azure Automation använder två typer av kör som-konton:
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP)-prenumerationer stöder endast Azure Resource Managers modellen. Icke-Azure Resource Manager tjänster är inte tillgängliga i programmet. När du använder en CSP-prenumeration skapas inte det klassiska kör som-kontot i Azure, men kör som-kontot i Azure skapas. Mer information om CSP-prenumerationer finns i [tillgängliga tjänster i CSP-prenumerationer](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-Tjänstens huvud namn för ett Kör som-konto har inte behörighet att läsa Azure AD som standard. Om du vill lägga till behörigheter för att läsa eller hantera Azure AD måste du bevilja behörighet för tjänstens huvud namn under API- **behörigheter**. Läs mer i [lägga till behörigheter för åtkomst till webb-API: er](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Tjänstens huvud namn för ett Kör som-konto har inte behörighet att läsa Azure AD som standard. Om du vill lägga till behörigheter för att läsa eller hantera Azure AD måste du bevilja behörighet för tjänstens huvud namn under API- **behörigheter**. Läs mer i [lägga till behörigheter för åtkomst till ditt webb-API](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ### <a name="run-as-account"></a>Kör som-konto
 
 Kör som-kontot hanterar resurser för [distributions modeller i Resource Manager](../azure-resource-manager/management/deployment-models.md) . Den utför följande uppgifter.
 
 * Skapar ett Azure AD-program med ett självsignerat certifikat och ett tjänstobjektskonto för programmet i Azure AD och rollen Deltagare tilldelas för kontot i din aktuella prenumeration. Du kan ändra certifikat inställningen till ägare eller en annan roll. Mer information finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
-  
+
 * Skapar en Automation-certifikat till gång med namnet `AzureRunAsCertificate` i det angivna Automation-kontot. Certifikat till gången innehåller certifikatets privata nyckel som Azure AD-programmet använder.
-  
+
 * Skapar en Automation-anslutning till gång med namnet `AzureRunAsConnection` i det angivna Automation-kontot. Anslutnings till gången innehåller program-ID, klient-ID, prenumerations-ID och tumavtryck för certifikatet.
 
 ### <a name="azure-classic-run-as-account"></a>Klassiskt Kör som-konto i Azure
@@ -61,7 +61,7 @@ I det här avsnittet definieras behörigheter för både vanliga kör som-konton
 
 Om du vill skapa eller uppdatera ett Kör som-konto måste du ha vissa behörigheter och behörigheter. En program administratör i Azure Active Directory och en ägare i en prenumeration kan slutföra alla uppgifter. I en situation där du har separering av uppgifter visar följande tabell en lista över aktiviteter, motsvarande cmdlet och behörigheter som krävs:
 
-|Aktivitet|Cmdlet  |Lägsta behörighet  |Där du anger behörigheter|
+|Uppgift|Cmdlet  |Lägsta behörighet  |Där du anger behörigheter|
 |---|---------|---------|---|
 |Skapa Azure AD-program|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Programutvecklare, roll<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Start > Azure AD > app-registreringar |
 |Lägg till en autentiseringsuppgift i programmet.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Program administratör eller global administratör<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Start > Azure AD > app-registreringar|
@@ -80,7 +80,7 @@ För att kontrol lera att den situation som genererar fel meddelandet har åtgä
 
 1. I fönstret Azure Active Directory i Azure Portal väljer du **användare och grupper**.
 2. Välj **alla användare**.
-3. Välj ditt namn och välj sedan **profil**. 
+3. Välj ditt namn och välj sedan **profil**.
 4. Se till att värdet för attributet **användar typ** under användarens profil inte är inställt på **gäst**.
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Hämta behörigheter för att konfigurera klassiska kör som-konton
@@ -99,7 +99,7 @@ Utför följande steg för att uppdatera ditt Azure Automation-konto i Azure Por
 
 4. I det vänstra fönstret väljer du **Kör som-konton** i avsnittet konto inställningar.
 
-5. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**. 
+5. Beroende på vilket konto du behöver väljer du antingen **Azures Kör som-konto** eller **Azures klassiska Kör som-konto**.
 
 6. Beroende på kontots intresse använder du fönstret **Lägg till Azure kör som** eller **Lägg till Azures klassiska kör som-konto** . När du har granskat översikts informationen klickar du på **skapa**.
 
@@ -113,7 +113,7 @@ I det här avsnittet beskrivs hur du tar bort ett Kör som-konto eller ett klass
 
 2. I det vänstra fönstret väljer du **Kör som-konton** i avsnittet konto inställningar.
 
-3. På egenskapssidan för Kör som-konton väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort. 
+3. På egenskapssidan för Kör som-konton väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort.
 
 4. I rutan Egenskaper för det valda kontot klickar du på **ta bort**.
 
@@ -127,7 +127,7 @@ I det här avsnittet beskrivs hur du tar bort ett Kör som-konto eller ett klass
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Förnya ett självsignerat certifikat
 
-Det självsignerade certifikatet som du har skapat för kör som-kontot går ut ett år från datumet då det skapades. Innan ditt kör som-konto går ut måste du förnya certifikatet. Du kan förnya det när som helst innan det upphör att gälla. 
+Det självsignerade certifikatet som du har skapat för kör som-kontot går ut ett år från datumet då det skapades. Innan ditt kör som-konto går ut måste du förnya certifikatet. Du kan förnya det när som helst innan det upphör att gälla.
 
 När du förnyar det självsignerade certifikatet behålls det aktuella giltiga certifikatet för att säkerställa att alla Runbooks som köas eller aktivt körs, och som autentiserar med kör som-kontot, inte påverkas negativt. Certifikatet förblir giltigt fram till dess förfallodatum.
 
@@ -168,10 +168,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-Du kan kontrol lera om tjänstens huvud namn som används av ditt kör som-konto finns i roll definitionen medarbetare eller en anpassad. 
+Du kan kontrol lera om tjänstens huvud namn som används av ditt kör som-konto finns i roll definitionen medarbetare eller en anpassad.
 
 1. Gå till ditt Automation-konto och välj **Kör som-konton** i avsnittet konto inställningar.
-2. Välj **Kör som-konto i Azure**. 
+2. Välj **Kör som-konto i Azure**.
 3. Välj **roll** för att hitta den roll definition som används.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Kontrol lera rollen kör som-konto." lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -186,7 +186,7 @@ Du kan låta Azure Automation verifiera om Key Vault och ditt kör som-konto-tj�
 * Bevilja behörighet till Key Vault.
 * Ange åtkomst principen.
 
-Du kan använda [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) -skriptet i PowerShell-galleriet för att ge ditt kör som-konto behörighet att Key Vault. Mer information om hur du anger behörigheter för Key Vault finns i [bevilja program åtkomst till ett nyckel valv](../key-vault/general/group-permissions-for-apps.md) .
+Du kan använda [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) -skriptet i PowerShell-galleriet för att ge ditt kör som-konto behörighet att Key Vault. Mer information om hur du ställer in behörigheter på Key Vault finns i [tilldela en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-powershell) .
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Lös problem med fel konfiguration för kör som-konton
 
@@ -207,7 +207,7 @@ När du väljer Kör som-kontot visas följande fel meddelande i fönstret konto
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Du kan snabbt lösa dessa problem med Kör som-kontot genom att ta bort och återskapa kontot.
+Du kan snabbt lösa dessa problem med kör som-kontot genom att ta bort och återskapa kör som-kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 

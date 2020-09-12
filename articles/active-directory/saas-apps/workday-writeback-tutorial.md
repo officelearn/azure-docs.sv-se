@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526838"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017480"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Självstudie: Konfigurera tillbakaskrivning av attribut från Azure AD till Workday
 Syftet med den här självstudien är att visa de steg du behöver utföra för att göra om attribut från Azure AD till Workday. Tillbakaskrivning av tillbakaskrivning-appen för Workday stöder tilldelning av värden till följande Workday-attribut:
@@ -34,7 +34,7 @@ När du har installerat integrering av inkommande etablering med hjälp av en [a
 
 Den här arbets dagen för tillbakaskrivning av användar etablering passar utmärkt för:
 
-* Organisationer som använder Office 365 som vill kunna tillbakaskrivning av auktoritativa attribut som hanteras av IT (till exempel e-postadress, användar namn och telefonnummer) tillbaka till Workday
+* Organisationer som använder Microsoft 365 som vill kunna tillbakaskrivning av auktoritativa attribut som hanteras av IT (till exempel e-postadress, användar namn och telefonnummer) tillbaka till Workday
 
 ## <a name="configure-integration-system-user-in-workday"></a>Konfigurera användare av integrations systemet på arbets dagen
 

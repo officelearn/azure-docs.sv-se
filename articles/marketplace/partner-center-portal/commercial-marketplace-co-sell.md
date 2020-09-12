@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104239"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017378"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
 
@@ -20,7 +20,7 @@ Att tillhandahålla information på fliken Co-försäljning är helt valfritt. D
 
 Alternativet Co-försäljning i Partner Center är för närvarande tillgängligt för vissa erbjudande typer. Stöd för ytterligare erbjudande typer görs tillgängligt med tiden.
 
-| **Erbjudande typ** | **Sidan Co-Sälj finns i Partner Center** |
+| **Erbjudandetyp** | **Sidan Co-Sälj finns i Partner Center** |
 |    -----------------------    |    -----------------------------  |
 | Program vara som en tjänst (SaaS) |      Tillgängligt nu      |
 | Dynamics 365 för kund engagemang & PowerApps      |     Tillgängligt nu      |
@@ -62,7 +62,7 @@ Du kan lägga till upp till tre lösnings områden för ditt erbjudande. För va
 
 ## <a name="documents"></a>Dokument
 
-Du kan tillhandahålla information som Microsoft kan använda för att utvärdera dina kund behov.
+Du har möjlighet att tillhandahålla dokument som Microsoft kommer att använda för att lära dig mer om ditt erbjudande och utvärdera det efter dina kund behov. Alla dokument som anges i tabellen nedan är valfria.
 
 | **Dokument**    | **Beskrivning**  |
 | :------------------- | :-------------------|
@@ -79,14 +79,14 @@ Du kan tillhandahålla information som Microsoft kan använda för att utvärder
 
 Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare.
 
-Det här dokumentet ger vägledning om olika roller för partner och hur du väljer mellan dem. Du kan ange dina kontakter genom att hämta CSV-mallen från Partner Center, fylla i varje rad med information om kontakten och importera den här CSV-filen. Om du importerar en CSV-fil skrivs befintliga kontakter över.
+Du kan ange dina kontakter genom att hämta CSV-mallen från Partner Center, fylla i varje rad med information om kontakten och importera den här CSV-filen. Om du importerar en CSV-fil skrivs befintliga kontakter över.
 
 Du kan också exportera din befintliga lista med kontakter från ett erbjudande och sedan göra ändringar i filen.
 
 * *Namn (obligatoriskt)*: kontaktens namn.
 * *E-postadress (krävs)*: kontaktens e-postadress.
 * *Jobb titel (krävs)*: befattning.
-* *Roll (krävs)*: Använd någon av följande roller i det här fältet i mallen.
+* *Roll (krävs)*: Använd någon av följande roller.
 
     | **Role**    | **Beskrivning**  |
     | :------------------- | :-------------------|

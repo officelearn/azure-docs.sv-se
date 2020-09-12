@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect-AD FS hantering och anpassning | Microsoft Docs
 description: AD FS hantering med Azure AD Connect och anpassning av användar AD FS inloggnings upplevelse med Azure AD Connect och PowerShell.
-keywords: AD FS, ADFS, AD FS hantering, AAD Connect, Connect, inloggning, AD FS anpassning, reparera förtroende, O365, Federation, förlitande part
+keywords: AD FS, ADFS, AD FS hantering, AAD Connect, Connect, inloggning, AD FS anpassning, reparera förtroende, M365, Federation, förlitande part
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,20 +18,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830935"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661261"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services (AD FS) med Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassar Active Directory Federation Services (AD FS) (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga AD FS uppgifter som du kan behöva utföra för en fullständig konfiguration av en AD FS server grupp.
 
-| Ämne | Vad det täcker |
+| Avsnitt | Vad det täcker |
 |:--- |:--- |
 | **Hantera AD FS** | |
-| [Reparera förtroendet](#repairthetrust) |Så här reparerar du Federations förtroendet med Office 365. |
+| [Reparera förtroendet](#repairthetrust) |Så här reparerar du Federations förtroendet med Microsoft 365. |
 | [Federera med Azure AD med hjälp av alternativt inloggnings-ID](#alternateid) | Konfigurera Federation med hjälp av alternativt inloggnings-ID  |
 | [Lägg till en AD FS-server](#addadfsserver) |Expandera en AD FS server grupp med ytterligare en AD FS server. |
 | [Lägg till en AD FS Webbprogramproxy](#addwapserver) |Hur du expanderar en AD FS server grupp med en ytterligare Server för webbprogramproxy (WAP). |
@@ -85,7 +85,7 @@ Konfigurering av alternativt inloggnings-ID för AD FS består av två huvud ste
     Om du vill åtgärda konfigurationen om det saknas KB installerar du den nödvändiga [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) och reparerar sedan förtroendet med hjälp av [repair AAD och AD FS Trust](#repairthetrust).
 
 > [!NOTE]
-> Mer information om alternateID och steg för manuell konfiguration finns i [Konfigurera alternativt inloggnings-ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> Mer information om alternateID och steg för manuell konfiguration finns i [Konfigurera alternativt inloggnings-ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Lägg till en AD FS-server 
 
@@ -174,7 +174,7 @@ Det är enkelt att lägga till en domän som ska federerades med Azure AD med hj
 
    ![Azure AD-domän](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    När du har valt domän ger guiden lämplig information om ytterligare åtgärder som ska vidtas och effekten av konfigurationen. I vissa fall, om du väljer en domän som inte har verifierats i Azure AD, innehåller guiden information som hjälper dig att verifiera domänen. Mer information finns i [lägga till ett anpassat domän namn i Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
+    När du har valt domän ger guiden lämplig information om ytterligare åtgärder som ska vidtas och effekten av konfigurationen. I vissa fall, om du väljer en domän som inte har verifierats i Azure AD, innehåller guiden information som hjälper dig att verifiera domänen. Mer information finns i [lägga till ett anpassat domän namn i Azure Active Directory](../fundamentals/add-custom-domain.md) .
 
 5. Klicka på **Nästa**. Sidan **klar att konfigurera** visar en lista över åtgärder som Azure AD Connect utföra. Slutför konfigurationen genom att klicka på **Installera** .
 
@@ -207,7 +207,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Ändra AD FS anspråks regler 
-AD FS har stöd för ett omfattande anspråks språk som du kan använda för att skapa anpassade anspråks regler. Mer information finns i [rollen för anspråks regel språket](https://technet.microsoft.com/library/dd807118.aspx).
+AD FS har stöd för ett omfattande anspråks språk som du kan använda för att skapa anpassade anspråks regler. Mer information finns i [rollen för anspråks regel språket](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
 I följande avsnitt beskrivs hur du kan skriva anpassade regler för vissa scenarier som relaterar till Azure AD och AD FS Federation.
 

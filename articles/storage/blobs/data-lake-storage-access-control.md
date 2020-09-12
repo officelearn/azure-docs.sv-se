@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030494"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017242"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -256,7 +256,7 @@ Umask för Azure Data Lake Storage Gen2 ett konstant värde som är inställt p�
 | umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. other         |    7         |   `RWX`      | För övrigt tar du bort alla behörigheter för barnets åtkomst-ACL |
 
-Det umask-värde som används av Azure Data Lake Storage Gen2 effektivt innebär att värdet för **other** aldrig skickas som standard på nya underordnade, oavsett vad standard-ACL: en visar. 
+Umask-värdet som används av Azure Data Lake Storage Gen2 effektivt innebär att värdet för **annat** aldrig överförs som standard vid nya underordnade, om inte en standard-ACL definieras i den överordnade katalogen. I så fall ignoreras umask och behörigheterna som definieras av standard-ACL: en tillämpas på det underordnade objektet. 
 
 Följande pseudocode visar hur umask används när du skapar ACL: er för ett underordnat objekt.
 

@@ -1,6 +1,6 @@
 ---
 title: Felsöka Publisher-verifiering – Microsoft Identity Platform | Azure
-description: 'Beskriver hur du felsöker Publisher-verifiering (för hands version) för Microsoft Identity Platform genom att anropa Microsoft Graph API: er.'
+description: 'Beskriver hur du felsöker Publisher-verifiering för Microsoft Identity Platform genom att anropa Microsoft Graph API: er.'
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282984"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007561"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>Felsöka verifiering av utgivare (förhandsversion)
-Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen (för hands version)](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller ser oväntade beteenden: 
+# <a name="troubleshoot-publisher-verification"></a>Felsöka verifiering av utgivare
+Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller om du får oväntade beteenden: 
 
 1. Granska [kraven](publisher-verification-overview.md#requirements) och se till att alla är uppfyllda.
 
@@ -62,7 +62,7 @@ Nedan visas några vanliga problem som kan uppstå under processen.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Göra Microsoft Graph API-anrop 
 
-Om du har problem men inte kan förstå varför baserat på vad du ser i användar gränssnittet, kan det vara bra att utföra ytterligare fel sökning genom att använda Microsoft Graph anrop för att utföra samma åtgärder som du kan utföra i appens registrerings Portal. Under förhands gransknings fasen är dessa API: er bara tillgängliga på/beta-slutpunkten för Microsoft Graph.  
+Om du har problem men inte kan förstå varför baserat på vad du ser i användar gränssnittet, kan det vara bra att utföra ytterligare fel sökning genom att använda Microsoft Graph anrop för att utföra samma åtgärder som du kan utföra i appens registrerings Portal.
 
 Det enklaste sättet att göra dessa förfrågningar med hjälp av [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också överväga andra alternativ som att använda [Postman](https://www.postman.com/)eller använda PowerShell för att [anropa en webbegäran](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
 

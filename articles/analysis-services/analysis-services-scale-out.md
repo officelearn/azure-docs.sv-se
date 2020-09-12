@@ -4,15 +4,15 @@ description: Replikera Azure Analysis Services-servrar med skalbarhet. Klient fr
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716936"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007714"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -41,6 +41,8 @@ När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet 
 * Utför en synkronisering *före den skalbara åtgärden* för att undvika redundanta hydrering av de tillagda replikerna. Samtidig synkronisering och skalnings åtgärder som körs samtidigt är inte tillåtna.
 
 * När du automatiserar både bearbetnings- *och* skalnings åtgärder är det viktigt att först bearbeta data på den primära servern, sedan utföra en synkronisering och sedan utföra en skalnings åtgärd. Den här sekvensen säkerställer minimal påverkan på QPU och minnes resurser.
+
+* Vid skalnings åtgärder är alla servrar i frågesyntaxen, inklusive den primära servern, temporärt offline.
 
 * Synkronisering tillåts även när det inte finns några repliker i frågesyntaxen. Om du skalar bort från noll till en eller flera repliker med nya data från en bearbetnings åtgärd på den primära servern, ska du först utföra synkroniseringen utan repliker i frågesyntaxen och sedan skala ut. Om du synkroniserar innan du skalar ut undviker du redundanta hydrering av de nyligen tillagda replikerna.
 
@@ -114,7 +116,7 @@ Synkroniseringsåtgärden måste utföras manuellt eller med hjälp av REST API.
 
 I **översikt** > modell > **Synkronisera modell**.
 
-![Skjutreglage för skala ut](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Synkronisera ikon](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST-API
 
@@ -137,7 +139,7 @@ Retur status koder:
 |0     | Replikera        |
 |1     |  Återuppväcks       |
 |2     |   Slutförd       |
-|3     |   Misslyckad      |
+|3     |   Misslyckades      |
 |4     |    Slutför     |
 |||
 

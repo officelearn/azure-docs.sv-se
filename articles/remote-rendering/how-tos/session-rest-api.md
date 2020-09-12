@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012389"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023762"
 ---
 # <a name="use-the-session-management-rest-api"></a>Använda REST API:et för sessionshantering
 
@@ -122,7 +122,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 Det finns några kommandon för att fråga eller ändra parametrarna för befintliga sessioner.
 
 > [!CAUTION]
-För alla REST-anrop kommer att skicka dessa kommandon för ofta att orsaka att servern begränsar och returnerar fel. Status koden i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
+> För alla REST-anrop kommer att skicka dessa kommandon för ofta att orsaka att servern begränsar och returnerar fel. Status koden i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
 
 ### <a name="update-session-parameters"></a>Uppdatera session parametrar
 
@@ -173,7 +173,7 @@ Det här kommandot returnerar en lista över aktiva sessioner.
 
 | URI | Metod |
 |-----------|:-----------|
-| /v1/Accounts/*accountId*/sessions | GET |
+| /v1/Accounts/*accountId*/sessions | HÄMTA |
 
 **Registrera**
 
@@ -216,7 +216,7 @@ Det här kommandot returnerar information om en session, till exempel dess VM-v�
 
 | URI | Metod |
 |-----------|:-----------|
-| /v1/Accounts/*accountId*/sessions/*SessionID*/Properties | GET |
+| /v1/Accounts/*accountId*/sessions/*SessionID*/Properties | HÄMTA |
 
 **Registrera**
 

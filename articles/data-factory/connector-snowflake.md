@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181892"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023864"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Kopiera och transformera data i snö genom att använda Azure Data Factory
 
@@ -51,9 +51,9 @@ Följande egenskaper stöds för en snö-länkad tjänst.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| typ             | Egenskapen Type måste anges till **snö**.              | Yes      |
-| Begär | Anger den information som krävs för att ansluta till snö-instansen. Du kan välja att ange ett lösen ord eller en hel anslutnings sträng i Azure Key Vault. Mer information finns i exemplen under tabellen, samt autentiseringsuppgifterna för [lagring i Azure Key Vault](store-credentials-in-key-vault.md) artikeln.<br><br>Några vanliga inställningar:<br>- **Konto namn:** Det  [fullständiga konto namnet](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) för ditt snö flingor-konto (inklusive ytterligare segment som identifierar region och moln plattform), t. ex. xy12345. öst-US-2. Azure.<br/>- **Användar namn:** Inloggnings namnet för användaren för anslutningen.<br>- **Lösen ord:** Användarens lösen ord.<br>- **Databas:** Standard databasen som ska användas när den är ansluten. Det bör vara en befintlig databas för vilken den angivna rollen har behörighet.<br>- **Lager:** Det virtuella lager som ska användas när det är anslutet. Det bör vara ett befintligt lager som den angivna rollen har behörighet för.<br>- **Roll:** Standard rollen för åtkomst kontroll som används i den snö-sessionen. Den angivna rollen ska vara en befintlig roll som redan har tilldelats till den angivna användaren. Standard rollen är offentlig. | Yes      |
-| connectVia       | [Integrerings körningen](concepts-integration-runtime.md) som används för att ansluta till data lagret. Du kan använda Azure integration runtime eller en lokal integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure integration Runtime. | No       |
+| typ             | Egenskapen Type måste anges till **snö**.              | Ja      |
+| Begär | Anger den information som krävs för att ansluta till snö-instansen. Du kan välja att ange ett lösen ord eller en hel anslutnings sträng i Azure Key Vault. Mer information finns i exemplen under tabellen, samt autentiseringsuppgifterna för [lagring i Azure Key Vault](store-credentials-in-key-vault.md) artikeln.<br><br>Några vanliga inställningar:<br>- **Konto namn:** Det  [fullständiga konto namnet](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) för ditt snö flingor-konto (inklusive ytterligare segment som identifierar region och moln plattform), t. ex. xy12345. öst-US-2. Azure.<br/>- **Användar namn:** Inloggnings namnet för användaren för anslutningen.<br>- **Lösen ord:** Användarens lösen ord.<br>- **Databas:** Standard databasen som ska användas när den är ansluten. Det bör vara en befintlig databas för vilken den angivna rollen har behörighet.<br>- **Lager:** Det virtuella lager som ska användas när det är anslutet. Det bör vara ett befintligt lager som den angivna rollen har behörighet för.<br>- **Roll:** Standard rollen för åtkomst kontroll som används i den snö-sessionen. Den angivna rollen ska vara en befintlig roll som redan har tilldelats till den angivna användaren. Standard rollen är offentlig. | Ja      |
+| connectVia       | [Integrerings körningen](concepts-integration-runtime.md) som används för att ansluta till data lagret. Du kan använda Azure integration runtime eller en lokal integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure integration Runtime. | Inga       |
 
 **Exempel:**
 
@@ -63,7 +63,11 @@ Följande egenskaper stöds för en snö-länkad tjänst.
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -107,7 +111,7 @@ Följande egenskaper stöds för den snö data uppsättningen.
 
 | Egenskap  | Beskrivning                                                  | Krävs                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Data uppsättningens typ-egenskap måste anges till **SnowflakeTable**. | Yes                         |
+| typ      | Data uppsättningens typ-egenskap måste anges till **SnowflakeTable**. | Ja                         |
 | schema | Schemats namn. Observera att schema namnet är Skift läges känsligt i ADF. |Nej för källa, Ja för mottagare  |
 | tabell | Namnet på tabellen/vyn. Observera att tabell namnet är Skift läges känsligt i ADF. |Nej för källa, Ja för mottagare  |
 
@@ -145,13 +149,13 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 
 | Egenskap                     | Beskrivning                                                  | Krävs |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | Typ egenskapen för kopierings aktivitets källan måste anges till **SnowflakeSource**. | Yes      |
-| DocumentDB          | Anger SQL-frågan för att läsa data från snö. Om namnet på schemat, tabellen och kolumnerna innehåller gemener, så citera objekt identifieraren i frågan t. ex. `select * from "schema"."myTable"` .<br>Det finns inte stöd för att köra den lagrade proceduren. | No       |
-| exportSettings | Avancerade inställningar som används för att hämta data från snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som Data Factory skickas när du anropar instruktionen. | No       |
+| typ                         | Typ egenskapen för kopierings aktivitets källan måste anges till **SnowflakeSource**. | Ja      |
+| DocumentDB          | Anger SQL-frågan för att läsa data från snö. Om namnet på schemat, tabellen och kolumnerna innehåller gemener, så citera objekt identifieraren i frågan t. ex. `select * from "schema"."myTable"` .<br>Det finns inte stöd för att köra den lagrade proceduren. | Inga       |
+| exportSettings | Avancerade inställningar som används för att hämta data från snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som Data Factory skickas när du anropar instruktionen. | Inga       |
 | ***Under `exportSettings` :*** |  |  |
-| typ | Typ av export kommando, anges till **SnowflakeExportCopyCommand**. | Yes |
-| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: MAX_FILE_SIZE, Skriv över. Mer information finns i [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Ytterligare alternativ för fil format som ges för att kopiera kommando som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Mer information finns i [alternativ för snö format typ](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
+| typ | Typ av export kommando, anges till **SnowflakeExportCopyCommand**. | Ja |
+| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: MAX_FILE_SIZE, Skriv över. Mer information finns i [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Inga |
+| additionalFormatOptions | Ytterligare alternativ för fil format som ges för att kopiera kommando som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Mer information finns i [alternativ för snö format typ](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Inga |
 
 #### <a name="direct-copy-from-snowflake"></a>Direkt kopiering från snö
 
@@ -276,13 +280,13 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** för at
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Egenskapen Type för kopierings aktivitetens Sink, anges till **SnowflakeSink**. | Yes                                           |
-| preCopyScript     | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till snö flingor i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | No                                            |
-| importSettings | Avancerade inställningar som används för att skriva data till snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som Data Factory skickas när du anropar instruktionen. | No |
+| typ              | Egenskapen Type för kopierings aktivitetens Sink, anges till **SnowflakeSink**. | Ja                                           |
+| preCopyScript     | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till snö flingor i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | Inga                                            |
+| importSettings | Avancerade inställningar som används för att skriva data till snö flingor. Du kan konfigurera de som stöds av kommandot Kopiera till som Data Factory skickas när du anropar instruktionen. | Inga |
 | ***Under `importSettings` :*** |                                                              |  |
-| typ | Typ av import kommando, anges till **SnowflakeImportCopyCommand**. | Yes |
-| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Mer information finns i [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Ytterligare fil format alternativ som ges till kommandot COPY, som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Mer information finns i [alternativ för snö format typ](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
+| typ | Typ av import kommando, anges till **SnowflakeImportCopyCommand**. | Ja |
+| additionalCopyOptions | Ytterligare kopierings alternativ, som är en ord lista med nyckel/värde-par. Exempel: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Mer information finns i [alternativ för snö kopiering](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Inga |
+| additionalFormatOptions | Ytterligare fil format alternativ som ges till kommandot COPY, som en ord lista med nyckel/värde-par. Exempel: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Mer information finns i [alternativ för snö format typ](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Inga |
 
 #### <a name="direct-copy-to-snowflake"></a>Direkt kopiering till snö flingor
 
@@ -409,8 +413,8 @@ I tabellen nedan visas de egenskaper som stöds av snö Source. Du kan redigera 
 
 | Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Tabell | Om du väljer tabell som indata hämtar data flödet alla data från tabellen som anges i den snö data uppsättningen eller i käll alternativen när du använder en infogad data uppsättning. | No | Sträng | *(endast för infogad data uppsättning)*<br>tableName<br>schemaName |
-| Söka i data | Om du väljer fråga som indata anger du en fråga för att hämta data från snö. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen.<br>Om namnet på schemat, tabellen och kolumnerna innehåller gemener, så citera objekt identifieraren i frågan t. ex. `select * from "schema"."myTable"` . | No | Sträng | DocumentDB |
+| Tabell | Om du väljer tabell som indata hämtar data flödet alla data från tabellen som anges i den snö data uppsättningen eller i käll alternativen när du använder en infogad data uppsättning. | Inga | Sträng | *(endast för infogad data uppsättning)*<br>tableName<br>schemaName |
+| Söka i data | Om du väljer fråga som indata anger du en fråga för att hämta data från snö. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen.<br>Om namnet på schemat, tabellen och kolumnerna innehåller gemener, så citera objekt identifieraren i frågan t. ex. `select * from "schema"."myTable"` . | Inga | Sträng | DocumentDB |
 
 #### <a name="snowflake-source-script-examples"></a>Skript exempel för snö-källa
 
@@ -439,9 +443,9 @@ I tabellen nedan visas de egenskaper som stöds av snö handfat. Du kan redigera
 
 | Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Uppdaterings metod | Ange vilka åtgärder som tillåts på ditt snö flingor-mål.<br>Om du vill uppdatera, upsert eller ta bort rader krävs en [Alter Row-omvandling](data-flow-alter-row.md) för att tagga rader för dessa åtgärder. | Yes | `true` eller `false` | bort <br/>infognings bara <br/>uppdaterings bara <br/>upsertable |
-| Nyckel kolumner | För uppdateringar, upsertar och borttagningar måste en nyckel kolumn eller kolumner anges för att avgöra vilken rad som ska ändras. | No | Matris | keys |
-| Tabell åtgärd | Bestämmer om du vill återskapa eller ta bort alla rader från mål tabellen innan du skriver.<br>- **Ingen**: ingen åtgärd utförs i tabellen.<br>- **Återskapa**: tabellen tas bort och återskapas. Krävs om du skapar en ny tabell dynamiskt.<br>- **Trunkera**: alla rader från mål tabellen tas bort. | No | `true` eller `false` | återskapa<br/>truncate |
+| Uppdaterings metod | Ange vilka åtgärder som tillåts på ditt snö flingor-mål.<br>Om du vill uppdatera, upsert eller ta bort rader krävs en [Alter Row-omvandling](data-flow-alter-row.md) för att tagga rader för dessa åtgärder. | Ja | `true` eller `false` | bort <br/>infognings bara <br/>uppdaterings bara <br/>upsertable |
+| Nyckel kolumner | För uppdateringar, upsertar och borttagningar måste en nyckel kolumn eller kolumner anges för att avgöra vilken rad som ska ändras. | Inga | Matris | keys |
+| Tabell åtgärd | Bestämmer om du vill återskapa eller ta bort alla rader från mål tabellen innan du skriver.<br>- **Ingen**: ingen åtgärd utförs i tabellen.<br>- **Återskapa**: tabellen tas bort och återskapas. Krävs om du skapar en ny tabell dynamiskt.<br>- **Trunkera**: alla rader från mål tabellen tas bort. | Inga | `true` eller `false` | återskapa<br/>truncate |
 
 #### <a name="snowflake-sink-script-examples"></a>Skript exempel för snö handfat
 

@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021892"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023779"
 ---
 # <a name="models"></a>Modeller
 
@@ -28,7 +28,6 @@ Varje entitet kan ha [komponenter](components.md) kopplade. I det vanligaste fal
 Att skapa modeller för körning uppnås genom att [konvertera inmatade modeller](../how-tos/conversion/model-conversion.md) från fil format som FBX och GLTF. Konverterings processen extraherar alla resurser, till exempel texturer, material och maskor, och konverterar dem till optimerade körnings format. Den kommer också att extrahera struktur information och omvandla den till ARR: s entitet/komponent diagram struktur.
 
 > [!IMPORTANT]
->
 > [Modell konvertering](../how-tos/conversion/model-conversion.md) är det enda sättet att skapa [nät](meshes.md). Även om maskor kan delas mellan entiteter vid körning, finns det inte något annat sätt att få ett nät i körningen, förutom att läsa in en modell.
 
 ## <a name="loading-models"></a>Läser in modeller
@@ -118,6 +117,13 @@ Sedan kan du bläddra i organisationshierarkin och ändra entiteter och komponen
 
 > [!CAUTION]
 > Alla *asynkrona* funktioner i arr returnerade asynkrona åtgärds objekt. Du måste lagra en referens till dessa objekt tills åtgärden har slutförts. Annars kan skräp insamlaren i C# ta bort åtgärden tidigt och det kan aldrig slutföras. I exempel koden över användningen av *väntar* garanterar att den lokala variabeln ' loadOp ' innehåller en referens tills modell inläsningen är färdig. Om du däremot skulle använda den *slutförda* händelsen i stället måste du lagra den asynkrona åtgärden i en medlems variabel.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# RemoteManager. LoadModelAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# RemoteManager. LoadModelFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ RemoteManager:: LoadModelAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ RemoteManager:: LoadModelFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,20 +1,20 @@
 ---
-title: Exempel för Log Analytics i Azure Firewall
+title: Azure Monitor loggar för Azure Firewall
 description: Azure Monitor loggar kan användas för att analysera din Azure-brandvägg. En exempel fil skapas i View Designer i Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76706011"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023881"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Exempel för Log Analytics i Azure Firewall
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Azure Monitor loggar för Azure Firewall
 
 Följande Azure Monitor loggar exempel kan användas för att analysera dina Azure Firewall-loggar. Exempel filen är inbyggd i View Designer i Azure Monitor, finns mer information om visnings design koncept i [View Designer i Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 I följande logg exempel visas de data som ingår i en loggpost.
 
-![loggpost](media/log-analytics-samples/log1.png)
+![loggpost en](media/log-analytics-samples/log1.png)
 
-![loggpost](media/log-analytics-samples/log2.png)
+![logg post två ](media/log-analytics-samples/log2.png)
 
-![loggpost](media/log-analytics-samples/log3.png)
+![loggpost tre](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om övervakning och diagnostik i Azure-brandväggen finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](tutorial-diagnostics.md).

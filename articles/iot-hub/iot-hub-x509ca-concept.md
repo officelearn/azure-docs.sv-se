@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61320489"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019911"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Konceptuell förståelse för X. 509 CA-certifikat i IoT-branschen
 
@@ -28,6 +28,8 @@ I den här artikeln beskrivs:
 * Så här konfigurerar du en tillverknings leverans kedja för X. 509 CA-baserad autentisering
 
 * Hur enheter signerade med X. 509 CA ansluter till IoT Hub
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -63,13 +65,13 @@ Information om hur du utför de här stegen skiljer sig mellan olika tjänst lev
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>Köpa ett X. 509 CA-certifikat
 
-Att köpa ett CA-certifikat har fördelen att en välkänd rot certifikat utfärdare fungerar som en betrodd tredje part för att kunna identifiera giltighet av IoT-enheter när enheterna ansluter. Företag-X väljer det här alternativet om de avser en smart-X-widget för att interagera med produkter eller tjänster från tredje part efter den första anslutningen till IoT Hub.
+Att köpa ett CA-certifikat har fördelen att en välkänd rot certifikat utfärdare fungerar som en betrodd tredje part för att kunna identifiera giltighet av IoT-enheter när enheterna ansluter. Företag-X väljer det här alternativet om de avser en smart-X-widget för att interagera med tredjepartsprodukter eller tjänster från tredje part efter den första anslutningen till IoT Hub.
 
 För att köpa ett X. 509 CA-certifikat, väljer företaget-X en rot certifikat tjänst leverantör. En Internets ökning för frasen "rot certifikat utfärdare" ger en bättre lead. Rot certifikat utfärdaren leder till företags-X om hur du skapar ett offentligt/privat nyckel par och hur du skapar en begäran om certifikat signering för deras tjänster. En CSR är den formella processen att tillämpa för ett certifikat från en certifikat utfärdare. Resultatet av det här köpet är ett certifikat som används som auktoritets certifikat. Med tanke på allmän förekomst för X. 509-certifikat, har certifikatet förmodligen formaterats korrekt i IETF: s RFC 5280-standard.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Skapa ett självsignerat X. 509 CA-certifikat
 
-Processen för att skapa ett självsignerat X. 509-CA-certifikat liknar köpet med undantag av en tredje parts-signering som rot certifikat utfärdaren. I vårt exempel kommer företag-X att signera sitt auktoritets certifikat i stället för en rot certifikat utfärdare. Företag-X kan välja det här alternativet för testning tills de är redo att köpa ett auktoritets certifikat. Företag-X kan också använda ett självsignerat X. 509 CA-certifikat i produktion, om Smart-X-widget inte är avsett att ansluta till några tjänster från tredje part utanför IoT Hub.
+Processen för att skapa ett självsignerat X. 509-CA-certifikat liknar köpet med undantag för en tredjeparts-signerare som rot certifikat utfärdaren. I vårt exempel kommer företag-X att signera sitt auktoritets certifikat i stället för en rot certifikat utfärdare. Företag-X kan välja det här alternativet för testning tills de är redo att köpa ett auktoritets certifikat. Företag-X kan också använda ett självsignerat X. 509 CA-certifikat i produktion, om Smart-X-widget inte är avsett att ansluta till några tjänster från tredje part utanför IoT Hub.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrera X. 509-certifikatet för att IoT Hub
 

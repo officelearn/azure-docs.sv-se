@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d1d4abbcc0768915d7d2e693cfc76a699ed21a91
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210598"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669624"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
@@ -34,7 +34,7 @@ Följande bild illustrerar IoT Edge användningen av certifikat. Det kan finnas 
 ![Diagram över typiska certifikat relationer](./media/iot-edge-certs/edgeCerts-general.png)
 
 > [!NOTE]
-> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050. Den här begränsningen gäller för enhetens CA-certifikat, alla certifikat i det betrodda paketet och de enhets-ID-certifikat som används för etablerings metoder för X. 509.
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2038. Den här begränsningen gäller för enhetens CA-certifikat, alla certifikat i det betrodda paketet och de enhets-ID-certifikat som används för etablerings metoder för X. 509.
 
 ### <a name="certificate-authority"></a>Certifikatutfärdare
 

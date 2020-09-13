@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
-ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/02/2020
+ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212054"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419988"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mappa data flöden i Azure Data Factory
 
@@ -41,7 +41,7 @@ Kart data flödet har en unik redigerings yta som är utformad för att skapa om
 
 ### <a name="graph"></a>Graph
 
-I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling.
+I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling. Läs mer om hur du [hanterar data flödes diagrammet](concepts-data-flow-manage-graph.md).
 
 ![Arbetsyta](media/data-flow/canvas2.png "Arbetsyta")
 
@@ -109,7 +109,7 @@ Mappning av data flöden är tillgängliga i följande regioner:
 | Australien, sydöstra   | ✓ | ✓ |
 | Brasilien, södra  | ✓ |  |
 | Kanada, centrala | ✓ |  |
-| Central India | ✓ |   ✓ |
+| Indien, centrala | ✓ |   ✓ |
 | Central US    | ✓ |   ✓ |
 | Kina, östra |      | ✓ |
 | Kina, östra 2  |   |    |

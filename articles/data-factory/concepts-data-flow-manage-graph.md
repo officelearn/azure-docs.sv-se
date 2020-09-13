@@ -1,51 +1,64 @@
 ---
-title: Data flödes diagram
-description: Arbeta med data flödes diagram i Data Factory
+title: Hantera diagrammet mappa data flöde
+description: Hur du effektivt hanterar och redigerar diagrammet mappa data flöde
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605357"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420119"
 ---
-# <a name="mapping-data-flow-graphs"></a>Mappa data flödes diagram
+# <a name="managing-the-mapping-data-flow-graph"></a>Hantera diagrammet mappa data flöde
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Design ytan för att mappa data flödar är en "konstruktion"-yta där du kan skapa data flödar uppifrån och ned från vänster till höger. Det finns en verktygs låda som är kopplad till varje omvandling med plus tecknet (+). Fokusera på affärs logiken i stället för att ansluta noder via kanter i en kostnads fri form av en DAG miljö.
+Mappning av data flöden skapas med en design yta som är en data flödes graf. I grafen är omvandlings logiken byggd från vänster till höger och ytterligare data strömmar läggs till överst. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling.
 
-Nedan finns inbyggda mekanismer för att hantera data flödes diagrammet.
+![Arbetsyta](media/data-flow/canvas2.png "Arbetsyta")
 
-## <a name="move-nodes"></a>Flytta noder
+När dina data flödar mer komplexa använder du följande mekanismer för att effektivt navigera och hantera data flödes diagrammet. 
 
-![Sammanställda omvandlings alternativ](media/data-flow/agghead.png "aggregator-rubrik")
+## <a name="moving-transformations"></a>Flytta transformeringar
 
-När du använder ett paradigm-och-släpp-paradigm, är vägen för att "flytta" en Transformations nod att ändra den inkommande data strömmen. I stället flyttar du transformeringar runt genom att ändra "inkommande ström".
+I mappnings data flöden kallas en uppsättning ansluten omvandlings logik som en **data ström**. Fältet **inkommande ström** avgör vilken data ström som används för att mata in den aktuella omvandlingen. Varje omvandling har en eller två inkommande strömmar beroende på dess funktion och representerar en utdataström. Utmatnings schema för inkommande strömmar avgör vilka kolumn-metadata som kan refereras av den aktuella omvandlingen.
 
-## <a name="streams-of-data-inside-of-data-flow"></a>Data strömmar av data i data flödet
+![Flytta nod](media/data-flow/move-nodes.png "flytta nod")
 
-I Azure Data Factory data flöde representerar strömmar data flödet. I fönstret omvandlings inställningar visas fältet inkommande ström. Detta visar vilken inkommande data ström som används för att mata över omvandlingen. Du kan ändra den fysiska platsen för Transform-noden i diagrammet genom att klicka på namnet på den inkommande strömmen och välja en annan data ström. Den aktuella omvandlingen tillsammans med alla efterföljande transformeringar i den data strömmen kommer sedan att flyttas till den nya platsen.
-
-Om du flyttar en omvandling med en eller flera transformeringar efter den, kommer den nya platsen i data flödet att anslutas via en ny gren.
-
-Om du inte har några efterföljande omvandlingar efter noden som du har valt flyttas bara den omvandlingen till den nya platsen.
+Till skillnad från pipeline-arbetsytan redige ras inte data flödes omvandlingar med en dra och släpp-modell. Om du vill ändra den inkommande strömmen eller "flytta" en omvandling, väljer du ett annat värde i list rutan **inkommande Stream** . När du gör det flyttas alla efterföljande omvandlingar tillsammans med den redigerade omvandlingen. Diagrammet kommer automatiskt att uppdateras för att visa det nya logiska flödet. Om du ändrar inkommande data ström till en omvandling som redan har en underordnad omvandling, skapas en ny gren eller parallell data ström. Lär dig mer om [nya grenar i mappnings data flödet](data-flow-new-branch.md).
 
 ## <a name="hide-graph-and-show-graph"></a>Dölj graf och Visa diagram
 
-Det finns en knapp längst till höger i det nedre konfigurations fönstret där du kan expandera det nedre fönstret till full skärm när du arbetar med omvandlings konfigurationer. På så kan du använda knapparna "föregående" och "Nästa" för att navigera genom diagrammets konfigurationer. Om du vill gå tillbaka till diagramvyn klickar du på knappen ned och återgår till delnings skärmen.
+När du redigerar din omvandling kan du expandera konfigurations panelen för att ta hela arbets ytan och dölja grafen. Klicka på den övre, övre kanten som finns på höger sida av arbets ytan.
 
-## <a name="search-graph"></a>Sök diagram
+![Dölj diagram](media/data-flow/hide-graph.png "Dölj diagram")
 
-Du kan söka i grafen med knappen Sök på design ytan.
+När grafen är dold kan du flytta mellan omvandlingar i en ström genom att klicka på **Nästa** eller **föregående**. Visa grafen genom att klicka på den nedåtriktade ikonen.
 
-![Sök](media/data-flow/search001.png "Sök diagram")
+![Visa diagram](media/data-flow/show-graph.png "Visa diagram")
+
+## <a name="searching-for-transformations"></a>Söker efter omvandlingar
+
+Om du snabbt vill hitta en omvandling i grafen klickar du på **Sök** ikonen ovanför zoomnings inställningen.
+
+![Sök](media/data-flow/search-1.png "Sök diagram")
+
+Du kan söka efter omvandlings namn eller beskrivning för att hitta en omvandling.
+
+![Sök](media/data-flow/search-2.png "Sök diagram")
+
+## <a name="hide-reference-nodes"></a>Dölj noder i referens
+
+Om ditt data flöde har kopplings-, lookup-, exists-eller union-transformationer, visar data flödet referens-noderna till alla inkommande data strömmar. Om du vill minimera mängden lodrätt utrymme kan du minimera dina Reference-noder. Det gör du genom att högerklicka på arbets ytan och välja **Dölj Reference Nodes**.
+
+![Dölj noder i referens](media/data-flow/hide-reference-nodes.png "Dölj noder i referens")
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört din data flödes design aktiverar du knappen Felsök på och testar den i fel söknings läge, antingen direkt i [data flödes design](concepts-data-flow-debug-mode.md) eller [pipeline-felsökning](control-flow-execute-data-flow-activity.md).
+När du har fyllt i data flödes logiken aktiverar du [fel söknings läge](concepts-data-flow-debug-mode.md) och testar det i en data förhands granskning.

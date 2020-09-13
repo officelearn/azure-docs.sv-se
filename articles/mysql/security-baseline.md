@@ -1,32 +1,32 @@
 ---
 title: Azures säkerhets bas linje för Azure Database for MySQL
-description: Azures säkerhets bas linje för Azure Database for MySQL
+description: Azure Database for MySQL säkerhets bas linje ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: mysql
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 414c8dc0a9e6c7aa47287fe49a3f21ee28605f78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 80a7067b1d8d5417a6a448ee8a3be563344e9a72
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244712"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420259"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Azures säkerhets bas linje för Azure Database for MySQL
 
 Azures säkerhets bas linje för Azure Database for MySQL innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets principen för Azure-säkerhet: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandvägg på din Virtual Network
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
 **Vägledning**: Konfigurera en privat länk för Azure Database for MySQL med privata slut punkter. Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). Trafiken mellan det virtuella nätverket och MySQL-instansen skickas till Microsoft stamnätet-nätverket.
 
@@ -34,25 +34,25 @@ Du kan också använda Virtual Network tjänstens slut punkter för att skydda o
 
 Du kan också skydda Azure Database for MySQL-servern med brand Väggs regler. Server brand väggen förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brand Väggs regler på server nivå.
 
-Så här konfigurerar du en privat länk för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal
+- [Konfigurera en privat länk för Azure Database for MySQL](howto-configure-privatelink-portal.md)
 
-Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for MySQL: https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
+- [Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-Så här konfigurerar du Azure Database for MySQL brand Väggs regler: https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal
+- [Så här konfigurerar du Azure Database for MySQL brand Väggs regler](howto-manage-firewall-using-portal.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
 **Ansvar**: kund
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverks gränssnitt
 
 **Vägledning**: när din Azure Database for MySQL-instans är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan använda en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här konfigurerar du en privat länk för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal
+- [Konfigurera en privat länk för Azure Database for MySQL](howto-configure-privatelink-portal.md)
 
-Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+- [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -72,31 +72,31 @@ Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azu
 
 Aktivera DDoS Protection standard på de virtuella nätverk som är kopplade till dina Azure Database for MySQL instanser för att skydda mot DDoS-attacker. Använd Azure Security Center integrerad Hot information för att neka kommunikation med kända skadliga eller oanvända Internet-IP-adresser.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Så här konfigurerar du Avancerat skydd för Azure Database for MySQL](howto-database-threat-protection-portal.md)
 
-Så här konfigurerar du DDoS-skydd: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+- [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
 
 **Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
-### <a name="15-record-network-packets-and-flow-logs"></a>1,5: registrera nätverks paket och flödes loggar
+### <a name="15-record-network-packets"></a>1,5: registrera nätverks paket
 
 **Vägledning**: när din Azure Database for MySQL-instans är skyddad till en privat slut punkt kan du distribuera virtuella datorer i samma virtuella nätverk. Du kan sedan konfigurera en nätverks säkerhets grupp (NSG) för att minska risken för data exfiltrering. Aktivera NSG Flow-loggar och skicka loggar till ett lagrings konto för trafik granskning. Du kan också skicka NSG Flow-loggar till en Log Analytics arbets yta och använda Trafikanalys för att ge insikter i trafikflöde i Azure-molnet. Några av fördelarna med Trafikanalys är möjligheten att visualisera nätverks aktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödes mönster och hitta nätverks problem.
 
-Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Så här aktiverar du NSG Flow-loggar](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Så här aktiverar och använder du Trafikanalys: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+- [Så här aktiverar och använder du Trafikanalys](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera nätverksbaserade intrångs identifiering/system för skydd mot intrång (ID/IP-adresser)
 
 **Vägledning**: Använd avancerat skydd för Azure Database for MySQL. Avancerat skydd identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Så här konfigurerar du Avancerat skydd för Azure Database for MySQL](howto-database-threat-protection-portal.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -116,9 +116,9 @@ Så här konfigurerar du Avancerat skydd för Azure Database for MySQL: https://
 
 Obs: Azure Database for MySQL använder service taggarna Microsoft. SQL.
 
-Mer information om att använda service märken: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+- [Mer information om att använda service märken](../virtual-network/service-tags-overview.md)
 
-Förstå användningen av service tag i Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet#terminology-and-description
+- [Förstå användningen av service tag i Azure Database for MySQL](concepts-data-access-and-security-vnet.md#terminology-and-description)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -132,11 +132,11 @@ Förstå användningen av service tag i Azure Database for MySQL: https://docs.m
 
 - Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-Azure Policy exempel för nätverk: https://docs.microsoft.com/azure/governance/policy/samples/
+- [Azure Policy exempel för nätverk](/azure/governance/policy/samples/)
 
-Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+- [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -146,11 +146,11 @@ Så här skapar du en Azure Blueprint: https://docs.microsoft.com/azure/governan
 
 **Vägledning**: Använd taggar för resurser som rör nätverks säkerhets-och trafikflödet för dina Azure Database for MySQL-instanser för att tillhandahålla metadata och logisk organisation.
 
-Använd någon av de inbyggda Azure Policy definitionerna som är relaterade till taggning, till exempel "Kräv tagg och dess värde", för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser.
+Använd någon av de inbyggda Azure Policy definitionerna som är relaterade till taggning, t. ex. **Kräv tagg och dess värde** för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser.
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -160,9 +160,9 @@ Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Database for MySQL-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
 
-Så här visar och hämtar du Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view)
 
-Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+- [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -170,7 +170,7 @@ Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets benchmark för Azure: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
@@ -184,9 +184,9 @@ Så här skapar du aviseringar i Azure Monitor: https://docs.microsoft.com/azure
 
 **Vägledning**: Aktivera diagnostikinställningar och Server loggar och mata in loggar för att samla in säkerhets data som genereras av Azure Database for MySQL instanser. I Azure Monitor använder du Log Analytics arbets ytor för att fråga och utföra analyser och använda Azure Storage konton för långsiktig lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
 
-Förstå Server loggar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-monitoring#server-logs
+- [Förstå Server loggar för Azure Database for MySQL](concepts-monitoring.md#server-logs)
 
-Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -196,13 +196,13 @@ Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-o
 
 **Vägledning**: Aktivera diagnostikinställningar på Azure Database for MySQL instanser för åtkomst till gransknings-, långsam fråga-och MySQL-statistik loggar. Se till att du specifikt aktiverar MySQL-gransknings loggen. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element. Du kan också aktivera inställningar för Azure aktivitets loggs diagnostik och skicka loggarna till samma Log Analytics-arbetsyta eller lagrings konto.
 
-Förstå Server loggar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-monitoring#server-logs
+- [Förstå Server loggar för Azure Database for MySQL](concepts-monitoring.md#server-logs)
 
-Så här konfigurerar och kommer du åt långsamma frågemeddelanden för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-server-logs-in-portal
+- [Så här konfigurerar och kommer du åt långsamma Query-loggar för Azure Database for MySQL](howto-configure-server-logs-in-portal.md)
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-audit-logs-portal
+- [Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+- [Konfigurera diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -220,9 +220,9 @@ Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen: 
 
 **Vägledning**: i Azure Monitor för arbets ytan Log Analytics som används för att hålla dina Azure Database for MySQL loggar, anger du kvarhållningsperioden enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
 
-Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+- [Ange logg lagrings parametrar för Log Analytics arbets ytor](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Lagra resurs loggar i ett Azure Storage-konto: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage
+- [Lagra resurs loggar i ett Azure Storage konto](/azure/azure-monitor/platform/resource-logs-collect-storage)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -232,33 +232,33 @@ Lagra resurs loggar i ett Azure Storage-konto: https://docs.microsoft.com/azure/
 
 **Vägledning**: analysera och övervaka loggar från Azure Database for MySQL instanser för avvikande beteende. Använd Azure Monitor Log Analytics för att granska loggar och köra frågor om loggdata. Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part.
 
-Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-Mer information om Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+- [Mer information om Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-Så här utför du anpassade frågor i Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+- [Så här utför du anpassade frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: aktivera aviseringar för avvikande aktivitet
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: aktivera aviseringar för avvikande aktiviteter
 
 **Vägledning**: Aktivera avancerat skydd för Azure Database for MySQL. Avancerat skydd identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 Dessutom kan du aktivera server loggar och diagnostikinställningar för MySQL och skicka loggar till en Log Analytics-arbetsyta. Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem.
 
-Så här aktiverar du Avancerat skydd för Azure Database for MySQL (för hands version): https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Så här aktiverar du Avancerat skydd för Azure Database for MySQL (för hands version)](howto-database-threat-protection-portal.md)
 
-Förstå Server loggar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-monitoring#server-logs
+- [Förstå Server loggar för Azure Database for MySQL](concepts-monitoring.md#server-logs)
 
-Så här konfigurerar och kommer du åt långsamma frågemeddelanden för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-server-logs-in-portal
+- [Så här konfigurerar och kommer du åt långsamma Query-loggar för Azure Database for MySQL](howto-configure-server-logs-in-portal.md)
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-audit-logs-portal
+- [Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL](howto-configure-audit-logs-portal.md)
 
-Så här konfigurerar du diagnostikinställningar för Azure-aktivitets loggen: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+- [Konfigurera diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
-Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -290,7 +290,7 @@ Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-o
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [Azures säkerhets benchmark: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
@@ -298,11 +298,11 @@ Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-o
 
 Azure Database for MySQL stöder inte inbyggd rollbaserad åtkomst kontroll, men du kan skapa anpassade roller baserat på vissa resurs leverantörs alternativ.
 
-Förstå anpassade roller för Azure-prenumerationen: https://docs.microsoft.com/azure/role-based-access-control/custom-roles 
+- [Förstå anpassade roller för Azure-prenumerationen](../role-based-access-control/custom-roles.md) 
 
-Förstå Azure Database for MySQL Resource Provider-åtgärder: https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbformysql
+- [Förstå Azure Database for MySQL Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftdbformysql)
 
-Förstå åtkomst hantering för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-security#access-management
+- [Förstå åtkomst hantering för Azure Database for MySQL](concepts-security.md#access-management)
 
 **Azure Security Center övervakning**: Ja
 
@@ -314,9 +314,9 @@ Förstå åtkomst hantering för Azure Database for MySQL: https://docs.microsof
 
 När du skapar själva Azure Database for MySQL resursen tvingar Azure dig att skapa en administrativ användare med ett starkt lösen ord. När MySQL-instansen har skapats kan du dock använda det första server administratörs konto som du skapade för att skapa ytterligare användare och ge administrativ åtkomst till dem. När du skapar dessa konton bör du se till att konfigurera ett annat, starkt lösen ord för varje konto.
 
-Så här skapar du ytterligare konton för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
+- [Så här skapar du ytterligare konton för Azure Database for MySQL](howto-create-users.md)
 
-Så här uppdaterar du administratörs lösen ord: https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password
+- [Så här uppdaterar du administratörs lösen ord](howto-create-manage-server-portal.md#update-admin-password)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -326,57 +326,57 @@ Så här uppdaterar du administratörs lösen ord: https://docs.microsoft.com/az
 
 **Vägledning**: skapa standard procedurer för användning av dedikerade administrativa konton som har åtkomst till dina Azure Database for MySQL-instanser. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton.
 
-Förstå Azure Security Center identitet och åtkomst: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+- [Förstå Azure Security Center identitet och åtkomst](../security-center/security-center-identity-access.md)
 
-Lär dig hur du skapar administratörs användare i Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
+- [Lär dig hur du skapar administratörs användare i Azure Database for MySQL](howto-create-users.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Använd Azure Active Directory enkel inloggning (SSO)
 
 **Vägledning**: vid inloggning på Azure Database for MySQL stöds både användar namn och lösen ord som kon figurer ATS direkt i databasen, samt användning av en Azure Active Directory (AD)-identitet och användning av en Azure AD-token för anslutning. När du använder en Azure AD-token stöds olika metoder, till exempel en Azure AD-användare, en Azure AD-grupp eller ett Azure AD-program som ansluter till databasen.
 
 Kontroll Plans åtkomst för MySQL är separat tillgänglig via REST API och stöder SSO. Du autentiserar genom att ange Authorization-huvudet för dina begär anden till ett JSON Web Token som du får från Azure Active Directory.
 
-Använd Azure Active Directory för autentisering med Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-sign-in-azure-ad-authentication
+- [Använd Azure Active Directory för autentisering med Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md)
 
-Förstå Azure Database for MySQL REST API: https://docs.microsoft.com/rest/api/mysql/
+- [Förstå Azure Database for MySQL REST API](/rest/api/mysql/)
 
-Förstå SSO med Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+- [Förstå SSO med Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory-baserad åtkomst
 
 **Vägledning**: aktivera Azure Active Directory Multi-Factor Authentication (MFA) och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering. När du använder Azure AD-token för att logga in i databasen kan du kräva Multi-Factor Authentication för databas inloggningar.
 
-Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-Använd Azure Active Directory för autentisering med Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-sign-in-azure-ad-authentication
+- [Använd Azure Active Directory för autentisering med Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md)
 
-Övervaka identitet och åtkomst i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+- [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Använd dedikerade datorer (arbets stationer med privilegie rad åtkomst) för alla administrativa uppgifter
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: Använd säkra, Azure-hanterade arbets stationer för administrativa uppgifter
 
 **Vägledning**: Använd Paw (Privileged Access Workstation) med Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-Lär dig mer om arbets stationer med privilegie rad åtkomst: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+- [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3,7: Logga och Avisera om misstänkt aktivitet från administrativa konton
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Logga och Avisera om misstänkta aktiviteter från administrativa konton
 
 **Vägledning**: Aktivera avancerat skydd för Azure Database for MySQL om du vill generera aviseringar för misstänkt aktivitet.
 
@@ -384,11 +384,11 @@ Dessutom kan du använda Azure AD Privileged Identity Management (PIM) för att 
 
 Använd identifieringar av Azure AD-risker för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Så här konfigurerar du Avancerat skydd för Azure Database for MySQL](howto-database-threat-protection-portal.md)
 
-Så här distribuerar du Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+- [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-Förstå identifieringar av Azure AD-risker: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+- [Förstå identifieringar av Azure AD-risker](/azure/active-directory/reports-monitoring/concept-risk-events)
 
 **Azure Security Center övervakning**: Ja
 
@@ -398,7 +398,7 @@ Förstå identifieringar av Azure AD-risker: https://docs.microsoft.com/azure/ac
 
 **Vägledning**: använda villkorlig åtkomst med namngivna platser för att tillåta portal och Azure Resource Manager åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-Så här konfigurerar du namngivna platser i Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+- [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -412,7 +412,7 @@ För att logga in på Azure Database for MySQL rekommenderar vi att du använder
 
 Autentiseringsuppgifter för Azure AD kan också användas för administration på hanterings planet nivå (t. ex. Azure Portal) för att kontrol lera MySQL-administratörskonton.
 
-Använd Azure Active Directory för autentisering med Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-sign-in-azure-ad-authentication
+- [Använd Azure Active Directory för autentisering med Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -422,29 +422,29 @@ Använd Azure Active Directory för autentisering med Azure Database for MySQL: 
 
 **Vägledning**: granska Azure Active Directory loggar för att identifiera inaktuella konton som kan omfatta de med Azure Database for MySQL administrativa roller. Använd dessutom Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program som kan användas för att få åtkomst till Azure Database for MySQL och roll tilldelningar. Användar åtkomsten bör granskas regelbundet, till exempel var 90: e dag och se till att endast rätt användare har fortsatt åtkomst.
 
-Förstå Azure AD repor ting https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/)
 
-Så här använder du granskningar av Azure Identity Access: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+- [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
 **Ansvar**: kund
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3,11: övervaka försök att komma åt inaktiverade konton
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: övervakaren försöker komma åt inaktiverade autentiseringsuppgifter
 
 **Vägledning**: Aktivera diagnostikinställningar för Azure Database for MySQL och Azure Active Directory och skicka alla loggar till en Log Analytics-arbetsyta. Konfigurera önskade aviseringar (t. ex. misslyckade autentiseringsförsök) i Log Analytics.
 
-Så här konfigurerar och kommer du åt långsamma frågemeddelanden för Azure Database for MySQL: https://docs.microsoft.com/Azure/mysql/howto-configure-server-logs-in-portal
+- [Så här konfigurerar och kommer du åt långsamma Query-loggar för Azure Database for MySQL](/Azure/mysql/howto-configure-server-logs-in-portal)
 
-Så här konfigurerar och får du åtkomst till gransknings loggar för Azure Database for MySQL: https://docs.microsoft.com/Azure/mysql/howto-configure-audit-logs-portal
+- [Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL](/Azure/mysql/howto-configure-audit-logs-portal)
 
-Så här integrerar du Azure-aktivitets loggar i Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
 **Ansvar**: kund
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: avisering om beteende för beteende för konto inloggning
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: varning vid inloggnings beteende för konto
 
 **Vägledning**: Aktivera avancerat skydd för Azure Database for MySQL om du vill generera aviseringar för misstänkt aktivitet.
 
@@ -452,13 +452,13 @@ Använd Azure Active Directoryens identitets skydds-och risk identifierings funk
 
 Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
-Så här konfigurerar du Avancerat skydd för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal
+- [Så här konfigurerar du Avancerat skydd för Azure Database for MySQL](howto-database-threat-protection-portal.md)
 
-Översikt över Azure AD Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection
+- [Översikt över Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-Så här visar du Azure AD-riskfyllda inloggningar: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -468,7 +468,7 @@ Publicera Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-o
 
 **Vägledning**: ej tillämpligt; Customer Lockbox stöds ännu inte för Azure Database for MySQL.
 
-Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+- [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -476,13 +476,13 @@ Lista över Customer Lockbox tjänster som stöds: https://docs.microsoft.com/az
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [Azure Security benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra Azure Database for MySQL instanser eller relaterade resurser som lagrar eller bearbetar känslig information.
 
-Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -492,16 +492,15 @@ Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Använd en kombination av privata länkar, tjänst slut punkter och/eller brand Väggs regler för att isolera och begränsa nätverks åtkomsten till dina Azure Database for MySQL-instanser.
 
-Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
-Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
 
-Så här konfigurerar du en privat länk för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link
+- [Konfigurera en privat länk för Azure Database for MySQL](concepts-data-access-security-private-link.md)
 
-Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for MySQL: https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
+- [Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for MySQL](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-Så här konfigurerar du Azure Database for MySQL brand Väggs regler: https://docs.microsoft.com/azure/mysql/concepts-firewall-rules
-
+- [Så här konfigurerar du Azure Database for MySQL brand Väggs regler](concepts-firewall-rules.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -513,9 +512,9 @@ Så här konfigurerar du Azure Database for MySQL brand Väggs regler: https://d
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Database for MySQL och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Så här minskar du data exfiltrering för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link#data-exfiltration-prevention
+- [Hur du minimerar data exfiltrering för Azure Database for MySQL](concepts-data-access-security-private-link.md#data-exfiltration-prevention)
 
-Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -527,7 +526,7 @@ Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/f
 
 TLS-versionen som stöds för Azure Database for MySQL är TLS 1,0, TLS 1,1, TLS 1,2.
 
-Konfigurera kryptering i överföring för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-ssl-connection-security
+- [Konfigurera kryptering i överföring för Azure Database for MySQL](concepts-ssl-connection-security.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -539,19 +538,19 @@ Konfigurera kryptering i överföring för Azure Database for MySQL: https://doc
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och går till fantastiska längder för att skydda mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
 **Ansvars område**: delat
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
 **Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till Azure Database for MySQL kontroll planet (t. ex. Azure Portal). För data Plans åtkomst (i själva databasen) använder du SQL-frågor för att skapa användare och konfigurera användar behörigheter. Azure RBAC påverkar inte användar behörigheter i databasen.
 
-Så här konfigurerar du Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-Så här konfigurerar du användar åtkomst med SQL för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
+- [Så här konfigurerar du användar åtkomst med SQL för Azure Database for MySQL](howto-create-users.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -563,7 +562,7 @@ Så här konfigurerar du användar åtkomst med SQL för Azure Database for MySQ
 
 Microsoft hanterar den underliggande infrastrukturen för Azure Database for MySQL och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-Förstå kundens data skydd i Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -577,9 +576,9 @@ Datakryptering med kundhanterade nycklar för Azure Database for MySQL gör att 
 
 AskAzureDBforMySQL@service.microsoft.com
 
-Förstå kryptering i vila för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-security
+- [Förstå kryptering i vila för Azure Database for MySQL](concepts-security.md)
 
-Så här konfigurerar du kundens hanterade nycklar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-data-encryption-mysql
+- [Så här konfigurerar du kundens hanterade nycklar för Azure Database for MySQL](concepts-data-encryption-mysql.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -589,7 +588,7 @@ Så här konfigurerar du kundens hanterade nycklar för Azure Database for MySQL
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i produktions instanser av Azure Database for MySQL och andra kritiska eller relaterade resurser.
 
-Så här skapar du aviseringar för Azure aktivitets logg händelser: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -597,17 +596,21 @@ Så här skapar du aviseringar för Azure aktivitets logg händelser: https://do
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [Azure Security benchmark: sårbarhet Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
-**Vägledning**: inte tillgänglig för tillfället. Azure Security Center har ännu inte stöd för sårbarhets bedömning av Azure Database for MySQL.
+**Vägledning**: Följ rekommendationer från Azure Security Center om hur du skyddar dina Azure Database for MySQL och relaterade resurser.
 
-Funktions täckning för Azure PaaS Services i Azure Security Center: https://docs.microsoft.com/azure/security-center/features-paas
+Microsoft utför sårbarhets hantering på de underliggande system som har stöd för Azure Database for MySQL.
+
+- [Förstå Azure Security Center rekommendationer](../security-center/recommendations-reference.md)
+
+- [Funktions täckning för Azure PaaS Services i Azure Security Center](../security-center/features-paas.md)
 
 **Azure Security Center övervakning**: Ja
 
-**Ansvar**: kund
+**Ansvars område**: delat
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Distribuera automatiserad hanterings lösning för operativ system
 
@@ -617,7 +620,7 @@ Funktions täckning för Azure PaaS Services i Azure Security Center: https://do
 
 **Ansvars område**: ej tillämpligt
 
-### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5,3: Distribuera automatisk hanterings lösning för program uppdatering från tredje part
+### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Distribuera automatiserad korrigerings hanterings lösning för program varu titlar från tredje part
 
 **Vägledning**: ej tillämpligt; den här rikt linjen är avsedd för beräknings resurser.
 
@@ -637,24 +640,23 @@ Funktions täckning för Azure PaaS Services i Azure Security Center: https://do
 
 **Vägledning**: Microsoft utför sårbarhets hantering på de underliggande system som har stöd för Azure Database for MySQL.
 
-
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: Microsoft
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [Azure Security benchmark: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
-### <a name="61-use-azure-asset-discovery"></a>6,1: Använd Azure Asset Discovery
+### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive Azure Database for MySQL instanser) i dina prenumerationer. Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
-Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
+- [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -664,7 +666,7 @@ Förstå Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/
 
 **Vägledning**: Använd taggar för att Azure Database for MySQL instanser och andra relaterade resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -674,17 +676,17 @@ Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manag
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att ordna och spåra Azure Database for MySQL instanser och relaterade resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-Så här skapar du ytterligare Azure-prenumerationer: https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
-Så här skapar du Hanteringsgrupper: https://docs.microsoft.com/azure/governance/management-groups/create
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
 
-Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6,4: underhåll en inventering av godkända Azure-resurser och program varu titlar
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definiera och underhålla inventering av godkända Azure-resurser
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser och Azure som helhet.
 
@@ -700,11 +702,11 @@ Skapa och använda Taggar: https://docs.microsoft.com/azure/azure-resource-manag
 
 - Tillåtna resurstyper
 
-Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
+Använd dessutom Azure Resource Graph för att fråga efter och identifiera resurser i prenumerationerna.
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -742,15 +744,15 @@ Så här skapar du frågor med Azure Graph: https://docs.microsoft.com/azure/gov
 
 - Tillåtna resurstyper
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="610-implement-approved-application-list"></a>6,10: implementera lista över godkända program
+### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: underhåll en inventering av godkända program varu titlar
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
@@ -758,11 +760,11 @@ Så här nekar du en speciell resurs typ med Azure Policy: https://docs.microsof
 
 **Ansvars område**: ej tillämpligt
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6,11: begränsa användarnas möjlighet att interagera med Azures resurs hanterare via skript
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: begränsa användarnas möjlighet att interagera med Azure Resource Manager
 
 **Vägledning**: Använd den villkorliga Azure-åtkomsten för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering". Detta kan förhindra att resurser skapas och ändras i en hög säkerhets miljö, till exempel instanser av Azure Database for MySQL som innehåller känslig information.
 
-Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -786,17 +788,17 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [Azure Security benchmark: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: definiera och implementera standardkonfigurationer för dina Azure Database for MySQL-instanser med Azure policy. Använd Azure Policy alias i namn området "Microsoft. DBforMySQL" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för dina Azure Database for MySQL-instanser. Du kan också använda inbyggda princip definitioner som är relaterade till dina Azure Database for MySQL-instanser, till exempel:
+**Vägledning**: definiera och implementera standardkonfigurationer för dina Azure Database for MySQL-instanser med Azure policy. Använd Azure Policy alias i namn området **Microsoft. DBforMySQL** för att skapa anpassade principer för att granska eller framtvinga nätverks konfigurationen för dina Azure Database for MySQL-instanser. Du kan också använda inbyggda princip definitioner som är relaterade till dina Azure Database for MySQL-instanser, till exempel:
 
 Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar
 
-Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -814,9 +816,9 @@ Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/a
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/policy/concepts/effects
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -834,9 +836,9 @@ Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/pol
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för dina Azure Database for MySQL-instanser och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -850,17 +852,17 @@ Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/
 
 **Ansvars område**: ej tillämpligt
 
-### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Distribuera hanterings verktyg för system konfiguration
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Distribuera konfigurations hanterings verktyg för Azure-resurser
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforMySQL" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7,8: distribuera system konfigurations hanterings verktyg för operativ system
+### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Distribuera konfigurations hanterings verktyg för operativ system
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
@@ -868,11 +870,11 @@ Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/a
 
 **Ansvars område**: ej tillämpligt
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementera automatisk konfigurations övervakning för Azure-tjänster
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementera automatisk konfigurations övervakning för Azure-resurser
 
-**Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforMySQL" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Database for MySQL-instanser och relaterade resurser.
+**Vägledning**: Använd Azure policy alias i namn området **Microsoft. DBforMySQL** för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure Database for MySQL-instanser och relaterade resurser.
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -890,11 +892,11 @@ Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/a
 
 **Vägledning**: för Azure-Virtual Machines eller-webb program som körs på Azure App Service används för att få åtkomst till dina Azure Database for MySQL-instanser använder du hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda Azure Database for MySQL hemlig hantering. Se till att Key Vault mjuk borttagning har Aktiver ATS.
 
-Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+- [Integrera med Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+- [Så här skapar du en Key Vault](../key-vault/general/quick-create-portal.md)
 
-Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity
+- [Så här ger Key Vault autentisering med en hanterad identitet](/azure/key-vault/general/managed-identity)
 
 **Azure Security Center övervakning**: Ja
 
@@ -908,9 +910,9 @@ För Azure-Virtual Machines eller-webb program som körs på Azure App Service a
 
 Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
 
-Så här konfigurerar du hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+- [Konfigurera hanterade identiteter](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+- [Integrera med Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -920,7 +922,7 @@ Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/
 
 **Vägledning**: implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
-Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
+- [Konfigurera inloggnings skannern](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -928,9 +930,9 @@ Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcred
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [Azure Security benchmark: skydd mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd en centralt hanterad program vara mot skadlig kod
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser.
 
@@ -962,15 +964,15 @@ Microsofts program mot skadlig kod har Aktiver ATS på den underliggande värden
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [Azure Security benchmark: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
+### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Säkerställ regelbunden automatisk säkerhets kopiering
 
 **Vägledning**: Azure Database for MySQL tar säkerhets kopior av datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständig och differentiell säkerhets kopiering (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
-Förstå säkerhets kopieringar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
+- [Förstå säkerhets kopieringar för Azure Database for MySQL](concepts-backup.md)
 
-Förstå Azure Database for MySQL inledande konfiguration: https://docs.microsoft.com/azure/mysql/tutorial-design-database-using-portal
+- [Förstå Azure Database for MySQL inledande konfiguration](tutorial-design-database-using-portal.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -982,10 +984,9 @@ Förstå Azure Database for MySQL inledande konfiguration: https://docs.microsof
 
 Om du använder Azure Key Vault för att lagra autentiseringsuppgifter för dina Azure Database for MySQL-instanser bör du se till att vanliga automatiserade säkerhets kopieringar av nycklar används. 
 
-Förstå säkerhets kopieringar för Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-restore-server-portal 
+- [Förstå säkerhets kopieringar för Azure Database for MySQL](howto-restore-server-portal.md) 
 
-Så här säkerhetskopierar du Key Vault nycklar:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
-
+- [Säkerhetskopiera Key Vault nycklar](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center övervakning**: Ja
 
@@ -999,7 +1000,7 @@ Den uppskattade återställnings tiden beror på flera faktorer, till exempel da
 
 Testa regelbundet återställning av Azure Database for MySQL instanser.
 
-Förstå säkerhets kopiering och återställning i Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
+- [Förstå säkerhets kopiering och återställning i Azure Database for MySQL](concepts-backup.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1009,7 +1010,7 @@ Förstå säkerhets kopiering och återställning i Azure Database for MySQL: ht
 
 **Vägledning**: Azure Database for MySQL tar fullständiga, differentiella och transaktions logg säkerhets kopior. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering. Se till att Key Vault mjuk borttagning har Aktiver ATS.
 
-Förstå säkerhets kopiering och återställning i Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/concepts-backup
+- [Förstå säkerhets kopiering och återställning i Azure Database for MySQL](concepts-backup.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1017,19 +1018,19 @@ Förstå säkerhets kopiering och återställning i Azure Database for MySQL: ht
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [Azure Security benchmark: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
 **Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.
 
-Konfigurera automatisering av arbets flöden i Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+- [Konfigurera automatisering av arbets flöden i Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
-Vägledning om hur du skapar en egen svars process för säkerhets incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-Microsoft Security Response Center: s uppbyggnad av en incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- [Microsoft Security Response Centers Beskrivning av en incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+- [Kunden kan också utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa till med att skapa egna incident svars planer](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1049,7 +1050,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: utföra övningar för att testa dina Systems incident svars funktioner på en vanlig takt. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+- [Se NIST: guide för test, utbildning och övnings program för IT-planer och funktioner](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1059,7 +1060,7 @@ Se NIST: guide för test, utbildning och övnings program för IT-planer och fun
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part.  Granska incidenter när du är säker på att problemen är lösta.
 
-Så här ställer du in Azure Security Center säkerhets kontakt: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1069,9 +1070,9 @@ Så här ställer du in Azure Security Center säkerhets kontakt: https://docs.m
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviserings indikatorn.
 
-Så här konfigurerar du kontinuerlig export: https://docs.microsoft.com/azure/security-center/continuous-export
+- [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
 
-Strömma aviseringar till Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1081,21 +1082,21 @@ Strömma aviseringar till Azure Sentinel: https://docs.microsoft.com/azure/senti
 
 **Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer.
 
-Konfigurera automatisering av arbets flöde och Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
+- [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
 **Ansvar**: kund
 
-## <a name="penetration-tests-and-red-team-exercises"></a>Intrångstester och Red Team-övningar (rött lag)
+## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [övningen för Azure Security benchmark: inträngande tester och röda team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att alla kritiska säkerhets brister upptäcks inom 60 dagar
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
 **Vägledning**: Följ Microsofts regler för engagemang för att se till att dina inträngande tester inte strider mot Microsofts principer: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program, här:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+- [Du hittar mer information om Microsofts strategi och körning av röda team indelning och inträngande av direktsända webbplatser mot Microsoft-hanterad moln infrastruktur, tjänster och program](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1103,5 +1104,5 @@ Du hittar mer information om Microsofts strategi och körning av röda team inde
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)

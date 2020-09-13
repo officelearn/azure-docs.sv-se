@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249286"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439783"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Ny DBA i molnet – Hantera Azure SQL Database efter migrering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,7 +63,7 @@ Med affärs kontinuitet och haveri beredskap kan du fortsätta din verksamhet, s
 
 Du skapar inga säkerhets kopior på Azure SQL Database och det beror på att du inte behöver. SQL Database säkerhetskopierar automatiskt databaser åt dig, så att du inte längre behöver bekymra dig om schemaläggning, insamling och hantering av säkerhets kopior. Plattformen tar en fullständig säkerhets kopia varje vecka, differentiell säkerhets kopiering med några timmar och en logg säkerhets kopia var femte minut för att säkerställa att haveri beredskap är effektiv och data förlusten är minimal. Den första fullständiga säkerhets kopieringen sker så snart du skapar en databas. Dessa säkerhets kopior är tillgängliga för dig under en viss period med namnet "kvarhållningsperiod" och varierar beroende på vilken tjänst nivå du väljer. SQL Database ger dig möjlighet att återställa till vilken tidpunkt som helst inom denna kvarhållningsperiod med hjälp av återställning av tidpunkt [(PITR)](recovery-using-backups.md#point-in-time-restore).
 
-|Tjänstenivå|Kvarhållningsperiod i dagar|
+|Tjänstnivå|Kvarhållningsperiod i dagar|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -104,9 +104,11 @@ Det finns två autentiseringsmetoder som erbjuds i SQL Database:
 - [Azure Active Directory autentisering](authentication-aad-overview.md)
 - [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (Azure AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. Azure AD har stöd för [azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och SQL Data Warehouse att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (Azure AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. 
 
-|**Om du...**|**SQL Database/SQL Data Warehouse**|
+Azure AD har stöd för [azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) och med [några klick](../../active-directory/hybrid/how-to-connect-install-express.md) kan Azure AD integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en specifik server. Detta gör det också möjligt SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+
+|**Om du...**|**SQL Database/Azure Synapse Analytics**|
 |---|---|
 |Föredra att inte använda Azure Active Directory (Azure AD) i Azure|Använd [SQL-autentisering](security-overview.md)|
 |Använda AD på SQL Server lokalt|[Federera AD med Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md)och Använd Azure AD-autentisering. Med det här alternativet kan du använda enkel inloggning.|
@@ -114,7 +116,7 @@ Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (A
 |Ha gäst konton från Microsoft-konton (live.com, outlook.com) eller andra domäner (gmail.com)|Använd [Azure AD Universal Authentication](authentication-mfa-ssms-overview.md) i SQL Database/Data Warehouse, som utnyttjar [Azure AD B2B-samarbete](../../active-directory/b2b/what-is-b2b.md).|
 |Är inloggad i Windows med dina autentiseringsuppgifter för Azure AD från en federerad domän|Använd [Azure AD-integrerad autentisering](authentication-aad-configure.md).|
 |Är inloggade i Windows med autentiseringsuppgifter från en domän som inte är federerad med Azure|Använd [Azure AD-integrerad autentisering](authentication-aad-configure.md).|
-|Ha tjänster på mellan nivå som måste ansluta till SQL Database eller SQL Data Warehouse|Använd [Azure AD-integrerad autentisering](authentication-aad-configure.md).|
+|Ha tjänster på mellan nivå som måste ansluta till SQL Database eller Azure Synapse Analytics|Använd [Azure AD-integrerad autentisering](authentication-aad-configure.md).|
 |||
 
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Hur gör jag för att begränsa eller kontrol lera anslutnings åtkomst till min databas
@@ -122,7 +124,7 @@ Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (A
 Det finns flera metoder som du kan använda för att uppnå optimal anslutnings organisation för ditt program.
 
 - Brandväggsregler
-- VNet-tjänstens slut punkter
+- VNet-tjänstslutpunkter
 - Reserverade ip-adresser
 
 #### <a name="firewall"></a>Brandvägg
@@ -137,7 +139,7 @@ Som standard är din databas konfigurerad för att "ge Azure-tjänster åtkomst 
 
 Med tjänst slut punkter (SE) kan du bara exponera dina kritiska Azure-resurser för ditt privata virtuella nätverk i Azure. Genom att göra det, eliminerar du i princip den offentliga åtkomsten till dina resurser. Trafiken mellan ditt virtuella nätverk i Azure ligger kvar på Azures stamnät nätverk. Utan SE ska du Hämta paket routning för Tvingad tunnel trafik. Ditt virtuella nätverk tvingar Internet trafiken till din organisation och Azure-tjänstetrafiken att gå över samma väg. Med tjänst slut punkter kan du optimera detta eftersom paketen flödar direkt från ditt virtuella nätverk till tjänsten i Azure stamnät nätverket.
 
-![VNet-tjänstslutpunkter](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
+![VNet-tjänstens slut punkter](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>Reserverade ip-adresser
 
@@ -170,7 +172,7 @@ För att skydda känsliga data i flygning och i vila tillhandahåller SQL Databa
 |**Kännetecken **|**Alltid krypterad**|**Transparent datakryptering**|
 |---|---|---|
 |**Krypterings omfång**|Slut punkt till slut punkt|Vilande data|
-|**Servern kan komma åt känsliga data**|No|Ja, eftersom krypteringen är för vilande data|
+|**Servern kan komma åt känsliga data**|Inga|Ja, eftersom krypteringen är för vilande data|
 |**Tillåtna T-SQL-åtgärder**|Likhets jämförelse|Alla ytor i T-SQL är tillgängligt|
 |**App-ändringar krävs för att använda funktionen**|Minimal|Mycket minimal|
 |**Krypterings precision**|Kolumn nivå|databasnivå|
@@ -269,7 +271,7 @@ Azure Portal visar en Databass användning genom att välja databasen och klicka
 
 I det här diagrammet kan du också konfigurera aviseringar per resurs. Med de här aviseringarna kan du svara på resurs villkor med ett e-postmeddelande, skriva till en HTTPS/HTTP-slutpunkt eller utföra en åtgärd. Mer information finns i [skapa aviseringar](alerts-insights-configure-portal.md).
 
-#### <a name="dynamic-management-views"></a>Vyer för dynamisk hantering
+#### <a name="dynamic-management-views"></a>Dynamiska hanteringsvyer
 
 Du kan ställa frågor till vyn [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamisk hantering för att returnera historiken för resurs förbruknings statistik från den senaste timmen och vyn [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system katalog för att returnera historik för de senaste 14 dagarna.
 
@@ -299,7 +301,7 @@ En omfattande uppsättning rekommendationer för att justera prestanda problem f
 
 SQL Database erbjuder olika tjänst nivåer Basic, standard och Premium. Varje tjänst nivå får du en garanterad förutsägbar prestanda som är kopplad till tjänst nivån. Beroende på din arbets belastning kan du ha mellanstora aktiviteter där resursutnyttjande kan träffa taket för den aktuella beräknings storlek som du befinner dig i. I sådana fall är det bra att först börja med att utvärdera om någon justering kan hjälpa (till exempel att lägga till eller ändra ett index osv.). Om du fortfarande stöter på gräns problem bör du överväga att flytta till en högre tjänst nivå eller en beräknings storlek.
 
-|**Tjänst nivå**|**Vanliga scenarier för användnings fall**|
+|**Tjänstnivå**|**Vanliga scenarier för användnings fall**|
 |---|---|
 |**Basic**|Program med fåtal-användare och en databas som inte har höga samtidighets-, skalnings-och prestanda krav. |
 |**Standard**|Program med avsevärda samtidighets-, skalnings-och prestanda krav i kombination med låg till medelhög IO-krav. |

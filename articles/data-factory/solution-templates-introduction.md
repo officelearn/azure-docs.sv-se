@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628954"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441977"
 ---
 # <a name="templates"></a>Mallar
 
@@ -56,7 +56,7 @@ Data Factory använder Azure Resource Manager mallar för att spara mallar för 
 
     -   [Delta kopia från databas](solution-template-delta-copy-with-control-table.md)
 
-    -   Kopiera från \<source\> till\<destination\>
+    -   Kopiera från \<source\> till \<destination\>
 
         -   [Från Amazon S3 till Azure Data Lake Store gen 2](solution-template-migration-s3-azure.md)
 
@@ -68,9 +68,9 @@ Data Factory använder Azure Resource Manager mallar för att spara mallar för 
 
         -   Från SQL Server lokalt till Azure SQL Database
 
-        -   Från SQL Server lokalt till Azure SQL Data Warehouse
+        -   Från SQL Server lokalt till Azure Synapse Analytics (tidigare SQL Data Warehouse)
 
-        -   Från Oracle lokalt till Azure SQL Data Warehouse
+        -   Från Oracle lokalt till Azure Synapse Analytics (tidigare SQL Data Warehouse)
 
 -   SSIS-mallar
 

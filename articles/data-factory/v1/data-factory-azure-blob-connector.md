@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254522"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438542"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till eller från Azure Blob Storage med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -31,7 +31,7 @@ ms.locfileid: "85254522"
 Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data till och från Azure Blob Storage. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
 
 ## <a name="overview"></a>Översikt
-Du kan kopiera data från alla käll data lager som stöds till Azure Blob Storage eller från Azure Blob Storage till alla mottagar data lager som stöds. Följande tabell innehåller en lista över data lager som stöds som källor eller handfat av kopierings aktiviteten. Du kan till exempel flytta data **från** en SQL Server databas eller en databas i Azure SQL Database **till** en Azure Blob-lagring. Du kan också kopiera data **från** Azure Blob Storage **till** en Azure SQL Data Warehouse eller en Azure Cosmos DB samling.
+Du kan kopiera data från alla käll data lager som stöds till Azure Blob Storage eller från Azure Blob Storage till alla mottagar data lager som stöds. Följande tabell innehåller en lista över data lager som stöds som källor eller handfat av kopierings aktiviteten. Du kan till exempel flytta data **från** en SQL Server databas eller en databas i Azure SQL Database **till** en Azure Blob-lagring. Du kan också kopiera data **från** Azure Blob Storage **till** Azure Synapse Analytics (tidigare SQL Data Warehouse) eller en Azure Cosmos DB samling.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -81,13 +81,13 @@ Data Factory stöder följande CLS-kompatibla .NET-baserade typ värden för att
 
 **TypeProperties** -avsnittet skiljer sig åt för varje typ av data uppsättning och ger information om platsen, formatet osv, för data i data lagret. Avsnittet typeProperties för data uppsättning av typen **AzureBlob** data uppsättning har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Ja |
-| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
-| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |No |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |No |
-| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget **fil namn** har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren, skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Inga |
+| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. Mer information och exempel finns i avsnittet om att [använda partitionedBy-egenskapen](#using-partitionedby-property) . |Inga |
+| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Inga |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 ### <a name="using-partitionedby-property"></a>Använda egenskapen partitionedBy
 Som vi nämnt i föregående avsnitt kan du ange ett dynamiskt folderPath och ett fil namn för Time Series-data med egenskapen **partitionedBy** , [Data Factory Functions och systemvariablerna](data-factory-functions-variables.md).
@@ -129,13 +129,13 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |No |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant (standardvärde), falskt |Inga |
 
 **BlobSink** stöder följande egenskaper **typeProperties** avsnittet:
 
 | Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
 | --- | --- | --- | --- |
-| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfilen har ett namn som skapats automatiskt. <br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |No |
+| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfilen har ett namn som skapats automatiskt. <br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om filen/BLOB-namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars skapas fil namnet automatiskt. |Inga |
 
 **BlobSource** stöder också dessa två egenskaper för bakåtkompatibilitet.
 
@@ -193,7 +193,7 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
     4. Välj **plats** för datafabriken.
     5. Välj kryssrutan **PIN-kod för instrumentpanelen** längst ned på bladet.
     6. Klicka på **Skapa**.
-3. När den har skapats visas **Data Factory** bladet som visas på följande bild: ![ Data Factory-Startsida](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. När den har skapats visas **Data Factory** bladet som visas på följande bild:  ![ Data Factory-Startsida](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Guiden Kopiera
 1. På Data Factory start sida klickar du på panelen **Kopiera data** för att starta **Kopiera data guiden** på en separat flik.  
@@ -221,14 +221,14 @@ Nu ska vi titta på hur du snabbt kopierar data till/från en Azure Blob Storage
 5. På sidan **Välj indatafil eller mapp**:
     1. Dubbelklicka på **adfblobcontainer**.
     2. Välj **inmatade**och klicka på **Välj**. I den här genom gången väljer du mappen indatamängden. Du kan också välja emp.txt filen i mappen i stället.
-        ![Verktyget Kopiera – Välj indatafil eller mapp](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![Verktyget kopiera – Välj indatafil eller mapp 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. På sidan **Välj indatafil eller mapp** :
     1. Bekräfta att **filen eller mappen** har angetts till **adfblobconnector/indata**. Om filerna finns i undermappar, till exempel 2017/04/01, 2017/04/02 och så vidare, anger du adfblobconnector/indata/{year}/{month}/{Day} för filen eller mappen. När du trycker på TABB av text rutan visas tre List rutor för att välja format för år (åååå), månad (MM) och dag (dd).
     2. Ange inte **kopierings filen rekursivt**. Välj det här alternativet för att rekursivt bläddra igenom mappar efter filer som ska kopieras till målet.
     3. Gör inte alternativet för **binär kopia** . Välj det här alternativet om du vill göra en binär kopia av käll filen till målet. Välj inte för den här genom gången så att du kan se fler alternativ på nästa sida.
     4. Bekräfta att **komprimerings typen** är inställd på **ingen**. Välj ett värde för det här alternativet om källfilerna komprimeras i något av de format som stöds.
     5. Klicka på **Nästa**.
-    ![Verktyget Kopiera – Välj indatafil eller mapp](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    ![Verktyget kopiera – Välj indatafil eller mapp 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. På den **formatinställningar** kan du se avgränsare och det schema som upptäcks automatiskt i guiden genom att parsa filen.
     1. Bekräfta följande alternativ:  
         a. **Fil formatet** är inställt på **text format**. Du kan se alla format som stöds i list rutan. Till exempel: JSON, Avro, ORC, Parquet.

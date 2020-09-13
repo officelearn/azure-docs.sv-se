@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722109"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440294"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Smidig utveckling av data vetenskaps projekt
 
@@ -51,7 +51,7 @@ Här är definitionerna för arbets objekts typerna:
   
 - **Uppgift**: uppgifter är tilldelnings bara arbets objekt som måste utföras för att slutföra en speciell användar berättelse. Till exempel kan uppgifter i användar artikeln *Hämta data* :
   - Hämta SQL Server autentiseringsuppgifter
-  - Ladda upp data till SQL Data Warehouse
+  - Ladda upp data till Azure Synapse Analytics
   
 - **Fel**: fel är problem i befintlig kod eller dokument som måste åtgärdas för att slutföra en uppgift. Om buggar orsakas av saknade arbets objekt kan de eskalera för att vara användar berättelser eller uppgifter. 
 

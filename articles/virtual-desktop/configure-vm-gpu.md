@@ -5,14 +5,14 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612647"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441756"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (grafikprocessoracceleration) för Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
@@ -67,7 +67,7 @@ Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett
 
 2. Nu när grup principerna har redigerats måste du framtvinga en uppdatering av grup principen. Öppna kommando tolken och skriv:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -80,7 +80,7 @@ Om du ofta använder program som producerar hög bild Rute frekvens innehåll, t
 1. Välj princip **prioritering h. 264/avc 444-grafik läge för fjärr skrivbords anslutningar** och ange att principen har **Aktiver ATS** för att tvinga H. 264/AVC 444-codec i fjärrsessionen.
 2. Nu när grup principerna har redigerats måste du framtvinga en uppdatering av grup principen. Öppna kommando tolken och skriv:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

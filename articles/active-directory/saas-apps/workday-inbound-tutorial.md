@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527816"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018109"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -31,13 +31,13 @@ Syftet med den här självstudien är att visa de steg som du måste utföra fö
 
 [Azure Active Directory användar etablerings tjänsten](../app-provisioning/user-provisioning.md) integreras med [personalavdelningen-API: t för arbets dagar](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användar konton. Arbets flöden för användar etablering av arbets dagar som stöds av Azure AD-tjänsten för användar etablering möjliggör automatisering av följande personal-och identitets cykel hanterings scenarier:
 
-* **Anställning av nya anställda** – när en ny medarbetare läggs till i arbets dagen skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med skriv skydd för IT-hanterad kontakt information till Workday.
+* **Anställning av nya anställda** – när en ny medarbetare läggs till i arbets dagen skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med tillbakaskrivning av IT-hanterad kontakt information till Workday.
 
-* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i Workday (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i Workday (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Anställdas uppsägningar** – när en medarbetare avslutas på arbets dagen inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Anställdas uppsägningar** – när en medarbetare avslutas i Workday inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Anställdas återställningar** – när en medarbetare återställs på arbets dagen kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Anställdas återställningar** – när en medarbetare återställs på arbets dagen kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="whats-new"></a>Nyheter
 Det här avsnittet innehåller de senaste förbättringarna för arbets dag integrering. Om du vill ha en lista över omfattande uppdateringar, planerade ändringar och arkiv, kan du besöka sidan [Nyheter i Azure Active Directory?](../fundamentals/whats-new.md) 
@@ -60,7 +60,7 @@ Den här användar etablerings lösningen i Workday passar utmärkt för:
 
 * Organisationer som behöver ansluta, flytta och lämna användare som ska synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter som endast baseras på ändrings information som identifieras i HCM-modulen för arbets dagar (se [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
-* Organisationer som använder Office 365 för e-post
+* Organisationer som använder Microsoft 365 för e-post
 
 ## <a name="solution-architecture"></a>Lösnings arkitektur
 
@@ -373,7 +373,7 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
 1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
 
    >[!div class="mx-imgBorder"]
-   >![Tjänster](./media/workday-inbound-tutorial/services.png)
+   >![Skärm bild av Microsoft Azure AD ansluta till etablerings agenten som körs i tjänster](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Del 3: Konfigurera anslutning till arbets dagar och Active Directory i etablerings appen
 I det här steget upprättar vi anslutningen till arbets dagar och Active Directory i Azure Portal. 
@@ -390,9 +390,9 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    
      | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Yes |
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Inga |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Inga |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
 
       > [!NOTE]
      > Om ingen versions information anges i URL: en använder appen Workday-WWS (Web Services) och inga ändringar krävs för standard-XPATH API-uttryck som levereras med appen. Om du vill använda en viss WWS API-version anger du versions nummer i URL: en <br>
@@ -503,7 +503,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **Firm**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | manager  |     |  Skapa + uppdatera |
-| **BusinessTitle**   |  rubrik     |     |  Skapa + uppdatera | 
+| **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
 | **AddressLineData**    |  streetAddress  |     |   Skapa + uppdatera |
 | **Kommuner**   |   l   |     | Skapa + uppdatera |
 | **CountryReferenceTwoLetter**      |   co |     |   Skapa + uppdatera |

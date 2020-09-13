@@ -7,20 +7,21 @@ ms.topic: how-to
 ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
-ms.openlocfilehash: a42b483a5ca4b4948f14c1ccbf0b7af6e49224bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: device-developer
+ms.openlocfilehash: 34b767a2cc48c94fdb5c2db032321b9254bf4ce2
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83715076"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017701"
 ---
-# <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ansluta en Azure Sphere-enhet till ditt Azure IoT Central-program
+# <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ansluta en Azure Sphere-enhet till Azure IoT Central-programmet
 
 *Den här artikeln gäller för enhets utvecklare.*
 
 Den här artikeln visar hur du ansluter en Azure Sphere-enhet (DevKit) till ett Azure IoT Central-program.
 
-Azure Sphere är en säker, högnivå applikations plattform med inbyggda kommunikations-och säkerhetsfunktioner för Internet-anslutna enheter. Den innehåller en säker, ansluten, korskopplad mikrostyrenhet enhet (MCU), ett anpassat operativ system med hög nivå Linux-baserat operativ system (OS) och en molnbaserad säkerhets tjänst som ger kontinuerlig och förnybar säkerhet. Mer information finns i [Vad är Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere).
+Azure Sphere är en säker högnivåplattform för program med inbyggda funktioner för kommunikation och säkerhet för internetanslutna enheter. Den innehåller en säker, ansluten, korskopplad mikrostyrenhet enhet (MCU), ett anpassat operativ system med hög nivå Linux-baserat operativ system (OS) och en molnbaserad säkerhets tjänst som ger kontinuerlig och förnybar säkerhet. Mer information finns i [Vad är Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere).
 
 [Azure Sphere Development Kits](https://azure.microsoft.com/services/azure-sphere/get-started/) innehåller allt du behöver för att starta prototyper och utveckla Azure Sphere program. Azure IoT Central med Azure Sphere gör det möjligt att använda en stack från slut punkt till slut punkt för en IoT-lösning. Azure Sphere ger enhets support och IoT Central som en noll-kod, hanterad IoT-programplattform.
 
@@ -75,7 +76,7 @@ Om du inte har någon fysisk Azure Sphere DevKit-enhet kan du skapa en simulerad
 Så här skapar du en simulerad enhet:
 
 - Välj **enheter > Azure IoT-sfär**
-- Välj **+ ny**.
+- Välj **+ Ny**.
 - Ange ett unikt **enhets-ID** och ett eget **enhets namn**.
 - Aktivera **simulerad** inställning.
 - Välj **Skapa**.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534004"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017939"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Självstudie: konfigurera attributet Skriv-back från Azure AD till SAP SuccessFactors
 Syftet med den här självstudien är att Visa stegen för att skriva tillbaka attribut från Azure AD till SAP SuccessFactors personal Central. 
@@ -40,7 +40,7 @@ Du kan konfigurera SAP SuccessFactors tillbakaskrivning-appen för att skriva vi
 
 Den här SuccessFactors-lösningen för tillbakaskrivning av användare passar utmärkt för:
 
-* Organisationer som använder Office 365 som vill skriva tillbaka auktoritativa attribut som hanteras av IT (till exempel e-postadress, telefonnummer, användar namn) tillbaka till SuccessFactors personal Central.
+* Organisationer som använder Microsoft 365 som vill skriva tillbaka auktoritativa attribut som hanteras av IT (till exempel e-postadress, telefonnummer, användar namn) tillbaka till SuccessFactors personal Central.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Konfigurera SuccessFactors för integrering
 

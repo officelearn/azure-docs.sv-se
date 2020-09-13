@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231052"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015338"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor och svar kring Azure Active Directory rapporter
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 **F: Jag använder för närvarande `https://graph.windows.net/<tenant-name>/reports/` slut punkts-API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra rapporterings system program mässigt. Vad ska jag byta till?**
 
-**A:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/howto-identity-protection-graph-api.md)   för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina nuvarande Microsoft Graph investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
+**A:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/howto-identity-protection-graph-api.md)   för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), som är Microsoft-standarden för sådana API: er som Microsoft 365 eller Azure AD. Det arbete som krävs kan antingen utöka dina nuvarande Microsoft Graph investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
 
 ---
 
@@ -81,15 +81,15 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 ---
 
-**F: kan jag hämta information om aktivitets loggen för Office 365 via Azure Portal?**
+**F: kan jag få Microsoft 365 aktivitets logg information via Azure Portal?**
 
-**A:** Även om Office 365-aktivitet och Azure AD-aktivitets loggar delar mycket av katalog resurserna, bör du gå till [Microsoft 365 administrations Center](https://admin.microsoft.com) för att hämta information om 365 Office-aktivitets loggar om du vill ha en fullständig vy över aktivitets loggarna för Office 365.
+**A:** Även om Microsoft 365 aktivitet och Azure AD-aktivitets loggar delar mycket av katalog resurserna, bör du gå till [Microsoft 365 administrations Center](https://admin.microsoft.com) för att hämta information om aktivitets loggen för Office 365 om du vill ha en fullständig vy över de Microsoft 365 aktivitets loggarna.
 
 ---
 
-**F: vilka API: er använder jag för att hämta information om aktivitets loggar för Office 365?**
+**F: vilka API: er använder jag för att hämta information om Microsoft 365 aktivitets loggar?**
 
-**A:** Använd API: [er för office 365-hantering](/office/office-365-management-api/office-365-management-apis-overview) för att få åtkomst till Office 365-aktivitets loggarna via ett API.
+**A:** Använd API: [erna för Microsoft 365 hantering](/office/office-365-management-api/office-365-management-apis-overview) för att få åtkomst till Microsoft 365 aktivitets loggar via ett API.
 
 ---
 

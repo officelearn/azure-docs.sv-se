@@ -3,12 +3,12 @@ title: Hantera Azure Sentinel-arbetsytor i skala
 description: Lär dig hur du effektivt hanterar Azure Sentinel på delegerade kund resurser.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050819"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019741"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Hantera Azure Sentinel-arbetsytor i skala
 
@@ -65,7 +65,7 @@ Om du hanterar Azure Sentinel-resurser för flera kunder kan du Visa och hantera
 
 [Azure Monitor arbets böcker i Azure Sentinel](../../sentinel/overview.md#workbooks) hjälper dig att visualisera och övervaka data från dina anslutna data källor för att få insikter. Du kan använda de inbyggda mallarna för arbets böcker i Azure Sentinel eller skapa anpassade arbets böcker för dina scenarier.
 
-Du kan distribuera arbets böcker i hanterings klienten och skapa instrument paneler på en skala för att övervaka och fråga efter data mellan kund klienter. Mer information finns i [övervakning av flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Observera att vissa funktioner [inte stöds i flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+Du kan distribuera arbets böcker i hanterings klienten och skapa instrument paneler på en skala för att övervaka och fråga efter data mellan kund klienter. Mer information finns i [övervakning av flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 Du kan också distribuera arbets böcker direkt i en enskild klient som du hanterar för scenarier som är specifika för kunden.
 
@@ -76,8 +76,6 @@ Skapa och spara Log Analytics frågor för att identifiera hot centralt i hanter
 ## <a name="use-automation-for-cross-workspace-management"></a>Använd Automation för hantering över arbets ytor
 
 Du kan använda Automation för att hantera flera Azure Sentinel-arbetsytor och konfigurera [jakt frågor](../../sentinel/hunting.md), spel böcker och arbets böcker. Mer information finns i [hantering av flera arbets ytor med hjälp av Automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Observera att vissa funktioner [inte stöds för närvarande i flera arbets ytor](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Hantera säkerhet för Office 365-miljöer
 

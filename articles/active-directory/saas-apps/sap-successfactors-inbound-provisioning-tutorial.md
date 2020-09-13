@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: c03459a86f521cafd792b9bf86b2b6b46bf3da9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62716d5061d7c5e6ed8c64a0ce00a780f35c10be
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534113"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018007"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Självstudie: konfigurera SAP-SuccessFactors för att Active Directory användar etablering 
 Syftet med den här självstudien är att visa de steg som du måste utföra för att etablera användare från SuccessFactors personal Central till Active Directory (AD) och Azure AD, med valfri Skriv åtgärd e-postadress till SuccessFactors. 
@@ -30,13 +30,13 @@ Syftet med den här självstudien är att visa de steg som du måste utföra fö
 
 Användar etablerings arbets flöden för SuccessFactors som stöds av Azure AD-tjänsten för användar etablering möjliggör automatisering av följande personal-och identitets cykel hanterings scenarier:
 
-* **Anställning av nya anställda** – när en ny medarbetare läggs till i SuccessFactors skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med Skriv-tillbaka till SuccessFactors-adressen.
+* **Anställning av nya anställda** – när en ny medarbetare läggs till i SuccessFactors skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med Skriv-tillbaka till SuccessFactors-adressen.
 
-* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i SuccessFactors (t. ex. namn, titel eller chef), uppdateras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i SuccessFactors (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Anställdas uppsägningar** – när en medarbetare avslutas i SuccessFactors inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Anställdas uppsägningar** – när en medarbetare avslutas i SuccessFactors inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Anställdas återställningar** – när en medarbetare återställs i SuccessFactors kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Anställdas återställningar** – när en medarbetare återställs i SuccessFactors kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Microsoft 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användar etablerings lösningen som passar bäst för?
 
@@ -50,7 +50,7 @@ Den här SuccessFactors för att Active Directory användar etablerings lösning
 
 * Organisationer som behöver ansluta, flytta och lämna användare som ska synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter som endast baseras på ändrings information som identifieras i [SuccessFactors Employee Central (EG)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
-* Organisationer som använder Office 365 för e-post
+* Organisationer som använder Microsoft 365 för e-post
 
 ## <a name="solution-architecture"></a>Lösnings arkitektur
 
@@ -234,7 +234,7 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
    
 1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
   
-   ![Tjänster](./media/workday-inbound-tutorial/services.png)
+   ![Skärm bild av Microsoft Azure AD ansluta till etablerings agenten som körs i tjänster](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Del 3: Konfigurera anslutning till SuccessFactors i etablerings appen och Active Directory
 I det här steget upprättar vi anslutningen till SuccessFactors och Active Directory i Azure Portal. 

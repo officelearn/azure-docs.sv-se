@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a62694790505dcf8355b3011387d9bdfd036b6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057373"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018500"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: versions historik Arkiv för version
 
@@ -166,7 +166,7 @@ Azure AD Connect uppgraderingen Miss lyckas om SQL Always on-tillgänglighet har
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-- Ping Federer-integrationen i Azure AD Connect är nu tillgänglig för allmän tillgänglighet. [Läs mer om hur du federerade Azure AD med ping Federer](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Ping Federer-integrationen i Azure AD Connect är nu tillgänglig för allmän tillgänglighet. [Läs mer om hur du federerade Azure AD med ping Federer](./plan-connect-user-signin.md#federation-with-pingfederate)
 - Azure AD Connect skapar nu säkerhets kopian av Azure AD-förtroende i AD FS varje gång en uppdatering görs och lagras i en separat fil för enkel återställning om det behövs. [Läs mer om de nya funktionerna och Azure AD Trust Management i Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
 - Nya fel söknings verktyg hjälper dig att felsöka ändring av primär e-postadress och dölja konto från Global adress lista
 - Azure AD Connect uppdaterades till att omfatta den senaste SQL Server 2012-interna klienten
@@ -355,7 +355,7 @@ En förbättring har lagts till Azure AD Connect version 1.1.654.0 (och efter) f
 
 >[!NOTE]
 >Den här versionen tar bara bort säkerhets problemet för nya installationer av Azure AD Connect där tjänst kontot skapas vid installationen. För befintliga installationer, eller i de fall där du anger kontot själv, bör du se till att säkerhets problemet inte finns.
-#### <a name="lock-down-access-to-the-ad-ds-account"></a><a name="lock"></a>Lås åtkomst till AD DS-kontot
+#### <a name="lock-down-access-to-the-ad-ds-account"></a><a name="lock"></a> Lås åtkomst till AD DS-kontot
 Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ändringar i den lokala AD-miljön:  
 
 *   Inaktivera arv för det angivna objektet
@@ -402,7 +402,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 För att se om säkerhets problemet har använts för att kompromettera din Azure AD Connect-konfiguration bör du kontrol lera det senaste datumet för återställning av lösen ord för tjänst kontot.  Om tidsstämpeln i oväntad händelse logg, via händelse loggen, för den här lösen ords återställningen ska ske.
 
-Mer information finns i [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
+Mer information finns i [Microsoft Security Advisory 4056318](/security-updates/securityadvisories/2017/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Status: 27 2017 oktober
@@ -443,7 +443,7 @@ Status: 19 2017 oktober
 
 * Ett problem som orsakade Azure AD Connect uppgraderingen kunde inte slutföras, fel meddelandet "*Det gick inte att uppgradera synkroniseringstjänsten*". Dessutom kan synkroniseringstjänsten inte längre starta med ett händelse fel:*Det gick inte att starta tjänsten eftersom databasens version är nyare än den installerade binärfilens version*. Problemet uppstår när administratören som utför uppgraderingen inte har sysadmin-behörighet till den SQL Server som används av Azure AD Connect. Med den här korrigeringen kräver Azure AD Connect bara att administratören ska ha db_owner behörighet till ADSync-databasen under uppgraderingen.
 
-* Åtgärdat ett Azure AD Connect uppgraderings problem som påverkade kunder som har aktiverat [sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). När Azure AD Connect har uppgraderats visas en sömlös enkel inloggning felaktigt som inaktive rad i Azure AD Connect-guiden, även om funktionen fortfarande är aktive rad och fungerar helt. Med den här korrigeringen visas nu funktionen korrekt som aktive rad i guiden.
+* Åtgärdat ett Azure AD Connect uppgraderings problem som påverkade kunder som har aktiverat [sömlös enkel inloggning](./how-to-connect-sso.md). När Azure AD Connect har uppgraderats visas en sömlös enkel inloggning felaktigt som inaktive rad i Azure AD Connect-guiden, även om funktionen fortfarande är aktive rad och fungerar helt. Med den här korrigeringen visas nu funktionen korrekt som aktive rad i guiden.
 
 * Åtgärdat ett problem som orsakade Azure AD Connects guiden att alltid Visa prompten "*Konfigurera käll ankare*" på sidan *klar att konfigurera* , även om inga ändringar som rör käll ankare har gjorts.
 
@@ -457,7 +457,7 @@ Status: 19 2017 oktober
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 > [!NOTE]
-> Obs! synkroniseringstjänsten har ett WMI-gränssnitt som gör att du kan utveckla din egen anpassade schemaläggare. Det här gränssnittet är nu föråldrat och kommer att tas bort från framtida versioner av Azure AD Connect som levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschemat bör använda den [inbyggda Schemaläggaren](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Obs! synkroniseringstjänsten har ett WMI-gränssnitt som gör att du kan utveckla din egen anpassade schemaläggare. Det här gränssnittet är nu föråldrat och kommer att tas bort från framtida versioner av Azure AD Connect som levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschemat bör använda den [inbyggda Schemaläggaren](./how-to-connect-sync-feature-scheduler.md).
 #### <a name="fixed-issues"></a>Åtgärdade problem
 * När Azure AD Connects guide skapar det AD Connector-konto som krävs för att synkronisera ändringar från den lokala Active Directory, tilldelar det inte rätt konto behörighet som krävs för att läsa PublicFolder-objekt. Det här problemet påverkar både snabb installation och anpassad installation. Den här ändringen löser problemet.
 
@@ -470,7 +470,7 @@ Status: 19 2017 oktober
 
 ### <a name="ad-fs-management"></a>AD FS hantering
 #### <a name="fixed-issue"></a>Åtgärdat problem 
-* Åtgärdat ett problem som rör användning av [MS-DS-ConsistencyGuid som käll fäst punkt](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funktion. Det här problemet påverkar kunder som har konfigurerat *Federation med AD FS* som användar inloggnings metod. När du kör *Konfigurera käll fäst punkts* aktivitet i guiden, Azure AD Connect växlar till att använda * MS-DS-ConsistencyGuid som källattribut för immutableId. Som en del av den här ändringen försöker Azure AD Connect uppdatera anspråks reglerna för ImmutableId i AD FS. Det här steget misslyckades dock eftersom Azure AD Connect inte hade de autentiseringsuppgifter för administratören som krävs för att konfigurera AD FS. Med den här korrigeringen uppmanas du nu Azure AD Connect ange administratörs behörighet för AD FS när du kör aktiviteten *Konfigurera käll ankare* .
+* Åtgärdat ett problem som rör användning av [MS-DS-ConsistencyGuid som käll fäst punkt](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) funktion. Det här problemet påverkar kunder som har konfigurerat *Federation med AD FS* som användar inloggnings metod. När du kör *Konfigurera käll fäst punkts* aktivitet i guiden, Azure AD Connect växlar till att använda * MS-DS-ConsistencyGuid som källattribut för immutableId. Som en del av den här ändringen försöker Azure AD Connect uppdatera anspråks reglerna för ImmutableId i AD FS. Det här steget misslyckades dock eftersom Azure AD Connect inte hade de autentiseringsuppgifter för administratören som krävs för att konfigurera AD FS. Med den här korrigeringen uppmanas du nu Azure AD Connect ange administratörs behörighet för AD FS när du kör aktiviteten *Konfigurera käll ankare* .
 
 
 
@@ -485,7 +485,7 @@ Status: 05 2017 september
 * Det finns ett känt problem med Azure AD Connect uppgradering som påverkar kunder som har aktiverat [sömlös enkel inloggning](how-to-connect-sso.md). När Azure AD Connect har uppgraderats visas funktionen som inaktive rad i guiden, även om funktionen är aktive rad. En korrigering av det här problemet kommer att ges i framtida versioner. Kunder som är intresserade av detta visnings problem kan manuellt åtgärda det genom att aktivera sömlös enkel inloggning i guiden.
 
 #### <a name="fixed-issues"></a>Åtgärdade problem
-* Ett problem har åtgärd ATS som förhindrade Azure AD Connect att uppdatera anspråks reglerna i lokala AD FS samtidigt [som funktionen ms-DS-ConsistencyGuid som käll-Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) aktiverades. Problemet uppstår om du försöker aktivera funktionen för en befintlig Azure AD Connect distribution som har AD FS kon figurer ATS som inloggnings metod. Problemet beror på att guiden inte begär ADFS-autentiseringsuppgifter innan du försöker uppdatera anspråks reglerna i AD FS.
+* Ett problem har åtgärd ATS som förhindrade Azure AD Connect att uppdatera anspråks reglerna i lokala AD FS samtidigt [som funktionen ms-DS-ConsistencyGuid som käll-Anchor](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) aktiverades. Problemet uppstår om du försöker aktivera funktionen för en befintlig Azure AD Connect distribution som har AD FS kon figurer ATS som inloggnings metod. Problemet beror på att guiden inte begär ADFS-autentiseringsuppgifter innan du försöker uppdatera anspråks reglerna i AD FS.
 * Åtgärdade ett problem som orsakade Azure AD Connect att Miss kunna installeras om den lokala AD-skogen har NTLM inaktiverat. Problemet beror på att Azure AD Connect guiden inte tillhandahåller fullständigt kvalificerade autentiseringsuppgifter när du skapar säkerhets kontexter som krävs för Kerberos-autentisering. Detta gör att Kerberos-autentiseringen Miss fungerar och Azure AD Connect guiden för att återgå till att använda NTLM.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
@@ -631,16 +631,16 @@ Problemet som uppstår är att **alternativet Synkronisera alla domäner och org
 
 #### <a name="fixed-issues"></a>Åtgärdade problem
 
-* Ett problem har åtgärd ATS med tillbakaskrivning av lösen ord som gör det möjligt för en Azure AD-administratör att återställa lösen ordet för ett lokalt AD-privilegierat användar konto. Problemet uppstår när Azure AD Connect beviljas behörighet att återställa lösen ordet över det privilegierade kontot. Problemet behandlas i den här versionen av Azure AD Connect genom att inte tillåta att en Azure AD-administratör återställer lösen ordet för ett godtyckligt lokalt AD-privilegierat användar konto, om inte administratören är ägare till kontot. Mer information finns i [säkerhets meddelande 4033453](https://technet.microsoft.com/library/security/4033453).
+* Ett problem har åtgärd ATS med tillbakaskrivning av lösen ord som gör det möjligt för en Azure AD-administratör att återställa lösen ordet för ett lokalt AD-privilegierat användar konto. Problemet uppstår när Azure AD Connect beviljas behörighet att återställa lösen ordet över det privilegierade kontot. Problemet behandlas i den här versionen av Azure AD Connect genom att inte tillåta att en Azure AD-administratör återställer lösen ordet för ett godtyckligt lokalt AD-privilegierat användar konto, om inte administratören är ägare till kontot. Mer information finns i [säkerhets meddelande 4033453](/security-updates/SecurityAdvisories/2017/4033453).
 
-* Åtgärdat ett problem som rör funktionen [MS-DS-ConsistencyGuid som käll ankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) där Azure AD Connect inte ändrar till ett lokalt AD ms-DS-ConsistencyGuid-attribut. Problemet uppstår när flera lokala AD-skogar läggs till Azure AD Connect och *användar identiteter finns över flera kataloger* är markerat. När en sådan konfiguration används fyller inte de resulterande reglerna för synkronisering i sourceAnchorBinary-attributet i metaversum. Attributet sourceAnchorBinary används som source-attribut för ms-DS-ConsistencyGuid-attributet. Därför sker inte tillbakaskrivning av MS-DSConsistencyGuid-attributet. För att åtgärda problemet har följande regler för synkronisering uppdaterats för att säkerställa att attributet sourceAnchorBinary i metaversum alltid är ifyllt:
+* Åtgärdat ett problem som rör funktionen [MS-DS-ConsistencyGuid som käll ankare](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) där Azure AD Connect inte ändrar till ett lokalt AD ms-DS-ConsistencyGuid-attribut. Problemet uppstår när flera lokala AD-skogar läggs till Azure AD Connect och *användar identiteter finns över flera kataloger* är markerat. När en sådan konfiguration används fyller inte de resulterande reglerna för synkronisering i sourceAnchorBinary-attributet i metaversum. Attributet sourceAnchorBinary används som source-attribut för ms-DS-ConsistencyGuid-attributet. Därför sker inte tillbakaskrivning av MS-DSConsistencyGuid-attributet. För att åtgärda problemet har följande regler för synkronisering uppdaterats för att säkerställa att attributet sourceAnchorBinary i metaversum alltid är ifyllt:
   * I från AD-InetOrgPerson AccountEnabled.xml
   * I från AD-InetOrgPerson Common.xml
   * I från AD-User AccountEnabled.xml
   * I från AD-User Common.xml
   * I från AD-User Join SOAInAAD.xml
 
-* Även om [MS-DS-ConsistencyGuid som käll fäst punkt](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) inte är aktive rad, läggs fortfarande synkroniseringsregeln till Azure AD Connect. Påverkan är oskadlig och gör inte att tillbakaskrivning av ms-DS-ConsistencyGuid-attribut inträffar. För att undvika förvirring har logik lagts till för att säkerställa att synkroniseringsregeln bara läggs till när funktionen är aktive rad.
+* Även om [MS-DS-ConsistencyGuid som käll fäst punkt](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) inte är aktive rad, läggs fortfarande synkroniseringsregeln till Azure AD Connect. Påverkan är oskadlig och gör inte att tillbakaskrivning av ms-DS-ConsistencyGuid-attribut inträffar. För att undvika förvirring har logik lagts till för att säkerställa att synkroniseringsregeln bara läggs till när funktionen är aktive rad.
 
 * Ett problem har åtgärd ATS som orsakade synkronisering av lösen ords-hash med fel händelse 611. Det här problemet uppstår efter att en eller flera domänkontrollanter har tagits bort från den lokala AD-platsen. I slutet av varje omsynkronisering av lösen ord innehåller synkroniserings-cookien som utfärdats av den lokala AD-platsen anrops-ID: n för de borttagna domän kontrol Lanterna med USN (Update Sequence Number) värdet 0. Synkroniseringshanteraren för lösen ord kan inte spara cookien för synkronisering som innehåller USN-värdet 0 och Miss lyckas med fel händelse 611. Under nästa synkronisering återanvänder hanteraren för Lösenordssynkronisering den senast sparade cookien för synkronisering som inte innehåller USN-värdet 0. Detta gör att samma lösen ords ändringar omsynkroniseras. Med den här korrigerings filen behåller Synkroniseringshanteraren för Lösenordssynkronisering korrekt.
 
@@ -648,12 +648,12 @@ Problemet som uppstår är att **alternativet Synkronisera alla domäner och org
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-* Tidigare var [MS-DS-ConsistencyGuid as-funktionen för käll ankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) bara tillgänglig för nya distributioner. Nu är den tillgänglig för befintliga distributioner. Mer specifikt:
+* Tidigare var [MS-DS-ConsistencyGuid as-funktionen för käll ankare](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) bara tillgänglig för nya distributioner. Nu är den tillgänglig för befintliga distributioner. Mer specifikt:
   * För att få åtkomst till funktionen startar du guiden Azure AD Connect och väljer alternativet för *uppdatering av käll ankare* .
   * Det här alternativet visas bara för befintliga distributioner som använder attributet objectGuid som sourceAnchor.
   * När du konfigurerar alternativet, verifierar guiden statusen för ms-DS-ConsistencyGuid-attributet i din lokala Active Directory. Om attributet inte har kon figurer ATS för något användar objekt i katalogen använder guiden ms-DS-ConsistencyGuid som sourceAnchor-attribut. Om attributet har kon figurer ATS för ett eller flera användar objekt i katalogen, avslutar guiden att attributet används av andra program och inte är lämpligt som sourceAnchor-attribut och tillåter inte att käll ankaret ändras för att fortsätta. Om du är säker på att attributet inte används av befintliga program måste du kontakta supporten om du vill ha information om hur du ignorerar felet.
 
-* Endast för **userCertificate** -attribut på enhets objekt, Azure AD Connect nu söker efter certifikat värden [som krävs för att ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelse](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) och filtrera bort resten innan du synkroniserar med Azure AD. För att aktivera det här beteendet har den färdiga synkroniseringsregeln "ut till AAD-Device Join-SOAInAD" uppdaterats.
+* Endast för **userCertificate** -attribut på enhets objekt, Azure AD Connect nu söker efter certifikat värden [som krävs för att ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelse](../devices/hybrid-azuread-join-plan.md) och filtrera bort resten innan du synkroniserar med Azure AD. För att aktivera det här beteendet har den färdiga synkroniseringsregeln "ut till AAD-Device Join-SOAInAD" uppdaterats.
 
 * Azure AD Connect stöder nu tillbakaskrivning av Exchange Online **cloudPublicDelegates** -attributet till ett lokalt AD **publicDelegates** -attribut. Detta aktiverar scenariot där en Exchange Online-postlåda kan beviljas SendOnBehalfTo-rättigheter till användare med lokal Exchange-postlåda. För att stödja den här funktionen har en ny regel för att synkronisera hybrid-PublicDelegates "ut till AD – användare Exchange hybrid" lagts till. Den här synkroniseringsregeln läggs endast till Azure AD Connect när funktionen Exchange hybrid är aktive rad.
 
@@ -844,7 +844,7 @@ Azure AD Connect-synkronisering
 * På din Azure AD-klient finns det en tjänst konfiguration som anger om funktionen för Lösenordssynkronisering är aktive rad för din klient organisation eller inte. Tidigare är det enkelt att konfigurera tjänst konfigurationen på ett felaktigt sätt genom att Azure AD Connect när du har en aktiv och en fristående server. Azure AD Connect försöker nu att behålla tjänst konfigurationen som är konsekvent med din aktiva Azure AD Connect-Server.
 * Azure AD Connects guiden identifierar och returnerar nu en varning om AD-pappers korgen inte är aktive rad på den lokala AD-platsen.
 * Exporterades tidigare till Azure AD-timeout och Miss lyckas om den kombinerade storleken på objekten i batchen överskrider vissa tröskelvärden. Nu försöker synkroniseringstjänsten igen att skicka om objekten i separata, mindre batchar om problemet uppstår.
-* Key Management-programmet för synkroniseringstjänsten har tagits bort från Start-menyn i Windows. Hantering av krypterings nyckel fortsätter att stödjas via kommando rads gränssnittet med hjälp av miiskmu.exe. Information om hur du hanterar krypterings nyckeln finns i artikeln om [att överge Azure AD Connect krypterings nyckel för synkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
+* Key Management-programmet för synkroniseringstjänsten har tagits bort från Start-menyn i Windows. Hantering av krypterings nyckel fortsätter att stödjas via kommando rads gränssnittet med hjälp av miiskmu.exe. Information om hur du hanterar krypterings nyckeln finns i artikeln om [att överge Azure AD Connect krypterings nyckel för synkronisering](./how-to-connect-sync-change-serviceacct-pass.md#abandoning-the-adsync-service-account-encryption-key).
 * Tidigare, om du ändrar lösen ordet för Azure AD Connect Sync-tjänstkontot, kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat lösen ordet för Azure AD Connect Sync-tjänstkontot. Nu krävs inte längre den här processen.
 
 Enkel inloggning på Skriv bordet
@@ -1072,7 +1072,7 @@ Lanserad: november 2015
 
 **Nytt scenario som stöds:**
 
-* Har stöd för flera lokala Exchange-organisationer. Mer information finns i [hybrid distributioner med flera Active Directory-skogar](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
+* Har stöd för flera lokala Exchange-organisationer. Mer information finns i [hybrid distributioner med flera Active Directory-skogar](/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Korrigerade problem:**
 
@@ -1181,7 +1181,7 @@ Lanserad: december 2014
 **Nya funktioner:**
 
 * Lösenordssynkronisering med attribut-baserad filtrering stöds nu. Mer information finns i Lösenordssynkronisering [med filtrering](how-to-connect-sync-configure-filtering.md).
-* Ms-DS-ExternalDirectoryObjectID-attributet skrivs tillbaka till Active Directory. Den här funktionen lägger till stöd för Office 365-program. Den använder OAuth2 för att komma åt online-och lokala post lådor i en hybrid Exchange-distribution.
+* Ms-DS-ExternalDirectoryObjectID-attributet skrivs tillbaka till Active Directory. Den här funktionen lägger till stöd för Microsoft 365-program. Den använder OAuth2 för att komma åt online-och lokala post lådor i en hybrid Exchange-distribution.
 
 **Problem med fasta uppgraderingar:**
 

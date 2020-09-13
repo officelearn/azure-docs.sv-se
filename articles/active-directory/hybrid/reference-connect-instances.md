@@ -16,15 +16,15 @@ ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4d8b0a33763a967550453d8a205258f7583084
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66298822"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015270"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: särskilda överväganden för instanser
-Azure AD Connect används oftast med den världs omfattande instansen av Azure AD och Office 365. Men det finns också andra instanser och de har olika krav för URL: er och andra särskilda överväganden.
+Azure AD Connect används oftast med den världs omfattande instansen av Azure AD och Microsoft 365. Men det finns också andra instanser och de har olika krav för URL: er och andra särskilda överväganden.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Tyskland
 [Microsoft Cloud Tyskland](https://www.microsoft.de/cloud-deutschland) är ett suveränt moln som drivs av en tysk data förvaltare.

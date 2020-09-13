@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: versions historik | Microsoft Docs'
-description: Den här artikeln innehåller en lista över alla versioner av Azure AD Connect och Azure AD Sync
+description: Den här artikeln innehåller en lista över alla versioner av Azure AD Connect och Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b0b0a98e80fb7f343411b49ff2ccd11046bcdc5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88052937"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018449"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -48,7 +48,7 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 >
 >Om du har aktiverat Azure AD Connect för synkronisering börjar du snart att automatiskt få hälso aviseringar som varnar dig om kommande inläsningar när du kör någon av de äldre versionerna.
 >
->Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+>Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](./how-to-upgrade-previous-version.md) .
 >
 >Information om versions historiken för inaktuella versioner finns i [Azure AD Connect versions historik Arkiv](reference-connect-version-history-archive.md)
 
@@ -74,7 +74,7 @@ Detta är en version av fel korrigering. Det finns inga funktionella ändringar 
 ### <a name="functional-changes"></a>Funktionella ändringar
 Den här versionen innehåller en offentlig för hands version av funktionerna för att exportera konfigurationen av en befintlig Azure AD Connect-Server till en. JSON-fil som sedan kan användas när du installerar en ny Azure AD Connect-Server för att skapa en kopia av den ursprungliga servern.
 
-En detaljerad beskrivning av den här nya funktionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+En detaljerad beskrivning av den här nya funktionen finns i [den här artikeln](./how-to-connect-import-export-config.md)
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 - En bugg har åtgärd ATS där det skulle finnas en falsk varning om den lokala databas storleken på lokaliserade versioner under uppgraderingen.
@@ -244,7 +244,7 @@ Vi har åtgärdat ett program fel i komprimerings verktyget för synkroniserings
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Det finns ett känt problem med att uppgradera Azure AD Connect från en tidigare version till 1.3.21.0 där O365-portalen inte återspeglar den uppdaterade versionen, även om Azure AD Connect har uppgraderats.
+>Det finns ett känt problem med att uppgradera Azure AD Connect från en tidigare version till 1.3.21.0 där Microsoft 365-portalen inte återspeglar den uppdaterade versionen, även om Azure AD Connect har uppgraderats.
 >
 > För att lösa detta måste du importera **ADSync** -modulen och sedan köra `Set-ADSyncDirSyncConfiguration` PowerShell-cmdleten på Azure AD Connect-servern.  Du kan använda följande steg:
 >

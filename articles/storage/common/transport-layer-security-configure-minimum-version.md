@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755916"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018585"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
 
@@ -92,11 +92,13 @@ När du är säker på att trafik från klienter som använder äldre versioner 
 Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto anger du **MinimumTlsVersion** -versionen för kontot. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information om distributions modellen för Azure Resource Manager finns i [Översikt över lagrings konto](storage-account-overview.md).
 
 > [!NOTE]
-> Egenskapen **minimumTlsVersion** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter begär Anden som skickas med TLS version 1,0 eller senare om egenskap svärdet är **Null**.
+> **MinimumTlsVersion** -egenskapen är för närvarande endast tillgänglig för lagrings konton i det offentliga Azure-molnet.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Följ dessa steg om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med Azure Portal:
+När du skapar ett lagrings konto med Azure Portal är den minsta TLS-versionen inställd på 1,2 som standard.
+
+Följ dessa steg om du vill konfigurera den lägsta TLS-versionen för ett befintligt lagrings konto med Azure Portal:
 
 1. Navigera till ditt lagringskonto i Azure-portalen.
 1. Välj **konfigurations** inställningen.
@@ -108,6 +110,8 @@ Följ dessa steg om du vill konfigurera den lägsta TLS-versionen för ett lagri
 
 Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med PowerShell installerar du [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) eller senare. Konfigurera sedan egenskapen **MinimumTLSVersion** för ett nytt eller befintligt lagrings konto. Giltiga värden för **MinimumTlsVersion** är `TLS1_0` , `TLS1_1` och `TLS1_2` .
 
+Egenskapen **MinimumTlsVersion** anges inte som standard när du skapar ett lagrings konto med PowerShell. Den här egenskapen returnerar inte något värde förrän du uttryckligen anger den. Lagrings kontot tillåter begär Anden som skickas med TLS version 1,0 eller senare om egenskap svärdet är **Null**.
+
 I följande exempel skapas ett lagrings konto som anger **MinimumTLSVersion** till TLS 1,1, uppdaterar kontot och anger **MinimumTLSVersion** till TLS 1,2. I exemplet hämtas även egenskap svärdet i varje fall. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
 ```powershell
@@ -116,18 +120,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -137,6 +141,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName \
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med Azure CLI installerar du Azure CLI version 2.9.0 eller senare. Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli). Konfigurera sedan egenskapen **minimumTlsVersion** för ett nytt eller befintligt lagrings konto. Giltiga värden för **minimumTlsVersion** är `TLS1_0` , `TLS1_1` och `TLS1_2` .
+
+Egenskapen **minimumTlsVersion** anges inte som standard när du skapar ett lagrings konto med Azure CLI. Den här egenskapen returnerar inte något värde förrän du uttryckligen anger den. Lagrings kontot tillåter begär Anden som skickas med TLS version 1,0 eller senare om egenskap svärdet är **Null**.
 
 I följande exempel skapas ett lagrings konto och **minimumTLSVersion** anges till TLS 1,1. Sedan uppdateras kontot och egenskapen **minimumTLSVersion** anges till TLS 1,2. I exemplet hämtas även egenskap svärdet i varje fall. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 

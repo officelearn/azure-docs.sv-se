@@ -3,12 +3,12 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 288cebc4d4097ff40b618e2f1976039359458ecf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 98f9bf02b910749a98ae8cd6e409ee733c2e2dcc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719027"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595758"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -31,9 +31,8 @@ Haveri beredskap för fysiska servrar | Replikering av lokala Windows/Linux fysi
 
 **Server** | **Krav** | **Information**
 --- | --- | ---
-vCenter Server | Version 7,0, 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att du använder en vCenter-Server i återställnings distributionen för haveri beredskap.
-vSphere-värdar | Version 7,0, 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs processervern på konfigurations servern. [Läs mer](vmware-physical-azure-config-process-server-overview.md).
-
+vCenter Server | Version 7,0 & efterföljande uppdateringar i den här versionen, 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att du använder en vCenter-Server i återställnings distributionen för haveri beredskap.
+vSphere-värdar | Version 7,0 & efterföljande uppdateringar i den här versionen, 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs processervern på konfigurations servern. [Läs mer](vmware-physical-azure-config-process-server-overview.md).
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery konfigurations Server
 
@@ -279,7 +278,7 @@ Lokala virtuella datorer som replikeras till Azure måste uppfylla de krav på v
 Gästoperativsystem | Kontrol lera att [operativ system som stöds](#replicated-machines) för replikerade datorer. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.
 Storlek på operativsystemdisk | Upp till 2 048 GB. | Kontrollen Miss lyckas om den inte stöds.
-Antal operativsystemdiskar | 1 | Kontrollen Miss lyckas om den inte stöds.
+Antal operativsystemdiskar | 1 </br> Start-och systempartitionering på olika diskar stöds inte | Kontrollen Miss lyckas om den inte stöds.
 Antal datadiskar | 64 eller mindre. | Kontrollen Miss lyckas om den inte stöds.
 Data disk storlek | Upp till 8 192 GB vid replikering till hanterad disk (9,26-version och senare)<br></br>Upp till 4 095 GB vid replikering till lagrings konto| Kontrollen Miss lyckas om den inte stöds.
 Nätverkskort | Flera nätverkskort stöds. |

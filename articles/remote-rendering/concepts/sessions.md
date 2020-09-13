@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021841"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613811"
 ---
 # <a name="remote-rendering-sessions"></a>Remote Rendering-sessioner
 
@@ -31,7 +31,7 @@ När du är *ansluten* till en aktiv session exponeras åtgärder som att [läsa
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Hantera flera sessioner samtidigt
 
-Det går inte att *ansluta* fullständigt till flera sessioner från en enhet. Du kan dock skapa, Observera och stänga av så många sessioner som du vill från ett enda program. Så länge appen inte är avsedd att någonsin ansluta till en session, behöver den inte köras på en enhet som HoloLens 2, antingen. Ett användnings fall för en sådan implementering kan vara om du vill kontrol lera sessioner via en central mekanism. En webbapp kan till exempel bygga en webbapp där flera surfplattor och HoloLenses kan logga in. Sedan kan appen Visa alternativ på surfplattor, till exempel vilken CAD-modell som ska visas. Om en användare gör ett val överförs den här informationen till alla HoloLenses för att skapa en delad upplevelse.
+Det går inte att *ansluta* fullständigt till flera sessioner från en enhet. Du kan dock skapa, Observera och stänga av så många sessioner som du vill från ett enda program. Så länge appen inte är avsedd att någonsin ansluta till en session, behöver den inte köras på en enhet som HoloLens 2, antingen. Ett användnings fall för en sådan implementering kan vara om du vill kontrol lera sessioner via en central mekanism. En webbapp kan till exempel bygga en webbapp där flera surfplattor och HoloLens-enheter kan logga in på. Sedan kan appen Visa alternativ på surfplattor, till exempel vilken CAD-modell som ska visas. Om en användare gör ett val överförs den här informationen till alla HoloLens-enheter för att skapa en delad upplevelse.
 
 ## <a name="session-phases"></a>Faser i sessionen
 
@@ -146,6 +146,15 @@ Livs längden för en virtuell dator är inte kopplad till `AzureFrontend` insta
 Det permanenta sessions-ID: t kan frågas via `AzureSession.SessionUUID()` och cachelagras lokalt. Med det här ID: t kan ett program anropa `AzureFrontend.OpenSession` för att binda till den sessionen.
 
 När `AzureSession.IsConnected` är sant `AzureSession.Actions` returnerar en instans av `RemoteManager` , som innehåller funktionerna för att [läsa in modeller](models.md), manipulera [entiteter](entities.md)och [fråga efter information](../overview/features/spatial-queries.md) om den återgede scenen.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# AzureSession-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend. CreateNewRenderingSessionAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend. OpenRenderingSession ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [C++ AzureSession-klass](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend:: CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend:: OpenRenderingSession](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## <a name="next-steps"></a>Nästa steg
 

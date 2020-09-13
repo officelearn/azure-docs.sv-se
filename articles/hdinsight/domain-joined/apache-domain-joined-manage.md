@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079742"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595792"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
 
@@ -47,7 +47,7 @@ Du kan länka ett vanligt kluster genom att använda Ambari-hanterat användar n
 
 Enterprise Security Package (tidigare kallat HDInsight Premium) ger åtkomst till flera användare till klustret, där autentisering görs genom Active Directory och auktorisering av Apache Ranger och lagrings-ACL: er (ADLS ACL: er). Auktorisering ger säkra gränser mellan flera användare och tillåter endast att privilegierade användare får åtkomst till data baserat på Auktoriseringsprinciper.
 
-Säkerhet och användar isolering är viktiga för ett HDInsight-kluster med Enterprise Security Package. För att uppfylla dessa krav blockeras SSH-åtkomst till klustret med Enterprise Security Package. I följande tabell visas rekommenderade åtkomst metoder för varje kluster typ:
+Säkerhet och användar isolering är viktiga för ett HDInsight-kluster med Enterprise Security Package. För att uppfylla dessa krav stöds SSH-åtkomst till klustret med Enterprise Security Package för den lokala användare som valts i klustrets skapande tid samt användare som är tillgängliga i AAD-DS (t. ex. Kerberos). I följande tabell visas rekommenderade åtkomst metoder för varje kluster typ:
 
 |Arbetsbelastning|Scenario|Åtkomst metod|
 |--------|--------|-------------|

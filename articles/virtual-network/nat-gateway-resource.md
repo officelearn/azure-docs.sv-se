@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135835"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612897"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
 
@@ -217,7 +217,7 @@ Om ditt scenario kräver inkommande slut punkter har du två alternativ:
 
 Du kan inte uppnå ett zonindelade löfte med NAT-gatewayens resurser när de virtuella dator instanserna distribueras i flera zoner i samma undernät.   Även om det fanns flera zonindelade NAT-gatewayer anslutna till ett undernät vet inte den virtuella dator instansen vilken NAT-gateway-resurs som ska väljas.
 
-Ett zonindelade Promise-does't finns när a) zonen i en virtuell dator instans och zonerna för en zonindelade NAT-gateway inte är justerade eller b) en regional NAT-gateway-resurs används med zonindelade virtuella dator instanser.
+Ett zonindelade Promise-does't finns när a) zonen i en virtuell dator instans och zonen i en zonindelade NAT-gateway inte är justerade eller b) en regional NAT-gateway-resurs används med zonindelade virtuella dator instanser.
 
 Även om scenariot verkar fungera, är dess hälso modell och felläge odefinierat från en tillgänglighets zon i vyn. Överväg att gå med zonindelade-stackar eller alla regionala i stället.
 

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013647"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613749"
 ---
 # <a name="sky-reflections"></a>Reflektioner av himmel
 
@@ -28,8 +28,8 @@ Bilderna nedan visar resultat av ljus olika ytor med en himmel-struktur:
 
 | Grovhet  | 0                                        | 0,25                                          | 0,5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Icke-metall  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| BMR      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| Icke-metall  | ![Dielectric, grovhet = 0](media/dielectric-0.png)   | ![Dielectric, grovhet = 0,25](media/dielectric-0.25.png)  | ![Dielectric, grovhet = 0,5](media/dielectric-0.5.png)  | ![Dielectric, grovhet = 0,75](media/dielectric-0.75.png)  | ![Dielectric, grovhet = 1](media/dielectric-1.png)  |
+| BMR      | ![Metall, grovhet = 0](media/metallic-0.png)  | ![Metall, grovhet = 0,25](media/metallic-0.25.png)    | ![Metall, grovhet = 0,5](media/metallic-0.5.png)    | ![Metall, grovhet = 0,75](media/metallic-0.75.png)    | ![Metall, grovhet = 1](media/metallic-1.png)    |
 
 Mer information om belysnings modellen finns i kapitlet om [material](../../concepts/materials.md) .
 
@@ -84,7 +84,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
             }
             else
             {
-                printf("Texture loading failed!");
+                printf("Texture loading failed!\n");
             }
         });
 }
@@ -121,20 +121,25 @@ Azure Remote rendering innehåller några inbyggda miljö kartor som alltid är 
 
 |Identifierare                         | Beskrivning                                              | Exemplet                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Olika rand lampor, ljus inomhus bas belysning    | ![Shoppa](media/autoshop.png)
-|builtin://BoilerRoom               | Ljus inomhus-inställning, flera fönster lampor      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | Variera färg lampor i mellanliggande inlednings inställning  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Måttligt ljus omgivnings ljus                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Dim-inlednings inställning med ljust mörk kontrast              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Dagtid, ljust fönster Area ljust     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Mörkt natt himmel och mark med många omgivande lampor   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | Ljus solljus och skugga kontrast                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Ta bort luft rummets ljus med måttlig belysning            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Måttligt varierande sol och skugga                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Kväll solnedgång tänd Dusk                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Ljusa, Lush och vita ljusa toner, nedtonad mark | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Dagtid med ljust omgivande underlag                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | Samma som TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Olika rand lampor, ljus inomhus bas belysning    | ![Skybox används för att lätta ett objekt](media/autoshop.png)
+|builtin://BoilerRoom               | Ljus inomhus-inställning, flera fönster lampor      | ![BoilerRoom Skybox som används för att lätta ett objekt](media/boiler-room.png)
+|builtin://ColorfulStudio           | Variera färg lampor i mellanliggande inlednings inställning  | ![ColorfulStudio Skybox som används för att lätta ett objekt](media/colorful-studio.png)
+|builtin://Hangar                   | Måttligt ljus omgivnings ljus                     | ![SmallHangar Skybox som används för att lätta ett objekt](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Dim-inlednings inställning med ljust mörk kontrast              | ![IndustrialPipeAndValve Skybox som används för att lätta ett objekt](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Dagtid, ljust fönster Area ljust     | ![Lebombo Skybox som används för att lätta ett objekt](media/lebombo.png)
+|builtin://SataraNight              | Mörkt natt himmel och mark med många omgivande lampor   | ![SataraNight Skybox som används för att lätta ett objekt](media/satara-night.png)
+|builtin://SunnyVondelpark          | Ljus solljus och skugga kontrast                      | ![SunnyVondelpark Skybox som används för att lätta ett objekt](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Ta bort luft rummets ljus med måttlig belysning            | ![Syferfontein Skybox som används för att lätta ett objekt](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Måttligt varierande sol och skugga                         | ![TearsOfSteelBridge Skybox som används för att lätta ett objekt](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Kväll solnedgång tänd Dusk                    | ![VeniceSunset Skybox som används för att lätta ett objekt](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Ljusa, Lush och vita ljusa toner, nedtonad mark | ![WhippleCreekRegionalPark Skybox som används för att lätta ett objekt](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Dagtid med ljust omgivande underlag                 | ![WinterRiver Skybox som används för att lätta ett objekt](media/winter-river.png)
+|builtin://DefaultSky               | Samma som TearsOfSteelBridge                               | ![DefaultSky Skybox som används för att lätta ett objekt](media/tears-of-steel-bridge.png)
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# RemoteManager. SkyReflectionSettings-egenskap](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C++ RemoteManager:: SkyReflectionSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## <a name="next-steps"></a>Nästa steg
 

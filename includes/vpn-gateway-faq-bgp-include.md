@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 608b148dc3929065df44530da65e695df19be03e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fa4e94d6ec4c3e612d5a8a29db76e023957d583
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79486092"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89644231"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Stöds BGP på alla Azure VPN Gateway-SKU:er?
 BGP stöds på alla Azure VPN Gateawy SKU: er förutom Basic SKU.
@@ -55,7 +55,7 @@ Azure VPN-gateway kommer att meddela följande rutter till dina lokala BGP-enhet
 
 * Dina VNet-adressprefixer
 * Adressprefixer för varje lokal nätverksgateway som är ansluten till Azure VPN-gateway
-* Rutter som den lärt sig från andra BGP-peeringsessioner anslutna till Azure VPN-gatewayen, **förutom standardrutten eller -rutterna eller rutter som överlappar med ett VNet-prefix**.
+* Vägar som har lärts från andra BGP-peering-sessioner anslutna till Azure VPN-gatewayen, **förutom standard vägar eller vägar som överlappar VNet-prefix**.
 
 ### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Hur många prefix kan jag annonsera till Azure VPN-gatewayen?
 Vi har stöd för upp till 4000 prefix. BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen.

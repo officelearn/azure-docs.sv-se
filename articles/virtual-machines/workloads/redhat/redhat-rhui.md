@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869226"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612514"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat-uppdatering av infrastruktur för Red Hat Enterprise Linux virtuella datorer på begäran i Azure
  Med [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kan moln leverantörer, till exempel Azure, spegla innehåll i Red Hat-värdbaserade databaser, skapa anpassade databaser med Azure-särskilt innehåll och göra det tillgängligt för slutanvändarens virtuella datorer.
@@ -89,11 +89,11 @@ När detta skrivs är EUS-supporten avslutad för RHEL <= 7,4. Mer information f
 * RHEL 7,6 EUS support upphör den 31 maj 2021
 * RHEL 7,7 EUS-support upphör 30 augusti 2021
 
-### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Växla en virtuell RHEL-dator till EUS (versions låsning till en speciell del version)
-Använd följande instruktioner för att låsa en RHEL VM till en viss del version (kör som rot):
+### <a name="switch-a-rhel-vm-7x-to-eus-version-lock-to-a-specific-minor-version"></a>Växla en RHEL VM 7. x till EUS (version – lås till en speciell del version)
+Använd följande instruktioner för att låsa en RHEL 7. x-VM till en viss del version (kör som rot):
 
 >[!NOTE]
-> Detta gäller endast för RHEL-versioner som EUS är tillgängligt för. När detta skrivs, omfattar detta RHEL 7,2-7.7. Mer information finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
+> Detta gäller endast för RHEL 7. x-versioner som EUS är tillgängligt för. När detta skrivs, omfattar detta RHEL 7,2-7.7. Mer information finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
 
 1. Inaktivera icke-EUS databaser:
     ```bash
@@ -111,14 +111,52 @@ Använd följande instruktioner för att låsa en RHEL VM till en viss del versi
     ```
 
     >[!NOTE]
-    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. Kommer till exempel att `echo 7.5 > /etc/yum/vars/releasever` låsa din RHEL-version till RHEL 7,5
+    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. Till exempel `echo 7.5 > /etc/yum/vars/releasever` kommer din RHEL-version att låsas till RHEL 7,5.
 
 1. Uppdatera din virtuella RHEL-dator
     ```bash
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Ändra tillbaka en RHEL-VM till icke-EUS (ta bort ett versions lås)
+### <a name="switch-a-rhel-vm-8x-to-eus-version-lock-to-a-specific-minor-version"></a>Växla en RHEL VM 8. x till EUS (version – lås till en speciell del version)
+Använd följande instruktioner för att låsa en virtuell RHEL 8. x-dator till en viss del version (kör som rot):
+
+>[!NOTE]
+> Detta gäller endast för RHEL 8. x-versioner som EUS är tillgängligt för. Vid tidpunkten för denna skrivning inkluderar detta RHEL 8.1-8.2. Mer information finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
+
+1. Inaktivera icke-EUS databaser:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8'
+    ```
+
+1. Hämta konfigurations filen för EUS-databaser:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+    ```
+
+1. Lägg till EUS databaser:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+    ```
+
+1. Lås `releasever` variabeln (kör som rot):
+    ```bash
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. Till exempel `echo 8.1 > /etc/yum/vars/releasever` kommer din RHEL-version att låsas till RHEL 8,1.
+
+    >[!NOTE]
+    > Om det finns behörighets problem för att få åtkomst till releasever kan du redigera filen med "nano/etc/yum/vars/releaseve" och lägga till avbildningens versions information och spara ("Ctrl + o" och trycka på RETUR och sedan "Ctrl + x").  
+
+1. Uppdatera din virtuella RHEL-dator
+    ```bash
+    sudo yum update
+    ```
+
+
+### <a name="switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock"></a>Växla tillbaka en RHEL 7. x-dator till icke-EUS (ta bort ett versions lås)
 Kör följande som rot:
 1. Ta bort `releasever` filen:
     ```bash
@@ -135,6 +173,33 @@ Kör följande som rot:
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
     ```
 
+1. Uppdatera din virtuella RHEL-dator
+    ```bash
+    sudo yum update
+    ```
+
+### <a name="switch-a-rhel-8x-vm-back-to-non-eus-remove-a-version-lock"></a>Ändra tillbaka en RHEL 8. x-dator till icke-EUS (ta bort ett versions lås)
+Kör följande som rot:
+1. Ta bort `releasever` filen:
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Inaktivera EUS-databaser:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
+
+1. Hämta den vanliga databaser-konfigurations filen:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+    ```
+
+1. Lägg till EUS databaser:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+    ```
+    
 1. Uppdatera din virtuella RHEL-dator
     ```bash
     sudo yum update

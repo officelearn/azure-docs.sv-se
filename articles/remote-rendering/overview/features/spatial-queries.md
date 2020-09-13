@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b378fe3f01e6ef1d54a89341bbac3a26b9d6b33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a80681a641757d71288dfaee4c779121030a9db
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013154"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613595"
 ---
 # <a name="spatial-queries"></a>Rumsliga frågor
 
@@ -112,6 +112,11 @@ En träff har följande egenskaper:
 * ** `HitPosition` :** Det världs LED ande position där Ray korsar objektet.
 * ** `HitNormal` :** Världens yta i mitten av nätet vid positionen för skärnings punkten.
 * ** `DistanceToHit` :** Avståndet från Ray-start positionen till träffen.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# RemoteManager. RayCastQueryAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
+* [C++ RemoteManager:: RayCastQueryAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
 
 ## <a name="next-steps"></a>Nästa steg
 

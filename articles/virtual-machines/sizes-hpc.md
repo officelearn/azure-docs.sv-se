@@ -6,21 +6,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/01/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905371"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595741"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
 Virtuella Azure-datorer i H-serien (VM: ar) har utformats för att leverera prestanda i ledande klass, MPI skalbarhet och kostnads effektivitet för många olika HPC-arbetsbelastningar i Real världen.
 
-[HBv2-serien](hbv2-series.md) VM-funktionen 200 GB/SEK Mellanox HDR InfiniBand, medan både HB-och HC-seriens VM-funktioner 100 GB/s Mellanox EDR InfiniBand. Var och en av dessa VM-typer är anslutna i ett icke-blockerande fat-träd för optimerad och konsekvent RDMA-prestanda. HBv2-VM: ar stöder anpassningsbar Routning och dynamisk ansluten transport (DCT, i tillägg till standard RC-och UD-transporter). Dessa funktioner förbättrar programmets prestanda, skalbarhet och konsekvens, och användningen av dem rekommenderas starkt.
+[HBv2-serien](hbv2-series.md) Virtuella datorer är optimerade för program som drivs av minnes bandbredd, till exempel flytande dynamik, analys av ändliga element och behållare för lagring. HBv2 VM Feature 120 AMD EPYC 7742 processor kärnor, 4 GB RAM per CPU-kärna och ingen samtidig multitrådning. Varje HBv2 VM ger upp till 340 GB/s minnes bandbredd och upp till 4 teraFLOPS FP64-beräkning.
+
+HBv2 VM-funktionen 200 GB/SEK Mellanox HDR InfiniBand, medan både HB-och HC-seriens VM-funktioner 100 GB/s Mellanox EDR InfiniBand. Var och en av dessa VM-typer är anslutna i ett icke-blockerande fat-träd för optimerad och konsekvent RDMA-prestanda. HBv2-VM: ar stöder anpassningsbar Routning och dynamisk ansluten transport (DCT, i tillägg till standard RC-och UD-transporter). Dessa funktioner förbättrar programmets prestanda, skalbarhet och konsekvens, och användningen av dem rekommenderas starkt.
 
 [HB-serien](hb-series.md) Virtuella datorer är optimerade för program som drivs av minnes bandbredd, till exempel flytande dynamik, explicit ändliga element analyser och väder modellering. HB VM Feature 60 AMD EPYC 7551 processor kärnor, 4 GB RAM-minne per CPU-kärna och ingen hyperthreading. AMD EPYC-plattformen ger över 260 GB/SEK minnes bandbredd.
 
@@ -35,7 +37,7 @@ Virtuella Azure-datorer i H-serien (VM: ar) har utformats för att leverera pres
 
 De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A8 och A9) är ett nätverks gränssnitt för RDMA-anslutning (Remote Direct Memory Access). De valda [N-serie](./nc-series.md) storlekarna som anges med r (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 och NC24r) är också RDMA-kompatibla. Det här gränssnittet är tillsammans med standard gränssnittet för Azure-nätverket tillgängligt i de andra VM-storlekarna.
 
-Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR priser för HB, HC, NDv2, FDR-priser för H16r, H16mr och andra RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface). Mer information om hastighet finns i informationen i tabellerna på den här sidan.
+Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR priser för HB, HC, NDv2, FDR-priser för H16r, H16mr och andra RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface).
 
 > [!NOTE]
 > I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. SR-IOV för InfiniBand-aktiverade virtuella datorer är för närvarande: HBv2, HB, HC, NCv3 och NDv2. Resten av de InfiniBand-aktiverade virtuella datorerna är inte SR-IOV aktiverat för närvarande.
@@ -60,7 +62,7 @@ Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över 
 
 Azure innehåller flera alternativ för att skapa kluster med virtuella Windows HPC-datorer som kan kommunicera med RDMA-nätverket, inklusive: 
 
-- **Virtuella datorer** – distribuera RDMA-kompatibla HPC-datorer i samma skalnings uppsättning eller tillgänglighets uppsättning (när du använder Azure Resource Manager distributions modell). Om du använder den klassiska distributions modellen distribuerar du de virtuella datorerna i samma moln tjänst.
+- **Virtuella datorer**  – distribuera RDMA-kompatibla HPC-datorer i samma skalnings uppsättning eller tillgänglighets uppsättning (när du använder Azure Resource Manager distributions modell). Om du använder den klassiska distributions modellen distribuerar du de virtuella datorerna i samma moln tjänst.
 
 - **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer, se till att du begränsar distributionen till en enda placerings grupp för InfiniBand-kommunikation i skalnings uppsättningen. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till `true` . Observera att den maximala skalnings uppsättnings storleken som kan anpassas med `singlePlacementGroup` egenskap till är begränsad till `true` 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda klient kan du begära en ökning, [öppna en kund support förfrågan](../azure-portal/supportability/how-to-create-azure-support-request.md) utan kostnad. Gränsen för antalet virtuella datorer i en enda skalnings uppsättning kan höjas till 300. Observera att när du distribuerar virtuella datorer med tillgänglighets uppsättningar är max gränsen på 200 VM: ar per tillgänglighets uppsättning.
 

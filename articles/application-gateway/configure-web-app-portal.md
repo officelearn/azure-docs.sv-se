@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808094"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595718"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurera App Service med Application Gateway
 
@@ -23,10 +23,8 @@ Application Gateway innehåller en växel som anropar `Pick host name from backe
 
 I den här artikeln kan du se hur du:
 
-> [!div class="checklist"]
->
-> - Skapa en backend-pool och Lägg till en App Service
-> - Skapa HTTP-inställningar och anpassad avsökning med växeln Välj värdnamn aktiverat
+- Skapa en backend-pool och Lägg till en App Service
+- Skapa HTTP-inställningar och anpassad avsökning med växeln Välj värdnamn aktiverat
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,7 +41,7 @@ I den här artikeln kan du se hur du:
 
 4. Under **mål**klickar du på list rutan och väljer **app Services** som alternativ.
 
-5. En listruta direkt under List rutan **mål** visas som innehåller en lista över dina app Services. I den här List rutan väljer du App Service som du vill lägga till som medlem i en server del och klickar på Lägg till.
+5. En listruta direkt under List rutan **mål**  visas som innehåller en lista över dina app Services. I den här List rutan väljer du App Service som du vill lägga till som medlem i en server del och klickar på Lägg till.
 
    ![App Service-backend](./media/configure-web-app-portal/backendpool.png)
    
@@ -61,9 +59,9 @@ I den här artikeln kan du se hur du:
    > [!NOTE]
    > Om du väljer HTTPS behöver du inte ladda upp något autentiseringscertifikat eller ett betrott rot certifikat för att tillåta App Service-Dataservern eftersom App Service är en betrodd Azure-tjänst.
 
-4. Markera kryss rutan om du vill **använda App Service** . Observera att växlarna `Create a probe with pick host name from backend address` och `Pick host name from backend address` kommer automatiskt att aktive ras.`Pick host name from backend address` åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen.  
+4. Markera kryss rutan om du vill **använda App Service** . Observera att växlarna  `Create a probe with pick host name from backend address` och `Pick host name from backend address` kommer automatiskt att aktive ras.`Pick host name from backend address` åsidosätter värd rubriken i begäran med värd namnet för Server delen när begäran dirigeras från Application Gateway till Server delen.  
 
-   `Create a probe with pick host name from backend address`kommer automatiskt att skapa en hälso avsökning och koppla den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med namnet <HTTP Setting name> <Unique GUID> har lagts till i listan över hälso avsökningar och att den redan har växeln `Pick host name from backend http settings enabled` .
+   `Create a probe with pick host name from backend address` kommer automatiskt att skapa en hälso avsökning och koppla den till den här HTTP-inställningen. Du behöver inte skapa någon annan hälso avsökning för den här HTTP-inställningen. Du kan kontrol lera att en ny avsökning med namnet <HTTP Setting name> <Unique GUID> har lagts till i listan över hälso avsökningar och att den redan har växeln `Pick host name from backend http settings enabled` .
 
    Om du redan har en eller flera HTTP-inställningar som används för app service och om dessa HTTP-inställningar använder samma protokoll som det du använder i den som du skapar, `Create a probe with pick host name from backend address` kommer du att få en listruta i stället för-växeln och välja en av de anpassade avsökningarna. Detta beror på att eftersom det redan finns en HTTP-inställning med App Service, och därför finns det också en hälso avsökning som har växeln `Pick host name from backend http settings enabled` . Välj anpassad avsökning i list rutan.
 

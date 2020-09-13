@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 430b491780e10840274f16315b159a8095c11889
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051125"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612530"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
@@ -41,7 +41,7 @@ I tabellen sammanfattas VMware hypervisor-krav.
 --- | ---
 **VMware vCenter Server** | Version 5,5, 6,0, 6,5 eller 6,7.
 **VMware vSphere ESXI-värd** | Version 5,5, 6,0, 6,5 eller 6,7.
-**vCenter Server behörigheter** | [Vid utan agent används migreringen](migrate-appliance.md). Installationen behöver följande behörigheter i vCenter Server:<br/><br/> - **Data lager. browse**: Tillåt bläddring av VM-loggfiler för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> - **Data lager. LowLevelFileOperations**: Tillåt Läs-/skriv-/ta bort/Byt namn på åtgärder i data lager läsaren för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> - **VirtualMachine.Configuration. DiskChangeTracking**: Tillåt aktivering eller inaktive ring av ändrings spårning av VM-diskar, för att hämta ändrade block med data mellan ögonblicks bilder.<br/><br/> - **VirtualMachine.Configuration. DiskLease**: Tillåt disk låne åtgärder för en virtuell dator för att läsa disken med hjälp av VMware vSphere Virtual Disk Development Kit (vddk).<br/><br/> - **VirtualMachine. Provisioning. DiskAccess**: (specifikt för vSphere 6,0 och senare) gör att du kan öppna en disk på en virtuell dator för slumpmässig Läs åtkomst på disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. ReadOnlyDiskAccess**: Tillåt att en disk öppnas på en virtuell dator för att läsa disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. DiskRandomAccess**: Tillåt att en disk öppnas på en virtuell dator för att läsa disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. VirtualMachineDownload**: tillåter Läs åtgärder på filer som är associerade med en virtuell dator, för att ladda ned loggarna och felsöka om det uppstår fel.<br/><br/> - **VirtualMachine. SnapshotManagement. \* **: Tillåt skapande och hantering av VM-ögonblicksbilder för replikering.<br/><br/> - **Virtuell dator. interaktion.** avstängning: Tillåt att den virtuella datorn stängs av under migreringen till Azure.
+**vCenter Server behörigheter** | [Vid utan agent används migreringen](migrate-appliance.md). Installationen behöver följande behörigheter i vCenter Server:<br/><br/> - **Data lager. browse**: Tillåt bläddring av VM-loggfiler för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> - **Data lager. FileManagement**: Tillåt Läs-/skriv-/ta bort/Byt namn på åtgärder i data lager läsaren för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> - **VirtualMachine.Config. ChangeTracking**: Tillåt aktivering eller inaktive ring av ändrings spårning av VM-diskar, för att hämta ändrade block med data mellan ögonblicks bilder.<br/><br/> - **VirtualMachine.Config. DiskLease**: Tillåt disk låne åtgärder för en virtuell dator för att läsa disken med hjälp av VMware vSphere Virtual Disk Development Kit (vddk).<br/><br/> - **VirtualMachine. Provisioning. DiskAccess**: (specifikt för vSphere 6,0 och senare) gör att du kan öppna en disk på en virtuell dator för slumpmässig Läs åtkomst på disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. DiskRandomRead**: Tillåt att en disk öppnas på en virtuell dator för att läsa disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. DiskRandomAccess**: Tillåt att en disk öppnas på en virtuell dator för att läsa disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. GetVmFiles**: tillåter Läs åtgärder på filer som är associerade med en virtuell dator, för att ladda ned loggarna och felsöka om det uppstår fel.<br/><br/> - **VirtualMachine. State. \* **: Tillåt skapande och hantering av VM-ögonblicksbilder för replikering.<br/><br/> - **Virtuell dator. interagerar. avstängnings läge**: Tillåt att den virtuella datorn stängs av under migreringen till Azure.
 
 
 
@@ -68,7 +68,7 @@ I tabellen sammanfattas kraven för att migrera utan agent för virtuella VMware
 **Lagrings vMotion** | Stöds inte. Det går inte att använda replikering om en virtuell dator använder Storage vMotion.
 **Grupperade nätverkskort** | Stöds inte.
 **IPv6** | Stöds inte.
-**Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard HDD, Premium SSD) i Azure.
+**Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard-HDD, standard SSD, Premium SSD) i Azure.
 **Samtidig replikering** | 300 virtuella datorer per vCenter Server. Om du har fler kan du migrera dem i batchar på 300.
 
 
@@ -118,7 +118,7 @@ Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill 
 **Mobilitets tjänst** | Mobilitets tjänst agenten måste vara installerad på varje virtuell dator som du vill migrera.
 **UEFI-start** | Stöds.
 **UEFI – säker start**         | Stöds inte för migrering.
-**Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard HDD, Premium SSD) i Azure.
+**Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard-HDD, standard SSD, Premium SSD) i Azure.
 **Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per virtuell dator.
 **Krypterade diskar/volymer** | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering.

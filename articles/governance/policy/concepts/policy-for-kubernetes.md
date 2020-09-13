@@ -3,12 +3,12 @@ title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509883"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645602"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -57,13 +57,13 @@ Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst fun
 
      1. Registrera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** . Anvisningar finns i [resurs leverantörer och typer](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
+     1. Starta tjänsten Azure Policy i Azure Portal genom att välja **alla tjänster**och sedan söka efter och välja **princip**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Sök efter princip i alla tjänster" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
      1. Välj **koppla förhands granskning** till vänster på sidan Azure policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Delta i principen för för hands versionen av AKS" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Skärm bild av noden koppla för hands version på princip sidan." border="false":::
 
      1. Välj den rad i prenumerationen som du vill lägga till i förhands granskningen.
 
@@ -120,17 +120,17 @@ När ovanstående nödvändiga steg har slutförts installerar du Azure Policy-t
 
 - Azure Portal
 
-  1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
+  1. Starta AKS-tjänsten i Azure Portal genom att välja **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
   1. Välj ett av dina AKS-kluster.
 
   1. Välj **principer (förhands granskning)** på vänster sida av Kubernetes-tjänst sidan.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Princip definitioner från AKS-klustret" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Skärm bild av noden "policies (Preview)" på Kubernetes-tjänst sidan." border="false":::
 
   1. På huvud sidan väljer du knappen **aktivera tillägg** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Aktivera Azure Policy för AKS-tillägg":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Skärm bild av knappen "aktivera tillägg" på sidan onboard to Azure Policy for the Azure Kubernetes Services (A K S).":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -209,7 +209,7 @@ Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst fun
 
 1. Öppna portar för tillägget. Azure Policy-tillägget använder dessa domäner och portar för att hämta princip definitioner och tilldelningar och rapportera kompatibilitet för klustret tillbaka till Azure Policy.
 
-   |Domain |Port |
+   |Domän |Port |
    |---|---|
    |`gov-prod-policy-data.trafficmanager.net` |`443` |
    |`raw.githubusercontent.com` |`443` |
@@ -460,17 +460,17 @@ Om du vill ta bort Azure Policy-tillägget från AKS-klustret använder du antin
 
 - Azure Portal
 
-  1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
+  1. Starta AKS-tjänsten i Azure Portal genom att välja **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
   1. Välj ditt AKS-kluster där du vill inaktivera Azure Policy-tillägget.
 
   1. Välj **principer (förhands granskning)** på vänster sida av Kubernetes-tjänst sidan.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Princip definitioner från AKS-klustret" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Skärm bild av noden "policies (Preview)" på Kubernetes-tjänst sidan." border="false":::
 
   1. På huvud sidan väljer du knappen **Inaktivera tillägg** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Inaktivera Azure Policy för AKS-tillägg" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Skärm bild av knappen "Inaktivera tillägg" på sidan onboard to Azure Policy for the Azure Kubernetes Services (A K S)." border="false":::
 
 - Azure CLI
 

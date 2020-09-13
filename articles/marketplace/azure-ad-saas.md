@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 0d8e2ee684bc08ec23e052229d50b7e9d62c0ecb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/04/2020
+ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328498"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483634"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden
 
@@ -25,9 +25,9 @@ Genom att följa anvisningarna i den här artikeln får du hjälp med att certif
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-När du [skapar ditt SaaS-erbjudande](./partner-center-portal/create-new-saas-offer.md) i Partner Center väljer du från en uppsättning ett särskilt anrop till åtgärds alternativ som visas i erbjudande listan. Ditt val avgör hur ditt erbjudande ska hanteras i den kommersiella marknads platsen. Erbjudanden som säljs via Microsoft kallas för transactable-erbjudanden. Vi fakturerar kunden för din räkning för alla transactable-erbjudanden. Om du väljer att sälja via Microsoft och har oss värd transaktioner för din räkning (alternativet **Ja** ) har du valt att skapa ett valfritt erbjudande och den här artikeln är för dig. Vi rekommenderar att du läser det helt.
+När du [skapar ditt SaaS-erbjudande](./partner-center-portal/create-new-saas-offer.md) i Partner Center väljer du från en uppsättning med olika List alternativ som visas i erbjudande listan. Ditt val avgör hur ditt erbjudande ska hanteras i den kommersiella marknads platsen. Erbjudanden som säljs via Microsoft kallas för transactable-erbjudanden. Vi fakturerar kunden för din räkning för alla transactable-erbjudanden. Om du väljer att sälja via Microsoft och har oss värd transaktioner för din räkning (alternativet **Ja** ) har du valt att skapa ett valfritt erbjudande och den här artikeln är för dig. Vi rekommenderar att du läser det helt.
 
-Om du väljer att bara visa en lista över ditt erbjudande trots att de kommersiella marknads-och process transaktionerna är oberoende av varandra (alternativet **Nej** ) har du tre alternativ för hur potentiella kunder får åtkomst till erbjudandet: Skaffa det nu (kostnads fritt), kostnads fri utvärderings version och kontakta mig. Om du väljer **Hämta nu (kostnads fritt)** eller en **kostnads fri utvärderings version**är den här artikeln inte för dig. Mer information finns i avsnittet [bygga landnings sidan för ditt kostnads fria eller utvärderings SaaS-erbjudande på den kommersiella Marketplace](./azure-ad-free-or-trial-landing-page.md) . Om du väljer **kontakta mig**finns det inga direkta utgivar ansvar. Fortsätt att skapa ditt erbjudande i Partner Center.
+Om du väljer att bara lista ditt erbjudande via de kommersiella marknads platser och bearbeta transaktioner oberoende av varandra (alternativet **Nej** ) har du tre alternativ för hur potentiella kunder får åtkomst till erbjudandet: Skaffa det nu (kostnads fritt), kostnads fri utvärderings version och kontakta mig. Om du väljer **Hämta nu (kostnads fritt)** eller en **kostnads fri utvärderings version**är den här artikeln inte för dig. Mer information finns i avsnittet [bygga landnings sidan för ditt kostnads fria eller utvärderings SaaS-erbjudande på den kommersiella Marketplace](./azure-ad-free-or-trial-landing-page.md) . Om du väljer **kontakta mig**finns det inga direkta utgivar ansvar. Fortsätt att skapa ditt erbjudande i Partner Center.
 
 ## <a name="how-azure-ad-works-with-the-commercial-marketplace-for-saas-offers"></a>Hur Azure AD fungerar med den kommersiella Marketplace för SaaS-erbjudanden
 
@@ -52,9 +52,9 @@ Den här tabellen innehåller information om stegen för inköps hanterings proc
 | Process steg | Utgivar åtgärd | Rekommenderas eller krävs för utgivare |
 | ------------ | ------------- | ------------- |
 | 1. köparen loggar in på den kommersiella marknads platsen med sin Azure ID-identitet och väljer ett SaaS-erbjudande. | Ingen utgivar åtgärd krävs. | Inte tillämpligt |
-| 2. efter köpet väljer köparen **Konfigurera konto** i Azure Marketplace eller **konfigurerar nu** i AppSource, som dirigerar köparen till utgivarens landnings sida för det här erbjudandet. Köparen måste kunna logga in på utgivarens SaaS-program med Azure AD SSO och får bara tillfrågas om minimalt medgivande som inte kräver Azure AD-administratörs godkännande. | Utforma en [landnings sida](azure-ad-transactable-saas-landing-page.md) för erbjudandet så att den får en användare med sin Azure AD-eller Microsoft-konto-identitet (MSA) och underlättar eventuell ytterligare etablering eller konfiguration som krävs. | Krävs |
-| 3. utgivaren begär köp information från API: et för SaaS-utförande. | Med hjälp [av en åtkomsttoken](./partner-center-portal/pc-saas-registration.md) som genererats från landnings sidans program-ID, [anropar du matchnings slut punkten](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) för att hämta information om köpet. | Krävs |
-| 4. via Azure AD och Microsoft Graph API samlar utgivaren in företags-och användar information som krävs för att tillhandahålla köparen i utgivarens SaaS-program.  | Dela upp Azure AD-användartoken för att hitta namn och e-post eller [anropa Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) och Använd delegerade behörigheter för att [Hämta information](https://docs.microsoft.com/graph/api/user-get) om den användare som är inloggad. | Krävs |
+| 2. efter köpet väljer köparen **Konfigurera konto** i Azure Marketplace eller **konfigurerar nu** i AppSource, som dirigerar köparen till utgivarens landnings sida för det här erbjudandet. Köparen måste kunna logga in på utgivarens SaaS-program med Azure AD SSO och får bara tillfrågas om minimalt medgivande som inte kräver Azure AD-administratörs godkännande. | Utforma en [landnings sida](azure-ad-transactable-saas-landing-page.md) för erbjudandet så att den får en användare med sin Azure AD-eller Microsoft-konto-identitet (MSA) och underlättar eventuell ytterligare etablering eller konfiguration som krävs. | Obligatorisk |
+| 3. utgivaren begär köp information från API: et för SaaS-utförande. | Med hjälp [av en åtkomsttoken](./partner-center-portal/pc-saas-registration.md) som genererats från landnings sidans program-ID, [anropar du matchnings slut punkten](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) för att hämta information om köpet. | Obligatorisk |
+| 4. via Azure AD och Microsoft Graph API samlar utgivaren in företags-och användar information som krävs för att tillhandahålla köparen i utgivarens SaaS-program.  | Dela upp Azure AD-användartoken för att hitta namn och e-post eller [anropa Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) och Använd delegerade behörigheter för att [Hämta information](https://docs.microsoft.com/graph/api/user-get) om den användare som är inloggad. | Obligatorisk |
 ||||
 
 ## <a name="process-steps-for-subscription-management"></a>Process steg för prenumerations hantering
@@ -67,7 +67,7 @@ Den här tabellen beskriver detaljerna om stegen för prenumerations hanterings 
 
 | Process steg | Utgivar åtgärd | Rekommenderas eller krävs för utgivare |
 | ------------ | ------------- | ------------- |
-| 5. utgivaren hanterar prenumerationen på SaaS-programmet via SaaS-uppfyllande API: et. | Hantera prenumerations ändringar och andra hanterings uppgifter via [API: er för SaaS-utförande](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Det här steget kräver en åtkomsttoken enligt beskrivningen i process steg 3. | Krävs |
+| 5. utgivaren hanterar prenumerationen på SaaS-programmet via SaaS-uppfyllande API: et. | Hantera prenumerations ändringar och andra hanterings uppgifter via [API: er för SaaS-utförande](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>Det här steget kräver en åtkomsttoken enligt beskrivningen i process steg 3. | Obligatorisk |
 | 6. När du använder mätnings priser genererar utgivaren användnings händelser till API: et för mätnings tjänsten. | Om din SaaS-app har användnings fakturerings funktioner, kan du göra användnings meddelanden via [API: er för avläsning av tjänst](./partner-center-portal/marketplace-metering-service-apis.md).<br><br>Det här steget kräver en åtkomsttoken enligt beskrivningen i steg 3. | Krävs för mätning |
 ||||
 
@@ -88,5 +88,6 @@ Process steg 7 till 9 är valfria steg för att hantera användar hantering. De 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett SaaS-erbjudande på den kommersiella Marketplace](./partner-center-portal/create-new-saas-offer.md)
-- [Bygg in landnings sidan för ditt SaaS-erbjudande i kommersiellt marknads plats](./azure-ad-transactable-saas-landing-page.md)
+- [Bygg in landnings sidan för ditt SaaS-erbjudande i kommersiellt marknads plats](azure-ad-transactable-saas-landing-page.md)
+- [Bygg in landnings sidan för ditt kostnads fria eller utvärderings SaaS-erbjudande på den kommersiella Marketplace](azure-ad-free-or-trial-landing-page.md)
+- [Så här skapar du ett SaaS-erbjudande på den kommersiella Marketplace](create-new-saas-offer.md)

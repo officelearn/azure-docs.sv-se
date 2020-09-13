@@ -2,13 +2,13 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002769"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468563"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -151,7 +151,7 @@ Om du vill rikta en hanterings grupp inom klienten lägger du till en kapslad di
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -167,9 +167,11 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionen [Subscription ()](template-functions-resource.md#subscription) stöds **inte** .
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Använd funktionen [tenantResourceId ()](template-functions-resource.md#tenantresourceid) för att hämta resurs-ID för resurser som distribueras på klient nivå.
+* Använd inte [resourceId ()](template-functions-resource.md#resourceid) för att hämta resurs-ID för resurser som distribueras på klient nivå.
 
-  Om du till exempel vill hämta resurs-ID för en princip definition använder du:
+  Använd i stället funktionen [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
+
+  Om du till exempel vill hämta resurs-ID för en inbyggd princip definition använder du:
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))

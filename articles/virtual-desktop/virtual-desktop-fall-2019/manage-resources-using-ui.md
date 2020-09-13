@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691402"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462589"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med en Azure Resource Manager mall
 
@@ -20,7 +20,7 @@ ms.locfileid: "88691402"
 
 Anvisningarna i den här artikeln beskriver hur du distribuerar användar gränssnittet med hjälp av en Azure Resource Manager mall.
 
-## <a name="important-considerations"></a>Att tänka på
+## <a name="important-considerations"></a>Viktiga överväganden
 
 Eftersom appen kräver medgivande för att interagera med Windows Virtual Desktop, stöder det här verktyget inte Business-to-Business-scenarier (B2B). Varje Azure Active Directory (AAD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget.
 
@@ -98,7 +98,7 @@ När du har beviljat godkännande för organisationen eller för en viss använd
 
 Följ dessa instruktioner för att starta verktyget:
 
-1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel  <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
 3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
 4. När du väljer **standard klient grupp**visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.

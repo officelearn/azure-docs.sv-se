@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055642"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468716"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -174,6 +174,42 @@ Du kan **kombinera** någon av ovanstående typer av fråga med hjälp av kombin
 | Från de enheter som *Room 123* har kan du returnera de MxChip-enheter som hanterar rollen operatör | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Hämta dubbla som har en relation som heter *innehåller* med en annan som har ID: t *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | Hämta alla rum för den här rums modellen som finns i *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
+
+## <a name="reference-expressions-and-conditions"></a>Referens: uttryck och villkor
+
+Det här avsnittet innehåller en referens för de operatörer och funktioner som är tillgängliga när du skriver Azure Digitals dubbla frågor.
+
+### <a name="operators"></a>Operatorer
+
+Följande operatorer stöds:
+
+| Familj | Operatorer |
+| --- | --- |
+| Logisk |AND, OR, NOT (och, eller, inte) |
+| Jämförelse |=,! =, <, >, <=, >= |
+| Innehåller | I, NOM |
+
+### <a name="functions"></a>Functions
+
+Följande typ av kontroll och data typs funktioner stöds:
+
+| Funktion | Beskrivning |
+| -------- | ----------- |
+| IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. Detta stöds endast när värdet är en primitiv typ. Primitiva typer är sträng, boolesk, numerisk eller `null` . DateTime, objekt typer och matriser stöds inte. |
+| IS_OF_MODEL | Returnerar ett booleskt värde som anger om den angivna dubbla matchar den angivna modell typen |
+| IS_BOOL | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är ett booleskt värde. |
+| IS_NUMBER | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är ett tal. |
+| IS_STRING | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en sträng. |
+| IS_NULL | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är null. |
+| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en primitiv (sträng, boolesk, numerisk eller `null` ). |
+| IS_OBJECT | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är ett JSON-objekt. |
+
+Följande sträng funktioner stöds:
+
+| Funktion | Beskrivning |
+| -------- | ----------- |
+| STARTS_WITH (x, y) | Returnerar ett booleskt värde som anger om det första sträng uttrycket börjar med det andra. |
+| ENDS_WITH (x, y) | Returnerar ett booleskt värde som anger om det första sträng uttrycket slutar med det andra. |
 
 ## <a name="run-queries-with-an-api-call"></a>Köra frågor med ett API-anrop
 

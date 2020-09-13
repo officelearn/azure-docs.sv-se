@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ae42bb29d1273e4f0f9c25803e8cc97b56ad95
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514452"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462419"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
 
@@ -34,7 +34,7 @@ Var och en av dessa metoder visas med olika överbelastningar för olika scenari
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynkron jämfört med synkron
 
-Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ett exempel:
+Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Exempel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -200,5 +200,5 @@ Mer information om Azure Storage och klient bibliotek för C++ finns i följande
 * [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Så använder du Queue Storage från C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage klient bibliotek för C++ API-dokumentation.](https://azure.github.io/azure-storage-cpp/)
-* [Azure Storage teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [Azure Storage dokumentation](https://azure.microsoft.com/documentation/services/storage/)

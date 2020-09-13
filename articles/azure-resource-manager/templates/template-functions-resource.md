@@ -2,13 +2,13 @@
 title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661409"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468682"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -16,6 +16,7 @@ Resource Manager tillhandahåller följande funktioner för att hämta resurs v�
 
 * [extensionResourceId](#extensionresourceid)
 * [lista](#list)
+* [pickZones](#pickzones)
 * [finansiär](#providers)
 * [förhållande](#reference)
 * [resourceGroup](#resourcegroup)
@@ -39,7 +40,7 @@ Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource
 | resourceId |Ja |sträng |Resurs-ID för resursen som tilläggs resursen tillämpas på. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -101,6 +102,12 @@ I följande exempel returneras resurs-ID för ett resurs grupp lås.
 }
 ```
 
+En anpassad princip definition som distribueras till en hanterings grupp implementeras som en tilläggs resurs. Om du vill skapa och tilldela en princip distribuerar du följande mall till en hanterings grupp.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Inbyggda princip definitioner är klient nivå resurser. Ett exempel på hur du distribuerar en inbyggd princip definition finns i [tenantResourceId](#tenantresourceid).
+
 <a id="listkeys"></a>
 <a id="list"></a>
 
@@ -116,7 +123,7 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Unikt ID för resursen. |
 | apiVersion |Ja |sträng |API-version för resurs körnings tillstånd. Normalt i formatet **åååå-mm-dd**. |
-| functionValues |Nej |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
+| functionValues |Inga |objekt | Ett objekt som har värden för funktionen. Ange bara det här objektet för funktioner som stöder mottagning av ett objekt med parameter värden, t. ex. **listAccountSas** på ett lagrings konto. Ett exempel på att skicka funktions värden visas i den här artikeln. |
 
 ### <a name="valid-uses"></a>Giltig användning
 
@@ -130,9 +137,16 @@ Den möjliga användningen av List * visas i följande tabell.
 
 | Resurstyp | Funktionsnamn |
 | ------------- | ------------- |
+| Microsoft. addons/supportProviders | listsupportplaninfo |
 | Microsoft. AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft. API Management/Service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
+| Microsoft. API Management/Service/Gateways | [Listnycklar](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
+| Microsoft. API Management/Service/Identityprovider | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
+| Microsoft. API Management/Service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
+| Microsoft. API Management/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
-| Microsoft. AppConfiguration/configurationStores | Listnycklar |
+| Microsoft. AppConfiguration/configurationStores | [Listnycklar](/rest/api/appconfiguration/configurationstores/listkeys) |
+| Microsoft. AppPlatform/våren | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft. Automation/automationAccounts | [Listnycklar](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.BatCH/batchAccounts | [listnycklar](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/arbets ytor/experiment/jobb | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -144,10 +158,15 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. ContainerRegistry/register | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft. ContainerRegistry/register | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft. ContainerRegistry/register | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft. ContainerRegistry/register/agentpools | listQueueStatus |
+| Microsoft. ContainerRegistry/register/buildTasks | listSourceRepositoryProperties |
+| Microsoft. ContainerRegistry/register/buildTasks/steg | listBuildArguments |
+| Microsoft. ContainerRegistry/register/taskruns | listDetails |
 | Microsoft. ContainerRegistry/register/Webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft. ContainerRegistry/register/kör | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
 | Microsoft. ContainerRegistry/register/uppgifter | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft. container service/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft. container service/managedClusters | [listClusterMonitoringUserCredential](/rest/api/aks/managedclusters/listclustermonitoringusercredentials) |
 | Microsoft. container service/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft. container service/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
 | Microsoft. data-och-jobb | listCredentials |
@@ -168,6 +187,7 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. DevTestLab/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [Listnycklar](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/Domains | [Listnycklar](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -206,7 +226,9 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. NotificationHubs/Namespaces/authorizationRules | [listnycklar](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listnycklar](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft. OperationalInsights/arbets ytor | [lista](/rest/api/loganalytics/workspaces/list) |
+| Microsoft. OperationalInsights/arbets ytor | Listnycklar |
 | Microsoft. PolicyInsights/-reparationer | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft. RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
 | Microsoft. Relay/Namespaces/authorizationRules | [listnycklar](/rest/api/relay/namespaces/listkeys) |
 | Microsoft. Relay/Namespaces/disasterRecoveryConfigs/authorizationRules | listnycklar |
 | Microsoft. Relay/Namespaces/HybridConnections/authorizationRules | [listnycklar](/rest/api/relay/hybridconnections/listkeys) |
@@ -225,6 +247,7 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. StorSimple/chefer/Devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
 | Microsoft. StorSimple/chefer | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
 | Microsoft. StorSimple/chefer | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Microsoft. Synapse/arbets ytor/integrationRuntimes | [listAuthKeys](/rest/api/synapse/integrationruntimeauthkeys/list) |
 | Microsoft. Web/connectionGateways | ListStatus |
 | Microsoft. Web/Connections | listconsentlinks |
 | Microsoft. Web/customApis | listWsdlInterfaces |
@@ -316,6 +339,94 @@ I nästa exempel visas en List-funktion som använder en parameter. I det här f
 
 Ett listKeyValue-exempel finns i [snabb start: automatisk distribution av virtuella datorer med app Configuration och Resource Manager-mall](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
 
+## <a name="pickzones"></a>pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+Bestämmer om en resurs typ stöder zoner för en region.
+
+### <a name="parameters"></a>Parametrar
+
+| Parameter | Krävs | Typ | Beskrivning |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | Ja | sträng | Resurs leverantörens namn område för resurs typen för att kontrol lera om det finns stöd för zonen. |
+| resourceType | Ja | sträng | Resurs typen för att kontrol lera om det finns stöd för zonen. |
+| location | Ja | sträng | Regionen för att kontrol lera om det finns stöd för zonen. |
+| numberOfZones | Inga | heltal | Antalet logiska zoner som ska returneras. Standard är 1. Talet måste vara ett positivt heltal mellan 1 och 3.  Använd 1 för resurser med en zon. För resurser med flera zoner måste värdet vara mindre än eller lika med antalet zoner som stöds. |
+| offset | Inga | heltal | Förskjutningen från den inledande logiska zonen. Funktionen returnerar ett fel om förskjutningen plus numberOfZones överskrider antalet zoner som stöds. |
+
+### <a name="return-value"></a>Returvärde
+
+En matris med zoner som stöds. När du använder standardvärden för förskjutning och numberOfZones returnerar en resurs typ och region som stöder zoner följande matris:
+
+```json
+[
+    "1"
+]
+```
+
+När `numberOfZones` parametern har angetts till 3 returneras:
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+När resurs typen eller regionen inte stöder zoner returneras en tom matris.
+
+```json
+[
+]
+```
+
+### <a name="pickzones-example"></a>pickZones-exempel
+
+Följande mall visar tre resultat för att använda funktionen pickZones.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+Utdata från föregående exempel returnerar tre matriser.
+
+| Namn | Typ | Värde |
+| ---- | ---- | ----- |
+| stöds | matris | ["1"] |
+| notSupportedRegion | matris | [] |
+| notSupportedType | matris | [] |
+
+Du kan använda svaret från pickZones för att avgöra om du vill tillhandahålla null för zoner eller tilldela virtuella datorer till olika zoner. I följande exempel anges ett värde för zonen baserat på tillgängligheten för zoner.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
+
 ## <a name="providers"></a>finansiär
 
 `providers(providerNamespace, [resourceType])`
@@ -327,7 +438,7 @@ Returnerar information om en resurs leverantör och de resurs typer som stöds. 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Ja |sträng |Namn område för providern |
-| resourceType |Nej |sträng |Typ av resurs inom den angivna namn rymden. |
+| resourceType |Inga |sträng |Typ av resurs inom den angivna namn rymden. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -402,8 +513,8 @@ Returnerar ett objekt som representerar en resurs körnings tillstånd.
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du endast resurs namnet som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt. |
-| apiVersion |Nej |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
-| Fullständig |Nej |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
+| apiVersion |Inga |sträng |API-version för den angivna resursen. **Den här parametern krävs när resursen inte är etablerad i samma mall.** Normalt i formatet **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
+| Fullständig |Inga |sträng |Värde som anger om det fullständiga resurs objekt ska returneras. Om du inte anger `'Full'` returneras bara resursens egenskaps objekt. Det fullständiga objektet innehåller värden, till exempel resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -724,11 +835,11 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
-| resourceGroupName |Nej |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
+| resourceGroupName |Inga |sträng |Standardvärdet är den aktuella resurs gruppen. Ange det här värdet när du behöver hämta en resurs i en annan resurs grupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -740,23 +851,27 @@ När mallen distribueras i omfånget för en resurs grupp, returneras resurs-ID 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-När det används i en [distribution på prenumerations nivå](deploy-to-subscription.md)returneras resurs-ID i följande format:
+Du kan använda resourceId-funktionen för andra distributions omfattningar, men formatet på-ID: t ändras.
+
+Om du använder resourceId vid distribution till en prenumeration returneras resurs-ID i följande format:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-När det används i en distribution på [hanterings grupps nivå](deploy-to-management-group.md) eller på klient nivå, returneras resurs-ID i följande format:
+Om du använder resourceId vid distribution till en hanterings grupp eller klient organisation, returneras resurs-ID i följande format:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Information om hur du hämtar ID i andra format finns i:
+För att undvika förvirring rekommenderar vi att du inte använder resourceId när du arbetar med resurser som distribuerats till prenumerationen, hanterings gruppen eller klient organisationen. Använd i stället den ID-funktion som är utformad för omfånget.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+Använd funktionen [subscriptionResourceId](#subscriptionresourceid) för [resurser på prenumerations nivå](deploy-to-subscription.md).
+
+Använd funktionen [extensionResourceId](#extensionresourceid) för att referera till en resurs som implementeras som en utökning av en hanterings grupp för [resurser på hanterings grupps nivå](deploy-to-management-group.md). Till exempel är anpassade princip definitioner som distribueras till en hanterings grupp tillägg i hanterings gruppen. Använd funktionen [tenantResourceId](#tenantresourceid) för att referera till resurser som distribueras till klienten men som är tillgängliga i hanterings gruppen. Till exempel implementeras inbyggda princip definitioner som klient nivå resurser.
+
+Använd funktionen [tenantResourceId](#tenantresourceid) för [resurser på klient organisations nivå](deploy-to-tenant.md). Använd tenantResourceId för inbyggda princip definitioner eftersom de implementeras på klient nivå.
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -920,10 +1035,10 @@ Returnerar den unika identifieraren för en resurs som distribueras på prenumer
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| subscriptionId |Inga |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1004,7 +1119,7 @@ Returnerar den unika identifieraren för en resurs som distribueras på klient n
 |:--- |:--- |:--- |:--- |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resurs leverantörens namn område. |
 | resourceName1 |Ja |sträng |Resursens namn. |
-| resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
+| resourceName2 |Inga |sträng |Nästa resurs namns segment, om det behövs. |
 
 Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåller fler segment.
 
@@ -1019,6 +1134,44 @@ Identifieraren returneras i följande format:
 ### <a name="remarks"></a>Kommentarer
 
 Du använder den här funktionen för att hämta resurs-ID för en resurs som distribueras till klienten. Det returnerade ID: t skiljer sig från värdena som returneras av andra resurs-ID-funktioner, inklusive resurs grupps-eller prenumerations värden.
+
+### <a name="tenantresourceid-example"></a>tenantResourceId-exempel
+
+Inbyggda princip definitioner är klient nivå resurser. Om du vill distribuera en princip tilldelning som refererar till en inbyggd princip definition använder du funktionen tenantResourceId.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

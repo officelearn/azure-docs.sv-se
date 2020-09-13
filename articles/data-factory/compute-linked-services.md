@@ -1,6 +1,6 @@
 ---
 title: Beräknings miljöer som stöds av Azure Data Factory
-description: Lär dig mer om beräknings miljöer som du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) för att transformera eller bearbeta data.
+description: Beräknings miljöer som kan användas med Azure Data Factory pipelines (till exempel Azure HDInsight) för att transformera eller bearbeta data.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563746"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483197"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
 
@@ -33,7 +33,7 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (tidigare SQL Data Warehouse)](#azure-synapse-analytics-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [jar](transform-data-databricks-jar.md), [python](transform-data-databricks-python.md) |
 | [Azure-funktion](#azure-function-linked-service)         | [Azure Function-aktivitet](control-flow-azure-function-activity.md)
 >  
@@ -157,7 +157,7 @@ Den länkade HDInsight-tjänsten på begäran kräver en tjänstens huvud namns 
 
 - Program-ID
 - Program nyckel 
-- Klientorganisations-ID
+- Klient-ID:t
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
 
@@ -265,7 +265,7 @@ Den här typen av konfiguration stöds för följande beräknings miljöer:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL DB, Azure SQL DW, SQL Server
+* Azure SQL DB, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Länkad Azure HDInsight-tjänst
 Du kan skapa en länkad Azure HDInsight-tjänst för att registrera ditt eget HDInsight-kluster med Data Factory.
@@ -562,9 +562,9 @@ Du kan skapa **Azure Databricks länkade tjänsten** för att registrera Databri
 
 Du skapar en länkad Azure SQL-tjänst och använder den med den [lagrade procedur aktiviteten](transform-data-using-stored-procedure.md) för att anropa en lagrad procedur från en Data Factory pipeline. Se artikeln om [Azure SQL Connector](connector-azure-sql-database.md#linked-service-properties) för information om den här länkade tjänsten.
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse länkad tjänst
+## <a name="azure-synapse-analytics-linked-service"></a>Länkad Azure Synapse Analytics-tjänst
 
-Du skapar en Azure SQL Data Warehouse länkad tjänst och använder den med den [lagrade procedur aktiviteten](transform-data-using-stored-procedure.md) för att anropa en lagrad procedur från en Data Factory pipeline. Se [Azure SQL Data Warehouse Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) -artikeln för information om den här länkade tjänsten.
+Du skapar en länkad Azure Synapse Analytics-tjänst (tidigare SQL Data Warehouse) och använder den med den [lagrade procedur aktiviteten](transform-data-using-stored-procedure.md) för att anropa en lagrad procedur från en Data Factory pipeline. Mer information om den här länkade tjänsten finns i artikeln [Azure Synapse Analytics (tidigare SQL Data Warehouse) Connector](connector-azure-sql-data-warehouse.md#linked-service-properties) .
 
 ## <a name="sql-server-linked-service"></a>SQL Server länkad tjänst
 
@@ -574,7 +574,7 @@ Du skapar en SQL Server länkad tjänst och använder den med den [lagrade proce
 
 Du skapar en länkad Azure Function-tjänst och använder den med [Azure Function-aktiviteten](control-flow-azure-function-activity.md) för att köra Azure Functions i en Data Factory pipeline. Retur typen för Azure-funktionen måste vara giltig `JObject` . (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *inte* är en `JObject` .) Andra retur typer än `JObject` Miss lyckas och det går inte att skicka användar fel *svars innehållet är inte ett giltigt JObject*.
 
-| **Egenskap** | **Beskrivning** | **Krävs** |
+| **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
 | typ   | Egenskapen Type måste anges till: **AzureFunction** | ja |
 | URL till Function-app | URL för Azure-Funktionsapp. Formatet är `https://<accountname>.azurewebsites.net` . URL: en är värdet under **URL** -avsnittet när du visar Funktionsapp i Azure Portal  | ja |

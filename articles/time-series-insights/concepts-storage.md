@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855120"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483277"
 ---
 # <a name="data-storage"></a>Datalagring
 
@@ -24,7 +24,7 @@ När du skapar en Azure Time Series Insights Gen2-miljö skapar du två Azure-re
 * En Azure Time Series Insights Gen2-miljö som kan konfigureras för varm data lagring.
 * Ett Azure Storage konto för kall data lagring.
 
-Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./time-series-insights-update-tsq.md) och [Azure Time Series Insights TSD-Utforskare](./time-series-insights-update-explorer.md). Ditt varma Store kommer att innehålla senaste data inom den [kvarhållna kvarhållningsperiod](./time-series-insights-update-plan.md#the-preview-environment) som valts när du skapade Azure Time Series Insights Gen2-miljön.
+Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./time-series-insights-update-tsq.md) och [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md). Ditt varma Store kommer att innehålla senaste data inom den [kvarhållna kvarhållningsperiod](./time-series-insights-update-plan.md#the-preview-environment) som valts när du skapade Azure Time Series Insights Gen2-miljön.
 
 Azure Time Series Insights Gen2 sparar dina kall data till Azure Blob Storage i [fil formatet Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 hanterar den här kall lagrings informationen exklusivt, men den är tillgänglig så att du kan läsa direkt som standard Parquet-filer.
 
@@ -58,7 +58,7 @@ För att säkerställa frågornas prestanda och data tillgänglighet ska du inte
 
 #### <a name="accessing-cold-store-data"></a>Åtkomst till data för kall lagring
 
-Förutom att komma åt dina data från [Azure Time Series Insights TSD](./time-series-insights-update-explorer.md) -och [Time Series-fråge-API: er](./time-series-insights-update-tsq.md), kanske du också vill komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
+Förutom att komma åt dina data från API: erna för [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) och [Time Series](./time-series-insights-update-tsq.md), kanske du också vill komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
 
 Om du vill komma åt data direkt från ditt Azure Storage-konto behöver du Läs behörighet till det konto som används för att lagra dina Azure Time Series Insights Gen2-data. Du kan sedan läsa valda data baserat på skapande tiden för den Parquet-fil som finns i `PT=Time` mappen som beskrivs nedan i avsnittet [fil format för Parquet](#parquet-file-format-and-folder-structure) .  Mer information om hur du aktiverar Läs åtkomst till ditt lagrings konto finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
 

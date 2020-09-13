@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
-ms.openlocfilehash: 766245dcfe42c16106df6beed938fe2f04af05cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286688"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468665"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloud Shell
 
@@ -33,7 +33,7 @@ Du kan komma åt Cloud Shell på tre sätt:
 
     ![Ikon för att starta Cloud Shell från Azure Portal](media/overview/portal-launch-icon.png)
 
-- **Kodfragment: på** [docs.Microsoft.com](https://docs.microsoft.com) och [Microsoft Learn](https://docs.microsoft.com/learn/)väljer du knappen **testa** som visas med Azure CLI och Azure PowerShell kodfragment:
+- **Kodfragment: på** [docs.Microsoft.com]() och [Microsoft Learn](/learn/)väljer du knappen **testa** som visas med Azure CLI och Azure PowerShell kodfragment:
 
     ```azurecli-interactive
     az account show
@@ -87,8 +87,8 @@ Cloud Shell är ett flexibelt verktyg som kan användas från:
 
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell-dokumentation](https://docs.microsoft.com/powershell/azure/)
+* [Azure CLI-dokumentation](/cli/azure)
+* [Azure PowerShell-dokumentation](/powershell/azure/)
 * [Azure-mobilapp](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Tillägg för Visual Studio Code Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -111,7 +111,7 @@ Läs mer om hur du monterar ett [nytt eller befintligt lagrings konto](persistin
 * Cloud Shell kvarstår $HOME att använda en 5 GB-avbildning som lagras i fil resursen
 * Behörigheter anges som en vanlig Linux-användare i bash
 
-Lär dig mer om funktioner i [bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell](features-powershell.md).
+Lär dig mer om funktioner i [bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell](./features.md).
 
 ## <a name="pricing"></a>Prissättning
 

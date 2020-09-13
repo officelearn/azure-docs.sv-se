@@ -14,20 +14,20 @@ ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816005"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567358"
 ---
 # <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
 
 I den här artikeln beskrivs hur du aktiverar Privileged Identity Management (PIM) och kommer igång med det.
 
-Använd Privileged Identity Management (PIM) för att hantera, kontrol lera och övervaka åtkomst i din Azure Active Directory (Azure AD)-organisation. Med PIM kan du tillhandahålla nödvändiga och just-in-Time-åtkomst till Azure-resurser, Azure AD-resurser och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.
+Använd Privileged Identity Management (PIM) för att hantera, kontrol lera och övervaka åtkomst i din Azure Active Directory (Azure AD)-organisation. Med PIM kan du tillhandahålla nödvändiga och just-in-Time-åtkomst till Azure-resurser, Azure AD-resurser och andra Microsoft-onlinetjänster som Microsoft 365 eller Microsoft Intune.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda Privileged Identity Management måste du ha någon av följande licenser:
 
@@ -72,7 +72,7 @@ När Privileged Identity Management har kon figurer ATS kan du lära dig hur du 
 
 För att göra det lättare att öppna Privileged Identity Management lägger du till en PIM-panel i Azure Portal instrument panelen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj **alla tjänster** och Sök efter tjänsten **Azure AD Privileged Identity Management** .
 

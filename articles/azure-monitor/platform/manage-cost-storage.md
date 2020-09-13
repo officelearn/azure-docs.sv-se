@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933672"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595659"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar    
 
@@ -160,13 +160,16 @@ Det är också möjligt att ange olika inställningar för kvarhållning för en
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Observera att data typen (tabell) är Skift läges känslig.  Använd följande för att hämta de aktuella inställningarna för kvarhållning av data typer för en viss datatyp (i det här exemplet SecurityEvent):
+Observera att data typen (tabell) är Skift läges känslig.  Använd följande för att hämta de aktuella inställningarna för kvarhållning per data typ för en viss datatyp (i det här exemplet SecurityEvent):
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-Om du vill hämta de aktuella inställningarna för kvarhållning per datatyp för alla data typer i din arbets yta, utelämnar du bara den specifika data typen, till exempel:
+> [!NOTE]
+> Kvarhållning returneras bara för en datatyp om kvarhållning uttryckligen har angetts.  Data typer som inte hade kvarhållning uttryckligen har angetts (och därmed ärver kvarhållning av arbets yta) kommer inte att returnera något från det här anropet. 
+
+Om du vill hämta de aktuella inställningarna för kvarhållning per datatyp för alla data typer på din arbets yta som har den angivna lagrings typen per data typ, behöver du bara utelämna den specifika data typen, till exempel:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -575,9 +578,9 @@ Följ dessa steg om du vill varna om den fakturerbara data volymen som matats in
 - **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
 - **Aviseringskriterier** ange följande:
    - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
+   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Om du vill ha en differetn 
    - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
-   - **Tids period** på *1440* minuter och **aviserings frekvens** till var *1440* minut att köras en gång om dagen.
+   - **Tids period** på *1440* minuter och **aviserings frekvens** till varje *1440* minutesto körs en gång om dagen.
 - **Definiera aviseringsinformation** ange följande:
    - **Namn** till *fakturerbar data volym större än 50 GB på 24 timmar*
    - **Allvarlighetsgrad** till *varning*
@@ -604,7 +607,7 @@ När datainsamlingen stoppas är OperationStatus **Varning**. När datainsamling
 |Orsaks insamling stoppas| Lösning| 
 |-----------------------|---------|
 |Arbets ytans dagliga tak har uppnåtts|Vänta tills insamlingen startar om automatiskt eller öka den dagliga data volym gränsen som beskrivs i hantera den maximala dagliga data volymen. Den dagliga återställnings tiden visas på sidan för **dagligt tak** . |
-| Din arbets yta har nått [volym frekvensen för data inmatningar](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Ett tröskelvärde för standard inmatnings volym frekvens på 500 MB (komprimerat) gäller för arbets ytor, som är cirka **6 GB/min** okomprimerad – den faktiska storleken kan variera mellan olika data typer beroende på loggens längd och dess komprimerings förhållande. Detta tröskelvärde gäller för alla inmatade data oavsett om de skickas från Azure-resurser med hjälp av [diagnostikinställningar](diagnostic-settings.md), [data insamlings-API](data-collector-api.md) eller agenter. När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inläsnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den på arbets ytan genom att öppna en support förfrågan. Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik baserat på antalet resultat som är större än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter. Inmatnings volymens hastighet nådde 80% av tröskelvärdet: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Inläsnings volymens hastighet nådde tröskel: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
+| Din arbets yta har nått [volym frekvensen för data inmatningar](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Standardgränsen för datainmatningsvolym som skickas från Azure-resurser med hjälp av diagnostikinställningar är cirka 6 GB/min per arbetsyta. Detta är ett ungefärligt värde eftersom den faktiska storleken kan variera mellan olika datatyper beroende på logglängden och dess komprimeringsförhållande. Den här begränsningen gäller inte för data som skickas från agenter eller API för datainsamling. Om du skickar data med en högre hastighet till en enskild arbetsyta släpps vissa data, och en händelse skickas till åtgärdstabellen i arbetsytan var 6:e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatningsvolym fortsätter att överskrida hastighetsgränsen eller om du förväntar dig att snart nå den, kan du begära en ökning för arbetsytan genom att skicka ett e-postmeddelande till LAIngestionRate@microsoft.com eller öppna en supportbegäran. Händelsen att söka efter som anger att en gräns för datainmatningsfrekvensen kan hittas av frågan `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Den dagliga gränsen för den äldre kostnads fria pris nivån har uppnåtts |Vänta till följande dag för insamling av automatisk omstart eller ändra till en betald pris nivå.|
 |Azure-prenumerationen är i ett inaktiverat tillstånd på grund av:<br> Den kostnads fria utvärderingen avslutades<br> Azure-pass har gått ut<br> Månads utgifts gräns har nåtts (till exempel för en MSDN-eller Visual Studio-prenumeration)|Konvertera till en betald prenumeration<br> Ta bort gräns eller vänta tills begränsningen återställs|
 

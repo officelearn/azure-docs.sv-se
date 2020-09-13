@@ -4,12 +4,12 @@ description: Få en översikt över vad du kan göra med mått aviseringar och h
 ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258426"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595571"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -137,13 +137,15 @@ Den här funktionen stöds för närvarande för plattforms mått (inte anpassad
 
 | Tjänst | Offentlig Azure | Myndigheter | Kina |
 |:--------|:--------|:--------|:--------|
-| Virtuella datorer  | **Ja** | Inga | Inga |
+| Virtuella datorer<sup>1</sup>  | **Ja** | Inga | Inga |
 | SQL Server-databaser | **Ja** | **Ja** | **Ja** |
 | Elastiska SQL Server-pooler | **Ja** | **Ja** | **Ja** |
 | Kapacitets pooler för NetApp-filer | **Ja** | **Ja** | **Ja** |
 | NetApp-filer volymer | **Ja** | **Ja** | **Ja** |
 | Nyckelvalv | **Ja** | **Ja** | **Ja** |
 | Data Box Edge-enheter | **Ja** | **Ja** | **Ja** |
+
+<sup>1</sup> stöds inte för nätverks mått för virtuella datorer (totalt nätverk, totalt antal nätverk, inkommande flöden, utgående flöden, inkommande flöden, högsta skapande frekvens, utgående flöden, maximal skapande frekvens).
 
 Du kan ange omfattningen för övervakning av en regel för en enskild måtts avisering på ett av tre sätt. Med virtuella datorer kan du till exempel ange omfånget som:  
 

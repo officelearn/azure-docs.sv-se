@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/08/2020
 ms.author: b-juche
-ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ca17dccd8b17a2e0ff7e9b960c74b4c5a36018f5
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690552"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567327"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Lösningsarkitekturer med Azure NetApp Files
 Den här artikeln innehåller referenser till bästa praxis som kan hjälpa dig att förstå lösnings arkitekturerna för att använda Azure NetApp Files.  
@@ -50,8 +50,8 @@ Det här avsnittet innehåller referenser för Windows-program och SQL Server-l�
 ### <a name="sql-server"></a>SQL Server
 
 * [Distribuera SQL Server över SMB med Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
-* [Distribuera SQL Server Always failover-kluster över SMB med Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
-* [Distribuera alltid tillgänglighets grupper med Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
+<!-- * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) --> 
+<!-- * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) --> 
 
 ## <a name="sap-on-azure-solutions"></a>SAP på Azure-lösningar
 
@@ -89,7 +89,7 @@ Det här avsnittet innehåller referenser till infrastruktur lösningar för vir
 * [Fördelar med att använda Azure NetApp Files med Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
 * [Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
-* [Windows Virtual Desktop i företags skala](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Windows Virtual Desktop i företagsskala](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="hpc-solutions"></a>HPC-lösningar
 
@@ -111,7 +111,7 @@ Det här avsnittet innehåller referenser för HPC-lösningar (data behandling m
 * [Fördelar med att använda Azure NetApp Files för elektronisk designautomatisering](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab med Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analys
 
 * [Azure NetApp Files: ett nytt delat fil system som ska användas med SAS-rutnät på Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
 

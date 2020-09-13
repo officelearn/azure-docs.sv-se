@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81422103"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570121"
 ---
 Att placera virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Att placera dem i en enda tillgänglighets zon kommer också att ta dem fysiskt närmare varandra. I takt med att Azure-utrymmet växer kan en enda tillgänglighets zon sträcka sig över flera fysiska data Center, vilket kan leda till en nätverks fördröjning som påverkar ditt program. 
 
@@ -34,7 +34,7 @@ En närhets placerings grupp är en logisk gruppering som används för att se t
 
 En närhets placerings grupp är en ny resurs typ i Azure. Du måste skapa ett innan du använder det med andra resurser. När den har skapats kan den användas med virtuella datorer, tillgänglighets uppsättningar eller skalnings uppsättningar för virtuella datorer. Du anger en närhets placerings grupp när du skapar beräknings resurser som ger närhets grupp-ID: t. 
 
-Du kan också flytta en befintlig resurs till en närhets placerings grupp. När du flyttar en resurs till en närhets placerings grupp bör du stoppa (frigöra) till gången först eftersom den kommer att omdistribueras till ett annat data Center i regionen så att den uppfyller samplacerings begränsningen. 
+Du kan också flytta en befintlig resurs till en närhets placerings grupp. När du flyttar en resurs till en närhets placerings grupp bör du stoppa (frigöra) till gången först eftersom den kommer att omdistribueras till ett annat data Center i regionen för att uppfylla begränsningen för samplacering. 
 
 Om det gäller tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer bör du ange placerings gruppen närhet på resurs nivå i stället för de enskilda virtuella datorerna. 
 

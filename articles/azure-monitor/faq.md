@@ -7,16 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782948"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569211"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor.
+Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor. Om du har ytterligare frågor kan du gå till [diskussions forumet](https://docs.microsoft.com/answers/questions/topics/single/24223.html) och publicera dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
+
 
 ## <a name="general"></a>Allmänt
 
@@ -98,7 +99,7 @@ Knapparna i **query Explorer**, **Spara** och **ny varnings regel** är inte til
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Varför visas följande fel meddelande: "Registrera Resource providern Microsoft. Insights för den här prenumerationen om du vill aktivera den här frågan" när du öppnar Log Analytics från en virtuell dator? 
 Många resurs leverantörer registreras automatiskt, men du kan behöva registrera vissa resurs leverantörer manuellt. Omfånget för registreringen är alltid prenumerationen. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Varför får jag inget åtkomst fel meddelande när jag öppnar Log Analytics från en virtuell dator? 
+### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Varför får jag inget åtkomst fel meddelande när jag öppnar Log Analytics från en virtuell dator? 
 Om du vill visa VM-loggar måste du beviljas med Läs behörighet till de arbets ytor som lagrar de virtuella dator loggarna. I dessa fall måste administratören bevilja dig behörigheter i Azure.
 
 ## <a name="metrics"></a>Mått
@@ -523,9 +524,54 @@ Det finns dock fortfarande fall där övervakning på Server sidan har Aktiver A
 
 I det här scenariot kan ett 502-eller 503-svar returneras till en klient på grund av ett problem med det omvända proxy-lagret och det skulle inte samlas in direkt av Application Insights. För att hjälpa att identifiera problem i det här lagret kan du behöva vidarebefordra loggar från den omvända proxyn till Log Analytics och skapa en anpassad regel för att söka efter 502/503 svar. Mer information om vanliga orsaker till 502 och 503-fel finns i [artikeln Azure App Service fel sökning för "502 Felaktig gateway" och "503 service är inte tillgänglig"](../app-service/troubleshoot-http-502-http-503.md).     
 
-## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
+## <a name="opentelemetry"></a>OpenTelemetry
+
+### <a name="what-is-opentelemetry"></a>Vad är opentelemetri
+
+En ny standard för öppen källkod för att kunna observera. Läs mer på [https://opentelemetry.io/](https://opentelemetry.io/) .
+
+### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Varför är Microsoft/Azure Monitor-investeringar i opentelemetri?
+
+Vi tror att det bättre tjänar våra kunder av tre anledningar:
+   1. Aktivera stöd för fler kund scenarier.
+   2. Instrument utan att det är någon som är försäkrad från leverantören.
+   3. Öka kundernas insyn och engagemang.
+
+Den anpassas också med Microsofts strategi för att omfatta [öppen källkod](https://opensource.microsoft.com/).
+
+### <a name="what-additional-value-does-opentelemetry-give-me"></a>Vilket extra värde ger opentelemetri mig?
+
+Förutom orsakerna ovan är opentelemetri mer effektivt i stor skala och ger konsekvent design/konfigurationer på olika språk.
+
+### <a name="how-can-i-test-out-opentelemetry"></a>Hur kan jag testa opentelemetri?
+
+Registrera dig för att gå med i vår Azure Monitor Application Insights hon community för tidiga antaganden [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) .
+
+### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>Vad betyder GA i samband med opentelemetri?
+
+Gruppen opentelemetri definierar allmänt tillgänglig (GA) [här](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302). Opentelemetri "GA" betyder dock inte funktions paritet med befintliga Application Insights SDK: er. Azure Monitor fortsätter att rekommendera våra aktuella Application Insights SDK: er för kunder som kräver funktioner som [föraggregerade mått](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), Live- [mått](app/live-stream.md), [anpassningsbara samplingar](app/sampling.md#adaptive-sampling), [profiler](app/profiler-overview.md)och [ögonblicks bilds fel sökning](app/snapshot-debugger.md) tills SDK: erna för opentelemetri når funktions förfallo tid.
+
+### <a name="can-i-use-preview-builds-in-production-environments"></a>Kan jag använda för hands versioner i produktions miljöer?
+
+Det rekommenderas inte. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna.
+
+### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>Vad är skillnaden mellan opentelemetri SDK och automatiska Instrumentation?
+
+I opentelemetri-specifikationen definieras [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). I korthet är "SDK" ett språkspecifikt paket som samlar in telemetridata i de olika komponenterna i programmet och skickar data till Azure Monitor via en exportör.
+
+Begreppet Auto-Instrumentation (kallas ibland för bytekod-insprutning, kod lös eller agent-baserad) syftar på möjligheten att instrumentera ditt program utan att ändra din kod. Titta till exempel på sidan [Opentelemetri Java Auto-Instrumentation viktigt](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) för mer information.
+
+### <a name="whats-the-opentelemetry-collector"></a>Vad är opentelemetri Collector?
+
+Insamlaren opentelemetri beskrivs i [Readme-filen för GitHub](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). För närvarande använder Microsoft inte insamlaren för opentelemetri och är beroende av direkta exportörer som skickar till Azure Monitor Application Insights.
+
+### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>Vad är skillnaden mellan openräkning och opentelemetri?
+
+[Openräkning](https://opencensus.io/) är markören till [opentelemetri](https://opentelemetry.io/). Microsoft hjälpte till att samla in [Opentracing](https://opentracing.io/) och openräkning för att skapa opentelemetri, en enda observerbar standard för världen. Azure Monitor s nuvarande [produktion – Rekommenderad python SDK](app/opencensus-python.md) baseras på openräkning, men till och med kommer alla Azure Monitor SDK: er att baseras på opentelemetri.
+
+
+## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 
 ### <a name="health-feature-is-in-private-preview"></a>Hälso funktionen finns i privat förhands granskning
 
@@ -533,7 +579,7 @@ Vi planerar att göra en serie ändringar för att lägga till funktioner och ad
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Vad representerar *andra processer* under vyn Node?
 
-**Andra processer** är avsedda att hjälpa dig att förstå rotor saken till hög resursanvändning på din nod. På så sätt kan du skilja användningen mellan processer i behållare jämfört med processer som inte bearbetas.
+**Andra processer** är avsedda att hjälpa dig att tydligt förstå rotor saken till hög resursanvändning på din nod. På så sätt kan du skilja användningen mellan processer i behållare jämfört med processer som inte bearbetas.
 
 Vilka är de här **processerna**? 
 
@@ -660,12 +706,12 @@ Följande fel kan visas: svars-URL: en som **anges i begäran matchar inte de sv
 
 Om du när du har aktiverat Azure Monitor för behållare för ett AKS-kluster tar du bort arbets ytan Log Analytics som klustret skickade data till, vid försök att uppgradera klustret. För att undvika detta måste du inaktivera övervakning och sedan återaktivera den till en annan giltig arbets yta i din prenumeration. När du försöker utföra kluster uppgraderingen igen bör den bearbetas och slutföras.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Vilka portar och domäner behöver jag öppna/vitlista för agenten?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>Vilka portar och domäner behöver jag öppna/tillåta för agenten?
 
 Se [nätverks brand Väggs kraven](insights/container-insights-onboard.md#network-firewall-requirements) för proxy-och brand Väggs konfigurations information som krävs för behållarens agent med Azure, Azure amerikanska myndigheter och Azure Kina 21Vianet-moln.
 
+
 ## <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor for VMs. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>Kan jag publicera till en befintlig arbets yta?
 Om dina virtuella datorer redan är anslutna till en Log Analytics arbets yta kan du fortsätta att använda arbets ytan vid registrering till Azure Monitor for VMs, förutsatt att den finns i någon av de [regioner som stöds](insights/vminsights-configure-workspace.md#supported-regions).

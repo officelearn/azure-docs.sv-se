@@ -3,12 +3,12 @@ title: Övervakning och loggning – Azure
 description: Den här artikeln innehåller en översikt över video analys på IoT Edge övervakning och loggning.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934301"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567562"
 ---
 # <a name="monitoring-and-logging"></a>Övervakning och loggning
 
@@ -20,7 +20,8 @@ Du får också lära dig hur du kan kontrol lera vilka loggar som genereras av m
 
 Real tids analys på IoT Edge avger händelser eller telemetridata enligt följande taxonomi.
 
-![Video analys i real tid för IoT Edge telemetri](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Händelsetaxonomi":::
 
 * Drift: händelser som genereras som en del av åtgärder som utförs av en användare eller under körningen av ett [medie diagram](media-graph-concept.md).
    
@@ -71,6 +72,7 @@ Real tids analys på IoT Edge avger händelser eller telemetridata enligt följa
    * Exempel:
       
       Rörelse identifierad (nedan), resultat för nedgradering.
+
    ```      
    {
      "body": {
@@ -98,15 +100,19 @@ Real tids analys på IoT Edge avger händelser eller telemetridata enligt följa
      }
    }
    ```
+
 De händelser som genereras av modulen skickas till [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)och därifrån kan de dirigeras till andra mål. 
 
 ### <a name="timestamps-in-analytic-events"></a>Tidsstämplar i analys händelser
+
 Som anges ovan har händelser som genererats som en del av video analysen en tidsstämpel som är kopplad till dem. Om du har [spelat in direktsänd video](video-recording-concept.md) som en del av din graf-topologi, hjälper den här tidsstämpeln dig att hitta var i den inspelade videon att en viss händelse inträffade. Nedan följer rikt linjerna för hur du mappar tidsstämpeln i en analys händelse till tids linjen för videon som spelas in i en [Azure Media service-till gång](terminology.md#asset).
 
 Extrahera först `eventTime` värdet. Använd det här värdet i ett [tids intervall filter](playback-recordings-how-to.md#time-range-filters) för att hämta en lämplig del av inspelningen. Till exempel kanske du vill hämta video som börjar 30 sekunder innan `eventTime` och slutar 30 sekunder efteråt. Med ovanstående exempel, där `eventTime` är 2020-05-12T23:33:09.381 z, skulle en begäran om ett HLS-manifest för fönstret +/-30 s se ut så här:
+
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
+
 URL: en ovan skulle returnera en så kallad [huvud-spelnings lista](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming)med URL: er för medie spelnings listor. Medie spelnings listan skulle innehålla poster som följande:
 
 ```
@@ -201,7 +207,7 @@ Händelse typer tilldelas en namnrymd enligt följande schema:
 
 |Klassnamn|Beskrivning|
 |---|---|
-|Analytics  |Händelser som genereras som en del av innehålls analysen.|
+|Analys  |Händelser som genereras som en del av innehålls analysen.|
 |Diagnostik    |Händelser som är till hjälp vid diagnostik av problem och prestanda.|
 |Operativ    |Händelser som genererats som en del av resurs åtgärden.|
 

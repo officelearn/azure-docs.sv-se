@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56948b700f816c13d35915400658136ffcf48846
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783594"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567426"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra resurs roller för ett Access-paket i hantering av Azure AD-rättigheter
 
@@ -72,13 +72,13 @@ Du kan låta rättighets hantering automatiskt lägga till användare i en grupp
 - När en grupp eller ett team ingår i ett Access-paket och en användare tilldelas till det åtkomst paketet, läggs användaren till i gruppen eller teamet, om det inte redan finns.
 - När en användares åtkomst paket tilldelning går ut tas de bort från gruppen eller teamet, om de inte har en tilldelning till ett annat Access-paket som innehåller samma grupp eller team.
 
-Du kan välja valfri [Azure AD-säkerhetsgrupp eller Office 365-grupp](../fundamentals/active-directory-groups-create-azure-portal.md). Administratörer kan lägga till valfri grupp i en katalog. Katalog ägare kan lägga till valfri grupp till katalogen om de är ägare till gruppen. Behåll följande Azure AD-begränsningar i åtanke när du väljer en grupp:
+Du kan välja valfri [Azure AD-säkerhetsgrupp eller Microsoft 365 grupp](../fundamentals/active-directory-groups-create-azure-portal.md). Administratörer kan lägga till valfri grupp i en katalog. Katalog ägare kan lägga till valfri grupp till katalogen om de är ägare till gruppen. Behåll följande Azure AD-begränsningar i åtanke när du väljer en grupp:
 
 - När en användare, inklusive en gäst, läggs till som en medlem i en grupp eller ett team kan de Se alla andra medlemmar i gruppen eller teamet.
 - Azure AD kan inte ändra medlemskap för en grupp som har synkroniserats från Windows Server Active Directory att använda Azure AD Connect eller som skapades i Exchange Online som en distributions grupp.  
 - Det går inte att uppdatera medlemskapet i dynamiska grupper genom att lägga till eller ta bort en medlem, så dynamiska grupp medlemskap är inte lämpliga för användning med hantering av rättigheter.
 
-Mer information finns i [Jämför grupper](/office365/admin/create-groups/compare-groups) och [Office 365-grupper och Microsoft Teams](/microsoftteams/office-365-groups).
+Mer information finns i [Jämför grupper](/office365/admin/create-groups/compare-groups) och [Microsoft 365 grupper och Microsoft Teams](/microsoftteams/office-365-groups).
 
 1. Öppna fönstret Välj grupper genom att klicka på **grupper och team** på sidan **Lägg till resurs roller för åtkomst till paket** .
 
@@ -94,8 +94,8 @@ Mer information finns i [Jämför grupper](/office365/admin/create-groups/compar
     | --- | --- |
     | Säkerhet | Används för att bevilja åtkomst till resurser. |
     | Distribution | Används för att skicka aviseringar till en grupp med personer. |
-    | O365 | Office 365-grupp som inte är team-aktiverad. Används för samarbete mellan användare, både inom och utanför företaget. |
-    | Team | Office 365-grupp som är team-aktiverad. Används för samarbete mellan användare, både inom och utanför företaget. |
+    | Microsoft 365 | Microsoft 365 grupp som inte är team-aktiverad. Används för samarbete mellan användare, både inom och utanför företaget. |
+    | Team | Microsoft 365 grupp som är team-aktiverade. Används för samarbete mellan användare, både inom och utanför företaget. |
 
 1. Välj **ägare** eller **medlem**i listan **roll** .
 
@@ -178,7 +178,7 @@ Azure AD kan automatiskt tilldela användare åtkomst till en SharePoint Online-
 
 I hantering av rättigheter bearbetar Azure AD Mass ändringar för tilldelning och resurser i dina åtkomst paket flera gånger per dag. Så om du gör en tilldelning eller ändrar resurs rollerna för ditt åtkomst paket, kan det ta upp till 24 timmar innan ändringen görs i Azure AD, plus den tid det tar att sprida ändringarna till andra Microsoft Online Services eller anslutna SaaS-program. Om din ändring bara påverkar några få objekt tar ändringen troligen bara några minuter att tillämpa i Azure AD, efter vilka andra Azure AD-komponenter kommer att identifiera ändringen och uppdatera SaaS-programmen. Om din ändring påverkar tusentals objekt tar ändringen längre tid. Om du till exempel har ett Access-paket med 2 program och 100 användar tilldelningar och du bestämmer dig för att lägga till en SharePoint-webbplats roll i åtkomst paketet kan det uppstå en fördröjning tills alla användare är en del av den SharePoint-webbplatsens roll. Du kan övervaka förloppet via Azure AD audit-loggen, Azure AD-etablerings loggen och gransknings loggarna för SharePoint-webbplatsen.
 
-När du tar bort medlemmar från ett team tas de även bort från Office 365-gruppen. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](/microsoftteams/office-365-groups#group-membership).
+När du tar bort en medlem i ett team tas de även bort från gruppen Microsoft 365. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](/microsoftteams/office-365-groups#group-membership).
 
 ## <a name="next-steps"></a>Nästa steg
 

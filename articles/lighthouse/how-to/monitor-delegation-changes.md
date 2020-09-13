@@ -1,14 +1,14 @@
 ---
 title: Övervaka Delegerings ändringar i hanterings klienten
 description: Lär dig hur du övervakar Delegerings aktivitet från kund klienter till din hanterings klient.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589749"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567613"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Övervaka Delegerings ändringar i hanterings klienten
 
@@ -48,6 +48,9 @@ Eftersom detta är en bred åtkomst nivå rekommenderar vi att du tilldelar roll
 - Se till att det här tjänstens huvud namn inte har åtkomst till några delegerade kund resurser.
 - [Använd ett certifikat för att autentisera](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) och [lagra det på ett säkert sätt i Azure Key Vault](../../key-vault/general/best-practices.md).
 - Begränsa de användare som har åtkomst till Act för tjänstens huvud namn.
+
+> [!NOTE]
+> Du kan också tilldela den inbyggda rollen för övervaknings läsaren i rot omfånget till enskilda användare eller till användar grupper. Detta kan vara användbart om du vill att en användare ska kunna [Visa Delegerings information direkt i Azure Portal](#view-delegation-changes-in-the-azure-portal). Om du gör det bör du vara medveten om att detta är en bred åtkomst nivå som bör begränsas till det minsta antalet användare som är möjliga.
 
 Använd någon av följande metoder för att göra rot omfångs tilldelningar.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet kan [företag som hanterar flera klienter](../concepts/enterprise.md) använda samma processer.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Visa Delegerings ändringar i Azure Portal
+
+Användare som har tilldelats den inbyggda rollen övervakare Azure i rot omfånget kan visa Delegerings ändringar direkt i Azure Portal.
+
+1. Gå till sidan **Mina kunder** och välj sedan **aktivitets logg** på den vänstra navigerings menyn.
+1. Se till att **katalog aktivitet** är markerad i filtret längst upp på skärmen.
+
+En lista över Delegerings ändringar kommer att visas. Du kan välja **Redigera kolumner** om du vill visa eller **dölja status**, **händelse kategori**, tid **, tidstämpel**, **prenumeration**, **händelse som initieras av**, **resurs grupp**, **resurs typ**och **resurs** värden. **Time**
 
 ## <a name="next-steps"></a>Nästa steg
 

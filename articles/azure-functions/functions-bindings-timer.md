@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206645"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569295"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -22,15 +22,15 @@ Den här artikeln förklarar hur du arbetar med timer-utlösare i Azure Function
 
 Information om hur du kör en timer-utlöst funktion manuellt finns i [köra en icke-http-utlöst funktion manuellt](./functions-manually-run-non-http.md).
 
-## <a name="packages---functions-1x"></a>Paket-funktioner 1. x
-
-Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 2. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) lagringsplatsen.
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
 ## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
 Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) lagringsplatsen.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-1x"></a>Paket-funktioner 1. x
+
+Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 2. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -295,7 +295,7 @@ Talen i ett CRON-uttryck refererar till en tid och ett datum, inte ett tidsinter
 
 Till skillnad från ett CRON-uttryck `TimeSpan` anger ett värde tidsintervall mellan varje funktions anrop. När en funktion slutförs efter att ha kört längre än det angivna intervallet anropar timern omedelbart funktionen igen.
 
-Anges som en sträng `TimeSpan` är formatet när det `hh:mm:ss` `hh` är mindre än 24. När de två första siffrorna är 24 eller större är formatet `dd:hh:mm` . Här är några exempel:
+Anges som en sträng `TimeSpan` är formatet när det `hh:mm:ss` `hh` är mindre än 24. När de två första siffrorna är 24 eller större är formatet `dd:hh:mm` . Här följer några exempel:
 
 |Exempel |Utlöses av  |
 |---------|---------|
@@ -312,7 +312,7 @@ Om en Function-app skalar ut till flera instanser, körs bara en instans av en t
 
 Om du delar lagrings konton över Function-appar som inte har distribuerats till App Service kan du uttryckligen behöva tilldela värd-ID till varje app.
 
-| Funktions version | Inställning                                              |
+| Funktions version | Inställningen                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (och högre)  | `AzureFunctionsWebHost__hostid` miljö variabel |
 | 1.x               | `id` i *host.jspå*                                  |

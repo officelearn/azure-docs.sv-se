@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 072f13f5a0884cf95fe760e17ff0d770111f4da0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204675"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570006"
 ---
 | Resurs | Gräns |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -29,7 +29,7 @@ ms.locfileid: "82204675"
 | Maximalt antal prenumerationer per tjänst instans<sup>8</sup> | 500 |
 | Maximalt antal klient certifikat per tjänst instans<sup>8</sup> | 50 |
 | Maximalt antal API: er per tjänst instans<sup>8</sup> | 50 |
-| Maximalt antal API-åtgärder per tjänst instans<sup>8</sup> | 1,000 |
+| Maximalt antal API-åtgärder per tjänst instans<sup>8</sup> | 1 000 |
 | Högsta total varaktighet för begäran<sup>8</sup> | 30 sekunder |
 | Maximal buffrad nytto Last storlek<sup>8</sup> | 2 MiB |
 | Maximal URL-storlek för begäran<sup>9</sup> | 4096 byte |
@@ -42,6 +42,6 @@ ms.locfileid: "82204675"
 <sup>5</sup> Den här gränsen gäller för nivåerna Basic, standard och Premium. I förbruknings nivån är princip dokument storleken begränsat till 4 KiB.<br/>
 <sup>6</sup> Flera anpassade domäner stöds endast på Developer-och Premium-nivåerna.<br/>
 <sup>7</sup> CA-certifikat stöds inte i förbruknings nivån.<br/>
-<sup>8</sup> Den här resursen gäller endast för förbruknings nivån.<br/>
+<sup>8</sup> Den här gränsen gäller enbart för förbruknings nivån. Det finns inga begränsningar i dessa kategorier för andra nivåer.<br/>
 <sup>9</sup> Gäller endast för förbruknings nivån. Innehåller en sträng med upp till 2048 byte lång frågesträng.<br/>
 <sup>10</sup> Egen värdbaserade gatewayer stöds endast på utvecklings-och Premium-nivåerna. Gränsen gäller för antalet [egna värdbaserade gateway-resurser](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Kontakta [supporten](https://azure.microsoft.com/support/options/)om du vill höja gränsen. Observera att antalet noder (eller repliker) som är kopplade till en lokal gateway-resurs är obegränsat på Premium nivån och på en enskild nod på nivån utvecklare.

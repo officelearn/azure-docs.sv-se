@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997261"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567103"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Enterprise Security Package för Azure HDInsight
 
@@ -20,7 +20,7 @@ Enterprise Security är ett valfritt paket som du kan lägga till i ditt HDInsig
 
 * Integrering med Active Directory för autentisering.
 
-    Tidigare skapade du HDInsight-kluster med lokal administratörs användare och lokal SSH-användare. Den lokala administratörs användaren har åtkomst till alla filer, mappar, tabeller och kolumner.  Med Enterprise Security Package aktiverar du rollbaserad åtkomst kontroll genom att integrera HDInsight med ditt Active Directory. Som omfattar lokala Active Directory Azure Active Directory Domain Services. Eller Active Directory på den virtuella IaaS-datorn. Domän administratören i klustret kan ge användarna behörighet att använda sina egna företags användar namn och lösen ord.
+    Tidigare skapade du HDInsight-kluster med lokal administratörs användare och lokal SSH-användare. Den lokala administratörs användaren har åtkomst till alla filer, mappar, tabeller och kolumner.  Med Enterprise Security Package aktiverar du rollbaserad åtkomst kontroll genom att integrera HDInsight med ditt Azure Active Directory Domain Services.
 
     Mer information finns i:
 

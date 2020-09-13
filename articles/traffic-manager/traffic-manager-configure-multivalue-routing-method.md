@@ -3,20 +3,20 @@ title: Konfigurera routning av Multivärdes trafik – Azure Traffic Manager
 description: Den här artikeln förklarar hur du konfigurerar Traffic Manager för att dirigera trafik till en/AAAA-slutpunkter.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: rohink
-ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706825"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401052"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetod för multivärde i Traffic Manager
 
@@ -46,7 +46,7 @@ Skapa en Traffic Manager profil som dirigerar användar trafiken genom att skick
     | Routningsmetod          | Välj routningsmetod för **multivärde** .                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj *myResourceGroupTM1*. |
-    | Location                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
+    | Plats                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
    |        |           | 
   
    ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)

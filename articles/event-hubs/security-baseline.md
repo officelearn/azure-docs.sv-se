@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6beb1023b3c934cdbb4b7dc479d87e23a7c96be
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230372"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401137"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Azures säkerhets bas linje för Event Hubs
 
@@ -882,9 +882,11 @@ Konfigurera Kundhanterade nycklar för Event Hubs: https://docs.microsoft.com/az
 
 Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity
+Så här autentiserar du till Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Så här tilldelar du en Key Vault åtkomst princip: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center övervakning**: Ja
 

@@ -7,14 +7,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3aed75c26880ae2c3e31b412496655e5225b2edc
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035458"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401120"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
 
@@ -63,7 +63,7 @@ När du skapar en offentlig IP-adress med hjälp av **standard** -offentliga IP-
 
 När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU: n distribueras gatewayen som en regional gateway och har ingen zon-redundans inbyggd i gatewayen.
 
-## <a name="faq"></a><a name="faq"></a>Vanliga frågor
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Vad kommer att ändras när jag distribuerar dessa nya SKU: er?
 

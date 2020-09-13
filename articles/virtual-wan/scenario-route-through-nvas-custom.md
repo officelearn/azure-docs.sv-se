@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987226"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400015"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: dirigera trafik genom NVA – anpassad (för hands version)
 
 När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I det här NVA-scenariot (Network Virtual installation) är målet att dirigera trafik genom en NVA för kommunikation mellan virtuella nätverk och grenar och använda en annan NVA för Internet-baserad trafik. Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Utforma
+## <a name="design"></a><a name="design"></a>Design
 
 I det här scenariot använder vi namngivnings konventionen:
 
@@ -40,7 +40,7 @@ Följande anslutnings mat ris sammanfattar de flöden som stöds i det här scen
 | **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
 | **Grenar** | &#8594;|  Statisk |            X |      X    |      X       |
 
-Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan av flödet, rad rubrikerna) lär sig ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil) för ett särskilt trafikflöde. Vi går igenom detalj över de olika raderna:
+Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan av flödet, rad rubrikerna) lär sig ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil) för ett särskilt trafikflöde. Ett "X" innebär att anslutningen tillhandahålls internt av Virtual WAN och "static" innebär att anslutningen tillhandahålls av Virtual WAN med statiska vägar. Vi går igenom detalj över de olika raderna:
 
 * NVA pinnar:
   * Ekrar kommer att komma åt andra ekrar direkt över virtuella WAN-hubbar.

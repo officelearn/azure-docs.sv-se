@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227040"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400552"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)
 
@@ -74,14 +74,14 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 | Systemtilldelade hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
 | Användare som tilldelats hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
 | Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-key-vaults) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
-| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Nej | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage och Azure Data Lake Storage Gen2 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Data Lake Storage Gen1 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure File Sync | Ja | Ja |  |  |
-| Azure Managed Disks | Yes | E.t. |  |  |
+| Azure Managed Disks | Ja | E.t. |  |  |
 | Azure Container Services för Kubernetes | Ja | Ja |  |  |
-| Azure Active Directory Domain Services | Ja | Nej |  |  |
+| Azure Active Directory Domain Services | Ja | Inga |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
 > [!WARNING]
@@ -224,7 +224,7 @@ När du skapar ett nyckel valv knyts det automatiskt till standard Azure Active 
 > [!WARNING]
 > Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som **inte** finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
 
-- Om du har ett nyckel valv ska du använda [AZ Key Vault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) för att visa en lista över åtkomst principerna. Mer information finns i [tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll](../key-vault/key-vault-group-permissions-for-apps.md).
+- Om du har ett nyckel valv ska du använda [AZ Key Vault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) för att visa en lista över åtkomst principerna. Mer information finns i [tilldela en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault

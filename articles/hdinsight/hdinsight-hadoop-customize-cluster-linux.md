@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/02/2020
+ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006679"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400865"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -66,13 +66,15 @@ En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster
 
     Beständiga skript åtgärder måste ha ett unikt namn. Bestående skript används för att anpassa nya arbetsnoder som läggs till i klustret genom skalnings åtgärder. Ett bestående skript kan också tillämpa ändringar av en annan nodtyp när skalnings åtgärder sker. Ett exempel är en head-nod.
 
-    `Ad hoc`skripten är inte beständiga. Skript åtgärder som används när klustret skapas sparas automatiskt. De används inte för arbetsnoder som läggs till i klustret när skriptet har körts. Sedan kan du befordra ett `ad hoc` skript till ett beständigt skript eller nedgradera ett beständigt skript till ett `ad hoc` skript. Skript som inte är beständiga, även om du specifikt anger att de ska vara.
+    `Ad hoc` skripten är inte beständiga. Skript åtgärder som används när klustret skapas sparas automatiskt. De används inte för arbetsnoder som läggs till i klustret när skriptet har körts. Sedan kan du befordra ett `ad hoc` skript till ett beständigt skript eller nedgradera ett beständigt skript till ett `ad hoc` skript. Skript som inte är beständiga, även om du specifikt anger att de ska vara.
 
 * Kan acceptera parametrar som används av skriptet under körningen.
 
 * Kör med behörigheter på rot nivå på klusternoderna.
 
 * Kan användas via Azure Portal, Azure PowerShell, Azure CLI eller HDInsight .NET SDK.
+
+* Skript åtgärder som tar bort eller ändrar tjänst filer på den virtuella datorn kan påverka tjänstens hälsa och tillgänglighet.
 
 Klustret behåller en historik över alla skript som har körts. Historiken hjälper dig när du behöver hitta ID: t för ett skript för befordran eller degradering av åtgärder.
 
@@ -124,14 +126,14 @@ Status            : Succeeded
 
 Skript åtgärds skript kan användas via följande verktyg:
 
-* Azure-portalen
+* Azure Portal
 * Azure PowerShell
 * Azure CLI
 * HDInsight .NET SDK
 
 HDInsight innehåller skript för att installera följande komponenter i HDInsight-kluster:
 
-| Namn | Skript |
+| Name | Skript |
 | --- | --- |
 | Lägg till ett Azure Storage konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagrings konton i HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera nyans |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [Installera och använda nyans på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
@@ -156,7 +158,7 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du något av de angivna skripten. |
-    | Namn |Ange ett namn för skript åtgärden. |
+    | Name |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
     | Head/Worker/ZooKeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
@@ -230,7 +232,7 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
     | Egenskap | Värde |
     | --- | --- |
     | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du ett tillhandahållet skript. |
-    | Namn |Ange ett namn för skript åtgärden. |
+    | Name |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
     | Head/Worker/Zookeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
@@ -330,7 +332,7 @@ Följande exempel skript visar hur du använder cmdlet: ar för att befordra och
 
 ### <a name="hdinsight-net-sdk"></a>HDInsight .NET SDK
 
-Ett exempel på hur du använder .NET SDK för att hämta skript historik från ett kluster, befordra eller nedgradera skript finns i [tillämpa en skript åtgärd mot ett Linux-baserat HDInsight-kluster](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Ett exempel på hur du använder .NET SDK för att hämta skript historik från ett kluster, befordra eller nedgradera skript finns i [ tillämpa en skript åtgärd mot ett Linux-baserat HDInsight-kluster](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]  
 > Det här exemplet visar också hur du installerar ett HDInsight-program med hjälp av .NET SDK.

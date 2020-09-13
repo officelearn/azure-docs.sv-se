@@ -3,12 +3,12 @@ title: Konfigurera din egen nyckel för att kryptera Azure Service Bus data i vi
 description: Den här artikeln innehåller information om hur du konfigurerar din egen nyckel för att kryptera Azure Service Bus data rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067247"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400593"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal
 Azure Service Bus Premium tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus Premium är beroende av Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -28,7 +28,7 @@ Du kan använda Azure Key Vault för att hantera dina nycklar och granska din ny
 Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av Azure Portal. Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns i [snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Att använda Kundhanterade nycklar med Azure Service Bus kräver att nyckel valvet har två obligatoriska egenskaper konfigurerade. De är: **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
+> Att använda Kundhanterade nycklar med Azure Service Bus kräver att nyckel valvet har två obligatoriska egenskaper konfigurerade. De är:  **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
 
 ## <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
@@ -82,12 +82,12 @@ När du har aktiverat Kundhanterade nycklar måste du associera kundens hanterad
     > 
     >   * Om [geo haveri beredskap](service-bus-geo-dr.md) redan har Aktiver ats för Service Bus-namnrymden och du vill aktivera kundhanterad nyckel, så 
     >     * Bryt ihopparningen
-    >     * [Konfigurera åtkomst principen](../key-vault/general/managed-identity.md) för den hanterade identiteten för både den primära och sekundära namn rymden till nyckel valvet.
+    >     * [Konfigurera åtkomst principen](../key-vault/general/assign-access-policy-portal.md) för den hanterade identiteten för både den primära och sekundära namn rymden till nyckel valvet.
     >     * Konfigurera kryptering i det primära namn området.
     >     * Para om de primära och sekundära namn områdena.
     > 
     >   * Om du vill aktivera geo-DR på ett Service Bus namn område där kundhanterad nyckel redan har kon figurer ATS, så-
-    >     * [Konfigurera åtkomst principen](../key-vault/general/managed-identity.md) för den hanterade identiteten för det sekundära namn området till nyckel valvet.
+    >     * [Konfigurera åtkomst principen](../key-vault/general/assign-access-policy-portal.md) för den hanterade identiteten för det sekundära namn området till nyckel valvet.
     >     * Para ihop de primära och sekundära namn områdena.
 
 
@@ -164,8 +164,8 @@ I det här avsnittet visas hur du skapar ett Azure Service Bus-namnområde med h
 
     > [!NOTE]
     > Ersätt följande värden: 
-    > - `<ServiceBusNamespaceName>`– Namnet på din Service Bus namn område
-    > - `<Location>`– Plats för Service Bus namn området
+    > - `<ServiceBusNamespaceName>` – Namnet på din Service Bus namn område
+    > - `<Location>` – Plats för Service Bus namn området
 
     ```json
     {
@@ -287,10 +287,10 @@ I det här steget ska du uppdatera Service Bus-namnrymden med Key Vault-informat
 
     > [!NOTE]
     > Ersätt följande värden: 
-    > - `<ServiceBusNamespaceName>`– Namnet på din Service Bus namn område
-    > - `<Location>`– Plats för Service Bus namn området
-    > - `<KeyVaultName>`– Namn på ditt nyckel valv
-    > - `<KeyName>`– Namnet på nyckeln i nyckel valvet  
+    > - `<ServiceBusNamespaceName>` – Namnet på din Service Bus namn område
+    > - `<Location>` – Plats för Service Bus namn området
+    > - `<KeyVaultName>` – Namn på ditt nyckel valv
+    > - `<KeyName>` – Namnet på nyckeln i nyckel valvet  
 
     ```json
     {

@@ -1,21 +1,21 @@
 ---
 title: Verifiera VPN-dataflöde till en Microsoft Azure Virtual Network
-description: Syftet med det här dokumentet är att hjälpa en användare att verifiera nätverks flödet från sina lokala resurser till en virtuell Azure-dator.
+description: Den här artikeln hjälper dig att validera nätverks data flödet från lokala resurser till en virtuell Azure-dator.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 05/29/2019
+ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998484"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398516"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
 
@@ -127,7 +127,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 
 Hämta den senaste versionen av [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Överväg att placera Latte.exe i en separat mapp, till exempel`c:\tools`
+Överväg att placera Latte.exe i en separat mapp, till exempel `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Tillåt Latte.exe via Windows-brandväggen
 
@@ -217,7 +217,7 @@ Gör installationen snabb
 
 > [!Note]
 > Se till att det inte finns några mellanliggande hopp (t. ex. virtuell installation) under data flödes testningen mellan den virtuella datorn och gatewayen.
-> Om det finns dåliga resultat (vad gäller det totala data flödet) som kommer från iPERF/NTTTCP-testerna ovan kan du läsa följande artikel för att förstå viktiga faktorer som ligger bakom de möjliga rotor orsakerna till problemet:https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Om det finns dåliga resultat (vad gäller det totala data flödet) som kommer från iPERF/NTTTCP-testerna ovan kan du läsa följande artikel för att förstå viktiga faktorer som ligger bakom de möjliga rotor orsakerna till problemet: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 I synnerhet kan analyser av paket fångst spår (wireshark/Network Monitor) som samlats in parallellt från klienten och servern under dessa tester hjälpa till att utvärdera dåliga prestanda. De här spårningarna kan omfatta paket förlust, hög latens, MTU-storlek. fragmentering, TCP 0-fönster, färdiga fragment och så vidare.
 
@@ -253,7 +253,7 @@ Du kan kontrol lera svars tiden genom att använda följande verktyg:
 
 * WinMTR
 * TCPTraceroute
-* `ping`och `psping` (dessa verktyg kan ge en klar uppskattning av efter klar Ande, men de kan inte användas i samtliga fall.)
+* `ping` och `psping` (dessa verktyg kan ge en klar uppskattning av efter klar Ande, men de kan inte användas i samtliga fall.)
 
 ![Kontrol lera svars tid](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

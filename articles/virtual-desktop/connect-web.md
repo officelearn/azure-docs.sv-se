@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ca5a591d168e18181a29cf1c00a7d1fead54595
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226054"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400644"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Ansluta till virtuella Windows-datorer med webb klienten
 
@@ -27,7 +27,7 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 
 Även om en HTML5-kompatibel webbläsare ska fungera, har vi officiellt stöd för följande operativ system och webbläsare.
 
-| Webbläsare           | Operativ system som stöds                     | Anteckningar               |
+| Webbläsare           | Operativ system som stöds                     | Kommentarer               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          | Version 11 eller senare |
@@ -48,6 +48,25 @@ I en webbläsare går du till den Azure Resource Manager-integrerade versionen a
 >Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.
 
 När du har loggat in bör du nu se en lista över resurser. Du kan starta resurser genom att välja dem som en normal app på fliken **alla resurser** .
+
+## <a name="using-an-input-method-editor"></a>Använda ett IME-program
+
+Webb klienten stöder användning av IME (Input Method Editor) i fjärrsessionen i version **1.0.21.16 eller senare**. Språk paketet för tangent bordet som du vill använda i fjärrsessionen måste vara installerat på den virtuella värd datorn. Om du vill veta mer om hur du konfigurerar språk paket i fjärrsessionen kan du ta [en titt på Lägg till språk paket i en Windows 10-avbildning med flera sessioner](language-packs.md).
+
+Så här aktiverar du IME-ininformation med webb klienten:
+
+1. Innan du ansluter till fjärrsessionen går du till panelen för webb klient **Inställningar** .
+
+2. Växla inställningen **Aktivera IME för Indatamängds metod** till **på**.
+
+3. I list menyn väljer du det tangent bord som du vill använda i fjärrsessionen.
+
+4. Anslut till fjärrsessionen.
+
+Webb klienten ignorerar det lokala IME-fönstret när du fokuserar på fjärrsessionen. Att ändra IME-inställningar när du redan har anslutit till fjärrsessionen har ingen påverkan.
+
+>[!NOTE]
+>Om språk paketet inte är installerat på den virtuella värd datorn kommer fjärrsessionen att standardvärdet för engelska (USA).
 
 ## <a name="next-steps"></a>Nästa steg
 

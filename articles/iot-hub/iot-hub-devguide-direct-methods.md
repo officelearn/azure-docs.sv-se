@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 55472f16cefeca3b00bea79e71aee5d6588528d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323068"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029077"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -38,7 +38,7 @@ Se [rikt linjer för kommunikation från moln till enhet](iot-hub-devguide-c2d-g
 Direkta metoder implementeras på enheten och kan kräva noll eller flera indata i metodens nytto last för att instansieras korrekt. Du anropar en direkt metod via en tjänst-riktad URI ( `{iot hub}/twins/{device id}/methods/` ). En enhet tar emot direkta metoder via ett enhetsspecifika MQTT-avsnitt ( `$iothub/methods/POST/{method name}/` ) eller via AMQP-länkar (- `IoThub-methodname` och `IoThub-status` -program-egenskaperna).
 
 > [!NOTE]
-> När du anropar en direkt metod på en enhet kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
+> När du anropar en direkt metod på en enhet kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
 Direkta metoder är synkrona och slutförs eller Miss lyckas efter tids gräns perioden (standard: 30 sekunder, vilket kan anges mellan 5 och 300 sekunder). Direkta metoder är användbara i interaktiva scenarier där du vill att en enhet ska agera om och endast om enheten är online och tar emot kommandon. Du kan till exempel aktivera en ljus källa från en telefon. I dessa scenarier vill du se en omedelbar framgång eller ett haveri, så att moln tjänsten kan agera på resultatet så snart som möjligt. Enheten kan returnera viss meddelande text som ett resultat av metoden, men det krävs inte för att metoden ska kunna användas. Det finns ingen garanti för beställning eller någon samtidig semantik för metod anrop.
@@ -55,7 +55,7 @@ Starta nu en direkt metod från en backend-app.
 
 Direkta metod anrop på en enhet är HTTPS-anrop som består av följande objekt:
 
-* *URI-begäran* som är unik för enheten tillsammans med [API-versionen](/rest/api/iothub/service/devicemethod/invokedevicemethod):
+* *URI-begäran* som är unik för enheten tillsammans med [API-versionen](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

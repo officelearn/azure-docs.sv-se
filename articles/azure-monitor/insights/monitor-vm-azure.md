@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326196"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029469"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -59,7 +59,7 @@ Om du vill aktivera alla funktioner i Azure Monitor för övervakning av en virt
 | [Aktivera Azure Monitor for VMs](#enable-azure-monitor-for-vms) | -Log Analytics-agenten installerad.<br>-Beroende agent installerad.<br>– Gäst prestanda data som samlas in i loggar.<br>– Bearbeta och beroende information som samlas in i loggar. | – Prestanda diagram och arbets böcker för gäst prestanda data.<br>-Logga frågor om prestanda data för gäst.<br>– Logg aviseringar för prestanda data för gäst.<br>-Beroende karta. |
 | [Installera Diagnostics-tillägget och teleympkvistar-agenten](#enable-diagnostics-extension-and-telegraf-agent) | – Gäst prestanda data som samlas in på mått. | – Metrics Explorer för gäst.<br>– Mått aviseringar för gäst.  |
 | [Konfigurera Log Analytics arbets yta](#configure-log-analytics-workspace) | -Händelser som samlas in från gäst. | – Logga frågor om gäst händelser.<br>– Logga aviseringar för gäst händelser. |
-| [Skapa diagnostisk inställning för virtuell dator](#collect-platform-metrics-and-activity-log) | -Plattforms mått som samlas in i loggar.<br>– Aktivitets logg som samlas in i loggar. | -LoQ frågar efter värd mått.<br>– Logg aviseringar för värd mått.<br>-Logga frågor för aktivitets loggen.
+| [Skapa diagnostisk inställning för virtuell dator](#collect-platform-metrics-and-activity-log) | -Plattforms mått som samlas in i loggar.<br>– Aktivitets logg som samlas in i loggar. | -Logga frågor för värd mått.<br>– Logg aviseringar för värd mått.<br>-Logga frågor för aktivitets loggen.
 
 Vart och ett av dessa konfigurations steg beskrivs i följande avsnitt.
 
@@ -70,9 +70,9 @@ Vart och ett av dessa konfigurations steg beskrivs i följande avsnitt.
 - Fördefinierade prestanda diagram och arbets böcker som du kan använda för att analysera kärn prestanda mått från den virtuella datorns gäst operativ system.
 - Beroende karta som visar processer som körs på varje virtuell dator och de sammankopplade komponenterna med andra datorer och externa källor.
 
-![Azure Monitor för virtuella datorer](media/monitor-vm-azure/vminsights-01.png)
+![Vy över Azure Monitor for VMs prestanda](media/monitor-vm-azure/vminsights-01.png)
 
-![Azure Monitor för virtuella datorer](media/monitor-vm-azure/vminsights-02.png)
+![Vyn Azure Monitor for VMs Maps](media/monitor-vm-azure/vminsights-02.png)
 
 
 Aktivera Azure Monitor for VMs från alternativet **insikter** på menyn för den virtuella datorn i Azure Portal. Mer information och andra konfigurations metoder finns i [aktivera Azure Monitor for VMS översikt](vminsights-enable-overview.md) .
@@ -80,7 +80,7 @@ Aktivera Azure Monitor for VMs från alternativet **insikter** på menyn för de
 ![Aktivera Azure Monitor for VMs](media/monitor-vm-azure/enable-vminsights.png)
 
 ### <a name="configure-log-analytics-workspace"></a>Konfigurera Log Analytics arbets yta
-Log Analytics-agenten som används av Azure Monitor for VMs skickar data till en [Log Analytics-arbetsyta](../platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Du kan aktivera insamling av ytterligare prestanda data, händelser och andra övervaknings data från agenten genom att konfigurera Log Analytics arbets ytan. Den behöver bara konfigureras en gång, eftersom en agent som ansluter till arbets ytan automatiskt kommer att hämta konfigurationen och börja samla in de data som definierats omedelbart. 
+Log Analytics-agenten som används av Azure Monitor for VMs skickar data till en [Log Analytics-arbetsyta](../platform/data-platform-logs.md). Du kan aktivera insamling av ytterligare prestanda data, händelser och andra övervaknings data från agenten genom att konfigurera Log Analytics arbets ytan. Den behöver bara konfigureras en gång, eftersom en agent som ansluter till arbets ytan automatiskt kommer att hämta konfigurationen och börja samla in de data som definierats omedelbart. 
 
 Du kan komma åt konfigurationen för arbets ytan direkt från Azure Monitor for VMs genom att välja **arbets ytans konfiguration** från **Kom igång**. Klicka på arbets ytans namn för att öppna dess meny.
 
@@ -96,7 +96,7 @@ Välj **Avancerade inställningar** på menyn arbets yta och sedan **data** för
 
 
 ### <a name="enable-diagnostics-extension-and-telegraf-agent"></a>Aktivera Diagnostics-tillägg och teleympkvistar-agenten
-Azure Monitor for VMs baseras på den Log Analytics agent som samlar in data till en Log Analytics-arbetsyta. Detta stöder [flera funktioner i Azure Monitor](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) som [logg frågor](../log-query/log-query-overview.md), [logg aviseringar](../platform/alerts-log.md)och [arbets böcker](../platform/workbooks-overview.md). [Diagnostics-tillägget](../platform/diagnostics-extension-overview.md) samlar in prestanda data från gäst operativ systemet på virtuella Windows-datorer för att Azure Storage och kan skicka prestanda data till [Azure Monitor mått](../platform/data-platform-metrics.md). För virtuella Linux-datorer krävs det att [teleympkvistar-agenten](../platform/collect-custom-metrics-linux-telegraf.md) skickar data till Azure-mått.  På så sätt kan andra funktioner i Azure Monitor, till exempel [mått Utforskaren](../platform/metrics-getting-started.md) och [mått varningar](../platform/alerts-metric.md). Du kan också konfigurera diagnostik-tillägget för att skicka händelser och prestanda data utanför Azure Monitor med Azure Event Hubs.
+Azure Monitor for VMs baseras på den Log Analytics agent som skickar data till en Log Analytics-arbetsyta. Detta stöder flera funktioner i Azure Monitor som [logg frågor](../log-query/log-query-overview.md), [logg aviseringar](../platform/alerts-log.md)och [arbets böcker](../platform/workbooks-overview.md). [Diagnostics-tillägget](../platform/diagnostics-extension-overview.md) samlar in prestanda data från gäst operativ systemet på virtuella Windows-datorer för att Azure Storage och kan skicka prestanda data till [Azure Monitor mått](../platform/data-platform-metrics.md). För virtuella Linux-datorer krävs det att [teleympkvistar-agenten](../platform/collect-custom-metrics-linux-telegraf.md) skickar data till Azure-mått.  På så sätt kan andra funktioner i Azure Monitor, till exempel [mått Utforskaren](../platform/metrics-getting-started.md) och [mått varningar](../platform/alerts-metric.md). Du kan också konfigurera diagnostik-tillägget för att skicka händelser och prestanda data utanför Azure Monitor med Azure Event Hubs.
 
 Installera diagnostik-tillägget för en virtuell Windows-dator i Azure Portal från alternativet **diagnostikinställningar** på menyn VM. Välj alternativet för att aktivera **Azure Monitor** på fliken **mottagare** . Information om hur du aktiverar tillägget från en mall eller en kommando rad för flera virtuella datorer finns i [installation och konfiguration](../platform/diagnostics-extension-overview.md#installation-and-configuration). Till skillnad från Log Analytics-agenten definieras de data som ska samlas in i konfigurationen för tillägget på varje virtuell dator.
 
@@ -130,7 +130,7 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 
 ![Övervakning i Azure Portal](media/monitor-vm-azure/monitor-menu.png)
 
-| Meny alternativ | Description |
+| Meny alternativ | Beskrivning |
 |:---|:---|
 | Översikt | Visar [plattforms mått](../platform/data-platform-metrics.md) för den virtuella dator värden. Klicka på en graf för att arbeta med dessa data i [mått Utforskaren](../platform/metrics-getting-started.md). |
 | Aktivitetslogg | [Aktivitets logg](../platform/activity-log.md#view-the-activity-log) poster som filtrerats för den aktuella virtuella datorn. |
@@ -148,13 +148,13 @@ Du kan analysera mått för virtuella datorer med hjälp av Metric Explorer geno
 
 Det finns tre namn områden som används av virtuella datorer för mått:
 
-| Namnområde | Description | Krav |
+| Namnområde | Beskrivning | Krav |
 |:---|:---|:---|
 | Virtuell värddator | Värd mått samlas in automatiskt för alla virtuella Azure-datorer. Detaljerad lista över mått på [Microsoft. Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Samlas in automatiskt utan konfiguration krävs. |
 | Gäst (klassisk) | Begränsad uppsättning prestanda data för gäst operativ system och program. Tillgängligt i Metrics Explorer men inte andra Azure Monitor funktioner som mått varningar.  | [Diagnostiskt tillägg](../platform/diagnostics-extension-overview.md) installerat. Data läses från Azure Storage.  |
 | Gäst för virtuell dator | Prestanda data för gäst operativ system och program är tillgängliga för alla Azure Monitor funktioner med hjälp av mått. | För Windows är [diagnostiskt tillägg installerat](../platform/diagnostics-extension-overview.md) med Azure Monitor mottagare aktiverat. För Linux har du [installerat en teleympkvistar-agent](../platform/collect-custom-metrics-linux-telegraf.md). |
 
-![Mått](media/monitor-vm-azure/metrics.png)
+![Mått Utforskaren i Azure Portal](media/monitor-vm-azure/metrics.png)
 
 ## <a name="analyzing-log-data"></a>Analysera loggdata
 Azure virtuella datorer samlar in följande data för att Azure Monitor loggar. 
@@ -212,7 +212,7 @@ Heartbeat
 | summarize max(TimeGenerated) by Computer
 ```
 
-![Logg avisering](media/monitor-vm-azure/log-alert-01.png)
+![Logg avisering för missat pulsslag](media/monitor-vm-azure/log-alert-01.png)
 
 Om du vill skapa en avisering om ett alltför stort antal misslyckade inloggningar har inträffat på alla virtuella Windows-datorer i prenumerationen använder du följande fråga som returnerar en post för varje misslyckad inloggnings händelse under den senaste timmen. Använd en tröskel som angetts för antalet misslyckade inloggningar som du tillåter. 
 
@@ -222,20 +222,20 @@ Event
 | where EventID == 4625
 ```
 
-![Logg avisering](media/monitor-vm-azure/log-alert-02.png)
+![Logg avisering för misslyckade inloggningar](media/monitor-vm-azure/log-alert-02.png)
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-System Center Operations Manager (SCOM) tillhandahåller detaljerad övervakning av arbets belastningar på virtuella datorer. I [övervaknings guiden för molnet](/azure/cloud-adoption-framework/manage/monitor/) finns en jämförelse mellan övervaknings plattformarna och olika strategier för implementering.
+System Center Operations Manager tillhandahåller detaljerad övervakning av arbets belastningar på virtuella datorer. I [övervaknings guiden för molnet](/azure/cloud-adoption-framework/manage/monitor/) finns en jämförelse mellan övervaknings plattformarna och olika strategier för implementering.
 
-Om du har en befintlig SCOM-miljö som du vill fortsätta att använda kan du integrera den med Azure Monitor för att tillhandahålla ytterligare funktioner. Log Analytics-agenten som används av Azure Monitor är samma som används för SCOM, så att du har övervakade virtuella datorer skicka data till båda. Du måste fortfarande lägga till agenten för att Azure Monitor for VMs och konfigurera arbets ytan för att samla in ytterligare data som anges ovan, men de virtuella datorerna kan fortsätta att köra sina befintliga hanterings paket i en SCOM-miljö utan modifiering.
+Om du har en befintlig Operations Managers miljö som du vill fortsätta att använda kan du integrera den med Azure Monitor för att tillhandahålla ytterligare funktioner. Log Analytics-agenten som används av Azure Monitor är samma som används för Operations Manager så att du har övervakade virtuella datorer skicka data till båda. Du måste fortfarande lägga till agenten för att Azure Monitor for VMs och konfigurera arbets ytan för att samla in ytterligare data som anges ovan, men de virtuella datorerna kan fortsätta att köra sina befintliga hanterings paket i en Operations Manager miljö utan att ändra.
 
-Funktioner i Azure Monitor som förstärker en befintlig SCOM-funktion är följande:
+Funktioner i Azure Monitor som förstärker en befintlig Operations Manager funktioner är följande:
 
 - Använd Log Analytics för att interaktivt analysera logg-och prestanda data.
-- Använd logg aviseringar för att definiera aviserings villkor över flera virtuella datorer och använda långsiktiga trender som inte är möjliga med aviseringar i SCOM.   
+- Använd logg aviseringar för att definiera aviserings villkor över flera virtuella datorer och med långsiktiga trender som inte är möjliga med aviseringar i Operations Manager.   
 
-Mer information om hur du ansluter din befintliga SCOM Management-grupp till din Log Analytics-arbetsyta finns i [ansluta Operations Manager till Azure Monitor](../platform/om-agents.md) .
+Information om hur du ansluter din befintliga Operations Manager hanterings grupp till din Log Analytics arbets yta finns i [anslut Operations Manager till Azure Monitor](../platform/om-agents.md) .
 
 
 ## <a name="next-steps"></a>Nästa steg

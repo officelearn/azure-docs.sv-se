@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798116"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031100"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Redigera eller återkalla program behörigheter i portalen Mina appar
 
@@ -28,9 +28,9 @@ När du använder organisations program i portalen **Mina appar** , beviljar du 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](../manage-apps/access-panel-collections.md).
 
-## <a name="manage-app-permissions"></a>Hantera programbehörigheter
+## <a name="manage-app-accounts"></a>Hantera app-konton
 
-Om du vill visa de behörigheter som du eller administratören har skickat till väljer du **...** när du hovrar över en app i portalen för **Mina appar** väljer du **Hantera ditt program**:
+Om du vill visa appar som meddelats av dig eller administratören väljer du **...** när du hovrar över en app i portalen för **Mina appar** väljer du **Hantera ditt program**:
 
 ![Hantera ett program i portalen för Mina appar](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 

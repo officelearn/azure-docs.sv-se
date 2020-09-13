@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: da84fee4e974f02f29dc9006fe740c415632ae53
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181166"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029026"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -26,7 +26,7 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 | Exempel | Beskrivning |
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | Ett iOS-exempel i Swift som autentiserar Azure AD B2C-användare och anropar ett API med OAuth 2.0 |
-| [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | En enkel Android-app som visar hur du använder MSAL för att autentisera användare via Azure Active Directory B2C och få åtkomst till ett webb-API med resulterande token. |
+| [android-native-msal](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | En enkel Android-app som visar hur du använder MSAL för att autentisera användare via Azure Active Directory B2C och få åtkomst till ett webb-API med resulterande token. |
 | [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | Ett exempel som visar hur du kan använda ett bibliotek från tredje part för att skapa ett iOS-program i Objective-C som autentiserar användare med Microsoft-identitet till vår Azure AD B2C-identitetstjänst. |
 | [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | Ett exempel som visar hur du kan använda ett bibliotek från tredje part för att skapa en Android-app som autentiserar användare med Microsoft-identitet till vår B2C-identitetstjänst och anropar ett webb-API med OAuth 2.0-åtkomsttoken. |
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | Ett exempel som visar hur ett Windows Desktop .NET-program (WPF-program) kan logga in en användare som använder Azure AD B2C, få ett åtkomsttoken med hjälp av MSAL.NET och anropa ett API. |

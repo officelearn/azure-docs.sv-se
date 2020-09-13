@@ -1,14 +1,14 @@
 ---
-title: Översikt över insamlings exempel för myndigheter i Australien
-description: Översikt över det insamlade utkastet av myndigheter som är skyddat av myndigheter. Det här skiss exemplet hjälper kunderna att bedöma vissa ISM-skyddade kontroller.
-ms.date: 08/03/2020
+title: De kontroller som är skyddade av den australiska regeringens exempel kontroller
+description: Kontroll av mappning av det insamlade utkastet av myndigheter som är skyddat av myndigheter. Varje kontroll mappas till en eller flera Azure Policy definitioner som hjälper till med utvärderingen.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760438"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030114"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Kontroll mappning för det insamlade utkastet av myndigheter som är skyddat av myndigheter
 
@@ -350,6 +350,10 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 ## <a name="next-steps"></a>Nästa steg
 
 Ytterligare artiklar om skisser och hur de används:
+
+> [!div class="nextstepaction"]
+> [ISM-skyddad skiss – översikt](./index.md) 
+>  [ISM, skyddad skiss – distribuera steg](./deploy.md)
 
 - Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).

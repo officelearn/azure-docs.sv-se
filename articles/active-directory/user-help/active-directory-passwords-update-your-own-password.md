@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799051"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029553"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
 
@@ -107,7 +107,7 @@ När du har återställt lösen ordet kan du få en bekräftelse via e-post som 
 
 ## <a name="how-to-change-your-password"></a>Så ändrar du ditt lösenord
 
-Om du bara vill ändra ditt lösen ord kan du göra det via Office 365-portalen, Azure-åtkomst panelen eller inloggnings sidan för Windows 10.
+Om du bara vill ändra ditt lösen ord kan du göra det via Office 365-portalen, portalen för Mina appar eller inloggnings sidan för Windows 10.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Ändra lösen ordet med hjälp av Office 365-portalen
 
@@ -121,11 +121,11 @@ Använd den här metoden om du normalt kommer åt dina appar via Office-portalen
 
 4. Skriv ditt gamla lösen ord, skapa och bekräfta ditt nya lösen ord och välj sedan **Skicka**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Ändra ditt lösen ord från Azures åtkomst panel
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>Ändra ditt lösen ord från portalen Mina appar
 
-Använd den här metoden om du normalt kommer åt dina appar från Azures åtkomst panel (Mina appar):
+Använd den här metoden om du normalt kommer åt dina appar från portalen Mina appar:
 
-1. Logga in på [Azures åtkomst panel](https://myapps.microsoft.com/)med ditt befintliga lösen ord.
+1. Logga in på [Mina Apps-portalen](https://myapps.microsoft.com/)med ditt befintliga lösen ord.
 
 2. Välj din profil längst upp till höger och välj sedan **profil**.
 

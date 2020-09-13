@@ -3,12 +3,12 @@ title: Exportera ett Jupyter Notebook-projekt från Azure Notebooks för hands v
 description: Exportera snabbt ett Jupyter Notebook-projekt.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892107"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030454"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Snabb start: exportera ett Jupyter Notebook projekt i Azure Notebooks för hands version
 
@@ -16,7 +16,7 @@ ms.locfileid: "88892107"
 
 I den här snabb starten ska du ladda ned ett Azure Notebooks-projekt för användning i andra Jupyter Notebook-lösningar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett befintligt Azure Notebooks-projekt.
 
@@ -34,7 +34,7 @@ Ett befintligt Azure Notebooks-projekt.
 
 När du har hämtat dina projektfiler kan du använda dem med andra Jupyter Notebook-lösningar. Vissa alternativ som beskrivs i avsnitten nedan är: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Visual Studio-Codespaces](#use-notebooks-in-visual-studio-codespaces)
+- [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -58,14 +58,13 @@ När du har [laddat ned](#export-an-azure-notebooks-project) dina projektfiler k
 
 Du kan också använda det [Azure Notebooks miljö skriptet](#create-an-environment-for-notebooks) med Visual Studio Code för att skapa en miljö som matchar Azure Notebooks för hands versionen.
 
-## <a name="use-notebooks-in-visual-studio-codespaces"></a>Använda antecknings böcker i Visual Studio Codespaces
+## <a name="use-notebooks-in-github-codespaces"></a>Använda antecknings böcker i GitHub-Codespaces
 
-Visual Studio Codespaces innehåller miljöer där du kan redigera dina antecknings böcker med Visual Studio Code eller webbläsaren. Den ger samma fantastiska Jupyter-upplevelse som VS-kod, men utan att behöva installera något på din enhet. Om du inte vill konfigurera en lokal miljö och föredra en molnbaserad lösning, är det ett bra alternativ att skapa en codespace. Så här kommer du igång:
-
+GitHub Codespaces innehåller molnbaserade miljöer där du kan redigera dina antecknings böcker med Visual Studio Code eller i webbläsaren. Den ger samma fantastiska Jupyter-upplevelse som VS-kod, men utan att behöva installera något på din enhet. Om du inte vill konfigurera en lokal miljö och föredra en molnbaserad lösning, är det ett bra alternativ att skapa en codespace. Så här kommer du igång:
 1. [Hämta](#export-an-azure-notebooks-project) dina projektfiler.
-1. [Skapa en GitHub-lagringsplats](https://help.github.com/github/getting-started-with-github/create-a-repo) för att lagra dina antecknings böcker. 
+1. [Skapa en GitHub-lagringsplats](https://help.github.com/github/getting-started-with-github/create-a-repo) för att lagra dina antecknings böcker.   
 1. [Lägg till dina filer](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) till lagrings platsen.
-1. Konfigurera Visual Studio-Codespaces i [webbläsaren](https://docs.microsoft.com/visualstudio/online/how-to/browser), [Visual Studio](https://docs.microsoft.com/visualstudio/online/how-to/vside)eller [Visual Studio Code](https://docs.microsoft.com/visualstudio/online/how-to/vscode).
+1. [Begär åtkomst till GitHub Codespaces Preview](https://github.com/features/codespaces)
 
 ## <a name="use-notebooks-with-azure-machine-learning"></a>Använda antecknings böcker med Azure Machine Learning
 
@@ -93,7 +92,7 @@ Om du vill ha mer information om Azure ML och köra Jupyter-anteckningsböcker k
 
 ## <a name="use-github"></a>Använd GitHub
 
-GitHub tillhandahåller ett kostnads fritt, käll kontrolls sätt att lagra antecknings böcker (och andra filer), dela dina antecknings böcker med andra och samar beta. Om du letar efter ett sätt att dela dina projekt och samar beta med andra, är GitHub ett bra alternativ och kan kombineras med [Visual Studio-Codespaces](#use-notebooks-in-visual-studio-codespaces) för en bra utvecklings upplevelse. Komma igång med GitHub
+GitHub tillhandahåller ett kostnads fritt, käll kontrolls sätt att lagra antecknings böcker (och andra filer), dela dina antecknings böcker med andra och samar beta. Om du letar efter ett sätt att dela dina projekt och samar beta med andra, är GitHub ett bra alternativ och kan kombineras med [GitHub Codespaces](#use-notebooks-in-github-codespaces) för en bra utvecklings upplevelse. Komma igång med GitHub
 
 1. [Hämta](#export-an-azure-notebooks-project) dina projektfiler.
 1. [Skapa en GitHub-lagringsplats](https://help.github.com/github/getting-started-with-github/create-a-repo) för att lagra dina antecknings böcker. 
@@ -103,6 +102,6 @@ GitHub tillhandahåller ett kostnads fritt, käll kontrolls sätt att lagra ante
 
 - [Lär dig mer om python i Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Lär dig mer om Azure Machine Learning-och Jupyter-anteckningsböcker](../machine-learning/how-to-run-jupyter-notebooks.md)
-- [Lär dig mer om Visual Studio-Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Lär dig mer om GitHub Codespaces](https://github.com/features/codespaces)
 - [Läs mer om Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
 - [Lär dig mer om GitHub](https://help.github.com/github/getting-started-with-github/)

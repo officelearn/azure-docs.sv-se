@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d5f239540a74c431e381c581f00514a1f7acd5e3
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142423"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030394"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -77,6 +77,8 @@ CloudMonix erbjuder övervaknings-, automatiserings-och självbetjänings tjäns
 Datadog är världens ledande övervaknings tjänst för program i moln skala. Data samlas in från servrar, databaser, verktyg och tjänster för att presentera en enhetlig vy över hela stacken. Dessa funktioner finns på en SaaS-baserad plattform för data analys. Den här tjänsten gör det möjligt för utvecklings-och Ops team att samar beta för att undvika avbrott, lösa prestanda problem och se till att utvecklings-och distributions cykler slutförs. Genom att integrera Datadog och Azure kan du samla in och visa mått från hela infrastrukturen. Korrelera mått för virtuella datorer med mått på program nivå. Segmentera och tärning dina mått med valfri kombination av egenskaper och anpassade taggar.
 
 [Gå till dokumentationen.][datadog-doc]
+
+En ny Azure Marketplace-integrering av Datadog har schemalagts för lansering i början den 2020. En länk kommer att läggas till här när den lanseras. 
 
 ## <a name="dynatrace"></a>Dynatrace
 

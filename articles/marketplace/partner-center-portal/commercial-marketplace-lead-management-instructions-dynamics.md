@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120389"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030760"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurera lead-hantering för Dynamics 365 kund engagemang
 
@@ -21,13 +21,13 @@ Den här artikeln beskriver hur du konfigurerar Dynamics 365 kund engagemang (ti
 >[!NOTE]
 >De här anvisningarna är specifika för den Microsoft-värdbaserade moln miljön för Dynamics 365-kund engagemang. Anslutning direkt till en lokal Dynamics-miljö stöds inte för närvarande. Det finns andra alternativ för att ta emot leads, till exempel konfigurera en [https-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en Azure- [tabell](./commercial-marketplace-lead-management-instructions-azure-table.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande användar behörigheter krävs för att slutföra stegen i den här artikeln:
 
 * Administratörs behörighet på din Dynamics 365 kund engagemang-instans för att kunna installera en lösning.
 * Klient administratörs rättigheter för att skapa ett nytt tjänst konto för den lead-tjänst som används för att skicka leads från kommersiella Marketplace-erbjudanden.
-* Åtkomst till administrations portalen för Office 365.
+* Åtkomst till administrations portalen.
 * Åtkomst till Azure Portal.
 
 ## <a name="install-the-solution"></a>Installera lösningen
@@ -78,7 +78,7 @@ Så här konfigurerar du Azure Active Directory för Dynamics 365-kund engageman
 1. Ange ett meningsfullt namn på program namnet.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog**.
 1. Under **omdirigerings-URI (valfritt)** väljer du **webb** och anger en URI, till exempel `https://contosoapp1/auth` . 
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 
     ![Registrera en program sida](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 

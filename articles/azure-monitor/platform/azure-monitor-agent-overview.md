@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 0fc9139e9456a62bf3586fb358046e7c868b834a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005232"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030835"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Översikt över Azure Monitor Agent (för hands version)
 Azure Monitor agenten (AMA) samlar in övervaknings data från gäst operativ systemet på virtuella datorer och levererar det till Azure Monitor. Den här artikeln innehåller en översikt över Azure Monitor Agent, inklusive hur du installerar den och hur du konfigurerar data insamling.
@@ -99,6 +99,8 @@ Följande operativ system stöds för närvarande av Azure Monitor agenten.
 ## <a name="security"></a>Säkerhet
 Den Azure Monitor agenten behöver inte några nycklar utan kräver istället en [systemtilldelad hanterad identitet](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Du måste ha en systemtilldelad hanterad identitet aktive rad på varje virtuell dator innan du distribuerar agenten.
 
+## <a name="networking"></a>Nätverk
+Azure Monitor Agent har stöd för Azure Service-Taggar (både AzureMonitor-och AzureResourceManager-Taggar krävs) men fungerar ännu inte med Azure Monitor privata länk omfattningar eller direkta proxyservrar.
 
 ## <a name="install-the-azure-monitor-agent"></a>Installera Azure Monitor Agent
 Azure Monitor agenten implementeras som ett [Azure VM-tillägg](../../virtual-machines/extensions/overview.md) med informationen i följande tabell. 

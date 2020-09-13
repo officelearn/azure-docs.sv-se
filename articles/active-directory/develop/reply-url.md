@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205930"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030318"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Begränsningar och begränsningar för omdirigerings-URI (svars-URL)
 
@@ -65,6 +65,8 @@ I en utvecklings synpunkt innebär detta några saker:
 * Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till den omdirigerings-URI: n (till exempel om den är `web` -, `native` -eller `spa` -typ-omdirigering).
 * Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://127.0.0.1/MyWebApp` inte `http://127.0.0.1/MyNativeApp` .
 * Enligt RFC-vägledningen bör du inte använda `localhost` den omdirigerings-URI: n. Använd i stället den faktiska loopback-IP-adressen `127.0.0.1` . Detta förhindrar att appen bryts av felkonfigurerade brand väggar eller bytt namn på nätverks gränssnitt.
+
+    Om du vill använda `http` schemat med loopback-adressen (127.0.0.1) i stället för localhost måste du redigera [applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
 
     IPv6 loopback-adressen ( `[::1]` ) stöds inte för närvarande.
 

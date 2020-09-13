@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f61773e693ad1276ef48b2f26ef6e3e8f59e2992
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e97db598556d10538746242fa67449631394cd55
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612372"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030658"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
-Azure Digitals dubbla är utrustade med både **kontroll Plans-API: er** och **data Plans-API: er** för att hantera din instans och dess element. Den här artikeln ger en översikt över de API: er som är tillgängliga och metoderna för att interagera med dem. Du kan antingen använda REST-API: er direkt med deras associerade swaggers eller via en SDK.
+Azure Digitals dubbla är utrustade med både **kontroll Plans-API: er** och **data Plans-API: er** för att hantera din instans och dess element. 
+* API: erna för kontroll plan är [Azure Resource Manager (arm)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) API: er, och de kan hantera resurs hanterings åtgärder som att skapa och ta bort din instans. 
+* Data Plans-API: erna är Azure Digitals dubbla API: er och används för data hanterings åtgärder som att hantera modeller, dubbla och diagrammet.
+
+Den här artikeln ger en översikt över de API: er som är tillgängliga och metoderna för att interagera med dem. Du kan antingen använda REST-API: er direkt med deras associerade swaggers eller via en SDK.
 
 ## <a name="overview-control-plane-apis"></a>Översikt: kontroll Plans-API: er
 
-Kontroll Plans-API: erna används för att hantera din Azure Digital-instansen som helhet, så att de täcker åtgärder som att skapa eller ta bort hela instansen. Du kan också använda dessa för att skapa och ta bort slut punkter.
+API: er för kontroll plan är [arm](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) -API: er som används för att hantera din Azure Digital-instansen som helhet, så att de täcker åtgärder som att skapa eller ta bort hela instansen. Du kan också använda dessa för att skapa och ta bort slut punkter.
 
 Den mest aktuella API-versionen för kontroll plan för den offentliga för hands versionen är _**2020-03-01 – för hands**_ version.
 
@@ -37,7 +41,7 @@ Du kan också öva på att kontrol lera plan-API: er genom att interagera med Az
 
 ## <a name="overview-data-plane-apis"></a>Översikt: data Plans-API: er
 
-Data Plans-API: erna används för att hantera elementen i Azure Digitals-instansen. De innehåller åtgärder som att skapa vägar, överföra modeller, skapa relationer och hantera dubbla. De kan delas i stor mängd i följande kategorier:
+Data Plans-API: erna är Azure Digitals dubbla API: er som används för att hantera elementen i Azure Digitals-instansen. De innehåller åtgärder som att skapa vägar, överföra modeller, skapa relationer och hantera dubbla. De kan delas i stor mängd i följande kategorier:
 * **DigitalTwinsModels** – DigitalTwinsModels-kategorin innehåller API: er för att hantera [modeller](concepts-models.md) i en digital Azure-instans. Hanterings aktiviteter omfattar uppladdning, validering, hämtning och borttagning av modeller som skapats i DTDL.
 * **DigitalTwins** – DigitalTwins-kategorin innehåller de API: er som utvecklare kan använda för att skapa, ändra och ta bort [digitala dubbla](concepts-twins-graph.md) och deras relationer i en digital Azure-instans.
 * **Fråga** – kategorin fråga gör det möjligt [för utvecklare att hitta uppsättningar digitala delar i det dubbla diagrammet](how-to-query-graph.md) mellan relationer.

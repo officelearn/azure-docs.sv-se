@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6677f9275d3b6f0569216eb16046d096c574beab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290712"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030909"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösnings mal len för förutsägande underhåll i Aerospace
 
@@ -170,7 +170,7 @@ Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database
    * När **Azure SQL Database** i lösningens diagram blir grönt, klickar du på det och sedan på **Öppna**.
    * Du ser en ny webbflik/fönster som visar Azure Portal sidan. Klicka på **resurs grupper** på den vänstra panelen.
    * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **"YourSolutionName \_ ResourceGroup"**.
-   * I den nya popup-panelen klickar du på ![ ikonen för SQL-ikonen ](./media/predictive-maintenance-technical-guide/icon-sql.png) för att få åtkomst till din databas. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '**) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
+   * I den nya popup-panelen klickar du på  ![ ikonen för SQL-ikonen ](./media/predictive-maintenance-technical-guide/icon-sql.png) för att få åtkomst till din databas. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '**) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
    * Ditt **användar namn** och **lösen ord** för databasen är samma som det användar namn och lösen ord som tidigare registrerades under distributionen av lösningen.
 2. Uppdatera data källan för den kall Sök vägs rapport filen med Power BI Desktop.
    
@@ -182,7 +182,7 @@ Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database
    * I nästa popup-fönster visas två alternativ i den vänstra rutan (**Windows** och **databas**). Klicka på **"databas"**, Fyll i ditt **"username"** och **"Password"** (användar namn och lösen ord som du angav när du först distribuerade lösningen och skapade en Azure SQL Database). I ***Välj vilken nivå som inställningarna ska tillämpas på***kontrollerar du alternativet på databas nivå. Klicka sedan på **Anslut**.
    * Klicka på den andra tabellens **PMResult** klicka sedan på ![ navigerings ikonen ](./media/predictive-maintenance-technical-guide/icon-navigation.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel och uppdatera Server-och databas namnen som i ovanstående steg och klicka på OK.
    * När du har gå tillbaka till föregående sida stänger du fönstret. Ett meddelande visas – klicka på **Använd**. Klicka slutligen på knappen **Spara** för att spara ändringarna. Din Power BI-fil har nu upprättat en anslutning till servern. Om visualiseringarna är tomma ser du till att ta bort valen i visualiseringarna för att visualisera alla data genom att klicka på rader gummi-ikonen i det övre högra hörnet av förklaringarna. Använd knappen Uppdatera för att visa nya data på visualiseringarna. Först ser du bara Dirigerings data i dina visualiseringar när data fabriken har schemalagts att uppdateras var tredje timme. Efter 3 timmar visas nya förutsägelser i dina visualiseringar när du uppdaterar data.
-3. Valfritt Publicera instrument panelen för kall bana till [Power BI online](https://www.powerbi.com/). Det här steget behöver ett Power BI konto (eller ett Office 365-konto).
+3. Valfritt Publicera instrument panelen för kall bana till [Power BI online](https://www.powerbi.com/). Det här steget behöver ett Power BI konto (eller ett arbets-eller skol konto).
    
    * Klicka på **publicera** och få sekunder senare visas ett fönster som visar publicering till Power BI lyckades! med en grön bock markering. Klicka på länken nedan "Open PredictiveMaintenanceAerospace. pbix in Power BI". Detaljerade instruktioner finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * För att skapa en ny instrument panel: Klicka på **+** tecknet bredvid avsnittet **instrument paneler** i det vänstra fönstret. Ange namnet "demonstration av förebyggande underhåll" för den nya instrument panelen.
@@ -208,7 +208,7 @@ Följande steg vägleder dig hur du visualiserar datautdata från Stream Analyti
 1. Lägg till Power BI utdata i Azure Stream Analytics (ASA).
    
    * Du måste följa anvisningarna i [Azure Stream Analytics & Power BI: en analys instrument panel för real tids visning av strömmande data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) för att konfigurera utdata för ditt Azure Stream Analytics-jobb som Power BI instrument panel.
-   * ASA-frågan har tre utdata som är **aircraftmonitor**, **aircraftalert**och **flightsbyhour**. Du kan visa frågan genom att klicka på fliken fråga. motsvarar var och en av tabellerna måste du lägga till utdata till ASA. När du lägger till den första utdatan (**aircraftmonitor**) kontrollerar du att **utdata-aliaset**, **data uppsättningens namn** och **tabell namnet** är samma (**aircraftmonitor**). Upprepa stegen för att lägga till utdata för **aircraftalert**och **flightsbyhour**. När du har lagt till alla tre utgående tabeller och startat jobbet ASA, bör du få ett bekräftelse meddelande ("startar Stream Analytics jobbet maintenancesa02asapbi lyckades").
+   * ASA-frågan har tre utdata som är **aircraftmonitor**, **aircraftalert**och **flightsbyhour**. Du kan visa frågan genom att klicka på fliken fråga. Som motsvarar var och en av dessa tabeller måste du lägga till utdata till ASA. När du lägger till den första utdatan (**aircraftmonitor**) kontrollerar du att **utdata-aliaset**, **data uppsättningens namn** och **tabell namnet** är samma (**aircraftmonitor**). Upprepa stegen för att lägga till utdata för **aircraftalert**och **flightsbyhour**. När du har lagt till alla tre utgående tabeller och startat jobbet ASA, bör du få ett bekräftelse meddelande ("startar Stream Analytics jobbet maintenancesa02asapbi lyckades").
 2. Logga in på [Power BI online](https://www.powerbi.com)
    
    * På den vänstra panelens data uppsättnings avsnitt i min arbets yta visas ***data uppsättnings*** namnen **aircraftmonitor**, **aircraftalert**och **flightsbyhour** . Det här är de strömmande data som du har överfört från Azure Stream Analytics i föregående steg. Data uppsättningen **flightsbyhour** får inte visas samtidigt som de andra två data uppsättningarna på grund av SQL-frågans natur. Det bör dock visas efter en timme.

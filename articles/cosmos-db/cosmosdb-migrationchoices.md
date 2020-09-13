@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: a08c6abe52801e1fbafd517adcb8fd9a8b8b4aee
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462300"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030080"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Alternativ för att migrera dina lokala eller molnbaserade data till Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 |Offline|[Azure Cosmos DB Spark-anslutning](spark-connector.md)|Azure Cosmos DB SQL API. <br/><br/>Du kan använda andra källor med ytterligare anslutningar från Spark-eko systemet.| Azure Cosmos DB SQL API. <br/><br/>Du kan använda andra mål med ytterligare anslutningar från Spark-eko systemet.| &bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar. <br/>&bull; Kräver en anpassad Spark-installation. <br/>&bull; Spark är känsligt för inkonsekvenser i schemat och det kan vara ett problem under migreringen. |
 |Offline|[Anpassat verktyg med Cosmos DB-bibliotek för Mass utförar](migrate-cosmosdb-data.md)| Källan är beroende av din anpassade kod | Azure Cosmos DB SQL API| &bull; Tillhandahåller kontroll punkter, funktioner för obeställbara meddelanden som ökar återhämtnings kapaciteten för migreringen. <br/>&bull; Lämplig för mycket stora data uppsättningar (10 TB +).  <br/>&bull; Kräver anpassad installation av det här verktyget som körs som en App Service. |
 |Online|[Cosmos DB Functions + ChangeFeed-API](change-feed-functions.md)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; Enkelt att konfigurera. <br/>&bull; Fungerar bara om källan är en Azure Cosmos DB behållare. <br/>&bull; Passar inte för stora data mängder. <br/>&bull; Fångar inte in borttagningar från käll behållaren. |
-|Online|[Tjänsten för anpassad migrering med ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; Tillhandahåller förlopps spårning. <br/>&bull; Fungerar bara om källan är en Azure Cosmos DB behållare. <br/>&bull; Fungerar även för större data uppsättningar.<br/>&bull; Kräver att användaren konfigurerar en App Service som ska vara värd för bytet av Change-feed. <br/>&bull; Fångar inte in borttagningar från käll behållaren.|
+|Online|[Tjänsten för anpassad migrering med ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; Tillhandahåller förlopps spårning. <br/>&bull; Fungerar bara om källan är en Azure Cosmos DB behållare. <br/>&bull; Fungerar även för större data uppsättningar.<br/>&bull; Kräver att användaren konfigurerar en App Service som ska vara värd för bytet av Change-feed. <br/>&bull; Fångar inte in borttagningar från käll behållaren.|
 |Online|[Striims](cosmosdb-sql-api-migrate-data-striim.md)| &bull;Oracle <br/>&bull;Apache Cassandra<br/><br/> Se [striims-webbplatsen](https://www.striim.com/sources-and-targets/) för andra källor som stöds. |&bull;Azure Cosmos DB SQL API <br/>&bull; Azure Cosmos DB API för Cassandra<br/><br/> Se [striims-webbplatsen](https://www.striim.com/sources-and-targets/) för andra mål som stöds. | &bull; Fungerar med en stor mängd olika källor som Oracle, DB2, SQL Server.<br/>&bull; Lätt att bygga ETL-pipelines och ger en instrument panel för övervakning. <br/>&bull; Har stöd för större data mängder. <br/>&bull; Eftersom det här är ett verktyg från tredje part måste det köpas från Marketplace och installeras i användarens miljö.|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo-API

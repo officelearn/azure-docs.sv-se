@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134536"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029825"
 ---
-# <a name="server-group-size"></a>Server grupps storlek
+# <a name="server-group-size"></a>Servergruppstorlek
 
 Citus-distributions alternativet använder sig av samdrifts databas servrar för att parallellisera frågekörning och lagra mer data. Server gruppens storlek avser både antalet servrar och maskin varu resurserna för var och en.
 
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL-Scale (citus) tillhandahåller självbetjänings s
 
 ### <a name="add-worker-nodes"></a>Lägg till arbetsnoder
 
-Om du vill lägga till noder går du till fliken **Konfigurera** i citus-Server gruppen.  Om du drar skjutreglaget för **antal arbets noder** ändras värdet.
+Om du vill lägga till noder går du till fliken **Compute + Storage** i Server gruppen för citus-servern.  Om du drar skjutreglaget för **antal arbets noder** ändras värdet.
 
 ![Resurs skjutreglage](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
@@ -66,7 +66,7 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 Förutom att lägga till nya noder kan du öka funktionerna i befintliga noder. Det kan vara bra att justera beräknings kapaciteten för prestanda experiment samt kortsiktiga eller långsiktiga ändringar av trafik kraven.
 
-Om du vill ändra virtuella kärnor för alla arbetsnoder justerar du skjutreglaget **virtuella kärnor** under **konfiguration (per nod)**. Koordinator nodens virtuella kärnor kan justeras oberoende av varandra. Justera **virtuella kärnor** -skjutreglaget under **konfiguration (koordinator nod)**.
+Om du vill ändra virtuella kärnor för alla arbetsnoder justerar du skjutreglaget **virtuella kärnor** under **konfiguration (per nod)**. Koordinator nodens virtuella kärnor kan justeras oberoende av varandra. Justera **virtuella kärnor** -skjutreglaget under  **konfiguration (koordinator nod)**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326179"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030352"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -20,16 +20,13 @@ När du har viktiga program och affärs processer som förlitar sig på Azure-re
 > Den här artikeln gäller för alla tjänster i Azure som använder Azure Monitor. Beräknings resurser, inklusive virtuella datorer och App Service, genererar samma övervaknings data som beskrivs här, men har även ett gäst operativ system som också kan generera loggar och mått. I övervaknings dokumentationen för dessa tjänster finns mer information om hur du samlar in och analyserar dessa data.
 
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
-Azure Monitor är en fullständig stack övervaknings tjänst i Azure som innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser, förutom resurser i andra moln och lokalt. [Azure Monitor data plattform](../platform/data-platform.md) samlar in data i [loggar](../platform/data-platform-logs.md) och [Mät värden](../platform/data-platform-metrics.md) där de kan analyseras med en fullständig uppsättning övervaknings verktyg enligt beskrivningen i följande avsnitt.
-
-- [Vad kan du göra med Azure Monitor mått?](../platform/data-platform-metrics.md#what-can-you-do-with-azure-monitor-metrics)
-- [Vad kan du göra med Azure Monitor loggar?](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+Azure Monitor är en fullständig stack övervaknings tjänst i Azure som innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser, förutom resurser i andra moln och lokalt. [Azure Monitor data plattform](../platform/data-platform.md) samlar in data i [loggar](../platform/data-platform-logs.md) och [Mät värden](../platform/data-platform-metrics.md) där de kan analyseras med en fullständig uppsättning övervaknings verktyg. Se den fullständiga listan över program och tjänster som kan övervakas av Azure Monitor i [vad övervakas av Azure Monitor?](../monitor-reference.md).
 
 När du skapar en Azure-resurs är Azure Monitor aktive rad och börjar samla in mått och aktivitets loggar som du kan [Visa och analysera i Azure Portal](#monitoring-in-the-azure-portal). Med viss konfiguration kan du samla in ytterligare övervaknings data och aktivera ytterligare funktioner. Mer information om konfigurations krav finns i [övervaknings data](#monitoring-data) nedan.
 
 
 ## <a name="costs-associated-with-monitoring"></a>Kostnader för övervakning
-Det kostar inget att analysera övervaknings data som samlas in som standard. Detta omfattar följande:
+Det kostar inget att analysera övervaknings data som samlas in som standard. Det här gäller bland annat följande:
 
 - Samla in plattforms mått och analysera dem med Metrics Explorer.
 - Samla in aktivitets logg och analysera den i Azure Portal.
@@ -100,7 +97,7 @@ Vissa tjänster tillhandahåller verktyg utöver standard funktionerna i Azure M
 
 Om en tjänst har Azure Monitor insikter kan du komma åt den från **övervakning** i varje resurs meny. Få till gång till alla insikter och lösningar från **Azure Monitor** -menyn.
 
-![Insikter](media/monitor-azure-resource/insights.png)
+![Insikter i Azure Portal](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Mått
 Analysera mått i Azure Portal med hjälp av [Metrics Explorer](../platform/metrics-getting-started.md) som är tillgängligt på meny alternativet **mått** för de flesta tjänsterna. Med det här verktyget kan du arbeta med enskilda mått eller kombinera flera för att identifiera korrelationer och trender. 
@@ -108,7 +105,7 @@ Analysera mått i Azure Portal med hjälp av [Metrics Explorer](../platform/metr
 - Mer information om hur du använder Metrics Explorer finns i [komma igång med Azure Metrics Explorer](../platform/metrics-getting-started.md) .
 - Se [avancerade funktioner i Azure Metrics Explorer](../platform/metrics-charts.md) för avancerade funktioner i mått Utforskaren, till exempel att använda flera mått och använda filter och delning.
 
-![Mått](media/monitor-azure-resource/metrics.png)
+![Mått Utforskaren i Azure Portal](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>Aktivitetslogg 
@@ -129,7 +126,7 @@ Med [Log Analytics](../log-query/get-started-portal.md) kan du arbeta med [logg 
 - Se [insamlings läge](../platform/resource-logs.md#send-to-log-analytics-workspace) för en förklaring av hur resurs logg data är strukturerade i Azure Monitor loggar.
 - I dokumentationen för varje Azure-tjänst finns mer information om tabellen i Azure Monitor loggar.
 
-![Loggar](media/monitor-azure-resource/logs.png)
+![Log Analytics i Azure Portal](media/monitor-azure-resource/logs.png)
 
 ## <a name="monitoring-from-command-line"></a>Övervakning från kommando raden
 Du kan komma åt övervaknings data som samlats in från din resurs från en kommando rad eller inkludera i ett skript med hjälp av [Azure PowerShell](/powershell/azure/) eller [Azure kommando rads gränssnitt](/cli/azure/). 

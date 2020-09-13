@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4da2e9120b9bfee78c9fa832d9a477a42493834c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607467"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030471"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Jämföra Microsoft AppSource och Azure Marketplace
 
-På Microsofts kommersiella Marketplace ingår [Microsoft AppSource](https://appsource.microsoft.com) och [Azure Marketplace](https://azuremarketplace.microsoft.com). Varje onlinebutik hanterar unika kund krav och olika mål grupper så att du kan se till att din lösning eller tjänst är tillgänglig för rätt kunder.
+På Microsofts kommersiella Marketplace ingår [Microsoft AppSource](https://appsource.microsoft.com) och [Azure Marketplace](https://azuremarketplace.microsoft.com). Varje onlinebutik erbjuder olika lösnings typer med unika scenarier, så du kan se till att din lösning eller tjänst är tillgänglig för rätt kunder.
 
 ## <a name="understanding-the-differences-between-online-stores"></a>Förstå skillnaderna mellan onlinebutiker
 
-Om du vill välja en onlinebutik måste du först identifiera mål gruppen för ditt erbjudande. Om du riktar in mål grupper i flera onlinebutiker kan du publicera en gång för att sälja i flera butiker.
+Om du vill välja en onlinebutik måste du först identifiera vilken typ av lösning du erbjuder. Om ditt erbjudande är både en IT-och en affärs lösning kan du publicera en gång för att sälja i flera butiker.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| IT-proffs och utvecklare | Företags användare och affärs besluts fattare |
+| IT-lösningar | Affärs lösningar |
 
 I följande tabell beskrivs fördelarna med att använda en onlinebutik:
 
@@ -34,8 +34,8 @@ I följande tabell beskrivs fördelarna med att använda en onlinebutik:
 |**Anslutningar till andra partner**  | För närvarande kan du inte länka en tjänst leverantör eller leverans partner till ditt erbjudande. | Länkar oberoende program varu leverantörer, system integrerare och hanterade tjänst leverantörer till vissa implementerings scenarier. Du kan samar beta med att sälja till nya kunder. |
 | **Automation** | För närvarande kan du inte länka en tjänst leverantör eller leverans partner till ditt erbjudande. Dra nytta av automatiserad program vara som en tjänst (SaaS) med etablering av tillägg. Använd Azure Apps: publicerings alternativet för lösnings mal len för att automatisera SaaS-baserade data insamlings-och distributions scenarier. | Länkar oberoende program varu leverantörer, system integrerare och hanterade tjänst leverantörer till vissa implementerings scenarier. Du kan samar beta med att sälja till nya kunder. |
 | **Flera moln typer** | Publicera lösningar för både det offentliga molnet och lokalt genom att använda följande typer:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Regionala moln, inklusive Kina och Tyskland</li></ul> | För närvarande stöder inte Azure Stack, Azure Government eller regionala moln. |
-| **Sammanhangs beroende presentation till kunder** | Gör din lösning tillgänglig i Azure i Portal-upplevelse för sammanhangsbaserad sökning. Använd den virtuella datorn och Azure Apps: publicerings alternativ för lösnings mal len. | Få fler kunder via appen i appen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Office 365. |
+| **Sammanhangs beroende presentation till kunder** | Gör din lösning tillgänglig i Azure i Portal-upplevelse för sammanhangsbaserad sökning. Använd den virtuella datorn och Azure Apps: publicerings alternativ för lösnings mal len. | Få fler kunder via appen i appen för Microsoft-produkter, till exempel Dynamics 365, Power BI och Microsoft 365. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [publicerings guiden för kommersiellt Marketplace](./marketplace-publishers-guide.md).
+* [Publicerings guide för kommersiell Marketplace](marketplace-publishers-guide.md)

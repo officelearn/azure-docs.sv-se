@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/07/2020
-ms.openlocfilehash: cc38210690c88fec826dc727775d01884dedd997
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0a985e7a4a0a332d3824f9cffa2a191429cfdb33
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008890"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029621"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -26,7 +26,7 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du har en Azure Government-prenumeration följer du dessa ytterligare steg för att [Konfigurera Visual Studio för Azure Government molnet](#azure-government).
 
@@ -55,7 +55,7 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
 
   Designern behöver en Internet anslutning för att skapa resurser i Azure och läsa egenskaper och data från kopplingar i din Logic app.
 
-* Ett e-postkonto som stöds av Logic Apps, t.ex. Office 365 Outlook, Outlook.com eller Gmail. För andra leverantörer granskar du [kopplings listan här](/connectors/). I det här exemplet används Office 365 Outlook. Om du använder en annan provider är övergripande stegen desamma, men ditt användargränssnitt kan skilja sig något.
+* Ett e-postkonto som stöds av Logic Apps, till exempel Outlook för Microsoft 365, Outlook.com eller Gmail. För andra leverantörer granskar du [kopplings listan här](/connectors/). I det här exemplet används Office 365 Outlook. Om du använder en annan provider är övergripande stegen desamma, men ditt användargränssnitt kan skilja sig något.
 
   > [!IMPORTANT]
   > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -140,7 +140,7 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
 
    ![Välj Azure-prenumeration, resursgrupp och plats för resurser](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Inställning | Exempelvärde | Beskrivning |
+   | Inställningen | Exempelvärde | Beskrivning |
    | ------- | ------------- | ----------- |
    | Användar konto | Fabrikam <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
    | **Prenumeration** | Betala per användning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |

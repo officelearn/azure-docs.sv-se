@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327760"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029842"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
 
@@ -84,7 +84,7 @@ Använd asynkrona åtgärder på [slut punkten för IoT Hub Resource Provider](i
 
 Mer information om import-och export-API: er finns i [IoT Hub Resource Provider REST-API: er](/rest/api/iothub/iothubresource). Mer information om hur du kör import-och export jobb finns i [Mass hantering av IoT Hub enhets identiteter](iot-hub-bulk-identity-mgmt.md).
 
-Enhets identiteter kan också exporteras och importeras från en IoT Hub via tjänst-API: et via [REST API](/rest/api/iothub/service/jobclient/createimportexportjob) eller någon av IoT Hub [tjänst-SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks): er.
+Enhets identiteter kan också exporteras och importeras från en IoT Hub via tjänst-API: et via [REST API](/rest/api/iothub/service/jobs/createimportexportjob) eller någon av IoT Hub [tjänst-SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks): er.
 
 ## <a name="device-provisioning"></a>Enhets etablering
 
@@ -112,7 +112,7 @@ Egenskaper: meddelande system egenskaper föregås av `$` symbolen.
 
 Meddelande för enhet:
 
-| Namn | Värde |
+| Name | Värde |
 | --- | --- |
 |$content-typ | application/json |
 |$iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -148,7 +148,7 @@ Brödtext: det här avsnittet är i JSON-format och representerar den dubbla av 
 ```
 Aviserings meddelande för modul:
 
-| Namn | Värde |
+| Name | Värde |
 | --- | --- |
 $content-typ | application/json |
 $iothub-enqueuedtime |  Tid när meddelandet skickades |

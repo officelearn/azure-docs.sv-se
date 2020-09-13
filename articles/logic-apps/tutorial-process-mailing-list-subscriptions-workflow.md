@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c802fafa92ace2260002f7156b0df9841af8338c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132406"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029587"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
 
@@ -40,7 +40,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 * Ett MailChimp-konto som innehåller en lista med namnet "test-members-ML" där din Logic app kan lägga till e-postadresser för godkända medlemmar. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://login.mailchimp.com/signup/)och sedan lära dig [hur du skapar en MailChimp-lista](https://us17.admin.mailchimp.com/lists/#).
 
-* Ett e-postkonto i Office 365 Outlook eller Outlook.com, som stöder arbets flöden för godkännande. Den här artikeln använder Office 365 Outlook. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
+* Ett e-postkonto i Outlook för Microsoft 365 eller Outlook.com, som stöder arbets flöden för godkännande. Den här artikeln använder Office 365 Outlook. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
@@ -107,7 +107,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
       Mer information om den här utlösarens egenskaper finns i [referens för Office 365 Outlook Connector](/connectors/office365/) eller [kopplings referens för Outlook.com](/connectors/outlook/).
 
-   1. När egenskapen visas i utlösaren anger du den här texten:`subscribe-test-members-ML`
+   1. När egenskapen visas i utlösaren anger du den här texten: `subscribe-test-members-ML`
 
       ![Ange text för egenskapen "ämnes filter"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
@@ -137,7 +137,7 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Att** | <*din-e-postadress*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. I det här exemplet används den fiktiva " sophia.owen@fabrikam.com " e-postadressen. |
+   | **Om du vill** | <*din-e-postadress*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. I det här exemplet används den fiktiva " sophia.owen@fabrikam.com " e-postadressen. |
    | **Ämne** | `Approve member request for test-members-ML` | En beskrivande e-postrubrik |
    | **Användaralternativ** | `Approve, Reject` | Svars alternativen som god kännaren kan välja. Som standard kan god kännaren välja antingen "Godkänn" eller "avvisa" som svar. |
    ||||
@@ -176,7 +176,7 @@ Lägg sedan till ett villkor för att kontrol lera god kännaren för det valda 
 
    1. I rutan mellan jämförelse väljer du operatorn **är lika** med.
 
-   1. I rutan **Välj ett värde** på villkorets högra sida anger du följande text:`Approve`
+   1. I rutan **Välj ett värde** på villkorets högra sida anger du följande text: `Approve`
 
       När du är klar ser villkoret ut som i det här exemplet:
 
@@ -233,7 +233,7 @@ Sedan lägger till ett villkor så att du kan kontrollera om den nya medlemmen h
 
    1. I rutan mellan jämförelse väljer du operatorn **är lika** med.
 
-   1. I rutan **Välj ett värde** på villkorets högra sida anger du följande text:`subscribed`
+   1. I rutan **Välj ett värde** på villkorets högra sida anger du följande text: `subscribed`
 
       När du är klar ser villkoret ut som i det här exemplet:
 
@@ -259,9 +259,9 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Om du vill** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
    | **Ämne** | Ja | <*ämne – för-lyckad-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
-   | **Brödtext** | Ja | <*brödtext – för klar ande – e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>På nästa rad anger du den här texten:`Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
+   | **Brödtext** | Ja | <*brödtext – för klar ande – e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>På nästa rad anger du den här texten: `Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
    |||||
 
 1. Spara logikappen.
@@ -284,7 +284,7 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Om du vill** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
    | **Ämne** | Ja | <*Subject-för-Failure-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
    | **Brödtext** | Ja | <*Body-för-Failure-e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Member might already exist. Check your MailChimp account.` |
    |||||

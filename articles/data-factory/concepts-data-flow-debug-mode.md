@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 09/11/2020
+ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475608"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030608"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -41,13 +41,15 @@ När du är färdig med fel sökningen aktiverar du fel söknings knappen så at
 
 ## <a name="debug-settings"></a>Fel söknings inställningar
 
-Du kan redigera fel söknings inställningar genom att klicka på "Felsök inställningar" i verktygsfältet data flödes arbets yta. Du kan välja den rad gräns eller fil källa som ska användas för varje käll omvandling här. Rad begränsningarna i den här inställningen gäller bara för den aktuella felsökningssessionen. Du kan också välja den mellanlagrade länkade tjänsten som ska användas för en SQL DW-källa. 
+När du har aktiverat fel söknings läge kan du redigera hur ett data flöde för hands Grans kar data. Du kan redigera fel söknings inställningar genom att klicka på "Felsök inställningar" i verktygsfältet data flödes arbets yta. Du kan välja den rad gräns eller fil källa som ska användas för varje käll omvandling här. Rad begränsningarna i den här inställningen gäller bara för den aktuella felsökningssessionen. Du kan också välja den mellanlagrade länkade tjänst som ska användas för en Azure Synapse Analytics-källa. 
 
 ![Fel söknings inställningar](media/data-flow/debug-settings.png "Fel söknings inställningar")
 
 Om du har parametrar i ditt data flöde eller någon av dess refererade data uppsättningar, kan du ange vilka värden som ska användas vid fel sökning genom att välja fliken **parametrar** .
 
 ![Parametrar för fel söknings inställningar](media/data-flow/debug-settings2.png "Parametrar för fel söknings inställningar")
+
+Standard-IR som används för fel söknings läge i ADF-dataflöden är en mindre 4-core-arbetsnod med en enda nod med fyra kärnor. Detta fungerar bra med mindre exempel på data när du testar din data flödes logik. Om du expanderar rad gränserna i fel söknings inställningarna under data förhands granskningen eller anger ett högre antal rader med rader i din källa under fel sökning av pipeline, kanske du vill överväga att ange en större beräknings miljö i en ny Azure Integration Runtime. Sedan kan du starta om din felsökningssession med hjälp av den större beräknings miljön.
 
 ## <a name="data-preview"></a>Förhandsgranskning
 
@@ -59,6 +61,8 @@ Vid fel sökning på visas fliken Data förhands granskning på den nedre panele
 > Fil källor begränsar bara de rader som visas, inte raderna som läses. För mycket stora data mängder rekommenderar vi att du tar en liten del av filen och använder den för testning. Du kan välja en temporär fil i fel söknings inställningar för varje källa som är en fil data uppsättnings typ.
 
 När du kör i fel söknings läge i data flöde kommer dina data inte att skrivas till omvandlingen av mottagare. En felsökningssession är avsedd att fungera som ett test-nät för dina transformeringar. Sinks krävs inte under fel sökning och ignoreras i ditt data flöde. Om du vill testa att skriva data i din mottagare kör du data flödet från en Azure Data Factory pipeline och använder fel söknings körningen från en pipeline.
+
+Data förhands granskning är en ögonblicks bild av dina transformerade data med rad gränser och data sampling från data ramar i Spark-minnet. Därför används inte Sink-drivrutinerna eller testas i det här scenariot.
 
 ### <a name="testing-join-conditions"></a>Testa kopplings villkor
 

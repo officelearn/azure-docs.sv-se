@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 07/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b469ea0d0a91cc4ca7f0602dffbcc63b31c60855
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: dc7417cafc2a9d6f1abca31da884d55bfac42b75
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588372"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90028941"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Vad är nytt för Azure Key Vault
 
@@ -36,6 +36,7 @@ Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en a
 - Azure Active Directory (Azure AD)-tjänster började den här över gången den 7 juli 2020.
 - Alla nyligen skapade Azure TLS/SSL-slutpunkter innehåller uppdaterade certifikat som går samman till de nya rot certifikat utfärdarna. 
 - Befintliga Azure-slutpunkter övergår i ett stegvist sätt med början den 13 augusti 2020 och slutar att svara den 26 oktober 2020.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) och [DPS](/azure/iot-dps/) finns kvar på Baltimore CyberTrust-rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 
 > [!IMPORTANT]
 > Kunder kan behöva uppdatera sina program efter den här ändringen för att förhindra anslutnings problem vid försök att ansluta till Azure-tjänster. 

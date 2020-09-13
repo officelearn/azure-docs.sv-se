@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758767"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029995"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ Det mönster som stöds för meddelanden från moln till enhet med HTTPS är til
 
 Du kan också förbättra enhets sidans logik för att slutföra, avvisa eller överge köade meddelanden snabbt, förkorta tiden till Live eller överväga att skicka färre meddelanden. Se [C2D-meddelandets TTL-värde](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Slutligen kan du överväga att använda [API: et rensa kö](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) för att regelbundet rensa väntande meddelanden innan gränsen har uppnåtts.
+Slutligen kan du överväga att använda [API: et rensa kö](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) för att regelbundet rensa väntande meddelanden innan gränsen har uppnåtts.

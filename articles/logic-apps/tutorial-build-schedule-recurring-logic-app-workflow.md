@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9239196d26bcd4967b685fa7970c4d3bd706d4
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124858"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030539"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiserade, schemabaserade, återkommande arbets flöden med hjälp av Azure Logic Apps
 
@@ -36,7 +36,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* Ett e-postkonto från en e-postleverantör som stöds av Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](/connectors/). I den här snabb starten används ett Office 365 Outlook-konto. Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
+* Ett e-postkonto från en e-postleverantör som stöds av Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](/connectors/). I den här snabb starten används ett arbets-eller skol konto. Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan skilja sig något.
 
   > [!IMPORTANT]
   > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -163,9 +163,9 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    |----------|----------|-------|-------------|
    | **Waypoint 1** (Platsmarkör 1) | Ja | <*Start-location*> | Startpunkt för resvägen |
    | **Waypoint 2** (Platsmarkör 2) | Ja | <*slut punkt*> | Slutpunkten för resvägen |
-   | **Optimera** | Nej | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
-   | **Avståndsenhet** | Nej | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
-   | **Travel mode** (Färdsätt) | Nej | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
+   | **Optimera** | Inga | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
+   | **Avståndsenhet** | Inga | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
+   | **Travel mode** (Färdsätt) | Inga | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
    ||||
 
    Mer information om dessa parametrar finns [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Beräkna en resväg).
@@ -194,7 +194,7 @@ Som standard returnerar den föregående åtgärden **Hämta väg** den aktuella
    |----------|----------|-------|-------------|
    | **Namn** | Ja | travelTime | Namnet på variabeln. I det här exemplet används "travelTime". |
    | **Typ** | Ja | Integer | Datatypen för variabeln |
-   | **Värde** | Nej| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
+   | **Värde** | Inga| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
    ||||
 
    1. Skapa uttrycket för egenskapen **Value** genom att klicka i rutan så att listan med dynamiskt innehåll visas. Du kan behöva öka webbläsarens bredd för att kunna se listan. I listan med dynamiskt innehåll väljer du **uttryck**.
@@ -248,7 +248,7 @@ Lägg sedan till ett villkor som kontrollerar om den aktuella restiden är stör
 
    1. I rutan mellan jämförelser väljer du operatorn **är större än** .
 
-   1. I rutan **Välj ett värde** på villkorets högra sida anger du den här gränsen:`15`
+   1. I rutan **Välj ett värde** på villkorets högra sida anger du den här gränsen: `15`
 
       När du är klar ser villkoret ut som i det här exemplet:
 

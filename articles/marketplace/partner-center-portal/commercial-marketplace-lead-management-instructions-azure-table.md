@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855721"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030805"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Table Storage för att hantera leads på kommersiella marknads platser
 
@@ -135,7 +135,7 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
    I de följande stegen ställer du in åtgärden som ska utföras baserat på resultatet av villkoret:
 
    * Om villkoret matchar **om nej**, gör ingenting.
-   * Om villkoret löses med **Ja**utlöses en åtgärd som ansluter ditt Office 365-konto för att skicka ett e-postmeddelande.
+   * Om villkoret är uppfyllt vid **Ja**, Utlös en åtgärd som ansluter ditt arbets-eller skol konto för att skicka ett e-postmeddelande. 
 
 1. Välj **Lägg till en åtgärd** under **om ja**.
 

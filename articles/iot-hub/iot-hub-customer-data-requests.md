@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074715"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030709"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funktioner för begäran om kund data för Azure IoT Hub-enheter
 
@@ -36,13 +36,13 @@ Om du använder Azure Monitor integrerings funktionen i Azure IoT Hub-tjänsten 
 
 Klient organisations administratörer kan använda bladet IoT-enheter i Azure IoT Hub-tillägget i Azure Portal för att ta bort en enhet som tar bort de data som är associerade med enheten.
 
-Du kan också utföra borttagnings åtgärder för enheter med hjälp av REST-API: er. Mer information finns i [tjänst-ta bort enhet](/rest/api/iothub/service/registrymanager/deletedevice).
+Du kan också utföra borttagnings åtgärder för enheter med hjälp av REST-API: er. Mer information finns i [tjänst-ta bort enhet](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice).
 
 ## <a name="exporting-customer-data"></a>Exportera kund information
 
 Klient organisations administratörer kan använda kopiera och klistra in i fönstret IoT-enheter i Azure IoT Hub-tillägget i Azure Portal för att exportera data som är associerade med en enhet.
 
-Det går också att utföra export åtgärder för enheter som använder REST-API: er. Mer information finns i [tjänst-Hämta enhet](/rest/api/iothub/service/registrymanager/getdevice).
+Det går också att utföra export åtgärder för enheter som använder REST-API: er. Mer information finns i [tjänst-Hämta enhet](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice).
 
 > [!NOTE]
 > När du använder Microsofts företags tjänster genererar Microsoft viss information, som kallas system genererade loggar. Vissa Azure IoT Hub system-genererade loggar kan inte nås eller exporteras av klient administratörer. Dessa loggar utgör faktiska åtgärder som utförs i tjänsten och diagnostikdata som är relaterade till enskilda enheter.

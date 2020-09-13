@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816532"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029710"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -27,7 +27,7 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 När du publicerar dina erbjudanden på Azure Marketplace kan du:
 
 - Marknadsför ditt företag med hjälp av Microsofts varumärke.
-- Når över 100 000 000 Office 365-och Dynamics 365-användare och fler än 200 000 organisationer.
+- Når över 100 000 000 Microsoft 365-och Dynamics 365-användare och fler än 200 000-organisationer.
 - Få högkvalitativa leads från dessa marknads platser.
 - Få dina tjänster upphöjda av Microsoft fält Sales-och inköps teamen för köp.
 
@@ -162,7 +162,7 @@ Du måste ange villkor för erbjudandet till dina kunder. Du kan välja mellan t
 
        a. Ange dina egna ändrings villkor i rutan **anpassad ändrings term** . Du kan ange ett obegränsat antal tecken. Endast kunder från klient organisations-ID: n som du anger för de här anpassade villkoren visas i erbjudandet inköps flöde i Azure Portal.
 
-       b. Kunna Ange **klient-ID: n**. Varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID som identifierar din kund i Azure. Din kund kan hitta detta åt dig i Azure genom att välja **Azure Active Directory**  >  **Egenskaper**. Värdet för katalog-ID är klient-ID (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också hitta organisationens klient-ID för din kund genom att använda deras domän namns webb adress i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com/).
+       b. Kunna Ange **klient-ID: n**. Varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID som identifierar din kund i Azure. Din kund kan hitta detta åt dig i Azure genom att välja **Azure Active Directory**  >  **Egenskaper**. Värdet för katalog-ID är klient-ID (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också hitta organisationens klient-ID för din kund genom att använda deras domän namns webb adress i [Vad är mitt Microsoft Azure och Microsoft 365 klient-ID?](https://www.whatismytenantid.com/).
 
        c. Valfritt Ange en egen **Beskrivning** för klient-ID: t som hjälper dig att identifiera den kund som du är mål för med ändringen.
 
@@ -265,7 +265,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videor
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 

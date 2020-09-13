@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357587"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662469"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync v2 Endpoint API (offentlig för hands version) 
 Microsoft har distribuerat en ny slut punkt (API) för Azure AD Connect som förbättrar prestandan för synkroniseringstjänsten i Azure Active Directory. Genom att använda den nya v2-slutpunkten får du märkbara prestanda vinster vid export och import till Azure AD. Den här nya slut punkten stöder följande:
@@ -26,14 +26,14 @@ Microsoft har distribuerat en ny slut punkt (API) för Azure AD Connect som för
  - prestanda vinster vid export och import till Azure AD
  
 > [!NOTE]
-> För närvarande har den nya slut punkten ingen konfigurerad grupp storleks gräns för O365-grupper som skrivs tillbaka. Detta kan påverka din Active Directory och fördröjning av synkronisering.  Vi rekommenderar att du ökar grupp storlekarna stegvis.  
+> För närvarande har den nya slut punkten ingen konfigurerad grupp storleks gräns för Microsoft 365 grupper som skrivs tillbaka. Detta kan påverka din Active Directory och fördröjning av synkronisering. Vi rekommenderar att du ökar grupp storlekarna stegvis.  
 
 
 ## <a name="pre-requisites"></a>Förutsättningar  
 För att du ska kunna använda den nya v2-slutpunkten måste du använda [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) eller senare och följa distributions stegen nedan för att aktivera v2-slutpunkten för din Azure AD Connect-Server.   
 
 >[!NOTE]
->Denna offentliga för hands version är för närvarande bara tillgänglig i Azures globala moln och är inte tillgänglig för [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Denna offentliga för hands version är för närvarande bara tillgänglig i Azures globala moln och är inte tillgänglig för [nationella moln](../develop/authentication-national-cloud.md).
 
 ### <a name="public-preview-limitations"></a>Offentliga begränsningar i förhandsversionen  
 Även om den här versionen har genomgått omfattande testning kan du fortfarande stöta på problem. Ett av målen för den här offentliga för hands versionen är att hitta och åtgärda eventuella problem.  
@@ -44,14 +44,14 @@ För att du ska kunna använda den nya v2-slutpunkten måste du använda [Azure 
 ## <a name="deployment-guidance"></a>Vägledning för distribution 
 Du måste distribuera [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) eller senare för att kunna använda v2-slutpunkten. Använd länken som finns för att ladda ned. 
 
-Vi rekommenderar att du följer [migrations](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) metoden för att flytta ut den nya slut punkten i din miljö. Detta ger en tydlig katastrof plan i händelse av att det krävs en större återställning. I följande exempel visas hur en sväng migrering kan användas i det här scenariot. Mer information om distributions metoden för att flytta migreringen finns i den angivna länken. 
+Vi rekommenderar att du följer [migrations](./how-to-upgrade-previous-version.md#swing-migration) metoden för att flytta ut den nya slut punkten i din miljö. Detta ger en tydlig katastrof plan i händelse av att det krävs en större återställning. I följande exempel visas hur en sväng migrering kan användas i det här scenariot. Mer information om distributions metoden för att flytta migreringen finns i den angivna länken. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Flytta migrering för distribution v2-slutpunkt
 Följande steg vägleder dig genom distributionen av v2-slutpunkten med hjälp av metoden sväng.
 
 1. Distribuera v2-slutpunkten på den aktuella Staging-servern. Den här servern kommer att kallas **v2-servern** i stegen nedan. Den aktuella aktiva servern fortsätter att bearbeta produktions belastningen med hjälp av v1-slutpunkten, som kommer att kallas **v1-servern** nedan.
 1. Kontrol lera att **v2-servern** fortfarande bearbetar importen som förväntat. I det här skedet allokeras inte stora grupper till Azure AD eller lokal AD, men du kan kontrol lera att uppgraderingen inte resulterade i någon annan oväntad påverkan på den befintliga synkroniseringsprocessen. 
-2. När verifieringen är klar växlar du **v2-servern** så att den är den aktiva servern och **v1-servern** som ska vara mellanlagrings Server. För närvarande kommer stora grupper som är inom omfånget att synkroniseras att tillhandahållas till Azure AD, och även stora O365 Unified-grupper kommer att tillhandahållas till AD, om tillbakaskrivning av grupp är aktiverat.
+2. När verifieringen är klar växlar du **v2-servern** så att den är den aktiva servern och **v1-servern** som ska vara mellanlagrings Server. För närvarande kommer stora grupper som är inom omfånget att synkroniseras att tillhandahållas till Azure AD, och även stora Microsoft 365 enhetliga grupper tillhandahålls till AD, om tillbakaskrivning av grupp är aktiverat.
 3. Verifiera att **v2-servern** utför och bearbetar stora grupper korrekt. Du kan välja att stanna kvar i det här steget och övervaka synkroniseringsprocessen för en period.
   >[!NOTE]
   > Om du behöver övergå tillbaka till din tidigare konfiguration kan du utföra en flyttning från **v2-servern** till **v1-servern**. Eftersom v1-slutpunkten inte stöder grupper med över 50 000 medlemmar, kommer alla stora grupper som etablerades av Azure AD Connect, i antingen Azure AD eller lokal AD, att tas bort. 
@@ -153,7 +153,7 @@ Vid efterföljande ökningar till grupp medlems gränsen i regeln **out to AAD �
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Om du har en O365-enhetliga grupper som har fler än 50 000 medlemmar, kommer grupperna att läsas in i Azure AD Connect, och om tillbakaskrivning av grupp är aktiverat skrivs de till din lokala AD. 
+> Om du har Microsoft 365 enhetliga grupper som har fler än 50 000 medlemmar, kommer grupperna att läsas in i Azure AD Connect och om tillbakaskrivning av grupp är aktiverat skrivs de till din lokala AD. 
 
 ## <a name="rollback"></a>Ånger 
 Om du har aktiverat v2-slutpunkten och behöver återställa, följer du dessa steg: 
@@ -181,7 +181,7 @@ Om du har aktiverat v2-slutpunkten och behöver återställa, följer du dessa s
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> När du växlar tillbaka från v2 till v1-slutpunkter kommer grupper som synkroniserats med fler än 50 000-medlemmar att tas bort när en fullständig synkronisering har körts, för båda AD-grupperna som har allokerats till Azure AD och O365 Unified Groups etablerade till AD. 
+> När du växlar tillbaka från v2 till v1-slutpunkter kommer grupper som synkroniserats med fler än 50 000-medlemmar att tas bort när en fullständig synkronisering har körts, för både AD-grupper som har tilldelats till Azure AD och Microsoft 365 enhetliga grupper som har skapats till AD. 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar  
 **F: kan en kund använda den här funktionen i produktionen?**  

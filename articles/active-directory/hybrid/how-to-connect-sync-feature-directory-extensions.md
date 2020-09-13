@@ -16,18 +16,18 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019769"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662491"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalog tillägg
-Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [tillägg](https://docs.microsoft.com/graph/extensibility-overview
+Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [tillägg](/graph/extensibility-overview
 ). Du kan se tillgängliga attribut med hjälp av [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också använda den här funktionen för att skapa dynamiska grupper i Azure AD.
 
-Inga Office 365-arbetsbelastningar förbrukar dessa attribut.
+Ingen Microsoft 365 arbets belastning förbrukar dessa attribut.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Anpassa vilka attribut som ska synkroniseras med Azure AD
 
@@ -69,11 +69,11 @@ De här attributen är nu tillgängliga via Microsoft Graph API, med [Microsoft 
 >[!NOTE]
 > I Microsoft Graph API måste du be om vilka attribut som ska returneras. Välj uttryckligen attribut så här: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
-> Mer information finns i [Microsoft Graph: Använd frågeparametrar](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Mer information finns i [Microsoft Graph: Använd frågeparametrar](/graph/query-parameters#select-parameter).
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Använda attributen i dynamiska grupper
 
-Ett av de mer användbara scenarierna är att använda de här attributen i dynamiska säkerhets-eller Office 365-grupper.
+Ett av de mer användbara scenarierna är att använda attributen i dynamiska säkerhets-eller Microsoft 365s grupper.
 
 1. Skapa en ny grupp i Azure AD. Ge det ett lämpligt namn och se till att **medlemskaps typen** är **dynamisk användare**.
 

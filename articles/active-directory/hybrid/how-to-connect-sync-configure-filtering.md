@@ -16,20 +16,20 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88061514"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662549"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
-Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
+Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Microsoft 365 arbets belastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
 
-I vissa fall är det dock nödvändigt att göra vissa ändringar i standard konfigurationen. Här är några exempel:
+I vissa fall är det dock nödvändigt att göra vissa ändringar i standard konfigurationen. Här följer några exempel:
 
 * Du planerar att använda Active [Directory-topologin för flera Azure](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Sedan måste du använda ett filter för att styra vilka objekt som ska synkroniseras till en viss Azure AD-katalog.
-* Du kör en pilot för Azure eller Office 365 och du vill bara ha en delmängd av användarna i Azure AD. I den lilla piloten är det inte viktigt att ha en fullständig global adress lista för att demonstrera funktionerna.
+* Du kör en pilot för Azure eller Microsoft 365 och du vill bara ha en delmängd av användarna i Azure AD. I den lilla piloten är det inte viktigt att ha en fullständig global adress lista för att demonstrera funktionerna.
 * Du har många tjänst konton och andra oönskade konton som du inte vill ha i Azure AD.
 * Av kompatibilitetsskäl tar du inte bort några användar konton lokalt. Du inaktiverar dem bara. Men i Azure AD vill du bara att aktiva konton ska vara tillgängliga.
 
@@ -144,7 +144,7 @@ Om du har uppdaterat ditt domän filter måste du också uppdatera körnings pro
 3. Justera de **tillagda** och **borttagna** domänerna för varje profil.
     1. För var och en av de fem profilerna utför du följande steg för varje **tillagd** domän:
         1. Välj körnings profil och klicka på **nytt steg**.
-        2. På sidan **Konfigurera steg** i list rutan **typ** väljer du stegtyp med samma namn som den profil som du konfigurerar. Klicka sedan på **Nästa**.  
+        2. På sidan **Konfigurera steg** i list rutan **typ** väljer du stegtyp med samma namn som den profil som du konfigurerar. Klicka på **Nästa**.  
         ![Anslutnings körnings profiler 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. På sidan **anslutnings konfiguration** i list rutan **partition** väljer du namnet på den domän som du har lagt till i ditt domän filter.  
         ![Anslutnings körnings profiler 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -217,7 +217,7 @@ Inkommande filtrering använder standard konfigurationen, där objekt som ska ti
 I inkommande filtrering använder du **omfattnings** kraften för att avgöra vilka objekt som ska synkroniseras eller inte. Det är här du gör justeringar för att anpassa din organisations krav. Omfångs modulen har en **grupp** och en **sats** för att fastställa när en Synkroniseringsregel är i omfånget. En grupp innehåller en eller flera satser. Det finns ett logiskt "och" mellan flera satser och ett logiskt "eller" mellan flera grupper.
 
 Låt oss titta på ett exempel:  
-![Omfång](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![En skärm bild som visar ett exempel på att lägga till definitions områdes filter](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Detta bör läsas som **(avdelning = IT) eller (avdelning = Sales och c = US)**.
 
 I följande exempel och steg använder du användarobjektet som exempel, men du kan använda detta för alla objekt typer.

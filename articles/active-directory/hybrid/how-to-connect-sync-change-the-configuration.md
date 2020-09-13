@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357876"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662570"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect synkronisering: ändra standard konfigurationen
 Syftet med den här artikeln är att hjälpa dig att göra ändringar i standard konfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med den här kunskapen bör du kunna göra enkla ändringar i din egen konfiguration utifrån dina egna affärs regler.
@@ -113,7 +113,7 @@ Om allt är som förväntat kan du aktivera Scheduler igen. Från PowerShell kö
 I föregående avsnitt beskrivs hur du gör ändringar i ett attribut flöde. I det här avsnittet finns ytterligare exempel. Stegen för att skapa en Synkroniseringsregel är förkortad, men du kan hitta de fullständiga stegen i föregående avsnitt.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Använd ett annat attribut än standard
-I det här Fabrikam-scenariot finns det en skog där det lokala alfabetet används för angivet namn, efter namn och visnings namn. Den latinska tecken representationen för dessa attribut finns i attributen för tillägg. För att skapa en global adress lista i Azure AD och Office 365 vill organisationen använda dessa attribut i stället.
+I det här Fabrikam-scenariot finns det en skog där det lokala alfabetet används för angivet namn, efter namn och visnings namn. Den latinska tecken representationen för dessa attribut finns i attributen för tillägg. Organisationen vill använda dessa attribut i stället för att skapa en global adress lista i Azure AD och Microsoft 365.
 
 Med en standard konfiguration ser ett objekt från den lokala skogen ut så här:  
 ![Attribut flöde 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -269,7 +269,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
     | Anslutet system | *Välj lokal AD-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
     | Metaversum objekt typ | **Person** |  |
-    | Länktyp | **Anslut** |  |
+    | Länktyp | **Join** |  |
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
 
 5. Gå till fliken **omfångs filter** och Lägg till en **enda omfångs filter grupp** med följande sats:
@@ -311,7 +311,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Anslutet system | *Välj AAD-koppling* ||
     | Ansluten system objekt typ | **Användare** ||
     | Metaversum objekt typ | **Person** ||
-    | Länktyp | **Anslut** ||
+    | Länktyp | **Join** ||
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
 
 5. Gå till fliken **omfångs filter** och Lägg till en **enda omfångs filter grupp** med två satser:

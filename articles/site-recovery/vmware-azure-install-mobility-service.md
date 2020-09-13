@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606514"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669240"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Förbered käll datorn för push-installation av mobilitets agenten
 
@@ -25,8 +25,12 @@ Gör följande på varje Windows-dator som du vill skydda:
 1. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste ha administratörs behörighet, antingen lokal eller domän. Använd endast det här kontot för push-installation och för agent uppdateringar.
 2. Om du inte använder ett domän konto inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn på följande sätt:
     - Under HKEY_LOCAL_MACHINE register nyckel för \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System lägger du till ett nytt DWORD-värde: **LocalAccountTokenFilterPolicy**. Ange värdet till **1**.
-    -  Kör följande kommando för att göra detta i en kommando tolk:  
-   "REG ADD HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System/v LocalAccountTokenFilterPolicy/t REG_DWORD/d
+    -  Kör följande kommando för att göra detta i en kommando tolk:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. I Windows-brandväggen på den dator som du vill skydda väljer du **Tillåt en app eller funktion genom brand väggen**. Aktivera **fil-och skrivar delning** och **Windows Management Instrumentation (WMI)**. För datorer som tillhör en domän kan du konfigurera brand Väggs inställningarna med hjälp av ett grupprincip objekt (GPO).
 
    ![Brandväggsinställningar](./media/vmware-azure-install-mobility-service/mobility1.png)

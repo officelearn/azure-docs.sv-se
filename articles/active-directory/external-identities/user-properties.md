@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909933"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668961"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbets användare
 
@@ -108,7 +108,7 @@ Ja. Gäst objekt visas som standard inte i din organisations globala adress list
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Kan jag uppdatera en gäst användares e-postadress?
 
-Om en gäst användare accepterar din inbjudan och senare ändrar sin e-postadress, synkroniseras inte den nya e-postadressen automatiskt med gäst användar objekt i din katalog. E-postegenskapen skapas via [Microsoft Graph-API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Du kan uppdatera egenskapen e-post via administrations Center för Exchange eller [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)och ändringen visas i Azure AD-gästens användar objekt.
+Om en gäst användare accepterar din inbjudan och senare ändrar sin e-postadress, synkroniseras inte den nya e-postadressen automatiskt med gäst användar objekt i din katalog. E-postegenskapen skapas via [Microsoft Graph-API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Du kan uppdatera e-postegenskapen via Microsoft Graph API, administrations Center för Exchange eller [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). Ändringen visas i Azure AD-objektet gäst användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

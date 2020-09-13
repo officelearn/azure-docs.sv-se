@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257843"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669025"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Hantera certifikat på en IoT Edge enhet
 
@@ -49,7 +49,7 @@ Du bör använda din egen certifikat utfärdare för att skapa följande filer:
 I den här artikeln refererar vi till som *rot certifikat utfärdare* är inte den översta certifikat utfärdaren för en organisation. Det är den översta certifikat utfärdaren för IoT Edge scenariot, som IoT Edge Hub-modulen, användarattribut och eventuella underordnade enheter använder för att upprätta förtroende mellan varandra.
 
 > [!NOTE]
-> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050.
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2038.
 
 Om du vill se ett exempel på dessa certifikat granskar du skripten som skapar demo certifikat i [Hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -59,9 +59,9 @@ Installera certifikat kedjan på den IoT Edge enheten och konfigurera IoT Edge r
 
 Om du till exempel använde exempel skripten för att [skapa demo certifikat](how-to-create-test-certificates.md), kopierar du följande filer till din IoT-Edge-enhet:
 
-* Enhetens CA-certifikat:`<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-* Privat nyckel för enhets certifikat utfärdare:`<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-* Rot certifikat utfärdare:`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+* Enhetens CA-certifikat: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
+* Privat nyckel för enhets certifikat utfärdare: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
+* Rot certifikat utfärdare: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 1. Kopiera de tre certifikat-och nyckelfilerna till din IoT Edge-enhet.
 
@@ -69,8 +69,8 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
 
 1. Öppna konfigurations filen för IoT Edge Security daemon.
 
-   * Aktivitets`C:\ProgramData\iotedge\config.yaml`
-   * Linux`/etc/iotedge/config.yaml`
+   * Aktivitets `C:\ProgramData\iotedge\config.yaml`
+   * Linux `/etc/iotedge/config.yaml`
 
 1. Ange **certifikat** egenskaperna i config. yaml till fil-URI-sökvägen till certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort tecknen innan du tar bort dem från `#` certifikat egenskaperna för att ta bort kommentarer till de fyra raderna. Se till att det inte finns några föregående blank steg i raden **certifikat:** rad och att kapslade objekt är indragna med två blank steg. Exempel:
 
@@ -96,9 +96,9 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
 
 1. Om du har använt andra certifikat för IoT Edge på enheten tidigare tar du bort filerna i följande två kataloger innan du startar eller startar om IoT Edge:
 
-   * Windows: `C:\ProgramData\iotedge\hsm\certs` och`C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` och `C:\ProgramData\iotedge\hsm\cert_keys`
 
-   * Linux: `/var/lib/iotedge/hsm/certs` och`/var/lib/iotedge/hsm/cert_keys`
+   * Linux: `/var/lib/iotedge/hsm/certs` och `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="customize-certificate-lifetime"></a>Anpassa certifikatets livstid
 
@@ -114,7 +114,9 @@ För dessa två automatiskt genererade certifikat har du möjlighet att ställa 
 >[!NOTE]
 >Det finns ett tredje automatiskt genererat certifikat som IoT Edge Security Manager skapar, **IoT Edge Hub-servercertifikat**. Det här certifikatet har alltid en livs längd på 90 dagar, men förnyas automatiskt innan det upphör att gälla. **Auto_generated_ca_lifetime_days** -värdet påverkar inte det här certifikatet.
 
-Om du vill konfigurera certifikatets giltighets tid till något annat än standardvärdet 90 dagar lägger du till värdet i dagar i avsnittet **certifikat** i filen config. yaml.
+Om du vill konfigurera certifikatets giltighets tid till något annat än standardvärdet 90 dagar lägger du till värdet i dagar i avsnittet **certifikat** i filen **config. yaml** .
+
+När det angivna antalet dagar har löpt ut måste IoT Edge Security daemon startas om för att återskapa enhetens CA-certifikat. det förnyas inte automatiskt.
 
 ```yaml
 certificates:
@@ -125,15 +127,13 @@ certificates:
 ```
 
 > [!NOTE]
-> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050.
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2038.
 
-Om du har angett dina egna enhets certifikat för certifikat UTFÄRDAre, gäller det här värdet fortfarande för arbets Belastningens CA-certifikat, förutsatt att det angivna livs längd svärdet är kortare än livs längden för enhetens CA-certifikat.
-
-När du har angett flaggan i filen config. yaml utför du följande steg:
+När du har angett värdet i filen config. yaml utför du följande steg:
 
 1. Ta bort innehållet i `hsm` mappen.
 
-   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
 1. Starta om tjänsten IoT Edge.
 

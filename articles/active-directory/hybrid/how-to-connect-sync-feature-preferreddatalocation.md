@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: konfigurera önskad data plats för Office 365-resurser'
-description: Beskriver hur du publicerar dina Office 365-användar resurser nära användaren med Azure Active Directory Connect Sync.
+title: 'Azure AD Connect: konfigurera önskad data plats för Microsoft 365 resurser'
+description: Beskriver hur du sätter Microsoft 365 användar resurser nära användaren med Azure Active Directory Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,29 +16,29 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357417"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662512"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Office 365-resurser
-Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Office 365 använder du det här attributet för att ange geo-platsen för användarens Office 365-data. ( *Regions region* och *geo* används utbytbart.)
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect synkronisering: konfigurera önskad data plats för Microsoft 365 resurser
+Syftet med det här avsnittet är att hjälpa dig att konfigurera attributet för önskad data plats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder flera geo-funktioner i Microsoft 365 använder du det här attributet för att ange geo-platsen för användarens Microsoft 365 data. ( *Regions region* och *geo* används utbytbart.)
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Aktivera synkronisering av önskad data plats
-Som standard finns Office 365-resurser för dina användare i samma geografiska område som din Azure AD-klient. Om din klient organisation till exempel finns i Nordamerika, finns även användarens Exchange-postlådor i Nordamerika. För en multinationell organisation är detta kanske inte optimalt.
+Microsoft 365 resurser för dina användare finns som standard i samma geografiska område som din Azure AD-klient. Om din klient organisation till exempel finns i Nordamerika, finns även användarens Exchange-postlådor i Nordamerika. För en multinationell organisation är detta kanske inte optimalt.
 
-Genom att ange attributet **preferredDataLocation**kan du definiera en användares geo. Du kan ha användarens Office 365-resurser, t. ex. post lådan och OneDrive, i samma geo som användaren och fortfarande ha en klient för hela organisationen.
+Genom att ange attributet **preferredDataLocation**kan du definiera en användares geo. Du kan ha användarens Microsoft 365 resurser, t. ex. post lådan och OneDrive, i samma geo som användaren och fortfarande ha en klient för hela organisationen.
 
 > [!IMPORTANT]
-> Multi-geo är för närvarande tillgängligt för kunder med en aktiv Enterprise-avtal och minst 500 Office 365 Services-prenumerationer. Kontakta din Microsoft-representant om du vill ha mer information.
+> Multi-geo är för närvarande tillgängligt för kunder med en aktiv Enterprise-avtal och minst 250 Microsoft 365 Services-prenumerationer. Kontakta din Microsoft-representant om du vill ha mer information.
 >
 >
 
-Du hittar en lista över alla geografiska områden för Office 365 i [var finns dina data?](https://aka.ms/datamaps).
+Du hittar en lista över alla geografiska områden för Microsoft 365 i [var finns dina data?](https://aka.ms/datamaps).
 
-Geografiska områden i Office 365 tillgängligt för multi-geo är:
+Geografiska områden i Microsoft 365 tillgängligt för multi-geo är:
 
 | Geografi | preferredDataLocation-värde |
 | --- | --- |
@@ -58,7 +58,7 @@ Geografiska områden i Office 365 tillgängligt för multi-geo är:
 
 * Om en geo inte visas i den här tabellen (till exempel södra Amerika) kan den inte användas för multi-geo.
 
-* Alla Office 365-arbetsbelastningar stöder inte användning av att ställa in en användares geo.
+* Det är inte alla Microsoft 365 arbets belastningar som stöder användning av att ställa in en användares geo.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect stöd för synkronisering
 
@@ -67,7 +67,7 @@ Azure AD Connect stöder synkronisering av attributet **preferredDataLocation** 
 * Schemat för objekt typen **användare** i Azure AD-kopplingen har utökats till att omfatta attributet **preferredDataLocation** . Attributet är av typen, en sträng med ett värde.
 * Schemat för objekt typens **person** i metaversum har utökats till att omfatta attributet **preferredDataLocation** . Attributet är av typen, en sträng med ett värde.
 
-**PreferredDataLocation** är som standard inte aktive rad för synkronisering. Den här funktionen är avsedd för större organisationer. Active Directory-schemat i Windows Server 2019 har attributet **msDS-preferredDataLocation** som du bör använda för detta ändamål. Om du inte har uppdaterat Active Directory schema och inte kan göra det måste du identifiera ett attribut som ska innehålla Office 365 geo för dina användare. Detta kommer att vara detsamma för varje organisation.
+**PreferredDataLocation** är som standard inte aktive rad för synkronisering. Den här funktionen är avsedd för större organisationer. Active Directory-schemat i Windows Server 2019 har attributet **msDS-preferredDataLocation** som du bör använda för detta ändamål. Om du inte har uppdaterat Active Directory schema och inte kan göra det måste du identifiera ett attribut som ska innehålla Microsoft 365 geo för dina användare. Detta kommer att vara detsamma för varje organisation.
 
 > [!IMPORTANT]
 > Med Azure AD kan **preferredDataLocation** -attributet i **moln användar objekt** konfigureras direkt med hjälp av Azure AD PowerShell. Om du vill konfigurera det här attributet på **synkroniserade användar objekt**måste du använda Azure AD Connect.
@@ -147,7 +147,7 @@ Regeln för inkommande synkronisering tillåter att attributvärdet flödar frå
     | Anslutet system | *Välj lokal Active Directory-anslutning* |  |
     | Ansluten system objekt typ | **Användare** |  |
     | Metaversum objekt typ | **Person** |  |
-    | Länktyp | **Anslut** |  |
+    | Länktyp | **Join** |  |
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
 
 5. Behåll **omfångs filtret** tomt om du vill inkludera alla objekt. Du kan behöva justera omfångs filtret enligt din Azure AD Connect-distribution.
@@ -176,7 +176,7 @@ Regeln för utgående synkronisering tillåter att attributvärdet flödar från
     | Anslutet system | *Välj Azure AD-anslutning* ||
     | Ansluten system objekt typ | **Användare** ||
     | Metaversum objekt typ | **Person** ||
-    | Länktyp | **Anslut** ||
+    | Länktyp | **Join** ||
     | Prioritet | *Välj ett tal mellan 1 – 99* | 1 – 99 är reserverad för anpassade regler för synkronisering. Välj inte ett värde som används av en annan Synkroniseringsregel. |
 
 5. Gå till fliken **omfångs filter** och Lägg till en enda omfångs filter grupp med två satser:
@@ -250,7 +250,7 @@ I allmänhet krävs en fullständig synkronisering. Det beror på att du har lag
 Återaktivera den inbyggda Sync Scheduler:
 
 1. Starta en PowerShell-session.
-2. Aktivera schemalagd synkronisering igen genom att köra denna cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Aktivera schemalagd synkronisering igen genom att köra denna cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 ## <a name="step-9-verify-the-result"></a>Steg 9: verifiera resultatet
 Det är nu dags att verifiera konfigurationen och aktivera den för dina användare.
@@ -264,7 +264,7 @@ Om din klient har marker ATS för att kunna använda den här funktionen, flytta
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om multi-geo i Office 365:
+Lär dig mer om multi-geo i Microsoft 365:
 
 * [Multi-geo-sessioner vid antändning](https://aka.ms/MultiGeoIgnite)
 * [Multi-geo i OneDrive](https://aka.ms/OneDriveMultiGeo)

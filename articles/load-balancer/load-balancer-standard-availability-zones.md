@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420319"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669179"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
 Azure Standard Load Balancer stöder scenarier med tillgänglighets zoner. Du kan använda standard Load Balancer för att öka tillgängligheten i hela scenariot genom att justera resurser med och distribution mellan zoner. Tillgänglighets zoner i kombination med standard Load Balancer är en mycket och flexibel funktions uppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och [design rikt linjer](#design)för grundläggande scenarier.
 
-## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a>Tillgänglighetszoner begrepp som tillämpas på Load Balancer
+## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Tillgänglighetszoner begrepp som tillämpas på Load Balancer
 
 En belastningsutjämnare ärver zon konfigurationen från dess komponenter: 
 
@@ -67,7 +67,7 @@ Dessutom stöds användningen av zonindelade-frontend direkt för belastningsutj
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network NAT">
 </p>
 
-*Bild: zonindelade redundant Load Balancer*
+*Bild: zonindelade Load Balancer*
 
 Om du vill blanda dessa begrepp (zoner-redundanta och zonindelade för samma server del) granskar du [flera klient delar för Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -101,7 +101,7 @@ När du använder zoner – redundanta klient delar, expanderar belastningsutjä
 
 Andra zoner som kan komma åt den här virtuella datorn kan fortsätta att betjäna den virtuella datorn från sina respektive klient datorer. Under fel händelser kan varje zon ha olika distributioner av nya flöden samtidigt som du skyddar tjänstens övergripande hälsa.
 
-## <a name="design-considerations"></a><a name="design"></a>Design överväganden
+## <a name="design-considerations"></a><a name="design"></a> Design överväganden
 
 Belastnings utjämning är flexibel i samband med tillgänglighets zoner. Du kan välja att justera zoner eller vara zoner-redundanta för varje regel. Ökad tillgänglighet kan komma till priset för ökad komplexitet. Design för tillgänglighet för optimala prestanda.
 
@@ -113,7 +113,7 @@ Zon-redundans innebär inte hitless Datapath eller kontroll plan. Det är data p
 
 Trafik flöden som använder en zon vid tidpunkten för zon fel kan påverkas, men program kan återställas. Trafiken fortsätter i de friska zonerna i regionen när den återsänds när Azure har konvergerat runt zon felet.
 
-### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a>Gränser för mellan zoner
+### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a> Gränser för mellan zoner
 
 Det är viktigt att förstå att när en tjänst korsar zoner kan du dela en omvandling med inte en zon, men kan ha flera zoner. Därför kanske tjänsten inte har fått någon tillgänglighet över icke-zonindelade distributioner.
 

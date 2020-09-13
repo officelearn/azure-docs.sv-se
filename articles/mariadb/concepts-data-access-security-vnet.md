@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: d681c79cb3c7874cbcd75d03db08721dd4b25f4d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6fc0add55caccd7721f3ee2c72db68fbcf6bc0dc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835467"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458509"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ En regel för virtuella nätverk instruerar Azure Database for MariaDB servern a
 
 De virtuella datorerna i under näten kan inte kommunicera med din Azure Database for MariaDB-Server förrän du vidtar åtgärder. En åtgärd som upprättar kommunikationen är att skapa en regel för virtuella nätverk. Anledningen till att du väljer regel metoden för VNet kräver en jämförelse-och-kontrast-diskussion som involverar de konkurrerande säkerhets alternativ som erbjuds av brand väggen.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Tillåta åtkomst till Azure-tjänster
+### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
 
 Fönstret anslutnings säkerhet har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den **här** inställningen är förmodligen mer öppen än du vill att din Azure Database for MariaDB-databas ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
 
@@ -112,7 +112,7 @@ För Azure Database for MariaDB har funktionen regler för virtuellt nätverk f�
 
 - Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska nätverk för distributions modeller][resource-manager-deployment-model-568f] .
 
-- När du aktiverar tjänst slut punkter för virtuella nätverk för att Azure Database for MariaDB med hjälp av service tag gen för **Microsoft. SQL** kan du också aktivera slut punkter för alla Azure Database-tjänster: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
+- Att aktivera tjänst slut punkter för virtuella nätverk till Azure Database for MariaDB med hjälp av service tag-koden för **Microsoft. SQL** aktiverar även slut punkterna för alla Azure Database-tjänster: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 - Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
 

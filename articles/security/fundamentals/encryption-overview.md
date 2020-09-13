@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542967"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458628"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -83,7 +83,7 @@ Slutligen kan du också använda Azure Storage klient bibliotek för Java för a
 
 #### <a name="transparent-data-encryption"></a>Transparent datakryptering
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) används för att kryptera [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)och [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) datafiler i real tid med hjälp av en databas krypterings nyckel (DEK) som lagras i databasens start post för tillgänglighet under återställningen.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) används för att kryptera [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) -datafiler i real tid med hjälp av en databas krypterings nyckel (DEK) som lagras i databasens start post för tillgänglighet under återställningen.
 
 TDE skyddar data och loggfiler med hjälp av AES-krypteringsalgoritmer (3DES och Triple Data Encryption Standard). Kryptering av databas filen utförs på sidnivå. Sidorna i en krypterad databas krypteras innan de skrivs till disk och dekrypteras när de läses in i minnet. TDE är nu aktiverat som standard på nyligen skapade Azure SQL-databaser.
 

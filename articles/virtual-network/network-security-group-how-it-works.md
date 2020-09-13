@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: b0199af69eb5e7c05cee91a3a3cffd682aab75fd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087241"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458203"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Hur nätverks säkerhets grupper filtrerar nätverks trafik
 <a name="network-security-groups"></a>
 
-Du kan använda en Azure-nätverks säkerhets grupp för att filtrera nätverks trafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](https://docs.microsoft.com/azure/virtual-network/security-overview.md#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
+Du kan använda en Azure-nätverks säkerhets grupp för att filtrera nätverks trafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
 
 Du kan distribuera resurser från flera Azure-tjänster till ett virtuellt Azure-nätverk. En fullständig lista finns i [Tjänster som kan distribueras till ett virtuellt nätverk](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Du kan associera en, eller ingen, nätverkssäkerhetsgrupp med varje [undernät](virtual-network-manage-subnet.md#change-subnet-settings) och [nätverksgränssnitt](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group) i ett virtuellt nätverk på en virtuell dator. Du kan associera samma nätverkssäkerhetsgrupp med så många undernät och nätverksgränssnitt du vill.
 
@@ -46,7 +46,7 @@ För inkommande trafik bearbetar Azure först reglerna i en nätverkssäkerhetsg
 
 För utgående trafik bearbetar Azure först reglerna i en nätverkssäkerhetsgrupp som är associerad med ett nätverksgränssnitt, om ett sådant finns. Därefter bearbetas reglerna i en nätverkssäkerhetsgrupp som är associerad med nätverksgränssnittet, om ett sådant finns.
 
-- **VM1**: Säkerhetsreglerna i *NSG2* bearbetas. Såvida du inte skapar en säkerhetsregel som nekar utgående trafik till Internet via port 80, tillåts trafiken av standardsäkerhetsregeln [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview.md#allowinternetoutbound) i både *NSG1* och *NSG2*. Om *NSG2* har en säkerhetsregel som nekar port 80, nekas trafiken och utvärderas aldrig av *NSG1*. För att trafik på port 80 ska nekas från den virtuella datorn måste den ena eller båda nätverkssäkerhetsgrupperna ha en regel som nekar trafik på port 80 till Internet.
+- **VM1**: Säkerhetsreglerna i *NSG2* bearbetas. Såvida du inte skapar en säkerhetsregel som nekar utgående trafik till Internet via port 80, tillåts trafiken av standardsäkerhetsregeln [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview#allowinternetoutbound) i både *NSG1* och *NSG2*. Om *NSG2* har en säkerhetsregel som nekar port 80, nekas trafiken och utvärderas aldrig av *NSG1*. För att trafik på port 80 ska nekas från den virtuella datorn måste den ena eller båda nätverkssäkerhetsgrupperna ha en regel som nekar trafik på port 80 till Internet.
 - **VM2**: All trafik skickas via nätverksgränssnittet till undernätet eftersom nätverksgränssnittet som är kopplat till *VM2* inte har någon associerad nätverkssäkerhetsgrupp. Reglerna i *NSG1* bearbetas.
 - **VM3**: Om *NSG2* har en säkerhetsregel som nekar trafik på port 80, nekas trafiken. Om *NSG2* har en säkerhetsregel som tillåter trafik på port 80, tillåts utgående trafik till Internet via port 80 eftersom ingen nätverkssäkerhetsgrupp är associerad med *Subnet2*.
 - **VM4**: All nätverkstrafik tillåts från *VM4* eftersom ingen nätverkssäkerhetsgrupp är associerad med nätverksgränssnittet som är kopplat till den virtuella datorn eller till *Subnet3*.

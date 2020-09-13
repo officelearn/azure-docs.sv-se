@@ -5,21 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/25/2020
-ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/03/2020
+ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893801"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458645"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Gransknings frågor i Azure Monitor loggar (förhands granskning)
 Logg läsar gransknings loggar ger telemetri om logg frågor som körs i Azure Monitor. Detta omfattar information som när en fråga kördes, vem som körde den, vilket verktyg som användes, frågetexten och prestanda statistik som beskriver frågans körning.
-
-## <a name="current-limitations"></a>Aktuella begränsningar
-Följande begränsningar gäller under den offentliga för hands versionen:
-
-- Endast frågor som är inriktad på arbets ytan kommer att loggas. Frågor körs i resursbaserade läge eller körs mot en Application Insights som inte har kon figurer ATS som arbets yta-baserad kommer inte att loggas.
 
 
 ## <a name="configure-query-auditing"></a>Konfigurera granskning av fråga
@@ -55,10 +50,11 @@ En gransknings post skapas varje gång en fråga körs. Om du skickar data till 
 | QueryTimeRangeEnd     | Slutet av tidsintervallet som har valts för frågan. Detta kan inte vara ifyllt i vissa scenarier, till exempel när frågan startas från Log Analytics, och tidsintervallet anges i frågan i stället för tid väljaren.  |
 | QueryText             | Texten för frågan som kördes. |
 | RequestTarget         | API-URL användes för att skicka frågan.  |
-| RequestContext        | Lista över resurser som frågan har begärt att köras mot. Innehåller upp till tre sträng mat ris: arbets ytor, program och resurser. Prenumerations-eller resurs grupp – riktade frågor visas som *resurser*. Inkluderar det mål som underförstådda av RequestTarget. |
+| RequestContext        | Lista över resurser som frågan har begärt att köras mot. Innehåller upp till tre sträng mat ris: arbets ytor, program och resurser. Prenumerations-eller resurs grupp – riktade frågor visas som *resurser*. Inkluderar det mål som underförstådda av RequestTarget.<br>Resurs-ID för varje resurs kommer att tas med om det kan lösas. Det kanske inte går att lösa problemet om ett fel returneras vid åtkomst till resursen. I det här fallet används den angivna texten från frågan.<br>Om frågan använder ett tvetydigt namn, till exempel ett namn på arbets ytan som redan finns i flera prenumerationer, används det tvetydiga namnet. |
 | RequestContextFilters | Uppsättning filter som anges som en del av frågans anrop. Innehåller upp till tre möjliga sträng mat ris:<br>-ResourceTypes – typ av resurs för att begränsa frågans omfång<br>– Arbets ytor – lista över arbets ytor som begränsar frågan till<br>-WorkspaceRegions – lista över regioner för arbets ytor som begränsar frågan |
 | ResponseCode          | HTTP-svarskod som returnerades när frågan skickades. |
 | ResponseDurationMs    | Tid för svaret som ska returneras.  |
+| ResponseRowCount     | Totalt antal rader som returnerades av frågan. |
 | StatsCPUTimeMs       | Total beräknings tid som används för data behandling, parsning och data hämtning. Fylls bara i om frågan returnerar med status koden 200. |
 | StatsDataProcessedKB | Mängden data som har öppnats för att bearbeta frågan. Påverkas av storleken på mål tabellen, tids rymden som används, filter tillämpas och antalet kolumner som refereras. Fylls bara i om frågan returnerar med status koden 200. |
 | StatsDataProcessedStart | Tid för äldsta data som har öppnats för att bearbeta frågan. Påverkas av frågans explicita tidsintervall och filter tillämpas. Detta kan vara större än den explicita tids rymden på grund av data partitionering. Fylls bara i om frågan returnerar med status koden 200. |
@@ -66,7 +62,11 @@ En gransknings post skapas varje gång en fråga körs. Om du skickar data till 
 | StatsWorkspaceCount | Antal arbets ytor som används av frågan. Fylls bara i om frågan returnerar med status koden 200. |
 | StatsRegionCount | Antal regioner som används av frågan. Fylls bara i om frågan returnerar med status koden 200. |
 
+## <a name="considerations"></a>Överväganden
 
+- Prestanda statistik är inte tillgänglig för frågor som kommer från Azure Datautforskaren proxy. Alla andra data för dessa frågor kommer fortfarande att fyllas i.
+- *H* -tipset på strängar som [obfuscates sträng litteraler](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) kommer inte att påverka gransknings loggarna. Frågorna samlas in exakt som de skickas utan strängen som fördunklade. Du bör se till att endast användare som har behörighet att se dessa data kan göra detta med hjälp av de olika RBAC-lägen som är tillgängliga i Log Analytics-arbetsytor.
+- För frågor som innehåller data från flera arbets ytor, kommer frågan bara att fångas in på de arbets ytor som användaren har åtkomst till.
 
 ## <a name="next-steps"></a>Nästa steg
 

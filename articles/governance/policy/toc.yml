@@ -184,9 +184,9 @@
     - name: Azure PowerShell
       items:
         - name: Princip
-          href: /powershell/module/az.resources/#policies
+          href: /powershell/module/az.resources#policy
         - name: Principinsikter
-          href: /powershell/module/az.policyinsights#policy_insights
+          href: /powershell/module/az.policyinsights
         - name: Gästkonfiguration
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Azure SDK för .NET

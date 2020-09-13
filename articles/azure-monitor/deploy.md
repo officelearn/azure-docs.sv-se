@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 34a048c702b62caeecaf21e710a9dcd9156e4aea
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801773"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033480"
 ---
 # <a name="deploy-azure-monitor"></a>Distribuera Azure Monitor
 Att aktivera Azure Monitor att övervaka alla dina Azure-resurser är en kombination av att konfigurera Azure Monitor komponenter och konfigurera Azure-resurser för att generera övervaknings data för Azure Monitor att samla in. I den här artikeln beskrivs de olika stegen som krävs för en fullständig implementering av Azure Monitor att använda en gemensam konfiguration för att övervaka alla resurser i din Azure-prenumeration. Grundläggande beskrivningar för varje steg finns med länkar till annan dokumentation för detaljerade konfigurations krav.
@@ -48,7 +48,7 @@ Följande funktioner i Azure Monitor aktive ras utan konfiguration som krävs n�
 
 
 ### <a name="create-log-analytics-workspace"></a>Skapa Log Analytics-arbetsyta
-Du behöver minst en Log Analytics arbets yta för att aktivera [Azure Monitor loggar](platform/data-platform-logs.md), vilket krävs för att samla in sådana data som loggar från Azure-resurser, samla in data från gäst operativ systemet på virtuella Azure-datorer och för de flesta Azure Monitor insikter. Andra tjänster som Azure Sentinel och Azure Security Center också använda en Log Analytics arbets yta och kan dela samma som du använder för Azure Monitor. Du kan börja med en enda arbets yta för att stödja den här övervakningen, men se [utforma Azure Monitor loggar distribution](platform/design-logs-deployment.md) för att få vägledning om när du ska använda flera arbets ytor.
+Du behöver minst en Log Analytics arbets yta för att aktivera [Azure Monitor loggar](platform/data-platform-logs.md), vilket krävs för att samla in sådana data som loggar från Azure-resurser, samla in data från gäst operativ systemet på virtuella Azure-datorer och för de flesta Azure Monitor insikter. Andra tjänster som Azure Sentinel och Azure Security Center också använda en Log Analytics arbets yta och kan dela samma som du använder för Azure Monitor. Du kan börja med en enda arbets yta för att stödja den här övervakningen, men se  [utforma Azure Monitor loggar distribution](platform/design-logs-deployment.md) för att få vägledning om när du ska använda flera arbets ytor.
 
 Det kostar inget att skapa en Log Analytics arbets yta, men det finns en potentiell avgift när du har konfigurerat data som ska samlas in i den. Mer information finns i [Hantera användning och kostnader med Azure Monitor loggar](platform/manage-cost-storage.md) .  
 
@@ -118,9 +118,9 @@ Mer information om hur du installerar och konfigurerar agenter finns i [Installe
 Azure Monitor övervakar dina anpassade program med [Application Insights](app/app-insights-overview.md)som du måste konfigurera för varje program som du vill övervaka. Konfigurations processen varierar beroende på vilken typ av program som övervakas och vilken typ av övervakning som du vill utföra. Data som samlas in av Application Insights lagras i Azure Monitor Mät värden, Azure Monitor loggar och Azure Blob Storage, beroende på funktion. Prestanda data lagras i både Azure Monitor mått och Azure Monitor loggar utan ytterligare konfiguration krävs.
 
 ### <a name="create-an-application-resource"></a>Skapa en program resurs
-Du måste skapa en resurs i Application Insights för varje program som du ska övervaka. Loggdata som samlas in av Application Insights lagras i Azure Monitor loggar men är åtskilda från din Log Analytics arbets yta enligt beskrivningen i [hur är data i Azure Monitor loggar strukturerade?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). För närvarande i för hands versionen kan du lagra dina program data direkt i en Log Analytics arbets yta med andra data. Detta fören klar konfigurationen och gör att ditt program kan dra nytta av alla funktioner i en Log Analytics-arbetsyta.
+Du måste skapa en resurs i Application Insights för varje program som du ska övervaka. Loggdata som samlas in av Application Insights lagras i Azure Monitor loggar för ett arbets program som baseras på arbets ytan. Loggdata för klassiska program lagras separat från din Log Analytics arbets yta enligt beskrivningen i [data strukturen](platform/data-platform-logs.md#structure-of-data).
 
- När du skapar programmet måste du välja om du vill använda klassisk eller arbets yta baserad (för hands version). Skapa ett klassiskt program genom att se [skapa en Application Insights resurs](app/create-new-resource.md) . Se [arbets ytans baserade Application Insights resurser (för hands version)](app/create-workspace-resource.md) för att skapa ett arbets program som baseras på arbets ytan.
+ När du skapar programmet måste du välja om du vill använda klassisk eller arbets yta baserad. Skapa ett klassiskt program genom att se [skapa en Application Insights resurs](app/create-new-resource.md) . Se [arbets ytans baserade Application Insights resurser (för hands version)](app/create-workspace-resource.md) för att skapa ett arbets program som baseras på arbets ytan.
 
 ### <a name="configure-codeless-or-code-based-monitoring"></a>Konfigurera kod baserad eller kodbaserade övervakning
 Om du vill aktivera övervakning av ett program måste du bestämma om du ska använda kod lös eller kod baserad övervakning. Konfigurations processen varierar beroende på det här beslutet och vilken typ av program som du ska övervaka.

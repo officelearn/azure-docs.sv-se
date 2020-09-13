@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206849"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031406"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -143,7 +143,7 @@ Tillgängliga alternativ inkluderar:
 >
 >   Om den nya aktiviteten körs på samma agent som den ursprungliga aktiviteten, skriver den nya aktivitetens utdata över den ursprungliga aktivitetens utdata i mappen *s* sources. Även om bygg resultatet är detsamma, rekommenderar vi att du kör MSBuild, kopierar utdata till den fristående katalogen för artefakter och kör sedan Roslyn-analyserare.
 
-Mer resurser för Roslyn-uppgiften finns i [Roslyn-baserade analyser](https://docs.microsoft.com/dotnet/standard/analyzers/) för Microsoft docs.
+Mer resurser för Roslyn-uppgiften finns i [Roslyn-baserade analyser](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) för Microsoft docs.
 
 Du hittar det Analyzer-paket som har installerats och använts av den här bygg aktiviteten på NuGet-sidan [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

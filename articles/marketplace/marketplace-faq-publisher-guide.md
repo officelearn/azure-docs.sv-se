@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.date: 09/11/2020
+ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007765"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032120"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -22,7 +22,7 @@ Den här artikeln besvarar vanliga frågor om den kommersiella Marketplace.
 
 ### <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknads plats?
 
-Den kommersiella marknads platsen ansluter affärs-och myndighets myndigheter med lösningar som skapats av våra partner. Våra partner skapar och hanterar erbjudanden i Partner Center och kunder kan upptäcka och köpa lösningar via produkt upplevelser, till exempel Microsoft AppSource, Azure Marketplace, åter försäljare i Cloud Solution Provider-programmet och våra sälj team via programmet för medfinansiering.
+Den kommersiella marknads platsen ansluter affärs-och myndighets myndigheter med lösningar som skapats av våra partner. Våra partner skapar och hanterar erbjudanden i Partner Center, och kunder kan upptäcka och köpa lösningar via produkt upplevelser, till exempel Microsoft AppSource, Azure Marketplace, åter försäljare i Cloud Solution Provider-programmet och våra sälj team via Co-Sales-programmet.
 
 Om du vill veta mer går du till [Microsoft-hubben för kommersiella marknads platser](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
 
@@ -42,7 +42,7 @@ Den kommersiella Marketplace är tillgänglig i 141 regioner per plan.
 
 Vi hanterar moms betalning i många länder/regioner och vi ger till gång till vårt globala kanal nätverk för åter försäljare. Du kan använda en kunds Microsoft kund avtal eller Enterprise-avtal för att sälja till organisationer utan att behöva skapa en ny inköps relation.
 
-Om du vill veta mer kan du visa videon på [Varför sälja via Marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
+Läs mer i [Microsofts hubb för kommersiella marknads platser](https://aka.ms/commercialmarketplacehub).
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Finns det en registrerings avgift för Microsoft Commercial Marketplace?
 
@@ -67,7 +67,7 @@ De sätt som kunder kan använda ditt kommersiella Marketplace-erbjudande beror 
 
 När du har registrerat dig och godkänt utgivar avtalet har du till gång till den kommersiella Marketplace-sidan i Partner Center. Det är här du skapar och hanterar erbjudanden och var du visar analys rapporter. För Microsoft 365 appar måste du även aktivera Office Store-programmet i Partner Center.
 
-Mer information finns i [Välkommen till den kommersiella Marketplace](index.yml) och köpa [ditt Office 365-tillägg via Microsofts kommersiella marknads platser](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Mer information finns i [Välkommen till den kommersiella Marketplace](index.yml) och köpa [ditt Microsoft 365-tillägg via Microsofts kommersiella marknads platser](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Hur gör jag för att få hjälp med att få support för den kommersiella marknads platsen?
 
@@ -329,7 +329,7 @@ Vi rekommenderar följande resurser:
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Var kan jag lära mig mer om Microsoft administrations Center?
 
-Information om Microsoft administrations Center finns i [hantera program prenumerationer från tredje part för din organisation](https://docs.microsoft.com/microsoft-365/commerce/manage-saas-apps?view=o365-worldwide).
+Information om Microsoft administrations Center finns i [hantera program prenumerationer från tredje part för din organisation](/microsoft-365/commerce/manage-saas-apps).
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Var kan jag lära mig mer om Azure-fakturering?
 

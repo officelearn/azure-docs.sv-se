@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/26/2020
 ms.author: duau
-ms.openlocfilehash: 78c0b589bfbab17f8c20b3e0b1181fca878d621d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0cf44407ce3087a79a3f54caea1b33c52709d816
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651339"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031999"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute anslutnings partner och peering-platser
 
@@ -143,7 +143,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Optus](https://www.optus.com.au/enterprise/)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, Paris, Sao Paulo, Silicon dal, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Stöds | Stöds | Dubai2 |
-| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
+| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Stöds |Stöds |Chicago, Las Vegas, Silicon dal, Washington DC |
 | **[PCCW globalt begränsad](https://consoleconnect.com/clouds/#azureRegions)** |Stöds |Stöds |Chicago, Hongkong, Hong Kong2, London, Singapore2 |
 | **[Retelit](https://www.retelit.it/en/services/enterprises-and-public-sector/data-center-e-cloud/cloud-services/direct-cloud-4-azure-expressroute.aspx)** | Stöds | Stöds | Milano | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Stöds |Stöds |Seoul |

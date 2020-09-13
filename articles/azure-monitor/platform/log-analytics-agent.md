@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: fb58728e005ad70ac5392aa9e3e6a254ed317276
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016348"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032528"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics agent samlar in telemetri från virtuella Windows-och Linux-datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/) och skickar insamlade data till din Log Analytics-arbetsyta i Azure Monitor. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md). Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och distributions metoder.
@@ -63,7 +63,7 @@ Mer information om hur du ansluter en agent till en Operations Manager hantering
 
 ## <a name="security-limitations"></a>Säkerhets begränsningar
 
-* Windows-agenten stöder [FIPS 140-standarden](/windows/security/threat-protection/fips-140-validation), medan Linux-agenten inte stöder det.  
+* Windows-och Linux-agenterna stöder [FIPS 140-standarden](/windows/security/threat-protection/fips-140-validation), men [andra typer av härdning kanske inte stöds](agent-linux.md#supported-linux-hardening).
 
 
 ## <a name="installation-options"></a>Installationsalternativ

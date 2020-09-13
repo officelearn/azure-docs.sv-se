@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017378"
+ms.locfileid: "90033259"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
 
@@ -66,7 +66,7 @@ Du har möjlighet att tillhandahålla dokument som Microsoft kommer att använda
 
 | **Dokument**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| *Kund One – personsökare* | Kund färdig Beskrivning av ditt erbjudande. Microsoft Sales Teams kan dela den här informationen med kunder för att hjälpa till att avgöra om ditt erbjudande kan vara en bra passning och se till att det är kund klart. <br> <br> Använd en av de relevanta mallarna som är tillgängliga i Partner Center: <br> <ul> <li> Microsoft Azure One-pager-mall </li> <li> Microsoft Dynamics 365 1 – pager-mall </li> <li> Office 365 1 – pager-mall </li> <li> Windows 10 1-pager-mall </li> </ul> |
+| *Kund One – personsökare* | Kund färdig Beskrivning av ditt erbjudande. Microsoft Sales Teams kan dela den här informationen med kunder för att hjälpa till att avgöra om ditt erbjudande kan vara en bra passning och se till att det är kund klart. <br> <br> Använd en av de relevanta mallarna som är tillgängliga i Partner Center: <br> <ul> <li> Microsoft Azure One-pager-mall </li> <li> Microsoft Dynamics 365 1 – pager-mall </li> <li> Microsoft 365 1 – pager-mall </li> <li> Windows 10 1-pager-mall </li> </ul> |
 | *Kund presentation* | Dra däcket för att stämma av din lösning och dess värde förslag. När du har säkerställt att ditt erbjudande är kund klart kan Microsoft Sales-teamet dela med sig av presentationen med kunder för att tydliggör värdet som båda företagen tar när de distribuerar en gemensam lösning. Presentationen bör avse vad din lösning gör, hur den kan hjälpa kunder, vilka branscher lösningen är för och hur den jämförs med konkurrerande lösningar. <br> <br> Använd mallen som är tillgänglig i Partner Center.|
 | *Fallstudie om kund* | Den här informationen visar en potentiell kund hur du och Microsoft har distribuerat den här lösningen i tidigare fall. <br> <br> Använd mallen som är tillgänglig i Partner Center. |
 | *Kund-och verifierbar kund (valfritt)* | Specifika exempel på kund framgångar efter att din lösning har distribuerats. |

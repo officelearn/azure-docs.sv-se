@@ -3,14 +3,14 @@ title: 'Snabb start: Distribuera ett AKS-kluster med hjälp av PowerShell'
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar ett program och övervakar prestanda i Azure Kubernetes service (AKS) med hjälp av PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4dde1dcd131a497b60a314513df44cc0443d28ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 75356204fc1cd02c369f919c25281efc5f8781b0
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590021"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032664"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster med PowerShell
 
@@ -22,7 +22,7 @@ Mer information om hur du skapar en pool med Windows Server-noder finns i [skapa
 
 Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -163,7 +163,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m

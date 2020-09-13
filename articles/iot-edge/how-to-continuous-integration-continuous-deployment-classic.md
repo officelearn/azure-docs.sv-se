@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a426a579fa56fca880eb9689adc2aeb7a21407d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9cb1a2074e7ec64ed16f1f7c9a1f70bf2307b5c3
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303793"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033497"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter (klassisk redigerare)
 
@@ -86,7 +86,7 @@ I det här avsnittet skapar du en ny versions pipeline. Du konfigurerar pipeline
 
    * Om du vill skapa moduler i plattforms-amd64 för Windows 1809-behållare måste du konfigurera en lokal [agent i Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Om du vill skapa moduler i plattforms-arm32v7 eller arm64 för Linux-behållare måste du konfigurera en lokal [agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-continuous-integration-continuous-deployment-pipeline-with-arm-agent/).
+   * Om du vill skapa moduler i plattforms-arm32v7 eller arm64 för Linux-behållare måste du konfigurera en lokal [agent på Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
     ![Konfigurera build agent-specifikation](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
 

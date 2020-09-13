@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 2a0c95e45dc529d779d6b06e1e5bdb32ba80b241
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007544"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033463"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
 
@@ -79,7 +79,7 @@ Begränsningar för Azure Monitor agenten är:
 Använd Log Analytics-agenten om du behöver:
 
 * Samla in loggar och prestanda data från virtuella eller fysiska datorer i eller utanför Azure. 
-* Skicka data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) som [logg frågor](../log-query/log-query-overview.md).
+* Skicka data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md) som [logg frågor](../log-query/log-query-overview.md).
 * Använd [Azure Monitor for VMS](../insights/vminsights-overview.md) som gör att du kan övervaka dina virtuella datorer i skala och övervaka deras processer och beroenden på andra resurser och externa processer..  
 * Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md)  eller [Azure Sentinel](../../sentinel/overview.md).
 * Använd [Azure Automation uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking.md) för att leverera omfattande hantering av dina virtuella Azure-datorer

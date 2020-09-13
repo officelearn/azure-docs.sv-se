@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/10/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800721"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033667"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -190,7 +190,7 @@ Mer information om GAC finns i [den här artikeln](https://docs.microsoft.com/do
 
 #### <a name="symptoms"></a>Symtom
 
-Den egen värdbaserade integrerings körningen går plötsligt till offline utan nyckel, medan fel meddelandet visas i händelse loggen:`Authentication Key is not assigned yet`
+Den egen värdbaserade integrerings körningen går plötsligt till offline utan nyckel, medan fel meddelandet visas i händelse loggen: `Authentication Key is not assigned yet`
 
 ![Autentiseringsnyckel saknas](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
@@ -351,7 +351,7 @@ Det gick inte att hitta knappen **Registrera** i Configuration Manager UI när d
 
 #### <a name="cause"></a>Orsak
 
-Eftersom lanseringen av *Integration Runtime 3,0*har du tagit bort **register** knappen på en befintlig integration runtime-nod för att aktivera en renare och säkrare miljö. Om en nod har registrerats på några Integration Runtime (oavsett om den är online eller inte), för att omregistrera den till en annan Integration Runtime, måste du avinstallera den tidigare noden och sedan installera och registrera noden.
+Eftersom lanseringen av *Integration Runtime 3,0*har du tagit bort **register** knappen på en befintlig integration runtime-nod för att aktivera en renare och säkrare miljö. Om en nod har registrerats på någon Integration Runtime (oavsett om den är online eller inte), för att omregistrera den till en annan Integration Runtime, måste du avinstallera den tidigare noden och sedan installera och registrera noden.
 
 #### <a name="resolution"></a>Lösning
 
@@ -366,7 +366,7 @@ Eftersom lanseringen av *Integration Runtime 3,0*har du tagit bort **register** 
 1. Installera MSI och registrera Integration Runtime.
 
 
-### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Det gick inte att registrera IR med egen värd på grund av localhost    
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Det går inte att registrera en lokalt installerad IR på grund av localhost    
 
 #### <a name="symptoms"></a>Symtom
 
@@ -519,7 +519,7 @@ Det här problemet uppstår när noder inte kan kommunicera med varandra.
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Anslutnings problem mellan IR med egen värd och Data Factory eller egen IR och data källa/mottagare
 
-För att felsöka problem med nätverks anslutningen bör du veta hur du [samlar in nätverks spårningen](#how-to-collect-netmon-trace), förstår hur du använder det och [analyserar Netmon-spårningen](#how-to-analyze-netmon-trace) innan du använder Netmon-verktygen i reala fall från egen värd-IR.
+För att felsöka problem med nätverks anslutningen bör du veta hur du samlar in nätverks spårningen, förstår hur du använder det och [analyserar Netmon-spårningen](#how-to-analyze-netmon-trace) innan du använder Netmon-verktygen i reala fall från egen värd-IR.
 
 #### <a name="symptoms"></a>Symtom
 
@@ -577,7 +577,7 @@ Ta Netmon-spårningen och analysera vidare.
 
 ### <a name="how-to-collect-netmon-trace"></a>Samla in Netmon-spårning
 
-1.  Hämta Netmon-verktygen från [den här webbplatsen](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)och installera det på serverdatorn (vilken server som har problem) och klienten (till exempel lokal IR-överföring).
+1.  Hämta Netmon-verktygen från [den här webbplatsen](https://cnet-downloads.com/network-monitor)och installera det på serverdatorn (vilken server som har problem) och klienten (till exempel lokal IR-överföring).
 
 2.  Skapa en mapp, till exempel, i följande sökväg: *D:\netmon*. Se till att det finns tillräckligt med utrymme för att spara loggen.
 
@@ -621,7 +621,10 @@ Ta Netmon-spårningen och analysera vidare.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Analysera Netmon-spårning
 
-När du försöker använda Telnet **8.8.8.8 888** med ovanstående Netmon-spårning, kommer du att se spårningen nedan:
+> [!NOTE] 
+> Nedan följer en instruktion för Netmon-spårning. Eftersom Netmon-spårningen för närvarande inte stöds kan du utnyttja wireshark som samma.
+
+När du försöker använda Telnet **8.8.8.8 888** med Netmon-spårningen, ska du se följande spårning:
 
 ![Netmon-spårning 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 

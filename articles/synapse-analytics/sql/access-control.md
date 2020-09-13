@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499848"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031321"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
@@ -32,8 +32,8 @@ För en produktions distribution till en Azure Synapse-arbetsyta föreslår vi a
 
 ### <a name="step-1-set-up-security-groups-with-names-following-this-pattern"></a>Steg 1: Konfigurera säkerhets grupper med namn som följer detta mönster
 
-1. Skapa säkerhets grupp med namnet`Synapse_WORKSPACENAME_Users`
-2. Skapa säkerhets grupp med namnet`Synapse_WORKSPACENAME_Admins`
+1. Skapa säkerhets grupp med namnet `Synapse_WORKSPACENAME_Users`
+2. Skapa säkerhets grupp med namnet `Synapse_WORKSPACENAME_Admins`
 3. Lägg till `Synapse_WORKSPACENAME_Admins` i `Synapse_WORKSPACENAME_Users`
 
 > [!NOTE]
@@ -64,7 +64,7 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 
 1. Gå till [ **webb gränssnittet för Azure Synapse Web**](https://web.azuresynapse.net)
 2. Gå till **Hantera**   >  **säkerhets**  >  **åtkomst kontroll**
-3. Klicka på **Lägg till administratör**och välj`Synapse_WORKSPACENAME_Admins`
+3. Klicka på **Lägg till administratör**och välj `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Steg 4: Konfigurera SQL admin-åtkomst för arbets ytan
 
@@ -81,8 +81,8 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Steg 5: lägga till och ta bort användare och administratörer i säkerhets grupper
 
-1. Lägg till användare som behöver administrativ åtkomst till`Synapse_WORKSPACENAME_Admins`
-2. Lägg till alla andra användare i`Synapse_WORKSPACENAME_Users`
+1. Lägg till användare som behöver administrativ åtkomst till `Synapse_WORKSPACENAME_Admins`
+2. Lägg till alla andra användare i `Synapse_WORKSPACENAME_Users`
 
 > [!NOTE]
 > Lär dig hur du lägger till användare som en medlem i en säkerhets grupp i [den här artikeln](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)

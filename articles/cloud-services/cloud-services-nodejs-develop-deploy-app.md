@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 489025d9cfdd6f1bdbc950e2bd1e7e4d835a4fff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c2d76ccd0c2e81147c39f81568fd1394cc1868b6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079220"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032885"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
 
@@ -32,12 +32,12 @@ Programmet är ett enkelt ”hello world”-program:
 
 ![En webbläsare som visar webbsidan Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 > [!NOTE]
 > I den här kursen används Azure PowerShell, vilket kräver Windows.
 
 * Installera och konfigurera [Azure PowerShell].
-* Ladda ned och installera [Azure SDK för .NET 2.7]. Välj följande vid installationen:
+* Hämta och installera [Azure SDK för .NET 2,7]. Välj följande vid installationen:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
 
@@ -180,7 +180,7 @@ Mer information finns i [Node.js Developer Center].
 [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [använda en förenklad webbapp]: ../app-service/quickstart-nodejs.md
 [Azure PowerShell]: /powershell/azure/
-[Azure SDK för .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Anslut PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Översikt över att skapa en värdbaserad tjänst för Azure]: https://azure.microsoft.com/documentation/services/cloud-services/

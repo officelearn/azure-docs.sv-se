@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475251"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032035"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Använda IoT Plug and Play-modeller i en IoT-lösning
 
@@ -40,7 +40,7 @@ En lösning kan hämta modell-ID: t för IoT Plug and Play-enheten genom att anv
 
 ### <a name="get-device-twin-api"></a>Hämta enhetens dubbla API
 
-Lösningen kan använda [enhetens dubbla](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) API för att hämta modell-ID för IoT plug and Play-enheten.
+Lösningen kan använda [enhetens dubbla](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API för att hämta modell-ID för IoT plug and Play-enheten.
 
 I följande enhet med dubbla svars kodfragment `modelId` innehåller modell-ID: t för en IoT plug and Play-enhet:
 
@@ -112,7 +112,7 @@ En lösning använder modell-ID som identifierades ovan för att hämta motsvara
 
 En lösning kan hämta modell definitionen genom att använda något av följande alternativ:
 
-### <a name="model-repository"></a>Modell databas
+### <a name="model-repository"></a>Modelldatabas
 
 Lösningar kan använda [modell databasen](concepts-model-repository.md) för att hämta modeller. Enhets byggarna eller lösnings byggarna måste ladda upp sina modeller till databasen i förväg så att lösningen kan hämta dem.
 

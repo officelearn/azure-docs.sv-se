@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acbcbc8e5dcebcb894ab8f78b2ed4a71bbc87689
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662202"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031933"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Självstudie: Konfigurera en regel motor
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > - Konfigurera regel motor med hjälp av portalen.
 > - Konfigurera regel motor med Azure CLI
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 

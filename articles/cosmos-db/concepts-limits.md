@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400321"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033021"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -163,7 +163,17 @@ Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en huvud n
 | Maximal förfallo tid för resurs-token | 24 timmar som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Maximal klock skevning för token-auktorisering| 15 min |
 
-Cosmos DB stöder körning av utlösare under skrivningar. Tjänsten har stöd för maximalt en för-utlösare och en efter-utlösare per Skriv åtgärd. 
+Cosmos DB stöder körning av utlösare under skrivningar. Tjänsten har stöd för maximalt en för-utlösare och en efter-utlösare per Skriv åtgärd.
+
+## <a name="metadata-request-limits"></a>Begränsningar för metadata
+
+Azure Cosmos DB underhåller systemmetadata för varje konto. Med dessa metadata kan du räkna upp samlingar, databaser, andra Azure Cosmos DB resurser och deras konfigurationer utan kostnad.
+
+| Resurs | Standardgräns |
+| --- | --- |
+|Maximal samlings skapande frekvens m minut| 5|
+|Högsta antal skapade databaser per minut|   5|
+|Högsta allokerade data flödes uppdaterings frekvens per minut| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Begränsningar för autoskalning av allokerat data flöde
 

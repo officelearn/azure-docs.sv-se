@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 63e83e69e5e09c17b2a2ddb5ca7bee6474e2fddd
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386681"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033208"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Mata in data i en SQL-pool
 
-I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto till en SQL-pool med Azure Synapse Analytics.
+I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto i en SQL-pool med Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**: du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
@@ -32,24 +32,24 @@ I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutni
 
 1. Öppna Azure Synapse Analytics-UX och gå till fliken **Hantera** .
 1. Under **externa anslutningar**väljer du **länkade tjänster**.
-1. Klicka på **ny**om du vill lägga till en länkad tjänst.
-1. Välj panelen Azure Data Lake Storage Gen2 i listan och klicka på **Fortsätt**.
-1. Ange autentiseringsuppgifterna för autentisering. Konto nyckel, tjänstens huvud namn och hanterad identitet stöds för närvarande autentiseringstyper som stöds. Verifiera att dina autentiseringsuppgifter är korrekta genom att klicka på Testa anslutning. Klicka på **skapa** när du är färdig.
+1. Om du vill lägga till en länkad tjänst väljer du **ny**.
+1. Välj panelen Azure Data Lake Storage Gen2 i listan och välj **Fortsätt**.
+1. Ange autentiseringsuppgifterna för autentisering. Konto nyckel, tjänstens huvud namn och hanterad identitet stöds för närvarande autentiseringstyper som stöds. Kontrol lera att dina autentiseringsuppgifter är korrekta genom att välja testa anslutning. Välj **Skapa** när du är klar.
 1. Upprepa steg 3-5, men i stället för Azure Data Lake Storage Gen2 väljer du panelen Azure Synapse Analytics och anger motsvarande autentiseringsuppgifter för anslutning. För Azure Synapse Analytics stöds SQL-autentisering, hanterad identitet och tjänstens huvud namn för närvarande.
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
 En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från ADLS Gen2 i en SQL-pool.
 
-1. Gå till fliken **dirigera** . Klicka på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
+1. Gå till fliken **dirigera** . Välj på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
 1. Under **flytta och transformera** i fönstret aktiviteter drar du **Kopiera data** till pipeline-arbetsytan.
-1. Klicka på kopierings aktiviteten och gå till fliken **källa** . Klicka på **nytt** om du vill skapa en ny käll data uppsättning.
-1. Välj Azure Data Lake Storage Gen2 som data lager och klicka på Fortsätt.
-1. Välj DelimitedText som format och klicka på Fortsätt.
-1. I rutan Ange egenskaper väljer du den länkade tjänsten ADLS som du skapade. Ange fil Sök vägen till dina källdata och ange om den första raden har ett sidhuvud. Du kan importera schemat från fil arkivet eller en exempel fil. Klicka på OK när du är färdig.
-1. Gå till fliken **mottagare** . Klicka på **ny** för att skapa en ny data uppsättning för mottagare.
-1. Välj Azure Synapse Analytics som data lager och klicka på Fortsätt.
-1. I rutan Ange egenskaper väljer du den länkade Azure Synapse Analytics-tjänsten som du skapade. Om du skriver till en befintlig tabell väljer du den i list rutan. Annars markerar du **Redigera** och anger i det nya tabell namnet. Klicka på OK när du är färdig
+1. Välj aktiviteten Kopiera och gå till fliken **källa** . Välj **ny** för att skapa en ny käll data uppsättning.
+1. Välj Azure Data Lake Storage Gen2 som data lager och välj Fortsätt.
+1. Välj DelimitedText som format och välj Fortsätt.
+1. I rutan Ange egenskaper väljer du den länkade tjänsten ADLS som du skapade. Ange fil Sök vägen till dina källdata och ange om den första raden har ett sidhuvud. Du kan importera schemat från fil arkivet eller en exempel fil. Välj OK när du är färdig.
+1. Gå till fliken **mottagare** . Välj **ny** för att skapa en ny data uppsättning för mottagare.
+1. Välj Azure Synapse Analytics som data lager och välj Fortsätt.
+1. I rutan Ange egenskaper väljer du den länkade Azure Synapse Analytics-tjänsten som du skapade. Om du skriver till en befintlig tabell väljer du den i list rutan. Annars markerar du **Redigera** och anger i det nya tabell namnet. Välj OK när du är färdig
 1. Om du skapar en tabell aktiverar du **Skapa tabell automatiskt** i fältet tabell alternativ.
 
 ## <a name="debug-and-publish-pipeline"></a>Felsöka och publicera pipeline
@@ -58,7 +58,7 @@ När du har konfigurerat din pipeline kan du köra en fel söknings körning inn
 
 1. Välj **Felsöka** i verktygsfält för att felsöka pipelinen. Du ser status för pipelinekörningen på fliken **Utdata** längst ned i fönstret. 
 1. När pipelinen har körts kan du gå till det övre verktygsfältet och välja **publicera alla**. Den här åtgärden publicerar entiteter (data uppsättningar och pipeliner) som du skapade i Synapse Analytics-tjänsten.
-1. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Om du vill visa meddelanden klickar du på klock knappen längst upp till höger. 
+1. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Om du vill se meddelanden väljer du klock knappen längst upp till höger. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Utlös och övervaka pipelinen
@@ -73,4 +73,4 @@ I det här steget aktiverar du pipelinen som publicerades i föregående steg ma
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om data integrering för Synapse-analys finns i mata in [data i Azure Data Lake Storage Gen2](data-integration-data-lake.md) artikel.
+Mer information om data integrering för Synapse-analys finns i mata in [data i Azure Data Lake Storage Gen2 ](data-integration-data-lake.md) artikel.

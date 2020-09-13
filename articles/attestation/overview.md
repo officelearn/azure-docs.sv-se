@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320604"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033004"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (förhandsversion)
 
@@ -85,7 +85,7 @@ Kluster som distribueras i två regioner kommer att fungera oberoende under norm
 - [Azure-Traffic Manager](../traffic-manager/index.yml) för regionen identifierar att hälso avsökningen är försämrad och växlar slut punkten till kopplad region
 - Befintliga anslutningar fungerar inte och får ett internt Server fel eller tids gräns problem
 - Alla kontroll Plans åtgärder kommer att blockeras. Kunder kommer inte att kunna skapa attesterings leverantörer och uppdatera principer i den primära regionen
-- Alla data Plans åtgärder, inklusive attestering, anrop fortsätter att fungera i primär region
+- Alla data Plans åtgärder, inklusive attesterings anrop, fortsätter att fungera i primär region
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [grundläggande koncept för Azure-attestering](basic-concepts.md)

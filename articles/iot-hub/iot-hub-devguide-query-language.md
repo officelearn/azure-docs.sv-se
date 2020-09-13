@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022453"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031185"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för enhet och modultvillingar, jobb och meddelanderedigering
 
@@ -234,7 +234,7 @@ Objektet fråga visar flera **Nästa** värden, beroende på vilket avserialiser
 ### <a name="limitations"></a>Begränsningar
 
 > [!IMPORTANT]
-> Frågeresultaten kan ha några minuters fördröjning i förhållande till de senaste värdena i enheten är dubbla. Om en fråga om en enskild enhet är uppflätad med ID, använder du funktionen [Hämta dubbla REST API](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Detta API returnerar alltid de senaste värdena och har högre begränsnings gränser. Du kan utfärda REST API direkt eller använda motsvarande funktioner i en av [Azure IoT Hub service SDK: erna](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Frågeresultaten kan ha några minuters fördröjning i förhållande till de senaste värdena i enheten är dubbla. Om en fråga om en enskild enhet är uppflätad med ID, använder du funktionen [Hämta dubbla REST API](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Detta API returnerar alltid de senaste värdena och har högre begränsnings gränser. Du kan utfärda REST API direkt eller använda motsvarande funktioner i en av [Azure IoT Hub service SDK: erna](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 För närvarande stöds jämförelser bara mellan primitiva typer (inga objekt), till exempel `... WHERE properties.desired.config = properties.reported.config` endast om dessa egenskaper har primitiva värden.
 
@@ -450,9 +450,9 @@ Följande operatorer stöds:
 
 | Familj | Operatorer |
 | --- | --- |
-| Aritmetiska |+, -, *, /, % |
+| Aritmetisk |+, -, *, /, % |
 | Logisk |AND, OR, NOT (och, eller, inte) |
-| Jämförelse |=,! =, <, >, <=, >=,  <> |
+| Jämförelse |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Functions
 

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 019c78236ed0cc689de09a9ee04ebb6a0b9243b1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131488"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033599"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Snabbstart: Skapa och hantera arbetsflödesdefinitioner för logikappar med hjälp av Visual Studio Code
 
@@ -130,7 +130,7 @@ Innan du börjar bör du kontrollera att du har följande:
    Här är till exempel en exempel arbets flödes definition för en exempel logik som börjar med en RSS-utlösare och en Outlook 365 Outlook-åtgärd. Normalt visas JSON-element i alfabetisk ordning i varje avsnitt. Det här exemplet visar dock dessa element ungefär i den ordning som Logic Apps-stegen visas i designern.
 
    > [!IMPORTANT]
-   > Om du vill återanvända den här exempel definitionen av Logic-appen behöver du ett Office 365-organisations konto, till exempel @fabrikam.com . Se till att du ersätter den fiktiva e-postadressen med din egen e-postadress. Om du vill använda en annan e-postkoppling, till exempel Outlook.com eller Gmail, ersätter du `Send_an_email_action` åtgärden med en liknande åtgärd som är tillgänglig från en [e-postanslutning som stöds av Azure Logic Apps](../connectors/apis-list.md).
+   > Om du vill återanvända den här exempel definitionen av Logic-appen behöver du ett organisations konto, till exempel @fabrikam.com . Se till att du ersätter den fiktiva e-postadressen med din egen e-postadress. Om du vill använda en annan e-postkoppling, till exempel Outlook.com eller Gmail, ersätter du `Send_an_email_action` åtgärden med en liknande åtgärd som är tillgänglig från en [e-postanslutning som stöds av Azure Logic Apps](../connectors/apis-list.md).
    >
    > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. 
    > Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). 

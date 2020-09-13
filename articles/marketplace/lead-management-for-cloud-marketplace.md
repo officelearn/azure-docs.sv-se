@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3924e609091f4d0975901024f20db74efb6aac5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606896"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032715"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Lead-hantering för den kommersiella marknaden
 
 Kunderna är i mitten av en eventuell verksamhet. I transformeringen av dagens produkt förvärv måste marknads förare fokusera på att ansluta till kunder direkt och skapa en relation. Detta är anledningen till att generera högkvalitativa leads är ett viktigt verktyg för din sälj cykel. När du har angett ditt erbjudande i [partner Center](https://partner.microsoft.com/), finns det verktyg som har Aktiver ATS för att du ska få kontakt information via programmering direkt efter att en kund uttrycker intresse eller distribuerar produkten på Marketplace. 
 
-## <a name="what-are-leads-in-the-marketplace"></a>Vad är leads på Marketplace?
+## <a name="what-are-leads-in-the-commercial-marketplace"></a>Vad är leads i den kommersiella marknads platsen?
 
-Leads är från kunder som är intresserade eller distribuerar dina produkter från Marketplace. Oavsett om produkten är listad på Azure Marketplace eller AppSource kommer du att kunna ta emot leads från kunder när den har kon figurer ATS korrekt från din CRM till din lista (er) i Partner Center. 
+Leads är från kunder som är intresserade eller distribuerar dina produkter från den kommersiella marknads platsen. När du ansluter din CRM till din lista (er) i Partner Center kan du ta emot leads från Azure Marketplace och AppSource-kunder.
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Så här ansluter du ditt CRM-system med partner Center
 
-För att komma igång med leads, har lead management Connector i Partner Center utformats så att den enkelt kan anslutas till din CRM-information till en lista över tillgängliga CRM-system. Nu kan du enkelt utnyttja de leads som genereras av Marketplace utan en betydande teknik ansträngning för att integrera med ett externt system.
+Lead management-anslutningen i Partner Center är utformad så att den enkelt kan anslutas till din CRM-information till en lista över tillgängliga CRM-system. Nu kan du enkelt utnyttja de leads som genereras av Marketplace utan en betydande teknik ansträngning för att integrera med ett externt system.
 
 Här följer stegvisa instruktioner om hur du ansluter vart och ett av de möjliga mål målen:
 
@@ -38,17 +38,17 @@ Här följer stegvisa instruktioner om hur du ansluter vart och ett av de möjli
 
 **Https-slutpunkt** – se [Konfigurera hantering av leads med en HTTPS-slutpunkt](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) för instruktioner om hur du konfigurerar din HTTPS-slutpunkt för att hämta leads.
 
-När du har konfigurerat ditt lead-mål och har publicerat publicera på ditt erbjudande, kommer vi att validera anslutningen och skicka ett test lead. När du visar erbjudandet innan du går live kan du också testa din lead-anslutning genom att försöka skaffa erbjudandet själv i för hands versionen. Det är viktigt att se till att dina lead-inställningar hålls uppdaterade så att du inte förlorar några leads, så se till att du uppdaterar anslutningarna när något har ändrats i slutet.
+När du har konfigurerat ditt lead-mål och begär att publicera ditt erbjudande, kommer vi att validera anslutningen och skicka ett test lead. När du visar erbjudandet innan du går live kan du också testa din lead-anslutning genom att försöka skaffa erbjudandet själv i för hands versionen. Det är viktigt att se till att dina lead-inställningar hålls uppdaterade så att du inte förlorar några leads, så se till att du uppdaterar anslutningarna när något har ändrats i slutet.
 
 ### <a name="what-are-the-next-steps"></a>Vad är nästa steg?
 
-När den tekniska konfigurationen är på plats bör du inkludera dessa leads i din aktuella försäljning & marknadsförings strategi och operativa processer. Vi är intresserade av att bättre förstå den övergripande Sälj processen och vill arbeta nära dig med att tillhandahålla högkvalitativa leads och tillräckligt med data för att lyckas. Vi välkomnar din feedback om hur vi kan optimera och förbättra de leads som vi skickar till dig med ytterligare data för att hjälpa kunderna att lyckas. Berätta för oss om du är intresse rad av att ge feedback och förslag för att göra det möjligt för ditt säljteam att bli mer framgångs rik med marknads ledande kunder.
+När den tekniska konfigurationen är på plats bör du inkludera dessa leads i din aktuella försäljning & marknadsförings strategi och operativa processer. Vi är intresserade av att förstå den övergripande Sälj processen och vill arbeta nära dig med att tillhandahålla högkvalitativa leads och tillräckligt med data för att lyckas. Vi välkomnar din feedback om hur vi kan optimera och förbättra de leads som vi skickar till dig med ytterligare data för att hjälpa kunderna att lyckas. Berätta för oss om du är intresse rad av att ge feedback och förslag för att göra det möjligt för ditt säljteam att bli mer framgångs rik med leads på kommersiella platser.
 
 ## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Vanliga fel vid lead-konfiguration under publicering i Partner Center
 
 **Det gick inte att spara leadet i Dynamics CRM. Kontrol lera konto inställningarna för Dynamics CRM. LastCRMError: det går inte att logga in på Dynamics CRM, LastCRMException:** 
 
-> Om du valde O365-autentisering kontrollerar du om användar kontot och lösen ordet är giltigt. Om AAD valdes kontrollerar du om klient-ID, program-ID och program hemlig nyckel matchar vad som har kon figurer ATS i AAD. Följ instruktionerna [här](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Om kontots användar namn/lösen ord är giltigt kontrollerar du att det har åtkomst till Dynamics 365 och har en tilldelad licens (steg 11-15 om du använder Azure Active Directory eller säkerhets inställningar om du använder en Office-användare). 
+> Om Microsoft 365 autentisering valdes kontrollerar du om användar kontot och lösen ordet är giltigt. Om Azure Active Directory valdes kontrollerar du om klient-ID, program-ID och program hemlig nyckel matchar vad som har kon figurer ATS på Azure Active Directory. Följ instruktionerna [här](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Om kontots användar namn/lösen ord är giltigt kontrollerar du att det har åtkomst till Dynamics 365 och har en tilldelad licens (steg 11-15 om du använder Azure Active Directory eller säkerhets inställningar om du använder en Office-användare). 
 
 **Det gick inte att spara leadet i Dynamics CRM. Användaren har inte behörighet att skapa leadsourcecode-attribut i entiteten lead** 
 
@@ -56,7 +56,7 @@ När den tekniska konfigurationen är på plats bör du inkludera dessa leads i 
 
 **Det gick inte att spara leadet i Dynamics CRM med AAD. Undantag:: klienten hittades inte. Den här instansen kan inträffa om det inte finns några aktiva prenumerationer för klienten.**  
 
-> Katalog-ID: t i avsnittet om lead management är inte en giltig katalog. Hämta katalog-ID: t baserat på anvisningarna i steg 2 (under Azure Active Directory, härifrån [.](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)
+> Katalog-ID: t i avsnittet om lead management är inte en giltig katalog. Hämta katalog-ID: t baserat på anvisningarna i steg 2 (under Azure Active Directory) [här](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Det gick inte att spara leadet i Dynamics CRM. LastCRMError: SecLib:: RetrievePrivilegeForUser misslyckades-inga roller har tilldelats till användaren.**  
 
@@ -76,7 +76,7 @@ När den tekniska konfigurationen är på plats bör du inkludera dessa leads i 
 
 **Det gick inte att spara leadet i Dynamics CRM. LastCRMError: begär ande kanalen nådde tids gränsen i väntan på ett svar efter 00:02:00. Öka timeout-värdet som skickas till anropet till begäran eller öka SendTimeout-värdet för bindningen. Den tid som tilldelats den här åtgärden kan ha varit en del av en längre tids gräns.**  
 
-> Lösning: Logga in på Partner Center, kontrol lera butik information >>  >> URL för mål, kontrol lera om det är en giltig dynamisk CRM-instans.
+> Lösning: Logga in på Partner Center, kontrol lera erbjudandet >> kund leads >> URL, kontrol lera om det är en giltig dynamisk CRM-instans.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -139,7 +139,7 @@ Varje lead har data som skickas i fält i ditt valda mål för lead, leads visas
 - *Action*
   - "INS" – motsvarar installation. Detta finns på Azure Marketplace eller AppSource när en kund träffar knappen att förvärva din produkt.
   - "PLT" – motsvarar en utvärderings version av partner. Detta är på AppSource när en kund träffar knappen kontakta mig.
-  - "DNC" – motsvarar inte kontakt. Detta sker på AppSource när en partner som var korsad på din app-sida uppmanas att kontaktas. Vi delar upp de huvuden som den här kunden hade korsat i din app, men de behöver inte kontaktas.
+  - "DNC" – motsvarar inte kontakt. Detta sker på AppSource när en partner som var korsad på din app-sida uppmanas att kontaktas. Vi delar huvudet som den här kunden har korsat i listan i din app, men de behöver inte kontaktas.
   - "Skapa" – Detta är bara inom Azure Portal och är närhelst en kund köper ditt erbjudande till sitt konto.
   - "StartTestDrive" – endast för test enheter och är varje gång en kund startar sin test-enhet.
 
@@ -190,4 +190,4 @@ På grund av sekretess policys kan vi inte dela ledar information via oskyddad e
 
 **Jag har konfigurerat Azure Storage (BLOB/tabell) som mitt lead-mål, hur mycket kostar det?** 
 
-Leadets gen data är låg (<1 GB för nästan alla utgivare). Kostnaden beror på antalet mottagna leads, om 1 000 leads tas emot under en månad, kostar det cirka 50 cent. 
+Lead-generationens data är låg (<1 GB för nästan alla utgivare). Kostnaden beror på antalet mottagna leads, om 1 000 leads tas emot under en månad, kostar det cirka 50 cent. 

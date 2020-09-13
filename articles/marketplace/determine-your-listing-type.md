@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484875"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032392"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
@@ -45,7 +45,7 @@ I följande tabell visas publicerings alternativen för erbjudande typer i Micro
 
 &#42; Transact-erbjudanden för SaaS-program i Microsoft AppSource är för närvarande endast kredit kort.
 
-&#42;&#42; Microsoft 365 erbjudanden är kostnads fria att installeras och kan säljas via SaaS-erbjudandet som en licens tjänst. Mer information finns i köpa [ditt Office 365-tillägg via Microsofts kommersiella Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+&#42;&#42; Microsoft 365 erbjudanden är kostnads fria att installeras och kan säljas via SaaS-erbjudandet som en licens tjänst. Mer information finns i avsnittet [om att köpa Microsoft 365-tillägget via Microsofts kommersiella marknads platser](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## <a name="choose-a-listing-option"></a>Välj ett List alternativ
 

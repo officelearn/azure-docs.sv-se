@@ -6,32 +6,32 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/12/2019
-ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 9/11/2020
+ms.openlocfilehash: 35d5b101f4ad5fe4498c0566227c5f0a9d102b60
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116921"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032583"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Hantera brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus)
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en citus-koordinator (disscale) från en angiven IP-adress eller ett intervall med IP-adresser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:
 - En Server grupp [skapar en Server grupp för Azure Database for PostgreSQL – storskalig (citus)](quickstart-create-hyperscale-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
 
 > [!NOTE]
-> De här inställningarna är också tillgängliga när du skapar en citus-servergrupp (Azure Database for PostgreSQL-storskalig). Klicka på **offentlig slut punkt**under fliken **nätverk** .
+> De här inställningarna är också tillgängliga när du skapar en citus-servergrupp (Azure Database for PostgreSQL-storskalig). Klicka på **offentlig åtkomst**under fliken **nätverk** .
 > ![Fliken Azure Portal-nätverk](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Öppna brand Väggs reglerna genom att klicka på **nätverk** under säkerhets rubriken på sidan postgresql server Group.
 
    ![Azure Portal på nätverk](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Klicka på **Lägg till klient-IP**, antingen i verktygsfältet (alternativ A nedan) eller i länken (alternativ B). På något sätt skapar du automatiskt en brand Väggs regel med den offentliga IP-adressen för datorn, som den uppfattas av Azure-systemet.
+2. Klicka på **Lägg till aktuell klient-IP-adress** för att skapa en brand Väggs regel med den offentliga IP-adressen för din dator, som den uppfattas av Azure-systemet.
 
    ![Azure Portal-Klicka på Lägg till klient-IP](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -55,7 +55,7 @@ Det finns ett enkelt sätt att bevilja storskalig databas åtkomst till program 
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Hantera befintliga brandväggsregler på servernivå via Azure Portal
 Upprepa stegen för att hantera brand Väggs reglerna.
-* Klicka på knappen för att lägga till en **klient-IP**för att lägga till den aktuella datorn. Klicka på **Spara** för att spara ändringarna.
+* Lägg till den aktuella datorn genom att klicka på knappen till + **Lägg till aktuell klient-IP-adress**. Klicka på **Spara** för att spara ändringarna.
 * Om du vill lägga till ytterligare IP-adresser skriver du regelnamnet, start-IP-adressen och slut-IP-adressen. Klicka på **Spara** för att spara ändringarna.
 * Om du vill redigera en befintlig regel klickar du på något av fälten i regeln och redigerar det. Klicka på **Spara** för att spara ändringarna.
 * Ta bort en befintlig regel genom att klicka på ellipsen [...] och ta bort regeln genom att klicka på **ta bort** . Klicka på **Spara** för att spara ändringarna.

@@ -1,4 +1,4 @@
-- name: ExpressRoute dokumentation
+- name: ExpressRoute-dokumentation
   href: index.yml
 - name: Översikt
   items:
@@ -8,6 +8,7 @@
   items:
     - name: Skapa en ExpressRoute-krets – ARM-mall
       href: quickstart-create-expressroute-vnet-template.md
+  expanded: true
 - name: Självstudier
   items:
     - name: Skapa och ändra en krets

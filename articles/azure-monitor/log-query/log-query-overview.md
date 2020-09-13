@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539609"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033174"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Översikt över logg frågor i Azure Monitor
 Med logg frågor kan du utnyttja värdet för de data som samlas in i [Azure Monitor loggar](../platform/data-platform-logs.md). Ett kraftfullt frågespråk gör att du kan koppla data från flera tabeller, aggregera stora mängder data och utföra komplexa åtgärder med minimal kod. I stort sett kan alla frågor besvaras och analyseras så länge som stödjande data har samlats in och du förstår hur du skapar rätt fråga.
@@ -38,10 +38,7 @@ Se [Kom igång med logg frågor i Azure Monitor](get-started-queries.md) för en
 Se [Azure Monitor logg frågor språk skillnader](data-explorer-difference.md) för mindre skillnader i den version av KQL som används av Azure Monitor.
 
 ## <a name="what-data-is-available-to-log-queries"></a>Vilka data är tillgängliga för att logga frågor?
-Alla data som samlas in i Azure Monitor-loggar är tillgängliga för att hämta och analysera i logg frågor. Olika data källor kommer att skriva sina data till olika tabeller, men du kan inkludera flera tabeller i en enda fråga för att analysera data över flera källor. När du skapar en fråga börjar du med att bestämma vilka tabeller som har de data som du letar efter, så du bör ha minst en grundläggande förståelse för hur data i Azure Monitor loggar är strukturerade.
-
-En lista över olika data källor som fyller Azure Monitor loggar finns i [källor till Azure Monitor loggar](../platform/data-platform-logs.md#sources-of-azure-monitor-logs).<br>
-Se [strukturen i Azure Monitor loggar](logs-structure.md) för en förklaring av hur data är strukturerade.
+Alla data som samlas in i Azure Monitor-loggar är tillgängliga för att hämta och analysera i logg frågor. Olika data källor kommer att skriva sina data till olika tabeller, men du kan inkludera flera tabeller i en enda fråga för att analysera data över flera källor. När du skapar en fråga börjar du med att bestämma vilka tabeller som har de data som du letar efter. Se [strukturen i Azure Monitor loggar](logs-structure.md) för en förklaring av hur data är strukturerade.
 
 ## <a name="what-does-a-log-query-look-like"></a>Vad ser en logg fråga ut?
 En fråga kan vara lika enkel som ett enda tabell namn för att hämta alla poster från tabellen:

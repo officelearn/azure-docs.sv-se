@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3bf180c2b70a686879082888e45e67936cdbec67
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d225511bb78a5773ce4ed5866f6ffc1257921e96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799238"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032171"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Design tabeller med Synapse SQL
 
@@ -360,9 +360,6 @@ SELECT *
 FROM size
 ;
 ```
-
->[!TIP]
-> För förbättrade prestanda i Synapse SQL kan du överväga att använda **sys. pdw_permanent_table_mappings** i stället för **sys. pdw_table_mappings** i permanenta användar tabeller. Mer information finns i **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Sammanfattning av tabell utrymme
 

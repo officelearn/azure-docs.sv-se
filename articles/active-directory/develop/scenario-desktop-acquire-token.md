@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440940"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032817"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Skriv bords app som anropar webb-API: er: Hämta en token
 
@@ -183,7 +183,7 @@ På Android måste du också ange den överordnade aktiviteten genom `.WithParen
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Användar gränssnittet är viktigt eftersom det är interaktivt. `AcquireTokenInteractive` har en speciell valfri parameter som kan ange, för plattformar som stöder den, det överordnade användar gränssnittet. När det används i ett Skriv bords program, `.WithParentActivityOrWindow` har en annan typ, som är beroende av plattformen.
+Användar gränssnittet är viktigt eftersom det är interaktivt. `AcquireTokenInteractive` har en speciell valfri parameter som kan ange, för plattformar som stöder den, det överordnade användar gränssnittet. När det används i ett Skriv bords program, `.WithParentActivityOrWindow` har en annan typ, som är beroende av plattformen. Alternativt kan du utelämna den valfria parametern för överordnad fönster för att skapa ett fönster, om du inte vill styra var inloggnings dialog rutan visas på skärmen. Detta gäller för program som är kommando radsbaserade, som används för att skicka anrop till en annan server dels tjänst och som inte behöver några Windows för användar interaktion. 
 
 ```csharp
 // net45

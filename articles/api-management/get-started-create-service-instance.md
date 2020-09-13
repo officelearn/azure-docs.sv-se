@@ -1,33 +1,28 @@
 ---
-title: Skapa en Azure API Management-instans | Microsoft Docs
-description: Följ stegen i den här självstudien för att skapa en ny Azure API Management-instans.
-services: api-management
-documentationcenter: ''
+title: Snabb start – skapa en Azure API Management-instans
+description: Skapa en ny Azure API Management Service-instans med hjälp av Azure Portal.
 author: vladvino
-manager: cflower
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/28/2017
+ms.date: 09/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 6c71b88f43570a65edb5d0bea24f623c861f8111
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 104e1873a56d1ecf6e9f11a271344e9b4073e780
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206297"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033372"
 ---
-# <a name="create-a-new-azure-api-management-service-instance"></a>Skapa en ny Azure API Management-tjänstinstans
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Snabb start: skapa en ny instans av Azure API Management-tjänsten med hjälp av Azure Portal
 
-Azure API Management (APIM) hjälper organisationer att publicera API:er till externa partner och interna utvecklare så att de kan få ut maximalt av sina data och tjänster. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med APIM kan du skapa och hantera moderna API-gatewayer för befintliga serverdeltjänster som ligger var som helst. Mer information finns i ämnet [Översikt](api-management-key-concepts.md).
+Azure API Management (APIM) hjälper organisationer att publicera API:er till externa partner och interna utvecklare så att de kan få ut maximalt av sina data och tjänster. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med APIM kan du skapa och hantera moderna API-gatewayer för befintliga Server dels tjänster var som helst. Mer information finns i [Översikt](api-management-key-concepts.md).
 
 I den här snabbstarten beskrivs stegen för att skapa en ny API Management-instans med Azure-portalen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![API Management instans](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+:::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created.png" alt-text="API Management instans":::
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -37,32 +32,39 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. I menyn i Azure-portalen väljer du **Skapa en resurs**. Du kan också välja **skapa en resurs** på Azures **Start** sida. 
    
-   ![Välj Skapa en resurs](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="Välj Skapa en resurs":::
+
    
-1. På den **nya** skärmen väljer du **integration** och väljer sedan **API Management**.
+1. På sidan **ny** väljer du **integration**  >  **API Management**.
+
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="Ny Azure API Management-instans":::
    
-   ![Ny Azure API Management-instans](./media/get-started-create-service-instance/00-CreateResource-02.png)
+1. På sidan **API Management tjänst** anger du inställningar.
+
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Ny instans":::
    
-1. I fönstret **API Management tjänst** anger du inställningar.
-   
-   ![ny instans](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
-   
-   | Inställning                 | Föreslaget värde                               | Beskrivning                                                                                                                                                                                                                                                                                                                         |
-|-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Namn**                | Ett unikt namn för din API Management-tjänst | Namnet kan inte ändras senare. Tjänstens namn används för att generera en ett standarddomännamn med formatet of *{name}.azure-api.net.* Om du vill använda ett anpassat domännamn läser du [Konfigurera ett anpassat domännamn](configure-custom-domain.md). <br/> Tjänstens namn används för att referera till tjänsten och motsvarande Azure-resurs. |
-| **Prenumeration**        | Din prenumeration                             | Den prenumeration som den här nya tjänstinstansen kommer att skapas för. Du kan välja prenumeration bland de olika Azure-prenumerationer som du har åtkomst till.                                                                                                                                                            |
-| **Resursgrupp**      | *apimResourceGroup*                           | Du kan välja en ny eller befintlig resurs. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Läs mer [här](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
-| **Plats**            | *USA, västra*                                    | Välj den geografiska regionen närmast dig. Endast de tillgängliga API Management-regionerna visas i listrutan.                                                                                                                                                                                                          |
-| **Organisationsnamn**   | Namnet på din organisation                 | Namnet används på ett antal platser, däribland titeln på utvecklarportalen och avsändaren av e-postmeddelanden.                                                                                                                                                                                                             |
-| **E-postadress för administratör** | *admin- \@ org.com*                               | Ange den e-postadress som alla meddelanden från **API Management** ska skickas från.                                                                                                                                                                                                                                              |
-| **Prisnivå**        | *Developer*                                   | Ställ in nivån **Developer** för att utvärdera tjänsten. Den här nivån ska inte användas för produktion. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md).                                                                                                                                    |
+   | Inställningen                 | Beskrivning   |                                                                     
+   |-------------------------|-----------------------------------------------|
+   | **Namn**                | Ett unikt namn för din API Management-tjänst. Namnet kan inte ändras senare. Tjänst namnet avser både tjänsten och motsvarande Azure-resurs. <br/> Tjänst namnet används för att generera ett standard domän namn: * \<name\> . Azure-API.net.* Om du vill använda ett anpassat domännamn läser du [Konfigurera ett anpassat domännamn](configure-custom-domain.md). |
+   | **Prenumeration**          | Den prenumeration som den här nya tjänstinstansen kommer att skapas för.   |
+   | **Resursgrupp**      |  Välj en ny eller befintlig resurs grupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. |
+   | **Plats**          | Välj en geografisk region nära dig från tillgängliga API Management tjänst platser. | 
+   | **Organisationsnamn**   | Namnet på din organisation. Namnet används på ett antal platser, däribland titeln på utvecklarportalen och avsändaren av e-postmeddelanden. |                                                         
+   | **E-postadress för administratör** | E-postadressen som alla meddelanden från **API Management** ska skickas till.   |  
+   | **Prisnivå**        | Välj nivå för **utvecklare** för att utvärdera tjänsten. Den här nivån är inte för produktions användning. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md). |
 
 3. Välj **Skapa**.
 
     > [!TIP]
-    > Det tar vanligtvis mellan 20 och 30 minuter att skapa en API Management-tjänst. Om du väljer **Fäst vid instrumentpanelen** blir det enklare att hitta en nyligen skapad tjänst.
+    > Det tar vanligt vis mellan 20 och 30 minuter att skapa och aktivera en API Management-tjänst. Om du väljer **Fäst vid instrumentpanelen** blir det enklare att hitta en nyligen skapad tjänst.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
+
+Granska egenskaperna för din tjänst på **översikts** sidan.
+
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created.png" alt-text="API Management instans":::
+
+När din API Management tjänst instans är online är du redo att använda den. Börja med självstudien för att [Importera och publicera ditt första API](import-and-publish.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -70,17 +72,17 @@ När den inte längre behövs kan följande steg användas för att ta bort resu
 
 1. I Azure Portal söker du efter och väljer **resurs grupper**. Du kan också välja **resurs grupper** på **Start** sidan. 
 
-   ![Navigering för resursgrupper](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Navigering för resurs grupp":::
 
 1. På sidan **resurs grupper** väljer du din resurs grupp.
 
-   ![Navigering för resursgrupper](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Välj resursgrupp":::
 
 1. På sidan resurs grupp väljer du **ta bort resurs grupp**. 
    
 1. Skriv namnet på resurs gruppen och välj sedan **ta bort**.
 
-   ![Ta bort resursgrupp](./media/get-started-create-service-instance/00-DeleteResource-03.png)
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="Ta bort resursgrupp":::
 
 ## <a name="next-steps"></a>Nästa steg
 

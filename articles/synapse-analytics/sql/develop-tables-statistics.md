@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f30e9c30f1067595fc502bf3ea349cd6b7630ae1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020607"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032688"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
@@ -57,7 +57,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Dessa uttryck utlöser automatisk skapande av statistik:
 
-- VÄLJ
+- SELECT
 - INFOGA-VÄLJ
 - CTAS
 - UPDATE
@@ -506,7 +506,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
-- Huvud
+- Sidhuvud
 - Densitets vektor
 - Histogram
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>Skillnader mellan DBCC SHOW_STATISTICS ()
 
-`DBCC SHOW_STATISTICS()`är mer strikt implementerat i SQL-poolen jämfört med SQL Server:
+`DBCC SHOW_STATISTICS()` är mer strikt implementerat i SQL-poolen jämfört med SQL Server:
 
 - Funktioner som inte har dokumenterats stöds inte.
 - Det går inte att använda Stats_stream.

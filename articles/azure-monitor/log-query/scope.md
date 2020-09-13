@@ -1,17 +1,17 @@
 ---
-title: Logg frågans omfång i Azure Monitor Log Analytics | Microsoft Docs
+title: Logg frågans omfång i Azure Monitor Log Analytics
 description: Beskriver omfånget och tidsintervallet för en logg fråga i Azure Monitor Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/01/2020
-ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199017"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031950"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
 När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
@@ -22,17 +22,17 @@ Fråge omfånget definierar de poster som utvärderas av frågan. Detta omfattar
 
 Omfattningen visas alltid längst upp till vänster i Log Analyticss fönstret. En ikon visar om omfånget är en Log Analytics arbets yta eller ett Application Insights program. Ingen ikon indikerar en annan Azure-resurs.
 
-![Omfång](media/scope/scope.png)
+![Omfattning som visas i portalen](media/scope/scope.png)
 
 Omfattningen bestäms av den metod som du använder för att starta Log Analytics, och i vissa fall kan du ändra omfattningen genom att klicka på den. I följande tabell visas olika typer av omfång som används och olika Detaljer för var och en.
 
 > [!IMPORTANT]
-> Om du använder APM 2,1 lagras Application Insights program i en Log Analytics arbets yta med alla andra loggdata, och Application Insights omfattningen är inte tillgänglig. Om du väljer **loggar** på Application Insights-menyn fungerar det på samma sätt som de **andra Azure-resursernas** omfattning, och endast data från det programmet i Application Insights-tabellerna är tillgängliga.
+> Om du använder ett arbets grupps program i Application Insights lagras data i en Log Analytics arbets yta med alla andra loggdata. För bakåtkompatibilitet får du den klassiska Application Insights upplevelsen när du väljer programmet som definitions område. Ange omfånget till arbets ytan om du vill se dessa data i arbets ytan Log Analytics.
 
 | Frågeomfång | Poster i omfånget | Så här väljer du | Ändra omfång |
 |:---|:---|:---|:---|
 | Log Analytics-arbetsyta | Alla poster i Log Analytics-arbetsytan. | Välj **loggar** på **Azure Monitor** -menyn eller **Log Analytics arbets ytans** meny.  | Kan ändra omfång till någon annan resurs typ. |
-| Application Insights program | Alla poster i Application Insights programmet. | Välj **Analytics** från **översikts** sidan för Application Insights. | Det går bara att ändra omfattningen till ett annat Application Insights-program. |
+| Application Insights program | Alla poster i Application Insights programmet. | Välj **loggar** på menyn **Application Insights** för programmet. | Det går bara att ändra omfattningen till ett annat Application Insights-program. |
 | Resursgrupp | Poster som skapats av alla resurser i resurs gruppen. Kan innehålla data från flera Log Analytics arbets ytor. | Välj **loggar** i menyn resurs grupp. | Det går inte att ändra omfång.|
 | Prenumeration | Poster som skapats av alla resurser i prenumerationen. Kan innehålla data från flera Log Analytics arbets ytor. | Välj **loggar** på menyn prenumeration.   | Det går inte att ändra omfång. |
 | Andra Azure-resurser | Poster som skapats av resursen. Kan innehålla data från flera Log Analytics arbets ytor.  | Välj **loggar** på resurs-menyn.<br>ELLER<br>Välj **loggar** på **Azure Monitor** -menyn och välj sedan ett nytt omfång. | Det går bara att ändra omfattningen till samma resurs typ. |
@@ -66,9 +66,9 @@ Frågan kommer att blockeras från att köras om omfattningen omfattar arbets yt
 
 
 ## <a name="time-range"></a>Tidsintervall
-Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard egenskap på varje post i arbets ytan eller programmet som anges i följande tabell.
+Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard kolumn på varje post i arbets ytan eller programmet som anges i följande tabell.
 
-| Location | Egenskap |
+| Plats | Kolumn |
 |:---|:---|
 | Log Analytics-arbetsyta          | TimeGenerated |
 | Application Insights program | timestamp     |
@@ -77,17 +77,17 @@ Ange tidsintervallet genom att välja det från tids väljaren överst i Log Ana
 
 ![Tids väljare](media/scope/time-picker.png)
 
-Om du anger ett filter i frågan som använder egenskapen standard tid som visas i tabellen ovan, ändras tids väljaren till **set i Query**och tids väljare är inaktive rad. I det här fallet är det mest effektivt att ställa in filtret överst i frågan så att all efterföljande bearbetning bara behöver arbeta med de filtrerade posterna.
+Om du anger ett filter i frågan som använder kolumnen standard tid som visas i tabellen ovan, ändras tids väljaren till **set i Query**och tids väljare är inaktive rad. I det här fallet är det mest effektivt att ställa in filtret överst i frågan så att all efterföljande bearbetning bara behöver arbeta med de filtrerade posterna.
 
 ![Filtrerad fråga](media/scope/query-filtered.png)
 
-Om du använder [arbets ytan](workspace-expression.md) eller [appens](app-expression.md) kommando för att hämta data från en annan arbets yta eller ett annat program kan tids väljaren bete sig annorlunda. Om omfånget är en Log Analytics arbets yta och du använder **appen**, eller om omfånget är ett Application Insights program och du använder **arbets ytan**, kan Log Analytics inte förstå att den egenskap som används i filtret bör fastställa tids filtret.
+Om du använder [arbets ytan](workspace-expression.md) eller [appens](app-expression.md) kommando för att hämta data från en annan arbets yta eller ett annat program kan tids väljaren bete sig annorlunda. Om omfånget är en Log Analytics arbets yta och du använder **appen**, eller om omfånget är ett Application Insights program och du använder **arbets ytan**, kan Log Analytics inte förstå att kolumnen som används i filtret bestämmer tids filtret.
 
-I följande exempel är omfånget inställt på en Log Analytics-arbetsyta.  Frågan använder **arbets ytan** för att hämta data från en annan Log Analytics-arbetsyta. Tids väljaren ändras till **set i frågan** eftersom den ser ett filter som använder den förväntade **TimeGenerated** -egenskapen.
+I följande exempel är omfånget inställt på en Log Analytics-arbetsyta.  Frågan använder **arbets ytan** för att hämta data från en annan Log Analytics-arbetsyta. Tids väljaren ändras till **set i frågan** eftersom den ser ett filter som använder den förväntade **TimeGenerated** -kolumnen.
 
 ![Fråga med arbets yta](media/scope/query-workspace.png)
 
-Om frågan använder **appen** för att hämta data från ett Application Insights program, kan Log Analytics inte identifiera **timestamp** -egenskapen i filtret och tid väljaren förblir oförändrad. I det här fallet tillämpas båda filtren. I exemplet ingår endast poster som skapats under de senaste 24 timmarna i frågan även om det anger 7 dagar i **WHERE** -satsen.
+Om frågan använder **appen** för att hämta data från ett Application Insights program, kan Log Analytics inte identifiera **tidsstämpelkolumn** i filtret, och tid väljaren förblir oförändrad. I det här fallet tillämpas båda filtren. I exemplet ingår endast poster som skapats under de senaste 24 timmarna i frågan även om det anger 7 dagar i **WHERE** -satsen.
 
 ![Fråga med app](media/scope/query-app.png)
 

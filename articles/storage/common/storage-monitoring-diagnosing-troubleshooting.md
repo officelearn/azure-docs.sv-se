@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462011"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031491"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -220,7 +220,7 @@ Med lagrings klient biblioteket för .NET kan du samla in loggnings data på kli
 Du kan samla in trafiken mellan klienten och servern för att ge detaljerad information om de data som klienten och servern utbyter och underliggande nätverks förhållanden. Användbara verktyg för nätverks loggning är bland annat:
 
 * [Fiddler](https://www.telerik.com/fiddler) är en kostnads fri proxy för webb fel sökning som gör det möjligt att undersöka rubriker och nytto Last data för http-och https-begäran och svarsmeddelanden. Mer information finns i [bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik](#appendix-2)".
 * Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och som förutom att samla in nätverks paket data, hjälper dig att visa och analysera loggdata som registrerats från andra verktyg. Mer information finns i "[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik](#appendix-3)".
 * Om du vill utföra ett grundläggande anslutnings test för att kontrol lera att klient datorn kan ansluta till Azure Storage-tjänsten via nätverket kan du inte göra detta med hjälp av standard- **ping** -verktyget på klienten. Du kan dock använda [verktyget **TCPing** ](https://www.elifulkerson.com/projects/tcping.php) för att kontrol lera anslutningen.
 
@@ -346,7 +346,7 @@ Bilden nedan från [Azure Portal](https://portal.azure.com) övervaknings verkty
 
 ![Bild från Azure Portal som visar ett exempel där AverageE2ELatency är betydligt högre än AverageServerLatency.][4]
 
-Lagrings tjänsten beräknar bara Metric- **AverageE2ELatency** för lyckade begär Anden och, till skillnad från **AverageServerLatency**, innehåller den tid som klienten tar för att skicka data och ta emot bekräftelse från lagrings tjänsten. Därför kan skillnaden mellan **AverageE2ELatency** och **AverageServerLatency** vara antingen på grund av att klient programmet svarar långsamt eller på grund av villkor i nätverket.
+Lagrings tjänsten beräknar bara Metric- **AverageE2ELatency** för lyckade begär Anden och, till skillnad från **AverageServerLatency**, innehåller den tid som klienten tar för att skicka data och få bekräftelse från lagrings tjänsten. Därför kan skillnaden mellan **AverageE2ELatency** och **AverageServerLatency** vara antingen på grund av att klient programmet svarar långsamt eller på grund av villkor i nätverket.
 
 > [!NOTE]
 > Du kan också visa **E2ELatency** och **ServerLatency** för enskilda lagrings åtgärder i logg data för lagrings loggning.

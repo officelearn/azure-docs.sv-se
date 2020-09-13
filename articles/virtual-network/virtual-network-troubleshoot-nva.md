@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 112792d4ccee2be7f85e6a5a6c0caf64df9a019e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7046062b1c2e42f47d650df6d616d6fb73c8d1ca
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286078"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033072"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problem med virtuella nätverks installationer i Azure
 
@@ -140,7 +140,7 @@ Avbilda en samtidig nätverks spårning på den virtuella käll datorn, NVA och 
    sudo tcpdump-S0-i eth0-X-w vmtrace. Cap
 
 2. Använd **PsPing** eller **nmap** från den virtuella käll datorn till den virtuella mål datorn (till exempel: `PsPing 10.0.0.4:80` eller `Nmap -p 80 10.0.0.4` ).
-3. Öppna Nätverks spårningen från den virtuella mål datorn med hjälp av [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) eller tcpdump. Använd ett visnings filter för IP-adressen för den virtuella käll datorn som du körde **PsPing** eller **nmap** från, till exempel `IPv4.address==10.0.0.4 (Windows netmon)` eller `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Öppna Nätverks spårningen från den virtuella mål datorn med hjälp av [Network Monitor](https://cnet-downloads.com/network-monitor) eller tcpdump. Använd ett visnings filter för IP-adressen för den virtuella käll datorn som du körde **PsPing** eller **nmap** från, till exempel `IPv4.address==10.0.0.4 (Windows netmon)` eller `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analysera spår
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: bfd4f783c250a7bf0ec28cff903e4c59d8570d89
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307530"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033650"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt IoT Hub-nivå för din lösning
 
@@ -40,7 +40,7 @@ Standard nivån för IoT Hub aktiverar alla funktioner och krävs för alla IoT-
 
 Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå per IoT Hub. Du kan till exempel skapa en IoT Hub med flera enheter S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och S2.
 
-| Funktion | Basic-nivå | Kostnads fri/standard-nivå |
+| Kapacitet | Basic-nivå | Kostnads fri/standard-nivå |
 | ---------- | ---------- | ------------- |
 | [Telemetri från enhet till moln](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Identitet per enhet](iot-hub-devguide-identity-registry.md) | Ja | Ja |
@@ -77,37 +77,37 @@ Skillnaden mellan de funktioner som stöds mellan nivåerna Basic och standard i
 
 | API | Basic-nivå | Kostnads fri/standard-nivå |
 | --- | ---------- | ------------- |
-| [Ta bort enhet](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | Ja | Ja |
-| [Hämta enhet](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | Ja | Ja |
-| [Ta bort modul](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletemodule) | Ja | Ja |
-| [Hämta modul](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getmodule) | Ja | Ja |
-| [Hämta register statistik](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevicestatistics) | Ja | Ja |
-| [Hämta tjänste statistik](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getservicestatistics) | Ja | Ja |
-| [Skapa eller uppdatera enhet](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatedevice) | Ja | Ja |
-| [Skapa eller uppdatera modul](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatemodule) | Ja | Ja |
-| [Fråga IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/queryiothub) | Ja | Ja |
+| [Ta bort enhet](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Ja | Ja |
+| [Hämta enhet](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Ja | Ja |
+| [Ta bort modul](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Ja | Ja |
+| [Hämta modul](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Ja | Ja |
+| [Hämta register statistik](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Ja | Ja |
+| [Hämta tjänste statistik](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Ja | Ja |
+| [Skapa eller uppdatera enhet](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Ja | Ja |
+| [Skapa eller uppdatera modul](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Ja | Ja |
+| [Fråga IoT Hub](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Ja | Ja |
 | [Skapa SAS-URI för fil uppladdning](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Ja | Ja |
 | [Ta emot meddelande om enhets bindning](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Ja | Ja |
 | [Skicka enhets händelse](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Ja | Ja |
 | Händelse för att skicka modul | Endast AMQP och MQTT | Endast AMQP och MQTT |
 | [Uppdatera fil överförings status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Ja | Ja |
-| [Åtgärd för Mass enhet](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/bulkdevicecrud) | Ja, förutom IoT Edge funktioner | Ja |
-| [Avbryt import av export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/cancelimportexportjob) | Ja | Ja |
-| [Skapa import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createimportexportjob) | Ja | Ja |
-| [Hämta import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjob) | Ja | Ja |
-| [Hämta import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) | Ja | Ja |
-| [Rensa kommando kön](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) |   | Ja |
-| [Hämta enhetens dubbla](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) |   | Ja |
-| [Hämta modul, dubbla](https://docs.microsoft.com/rest/api/iothub/service/twin/getmoduletwin) |   | Ja |
-| [Anropa enhets metod](https://docs.microsoft.com/rest/api/iothub/service/devicemethod/invokedevicemethod) |   | Ja |
-| [Uppdatera enhet, dubbla](https://docs.microsoft.com/rest/api/iothub/service/twin/updatedevicetwin) |   | Ja |
-| [Uppdatera modul, dubbla](https://docs.microsoft.com/rest/api/iothub/service/twin/updatemoduletwin) |   | Ja |
+| [Åtgärd för Mass enhet](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Ja, förutom IoT Edge funktioner | Ja |
+| [Avbryt import av export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobs/cancelimportexportjob) | Ja | Ja |
+| [Skapa import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobs/createimportexportjob) | Ja | Ja |
+| [Hämta import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjob) | Ja | Ja |
+| [Hämta import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) | Ja | Ja |
+| [Rensa kommando kön](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Ja |
+| [Hämta enhetens dubbla](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Ja |
+| [Hämta modul, dubbla](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Ja |
+| [Anropa enhets metod](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) |   | Ja |
+| [Uppdatera enhet, dubbla](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) |   | Ja |
+| [Uppdatera modul, dubbla](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Ja |
 | [Överge meddelande för enhets bindning](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Ja |
 | [Slutför meddelande om enhets bindning](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Ja |
-| [Avbryt jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | Ja |
-| [Skapa jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Ja |
-| [Hämta jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | Ja |
-| [Fråga efter jobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | Ja |
+| [Avbryt jobb](https://docs.microsoft.com/rest/api/media/jobs/canceljob) |   | Ja |
+| [Skapa jobb](https://docs.microsoft.com/rest/api/media/jobs/create) |   | Ja |
+| [Hämta jobb](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Ja |
+| [Fråga efter jobb](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Ja |
 
 ## <a name="message-throughput"></a>Meddelande data flöde
 

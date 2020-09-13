@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087321"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033038"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Så här löser du Azure Advisor rekommendationer
 
@@ -34,7 +34,7 @@ Så här aktiverar du en validerings miljö:
 
 2. Välj sedan den modempool som du vill ändra från en produktions miljö till en validerings miljö.
 
-3. I din värddator väljer du fliken **Egenskaper** i kolumnen på höger sida av skärmen. Bläddra sedan nedåt tills du ser "validerings miljö". Välj **Ja**och välj sedan **Använd**.
+3. I din värddator väljer du **Egenskaper** i den vänstra kolumnen. Bläddra sedan nedåt tills du ser "validerings miljö". Välj **Ja**och välj sedan **Använd**.
 
 >[!div class="mx-imgBorder"]
 >![En skärm bild av menyn egenskaper. "Validerings miljön" är markerad i rött och bubblan "Ja" är markerad.](media/validation-yes.png)

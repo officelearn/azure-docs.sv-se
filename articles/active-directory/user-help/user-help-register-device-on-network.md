@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/04/2019
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b59ebe0bdab66a5ce6bdb1eefe6d9ae4b47bba0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799408"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033055"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registrera din personliga enhet i din organisations nätverk
 Registrera din personliga enhet (vanligt vis en telefon eller surfplatta) i din organisations nätverk. När enheten har registrerats kommer den att kunna komma åt din organisations begränsade resurser.
@@ -31,7 +31,7 @@ När du registrerar din enhet i din organisations nätverk sker följande åtgä
 
 - Windows registrerar din enhet i din organisations nätverk.
 
-- Om du vill, baserat på din organisations val, kan du uppmanas att konfigurera tvåstegsverifiering genom antingen [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) eller [säkerhets information](./security-info-setup-signin.md).
+- Du kan också, beroende på din organisations val, uppmanas att ställa [in tvåstegsverifiering via antingen tvåfaktorautentisering](multi-factor-authentication-end-user-first-time.md) eller [säkerhets information](./security-info-setup-signin.md).
 
 - Du kan också, beroende på din organisations val, registreras automatiskt i hantering av mobila enheter, t. ex. Microsoft Intune. Mer information om hur du registrerar i Microsoft Intune finns i [Registrera din enhet i Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
@@ -49,7 +49,7 @@ Följ de här stegen för att registrera din personliga enhet i nätverket.
 
     ![Åtkomst till arbets-eller skol skärm med alternativet Anslut markerat](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. På skärmen **Lägg till ett arbets-eller skol konto** skriver du in din e-postadress för ditt arbets-eller skol konto och väljer sedan **Nästa**. Exempelvis alain@contoso.com.
+3. På skärmen **Lägg till ett arbets-eller skol konto** skriver du in din e-postadress för ditt arbets-eller skol konto och väljer sedan **Nästa**. Till exempel alain@contoso.com.
 
 4. Logga in på ditt arbets-eller skol konto och välj sedan **Logga**in.
 

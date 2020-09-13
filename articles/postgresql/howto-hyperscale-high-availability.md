@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
-ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: f08fb01cf26ddf73d31b575242b27d7d8b4017d9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116887"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033291"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Konfigurera storskalig (citus) hög tillgänglighet
 
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL-storskalig (citus) ger hög tillgänglighet (HA) f
 > [!IMPORTANT]
 > Eftersom HA dubbelt så många servrar i gruppen kommer det också att dubblera kostnaden.
 
-Det går att aktivera HA när Server gruppen skapas, eller efteråt på fliken **Konfigurera** för din server grupp i Azure Portal. Användar gränssnittet ser ut ungefär som i båda fallen. Dra skjutreglaget för **hög tillgänglighet** till Ja:
+Det går att aktivera HA när Server gruppen skapas, eller efteråt i fliken **Compute + Storage** för Server gruppen i Azure Portal. Användar gränssnittet ser ut ungefär som i båda fallen. Dra skjutreglaget för **hög tillgänglighet** från nej till Ja:
 
 ![ha-skjutreglage](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 

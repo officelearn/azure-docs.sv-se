@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c0373e8a476e65a61ef4b3ea945b98e0763c0a22
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255838"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032936"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Använda externa tabeller med Synapse SQL
 
@@ -96,7 +96,7 @@ data_source_name
 Anger det användardefinierade namnet för data källan. Namnet måste vara unikt i databasen.
 
 #### <a name="location"></a>Plats
-LOCATION = `'<prefix>://<path>'` -tillhandahåller anslutnings protokollet och sökvägen till den externa data källan. Följande mönster kan användas på platsen:
+LOCATION = `'<prefix>://<path>'`   -tillhandahåller anslutnings protokollet och sökvägen till den externa data källan. Följande mönster kan användas på platsen:
 
 | Extern data Källa        | Location-prefix | Sökväg till plats                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
@@ -105,7 +105,7 @@ LOCATION = `'<prefix>://<path>'` -tillhandahåller anslutnings protokollet och s
 | Azure Data Lake Store gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
 | Azure Data Lake Store gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
-`https:`prefix gör att du kan använda undermappen i sökvägen.
+`https:` prefix gör att du kan använda undermappen i sökvägen.
 
 #### <a name="credential"></a>Autentiseringsuppgift
 CREDENTIAL = `<database scoped credential>` är valfri autentiseringsuppgift som ska användas för att autentisera i Azure Storage. Extern data källa utan autentiseringsuppgifter kan komma åt offentligt lagrings konto. 

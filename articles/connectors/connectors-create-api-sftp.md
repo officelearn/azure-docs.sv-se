@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651410"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033310"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer i Azure Logic Apps
 
@@ -114,6 +114,10 @@ Den här utlösaren startar ett Logic app-arbetsflöde när en fil läggs till e
 ### <a name="sftp-action-get-content"></a>SFTP-åtgärd: hämta innehåll
 
 Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Du kan till exempel lägga till utlösaren från föregående exempel och ett villkor som filens innehåll måste uppfylla. Om villkoret är sant kan åtgärden som hämtar innehållet köras.
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/azure/data-factory/connector-sftp).
 
 ## <a name="next-steps"></a>Nästa steg
 

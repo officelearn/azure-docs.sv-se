@@ -41,9 +41,15 @@
       href: ./samples/azure-security-benchmark.md
     - name: Den australiska regeringens ISM PROTECTED-kontroller
       items:
+        - name: Översikt
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/index.md
         - name: Kontrollmappning
           displayName: 'standards, Australian, Government, ISM, PROTECTED'
           href: ./samples/ism-protected/control-mapping.md
+        - name: Distributionssteg
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/deploy.md
     - name: Canada Federal PBMM
       items:
         - name: Översikt

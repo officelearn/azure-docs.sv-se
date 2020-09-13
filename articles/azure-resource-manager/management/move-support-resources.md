@@ -2,13 +2,13 @@
 title: Flytta åtgärds stöd efter resurs typ
 description: Visar en lista över de Azure-resurs typer som kan flyttas till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 69fcb271ac94df3faf8e9e37c1ef30a6c0681441
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079501"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566134"
 ---
 # <a name="move-operation-support-for-resources"></a>Resurser som kan flyttas
 
@@ -728,7 +728,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | funktioner | Inga | Inga |
 > | checkdomainnameavailability | Inga | Inga |
-> | domän namn | Yes | No |
+> | domän namn | Ja | Inga |
 > | domän namn/funktioner | Inga | Inga |
 > | domän namn/internalloadbalancers | Inga | Inga |
 > | domän namn/servicecertificates | Inga | Inga |
@@ -744,7 +744,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | quotas | Inga | Inga |
 > | resourcetypes | Inga | Inga |
 > | validatesubscriptionmoveavailability | Inga | Inga |
-> | virtualmachines | Ja | No |
+> | virtualmachines | Ja | Ja |
 > | virtualmachines / diagnosticsettings | Inga | Inga |
 > | virtualmachines / metricdefinitions | Inga | Inga |
 > | virtualmachines/mått | Inga | Inga |
@@ -796,7 +796,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | osplatformimages | Inga | Inga |
 > | publicimages | Inga | Inga |
 > | quotas | Inga | Inga |
-> | storageaccounts | Yes | No |
+> | storageaccounts | Ja | Inga |
 > | storageaccounts/blobservices | Inga | Inga |
 > | storageaccounts/FileServices | Inga | Inga |
 > | storageaccounts/metricdefinitions | Inga | Inga |
@@ -1437,10 +1437,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Inga | Inga |
-> | Laboration | Yes | No |
+> | Laboration | Ja | Inga |
 > | labb/miljöer | Ja | Ja |
 > | labb/servicerunners | Ja | Ja |
-> | labb/virtualmachines | Yes | No |
+> | labb/virtualmachines | Ja | Inga |
 > | platser | Inga | Inga |
 > | platser/åtgärder | Inga | Inga |
 > | operations | Inga | Inga |
@@ -1866,8 +1866,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Inga | Inga |
 > | integrationaccounts | Ja | Ja |
-> | integrationserviceenvironments | Yes | No |
-> | integrationserviceenvironments/managedapis | Yes | No |
+> | integrationserviceenvironments | Ja | Inga |
+> | integrationserviceenvironments/managedapis | Ja | Inga |
 > | isolatedenvironments | Inga | Inga |
 > | platser | Inga | Inga |
 > | platser/arbets flöden | Inga | Inga |
@@ -1884,7 +1884,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | platser/åtgärder | Inga | Inga |
 > | platser/operationsstatus | Inga | Inga |
 > | operations | Inga | Inga |
-> | WebServices | Yes | No |
+> | WebServices | Ja | Inga |
 > | arbetsytor | Ja | Ja |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
@@ -2197,10 +2197,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | NetworkInterfaces | Ja | Ja |
 > | networkprofiles | Inga | Inga |
 > | networksecuritygroups | Ja | Ja |
-> | networkwatchers | Yes | No |
-> | networkwatchers / connectionmonitors | Yes | No |
-> | networkwatchers / flowlogs | Yes | No |
-> | networkwatchers / pingmeshes | Yes | No |
+> | networkwatchers | Ja | Inga |
+> | networkwatchers / connectionmonitors | Ja | Inga |
+> | networkwatchers / flowlogs | Ja | Inga |
+> | networkwatchers / pingmeshes | Ja | Inga |
 > | operations | Inga | Inga |
 > | p2svpngateways | Inga | Inga |
 > | privatednsoperationresults | Inga | Inga |
@@ -2523,7 +2523,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | program | Ja | No |
+> | program | Ja | Inga |
 > | checkmoderneligibility | Inga | Inga |
 > | checknameavailability | Inga | Inga |
 > | operationresults | Inga | Inga |
@@ -2789,7 +2789,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | platser/jobagentoperationresults | Inga | Inga |
 > | platser/longtermretentionbackupazureasyncoperation | Inga | Inga |
 > | platser/longtermretentionbackupoperationresults | Inga | Inga |
-> | platser/longtermretentionbackups | Inga | Inga |
+> | platser/longtermretentionbackups | Ja | Ja |
 > | platser/longtermretentionmanagedinstancebackupazureasyncoperation | Inga | Inga |
 > | platser/longtermretentionmanagedinstancebackupoperationresults | Inga | Inga |
 > | platser/longtermretentionmanagedinstancebackups | Inga | Inga |
@@ -2872,7 +2872,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | servrar/databaser/auditingsettings | Inga | Inga |
 > | servrar/databaser/AuditRecords | Inga | Inga |
 > | servrar/databaser/automatictuning | Inga | Inga |
-> | servrar/databaser/backuplongtermretentionpolicies | Inga | Inga |
+> | servrar/databaser/backuplongtermretentionpolicies | Ja | Ja |
 > | servrar/databaser/backupshorttermretentionpolicies | Inga | Inga |
 > | servrar/databaser/connectionpolicies | Inga | Inga |
 > | servrar/databaser/datamaskingpolicies | Inga | Inga |
@@ -3186,7 +3186,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | availablestacks | Inga | Inga |
 > | billingmeters | Inga | Inga |
-> | certifikat | No | Yes |
+> | certifikat | Inga | Ja |
 > | checknameavailability | Inga | Inga |
 > | connectiongateways | Ja | Ja |
 > | anslutning | Ja | Ja |

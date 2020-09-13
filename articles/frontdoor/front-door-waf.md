@@ -1,22 +1,22 @@
 ---
 title: Skala snabbt och skydda ett webb program med Azures front dörr och Azure Web Application-brandväggen (WAF) | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur du använder brand vägg för webbaserade program med din reserverade-frontend-tjänst
+description: Den här artikeln hjälper dig att förstå hur du använder brand vägg för webbaserade program med din Azure-tjänst för front dörr
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
-ms.openlocfilehash: 6f91a98372aa85a52a6013a121235ca354004a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a0252004b01e64b195b372d72682f6b777012258
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743549"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535439"
 ---
 # <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Skala snabbt och skydda ett webb program med Azures frontend-dörr och Azure Web Application-brandvägg (WAF)
 
@@ -26,7 +26,7 @@ Vi använder Azure CLI för att konfigurera WAF i den här självstudien, men al
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 Anvisningarna i den här bloggen använder kommando rads gränssnittet för Azure (CLI). Visa den här guiden för att [komma igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
@@ -119,7 +119,7 @@ Det anpassade domän namnet för ditt webb program (det som kunder använder fö
 
 De olika stegen för att uppdatera dina DNS-poster beror på din DNS-tjänstleverantör, men om du använder Azure DNS för att vara värd för ditt DNS-namn kan du läsa mer i dokumentationen om [hur du uppdaterar en DNS-post](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) och pekar på AFD-värdnamnet. 
 
-En viktig kommentar här är att om du behöver dina användare att navigera till din webbplats med hjälp av Zone Apex, för exemplet, contoso.com, måste du använda Azure DNS och dess alias är en [post typ](https://docs.microsoft.com/azure/dns/dns-alias) som är värd för ditt DNS-namn. 
+En viktig kommentar här är att om du behöver dina användare att navigera till din webbplats med hjälp av zon Apex, till exempel contoso.com, måste du använda Azure DNS och dess [alias är post typen](https://docs.microsoft.com/azure/dns/dns-alias) som värd för ditt DNS-namn. 
 
 Dessutom måste du också uppdatera AFD-konfigurationen för att [lägga till den här anpassade domänen](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) så att AFD förstår mappningen.
 

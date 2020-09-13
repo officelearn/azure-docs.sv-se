@@ -2,13 +2,13 @@
 title: Distribuera resurser med PowerShell och mall
 description: Använd Azure Resource Manager och Azure PowerShell för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 64993b526b67430266a8b3e85e3bcc233a3e28a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: ef2ff71430f0dcaca660666bb9a6c015c923da3f
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079527"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536080"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Distribuera resurser med ARM-mallar och Azure PowerShell
 
@@ -52,7 +52,7 @@ Beroende på distributionens omfattning använder du olika kommandon.
 
 I exemplen i den här artikeln används resurs grupps distributioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en mall för att distribuera. Om du inte redan har ett kan du hämta och spara en exempel-mall från lagrings platsen för Azure snabb starts [mal len](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . Det lokala fil namnet som används i den här artikeln **c:\MyTemplates\azuredeploy.jspå**.
 
@@ -121,6 +121,30 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md). Information om hur du går igenom självstudierna finns i [Självstudier: integrera Azure Key Vault i distribution av arm-mallar](template-tutorial-use-key-vault.md).
+
+## <a name="deploy-template-spec"></a>Specifikation för att distribuera mall
+
+I stället för att distribuera en lokal mall eller en fjärran sluten mall kan du skapa en [mall-specifikation](template-specs.md). Mallen specifikation är en resurs i din Azure-prenumeration som innehåller en ARM-mall. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll (RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
+
+I följande exempel visas hur du skapar och distribuerar en mall-specifikation. De här kommandona är bara tillgängliga om du har [registrerat dig för för hands versionen](https://aka.ms/templateSpecOnboarding).
+
+Först skapar du mallens specifikation genom att tillhandahålla ARM-mallen.
+
+```azurepowershell
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+```
+
+Sedan hämtar du ID för mall-specifikation och distribuerar det.
+
+```azurepowershell
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName demoRG `
+  -TemplateSpecId $id
+```
+
+Mer information finns i [specifikationer för Azure Resource Manager mallar (för hands version)](template-specs.md).
 
 ## <a name="preview-changes"></a>Förhandsgranska ändringar
 

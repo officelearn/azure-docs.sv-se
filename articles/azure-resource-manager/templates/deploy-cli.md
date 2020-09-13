@@ -2,13 +2,13 @@
 title: Distribuera resurser med Azure CLI och mall
 description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: da865d3b425da6b5969e540a424b513d9a58bd9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040804"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566168"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuera resurser med ARM-mallar och Azure CLI
 
@@ -26,13 +26,13 @@ Du kan rikta distributionen till en resurs grupp, prenumeration, hanterings grup
 
 Beroende på distributionens omfattning använder du olika kommandon.
 
-* Om du vill distribuera till en **resurs grupp**använder du [AZ distributions grupp skapa](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Om du vill distribuera till en **resurs grupp**använder du [AZ distributions grupp skapa](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Om du vill distribuera till en **prenumeration**använder du [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Om du vill distribuera till en **prenumeration**använder du [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +40,7 @@ Beroende på distributionens omfattning använder du olika kommandon.
 
   Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
 
-* Om du vill distribuera till en **hanterings grupp**använder du [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Om du vill distribuera till en **hanterings grupp**använder du [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +48,7 @@ Beroende på distributionens omfattning använder du olika kommandon.
 
   Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
 
-* Använd [AZ Deployment Tenant Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)för att distribuera till en **klient organisation**:
+* Använd [AZ Deployment Tenant Create](/cli/azure/deployment/tenant#az-deployment-tenant-create)för att distribuera till en **klient organisation**:
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -128,6 +128,35 @@ az deployment group create \
 
 I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md).
 
+## <a name="deploy-template-spec"></a>Specifikation för att distribuera mall
+
+I stället för att distribuera en lokal mall eller en fjärran sluten mall kan du skapa en [mall-specifikation](template-specs.md). Mallen specifikation är en resurs i din Azure-prenumeration som innehåller en ARM-mall. Det gör det enkelt att på ett säkert sätt dela mallen med användare i din organisation. Du använder rollbaserad åtkomst kontroll (RBAC) för att ge åtkomst till mallen specifikation. Den här funktionen är för närvarande en för hands version.
+
+I följande exempel visas hur du skapar och distribuerar en mall-specifikation. De här kommandona är bara tillgängliga om du har [registrerat dig för för hands versionen](https://aka.ms/templateSpecOnboarding).
+
+Först skapar du mallens specifikation genom att tillhandahålla ARM-mallen.
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+Sedan hämtar du ID för mall-specifikation och distribuerar det.
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+Mer information finns i [specifikationer för Azure Resource Manager mallar (för hands version)](template-specs.md).
+
 ## <a name="preview-changes"></a>Förhandsgranska ändringar
 
 Innan du distribuerar din mall kan du förhandsgranska de ändringar som mallen kommer att göra i din miljö. Använd [åtgärden konsekvens](template-deploy-what-if.md) för att kontrol lera att mallen gör de ändringar som du förväntar dig. Vad händer om även validerar mallen för fel.
@@ -179,6 +208,28 @@ arrayContent.jsi formatet är:
     "value2"
 ]
 ```
+
+Använd JSON för att skicka in ett objekt, till exempel för att ange taggar. Mallen kan till exempel innehålla en parameter som den här:
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+I det här fallet kan du skicka in en JSON-sträng för att ange parametern som visas i följande bash-skript:
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+Använd dubbla citat tecken runt JSON som du vill skicka till objektet.
 
 ### <a name="parameter-files"></a>Parameter-filer
 

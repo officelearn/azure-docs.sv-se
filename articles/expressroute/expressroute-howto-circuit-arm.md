@@ -2,21 +2,21 @@
 title: 'Azure-ExpressRoute: ändra en krets: PowerShell'
 description: Skapa, etablera, verifiera, uppdatera, ta bort och avetablera en ExpressRoute-krets.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
-ms.author: cherylmc
-ms.openlocfilehash: aba29c46a781c8e687c79a197d37758699a9acf5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: e9bf9dbe0f4146101513ab9786b298ac6b43b6a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984473"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566305"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Skapa och ändra en ExpressRoute-krets med hjälp av PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
@@ -73,7 +73,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Se till att du anger rätt SKU-nivå och SKU-serien:
 
-* SKU-nivån avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, *standard* eller *Premium*.
+* SKU-nivån avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, *standard* eller *Premium*. Du kan inte ändra SKU: n från *Standard/Premium* till *lokal*.
 * SKU-serien bestämmer fakturerings typen. Du kan ange *Metereddata* för ett data abonnemang med datapriser och *Unlimiteddata* för ett obegränsat data abonnemang. Du kan ändra fakturerings typen från *Metereddata* till *Unlimiteddata*, men du kan inte ändra typen från *Unlimiteddata* till *Metereddata*. En *lokal* krets är alltid *Unlimiteddata*.
 
 > [!IMPORTANT]
@@ -306,7 +306,7 @@ Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka ansl
 
 Du kan utföra följande uppgifter utan avbrott:
 
-* Aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets.
+* Aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets. Det finns inte stöd för att ändra SKU: n från *Standard/Premium* till *lokal* .
 * Öka bandbredden för din ExpressRoute-krets om det finns tillgänglig kapacitet på porten. Nedgradering av en kretss bandbredd stöds inte.
 * Ändra Mät planen från datapriser till obegränsade data. Det finns inte stöd för att ändra Mät planen från obegränsade data till datapriser.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.

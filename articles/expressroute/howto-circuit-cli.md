@@ -2,18 +2,18 @@
 title: 'Skapa och ändra en ExpressRoute-krets: Azure CLI'
 description: Den här artikeln visar hur du skapar, etablerar, verifierar, uppdaterar, tar bort och avetablerar en ExpressRoute-krets med CLI.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503590"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566151"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Skapa och ändra en ExpressRoute-krets med hjälp av CLI
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du skapar en Azure ExpressRoute-krets med hjälp
 > * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager mall](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
@@ -142,7 +142,7 @@ I följande exempel visas hur du skapar en 200-Mbit/s ExpressRoute-krets via Equ
 
 Se till att du anger rätt SKU-nivå och SKU-serien:
 
-* SKU-nivån avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, *standard* eller *Premium*.
+* SKU-nivån avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, *standard* eller *Premium*. Du kan inte ändra SKU: n från *Standard/Premium* till *lokal*.
 * SKU-serien bestämmer fakturerings typen. Du kan ange *Metereddata* för ett data abonnemang med datapriser och *Unlimiteddata* för ett obegränsat data abonnemang. Du kan ändra fakturerings typen från *Metereddata* till *Unlimiteddata*, men du kan inte ändra typen från *Unlimiteddata* till *Metereddata*. En *lokal* krets är endast *Unlimiteddata* .
 
 
@@ -280,7 +280,7 @@ Länka sedan ett virtuellt nätverk till din ExpressRoute-krets. Använd artikel
 
 Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka anslutningen. Du kan göra följande ändringar utan avbrott:
 
-* Du kan aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets.
+* Du kan aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets. Det finns inte stöd för att ändra SKU: n från *Standard/Premium* till *lokal* .
 * Du kan öka bandbredden för din ExpressRoute-krets om det finns tillgänglig kapacitet för porten. Nedgradering av en kretss bandbredd stöds dock inte.
 * Du kan ändra Mät planen från datapriser till obegränsade data. Det går dock inte att ändra Mät planen från obegränsade data till datapriser.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.

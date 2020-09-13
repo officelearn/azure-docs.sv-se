@@ -1,19 +1,19 @@
 ---
 title: Mass inläsning till Apache Phoenix med psql – Azure HDInsight
 description: Använd psql-verktyget för att läsa in Mass inläsnings data i Apache Phoenix tabeller i Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: c46b15c6744ba9d3f83260ffaac24c4ee1cdd776
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 513d48114d73b2c91ebecf06f9492a6ebf0ba1cf
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079487"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504714"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Massinläsning av data till Apache Phoenix med psql
 

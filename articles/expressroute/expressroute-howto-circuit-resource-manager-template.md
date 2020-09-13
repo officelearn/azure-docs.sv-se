@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute-mall: skapa en ExpressRoute-krets'
 description: Lär dig hur du skapar en Azure ExpressRoute-krets genom att distribuera en Azure Resource Manager-mall med hjälp av Azure PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: charwen
-ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190446"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566185"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Skapa en ExpressRoute-krets med hjälp av Azure Resource Manager mall
 
@@ -63,7 +63,7 @@ Så här skapar du en ExpressRoute-krets genom att distribuera en mall:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU-nivån** avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, * standard eller *Premium*.
+   * **SKU-nivån** avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, * standard eller *Premium*. Du kan inte ändra SKU: n från *Standard/Premium* till *lokal*.
    * **SKU-serien** bestämmer fakturerings typen. Du kan ange *Metereddata* för ett data abonnemang med datapriser och *Unlimiteddata* för ett obegränsat data abonnemang. Du kan ändra fakturerings typen från *Metereddata* till *Unlimiteddata*, men du kan inte ändra typen från *Unlimiteddata* till *Metereddata*. En *lokal* krets är endast *Unlimiteddata* .
    * **Peering-platsen** är den fysiska plats där du peer-koppla med Microsoft.
 

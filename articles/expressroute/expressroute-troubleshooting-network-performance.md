@@ -2,18 +2,18 @@
 title: 'Felsöka prestanda för nätverks länkar: Azure'
 description: Den här sidan innehåller en standardiserad metod för att testa prestanda för Azures nätverks länkar.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521674"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566083"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsöka nätverks prestanda
 ## <a name="overview"></a>Översikt
@@ -121,7 +121,7 @@ Om du inte är säker på var molnet faktiskt är, kan det vara en utmaning att 
 ![2][2]
 
 >[!NOTE]
-> Observera att MSEE: N inte finns i Azure-molnet. ExpressRoute är faktiskt i kanten av Microsoft-nätverket som inte faktiskt finns i Azure. När du är ansluten till ExpressRoute till en MSEE: N är du ansluten till Microsofts nätverk, där du sedan kan gå till någon av moln tjänsterna, t. ex. Office 365 (med Microsoft-peering) eller Azure (med privat och/eller Microsoft-peering).
+> Observera att MSEE: N inte finns i Azure-molnet. ExpressRoute är faktiskt i kanten av Microsoft-nätverket som inte faktiskt finns i Azure. När du är ansluten till ExpressRoute till en MSEE: N är du ansluten till Microsofts nätverk, där du kan gå till någon av moln tjänsterna, t. ex. Microsoft 365 (med Microsoft-peering) eller Azure (med privat och/eller Microsoft-peering).
 >
 >
 
@@ -160,7 +160,7 @@ Test konfiguration:
  - En 10Gbps Premium ExpressRoute-krets på den plats som identifieras med privat peering aktive rad.
  - Ett Azure VNet med en UltraPerformance-gateway i den angivna regionen.
  - En virtuell DS5v2-dator som kör Windows Server 2016 på VNet. Den virtuella datorn var icke-domänansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerad.
- - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Till exempel:
+ - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Exempel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -177,11 +177,11 @@ Test konfiguration:
 >
 >
 
-| ExpressRoute<br/>Position|Azure<br/>Region | Ungefärlig<br/>Avstånd (km) | Svarstid|1 session<br/>Bandbredd | Maximal<br/>Bandbredd |
+| ExpressRoute<br/>Plats|Azure<br/>Region | Ungefärlig<br/>Avstånd (km) | Svarstid|1 session<br/>Bandbredd | Maximal<br/>Bandbredd |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | USA, västra 2        |    191 km |   5 MS | 262,0 Mbit per sekund |  3,74 Gbits per sekund |
 | Seattle | USA, västra          |  1 094 km |  18 MS |  82,3 Mbit per sekund |  3,70 Gbits per sekund |
-| Seattle | USA, centrala       |  2 357 km |  40 MS |  38,8 Mbit per sekund |  2,55 Gbits per sekund |
+| Seattle | Central US       |  2 357 km |  40 MS |  38,8 Mbit per sekund |  2,55 Gbits per sekund |
 | Seattle | USA, södra centrala |  2 877 km |  51 MS |  30,6 Mbit per sekund |  2,49 Gbits per sekund |
 | Seattle | USA, norra centrala |  2 792 km |  55 MS |  27,7 Mbit per sekund |  2,19 Gbits per sekund |
 | Seattle | USA, östra 2        |  3 769 km |  73 MS |  21,3 Mbit per sekund |  1,79 Gbits per sekund |
@@ -194,10 +194,10 @@ Test konfiguration:
 | Seattle | Brasilien, södra *   | 10 930 km | 189 MS |   8,2 Mbit per sekund |   699 Mbit per sekund |
 | Seattle | Indien, södra      | 12 918 km | 202 MS |   7,7 Mbit per sekund |   634 Mbit per sekund |
 
-\*Svars tiden för Brasilien är ett användbart exempel där det linjära avståndet skiljer sig avsevärt från det fiber kör avståndet. Jag tror att svars tiden skulle vara i 160 MS, men är i själva verket 189 MS. Den här skillnaden mot den förväntade förväntan kan tyda på ett nätverks problem någonstans, men det troligaste är att fiber körningen inte går till Brasilien i en rät linje och har en extra 1 000 km eller så att resan kan komma till Brasilien från Seattle.
+\* Svars tiden för Brasilien är ett användbart exempel där det linjära avståndet skiljer sig avsevärt från det fiber kör avståndet. Jag tror att svars tiden skulle vara i 160 MS, men är i själva verket 189 MS. Den här skillnaden mot den förväntade förväntan kan tyda på ett nätverks problem någonstans, men det troligaste är att fiber körningen inte går till Brasilien i en rät linje och har en extra 1 000 km eller så att resan kan komma till Brasilien från Seattle.
 
 ## <a name="next-steps"></a>Nästa steg
-1. Hämta Azure Connectivity Toolkit från GitHub på[https://aka.ms/AzCT][ACT]
+1. Hämta Azure Connectivity Toolkit från GitHub på [https://aka.ms/AzCT][ACT]
 2. Följ anvisningarna för [testning av länk prestanda][Performance Doc]
 
 <!--Image References-->

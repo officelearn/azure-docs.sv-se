@@ -2,18 +2,18 @@
 title: 'ExpressRoute: väg filter-Microsoft-peering: Azure PowerShell'
 description: Den här artikeln beskriver hur du konfigurerar väg filter för Microsoft-peering med hjälp av PowerShell
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f5a294a051350c4b08b34356abcd883b7580164e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729310"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566202"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera väg filter för Microsoft-peering: PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "84729310"
 
 Flödesfilter är ett sätt att använda en delmängd av tjänster som stöds via Microsoft-peering. Stegen i den här artikeln hjälper dig att konfigurera och hantera väg filter för ExpressRoute-kretsar.
 
-Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag, och offentliga Azure-tjänster, t. ex. lagring och SQL DB, är tillgängliga via Microsoft-peering. Offentliga Azure-tjänster kan väljas per region och kan inte definieras per offentlig tjänst.
+Microsoft 365 tjänster som Exchange Online, SharePoint Online och Skype för företag, och offentliga Azure-tjänster, t. ex. lagring och SQL DB, är tillgängliga via Microsoft-peering. Offentliga Azure-tjänster kan väljas per region och kan inte definieras per offentlig tjänst.
 
 När Microsoft-peering har kon figurer ATS på en ExpressRoute-krets och ett flödes filter är kopplat annonseras alla prefix som valts för dessa tjänster via de BGP-sessioner som etableras. Ett community-värde för BGP är kopplat till varje prefix för att identifiera vilken tjänst som erbjuds genom prefixet. En lista över värdena för BGP-communityn och de tjänster som de mappar till finns i [BGP-communities](expressroute-routing.md#bgp).
 
@@ -40,7 +40,7 @@ När Microsoft-peering har kon figurer ATS på din ExpressRoute-krets upprättar
 
 Med ett flödesfilter kan du identifiera tjänster som du vill använda via Microsoft-peering för din ExpressRoute-krets. Det är i stort sett en tillåten lista över alla värden för BGP-communityn. När en flödesfilterresurs har definierats och kopplats till en ExpressRoute-krets, annonseras alla prefix som mappar till community-värden för BGP till ditt nätverk.
 
-Om du vill kunna koppla väg filter med Office 365-tjänster på dem måste du ha behörighet att använda Office 365-tjänster via ExpressRoute. Om du inte har behörighet att använda Office 365-tjänster via ExpressRoute Miss lyckas åtgärden att bifoga väg filter. Mer information om auktoriseringsprocessen finns i [Azure ExpressRoute för Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Om du vill kunna koppla väg filter med Microsoft 365 tjänster på dem måste du ha behörighet att använda Microsoft 365 tjänster via ExpressRoute. Om du inte har behörighet att använda Microsoft 365 tjänster via ExpressRoute Miss lyckas åtgärden att bifoga väg filter. Mer information om auktoriseringsprocessen finns i [Azure-ExpressRoute för Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > Microsoft-peering av ExpressRoute-kretsar som har kon figurer ATS före den 1 augusti 2017 kommer att ha alla tjänste prefix som annonseras via Microsoft-peering, även om det inte finns några väg filter definierade. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inga prefix som annonseras förrän ett flödes filter är kopplat till kretsen.
@@ -199,6 +199,6 @@ Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets
 Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

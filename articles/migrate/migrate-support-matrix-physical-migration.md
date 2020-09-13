@@ -4,12 +4,12 @@ description: Läs mer om stöd för migrering av fysiska servrar i Azure Migrate
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051142"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535456"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Support mat ris för fysisk server-migrering
 
@@ -45,7 +45,7 @@ Tabellen sammanfattar stödet för fysiska servrar som du vill migrera med hjäl
 **Mobilitets tjänst** | Mobilitets tjänst agenten måste vara installerad på varje dator som du vill migrera.
 **UEFI-start** | Den migrerade datorn i Azure kommer automatiskt att konverteras till en BIOS-startvm. Endast server som kör Windows Server 2012 och senare stöds.<br/><br/> OS-disken bör ha upp till fyra partitioner och volymer ska formateras med NTFS.
 **UEFI – säker start**         | Stöds inte för migrering.
-**Mål disk** | Datorer kan bara migreras till Managed disks (standard-HDD, Premium SSD) i Azure.
+**Mål disk** | Datorer kan bara migreras till Managed disks (standard-HDD, standard SSD, Premium SSD) i Azure.
 **Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per dator.
 **Krypterade diskar/volymer** |  Datorer med krypterade diskar/volymer stöds inte för migrering.

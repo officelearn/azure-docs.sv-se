@@ -13,12 +13,12 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13242a41e1d10b0df031bf10fd646d9ec3cf47c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478169"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437776"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Den nya Azure Portal appens registrerings upplevelse
 
@@ -77,12 +77,12 @@ I den nya upplevelsen har **program hemligheter** bytt namn till **certifikat & 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plattformar/autentisering: svars webb adresser/omdirigerings-URI: er
 I den tidigare versionen har en app haft plattformar för webb-, intern-och webb-API för att konfigurera omdirigerings-URL: er, utloggnings-URL och implicit flöde.
 
-I den nya upplevelsen hittar du svars-URL: er i avsnittet om app \' s-autentisering. Dessutom kallas de omdirigerings-URI: er och formatet för omdirigering av URI: er har ändrats. De måste vara kopplade till en app-typ (webb eller offentlig klient-mobil och stationär dator). [Läs mer](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+I den nya upplevelsen hittar du svars-URL: er i avsnittet om app \' s-autentisering. Dessutom kallas de omdirigerings-URI: er och formatet för omdirigering av URI: er har ändrats. De måste vara kopplade till en app-typ (webb eller offentlig klient-mobil och stationär dator). [Läs mer](quickstart-register-app.md#add-a-redirect-uri)
 
 Webb-API: er har kon figurer ATS i exponera en API-sida.
 
 > [!NOTE]
-> Testa de nya inställningarna för autentisering där du kan konfigurera inställningar för ditt program baserat på den plattform eller enhet som du vill använda som mål. [Läs mer](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Testa de nya inställningarna för autentisering där du kan konfigurera inställningar för ditt program baserat på den plattform eller enhet som du vill använda som mål. [Läs mer](quickstart-register-app.md#configure-platform-settings)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Microsoft Graph behörigheter/API-behörigheter
 

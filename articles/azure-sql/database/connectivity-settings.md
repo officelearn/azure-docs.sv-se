@@ -3,18 +3,18 @@ title: Anslutnings inställningar för Azure SQL Database och informations lager
 description: Det här dokumentet beskriver Transport Layer Security (TLS) versions val och proxy vs. Redirect-inställning för Azure SQL Database och Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 6297f7797758069ee75fe14960d72f9c497b0fe6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f664ffbfc9aa38dcf8eb7736b28613efb95bde63
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132984"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438185"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

@@ -1,20 +1,20 @@
 ---
-title: Använd Azure-brandväggen för att skydda AKS-distributioner (Azure Kubernetes service)
+title: Använda Azure Firewall för att skydda AKS-distributioner (Azure Kubernetes Service)
 description: Lär dig hur du använder Azure Firewall för att skydda AKS-distributioner (Azure Kubernetes service)
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/03/2020
 ms.author: victorh
-ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87412957"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437861"
 ---
-# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Använd Azure-brandväggen för att skydda AKS-distributioner (Azure Kubernetes service)
+# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Använda Azure Firewall för att skydda AKS-distributioner (Azure Kubernetes Service)
 
 Azure Kubernetes service (AKS) erbjuder ett hanterat Kubernetes-kluster på Azure. Det minskar komplexiteten och driften för att hantera Kubernetes genom att avlasta mycket av det ansvaret till Azure. AKS hanterar kritiska aktiviteter, till exempel hälso övervakning och underhåll åt dig och levererar ett säkert kluster i företags klass med enklare styrning.
 
@@ -24,7 +24,7 @@ I hanterings-och drift syfte måste noder i ett AKS-kluster ha åtkomst till vis
 
 Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för ditt Azure Kubernetes-kluster med hjälp av Azure-brandväggen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett distribuerat Azure Kubernetes-kluster med program som körs.
 
@@ -47,7 +47,13 @@ Azure-brandväggen tillhandahåller en AKS FQDN-tagg för att förenkla konfigur
    - TCP [*IPAddrOfYourAPIServer*]: 443 krävs om du har en app som behöver kommunicera med API-servern. Den här ändringen kan anges efter att klustret har skapats.
    - TCP-port 9000 och UDP-port 1194 för tunnelns front-Pod för att kommunicera med tunnel slut på API-servern.
 
-      Mer information finns i **. HCP. <location> . azmk8s.io* och adresser i följande tabell.
+      Mer information finns i **. HCP. <location> . azmk8s.io* och adresser i följande tabell:
+
+   | Destinations slut punkt                                                             | Protokoll | Port    | Användning  |
+   |----------------------------------------------------------------------------------|----------|---------|------|
+   | **`*:1194`** <br/> *Eller* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Eller* <br/> [Regionala CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Eller* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | För tunnel säker kommunikation mellan noderna och kontroll planet. |
+   | **`*:9000`** <br/> *Eller* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Eller* <br/> [Regionala CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Eller* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | För tunnel säker kommunikation mellan noderna och kontroll planet. |
+
    - UDP-port 123 för NTP-tidssynkronisering (Network Time Protocol) (Linux-noder).
    - UDP-port 53 för DNS krävs också om du har poddar direkt åtkomst till API-servern.
 

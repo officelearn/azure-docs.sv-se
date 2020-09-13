@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857644"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438474"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformering med Azure Databricks
 
@@ -28,7 +28,7 @@ I den här självstudien skapar du en pipeline från slut punkt till slut punkt 
 
 - **Kopiera data** duplicerar käll data uppsättningen till Sink-lagringen, som monteras som DBFS i den Azure Databricks Notebook. På så sätt kan data uppsättningen förbrukas direkt av Spark.
 
-- **Notebook** utlöser den Databricks Notebook som transformerar data uppsättningen. Den lägger också till data uppsättningen till en bearbetad mapp eller Azure SQL Data Warehouse.
+- **Notebook** utlöser den Databricks Notebook som transformerar data uppsättningen. Den lägger också till data uppsättningen i en bearbetad mapp eller Azure Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 För enkelhetens skull skapar mallen i den här självstudien inte en schemalagd utlösare. Du kan lägga till en om det behövs.
 
@@ -165,7 +165,7 @@ I den nya pipelinen konfigureras de flesta inställningar automatiskt med standa
 
        ![Alternativ för länkad tjänst och fil Sök väg för SourceFilesDataset](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-   - **DestinationFilesDataset** – för att kopiera data till mottagar destinations platsen. Ange följande värden:
+   - **DestinationFilesDataset** – för att kopiera data till mottagar destinations platsen. Använd följande värden:
 
      - **Länkad tjänst**  -  `sinkBlob_LS` som skapats i ett föregående steg.
 
@@ -185,4 +185,4 @@ I den nya pipelinen konfigureras de flesta inställningar automatiskt med standa
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [introduktion till Azure Data Factory](introduction.md)
+- [Introduktion till Azure Data Factory](introduction.md)

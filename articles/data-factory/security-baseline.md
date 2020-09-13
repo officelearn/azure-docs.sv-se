@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57786aa343fd2ea863b17f65253e5d4a4a6b88ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226836"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437946"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azures säkerhets bas linje för Azure Data Factory
 
@@ -542,7 +542,7 @@ Använd funktionen för identifiering och klassificering av Azure SQL Database d
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Integrerings körningar bör åtskiljas av Virtual Network (VNet)/Subnet och taggas på lämpligt sätt.
 
- Du kan också använda privata slut punkter för att utföra nätverks isolering. En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet.
+ Du kan också använda privata slut punkter för att utföra nätverks isolering. En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slutpunkten använder en privat IP-adress från ditt VNet, vilket effektivt tar tjänsten till ditt VNet.
 
 * [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -578,7 +578,7 @@ När privat länk är tillgänglig använder du privata slut punkter för att sk
 
 **Vägledning**: om data lagret för molnet stöder https eller TLS, är alla data överföringar mellan tjänster för data förflyttning i Data Factory och ett moln data lager via säker kanal-https eller TLS. Den TLS-version som används är 1,2.
 
-Alla anslutningar till Azure SQL Database och Azure SQL Data Warehouse Kräv kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av JSON lägger du till egenskapen kryptering och anger den till true i anslutnings strängen. För Azure Storage kan du använda HTTPS i anslutnings strängen.
+Alla anslutningar till Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) kräver kryptering (SSL/TLS) medan data överförs till och från databasen. När du redigerar en pipeline med hjälp av JSON lägger du till egenskapen kryptering och anger den till true i anslutnings strängen. För Azure Storage kan du använda HTTPS i anslutnings strängen.
 
 * [Förstå kryptering i överföring i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -896,7 +896,7 @@ Observera att detta endast gäller om din Integration Runtime körs på en virtu
 
 * [Vad är Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Vad är Azure-brandväggen för webbaserade program?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Vad är en brand vägg för Azure Web Application?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
@@ -1050,7 +1050,9 @@ Du kan också lagra autentiseringsuppgifter eller hemliga värden i en Azure Key
 
 * [Så här skapar du en Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Så här ger Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Så här autentiserar du till Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Så här tilldelar du en Key Vault åtkomst princip](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [Använda Azure Key Vault-hemligheter i pipeline-aktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 

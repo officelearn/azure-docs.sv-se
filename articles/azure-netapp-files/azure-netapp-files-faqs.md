@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 09/09/2020
 ms.author: b-juche
-ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590378"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662461"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -49,6 +49,10 @@ Ja, du kan, om du skapar nödvändiga DNS-poster. Azure NetApp Files tillhandah�
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Kan jag ange eller välja min egen IP-adress för en Azure NetApp Files volym?  
 
 Nej. IP-tilldelningen till Azure NetApp Files volymer är dynamisk. Tilldelning av statisk IP-adress stöds inte. 
+
+### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Stöder Azure NetApp Files Dual Stack (IPv4 och IPv6) VNet?
+
+Nej, Azure NetApp Files stöder för närvarande inte Dual Stack (IPv4 och IPv6) VNet.  
  
 ## <a name="security-faqs"></a>Vanliga frågor och svar
 
@@ -66,10 +70,9 @@ Alla Azure NetApp Files volymer krypteras med hjälp av FIPS 140-2-standarden. A
 
 Nyckel hantering för Azure NetApp Files hanteras av tjänsten. En unik data krypterings nyckel för XTS-AES-256 genereras för varje volym. En krypterings nyckel hierarki används för att kryptera och skydda alla volym nycklar. Dessa krypterings nycklar visas aldrig eller rapporteras inte i okrypterat format. Krypterings nycklarna tas bort omedelbart när en volym tas bort.
 
-Stöd för användar hanterade nycklar (ta med dina egna nycklar) med hjälp av Azure Dedicated HSM är tillgängligt på ett kontrollerat sätt i USA, östra, amerikanska West2 och USA, södra centrala regionerna.  Du kan begära åtkomst på **anffeedback@microsoft.com** . Eftersom kapaciteten är tillgänglig kommer begäran att godkännas.
+Stöd för Kundhanterade nycklar (Bring Your Own Key) med hjälp av Azure Dedicated HSM är tillgängligt på ett kontrollerat sätt i USA, södra centrala USA, västra USA 2 och US Gov, Virginia regioner. Du kan begära åtkomst på [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com) . När kapaciteten blir tillgänglig kommer begäran att godkännas.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Kan jag konfigurera princip reglerna för NFS-export för att kontrol lera åtkomsten till Azure NetApp Files tjänstens monterings mål?
-
 
 Ja, du kan konfigurera upp till fem regler i en enda NFS-export princip.
 

@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640658"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662257"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: när du har en befintlig klient
 De flesta av avsnitten om hur du använder Azure AD Connect förutsätter att du börjar med en ny Azure AD-klient och att det inte finns några användare eller andra objekt där. Men om du har börjat med en Azure AD-klient, fyllt i den med användare och andra objekt, och nu vill använda Connect, är det här avsnittet för dig.
@@ -41,7 +41,7 @@ Matchningen utvärderas endast för nya objekt som kommer från Connect. Om du �
 Om Azure AD hittar ett objekt där attributvärdena är samma för ett objekt som kommer från Connect och som redan finns i Azure AD, tas objektet i Azure AD över av Connect. Det tidigare moln hanterade objektet är flaggat som lokalt hanterat. Alla attribut i Azure AD med ett värde i den lokala AD skrivs över med det lokala värdet. Undantaget är när ett attribut har ett **Null** -värde lokalt. I det här fallet finns värdet i Azure AD kvar, men du kan fortfarande bara ändra det lokalt till något annat.
 
 > [!WARNING]
-> Eftersom alla attribut i Azure AD ska skrivas över av det lokala värdet, se till att du har data lokalt. Om du till exempel bara har hanterad e-postadress i Office 365 och inte har uppdaterats i den lokala AD DS, förlorar du alla värden i Azure AD/Office 365 som inte finns i AD DS.
+> Eftersom alla attribut i Azure AD ska skrivas över av det lokala värdet, se till att du har data lokalt. Om du till exempel bara har en hanterad e-postadress i Microsoft 365 och inte sparade den på en lokal AD DS, förlorar du alla värden i Azure AD/Microsoft 365 som inte finns i AD DS.
 
 > [!IMPORTANT]
 > Om du använder Lösenordssynkronisering, som alltid används av Express inställningar, skrivs lösen ordet i Azure AD över med lösen ordet i lokalt AD. Om användarna används för att hantera olika lösen ord måste du meddela dem att de ska använda det lokala lösen ordet när du har installerat Connect.

@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1f77d6189e5b32ca771d17ae9902341bcaa1871
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688138"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662160"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I den här artikeln beskrivs kraven och maskin varu kraven för Azure Active Directory (Azure AD) Connect.
@@ -33,11 +33,11 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 * Du behöver en Azure AD-klient. Du får ett med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). Du kan använda någon av följande portaler för att hantera Azure AD Connect:
   * [Azure Portal](https://portal.azure.com).
   * [Office-portalen](https://portal.office.com).
-* [Lägg till och verifiera den domän](../active-directory-domains-add-azure-portal.md) som du planerar att använda i Azure AD. Om du till exempel planerar att använda contoso.com för dina användare, se till att den här domänen har verifierats och att du inte använder contoso.onmicrosoft.com standard domän.
-* En Azure AD-klient tillåter som standard 50 000-objekt. När du verifierar din domän ökar gränsen till 300 000 objekt. Om du behöver ännu fler objekt i Azure AD kan du öppna ett support ärende om du vill öka gränsen ytterligare. Om du behöver fler än 500 000 objekt behöver du en licens, till exempel Office 365, Azure AD Premium eller Enterprise Mobility + Security.
+* [Lägg till och verifiera den domän](../fundamentals/add-custom-domain.md) som du planerar att använda i Azure AD. Om du till exempel planerar att använda contoso.com för dina användare, se till att den här domänen har verifierats och att du inte använder contoso.onmicrosoft.com standard domän.
+* En Azure AD-klient tillåter som standard 50 000-objekt. När du verifierar din domän ökar gränsen till 300 000 objekt. Om du behöver ännu fler objekt i Azure AD kan du öppna ett support ärende om du vill öka gränsen ytterligare. Om du behöver fler än 500 000 objekt behöver du en licens, till exempel Microsoft 365, Azure AD Premium eller Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Förbered dina lokala data
-* Använd [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) för att identifiera fel som dubbletter och formateringsfel i din katalog innan du synkroniserar till Azure AD och Office 365.
+* Använd [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) för att identifiera fel som dubbletter och formateringsfel i din katalog innan du synkroniserar till Azure AD och Microsoft 365.
 * Granska [valfria Sync-funktioner som du kan aktivera i Azure AD](how-to-connect-syncservice-features.md)och utvärdera vilka funktioner du bör aktivera.
 
 ### <a name="on-premises-active-directory"></a>Lokalt Active Directory
@@ -48,11 +48,11 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 * Vi rekommenderar att du [aktiverar Active Directory pappers korgen](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect Server
-Azure AD Connect servern innehåller kritiska identitets data. Det är viktigt att administrativ åtkomst till den här servern är korrekt skyddad. Följ rikt linjerna för att [skydda privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
+Azure AD Connect servern innehåller kritiska identitets data. Det är viktigt att administrativ åtkomst till den här servern är korrekt skyddad. Följ rikt linjerna för att [skydda privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
-Azure AD Connect-servern måste behandlas som en nivå 0-komponent som dokumenteras i [Active Directory administrativ nivå modell](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 
+Azure AD Connect-servern måste behandlas som en nivå 0-komponent som dokumenteras i [Active Directory administrativ nivå modell](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 
 
-Mer information om hur du skyddar din Active Directory-miljö finns i [metod tips för att skydda Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Mer information om hur du skyddar din Active Directory-miljö finns i [metod tips för att skydda Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 #### <a name="installation-prerequisites"></a>Installationskrav
 
@@ -62,25 +62,25 @@ Mer information om hur du skyddar din Active Directory-miljö finns i [metod tip
 - Den Azure AD Connect servern får inte ha PowerShell-avskrifts grupprincip aktiverat om du använder Azure AD Connect guiden för att hantera Active Directory Federation Services (AD FS) (AD FS) konfiguration. Du kan aktivera PowerShell-avskriftning om du använder guiden Azure AD Connect för att hantera konfigurationen av synkronisering. 
 - Om AD FS distribueras: 
     - Servrarna där AD FS eller Webbprogramproxy installeras måste vara Windows Server 2012 R2 eller senare. Windows Remote Management måste vara aktiverat på dessa servrar för fjärrinstallation. 
-    - Du måste konfigurera TLS/SSL-certifikat. Mer information finns i [Hantera SSL/TLS-protokoll och chiffersviter för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) och [Hantera SSL-certifikat i AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+    - Du måste konfigurera TLS/SSL-certifikat. Mer information finns i [Hantera SSL/TLS-protokoll och chiffersviter för AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) och [Hantera SSL-certifikat i AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Du måste konfigurera namn matchning. 
 - Om dina globala administratörer har MFA aktiverat måste URL: en https://secure.aadcdn.microsoftonline-p.com *must* vara i listan över betrodda platser. Du uppmanas att lägga till den här platsen i listan över betrodda platser när du uppmanas att ange en MFA-utmaning och inte har lagts till tidigare. Du kan använda Internet Explorer för att lägga till den på dina betrodda platser.
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Skärp din Azure AD Connect-Server 
 Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säkerhets attack ytan för den här viktiga komponenten i din IT-miljö. Genom att följa de här rekommendationerna kan du undvika vissa säkerhets risker för din organisation.
 
-- Behandla Azure AD Connect samma som en domänkontrollant och andra nivå 0-resurser. Mer information finns i [Active Directory administrativ nivå modell](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Behandla Azure AD Connect samma som en domänkontrollant och andra nivå 0-resurser. Mer information finns i [Active Directory administrativ nivå modell](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Begränsa administrativ åtkomst till Azure AD Connect-servern till endast domän administratörer eller andra tätt kontrollerade säkerhets grupper.
-- Skapa ett [dedikerat konto för all personal med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Administratörer bör inte surfa på webben, kontrol lera sin e-post och utföra dagliga produktivitets uppgifter med mycket privilegierade konton.
-- Följ rikt linjerna för att [skydda privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
-- Neka användningen av NTLM-autentisering med AADConnect-servern. Här följer några sätt att göra detta: [Begränsa NTLM på AADConnect-servern](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) och [Begränsa NTLM på en domän](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Se till att varje dator har ett unikt lokalt administratörs lösen ord. Mer information finns i [lokal administratör lösen ords lösning (upphörde)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) kan konfigurera unika slumpmässiga lösen ord på varje arbets Station och Server lagra dem i Active Directory som skyddas av en ACL. Endast berättigade behöriga användare kan läsa eller begära återställning av lösen ord för det lokala administratörs kontot. Du kan få en uppgång för användning på arbets stationer och servrar från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Ytterligare vägledning för att använda en miljö med fördröjning och privilegierade åtkomst arbets stationer (Paw) finns i [operativa standarder som baseras på principen om ren källa](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
-- Implementera dedikerade [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) för all personal med privilegie rad åtkomst till din organisations informations system. 
-- Följ dessa [rikt linjer](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) för att minska angrepps ytan i Active Directorys miljön.
+- Skapa ett [dedikerat konto för all personal med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administratörer bör inte surfa på webben, kontrol lera sin e-post och utföra dagliga produktivitets uppgifter med mycket privilegierade konton.
+- Följ rikt linjerna för att [skydda privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
+- Neka användningen av NTLM-autentisering med AADConnect-servern. Här följer några sätt att göra detta: [Begränsa NTLM på AADConnect-servern](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) och [Begränsa NTLM på en domän](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
+- Se till att varje dator har ett unikt lokalt administratörs lösen ord. Mer information finns i [lokal administratör lösen ords lösning (upphörde)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) kan konfigurera unika slumpmässiga lösen ord på varje arbets Station och Server lagra dem i Active Directory som skyddas av en ACL. Endast berättigade behöriga användare kan läsa eller begära återställning av lösen ord för det lokala administratörs kontot. Du kan få en uppgång för användning på arbets stationer och servrar från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Ytterligare vägledning för att använda en miljö med fördröjning och privilegierade åtkomst arbets stationer (Paw) finns i [operativa standarder som baseras på principen om ren källa](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Implementera dedikerade [arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations) för all personal med privilegie rad åtkomst till din organisations informations system. 
+- Följ dessa [rikt linjer](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) för att minska angrepps ytan i Active Directorys miljön.
 
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
-* Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Som standard installeras en SQL Server 2012 Express-LocalDB (en låg version av SQL Server Express). SQL Server Express har en storleks gräns på 10 GB som gör att du kan hantera cirka 100 000 objekt. Om du behöver hantera en större mängd katalog objekt pekar du på installations guiden till en annan installation av SQL Server. SQL Server-installationens typ kan påverka [prestandan för Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Som standard installeras en SQL Server 2012 Express-LocalDB (en låg version av SQL Server Express). SQL Server Express har en storleks gräns på 10 GB som gör att du kan hantera cirka 100 000 objekt. Om du behöver hantera en större mängd katalog objekt pekar du på installations guiden till en annan installation av SQL Server. SQL Server-installationens typ kan påverka [prestandan för Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * Om du använder en annan installation av SQL Server gäller dessa krav:
   * Azure AD Connect stöder alla versioner av SQL Server från 2012 (med de senaste service pack) till SQL Server 2019. Azure SQL Database *stöds inte* som en databas.
   * Du måste använda en Skift läges okänslig SQL-sortering. Dessa sorteringar identifieras med ett \_ CI_ i sitt namn. Användning av en Skift läges känslig sortering som identifieras av \_ CS_ i deras namn *stöds inte*.
@@ -126,13 +126,13 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
         </system.net>
     ```
 
-* Om proxykonfigurationen görs i en befintlig installation måste **Microsoft Azure AD Sync-tjänsten** startas om en gång för att Azure AD Connect läsa proxykonfigurationen och uppdatera behviour. 
+* Om proxykonfigurationen görs i en befintlig installation måste **Microsoft Azure AD Sync-tjänsten** startas om en gång för att Azure AD Connect läsa proxykonfigurationen och uppdatera beteendet. 
 * När Azure AD Connect skickar en webbegäran till Azure AD som en del av Active Directory-synkroniseringen kan det ta upp till 5 minuter för Azure AD att svara. Det är vanligt att proxyservrarna har timeout-konfiguration för inaktivitet. Se till att konfigurationen är minst 6 minuter eller mer.
 
-Mer information finns i MSDN om [default proxy-elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
+Mer information finns i MSDN om [default proxy-elementet](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Mer information om problem med anslutningen finns i [Felsöka anslutnings problem](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 Valfritt: Använd ett test användar konto för att verifiera synkroniseringen.
 
 ## <a name="component-prerequisites"></a>Komponent krav
@@ -148,9 +148,9 @@ Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. 
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Aktivera TLS 1,2 för Azure AD Connect
-Före version 1.1.614.0 använder Azure AD Connect som standard TLS 1,0 för kryptering av kommunikationen mellan Sync-databasmotorn och Azure AD. Du kan konfigurera .NET-program att använda TLS 1,2 som standard på-servern. Mer information om TLS 1,2 finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Före version 1.1.614.0 använder Azure AD Connect som standard TLS 1,0 för kryptering av kommunikationen mellan Sync-databasmotorn och Azure AD. Du kan konfigurera .NET-program att använda TLS 1,2 som standard på-servern. Mer information om TLS 1,2 finns i [Microsoft Security Advisory 2960358](/security-updates/SecurityAdvisories/2015/2960358).
 
-1. Kontrol lera att du har installerat .NET 4.5.1 Hotfix för ditt operativ system. Mer information finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kanske har den här snabb korrigeringen eller också har en senare version installerad på servern redan.
+1. Kontrol lera att du har installerat .NET 4.5.1 Hotfix för ditt operativ system. Mer information finns i [Microsoft Security Advisory 2960358](/security-updates/SecurityAdvisories/2015/2960358). Du kanske har den här snabb korrigeringen eller också har en senare version installerad på servern redan.
 
 1. För alla operativ system anger du register nyckeln och startar om servern.
     ```

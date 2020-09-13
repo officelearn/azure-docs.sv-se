@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356890"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662400"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Återhämtning av duplicerat attribut är en funktion i Azure Active Directory som eliminerar friktion som orsakas av **userPrincipalName** och SMTP- **proxyAddress** konflikter vid körning av ett av Microsofts verktyg för synkronisering.
@@ -44,7 +44,7 @@ _** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.
 
 Återhämtnings processen för attribut hanterar endast UPN-och SMTP- **proxyAddress** -värden.
 
-Om attributet inte krävs, t. ex. en **proxyAddress**, kommer Azure Active Directory att helt enkelt placera det konfliktskapande attributet och fortsätter med att skapa eller uppdatera objektet.
+Om attributet inte krävs, t. ex. en  **proxyAddress**, kommer Azure Active Directory att helt enkelt placera det konfliktskapande attributet och fortsätter med att skapa eller uppdatera objektet.
 
 Vid sätta av attributet skickas information om konflikten i samma fel rapport-e-postmeddelande som används i det gamla beteendet. Den här informationen visas dock bara i fel rapporten en gång när karantänen inträffar, men den fortsätter inte att loggas i framtida e-postmeddelanden. Eftersom exporten för det här objektet har slutförts, loggar inte synkroniseringsklienten ett fel och försöker inte att skapa/uppdatera igen vid efterföljande synkroniseringar.
 
@@ -126,7 +126,7 @@ Du kan visa synkroniseringsfel i Microsoft 365 administrations centret. Rapporte
 
 ![Aktiva användare](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktiva användare")
 
-Instruktioner för hur du visar synkroniseringsfel i Microsoft 365 administrations centret finns i [identifiera katalog-synkroniseringsfel i Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Instruktioner för hur du visar synkroniseringsfel i Microsoft 365 administrations Center finns i [identifiera katalogs synkroniseringsfel i Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Identitetssynkronisering fel rapport
 När ett objekt med en duplicerad attribut-konflikt hanteras med den här nya funktionen inkluderas en avisering i e-postmeddelandet för standard-ID-synkronisering som skickas till den tekniska meddelande kontakten för klient organisationen. Det finns dock en viktig förändring i detta beteende. Tidigare skulle information om en konflikt i ett duplicerat attribut inkluderas i varje efterföljande fel rapport tills konflikten har lösts. Med det här nya beteendet visas fel meddelandet för en specifik konflikt bara en gång – vid tidpunkten då det motstridiga attributet är i karantän.
@@ -145,7 +145,7 @@ Inga av dessa kända problem medför data förlust eller tjänst försämring. F
 **Core-beteende:**
 
 1. Objekt med Specific Attribute-konfigurationer fortsätter att ta emot export fel i stället för de duplicerade attributen i karantän.  
-   Ett exempel:
+   Exempel:
    
     a. En ny användare skapas i AD med ett UPN för **Joe \@ contoso.com** och proxyAddress **SMTP: Johan \@ contoso.com**
    
@@ -157,7 +157,7 @@ Inga av dessa kända problem medför data förlust eller tjänst försämring. F
 **Office-Portal-rapport**:
 
 1. Det detaljerade fel meddelandet för två objekt i en UPN-konflikt har angetts. Detta anger att de båda har ändrat UPN-värde/i karantän, om bara en av dem hade ändrats.
-2. Det detaljerade fel meddelandet för en UPN-konflikt visar fel displayName för en användare som har ändrat UPN-namnet/i karantän. Ett exempel:
+2. Det detaljerade fel meddelandet för en UPN-konflikt visar fel displayName för en användare som har ändrat UPN-namnet/i karantän. Exempel:
    
     a. **Användare A** synkroniseras först med **UPN = User \@ contoso.com**.
    
@@ -177,5 +177,5 @@ Den ska peka på [https://aka.ms/duplicateattributeresiliency](https://aka.ms/du
 ## <a name="see-also"></a>Se även
 * [Azure AD Connect synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
-* [Identifiera fel i katalogens synkronisering i Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Identifiera fel i Active Directory-synkronisering i Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

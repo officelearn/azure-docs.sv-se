@@ -1,6 +1,6 @@
 ---
 title: Implementerings strategi för Hybrid identitet, Azure | Microsoft Docs
-description: Med villkorlig åtkomst kontroll kontrollerar Azure Active Directory de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet. När dessa villkor är uppfyllda autentiseras användaren och beviljas åtkomst till programmet.
+description: Med villkorlig åtkomst kontroll kontrollerar Azure AD de specifika villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555374"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659537"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införande av hybrid identitet
 I den här uppgiften definierar du strategin för att införa Hybrid identiteter för din hybrid identitets lösning som uppfyller de affärs krav som diskuterades i:
@@ -32,7 +32,7 @@ I den här uppgiften definierar du strategin för att införa Hybrid identiteter
 * [Fastställa krav för Multi-Factor Authentication](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definiera strategi för affärs behov
-Den första aktivitets adressen fastställer organisationernas affärs behov.  Detta kan vara mycket brett och omfångs kryp kan uppstå om du inte är försiktig.  I början är det enkelt att komma ihåg att planera för en design som kan hantera och under lätta förändringar i framtiden.  Oavsett om det är en enkel design eller en extremt komplex, Azure Active Directory är Microsofts identitets plattform som har stöd för Office 365, Microsoft Online Services och molnbaserade program.
+Den första aktivitets adressen fastställer organisationernas affärs behov.  Detta kan vara mycket brett och omfångs kryp kan uppstå om du inte är försiktig.  I början är det enkelt att komma ihåg att planera för en design som kan hantera och under lätta förändringar i framtiden.  Oavsett om det är en enkel design eller en extremt komplex, Azure Active Directory är Microsoft Identity Platform som stöder Microsoft 365, Microsoft Online Services och molnbaserade program.
 
 ## <a name="define-an-integration-strategy"></a>Definiera en integrerings strategi
 Microsoft har tre huvud integrerings scenarier som är moln identiteter, synkroniserade identiteter och federerade identiteter.  Du bör planera att införa en av integrerings strategierna.  Den strategi du väljer kan variera och besluten om att välja en kan innehålla, vilken typ av användar upplevelse som du vill tillhandahålla, har en befintlig infrastruktur och det som är mest kostnads effektivt.  
@@ -171,7 +171,7 @@ Följande stöds inte och bör inte väljas som en implementering:
 * Azure AD-kataloger är design isolerade. Det finns inte stöd för att ändra konfigurationen för Azure AD Connect Sync för att läsa data från en annan Azure AD-katalog i ett försök att bygga en gemensam och enhetlig GAL mellan katalogerna. Det går inte heller att exportera användare som kontakter till en annan lokal AD med hjälp av Azure AD Connect Sync.
 
 > [!NOTE]
-> Om din organisation begränsar datorerna i nätverket från att ansluta till Internet, visar den här artikeln de slut punkter (FQDN, IPv4 och IPv6-adress intervall) som du bör ta med i listan över utgående listor och zonen Tillförlitliga platser i Internet Explorer på klient datorer så att datorerna kan använda Office 365. Mer information finns i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Om din organisation begränsar datorerna i nätverket från att ansluta till Internet, visar den här artikeln de slut punkter (FQDN, IPv4 och IPv6-adress intervall) som du bör ta med i listan över utgående listor och zonen Tillförlitliga platser i Internet Explorer på klient datorer så att datorerna kan använda Microsoft 365. Mer information finns i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010954"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662929"
 ---
 Den här enhets kategorin innehåller finansiell information och officiella formulär för identifiering. Tillgängligt från och med modell version `2019-10-01` . Under typer visas nedan. 
 
@@ -34,7 +34,7 @@ Den här enhets kategorin innehåller finansiell information och officiella form
 > * Passport-nummer
 > * Skatte-ID
 
-Entiteterna nedan grupperas och listas efter land:
+Följande entiteter är grupperade och listade efter land:
 
 Argentina
 * DNI-nummer (Argentina National Identity)
@@ -116,7 +116,7 @@ Frankrike
 * Franskt nationellt ID-kort (CNI)
 * Franskt Passport-nummer
 * Frankrike, socialförsäkrings nummer (INSEE)
-* Frankrikes skatte identifierings nummer (Numéro SPI.)
+* Frankrikes skatte identifierings nummer (Numéro SPI)
 * Frankrike mervärdes skatte nummer
 
 Tyskland

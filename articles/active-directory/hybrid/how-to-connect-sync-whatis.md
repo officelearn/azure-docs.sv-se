@@ -16,12 +16,12 @@ ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc1754eb8818df894e67c1748517b2e2f4356d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cea26cb119f64679807bc6c5eaadb41b341e5d5a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356873"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662385"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect synkronisering: förstå och anpassa synkronisering
 Azure Active Directory Connect Synchronization Services (Azure AD Connect Sync) är en huvud del av Azure AD Connect. Det tar hand om alla åtgärder som är relaterade till synkronisering av identitets data mellan din lokala miljö och Azure AD. Azure AD Connect Sync är efterföljaren till DirSync, Azure AD Sync och Forefront Identity Manager med den Azure Active Directory-anslutning som kon figurer ATS.
@@ -31,7 +31,7 @@ Det här avsnittet är start för **Azure AD Connect Sync** (kallas även **Synk
 Synkroniseringstjänsten består av två komponenter, den lokala **Azure AD Connect Sync** -komponenten och tjänst sidan i Azure AD som kallas **Azure AD Connect Sync-tjänst**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Avsnitt om Azure AD Connect synkronisering
-| Ämne | Vad det täcker och när du ska läsa |
+| Avsnitt | Vad det täcker och när du ska läsa |
 | --- | --- |
 | **Grundläggande Azure AD Connect synkronisering** | |
 | [Förstå arkitekturen](concept-azure-ad-connect-sync-architecture.md) |För dem som är nya för Synkroniseringsmotorn och vill lära dig mer om arkitekturen och de termer som används. |
@@ -52,19 +52,19 @@ Synkroniseringstjänsten består av två komponenter, den lokala **Azure AD Conn
 | [Implementera hash-synkronisering av lösen ord](how-to-connect-password-hash-synchronization.md) |Beskriver hur Lösenordssynkronisering fungerar, hur du implementerar och hur du hanterar och felsöker. |
 | [Tillbakaskrivning av enheter](how-to-connect-device-writeback.md) |Beskriver hur enhets tillbakaskrivning fungerar i Azure AD Connect. |
 | [Katalogtillägg](how-to-connect-sync-feature-directory-extensions.md) |Beskriver hur du utökar Azure AD-schemat med dina egna anpassade attribut. |
-| [Office 365-PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Beskriver hur du sätter användarens Office 365-resurser i samma region som användaren. |
+| [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Beskriver hur du sätter användarens Microsoft 365 resurser i samma region som användaren. |
 | **Synkroniseringstjänsten** | |
 | [Tjänstfunktioner för Azure AD Connect-synkronisering](how-to-connect-syncservice-features.md) |Beskriver sidan Sync service och hur du ändrar synkroniseringsinställningar i Azure AD. |
 | [Återhämtning av duplicerat attribut](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |Beskriver hur du aktiverar och använder **userPrincipalName** och **proxyAddresses** av duplicerade attributvärden. |
 | **Åtgärder och användar gränssnitt** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |Beskriver Synchronization Service Manager användar gränssnitt, inklusive [åtgärder](how-to-connect-sync-service-manager-ui-operations.md), [kopplingar](how-to-connect-sync-service-manager-ui-connectors.md), [metaversum designer](how-to-connect-sync-service-manager-ui-mvdesigner.md)och sökflikar för [metaversum](how-to-connect-sync-service-manager-ui-mvsearch.md) . |
-| [Drift uppgifter och överväganden](how-to-connect-sync-operations.md) |Beskriver drift problem, till exempel haveri beredskap. |
+| [Drift uppgifter och överväganden](./how-to-connect-sync-staging-server.md) |Beskriver drift problem, till exempel haveri beredskap. |
 | **Hur...** | |
 | [Återställa Azure AD-kontot](how-to-connect-azureadaccount.md) |Så här återställer du autentiseringsuppgifterna för det tjänst konto som används för att ansluta från Azure AD Connect synkronisera till Azure AD. |
 | **Mer information och referenser** | |
-| [Hamnarna](reference-connect-ports.md) |Visar vilka portar du måste öppna mellan Synkroniseringsmotorn och dina lokala kataloger och Azure AD. |
+| [Portar](reference-connect-ports.md) |Visar vilka portar du måste öppna mellan Synkroniseringsmotorn och dina lokala kataloger och Azure AD. |
 | [Attribut som synkroniseras till Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Visar en lista över alla attribut som synkroniseras mellan lokala AD och Azure AD. |
-| [Functions-referens](reference-connect-sync-functions-reference.md) |Visar en lista över alla funktioner som är tillgängliga i deklarativ etablering. |
+| [Referens för funktioner](reference-connect-sync-functions-reference.md) |Visar en lista över alla funktioner som är tillgängliga i deklarativ etablering. |
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

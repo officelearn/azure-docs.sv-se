@@ -2,13 +2,13 @@
 title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och eker-arkitektur
 description: Lär dig mer om rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/09/2020
+ms.openlocfilehash: 1862b98b40788b6b71d05eb4be43bdacd39e927f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684525"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659210"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
@@ -24,9 +24,9 @@ NAV-och eker-scenariot förutsätter en hybrid moln miljö med arbets belastning
 
 *Hubben* är en Azure-Virtual Network som fungerar som en central punkt för anslutningen till ditt lokala och Azure VMware-lösningens privata moln. *Ekrarna* är virtuella nätverk som peer-kopplas med hubben för att aktivera kommunikation mellan virtuella nätverk.
 
-Trafik mellan det lokala data centret, Azure VMware-lösningens privata moln och navet går genom ExpressRoute-anslutningar. Eker-virtuella nätverk innehåller vanligt vis IaaS-baserade arbets belastningar, men kan ha PaaS-tjänster som [App Service-miljön](../app-service/environment/intro.md), som har direkt integrering med Virtual Network eller andra PaaS-tjänster med [Azure Private Link](../private-link/index.yml) aktive rad. 
+Trafik mellan det lokala data centret, Azure VMware-lösningens privata moln och navet går via Azure ExpressRoute-anslutningar. Eker-virtuella nätverk innehåller vanligt vis IaaS-baserade arbets belastningar, men kan ha PaaS-tjänster som [App Service-miljön](../app-service/environment/intro.md), som har direkt integrering med Virtual Network eller andra PaaS-tjänster med [Azure Private Link](../private-link/index.yml) aktive rad.
 
-Diagrammet visar ett exempel på en distribution av hubb och ekrar i Azure som är ansluten till lokal och Azure VMware-lösning via ExpressRoute.
+Diagrammet visar ett exempel på en distribution av hubb och ekrar i Azure som är ansluten till en lokal och Azure VMware-lösning via ExpressRoute Global Reach.
 
 :::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
 
@@ -36,10 +36,14 @@ Arkitekturen har följande huvud komponenter:
 
 -   **Privat moln i Azure VMware-lösning:** Azure VMware-lösningen SDDC utformad av ett eller flera vSphere-kluster, var och en med högst 16 noder.
 
--   **ExpressRoute-Gateway:** Möjliggör kommunikationen mellan Azure VMware-lösningen privat moln, lokalt nätverk, delade tjänster på hubb virtuellt nätverk och arbets belastningar som körs på ekrar virtuella nätverk.
+-   **ExpressRoute-Gateway:** Möjliggör kommunikationen mellan Azure VMware-lösningen privat moln, delade tjänster på hubb virtuellt nätverk och arbets belastningar som körs på ekrar virtuella nätverk.
 
-    > [!NOTE]
-    > **Överväganden för S2S VPN:** För produktions distributioner av Azure VMware-lösningar stöds inte Azure S2S på grund av nätverks krav för HCX. För en PoC-eller icke-produktions distribution som inte kräver HCX kan du dock använda den.
+-   **ExpressRoute Global Reach:** Möjliggör anslutning mellan lokalt och privat moln i Azure VMware-lösningen.
+
+
+  > [!NOTE]
+  > **Överväganden för S2S VPN:** För produktions distributioner av Azure VMware-lösningar stöds inte Azure S2S VPN på grund av nätverks krav för VMware HCX. Det kan dock användas för en PoC-distribution.
+
 
 -   **Hubb virtuellt nätverk:** Fungerar som central punkt för anslutningen till ditt lokala nätverk och Azure VMware-lösningens privata moln.
 
@@ -49,7 +53,7 @@ Arkitekturen har följande huvud komponenter:
 
     -   **PaaS eker:** En PaaS eker är värd för Azure PaaS-tjänster med hjälp av privat adressering tack vare [privat slut punkt](../private-link/private-endpoint-overview.md) och [privat länk](../private-link/private-link-overview.md).
 
--   **Azure-brand vägg:** Fungerar som en central del för att segmentera trafik mellan ekrar, lokala och Azure VMware-lösningar.
+-   **Azure-brand vägg:** Fungerar som en central del för att segmentera trafik mellan ekrar och Azure VMware-lösningen.
 
 -   **Application Gateway:** Exponerar och skyddar webbappar som körs antingen på Azure IaaS/PaaS eller virtuella datorer i Azure VMware-lösningen. Den integreras med andra tjänster som API Management.
 
@@ -57,7 +61,7 @@ Arkitekturen har följande huvud komponenter:
 
 ExpressRoute-anslutningar möjliggör trafik som flödar mellan lokala Azure VMware-lösningar och Azures nätverks infrastruktur resurs. Azure VMware-lösningen använder [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) för att implementera den här anslutningen.
 
-Lokal anslutning kan använda ExpressRoute Global Reach även, men det är inte obligatoriskt.
+Eftersom en ExpressRoute-Gateway inte tillhandahåller transitiv routning mellan sina anslutna kretsar, måste även lokal anslutning använda ExpressRoute Global Reach för att kommunicera mellan den lokala vSphere-miljön och Azure VMware-lösningen. 
 
 * **Trafik flöde för lokala Azure VMware-lösningar**
 
@@ -69,11 +73,11 @@ Lokal anslutning kan använda ExpressRoute Global Reach även, men det är inte 
   :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning för hubb av virtuellt nätverks trafikflöde" border="false":::
 
 
-Du hittar mer information om Azure VMware-lösningen nätverk och interanslutnings koncept i [produkt dokumentationen för Azure VMware-lösningen](./concepts-networking.md).
+Du hittar mer information om nätverks-och anslutnings metoder för Azure VMware-lösningar i [produkt dokumentationen för Azure VMware-lösningen](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Trafik segmentering
 
-[Azure Firewall](../firewall/index.yml) är den centrala delen av topologin hubb och eker, distribuerad på det virtuella hubb nätverket. Använd Azure-brandväggen eller någon annan Azure-baserad virtuell nätverks installation för att upprätta trafik regler och segmentera kommunikationen mellan olika ekrar, lokala och Azure VMware-lösningar arbets belastningar.
+[Azure Firewall](../firewall/index.yml) är den centrala delen av topologin hubb och eker, distribuerad på det virtuella hubb nätverket. Använd Azure-brandväggen eller en annan virtuell Azure-installation som stöds av virtuella nätverk för att upprätta trafik regler och segmentera kommunikationen mellan olika ekrar och arbets belastningar för Azure VMware-lösningar.
 
 Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  För de eker-virtuella nätverken skapar du en väg som anger standard vägen till det interna gränssnittet i Azure Firewall, på det här sättet när en arbets belastning i Virtual Network måste komma åt Azure VMware-lösningens adress utrymme. brand väggen kan utvärdera den och tillämpa motsvarande trafik regel för att antingen tillåta eller neka den.  
 
@@ -83,16 +87,20 @@ Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  Fö
 > [!IMPORTANT]
 > En väg med adressprefixet 0.0.0.0/0 i **GatewaySubnet** -inställningen stöds inte.
 
-Ange vägar för vissa nätverk i motsvarande routningstabell. Till exempel kan vägar för att uppnå Azure VMware lösnings hantering och arbets belastningar IP-prefix från lokala platser och vice versa, routning all trafik från lokala nätverk till Azure VMware-lösningen privat moln via Azure-brandväggen.
+Ange vägar för vissa nätverk i motsvarande routningstabell. Till exempel kan vägar för att uppnå Azure VMware lösnings hantering och arbets belastningar IP-prefix från eker-arbetsbelastningar och vice versa.
 
 :::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Ange vägar för vissa nätverk i motsvarande routningstabell":::
 
-En andra nivå av trafik segmentering som använder nätverks säkerhets grupper i ekrar och hubben för att skapa en mer detaljerad trafik princip. 
+En andra nivå av trafik segmentering som använder nätverks säkerhets grupper i ekrar och hubben för att skapa en mer detaljerad trafik princip.
 
+> [!NOTE]
+> **Trafik från lokal till Azure VMware-lösning:** Trafik mellan lokala arbets belastningar, antingen vSphere-baserade eller andra, aktive ras av Global Reach, men trafiken går inte via Azure-brandväggen på hubben. I det här scenariot måste du implementera trafik segments metoder antingen lokalt eller i Azure VMware-lösning.
 
 ### <a name="application-gateway"></a>Application Gateway
 
 Azure Application Gateway v1 och v2 har testats med webbappar som körs på virtuella datorer i Azure VMware-lösningen som en backend-pool. Application Gateway är för närvarande den enda metoden som stöds för att exponera webbappar som körs på virtuella datorer i Azure VMware-lösningen till Internet. Det kan också exponera appar till interna användare på ett säkert sätt.
+
+Mer information och krav hittar du i artikeln om Azure VMware-lösningar på [Application Gateway](./protect-avs-web-apps-with-app-gateway.md) .
 
 :::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Sekundär nivå för trafik segmentering med nätverks säkerhets grupper" border="false":::
 
@@ -137,8 +145,6 @@ Lokala och Azure VMware Solution-servrar kan konfigureras med villkorliga vidare
 För identitets syfte är det bästa sättet att distribuera minst en AD-domänkontrollant på hubben med hjälp av det delade tjänst under nätet, helst två av dem i zon-distribuerat eller en tillgänglighets uppsättning för virtuella datorer. Se [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) för att utöka din lokala AD-domän till Azure.
 
 Dessutom kan du distribuera en annan domänkontrollant på Azure VMware-lösningen för att agera som identitet och DNS-källa i vSphere-miljön.
-
-För vCenter och SSO ställer du in en identitets källa i Azure Portal på **hantera \> identitets \> identitets källor**.
 
 Som rekommenderad praxis integrerar du [AD-domänen med Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 

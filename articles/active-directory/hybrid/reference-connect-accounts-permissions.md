@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255786"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662334"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -55,7 +55,7 @@ Förutom dessa tre konton som används för att köra Azure AD Connect behöver 
 > [!NOTE]
 > Det finns stöd för att hantera de administrativa konton som används i Azure AD Connect från en ESAE-administrativ skog (även kallad "Red skog").
 > Dedikerade administrativa skogar tillåter organisationer att vara värdar för administrativa konton, arbetsstationer och grupper i en miljö som har starkare säkerhetskontroller än produktionsmiljön.
-> Mer information om dedikerade administrativa skogar finns i [ESAE administrativ skog design metod](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> Mer information om dedikerade administrativa skogar finns i [ESAE administrativ skog design metod](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
 > Den globala administratörs rollen krävs inte efter den första installationen och det enda obligatoriska kontot kommer att vara roll kontot för **Directory-synkronisering** . Det innebär inte nödvändigt vis att du bara vill ta bort kontot med rollen global administratör. Det är bättre att ändra rollen till en mindre kraftfull roll eftersom helt ta bort kontot kan orsaka problem om du skulle behöva köra guiden igen. Genom att minska behörigheten för rollen kan du alltid höja behörigheten igen om du måste använda guiden Azure AD Connect igen. 
@@ -102,7 +102,7 @@ Följande är en sammanfattning av sidorna i guiden Express installation, autent
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Ej tillämpligt |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
+| E.t. |Användare som kör installations guiden |Administratör för den lokala servern |<li>Skapar det ADSync-tjänstkonto som används för att köra synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut till AD DS |Lokala Active Directory autentiseringsuppgifter |Medlem i gruppen Enterprise administratörer (EA) i Active Directory |<li>Skapar AD DS-anslutningsprogrammet i Active Directory och beviljar behörigheter till det. Det här skapade kontot används för att läsa och skriva katalog information under synkroniseringen.</li> |
 
@@ -119,7 +119,7 @@ Följande är en sammanfattning av sidorna för anpassade installations guider, 
 
 | Guide sida | Insamlade autentiseringsuppgifter | Behörigheter som krävs | Används för |
 | --- | --- | --- | --- |
-| Ej tillämpligt |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
+| E.t. |Användare som kör installations guiden |<li>Administratör för den lokala servern</li><li>Om du använder en fullständig SQL Server måste användaren vara system administratör (SA) i SQL</li> |Som standard skapar det lokala kontot som används som Synkroniseringsmotorn för synkroniseringstjänsten. Kontot skapas bara när administratören inte anger något visst konto. |
 | Installera Synchronization Services, tjänst konto alternativ |Autentiseringsuppgifter för AD eller lokalt användar konto |Användare, behörigheter beviljas av installations guiden |Om administratören anger ett konto används det här kontot som tjänst konto för synkroniseringstjänsten. |
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Global administratörs roll i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalogen.</li>  <li>Skapandet av Azure AD Connector-kontot som används för pågående synkronisering i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna beror på vilka funktioner du aktiverar och hur du hittar dem i skapa AD DS-anslutnings kontot |Det här kontot används för att läsa och skriva katalog information under synkroniseringen. |
@@ -147,9 +147,9 @@ Vilka behörigheter du behöver beror på vilka valfria funktioner du aktiverar.
 | Hash-synkronisering av lösen ord |<li>Replikera katalog ändringar</li>  <li>Replikera katalog ändringar alla |
 | Exchange hybrid distribution |Skriv behörigheter till de attribut som dokumenteras i [Exchange hybrid tillbakaskrivning](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) för användare, grupper och kontakter. |
 | Offentlig Exchange-e-postmapp |Läs behörighet till attributen som dokumenteras i den [offentliga Exchange-e-postmappen](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) för offentliga mappar. | 
-| Tillbakaskrivning av lösenord |Skriv behörigheter till de attribut som dokumenteras i [komma igång med lösen ords hantering](../authentication/howto-sspr-writeback.md) för användare. |
+| Tillbakaskrivning av lösenord |Skriv behörigheter till de attribut som dokumenteras i [komma igång med lösen ords hantering](../authentication/tutorial-enable-sspr-writeback.md) för användare. |
 | Tillbakaskrivning av enheter |Behörigheter som beviljats med ett PowerShell-skript enligt beskrivningen i [tillbakaskrivning av enhet](how-to-connect-device-writeback.md). |
-| Tillbakaskrivning av grupp |Gör att du kan ångra **Office 365-grupper** till en skog med Exchange installerat.|
+| Tillbakaskrivning av grupp |Gör att du kan ångra **Microsoft 365 grupper** till en skog med Exchange installerat.|
 
 ## <a name="upgrade"></a>Uppgradera
 När du uppgraderar från en version av Azure AD Connect till en ny version behöver du följande behörigheter:
@@ -197,8 +197,8 @@ Förklaring:
 - Alternativ som inte stöds av fet stil
 - Lokalt konto – lokalt användar konto på servern
 - Domän konto – domän användar konto
-- sMSA- [fristående hanterat tjänst konto](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA- [grupphanterat tjänst konto](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA- [fristående hanterat tjänst konto](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA- [grupphanterat tjänst konto](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassad | Fjärr-SQL</br>Anpassad |
 | --- | --- | --- | --- |
@@ -215,11 +215,11 @@ VSA är avsedd att användas med scenarier där Synkroniseringsmotorn och SQL fi
 Den här funktionen kräver Windows Server 2008 R2 eller senare. Om du installerar Azure AD Connect på Windows Server 2008 återgår installationen till att använda ett [användar konto](#user-account) i stället.
 
 #### <a name="group-managed-service-account"></a>Grupphanterat tjänst konto
-Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett **grupphanterat tjänst konto**. Mer information om hur du förbereder din Active Directory för grupphanterade tjänst konton finns i [Översikt över grupphanterade tjänst konton](https://technet.microsoft.com/library/hh831782.aspx).
+Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett **grupphanterat tjänst konto**. Mer information om hur du förbereder din Active Directory för grupphanterade tjänst konton finns i [Översikt över grupphanterade tjänst konton](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
 Om du vill använda det här alternativet väljer du **Använd ett befintligt tjänst konto**på sidan [installera nödvändiga komponenter](how-to-connect-install-custom.md#install-required-components) och väljer **hanterat tjänst konto**.  
 ![ATTRIBUTET](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-Det finns också stöd för att använda ett [fristående hanterat tjänst konto](https://technet.microsoft.com/library/dd548356.aspx). Dessa kan dock endast användas på den lokala datorn och det finns ingen förmån att använda dem över standard kontot för den virtuella tjänsten.
+Det finns också stöd för att använda ett [fristående hanterat tjänst konto](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Dessa kan dock endast användas på den lokala datorn och det finns ingen förmån att använda dem över standard kontot för den virtuella tjänsten.
 
 Den här funktionen kräver Windows Server 2012 eller senare. Om du behöver använda ett äldre operativ system och använda fjärr-SQL måste du använda ett [användar konto](#user-account).
 
@@ -247,12 +247,12 @@ Namnet på den server som kontot används på kan identifieras i den andra delen
 
 Kontot skapas med ett långt komplext lösen ord som inte upphör att gälla. Den beviljas ett särskilt konto för **synkronisering** av roll katalog som bara har behörighet att utföra synkronisering av aktiviteter. Den här särskilda inbyggda rollen kan inte beviljas utanför Azure AD Connects guiden. Azure Portal visar det här kontot med rollen **användare**.
 
-Det finns en gräns på 20 Sync service-konton i Azure AD. Om du vill hämta en lista över befintliga Azure AD-tjänstekonton i din Azure AD kör du följande Azure AD PowerShell-cmdlet:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Det finns en gräns på 20 Sync service-konton i Azure AD. Om du vill hämta en lista över befintliga Azure AD-tjänstekonton i din Azure AD kör du följande Azure AD PowerShell-cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Om du vill ta bort oanvända Azure AD-tjänstekonton kör du följande Azure AD PowerShell-cmdlet:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Om du vill ta bort oanvända Azure AD-tjänstekonton kör du följande Azure AD PowerShell-cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Innan du kan använda ovanstående PowerShell-kommandon måste du installera [Azure Active Directory PowerShell för Graph-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) och ansluta till din instans av Azure AD med [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Innan du kan använda ovanstående PowerShell-kommandon måste du installera [Azure Active Directory PowerShell för Graph-modulen](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) och ansluta till din instans av Azure AD med [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
 Mer information om hur du hanterar eller återställer lösen ordet för Azure AD Connector-kontot finns i [hantera Azure AD Connect-kontot](how-to-connect-azureadaccount.md)
 

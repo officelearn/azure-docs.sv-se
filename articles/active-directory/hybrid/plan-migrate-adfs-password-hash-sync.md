@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe9fe10b66aa6eb5fcdaafbf8e0132918e9645c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356687"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662417"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från Federation till hash-synkronisering för lösen ord för Azure Active Directory
 
@@ -42,11 +42,11 @@ För att kunna utföra stegen för att migrera till hash-synkronisering av löse
 > [!IMPORTANT]
 > Du kan läsa i inaktuell dokumentation, verktyg och Bloggar som användar konvertering krävs när du konverterar domäner från federerad identitet till hanterad identitet. Det krävs inte längre att *konvertera användare* . Microsoft arbetar med att uppdatera dokumentation och verktyg för att avspegla den här ändringen.
 
-Om du vill uppdatera Azure AD Connect slutför du stegen i [Azure AD Connect: uppgradera till den senaste versionen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+Om du vill uppdatera Azure AD Connect slutför du stegen i [Azure AD Connect: uppgradera till den senaste versionen](./how-to-upgrade-previous-version.md).
 
 ### <a name="password-hash-synchronization-required-permissions"></a>Password-hash-synkronisering krävs behörigheter
 
-Du kan konfigurera Azure AD Connect med hjälp av Express inställningar eller en anpassad installation. Om du har använt alternativet för anpassad installation kanske de [behörigheter som krävs](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-accounts-permissions) för att synkronisera lösen ord inte är på plats.
+Du kan konfigurera Azure AD Connect med hjälp av Express inställningar eller en anpassad installation. Om du har använt alternativet för anpassad installation kanske de [behörigheter som krävs](./reference-connect-accounts-permissions.md) för att synkronisera lösen ord inte är på plats.
 
 Tjänst kontot för Azure AD Connect Active Directory Domain Services (AD DS) kräver följande behörigheter för att synkronisera hashar för lösen ord:
 
@@ -114,8 +114,8 @@ Kontrol lera alla inställningar som kan ha anpassats för din dokumentation om 
 
 Mer information finns i de här artiklarna:
 
-* [AD FS prompt = stöd för inloggnings parameter](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [AD FS prompt = stöd för inloggnings parameter](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
 > Om **SupportsMfa** är inställt på **Sant**använder du en lokal Multi-Factor Authentication-lösning för att mata in en andra faktor i flödet för användarautentisering. Den här installationen fungerar inte längre för Azure AD-autentiseringar när du har konverterat den här domänen från federerad till hanterad autentisering. När du har inaktiverat federationen kan du använda relationen till din lokala Federation och detta inkluderar lokala MFA-kort. 
@@ -124,9 +124,9 @@ Mer information finns i de här artiklarna:
 
 #### <a name="back-up-federation-settings"></a>Säkerhetskopiera Federations inställningar
 
-Även om inga ändringar görs i andra förlitande parter i AD FS-servergruppen under de processer som beskrivs i den här artikeln, rekommenderar vi att du har en aktuell giltig säkerhets kopia av din AD FS server grupp som du kan återställa från. Du kan skapa en aktuell giltig säkerhets kopia genom att använda det kostnads fria [verktyget Microsoft AD FS Rapid Restore](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool). Du kan använda verktyget för att säkerhetskopiera AD FS och återställa en befintlig Server grupp eller skapa en ny server grupp.
+Även om inga ändringar görs i andra förlitande parter i AD FS-servergruppen under de processer som beskrivs i den här artikeln, rekommenderar vi att du har en aktuell giltig säkerhets kopia av din AD FS server grupp som du kan återställa från. Du kan skapa en aktuell giltig säkerhets kopia genom att använda det kostnads fria [verktyget Microsoft AD FS Rapid Restore](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool). Du kan använda verktyget för att säkerhetskopiera AD FS och återställa en befintlig Server grupp eller skapa en ny server grupp.
 
-Om du väljer att inte använda AD FS Rapid Restore-verktyget bör du, om du vill, exportera Microsoft Office 365 identitets plattformens förtroende för förlitande part och eventuella associerade anpassade anspråks regler som du har lagt till. Du kan exportera förtroende för förlitande part och associerade anspråks regler med hjälp av följande PowerShell-exempel:
+Om du väljer att inte använda AD FS Rapid Restore-verktyget bör du exportera Microsoft 365 identitets plattformens förtroende för förlitande part och eventuella associerade anpassade anspråks regler som du har lagt till. Du kan exportera förtroende för förlitande part och associerade anspråks regler med hjälp av följande PowerShell-exempel:
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
@@ -138,15 +138,15 @@ I det här avsnittet beskrivs överväganden för distribution och information o
 
 ### <a name="current-ad-fs-use"></a>Nuvarande AD FS användning
 
-Innan du konverterar från federerad identitet till hanterad identitet bör du titta närmare på hur du för närvarande använder AD FS för Azure AD, Office 365 och andra program (förtroenden för förlitande part). Mer specifikt bör du tänka på de scenarier som beskrivs i följande tabell:
+Innan du konverterar från federerad identitet till hanterad identitet kan du titta närmare på hur du för närvarande använder AD FS för Azure AD, Microsoft 365 och andra program (förtroenden för förlitande part). Mer specifikt bör du tänka på de scenarier som beskrivs i följande tabell:
 
 | Om | Dra |
 |-|-|
-| Du planerar att fortsätta använda AD FS med andra program (förutom Azure AD och Office 365). | När du har konverterat dina domäner använder du både AD FS och Azure AD. Överväg användar upplevelsen. I vissa fall kan användare behöva autentisera två gånger: en gång till Azure AD (där en användare får SSO-åtkomst till andra program, t. ex. Office 365) och igen för program som fortfarande är kopplade till AD FS som ett förlitande parts förtroende. |
+| Du planerar att fortsätta använda AD FS med andra program (andra än Azure AD och Microsoft 365). | När du har konverterat dina domäner använder du både AD FS och Azure AD. Överväg användar upplevelsen. I vissa fall kan användare behöva autentisera två gånger: en gång till Azure AD (där en användare får SSO-åtkomst till andra program, t. ex. Microsoft 365), och igen för program som fortfarande är kopplade till AD FS som förtroende för en förlitande part. |
 | AD FS-instansen är kraftigt anpassad och förlitar sig på särskilda anpassnings inställningar i onload.js-filen (till exempel om du ändrade inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för ett UPN-format eller om din organisation har stor varumärkes inloggnings upplevelsen). onload.js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
-| Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR). |
+| Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](../conditional-access/concept-conditional-access-conditions.md) och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR). |
 | Du kräver att användare utför Multi-Factor Authentication mot en lokal Multi-Factor Authentication Server-lösning när användare autentiserar till AD FS.| I en hanterad identitets domän kan du inte mata in en Multi-Factor Authentication-utmaning via den lokala Multi-Factor Authentication-lösningen i autentiseringsschemat. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för Multi-Factor Authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication krävs ett registrerings steg för databasmigrering-användare. Du måste förbereda för och förmedla den planerade registreringen till dina användare. |
-| Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) för Azure AD och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR).|
+| Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Microsoft 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](../conditional-access/overview.md) för Azure AD och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Vanliga AD FS anpassningar
 
@@ -154,13 +154,13 @@ I det här avsnittet beskrivs vanliga AD FS anpassningar.
 
 #### <a name="insidecorporatenetwork-claim"></a>InsideCorporateNetwork-anspråk
 
-AD FS utfärdar **InsideCorporateNetwork** -anspråk om den användare som autentiserar finns i företags nätverket. Detta anspråk kan sedan skickas till Azure AD. Anspråket används för att kringgå Multi-Factor Authentication baserat på användarens nätverks plats. Information om hur du avgör om den här funktionen för närvarande är aktive rad i AD FS finns i [betrodda IP-adresser för federerade användare](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud).
+AD FS utfärdar **InsideCorporateNetwork** -anspråk om den användare som autentiserar finns i företags nätverket. Detta anspråk kan sedan skickas till Azure AD. Anspråket används för att kringgå Multi-Factor Authentication baserat på användarens nätverks plats. Information om hur du avgör om den här funktionen för närvarande är aktive rad i AD FS finns i [betrodda IP-adresser för federerade användare](../authentication/howto-mfa-adfs.md).
 
-**InsideCorporateNetwork** -anspråket är inte tillgängligt efter att dina domäner har konverterats till hash-synkronisering av lösen ord. Du kan använda [namngivna platser i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) för att ersätta den här funktionen.
+**InsideCorporateNetwork** -anspråket är inte tillgängligt efter att dina domäner har konverterats till hash-synkronisering av lösen ord. Du kan använda [namngivna platser i Azure AD](../reports-monitoring/quickstart-configure-named-locations.md) för att ersätta den här funktionen.
 
 När du har konfigurerat namngivna platser måste du uppdatera alla principer för villkorlig åtkomst som har kon figurer ATS för att antingen inkludera eller exkludera nätverket **alla betrodda platser** eller **MFA-betrodda IP-adresser** för att avspegla de nya namngivna platserna.
 
-Mer information om **plats** villkor i villkorlig åtkomst finns i [Active Directory villkorliga åtkomst platser](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Mer information om **plats** villkor i villkorlig åtkomst finns i [Active Directory villkorliga åtkomst platser](../conditional-access/location-condition.md).
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
@@ -170,16 +170,16 @@ För att säkerställa att hybrid kopplingen fortsätter att fungera för alla e
 
 För Windows 8-och Windows 7-dator konton använder hybrid anslutning sömlös SSO för att registrera datorn i Azure AD. Du behöver inte synkronisera Windows 8-och Windows 7-dator konton som du gör för Windows 10-enheter. Du måste dock distribuera en uppdaterad workplacejoin.exe-fil (via en MSI-fil) till Windows 8-och Windows 7-klienter så att de kan registrera sig själva med hjälp av sömlös SSO. [Ladda ned MSI-filen](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Mer information finns i [Konfigurera hybrid Azure AD-anslutna enheter](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
+Mer information finns i [Konfigurera hybrid Azure AD-anslutna enheter](../devices/hybrid-azuread-join-plan.md).
 
 #### <a name="branding"></a>Anpassning
 
-Om din organisation har [anpassat dina AD FS inloggnings sidor](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) för att visa information som är mer relevant för organisationen, kan du överväga att göra liknande [anpassningar till inloggnings sidan för Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
+Om din organisation har [anpassat dina AD FS inloggnings sidor](/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) för att visa information som är mer relevant för organisationen, kan du överväga att göra liknande [anpassningar till inloggnings sidan för Azure AD](../fundamentals/customize-branding.md).
 
 Även om liknande anpassningar är tillgängliga, ska vissa visuella ändringar på inloggnings sidor förväntas efter konverteringen. Du kanske vill ange information om förväntade ändringar i din kommunikation till användare.
 
 > [!NOTE]
-> Organisations anpassning är bara tillgängligt om du köper Premium-eller Basic-licensen för Azure Active Directory eller om du har en licens för Office 365.
+> Organisations anpassning är bara tillgängligt om du köper Premium-eller Basic-licensen för Azure Active Directory eller om du har en Microsoft 365-licens.
 
 ## <a name="plan-deployment-and-support"></a>Planera distribution och support
 
@@ -194,7 +194,7 @@ Endast användare som har åtkomst till tjänsterna via en webbläsare under den
 Moderna autentiserings klienter (Office 2016 och Office 2013, iOS och Android-appar) använder en giltig uppdateringstoken för att hämta nya åtkomsttoken för fortsatt åtkomst till resurser i stället för att återgå till AD FS. De här klienterna är immun till eventuella lösen ords meddelanden som uppstår till följd av domän konverterings processen. Klienterna kommer att fortsätta att fungera utan ytterligare konfiguration.
 
 > [!IMPORTANT]
-> Stäng inte av AD FS miljön eller ta bort det förlitande part förtroendet för Office 365 tills du har kontrollerat att alla användare kan autentiseras med hjälp av molnbaserad autentisering.
+> Stäng inte av AD FS miljön eller ta bort Microsoft 365 förlitande part-förtroendet tills du har kontrollerat att alla användare kan autentiseras med hjälp av molnbaserad autentisering.
 
 ### <a name="plan-for-rollback"></a>Planera för återställning
 
@@ -211,7 +211,7 @@ Om du vill planera för återställning kontrollerar du dokumentationen för Fed
 
 En viktig del av att planera distribution och support är att se till att användarna proaktivt informeras om kommande ändringar. Användarna bör känna i förväg vad de kan uppleva och vad som krävs för dem. 
 
-När både hash-synkronisering av lösen ord och sömlös SSO distribueras, är användar inloggnings upplevelsen för åtkomst till Office 365 och andra resurser som autentiseras via Azure AD-ändringar. Användare som är utanför nätverket ser bara inloggnings sidan för Azure AD. Dessa användare omdirigeras inte till den formulärbaserade sidan som presenteras av externa webb program proxyservrar.
+När både hash-synkronisering av lösen ord och sömlös SSO distribueras, är användar inloggnings upplevelsen för att få åtkomst till Microsoft 365 och andra resurser som autentiseras via Azure AD-ändringar. Användare som är utanför nätverket ser bara inloggnings sidan för Azure AD. Dessa användare omdirigeras inte till den formulärbaserade sidan som presenteras av externa webb program proxyservrar.
 
 Inkludera följande element i din kommunikations strategi:
 
@@ -262,7 +262,7 @@ För att kontrol lera att hash-synkroniseringen av lösen ord fungerar korrekt, 
 6. På huvud menyn väljer du **Felsök Password hash-synkronisering**.
 7. Välj Password hash-synkronisering på undermenyn **inte fungerar alls**.
 
-Information om fel sökning finns i [Felsöka Password-hash-synkronisering med Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
+Information om fel sökning finns i [Felsöka Password-hash-synkronisering med Azure AD Connect Sync](./tshoot-connect-password-hash-synchronization.md).
 
 ### <a name="step-2-prepare-for-seamless-sso"></a>Steg 2: förbereda för sömlös SSO
 
@@ -270,7 +270,7 @@ För att enheterna ska kunna använda sömlös SSO måste du lägga till en Azur
 
 Som standard beräknar webbläsare automatiskt rätt zon, antingen Internet eller intranät, från en URL. Till exempel **http: \/ \/ contoso/** Maps till zonen intranät och **http: \/ \/ intranet.contoso.com** Maps till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, endast om du lägger till URL: en i webbläsarens intranät zon.
 
-Slutför stegen för att [distribuera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) de nödvändiga ändringarna på enheterna.
+Slutför stegen för att [distribuera](./how-to-connect-sso-quick-start.md) de nödvändiga ändringarna på enheterna.
 
 > [!IMPORTANT]
 > Om du gör den här ändringen ändras inte hur användarna loggar in på Azure AD. Det är dock viktigt att du tillämpar den här konfigurationen på alla dina enheter innan du fortsätter. Användare som loggar in på enheter som inte har tagit emot den här konfigurationen krävs bara för att ange ett användar namn och lösen ord för att logga in på Azure AD.
@@ -431,14 +431,14 @@ Testa hash-synkronisering av lösen ord:
 3. Användaren omdirigeras och har loggat in på åtkomst panelen:
 
    > [!NOTE]
-   > Sömlös SSO fungerar på Office 365-tjänster som har stöd för domän tips (till exempel myapps.microsoft.com/contoso.com). Office 365-portalen (portal.office.com) stöder för närvarande inte domän tips. Användare måste ange ett UPN. När ett UPN har angetts hämtar sömlös SSO Kerberos-biljetten för användarens räkning. Användaren är inloggad utan att ange ett lösen ord.
+   > Sömlös SSO fungerar på Microsoft 365 tjänster som har stöd för domän tips (till exempel myapps.microsoft.com/contoso.com). Microsoft 365-portalen (portal.office.com) stöder för närvarande inte domän tips. Användare måste ange ett UPN. När ett UPN har angetts hämtar sömlös SSO Kerberos-biljetten för användarens räkning. Användaren är inloggad utan att ange ett lösen ord.
 
    > [!TIP]
-   > Överväg att distribuera [Azure AD hybrid Join på Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) för en förbättrad SSO-upplevelse.
+   > Överväg att distribuera [Azure AD hybrid Join på Windows 10](../devices/overview.md) för en förbättrad SSO-upplevelse.
 
 ### <a name="remove-the-relying-party-trust"></a>Ta bort förtroende för förlitande part
 
-När du har kontrollerat att alla användare och klienter har autentiserats via Azure AD är det säkert att ta bort det förlitande part förtroendet för Office 365.
+När du har kontrollerat att alla användare och klienter har autentiserats via Azure AD är det säkert att ta bort den Microsoft 365 förlitande partens förtroende.
 
 Om du inte använder AD FS för andra orsaker (det vill säga för andra förtroenden för förlitande part), är det säkert att inaktivera AD FS i det här läget.
 
@@ -458,15 +458,15 @@ Tidigare blockeras uppdateringar av **userPrincipalName** -attributet, som anvä
 * Användaren är i en hanterad (icke-federerad) identitets domän.
 * Användaren har inte tilldelats någon licens.
 
-Information om hur du kontrollerar eller aktiverar den här funktionen finns i [Synkronisera userPrincipalName-uppdateringar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
+Information om hur du kontrollerar eller aktiverar den här funktionen finns i [Synkronisera userPrincipalName-uppdateringar](./how-to-connect-syncservice-features.md).
 
 ### <a name="troubleshooting"></a>Felsökning
 
 Support teamet bör förstå hur man felsöker autentiseringsproblem som uppstår under eller efter ändringen från federationen till hanterad. Använd följande fel söknings dokumentation för att hjälpa Support teamet att bekanta sig med de vanliga fel söknings stegen och lämpliga åtgärder som kan hjälpa till att isolera och lösa problemet.
 
-[Felsöka Azure Active Directory hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization)
+[Felsöka Azure Active Directory hash-synkronisering av lösen ord](./tshoot-connect-password-hash-synchronization.md)
 
-[Felsöka Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sso)
+[Felsöka Azure Active Directory sömlös enkel inloggning](./tshoot-connect-sso.md)
 
 ## <a name="roll-over-the-seamless-sso-kerberos-decryption-key"></a>Rulla över sömlös SSO Kerberos-dekrypterings nyckel
 
@@ -474,10 +474,10 @@ Det är viktigt att ofta rulla över Kerberos-dekrypteringsnyckeln för AZUREADS
 
 Initiera förnyelsen av den sömlösa Kerberos-krypteringsnyckeln på den lokala server som kör Azure AD Connect.
 
-Mer information finns i [Hur gör jag för att över Kerberos-dekrypteringsnyckeln för dator kontot för AZUREADSSOACC?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq).
+Mer information finns i [Hur gör jag för att över Kerberos-dekrypteringsnyckeln för dator kontot för AZUREADSSOACC?](./how-to-connect-sso-faq.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om att [Azure AD Connect design koncept](plan-connect-design-concepts.md).
-* Välj [rätt autentisering](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
+* Välj [rätt autentisering](./choose-ad-authn.md).
 * Lär dig mer om [topologier som stöds](plan-connect-design-concepts.md).

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771108"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304022"
 ---
 ### <a name="functional-limits"></a>Funktionella gränser
 
@@ -20,14 +20,14 @@ I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den akt
 | --- | --- | --- | --- |
 | Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Ja |
 | Digitala tvillingenheter | Antal dubbla i en digital Azure-instans | 200 000 | Ja |
-| Digitala tvillingenheter | Antal inkommande relationer till en enda | 5 000 | Nej |
-| Digitala tvillingenheter | Antal utgående relationer från en enda delad | 5 000 | Nej |
-| Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | Nej |
+| Digitala tvillingenheter | Antal inkommande relationer till en enda | 5 000 | Inga |
+| Digitala tvillingenheter | Antal utgående relationer från en enda delad | 5 000 | Inga |
+| Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | Inga |
 | Routning | Antal vägar för en enda digital Azure-instans | 6 | Ja |
 | Modeller | Antal modeller inom en enskild Azure Digital-instans | 10 000 | Ja |
-| Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | Nej |
-| Modeller | Antal objekt som har returnerats på en enda sida | 100 | Nej |
-| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | Nej |
+| Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | Inga |
+| Modeller | Antal objekt som har returnerats på en enda sida | 100 | Inga |
+| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | Inga |
 | Söka i data | Antal `AND`  /  `OR` uttryck i en fråga | 50 | Ja |
 | Söka i data | Antal mat ris objekt i en `IN`  /  `NOT IN` sats | 50 | Ja |
 | Söka i data | Antal tecken i en fråga | 8,000 | Ja |
@@ -42,7 +42,7 @@ Den här tabellen visar frekvens gränserna för olika API: er.
 | Modell-API | Antal begär Anden per sekund | 100 | Ja |
 | Digitals dubbla API | Antal begär Anden per sekund | 1 000 | Ja |
 | Fråge-API | Antal begär Anden per sekund | 500 | Ja |
-| Fråge-API | Fråge enheter per sekund | 4 000 | Ja |
+| Fråge-API | [Fråge enheter](../articles/digital-twins/concepts-query-units.md) per sekund | 4 000 | Ja |
 | API för händelse vägar | Antal begär Anden per sekund | 100 | Ja |
 
 ### <a name="other-limits"></a>Andra gränser

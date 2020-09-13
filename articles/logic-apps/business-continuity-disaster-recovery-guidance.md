@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066524"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658204"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Verksamhets kontinuitet och haveri beredskap för Azure Logic Apps
 
@@ -69,7 +69,7 @@ I det här exemplet visas de tidigare primära och sekundära Logic app-instanse
 
 ## <a name="connections-to-resources"></a>Anslutningar till resurser
 
-Azure Logic Apps innehåller [inbyggda utlösare och åtgärder plus hundratals hanterade anslutningar](../connectors/apis-list.md) som din Logi Kap par kan använda för att arbeta med andra appar, tjänster, system och andra resurser, till exempel Azure Storage konton, SQL Server databaser, Office 365 Outlook-e-postkonton och så vidare. Om din Logi Kap par behöver åtkomst till dessa resurser, skapar du anslutningar som autentiserar åtkomst till dessa resurser. Varje anslutning är en separat Azure-resurs som finns på en särskild plats och som inte kan användas av resurser på andra platser.
+Azure Logic Apps innehåller [inbyggda utlösare och åtgärder plus hundratals hanterade anslutningar](../connectors/apis-list.md) som din Logic app kan använda för att arbeta med andra appar, tjänster, system och andra resurser, till exempel Azure Storage konton, SQL Server databaser, arbets-eller skol-e-postkonton och så vidare. Om din Logi Kap par behöver åtkomst till dessa resurser, skapar du anslutningar som autentiserar åtkomst till dessa resurser. Varje anslutning är en separat Azure-resurs som finns på en särskild plats och som inte kan användas av resurser på andra platser.
 
 För katastrof återställnings strategin bör du tänka på var beroende resurser finns i förhållande till dina Logic App-instanser:
 

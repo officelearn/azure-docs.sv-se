@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066217"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657462"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Skapa switch-instruktioner som kör arbets flödes åtgärder baserat på vissa värden i Azure Logic Apps
 
@@ -27,7 +27,7 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Om du vill följa exemplet i den här artikeln [skapar du den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-eller Office 365 Outlook-konto.
+* Om du vill följa exemplet i den här artikeln [skapar du den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-konto eller ett arbets-eller skol konto.
 
   1. När du lägger till åtgärden för att skicka e-post, leta upp och välj den här åtgärden i stället: **Skicka ett e-postmeddelande om godkännande**
 
@@ -63,11 +63,11 @@ Anta till exempel att du vill ha en Logic-app som tar olika steg baserat på ett
 
 1. Lägg till följande åtgärder i motsvarande fall:
 
-   | Enskilt # | **SelectedOption** | Åtgärd |
+   | Enskilt # | **SelectedOption** | Action |
    |--------|--------------------|--------|
    | Fall 1 | **Godkänn** | Lägg till Outlook **skicka en e-** poståtgärd för att skicka information om RSS-objektet endast när god kännaren valt **Godkänn**. |
    | Fall 2 | **Avvisa** | Lägg till Outlook **skicka en e-** poståtgärd för att meddela andra god kännare om att RSS-objektet avvisades. |
-   | Standard | Ingen | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
+   | Standardvärde | Inget | Ingen åtgärd krävs. I det här exemplet är **standard** fallet tomt eftersom **SelectedOption** bara har två alternativ. |
    |||
 
    ![Instruktionen avslutad switch](./media/logic-apps-control-flow-switch-statement/finished-switch.png)

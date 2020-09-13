@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor kundhanterad nyckel
+title: Kundhanterad nyckel i Azure Monitor
 description: Information och steg för att konfigurera kundhanterad nyckel (CMK) för att kryptera data i dina Log Analytics arbets ytor med hjälp av en Azure Key Vault nyckel.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/05/2020
-ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/09/2020
+ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382958"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657297"
 ---
-# <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
+# <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
 Den här artikeln innehåller bakgrunds information och steg för att konfigurera Kundhanterade nycklar (CMK) för dina Log Analytics-arbetsytor. När de har kon figurer ATS krypteras alla data som skickas till dina arbets ytor med din Azure Key Vault nyckel.
 
@@ -21,17 +21,15 @@ Vi rekommenderar att du granskar [begränsningar och](#limitationsandconstraints
 
 ## <a name="customer-managed-key-cmk-overview"></a>Översikt över kundhanterad nyckel (CMK)
 
-[Kryptering i vila](../../security/fundamentals/encryption-atrest.md)   är ett gemensamt sekretess-och säkerhets krav i organisationer.Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
+[Kryptering i vila](../../security/fundamentals/encryption-atrest.md) är ett gemensamt sekretess-och säkerhets krav i organisationer. Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
 
-Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor innehåller också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](../../key-vault/general/overview.md) och som används av lagring med systemtilldelad autentisering med [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) . Den här nyckeln (CMK) kan vara antingen [program vara eller maskin vara-HSM skyddad](../../key-vault/general/overview.md).
+Azure Monitor säkerställer att alla data och sparade frågor krypteras i vila med hjälp av Microsoft-hanterade nycklar (MMK). Azure Monitor innehåller också ett alternativ för kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](../../key-vault/general/overview.md) och som används av lagring med systemtilldelad autentisering med [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) . Den här nyckeln (CMK) kan vara antingen [program vara eller maskin vara-HSM skyddad](../../key-vault/general/overview.md). Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) fungerar.
 
-Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)   fungerar.
+CMK-funktionen levereras på dedikerade Log Analytics kluster och ger dig kontrollen att återkalla åtkomsten till dina data när som helst och skydda den med en [säker](#customer-lockbox-preview) kontroll. För att verifiera att vi har den kapacitet som krävs för dedikerat kluster i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt för att få din prenumeration tillåten innan du börjar konfigurera CMK.
 
-Med CMK kan du kontrol lera åtkomsten till dina data och återkalla den när du vill. Azure Monitor Storage respekterar alltid ändringar i nyckel behörigheter inom en timme. Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
+[Pris modellen Log Analytics kluster](./manage-cost-storage.md#log-analytics-dedicated-clusters) använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
 
-CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att verifiera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration tillåts i förväg. Använd din Microsoft-kontakt för att få din prenumeration tillåten innan du börjar konfigurera CMK.
-
- [Pris modellen Log Analytics kluster](./manage-cost-storage.md#log-analytics-dedicated-clusters)   använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
+Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Så här fungerar CMK i Azure Monitor
 
@@ -65,7 +63,7 @@ Följande regler gäller:
 
 - Din KEK lämnar aldrig Key Vault och om det finns en HSM-nyckel lämnar den aldrig maskin varan.
 
-- Azure Storage använder den hanterade identitet som är kopplad till *kluster* resursen för att autentisera och komma åt Azure Key Vault via Azure Active Directory.
+- Azure Storage använder den hanterade identitet som är kopplad till   *kluster* resursen för att autentisera och komma åt Azure Key Vault via Azure Active Directory.
 
 ## <a name="cmk-provisioning-procedure"></a>Etablerings procedur för CMK
 
@@ -80,10 +78,10 @@ Proceduren stöds inte i Azure Portal och etableringen utförs via PowerShell el
 > [!IMPORTANT]
 > Alla REST-begäranden måste innehålla en token Authorization-token i begär ande huvudet.
 
-Ett exempel:
+Exempel:
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -102,12 +100,12 @@ Du kan hämta token med någon av följande metoder:
 
 Några av åtgärderna i den här konfigurations proceduren körs asynkront eftersom de inte kan slutföras snabbt. När du använder REST-begäranden i konfigurationen returnerar svaret från början en HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation* -egenskapen när den godkänns:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
 Sedan kan du kontrol lera statusen för den asynkrona åtgärden genom att skicka en GET-begäran till värdet för *Azure-AsyncOperation-* huvudet:
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -215,7 +213,7 @@ New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -246,7 +244,7 @@ När den tar etablering av Log Analytics klustret a när du är klar kan du kont
 2. Skicka en GET-begäran på *kluster* resursen och titta på *provisioningState* -värdet. Den är *ProvisioningAccount* medan *etableringen har slutförts och* slutförts.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -309,7 +307,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 > Du kan uppdatera *kluster* resursen *SKU*, *keyVaultProperties* eller *billingType* med hjälp av patch.
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -391,7 +389,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" 
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -412,7 +410,7 @@ Inmatade data lagras krypterade med din hanterade nyckel efter Associations åtg
 2. Skicka en [arbets yta – Hämta](/rest/api/loganalytics/workspaces/get) begäran och observera svaret, den associerade arbets ytan har en clusterResourceId under "funktioner".
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -475,7 +473,7 @@ När du tar med ditt eget lagrings utrymme (BYOS) och associerar det till din ar
 * Du måste ha Skriv behörighet till både din arbets yta och ditt lagrings konto
 * Se till att skapa ditt lagrings konto i samma region som din Log Analytics arbets yta finns
 * *Spara sökningar* i lagring anses som tjänst artefakter och deras format kan ändras
-* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
+* Befintliga *sparade sökningar* tas bort från din arbets yta. Kopiera och *Spara sökningar* som du behöver före konfigurationen. Du kan visa dina *sparade sökningar* med  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
 * Frågans historik stöds inte och du kommer inte att kunna se frågor som du körde
 * Du kan associera ett enda lagrings konto till en arbets yta för att kunna spara frågor, men kan användas från frågor med både *sparade sökningar* och *logg aviseringar*
 * Fäst på instrument panelen stöds inte
@@ -490,7 +488,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -517,7 +515,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -534,6 +532,13 @@ Content-type: application/json
 
 Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
 
+## <a name="customer-lockbox-preview"></a>Customer Lockbox (för hands version)
+Med lås får du kontrollen att godkänna eller avvisa Microsoft Engineer-begäran för att få åtkomst till dina data under en support förfrågan.
+
+I Azure Monitor har du den här kontrollen på data i arbets ytor som är kopplade till ditt Log Analytics-dedikerade kluster. Den säkra kontrollen gäller för data som lagras i ett Log Analytics dedikerat kluster där den hålls isolerad i klustrets lagrings konton under den skyddade din säkra prenumeration.  
+
+Läs mer om [Customer lockbox för Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+
 ## <a name="cmk-management"></a>Hantering av CMK
 
 - **Hämta alla *kluster* resurser för en resurs grupp**
@@ -543,7 +548,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   ```
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
@@ -589,7 +594,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   ```
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
     
@@ -606,7 +611,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   ```
 
   ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   Content-type: application/json
 
@@ -627,7 +632,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   Följ [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och ange det nya billingType-värdet. Observera att du inte behöver ange den fullständiga texten i REST-begäran och ska innehålla *billingType*:
 
   ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   Content-type: application/json
 
@@ -649,7 +654,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   ```
 
   ```rest
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
@@ -681,7 +686,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   ```
 
   ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 

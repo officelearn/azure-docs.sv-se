@@ -9,14 +9,14 @@ ms.date: 01/31/2020
 ms.author: baselden
 author: barbaraselden
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9f59c7bb9b3977bdff7e3fd1ab78ed6fa2e412
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717752"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657225"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
 
@@ -64,7 +64,7 @@ Information om hur du jämför versioner och funktioner och aktiverar grupp-elle
 
 Mer information om priser finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -156,7 +156,7 @@ Följande inställningar krävs för att aktivera SSPR tillsammans med rekommend
 |   | Autentiseringsmetoder som krävs för att återställa | En eller två |
 | **Registrering** | Kräv att användare registrerar sig vid inloggning | Ja |
 |   | Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation | 90 – 180 dagar |
-| **Meddelanden** | Meddela användare om lösenordsåterställning | Ja |
+| **Aviseringar** | Meddela användare om lösenordsåterställning | Ja |
 |   | Meddela alla administratörer när andra administratörer återställer sina lösenord | Ja |
 | **Anpassning** | Anpassa supportavdelningen-länk | Ja |
 |   | E-post eller URL för anpassad helpdesk | Support webbplats eller e-postadress |

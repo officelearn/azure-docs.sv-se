@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495615"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657469"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
 
@@ -22,7 +22,7 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -40,12 +40,12 @@ En "förgrunds slinga" upprepar en eller flera åtgärder på varje mat ris obje
 
 * För att få förutsägbara resultat från åtgärder på variabler under varje upprepnings slinga, kör du dessa slingor i tur och ordning. Till exempel, när en slinga som körs samtidigt, ökar, minskar och lägger till variabel åtgärder returnerar förutsägbara resultat. Men under varje iteration i den körnings bara loopen kan dessa åtgärder returnera oförutsägbara resultat. 
 
-* Åtgärder i en "förgrunds åtgärd" använder[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+* Åtgärder i en "förgrunds åtgärd" använder [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 uttryck för att referera till och bearbeta varje objekt i matrisen. Om du anger data som inte finns i en matris, Miss lyckas Logic app-arbetsflödet. 
 
 I den här exempel Logic-appen skickas en daglig sammanfattning för en RSS-feed för webbplatsen. Appen använder en "förgrunds"-loop som skickar ett e-postmeddelande för varje nytt objekt.
 
-1. [Skapa den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-eller Office 365 Outlook-konto.
+1. [Skapa den här exempel Logic-appen](../logic-apps/quickstart-create-first-logic-app-workflow.md) med ett Outlook.com-konto eller ett arbets-eller skol konto.
 
 2. Lägg till en "förgrunds"-loop mellan RSS-utlösare och skicka e-post. 
 
@@ -232,7 +232,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
       | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Att** | *\<email-address\@domain>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
+      | **Om du vill** | *\<email-address\@domain>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
       | **Ämne** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
       | **Brödtext** | <*e-post – innehåll*> | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 
@@ -247,7 +247,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
 En "till"-loop har standard gränser som slutar köras om något av dessa villkor inträffar:
 
-| Egenskap | Standardvärde | Description | 
+| Egenskap | Standardvärde | Beskrivning | 
 | -------- | ------------- | ----------- | 
 | **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
 | **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 

@@ -1,26 +1,23 @@
 ---
-title: Azure Data Lake Storage fråga om acceleration (för hands version)
-description: Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program-och analys ramverk att dramatiskt optimera data bearbetningen genom att bara hämta de data som krävs för en bearbetnings åtgärd.
+title: Azure Data Lake Storage fråga om acceleration
+description: Med hjälp av frågekörning kan program och analys ramverk dramatiskt optimera data bearbetningen genom att bara hämta de data som krävs för en bearbetnings åtgärd.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176710"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657644"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage fråga om acceleration (för hands version)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage fråga om acceleration
 
-Fråga acceleration (för hands version) är en ny funktion för Azure Data Lake Storage som gör det möjligt för program-och analys ramverk att dramatiskt optimera data bearbetningen genom att bara hämta de data som de behöver för att utföra en specifik åtgärd. Detta minskar den tid och processor kraft som krävs för att få viktiga insikter om lagrade data.
-
-> [!NOTE]
-> Funktionen för acceleration av frågor finns i offentlig för hands version och är tillgänglig i regionerna Kanada, centrala och Frankrike, centrala. Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) . Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adls/qa-preview-signup).  
+Med hjälp av frågekörning kan program och analys ramverk dramatiskt optimera data bearbetningen genom att bara hämta de data som de behöver för att utföra en specifik åtgärd. Detta minskar den tid och processor kraft som krävs för att få viktiga insikter om lagrade data.
 
 ## <a name="overview"></a>Översikt
 
@@ -57,7 +54,7 @@ För att beräkna ett sammanställt värde hämtar program ofta **alla** data fr
 
 Även om Azure har ett branschledande nätverk, vad gäller både genom strömning och latens, är onödan överföring av data i det nätverket fortfarande kostsamt för program prestanda. Genom att filtrera bort oönskade data under lagrings förfrågan eliminerar Query acceleration denna kostnad.
 
-Dessutom kräver CPU-belastningen som krävs för att parsa och filtrera onödiga data ditt program att tillhandahålla ett större antal och större virtuella datorer för att det ska fungera. Genom att överföra den här beräknings belastningen till fråga om acceleration kan program göra betydande kostnads besparingar.
+Dessutom kräver CPU-belastningen som krävs för att parsa och filtrera onödiga data ditt program att tillhandahålla ett större antal och större virtuella datorer för att utföra sitt arbete. Genom att överföra den här beräknings belastningen till fråga om acceleration kan program göra betydande kostnads besparingar.
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>Program som kan dra nytta av frågans acceleration
 
@@ -69,7 +66,7 @@ Fråga om acceleration är också utformad för data bearbetnings program. De h�
 
 Ett exempel på hur ett program kan integrera frågans acceleration finns i [filtrera data med hjälp av Azure Data Lake Storage fråga acceleration](data-lake-storage-query-acceleration-how-to.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 På grund av den ökade beräknings belastningen i Azure Data Lake Storages tjänsten skiljer sig pris modellen för att använda frågans acceleration från den normala Azure Data Lake Storage transaktions modellen. För fråga acceleration debiteras en kostnad för mängden data som genomsöks samt en kostnad för den mängd data som returneras till anroparen. Mer information finns i [Azure Data Lake Storage Gen2 prissättning](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
@@ -77,8 +74,7 @@ Trots ändringen av fakturerings modellen är pris sättnings modellen för frå
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Registrerings formulär för fråga om acceleration](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)](data-lake-storage-query-acceleration-how-to.md)
-- [Språk referens för Query acceleration SQL (för hands version)](query-acceleration-sql-reference.md)
+- [Filtrera data med hjälp av Azure Data Lake Storage fråga om acceleration](data-lake-storage-query-acceleration-how-to.md)
+- [Språk referens för Query acceleration SQL](query-acceleration-sql-reference.md)
 
 

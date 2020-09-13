@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358570"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652065"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implement password hash synchronization with Azure AD Connect sync (Implementera synkronisering av lösenordshash med Azure AD Connect-synkronisering)
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -32,7 +32,7 @@ För att synkronisera ditt lösen ord extraherar Azure AD Connect sync din löse
 
 Det faktiska data flödet för processen för synkronisering av lösen ords-hash liknar synkroniseringen av användar data. Lösen ord synkroniseras dock oftare än standard fönstret för katalog synkronisering för andra attribut. Processen för synkronisering av lösen ord för hash körs var 2: e minut. Du kan inte ändra frekvensen för den här processen. När du synkroniserar ett lösen ord skriver det över det befintliga moln lösen ordet.
 
-Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera. Men om det finns flera kopplingar är det möjligt att inaktivera hash-synkronisering av lösen ord för vissa anslutningar, men inte andra som använder cmdleten [set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
+Första gången du aktiverar funktionen för hash-synkronisering av lösen ord utför den en inledande synkronisering av lösen orden för alla användare i omfånget. Du kan inte uttryckligen definiera en delmängd av användar lösen ord som du vill synkronisera. Men om det finns flera kopplingar är det möjligt att inaktivera hash-synkronisering av lösen ord för vissa anslutningar, men inte andra som använder cmdleten [set-ADSyncAADPasswordSyncConfiguration](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md) .
 
 När du ändrar ett lokalt lösen ord, synkroniseras det uppdaterade lösen ordet, oftast på bara några minuter.
 Funktionen för synkronisering av lösen ord för hash-meddelanden misslyckade försök att synkronisera automatiskt. Om ett fel inträffar under ett försök att synkronisera ett lösen ord loggas ett fel i logg boken.
@@ -51,12 +51,12 @@ I följande avsnitt beskrivs i djup hur synkroniseringen av lösen ord för hash
 
 ![Detaljerat lösen flöde](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
-1. Varannan minut begär agenten för Lösenordssynkronisering på AD Connect-servern lagrade lösenords-hashvärden (attributet unicodePwd) från en DOMÄNKONTROLLANT.  Den här begäran är via standard [-MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) som används för att synkronisera data mellan domänkontrollanter. Tjänst kontot måste ha replikerade katalog ändringar och replikera katalogen ändrar alla AD-behörigheter (beviljas som standard vid installation) för att hämta lösen ordets hash-värden.
+1. Varannan minut begär agenten för Lösenordssynkronisering på AD Connect-servern lagrade lösenords-hashvärden (attributet unicodePwd) från en DOMÄNKONTROLLANT.  Den här begäran är via standard [-MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) som används för att synkronisera data mellan domänkontrollanter. Tjänst kontot måste ha replikerade katalog ändringar och replikera katalogen ändrar alla AD-behörigheter (beviljas som standard vid installation) för att hämta lösen ordets hash-värden.
 2. Innan du skickar krypterar DOMÄNKONTROLLANTen MD4 Password hash med hjälp av en nyckel som är en [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) -hash av RPC-sessionsnyckeln och en salt. Den skickar sedan resultatet till agenten för Lösenordssynkronisering via RPC. DOMÄNKONTROLLANTen skickar också saltet till synkroniseringstjänsten med hjälp av DC-replikeringstjänsten, så att agenten kan dekryptera kuvertet.
-3. När agenten för Lösenordssynkronisering har krypterat kuvert används [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) och salt för att generera en nyckel för att dekryptera mottagna data till ursprungligt MD4-format. Agenten för Lösenordssynkronisering har aldrig åtkomst till lösen ordet för klartext. Password hash Sync-agentens användning av MD5 är strikt för replikering av autentiseringsprotokoll med DOMÄNKONTROLLANTen och används bara lokalt mellan DOMÄNKONTROLLANTen och agenten för Lösenordssynkronisering.
+3. När agenten för Lösenordssynkronisering har krypterat kuvert används [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) och salt för att generera en nyckel för att dekryptera mottagna data till ursprungligt MD4-format. Agenten för Lösenordssynkronisering har aldrig åtkomst till lösen ordet för klartext. Password hash Sync-agentens användning av MD5 är strikt för replikering av autentiseringsprotokoll med DOMÄNKONTROLLANTen och används bara lokalt mellan DOMÄNKONTROLLANTen och agenten för Lösenordssynkronisering.
 4. Agenten för Lösenordssynkronisering expanderar den 16-bytes binära lösen ords-hashen till 64 byte genom att först konvertera hashen till en hexadecimal sträng på 32 byte och sedan konvertera den här strängen till binär med UTF-16-kodning.
 5. Agenten för Lösenordssynkronisering lägger till ett per användare-salt, som består av en längd på 10 bytes, till 64 byte-binärfilen för att ytterligare skydda den ursprungliga hashen.
-6. Agenten för synkronisering av lösen ords-hash kombinerar sedan MD4-hash plus per användarens salt och indata indata i funktionen [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iterationer av den förkonfigurerade hash-algoritmen för [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) används. 
+6. Agenten för synkronisering av lösen ords-hash kombinerar sedan MD4-hash plus per användarens salt och indata indata i funktionen [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iterationer av den förkonfigurerade hash-algoritmen för [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) används. 
 7. Agenten för Lösenordssynkronisering tar den resulterande 32-byte-hashen och sammanfogar både per användarens salt och antalet SHA256-iterationer (används av Azure AD) och skickar sedan strängen från Azure AD Connect till Azure AD över TLS.</br> 
 8. När en användare försöker logga in på Azure AD och anger sitt lösen ord, körs lösen ordet genom samma MD4 + salt + PBKDF2 + HMAC-SHA256 process. Om den resulterande hashen matchar hashen som lagras i Azure AD har användaren angett rätt lösen ord och autentiseras.
 
@@ -132,7 +132,7 @@ Funktionen för temporära lösen ord hjälper till att säkerställa att överf
 
 Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade användare kan du aktivera funktionen *ForcePasswordChangeOnLogOn* genom att köra följande kommando på Azure AD Connect-servern:
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
+`Set-ADSyncAADCompanyFeature -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > Att tvinga en användare att ändra sina lösen ord vid nästa inloggning kräver en lösen ords ändring samtidigt.  Azure AD Connect hämtar inte flaggan påtvinga ändring av lösen ord fristående. Det kompletterar den identifierade lösen ords ändringen som sker under synkroniseringen av lösen ords-hash.
@@ -142,7 +142,7 @@ Om du vill ha stöd för tillfälliga lösen ord i Azure AD för synkroniserade 
 
 #### <a name="account-expiration"></a>Kontots förfallo datum
 
-Om din organisation använder attributet accountExpires som en del av användar konto hantering, synkroniseras inte det här attributet med Azure AD. Det innebär att ett utgånget Active Directory-konto i en miljö som kon figurer ATS för synkronisering av lösen ords-hash fortfarande är aktivt i Azure AD. Vi rekommenderar att om kontot har upphört att gälla ska en arbets flödes åtgärd utlösa ett PowerShell-skript som inaktiverar användarens Azure AD-konto (Använd cmdleten [set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). När kontot är påslaget måste Azure AD-instansen vara aktive rad.
+Om din organisation använder attributet accountExpires som en del av användar konto hantering, synkroniseras inte det här attributet med Azure AD. Det innebär att ett utgånget Active Directory-konto i en miljö som kon figurer ATS för synkronisering av lösen ords-hash fortfarande är aktivt i Azure AD. Vi rekommenderar att om kontot har upphört att gälla ska en arbets flödes åtgärd utlösa ett PowerShell-skript som inaktiverar användarens Azure AD-konto (Använd cmdleten [set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). När kontot är påslaget måste Azure AD-instansen vara aktive rad.
 
 ### <a name="overwrite-synchronized-passwords"></a>Skriv över synkroniserade lösen ord
 
@@ -213,7 +213,7 @@ Om servern har låsts enligt Federal Information Processing Standard (FIPS) inak
 1. Gå till%programfiles%\Azure AD Sync\Bin.
 2. Öppna miiserver.exe.config.
 3. Gå till noden konfiguration/körning i slutet av filen.
-4. Lägg till följande nod:`<enforceFIPSPolicy enabled="false"/>`
+4. Lägg till följande nod: `<enforceFIPSPolicy enabled="false"/>`
 5. Spara ändringarna.
 
 För referens är det här kodfragmentet det som ska se ut så här:

@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358454"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657123"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Nästa steg och hur du hanterar Azure AD Connect
 Använd de operativa procedurerna i den här artikeln för att anpassa Azure Active Directory (Azure AD) Connect för att uppfylla organisationens behov och krav.  
@@ -30,7 +30,7 @@ Använd de operativa procedurerna i den här artikeln för att anpassa Azure Act
 Som standard kan endast den användare som gjorde installationen och lokala administratörer hantera den installerade Synkroniseringsmotorn. För att fler personer ska kunna komma åt och hantera Synkroniseringsmotorn, letar du upp gruppen med namnet ADSyncAdmins på den lokala servern och lägger till dem i den här gruppen.
 
 ## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Tilldela licenser till Azure AD Premium och Enterprise Mobility Suite-användare
-Nu när användarna har synkroniserats till molnet måste du tilldela dem en licens så att de kan komma igång med molnappar som Office 365.
+Nu när användarna har synkroniserats till molnet måste du tilldela dem en licens så att de kan komma igång med molnappar som Microsoft 365.
 
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Tilldela en licens för Azure AD Premium eller Enterprise Mobility Suite
 

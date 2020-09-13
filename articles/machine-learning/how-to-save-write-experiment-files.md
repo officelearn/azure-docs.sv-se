@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: df254e0766a755754aabcfb8c98a8c140b43cb20
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144047"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650847"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ När du startar utbildning körs på ett [beräknings mål](concept-compute-targ
 
 Innan du kan påbörja ett experiment på ett beräknings mål eller på den lokala datorn måste du se till att de nödvändiga filerna är tillgängliga för det beräknings målet, till exempel beroende filer och datafiler som din kod måste köra.
 
-Azure Machine Learning kör utbildnings skript genom att kopiera hela käll katalogen. Om du har känsliga data som du inte vill överföra använder du en [. IGNORE-fil](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) eller inkluderar den inte i käll katalogen. I stället kan du komma åt dina data med hjälp av ett data [lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+Azure Machine Learning kör utbildnings skript genom att kopiera hela käll katalogen. Om du har känsliga data som du inte vill överföra använder du en [. IGNORE-fil](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) eller inkluderar den inte i käll katalogen. I stället kan du komma åt dina data med hjälp av ett data [lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
 
 Lagringsgränsen för experimentögonblicksbilder är 300 MB och/eller 2 000 filer.
 
 Därför rekommenderar vi följande:
 
-* **Lagra filerna i ett Azure Machine Learning [data lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** Detta förhindrar problem med experiment latens och har fördelarna med att komma åt data från ett fjärrberäknings mål, vilket innebär att autentisering och montering hanteras av Azure Machine Learning. Läs mer om hur du anger ett data lager som käll katalog och laddar upp filer till ditt data lager i artikeln [åtkomst data från dina data lager](how-to-access-data.md) .
+* **Lagra filerna i ett Azure Machine Learning [data lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).** Detta förhindrar problem med experiment latens och har fördelarna med att komma åt data från ett fjärrberäknings mål, vilket innebär att autentisering och montering hanteras av Azure Machine Learning. Läs mer om hur du anger ett data lager som käll katalog och laddar upp filer till ditt data lager i artikeln [åtkomst data från dina data lager](how-to-access-data.md) .
 
 * **Om du bara behöver ett par datafiler och beroende skript och inte kan använda ett data lager,** placerar du filerna i samma katalog katalog som ditt utbildnings skript. Ange den här mappen som din `source_directory` direkt i utbildnings skriptet eller i koden som anropar ditt utbildnings skript.
 

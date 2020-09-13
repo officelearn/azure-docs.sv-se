@@ -1,25 +1,22 @@
 ---
 title: Aktivera replikering för privata slut punkter i Azure Site Recovery
 description: Den här artikeln beskriver hur du konfigurerar replikering för virtuella datorer med privata slut punkter från en Azure-region till en annan med hjälp av Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 16cde1cf43c6463cbbe640d9e0a80a9ea88f1f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099807"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658250"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Replikera datorer med privata slut punkter
 
-Med Azure Site Recovery kan du använda privata [Azure privat länk](../private-link/private-endpoint-overview.md) -slutpunkter för att replikera dina datorer inifrån ett isolerat virtuellt nätverk. Stöd för åtkomst till privata slut punkter till ett återställnings valv stöds i följande regioner:
-
-- Azure Commercial: södra centrala USA, västra USA 2, östra USA
-- Azure Government: US Gov, Virginia, US Gov, Arizona, US Gov, Texas, US DoD, östra, US DoD, centrala
+Med Azure Site Recovery kan du använda privata [Azure privat länk](../private-link/private-endpoint-overview.md) -slutpunkter för att replikera dina datorer inifrån ett isolerat virtuellt nätverk. Åtkomst till privata slut punkter till ett återställnings valv stöds i alla Azures regioner med kommersiell & myndigheter.
 
 Den här artikeln innehåller anvisningar för att utföra följande steg:
 
@@ -140,7 +137,7 @@ Innan du aktiverar replikering av virtuella datorer måste den hanterade identit
 
 - Resource Manager-baserade lagrings konton (standard typ):
   - [Deltagare](../role-based-access-control/built-in-roles.md#contributor)
-  - [Storage BLOB data-deltagare](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  - [Storage Blob Data-deltagare](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Resource Manager-baserade lagrings konton (Premium typ):
   - [Deltagare](../role-based-access-control/built-in-roles.md#contributor)
   - [Storage BLOB data-ägare](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
@@ -176,7 +173,7 @@ Skapa en privat DNS-zon så att mobilitets agenten kan matcha privata länkar fu
 
    1. Sök efter "Privat DNS zon" i Sök fältet **alla tjänster** och välj "privat DNS zoner" i list rutan.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Visar sökning efter privat DNS-zon på nya resurser på sidan Azure Portal.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Visar sökning efter "privat DNS-zon" på nya resurser på sidan Azure Portal.":::
 
    1. På sidan Privat DNS zoner väljer du knappen ** \+ Lägg till** för att börja skapa en ny zon.
 
@@ -209,7 +206,7 @@ Skapa en privat DNS-zon så att mobilitets agenten kan matcha privata länkar fu
 
    1. På sidan Lägg till post uppsättning som öppnas lägger du till en post för varje fullständigt kvalificerat domän namn och privat IP-adress som _en_ typ post. Listan över fullständigt kvalificerade domän namn och IP-adresser kan hämtas från sidan "privat slut punkt" i **Översikt**. Som du ser i exemplet nedan läggs det första fullständigt kvalificerade domän namnet från den privata slut punkten till i post uppsättningen i den privata DNS-zonen.
 
-      Dessa fullständigt kvalificerade domän namn matchar mönstret:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Dessa fullständigt kvalificerade domän namn matchar mönstret: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Visar sidan för att lägga till en DNS A-posttyp för det fullständigt kvalificerade domän namnet till den privata slut punkten i Azure Portal.":::
 

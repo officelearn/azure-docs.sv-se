@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611823"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658114"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -45,7 +45,7 @@ När du har definierat de data som du vill ha och ansluter till källan, härled
 Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till nya data genom att köra [Importera data](./import-data.md)på nytt.
 
 > [!WARNING]
-> Om din arbets yta finns i ett virtuellt nätverk måste du konfigurera dina data lager så att de använder designerns funktioner för data visualisering. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [nätverks isolering under träning &s härledning med privata virtuella nätverk](../how-to-enable-virtual-network.md#machine-learning-studio).
+> Om din arbets yta finns i ett virtuellt nätverk måste du konfigurera dina data lager så att de använder designerns funktioner för data visualisering. Mer information om hur du använder data lager och data uppsättningar i ett virtuellt nätverk finns i [använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk](../how-to-enable-studio-virtual-network.md).
 
 
 ## <a name="how-to-configure-import-data"></a>Konfigurera import data

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 168aec49dc9b14af57df98ebc4c997f8dfb27c9e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228366"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657358"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azures säkerhets bas linje för Azure Machine Learning
 
@@ -28,7 +28,7 @@ Azures säkerhets bas linje för Microsoft Azure Machine Learning innehåller re
 
 Azure-brandväggen kan användas för att styra åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet.
 
-- [Så här kör du experiment och härledning i ett isolerat virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md)
+- [Översikt över virtuella nätverks isolering och sekretess](how-to-network-security-overview.md)
 
 - [Använd arbets ytan bakom Azure-brandväggen för Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Aktivera flödes loggar för nätverks säkerhets grupper och skicka loggarna ti
 
 - [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Nätverks isolering under tränings &amp; härledning med privata virtuella nätverk](how-to-enable-virtual-network.md)
+- [Översikt över virtuella nätverks isolering och sekretess](how-to-network-security-overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -94,7 +94,7 @@ Distribuera Azure-brandväggen på var och en av organisationens nätverks grän
 
 **Vägledning**: distribuera den brand Väggs lösning som du väljer för var och en av organisationens nätverks gränser för att identifiera och/eller blockera skadlig trafik.
 
-Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last granskning.  När nytto lasts granskning inte är ett krav kan du använda Azure Firewall Threat intelligence. Azure Firewall Threat Intelligence-baserad filtrering används för att varna vid och/eller blockera trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
+Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll.  När nytto lasts granskning inte är ett krav kan du använda Azure Firewall Threat intelligence. Azure Firewall Threat Intelligence-baserad filtrering används för att varna vid och/eller blockera trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 - [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -122,7 +122,7 @@ Azure Machine Learning tjänst dokument en lista över service märken för ber�
 
 - [Mer information om att använda service märken](../virtual-network/service-tags-overview.md)
 
-- [För Azure Machine Learning virtuellt nätverk](how-to-enable-virtual-network.md)
+- [Översikt över virtuella nätverks isolering och sekretess](how-to-network-security-overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -326,7 +326,7 @@ Du kan också använda Azure AD PowerShell-modulen för att utföra adhoc-frågo
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Använd dedikerade administrativa konton
 
-**Vägledning**: Azure Machine Learning har tre standard roller när en ny arbets yta skapas, skapar du standard procedurer kring användningen av ägar konton.
+**Vägledning**: Azure Machine Learning levereras med tre standard roller när en ny arbets yta skapas, vilket skapar standard procedurer kring användningen av ägar konton.
 
 Du kan också aktivera en just-in-Time-åtkomst till administrativa konton genom att använda Azure AD Privileged Identity Management och Azure Resource Manager. 
 
@@ -979,7 +979,9 @@ Använd Azure Key Vault för att skicka hemligheter till fjärrkörning på ett 
 
 - [Så här skapar du en Key Vault](/azure/key-vault/quick-create-portal)
 
-- [Så här ger Key Vault autentisering med en hanterad identitet](/azure/key-vault/managed-identity)
+- [Så här autentiserar du till Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [Så här tilldelar du en Key Vault åtkomst princip](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center övervakning**: Ja
 

@@ -535,6 +535,9 @@
       href: reference-pipeline-yaml.md
     - name: Paritet för nationellt moln
       href: reference-machine-learning-cloud-parity.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Viktig information

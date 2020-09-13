@@ -28,8 +28,6 @@
   items:
     - name: Azure PowerShell
       href: sample-powershell.md
-    - name: Azure Monitor-loggar
-      href: log-analytics-samples.md
 - name: Begrepp
   items:
     - name: Azure Firewall-funktioner
@@ -88,6 +86,8 @@
       href: dns-settings.md
     - name: Övervaka diagnostikloggar
       href: firewall-diagnostics.md
+    - name: Azure Monitor-loggar
+      href: log-analytics-samples.md
 - name: Referens
   items:
     - name: Azure CLI

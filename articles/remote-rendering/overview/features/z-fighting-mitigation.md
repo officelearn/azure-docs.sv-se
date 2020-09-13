@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013188"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024374"
 ---
 # <a name="z-fighting-mitigation"></a>Minskning av Z-fighting
 
@@ -21,9 +21,9 @@ När två ytor överlappar varandra är det inte uppenbart vilken som ska återg
 
 |Tillståndet                        | Resultat                               |
 |---------------------------------|:-------------------------------------|
-|Vanlig z-bekämpning               |![Z-bekämpning](./media/zfighting-0.png)|
-|Minskning av Z-bekämpning aktive rad    |![Z-bekämpning](./media/zfighting-1.png)|
-|Schack rutigt markering aktive rad|![Z-bekämpning](./media/zfighting-2.png)|
+|Vanlig z-bekämpning               |![Ingen deterministisk prioritet mellan röda och gröna kors](./media/zfighting-0.png)|
+|Minskning av Z-bekämpning aktive rad    |![Röd Quad har prioritet](./media/zfighting-1.png)|
+|Schack rutigt markering aktive rad|![Inställningen röd och grön inställning för fyrdubbla växlar i schack rutigt mönster](./media/zfighting-2.png)|
 
 Följande kod aktiverar minskning av z-bekämpning:
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > Minskning av Z-bekämpning är en global inställning som påverkar alla återgivna maskor.
 
@@ -76,6 +75,11 @@ Den angivna minskningen av z-bekämpning är en bra ansträngning. Det finns ing
 
 * Att aktivera minskning av z-bekämpning innebär lite till ingen prestanda omkostnader.
 * Även om du aktiverar ett överlägg med z-skydd uppstår en icke-trivial prestanda, men det kan variera beroende på scenen.
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# RemoteManager. ZFightingMitigationSettings-egenskap](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ RemoteManager:: ZFightingMitigationSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Nästa steg
 

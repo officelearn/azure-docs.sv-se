@@ -1,0 +1,22 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 09/10/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: d622960825c0872098bfa96afef7e8ec5eb0c597
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90022485"
+---
+|Name<br /><sub>(Azure Portal)</sub> |Beskrivning |Påverkan (ar) |Version<br /><sub>GitHub</sub> |
+|---|---|---|---|
+|[Cognitive Services konton ska aktivera data kryptering](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2bdd0062-9d75-436e-89df-487dd8e4b3c7) |Den här principen granskar alla Cognitive Services-konton som inte använder data kryptering. För varje Cognitive Services konto med lagring bör du aktivera data kryptering med antingen kund hanterad eller Microsoft-hanterad nyckel. |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_Encryption_Audit.json) |
+|[Cognitive Services konton ska aktivera data kryptering med kundhanterad nyckel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67121cc7-ff39-4ab8-b7e3-95b84dab487d) |Kundhanterade nycklar ger förbättrat data skydd genom att låta dig hantera dina krypterings nycklar för data som lagras i Cognitive Services. Detta krävs ofta för att uppfylla kraven för efterlevnad. |Granska, neka, inaktive rad |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_CustomerManagedKey_Audit.json) |
+|[Cognitive Services konton bör begränsa nätverks åtkomsten](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037eea7a-bd0a-46c5-9a66-03aea78705d3) |Nätverks åtkomsten till Cognitive Services konton bör vara begränsad. Konfigurera nätverks regler så att endast program från tillåtna nätverk kan komma åt Cognitive Services-kontot. För att tillåta anslutningar från vissa Internet-eller lokala klienter kan åtkomst beviljas till trafik från vissa virtuella Azure-nätverk eller offentliga IP-adressintervall för Internet. |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_NetworkAcls_Audit.json) |
+|[Cognitive Services konton ska använda kundägda lagring](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F46aa9b05-0e60-4eae-a88b-1e9d374fa515) |Den här principen granskar ett Cognitive Services konto som inte använder kundägda lagrings utrymmen. |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_UserOwnedStorage_Audit.json) |
+|[Cognitive Services konton bör använda kundägda lagrings utrymmen eller aktivera data kryptering.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F11566b39-f7f7-4b82-ab06-68d8700eb0a4) |Den här principen granskar ett Cognitive Services konto som inte använder kundägda lagring eller data kryptering. Använd antingen kundens ägda lagring eller aktivera data kryptering för varje Cognitive Services konto med lagrings utrymme. |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_BYOX_Audit.json) |
+|[Åtkomst till offentliga nätverk ska inaktive ras för Cognitive Services konton](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) |Den här principen granskar eventuella Cognitive Services-konton i din miljö med offentlig nätverks åtkomst aktive rad. Åtkomst till offentligt nätverk bör inaktive ras så att endast anslutningar från privata slut punkter tillåts. |Granska, neka, inaktive rad |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisablePublicNetworkAccess_Audit.json) |

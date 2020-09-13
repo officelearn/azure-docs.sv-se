@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009465"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024408"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
@@ -31,20 +31,23 @@ Den fasta uppsättning tillstånd som kan åsidosättas är:
 * **`Hidden`**: Respektive maskor i scen diagrammet är dolda eller visas.
 * **`Tint color`**: Ett renderat objekt kan färgtonas med dess enskilda färg och färgton. Bilden nedan visar färg tonens RIM i ett hjul.
   
-  ![Färg nyans](./media/color-tint.png)
+  ![Färg tons färg som används för att omvandla ett objekt till grönt](./media/color-tint.png)
 
 * **`See-through`**: Geometrin återges som överordnad, till exempel för att visa de inre delarna av ett objekt. Följande bild visar hela bilen som återges i se-läge, förutom den röda bromsen Caliper:
 
-  ![Se igenom](./media/see-through.png)
+  ![Se läge som används för att göra markerade objekt transparenta](./media/see-through.png)
 
   > [!IMPORTANT]
   > Alternativet för att se igenom fungerar bara när *TileBasedComposition* [åter givnings läge](../../concepts/rendering-modes.md) används.
 
 * **`Selected`**: Geometrin återges med en [markerings disposition](outlines.md).
 
-  ![Markerings disposition](./media/selection-outline.png)
+  ![Alternativet disposition som används för att markera en markerad del](./media/selection-outline.png)
 
 * **`DisableCollision`**: Geometrin är undantagen från [rums frågor](spatial-queries.md). **`Hidden`** Flaggan påverkar inte flaggan kollisioner, så dessa två flaggor anges ofta tillsammans.
+
+> [!TIP]
+> Som ett alternativ till att inaktivera Synlighets-och rums frågor för ett fullständigt under diagram `enabled` kan status för ett spel objekt växlas. Om en hierarki är inaktive rad har detta företräde `HierarchicalStateOverrideComponent` .
 
 ## <a name="hierarchical-overrides"></a>Hierarkiska åsidosättningar
 
@@ -95,6 +98,11 @@ component->SetState(
 En instans av `HierarchicalStateOverrideComponent` sig lägger inte till mycket körnings kostnader. Men det är alltid bra att hålla antalet aktiva komponenter låga. Till exempel, när du implementerar ett urvals system som markerar det valda objektet, rekommenderar vi att du tar bort komponenten när markeringen tas bort. Att hålla komponenterna runt med neutrala funktioner kan snabbt lägga till.
 
 Transparent åter givning placerar mer arbets belastning på serverns GPU än standard åter givning. Om stora delar av scen diagrammet är växlat för att *Visa genom*att många lager av geometrin är synliga, kan det bli en Flask hals i prestandan. Samma sak gäller för objekt med [markerings kon tur](../../overview/features/outlines.md#performance).
+
+## <a name="api-documentation"></a>API-dokumentation
+
+* [C# HierarchicalStateOverrideComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
-ms.openlocfilehash: e7f80bb7f9be2e01aa24090d7305b1a5d882da04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ee90d80230f9115946525ede325e874e98e358e
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255523"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024340"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Skapa en Azure skydds-värd med Azure CLI
 
@@ -30,23 +30,25 @@ Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenu
 
 Det här avsnittet hjälper dig att skapa en ny Azure skydds-resurs med hjälp av Azure CLI.
 
+> [!NOTE]
+> Som du ser i exemplen använder du- `--location` parametern med `--resource-group` för varje kommando för att säkerställa att resurserna distribueras tillsammans.
+
 1. Skapa ett virtuellt nätverk och ett Azure skydds-undernät. Du måste skapa Azure skydds-undernätet med namnet Value **AzureBastionSubnet**. Med det här värdet kan Azure veta vilket undernät som skydds-resurserna ska distribueras till. Detta skiljer sig från ett Gateway-undernät. Du måste använda ett undernät med minst/27 eller större undernät (/27,/26 osv.). Skapa **AzureBastionSubnet** utan några routningstabeller eller delegeringar. Om du använder nätverks säkerhets grupper på **AzureBastionSubnet**, se artikeln [arbeta med NSG: er](bastion-nsg.md) .
 
    ```azurecli-interactive
-   az network vnet create -g MyResourceGroup -n MyVnet --address-prefix 10.0.0.0/16 --subnet-name AzureBastionSubnet  --subnet-prefix 10.0.0.0/24
+   az network vnet create --resource-group MyResourceGroup --name MyVnet --address-prefix 10.0.0.0/16 --subnet-name AzureBastionSubnet --subnet-prefix 10.0.0.0/24 --location northeurope
    ```
 
 2. Skapa en offentlig IP-adress för Azure-skydds. Den offentliga IP-adressen är den offentliga IP-adressen som skydds-resursen som RDP/SSH kommer att få åtkomst till (via port 443). Den offentliga IP-adressen måste finnas i samma region som den skydds-resurs som du skapar.
 
    ```azurecli-interactive
-   az network public-ip create -g MyResourceGroup -n MyIp --sku Standard
+   az network public-ip create --resource-group MyResourceGroup --name MyIp --sku Standard --location northeurope
    ```
 
 3. Skapa en ny Azure skydds-resurs i AzureBastionSubnet för det virtuella nätverket. Det tar ungefär 5 minuter för skydds-resursen att skapa och distribuera.
 
    ```azurecli-interactive
-   az network bastion create --name $name--public-ip-address $publicip--resource-group $RgName --vnet-name $VNetName --location $location
-                           
+   az network bastion create --name MyBastion --public-ip-address MyIp --resource-group MyResourceGroup --vnet-name MyVnet --location northeurope
    ```
 
 ## <a name="next-steps"></a>Nästa steg

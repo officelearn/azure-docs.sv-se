@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d52673f1c66c8e053639b24bb31a3159a75736b9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436752"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029060"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
 
@@ -65,7 +65,7 @@ Programmets kod, eller mer vanligt vis ett autentiseringspaket som används i di
 
 En omdirigerings-URI är den plats där Microsoft Identity Platform omdirigerar en användares klient och skickar säkerhetstoken efter autentisering.
 
-I en produktions webb applikation är exempelvis omdirigerings-URI ofta en offentlig slut punkt där appen körs, t. ex `https://contoso.com/auth-response` .. Under utvecklingen är det vanligt att även lägga till slut punkten där du kör appen lokalt, t `https://127.0.0.1/auth-response` . ex..
+I en produktions webb applikation är exempelvis omdirigerings-URI ofta en offentlig slut punkt där appen körs, t. ex `https://contoso.com/auth-response` .. Under utvecklingen är det vanligt att även lägga till slut punkten där du kör appen lokalt, till exempel `https://127.0.0.1/auth-response` eller `http://localhost/auth-response` .
 
 Du lägger till och ändrar omdirigerings-URI: er för dina registrerade program genom att konfigurera deras [plattforms inställningar](#configure-platform-settings).
 

@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: 81069b0340202a0a481522ef1920806026ebcbe1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119403"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484349"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Publicerings guide för container erbjudanden
 
 Med container får du hjälp att publicera behållar avbildningen på Azure Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
 
-Container erbjudanden är transaktions erbjudanden som distribueras och faktureras via Azure Marketplace. Anropet till åtgärden som en användare ser är "Hämta nu".
+Container erbjudanden är transaktions erbjudanden som distribueras och faktureras via Azure Marketplace. Det List alternativ som en användare ser är "Hämta nu".
 
 Använd *behållarens* erbjudande typ när din lösning är en Docker-behållar avbildning som har kon figurer ATS som en Kubernetes-baserad Azure Container Service-instans. 
 

@@ -1,5 +1,5 @@
 ---
-title: Visualisera data i TSD-Azure Time Series Insights Gen2 | Microsoft Docs
+title: Visualisera data i Time Series Insights Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Lär dig mer om funktioner och alternativ som är tillgängliga i Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227057"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488175"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -47,7 +47,7 @@ Azure Time Series Insights Explorer består av följande sju element:
 
 ## <a name="1-environment-panel"></a>1. miljö panel
 
-I miljö panelen visas alla Azure Time Series Insights Gen2-miljöer som du har åtkomst till. Listan innehåller Gen2-miljöer och gen 1-miljöer. Du behöver bara välja den miljö som du vill använda så att den omedelbart tas där.
+I miljö panelen visas alla Azure Time Series Insights Gen2-miljöer som du har åtkomst till. Listan innehåller Gen2-miljöer och gen1-miljöer. Du behöver bara välja den miljö som du vill använda så att den omedelbart tas där.
 
 1. Välj den nedrullningsbara pilen bredvid den miljö som visas.
 
@@ -200,11 +200,11 @@ Azure Time Series Insights Explorer stöder två teman:
 
   [![Valt mörkt tema](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Miljö kontroller för gen 1
+## <a name="gen1-environment-controls"></a>Gen1 miljö kontroller
 
 ### <a name="gen2-terms-panel"></a>Gen2 villkors panel
 
-Det här avsnittet gäller endast för befintliga gen 1-miljöer som försöker använda Utforskaren i det uppdaterade användar gränssnittet. Du kanske vill använda gen 1-produkten och Gen2-produkten i kombination. Vi har lagt till vissa funktioner från det befintliga användar gränssnittet i den uppdaterade Utforskaren, men du kan få den fullständiga användar gränssnitts upplevelsen för en gen 1-miljö i den nya Azure Time Series Insights Explorer.
+Det här avsnittet gäller endast befintliga gen1-miljöer som försöker använda Explorer i det uppdaterade användar gränssnittet. Du kanske vill använda gen1-produkten och Gen2-produkten i kombination. Vi har lagt till vissa funktioner från det befintliga användar gränssnittet i den uppdaterade Utforskaren, men du kan få den fullständiga användar gränssnitts upplevelsen för en gen1-miljö i den nya Azure Time Series Insights Explorer.
 
 I stället för-hierarkin visas panelen för Azure Time Series Insights Gen2-villkor. På panelen villkor kan du definiera frågor i din miljö. Använd den för att även filtrera data baserat på ett predikat.
 
@@ -214,7 +214,7 @@ Azure Time Series Insights Gen2 terms Editor-panelen tar följande parametrar:
 
 **Där**: Använd WHERE-satsen för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja en operand uppdateras predikatet automatiskt baserat på den sökningen. De operands typer som stöds är följande:
 
-| Åtgärd    | Typer som stöds    | Anteckningar |
+| Åtgärd    | Typer som stöds    | Kommentarer |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Sträng, bool, Double, DateTime, TimeSpan, NULL |

@@ -1,21 +1,21 @@
 ---
-title: Azure CDN slut punkt multi-Origin
+title: Azure CDN slut punkt multi-Origin (för hands version)
 description: Kom igång med Azure CDN slut punkt flera ursprung.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870480"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504681"
 ---
-# <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN slut punkt multi-Origin
+# <a name="azure-cdn-endpoint-multi-origin-preview"></a>Azure CDN slut punkt multi-Origin (för hands version)
 
 Stöd för flera ursprung eliminerar nedtid och upprättar global redundans. 
 
@@ -25,6 +25,10 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 > [!NOTE]
 > Den här funktionen är för närvarande endast tillgänglig från Azure CDN från Microsoft. 
+
+> [!IMPORTANT]
+> Azure CDN slut punkt multi-Origin är för närvarande en offentlig för hands version.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-the-origin-group"></a>Skapa ursprungs gruppen
 
@@ -42,7 +46,7 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 5. I **Lägg till konfiguration av ursprungs grupp** anger eller väljer du följande information:
 
-   | Inställning           | Värde                                                                 |
+   | Inställningen           | Värde                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Namn på ursprungs grupp | Ange ett namn för din ursprungs grupp.                                   |
    | Avsöknings status      | Välj **Aktiverad**. </br> Azure CDN kommer att köra hälso avsökningar från olika platser i hela världen för att fastställa hälso tillståndet. Aktivera inte om den aktuella ursprungs gruppen inte är aktiv för att undvika ytterligare kostnader.
@@ -64,7 +68,7 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 2. Ange eller Välj följande information i **Lägg till ursprung** -konfiguration:
 
-   | Inställning           | Värde                                                                 |
+   | Inställningen           | Värde                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Namn        | Ange ett namn för ursprunget.        |
    | Typ av ursprung | Välj **lagring**, **moln tjänst**, **webbapp**eller **anpassat ursprung**.                                   |
@@ -144,7 +148,7 @@ Distribuera trafik till en annan grupp baserat på URL: en för begäran.
 
 För alla inkommande begär Anden om URL-sökvägen innehåller **/images**, kommer begäran att tilldelas ursprungs gruppen i åtgärds avsnittet **(myorigingroup)**. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 I den här artikeln har du aktiverat Azure CDN slut punkt multi-Origin.
 
 Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den här artikeln finns i:

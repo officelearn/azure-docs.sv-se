@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921392"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488617"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Bygg in landnings sidan för ditt kostnads fria eller utvärderings SaaS-erbjudande på den kommersiella Marketplace
 
@@ -21,13 +21,13 @@ Den här artikeln vägleder dig genom processen att skapa en landnings sida för
 
 ## <a name="overview"></a>Översikt
 
-Du kan tänka på landnings sidan som "lobbyn" för ditt SaaS-erbjudande (Software as a Service). När kunden har valt att hämta din app dirigerar den kommersiella Marketplace dem till landnings sidan för att aktivera och konfigurera prenumerationen på ditt SaaS-program. När du skapar ett SaaS-erbjudande (Software as a Service) kan du välja om du vill [sälja via Microsoft](partner-center-portal/create-new-saas-offer.md)i Partner Center. Om du bara vill lista ditt erbjudande på Microsofts kommersiella marknads plats och inte säljer via Microsoft kan du ange hur potentiella kunder kan interagera med erbjudandet. När du aktiverar List rutan **Hämta den nu (kostnads fri)** eller den **kostnads fria utvärderings versionen** måste du ange en webb adress till landnings sidan som användaren kan gå till för att få åtkomst till den kostnads fria prenumerationen eller utvärderings versionen.
+Du kan tänka på landnings sidan som "lobbyn" för ditt SaaS-erbjudande (Software as a Service). När kunden har valt att hämta din app dirigerar den kommersiella Marketplace dem till landnings sidan för att aktivera och konfigurera prenumerationen på ditt SaaS-program. När du skapar ett SaaS-erbjudande (Software as a Service) kan du välja om du vill [sälja via Microsoft](plan-saas-offer.md#listing-options)i Partner Center. Om du bara vill lista ditt erbjudande på Microsofts kommersiella marknads plats och inte säljer via Microsoft kan du ange hur potentiella kunder kan interagera med erbjudandet. När du aktiverar List rutan **Hämta den nu (kostnads fri)** eller den **kostnads fria utvärderings versionen** måste du ange en webb adress till landnings sidan som användaren kan gå till för att få åtkomst till den kostnads fria prenumerationen eller utvärderings versionen.
 
 Syftet med landnings sidan är att bara ta emot användaren så att de kan aktivera den kostnads fria utvärderings versionen eller prenumerationen. Med hjälp av Azure Active Directory (Azure AD) och Microsoft Graph kan du aktivera enkel inloggning (SSO) för användaren och få viktig information om användaren som du kan använda för att aktivera en kostnads fri utvärderings version eller en kostnads fri prenumeration, inklusive namn, e-postadress och organisation.
 
 Eftersom den information som krävs för att aktivera prenumerationen är begränsad och tillhandahålls av Azure AD och Microsoft Graph, bör det inte finnas något behov av att begära information som kräver mer än grundläggande medgivande. Om du behöver användar information som kräver ytterligare medgivande för ditt program bör du begära den här informationen när prenumerations aktiveringen har slutförts. Detta möjliggör friktions löst prenumerations aktivering för användaren och minskar risken för att överges.
 
-Landnings sidan innehåller vanligt vis följande information och anropar åtgärder:
+Landnings sidan innehåller vanligt vis följande information och list alternativ:
 
 - Presentera namn och information om den kostnads fria utvärderings versionen eller prenumerationen. Ange till exempel användnings gränser eller varaktighet för en utvärderings version.
 - Presentera användarens konto uppgifter, inklusive för-och efter namn, organisation och e-post.
@@ -43,7 +43,7 @@ Följande avsnitt i den här artikeln vägleder dig genom processen för att ska
 
 ## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-App-registrering
 
-Den kommersiella marknads platsen är helt integrerad med Azure AD. Användare som kommer till Marketplace autentiseras med ett [Azure AD-konto eller Microsoft-konto (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). När du har skaffat en kostnads fri eller kostnads fri utvärderings prenumeration via listan med endast ett erbjudande, går användaren från den kommersiella Marketplace till din landnings sidas URL för att aktivera och hantera prenumerationen på SaaS-programmet. Du måste låta användaren logga in till ditt program med Azure AD SSO. (Landnings sidans URL anges på sidan för erbjudandets [tekniska konfiguration](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)).
+Den kommersiella marknads platsen är helt integrerad med Azure AD. Användare som kommer till Marketplace autentiseras med ett [Azure AD-konto eller Microsoft-konto (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). När du har skaffat en kostnads fri eller kostnads fri utvärderings prenumeration via listan med endast ett erbjudande, går användaren från den kommersiella Marketplace till din landnings sidas URL för att aktivera och hantera prenumerationen på SaaS-programmet. Du måste låta användaren logga in till ditt program med Azure AD SSO. (Landnings sidans URL anges på erbjudandets [tekniska konfigurations](plan-saas-offer.md#technical-information) sida.
 
 Det första steget för att använda identiteten är att se till att din landnings sida registreras som ett Azure AD-program. Genom att registrera programmet kan du använda Azure AD för att autentisera användare och begära åtkomst till användar resurser. Det kan anses vara programmets definition, som gör att tjänsten vet hur token ska utfärdas till appen baserat på appens inställningar.
 
@@ -103,4 +103,4 @@ De flesta appar som är registrerade med Azure AD tilldelar delegerade behörigh
 > Konton från MSA-klienten (med klient-ID `9188040d-6c67-4c5b-b112-36a304b66dad` ) returnerar inte mer information än vad som redan har samlats in med ID-token. Så du kan hoppa över det här anropet till Graph API för dessa konton.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa ett SaaS-erbjudande på den kommersiella Marketplace](./partner-center-portal/create-new-saas-offer.md)
+- [Så här skapar du ett SaaS-erbjudande på den kommersiella Marketplace](create-new-saas-offer.md)

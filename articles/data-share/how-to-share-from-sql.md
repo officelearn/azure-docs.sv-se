@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: 2cb06b6802fdc4cebd04f687266f5ac08dde82c0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270265"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490079"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ När data tas emot i tabellen och om mål tabellen inte redan finns, skapar Azur
 
 ### <a name="prerequisites-for-sql-source"></a>Krav för SQL-källa
 
-* En Azure SQL Database-eller Azure Synapse-analys (tidigare Azure SQL Data Warehouse) med tabeller och vyer som du vill dela.
+* En Azure SQL Database-eller Azure Synapse-analys (tidigare SQL Data Warehouse) med tabeller och vyer som du vill dela.
 * Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen.
 * Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
     1. Ange själv som Azure Active Directory administratör för SQL Server.
@@ -150,7 +150,7 @@ Om du väljer att ta emot data i Azure Storage nedan visas en lista över krav.
 Om du väljer att ta emot data i Azure SQL Database, är Azure Synapse Analytics nedan listan över krav.
 
 * Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen. 
-* Behörighet för data resurs resursens hanterade identitet för att komma åt Azure SQL Database eller Azure SQL Data Warehouse. Detta kan göras genom följande steg: 
+* Behörighet för data resurs resursens hanterade identitet för att få åtkomst till Azure SQL Database-eller Azure Synapse-analys. Detta kan göras genom följande steg: 
     1. Ange själv som Azure Active Directory administratör för SQL Server.
     1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
     1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till den hanterade identiteten för data resursen som db_datareader, db_datawriter db_ddladmin. Du måste ansluta med Active Directory och inte SQL Server autentisering. 

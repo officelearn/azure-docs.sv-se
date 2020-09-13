@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833903"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488855"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du skapar exempel på Logic Apps som integreras med 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa med i den här artikeln behöver du följande objekt:
 
@@ -124,7 +124,7 @@ Dessa krav gäller när dina Logi Kap par körs på en Premium-nivå (inte i [in
 
 ### <a name="sap-client-library-prerequisites"></a>Krav för SAP-klient bibliotek
 
-* Se till att du installerar den senaste versionen, [SAP Connector (NCo 3,0) för Microsoft .net 3.0.22.0 som kompilerats med .NET Framework 4,0-Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Tidigare versioner kan resultera i kompatibilitetsproblem. Mer information finns i [versioner av SAP-klient bibliotek](#sap-library-versions).
+* Se till att du installerar den senaste versionen, [SAP Connector (NCo 3,0) för Microsoft .net 3.0.22.0 som kompilerats med .NET Framework 4,0-Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Tidigare versioner kan resultera i kompatibilitetsproblem. Mer information finns i [versioner av SAP-klient bibliotek](#sap-library-versions).
 
 * Som standard placerar SAP-installationsprogrammet Assembly-filerna i standardmappen för installation. Du måste kopiera dessa Assembly-filer till en annan plats, baserat på ditt scenario enligt följande:
 
@@ -396,7 +396,7 @@ I det här exemplet används en Logic-app som utlöses när appen tar emot ett m
 
    Du kan också ange en åtgärd manuellt:
 
-   ![Ange SAP-åtgärd manuellt](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Ange den SAP-åtgärd som du vill använda manuellt](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Här är ett exempel som visar hur åtgärden visas när du konfigurerar utlösaren för att ta emot mer än ett meddelande.
 
@@ -808,12 +808,12 @@ Om du vill generera ett oformaterat SAP IDoc XML-schema använder du **SAP-inlog
 
 I det här exemplet deklaras rotnoden och namn områdena. URI: n i exempel koden, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` deklarerar följande konfiguration:
 
-* `/IDoc`är rot noteringen för alla IDocs
-* `/3`är post typen version för gemensamma segment definitioner
-* `/ORDERS05`är typen av IDoc
-* `//`är ett tomt segment eftersom det inte finns något IDoc-tillägg
-* `/700`är SAP-versionen
-* `/Send`är åtgärden för att skicka informationen till SAP
+* `/IDoc` är rot noteringen för alla IDocs
+* `/3` är post typen version för gemensamma segment definitioner
+* `/ORDERS05` är typen av IDoc
+* `//` är ett tomt segment eftersom det inte finns något IDoc-tillägg
+* `/700` är SAP-versionen
+* `/Send` är åtgärden för att skicka informationen till SAP
 
 ```xml
 

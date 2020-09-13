@@ -1,19 +1,19 @@
 ---
 title: Operationalisera en pipeline för data analys – Azure
 description: Konfigurera och kör en exempel data pipeline som utlöses av nya data och ger kortfattade resultat.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 03bd00ad6d0262aeea31b5d3e2c6dd1733090e32
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082802"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504426"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -594,7 +594,7 @@ Om du vill köra pipelinen med en koordinator fortsätter du på liknande sätt 
     oozie job -config job.properties -run
     ```
 
-5. Kontrol lera statusen med Oozie-webbkonsolen, den här gången väljer du fliken **koordinator jobb** och sedan **alla jobb**.
+5. Kontrol lera statusen med Oozie-webbkonsolen, den här gången väljer du fliken **koordinator jobb** och sedan  **alla jobb**.
 
     ![Oozie-webbkonsolens koordinator jobb](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
 

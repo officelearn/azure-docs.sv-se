@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500154"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488974"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,16 +45,16 @@ VCore-baserade tjänst nivåer särskiljs baserat på databasens tillgänglighet
 | **Bäst för** |Alla|Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.|De flesta företags arbets belastningar. Automatisk skalning av lagrings utrymme på upp till 100 TB, fast lodrät och vågrät beräknings skalning, snabb databas återställning.|OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
 |  **Resurstyp** ||SQL Database-/SQL-hanterad instans | Enskild databas | SQL Database-/SQL-hanterad instans |
 | **Beräknings storlek**|SQL Database * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
-| **Beräknings storlek**|SQL-hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Ej tillämpligt | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| **Beräknings storlek**|SQL-hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | E.t. | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Lagringstyp** | Alla |Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Lagrings storlek** | SQL Database *| 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
-| **Lagrings storlek** | SQL-hanterad instans  | 32 GB – 8 TB | Ej tillämpligt | 32 GB – 4 TB |
+| **Lagrings storlek** | SQL-hanterad instans  | 32 GB – 8 TB | E.t. | 32 GB – 4 TB |
 | **IOPS** | Enskild databas | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
-| **IOPS** | SQL-hanterad instans | Beror på fil storlek | Ej tillämpligt | 1375 IOPS/vCore |
+| **IOPS** | SQL-hanterad instans | Beror på fil storlek | E.t. | 1375 IOPS/vCore |
 |**Tillgänglighet**|Alla|1 replik, ingen Läs skalning, ingen lokal cache | Flera repliker, upp till 4 Läs skalbarhet, delvis lokal cache | 3 repliker, 1 Läs-och utskalning, zon-redundanta HA, fullständig lokal lagring |
 |**Säkerhetskopior**|Alla|RA-GRS, 7-35 dag kvarhållning (7 dagar som standard)| RA-GRS, 7 dagars kvarhållning, konstant Time-Time-återställning (PITR) | RA-GRS, 7-35 dag kvarhållning (7 dagar som standard) |
 
-\*Elastiska pooler stöds inte i den storskaliga tjänst nivån
+\* Elastiska pooler stöds inte i den storskaliga tjänst nivån
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Vem ska använda den storskaliga tjänst nivån
 
@@ -114,11 +114,11 @@ Ja, [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
 Storskaligt stöder alla SQL Server arbets belastningar, men den är främst optimerad för OLTP. Du kan också lägga till hybrid-och analys-och data mart-arbetsbelastningar.
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Hur kan jag välja mellan Azure SQL Data Warehouse och Azure SQL Database storskalig
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>Hur kan jag välja mellan Azure Synapse Analytics och Azure SQL Database storskalig
 
 Om du kör interaktiva analys frågor med SQL Server som ett informations lager är storskaligt ett bra alternativ eftersom du kan vara värd för små och medel stora informations lager (till exempel några TB upp till 100 TB) till en lägre kostnad, och du kan migrera dina SQL Server data lager arbets belastningar till skala med minimala T-SQL-kod ändringar.
 
-Om du kör data analys i stor skala med komplexa frågor och varaktiga inmatnings hastigheter som är högre än 100 MB/s, eller använder Parallel Data Warehouse (PDW), Teradata eller andra data lager för massivt parallell bearbetning (MPP), kan SQL Data Warehouse vara det bästa valet.
+Om du kör data analys i stor skala med komplexa frågor och varaktiga inmatnings priser som är högre än 100 MB/s, eller använder Parallel Data Warehouse (PDW), Teradata eller andra data lager för massivt parallell bearbetning (MPP), kan Azure Synapse Analytics (tidigare SQL Data Warehouse) vara det bästa valet.
   
 ## <a name="hyperscale-compute-questions"></a>Storskaliga beräknings frågor
 
@@ -158,7 +158,7 @@ Transaktions loggen med stor skala är nästan oändlig. Du behöver inte bekymr
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Växer min `tempdb` skalning som min databas
 
-`tempdb`Databasen finns på lokal SSD-lagring och anpassas proportionellt till den beräknings storlek som du etablerar. Din `tempdb` är optimerad för att ge maximala prestanda för delar. `tempdb`storleken kan inte konfigureras och hanteras åt dig.
+`tempdb`Databasen finns på lokal SSD-lagring och anpassas proportionellt till den beräknings storlek som du etablerar. Din `tempdb` är optimerad för att ge maximala prestanda för delar. `tempdb` storleken kan inte konfigureras och hanteras åt dig.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>Växer storleken på databasen automatiskt eller måste jag hantera storleken på datafilerna
 
@@ -229,7 +229,7 @@ Nedtid för migrering till storskalig skalning är detsamma som stillestånds ti
 
 Hög skalning kan förbruka 100 MB/s av nya/ändrade data, men den tid som behövs för att flytta data till databaser i Azure SQL Database påverkas också av tillgängligt nätverks data flöde, Läs-och Läs hastighet för mål databasen.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>Kan jag läsa data från Blob Storage och göra en snabb belastning (t. ex. PolyBase i SQL Data Warehouse)
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Kan jag läsa data från Blob Storage och göra en snabb belastning (t. ex. PolyBase i Azure Synapse Analytics)
 
 Du kan låta ett klient program läsa data från Azure Storage och läsa in data inläsning i en storskalig databas (precis som du kan med andra databaser i Azure SQL Database). PolyBase stöds för närvarande inte i Azure SQL Database. Som ett alternativ till att ge en snabb belastning kan du använda [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)eller använda ett Spark-jobb i [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) med [Spark-anslutaren för SQL](spark-connector.md). Spark-anslutningen till SQL stöder Mass infogning.
 
@@ -269,7 +269,7 @@ Ja.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>Vad är återställnings punkt mål (återställnings punkt mål)/Recovery tids mål (RTO) för databas återställning i storskalig
 
-Återställningen är 0 min. RTO-målet är mindre än 10 minuter, oavsett databasens storlek.
+Återställningen är 0 min. De flesta återställnings åtgärder slutförs inom 60 minuter oavsett databas storlek. Återställnings tiden kan vara längre för större databaser och om databasen hade en betydande Skriv aktivitet före och efter återställnings tidpunkten.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>Påverkar säkerhets kopiering av databasen beräknings prestanda för Mina primära eller sekundära repliker
 
@@ -345,9 +345,9 @@ Att skala upp eller ned resulterar i att befintliga anslutningar bryts när en r
 
 Slutanvändare. Inte automatisk.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>Växer storleken på `tempdb` databasen även när beräkningen skalas upp
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>Växer storleken på min `tempdb` databas och RBPEX cache även när beräkningen skalas upp
 
-Ja. `tempdb`Databasen skalas upp automatiskt när beräkningen växer.  
+Ja. `tempdb`Storleken på databas-och RBPEX- [cachen](service-tier-hyperscale.md#distributed-functions-architecture) på datornoderna skalas upp automatiskt när antalet kärnor ökas.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Kan jag etablera flera primära beräknings repliker, till exempel ett multi-master-system, där flera primära beräknings huvuden kan driva en högre nivå av samtidighet
 
@@ -361,7 +361,7 @@ Vi skapar en sekundär replik för storskaliga databaser som standard. Om du vil
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Hur gör jag för att ansluta till dessa sekundära beräknings repliker
 
-Du kan ansluta till dessa ytterligare skrivskyddade beräknings repliker genom att ange `ApplicationIntent` argumentet för anslutnings strängen till `ReadOnly` . Alla anslutningar som marker ATS med `ReadOnly` dirigeras automatiskt till en av de ytterligare skrivskyddade beräknings replikerna.  
+Du kan ansluta till dessa ytterligare skrivskyddade beräknings repliker genom att ange `ApplicationIntent` argumentet för anslutnings strängen till `ReadOnly` . Alla anslutningar som marker ATS med `ReadOnly` dirigeras automatiskt till en av de ytterligare skrivskyddade beräknings replikerna. Mer information finns i [använda skrivskyddade repliker för att avlasta skrivskyddade arbets belastningar](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Hur gör jag för att validera om jag har lyckats ansluta till en sekundär beräknings replik med hjälp av SSMS eller andra klient verktyg?
 
@@ -390,7 +390,7 @@ Nej. Storskaliga databaser har delad lagring, vilket innebär att alla beräknin
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Hur lång fördröjning kommer att vara mellan de primära och sekundära beräknings replikerna
 
-Data svars tid från det att en transaktion allokeras till den primära tiden som den visas på en sekundär beror på den aktuella logg skapande takten. Vanliga data svars tider är i små millisekunder.
+Data svars tid från det att en transaktion allokeras till den primära tiden som den kan läsas på en sekundär beror på den aktuella logg Genererings taxan, transaktions storlek, belastning på repliken och andra faktorer. Vanliga data svars tider för små transaktioner är i flera millisekunder, men det finns ingen övre bindning för data svars tid. Data på en särskild sekundär replik är alltid konsekventa. Men vid en viss tidpunkt kan data fördröjningen vara olika för olika sekundära repliker. Arbets belastningar som behöver läsa allokerade data omedelbart bör köras på den primära repliken.
 
 ## <a name="next-steps"></a>Nästa steg
 

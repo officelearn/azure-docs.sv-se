@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1dc9c39192dc478a4ffeba64983a498191417ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c3793daa820d0cb5b5b6900402704756f206425
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213592"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488396"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbets belastnings hantering med resurs klasser i Azure Synapse Analytics
 
@@ -67,9 +67,9 @@ De dynamiska resurs klasserna implementeras med följande fördefinierade databa
 
 Minnes tilldelningen för varje resurs klass är följande.
 
-| Service nivå  | smallrc           | mediumrc               | largerc                | xlargerc               |
+| Servicenivå  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
-| DW100c         | 25 %               | 25 %                    | 25 %                    | 70 %                    |
+| DW100c         | 25 %               | 25 %                    | 25 %                    | 70 %                    |
 | DW200c         | 12,5%             | 12,5%                  | 22.2                    | 70 %                    |
 | DW300c         | 8 %                | 10 %                    | 22.2                    | 70 %                    |
 | DW400c         | 6,25%             | 10 %                    | 22.2                    | 70 %                    |
@@ -133,7 +133,7 @@ Följande instruktioner är undantagna från resurs klasser och körs alltid i s
 - DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQL DW
+Removed as these two are not confirmed / supported under Azure Synapse Analytics
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -192,7 +192,7 @@ Vi rekommenderar att du skapar en användare som är dedikerad för att köra en
 
 ### <a name="resource-classes-for-load-users"></a>Resurs klasser för inläsning av användare
 
-`CREATE TABLE`använder grupperade columnstore-index som standard. Komprimering av data i ett columnstore-index är en minnes intensiv åtgärd och minnes belastningen kan minska index kvaliteten. Minnes belastning kan leda till att en högre resurs klass krävs vid inläsning av data. För att säkerställa att belastningen har tillräckligt med minne, kan du skapa en användare som är avsedd för att köra belastningar och tilldela användaren till en högre resurs klass.
+`CREATE TABLE` använder grupperade columnstore-index som standard. Komprimering av data i ett columnstore-index är en minnes intensiv åtgärd och minnes belastningen kan minska index kvaliteten. Minnes belastning kan leda till att en högre resurs klass krävs vid inläsning av data. För att säkerställa att belastningen har tillräckligt med minne, kan du skapa en användare som är avsedd för att köra belastningar och tilldela användaren till en högre resurs klass.
 
 Vilken mängd minne som krävs för att bearbeta belastningarna beror på vilken tabell som lästs in och data storleken. Mer information om minnes krav finns i [maximera radgrupps-kvalitet](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -243,9 +243,9 @@ Här är syftet med den här lagrade proceduren:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Ange antingen en NULL-parameter för att extrahera den aktuella DWU från DW DB eller ange eventuella DWU som stöds i formatet "DW100c"
-2. @SCHEMA_NAME:Ange ett schema namn för tabellen
-3. @TABLE_NAME:Ange ett tabell namn för intresset
+1. @DWU: Ange antingen en NULL-parameter för att extrahera den aktuella DWU från DW DB eller ange eventuella DWU som stöds i formatet "DW100c"
+2. @SCHEMA_NAME: Ange ett schema namn för tabellen
+3. @TABLE_NAME: Ange ett tabell namn för intresset
 
 Exempel som kör den här lagrade proceduren:
 

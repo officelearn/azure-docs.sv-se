@@ -2,13 +2,13 @@
 title: Översikt över ACR-uppgifter
 description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad version av behållar avbildning, hantering och korrigeringar i molnet.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087286"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488651"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -59,7 +59,7 @@ ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platse
 | Utlösare | Aktiverat som standard |
 | ------- | ------------------ |
 | Checka in | Ja |
-| Pull-begäran | No |
+| Pull-begäran | Inga |
 
 Om du vill konfigurera en uppdaterings utlösare för käll koden måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ställa in webhooken i den offentliga eller privata GitHub eller Azure DevOps lagrings platsen.
 
@@ -100,7 +100,7 @@ Lär dig mer om aktiviteter i flera steg i [köra åtgärder för att skapa, tes
 
 ## <a name="context-locations"></a>Kontext platser
 
-I följande tabell visas några exempel på kontext platser som stöds för ACR-aktiviteter:
+I följande tabell visas exempel på kontext platser som stöds för ACR-aktiviteter:
 
 | Kontext plats | Beskrivning | Exempel |
 | ---------------- | ----------- | ------- |
@@ -111,6 +111,7 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 | GitHub incheckning | Särskilt genomförande i en offentlig eller privat GitHub-lagrings platsen. Exempel på en kombination av en commit hash (SHA) och undermappens specifikation. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Azure dataDevOpss-undermapp | Filer i en undermapp i en offentlig eller privat Azure-lagrings platsen. Exempel på en kombination av förgrening och undermappar specifikation. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
+| Artefakt i behållar registret | [OCI-artefakter](container-registry-oci-artifacts.md) i en behållar register lagrings plats. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > När du använder en privat git-lagrings platsen som en kontext för en aktivitet måste du ange en personlig åtkomsttoken (PAT).

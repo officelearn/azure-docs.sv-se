@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: d982cc94a9ab0517d6453a30371635c1e3100676
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835605"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488515"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala ett Azure Stream Analytics jobb för att öka data flödet
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka data flödet för strömnings analys jobb. Du kan använda följande guide för att skala jobbet för att hantera högre belastning och dra nytta av mer system resurser (till exempel mer bandbredd, mer processor resurser, mer minne).
@@ -23,7 +23,7 @@ Som ett krav kan du behöva läsa följande artiklar:
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Fall 1 – din fråga är helt kan göras parallella över indataceller
 Om frågan är helt kan göras parallella över inpartitioner, kan du följa stegen nedan:
 1.  Redigera frågan så att den blir köras parallell genom att använda **partition med** nyckelord. Mer information finns i avsnittet köras Parallel Jobs [på den här sidan](stream-analytics-parallelization.md).
-2.  Beroende på vilka utdatatyper som används i din fråga kan vissa utdata antingen inte kan göras parallella eller så behöver du ytterligare konfiguration för att vara köras parallell. PowerBI-utdata är till exempel inte kan göras parallella. Utdata slås alltid samman innan skickas till utgående mottagare. Blobbar, tabeller, ADLS, Service Bus och Azure-funktionen är automatiskt parallellt. SQL-och SQL DW-utdata har ett alternativ för parallellisering. Event Hub måste ha PartitionKey-konfigurationen inställd så att den matchar fältet **partition by** (vanligt vis PartitionID). För Event Hub ska du också betala extra uppmärksamhet för att matcha antalet partitioner för alla indata och alla utdata för att undvika över-över-partitioner mellan partitioner. 
+2.  Beroende på vilka utdatatyper som används i din fråga kan vissa utdata antingen inte kan göras parallella eller så behöver du ytterligare konfiguration för att vara köras parallell. PowerBI-utdata är till exempel inte kan göras parallella. Utdata slås alltid samman innan skickas till utgående mottagare. Blobbar, tabeller, ADLS, Service Bus och Azure-funktionen är automatiskt parallellt. SQL-och Azure Synapse Analytics-utdata har ett alternativ för parallellisering. Event Hub måste ha PartitionKey-konfigurationen inställd så att den matchar fältet **partition by** (vanligt vis PartitionID). För Event Hub ska du också betala extra uppmärksamhet för att matcha antalet partitioner för alla indata och alla utdata för att undvika över-över-partitioner mellan partitioner. 
 3.  Kör din fråga med **6 Su** (vilket är den fulla kapaciteten för en enskild dator) för att mäta maximalt data flöde, och om du använder **Group by**, mäter du hur många grupper (kardinalitet) jobbet kan hantera. Allmänna symtom på system resurs gränser är följande:
     - Måttet SU% är över 80%. Detta indikerar att minnes användningen är hög. De faktorer som bidrar till ökningen av det här måttet beskrivs [här](stream-analytics-streaming-unit-consumption.md). 
     -   Tidsstämpeln för utdata faller bakom i förhållande till väggens Klock tid. Beroende på din fråge logik kan tidsstämpeln för utdata ha en logisk förskjutning från väggens klock klocka. De bör dock förfalla i ungefär samma takt. Om tidsstämpeln för utdata faller ytterligare och ytterligare bakom, är det en indikator att systemet är överarbetat. Det kan vara ett resultat av begränsning av utgående mottagare eller hög processor användning. Vi tillhandahåller inte mått för processor användning just nu, så det kan vara svårt att särskilja de två.

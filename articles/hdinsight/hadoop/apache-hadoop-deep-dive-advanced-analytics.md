@@ -1,19 +1,19 @@
 ---
 title: Djupgående avancerad analys – Azure HDInsight
 description: Lär dig hur avancerade analyser använder algoritmer för att bearbeta Big data i Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079368"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504357"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Djupgående avancerad analys
 
@@ -67,7 +67,7 @@ Det finns tre skalbara Machine Learning-bibliotek med algoritmiska modellerings 
 
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) -MLlib innehåller det ursprungliga API som byggts ovanpå Spark RDD.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML är ett nyare paket som ger ett API på högre nivå som bygger på Spark-DataFrames för att konstruera ml-pipelines.
-* [**MMLSpark**](https://github.com/Azure/mmlspark) – Microsoft Machine Learning-biblioteket för Apache Spark (MMLSpark) är utformat för att göra data forskare mer produktiva i Spark, för att öka antalet experiment och för att dra nytta av teknik för den senaste maskin inlärningen, inklusive djup inlärning på mycket stora data mängder. MMLSpark-biblioteket fören klar vanliga modellerings uppgifter för att skapa modeller i PySpark.
+* [**MMLSpark**](https://github.com/Azure/mmlspark)  – Microsoft Machine Learning-biblioteket för Apache Spark (MMLSpark) är utformat för att göra data forskare mer produktiva i Spark, för att öka antalet experiment och för att dra nytta av teknik för den senaste maskin inlärningen, inklusive djup inlärning på mycket stora data mängder. MMLSpark-biblioteket fören klar vanliga modellerings uppgifter för att skapa modeller i PySpark.
 
 ### <a name="r-and-ml-services"></a>R och ML-tjänster
 

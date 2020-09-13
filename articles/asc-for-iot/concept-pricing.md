@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c76a79f09629b32767c1dcc78989dfa47c678fd
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004774"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504579"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
@@ -48,9 +48,9 @@ Du kan minska de associerade kostnaderna genom att väljer ut ur vissa lösnings
 
 1. Öppna IoT Hub.
 
-1. Klicka på **Översikt**under **säkerhet**.
+1. Under **säkerhet**klickar du på **Inställningar**.
 
-1. Klicka på **Inställningar**.
+1. Klicka på **data insamling**.
 
 Följande tabell innehåller en sammanfattning av de associerade kostnaderna och konsekvenserna av varje alternativ.
 

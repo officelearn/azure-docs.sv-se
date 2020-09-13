@@ -1,22 +1,22 @@
 ---
 title: Krav för Azure Marketplace-erbjudandet och tjänst listan
-description: Den här artikeln beskriver krav och rikt linjer för att lista nya erbjudanden och tjänster på Azure Marketplace.
+description: Den här artikeln beskriver krav och rikt linjer för att lista nya erbjudanden, tjänster och andra IT-lösningar på Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 07/14/2020
-ms.openlocfilehash: 2f472f15f5f15fb48563aba90df273e31bb1b665
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/04/2020
+ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812877"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484280"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
-I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjudanden och tjänster på Azure Marketplace. Alla erbjudanden måste uppfylla de krav som anges i [list kraven för alla erbjudanden](#listing-requirements-for-all-offers) . Använd länkarna till höger för att gå till krav och check listor för särskilda typer av listor.
+I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjudanden och tjänster på Azure Marketplace. Alla erbjudanden måste uppfylla de [registrerings krav](#listing-requirements-for-all-offers) som anges nedan. Använd länkarna till höger för att navigera till ytterligare krav och check listor för särskilda typer av listor.
 
 ## <a name="listing-requirements-for-all-offers"></a>Lista krav för alla erbjudanden
 
@@ -28,8 +28,8 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 4 |  Beskrivning av erbjudande | <ul><li> Innehåller 2-3 stycken.</li><li>Lösnings erbjudandet är enkelt att förstå.</li><li>Är utan stavfel.</li><li>Är omfattande och fångar mål grupp, typ av användare och varför det är värdefullt (värde förslag).</li><li>Är i stycke form med korta meningar som är lätta att förstå.</li></ul> | <ul><li> Mål branschen anges (om det är relevant).</li><li>Teckenformatering med varje stycke rubrik som innehåller en mening eller en fras som sammanfattar det innehåll som följer och använder punkter, vid behov, för att betona viktiga fördelar. Målet är att läsaren snabbt ska förstå erbjudandet i ett lättanvänt format och inte behöver läsa långa stycken.</li><li>Det finns avstånd mellan varje stycke. Den läser som en bil broschyr. Det innebär att den är omfattande och beskriver bara erbjudandet, utan teknisk jargong. | 
 | 5 | Kategorier och branscher | <ul><li>Kategorier och under Kategorier måste matcha erbjudande funktioner </li><li>Välj inte kategorier/under kategorier som inte passar för dina erbjudande funktioner. </li></ul> | <ul><li>Välj upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).</li><li>Välj upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kommer ditt erbjudande fortfarande att kunna identifieras i den valda kategorin.</li></ul> |
 | 6 | Avbildningar | <ul><li>Avbildnings kraven visas i Partner Center.</li><li>Texten som ingår i skärm bilden är läslig och bilden är klar. | Lösnings erbjudandet är enkelt att förstå. |
-| 7 | Videor | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
-| 8 | Lista status (anrop till åtgärd) | <ul><li>Måste vara märkt som en av följande typer: <ul><li>*Kontakta mig*</li><li>*Utvärdering* / *Hämta utvärderings version nu* / *Starta utvärdering* / *Test enhet*</li><li>*Köp nu* / *Hämta nu*</li></ul></ul> | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC (proof of Concept), bedömning eller kortfattade.</li></ol> | 
+| 7 | Videoklipp | <ul><li>Ingen video krävs, men om den anges måste den spelas upp utan fel.</li><li>Om den anges får den inte referera till konkurrent-företag *om* den inte demonstrerar en migrations lösning. |<ul><li>Vi rekommenderar att längden är 3 min. eller mer.</li><li>Lösnings erbjudandet är enkelt att förstå med video innehåll.</li><li>Tillhandahåller demo av lösnings funktioner. |
+| 8 | Lista status (list alternativ) | <ul><li>Måste vara märkt som en av följande typer: <ul><li>*Kontakta mig*</li><li>*Utvärdering* / *Hämta utvärderings version nu* / *Starta utvärdering* / *Test enhet*</li><li>*Köp nu* / *Hämta nu*</li></ul></ul> | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC (proof of Concept), bedömning eller kortfattade.</li></ol> | 
 | 9 | Prissättning för lösning | Måste ha fliken prissättning/information i lösningen och priserna måste vara i den lokala valutan för partner lösnings erbjudandet. | Flera fakturerings alternativ bör vara tillgängliga med nivå priser för att ge kund alternativ. |
 | 10 | Mer information | Länkar längst ned (under beskrivningen, inte Azure Marketplace-länkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partnerns start sida. | 
 | 11 | Lösnings support och hjälp | Länka till minst ett av följande: <ul><li>Telefonnummer</li><li>Stöd för e-post</li><li>Chatt-agenter</li><li>Community-forum |<ul><li>Alla support metoder visas.</li><li>Avgiftsbelagd support erbjuds kostnads fritt under *utvärderings* perioden eller *test enhets* perioden. |
@@ -40,7 +40,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 
 | Nej. | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
-|  | Lista status (anrop till åtgärd) | Länken måste leda till en *utvärderings version* av kund LED. | Andra anrop till åtgärden (till exempel *Köp nu*) är också tillgängliga. | 
+|  | Lista status (list alternativ) | Länken måste leda till en *utvärderings version* av kund LED. | Andra List alternativ (till exempel *Köp nu*) är också tillgängliga. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Krav för SaaS-program
@@ -78,7 +78,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 2 | Beskrivning av erbjudande  |<ul><li>Se till att [Microsofts produkt namn](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)används korrekt.</li><li>Erbjudanden som marker ATS som *pris: uppskattat* måste ha en anteckning antingen överst eller underst för att förklara variationen (resa till klienten, antalet servrar som migreras och så vidare).</li><li>Varje erbjudande typ har beskrivnings krav, enligt följande: <ul><li>Det måste finnas minst fyra eller fem punkter, med information om ämnen som ska omfattas.</li><li>Alla workshops behöver en agenda.</li><li>Alla dag ordningar måste delas upp per dag eller per vecka, beroende på workshopens varaktighet.</li><li>Utvärdering, POC, ideella workshops och implementerings erbjudanden behöver slut produkter.</li><li>Utbildnings workshops behöver inte slut produkter, men de behöver en mer detaljerad agenda med ämnen som kommer att omfattas.</li></ul></ul> | <ul><li>Alla erbjudanden har dag ordning och slut produkter.</li><li>Erbjudandet innehåller ett stycke med kontext om företaget som tillhandahåller tjänsten i det övre avsnittet.</li><li>Erbjudandet innehåller ett stycke om värdet för själva tjänsten som ett övre avsnitt. |
 | 3 | Markdown-formatering  | Alla erbjudanden måste använda markdown-formatering så att erbjudandet återges korrekt när det konverteras till HTML.  |  |
 | 4 | Kategorier och branscher | Kategorierna är inte relevanta. |  | 
-| 5 | Lista status (anrop till åtgärd) | Visas automatiskt som *kontakta mig*. |  | 
+| 5 | Lista status (list alternativ) | Visas automatiskt som *kontakta mig*. |  | 
 | 6 | Lösnings support och hjälp  | Support och hjälp behöver inte anges.  | | 
 | 7 | Sekretess policy och användnings villkor  |  Principer eller villkor är inte obligatoriska.  | | 
 | 8 | Tjänst typer | Se till att tjänst typen matchar titeln. | |

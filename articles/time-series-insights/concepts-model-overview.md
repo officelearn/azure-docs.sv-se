@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 53db53f60166c3b5afa117a60a99e3429a14576d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855195"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488566"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börja
 > [!TIP]
 >
 > * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
-> * Lär dig [hur du arbetar med tids serie modellen](/azure/time-series-insights/how-to-edit-your-model) med hjälp av Azure Time Series Insights TSD-Utforskare.
+> * Lär dig [hur du arbetar med tids serie modellen](/azure/time-series-insights/how-to-edit-your-model) med hjälp av Azure Time Series Insights Explorer.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -75,7 +75,7 @@ Dessa komponenter kombineras för att ange en tids serie modell och organisera d
 
 [![Översikts diagram över tids serie modellen](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via [Azure Time Series Insights TSD-Utforskare](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Explorer](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Tids serie modell instanser
 
@@ -87,7 +87,7 @@ Instanser har beskrivande information som är kopplad till dem kallas *instans e
 
 *Instans fält* är en samling beskrivande information som kan innehålla värden för hierarki nivåer, samt tillverkare, operatör och så vidare.
 
-När en händelse källa har kon figurer ATS för Azure Time Series Insights Gen2-miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Azure Time Series Insights TSD-Utforskaren med hjälp av tids serie modell frågor.
+När en händelse källa har kon figurer ATS för Azure Time Series Insights Gen2-miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Azure Time Series Insights Explorer med hjälp av tids serie modell frågor.
 
 [Contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) innehåller flera exempel på Live-instansen.
 
@@ -102,7 +102,7 @@ Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**,
 | timeSeriesId | Unikt ID för tids serien som instansen är associerad med. I de flesta fall identifieras instanser unikt av en egenskap som deviceId eller assetId. I vissa fall kan ett mer särskilt sammansatt ID som kombinerar upp till 3 egenskaper användas. |
 | ID | Det Skift läges känsliga unika sträng-ID: t för den tids serie modell typ som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
 | name | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
-| beskrivning | En text Beskrivning av instansen. |
+| description | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
 | instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
 
@@ -216,7 +216,7 @@ Utifrån de instans fält som används i den föregående definitionen och flera
 | ID4 | "skapa" = "1000", "golv" = "10"  |
 | ID5 | Ingen av "byggnad", "golv" eller "Room" har angetts. |
 
-Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights TSD-Utforskaren](time-series-insights-update-explorer.md) , eftersom de har fullständigt definierade och korrekt beställda *Bygg*-, *vånings*-och *rums* parametrar.
+Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda parametrar för *bygge*, *golv*och *rum* .
 
 De andra klassificeras under icke- *överordnade instanser* eftersom de inte överensstämmer med den angivna Datahierarkin.
 
@@ -241,7 +241,7 @@ Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **var
 | ---| ---|
 | id | Det Skift läges känsliga unika sträng-ID: t för typen. |
 | name | En sträng som används för att ange ett namn för typen. |
-| beskrivning | En sträng beskrivning för typen. |
+| description | En sträng beskrivning för typen. |
 | användarvariabler | Ange variabler som är associerade med typen. |
 
 Typerna följer följande JSON-exempel:

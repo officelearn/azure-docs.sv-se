@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798439"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489654"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Begränsa åtkomst behörigheter för gäst (för hands version) i Azure Active Directory
 
@@ -40,10 +40,7 @@ Du måste vara i rollen global administratör för att konfigurera de externa sa
 
 Vi har gjort ändringar i befintliga Azure Portal-kontroller för gäst användar behörigheter.
 
-> [!IMPORTANT]
-> Under en kort tid visas nya Portal kontroller för gäst användar behörigheter endast med URL: en [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . PowerShell och Microsoft Graph kan fortfarande användas för att ange att kontrollerna och ändringarna ska hanteras av portalen.
-
-1. Logga in på [administrations Center för Azure AD](https://aka.ms/AADRestrictedGuestAccess) med globala administratörs behörigheter.
+1. Logga in på [administrations Center för Azure AD](https://aad.portal.azure.com) med globala administratörs behörigheter.
 1. På sidan **Azure Active Directory** översikt för din organisation väljer du **användar inställningar**.
 1. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 1. På sidan **Inställningar för externt samarbete** väljer du **åtkomst till gäst användare är begränsad till egenskaper och medlemskap för de egna katalog objekt** alternativen.

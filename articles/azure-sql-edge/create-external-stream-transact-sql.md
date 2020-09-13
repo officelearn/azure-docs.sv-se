@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: d4ad11d156fd3a672e93b5e039c82d16b2aebdc3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321742"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489552"
 ---
 # <a name="create-external-stream-transact-sql"></a>Skapa extern ström (Transact-SQL)
 
@@ -26,7 +26,7 @@ Azure SQL Edge stöder för närvarande endast följande data källor som indata
 
 | Typ av data Källa | Indata | Resultat | Beskrivning |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge hubb | Y | Y | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge hubb | J | J | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
 | Kafka | J | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Kafka-stöd är inte tillgängligt för ARM64-versionen av Azure SQL Edge.|
 
@@ -141,7 +141,7 @@ WITH  ( <with_options> )
   - MAXIMUM_BATCH_COUNT:  
     Maximalt antal händelser som skickats till funktionen per anrop för Azure Function-standard är 100. För SQL Database representerar detta det maximala antalet poster som skickas med varje Mass infognings transaktion – standardvärdet är 10 000. 
     - Gäller alla SQL-baserade utdata 
-  - STAGING_AREA: objektet för extern datakälla till Blob Storage mellanlagringsområdet för data inmatning med stora data flöden i SQL Data Warehouse 
+  - STAGING_AREA: objektet för extern datakälla till Blob Storage mellanlagringsområdet för data inmatning med stora data flöden i Azure Synapse Analytics 
     - Reserverad för framtida användning. Gäller inte för Azure SQL Edge.
 
 

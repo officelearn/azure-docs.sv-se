@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/31/2020
+ms.date: 09/04/2020
 ms.custom: generated
-ms.openlocfilehash: 685fdf8180f54c87fe6677268bd289ee00912c96
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: cbf859baa79b6630dea44a23d2a0e6f9fb64b82a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227771"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489671"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -402,6 +402,23 @@ Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Microsoft. Compute/availabilitySets/Write | Skapar en ny tillgänglighets uppsättning eller uppdaterar en befintlig |
 > | Microsoft. Compute/availabilitySets/Delete | Tar bort tillgänglighets uppsättningen |
 > | Microsoft. Compute/availabilitySets/tillåtna storlekar/Read | Lista tillgängliga storlekar för att skapa eller uppdatera en virtuell dator i tillgänglighets uppsättningen |
+> | Microsoft. Compute/cloudServices/Read | Hämta egenskaperna för en CloudService. |
+> | Microsoft. Compute/cloudServices/Write | Skapade en ny CloudService eller uppdatera en befintlig. |
+> | Microsoft. Compute/cloudServices/Delete | Tar bort CloudService. |
+> | Microsoft. Compute/cloudServices/avstängnings läge/Action | Stäng av CloudService. |
+> | Microsoft. Compute/cloudServices/start/Action | Startar CloudService. |
+> | Microsoft. Compute/cloudServices/restart/Action | Startar om en eller flera roll instanser i en CloudService. |
+> | Microsoft. Compute/cloudServices/Reimage/åtgärd | Återskapar alla diskar i roll instanserna i en CloudService. |
+> | Microsoft. Compute/cloudServices/Rebuild/Action | Återställ avbildningen av alla roll instanser i en CloudService. |
+> | Microsoft. Compute/cloudServices/ta bort/åtgärd | Tar bort roll instanser i en CloudService. |
+> | Microsoft. Compute/cloudServices/instanceView/Read | Hämtar status för en CloudService. |
+> | Microsoft. Compute/cloudServices/roleInstances/Delete | Tar bort en RoleInstance från CloudService. |
+> | Microsoft. Compute/cloudServices/roleInstances/Read | Hämtar en RoleInstance från CloudService. |
+> | Microsoft. Compute/cloudServices/roleInstances/restart/Action | Starta om en roll instans för en CloudService |
+> | Microsoft. Compute/cloudServices/roleInstances/Reimage/åtgärd | Återavbildning av en roll instans för en CloudService. |
+> | Microsoft. Compute/cloudServices/roleInstances/Rebuild/Action | Återskapa alla diskar i en CloudService. |
+> | Microsoft. Compute/cloudServices/roleInstances/instanceView/Read | Hämtar status för en roll instans från en CloudService. |
+> | Microsoft. Compute/cloudServices/updateDomains/Read | Hämtar en lista över alla uppdaterings domäner i en CloudService. |
 > | Microsoft. Compute/diskAccesses/Read | Hämta egenskaperna för DiskAccess-resursen |
 > | Microsoft. Compute/diskAccesses/Write | Skapa en ny DiskAccess-resurs eller uppdatera en befintlig |
 > | Microsoft. Compute/diskAccesses/Delete | Ta bort en DiskAccess-resurs |
@@ -1387,21 +1404,22 @@ Azure-tjänst: [Azure Data Box](../databox/index.yml)
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
+> | Microsoft. data-/jobb/läsa | Lista eller hämta order |
+> | Microsoft. data-/jobb/ta bort | Ta bort order |
+> | Microsoft. data-/jobb/Skriv | Skapa eller uppdatera order |
+> | Microsoft. Data Center/locations/availableSkus/Read | Visa eller hämta tillgängliga SKU: er |
+> | Microsoft. Data Center/locations/operationResults/Read | Visa eller hämta åtgärds resultat |
+> | Microsoft. data-/Operations/Read | Lista eller hämta åtgärderna |
+> | **DataAction** | **Beskrivning** |
 > | Microsoft. data-/register/åtgärd | Registrera providern Microsoft. data, |
 > | Microsoft. data-/avregistrera/åtgärd | Avregistrera providern Microsoft. data-providern |
 > | Microsoft. data-/jobb/Avbryt/åtgärd | Avbryter en pågående order. |
 > | Microsoft. data-/jobb/bookShipmentPickUp/åtgärd | Gör det möjligt att boka en plockning för retur leveranser. |
-> | Microsoft. data-/jobb/läsa | Lista eller hämta order |
-> | Microsoft. data-/jobb/ta bort | Ta bort order |
-> | Microsoft. data-/jobb/Skriv | Skapa eller uppdatera order |
 > | Microsoft. data-/jobb/listCredentials/åtgärd | Visar en lista med okrypterade autentiseringsuppgifter relaterade till beställningen. |
 > | Microsoft. data-/plats/validateInputs/åtgärd | Den här metoden utför alla typer av valideringar. |
 > | Microsoft. data-/plats/validateAddress/åtgärd | Verifierar leverans adressen och ger alternativa adresser om det finns några. |
 > | Microsoft. data-/plats/availableSkus/åtgärd | Den här metoden returnerar listan över tillgängliga SKU: er. |
 > | Microsoft. data-/plats/regionConfiguration/åtgärd | Den här metoden returnerar konfigurationerna för regionen. |
-> | Microsoft. Data Center/locations/availableSkus/Read | Visa eller hämta tillgängliga SKU: er |
-> | Microsoft. Data Center/locations/operationResults/Read | Visa eller hämta åtgärds resultat |
-> | Microsoft. data-/Operations/Read | Lista eller hämta åtgärderna |
 > | Microsoft. data-/prenumerations-resourceGroups/moveResources/åtgärd | Den här metoden utför resurs flytten. |
 > | Microsoft. data-/prenumerations-resourceGroups/validateMoveResources/åtgärd | Med den här metoden verifieras om resurs flyttning tillåts eller inte. |
 
@@ -2579,7 +2597,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -3286,6 +3304,7 @@ Azure-tjänst: [Azure Database for MariaDB](../mariadb/index.yml)
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
+> | Microsoft. DBforMariaDB/privateEndpointConnectionsApproval/Action | Anger om användaren får godkänna en privat slut punkts anslutning |
 > | Microsoft. DBforMariaDB/register/åtgärd | Registrera MariaDB Resource Provider |
 > | Microsoft. DBforMariaDB/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
 > | Microsoft. DBforMariaDB/locations/administratorAzureAsyncOperation/Read | Hämtar pågående åtgärder på MariaDB Server-administratörer |
@@ -3304,10 +3323,11 @@ Azure-tjänst: [Azure Database for MariaDB](../mariadb/index.yml)
 > | Microsoft. DBforMariaDB/locations/serverKeyOperationResults/Read | Hämtar pågående åtgärder på transparent data kryptering Server nycklar |
 > | Microsoft. DBforMariaDB/Operations/Read | Returnera listan över MariaDB-åtgärder. |
 > | Microsoft. DBforMariaDB/performanceTiers/Read | Returnerar listan med tillgängliga prestanda nivåer. |
-> | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texterna för en lista med frågor |
-> | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texten för en fråga |
 > | Microsoft. DBforMariaDB/servrar/start/åtgärd | Startar en speciell Server. |
 > | Microsoft. DBforMariaDB/servrar/stoppa/åtgärd | Stoppar en speciell Server. |
+> | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texterna för en lista med frågor |
+> | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texten för en fråga |
+> | Microsoft. DBforMariaDB/servers/privateEndpointConnectionsApproval/åtgärd | Anger om användaren får godkänna en privat slut punkts anslutning |
 > | Microsoft. DBforMariaDB/servrar/läsa | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft. DBforMariaDB/servrar/Skriv | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Microsoft. DBforMariaDB/servers/Delete | Tar bort en befintlig server. |
@@ -3366,6 +3386,7 @@ Azure-tjänst: [Azure Database for MySQL](../mysql/index.yml)
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
+> | Microsoft. DBforMySQL/privateEndpointConnectionsApproval/Action | Anger om användaren får godkänna en privat slut punkts anslutning |
 > | Microsoft. DBforMySQL/register/åtgärd | Registrera MySQL Resource Provider |
 > | Microsoft. DBforMySQL/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
 > | Microsoft. DBforMySQL/locations/administratorAzureAsyncOperation/Read | Hämtar pågående åtgärder på MySQL Server-administratörer |
@@ -3386,9 +3407,9 @@ Azure-tjänst: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/performanceTiers/Read | Returnerar listan med tillgängliga prestanda nivåer. |
 > | Microsoft. DBforMySQL/servrar/start/åtgärd | Startar en speciell Server. |
 > | Microsoft. DBforMySQL/servrar/stoppa/åtgärd | Stoppar en speciell Server. |
-> | Microsoft. DBforMySQL/-servrar/export/åtgärd |  |
 > | Microsoft. DBforMySQL/servers/queryTexts/åtgärd | Returnera texterna för en lista med frågor |
 > | Microsoft. DBforMySQL/servers/queryTexts/åtgärd | Returnera texten för en fråga |
+> | Microsoft. DBforMySQL/servers/privateEndpointConnectionsApproval/åtgärd | Anger om användaren får godkänna en privat slut punkts anslutning |
 > | Microsoft. DBforMySQL/servrar/läsa | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft. DBforMySQL/servrar/Skriv | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Microsoft. DBforMySQL/servers/Delete | Tar bort en befintlig server. |
@@ -3408,6 +3429,9 @@ Azure-tjänst: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/servrar/databaser/läsa | Returnera listan över MySQL-databaser eller hämtar egenskaperna för den angivna databasen. |
 > | Microsoft. DBforMySQL/servrar/databaser/skriva | Skapar en MySQL-databas med de angivna parametrarna eller uppdaterar egenskaperna för den angivna databasen. |
 > | Microsoft. DBforMySQL/servrar/databaser/ta bort | Tar bort en befintlig MySQL-databas. |
+> | Microsoft. DBforMySQL/servers/export/Write |  |
+> | Microsoft. DBforMySQL/servers/export/Read |  |
+> | Microsoft. DBforMySQL/servers/export/Read |  |
 > | Microsoft. DBforMySQL/servers/firewallRules/Read | Returnera listan över brand Väggs regler för en server eller hämtar egenskaperna för den angivna brand Väggs regeln. |
 > | Microsoft. DBforMySQL/servers/firewallRules/Write | Skapar en brand Väggs regel med de angivna parametrarna eller uppdaterar en befintlig regel. |
 > | Microsoft. DBforMySQL/servers/firewallRules/Delete | Tar bort en befintlig brand Väggs regel. |
@@ -3447,8 +3471,16 @@ Azure-tjänst: [Azure Database for PostgreSQL](../postgresql/index.yml)
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
+> | Microsoft. DBforPostgreSQL/privateEndpointConnectionsApproval/Action | Anger om användaren får godkänna en privat slut punkts anslutning |
 > | Microsoft. DBforPostgreSQL/register/åtgärd | Registrera PostgreSQL Resource Provider |
 > | Microsoft. DBforPostgreSQL/checkNameAvailability/Action | Verifiera om det tillhandahållna Server namnet är tillgängligt för etablering över hela världen för en specifik prenumeration. |
+> | Microsoft. DBforPostgreSQL/flexibleServers/Read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
+> | Microsoft. DBforPostgreSQL/flexibleServers/Write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
+> | Microsoft. DBforPostgreSQL/flexibleServers/Delete | Tar bort en befintlig server. |
+> | Microsoft. DBforPostgreSQL/flexibleServers/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar disagnostic-inställningen för resursen |
+> | Microsoft. DBforPostgreSQL/flexibleServers/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. DBforPostgreSQL/flexibleServers/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för PostgreSQL-servrar |
+> | Microsoft. DBforPostgreSQL/flexibleServers/providers/Microsoft. Insights/metricDefinitions/Read | Returnera typer av mått som är tillgängliga för databaser |
 > | Microsoft. DBforPostgreSQL/locations/administratorAzureAsyncOperation/Read | Hämtar pågående åtgärder på PostgreSQL Server-administratörer |
 > | Microsoft. DBforPostgreSQL/locations/administratorOperationResults/Read | Returnera PostgreSQL-åtgärds resultat för Server administratör |
 > | Microsoft. DBforPostgreSQL/locations/azureAsyncOperation/Read | Returnera PostgreSQL-Server åtgärds resultat |
@@ -3466,6 +3498,7 @@ Azure-tjänst: [Azure Database for PostgreSQL](../postgresql/index.yml)
 > | Microsoft. DBforPostgreSQL/Operations/Read | Returnera listan över PostgreSQL-åtgärder. |
 > | Microsoft. DBforPostgreSQL/performanceTiers/Read | Returnerar listan med tillgängliga prestanda nivåer. |
 > | Microsoft. DBforPostgreSQL/servers/queryTexts/åtgärd | Returnera texten för en fråga |
+> | Microsoft. DBforPostgreSQL/servers/privateEndpointConnectionsApproval/åtgärd | Anger om användaren får godkänna en privat slut punkts anslutning |
 > | Microsoft. DBforPostgreSQL/servrar/läsa | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft. DBforPostgreSQL/servrar/Skriv | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Microsoft. DBforPostgreSQL/servers/Delete | Tar bort en befintlig server. |
@@ -3765,7 +3798,7 @@ Azure-tjänst: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL-hanterad instans](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL-hanterad instans](../azure-sql/managed-instance/index.yml), [azure Synapse Analytics (tidigare SQL Data Warehouse)](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
@@ -3938,13 +3971,11 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/managedInstances/vulnerabilityAssessments/Read | Hämta principerna för sårbarhets bedömning på en specifik hanterad instans |
 > | Microsoft. SQL/Operations/Read | Hämtar tillgängliga REST-åtgärder |
 > | Microsoft. SQL/Servers/tdeCertificates/åtgärd | Skapa/uppdatera TDE-certifikat |
-> | Microsoft. SQL/Servers/enableAzureADOnlyAuthentication/åtgärd | Aktivera endast Azure Active Directory autentisering på den logiska servern |
-> | Microsoft. SQL/Servers/disableAzureADOnlyAuthentication/åtgärd | Inaktivera endast Azure Active Directory autentisering på den logiska servern |
+> | Microsoft. SQL/Servers/import/åtgärd | Importera Azure SQL Database |
 > | Microsoft. SQL/Servers/Read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft. SQL/Servers/Write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Microsoft. SQL/Servers/Delete | Tar bort en befintlig server. |
 > | Microsoft. SQL/Servers/privateEndpointConnectionsApproval/åtgärd | Anger om användaren får godkänna en privat slut punkts anslutning |
-> | Microsoft. SQL/Servers/import/åtgärd | Skapa en ny databas på servern och distribuera schema och data från ett DacPac-paket |
 > | Microsoft. SQL/Servers/administratorOperationResults/Read | Hämtar pågående åtgärder på Server administratörer |
 > | Microsoft. SQL/Servers/administrators/Read | Hämtar ett enskilt Azure Active Directory administratörs objekt |
 > | Microsoft. SQL/Servers/administrators/Write | Lägger till eller uppdaterar ett enskilt Azure Active Directory administratörs objekt |
@@ -3953,18 +3984,17 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/Servers/Advisor/Write | Uppdaterar automatiskt körnings status för en rådgivare på server nivå. |
 > | Microsoft. SQL/Servers/Advisors/recommendedActions/Read | Returnerar lista över rekommenderade åtgärder för angiven rådgivare för servern |
 > | Microsoft. SQL/Servers/Advisors/recommendedActions/Write | Använd den rekommenderade åtgärden på servern |
-> | Microsoft. SQL/Servers/auditingPolicies/Read | Hämta information om standard gransknings principen för Server tabeller som kon figurer ATS på en specifik server |
-> | Microsoft. SQL/Servers/auditingPolicies/Write | Ändra standard granskning av Server tabell för en specifik server |
 > | Microsoft. SQL/Servers/auditingSettings/Read | Hämta information om den gransknings princip för Server-blob som kon figurer ATS på en specifik server |
 > | Microsoft. SQL/Servers/auditingSettings/Write | Ändra serverns BLOB-granskning för en specifik server |
 > | Microsoft. SQL/Servers/auditingSettings/operationResults/Read | Hämta resultatet av åtgärden SET för Server BLOB Auditing-princip |
 > | Microsoft. SQL/Servers/automaticTuning/Read | Returnerar inställningar för automatisk justering för servern |
 > | Microsoft. SQL/Servers/automaticTuning/Write | Uppdaterar automatiska justerings inställningar för servern och returnerar uppdaterade inställningar |
+> | Microsoft. SQL/Servers/azureADOnlyAuthentications/Read | Läser en speciell Server Azure Active Directory ett objekt för autentisering |
+> | Microsoft. SQL/Servers/azureADOnlyAuthentications/Write | Lägger till eller uppdaterar en speciell Server Azure Active Directory endast autentiseringscertifikat |
+> | Microsoft. SQL/Servers/azureADOnlyAuthentications/Delete | Tar bort en enskild server Azure Active Directory ett autentiseringsschema |
 > | Microsoft. SQL/Servers/communicationLinks/Read | Returnera listan över kommunikations Länkar för en angiven server. |
 > | Microsoft. SQL/Servers/communicationLinks/Write | Skapa eller uppdatera en server kommunikations länk. |
 > | Microsoft. SQL/Servers/communicationLinks/Delete | Tar bort en befintlig server kommunikations länk. |
-> | Microsoft. SQL/Servers/connectionPolicies/Read | Returnera listan över Server anslutnings principer för en angiven server. |
-> | Microsoft. SQL/Servers/connectionPolicies/Write | Skapa eller uppdatera en princip för Server anslutning. |
 > | Microsoft. SQL/Servers/databaser/läsa | Returnera listan över databaser eller hämta egenskaperna för den angivna databasen. |
 > | Microsoft. SQL/Servers/databaser/skriva | Skapar en databas med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna databasen. |
 > | Microsoft. SQL/Servers/databaser/ta bort | Tar bort en befintlig databas. |
@@ -3974,14 +4004,13 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/Servers/databaser/upgradeDataWarehouse/åtgärd | Uppgradera Azure SQL Data Warehouse-databas |
 > | Microsoft. SQL/Servers/databaser/flytta/åtgärd | Ändra namnet på en befintlig databas. |
 > | Microsoft. SQL/Servers/databaser/restorePoints/åtgärd | Skapar en ny återställnings punkt |
+> | Microsoft. SQL/Servers/databaser/import/åtgärd | Importera Azure SQL Database |
 > | Microsoft. SQL/Servers/databaser/redundans/åtgärd | Kundens initierade databas växling vid fel. |
 > | Microsoft. SQL/Servers/databaser/vulnerabilityAssessmentScans/åtgärd | Kör databas genomsökning för sårbarhets bedömning. |
 > | Microsoft. SQL/Servers/databaser/Advisor/Read | Returnerar lista över rådgivare som är tillgängliga för databasen |
 > | Microsoft. SQL/Servers/databaser/Advisor/Write | Uppdatera status för automatisk körning av en rådgivare på databas nivå. |
 > | Microsoft. SQL/Servers/databaser/Advisor/recommendedActions/Read | Returnerar lista över rekommenderade åtgärder för angiven rådgivare för databasen |
 > | Microsoft. SQL/Servers/databaser/Advisor/recommendedActions/Write | Tillämpa den rekommenderade åtgärden på databasen |
-> | Microsoft. SQL/Servers/databaser/auditingPolicies/Read | Hämta information om tabell gransknings principen som kon figurer ATS för en angiven databas |
-> | Microsoft. SQL/Servers/databaser/auditingPolicies/Write | Ändra tabell gransknings principen för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/auditingSettings/Read | Hämta information om den avgransknings princip för BLOB som kon figurer ATS för en angiven databas |
 > | Microsoft. SQL/Servers/databaser/auditingSettings/Write | Ändra BLOB Auditing-principen för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/auditRecords/Read | Hämta databasens BLOB audit-poster |
@@ -3993,8 +4022,6 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/Servers/databaser/backupShortTermRetentionPolicies/Read | Hämtar en kortsiktig bevarande princip för en databas |
 > | Microsoft. SQL/Servers/databaser/backupShortTermRetentionPolicies/Write | Uppdaterar en kortsiktig bevarande princip för en databas |
 > | Microsoft. SQL/Servers/databaser/kolumner/läsa | Returnera en lista med kolumner för en databas |
-> | Microsoft. SQL/Servers/databaser/connectionPolicies/Read | Hämta information om anslutnings principen som kon figurer ATS för en angiven databas |
-> | Microsoft. SQL/Servers/databaser/connectionPolicies/Write | Ändra anslutnings princip för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/currentSensitivityLabels/Read | Visa känslighets etiketter för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/currentSensitivityLabels/Write | Uppdatera känslighets etiketter för batch |
 > | Microsoft. SQL/Servers/databaser/dataMaskingPolicies/Read | Returnera listan över data masknings principer för databasen. |
@@ -4012,6 +4039,7 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/Servers/databaser/tillägg/importExtensionOperationResults/Read | Hämtar pågående import åtgärder |
 > | Microsoft. SQL/Servers/databaser/geoBackupPolicies/Read | Hämta principer för geo-säkerhetskopiering för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/geoBackupPolicies/Write | Skapa eller uppdatera en databas princip för säkerhets kopiering |
+> | Microsoft. SQL/Servers/databaser/importExportAzureAsyncOperation/Read | Hämtar pågående import/export-åtgärder |
 > | Microsoft. SQL/Servers/databaser/importExportOperationResults/Read | Hämtar pågående import/export-åtgärder |
 > | Microsoft. SQL/Servers/databaser/maintenanceWindowOptions/Read | Hämtar en lista över tillgängliga underhålls fönster för en vald databas. |
 > | Microsoft. SQL/Servers/databaser/maintenanceWindows/Read | Hämtar inställningar för Windows-underhåll för en vald databas. |
@@ -4965,6 +4993,39 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/Accounts/ImmersiveReader/getcontentmodelforreader/Action | Skapar en avancerad spårningssession |
 > | Microsoft. CognitiveServices/konton/InkRecognizer/identifiera/åtgärd | Med en uppsättning linje data analyseras innehållet och en lista över identifierade entiteter genereras, inklusive identifierad text. |
 > | Microsoft. CognitiveServices/Accounts/LUIS/predict/Action | Hämtar den publicerade slut punkts förutsägelsen för den givna frågan. |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Alert/avvikelse/konfigurationer/Skriv | Skapa eller uppdatera konfiguration av avvikelse aviseringar |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Alert/avvikelse/konfigurationer/ta bort | Ta bort konfiguration av avvikelse aviseringar |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Alert/avvikelse/konfigurationer/läsa | Fråga en enskild avvikelse aviserings konfiguration |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Alert/avvikelse/konfigurationer/aviseringar/fråga/åtgärd | Fråga aviseringar under konfiguration av avvikelse aviseringar |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Alert/avvikelse/konfigurationer/aviseringar/avvikelser/läsning | Fråga efter avvikelser under en speciell avisering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Alert/avvikelse/konfigurationer/aviseringar/incidenter/läsa | Fråga efter incidenter under en speciell avisering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/datafeeds/Write | Skapa eller uppdatera en datafeed. |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/datafeeds/Delete | Ta bort en datafeed |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/datafeeds/Read | Hämta en datafeed med ID: t eller lista alla data flöden |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/datafeeds/ingestionprogress/Read | Hämta data för senaste lyckade inmatnings jobbets tidsstämpel per datafeed |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/datafeeds/ingestionprogress/reset/Action | Återställ data inmatnings status efter datafeed till bakfyllnings data |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/datafeeds/ingestionstatus/fråga/åtgärd | Hämta data inmatnings status per datafeed |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/konfigurationer/Write | Skapa eller uppdatera konfigurationen för avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/Delete | Ta bort konfiguration av avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/Read | Fråga en konfiguration för en enskild avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/Alert/avvikelse/Configurations/Read | Fråga alla avvikelser om avvikelse identifiering för en speciell konfiguration av avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/avvikelser/fråga/åtgärd | Fråga efter avvikelser under konfiguration av avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/avvikelser/dimension/fråga/åtgärd | Fråga dimensions värden efter avvikelser |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/incidenter/fråga/åtgärd | Fråga efter incidenter under konfiguration av avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/Configurations/incidenter/rootcause/Read | Fråga om rotor saken för incident |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/anrikning/anomalydetection/konfigurationer/serie/fråga/åtgärd | Fråga serier som har berikats med avvikelse identifiering |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/feedback/Metric/Write | Skapa en ny feedback för mått |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/feedback/Metric/Read | Få en måtta feedback med ID: t |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/feedback/Metric/fråga/åtgärd | Visa feedback om det aktuella måttet |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/hookar/Write | Skapa eller uppdatera en Hook |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Hooks/Delete | Ta bort en Hook |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/hookar/Read | Hämta en Hook med dess ID eller Visa alla hookar |
+> | Microsoft. CognitiveServices/konton/MetricsAdvisor/Metrics/data/fråga/åtgärd | Hämta tids serie data från mått |
+> | Microsoft. CognitiveServices/konton/MetricsAdvisor/Metrics/dimension/fråga/åtgärd | List dimension från vissa mått |
+> | Microsoft. CognitiveServices/konton/MetricsAdvisor/Metrics/anrikning/anomalydetection/konfigurationer/läsa | Fråga alla konfigurationer för avvikelse identifiering för vissa mått |
+> | Microsoft. CognitiveServices/konton/MetricsAdvisor/Metrics/serie/fråga/åtgärd | List serier (dimensions kombinationer) från mått |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/Metrics/status/anrikning/anomalydetection/fråga/åtgärd | Fråga om avvikelse identifierings status |
+> | Microsoft. CognitiveServices/Accounts/MetricsAdvisor/stats/senaste/Läs | Hämta den senaste användnings statistik |
 > | Microsoft. CognitiveServices/Accounts/NewsSearch/categorysearch/Action | Returnerar nyheter för en angiven kategori. |
 > | Microsoft. CognitiveServices/Accounts/NewsSearch/search/Action | Hämta nyhets artiklar som är relevanta för en specifik fråga. |
 > | Microsoft. CognitiveServices/Accounts/NewsSearch/trendingtopics/Action | Hämta trender för ämnen som identifieras av Bing. Detta är samma ämnen som visas i informations fältet längst ned på Bing-startsidan. |
@@ -5010,35 +5071,6 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/Accounts/VideoSearch/search/Action | Hämta videor som är relevanta för en specifik fråga. |
 > | Microsoft. CognitiveServices/Accounts/VisualSearch/search/Action | Returnerar en lista med taggar som är relevanta för den angivna avbildningen |
 > | Microsoft. CognitiveServices/Accounts/WebSearch/Search/Action | Hämta webb-, bild-, diskussions &s resultat för en specifik fråga. |
-
-### <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
-
-Azure-tjänst: [Machine Learning Studio](../machine-learning/studio/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Åtgärd | Beskrivning |
-> | --- | --- |
-> | Microsoft. MachineLearning/register/åtgärd | Registrerar prenumerationen för resurs leverantören för Machine Learning-webbtjänsten och gör det möjligt att skapa webb tjänster. |
-> | Microsoft. MachineLearning/WebServices/åtgärd | Skapa regionala webb tjänst egenskaper för regioner som stöds |
-> | Microsoft. MachineLearning/commitmentPlans/Read | Läs en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/Write | Skapa eller uppdatera en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/Delete | Ta bort en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/JOIN/åtgärd | Delta i en Machine Learning åtagande plan |
-> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Read | Läs en Machine Learning åtagande Plans koppling |
-> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Move/åtgärd | Flytta en Machine Learning åtagande Plans koppling |
-> | Microsoft. MachineLearning/locations/operationresults/Read | Hämta resultatet av en Machine Learning-åtgärd |
-> | Microsoft. MachineLearning/locations/operationsstatus/Read | Hämta status för en pågående Machine Learning åtgärd |
-> | Microsoft. MachineLearning/Operations/Read | Hämta Machine Learning åtgärder |
-> | Microsoft. MachineLearning/SKU/Read | Hämta Machine Learning åtagande plan SKU: er |
-> | Microsoft. MachineLearning/WebServices/Read | Läs alla Machine Learning webb tjänster |
-> | Microsoft. MachineLearning/WebServices/Write | Skapa eller uppdatera webb tjänsten för Machine Learning |
-> | Microsoft. MachineLearning/WebServices/Delete | Ta bort alla Machine Learning webb tjänster |
-> | Microsoft. MachineLearning/WebServices/listnycklar/Read | Hämta nycklar till en Machine Learning-webbtjänst |
-> | Microsoft. MachineLearning/arbets ytor/läsa | Läs eventuella Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/Skriv | Skapa eller uppdatera Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/ta bort | Ta bort eventuella Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/listworkspacekeys/åtgärd | Lista nycklar för en Machine Learning-arbetsyta |
-> | Microsoft. MachineLearning/arbets ytor/resyncstoragekeys/åtgärd | Omsynkronisera nycklar för ett lagrings konto som har kon figurer ATS för en Machine Learning-arbetsyta |
 
 ### <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -5156,6 +5188,36 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/AKS/listnycklar/åtgärd | Visar nycklar för AKS-tjänster i Machine Learning Services-arbetsytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/AKS/Delete | Tar bort AKS-tjänster i Machine Learning Services-arbetsytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/AKS/Poäng/åtgärd | Score AKS Services i Machine Learning Services-arbetsytor |
+
+
+### <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
+
+Azure-tjänst: [Machine Learning Studio (klassisk)](../machine-learning/studio/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Åtgärd | Beskrivning |
+> | --- | --- |
+> | Microsoft. MachineLearning/register/åtgärd | Registrerar prenumerationen för resurs leverantören för Machine Learning-webbtjänsten och gör det möjligt att skapa webb tjänster. |
+> | Microsoft. MachineLearning/WebServices/åtgärd | Skapa regionala webb tjänst egenskaper för regioner som stöds |
+> | Microsoft. MachineLearning/commitmentPlans/Read | Läs en Machine Learning åtagande plan |
+> | Microsoft. MachineLearning/commitmentPlans/Write | Skapa eller uppdatera en Machine Learning åtagande plan |
+> | Microsoft. MachineLearning/commitmentPlans/Delete | Ta bort en Machine Learning åtagande plan |
+> | Microsoft. MachineLearning/commitmentPlans/JOIN/åtgärd | Delta i en Machine Learning åtagande plan |
+> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Read | Läs en Machine Learning åtagande Plans koppling |
+> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Move/åtgärd | Flytta en Machine Learning åtagande Plans koppling |
+> | Microsoft. MachineLearning/locations/operationresults/Read | Hämta resultatet av en Machine Learning-åtgärd |
+> | Microsoft. MachineLearning/locations/operationsstatus/Read | Hämta status för en pågående Machine Learning åtgärd |
+> | Microsoft. MachineLearning/Operations/Read | Hämta Machine Learning åtgärder |
+> | Microsoft. MachineLearning/SKU/Read | Hämta Machine Learning åtagande plan SKU: er |
+> | Microsoft. MachineLearning/WebServices/Read | Läs alla Machine Learning webb tjänster |
+> | Microsoft. MachineLearning/WebServices/Write | Skapa eller uppdatera webb tjänsten för Machine Learning |
+> | Microsoft. MachineLearning/WebServices/Delete | Ta bort alla Machine Learning webb tjänster |
+> | Microsoft. MachineLearning/WebServices/listnycklar/Read | Hämta nycklar till en Machine Learning-webbtjänst |
+> | Microsoft. MachineLearning/arbets ytor/läsa | Läs eventuella Machine Learning-arbetsyta |
+> | Microsoft. MachineLearning/arbets ytor/Skriv | Skapa eller uppdatera Machine Learning-arbetsyta |
+> | Microsoft. MachineLearning/arbets ytor/ta bort | Ta bort eventuella Machine Learning-arbetsyta |
+> | Microsoft. MachineLearning/arbets ytor/listworkspacekeys/åtgärd | Lista nycklar för en Machine Learning-arbetsyta |
+> | Microsoft. MachineLearning/arbets ytor/resyncstoragekeys/åtgärd | Omsynkronisera nycklar för ett lagrings konto som har kon figurer ATS för en Machine Learning-arbetsyta |
 
 ## <a name="internet-of-things"></a>Sakernas Internet
 
@@ -5578,9 +5640,9 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 > | Microsoft. API Management/Service/policy/Delete | Ta bort princip konfigurationen på klient nivå |
 > | Microsoft. API Management/Service/policyDescriptions/Read | Visar en lista över alla princip beskrivningar. |
 > | Microsoft. API Management/Service/policySnippets/Read | Visar en lista över alla princip fragment. |
-> | Microsoft. API Management/Service/portalsettings/Read | Visar en samling av Portal inställningar. eller få inloggnings inställningar för portalen eller få registrerings inställningar för portalen eller hämta Delegerings inställningar för portalen. |
-> | Microsoft. API Management/Service/portalsettings/Write | Uppdatera inloggnings inställningar. eller skapa eller uppdatera inloggnings inställningar. eller uppdatera registrerings inställningarna eller uppdatera inställningarna för registrering eller uppdatera delegering. eller skapa eller uppdatera Delegerings inställningar. |
-> | Microsoft. API Management/Service/portalsettings/listSecrets/Action | Hämtar verifierings nyckeln för inställningarna för Portal delegering. |
+> | Microsoft. API Management/Service/portalSettings/Read | Visar en samling av Portal inställningar. eller få inloggnings inställningar för portalen eller få registrerings inställningar för portalen eller hämta Delegerings inställningar för portalen. |
+> | Microsoft. API Management/Service/portalSettings/Write | Uppdatera inloggnings inställningar. eller skapa eller uppdatera inloggnings inställningar. eller uppdatera registrerings inställningarna eller uppdatera inställningarna för registrering eller uppdatera delegering. eller skapa eller uppdatera Delegerings inställningar. |
+> | Microsoft. API Management/Service/portalSettings/listSecrets/Action | Hämtar verifierings nyckeln för inställningarna för Portal delegering. eller hämta URI för BLOB-behållare för medie innehåll. |
 > | Microsoft. API Management/Service/Products/Read | Listar en samling produkter i den angivna tjänst instansen. eller hämtar information om den produkt som anges med dess identifierare. |
 > | Microsoft. API Management/Service/Products/Write | Skapar eller uppdaterar en produkt. eller uppdatera befintlig produkt information. |
 > | Microsoft. API Management/Service/Products/Delete | Ta bort produkt. |
@@ -6204,7 +6266,6 @@ Azure-tjänst: Azure Active Directory
 > | Microsoft. aadiam/privateLinkForAzureAD/Write | Skapa och uppdatera princip definition för privat länk |
 > | Microsoft. aadiam/privateLinkForAzureAD/Delete | Ta bort princip definition för privat länk |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Read | Läsa privata länk-proxy |
-> | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Write | Skapa och uppdatera privata länk-proxy |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Delete | Ta bort privata länk-proxy |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/validate/åtgärd | Verifiera privata länk-proxy |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnections/Read | Läs PrivateEndpointConnections |
@@ -6559,6 +6620,14 @@ Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/threatintelligence/Metrics/Action | Samla in hot informations mått |
 > | Microsoft. SecurityInsights/threatintelligence/bulkDelete/Action | Mass borttagning Hot information |
 > | Microsoft. SecurityInsights/threatintelligence/bulkTag/Action | Hot information för bulk-Taggar |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/Read | Hämtar hot informations indikatorer |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/Write | Uppdaterar hot informations indikatorer |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/Delete | Tar bort hot informations indikatorer |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/fråga/åtgärd | Fråga Threat Intelligence-indikatorer |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/Metrics/Action | Hämta hot informations indikator mått |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/appendTags/Action | Lägg till taggar till hot informations indikator |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/bulkDelete/Action | Ta bort hot informations indikatorer för Mass borttagning |
+> | Microsoft. SecurityInsights/threatintelligence/Indicators/bulkTag/Action | Hot informations indikatorer för bulk-Taggar |
 > | Microsoft. SecurityInsights/Watchlists/Read | Hämtar Watchlists |
 > | Microsoft. SecurityInsights/Watchlists/Write | Skapa Watchlists |
 > | Microsoft. SecurityInsights/Watchlists/Delete | Tar bort Watchlists |
@@ -7113,7 +7182,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Övervaka
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -7695,6 +7764,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ADTEventRoutesOperation/läsa | Läsa data från tabellen ADTEventRoutesOperation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ADTModelsOperation/läsa | Läsa data från tabellen ADTModelsOperation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ADTQueryOperation/läsa | Läsa data från tabellen ADTQueryOperation |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ADXCommand/läsa | Läsa data från tabellen ADXCommand |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ADXQuery/läsa | Läsa data från tabellen ADXQuery |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AegDeliveryFailureLogs/läsa | Läsa data från tabellen AegDeliveryFailureLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AegPublishFailureLogs/läsa | Läsa data från tabellen AegPublishFailureLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/avisering/läsa | Läsa data från aviserings tabellen |
@@ -8929,6 +9000,7 @@ Azure-tjänst: [Azure policy](../governance/policy/index.yml)
 > | Microsoft. PolicyInsights/attesteringar/läsa | Hämta attesteringar för kompatibilitetstillstånd. |
 > | Microsoft. PolicyInsights/attesteringar/skrivning | Skapa eller uppdatera attesteringar för kompatibilitetstillstånd. |
 > | Microsoft. PolicyInsights/attesteringar/ta bort | Ta bort attesteringar för kompatibilitetstillstånd. |
+> | Microsoft. PolicyInsights/checkPolicyRestrictions/Read | Hämta information om de begränsningar som principen kommer att genomdriva på en resurs. |
 > | Microsoft. PolicyInsights/Operations/Read | Hämtar åtgärder som stöds på Microsoft. PolicyInsights-namnrymd |
 > | Microsoft. PolicyInsights/policyEvents/queryResults/Action | Fråga efter information om princip händelser. |
 > | Microsoft. PolicyInsights/policyEvents/queryResults/Read | Fråga efter information om princip händelser. |

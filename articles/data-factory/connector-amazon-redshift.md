@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418260"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484552"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon RedShift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -42,7 +42,7 @@ Mer specifikt har den här Amazon RedShift-anslutningen stöd för att hämta da
 > [!TIP]
 > För att uppnå bästa prestanda vid kopiering av stora mängder data från RedShift bör du överväga att använda den inbyggda RedShift-inläsningen via Amazon S3. Mer information finns i avsnittet [använda Unload för att kopiera data från Amazon RedShift](#use-unload-to-copy-data-from-amazon-redshift) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du kopierar data till ett lokalt data lager med hjälp av [egen värd integration runtime](create-self-hosted-integration-runtime.md)beviljar du integration Runtime (Använd IP-adressen för datorn) åtkomst till Amazon RedShift-klustret. Mer information finns i [bevilja åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) .
 * Om du kopierar data till ett Azure-datalager, se [Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) för den BERÄKNINGS-IP-adress och de SQL-intervall som används av Azure Data Center.
@@ -57,7 +57,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för Amazon RedShift-länkade tjänst:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **AmazonRedshift** | Ja |
 | server |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
@@ -65,7 +65,7 @@ Följande egenskaper stöds för Amazon RedShift-länkade tjänst:
 | databas |Namnet på Amazon RedShift-databasen. |Ja |
 | användarnamn |Namnet på den användare som har åtkomst till databasen. |Ja |
 | password |Lösen ord för användar kontot. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i privat nätverk). Om inget värde anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime (om ditt data lager finns i privat nätverk). Om inget värde anges används standard Azure Integration Runtime. |Inga |
 
 **Exempel:**
 
@@ -99,7 +99,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från Amazon RedShift:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **AmazonRedshiftTable** | Ja |
 | schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
@@ -134,11 +134,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Amazon RedShift anger du käll typen i kopierings aktiviteten till **AmazonRedshiftSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **AmazonRedshiftSource** | Ja |
 | DocumentDB |Använd den anpassade frågan för att läsa data. Exempel: Välj * från tabellen tabell. |Nej (om "tableName" i data uppsättningen har angetts) |
-| redshiftUnloadSettings | Egenskaps grupp när Amazon RedShift tas bort från minnet. | Nej |
+| redshiftUnloadSettings | Egenskaps grupp när Amazon RedShift tas bort från minnet. | Inga |
 | s3LinkedServiceName | Avser en Amazon S3 som ska användas som en tillfällig lagring genom att ange ett länkat tjänst namn av typen "AmazonS3". | Ja om du använder inaktivera |
 | bucketName | Ange S3-Bucket för att lagra interims data. Om den inte anges genererar Data Factory tjänsten automatiskt.  | Ja om du använder inaktivera |
 
@@ -164,11 +164,11 @@ Läs mer om hur du använder inläsning för att kopiera data från Amazon RedSh
 
 [Borttagning](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) är en mekanism som tillhandahålls av Amazon Redshift, som kan ta bort resultatet från en fråga till en eller flera filer på Amazon Simple Storage Service (Amazon S3). Det rekommenderas av Amazon för att kopiera stor data uppsättning från RedShift.
 
-**Exempel: kopiera data från Amazon RedShift till Azure SQL Data Warehouse att använda Unload, mellanlagrad kopia och PolyBase**
+**Exempel: kopiera data från Amazon RedShift till Azure Synapse Analytics (tidigare SQL Data Warehouse) med hjälp av inläsning, mellanlagrad kopiering och PolyBase**
 
-För det här exemplet använder kopierings aktiviteten data från Amazon RedShift till Amazon S3 enligt konfigurationen i "redshiftUnloadSettings". Kopiera sedan data från Amazon S3 till Azure Blob enligt vad som anges i "stagingSettings", slutligen använder PolyBase för att läsa in data i SQL Data Warehouse. Alla tillfälliga format hanteras av kopierings aktiviteten på rätt sätt.
+För det här exemplet använder kopierings aktiviteten data från Amazon RedShift till Amazon S3 enligt konfigurationen i "redshiftUnloadSettings". Kopiera sedan data från Amazon S3 till Azure Blob enligt vad som anges i "stagingSettings". Slutligen använder du PolyBase för att läsa in data i Azure Synapse Analytics (tidigare SQL Data Warehouse). Alla tillfälliga format hanteras av kopierings aktiviteten på rätt sätt.
 
-![RedShift till SQL DW Copy-arbetsflöde](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![RedShift till Azure Synapse Analytics Copy-arbetsflöde](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -227,7 +227,7 @@ När du kopierar data från Amazon RedShift används följande mappningar från 
 | DECIMAL |Decimal |
 | DUBBEL PRECISION |Double |
 | INTEGER |Int32 |
-| REAL |Enskilt |
+| REAL |Enkel |
 | SMALLINT |Int16 |
 | TEXT |Sträng |
 | TIMESTAMP |DateTime |

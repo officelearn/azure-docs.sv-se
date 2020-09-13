@@ -3,12 +3,12 @@ title: Begränsa åtkomst med hjälp av en tjänst slut punkt
 description: Begränsa åtkomsten till ett Azure Container Registry med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk. Åtkomst till tjänst slut punkten är en funktion i Premium service-nivån.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371438"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488683"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Begränsa åtkomsten till ett behållar register med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk
 
@@ -29,13 +29,15 @@ Konfiguration av en slut punkt för en Registry-tjänst är tillgänglig i tjän
 * Varje register stöder högst 100 nätverks åtkomst regler.
 * Tjänst slut punkter för Azure Container Registry stöds inte i Azure-molnet för amerikanska myndigheter eller Azure Kina.
 
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
+
 ## <a name="prerequisites"></a>Krav
 
 * För att kunna använda Azure CLI-stegen i den här artikeln krävs Azure CLI version 2.0.58 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 * Om du inte redan har ett behållar register kan du skapa en (Premium-nivå krävs) och skicka en exempel avbildning, till exempel `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
 
-* Om du vill begränsa register åtkomsten med hjälp av en tjänst slut punkt i en annan Azure-prenumeration registrerar du resurs leverantören för Azure Container Registry i den prenumerationen. Till exempel:
+* Om du vill begränsa register åtkomsten med hjälp av en tjänst slut punkt i en annan Azure-prenumeration registrerar du resurs leverantören för Azure Container Registry i den prenumerationen. Exempel:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -61,7 +63,7 @@ az network vnet list \
   --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
-Resultat:
+Utdata:
 
 ```console
 [
@@ -93,7 +95,7 @@ az network vnet subnet show \
   --output tsv
 ``` 
 
-Resultat:
+Utdata:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
@@ -153,7 +155,7 @@ Om du vill se en lista över nätverks regler som har kon figurer ATS för regis
 az acr network-rule list --name mycontainerregistry 
 ```
 
-För varje regel som har kon figurer ATS kör du kommandot [AZ ACR Network-Rule Remove Remove][az-acr-network-rule-remove] för att ta bort den. Till exempel:
+För varje regel som har kon figurer ATS kör du kommandot [AZ ACR Network-Rule Remove Remove][az-acr-network-rule-remove] för att ta bort den. Exempel:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.

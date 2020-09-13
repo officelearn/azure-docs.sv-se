@@ -1,19 +1,19 @@
 ---
 title: Extrahera, transformera och läsa in (ETL) i skala – Azure HDInsight
 description: Lär dig hur extrahering, transformering och inläsning används i HDInsight med Apache Hadoop.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e048365ca589d452385607b902ee6b285de8165f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084128"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504323"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
@@ -27,7 +27,7 @@ I följande avsnitt lär du dig var och en av de olika ETL-faserna och deras ass
 
 ## <a name="orchestration"></a>Orkestrering
 
-Dirigering sträcker sig över alla faser i ETL-pipeline. ETL-jobb i HDInsight omfattar ofta flera olika produkter som arbetar tillsammans med varandra. Ett exempel:
+Dirigering sträcker sig över alla faser i ETL-pipeline. ETL-jobb i HDInsight omfattar ofta flera olika produkter som arbetar tillsammans med varandra. Exempel:
 
 - Du kan använda Apache Hive för att rensa en del av data och Apache gris för att rensa en annan del.
 - Du kan använda Azure Data Factory för att läsa in data i Azure SQL Database från Azure Data Lake Store.
@@ -48,7 +48,7 @@ Använd Azure Data Factory för att:
 
 1. Skapa och schemalägga data drivna arbets flöden. Dessa pipeliner matar in data från olika data lager.
 1. Bearbeta och transformera data med hjälp av beräknings tjänster som HDInsight eller Hadoop. Du kan också använda Spark, Azure Data Lake Analytics, Azure Batch eller Azure Machine Learning för det här steget.
-1. Publicera utdata till data lager, till exempel Azure SQL Data Warehouse, för BI-program att använda.
+1. Publicera utdata till data lager, till exempel Azure Synapse Analytics, för att BI-program ska förbruka.
 
 Mer information om Azure Data Factory finns i [dokumentationen](../../data-factory/introduction.md).
 
@@ -84,11 +84,11 @@ För att ladda upp data uppsättningar i intervallet terabyte kan nätverks för
 
 - **Data uppladdning från hård diskar:** Du kan använda [Azure import/export-tjänsten](../../storage/common/storage-import-export-service.md) för att leverera hård diskar med dina data till ett Azure-datacenter. Dina data laddas först upp till Azure Blob Storage. Du kan sedan använda Azure Data Factory eller AdlCopy-verktyget för att kopiera data från Azure Blob Storage till Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse är ett lämpligt alternativ för att lagra för beredda resultat. Du kan använda Azure HDInsight för att utföra dessa tjänster för SQL Data Warehouse.
+Azure Synapse Analytics är ett lämpligt alternativ för att lagra för beredda resultat. Du kan använda Azure HDInsight för att utföra dessa tjänster för Zure Synapse Analytics.
 
-Azure SQL Data Warehouse är ett Relations databas lager som är optimerat för analytiska arbets belastningar. Den skalas baserat på partitionerade tabeller. Tabeller kan partitioneras över flera noder. Noderna väljs vid tidpunkten för skapandet. De kan skalas efter faktumet, men det är en aktiv process som kan kräva data förflyttning. Mer information finns i [Hantera beräkning i SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure Synapse Analytics är ett Relations databas lager som är optimerat för analytiska arbets belastningar. Den skalas baserat på partitionerade tabeller. Tabeller kan partitioneras över flera noder. Noderna väljs vid tidpunkten för skapandet. De kan skalas efter faktumet, men det är en aktiv process som kan kräva data förflyttning. Mer information finns i [Hantera beräkning i Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
@@ -107,7 +107,7 @@ HBase anpassning är beroende av antalet noder i HDInsight-klustret.
 Azure erbjuder tre PaaS-relationella databaser:
 
 * [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) är en implementering av Microsoft SQL Server. Mer information om prestanda finns [i justera prestanda i Azure SQL Database](../../azure-sql/database/performance-guidance.md).
-* [Azure Database for MySQL](../../mysql/overview.md) är en implementering av Oracle MySQL.
+* [Azure Database for MySQL](../../mysql/overview.md)  är en implementering av Oracle MySQL.
 * [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) är en implementering av postgresql.
 
 Lägg till mer processor och minne för att skala upp dessa produkter.  Du kan också välja att använda Premium diskar med produkterna för bättre I/O-prestanda.

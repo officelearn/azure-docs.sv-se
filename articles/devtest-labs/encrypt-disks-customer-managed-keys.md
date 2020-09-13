@@ -2,19 +2,18 @@
 title: Kryptera OS-diskar med Kundhanterade nycklar i Azure DevTest Labs
 description: Lär dig hur du krypterar operativ system diskar (OS) med Kundhanterade nycklar i Azure DevTest Labs.
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/01/2020
+ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815929"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489854"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Kryptera operativ system diskar (OS) med Kundhanterade nycklar i Azure DevTest Labs
 Server Side Encryption (SSE) skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. SSE krypterar automatiskt dina data som lagras på hanterade diskar i Azure (OS-och data diskar) i vila som standard när de sparas i molnet. Lär dig mer om [disk kryptering](../virtual-machines/windows/disk-encryption.md) i Azure. 
 
 I DevTest Labs krypteras alla OS-diskar och data diskar som skapats som en del av ett labb med hjälp av plattforms hanterade nycklar. Men som en labb ägare kan du välja att kryptera virtuella dator diskar för labbet med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar kan du ange en **kundhanterad nyckel** som ska användas för kryptering av data i labb OS-diskar. Mer information om kryptering på Server sidan med Kundhanterade nycklar och andra typer av hanterade diskar finns i [Kundhanterade nycklar](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Se även [begränsningar med att använda Kundhanterade nycklar](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
-
 
 > [!NOTE]
 > - För närvarande stöds inte disk kryptering med en kundhanterad nyckel för OS-diskar i DevTest Labs. 
@@ -29,8 +28,11 @@ I följande avsnitt visas hur en labb ägare kan konfigurera kryptering med hjä
 
     - Disk krypterings uppsättningen måste finnas **i samma region och prenumeration som din labb miljö**. 
     - Se till att du (labb ägare) har minst en **åtkomst på läsar nivå** till den disk krypterings uppsättning som ska användas för att kryptera labb OS-diskar. 
-2. För labb som skapats före 8/1/2020 måste labb ägaren se till att identiteten för labb systemets tilldelade identitet är aktive rad. För att göra det kan labb ägaren gå till sitt labb, klicka på **konfiguration och principer**, klicka på **(för hands version)** blad, ändra systemtilldelad identitets **status** till **på** och klicka på **Spara**. För nya labb som skapats efter 8/1/2020-Labbets tilldelade identitet, aktive ras som standard. 
-3. För att labbet ska kunna hantera kryptering för alla labb-OS-diskar måste labb ägaren uttryckligen ge labb rollen **system tilldelad identitets** läsare på disk krypterings uppsättningen och rollen virtuell dator deltagare på den underliggande Azure-prenumerationen. Labb ägaren kan göra detta genom att utföra följande steg:
+1. För labb som skapats före 8/1/2020 måste labb ägaren se till att identiteten för labb systemets tilldelade identitet är aktive rad. För att göra det kan labb ägaren gå till sitt labb, klicka på **konfiguration och principer**, klicka på **(för hands version)** blad, ändra systemtilldelad identitets **status** till **på** och klicka på **Spara**. För nya labb som skapats efter 8/1/2020-Labbets tilldelade identitet, aktive ras som standard. 
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Hanterade nycklar":::
+1. För att labbet ska kunna hantera kryptering för alla labb-OS-diskar måste labb ägaren uttryckligen ge labb rollen **system tilldelad identitets** läsare på disk krypterings uppsättningen och rollen virtuell dator deltagare på den underliggande Azure-prenumerationen. Labb ägaren kan göra detta genom att utföra följande steg:
 
    
     1. Se till att du är medlem i [rollen administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) på Azures prenumerations nivå så att du kan hantera användar åtkomst till Azure-resurser. 
@@ -71,8 +73,24 @@ I följande avsnitt visas hur en labb ägare kan konfigurera kryptering med hjä
 1. I meddelande rutan med följande text: *den här inställningen gäller för nyligen skapade datorer i labbet. Den gamla OS-disken fortsätter att vara krypterad med den gamla disk krypterings uppsättningen*. Välj **OK**. 
 
     När den har kon figurer ATS krypteras Lab OS-diskar med den Kundhanterade nyckeln som anges med disk krypterings uppsättningen. 
+   
+## <a name="how-to-validate-if-disks-are-being-encrypted"></a>Så här verifierar du om diskar krypteras
 
+1. Gå till en virtuell labb dator som skapats efter att ha aktiverat disk kryptering med en kundhanterad nyckel i labbet.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Virtuell dator med aktive rad disk kryptering":::
+1. Klicka på den virtuella datorns resurs grupp och klicka på OS-disken.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Resurs grupp för virtuell dator":::
+1. Gå till kryptering och verifiera om kryptering har angetts till kund Managed Key med den disk krypterings uppsättning som du har valt.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Verifiera kryptering":::
+  
 ## <a name="next-steps"></a>Nästa steg
+
 Se följande artiklar: 
 
 - [Azure Disk Encryption](../virtual-machines/windows/disk-encryption.md). 

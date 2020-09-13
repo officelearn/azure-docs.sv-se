@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/04/2020
+ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932958"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488311"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
 
@@ -85,6 +85,7 @@ Om du vill arbeta med strängar kan du använda dessa sträng funktioner och äv
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Returnera start positionen för en under sträng. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera start positionen för den sista förekomsten av en under sträng. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller matris. |
 | [bytt](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätt en under sträng med den angivna strängen och returnera den uppdaterade strängen. |
 | [del](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller del strängar, avgränsade med kommatecken, från en större sträng baserat på ett angivet avgränsnings tecken i den ursprungliga strängen. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrol lera om en sträng börjar med en speciell under sträng. |
@@ -102,14 +103,14 @@ Om du vill arbeta med samlingar, vanligt vis matriser, strängar och ibland kan 
 
 | Samlings funktion | Uppgift |
 | ------------------- | ---- |
-| [ingår](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrol lera om en samling har ett angivet objekt. |
 | [tomt](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrol lera om en samling är tom. |
 | [förstagångskörningen](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. |
 | [överlappning](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnera en samling som *endast* innehåller gemensamma objekt i de angivna samlingarna. |
 | [konfigurationsobjektet](../logic-apps/workflow-definition-language-functions-reference.md#item) | När du är i en upprepad åtgärd över en matris returnerar du det aktuella objektet i matrisen under åtgärdens aktuella iteration. |
 | [ansluta](../logic-apps/workflow-definition-language-functions-reference.md#join) | Returnera en sträng som innehåller *alla* objekt från en matris, separerade med det angivna specialtecknet. |
 | [pågå](../logic-apps/workflow-definition-language-functions-reference.md#last) | Returnera det sista objektet från en samling. |
-| [krävande](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller matris. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller matris. |
 | [Ignorera](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Ta bort objekt från början av en samling och returnera *alla andra* objekt. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Returnera objekt från början av en samling. |
 | [Union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Returnera en samling som innehåller *alla* objekt från de angivna samlingarna. |
@@ -165,7 +166,7 @@ Om du vill ändra ett värdes typ eller format kan du använda dessa konverterin
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Returnera ett flytt ALS nummer för ett indatavärde. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Returnera heltals versionen för en sträng. |
 | [utgör](../logic-apps/workflow-definition-language-functions-reference.md#json) | Returnera värdet för JavaScript Object Notation (JSON) av typen eller objektet för en sträng eller XML. |
-| [nollängd](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera sträng versionen för ett indatavärde. |
+| [sträng](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera sträng versionen för ett indatavärde. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Returnera den URI-kodade versionen för ett indatavärde genom att ersätta URL-osäkra tecken med escape-tecken. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Returnera sträng versionen för en URI-kodad sträng. |
@@ -213,7 +214,7 @@ Fullständig referens för varje funktion finns i [alfabetisk lista](../logic-ap
 | [skapa](../logic-apps/workflow-definition-language-functions-reference.md#add) | Returnera resultatet från att lägga till två tal. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Returnera resultatet från att dividera två tal. |
 | [bekräftat](../logic-apps/workflow-definition-language-functions-reference.md#max) | Returnera det högsta värdet från en uppsättning tal eller en matris. |
-| [minimum](../logic-apps/workflow-definition-language-functions-reference.md#min) | Returnera det lägsta värdet från en uppsättning tal eller en matris. |
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Returnera det lägsta värdet från en uppsättning tal eller en matris. |
 | [rest](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Returnera resten från att dividera två tal. |
 | [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Returnera produkten från att multiplicera två tal. |
 | [slump](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Returnera ett slumpmässigt heltal från ett angivet intervall. |
@@ -681,7 +682,7 @@ addProperty(<object>, '<property>', <value>)
 | --------- | -------- | ---- | ----------- |
 | <*jobbobjektet*> | Ja | Objekt | JSON-objektet där du vill lägga till en egenskap |
 | <*immaterialrätt*> | Ja | Sträng | Namnet på egenskapen som ska läggas till |
-| <*värde*> | Ja | Valfri | Egenskapens värde |
+| <*värde*> | Ja | Alla | Egenskapens värde |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -700,7 +701,7 @@ addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 | <*jobbobjektet*> | Ja | Objekt | JSON-objektet där du vill lägga till en egenskap |
 | <*överordnad-egenskap*> | Ja | Sträng | Namnet på den överordnade egenskapen där du vill lägga till den underordnade egenskapen |
 | <*underordnad egenskap*> | Ja | Sträng | Namnet på den underordnade egenskapen som ska läggas till |
-| <*värde*> | Ja | Valfri | Värdet som ska anges för den angivna egenskapen |
+| <*värde*> | Ja | Alla | Värdet som ska anges för den angivna egenskapen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1128,7 +1129,7 @@ bool(<value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*värde*> | Ja | Valfri | Värdet som ska konverteras till Boolean. |
+| <*värde*> | Ja | Alla | Värdet som ska konverteras till Boolean. |
 |||||
 
 Om du använder `bool()` med ett objekt måste värdet för objektet vara en sträng eller ett heltal som kan konverteras till Boolean.
@@ -1168,7 +1169,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*första-icke-null-objekt*> | Valfri | Det första objektet eller värdet som inte är null. Om alla parametrar är null returnerar den här funktionen null. |
+| <*första-icke-null-objekt*> | Alla | Det första objektet eller värdet som inte är null. Om alla parametrar är null returnerar den här funktionen null. |
 ||||
 
 *Exempel*
@@ -1219,7 +1220,7 @@ Och returnerar följande resultat: `"HelloWorld"`
 
 <a name="contains"></a>
 
-### <a name="contains"></a>innehåller
+### <a name="contains"></a>contains
 
 Kontrol lera om en samling har ett angivet objekt.
 Returnera true när objektet hittas eller returnera falskt när det inte går att hitta.
@@ -1886,7 +1887,7 @@ first([<collection>])
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*första samlings objekt*> | Valfri | Det första objektet i samlingen |
+| <*första samlings objekt*> | Alla | Det första objektet i samlingen |
 ||||
 
 *Exempel*
@@ -2293,13 +2294,13 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*uttryck*> | Ja | Boolesk | Det uttryck som ska kontrol leras |
-| <*valueIfTrue*> | Ja | Valfri | Det värde som ska returneras när uttrycket är sant |
-| <*valueIfFalse*> | Ja | Valfri | Värdet som ska returneras när uttrycket är falskt |
+| <*valueIfTrue*> | Ja | Alla | Det värde som ska returneras när uttrycket är sant |
+| <*valueIfFalse*> | Ja | Alla | Värdet som ska returneras när uttrycket är falskt |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*angivet-retur värde*> | Valfri | Det angivna värdet som returnerar baserat på om uttrycket är sant eller falskt |
+| <*angivet-retur värde*> | Alla | Det angivna värdet som returnerar baserat på om uttrycket är sant eller falskt |
 ||||
 
 *Exempel*
@@ -2386,7 +2387,7 @@ item()
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*Aktuellt mat ris objekt*> | Valfri | Det aktuella objektet i matrisen för åtgärdens aktuella iteration |
+| <*Aktuellt mat ris objekt*> | Alla | Det aktuella objektet i matrisen för åtgärdens aktuella iteration |
 ||||
 
 *Exempel*
@@ -2415,7 +2416,7 @@ items('<loopName>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konfigurationsobjektet*> | Valfri | Objektet från den aktuella cykeln i angivet for-each-slinga |
+| <*konfigurationsobjektet*> | Alla | Objektet från den aktuella cykeln i angivet for-each-slinga |
 ||||
 
 *Exempel*
@@ -3202,7 +3203,7 @@ parameters('<parameterName>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*parameter-värde*> | Valfri | Värdet för den angivna parametern |
+| <*parameter-värde*> | Alla | Värdet för den angivna parametern |
 ||||
 
 *Exempel*
@@ -3549,7 +3550,7 @@ setProperty(<object>, '<property>', <value>)
 | --------- | -------- | ---- | ----------- |
 | <*jobbobjektet*> | Ja | Objekt | JSON-objektet vars egenskap du vill ange |
 | <*immaterialrätt*> | Ja | Sträng | Namnet på den befintliga eller nya egenskapen som ska anges |
-| <*värde*> | Ja | Valfri | Värdet som ska anges för den angivna egenskapen |
+| <*värde*> | Ja | Alla | Värdet som ska anges för den angivna egenskapen |
 |||||
 
 Använd ett kapslat anrop i stället för att ställa in den underordnade egenskapen i ett underordnat objekt `setProperty()` . Annars returnerar funktionen bara det underordnade objektet som utdata.
@@ -3563,7 +3564,7 @@ setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<obj
 | <*jobbobjektet*> | Ja | Objekt | JSON-objektet vars egenskap du vill ange |
 | <*överordnad-egenskap*> | Ja | Sträng | Namnet på överordnad egenskap med den underordnade egenskapen som du vill ange |
 | <*underordnad egenskap*> | Ja | Sträng | Namnet på den underordnade egenskapen som ska anges |
-| <*värde*> | Ja | Valfri | Värdet som ska anges för den angivna egenskapen |
+| <*värde*> | Ja | Alla | Värdet som ska anges för den angivna egenskapen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3847,7 +3848,7 @@ string(<value>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*värde*> | Ja | Valfri | Det värde som ska konverteras. Om det här värdet är null eller utvärderas till null, konverteras värdet till ett tomt sträng `""` värde (). <p><p>Om du till exempel tilldelar en sträng variabel till en icke-befintlig egenskap, som du kan komma åt med `?` operatorn, konverteras värdet null till en tom sträng. Att jämföra ett null-värde är dock inte detsamma som att jämföra en tom sträng. |
+| <*värde*> | Ja | Alla | Det värde som ska konverteras. Om det här värdet är null eller utvärderas till null, konverteras värdet till ett tomt sträng `""` värde (). <p><p>Om du till exempel tilldelar en sträng variabel till en icke-befintlig egenskap, som du kan komma åt med `?` operatorn, konverteras värdet null till en tom sträng. Att jämföra ett null-värde är dock inte detsamma som att jämföra en tom sträng. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -3914,8 +3915,7 @@ Och returnerar följande resultat: `10`
 
 ### <a name="substring"></a>under sträng
 
-Returnera tecken från en sträng, från angiven position eller index.
-Index värden börjar med siffran 0.
+Returnera tecken från en sträng, från angiven position eller index. Index värden börjar med siffran 0.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3927,6 +3927,10 @@ substring('<text>', <startIndex>, <length>)
 | <*Start*> | Ja | Integer | Ett positivt tal som är lika med eller större än 0 som du vill använda som start position eller index värde |
 | <*krävande*> | Ja | Integer | Ett positivt antal tecken som du vill ha i under strängen |
 |||||
+
+> [!NOTE]
+> Se till att summan för att lägga till värdena *Start* värden och *längd* parameter är mindre än längden på strängen som du anger för *text* parametern.
+> Annars visas ett fel, till skillnad från liknande funktioner på andra språk där resultatet är del strängen från *Start indexet* till slutet av strängen.
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
@@ -4641,7 +4645,7 @@ variables('<variableName>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*variabel värde*> | Valfri | Värdet för den angivna variabeln |
+| <*variabel värde*> | Alla | Värdet för den angivna variabeln |
 ||||
 
 *Exempel*
@@ -4748,14 +4752,14 @@ xpath('<xml>', '<xpath>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*fil*> | Ja | Valfri | XML-sträng för att söka efter noder eller värden som matchar ett XPath-uttrycks värde |
-| <*XPath*> | Ja | Valfri | XPath-uttryck som används för att hitta matchande XML-noder eller värden |
+| <*fil*> | Ja | Alla | XML-sträng för att söka efter noder eller värden som matchar ett XPath-uttrycks värde |
+| <*XPath*> | Ja | Alla | XPath-uttryck som används för att hitta matchande XML-noder eller värden |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
 | <*XML-nod*> | XML | En XML-nod när endast en nod matchar angivet XPath-uttryck |
-| <*värde*> | Valfri | Värdet från en XML-nod när endast ett enda värde matchar angivet XPath-uttryck |
+| <*värde*> | Alla | Värdet från en XML-nod när endast ett enda värde matchar angivet XPath-uttryck |
 | [<*XML-nod1*> <*xml-NOD2*>,...] </br>\- eller - </br>[<*värde1*> <*värde2*>,...] | Matris | En matris med XML-noder eller värden som matchar angivet XPath-uttryck |
 ||||
 

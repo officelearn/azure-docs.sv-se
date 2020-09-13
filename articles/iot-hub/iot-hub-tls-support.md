@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/01/2020
 ms.author: jlian
-ms.openlocfilehash: 8c52037684215d1672ed813389d0bbace9a03e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080620"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006048"
 ---
 # <a name="tls-support-in-iot-hub"></a>TLS-stöd i IoT Hub
 
@@ -22,9 +22,9 @@ TLS 1,0 och 1,1 betraktas som äldre och planeras för utfasning. Mer informatio
 
 ## <a name="tls-12-enforcement-available-in-select-regions"></a>TLS 1,2-tvång är tillgängligt i utvalda regioner
 
-För ytterligare säkerhet konfigurerar du IoT-hubbarna så att de *bara* tillåter klient anslutningar som använder TLS version 1,2 och för att framtvinga användning av [rekommenderade chiffer](#recommended-ciphers). Den här funktionen stöds bara i följande regioner:
+För ytterligare säkerhet konfigurerar du IoT-hubbarna så att de *bara* tillåter klient anslutningar som använder TLS version 1,2 och för att framtvinga användningen av [chiffersviter](#cipher-suites). Den här funktionen stöds bara i följande regioner:
 
-* USA, östra
+* East US
 * USA, södra centrala
 * USA, västra 2
 * US Gov, Arizona
@@ -55,23 +55,23 @@ I detta syfte etablerar du en ny IoT Hub i någon av de regioner som stöds och 
 }
 ```
 
-Den skapade IoT Hub-resursen som använder den här konfigurationen kommer att neka enhets-och tjänst klienter som försöker ansluta med TLS-versionerna 1,0 och 1,1. På samma sätt kommer TLS-handskakningen att nekas om klientens HÄLSNINGs meddelande inte listar några av de [rekommenderade chiffer](#recommended-ciphers).
+Den skapade IoT Hub-resursen som använder den här konfigurationen kommer att neka enhets-och tjänst klienter som försöker ansluta med TLS-versionerna 1,0 och 1,1. På samma sätt kommer TLS-handskakningen att nekas om `ClientHello` meddelandet inte listar några av de [rekommenderade chifferna](#cipher-suites).
 
 > [!NOTE]
-> `minTlsVersion`Egenskapen är skrivskyddad och kan inte ändras när IoT Hub resurs har skapats. Det är därför viktigt att du testar och kontrollerar att *alla* IoT-enheter och-tjänster är kompatibla med TLS 1,2 och de [rekommenderade chifferna](#recommended-ciphers) i förväg.
+> `minTlsVersion`Egenskapen är skrivskyddad och kan inte ändras när IoT Hub resurs har skapats. Det är därför viktigt att du testar och kontrollerar att *alla* IoT-enheter och-tjänster är kompatibla med TLS 1,2 och de [rekommenderade chifferna](#cipher-suites) i förväg.
 > 
 > Vid redundans `minTlsVersion` fortsätter egenskapen för dina IoT Hub att vara effektiv i den geo-kopplade regionen efter redundansväxlingen.
 
-## <a name="recommended-ciphers"></a>Rekommenderade chiffer
+## <a name="cipher-suites"></a>Chiffersviter
 
-IoT-hubbar som är konfigurerade för att endast acceptera TLS 1,2 kommer också att framtvinga användning av följande rekommenderade chiffer:
+IoT-hubbar som är konfigurerade för att endast acceptera TLS 1,2 kommer också att framtvinga användning av följande rekommenderade chiffersviter:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-För IoT-hubbar som inte har kon figurer ATS för TLS 1,2 fungerar TLS 1,2 fortfarande med följande chiffer:
+För IoT-hubbar som inte har kon figurer ATS för TLS 1,2 fungerar TLS 1,2 fortfarande med följande chiffersviter:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
@@ -85,6 +85,8 @@ För IoT-hubbar som inte har kon figurer ATS för TLS 1,2 fungerar TLS 1,2 fortf
 * `TLS_RSA_WITH_AES_256_CBC_SHA`
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+En-klient kan föreslå en lista över höga chiffersviter som ska användas under `ClientHello` . Men vissa av dem kanske inte stöds av IoT Hub (till exempel `ECDHE-ECDSA-AES256-GCM-SHA384` ). I det här fallet försöker IoT Hub följa prioriteten för klienten, men kan till och med förhandla ned cipher Suite med `ServerHello` .
 
 ## <a name="use-tls-12-in-your-iot-hub-sdks"></a>Använd TLS 1,2 i dina IoT Hub SDK: er
 
@@ -102,3 +104,7 @@ Använd länkarna nedan för att konfigurera TLS 1,2 och tillåtna chiffer i IoT
 ## <a name="use-tls-12-in-your-iot-edge-setup"></a>Använd TLS 1,2 i installations programmet för IoT Edge
 
 IoT Edge enheter kan konfigureras för att använda TLS 1,2 vid kommunikation med IoT Hub. För det här ändamålet använder du [sidan IoT Edge dokumentation](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+
+## <a name="device-authentication"></a>Enhetsautentisering
+
+Efter en lyckad TLS-handskakning kan IoT Hub autentisera en enhet med hjälp av en symmetrisk nyckel eller ett X. 509-certifikat. För certifikatbaserad autentisering kan detta vara alla X. 509-certifikat, inklusive ECC. IoT Hub validerar certifikatet mot det tumavtryck eller den certifikat utfärdare (CA) som du anger. IoT Hub stöder inte X. 509-baserad ömsesidig autentisering ännu (mTLS). Mer information finns i [X. 509-certifikat som stöds](iot-hub-devguide-security.md#supported-x509-certificates).

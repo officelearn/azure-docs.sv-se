@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 333f2317fcc834a10b7336bbda9a43ba16a7ad38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8700bbfe697a6b5fb81380831950d704fcb1f5ff
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84317522"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90012900"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -35,24 +35,24 @@ Följande begränsningar är gemensamma för nivåerna Basic och standard.
 ### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs Basic-och standard-kvoter och-gränser
 | Gräns | Omfång | Kommentarer | Basic | Standard |
 | --- | --- | --- | -- | --- |
-| Maximal storlek för Event Hubs händelse|Entitet | &nbsp; | 256 kB | 1 MB |
+| Maximal storlek för Event Hubs händelse|Entitet | &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb |Entitet | &nbsp; |1 |20 |
 | Antal AMQP-anslutningar per namnrymd |Namnområde |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |100 |5 000|
 | Högsta kvarhållningsperiod för händelse data |Entitet | &nbsp; |1 dag |1-7 dagar |
-|Apache Kafka aktive rad namnrymd|Namnområde |Event Hubs namespace strömmar program med Kafka-protokoll |Nej | Ja |
-|Capture |Entitet | När aktive rad är mikrobatchar i samma ström |Nej |Ja |
+|Apache Kafka aktive rad namnrymd|Namnområde |Event Hubs namespace strömmar program med Kafka-protokollet. Mer information finns i [använda Azure Event Hubs från Apache Kafka program](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md). |Inga | Ja |
+|Capture |Entitet | När det är aktiverat är mikrobatchar i samma ström. Mer information finns i [avbilda händelser via azure Event Hubs i azure Blob Storage eller Azure Data Lake Storage](../articles/event-hubs/event-hubs-capture-overview.md). |Inga |Ja |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated-kvoter och begränsningar
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
-| Funktion | Gränser |
+| Funktion | Begränsningar |
 | --- | ---|
 | Bandbredd |  20 CUs |
 | Namnrymder | 50 per CU |
 | Event Hubs |  1000 per namnrymd |
 | Ingress-händelser | Ingår |
-| Meddelande storlek | 1 MB |
+| Meddelande storlek | 1 MB |
 | Partitioner | 2000 per CU |
 | Konsumentgrupper | Ingen gräns per CU, 1000 per Event-hubb |
 | Brokered Connections | 100 KB ingår |

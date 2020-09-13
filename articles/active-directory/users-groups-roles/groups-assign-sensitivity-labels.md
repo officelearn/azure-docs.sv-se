@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795324"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005946"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory
 
@@ -68,7 +68,7 @@ Om du vill tillämpa publicerade etiketter på grupper måste du först aktivera
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Och sedan är du klar. Du har aktiverat funktionen och du kan tillämpa publicerade etiketter på grupper.
+Du måste också synkronisera dina känslighets etiketter till Azure AD. Instruktioner finns i [så här aktiverar du känslighets etiketter för behållare och synkronisera etiketter](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Tilldela en etikett till en ny grupp i Azure Portal
 
@@ -113,7 +113,8 @@ När du har aktiverat den här funktionen visas klassificeringarna "klassiska" f
 Alternativet känslighets etikett visas bara för grupper när följande villkor uppfylls:
 
 1. Etiketter publiceras i Microsoft 365 Compliance Center för den här Azure AD-organisationen.
-1. Funktionen är aktive rad, EnableMIPLabels har ställts in på True i PowerShell.
+1. Funktionen är aktive rad, EnableMIPLabels har värdet true i från Azure AD PowerShell-modulen.
+1. Etiketter synkroniseras till Azure AD med cmdleten EXECUTE-AzureAdLabelSync i PowerShell-modulen Security & Compliance.
 1. Gruppen är en Microsoft 365 grupp.
 1. Organisationen har en aktiv Azure Active Directory Premium P1-licens.
 1. Den aktuella inloggade användaren har tillräcklig behörighet för att tilldela etiketter. Användaren måste antingen vara global administratör, grupp administratör eller grupp ägare.

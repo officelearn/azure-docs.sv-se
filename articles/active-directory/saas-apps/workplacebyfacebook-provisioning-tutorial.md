@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526407"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006099"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
@@ -30,7 +30,7 @@ I den här självstudien beskrivs de steg du behöver utföra i båda arbets pla
 
 >[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -108,7 +108,7 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
    |userName|Sträng|
    |displayName|Sträng|
    |aktiv|Boolesk|
-   |rubrik|Boolesk|
+   |title|Boolesk|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |Name. givenName|Sträng|
    |Name. familyName|Sträng|
@@ -125,8 +125,16 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
    |phoneNumbers [Type EQ "fax"]. värde|Sträng|
    |externalId|Sträng|
    |preferredLanguage|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+   |urn: scim: schemas: tillägg: Enterprise: 1.0. Manager|Sträng|
+   |urn: scim: schemas: tillägg: Enterprise: 1.0. Department|Sträng|
+   |urn: scim: schemas: tillägg: Enterprise: 1.0. Division|Sträng|
+   |urn: scim: schemas: tillägg: Enterprise: 1.0. Organization|Sträng|
+   |urn: scim: schemas: tillägg: Enterprise: 1.0. costCenter|Sträng|
+   |urn: scim: schemas: tillägg: Enterprise: 1.0. employeeNumber|Sträng|
+   |urn: scim: schemas: tillägg: Facebook: auth_method: 1.0: auth_method|Sträng|
+   |urn: scim: schemas: tillägg: Facebook: Frontline: 1.0. is_frontline|Boolesk|
+   |urn: scim: schemas: tillägg: Facebook: starttermdates: 1.0. StartDate|Integer|
+
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +161,10 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 *  Om du ser en användare som inte har skapats utan problem och det finns en Gransknings logg händelse med koden "1789003" innebär det att användaren är från en overifierad domän.
+
+## <a name="change-log"></a>Ändringslogg
+
+* 09/10/2020 – stöd för företags-attribut "Division", "Organization", "costCenter" och "employeeNumber" har lagts till. Stöd har lagts till för anpassade attribut "StartDate", "auth_method" och "Frontline"
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

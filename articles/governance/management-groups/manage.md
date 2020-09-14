@@ -37,7 +37,7 @@ Du kan ändra namnet på hanterings gruppen med hjälp av portalen, PowerShell e
 
 1. Välj alternativet för att **byta namn på grupp** överst på sidan.
 
-   :::image type="content" source="./media/detail_action_small.png" alt-text="Skärm bild av åtgärds fältet och knappen "Byt namn på grupp" på sidan hanterings grupp." border="false":::
+   :::image type="content" source="./media/detail_action_small.png" alt-text="Skärm bild av åtgärds fältet och knappen Byt namn på grupp på sidan hanterings grupp." border="false":::
 
 1. När menyn öppnas anger du det nya namn som du vill ska visas.
 

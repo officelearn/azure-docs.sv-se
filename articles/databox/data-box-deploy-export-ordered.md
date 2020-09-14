@@ -2,18 +2,18 @@
 title: Självstudie för att exportera data från Azure Data Box | Microsoft Docs
 description: Lär dig mer om distributions kraven och hur du exporterar data från en Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783628"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053062"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Självstudie: skapa en export ordning för Azure Data Box (förhands granskning)
 
@@ -30,7 +30,7 @@ I den här självstudien lär du dig:
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande konfigurations krav för Data Box-enhet tjänst och enhet innan du beställer enheten.
 
@@ -115,9 +115,20 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
    Ett exempel på XML-indata finns i [exempel på XML-indata](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. I **data urvalet**granskar du inställningarna och väljer **Nästa: kontakt information>**.
+9. Granska inställningarna i **data urval**och välj **nästa: säkerhets>**.
 
    ![Kontaktinformation](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. I **säkerhet**, om du vill aktivera programvarubaserad dubbel kryptering, väljer du **Aktivera dubbel kryptering för ordern**. 
+
+   Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
+
+   > [!NOTE]
+   > Att aktivera det här alternativet kan göra order bearbetning och data kopieringen ta längre tid. Du kan inte ändra det här alternativet när du har skapat din beställning.
+
+   ![Säkerhets skärm för import av data Box, dubbel kryptering](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Välj **Nästa: kontakt uppgifter** för att fortsätta.
 
 10. I **kontakt uppgifterna**väljer du **+ Lägg till leverans adress** för att ange leverans information.
 

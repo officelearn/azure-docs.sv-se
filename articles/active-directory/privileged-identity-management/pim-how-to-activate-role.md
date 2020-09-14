@@ -14,18 +14,18 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421407"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055460"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera mina Azure AD-roller i PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör det enklare för företag att hantera privilegie rad åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.  
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör det enklare för företag att hantera privilegie rad åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster som Microsoft 365 eller Microsoft Intune.  
 
-Om du har blivit berättigad till en administrativ roll måste du aktivera roll tilldelningen när du behöver utföra privilegierade åtgärder. Om du till exempel ibland hanterar Office 365-funktioner kanske organisationens privilegierade roll administratörer inte gör en permanent global administratör, eftersom rollen även påverkar andra tjänster. De gör i stället att du är berättigade till Azure AD-roller som Exchange Online-administratör. Du kan begära att aktivera rollen när du behöver dess behörigheter och sedan har du administratörs behörighet för en fördefinierad tids period.
+Om du har blivit berättigad till en administrativ roll måste du aktivera roll tilldelningen när du behöver utföra privilegierade åtgärder. Om du t. ex. hanterar Microsoft 365-funktioner kanske organisationens privilegierade roll administratörer inte gör en permanent global administratör eftersom rollen även påverkar andra tjänster. De gör i stället att du är berättigade till Azure AD-roller som Exchange Online-administratör. Du kan begära att aktivera rollen när du behöver dess behörigheter och sedan har du administratörs behörighet för en fördefinierad tids period.
 
 Den här artikeln är för administratörer som behöver aktivera sin Azure AD-roll i Privileged Identity Management.
 
@@ -118,7 +118,7 @@ När du aktiverar en roll i Privileged Identity Management kan aktiveringen inte
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
-## <a name="activate-a-role"></a>Aktivera en roll
+## <a name="activate-a-role-previous-version"></a>Aktivera en roll (tidigare version)
 
 När du behöver utföra en Azure AD-roll kan du begära aktivering genom att använda navigerings alternativet **Mina roller** i Privileged Identity Management.
 
@@ -168,7 +168,7 @@ När du behöver utföra en Azure AD-roll kan du begära aktivering genom att an
 
     Om [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) för att aktivera, visas ett Azure-meddelande i det övre högra hörnet i webbläsaren som informerar dig om att begäran väntar på godkännande.
 
-## <a name="view-the-status-of-your-requests"></a>Visa status för dina begär Anden
+## <a name="view-the-status-of-your-requests-previous-version"></a>Visa status för dina begär Anden (tidigare version)
 
 Du kan visa statusen för väntande begär Anden att aktivera.
 
@@ -180,7 +180,7 @@ Du kan visa statusen för väntande begär Anden att aktivera.
 
     ![Azure AD-roller – listan Mina begär Anden](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## <a name="deactivate-a-role"></a>Inaktivera en roll
+## <a name="deactivate-a-role-previous-version"></a>Inaktivera en roll (tidigare version)
 
 När en roll har Aktiver ATS inaktive ras den automatiskt när tids gränsen (den kvalificerade varaktigheten) har nåtts.
 
@@ -196,7 +196,7 @@ Om du slutför dina administratörs aktiviteter tidigt kan du också inaktivera 
 
 1. Hitta den roll du är klar med och klicka sedan på **inaktivera**.
 
-## <a name="cancel-a-pending-request"></a>Avbryt en väntande begäran
+## <a name="cancel-a-pending-request-previous-version"></a>Avbryt en väntande begäran (tidigare version)
 
 Om du inte behöver aktivera en roll som kräver godkännande kan du när som helst avbryta en väntande begäran.
 
@@ -212,7 +212,7 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med knappen Avbryt markerad](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot-previous-version"></a>Felsök (tidigare version)
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 

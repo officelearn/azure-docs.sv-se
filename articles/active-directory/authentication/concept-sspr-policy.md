@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005028"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052723"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Lösen ords principer och konto begränsningar i Azure Active Directory
 
@@ -108,7 +108,7 @@ En *Global administratör* eller *användar administratör* kan använda [Micros
 
 Du kan också använda PowerShell-cmdletar för att ta bort konfigurationen som aldrig upphör att gälla eller se vilka användar lösen ord som aldrig upphör att gälla.
 
-Den här vägledningen gäller för andra leverantörer, till exempel Intune och Office 365, som också förlitar sig på Azure AD för identitets-och katalog tjänster. Lösen ordets giltighets tid är den enda delen av principen som kan ändras.
+Den här vägledningen gäller för andra leverantörer, till exempel Intune och Microsoft 365, som också förlitar sig på Azure AD för identitets-och katalog tjänster. Lösen ordets giltighets tid är den enda delen av principen som kan ändras.
 
 > [!NOTE]
 > Endast lösen ord för användar konton som inte har synkroniserats via Azure AD Connect kan konfigureras så att de inte upphör att gälla. Mer information om Active Directory-synkronisering finns i [ansluta AD med Azure AD](../hybrid/whatis-hybrid-identity.md).

@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cf911a240456871275abbd7f1e7313a1d2289b98
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82582888"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054611"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
-I Azure Active Directory (Azure AD) kan du automatiskt lägga till eller ta bort användare i säkerhetsgrupper eller Office 365-grupper, så att du inte alltid måste göra det manuellt. När alla egenskaper för en användare eller enhet ändras, utvärderar Azure AD alla dynamiska grupp regler i din Azure AD-organisation för att se om ändringen ska lägga till eller ta bort medlemmar.
+I Azure Active Directory (Azure AD) kan du automatiskt lägga till eller ta bort användare i säkerhets grupper eller Microsoft 365 grupper, så du behöver inte alltid göra det manuellt. När alla egenskaper för en användare eller enhet ändras, utvärderar Azure AD alla dynamiska grupp regler i din Azure AD-organisation för att se om ändringen ska lägga till eller ta bort medlemmar.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här funktionen kräver en Azure AD Premium licens för dig som organisationens globala administratör. Om du inte har någon, i Azure AD, väljer du **licenser**  >  **produkter**  >  **försök/köp**.
 

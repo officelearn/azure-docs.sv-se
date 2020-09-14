@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717446"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052689"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
 
@@ -37,7 +37,7 @@ Tillbakaskrivning av lösen ord innehåller följande funktioner:
 
 * **Tillämpning av lösen ords principer för lokala Active Directory Domain Services (AD DS)**: när en användare återställer sitt lösen ord, kontrol leras att den uppfyller din lokala AD DS-princip innan den allokeras till den katalogen. Den här granskningen innefattar att kontrol lera historik, komplexitet, ålder, lösen ords filter och andra lösen ords begränsningar som du definierar i AD DS.
 * **Noll – fördröjning i feedback**: tillbakaskrivning av lösen ord är en synkron åtgärd. Användare meddelas omedelbart om lösen ordet inte uppfyller principen eller inte kan återställas eller ändras av någon anledning.
-* **Har stöd för lösen ords ändringar från åtkomst panelen och Office 365**: när federerade eller lösen ords-hash-synkroniserade användare kommer att ändra sina lösen ord som förfaller eller inte har förfallit, skrivs lösen orden tillbaka till AD DS.
+* **Har stöd för lösen ords ändringar från åtkomst panelen och Microsoft 365**: om federerade eller icke-signerade hash-användare kommer att ändra sina lösen ord som har förfallit eller som inte har förfallit, skrivs lösen orden tillbaka till AD DS.
 * **Har stöd för tillbakaskrivning av lösen ord när en administratör återställer dem från Azure Portal**: när en administratör återställer en användares lösen ord i [Azure Portal](https://portal.azure.com), skrivs lösen ordet tillbaka till lokalt. Den här funktionen stöds för närvarande inte i Office Admin-portalen.
 * **Kräver inte några inkommande brand Väggs regler**: tillbakaskrivning av lösen ord använder ett Azure Service Bus relä som en underliggande kommunikations kanal. All kommunikation har utgående trafik via port 443.
 

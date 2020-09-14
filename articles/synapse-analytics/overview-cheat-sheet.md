@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3141f8044a4a257de8022ff789b12d5d3e6e7a90
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 0e4b96092107e3411f33411f1044fd7cc839f132
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807034"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052008"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Lathund-blad för Azure Synapse Analytics
 
@@ -22,13 +22,16 @@ ms.locfileid: "85807034"
 
 Azure Synapse Analytics lathund-bladet hjälper dig genom de grundläggande begreppen i tjänsten och viktiga kommandon. Den här artikeln är användbar för både nya elever och de som vill ha högdagrar om de viktiga Azure Synapse-ämnena.
 
-## <a name="architecture"></a>Arkitektur
+## <a name="basics"></a>Grundläggande inställningar
 
-> [!div class="mx-imgBorder"]
->![Synapse-arkitektur](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
+En **Synapse-arbetsyta** är en skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLS Gen2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp.
 
+I en arbets yta kan du utföra analyser med SQL och Apache Spark. Resurser som är tillgängliga för SQL och Spark Analytics är indelade i **pooler**. Det finns tre typer av pooler.
+* **SQL-pooler**. Dessa ger **dedikerad** SQL Analytics-kapacitet.
+* **SQL-pool på begäran**. Varje arbets yta har exakt en SQL-pool på begäran. Detta ger SQL Analytics-kapacitet på **Server** nivå per fråga.
+* **Spark-pooler**. Dessa ger Spark Analytics-kapacitet.
 ## <a name="terminology"></a>Terminologi
-| Term                         | Definition      |
+| Period                         | Definition      |
 |:---                                 |:---                 |
 | **Synapse-arbetsyta** | En skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLS Gen2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp. |
 | **Synapse SQL**   | Kör analyser med pooler eller med funktioner på begäran.  |
@@ -49,7 +52,7 @@ Azure Synapse Analytics lathund-bladet hjälper dig genom de grundläggande begr
 |**Aktivitet**| Definierar åtgärder som ska utföras på data, till exempel kopiera data, köra en bärbar dator eller ett SQL-skript.|
 |**Utlösare**| Kör en pipeline. Den kan köras manuellt eller automatiskt (schema, rullande-fönster eller event-based).|
 |**Länkad tjänst**| Anslutnings strängar som definierar den anslutnings information som behövs för arbets ytan för att ansluta till externa resurser.|
-|**Data uppsättning**|  Namngiven vy av data som bara pekar eller refererar till de data som ska användas i en aktivitet som indata och utdata. Den tillhör en länkad tjänst.|
+|**Datamängd**|  Namngiven vy av data som bara pekar eller refererar till de data som ska användas i en aktivitet som indata och utdata. Den tillhör en länkad tjänst.|
 
 ## <a name="next-steps"></a>Nästa steg
 

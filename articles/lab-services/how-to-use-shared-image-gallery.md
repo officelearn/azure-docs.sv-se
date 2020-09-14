@@ -2,16 +2,19 @@
 title: Använd ett delat avbildnings galleri i Azure Lab Services | Microsoft Docs
 description: Lär dig hur du konfigurerar ett labb konto för att använda ett delat bild galleri så att en användare kan dela en avbildning med andra och en annan användare kan använda avbildningen för att skapa en mall för virtuella datorer i labbet.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 4dc001a5e4c95db608c38f0a7c00190fd1859998
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 04e3764b095706d091bb72baaae77f5a4016fd28
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445159"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052842"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Använd ett delat avbildnings galleri i Azure Lab Services
 Den här artikeln visar hur lärare och labb administratörer kan spara en mall för virtuella dator avbildningar i ett [delat bild galleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) så att de kan användas av andra för att skapa labb. 
+
+> [!IMPORTANT]
+> När du använder ett delat bild galleri Azure Lab Services stöder bara bilder med mindre än 128 GB OS-disk utrymme. Avbildningar med mer än 128 GB disk utrymme eller flera diskar visas inte i listan över avbildningar av virtuella datorer under labb skapandet.
 
 ## <a name="scenarios"></a>Scenarier
 Här är några av de scenarier som stöds av den här funktionen: 

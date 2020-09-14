@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716341"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052398"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords återställning via självbetjäning
 
@@ -104,7 +104,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   > * Kontrol lera att autentiseringsdata i katalogen är korrekt formaterat, till exempel + 1 4255551234 eller *user \@ contoso.com*. 
 * **F: vilka språk stöds av lösen ords återställning?**
 
-  > **A:** Användar gränssnittet för lösen ords återställning, SMS-meddelanden och röst samtal lokaliseras på samma språk som stöds i Office 365.
+  > **A:** Användar gränssnittet för lösen ords återställning, SMS-meddelanden och röst samtal lokaliseras på samma språk som stöds i Microsoft 365.
   >
   >
 * **F: vilka delar av lösen ords återställningen som visas när jag anger objekt för organisations anpassning på fliken Konfigurera i min katalog?**

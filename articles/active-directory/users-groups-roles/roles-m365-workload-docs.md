@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14d5b458aeccd2587f24b30548c4b5e76912bce1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6060bc286024183661024abd56567eeefed76430
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798286"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053556"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Administratörs roller för Microsoft 365 Services
 
@@ -29,10 +29,10 @@ Alla produkter i Microsoft 365 kan hanteras med administrativa roller i Azure AD
 
 Microsoft 365 tjänst | Roll innehåll | API-innehåll
 ---------------------- | ------------------ | -----------------
-Administratörs roller i Office 365 och Microsoft 365 affärs planer | [Office 365-administratörsroller](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Inte tillgängligt
+Administratörs roller i Office 365 och Microsoft 365 affärs planer | [Microsoft 365 administratörs roller](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Inte tillgängligt
 Azure Active Directory (Azure AD) och Azure AD Identity Protection| [Administratörs roller för Azure AD](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Hämta roll tilldelningar](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Exchange Online| [Rollbaserad åtkomst kontroll i Exchange](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell för Exchange](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Hämta roll tilldelningar](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
-sharepoint online | [Administratörs roller för Azure AD](directory-assign-admin-roles.md)<br>Även [om rollen SharePoint-administratör i Office 365](/sharepoint/sharepoint-admin-role) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Hämta roll tilldelningar](/graph/api/directoryrole-list?view=graph-rest-1.0)
+sharepoint online | [Administratörs roller för Azure AD](directory-assign-admin-roles.md)<br>Även [om administrations rollen för SharePoint i Microsoft 365](/sharepoint/sharepoint-admin-role) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Hämta roll tilldelningar](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Team/Skype för företag | [Administratörs roller för Azure AD](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Hämta roll tilldelningar](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Säkerhets & Compliance Center (Office 365 Avancerat skydd, Exchange Online Protection, Information Protection) | [Office 365-administratörsroller](/office365/SecurityCompliance/permissions-in-the-security-and-compliance-center) | [Exchange PowerShell](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Hämta roll tilldelningar](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
 Säkra Poäng | [Administratörs roller för Azure AD](directory-assign-admin-roles.md) | [Graph API](/graph/api/overview?view=graph-rest-1.0)<br>[Hämta roll tilldelningar](/graph/api/directoryrole-list?view=graph-rest-1.0)

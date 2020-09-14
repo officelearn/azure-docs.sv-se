@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager och volymer | Microsoft Docs
 description: Beskriver hur du använder snapin-modulen StorSimple Snapshot Manager MMC för att visa och hantera volymer och konfigurera säkerhets kopior.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: twooley
-ms.openlocfilehash: b27cf605c978e15d81a43db3371a71b0ccc48c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508928"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054915"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Använd StorSimple Snapshot Manager för att visa och hantera volymer
 ## <a name="overview"></a>Översikt
@@ -198,7 +198,7 @@ Använd följande procedur för att konfigurera en dynamisk speglad volym och se
 2. I fönstret **omfattning** högerklickar du på noden **volymer** och väljer **Genomsök volymer**på nytt. När genomsökningen är färdig ska en lista med volymer visas i **resultat** fönstret. Den dynamiska speglade volymen visas som en enskild volym. 
 3. I **resultat** fönstret högerklickar du på den dynamiska speglade volymen och klickar sedan på **Skapa volym grupp**. 
 4. I dialog rutan **Skapa volym grupp** anger du ett namn för volym gruppen, tilldelar den dynamiska speglade volymen till den här gruppen och klickar sedan på **OK**. 
-5. Expandera noden **volym grupper** i rutan **omfattning** . Den nya volym gruppen bör visas under noden **volym grupper** . 
+5. Expandera noden **volym grupper** i rutan **omfattning** . Den nya volym gruppen bör visas under noden  **volym grupper** . 
 6. Högerklicka på volym gruppens namn. 
    
    * För att starta ett interaktivt säkerhets kopierings jobb (på begäran) klickar du på **gör säkerhets kopiering**. 

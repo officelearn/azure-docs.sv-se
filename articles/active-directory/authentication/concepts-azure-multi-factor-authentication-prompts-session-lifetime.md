@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179359"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052672"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ För att ge användarna rätt balans mellan säkerhet och enkel användning geno
     * Aktivera enkel inloggning (SSO) i alla program med [hanterade enheter](../devices/overview.md) eller [sömlös SSO](../hybrid/how-to-connect-sso.md).
     * Om omautentisering krävs använder du en [princip för inloggnings frekvens för](../conditional-access/howto-conditional-access-session-lifetime.md)villkorlig åtkomst.
     * För användare som loggar in från icke-hanterade enheter eller scenarier med mobila enheter använder du villkorlig åtkomst för att aktivera beständiga webbläsar-och inloggnings frekvens principer.
-* Om du har licenser för Office 365-appar eller den kostnads fria Azure AD-nivån:
+* Om du har Microsoft 365 program licenser eller den kostnads fria Azure AD-nivån:
     * Aktivera enkel inloggning (SSO) i alla program med [hanterade enheter](../devices/overview.md) eller [sömlös SSO](../hybrid/how-to-connect-sso.md).
     * Se till att alternativet *förbli inloggat* är aktiverat och hjälper användarna att godkänna det.
 * För scenarier med mobila enheter kontrollerar du att användarna använder appen Microsoft Authenticator. Den här appen används som en Broker för andra Azure AD-federerade appar och minskar autentiseringen på enheten.
@@ -123,13 +123,13 @@ Utför följande steg för att konfigurera principer för villkorlig åtkomst f�
 
 Om du vill granska livs längd för token [använder du Azure AD PowerShell för att skicka frågor till alla Azure AD-principer](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Inaktivera eventuella principer som du har på plats.
 
-Om mer än en inställning har Aktiver ATS i din klient organisation rekommenderar vi att du uppdaterar dina inställningar baserat på vilken licensiering som är tillgänglig för dig. Om du till exempel har Azure AD Premium-licenser bör du bara använda principen för villkorlig åtkomst för *inloggnings frekvens* och *beständig webbläsarsession*. Om du har Office 365-appar eller Azure AD-kostnads fria licenser bör du använda konfigurationen *är fortfarande inloggad?*
+Om mer än en inställning har Aktiver ATS i din klient organisation rekommenderar vi att du uppdaterar dina inställningar baserat på vilken licensiering som är tillgänglig för dig. Om du till exempel har Azure AD Premium-licenser bör du bara använda principen för villkorlig åtkomst för *inloggnings frekvens* och *beständig webbläsarsession*. Om du har Microsoft 365 appar eller Azure AD-kostnads fria licenser bör du använda konfigurationen *är fortfarande inloggad?*
 
 Om du har aktiverat konfigurerbara livs längder för token kommer den här funktionen att tas bort snart. Planera en migrering till en princip för villkorlig åtkomst.
 
 I följande tabell sammanfattas rekommendationerna baserat på licenser:
 
-|              | Azure AD Free-och Office 365-appar | Azure AD Premium |
+|              | Azure AD Free och Microsoft 365 appar | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **Enkel inloggning**                      | [Azure AD Join](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD Join](../devices/concept-azure-ad-join-hybrid.md)eller [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md) för ohanterade enheter. | Azure Active Directory-anslutning<br />Hybrid Azure Active Directory-anslutning |
 | **Inställningar för omautentisering** | Förbli inloggad                  | Använd principer för villkorlig åtkomst för inloggnings frekvens och beständig webbläsarsession |

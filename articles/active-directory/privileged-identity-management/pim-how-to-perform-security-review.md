@@ -14,16 +14,16 @@ ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4096c65fa4375152f44891d4a0a5aac4b9077cf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dd0b63e08f44167b89b6e2d491722f3708b4036
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743855"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055443"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Granska åtkomst till Azure AD-roller i Privileged Identity Management
 
-Privileged Identity Management (PIM) fören klar hur företag hanterar privilegie rad åtkomst till resurser i Azure Active Directory (AD) och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune. Följ stegen i den här artikeln för att själv granska de tilldelade rollerna.
+Privileged Identity Management (PIM) fören klar hur företag hanterar privilegie rad åtkomst till resurser i Azure Active Directory (AD) och andra Microsoft onlinetjänster som Microsoft 365 eller Microsoft Intune. Följ stegen i den här artikeln för att själv granska de tilldelade rollerna.
 
 Om du har tilldelats en administrativ roll kan organisationens privilegierande roll be dig att regelbundet bekräfta att du fortfarande behöver rollen för ditt jobb. Du kan få ett e-postmeddelande som innehåller en länk, eller så kan du gå direkt till [Azure Portal](https://portal.azure.com) och börja.
 

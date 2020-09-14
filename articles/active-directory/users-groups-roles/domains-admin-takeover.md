@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015892"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054712"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
@@ -34,7 +34,7 @@ Under processen för adminövertagande kan du bevisa ägarskapet enligt instrukt
 
 ## <a name="internal-admin-takeover"></a>Internt övertagande av administratörsrollen
 
-Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365, har inte stöd för extern övertag Ande. Om det är ditt scenario, eller om du är en administratör och vill ta över en ohanterad Azure AD-organisation skapa av användare som använde självbetjänings registrering, kan du göra detta med ett internt administratörs övertag Ande.
+Vissa produkter som innehåller SharePoint och OneDrive, till exempel Microsoft 365, har inte stöd för extern övertag Ande. Om det är ditt scenario, eller om du är en administratör och vill ta över en ohanterad Azure AD-organisation skapa av användare som använde självbetjänings registrering, kan du göra detta med ett internt administratörs övertag Ande.
 
 1. Skapa en användar kontext i den ohanterade organisationen genom att registrera dig för Power BI. För enkelhetens skull antar de här stegen den sökvägen.
 
@@ -52,7 +52,7 @@ Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365
 
 När DNS-TXT-posterna verifieras hos domän namns registratorn kan du hantera Azure AD-organisationen.
 
-När du har slutfört föregående steg är du nu den globala administratören för den fjärde kaffe organisationen i Office 365. Om du vill integrera domän namnet med dina andra Azure-tjänster kan du ta bort det från Office 365 och lägga till det i en annan hanterad organisation i Azure.
+När du har slutfört föregående steg är du nu den globala administratören för den fjärde kaffe organisationen i Microsoft 365. Om du vill integrera domän namnet med dina andra Azure-tjänster kan du ta bort det från Microsoft 365 och lägga till det i en annan hanterad organisation i Azure.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Lägga till domän namnet i en hanterad organisation i Azure AD
 
@@ -61,9 +61,9 @@ När du har slutfört föregående steg är du nu den globala administratören f
 3. Se till att det nya användar kontot har globala administratörs behörigheter för Azure AD-organisationen.
 4. Öppna fliken **domäner** i Microsoft 365 administrations Center väljer du domän namnet och väljer **ta bort**. 
   
-   ![ta bort domän namnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Ta bort domän namnet från Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Om du har användare eller grupper i Office 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet, kommer alla användare att byta namn automatiskt, i det här exemplet till *user \@ fourthcoffeexyz.onmicrosoft.com*.
+5. Om du har några användare eller grupper i Microsoft 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet, kommer alla användare att byta namn automatiskt, i det här exemplet till *user \@ fourthcoffeexyz.onmicrosoft.com*.
   
 6. Logga in på [administrations centret för Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är global administratör för Azure AD-organisationen.
   
@@ -72,11 +72,11 @@ När du har slutfört föregående steg är du nu den globala administratören f
    ![domän verifierad som tillagd i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-organisationen måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *användarens \@ fourthcoffeexyz.onmicrosoft.com* i stället för *User \@ fourthcoffee. xyz*.
+> Alla användare av Power BI-eller Azure Rights Management-tjänster som har licenser som tilldelats i Microsoft 365 organisation måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *användarens \@ fourthcoffeexyz.onmicrosoft.com* i stället för *User \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Externt övertagande av administratörsrollen
 
-Om du redan hanterar en organisation med Azure-tjänster eller Office 365 kan du inte lägga till ett anpassat domän namn om det redan har verifierats i en annan Azure AD-organisation. Från din hanterade organisation i Azure AD kan du dock ta över en ohanterad organisation som en extern administratörs övertag Ande. Den allmänna proceduren följer artikeln [lägga till en anpassad domän i Azure AD](../fundamentals/add-custom-domain.md).
+Om du redan hanterar en organisation med Azure-tjänster eller Microsoft 365 kan du inte lägga till ett anpassat domän namn om det redan har verifierats i en annan Azure AD-organisation. Från din hanterade organisation i Azure AD kan du dock ta över en ohanterad organisation som en extern administratörs övertag Ande. Den allmänna proceduren följer artikeln [lägga till en anpassad domän i Azure AD](../fundamentals/add-custom-domain.md).
 
 När du verifierar ägarskapet för domän namnet tar Azure AD bort domän namnet från den ohanterade organisationen och flyttar den till din befintliga organisation. Extern administratörs övertag ande av en ohanterad katalog kräver samma validerings process för DNS-TXT som intern administratörs övertag Ande. Skillnaden är att följande även flyttas över med domän namnet:
 
@@ -120,7 +120,7 @@ cmdlet | Användning
 `new-msoldomain –name <domainname>` | Lägger till domän namnet i organisationen som overifierad (ingen DNS-verifiering har utförts ännu).
 `get-msoldomain` | Domän namnet ingår nu i listan över domän namn som är kopplade till din hanterade organisation, men visas som **overifierat**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Innehåller informationen som ska läggas till i nya DNS TXT-poster för domänen (MS = xxxxx). Verifieringen kanske inte sker direkt eftersom det tar lite tid för TXT-posten att spridas, så vänta några minuter innan du överväger alternativet **-ForceTakeover** . 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Om ditt domän namn fortfarande inte verifieras kan du fortsätta med alternativet **-ForceTakeover** . Den verifierar att TXT-posten har skapats och att den avslutar insamlings processen.<li>Alternativet **-ForceTakeover** ska bara läggas till i cmdleten vid Tvingad extern administratörs övertag Ande, till exempel när den ohanterade organisationen har Office 365 Services som blockerar övertagningen.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Om ditt domän namn fortfarande inte verifieras kan du fortsätta med alternativet **-ForceTakeover** . Den verifierar att TXT-posten har skapats och att den avslutar insamlings processen.<li>Alternativet **-ForceTakeover** ska bara läggas till i cmdleten vid Tvingad extern administratörs övertag Ande, till exempel när den ohanterade organisationen har Microsoft 365 Services som blockerar övertagningen.
 `get-msoldomain` | I listan domän visas nu domän namnet som **verifierat**.
 
 > [!NOTE]

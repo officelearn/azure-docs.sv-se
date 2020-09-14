@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 08f3a3c17a5f6ea519eea04c4b8c5e7025adcbac
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116775"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052366"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -38,13 +38,13 @@ I följande tabell beskrivs vilka metoder som är tillgängliga för primär ell
 | [Lösenord](#password) | Ja | |
 | [Microsoft Authenticator-appen](#microsoft-authenticator-app) | Ja (för hands version) | MFA och SSPR |
 | [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Ja | Endast MFA |
-| [OATH-programvaru-token](#oath-software-tokens) | No | MFA |
-| [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | No | MFA |
+| [OATH-programvaru-token](#oath-software-tokens) | Inga | MFA |
+| [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | Inga | MFA |
 | [SMS](#phone-options) | Ja (för hands version) | MFA och SSPR |
-| [Röstsamtal](#phone-options) | No | MFA och SSPR |
-| [Säkerhetsfrågor](#security-questions) | No | SSPR – endast |
-| [E-postadress](#email-address) | No | SSPR – endast |
-| [Applösenord](#app-passwords) | No | MFA i vissa fall |
+| [Röstsamtal](#phone-options) | Inga | MFA och SSPR |
+| [Säkerhetsfrågor](#security-questions) | Inga | SSPR – endast |
+| [E-postadress](#email-address) | Inga | SSPR – endast |
+| [Applösenord](#app-passwords) | Inga | MFA i vissa fall |
 
 Dessa autentiseringsmetoder kan konfigureras i Azure Portal och i allt större användning av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
@@ -212,7 +212,7 @@ Säkerhets frågor kan vara mindre säkra än andra metoder eftersom vissa perso
 
 ### <a name="predefined-questions"></a>Fördefinierade frågor
 
-Följande fördefinierade säkerhets frågor är tillgängliga för användning som en verifieringsmetod med SSPR. Alla dessa säkerhets frågor översätts och lokaliseras till en fullständig uppsättning Office 365-språk baserat på användarens språk:
+Följande fördefinierade säkerhets frågor är tillgängliga för användning som en verifieringsmetod med SSPR. Alla dessa säkerhets frågor översätts och lokaliseras till den fullständiga uppsättningen Microsoft 365 språk baserat på användarens språk:
 
 * I vilken stad uppfyller du din första make/maka/partner?
 * I vilken stad uppfyllde dina föräldrar?

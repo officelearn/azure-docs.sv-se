@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213752"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054474"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Microsoft 365 grupper i Azure Active Directory
 
@@ -229,9 +229,9 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Erfarenheter i Office 365-appar
+## <a name="experience-across-microsoft-365-apps"></a>Erfarenheter mellan Microsoft 365-appar
 
-När du har angett en grupp namngivnings princip i Azure AD, och en användare skapar en grupp i en Office 365-app, ser de:
+När du har angett en grupp namngivnings princip i Azure AD, visas följande när en användare skapar en grupp i en Microsoft 365-app:
 
 - En förhands granskning av namnet enligt din namngivnings princip (med prefix och suffix) så snart som användaren skriver i grupp namnet
 - Om användaren anger blockerade ord visas ett fel meddelande så att de kan ta bort de blockerade orden.
@@ -252,7 +252,7 @@ SDS (School Data Sync) | Grupper som skapats via SDS följer namngivnings princi
 Outlook-kund Manager (OCM) | Outlook kund Manager är kompatibel med namngivnings principen, som tillämpas automatiskt på den grupp som skapats i Outlook Customer Manager. Om ett anpassat blockerat ord identifieras blockeras skapande av grupper i OCM och användaren blockeras från att använda OCM-appen.
 Klass rums app | Grupper som skapats i klass rums appen följer namngivnings principen, men namngivnings principen tillämpas inte automatiskt, och för hands versionen av namngivnings principen visas inte för användarna när du anger ett grupp namn i klass rummet. Användarna måste ange namnet på den tvingade klass rummets grupp med prefix och suffix. Annars Miss lyckas klass rums gruppen Skapa eller redigera med fel.
 Power BI | Power BI-arbetsytor är kompatibla med namngivnings principen.    
-Yammer | När en användare som är inloggad på Yammer med sitt Azure Active Directory konto skapar en grupp eller redigerar ett grupp namn, kommer grupp namnet att följa namngivnings principen. Detta gäller både för Office 365-anslutna grupper och alla andra Yammer-grupper.<br>Om en Office 365-ansluten grupp skapades innan namngivnings principen är på plats, kommer grupp namnet inte automatiskt att följa namngivnings principerna. När en användare redigerar grupp namnet kommer de att uppmanas att lägga till prefixet och suffixet.
+Yammer | När en användare som är inloggad på Yammer med sitt Azure Active Directory konto skapar en grupp eller redigerar ett grupp namn, kommer grupp namnet att följa namngivnings principen. Detta gäller både för Microsoft 365 anslutna grupper och alla andra Yammer-grupper.<br>Om en Microsoft 365 ansluten grupp skapades innan namngivnings principen är på plats kommer grupp namnet inte automatiskt att följa namngivnings principerna. När en användare redigerar grupp namnet kommer de att uppmanas att lägga till prefixet och suffixet.
 StaffHub  | StaffHub-team följer inte namngivnings principen, men den underliggande Microsoft 365s gruppen gör. StaffHub-teamets namn tillämpar inte prefix och suffix och söker inte efter anpassade blockerade ord. Men StaffHub tillämpar prefixen och suffixen och tar bort blockerade ord från den underliggande Microsoft 365s gruppen.
 Exchange PowerShell | Exchange PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings principen i grupp namn och grupp Ali Aset (smek namn).
 Azure Active Directory PowerShell-cmdletar | Azure Active Directory PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och gruppalias.

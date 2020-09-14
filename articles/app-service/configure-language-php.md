@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717990"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055307"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurera en PHP-app för Azure App Service
 
@@ -119,7 +119,7 @@ Genomför alla ändringar och distribuera din kod med git eller zip Deploy med b
 
 Om du vill App Service köra populära automatiserings verktyg vid distributions tillfället, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service kör det här skriptet när du distribuerar med git, eller med [zip-distribution](deploy-zip.md) med build-automatisering aktiverat. 
 
-Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Ett exempel:
+Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Exempel:
 
 ```json
 "dependencies": {
@@ -262,7 +262,7 @@ Standard PHP-avbildningen för App Service använder Apache, och det låter dig 
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^/$
+    RewriteCond %{REQUEST_URI} ^(.*)
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -318,7 +318,7 @@ Som ett alternativ till att använda en `.user.ini` fil kan du använda [ini_set
 
 Om du vill anpassa PHP_INI_USER, PHP_INI_PERDIR och PHP_INI_ALL direktiv (se [php.ini direktiv](https://www.php.net/manual/ini.list.php)) lägger du till en *. htaccess* -fil i rot katalogen för din app.
 
-I *htaccess* -filen lägger du till direktiven med hjälp av `php_value <directive-name> <value>` syntaxen. Ett exempel:
+I *htaccess* -filen lägger du till direktiven med hjälp av `php_value <directive-name> <value>` syntaxen. Exempel:
 
 ```
 php_value upload_max_filesize 1000M
@@ -469,7 +469,7 @@ Använd standard verktyget för [error_log ()](https://php.net/manual/function.e
 Prova följande när en fungerande PHP-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör din app i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Ett exempel:
+- Testa appen lokalt i produktions läge. App Service kör din app i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
     - Beroende på din *composer.js*kan olika paket installeras i produktions läge ( `require` vs. `require-dev` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.

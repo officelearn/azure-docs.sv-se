@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051015"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052757"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funktioner och licenser för Azure Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ Azure Multi-Factor Authentication kan användas och licensieras på ett par olik
 
 Följande tabell innehåller en lista över de funktioner som är tillgängliga i olika versioner av Azure Multi-Factor Authentication. Planera dina behov för att skydda användarautentisering och ta sedan reda på vilken metod som uppfyller dessa krav. Även om Azure AD Free ger till gång till säkerhets inställningar som tillhandahåller Azure Multi-Factor Authentication, kan endast appen Mobile Authenticator användas för autentisering, inte ett telefonsamtal eller SMS. Den här metoden kan vara en begränsning om du inte kan se till att appen för mobil autentisering är installerad på en användares personliga enhet.
 
-| Funktion | Azure AD Free-säkerhets inställningar | Azure AD Free – globala Azure AD-administratörer | Office 365-appar | Azure AD Premium P1 eller P2 |
+| Funktion | Azure AD Free-säkerhets inställningar | Azure AD Free – globala Azure AD-administratörer | Microsoft 365-appar | Azure AD Premium P1 eller P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Skydda Azure AD-klientens administratörs konton med MFA | ● | ● (Endast*Azure AD global administratörs* konton) | ● | ● |
 | Mobilapp som en andra faktor | ● | ● | ● | ● |
@@ -58,7 +58,7 @@ Följande tabell innehåller en lista över de funktioner som är tillgängliga 
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Köp och aktivera Azure Multi-Factor Authentication
 
-Om du vill använda Azure Multi-Factor Authentication registrerar du eller köper en berättigad Azure AD-nivå. Azure AD ingår i fyra versioner – kostnads fria Office 365-appar, Premium P1 och Premium P2.
+Om du vill använda Azure Multi-Factor Authentication registrerar du eller köper en berättigad Azure AD-nivå. Azure AD ingår i fyra versioner – kostnads fria Microsoft 365 appar, Premium P1 och Premium P2.
 
 Den kostnads fria versionen ingår i en Azure-prenumeration. Se [avsnittet nedan](#azure-ad-free-tier) för information om hur du använder säkerhets standarder eller skyddar konton med rollen *Global administratör för Azure AD* .
 

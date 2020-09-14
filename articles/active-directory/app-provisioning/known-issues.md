@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271013"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052399"
 ---
 # <a name="known-issues-application-provisioning"></a>Kända problem: program etablering
 Kända problem som kan vara medvetna om när du arbetar med app-etablering. Du kan ge feedback om program etablerings tjänsten på UserVoice, se [Azure AD Application-etablering UserVoice](https://aka.ms/appprovisioningfeaturerequest). Vi tittar på UserVoice så att vi kan förbättra tjänsten. 
@@ -66,7 +66,13 @@ Attribut-mappnings uttryck får innehålla högst 10 000 tecken.
 - Det finns inte stöd för etablering av kapslade grupper. 
 - Etablering av B2C-klienter stöds inte på grund av innehavarens storlek. 
 
-**Etablerings intervallet är fast** [Tiden](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) mellan etablerings cykler kan för närvarande inte konfigureras. 
+**Automatisk etablering är inte tillgängligt i mitt OIDC-baserade program**
+
+Om du skapar en app-registrering, aktive ras inte motsvarande tjänst huvud namn i företags program för automatisk användar etablering. Du måste antingen begära att appen läggs till i galleriet, om den är avsedd att användas av flera organisationer, eller skapa en andra app som inte är en Galleri för etablering. 
+
+**Etablerings intervallet är fast**
+
+[Tiden](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) mellan etablerings cykler kan för närvarande inte konfigureras. 
 
 **Ändringar som inte flyttas från mål programmet till Azure AD**
 

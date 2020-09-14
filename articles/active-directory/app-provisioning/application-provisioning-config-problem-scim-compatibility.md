@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065496"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052638"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
 
@@ -43,14 +43,14 @@ I tabellen nedan innebär ett objekt som marker ATS som fast att du kan hitta r�
 | Attributen för tillägg använder punkt "."-notation före attributnamn i stället för kolon ":"-notation |  Ja  | 18 december 2018  | nedgradera till customappSSO |
 | Uppdaterings begär Anden för flervärdesattribut innehåller ogiltig syntax för Sök vägs filter | Ja  |  18 december 2018  | nedgradera till customappSSO |
 | Begär Anden om att skapa grupper innehåller en ogiltig schema-URI | Ja  |  18 december 2018  |  nedgradera till customappSSO |
-| Uppdatera KORRIGERINGs beteende för att säkerställa efterlevnad (t. ex. aktiv som boolesk och korrekt borttagning av grupp medlemskap) | No | TBD| Använd förhands gransknings flagga |
+| Uppdatera KORRIGERINGs beteende för att säkerställa efterlevnad (t. ex. aktiv som boolesk och korrekt borttagning av grupp medlemskap) | Inga | TBD| Använd förhands gransknings flagga |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Flaggor för att ändra SCIM-beteendet
 Använd flaggorna nedan i klient-URL: en för ditt program för att ändra standard klient beteendet för SCIM.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flaggor till ett senare beteende.":::
 
-* Använd följande URL för att uppdatera KORRIGERINGs beteendet och se till att SCIM kompatibilitet (t. ex. aktiv som boolesk och korrekt borttagning av grupp medlemskap). Det här beteendet är för närvarande endast tillgängligt när du använder-flaggan, men kommer att bli standard beteendet under de kommande månaderna.
+* Använd följande URL för att uppdatera KORRIGERINGs beteendet och se till att SCIM kompatibilitet (t. ex. aktiv som boolesk och korrekt borttagning av grupp medlemskap). Det här beteendet är för närvarande endast tillgängligt när du använder-flaggan, men kommer att bli standard beteendet under de kommande månaderna. OBS! den här förhands gransknings flaggan fungerar för närvarande inte med etablering på begäran. 
   * **URL (scim-kompatibel):** AzureAdScimPatch062020
   * **SCIM RFC-referenser:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign.
+description: Lär dig hur du konfigurerar enkel inloggning (SSO) mellan Azure Active Directory och DocuSign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: c91f9d38922cc1bddf252fde59291c2f233e1aa2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4cea216b85e32ad9f739aff9a487909df74d14ad
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650205"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign
 
@@ -25,8 +25,6 @@ I den här självstudien får du lära dig hur du integrerar DocuSign med Micros
 * Använd Azure AD för att kontrol lera vem som har åtkomst till DocuSign.
 * Aktivera automatisk inloggning till DocuSign för dina användare via deras Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
-
-Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,13 +45,14 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * DocuSign stöder **just-in-Time-** etablering av användare.
 
 * DocuSign stöder [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+
 * När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Lägga till DocuSign från galleriet
 
 Om du vill konfigurera integreringen av DocuSign i Azure AD måste du lägga till DocuSign från galleriet i listan över hanterade SaaS-appar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto, eller genom att använda en personlig Microsoft-konto.
+1. Logga in på Azure Portal med ett arbets-eller skol konto, eller genom att använda en personlig Microsoft-konto.
 1. I navigerings fönstret till vänster väljer du tjänsten **Azure Active Directory** .
 1. Gå till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
@@ -65,7 +64,7 @@ Om du vill konfigurera integreringen av DocuSign i Azure AD måste du lägga til
 
 Konfigurera och testa Azure AD SSO med DocuSign med hjälp av en test användare med namnet **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och motsvarande användare i DocuSign.
 
-Om du vill konfigurera och testa Azure AD SSO med DocuSign, slutför du följande Bygg stenar:
+Utför följande steg för att konfigurera och testa Azure AD SSO med DocuSign:
 
 1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso) så att användarna kan använda den här funktionen.
     1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning i Azure AD med B. Simon.
@@ -78,7 +77,7 @@ Om du vill konfigurera och testa Azure AD SSO med DocuSign, slutför du följand
 
 Följ dessa steg om du vill aktivera Azure AD SSO i Azure Portal:
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **DocuSign** , letar reda på avsnittet **Hantera** och väljer sedan **enkel inloggning**.
+1. I Azure Portal går du till sidan för program integrering i **DocuSign** , letar reda på avsnittet **Hantera** och väljer sedan **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -131,15 +130,9 @@ I det här avsnittet beviljar du B. Simon-åtkomst till DocuSign så att den hä
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
 1. I listan program väljer du **DocuSign**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
-
-   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
 1. Välj **Lägg till användare**och välj sedan **användare och grupper**i dialog rutan **Lägg till tilldelning** .
-
-    ![Länken Lägg till användare](common/add-assign-user.png)
-
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan **användare** och trycker sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och trycker sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
 1. I dialog rutan **Lägg till tilldelning** väljer du knappen **tilldela** .
 
 ## <a name="configure-docusign-sso"></a>Konfigurera DocuSign SSO
@@ -236,21 +229,18 @@ I det här avsnittet skapas en användare som heter B. Simon i DocuSign. DocuSig
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
+I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning med följande alternativ. 
 
-När du väljer panelen DocuSign på åtkomst panelen, bör du loggas in automatiskt på DocuSign-instansen som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Klicka på **testa det här programmet** i Azure Portal. Detta omdirigeras till DocuSign-inloggnings-URL där du kan starta inloggnings flödet. 
 
-## <a name="additional-resources"></a>Ytterligare resurser
+2. Gå till DocuSign-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
 
-- [Självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+3. Du kan använda Microsoft Access-panelen. När du klickar på panelen DocuSign på åtkomst panelen, bör du loggas in automatiskt på den DocuSign som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Vad är program åtkomst och enkel inloggning i Azure AD? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Efterföljande moment
 
-- [Prova DocuSign med Azure AD](https://aad.portal.azure.com/)
-
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

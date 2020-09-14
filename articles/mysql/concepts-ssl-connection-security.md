@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495088"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052944"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>SSL/TLS-anslutning i Azure Database for MySQL
 
@@ -19,6 +19,9 @@ Azure Database for MySQL stöder anslutning av databas servern till klient progr
 
 > [!NOTE]
 > Uppdatering av `require_secure_transport` värdet för Server parametern påverkar inte MySQL-tjänstens beteende. Använd de funktioner för SSL-och TLS-tillämpning som beskrivs i den här artikeln för att skydda anslutningar till databasen.
+
+> [!IMPORTANT] 
+> SSL-rotcertifikat är inställt på att gå ut från oktober 26 2020 (10/26/2020). Uppdatera ditt program för att använda det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Mer information finns i avsnittet om [planerade certifikat uppdateringar](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Standardinställningar för SSL
 

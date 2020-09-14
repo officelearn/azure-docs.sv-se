@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489654"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055222"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Begränsa åtkomst behörigheter för gäst (för hands version) i Azure Active Directory
 
@@ -154,7 +154,7 @@ Tjänsten utan aktuellt stöd kan ha kompatibilitetsproblem med den nya inställ
 
 Fråga | Svar
 -------- | ------
-Var gäller dessa behörigheter? | Dessa behörigheter för katalog nivå tillämpas i Azure AD-tjänster och portaler, inklusive Microsoft Graph, PowerShell V2, Azure Portal och mina apps-portalen. Microsoft 365 tjänster som utnyttjar Office 365-grupper för samarbets scenarier påverkas också, särskilt Outlook, Microsoft Teams och SharePoint.
+Var gäller dessa behörigheter? | Dessa behörigheter för katalog nivå tillämpas i Azure AD-tjänster och portaler, inklusive Microsoft Graph, PowerShell V2, Azure Portal och mina apps-portalen. Microsoft 365 tjänster som utnyttjar Microsoft 365 grupper för samarbets scenarier påverkas också, särskilt Outlook, Microsoft Teams och SharePoint.
 Vilka delar av portalen för Mina appar påverkar den här funktionen? | Grupp funktionen i portalen Mina appar kommer att respektera dessa nya behörigheter. Detta omfattar alla sökvägar för att Visa grupp listan och grupp medlemskap i Mina appar. Inga ändringar har gjorts i grupp panelens tillgänglighet. Grupp panelens tillgänglighet styrs fortfarande av den befintliga grupp inställningen i Azure admin-portalen.
 Åsidosätter dessa behörigheter SharePoint-eller Microsoft Teams gäst inställningar? | Nej. De befintliga inställningarna styr fortfarande upplevelsen och åtkomsten i dessa program. Om du till exempel ser problem i SharePoint, dubbelklickar du på inställningarna för extern delning.
 Vilka är kända kompatibilitetsproblem i Planner och Yammer? | <li>Om behörigheterna har angetts till "begränsad" kommer gäster som loggats in i Planner-appen eller åtkomst till Planner i Microsoft team inte att kunna komma åt sina planer eller uppgifter.<li>När behörigheter har angetts till "begränsad" kommer gäster som loggats in på Yammer inte att kunna lämna gruppen.

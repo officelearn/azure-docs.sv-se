@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377207"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052782"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -39,7 +39,7 @@ En användare kan återställa eller ändra sitt lösen ord med hjälp av [SSPR-
 
 När en användare väljer länken **kan inte komma åt ditt konto** från ett program eller en sida, eller går direkt till [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) , baseras språket som används i SSPR-portalen på följande alternativ:
 
-* Som standard används webbläsarens nationella inställningar för att Visa SSPR på rätt språk. Lösen ords återställnings upplevelsen lokaliseras på samma språk som [Office 365 stöder](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* Som standard används webbläsarens nationella inställningar för att Visa SSPR på rätt språk. Lösen ords återställnings upplevelsen lokaliseras till samma språk som [Microsoft 365 stöder](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Om du vill länka till SSPR på ett särskilt lokaliserat språk lägger du till i `?mkt=` slutet av URL: en för lösen ords återställning tillsammans med de språk som krävs.
     * Om du till exempel vill ange den spanska *es-USA-* språkvarianten använder du `?mkt=es-us`  -  [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 
@@ -77,7 +77,7 @@ Innan användarna kan återställa eller ändra sina lösen ord med hjälp av SS
 
 Du kan aktivera alternativet för att kräva att en användare slutför SSPR-registreringen om de loggar in på alla program som använder Azure AD. Det här arbets flödet innehåller följande program:
 
-* Office 365
+* Microsoft 365
 * Azure Portal
 * Åtkomstpanel
 * Federerade program
@@ -226,7 +226,7 @@ SSPR utför motsvarigheten till en administratörs initierad lösen ords återst
 
 Återställning av lösen ord och ändringar stöds helt och hållet i alla konfigurationer för Business-to-Business (B2B). B2B-återställning av användar lösen ord stöds i följande tre fall:
 
-* **Användare från en partner organisation med en befintlig Azure AD-klient**: om organisationen som du samarbetar med har en befintlig Azure AD-klient ser vi hur principerna för återställning av lösen ord är aktiverade på klienten. För att lösen ords återställning ska fungera måste partner organisationen bara se till att Azure AD SSPR har Aktiver ATS. Det kostar ingen extra avgift för Office 365-kunder.
+* **Användare från en partner organisation med en befintlig Azure AD-klient**: om organisationen som du samarbetar med har en befintlig Azure AD-klient ser vi hur principerna för återställning av lösen ord är aktiverade på klienten. För att lösen ords återställning ska fungera måste partner organisationen bara se till att Azure AD SSPR har Aktiver ATS. Det kostar inget extra att Microsoft 365 kunder.
 * **Användare som registrerar sig via** självbetjänings registrering: om den organisation som du samarbetar med använde funktionen för [självbetjänings registrering](../users-groups-roles/directory-self-service-signup.md) för att ansluta till en klient kan vi återställa lösen ordet med det e-postmeddelande som de har registrerat.
 * **B2B-användare**: alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../external-identities/what-is-b2b.md) kan också återställa sina lösen ord med det e-postmeddelande som de registrerade under den inbjudna processen.
 

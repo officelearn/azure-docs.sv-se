@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/28/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: fdea1f3b2d4cff0203951b6ec5ef6b86b62cdf9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a631ab7190891ae3716a28615bcdbfe4d219ea27
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527582"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053505"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med slack
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar slack med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -50,6 +50,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Slack har stöd för [**automatisk** användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 * När du har konfigurerat slack kan du framtvinga kontroll över sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+
 ## <a name="adding-slack-from-the-gallery"></a>Lägga till Slack från galleriet
 
 För att kunna konfigurera integreringen av Slack i Azure AD måste du lägga till Slack från galleriet i din lista över hanterade SaaS-appar.
@@ -61,7 +64,7 @@ För att kunna konfigurera integreringen av Slack i Azure AD måste du lägga ti
 1. I avsnittet **Lägg till från galleriet** skriver du **slack** i sökrutan.
 1. Välj **slack** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-slack"></a>Konfigurera och testa enkel inloggning med Azure AD för slack
+## <a name="configure-and-test-azure-ad-sso-for-slack"></a>Konfigurera och testa Azure AD SSO för slack
 
 Konfigurera och testa Azure AD SSO med slack med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i slack.
 
@@ -86,13 +89,20 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://< DOMAIN NAME>.slack.com/sso/saml/start`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<DOMAIN NAME>.slack.com/sso/saml/start`
 
-    b. I text rutan **identifierare (enhets-ID)** anger du en URL: `https://slack.com`
+    b. I textrutan **Identifierare (entitets-ID)** anger du URL:en: `https://slack.com`
+    
+    c. För **svars-URL**anger du ett av följande URL-mönster:
+    
+    | Svars-URL|
+    |----------|
+    | `https://<DOMAIN NAME>.slack.com/sso/saml` |
+    | `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` |
 
     > [!NOTE]
-    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
-    
+    > Dessa värden är inte verkliga. Du måste uppdatera dessa värden med den faktiska inloggnings-URL: en och svars-URL: en. Kontakta [Slack-kundsupporten](https://slack.com/help/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
     > [!NOTE]
     > Värdet för **identifierare (entitets-ID)** kan vara en variabel om du har fler än en slack-instans som du behöver integrera med klienten. Använd mönstret `https://<DOMAIN NAME>.slack.com` . I det här scenariot måste du också koppla till en annan inställning i slacket med samma värde.
 
@@ -106,7 +116,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | e-post | user.userprincipalname |
-    | | |
 
    > [!NOTE]
    > För att kunna konfigurera Service Provider (SP)-konfigurationen måste du klicka på **expandera** bredvid **Avancerade alternativ** på sidan SAML-konfiguration. I rutan **Service Provider Issuer** anger du URL för arbets ytan. Standardvärdet är slack.com. 
@@ -155,15 +164,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **Microsoft Azure AD** och sedan till **Teaminställningar**.
 
-     ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-team-settings.png)
+     ![Konfigurera enkel inloggning på Microsoft Azure AD](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. I avsnittet **Teaminställningar** klickar du på fliken **Autentisering** och sedan på **Ändra inställningar**.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-authentication.png)
+    ![Konfigurera enkel inloggning på Team inställningar](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. Gör följande i dialogrutan **Inställningar för SAML-autentisering**:
 
-    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-save-authentication.png)
+    ![Konfigurera enkel inloggning på Inställningar för SAML-autentisering](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  I textrutan **SAML 2.0 Endpoint (HTTP)** (SAML 2.0-slutpunkt (HTTP)) klistrar du in värdet för **inloggnings-URL:en**, som du har kopierat från Azure-portalen.
 

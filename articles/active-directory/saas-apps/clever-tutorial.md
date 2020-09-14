@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ea66f044664082b547d1b012d7253cd6443e8610
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519874"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med smarta
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar smarta med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -40,6 +40,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Clever har stöd för **SP**-initierad enkel inloggning
+* När du har konfigurerat Concur kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -56,7 +57,7 @@ För att konfigurera integreringen av Clever i Azure AD måste du lägga till Cl
 1. Välj **smarta** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Konfigurera och testa enkel inloggning med Azure AD för smarta
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Konfigurera och testa Azure AD SSO för smarta
 
 Konfigurera och testa Azure AD SSO med smarta med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i smarta.
 
@@ -83,10 +84,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://clever.com/in/<companyname>`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://clever.com/oauth/saml/metadata.xml`
+    b. I textrutan **Identifierare (entitets-ID)** anger du URL:en: `https://clever.com/oauth/saml/metadata.xml`
 
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://clever.com/<companyname>`
+    
     > [!NOTE]
-    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för Clever](https://clever.com/about/contact/) om be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    >  Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och svars-URL: en. Kontakta [kundsupporten för Clever](https://clever.com/about/contact/) om be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
@@ -135,7 +138,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. På sidan **Instant Login** (Direkt inloggning) utför du följande steg:
  
-    ![Omedelbar inloggning](./media/clever-tutorial/ic798985.png "Omedelbar inloggning")
+    ![SSO-konfiguration på sidan för omedelbar inloggning](./media/clever-tutorial/ic798985.png "Omedelbar inloggning")
 
     a. Skriv **inloggnings-URL**.
 

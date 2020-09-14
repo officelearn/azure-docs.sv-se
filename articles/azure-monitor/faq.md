@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569211"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054270"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -785,7 +785,7 @@ Svars tiden är en uppskattning. Eftersom vi inte instrumenterar koden för prog
 
 Den här uppskattningen fungerar bra för protokoll som är Request/Response-baserade: en enskild begäran skickas över anslutningen och ett enda svar tas emot. Detta är fallet för HTTP (S) (utan pipelinering), men inte uppfyllt för andra protokoll.
 
-### <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Är deras begränsningar om jag är på Log Analytics kostnads fri pris plan?
+### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Finns det några begränsningar om jag är på Log Analytics kostnads fri pris sättnings plan?
 Om du har konfigurerat Azure Monitor med en Log Analytics arbets yta som använder den *kostnads fria* pris nivån, kommer Azure Monitor for VMS Map-funktionen bara att ha stöd för fem anslutna datorer som är anslutna till arbets ytan. Om du har fem virtuella datorer som är anslutna till en kostnads fri arbets yta, kopplar du från en av de virtuella datorerna och senare ansluter en ny virtuell dator. den nya virtuella datorn övervakas inte och visas inte på kart sidan.  
 
 Under det här tillståndet uppmanas du att välja alternativet **prova nu** när du öppnar den virtuella datorn och väljer **insikter** i den vänstra rutan, även efter att den redan har installerats på den virtuella datorn.  Du uppmanas dock inte att ange alternativ som normalt skulle inträffa om den virtuella datorn inte har publicerats till Azure Monitor for VMs. 

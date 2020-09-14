@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542369"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053944"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn-konto anslutningar data delning och medgivande
 
@@ -73,7 +73,7 @@ När du ansluter dina Microsoft-och LinkedIn-konton gör det möjligt för Micro
 * Profil data – innehåller information som ditt förnamn, efter namn, profil foto, e-postadress, chef och personer som du hanterar.
 * Kalender data – innehåller möten i dina kalendrar, deras tider, platser och deltagares kontakt uppgifter. Information om mötet, t. ex. dag ordning, innehåll eller Mötes rubrik, ingår inte i kalender data.
 * Data för intressen – innehåller de intressen som är kopplade till ditt konto, baserat på din användning av Microsoft-tjänster, till exempel Cortana och Bing för företag.
-* Prenumerations data – innehåller prenumerationer från din organisation till Microsoft-appar och-tjänster, till exempel Office 365.
+* Prenumerations data – innehåller prenumerationer från din organisation till Microsoft-appar och-tjänster, till exempel Microsoft 365.
 * Kontakt data – innehåller kontakt listor i Outlook, Skype och andra Microsoft-konto tjänster, inklusive kontakt information för personer som du ofta kommunicerar eller samarbetar med. Kontakter importeras regelbundet, lagras och används av LinkedIn, till exempel för att föreslå anslutningar, hjälpa till att organisera kontakter och Visa uppdateringar om kontakter.
 
 Data som nås från Microsoft lagras inte permanent med LinkedIn, med undantag för kontakter. Microsoft-kontakter lagras på LinkedIn tills användarna tar bort dem. Lär dig mer om att [ta bort importerade kontakter från LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).

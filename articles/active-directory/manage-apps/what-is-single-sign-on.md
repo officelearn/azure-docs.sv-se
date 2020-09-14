@@ -12,18 +12,18 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b1f23d52b96e708a16adbbf6098de4b7ab0423e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069477"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052111"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
 Enkel inloggning innebär att en användare inte behöver logga in på varje program de använder. Användaren loggar in en gång och den autentiseringsuppgiften används även för andra appar.
 
-Om du är en slutanvändare behöver du förmodligen inte mer information om SSO. Du vill bara använda appar som gör dig produktiv utan att behöva ange ditt lösen ord så mycket. Du kan hitta dina appar på: https://myapps.microsoft.com .
+Om du är en slutanvändare behöver du förmodligen inte mer information om SSO. Du vill bara använda appar som gör dig produktiv utan att behöva ange ditt lösen ord så mycket. Du kan hitta dina appar på: https://myapplications.microsoft.com .
  
 Om du är administratör eller IT-proffs kan du läsa vidare för att lära dig mer om SSO och hur det implementeras i Azure.
 

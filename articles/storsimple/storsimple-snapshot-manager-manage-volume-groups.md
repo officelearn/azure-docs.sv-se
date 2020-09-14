@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager volym grupper | Microsoft Docs
 description: Beskriver hur du använder snapin-modulen StorSimple Snapshot Manager MMC för att skapa och hantera volym grupper.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506267"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054780"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Använd StorSimple Snapshot Manager för att skapa och hantera volym grupper
 ## <a name="overview"></a>Översikt
@@ -52,7 +52,7 @@ Om du klickar på noden **volym grupper** visar **resultat** fönstret följande
 |:--- |:--- |
 | Name |Kolumnen **Name** innehåller namnet på volym gruppen. |
 | Program |I kolumnen **program** visas antalet VSS-skrivare som är installerade och körs på Windows-värden. |
-| Vald |Den **markerade** kolumnen visar antalet volymer som finns i volym gruppen. Noll (0) anger att inget program är associerat med volymerna i volym gruppen. |
+| Markerat |Den **markerade** kolumnen visar antalet volymer som finns i volym gruppen. Noll (0) anger att inget program är associerat med volymerna i volym gruppen. |
 | Inför |Den **importerade** kolumnen visar antalet importerade volymer. När värdet är **True**anger den här kolumnen att en volym grupp importerades från Azure Portal och inte skapades i StorSimple Snapshot Manager. |
 
 > [!NOTE]

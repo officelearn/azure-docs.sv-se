@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb637ae3da9c6a0a3ea066ad741845bad36d5d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489637"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055171"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Dela konton med Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "89489637"
 Ibland behöver organisationer använda ett enda användar namn och lösen ord för flera personer, vilket vanligt vis sker i två fall:
 
 * Vid åtkomst till program som kräver ett unikt inloggnings-och lösen ord för varje användare, oavsett om det gäller lokala appar eller konsument moln tjänster (t. ex. företags konton för sociala medier).
-* När du skapar miljöer med flera användare. Du kan ha ett enda, lokalt konto med utökade privilegier och används för att utföra grundläggande konfigurations-, administrations-och återställnings aktiviteter. Till exempel det lokala kontot "global administratör" för Office 365 eller rot kontot i Salesforce.
+* När du skapar miljöer med flera användare. Du kan ha ett enda, lokalt konto med utökade privilegier och används för att utföra grundläggande konfigurations-, administrations-och återställnings aktiviteter. Till exempel det lokala kontot "global administratör" för Microsoft 365 eller rot kontot i Salesforce.
 
 Traditionellt är dessa konton delade genom att distribuera autentiseringsuppgifterna (användar namn och lösen ord) till rätt personer eller lagra dem på en delad plats där flera betrodda agenter kan komma åt dem.
 

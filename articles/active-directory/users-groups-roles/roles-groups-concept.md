@@ -1,6 +1,6 @@
 ---
 title: Använd moln grupper för att hantera roll tilldelningar i Azure Active Directory | Microsoft Docs
-description: Förhandsgranska anpassade Azure AD-roller för att delegera identitets hantering. Hantera Azure-roller i Azure Portal, PowerShell eller Graph API.
+description: Förhandsgranska anpassade Azure AD-roller för att delegera identitets hantering. Hantera Azure Role-tilldelningar i Azure Portal, PowerShell eller Graph API.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798320"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053777"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Använd moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)
 
@@ -28,7 +28,7 @@ Tänk på det här exemplet: contoso har anlitat personer över geografiska omr�
 
 ## <a name="how-this-feature-works"></a>Så här fungerar funktionen
 
-Skapa en ny Office 365-eller säkerhets grupp med egenskapen "isAssignableToRole" inställd på "true". Du kan också aktivera den här egenskapen när du skapar en grupp i Azure Portal genom att aktivera **Azure AD-roller kan tilldelas gruppen**. Oavsett hur du vill kan du tilldela gruppen till en eller flera Azure AD-roller på samma sätt som du tilldelar roller till användare. Högst 200 roll tilldelnings bara grupper kan skapas i en enda Azure AD-organisation (klient).
+Skapa en ny Microsoft 365 eller säkerhets grupp med egenskapen "isAssignableToRole" inställd på "true". Du kan också aktivera den här egenskapen när du skapar en grupp i Azure Portal genom att aktivera **Azure AD-roller kan tilldelas gruppen**. Oavsett hur du vill kan du tilldela gruppen till en eller flera Azure AD-roller på samma sätt som du tilldelar roller till användare. Högst 200 roll tilldelnings bara grupper kan skapas i en enda Azure AD-organisation (klient).
 
 Om du inte vill att medlemmar i gruppen ska ha ständig åtkomst till rollen kan du använda Azure AD Privileged Identity Management. Tilldela en grupp som en berättigad medlem i en Azure AD-roll. Varje medlem i gruppen kan sedan ha tilldelningen aktive rad för den roll som gruppen är tilldelad till. De kan sedan aktivera sin roll tilldelning för en fast tids period.
 

@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420013"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055494"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -123,7 +123,7 @@ Om du anger flera god kännare slutförs godkännandet så snart en av dem godk�
 
 # <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
-## <a name="open-role-settings"></a>Öppna roll inställningar
+## <a name="open-role-settings-previous-version"></a>Öppna roll inställningar (tidigare version)
 
 Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
@@ -131,7 +131,7 @@ Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
 1. Välj **Azure AD-roller**.
 
-1. Välj **inställningar**.
+1. Välj **Inställningar**.
 
     ![Azure AD-roller – inställningar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -168,7 +168,7 @@ Använd växeln **incident/begär biljett** för att kräva att berättigade adm
 Använd växeln **Multi-Factor Authentication** för att ange om du vill kräva att användarna verifierar sin identitet med MFA innan de kan aktivera sina roller. De behöver bara verifiera sin identitet en gång per session, inte varje gång de aktiverar en roll. Det finns två tips att tänka på när du aktiverar MFA:
 
 - Användare som har Microsoft-konton för sina e-postadresser (vanligt vis @outlook.com , men inte alltid) kan inte registreras för Azure Multi-Factor Authentication. Om du vill tilldela roller till användare med Microsoft-konton bör du antingen göra dem permanenta administratörer eller inaktivera Multi-Factor Authentication för rollen.
-- Det går inte att inaktivera Azure-Multi-Factor Authentication för mycket privilegierade roller för Azure AD och Office 365. Den här säkerhetsfunktionen hjälper till att skydda följande roller:  
+- Det går inte att inaktivera Azure Multi-Factor Authentication för mycket privilegierade roller för Azure AD och Microsoft 365. Den här säkerhetsfunktionen hjälper till att skydda följande roller:  
   
   - Azure Information Protection administratör
   - Faktureringsadministratör

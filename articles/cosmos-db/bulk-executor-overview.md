@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1251813486d4b7406f89ac9c09c49f985fa205
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260618"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055290"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Översikt över massexecutor-biblioteket i Azure Cosmos DB
  
@@ -25,6 +25,9 @@ Massexecutor-biblioteket hjälper dig att dra nytta av det omfattande dataflöde
 
 > [!NOTE] 
 > För närvarande stöder bulk utförar-biblioteket import-och uppdaterings åtgärder och det här biblioteket stöds endast av Azure Cosmos DB SQL API-och Gremlin API-konton.
+
+> [!IMPORTANT]
+> Bulk utförar-biblioteket stöds inte för närvarande på [Server](serverless.md) lösta konton. I .NET rekommenderar vi att du använder [Mass stödet](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) som finns i v3-versionen av SDK.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Huvud funktioner i bulk utförar-biblioteket  
  
@@ -46,7 +49,7 @@ När en Mass åtgärd för import eller uppdatering av dokument utlöses med en 
 
 I bulk utförar-biblioteket ser du till att maximally använder det data flöde som allokerats till en samling. Den använder en [AIMD för överbelastnings kontroll](https://tools.ietf.org/html/rfc5681) för varje Azure Cosmos DB partitionsnyckel för att effektivt hantera hastighets begränsning och tids gränser. 
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Efterföljande moment 
   
 * Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md).  
 * Kolla in utförar SDK-information och viktig information i [.net](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md).

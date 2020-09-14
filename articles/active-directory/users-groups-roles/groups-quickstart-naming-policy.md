@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213671"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054372"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snabbstart: Namnprincip för grupper i Azure Active Directory
 
@@ -68,6 +68,6 @@ Och sedan är du klar. Du har angett en namnprincip och lagt till dina anpassade
 
 I den här snabb starten har du lärt dig hur du ställer in namngivnings principen för din Azure AD-organisation via Azure Portal.
 
-Fortsätt till nästa artikel om du vill ha mer information, inklusive PowerShell-cmdletar för namngivnings princip, tekniska begränsningar, lägga till en lista med anpassade blockerade ord och slutanvändarens upplevelse i Office 365-appar.
+Fortsätt till nästa artikel om du vill ha mer information, inklusive PowerShell-cmdletar för namngivnings princip, tekniska begränsningar, lägga till en lista med anpassade blockerade ord och slutanvändarens upplevelse i Microsoft 365-appar.
 > [!div class="nextstepaction"]
 > [Namnger princip PowerShell](groups-naming-policy.md)

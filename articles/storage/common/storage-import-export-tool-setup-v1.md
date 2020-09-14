@@ -1,19 +1,19 @@
 ---
 title: Konfigurera Azure import/export-verktyget v1 | Microsoft Docs
 description: Lär dig hur du konfigurerar enhets förberedelse-och reparations verktyget för Azure import/export-tjänsten. Den här artikeln hänvisar till version 1 av import/export-verktyget.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/15/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530808"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054083"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Konfigurera Azure import/export-verktyget v1
 Verktyget Microsoft Azure Import/Export är verktyget för förberedelse och reparation av enheter som du kan använda med tjänsten Microsoft Azure Import/Export. Du kan använda verktyget för följande funktioner:  
@@ -24,7 +24,7 @@ Verktyget Microsoft Azure Import/Export är verktyget för förberedelse och rep
 
 -   När du har tagit emot enheterna från ett slutfört export jobb kan du använda det här verktyget för att reparera filer som är skadade eller saknade på enheterna.  
 
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Krav  
 Om du förbereder enheter för ett import jobb måste du uppfylla följande krav:  
 
 -   Du måste ha en aktiv Azure-prenumeration.  

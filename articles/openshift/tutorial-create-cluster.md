@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503796"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053879"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -104,20 +104,22 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Skapa en resurs grupp.**
+2. **Skapa en resurs grupp.**
 
-    En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resursgrupp med hjälp av kommandot [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
+En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resursgrupp med hjälp av kommandot [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
     
-> [!NOTE]
+> [!NOTE] 
 > Det går inte att skapa en Azure-resurs grupp i Azure Red Hat OpenShift i alla regioner. Se [tillgängliga regioner](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) för information om var Azure Red Hat OpenShift stöds.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+Följande exempelutdata visar den resursgrupp som skapats:
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -128,24 +130,24 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
     },
     "tags": null
     }
-    ```
+```
 
-2. **Skapa ett virtuellt nätverk.**
+3. **Skapa ett virtuellt nätverk.**
 
-    Azure Red Hat OpenShift-kluster som kör OpenShift 4 kräver ett virtuellt nätverk med två tomma undernät för Master-och Worker-noderna.
+Azure Red Hat OpenShift-kluster som kör OpenShift 4 kräver ett virtuellt nätverk med två tomma undernät för Master-och Worker-noderna.
 
-    Skapa ett nytt virtuellt nätverk i samma resurs grupp som du skapade tidigare:
+Skapa ett nytt virtuellt nätverk i samma resurs grupp som du skapade tidigare:
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    Följande exempel på utdata visar att det virtuella nätverket har skapats:
+Följande exempel på utdata visar att det virtuella nätverket har skapats:
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -161,9 +163,9 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **Lägg till ett tomt undernät för huvudnoderna.**
+4. **Lägg till ett tomt undernät för huvudnoderna.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -174,7 +176,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Lägg till ett tomt undernät för arbetsnoderna.**
+5. **Lägg till ett tomt undernät för arbetsnoderna.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -185,7 +187,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Inaktivera privata slut punkts principer för undernät](../private-link/disable-private-link-service-network-policy.md) i huvud under nätet.** Detta krävs för att kunna ansluta och hantera klustret.
+6. **[Inaktivera privata slut punkts principer för undernät](../private-link/disable-private-link-service-network-policy.md) i huvud under nätet.** Detta krävs för att kunna ansluta och hantera klustret.
 
     ```azurecli-interactive
     az network vnet subnet update \

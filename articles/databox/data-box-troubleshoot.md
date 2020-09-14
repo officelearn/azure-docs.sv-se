@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200132"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053461"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
@@ -33,7 +33,7 @@ Felen i Data Box-enhet och Data Box Heavy sammanfattas på följande sätt:
 | Data-eller filtyper | Data formatet eller filtypen stöds inte. |Hämta fel listorna. <br> För sid-blobbar eller hanterade diskar ser du till att data är 512-byte justerade och kopieras till de i förväg skapade mapparna. [Läs mer](#data-or-file-type-errors). |
 | Icke-kritiska BLOB-eller filfel  | BLOB-eller fil namnen följer inte reglerna för namngivning i Azure eller också stöds inte filtypen. | Dessa BLOB-eller filer får inte kopieras eller så kan namnen ändras. [Lär dig hur du åtgärdar felen](#non-critical-blob-or-file-errors). |
 
-\*De första fyra fel kategorierna är kritiska fel och måste åtgärdas innan du kan fortsätta med att förbereda för leverans.
+\* De första fyra fel kategorierna är kritiska fel och måste åtgärdas innan du kan fortsätta med att förbereda för leverans.
 
 
 ## <a name="container-or-share-name-errors"></a>Fel i behållare eller resurs namn
@@ -53,8 +53,8 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,, `myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -72,8 +72,8 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,, `myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -90,8 +90,8 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,, `myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
@@ -112,13 +112,17 @@ Detta är fel som är relaterade till data som överskrider storleken på de dat
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Fel Beskrivning:** Azure-filresurs begränsar en resurs till 5 TB data. Den här gränsen har överskridits för vissa resurser.
+**Fel Beskrivning:** Azure-filresurs begränsar en resurs till 5 TiB data och stora fil resurser är inte aktiverade på lagrings kontot. Den här gränsen överskreds för vissa resurser.
 
 **Rekommenderad lösning:** På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
 
-Identifiera de mappar som har det här problemet från fel loggarna och kontrol lera att filerna i mappen är under 5 TB.
-
-
+- Identifiera de mappar som har det här problemet från fel loggarna och kontrol lera att filerna i mappen är under 5 TiB.
+- Gränsen på 5 TiB gäller inte för ett lagrings konto som tillåter stora fil resurser. Du måste dock ha stora fil resurser konfigurerade när du placerar din beställning. 
+  - Kontakta [Microsoft Support](data-box-disk-contact-microsoft-support.md) och begär en ny leverans etikett.
+  - [Aktivera stora fil resurser på lagrings kontot.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Expandera fil resurserna i lagrings kontot](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) och ange kvoten till 100 TIB.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>Gräns fel för objekt-eller fil storlek
 
 Detta är fel relaterade till data som överskrider den maximala storleken på objektet eller filen som tillåts i Azure. 

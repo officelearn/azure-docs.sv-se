@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: fb6f5c4840f127ac174b6b60359dd52a4797b3ec
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 13cbeca909b445d75fcbcf7b3751183421479d42
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119682"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052570"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Microsoft Graph API är ett RESTful webb-API som gör att du kan komma åt Microsoft Cloud tjänst resurser. När du har registrerat din app och get Authentication-token för en användare eller tjänst kan du göra förfrågningar till Microsoft Graph API. Mer information finns i [Översikt över Microsoft Graph](/graph/overview).
 
 Microsoft Graph exponerar REST-API: er och klient bibliotek för att komma åt data på följande Microsoft 365-tjänster:
-- Office 365-tjänster: Delve, Excel, Microsoft-bokningar, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner och SharePoint
+- Microsoft 365 tjänster: Delve, Excel, Microsoft-bokningar, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner och SharePoint
 - Enterprise Mobility and Security Services: Advanced Threat Analytics, Avancerat skydd, Azure Active Directory, Identity Manager och Intune
 - Windows 10-tjänster: aktiviteter, enheter, meddelanden
 - Dynamics 365 Business Central

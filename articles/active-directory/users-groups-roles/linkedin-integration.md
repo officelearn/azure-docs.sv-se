@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797997"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053981"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-konto anslutningar i Azure Active Directory
 
@@ -29,7 +29,7 @@ Du kan ge användare i organisationen åtkomst till sina LinkedIn-anslutningar i
 >
 > Undantag
 >
-> * Inställningen är inte tillgänglig för kunder som använder Microsoft Cloud för amerikanska myndigheter, Microsoft Cloud Tyskland eller Azure och Office 365 som drivs av 21Vianet i Kina.
+> * Inställningen är inte tillgänglig för kunder som använder Microsoft Cloud för amerikanska myndigheter, Microsoft Cloud Tyskland eller Azure och Microsoft 365 som drivs av 21Vianet i Kina.
 > * Inställningen är inaktive rad som standard för Azure AD-organisationer etablerade i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
 > * Inställningen är inaktive rad som standard för organisationer etablerade i Frankrike.
 >
@@ -94,12 +94,12 @@ Om du vill använda gruppen från steg två som den valda gruppen i inställning
 1. Skapa ett Grupprincip-objekt med följande inställning: **användar konfiguration**  >  **administrativa mallar**  >  **Microsoft Office 2016**  >  **Diverse**  >  **Visa LinkedIn-funktioner i Office-program**.
 1. Välj **aktive rad** eller **inaktive**rad.
   
-   Status | Effekt
+   Stat | Effekt
    ------ | ------
    **Aktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är aktive rad. Användare i din organisation kan använda LinkedIn-funktioner i sina Office 2016-program.
-   **Disabled** (Inaktiverat) | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
+   **Inaktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
 
-Den här grup principen påverkar endast Office 2016-appar för en lokal dator. Om användarna inaktiverar LinkedIn i sina Office 2016-appar kan de fortfarande se LinkedIn-funktioner i Office 365.
+Den här grup principen påverkar endast Office 2016-appar för en lokal dator. Om användarna inaktiverar LinkedIn i sina Office 2016-appar kan de fortfarande se LinkedIn-funktioner i Microsoft 365.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799442"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055239"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
 
@@ -37,12 +37,12 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 ## <a name="terminology"></a>Terminologi
 
-| Term|Beskrivning|
+| Period|Beskrivning|
 | ----|-----------|
 | Tvåfaktorsverifiering | En verifieringsprocess som kräver att du endast använder två typer av verifieringsinformation, t.ex. ett lösenord och en PIN-kod. Microsoft Authenticator-appen har stöd för både tvåfaktorsverifiering som är standard och lösenordsfri inloggning. |
 | Multi-Factor Authentication (MFA) | All tvåfaktorsverifiering är multifaktorautentisering, och kräver att du använder *minst* två typer av information för verifiering, baserat på din organisations behov. |
-| Microsoft-konto (kallas även MSA) | Du skapar dina egna personliga konton som ger åtkomst till dina kundorienterade Microsoft-produkter och -molntjänster som Outlook, OneDrive, Xbox LIVE eller Office 365. Ditt Microsoft-konto skapas och lagras i Microsofts kontosystem för konsumentidentiteter som drivs av Microsoft. |
-| Arbets- eller skolkonto | Din organisation skapar arbets-eller skolkonto (till exempel alain@contoso.com) så att du får åtkomst till interna och potentiellt begränsade resurser, till exempel Microsoft Azure, Windows Intune och Office 365. |
+| Microsoft-konto (kallas även MSA) | Du skapar egna personliga konton för att få åtkomst till dina kundorienterade Microsoft-produkter och moln tjänster, till exempel Outlook, OneDrive, Xbox LIVE eller Microsoft 365. Ditt Microsoft-konto skapas och lagras i Microsofts kontosystem för konsumentidentiteter som drivs av Microsoft. |
+| Arbets- eller skolkonto | Din organisation skapar ditt arbets-eller skol konto (till exempel alain@contoso.com ) så att du kan komma åt interna och potentiellt begränsade resurser, till exempel Microsoft Azure, Windows Intune och Microsoft 365. |
 | Verifieringskod | Den sexsiffriga kod som visas i autentiseringsappen under varje konto som har lagts till. Verifieringskoden ändras var 30:e sekund, vilket hindrar att samma kod används flera gånger. Detta kallas även för engångslösenord (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Så här fungerar tvåfaktorsverifiering med appen

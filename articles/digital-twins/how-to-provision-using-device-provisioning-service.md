@@ -40,7 +40,7 @@ Enhets simulatorn baseras på **Node.js**, version 10.0. x eller senare. [*Förb
 
 Bilden nedan visar arkitekturen för den här lösningen med hjälp av Azure Digitals dubbla med Device Provisioning-tjänsten. Det visar både enhets etableringen och indragnings flödet.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten "allokering". Data från en manuell "ta bort enhet"-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten allokering. Data från en manuell ta bort enhet-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
 
 Den här artikeln är indelad i två delar:
 * [*Automatisk etablering av enhet med enhets etablerings tjänst*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ För djupare förklaringar av varje steg i arkitekturen, se deras enskilda avsni
 
 I det här avsnittet ska du ansluta enhets etablerings tjänsten till Azure Digital-enheter för att etablera enheter automatiskt genom sökvägen nedan. Detta är ett utdrag från den fullständiga arkitekturen som visas [ovan](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Etablera flöde – ett utdrag av lösnings arkitektur diagrammet med siffror som etiketterar sektioner i flödet. Data flödar fram och tillbaka mellan en termostat-enhet och DPS (1 för enhets > DPS och 5 för DPS > Device). Data flödar också ut från DPS till IoT Hub (4) och till Azure Digital-dubblare (3) genom en Azure-funktion med etiketten "allokering" (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Etablera flöde – ett utdrag av lösnings arkitektur diagrammet med siffror som etiketterar sektioner i flödet. Data flödar fram och tillbaka mellan en termostat-enhet och DPS (1 för enhets > DPS och 5 för DPS > Device). Data flödar också ut från DPS till IoT Hub (4) och till Azure Digital-dubblare (3) genom en Azure-funktion med etiketten allokering (2).":::
 
 Här följer en beskrivning av process flödet:
 1. Enheten kontaktar DPS-slutpunkten och skickar identifierings information för att bevisa sin identitet.
@@ -304,7 +304,7 @@ Du bör se den dubbla av enheten som finns på Azure Digitals-instansen.
 
 I det här avsnittet ska du lägga till IoT Hub livs cykel händelser till Azure Digital-meddelanden för att automatiskt dra tillbaka enheter via sökvägen nedan. Detta är ett utdrag från den fullständiga arkitekturen som visas [ovan](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Dra tillbaka enhets flödet – ett utdrag av lösnings arkitektur diagrammet med siffror som delar av flödet. Termostat-enheten visas utan anslutningar till Azure-tjänsterna i diagrammet. Data från en manuell "ta bort enhet"-åtgärd flödar genom IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digitals dubblare (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Dra tillbaka enhets flödet – ett utdrag av lösnings arkitektur diagrammet med siffror som delar av flödet. Termostat-enheten visas utan anslutningar till Azure-tjänsterna i diagrammet. Data från en manuell ta bort enhet-åtgärd flödar genom IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digitals dubblare (3).":::
 
 Här följer en beskrivning av process flödet:
 1. En extern eller manuell process utlöser borttagningen av en enhet i IoT Hub.

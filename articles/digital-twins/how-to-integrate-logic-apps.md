@@ -46,7 +46,7 @@ Du måste också skapa en **_klient hemlighet_** för din Azure AD-App-registrer
 
 Besök *certifikat och hemligheter* från registrerings menyn och välj *+ ny klient hemlighet*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt "certifikat och hemligheter" på resurs menyn och en markering på sidan runt "ny klient hemlighet"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt certifikat och hemligheter på resurs menyn och en markering på sidan runt ny klient hemlighet":::
 
 Ange de värden som du vill ha som beskrivning och förfaller, och tryck sedan på *Lägg till*.
 Hemligheten kommer att läggas till i listan över klient hemligheter på sidan *certifikat och hemligheter* . Anteckna värdet för att använda senare (du kan också kopiera det till Urklipp med kopierings ikonen).
@@ -69,7 +69,7 @@ Gå till sidan [Logic Apps anpassad anslutning](https://portal.azure.com/#blade/
 
 På sidan *skapa Logic Apps anpassad anslutning* som följer väljer du din prenumeration och resurs grupp och ett namn och en distributions plats för din nya anslutning. Tryck på *Granska + skapa*. Då kommer du till fliken *Granska + skapa* där du kan trycka på *skapa* längst ned för att skapa din resurs.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Fliken Granska + skapa på sidan Skapa Logic Apps anpassad anslutning i Azure Portal. Fokus runt knappen "skapa"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Fliken Granska + skapa på sidan Skapa Logic Apps anpassad anslutning i Azure Portal. Fokus runt knappen skapa":::
 
 Du kommer till distributions sidan för anslutningen. När distributionen är färdig klickar du på knappen *gå till resurs* för att Visa kopplingens information i portalen.
 
@@ -96,7 +96,7 @@ På sidan *redigera Logic Apps anpassad anslutning* som följer konfigurerar du 
 
 Tryck sedan på knappen *säkerhet* längst ned i fönstret för att fortsätta till nästa konfigurations steg.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Skärm bild av slutet av sidan "redigera Logic Apps anpassad anslutning". Fokusera på knappen för att fortsätta till säkerhet":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Skärm bild av slutet av sidan redigera Logic Apps anpassad anslutning. Fokusera på knappen för att fortsätta till säkerhet":::
 
 I säkerhets steget trycker du på *Redigera* och konfigurerar den här informationen:
 * **Autentiseringstyp**: OAuth 2,0
@@ -112,7 +112,7 @@ I säkerhets steget trycker du på *Redigera* och konfigurerar den här informat
 
 Observera att fältet omdirigerings-URL står för att *Spara det anpassade anslutnings programmet för att generera omdirigerings-URL*. Gör detta nu genom att trycka på *Uppdatera koppling* längst upp i fönstret för att bekräfta dina anslutnings inställningar.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Skärm bild av den övre delen av sidan Redigera Logic Apps anpassad anslutning. Markera med knappen "uppdatera koppling"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Skärm bild av den övre delen av sidan Redigera Logic Apps anpassad anslutning. Markera med knappen uppdatera koppling":::
 
 <!-- Success message? didn't see one -->
 
@@ -133,7 +133,7 @@ Gå till sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD
 
 Lägg till en URI under *autentisering* från registrerings menyn.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Sidan autentisering för appens registrering i Azure Portal. "Autentisering" i menyn är markerat och på sidan markeras knappen Lägg till en URI."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Sidan autentisering för appens registrering i Azure Portal. Autentisering i menyn är markerat och på sidan markeras knappen Lägg till en URI."::: 
 
 Ange den anpassade kopplingens *omdirigerings-URL* till det nya fältet och tryck på ikonen *Spara* .
 
@@ -147,7 +147,7 @@ Därefter skapar du en Logic-app som använder din nya anslutning för att autom
 
 Gå till sidan [Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Tryck på *skapa Logic app*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Sidan Logic Apps i Azure Portal. Fokus runt knappen "skapa Logic app"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Sidan Logic Apps i Azure Portal. Fokus runt knappen skapa Logic app":::
 
 På sidan *Logic app* som följer väljer du din prenumeration och resurs grupp och ett namn och en distributions plats för din nya Logic-app. Tryck på *Granska + skapa*. Då kommer du till fliken *Granska + skapa* där du kan trycka på *skapa* längst ned för att skapa din resurs.
 

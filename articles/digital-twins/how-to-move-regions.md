@@ -168,7 +168,7 @@ ADT Explorer laddar nu upp dina modeller och diagram (inklusive de dubbla och re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 2 importerade modeller. 4 dubbla importer. 2 relationer har importer ATS. "" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 2 importerade modeller. 4 dubbla importer. 2 relationer har importer ATS." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::

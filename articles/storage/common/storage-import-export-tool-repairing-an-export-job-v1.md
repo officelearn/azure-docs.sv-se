@@ -1,19 +1,19 @@
 ---
 title: Reparera ett export jobb i Azure import/export-v1 | Microsoft Docs
 description: Lär dig hur du reparerar ett export jobb som har skapats och körs med tjänsten Azure import/export.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0731848e1ff187afb6e9f607516dd74b6c16de9b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520489"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056347"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
 När ett export jobb har slutförts kan du köra Microsoft Azure Import/Export-verktyget lokalt för att:  

@@ -13,12 +13,12 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8c6a9304927f5d4bcad895b725955c522b60207a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266244"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056089"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera applösenord för tvåstegsverifiering
 
@@ -44,7 +44,7 @@ Du kan skapa och ta bort applösenord, baserat på hur du använder tvåstegsver
 
 - **Din organisation använder tvåstegsverifiering och sidan ytterligare säkerhets verifiering.** Om du använder ditt arbets-eller skol konto (till exempel, alain@contoso.com ) med tvåstegsverifiering i din organisation, kan du hantera dina applösenord från [sidan ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/Proofup.aspx). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av sidan ytterligare säkerhets verifiering](#create-and-delete-app-passwords-from-the-additional-security-verification-page) i den här artikeln.
 
-- **Din organisation använder tvåstegsverifiering och Office 365-portalen.** Om du använder ditt arbets-eller skol konto (t. ex., alain@contoso.com ), tvåstegsverifiering och Office 365-appar i din organisation, kan du hantera dina applösenord från [sidan Office 365-portalen](https://www.office.com). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
+- **Din organisation använder tvåstegsverifiering och Office 365-portalen.** Om du använder ditt arbets-eller skol konto (till exempel, alain@contoso.com ), tvåstegsverifiering och Microsoft 365 appar i din organisation, kan du hantera dina applösenord från [Portal sidan för Office 365](https://www.office.com). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
 
 - **Du använder tvåstegsverifiering med en personlig Microsoft-konto.** Om du använder en personlig Microsoft-konto (till exempel, alain@outlook.com ) med tvåstegsverifiering kan du hantera dina applösenord från [sidan grundläggande säkerhet](https://account.microsoft.com/security/). Detaljerade anvisningar finns i [använda applösenord med appar som inte stöder tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
@@ -82,11 +82,11 @@ Du kan skapa och ta bort applösenord från sidan **ytterligare säkerhets verif
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Skapa och ta bort applösenord med Office 365-portalen
 
-Om du använder tvåstegsverifiering med ditt arbets-eller skol konto och dina Office 365-appar kan du skapa och ta bort dina applösenord med hjälp av Office 365-portalen.
+Om du använder tvåstegsverifiering med ditt arbets-eller skol konto och dina Microsoft 365-appar kan du skapa och ta bort dina applösenord med hjälp av Office 365-portalen.
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Så här skapar du applösenord med Office 365-portalen
 
-1. Logga in på Office 365 och gå sedan till [sidan mitt konto](https://portal.office.com), välj **säkerhet & sekretess**och expandera sedan **ytterligare säkerhets verifiering**.
+1. Logga in på ditt arbets-eller skol konto, gå till [sidan mitt konto](https://portal.office.com), välj **säkerhet & sekretess**och expandera sedan **ytterligare säkerhets verifiering**.
 
     ![Office-portalen visar utökade ytterligare säkerhets verifierings områden](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 

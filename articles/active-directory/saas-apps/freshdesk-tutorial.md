@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 71c1bea58f17b457f417a5b050640d04d44019d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0bbfdc2463795770b52f5008fc633fe9e95244a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551072"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudie: Azure Active Directory integrering med FreshDesk
 
@@ -30,7 +30,7 @@ Genom att integrera FreshDesk med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med FreshDesk behöver du följande:
 
@@ -55,7 +55,7 @@ För att konfigurera integreringen av FreshDesk till Azure AD behöver du lägga
 1. I avsnittet **Lägg till från galleriet** , skriver du **FreshDesk** i sökrutan.
 1. Välj **FreshDesk** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshdesk"></a>Konfigurera och testa enkel inloggning med Azure AD för FreshDesk
+## <a name="configure-and-test-azure-ad-sso-for-freshdesk"></a>Konfigurera och testa Azure AD SSO för FreshDesk
 
 Konfigurera och testa Azure AD SSO med FreshDesk med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i FreshDesk.
 
@@ -81,9 +81,11 @@ Om du vill konfigurera och testa Azure AD SSO med FreshDesk, slutför du följan
     a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://<tenant-name>.freshdesk.com` eller något annat värde FreshDesk har föreslagit.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<tenant-name>.freshdesk.com` eller något annat värde så Freshdesk har föreslagit.
-
+     
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<tenant-name>.freshdesk.com/login/saml`
+    
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Hämta dessa värden genom att kontakta [supportteamet för FreshDesk-klienten](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för FreshDesk-klienten](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. FreshDesk-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärm bild visar en lista över standardattribut, medan **unika användar identifierare** mappas med **User. UserPrincipalName** , men FreshDesk förväntar sig att detta anspråk ska mappas med **User. mail**, så du måste redigera mappningen av attributet genom att klicka på ikonen Redigera och ändra attributet mappning.
 

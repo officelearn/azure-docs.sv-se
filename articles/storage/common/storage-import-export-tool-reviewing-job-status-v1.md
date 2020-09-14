@@ -1,19 +1,19 @@
 ---
 title: Granska status för Azure import/export-jobb-v1 | Microsoft Docs
 description: Lär dig hur du använder de loggfiler som skapats av import-eller export jobbet för att se jobbets status.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/26/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9093af25e621b3ab9a60d9894f0a875340fda45
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2fa5cfcf0cb6c20a8a0b64651da0b365e12a3d05
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525677"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056330"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Granska status för import/export-jobb i Azure med kopiera loggfiler
 När tjänsten Microsoft Azure Import/Export bearbetar de enheter som är associerade med ett import-eller export jobb skriver det kopian av loggfiler till det lagrings konto som du använde för att importera eller exportera blobbar. Logg filen innehåller detaljerad statusinformation om varje fil som har importer ATS eller exporter ATS. Tjänsten returnerar URL: en för varje kopierings logg fil när du frågar efter status för ett slutfört jobb. Mer information finns i [Hämta jobb](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  

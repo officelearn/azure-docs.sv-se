@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e53881d5b28b61cd220b14e02c411db53d19d36
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8767444e7ea839b1bb89cbb52833283fa01f7b5a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551011"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055596"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Freshservice
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Freshservice med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -81,12 +81,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://<democompany>.freshservice.com`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://<company-name>.freshservice.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<democompany>.freshservice.com`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<company-name>.freshservice.com`
 
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<company-name>.freshservice.com/login/saml`
+    
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Hämta dessa värden genom att kontakta [supportteamet för Freshservice-klienten](https://support.freshservice.com/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för Freshservice-klienten](https://support.freshservice.com/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 

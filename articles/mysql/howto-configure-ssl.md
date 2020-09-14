@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: a9f2568bc35552e299e7bc33137666c1a23891a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: dd01b8e85be52de898e6b22fb4da810e9184482d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999452"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055834"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure Database for MySQL
 
@@ -22,6 +22,9 @@ Azure Database for MySQL stöder anslutning av Azure Database for MySQL-servern 
 
 Hämta det certifikat som krävs för att kommunicera via SSL med din Azure Database for MySQL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) -Server från och spara certifikat filen på den lokala enheten (i den här självstudien används c:\ssl till exempel).
 **För Microsoft Internet Explorer och Microsoft Edge:** När hämtningen är klar byter du namn på certifikatet till BaltimoreCyberTrustRoot. CRT. pem.
+
+> [!IMPORTANT] 
+> SSL-rotcertifikat är inställt på att gå ut från oktober 26 2020 (10/26/2020). Uppdatera ditt program för att använda det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Mer information finns i avsnittet om [planerade certifikat uppdateringar](concepts-certificate-rotation.md)
 
 Se följande länkar för certifikat för servrar i suveräna moln: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Kina](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)och [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 

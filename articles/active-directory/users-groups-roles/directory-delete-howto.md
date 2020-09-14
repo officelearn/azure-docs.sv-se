@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795430"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056310"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Ta bort en klient i Azure Active Directory
 
@@ -27,12 +27,12 @@ När en Azure AD-organisation (klient) tas bort, tas även alla resurser som ing
 
 ## <a name="prepare-the-organization"></a>Förbered organisationen
 
-Det går inte att ta bort en organisation i Azure AD förrän flera kontroller har passerats. Dessa kontroller minskar risken för att ta bort en Azure AD-organisation negativt påverkar användar åtkomst, till exempel möjligheten att logga in på Office 365 eller åtkomst till resurser i Azure. Till exempel om organisationen som är associerad med en prenumeration oavsiktligt har tagits bort, kan användarna inte komma åt Azure-resurser för den prenumerationen. Följande villkor kontrolleras:
+Det går inte att ta bort en organisation i Azure AD förrän flera kontroller har passerats. Dessa kontroller minskar risken för att en Azure AD-organisation påverkar användarens åtkomst negativt, till exempel möjligheten att logga in på Microsoft 365 eller få åtkomst till resurser i Azure. Till exempel om organisationen som är associerad med en prenumeration oavsiktligt har tagits bort, kan användarna inte komma åt Azure-resurser för den prenumerationen. Följande villkor kontrolleras:
 
 * Det får inte finnas några användare i Azure AD-organisationen (klient organisationen) förutom en global administratör som vill ta bort organisationen. Andra användare måste tas bort innan organisationen kan tas bort. Om användarna synkroniseras lokalt måste synkroniseringen först inaktive ras och användarna måste tas bort i moln organisationen med hjälp av Azure Portal-eller Azure PowerShell-cmdletar.
 * Det kan inte finnas några program i organisationen. Alla program måste tas bort innan organisationen kan tas bort.
 * Det kan inte finnas några Multi-Factor Authentication-providrar kopplade till organisationen.
-* Det kan inte finnas några prenumerationer för Microsoft Online Services, till exempel Microsoft Azure, Office 365 eller Azure AD Premium som är kopplade till organisationen. Om du till exempel har skapat en Azure AD-organisation som standard i Azure kan du inte ta bort den här organisationen om din Azure-prenumeration fortfarande är beroende av den här organisationen för autentisering. På samma sätt kan du inte ta bort en organisation om en annan användare har associerat en prenumeration med den.
+* Det kan inte finnas några prenumerationer för Microsoft Online Services, till exempel Microsoft Azure, Microsoft 365 eller Azure AD Premium som är kopplade till organisationen. Om du till exempel har skapat en Azure AD-organisation som standard i Azure kan du inte ta bort den här organisationen om din Azure-prenumeration fortfarande är beroende av den här organisationen för autentisering. På samma sätt kan du inte ta bort en organisation om en annan användare har associerat en prenumeration med den.
 
 ## <a name="delete-the-organization"></a>Ta bort organisationen
 
@@ -52,16 +52,16 @@ Det går inte att ta bort en organisation i Azure AD förrän flera kontroller h
 
 ## <a name="if-you-cant-delete-the-organization"></a>Om du inte kan ta bort organisationen
 
-När du konfigurerade din Azure AD-organisation kan du också ha aktiverat licensbaserade prenumerationer för din organisation som Azure AD Premium P2, Office 365 Business Premium eller Enterprise Mobility + Security E5. För att undvika oavsiktlig data förlust kan du inte ta bort en organisation förrän prenumerationerna har tagits bort helt. Prenumerationerna måste vara i **avetablerat** tillstånd för att organisationen ska kunna tas bort. En **förfallen** eller **avbruten** prenumeration flyttas till **inaktiverat** tillstånd och den slutliga fasen är tillståndet **deetablerat** .
+När du konfigurerade din Azure AD-organisation kan du också ha aktiverat licensbaserade prenumerationer för din organisation som Azure AD Premium P2, Microsoft 365 Business Standard eller Enterprise Mobility + Security E5. För att undvika oavsiktlig data förlust kan du inte ta bort en organisation förrän prenumerationerna har tagits bort helt. Prenumerationerna måste vara i **avetablerat** tillstånd för att organisationen ska kunna tas bort. En **förfallen** eller **avbruten** prenumeration flyttas till **inaktiverat** tillstånd och den slutliga fasen är tillståndet **deetablerat** .
 
-Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+Information om vad som ska förväntas när en utvärderings version Microsoft 365 prenumerationen upphör (inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Microsoft 365 data kvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Microsoft 365 for Business-prenumeration slutar?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Prenumerations tillstånd | Data | Åtkomst till data
 ----- | ----- | -----
-Aktiv (30 dagar för utvärderings version) | Data tillgängliga för alla | Användare har normal åtkomst till Office 365-filer eller appar<br>Administratörer har normal åtkomst till Microsoft 365 administrations Center och-resurser 
-Upphört (30 dagar) | Data tillgängliga för alla| Användare har normal åtkomst till Office 365-filer eller appar<br>Administratörer har normal åtkomst till Microsoft 365 administrations Center och-resurser
-Inaktive rad (30 dagar) | Endast data tillgängliga för administratör | Användare har inte åtkomst till Office 365-filer eller appar<br>Administratörer kan komma åt Microsoft 365 administrations Center men kan inte tilldela licenser till eller uppdatera användare
-Avetablerat (30 dagar efter inaktive rad) | Data har tagits bort (tas bort automatiskt om inga andra tjänster används) | Användare har inte åtkomst till Office 365-filer eller appar<br>Administratörer kan komma åt Microsoft 365 administrations Center för att köpa och hantera andra prenumerationer
+Aktiv (30 dagar för utvärderings version) | Data tillgängliga för alla | Användare har normal åtkomst till Microsoft 365 filer eller appar<br>Administratörer har normal åtkomst till Microsoft 365 administrations Center och-resurser 
+Upphört (30 dagar) | Data tillgängliga för alla| Användare har normal åtkomst till Microsoft 365 filer eller appar<br>Administratörer har normal åtkomst till Microsoft 365 administrations Center och-resurser
+Inaktive rad (30 dagar) | Endast data tillgängliga för administratör | Användare har inte åtkomst till Microsoft 365 filer eller appar<br>Administratörer kan komma åt Microsoft 365 administrations Center men kan inte tilldela licenser till eller uppdatera användare
+Avetablerat (30 dagar efter inaktive rad) | Data har tagits bort (tas bort automatiskt om inga andra tjänster används) | Användare har inte åtkomst till Microsoft 365 filer eller appar<br>Administratörer kan komma åt Microsoft 365 administrations Center för att köpa och hantera andra prenumerationer
 
 ## <a name="delete-a-subscription"></a>Ta bort en prenumeration
 
@@ -97,7 +97,7 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Jag har en utvärderings prenumeration som blockerar borttagningen
 
-Det finns [självbetjänings registrerings produkter](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, vilket även skapar en gäst användare för autentisering i din Azure AD-organisation. Dessa självbetjänings produkter blockerar katalog borttagningar tills produkterna tas bort helt från organisationen för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
+Det finns [självbetjänings registrerings produkter](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Microsoft 365, vilket även skapar en gäst användare för autentisering i din Azure AD-organisation. Dessa självbetjänings produkter blockerar katalog borttagningar tills produkterna tas bort helt från organisationen för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
 
 Det finns två typer av självbetjänings registrerings produkter i hur de tilldelas: 
 
@@ -108,7 +108,7 @@ När du påbörjar borttagningen av en självbetjänings registrerings produkt r
 
 Mer information om för närvarande tillgängliga registrerings produkter och tjänster för självbetjäning finns i [tillgängliga självbetjänings program](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Information om vad som ska förväntas när en utvärderings version Microsoft 365 prenumerationen upphör (inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Microsoft 365 data kvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Microsoft 365 for Business-prenumeration slutar?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Produkt tillstånd | Data | Åtkomst till data
 ------------- | ---- | --------------

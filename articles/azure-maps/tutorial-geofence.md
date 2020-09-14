@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa en inhägnad och spåra enheter på en Microsoft Azure karta'
+title: 'Självstudie: skapa en inhägnad och spåra enheter på Azure Maps'
 description: Lär dig hur du konfigurerar ett geografiskt avgränsnings tecken. Se hur du spårar enheter i förhållande till den här gränsen genom att använda tjänsten Azure Maps spatial.
 author: anastasia-ms
 ms.author: v-stharr
@@ -9,54 +9,54 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299311"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056517"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geofence med hjälp av Azure Maps
 
-I den här självstudien får du lära dig grunderna i hur du skapar och använder Azure Mapsbaserade tjänster för att skapa och använda tjänster i följande scenarion:
+I den här självstudien får du lära dig grunderna i hur du skapar och använder Azure Maps-tjänster för inhägnad. Du gör detta i samband med följande scenario:
 
-*En konstruktions Site Manager måste spåra utrustning när den går in och lämnar ett byggnads områdets perimeter. När en del av utrustningen avslutar eller anger dessa perimeter skickas ett e-postmeddelande till Operations Manager.*
+*En konstruktions plats hanterare måste spåra utrustning när den går in och lämnar perimeter för ett byggnads område. När en del av utrustningen avslutar eller anger dessa perimeter skickas ett e-postmeddelande till Operations Manager.*
 
-Azure Maps tillhandahåller ett antal tjänster för att stödja spårning av utrustning som går in och avslutar arbets ytan i scenariot ovan. I den här självstudien lär vi dig att:
+Azure Maps tillhandahåller ett antal tjänster för att stödja spårning av utrustning som går in och lämnar arbets ytan. I den här kursen får du:
 
 > [!div class="checklist"]
-> * Överför [polystaket av POLYjson-data](geofence-geojson.md) som definierar de konstruktions plats områden som vi vill övervaka. Vi använder [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) för att överföra avgränsningar som polygon-koordinater till ditt Azure Maps-konto.
-> * Konfigurera två [Logic-appar](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) som, när de utlöses, kommer att skicka e-postaviseringar till bygg platsen Operations Manager när utrustningen går in och avslutar området för avgränsning.
-> * Använd [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) om du vill prenumerera på Azure Mapsde gränser för att ange och avsluta en händelse. Vi kommer att konfigurera två webb-Hook-händelseloggar som anropar de HTTP-slutpunkter som definierats i dina två Logic Apps. Logic Apps skickar sedan lämpliga e-postaviseringar om utrustning som flyttas utanför eller genom att ange ett geografiskt avgränsnings tecken.
+> * Överför [polystaket av POLYjson-data](geofence-geojson.md) som definierar de konstruktions plats områden som du vill övervaka. Du använder [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) för att överföra avgränsningar som polygon-koordinater till ditt Azure Maps-konto.
+> * Konfigurera två [Logic Apps](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) som, när de utlöses, skickar e-postaviseringar till arbets platsens Operations Manager när utrustningen går in och avslutar området för avgränsning.
+> * Använd [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) för att prenumerera på att ange och avsluta händelser för ditt Azure Maps-avgränsning. Du ställer in två händelse prenumerationer för webhook som anropar de HTTP-slutpunkter som definierats i dina två Logic Apps. Logi Kap par skickar sedan lämpliga e-postaviseringar om utrustning som flyttas utanför eller genom att ange ett geografiskt avgränsnings tecken.
 > * Använd [Sök funktionen för att hämta API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att ta emot meddelanden när en del av utrustningen avslutas och anger de områden som ligger utanför gränsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 
 I den här självstudien används [Postman](https://www.postman.com/) -programmet, men du kan välja en annan API utvecklings miljö.
 
 ## <a name="upload-geofencing-geojson-data"></a>Överför polystaket, polyjson-data
 
-I den här självstudien laddar vi upp polyinhägnaden av polyjson-data som innehåller en `FeatureCollection` . `FeatureCollection`Innehåller två gränser som definierar polygonens avgränsnings områden på bygg platsen. Den första gränsen har ingen förfallo tid eller begränsningar. Den andra kan bara frågas mot under kontors tid (9-5 P.M. PST) och kommer inte längre att vara giltigt efter den 1 januari 2022. Mer information om formatet för det här formatet finns i [polyjson-data (polystaket](geofence-geojson.md)).
+I den här självstudien laddar du upp polyinhägnaden av polyjson-data som innehåller en `FeatureCollection` . `FeatureCollection`Innehåller två gränser som definierar polygonens avgränsnings områden på bygg platsen. Den första gränsen har ingen förfallo tid eller begränsningar. Den andra kan bara frågas mot under kontors tid (9:00 AM-5:00 PM i Stilla havs området) och kommer inte längre att gälla efter den 1 januari 2022. Mer information om formatet för det här formatet finns i [polyjson-data (polystaket](geofence-geojson.md)).
 
 >[!TIP]
->Du kan när som helst uppdatera dina avgränsnings data. Mer information om hur du uppdaterar dina data finns i [API för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
+>Du kan när som helst uppdatera dina avgränsnings data. Mer information finns i [API för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview).
 
-1. Öppna Postman-appen. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** .
+1. Öppna Postman-appen. Välj **nytt**längst upp. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj **skapa**.
 
 2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara**.
 
-3. Välj metoden **post** http på fliken Builder och ange följande URL för att överföra polystaket-data till Azure Maps-tjänsten. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
+3. Välj metoden **post** http på fliken Builder och ange följande URL för att ladda upp de polyavgränsnings data som ska Azure Maps. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
     ```HTTP
     https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-    Den _interjson_ -parametern i URL-sökvägen representerar data formatet för de data som överförs.
+    `geojson`Parametern i URL-sökvägen representerar data formatet för de data som överförs.
 
-4. Klicka på fliken **brödtext** . Välj **RAW**och sedan **JSON** som indataformat. Kopiera och klistra in följande interjson-data i **bröd** text området:
+4. Välj fliken **brödtext** . Välj **RAW**och sedan **JSON** som indataformat. Kopiera och klistra in följande interjson-data i **bröd** text området:
 
    ```JSON
    {
@@ -144,7 +144,7 @@ I den här självstudien laddar vi upp polyinhägnaden av polyjson-data som inne
    }
    ```
 
-5. Klicka på knappen blå **sändning** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret. Kopiera värdet för **plats** nyckeln, som är `status URL` .
+5. Välj **Skicka**och vänta på att begäran ska bearbetas. När begäran har slutförts går du till fliken **sidhuvud** i svaret. Kopiera värdet för **plats** nyckeln, som är `status URL` .
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
@@ -156,7 +156,7 @@ I den här självstudien laddar vi upp polyinhägnaden av polyjson-data som inne
    https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. När **Get** http-begäran har slutförts returneras en `resourceLocation` . `resourceLocation`Innehåller det unika `udid` för det överförda innehållet. Du måste spara detta `udid` för att fråga The get unstängsel API i det sista avsnittet i den här självstudien. Du kan också använda `resourceLocation` URL: en för att hämta metadata från den här resursen i nästa steg.
+7. När **Get** http-begäran har slutförts returneras en `resourceLocation` . `resourceLocation`Innehåller det unika `udid` för det överförda innehållet. Spara detta `udid` om du vill fråga The get unstängsel API i det sista avsnittet av den här självstudien. Du kan också använda `resourceLocation` URL: en för att hämta metadata från den här resursen i nästa steg.
 
       ```json
       {
@@ -171,7 +171,7 @@ I den här självstudien laddar vi upp polyinhägnaden av polyjson-data som inne
    https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. När **Get** http-begäran har slutförts innehåller svars texten som `udid` anges i i `resourceLocation` steg 7, platsen för att komma åt/Ladda ned innehållet i framtiden och några andra metadata om innehållet som skapat/uppdaterat datum, storlek och så vidare. Ett exempel på det övergripande svaret är:
+9. När **Get** http-begäran har slutförts innehåller svars texten som `udid` anges i i `resourceLocation` steg 7. Den kommer också att innehålla platsen för att komma åt och hämta innehållet i framtiden och andra metadata om innehållet. Ett exempel på det övergripande svaret är:
 
     ```json
     {
@@ -184,105 +184,105 @@ I den här självstudien laddar vi upp polyinhägnaden av polyjson-data som inne
     }
     ```
 
-## <a name="create-logic-app-workflows"></a>Skapa Logic app-arbetsflöden
+## <a name="create-workflows-in-azure-logic-apps"></a>Skapa arbets flöden i Azure Logic Apps
 
-I det här avsnittet ska vi skapa två [Logic app](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) -slutpunkter som utlöser ett e-postmeddelande. Vi visar dig hur du skapar den första utlösaren som kommer att skicka e-postmeddelanden när dess slut punkt anropas.
+Därefter skapar du två [Logic app](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) -slutpunkter som utlöser ett e-postmeddelande. Så här skapar du en första:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
+2. I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**.
 
-3. Skriv **Logic app**i rutan *Sök på Marketplace* .
+3. Skriv **Logic app**i rutan **Sök på Marketplace** .
 
-4. Välj **Logic app**i *resultaten*. Klicka på knappen **skapa** .
+4. Välj **Logic app**  >  **create**i resultatet.
 
 5. På sidan **Logic app** anger du följande värden:
-    * Den *prenumeration* som du vill använda för den här Logic-appen.
-    * *Resurs grupps* namnet för den här Logic-appen. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
-    * *Logic App-namnet* för din Logi Kap par. I det här fallet ska vi använda `Equipment-Enter` som namn.
+    * Den **prenumeration** som du vill använda för den här Logic-appen.
+    * **Resurs grupps** namnet för den här Logic-appen. Du kan välja att **skapa en ny** eller **använda en befintlig** resurs grupp.
+    * **Logic App-namnet** för din Logi Kap par. I det här fallet använder `Equipment-Enter` du som namn.
 
-    I den här självstudien behåller du resten av värdena i standardinställningarna.
+    I den här självstudien behåller du alla andra värden i standardinställningarna.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Skapa en Logic app":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Skärm bild av skapa en logisk app.":::
 
-6. Klicka på knappen **Granska + skapa** . Granska inställningarna och klicka på **skapa** för att skicka distribution. När distributionen har slutförts klickar **du på gå till resurs**. Du kommer till **Logic Apps designer**
+6. Välj **Granska + skapa**. Granska inställningarna och välj **skapa** för att skicka distributionen. När distributionen har slutförts väljer **du gå till resurs**. Du kommer till **Logic App Designer**.
 
-7. Nu ska vi välja en utlösnings typ. Rulla ned en bit till avsnittet *börja med en vanlig utlösare**. Klicka på **när en HTTP-begäran tas emot**.
+7. Välj en utlösnings typ. Rulla ned till avsnittet **börja med ett gemensamt utlösare** . Välj **när en HTTP-begäran tas emot**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Skapa en HTTP-utlösare för Logic app":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Skärm bild av skapa en HTTP-utlösare för Logic app.":::
 
-8. Klicka på **Spara** i det övre högra hörnet i designern. **Http post-URL: en** kommer att genereras automatiskt. Spara URL: en som du behöver i nästa avsnitt för att skapa en händelse slut punkt.
+8. I det övre högra hörnet i Logic App Designer väljer du **Spara**. **Http post-URL: en** genereras automatiskt. Spara URL: en. Du behöver den i nästa avsnitt för att skapa en händelse slut punkt.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="URL för HTTP-begäran för Logic app och JSON":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Skärm bild av HTTP-begärans URL och JSON för Logic app.":::
 
-9. Välj **+ nytt steg**. Nu ska vi välja en åtgärd. Skriv `outlook.com email` i sökrutan. Rulla ned i listan **åtgärder** och klicka på **Skicka ett e-postmeddelande (v2)**.
+9. Välj **+ nytt steg**. Nu ska du välja en åtgärd. Skriv `outlook.com email` i sökrutan. Rulla nedåt i listan **åtgärder** och välj **Skicka ett e-postmeddelande (v2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Skapa en Logic App Designer":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Skärm bild av skapa en Logic Apps designer.":::
 
-10. Logga in på ditt Outlook.com-konto. Se till att klicka på **Ja** för att tillåta att Logic-appen får åtkomst till kontot. Fyll i fälten för att skicka ett e-postmeddelande.
+10. Logga in på ditt Outlook-konto. Se till att välja **Ja** för att tillåta att Logic-appen får åtkomst till kontot. Fyll i fälten för att skicka ett e-postmeddelande.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Skapa ett Logic app-skicka e-post steg":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Skärm bild av skapa ett e-poststeg för att skicka ett Logic-program.":::
 
     >[!TIP]
-    > Du kan hämta data från en interjson-respons, till exempel `geometryId` eller `deviceId` i dina e-postaviseringar genom att konfigurera Logic app för att läsa data som skickas av event Grid. Information om hur du konfigurerar Logi Kap par för att använda och skicka händelse data till e-postaviseringar finns i [Självstudier: skicka e-postaviseringar om Azure IoT Hub händelser med event Grid och Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
+    > Du kan hämta data för multijson-svar, till exempel `geometryId` eller `deviceId` , i dina e-postaviseringar. Du kan konfigurera Logic Apps att läsa data som skickas av Event Grid. Information om hur du konfigurerar Logic Apps att använda och skicka händelse data till e-postaviseringar finns i [Självstudier: skicka e-postaviseringar om Azure IoT Hub händelser med event Grid och Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
 
-11. Klicka på **Spara** i det övre vänstra hörnet i Logic Apps designer.
+11. I det övre vänstra hörnet i Logic App Designer väljer du **Spara**.
 
-12. Upprepa steg 3-11 för att skapa en andra Logic-app för att meddela chefen när utrustningen avslutar Bygg platsen. Namnge Logic-appen `Equipment-Exit` .
+Om du vill skapa en andra Logic app för att meddela chefen när utrustningen avslutar Bygg platsen upprepar du steg 3-11. Namnge Logic-appen `Equipment-Exit` .
 
 ## <a name="create-azure-maps-events-subscriptions"></a>Skapa prenumerationer för Azure Maps händelser
 
-Azure Maps har stöd för tre händelsetyper. Du kan ta en titt på händelsetyper som Azure Maps stöder [här](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).  Vi måste skapa två olika händelse prenumerationer: en för ett geografiskt avgränsnings tecken som anger händelser och en för att avsluta händelser.
+Azure Maps stöder [tre händelse typer](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Här måste du skapa två olika händelse prenumerationer: en för ett geografiskt avgränsnings tecken, och en för händelser med en mark gräns.
 
-Följ stegen nedan för att skapa en händelseprenumeration för geofence-inträdeshändelserna. Du kan prenumerera på händelser med en inhägnad genom att upprepa stegen på liknande sätt.
+Följande steg visar hur du skapar en händelse prenumeration för det avgränsnings sätt som anger händelser. Du kan prenumerera på händelser med en inhägnad genom att upprepa stegen på liknande sätt.
 
-1. Navigera till ditt Azure Maps-konto. I instrument panelen väljer du **prenumerationer**. Klicka på ditt prenumerations namn och välj **händelser** på menyn Inställningar.
+1. Gå till ditt Azure Maps-konto. I instrument panelen väljer du **prenumerationer**. Välj ditt prenumerations namn och välj **händelser** på menyn Inställningar.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Navigera till Azure Maps konto händelser":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Skärm bild av gå till Azure Maps konto händelser.":::
 
 2. Om du vill skapa en händelse prenumeration väljer du **+ händelse prenumeration** på sidan händelser.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Skapa en prenumeration för Azure Maps-händelser":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Skärm bild av skapa en prenumeration på Azure Maps händelser.":::
 
 3. På sidan **Skapa händelse prenumeration** anger du följande värden:
-    * *Namnet* på händelse prenumerationen.
-    * *Händelse schemat* ska vara *Event Grid schema*.
-    * *Systemets ämnes namn* för den här händelse prenumerationen. I det här fallet ska vi använda `Contoso-Construction` .
-    * Välj som händelse typ på *Filtrera efter händelse typer* `Geofence Entered` .
-    * För *slut punkts typ*väljer du `Web Hook` .
-    * För *slut punkt*kopierar du HTTP post-URL: en för Logic app. Ange slut punkten som du skapade i föregående avsnitt. Om du har glömt att spara det kan du bara gå tillbaka till Logic App Designer och kopiera den från steget HTTP-utlösare.
+    * **Namnet** på händelse prenumerationen.
+    * **Händelse schemat** ska vara *Event Grid schema*.
+    * **Systemets ämnes namn** för den här händelse prenumerationen, som i det här fallet är `Contoso-Construction` .
+    * För **filter till händelse typer**väljer du `Geofence Entered` som händelse typ.
+    * För **slut punkts typ**väljer du `Web Hook` .
+    * För **slut punkt**kopierar du HTTP post-URL: en för Logic-appen ange den slut punkt som du skapade i föregående avsnitt. Om du har glömt att spara det kan du bara gå tillbaka till Logic App Designer och kopiera den från steget HTTP-utlösare.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Prenumerations information för Azure Maps händelser":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Skärm bild av prenumerations information för Azure Maps händelser.":::
 
-4. Klicka på **Skapa**.
+4. Välj **Skapa**.
 
-5. Upprepa steg 1-4 för den logiska appens slut punkt som du skapade i föregående avsnitt. I steg 3, se till att välja `Geofence Exited` som händelse typ.
+Upprepa steg 1-4 för den logiska appens slut punkt som du skapade i föregående avsnitt. I steg 3, se till att välja `Geofence Exited` som händelse typ.
 
 ## <a name="use-spatial-geofence-get-api"></a>Använd API för att hämta geospatiala gränser
 
-Nu ska vi använda den spatialdata för att [Hämta API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att skicka e-postmeddelanden till Operations Manager när en del av utrustningen går in eller avslutar-avgränsningarna.
+Använd [spatiala polystängsel Hämta API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att skicka e-postmeddelanden till Operations Manager när en del av utrustningen går in eller avslutar-avgränsningarna.
 
-Varje utrustning har en `deviceId` . I den här självstudien kommer vi att spåra en enda utrustning, vars unika ID är `device_1` .
+Varje utrustnings enhet har en `deviceId` . I den här självstudien spårar du en enskild utrustning med ett unikt ID för `device_1` .
 
-För tydlighetens skull visar följande diagram de fem platserna för utrustningen över tid, med början från *Start* platsen, som ligger någonstans utanför de yttre avgränsningarna. I den här självstudien är *Start* platsen odefinierad, eftersom vi inte kommer att fråga enheten på den platsen.
+Följande diagram visar de fem platserna för utrustningen över tid, med början från *Start* platsen, som ligger någonstans utanför de yttre avgränsningarna. I den här självstudien är *Start* platsen odefinierad, eftersom du inte kommer att fråga enheten på den platsen.
 
-När vi frågar efter den [spatiala netstängsel get-API: et](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) med en utrustnings plats som anger inledande avgränsnings post eller avsluta, kommer Event Grid att anropa rätt Logic app-slutpunkt för att skicka ett e-postmeddelande till Operations Manager.
+När du frågar efter den [spatiala netstängsel get-API: et](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) med en utrustnings plats som anger inledande gräns eller avsluta, anropar Event Grid lämplig Logic app-slutpunkt för att skicka ett e-postmeddelande till Operations Manager.
 
-Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika plats koordinaterna för utrustningen.
+Vart och ett av följande avsnitt gör API-begäranden med hjälp av de fem olika plats koordinaterna för utrustningen.
 
-![Gräns karta i Azure Maps](./media/tutorial-geofence/geofence.png)
+![Diagram över avgränsnings karta i Azure Maps](./media/tutorial-geofence/geofence.png)
 
 ### <a name="equipment-location-1-47638237-122132483"></a>Utrustnings plats 1 (47.638237,-122,132483)
 
-1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**.  Ange ett **namn** för begäran. Vi använder namnet, *plats 1*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
+1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Gör det till *plats 1*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}` med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. Ersätt `{Azure-Maps-Primary-Subscription-key}` med den primära prenumerations nyckeln och `{udid}` med det `udid` som du sparade i [avsnittet Ladda upp polystaket-indata-JSON](#upload-geofencing-geojson-data).
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Klicka på knappen **Skicka** . Följande interjson visas i svars fönstret.
+3. Välj **Skicka**. Följande interjson visas i svars fönstret.
 
     ```json
     {
@@ -310,19 +310,19 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
     }
     ```
 
-4. I det inre JSON-svaret ovan innebär det negativa avståndet från huvud platsens inre gräns att utrustningen ligger innanför den inre gränsen. Det positiva avståndet från under platsens yttre gräns innebär att utrustningen ligger utanför under platsens yttre gräns. Eftersom det här är första gången den här enheten finns inuti den huvudsakliga platsens inre gräns, `isEventPublished` anges parametern till `true` och Operations Manager skulle ha fått ett e-postmeddelande om att utrustningen har fyllt i avgränsningen.
+I föregående geografiskt JSON-svar innebär det negativa avståndet från huvud platsens inre gräns att utrustningen ligger innanför den inre gränsen. Det positiva avståndet från under platsens land avgränsning innebär att utrustningen ligger utanför under platsens yttre gräns. Eftersom det här är första gången den här enheten finns inuti huvud platsens inre gräns, `isEventPublished` anges parametern till `true` . Operations Manager tar emot ett e-postmeddelande om att utrustningen har fyllt i avgränsningen.
 
 ### <a name="location-2-4763800-122132531"></a>Plats 2 (47.63800,-122,132531)
 
-1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**.  Ange ett **namn** för begäran. Vi använder namnet, *plats 2*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
+1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Gör det till *plats 2*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}` med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. Ersätt `{Azure-Maps-Primary-Subscription-key}` med den primära prenumerations nyckeln och `{udid}` med det `udid` som du sparade i [avsnittet Ladda upp polystaket-indata-JSON](#upload-geofencing-geojson-data).
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
-3. Klicka på knappen **Skicka** . Följande interjson visas i svars fönstret:
+3. Välj **Skicka**. Följande Poly-JSON visas i svars fönstret:
 
     ```json
     {
@@ -350,19 +350,19 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
     }
     ````
 
-4. I det geografiskt JSON-svaret ovan har utrustningen hållits på den huvudsakliga platsens gräns och har inte angett under platsens gräns. Därför `isEventPublished` är parametern inställd på `false` och Operations Manager får inte några e-postaviseringar.
+I föregående geografiskt JSON-svar har utrustningen hållits på huvud platsens gräns och har inte angett ett geografiskt område. Därför `isEventPublished` anges parametern till `false` och Operations Manager får inte några e-postaviseringar.
 
 ### <a name="location-3-4763810783315048-12213336020708084"></a>Plats 3 (47.63810783315048,-122.13336020708084)
 
-1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**.  Ange ett **namn** för begäran. Vi använder namnet, *plats 3*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
+1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Gör den till *plats 3*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}` med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. Ersätt `{Azure-Maps-Primary-Subscription-key}` med den primära prenumerations nyckeln och `{udid}` med det `udid` som du sparade i [avsnittet Ladda upp polystaket-indata-JSON](#upload-geofencing-geojson-data).
 
     ```HTTP
       https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
-3. Klicka på knappen **Skicka** . Följande interjson visas i svars fönstret:
+3. Välj **Skicka**. Följande Poly-JSON visas i svars fönstret:
 
     ```json
     {
@@ -390,22 +390,22 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
     }
     ````
 
-4. I ett geografiskt JSON-svar ovan har utrustningen hållits i den huvudsakliga platsens grund gräns, men har angett under platsens gräns. Därför `isEventPublished` anges parametern till `true` och Operations Manager får ett e-postmeddelande som anger att utrustningen har angett ett avgränsnings tecken.
+I föregående geografiskt JSON-svar har utrustningen hållits i den huvudsakliga platsens huvud plats, men har angett under platsens gräns. Därför `isEventPublished` anges parametern till `true` . Operations Manager får ett e-postmeddelande som anger att utrustningen har angett ett avgränsnings tecken.
 
-    >[!NOTE]
-    >Om utrustningen har flyttats till under platsen efter kontors tid skulle ingen händelse publiceras och Operations Manager inte ta emot några meddelanden.  
+>[!NOTE]
+>Om utrustningen har flyttats till under platsen efter kontors tid skulle ingen händelse publiceras och Operations Manager skulle inte ta emot några meddelanden.  
 
 ### <a name="location-4-47637988-1221338344"></a>Plats 4 (47.637988,-122,1338344)
 
-1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**.  Ange ett **namn** för begäran. Vi använder namnet, *plats 4*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
+1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Gör IT- *plats 4*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}`  med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. Ersätt `{Azure-Maps-Primary-Subscription-key}` med den primära prenumerations nyckeln och `{udid}` med det `udid` som du sparade i [avsnittet Ladda upp polystaket-indata-JSON](#upload-geofencing-geojson-data).
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Klicka på knappen **Skicka** . Följande interjson visas i svars fönstret:
+3. Välj **Skicka**. Följande Poly-JSON visas i svars fönstret:
 
     ```json
     {
@@ -427,19 +427,19 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
     }
     ````
 
-4. I det geografiskt JSON-svaret ovan har utrustningen hållits på huvud platsens grund gräns, men har slut på under platsens gräns. Men om du märker det `userTime` är värdet efter det `expiredTime` som definierats i dessa data. Därför `isEventPublished` är parametern inställd på `false` och Operations Manager får inte något e-postmeddelande.
+I föregående geografiskt JSON-svar har utrustningen hållits på den huvudsakliga platsens gräns, men har slut på under platsens gräns. Observera dock att `userTime` värdet är efter det `expiredTime` som definieras i de här gräns värdena. Därför `isEventPublished` anges parametern till `false` och Operations Manager får inte något e-postmeddelande.
 
 ### <a name="location-547637988-1221338344"></a>Plats 5 (47.637988,-122,1338344)
 
-1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**.  Ange ett **namn** för begäran. Vi använder namnet, *plats 4*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
+1. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Gör det till *plats 5*. Välj den samling som du skapade i [avsnittet Ladda upp polystaket-data](#upload-geofencing-geojson-data)och välj sedan **Spara**.
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL-adress `{Azure-Maps-Primary-Subscription-key}` . Ersätt med den primära prenumerations nyckeln och `{udid}` med den `udid` som du sparade i [avsnittet Ladda upp polyinhägnade-data](#upload-geofencing-geojson-data).
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. Ersätt `{Azure-Maps-Primary-Subscription-key}` med den primära prenumerations nyckeln och `{udid}` med det `udid` som du sparade i [avsnittet Ladda upp polystaket-indata-JSON](#upload-geofencing-geojson-data).
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
-3. Klicka på knappen **Skicka** . Följande interjson visas i svars fönstret:
+3. Välj **Skicka**. Följande Poly-JSON visas i svars fönstret:
 
     ```json
     {
@@ -467,7 +467,7 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
     }
     ````
 
-4. I det geografiskt JSON-svaret ovan har utrustningen avslutat huvud platsens gräns. Därför `isEventPublished` anges parametern till `true` och Operations Manager får ett e-postmeddelande som anger att utrustningen har avslutat ett avgränsnings tecken.
+I föregående geografiskt JSON-svar har utrustningen avslutat huvud platsens gräns. Därför `isEventPublished` anges parametern till `true` och Operations Manager får ett e-postmeddelande som anger att utrustningen har avslutat ett avgränsnings tecken.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -478,4 +478,4 @@ Vart och ett av följande avsnitt gör HTTP GET-API-begäranden med de fem olika
 > [Skicka e-postmeddelanden med hjälp av Event Grid och Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
 
 > [!div class="nextstepaction"]
-> [Händelse hanterare som stöds i Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
+> [Händelse hanterare som stöds i Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers)

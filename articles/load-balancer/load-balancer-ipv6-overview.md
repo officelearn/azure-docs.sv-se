@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981859"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058758"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Översikt över IPv6 för Azure Load Balancer
 
@@ -79,7 +79,7 @@ Begränsningar
 * IPv6-slutpunkten på den virtuella datorn exponeras inte direkt för Internet. Det ligger bakom en belastningsutjämnare. Endast de portar som anges i belastnings Utjämnings reglerna är tillgängliga via IPv6.
 * Det finns **för närvarande inte stöd**för att ändra idleTimeout-parametern för IPv6. Standardvärdet är fyra minuter.
 * Det finns **för närvarande inte stöd**för att ändra parametern LoadDistributionMethod för IPv6.
-* Reserverade IPv6 IP-adresser (där IPAllocationMethod = static) **stöds inte för närvarande**.
+* IPv6 för grundläggande Load Balancer är låst till en **dynamisk** SKU.  IPv6 för en Standard Load Balancer är låst till en **statisk** SKU.
 * NAT64 (översättning av IPv6 till IPv4) stöds inte.
 * Det finns **för närvarande inte stöd för**att ansluta ett sekundärt nätverkskort som refererar till ett IPv6-undernät till en backend-pool.
 

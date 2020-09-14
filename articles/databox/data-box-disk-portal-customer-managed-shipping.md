@@ -2,24 +2,24 @@
 title: Microsoft Azure Data Box Disk självhanterad leverans | Microsoft Docs i data
 description: Beskriver självhanterade leverans arbets flöden för Azure Data Box Disk enheter
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.author: twooley
-ms.openlocfilehash: f3292e2088397e332323bec71f9a5965eddd0fe0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783237"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055587"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Använd självhanterad leverans för Azure Data Box Disk i Azure Portal
 
 I den här artikeln beskrivs självhanterade leverans uppgifter för order, hämtning och utlämning av Azure Data Box Disk. Du kan hantera Data Box Disk med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Självhanterad leverans är tillgängligt som ett alternativ när du [beställer Azure Data Box disk](data-box-disk-deploy-ordered.md). Självhanterad leverans är endast tillgängligt i följande regioner:
 

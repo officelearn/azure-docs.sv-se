@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179580"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055817"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -114,7 +114,7 @@ Utvärdera de konton som är tilldelade eller berättigade till den globala admi
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Aktivera Multi-Factor Authentication och registrera alla andra icke-federerade administratörs konton med hög behörighet
 
-Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, administratör för privilegie rad roll, Exchange-administratör och SharePoint-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda användare som permanent tilldelas till en eller flera av administratörs rollerna för Azure AD: global administratör, administratör för privilegie rad roll, Exchange-administratör och SharePoint-administratör. Använd guiden för att aktivera [Multi-Factor Authentication (MFA) för dina administratörs konton](../authentication/howto-mfa-userstates.md) och se till att alla användare har registrerat sig på [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Mer information finns under steg 2 och steg 3 i guiden [Skydda åtkomsten till data och tjänster i Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Steg 2: minimera ofta använda attacker
 
@@ -130,7 +130,7 @@ Steg 2 i översikten fokuserar på att begränsa de mest använda angrepps tekni
 
 * Identifiera de användare som har administrativa roller och de tjänster som de kan hantera.
 * Använd Azure AD PIM för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Azure AD.
-* Utöver de roller som definierats i Azure AD levereras Office 365 med en uppsättning administratörs roller som du kan tilldela till användare i din organisation. Varje administratörs roll mappar till vanliga affärs funktioner och ger personer i organisationen behörighet att utföra specifika uppgifter i [Microsoft 365 administrations centret](https://admin.microsoft.com). Använd Microsoft 365 administrations Center för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Office 365, inklusive via roller som inte hanteras i Azure AD. Mer information finns i [om office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) och [säkerhets rutiner för Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Utöver de roller som definierats i Azure AD kommer Microsoft 365 att ha en uppsättning administratörs roller som du kan tilldela till användare i din organisation. Varje administratörs roll mappar till vanliga affärs funktioner och ger personer i organisationen behörighet att utföra specifika uppgifter i [Microsoft 365 administrations centret](https://admin.microsoft.com). Använd Microsoft 365 administrations Center för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Microsoft 365, inklusive via roller som inte hanteras i Azure AD. Mer information finns i [om Microsoft 365 admin-roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) och [säkerhets rutiner för Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Gör inventeringen i tjänster som din organisation använder, till exempel Azure, Intune eller Dynamics 365.
 * Se till att dina konton som används i administrations syfte:
 
@@ -175,17 +175,17 @@ Om du använder Windows Hello för företag kan MFA-kravet uppfyllas med hjälp 
 
 Azure AD Identity Protection är ett algoritmbaserade övervaknings-och rapporterings verktyg som identifierar potentiella sårbarheter som påverkar organisationens identiteter. Du kan konfigurera automatiserade svar på de identifierade misstänkta aktiviteterna och vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
-#### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Skaffa dina Office 365-säkra poäng (om du använder Office 365)
+#### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Få Microsoft 365 säkra poäng (om du använder Microsoft 365)
 
-Säkra Poäng tittar på dina inställningar och aktiviteter för de Office 365-tjänster som du använder och jämför dem med en bas linje som upprättats av Microsoft. Du får ett resultat baserat på hur justerat du är med säkerhets praxis. Alla som har administratörs behörighet för en Office 365 Business Premium-eller Enterprise-prenumeration kan komma åt säkra poäng på [https://securescore.office.com](https://securescore.office.com/) .
+Säkra Poäng tittar på dina inställningar och aktiviteter för de Microsoft 365-tjänster som du använder och jämför dem med en bas linje som upprättats av Microsoft. Du får ett resultat baserat på hur justerat du är med säkerhets praxis. Alla som har administratörs behörighet för en Microsoft 365 Business Standard-eller Enterprise-prenumeration kan komma åt säkra poäng på [https://securescore.office.com](https://securescore.office.com/) .
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Granska vägledningen för säkerhet och efterlevnad i Office 365 (om du använder Office 365)
+#### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Granska vägledningen för Microsoft 365 säkerhet och efterlevnad (om du använder Microsoft 365)
 
-[Planen för säkerhet och efterlevnad](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) beskriver metoden för en Office 365-kund att konfigurera Office 365 och aktivera andra EMS-funktioner. Gå sedan igenom steg 3-6 i [Skydda åtkomsten till data och tjänster i office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) och guiden för hur du [övervakar säkerhet och efterlevnad i Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
+[Planen för säkerhet och efterlevnad](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) beskriver metoden för en Office 365-kund att konfigurera Office 365 och aktivera andra EMS-funktioner. Gå sedan igenom steg 3-6 i så här [skyddar du åtkomsten till data och tjänster i Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) och guiden för att [övervaka säkerhet och efterlevnad i Microsoft 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
-#### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Konfigurera aktivitets övervakning i Office 365 (om du använder Office 365)
+#### <a name="configure-microsoft-365-activity-monitoring-if-using-microsoft-365"></a>Konfigurera Microsoft 365 aktivitets övervakning (om du använder Microsoft 365)
 
-Övervaka din organisation för användare som använder Office 365 för att identifiera personal som har ett administratörs konto, men som kanske inte behöver ha Office 365-åtkomst eftersom de inte loggar in på dessa portaler. Mer information finns [i aktivitets rapporter i Microsoft 365 administrations centret](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+Övervaka din organisation för användare som använder Microsoft 365 för att identifiera personal som har ett administratörs konto, men kanske inte behöver Microsoft 365 åtkomst eftersom de inte loggar in på dessa portaler. Mer information finns [i aktivitets rapporter i Microsoft 365 administrations centret](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Upprätta incidenter/svars plan för nöd situationer
 
@@ -229,7 +229,7 @@ Steg 3 bygger på åtgärder från steg 2 och bör implementeras inom cirka 1-3 
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Slutför en åtkomst granskning av användare i administratörs roller
 
-Fler företags användare får privilegie rad åtkomst via moln tjänster, vilket kan leda till ohanterad åtkomst. Användare idag kan bli globala administratörer för Office 365, Azure-prenumerations administratörer eller ha administratörs åtkomst till virtuella datorer eller via SaaS-appar.
+Fler företags användare får privilegie rad åtkomst via moln tjänster, vilket kan leda till ohanterad åtkomst. Användare idag kan bli globala administratörer för Microsoft 365, Azure-prenumerations administratörer eller ha administratörs åtkomst till virtuella datorer eller via SaaS-appar.
 
 Din organisation bör ha alla anställda som hanterar vanliga affärs transaktioner som användare utan privilegier, och tilldelar sedan endast administratörs rättigheter vid behov. Slutför åtkomst granskningar för att identifiera och bekräfta de användare som är berättigade att aktivera administratörs behörighet.
 
@@ -281,13 +281,13 @@ Om du redan använder Azure AD Privileged Identity Management justerar du tids r
 
 Vi rekommenderar att du identifierar varje potentiell användare som kan vara oåterkallelig till organisationen om deras autentiseringsuppgifter har komprometterats. För dessa användare kan du ange starka autentiseringskrav och använda villkorlig åtkomst i Azure AD för att hindra dem från att logga in på sina e-postmeddelanden med hjälp av användar namn och lösen ord. Du kan blockera [äldre autentisering med villkorlig åtkomst](../conditional-access/block-legacy-authentication.md)och du kan [blockera grundläggande autentisering](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange Online.
 
-#### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Slutför en gransknings bedömning för roller för Office 365-roller (om du använder Office 365)
+#### <a name="complete-a-roles-review-assessment-for-microsoft-365-roles-if-using-microsoft-365"></a>Slutför en gransknings bedömning för roller för Microsoft 365 roller (om du använder Microsoft 365)
 
 Utvärdera om alla administratörer användare har rätt roller (ta bort och omtilldela enligt denna utvärdering).
 
-#### <a name="review-the-security-incident-management-approach-used-in-office-365-and-compare-with-your-own-organization"></a>Granska den säkerhets incident hanterings metod som används i Office 365 och jämför med din egen organisation
+#### <a name="review-the-security-incident-management-approach-used-in-microsoft-365-and-compare-with-your-own-organization"></a>Granska den säkerhets incident hanterings metod som används i Microsoft 365 och jämför med din egen organisation
 
-Du kan hämta den här rapporten från [hantering av säkerhets incidenter i Microsoft Office 365](https://www.microsoft.com/download/details.aspx?id=54302).
+Du kan hämta den här rapporten från [hantering av säkerhets incidenter i Microsoft 365](https://www.microsoft.com/download/details.aspx?id=54302).
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Fortsätt att skydda lokala privilegierade administratörs konton
 
@@ -348,7 +348,7 @@ Vi rekommenderar att du använder [Microsoft Cloud App Security](/cloud-app-secu
 * Förhindra data läckage
 * Minimera risker och automatiserat skydd av hot och princip tillämpning
 
-Cloud App Security SIEM-agenten integrerar Cloud App Security med SIEM-servern för att aktivera centraliserad övervakning av Office 365-aviseringar och-aktiviteter. Den körs på servern och hämtar aviseringar och aktiviteter från Cloud App Security och strömmar dem till SIEM-servern. Mer information finns i [Siem-integrering](/cloud-app-security/siem).
+Cloud App Security SIEM-agenten integrerar Cloud App Security med SIEM-servern för att aktivera centraliserad övervakning av Microsoft 365 aviseringar och aktiviteter. Den körs på servern och hämtar aviseringar och aktiviteter från Cloud App Security och strömmar dem till SIEM-servern. Mer information finns i [Siem-integrering](/cloud-app-security/siem).
 
 ## <a name="stage-4-continue-building-defenses"></a>Steg 4: Fortsätt att skapa försvar
 
@@ -364,7 +364,7 @@ Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets gar
 * Servrar
 * Program
 * Datorer
-* Enheter
+* Egenskaper
 * Cloud Fabric
 
 Vi rekommenderar följande metoder när du hanterar privilegierade åtkomst konton:
@@ -387,8 +387,8 @@ Ta reda på om de aktuella inbyggda administratörs rollerna för Azure AD fortf
 
 Mer information finns i [så här konfigurerar du hybrid Azure Active Directory anslutna enheter](../devices/hybrid-azuread-join-plan.md).
 
-#### <a name="review-members-of-built-in-office-365-admin-roles"></a>Granska medlemmar av [inbyggda administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
-Hoppa över det här steget om du inte använder Office 365.
+#### <a name="review-members-of-built-in-microsoft-365-admin-roles"></a>Granska medlemmar av [inbyggda Microsoft 365 administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+Hoppa över det här steget om du inte använder Microsoft 365.
 ‎
 #### <a name="validate-incident-response-plan"></a>Verifiera incident svars plan
 

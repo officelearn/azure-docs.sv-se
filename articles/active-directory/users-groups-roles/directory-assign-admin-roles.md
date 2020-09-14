@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62628e4b85af96fd9c9ba4174d22d3f1f7c6540a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0a861a038cefec56dfaaed1aca443f494dc82680
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006031"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055766"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -96,7 +96,7 @@ Alla Enterprise Azure DevOps-principer kan hanteras av användare i den här rol
 
 ### <a name="azure-information-protection-administrator"></a>[Azure Information Protection administratör](#azure-information-protection-administrator-permissions)
 
-Användare med den här rollen har alla behörigheter i Azure Information Protections tjänsten. Med den här rollen kan du konfigurera etiketter för Azure Information Protection principen, hantera skydds mallar och aktivera skydd. Den här rollen beviljar inte några behörigheter i identitets skydds centret, Privileged Identity Management, övervaka Office 365 Service Health eller Office 365 Security & Compliance Center.
+Användare med den här rollen har alla behörigheter i Azure Information Protections tjänsten. Med den här rollen kan du konfigurera etiketter för Azure Information Protection principen, hantera skydds mallar och aktivera skydd. Den här rollen beviljar inte några behörigheter i identitets skydds centret, Privileged Identity Management, övervaka Microsoft 365 Service Health eller Office 365 Security & Compliance Center.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[B2C IEF Keys-administratör](#b2c-ief-keyset-administrator-permissions)
 
@@ -130,7 +130,7 @@ Användare med den här rollen kan aktivera, inaktivera och ta bort enheter i Az
 
 ### <a name="compliance-administrator"></a>[Efterlevnadsadministratör](#compliance-administrator-permissions)
 
-Användare med den här rollen har behörighet att hantera kompatibla funktioner i Microsoft 365 Compliance Center, Microsoft 365 administrations Center, Azure och Office 365 Security & Compliance Center. Tilldelningar kan också hantera alla funktioner i administrations centret för Exchange och team & Skype för företag-administratörer och skapa support biljetter för Azure och Microsoft 365. Mer information finns i [om Office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). [Den här dokumentationen](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) innehåller information om skillnaderna mellan kompatibilitetens administratör och kompatibilitets data administratör. 
+Användare med den här rollen har behörighet att hantera kompatibla funktioner i Microsoft 365 Compliance Center, Microsoft 365 administrations Center, Azure och Office 365 Security & Compliance Center. Tilldelningar kan också hantera alla funktioner i administrations centret för Exchange och team & Skype för företag-administratörer och skapa support biljetter för Azure och Microsoft 365. Mer information finns på [Microsoft 365 admin-roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 I | Kan göra
 ----- | ----------
@@ -195,7 +195,7 @@ Användare med den här rollen har globala behörigheter inom Microsoft Dynamics
 
 ### <a name="exchange-administrator"></a>[Exchange-administratör](#exchange-service-administrator-permissions)
 
-Användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Har också möjlighet att skapa och hantera alla Microsoft 365 grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Har också möjlighet att skapa och hantera alla Microsoft 365 grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information finns på [Microsoft 365 admin-roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > I Microsoft Graph API och Azure AD PowerShell identifieras den här rollen som "Exchange Service Administrator". Det är "Exchange-administratör" i [Azure Portal](https://portal.azure.com). Det är "Exchange Online Administrator" i [administrations centret för Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
@@ -307,7 +307,7 @@ Användare med den här rollen kan övervaka alla meddelanden i meddelande centr
 
 ### <a name="message-center-reader"></a>[Meddelande Center läsare](#message-center-reader-permissions)
 
-Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [Office 365 meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Office 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
+Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Microsoft 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
 ### <a name="modern-commerce-user"></a>[Modern Commerce-användare](#modern-commerce-user-permissions)
 
@@ -328,10 +328,10 @@ Om den moderna Commerce-rollen är otilldelad från en användare förlorar han 
 
 ### <a name="network-administrator"></a>[Nätverks administratör](#network-administrator-permissions)
 
-Användare i den här rollen kan granska rekommendationer för nätverks perimeter arkitektur från Microsoft som baseras på telemetri från användarens platser. Nätverks prestanda för Office 365 förlitar sig på noggrann företags nätverks perimeter arkitektur som är allmänt specifik för användaren. Med den här rollen kan du redigera identifierade användar platser och konfigurera nätverks parametrar för de platserna för att under lätta förbättrad telemetri och design rekommendationer
+Användare i den här rollen kan granska rekommendationer för nätverks perimeter arkitektur från Microsoft som baseras på telemetri från användarens platser. Nätverks prestanda för Microsoft 365 är beroende av en noggrann nätverks gräns arkitektur för företags nätverk som vanligt vis är en specifik användar plats. Med den här rollen kan du redigera identifierade användar platser och konfigurera nätverks parametrar för de platserna för att under lätta förbättrad telemetri och design rekommendationer
 ### <a name="office-apps-administrator"></a>[Office Apps-administratör](#office-apps-administrator-permissions)
 
-Användare med den här rollen kan hantera moln inställningar för Office 365-appar. Detta omfattar hantering av moln principer, hantering av självbetjänings hantering och möjligheten att visa Office apps-relaterade rapporter. Den här rollen ger dessutom möjlighet att hantera support biljetter och övervaka tjänstens hälsa i huvud administrations centret. Användare som har tilldelats den här rollen kan även hantera kommunikation av nya funktioner i Office-appar. 
+Användare med den här rollen kan hantera moln inställningar för Microsoft 365 Apps. Detta omfattar hantering av moln principer, hantering av självbetjänings hantering och möjligheten att visa Office apps-relaterade rapporter. Den här rollen ger dessutom möjlighet att hantera support biljetter och övervaka tjänstens hälsa i huvud administrations centret. Användare som har tilldelats den här rollen kan även hantera kommunikation av nya funktioner i Office-appar. 
 
 ### <a name="partner-tier1-support"></a>[Support för partner 1](#partner-tier1-support-permissions)
 
@@ -399,7 +399,7 @@ Användare med den här rollen kan skapa, hantera och ta bort innehåll för Mic
 
 ### <a name="security-administrator"></a>[Säkerhetsadministratör](#security-administrator-permissions)
 
-Användare med den här rollen har behörighet att hantera säkerhetsrelaterade funktioner i Microsoft 365 Security Center, Azure Active Directory Identity Protection, Azure Active Directory autentisering, Azure Information Protection och Office 365 Security & Compliance Center. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Användare med den här rollen har behörighet att hantera säkerhetsrelaterade funktioner i Microsoft 365 Security Center, Azure Active Directory Identity Protection, Azure Active Directory autentisering, Azure Information Protection och Office 365 Security & Compliance Center. Mer information om Office 365-behörigheter finns på [behörigheter i säkerhets & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 I | Kan göra
 --- | ---
@@ -412,13 +412,13 @@ Windows Defender ATP och EDR | Tilldela roller<br>Hantera dator grupper<br>Konfi
 [Intune](/intune/role-based-access-control) | Visar information om användare, enhet, registrering, konfiguration och program<br>Det går inte att göra ändringar i Intune
 [Cloud App Security](/cloud-app-security/manage-admins) | Lägg till administratörer, lägga till principer och inställningar, ladda upp loggar och utföra styrnings åtgärder
 [Azure Security Center](../../role-based-access-control/built-in-roles.md) | Kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer
-[Office 365 service Health](/office365/enterprise/view-service-health) | Visa hälso tillståndet för Office 365-tjänster
+[Microsoft 365 tjänstens hälsa](/office365/enterprise/view-service-health) | Visa hälso tillståndet för Microsoft 365 Services
 [Smart utlåsning](../authentication/howto-password-smart-lockout.md) | Definiera tröskelvärde och varaktighet för utelåsning vid misslyckade inloggnings händelser.
 [Lösen ords skydd](../authentication/concept-password-ban-bad.md) | Konfigurera anpassad blockerad lösen ords lista eller lokalt lösen ords skydd.
 
 ### <a name="security-operator"></a>[Säkerhets operatör](#security-operator-permissions)
 
-Användare med den här rollen kan hantera aviseringar och ha global Läs behörighet för säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management och Office 365 Security & Compliance Center. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365 Security & Compliance Center](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Användare med den här rollen kan hantera aviseringar och ha global Läs behörighet för säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management och Office 365 Security & Compliance Center. Mer information om Office 365-behörigheter finns på [behörigheter i säkerhets & Compliance Center](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 I | Kan göra
 --- | ---
@@ -429,11 +429,11 @@ Identitets skydds Center | Alla behörigheter för säkerhets läsar rollen<br>D
 Windows Defender ATP och EDR | Alla behörigheter för säkerhets läsar rollen<br>Visa, undersöka och svara på säkerhets aviseringar
 [Intune](/intune/role-based-access-control) | Alla behörigheter för säkerhets läsar rollen
 [Cloud App Security](/cloud-app-security/manage-admins) | Alla behörigheter för säkerhets läsar rollen
-[Office 365 service Health](/office365/enterprise/view-service-health) | Visa hälso tillståndet för Office 365-tjänster
+[Microsoft 365 tjänstens hälsa](/office365/enterprise/view-service-health) | Visa hälso tillståndet för Microsoft 365 Services
 
 ### <a name="security-reader"></a>[Säkerhetsläsare](#security-reader-permissions)
 
-Användare med den här rollen har global skrivskyddad åtkomst till säkerhetsrelaterad funktion, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management, samt möjligheten att läsa Azure Active Directory inloggnings rapporter och gransknings loggar och i Office 365 Security & Compliance Center. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Användare med den här rollen har global skrivskyddad åtkomst till säkerhetsrelaterad funktion, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management, samt möjligheten att läsa Azure Active Directory inloggnings rapporter och gransknings loggar och i Office 365 Security & Compliance Center. Mer information om Office 365-behörigheter finns på [behörigheter i säkerhets & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 I | Kan göra
 --- | ---
@@ -445,11 +445,11 @@ Windows Defender ATP och EDR | Visa och undersök aviseringar. När du aktiverar
 [Intune](/intune/role-based-access-control) | Visar information om användare, enhet, registrering, konfiguration och programmet. Kan inte göra ändringar i Intune.
 [Cloud App Security](/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar
 [Azure Security Center](../../role-based-access-control/built-in-roles.md) | Kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar
-[Office 365 service Health](/office365/enterprise/view-service-health) | Visa hälso tillståndet för Office 365-tjänster
+[Microsoft 365 tjänstens hälsa](/office365/enterprise/view-service-health) | Visa hälso tillståndet för Microsoft 365 Services
 
 ### <a name="service-support-administrator"></a>[Tjänst support administratör](#service-support-administrator-permissions)
 
-Användare med den här rollen kan öppna support förfrågningar med Microsoft för Azure-och Office 365-tjänster och Visa instrument panelen och meddelande centret i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen kan öppna support förfrågningar med Microsoft för Azure och Microsoft 365-tjänster och Visa instrument panelen och meddelande centret i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Tidigare kallades den här rollen "tjänst administratör" i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Vi har bytt namn till "service support Administrator" för att överensstämma med befintlig-namnet i Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell.
@@ -564,8 +564,8 @@ Kan skapa och hantera alla aspekter av registrerings-och företags program.
 | Microsoft. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
-| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="application-developer-permissions"></a>Programutvecklare-behörigheter
@@ -590,9 +590,9 @@ Tillåts Visa, ange och återställa information om autentiseringsinformation f�
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
-| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Microsoft 365 organisation. Mer information finns i onlinedokumentationen. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Administratörs behörighet för Azure-DevOps
 
@@ -620,8 +620,8 @@ Kan hantera alla aspekter av tjänsten Azure Information Protection.
 | --- | --- |
 | Microsoft. Azure. informationProtection/upplånade/allTasks | Hantera alla aspekter av Azure Information Protection. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
-| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>B2C IEF Keys-administratör behörigheter
@@ -656,7 +656,7 @@ Kan utföra vanliga fakturerings aktiviteter, t. ex. uppdatering av betalnings i
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Commerce. debitering/allTasks | Hantera alla aspekter av faktureringen. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="cloud-application-administrator-permissions"></a>Administratörs behörighet för moln program
@@ -698,8 +698,8 @@ Kan skapa och hantera alla aspekter av app-registreringar och företags program 
 | Microsoft. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
-| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Administratörs behörighet för moln enhet
@@ -715,7 +715,7 @@ Fullständig åtkomst till hantering av enheter i Azure AD.
 | Microsoft. Directory/Devices/Enable | Aktivera enheter i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 
 ### <a name="company-administrator-permissions"></a>Företags administratörs behörighet
 
@@ -777,7 +777,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använder Azur
 | Microsoft. Office365. messageCenter/securityMessages/Read | Läs securityMessages i Microsoft. Office365. messageCenter. |
 | Microsoft. Office365. protectionCenter/uplånar/allTasks | Hantera alla aspekter av Office 365 Protection Center. |
 | Microsoft. Office365. securityComplianceCenter/uplånar/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. securityComplianceCenter. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. SharePoint/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. SharePoint. |
 | Microsoft. Office365. skypeForBusiness/uplånar/allTasks | Hantera alla aspekter av Skype för företag – online. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
@@ -789,7 +789,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använder Azur
 
 ### <a name="compliance-administrator-permissions"></a>Administratörs behörighet för efterlevnad
 
-Kan läsa och hantera kompatibilitets konfiguration och rapporter i Azure AD och Office 365.
+Kan läsa och hantera kompatibilitets konfiguration och rapporter i Azure AD och Microsoft 365.
 
 > [!NOTE]
 > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
@@ -801,7 +801,7 @@ Kan läsa och hantera kompatibilitets konfiguration och rapporter i Azure AD och
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. complianceManager/uplånar/allTasks | Hantera alla aspekter av Compliance Manager för Office 365 |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
@@ -821,7 +821,7 @@ Skapar och hanterar innehåll för efterlevnad.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. complianceManager/uplånar/allTasks | Hantera alla aspekter av Compliance Manager för Office 365 |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
@@ -855,7 +855,7 @@ Kan hantera alla aspekter av Dynamics 365-produkten.
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. powerApps. dynamics365/uplånar/allTasks | Hantera alla aspekter av Dynamics 365. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="customer-lockbox-access-approver-permissions"></a>Åtkomst till god kännare för kund behörighet
@@ -887,7 +887,7 @@ Kan hantera Desktop Analytics-och Office-anpassning & princip tjänster. För Sk
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. desktopAnalytics/uplånar/allTasks | Hantera alla aspekter av Skriv bords analys. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="device-administrators-permissions"></a>Enhets administratörs behörigheter
@@ -1012,7 +1012,7 @@ Kan läsa & skriva grundläggande katalog information. För att bevilja åtkomst
 | Microsoft. Directory/oAuth2PermissionGrants/Create | Skapa oAuth2PermissionGrants i Azure Active Directory. |
 | Microsoft. Directory/Service princip ALS/synchronizationCredentials/Manage | Hantera program etablerings hemligheter och autentiseringsuppgifter. |
 | Microsoft. Directory/Service princip ALS/synchronizationJobs/Manage | Starta, starta om och pausa programetablering av synkroniseringsjobb. |
-| Microsoft. Directory/Service princip ALS/synchronizationSchema/Manage | Skapa och hantera synkroniseringen-jobb och-schema för program etablering. |
+| Microsoft. Directory/Service princip ALS/synchronizationSchema/Manage | Skapa och hantera synkroniseringsjobb och schema för program etablering. |
 | Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
 | Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
@@ -1043,8 +1043,8 @@ Kan hantera alla aspekter av Exchange-produkten.
 | Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap i Microsoft 365 grupper. |
 | Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Microsoft 365 grupper. |
 | Microsoft. Office365. Exchange/-upplånade/allTasks | Hantera alla aspekter av Exchange Online. |
-| Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i Microsoft 365 administrations Center. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1138,7 +1138,7 @@ Kan läsa allt som en global administratör kan, men inte redigera något.
 | Microsoft. Office365. Exchange/-utlånare/Läs    | Läs alla aspekter av Exchange Online. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa    | Läs meddelanden i Microsoft. Office365. messageCenter. |
 | Microsoft. Office365. messageCenter/securityMessages/Read    | Läs securityMessages i Microsoft. Office365. messageCenter. |
-| Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
+| Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i Microsoft 365 administrations Center. |
 | Microsoft. Office365. protectionCenter/upplånade/upplånade/lästa    | Läs alla aspekter av Office 365 Protection Center. |
 | Microsoft. Office365. securityComplianceCenter/upplånade/upplånade/lästa    | Läs alla standard egenskaper i Microsoft. Office365. securityComplianceCenter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa    | Läs Office 365-användnings rapporter. |
@@ -1162,7 +1162,7 @@ Kan hantera alla aspekter av grupper och grupp inställningar som namngivnings-o
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="guest-inviter-permissions"></a>Gäst deltagares behörigheter
@@ -1193,7 +1193,7 @@ Kan återställa lösen ord för administratörer som inte har administratörer 
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="hybrid-identity-administrator-permissions"></a>Behörigheter för Hybrid identitets administratör
@@ -1236,19 +1236,19 @@ Aktivera, distribuera, konfigurera, hantera, övervaka och felsöka moln tjänst
 | Microsoft. Directory/Service princip ALS/tag/Update | Uppdatera service princip ALS. Tag-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="insights-administrator-permissions"></a>Behörigheter för Insights-administratör
 
-Har sdministrative-åtkomst i M365 Insights-appen. 
+Har administrativ åtkomst i Microsoft 365 Insights-appen. 
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Insights/upplånade/allTasks | Hantera alla aspekter av insikter. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
@@ -1310,9 +1310,9 @@ Kan hantera inställningar för Microsoft-Kaizala.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
-| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läs Office 365 administrations Center. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läs Microsoft 365 administrations Center. |
 
 ### <a name="license-administrator-permissions"></a>Licens administratörs behörigheter
 
@@ -1324,7 +1324,7 @@ Kan hantera produkt licenser för användare och grupper.
 | Microsoft. Directory/Users/usageLocation/Update | Uppdatera users. usageLocation-egenskapen i Azure Active Directory. |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 
 ### <a name="lync-service-administrator-permissions"></a>Administratörs behörighet för Lync-tjänst
 
@@ -1338,8 +1338,8 @@ Kan hantera alla aspekter av Skype för företag-produkten.
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
-| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. skypeForBusiness/uplånar/allTasks | Hantera alla aspekter av Skype för företag – online. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa    | Läs Office 365-användnings rapporter. |
@@ -1362,7 +1362,7 @@ Kan läsa meddelande Center inlägg, data integritets meddelanden, grupper, dom�
 | Microsoft. Office365. messageCenter/securityMessages/Read | Läs securityMessages i Microsoft. Office365. messageCenter. |
 
 ### <a name="message-center-reader-permissions"></a>Behörigheter för Message Center Reader
-Kan endast läsa meddelanden och uppdateringar för sin organisation i meddelande Center för Office 365. 
+Kan endast läsa meddelanden och uppdateringar för sin organisation i meddelande Center. 
 
 > [!NOTE]
 > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
@@ -1384,7 +1384,7 @@ Kan hantera kommersiella inköp för ett företag, en avdelning eller ett team.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. Commerce. fakturering/partners/Läs | Läsa partner egenskap för O365-fakturering. |
+| Microsoft. Commerce. fakturering/partners/Läs | Läs partner egenskapen för Microsoft 365 fakturering. |
 | Microsoft. Commerce. volumeLicenseServiceCenter/upplånade/allTasks | Hantera alla aspekter av Volume Licensing Service Center. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och Visa egna support biljetter för Office 365. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1416,7 +1416,7 @@ Kan hantera Office-appars moln tjänster, inklusive hantering av principer och i
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. userCommunication/uplånar/allTasks | Läs och uppdatera visningen av nya meddelanden. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1451,7 +1451,7 @@ Använd inte – inte avsedd för allmän användning.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="partner-tier2-support-permissions"></a>Support behörigheter för partner – nivå 2
@@ -1486,7 +1486,7 @@ Använd inte – inte avsedd för allmän användning.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="password-administrator-permissions"></a>Lösen ords administratörs behörighet
@@ -1512,7 +1512,7 @@ Kan hantera alla aspekter av den Power BI produkten.
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. powerApps. powerBI/uplånar/allTasks | Hantera alla aspekter av Power BI. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 
@@ -1532,7 +1532,7 @@ Kan skapa och hantera alla aspekter av Microsoft Dynamics 365, PowerApps och Mic
 | Microsoft. Flow/upplånade/allTasks | Hantera alla aspekter av Microsoft Flow. |
 | Microsoft. powerApps/upplånade/allTasks | Hantera alla aspekter av PowerApps. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="printer-administrator-permissions"></a>Skrivar administratörs behörighet
@@ -1574,9 +1574,9 @@ Tillåts Visa, ange och återställa information om autentiseringsmetod för all
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
-| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Office 365-organisationen. Mer information finns i onlinedokumentationen. |
+| Microsoft. Directory/Users/Password/Update | Uppdatera lösen ord för alla användare i Microsoft 365 organisation. Mer information finns i onlinedokumentationen. |
 
 ### <a name="privileged-role-administrator-permissions"></a>Administratörs behörighet för privilegie rad roll
 
@@ -1628,7 +1628,7 @@ Kan skapa och hantera alla aspekter av Microsofts Sök inställningar.
 | --- | --- |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
 | Microsoft. Office365. search/uplånade/allProperties/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera alla egenskaper i Microsoft. Office365. search. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
@@ -1648,7 +1648,7 @@ Kan skapa och hantera redaktionellt innehåll, till exempel bok märken, Q och a
 
 ### <a name="security-administrator-permissions"></a>Behörighet för säkerhets administratör
 
-Kan läsa säkerhets information och rapporter och hantera konfigurationen i Azure AD och Office 365.
+Kan läsa säkerhets information och rapporter och hantera konfigurationen i Azure AD och Microsoft 365.
 
 > [!NOTE]
 > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
@@ -1674,7 +1674,7 @@ Kan läsa säkerhets information och rapporter och hantera konfigurationen i Azu
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
 | Microsoft. Office365. protectionCenter/upplånade/upplånade/lästa | Läs alla aspekter av Office 365 Protection Center. |
 | Microsoft. Office365. protectionCenter/uplånas/Update | Uppdatera alla resurser i Microsoft. Office365. protectionCenter. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
@@ -1701,7 +1701,7 @@ Skapar och hanterar säkerhets händelser.
 
 ### <a name="security-reader-permissions"></a>Behörigheter för säkerhets läsare
 
-Kan läsa säkerhets information och rapporter i Azure AD och Office 365.
+Kan läsa säkerhets information och rapporter i Azure AD och Microsoft 365.
 
 > [!NOTE]
 > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i roll beskrivning ovan.
@@ -1719,7 +1719,7 @@ Kan läsa säkerhets information och rapporter i Azure AD och Office 365.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. protectionCenter/upplånade/upplånade/lästa | Läs alla aspekter av Office 365 Protection Center. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 
 ### <a name="service-support-administrator-permissions"></a>Administratörs behörighet för tjänst support
 
@@ -1735,7 +1735,7 @@ Kan läsa information om tjänst hälsa och hantera support ärenden.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ### <a name="sharepoint-service-administrator-permissions"></a>Administratörs behörighet för SharePoint-tjänst
@@ -1758,7 +1758,7 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 | Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap i Microsoft 365 grupper. |
 | Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Microsoft 365 grupper. |
 | Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. SharePoint/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. SharePoint. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa    | Läs Office 365-användnings rapporter. |
@@ -1778,7 +1778,7 @@ Kan hantera uppringnings-och mötes funktioner i Microsoft Teams-tjänsten.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
 | Microsoft. Teams/möten/allProperties/allTasks | Hantera möten, inklusive Mötes principer, konfigurationer och konferens bryggor. |
@@ -1798,7 +1798,7 @@ Kan felsöka kommunikations problem inom team med hjälp av avancerade verktyg.
 | --- | --- |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Teams/callQuality/allProperties/Read | Läs alla data i instrument panelen för anrops kvalitet (CQD). |
 
 ### <a name="teams-communications-support-specialist-permissions"></a>Team Communications support specialist behörigheter
@@ -1814,7 +1814,7 @@ Kan felsöka kommunikations problem inom team med hjälp av grundläggande verkt
 | --- | --- |
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Teams/callQuality/Basic/Read | Läs grundläggande data i instrument panelen för anrops kvalitet (CQD). |
 
 ### <a name="teams-devices-administrator-permissions"></a>Team enheter administratörs behörighet
@@ -1852,7 +1852,7 @@ Kan hantera Microsoft Teams-tjänsten.
 | Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap i Microsoft 365 grupper. |
 | Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Microsoft 365 grupper. |
 | Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Office365. usageReports/upplånade/upplånade/lästa | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
@@ -1892,7 +1892,7 @@ Kan hantera alla aspekter av användare och grupper, inklusive att återställa 
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera Azure-support biljetter för katalog nivå tjänster. |
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
-| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läsa och konfigurera Microsoft 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
 ## <a name="role-template-ids"></a>Mall-ID: n

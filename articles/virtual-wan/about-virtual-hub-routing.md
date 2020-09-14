@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762325"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055800"
 ---
 # <a name="about-virtual-hub-routing"></a>Om routning av virtuell hubb
 
@@ -30,7 +30,7 @@ I följande avsnitt beskrivs viktiga begrepp i routning av virtuell hubb.
 
 En väg tabell för virtuell hubb kan innehålla en eller flera vägar. En väg innehåller dess namn, en etikett, en måltyp, en lista med mål prefix och nästa hopp information för ett paket som ska dirigeras. En **anslutning** har vanligt vis en routningslänk som associeras eller sprids till en routningstabell
 
-### <a name="connection"></a><a name="connection"></a>Anslutningen
+### <a name="connection"></a><a name="connection"></a>Anslutning
 
 Anslutningar är Resource Manager-resurser som har en konfiguration för routning. De fyra typerna av anslutningar är:
 
@@ -87,6 +87,7 @@ Tänk på följande när du konfigurerar virtuell WAN-routning:
 * När du använder Azure-brandväggen i flera regioner måste alla ekrar i ekrar vara kopplade till samma routningstabell. Om du till exempel har en delmängd av virtuella nätverk som går genom Azure-brandväggen medan andra virtuella nätverk inte kan kringgå Azure-brandväggen i samma virtuella hubb är det inte möjligt.
 * En enda IP-adress för nästa hopp kan konfigureras per VNet-anslutning.
 * Det virtuella navet stöder inte statisk routning för 0.0.0.0/0 och nästa hopp Virtual Network anslutning (eller en IP-adress för en installation i VNet-anslutningen)
+* All information som rör 0.0.0.0/0-vägen är begränsad till en lokal Hubbs routningstabell. Den här vägen sprids inte över hubbar.
 
 ## <a name="next-steps"></a>Nästa steg
 

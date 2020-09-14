@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794557"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056225"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupp hantering
 
@@ -328,13 +328,13 @@ När en grupp skapas kan slutanvändaren ange ett e-smek namn eller alias som sk
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Tillbakaskrivning av grupp till lokal (för hands version)
 
-Idag hanteras många grupper fortfarande i lokala Active Directory. För att kunna svara på begär Anden om synkronisering av moln grupper tillbaka till lokal, är funktionen för tillbakaskrivning i Office 365-grupper för Azure AD nu tillgänglig för hands version.
+Idag hanteras många grupper fortfarande i lokala Active Directory. Om du vill besvara begär Anden om synkronisering av moln grupper tillbaka till lokala, kan du nu använda funktionen tillbakaskrivning i Microsoft 365 grupper för Azure AD för för hands version.
 
-Office 365-grupper skapas och hanteras i molnet. Med funktionen tillbakaskrivning kan du skriva tillbaka Office 365-grupper som distributions grupper till en Active Directory skog med Exchange installerat. Användare med lokala Exchange-postlådor kan sedan skicka och ta emot e-postmeddelanden från dessa grupper. Funktionen för tillbakaskrivning av grupp stöder inte Azure AD-säkerhetsgrupper eller distributions grupper.
+Microsoft 365 grupper skapas och hanteras i molnet. Med funktionen tillbakaskrivning kan du skriva tillbaka Microsoft 365 grupper som distributions grupper till en Active Directory skog med Exchange installerat. Användare med lokala Exchange-postlådor kan sedan skicka och ta emot e-postmeddelanden från dessa grupper. Funktionen för tillbakaskrivning av grupp stöder inte Azure AD-säkerhetsgrupper eller distributions grupper.
 
 Mer information finns i dokumentationen för [tjänsten Azure AD Connect Sync](../hybrid/how-to-connect-syncservice-features.md).
 
-Office 365-grupp tillbakaskrivning är en offentlig förhands gransknings funktion i Azure Active Directory (Azure AD) och är tillgänglig med en betald Azure AD-licens plan. För lite juridisk information om för hands versionerna, se [kompletterande användnings villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+Tillbakaskrivning av Microsoft 365s grupp är en offentlig förhands gransknings funktion i Azure Active Directory (Azure AD) och är tillgänglig med en betald Azure AD-licens plan. För lite juridisk information om för hands versionerna, se [kompletterande användnings villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,12 +4,12 @@ description: Kod för program prestanda övervakning för Java-program som körs
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374294"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056106"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
@@ -38,8 +38,8 @@ Application Insights Java 3,0 Preview förväntar sig som standard konfiguration
 
 Du kan ange en egen sökväg för konfigurations filen med antingen
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`miljö variabel eller
-* `applicationinsights.configurationFile`Java system egenskap
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` miljö variabel eller
+* `applicationinsights.configurationFile` Java system egenskap
 
 Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog där `applicationinsights-agent-3.0.0-PREVIEW.5.jar` finns.
 
@@ -113,18 +113,18 @@ Om du vill ändra detta tröskelvärde:
 
 Dessa är giltiga `threshold` värden som du kan ange i `ApplicationInsights.json` filen och hur de motsvarar loggnings nivåer över olika loggnings ramverk:
 
-| `threshold`  | Log4j  | Logback | Jul     |
-|--------------|--------|---------|---------|
-| OFF          | OFF    | OFF     | OFF     |
-| DÖDS        | DÖDS  | FEL   | SEVERE  |
-| FEL/ALLVARLIGT | FEL  | FEL   | SEVERE  |
-| VARNING/VARNING | Varna   | Varna    | WARNING |
-| INFO         | INFO   | INFO    | INFO    |
-| CONFIG       | FELSÖK  | FELSÖK   | CONFIG  |
-| FELSÖK/FINJUSTERA   | FELSÖK  | FELSÖK   | FINE    |
-| FINER        | FELSÖK  | FELSÖK   | FINER   |
-| SPÅRNING/FINEST | Rita  | Rita   | FINEST  |
-| ALL          | ALL    | ALL     | ALL     |
+| tröskel värde   | Log4j  | Logback | Jul     |
+|-------------------|--------|---------|---------|
+| OFF               | OFF    | OFF     | OFF     |
+| DÖDS             | DÖDS  | ERROR   | SEVERE  |
+| FEL (eller allvarligt) | ERROR  | ERROR   | SEVERE  |
+| Varna (eller varning) | Varna   | Varna    | WARNING |
+| INFO              | INFO   | INFO    | INFO    |
+| CONFIG            | FELSÖK  | FELSÖK   | CONFIG  |
+| FELSÖKA (eller fint)   | FELSÖK  | FELSÖK   | FINE    |
+| FINER             | FELSÖK  | FELSÖK   | FINER   |
+| TRACE (eller FINEST) | Rita  | Rita   | FINEST  |
+| ALL               | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>JMX mått
 
@@ -134,7 +134,7 @@ Om du har några JMX-mått som du är intresse rad av att fånga:
 {
   "instrumentationSettings": {
     "preview": {
-        "jmxMetrics": [
+      "jmxMetrics": [
         {
           "objectName": "java.lang:type=ClassLoading",
           "attribute": "LoadedClassCount",
@@ -181,9 +181,9 @@ Som standard skickar Application Insights Java 3,0 för hands version ett pulssl
 {
   "instrumentationSettings": {
     "preview": {
-        "heartbeat": {
-            "intervalSeconds": 60
-        }
+      "heartbeat": {
+        "intervalSeconds": 60
+      }
     }
   }
 }
@@ -205,13 +205,13 @@ Här är ett exempel på hur du ställer in samplingen på **10% av alla transak
 {
   "instrumentationSettings": {
     "preview": {
-        "sampling": {
-            "fixedRate": {
-                "percentage": 10
-            }
-          }
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10
         }
+      }
     }
+  }
 }
 ```
 
@@ -244,10 +244,10 @@ Som standard loggar den till-konsolen med nivån `warn` , som motsvarar den här
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "console",
-            "level": "WARN"
-        }
+      "selfDiagnostics": {
+        "destination": "console",
+        "level": "WARN"
+      }
     }
   }
 }
@@ -261,12 +261,12 @@ Om du vill logga till en fil i stället för att logga in på konsolen:
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "file",
-            "directory": "/var/log/applicationinsights",
-            "level": "WARN",
-            "maxSizeMB": 10
-        }    
+      "selfDiagnostics": {
+        "destination": "file",
+        "directory": "/var/log/applicationinsights",
+        "level": "WARN",
+        "maxSizeMB": 10
+      }
     }
   }
 }

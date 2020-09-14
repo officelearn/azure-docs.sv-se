@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Concur | Microsoft Docs'
-description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur.
+description: Lär dig hur du konfigurerar SSO mellan Azure Active Directory och Concur.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 71e6dc8bdb8bdccdaaf845498eebdbe75a8b35c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 38cc5458b2e62e071227a2372d56e4647e347338
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547196"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056038"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Concur
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Concur med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -41,7 +41,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Concur stöder **SP**-initierad enkel inloggning
 * Concur stöder **Just-in-time**-användaretablering
-* När du har konfigurerat Concur kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat Concur kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-concur-from-the-gallery"></a>Lägga till Concur från galleriet
 
@@ -54,7 +54,7 @@ För att konfigurera integrering av Concur i Azure AD så behöver du lägga til
 1. I avsnittet **Lägg till från galleriet** , skriver du **Concur** i sökrutan.
 1. Välj **Concur** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-concur"></a>Konfigurera och testa enkel inloggning med Azure AD för Concur
+## <a name="configure-and-test-azure-ad-sso-for-concur"></a>Konfigurera och testa Azure AD SSO för Concur
 
 Konfigurera och testa Azure AD SSO med Concur med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Concur.
 
@@ -82,9 +82,18 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<customer-domain>.concursolutions.com`
+    
+    c. För **svars-URL**anger du ett av följande URL-mönster:
 
+    | Svars-URL|
+    |----------|
+    | `https://www.concursolutions.com/SAMLRedirector/SAMLReceiver.ashx` |
+    | `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
+    | `https://<customer-domain>.concur.com` |
+    | `https://<customer-domain>.concursolutions.com` | 
+    
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Concurs klientsupportteam](https://www.concur.co.in/contact) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Concurs klientsupportteam](https://www.concur.co.in/contact) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 

@@ -2,14 +2,14 @@
 title: Flytta resurser till en ny prenumeration eller resurs grupp
 description: Använd Azure Resource Manager för att flytta resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 09/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5b3e27110d5bd7941aad0209681d13f45fa66fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498879"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056675"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -19,8 +19,6 @@ Både käll gruppen och mål gruppen är låsta under flytt åtgärden. Skriv- o
 
 Om du flyttar en resurs flyttas den bara till en ny resursgrupp eller prenumeration. Resursens plats ändras inte.
 
-Om du använder Azure Stack hubb kan du inte flytta resurser mellan grupper.
-
 ## <a name="checklist-before-moving-resources"></a>Checklista för att flytta resurser
 
 Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel genom att verifiera dessa villkor.
@@ -29,6 +27,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
 1. Vissa tjänster har särskilda begränsningar eller krav när du flyttar resurser. Om du flyttar någon av följande tjänster, kontrol lera att du har den vägledningen innan du flyttar.
 
+   * Om du använder Azure Stack hubb kan du inte flytta resurser mellan grupper.
    * [Vägledning för App Services flytt](./move-limitations/app-service-move-limitations.md)
    * [Vägledning för flytt av Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Klassisk distributions modell flytta vägledning](./move-limitations/classic-model-move-limitations.md) – klassisk beräkning, klassisk lagring, klassiska virtuella nätverk och Cloud Services
@@ -96,7 +95,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
 1. **För att flytta över prenumerationer måste resursen och dess beroende resurser finnas i samma resurs grupp och de måste flyttas tillsammans.** En virtuell dator med Managed disks skulle till exempel kräva att den virtuella datorn och de hanterade diskarna flyttas tillsammans, tillsammans med andra beroende resurser.
 
-   Om du flyttar en resurs till en ny prenumeration kan du kontrol lera om resursen har resurser som är beroende av varandra och om de finns i samma resurs grupp. Om resurserna inte finns i samma resurs grupp kontrollerar du om resurserna kan konsol IDE ras i samma resurs grupp. I så fall kan du ta med alla dessa resurser i samma resurs grupp genom att använda en flyttnings åtgärd över resurs grupper.
+   Om du flyttar en resurs till en ny prenumeration kan du kontrol lera om resursen har resurser som är beroende av varandra och om de finns i samma resurs grupp. Om resurserna inte finns i samma resurs grupp kontrollerar du om resurserna kan kombineras till samma resurs grupp. I så fall kan du ta med alla dessa resurser i samma resurs grupp genom att använda en flyttnings åtgärd över resurs grupper.
 
    Mer information finns i [scenario för att flytta mellan prenumerationer](#scenario-for-move-across-subscriptions).
 
@@ -167,23 +166,37 @@ Authorization: Bearer <access-token>
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-Om du vill flytta resurser väljer du resurs gruppen med dessa resurser och väljer sedan knappen **Flytta** .
+Om du vill flytta resurser väljer du den resurs grupp som innehåller resurserna.
 
-![Flytta resurser](./media/move-resource-group-and-subscription/select-move.png)
+När du visar resurs gruppen är alternativet flytta inaktiverat.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="flytt alternativet är inaktiverat":::
+
+Om du vill aktivera alternativet flytta väljer du de resurser som du vill flytta. Markera kryss rutan längst upp i listan om du vill välja alla resurser. Eller Välj resurser individuellt.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Välj resurser":::
+
+Välj knappen **Flytta** .
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="flytta alternativ":::
+
+Med den här knappen kan du välja mellan tre alternativ:
+
+* Flytta till en ny resurs grupp.
+* Flytta till en ny prenumeration.
+* Flytta till en ny region. Om du vill ändra regioner, se [Flytta resurser mellan regioner (från resurs grupp)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
 
 Välj om du vill flytta resurserna till en ny resurs grupp eller till en ny prenumeration.
 
-Välj de resurser som ska flyttas och mål resurs gruppen. Bekräfta att du behöver uppdatera skript för dessa resurser och välj **OK**. Om du har valt ikonen Redigera prenumeration i föregående steg måste du också välja mål prenumerationen.
+Välj mål resurs grupp. Bekräfta att du behöver uppdatera skript för dessa resurser och välj **OK**. Om du har valt att flytta till en ny prenumeration måste du också välja mål prenumerationen.
 
-![Välj mål](./media/move-resource-group-and-subscription/select-destination.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Välj mål":::
 
-I **aviseringar**ser du att flytt åtgärden körs.
+När du har verifierat att resurserna kan flyttas visas ett meddelande om att flytt åtgärden körs.
 
-![Visa flytt status](./media/move-resource-group-and-subscription/show-status.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="indikering":::
 
 När du är klar får du ett meddelande om resultatet.
-
-![Visa flytta resultat](./media/move-resource-group-and-subscription/show-result.png)
 
 Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurser till en ny resurs grupp eller prenumeration](troubleshoot-move.md).
 
@@ -203,7 +216,7 @@ Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurs
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI
 
-Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du kommandot [AZ Resource Move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) . Ange resurs-ID för de resurser som ska flyttas. I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp. I `--ids` -parametern anger du en blankstegsavgränsad lista över resurs-ID: n som ska flyttas.
+Om du vill flytta befintliga resurser till en annan resurs grupp eller prenumeration använder du kommandot [AZ Resource Move](/cli/azure/resource#az-resource-move) . Ange resurs-ID för de resurser som ska flyttas. I följande exempel visas hur du flyttar flera resurser till en ny resurs grupp. I `--ids` -parametern anger du en blankstegsavgränsad lista över resurs-ID: n som ska flyttas.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -238,15 +251,15 @@ Om du får ett fel meddelande kan du läsa mer i [Felsöka flytt av Azure-resurs
 
 **Fråga: min resurs flytt åtgärd, som vanligt vis tar några minuter, har körts i nästan en timme. Finns det något fel?**
 
-Att flytta en resurs är en komplex åtgärd som har olika faser. Den kan omfatta mer än bara resurs leverantören av resursen som du försöker flytta. På grund av beroenden mellan resurs leverantörerna kan Azure Resource Manager utföra 4 timmar för att åtgärden ska slutföras. Den här tids perioden ger resurs leverantörer en chans att återställa från tillfälliga problem. Om din flyttnings förfrågan ligger inom fyra timmars period fortsätter åtgärden att utföras och kan ändå lyckas. Käll-och mål resurs grupperna är låsta under den här tiden för att undvika konsekvens problem.
+Att flytta en resurs är en komplex åtgärd som har olika faser. Den kan omfatta mer än bara resurs leverantören av resursen som du försöker flytta. På grund av beroenden mellan resurs leverantörerna kan Azure Resource Manager utföra 4 timmar för att åtgärden ska slutföras. Den här tids perioden ger resurs leverantörer en chans att återställa från tillfälliga problem. Om din flyttnings förfrågan ligger inom fyra timmars period fortsätter åtgärden att utföras och kan fortfarande lyckas. Käll-och mål resurs grupperna är låsta under den här tiden för att undvika konsekvens problem.
 
-**Fråga: Varför är min resurs grupp låst i 4 timmar när resursen flyttas?**
+**Fråga: Varför är min resurs grupp låst i fyra timmar när resursen flyttas?**
 
-Fönstret med fyra timmar är den längsta tid som tillåts för resurs flytt. För att förhindra ändringar av de resurser som flyttas, är både käll-och mål resurs grupperna låsta under hela resurs flytten.
+En move-begäran kan vara högst fyra timmar att slutföra. För att förhindra ändringar av de resurser som flyttas, är både käll-och mål resurs grupperna låsta under hela resurs flytten.
 
-Det finns två faser i en flyttnings förfrågan. I den första fasen flyttas resursen. I den andra fasen skickas meddelanden till andra resurs leverantörer som är beroende av den resurs som flyttas. En resurs grupp kan låsas i hela det fyra timmars fönstret när en resurs leverantör Miss lyckas med någon av de två faserna. Under den tillåtna tiden försöker Resource Manager att försöka utföra åtgärden igen.
+Det finns två faser i en flyttnings förfrågan. I den första fasen flyttas resursen. I den andra fasen skickas meddelanden till andra resurs leverantörer som är beroende av den resurs som flyttas. En resurs grupp kan låsas i hela fyra timmar när en resurs leverantör Miss lyckas med någon av de två faserna. Under den tillåtna tiden försöker Resource Manager att försöka utföra åtgärden igen.
 
-Om en resurs inte kan flyttas inom 4-timmarsformat, låser Resource Manager båda resurs grupperna. Resurser som har flyttats är i mål resurs gruppen. Resurser som inte gick att flytta finns kvar i käll resurs gruppen.
+Om en resurs inte kan flyttas inom fyra timmar låser Resource Manager både resurs grupper. Resurser som har flyttats är i mål resurs gruppen. Resurser som inte gick att flytta finns kvar i käll resurs gruppen.
 
 **Fråga: vilka konsekvenser för käll-och mål resurs grupper som låses när resursen flyttas?**
 

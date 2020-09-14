@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/12/2020
 ms.author: aahi
-ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932975"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056599"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Språk stöd för API för textanalys v3 
 
@@ -25,7 +25,7 @@ ms.locfileid: "88932975"
 
 #### <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment-analysis)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Anteckningar |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Kommentarer |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Kinesiska – Förenklad    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` även godkänd |
 | Kinesiska (traditionell)   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "88932975"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Utåsikts utvinning (v 3.1 – endast för hands version)
 
-| Språk              | Språkkod | Från och med v3 modell version: |              Anteckningar |
+| Språk              | Språkkod | Från och med v3 modell version: |              Kommentarer |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Engelska               |     `en`      |              2020-04-01              |                    |
 
@@ -60,7 +60,7 @@ ms.locfileid: "88932975"
 > * NER v3 stöder för närvarande bara engelska och spanska språk. Om du anropar NER v3 med ett annat språk returneras v 2.1-API: et, förutsatt att språket stöds i version 2,1.
 > * v 2.1 returnerar bara den fullständiga uppsättningen tillgängliga entiteter för de engelska, kinesiska, enkla, franska, tyska och spanska språken.  Entiteterna "person", "plats" och "organisation" returneras för de andra språk som stöds.
 
-| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Anteckningar        |
+| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Kommentarer        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabiska                |     `ar`      |     ✓      |            |                                 |                    |
 | Tjeckiska                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -86,9 +86,12 @@ ms.locfileid: "88932975"
 | Svenska               |     `sv`      |     ✓      |            |                                 |                    |
 | Turkiska               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extrahering av nyckel fraser](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/key-phrase-extraction)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Anteckningar        |
+> [!NOTE]
+> Modell versioner av Extrahering av diskussionsämne före 2020-07-01 har en gräns på 64 tecken. Den här gränsen finns inte i senare modell versioner.
+
+| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Kommentarer        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Nederländska                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Engelska               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -108,7 +111,7 @@ ms.locfileid: "88932975"
 
 #### <a name="entity-linking"></a>[Länkning av entitet](#tab/entity-linking)
 
-| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Anteckningar |
+| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Kommentarer |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Engelska  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Spanska  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |

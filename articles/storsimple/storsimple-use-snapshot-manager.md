@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager användar gränssnitt | Microsoft Docs
 description: Beskriver StorSimple-Snapshot Manager användar gränssnitt och förklarar hur du använder det för att hantera säkerhets kopierings jobb och säkerhets kopierings katalogen.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
+ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513747"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055919"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Använd StorSimple-Snapshot Manager användar gränssnitt för att hantera säkerhets kopierings jobb och säkerhets kopierings katalog
 
@@ -107,14 +107,14 @@ Följande tabell innehåller en alfabetisk lista över StorSimple-Snapshot Manag
 > 
 > 
 
-| Åtgärd | Navigering | Beskrivning |
+| Action | Navigering | Beskrivning |
 |:--- |:--- |:--- |
 | Autentisera |Klicka på noden **enheter** och högerklicka på en enhet i **resultat** fönstret. |Klicka på **autentisera** för att ange det lösen ord som du konfigurerade för enheten. |
 | Klona |Expandera **säkerhets kopierings katalog**, expandera **moln ögonblicks bilder**, klicka på en säkerhets kopia och välj sedan en volym i **resultat** fönstret. |Klicka på **klona** för att skapa en kopia av en ögonblicks bild av molnet och lagra den på en plats som du anger. |
 | Konfigurera en enhet |Högerklicka på noden **enheter** . |Klicka på **Konfigurera en enhet** om du vill konfigurera en enskild enhet eller flera enheter för att ansluta till Windows-värden. |
 | Skapa säkerhets kopierings princip |Gör något av följande:<ul><li>Högerklicka på **säkerhets kopierings principer**.</li><li>Klicka på eller expandera **volym grupper**och högerklicka sedan på en volym grupp.</li><li>Klicka eller expandera **säkerhets kopierings katalogen**och högerklicka sedan på en volym grupp.</li></ul> |Klicka på **skapa säkerhets kopierings princip** om du vill konfigurera en schemalagd säkerhets kopiering för en volym grupp. |
 | Skapa volym grupp |Gör något av följande:<ul><li>Klicka på noden **volymer** och högerklicka sedan på en volym i **resultat** fönstret.</li><li>Högerklicka på noden **volym grupper** .</li></ul> |Klicka på **Skapa volym grupp** för att tilldela volymer till en volym grupp. |
-| Ta bort |Klicka på en nod eller ett resultat (detta objekt visas på många **Åtgärds** **menyer och** åtgärds fönster.) |Klicka på **ta bort** för att ta bort den nod eller det resultat som du har valt. Bekräfta eller Avbryt borttagningen när dialog rutan Bekräfta visas. |
+| Ta bort |Klicka på en nod eller ett resultat (detta objekt visas på många **Åtgärds**  **menyer och** åtgärds fönster.) |Klicka på **ta bort** för att ta bort den nod eller det resultat som du har valt. Bekräfta eller Avbryt borttagningen när dialog rutan Bekräfta visas. |
 | Information |Klicka på noden **enheter** och högerklicka sedan på en enhet i **resultat** fönstret. |Klicka på **information** om du vill visa konfigurations information för en enhet. |
 | Redigera |Klicka på **säkerhets kopierings principer**och högerklicka sedan på en princip i **resultat** fönstret. |Klicka på **Redigera** om du vill ändra schemat för säkerhets kopiering för en volym grupp. |
 | Exportera lista |Klicka på en nod eller ett resultat (detta objekt visas på alla åtgärds **menyer och** **Åtgärds** fönster.) |Klicka på **Exportera lista** för att spara en lista i en fil med kommaavgränsade värden (CSV). Sedan kan du importera den här filen till ett kalkyl blads program för analys. |
@@ -337,7 +337,7 @@ StorSimple Snapshot Manager aktiverar hjälpmedels funktionerna i Windows operat
 ### <a name="keyboard-navigation-keys"></a>Tangent bords navigerings nycklar
 I följande tabell beskrivs de nycklar som du kan använda för att navigera i StorSimple Snapshot Manager användar gränssnitt. 
 
-| Navigerings nyckel | Åtgärd |
+| Navigerings nyckel | Action |
 |:--- |:--- |
 | NEDPIL-tangenten |Använd nedåtpilen för att flytta lodrätt till nästa objekt på en meny eller i ett fönster. |
 | Ange |Tryck på RETUR-tangenten för att slutföra en åtgärd och fortsätt sedan till nästa steg. Du kan till exempel trycka på RETUR för att välja **Nästa**, **OK**eller **skapa**och sedan gå till nästa steg i en guide. |

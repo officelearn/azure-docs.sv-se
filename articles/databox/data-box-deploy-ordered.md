@@ -2,18 +2,18 @@
 title: Självstudie för att beställa Azure Data Box | Microsoft Docs
 description: I den här självstudien får du lära dig mer om Azure Data Box, en hybrid lösning som gör att du kan importera lokala data till Azure och hur du beställer Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/09/2020
+ms.author: alkohli
+ms.openlocfilehash: 2ab74b87b287296c4ff975d5af75714c89001004
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783577"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055724"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -138,7 +138,7 @@ Innan du börjar ska du kontrol lera att du:
 * Installera Windows PowerShell 6.2.4 eller högre.
 * Installera Azure PowerShell-modulen (AZ).
 * Installera Azure Data Box-modulen (AZ. data data).
-* Logga in på Azure.
+* Logga in i Azure.
 
 #### <a name="install-azure-powershell-and-modules-locally"></a>Installera Azure PowerShell och moduler lokalt
 
@@ -237,7 +237,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     ![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. I **ordning**går du till fliken **grundläggande** . Ange eller Välj följande information och välj **Nästa: data mål>**.
+6. Gå till fliken **grundläggande** i **ordning**. Ange eller Välj följande information och välj **Nästa: data mål>**.
 
     |Inställningen  |Värde  |
     |---------|---------|
@@ -269,7 +269,18 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Data Box-tjänsten laddar upp de virtuella hårddiskarna som sidblobar till mellanlagringskontot innan de konverteras till hanterade diskar och flyttas till resursgrupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-    Välj **Nästa: kontakt uppgifter** för att fortsätta.
+    Välj **Nästa: säkerhet** för att fortsätta.
+
+1. I **säkerhet**, om du vill aktivera programvarubaserad dubbel kryptering, väljer du **Aktivera dubbel kryptering för ordern**. 
+
+   Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
+
+   > [!NOTE]
+   > Att aktivera det här alternativet kan göra order bearbetning och data kopieringen ta längre tid. Du kan inte ändra det här alternativet när du har skapat din beställning.
+
+   ![Säkerhets skärm för import av data Box, dubbel kryptering](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Välj **Nästa: kontakt uppgifter** för att fortsätta.
 
 8. I **kontakt information**väljer du **+ Lägg till leverans adress**.
 

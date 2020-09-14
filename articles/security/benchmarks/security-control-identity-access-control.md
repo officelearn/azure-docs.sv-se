@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 473fe838f53df0a874a2c793792533e01b7c069a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2df534842c6f6a922579e1128757ee4b7f46e006
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408536"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058605"
 ---
 # <a name="security-control-identity-and-access-control"></a>Säkerhets kontroll: identitet och Access Control
 
@@ -112,9 +112,9 @@ Använd namngivna platser för villkorlig åtkomst för att tillåta åtkomst fr
 |--|--|--|
 | 3.9 | 16,1, 16,2, 16,4, 16,5, 16,6 | Kund |
 
-Använd Azure Active Directory (AAD) som central autentiserings-och auktoriserings system. AAD skyddar data genom att använda stark kryptering för data i vila och under överföring. AAD är också salter, hashar och lagrar användarautentiseringsuppgifter på ett säkert sätt.
+Använd Azure Active Directory som den centrala autentiserings-och auktoriserings systemet. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-- [Så här skapar och konfigurerar du en AAD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 

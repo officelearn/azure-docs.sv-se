@@ -3,15 +3,15 @@ title: Integration av Windows-partner för virtuella skriv bord – Azure
 description: Lär dig mer om Windows Virtual Desktops partner och åtkomst till dokumentation om hur du integrerar med dem.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612375"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056455"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -46,7 +46,8 @@ Som en Windows Virtual Desktop-auktoriserad Provider kan VMware hjälpa kunder s
 
 10ZiG's världs marknads ledarskap i tunna och noll klient slut punkter och hanterings program för virtuella skriv bord är WINS av hur de fungerar för kunderna. Den tunna klient maskin varan har funktioner och alternativ som utformats för att säkerställa att kunderna får rätt klient enheter utifrån deras behov. 10ZiG anpassar sina enheter så att de passar kund miljöer med Windows-baserade och Linux-baserade klienter som ger bästa möjliga prestanda i virtuella skriv bord, både i och utanför molnet.
 
-- [Gå till partner webbplatsen](https://www.10zig.com/about/microsoft-wvd).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeR).
+- [Gå till partner webbplatsen](https://www.10zig.com/about/microsoft-windows-virtual-desktop).
 
 ## <a name="automai"></a>Automai
 
@@ -101,7 +102,7 @@ När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterli
 
 Dell Technologies "tunna klienter" är optimerade för att få åtkomst till Microsoft Azure och Windows-tjänster för virtuella skriv bord. För att kunna uppfylla behoven från samarbets kunskaps arbetare upp till grafik intensiva privilegierade användare ger Wyse tunna klienter en högkvalitativ dator upplevelse för att dra full nytta av det växande antalet appar och innehåll. Perfekt för miljöer med begränsat utrymme, Wyse tunna klienter anpassa sig till hur människor arbetar med flexibla form faktorer och en mängd olika alternativ för monterings alternativ.
 
-Wyse tunna klienter är utformade med säkerhet i åtanke med begränsad attack yta, stöd för säkerhetsefterlevnads standarder och avancerade Multi-Factor Authentication-lösningar. Distribuera mycket säkra tunna klienter med Dell-Exclusive Wyse tunt eller Upplev säker åtkomst till moln program och virtuella arbets ytor från skärpta Wyse-ThinLinux med en kommersiell beprövad design och Windows 10 IoT Enterprise med Dell-extra säkerhetsfunktioner. Med säker, HTTPS-baserad kommunikation och Active Directory-autentisering för rollbaserad administration behåller Wyse Management Suite Wyse-slutpunkter alltid uppdaterade och mobilappen för WMS Pro gör det möjligt att Visa kritiska aviseringar och skicka real tids kommandon med en tryckning när som helst.
+Wyse tunna klienter är utformade med säkerhet i åtanke med begränsade angrepps ytor, stöd för säkerhetsefterlevnads standarder och avancerade Multi-Factor Authentication-lösningar. Distribuera mycket säkra tunna klienter med Windows 10 IoT Enterprise och Dell-extra Security-funktioner. Med säker, HTTPS-baserad kommunikation och Active Directory-autentisering för rollbaserad administration behåller Wyse Management Suite Wyse-slutpunkter alltid uppdaterade och mobilappen för WMS Pro gör det möjligt att Visa kritiska aviseringar och skicka real tids kommandon med en tryckning när som helst.
 
 - [Gå till partner webbplatsen](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
 
@@ -190,6 +191,15 @@ Lakeside-program varans övervaknings lösning för digital upplevelse, SysTrack
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
 - [Gå till partner webbplatsen](https://www.lakesidesoftware.com/assessments/wvd).
 
+## <a name="lenovo"></a>Lenovo
+
+![Lenovo-logotyp](./media/partners/lenovo.png)
+
+Lenovo tunna klienter ger ditt nätverk flexibiliteten hos en klient dator som kör från servern, men med inbyggd dator kapacitet och energi. Lenovo tunna klienter ger Windows virtuella Skriv bords distributioner blixt prestanda och intuitiv hanterbarhet, vilket höjer företagets nätverk till nästa nivå av tillförlitlighet. Varje tunn klient är utrustad med en Lenovo Terminal Manager-licens utan ytterligare kostnad som ger organisationer sömlösa och kostnads effektiva alternativ för maskin varu hantering och distribution. De är också små och mångsidiga, vilket gör det enkelt att lägga till befintliga Lenovo-distributioner.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB).
+- [Gå till partner webbplatsen](https://www.lenovo.com/us/en/desktops-and-all-in-ones/thinkcentre/m-series-thin-clients/c/M-Series-Thin-Clients).
+
 ## <a name="liquidware"></a>Vätskor
 
 ![Typ av vätske logo typ](./media/partners/liquidware.png)
@@ -220,6 +230,17 @@ Login VSI är en Windows Virtual Desktop-leverantör med mervärdes tjänster oc
 
 - [Gå till partner webbplatsen](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
+## <a name="nasuni"></a>Nasuni
+
+![Nasuni-logotyp](./media/partners/nasuni.png)
+
+Nasuni Corp., den ledande providern av moln fil tjänster och en global Azure Global ISV-partner, erbjuder Nasuni program vara som en tjänst plattform som modern fil lagrings lösning för moderna virtuella skriv bord. Nasuni, i kombination med Azure Blob Storage, konsoliderar primär fil lagring (NAS), fil säkerhets kopiering, haveri beredskap och filsynkronisering över flera regioner i en enhetlig lösning. Med Nasuni kan företag distribuera virtuella Windows-datorer för fler användnings fall och i fler Azure-regioner, förenkla administrationen och garantera affärs kontinuitet. 
+
+För att vara en modern molnbaserad VDI-lösning kräver Windows Virtual Desktop lagring av modern moln fil. Traditionellt är VDI-fillagringen baserad på nätverksansluten lagring (NAS) och fil server maskin vara som finns lokalt, och tillhör ande nödvändiga teknik för att tillhandahålla fil säkerhets kopiering, återställning och haveri beredskap. Dessa traditionella metoder är kostsamma, komplicerade att underhålla och administrera och kan inte skalas enkelt. De introducerar också svars tiden om den används med en modern molnbaserad VDI-lösning som Windows Virtual Desktop på grund av det fysiska avståndet och de långsamma WAN-anslutningarna mellan stationerna i Azure och fil lagringen baserat lokalt. Nasuni, en plattform för fil tjänster som skapats specifikt för Azure, erbjuder obegränsad fil lagrings kapacitet och fil åtkomst med hög prestanda. Nasuni kan samplaceras med det virtuella Windows-skrivbordet i samma Azure-regioner för att leverera ekonomisk, högpresterande fil åtkomst till ett enda globalt namn område. Nasuni erbjuder Windows Virtual Desktop File Storage på en bråkdel av kostnaden för traditionella NAS-och Windows-filservrar och innehåller inbyggda säkerhets kopior och haveri beredskap för att ytterligare minska kostnaderna och frigöra IT-resurser.
+
+- [Gå till partner webbplatsen](https://www.nasuni.com/partner/microsoft/#wvd).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Nerdio-logotyp](./media/partners/nerdio.png)
@@ -230,6 +251,17 @@ Nerdio utökar värdet för virtuella Windows-datorer genom att göra det enkelt
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Gå till partner webbplatsen](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="nexthink"></a>Nexthink
+
+![Nexthink-logotyp](./media/partners/nexthink.png)
+
+Nexthink är ett Windows-tillägg för virtuella skriv bord som hjälper organisationer att på ett säkert sätt mäta, hantera och förbättra sina anställdas digitala upplevelse och produktivitet. Med en konstant läsning på pulsen för digital personal upplevelse kan IT ständigt förbättra teknikens förmåga att engagera, förbättra och nöjda människor, oavsett var de arbetar. 
+
+Genom att tillhandahålla lösningar med synliga arbets plats resurser ger Nexthink dig kontext och insikt i användar basen. Nexthink är en kraftfull plattform för hanterings hantering som hjälper IT-team att se till att migreringen till Windows Virtual Desktop planeras och vidtas i rätt tid.
+
+- [Gå till partner webbplatsen](https://www.nexthink.com/initiative/desktop-virtualization/).
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeT).
 
 ## <a name="numecent"></a>Numecent
 
@@ -287,12 +319,16 @@ RDPSoft för fjärr skrivbords tjänster förbättrar Windows-administrationen f
 
 ![Rimo3-logotyp](./media/partners/rimo3.png)
 
-Rimo3 förbättrar Windows Virtual Desktop-upplevelsen genom att påskynda distributionen och förbättra den pågående ändrings hanteringen. Rimo3 förser IT-team med den kunskap de behöver för att stödja din program portfölj för Azure migration readiness för program arbets belastningar. Användare kan publicera program och testa dem i deras mål arbets yta för virtuella Windows-datorer snabbt och Painlessly. Användare kan också proaktivt förstå effekten av eventuella ändringar när organisationen samlar in nya program och uppdateringar. Slutligen kan IT-administratörer utnyttja Rimo3's intelligenta rök testnings funktioner och automatisera testning av funktioner utan att avbryta användarsessioner.
+Rimo3 förbättrar Windows Virtual Desktop-upplevelsen med den lättanvända, skalbara och molnbaserade program modernisering-plattformen.
 
-Rimo3 erbjuder en skalbar och automatiserad program test plattform som är lätt att använda. Den här plattformen innehåller funktioner för alla tre program testnings grunderna: kompatibilitet, funktioner och prestanda. Det gör det möjligt för organisationer, ledare och team att förbättra affärs kontinuiteten, anta ändringar snabbare och optimera användar upplevelsen.
+För IT-team hjälper Rimo3 att upptäcka, modernisera och hantera program arbets belastningar för flytten till det virtuella Windows-skrivbordet. Användare kan automatiskt söka igenom sina program portföljer för att upptäcka kandidater som passar för onboarding i Windows Virtual Desktop eller som MSIX.  
+
+Användare kan automatisera för hands testning av sina program, konvertera appar till MSIX och efter konverteringen när de använder automatiserad reparation om apparna inte konverteras korrekt. Resultatet är ett modernt, distributions klart MSIX-paket. Med varje Windows-funktion för virtuella skriv bord och uppdateringar kan användarna fullständigt testa appar automatiskt innan de distribueras, vilket ger fullständig säkerhet och kontinuerlig hantering.
+
+För hanterade tjänst leverantörer bidrar Rimo3 till att utöka funktionerna för hanterade tjänster för att förbättra marginalerna och hjälpa dem att överbrygga projektbaserade intäkter till prenumerations återkommande intäkter och lägga till värdet för kunder som behöver modernisera och flytta till virtuella Windows-datorer och hantera regelbundna uppdateringar i sina arbets ytor.
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
-- [Gå till partner webbplatsen](https://rimo3.com/outcomes/).
+- [Gå till partner webbplatsen](https://rimo3.com/windows-virtual-desktop/).
 
 ## <a name="sepago"></a>sepago
 
@@ -304,6 +340,17 @@ sepagos innovations-och utvecklings labb bygger smarta lösningar med hjälp av 
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
 - [Gå till partner webbplatsen](https://www.sepago.de/en/).
+
+## <a name="ssh2"></a>SSH2
+
+![SSH2-logotyp](./media/partners/ssh2.png)
+
+SSH2 är en Windows Virtual Desktop-tjänst för mervärdes tjänster som förser dina IT-team med program vara för att påskynda program leveransen från den aktuella plattformen till Windows Virtual Desktop på Azure. SSH2 gör att det går snabbare att skapa program för att förenkla migreringsprocessen. SSH2's appCURE fångar in program som körs på slut punkten, aktiverar uppdatering och reparation för att skapa en omfattande steg ändring i hastigheten där slut användar miljön kan köras. 
+
+appCURE fångar programinformation från att köra program för att säkerställa att alla punkter som kan påverka slutanvändarens program förstås. appCURE uppdaterar och levererar dem sedan till det nya virtuella Windows-skrivbordet. Genom att samla in alla program integrerings platser i din aktuella miljö, ger appCURE hastigheten att optimera IT-resurser och planera för dina migreringar bättre och snabbare än någonsin tidigare, så att organisationer snabbt kan komma igång med produktion.
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
+- [Gå till partner sidan](https://www.ssh2.xyz/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -334,6 +381,7 @@ stora gränser, uberAgent-företaget, ger insyn i distributioner av virtuella Wi
 
 uberAgent är en övervaknings-och analys produkt som är avsedd för slut användar bearbetning som inte bara samlar in data – den ger kunderna den information som är viktig för dem. uberAgent har sina egna mått, täcker viktiga aspekter av användar upplevelse, program prestanda och slut punkts säkerhet, vilket ger dig allt du behöver veta om dina virtuella Windows-datorer utan att påverka systemets användar täthet. uberAgent fören klar fel sökning, hjälper till med storleks ändring och ger omfattande information som är viktig för informations säkerhet.
 
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs39).
 - [Gå till partner webbplatsen](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
 
 ## <a name="workspace-365"></a>Arbets yta 365

@@ -2,17 +2,17 @@
 title: Installera uppdatering på Azure Data Box Gateway serie enhet | Microsoft Docs
 description: Beskriver hur du tillämpar uppdateringar med hjälp av Azure Portal och lokalt webb gränssnitt för Azure Data Box Gateway serie enhet
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783883"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055971"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Uppdatera din Azure Data Box Gateway
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs de steg som krävs för att installera uppdateringe
 >
 > - Uppdatering **1911** motsvarar **1.6.1049.786** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](data-box-gateway-1911-release-notes.md).
 >
-> - Kom ihåg att om du installerar en uppdatering eller snabb korrigering startas enheten om. Med tanke på att Data Box Gateway är en enda nod-enhet avbryts alla i/O-åtgärder och enheten upplever ett drift stopp på upp till 30 minuter för enhetens program uppdatering.
+> - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Eftersom Data Box Gateway är en enhet med en enda nod avbryts alla pågående I/O-åtgärder och enheten drabbas av driftstopp på upp till 30 minuter medan programvaran uppdateras.
 
 Vart och ett av dessa steg beskrivs i följande avsnitt.
 
@@ -39,7 +39,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
 2. På bladet **enhets uppdateringar** kontrollerar du att du har granskat de licens villkor som är associerade med nya funktioner i viktig information.
 
-    Du kan välja att **Ladda ned och installera** uppdateringarna eller bara **Hämta** uppdateringarna. Du kan sedan välja att installera dessa uppdateringar senare.
+    Du kan välja att **Ladda ned och installera** uppdateringarna eller bara **Hämta** uppdateringarna. Du kan sedan välja att installera uppdateringarna senare.
 
     ![Program varu version efter uppdatering](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
 
@@ -63,7 +63,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
     ![Program varu version efter uppdatering](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **Installera**.
+    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **installera**.
   
     ![Program varu version efter uppdatering](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 
@@ -139,7 +139,7 @@ Den här proceduren tar cirka 20 minuter att slutföra. Utför följande steg f�
 
    ![uppdatera enhet](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
-3. Välj **Tillämpa**.
+3. Välj **Använd**.
 
    ![uppdatera enhet](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 

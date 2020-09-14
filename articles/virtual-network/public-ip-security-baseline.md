@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd02f2dbb7666ba9f2134ffba4cf683e1e9ac67b
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039138"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058708"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Azures säkerhets bas linje för offentlig Azure-IP
 
-Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 1,0](../security/benchmarks/overview.md) till offentlig Azure-IP. Azures säkerhets benchmark ger rekommendationer om hur du kan skydda dina moln lösningar på Azure. Innehållet grupperas efter **säkerhets kontrollerna** som definieras av Azures säkerhets benchmark och relaterade rikt linjer som gäller för offentliga Azure-IP-adresser. **Kontroller** som inte gäller för offentliga Azure-IP-adresser har uteslutits.
+Den här säkerhets bas linjen använder vägledning från [Azures säkerhets benchmark-version 1,0](../security/benchmarks/overview.md) till offentlig Azure-IP. Azures säkerhets benchmark ger rekommendationer om hur du kan skydda dina moln lösningar på Azure. Innehållet grupperas efter **säkerhets kontrollerna** som definieras av Azures säkerhets benchmark och relaterade rikt linjer som gäller för offentliga Azure-IP-adresser. **Kontroller** som inte gäller för offentliga Azure-IP-adresser har uteslutits.  Observera att Azures offentliga IP-adresser inte lagrar kund information.
 
 Om du vill se hur Azures offentliga IP fullständigt mappar till Azures säkerhets benchmark, se den [fullständiga Azures bas linje mappnings fil för offentliga IP-säkerhet](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -46,7 +46,7 @@ Azure PowerShell eller Azure CLI kan användas för att söka efter eller utför
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
-**Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer och identifiera ändringar i dina offentliga IP-instanser. Förutom kontroll planet (till exempel Azure Portal) genererar själva offentliga IP inte loggar som är relaterade till nätverks trafik. 
+**Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer och identifiera ändringar i dina offentliga IP-instanser. Förutom kontroll planet (till exempel Azure Portal) genererar själva offentliga IP inte loggar som är relaterade till nätverks trafik.
 
 Offentlig IP innehåller verktyg för att övervaka, diagnostisera, Visa mått och aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk.
 

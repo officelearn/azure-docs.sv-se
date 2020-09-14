@@ -8,34 +8,48 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 883042c94576014c3bdeabd38516d9531c8fd3dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82606865"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058622"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduktion till Azure Security benchmark
 
-Du kan ha flera år eller till och med årtionden med lokal dator användning. Du vet hur man skyddar dessa distributioner; men molnet är annorlunda. Hur vet du om dina moln distributioner är säkra? Vad är skillnaderna mellan säkerhets praxis för lokala system och moln distributioner?
+Nya tjänster och funktioner lanseras dagligen i Azure, och utvecklare kan snabbt publicera nya moln program som bygger på dessa tjänster och angripare söker alltid nya sätt att utnyttja felkonfigurerade resurser. Molnet flyttas snabbt, utvecklare flyttar snabbt och angripare är alltid på språng. Hur kan du hålla reda på och se till att dina moln distributioner är säkra? Hur skiljer sig säkerhets praxis för moln system från lokala system? Hur övervakar du för konsekvens i många oberoende utvecklings team?
 
-Det finns en stor samling fakta blad, metod tips, referens arkitekturer, webb vägledning, verktyg med öppen källkod, kommersiella lösningar, informations flöden med mera, som kan användas för att skydda molnet. Vilket alternativ ska du använda? Vad kan du göra för att få en acceptabel säkerhets nivå i molnet? 
+Microsoft har upptäckt att användning av *säkerhets mått för säkerhet* kan hjälpa dig att snabbt skydda moln distributioner. Benchmark-rekommendationer från moln tjänst leverantören ger dig en utgångs punkt för att välja vissa inställningar för säkerhets konfiguration i din miljö, så att du snabbt kan minska risken för din organisation.
 
-Ett av de bästa sätten att skydda dina moln distributioner är att fokusera på Cloud Security benchmark-rekommendationer. Benchmark-rekommendationer, för att skydda vilken tjänst som helst, börjar med en grundläggande förståelse för cybersäkerhet-risk och hur du hanterar den. Du kan sedan använda den här förståelsen genom att införa grundläggande säkerhets rekommendationer från din moln tjänst leverantör för att få hjälp att välja vissa inställningar för säkerhets konfiguration i din miljö. 
+Azures säkerhets benchmark innehåller en samling med högkvalitativa säkerhets rekommendationer som du kan använda för att skydda de tjänster som du använder i Azure:
 
-Azures säkerhets benchmark innehåller en samling med högkvalitativa säkerhets rekommendationer som du kan använda för att skydda de flesta tjänster som du använder i Azure. Du kan tänka på dessa rekommendationer som "allmänt" eller "organisatoriska" eftersom de är tillämpliga på de flesta Azure-tjänster. Rekommendationerna för Azures säkerhets benchmark anpassas sedan för varje Azure-tjänst och den här anpassade vägledningen finns i service rekommendationer artiklar. 
+- Säkerhets kontroller: de här rekommendationerna är allmänt tillgängliga i din Azure-klient och Azure-tjänster. Varje rekommendation identifierar en lista över intressenter som vanligt vis ingår i planering, godkännande eller implementering av benchmark. 
+- Tjänste bas linjer: dessa gäller för enskilda Azure-tjänster för att tillhandahålla rekommendationer för den tjänstens säkerhets konfiguration.
 
-I dokumentationen för Azures säkerhets benchmark anges säkerhets kontroller och tjänst rekommendationer.
+## <a name="implement-the-azure-security-benchmark"></a>Implementera Azures säkerhets benchmark
+- **Planera** implementeringen av din Azure-säkerhet genom att granska [dokumentationen](overview.md) för företags kontrollerna och de tjänstspecifika bas linjerna för att planera kontroll ramverket och hur det mappas till vägledning som CIS (kontroll v 7.1) och NIST (SP800-53).
+- **Övervaka** din efterlevnad med Azures säkerhets status för säkerhet (och andra kontroll uppsättningar) med hjälp av [instrument panelen](../../security-center/security-center-compliance-dashboard.md)för Azure Security Center övervakning av regelefterlevnad.
+- **Upprätta guardrails** för att automatisera säkra konfigurationer och upprätthålla efterlevnaden av Azures säkerhets benchmark (och andra krav i din organisation) med Azure-ritningar och Azure policy.
+ 
+Observera att Azure Security benchmark v2 är justerat med [Microsofts rekommenderade säkerhets metoder](/security/compass/microsoft-security-compass-introduction) (tidigare Azure Security kompass) så att Azures säkerhets-benchmark ger en enda sammanslagen vy över Microsofts Azure-säkerhetsrekommendationer.
 
-- **Säkerhets kontroller**: rekommendationer för Azures säkerhets benchmark kategoriseras av säkerhets kontroller. Säkerhets kontroller representerar oberoende säkerhets krav på hög nivå, till exempel nätverks säkerhet och data skydd. Varje säkerhets kontroll har en uppsättning säkerhets rekommendationer och anvisningar som hjälper dig att implementera dessa rekommendationer. 
-- **Tjänst rekommendationer**: när det är tillgängligt kommer benchmark-rekommendationer för Azure-tjänster att omfatta rekommendationer för Azure Security benchmark som skräddarsys specifikt för den tjänsten. 
+## <a name="common-use-cases"></a>Vanliga användnings fall
 
-Termerna "kontroll", "benchmark" och "bas linje" används ofta i Azures säkerhets benchmark-dokumentation och det är viktigt att förstå hur Azure använder dessa villkor. 
+Azures säkerhets benchmark används ofta för att åtgärda de vanliga utmaningarna för kunder eller tjänste partner som är:
+- Nytt i Azure och söker efter rekommenderade säkerhets metoder för att säkerställa en säker distribution.
+- Förbättra säkerhets position i befintliga Azure-distributioner för att prioritera de största riskerna och begränsningarna.
+- Att godkänna Azure-tjänster för användning av teknik-och företags användning för att uppfylla specifika säkerhets rikt linjer.
+- Uppfylla regel krav för kunder som är från statliga eller mycket reglerade branscher som ekonomi och sjukvård (eller tjänste leverantörer som behöver bygga system för dessa kunder). Dessa kunder måste se till att Azures konfiguration uppfyller de säkerhetsfunktioner som anges i ett bransch ramverk, till exempel CIS, NIST eller PCI. Med Azures säkerhets effektivitet får du en effektiv metod med de kontroller som redan är fördelade på dessa bransch mått.
 
-| Term | Beskrivning | Exempel |
+## <a name="terminology"></a>Terminologi
+
+Termerna "kontroll", "benchmark" och "bas linje" används ofta i Azures säkerhets benchmark-dokumentation och det är viktigt att förstå hur Azure använder dessa villkor.
+
+
+| Period | Beskrivning | Exempel |
 |--|--|--|
-| Kontroll | En **kontroll** är en övergripande beskrivning av en funktion eller aktivitet som behöver åtgärdas och som inte är särskilt för en teknik eller implementering. | Data skydd är en av säkerhets kontrollerna. Den här kontrollen innehåller vissa åtgärder som måste åtgärdas för att säkerställa att data skyddas. |
-| Benchmark | Ett **riktmärke** innehåller säkerhets rekommendationer för en speciell teknik, till exempel Azure. Rekommendationerna kategoriseras med den kontroll som de tillhör. | Azures säkerhets benchmark omfattar de säkerhets rekommendationer som är aktuella för Azure-plattformen  |
-| Baslinje | En **bas linje** är säkerhets kraven för en organisation. Säkerhets kraven baseras på benchmark-rekommendationer. Varje organisation bestämmer vilka benchmark-rekommendationer som ska ingå i deras bas linje. | Contoso-företaget skapar säkerhets bas linjen genom att välja att kräva vissa rekommendationer i Azures säkerhets benchmark. |
+| Kontroll | En kontroll är en övergripande beskrivning av en funktion eller aktivitet som behöver åtgärdas och som inte är särskilt för en teknik eller implementering. | Data skydd är en av säkerhets kontrollerna. Den här kontrollen innehåller vissa åtgärder som måste åtgärdas för att säkerställa att data skyddas. |
+| Benchmark | Ett riktmärke innehåller säkerhets rekommendationer för en speciell teknik, till exempel Azure. Rekommendationerna kategoriseras med den kontroll som de tillhör. | Azures säkerhets benchmark omfattar de säkerhets rekommendationer som är aktuella för Azure-plattformen |
+| Baslinje | En bas linje är implementeringen av benchmark för enskilda Azure-tjänster. Varje organisation bestämmer benchmark-rekommendation och motsvarande konfigurationer krävs i Azure implementation-omfånget. | Contoso-företaget ser till att aktivera funktioner för Azure SQL-säkerhet genom att följa den konfiguration som rekommenderas i Azure SQL Security-bas linjen.
 
-Vi välkomnar din feedback om Azures säkerhets benchmark! Vi rekommenderar att du anger kommentarer i feedback-avsnittet nedan. Om du föredrar att dela dina inloggade privat med Azures säkerhets benchmark-teamet, är du välkommen att fylla i formuläret påhttps://aka.ms/AzSecBenchmark 
+Vi välkomnar din feedback om Azures säkerhets benchmark! Vi rekommenderar att du anger kommentarer i feedback-avsnittet nedan. Om du föredrar att dela dina inloggade privat med Azures säkerhets benchmark-teamet, är du välkommen att fylla i formuläret på https://aka.ms/AzSecBenchmark

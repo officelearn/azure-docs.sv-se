@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 4462ea0277193f0f8a4112cad5991d1e12c5f600
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653003"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058741"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Stöd för att flytta virtuella Azure-datorer mellan Azure-regioner
 
@@ -80,7 +80,7 @@ Debian 8 |  3.16.0 – 4-amd64 till 3.16.0-10-amd64, 4.9.0 -0. bpo. 4-amd64 till
 
 **Frisläpp** | **Kernelversion** 
 --- |  --- 
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure  
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://www.suse.com/support/kb/doc/?id=000019587) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure  
 
 
 ### <a name="supported-suse-linux-enterprise-server-15-kernel-versions"></a>SUSE Linux Enterprise Server 15 kernel-versioner som stöds
@@ -100,7 +100,7 @@ SUSE Linux Enterprise Server 15 och 15 SP1 |  Alla börs-och 15-kernels och 15 k
 
 **Inställning** | **Support** | **Information**
 --- | --- | ---
-Storlek | Valfri storlek på virtuella Azure-datorer med minst två processor kärnor och 1 GB RAM | Verifiera [storleken på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/sizes-general).
+Storlek | Valfri storlek på virtuella Azure-datorer med minst två processor kärnor och 1 GB RAM | Verifiera [storleken på virtuella Azure-datorer](../virtual-machines/sizes-general.md).
 Tillgänglighetsuppsättningar | Stöds för närvarande inte | Om du lägger till en virtuell Azure-dator med en tillgänglighets uppsättning i flyttnings samlingen med standard alternativen, Miss lyckas förberedelse processen. Du kan antingen välja att flytta den virtuella datorn till en tillgänglighets zon till eller flytta den som en enskild instans av en virtuell dator. Du kan ändra inställningarna på sidan Redigera mål egenskaper.
 Tillgänglighetszoner | Stöds | Stöds, beroende på stöd för mål region.
 Azure Gallery-avbildningar (publicerat av Microsoft) | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
@@ -113,15 +113,15 @@ Tillägg | Stöds inte | Tillägg kopieras inte till den virtuella datorn i mål
 
 ## <a name="supported-vm-storage-settings"></a>Inställningar för VM-lagring som stöds
 
-Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data disken och den temporära disken. Det är viktigt att Observera de virtuella datorernas disk gränser och mål för virtuella [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-scalability-targets) -och [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets) -datorer för att undvika prestanda problem.
+Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data disken och den temporära disken. Det är viktigt att Observera de virtuella datorernas disk gränser och mål för virtuella [Linux](../virtual-machines/linux/disk-scalability-targets.md) -och [Windows](../virtual-machines/windows/disk-scalability-targets.md) -datorer för att undvika prestanda problem.
 
 **Komponent** | **Support** | **Information**
 --- | --- | ---
-Maximal storlek för OS-disk | 2048 GB | [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) om VM-diskar.
-Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från förberedelse processen.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk).
+Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
+Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från förberedelse processen.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
 Maximal storlek för data disk | 8192 GB för Managed disks
 Minsta storlek för data disk |  2 GB för hanterade diskar |
-Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizesd) om storlekar på virtuella datorer.
+Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](../virtual-machines/windows/sizes.md) om storlekar på virtuella datorer.
 Ändrings takt för data disk | Högst 10 MBps per disk för Premium Storage. Högst 2 Mbit/s per disk för standard lagring. | Om genomsnitts data ändrings takten på disken kontinuerligt är högre än det högsta antalet kommer förberedelsen inte att fångas upp.<br/><br/>  Men om det maximala värdet överskrids, kan förberedelsen fångas upp, men du kan se något fördröjda återställnings punkter.
 Data disk (standard lagrings konto) | Stöds inte. | Ändra lagrings typen till den hanterade disken och försök sedan att flytta den virtuella datorn.
 Data disk (Premium Storage-konto) | Stöds inte | Ändra lagrings typen till den hanterade disken och försök sedan att flytta den virtuella datorn.

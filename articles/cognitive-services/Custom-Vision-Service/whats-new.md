@@ -10,16 +10,22 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 13129d5a2540548b8532b14593de60fdca73efef
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: a87769e1b67187a15daf3a256a2c1f4c79e10040
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560775"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055528"
 ---
 # <a name="whats-new-in-custom-vision"></a>Vad är nytt i Custom Vision
 
-Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
+Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
+
+## <a name="july-2020"></a>Juli 2020
+
+### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+
+Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Information om hur du hanterar åtkomst till dina Custom Vision-projekt finns i [rollbaserad åtkomst kontroll](./role-based-access-control.md).
 
 ## <a name="september-2019"></a>September 2019
 

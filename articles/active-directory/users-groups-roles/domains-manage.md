@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795345"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056259"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
 
@@ -49,13 +49,13 @@ Du kan lägga till upp till 900 hanterade domän namn. Om du konfigurerar alla d
 
 Om du vill lägga till ett domän namn på tredje nivån, till exempel "europe.contoso.com" i din katalog, bör du först lägga till och verifiera den andra nivå domänen, till exempel contoso.com. Under domänen verifieras automatiskt av Azure AD. Om du vill se att den under domän som du har lagt till har verifierats uppdaterar du domän listan i webbläsaren.
 
-Obs!
+Anteckning
 
 Om du redan har lagt till en contoso.com-domän i en Azure AD-klient kan du också lägga till under domänen europe.contoso.com till en andra Azure AD-klient. När du lägger till under domänen uppmanas du att lägga till en TXT-post i DNS-hosting-providern.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Vad du gör om du ändrar DNS-registratorn för ditt anpassade domän namn
 
-Om du ändrar DNS-registratorn finns det inga ytterligare konfigurations åtgärder i Azure AD. Du kan fortsätta att använda domän namnet med Azure AD utan avbrott. Om du använder det anpassade domän namnet med Office 365, Intune eller andra tjänster som är beroende av anpassade domän namn i Azure AD, kan du läsa dokumentationen för dessa tjänster.
+Om du ändrar DNS-registratorn finns det inga ytterligare konfigurations åtgärder i Azure AD. Du kan fortsätta att använda domän namnet med Azure AD utan avbrott. Om du använder det anpassade domän namnet med Microsoft 365, Intune eller andra tjänster som är beroende av anpassade domän namn i Azure AD, kan du läsa dokumentationen för dessa tjänster.
 
 ## <a name="delete-a-custom-domain-name"></a>Ta bort ett anpassat domän namn
 
@@ -75,7 +75,7 @@ Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.por
 
 Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange mail-aktiverade säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
-* Du har köpt en domän via Office 365-domän prenumerations tjänster
+* Du har köpt en domän via Microsoft 365 domän prenumerations tjänster
 * Du är en partner som administreras åt en annan kund organisation
 
 Följande åtgärder utförs som en del av **ForceDelete** -åtgärden:

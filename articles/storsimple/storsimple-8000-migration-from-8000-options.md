@@ -2,17 +2,17 @@
 title: Alternativ för datamigrering från StorSimple 8000-serie enheter
 description: Innehåller en översikt över alternativen för att migrera data från StorSimple 8000-serien.
 services: storsimple
-author: twooley
+author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.author: twooley
-ms.openlocfilehash: 92ab570b3e06d67d7986a8103e9622e95eb57e7e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783917"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055783"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Alternativ för att migrera data från StorSimple 8000-serien
 

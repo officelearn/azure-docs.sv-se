@@ -13,12 +13,12 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: daa2cfae4ed8371e245d12a9f805fe07f31a6d76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742944"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056036"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Logga in på ditt arbets-eller skol konto med hjälp av en metod för tvåstegsverifiering
 
@@ -39,14 +39,14 @@ Inloggnings upplevelsen varierar beroende på vad du väljer att använda som de
 ## <a name="signing-in-with-a-phone-call"></a>Logga in med ett telefonsamtal
 Följande information beskriver hur du kan kontrol lera två steg med ett samtal till din mobil-eller arbets telefon.
 
-1. Logga in på ett program eller en tjänst som Office 365 med ditt användar namn och lösen ord.  
+1. Logga in på ett program eller en tjänst som Microsoft 365 med ditt användar namn och lösen ord.  
 2. Microsoft anropar dig.  
 3. Besvara telefonen och tryck på # Key.  
 
 ## <a name="signing-in-with-a-text-message"></a>Logga in med ett SMS
 Följande information beskriver hur du verifierar två steg med ett SMS till din mobil telefon:
 
-1. Logga in på ett program eller en tjänst som Office 365 med ditt användar namn och lösen ord.
+1. Logga in på ett program eller en tjänst som Microsoft 365 med ditt användar namn och lösen ord.
 2. Microsoft skickar ett SMS till ett textmeddelande som innehåller en siffer kod.
 3. Ange koden i rutan som visas på inloggnings sidan.
 
@@ -54,7 +54,7 @@ Följande information beskriver hur du verifierar två steg med ett SMS till din
 Följande information beskriver hur du använder Microsoft Authenticator-appen för tvåstegsverifiering. Det finns två olika sätt att använda appen. Du kan ta emot push-meddelanden på enheten, eller så kan du öppna appen för att få en verifierings kod.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Logga in med ett meddelande från appen Microsoft Authenticator
-1. Logga in på ett program eller en tjänst som Office 365 med ditt användar namn och lösen ord.
+1. Logga in på ett program eller en tjänst som Microsoft 365 med ditt användar namn och lösen ord.
 2. Microsoft skickar ett meddelande till Microsoft Authenticator-appen på din enhet.
 
    ![Microsoft skickar ett meddelande](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -66,7 +66,7 @@ Följande information beskriver hur du använder Microsoft Authenticator-appen f
 
 Om du använder appen Microsoft Authenticator för att hämta verifierings koderna visas ett nummer under ditt konto namn när du öppnar appen. Det här talet ändras var 30: e sekund så att du inte använder samma nummer två gånger. När du uppmanas att ange en verifierings kod öppnar du appen och använder det där numret visas för tillfället.
 
-1. Logga in på ett program eller en tjänst som Office 365 med ditt användar namn och lösen ord.
+1. Logga in på ett program eller en tjänst som Microsoft 365 med ditt användar namn och lösen ord.
 2. Microsoft uppmanas att ange en verifierings kod.
 
    ![Ange verifierings kod](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -76,7 +76,7 @@ Om du använder appen Microsoft Authenticator för att hämta verifierings koder
 ## <a name="signing-in-with-an-alternate-method"></a>Logga in med en alternativ metod
 Ibland har du inte den telefon eller enhet som du har angett som önskad verifieringsmetod. Den här situationen rekommenderar vi att du konfigurerar säkerhets kopierings metoder för ditt konto. I följande avsnitt visas hur du loggar in med en alternativ metod när din primära metod inte är tillgänglig.
 
-1. Logga in på ett program eller en tjänst som Office 365 med ditt användar namn och lösen ord.
+1. Logga in på ett program eller en tjänst som Microsoft 365 med ditt användar namn och lösen ord.
 2. Välj **Använd ett annat verifierings alternativ**. Du ser olika verifierings alternativ beroende på hur många installations program du har.
 3. Välj en alternativ metod och logga in.
 

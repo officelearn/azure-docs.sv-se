@@ -2,18 +2,18 @@
 title: Tekniska specifikationer för Microsoft Azure Stack Edge-nätsladd baserat på plats | Microsoft Docs
 description: Lär dig mer om de tekniska specifikationerna för dina Azure Stack Edge-nätkablar.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: twooley
-ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783985"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055936"
 ---
 # <a name="azure-stack-edge-power-cord-specifications"></a>Specifikationer för Azure Stack Edge-nätsladd
 

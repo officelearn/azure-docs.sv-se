@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536199"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058775"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](./itsmc-overview.md).
@@ -25,7 +25,8 @@ Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa deta
 
 > [!NOTE]
 > 
-> ITSM-anslutningsprogram kan bara ansluta till molnbaserade ServiceNow-instanser. Lokala ServiceNow-instanser stöds inte för närvarande.
+> Från och med 1 – okt-2020-Cherwell och ITSM-integrering med Azure-avisering kommer inte längre att aktive ras för nya kunder. Det går inte att använda nya ITSM-anslutningar. 
+> Befintliga ITSM-anslutningar kommer att stödjas.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Ansluta System Center Service Manager till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure
 
@@ -40,6 +41,10 @@ Se till att följande krav är uppfyllda:
 - Hybrid anslutning har skapats och kon figurer ATS. Mer information: [Konfigurera hybrid anslutningen](#configure-the-hybrid-connection).
 - Versioner av Service Manager som stöds: 2012 R2 eller 2016.
 - Användar roll:  [Avancerad operatör](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> ITSM-anslutningsprogram kan bara ansluta till molnbaserade ServiceNow-instanser. Lokala ServiceNow-instanser stöds inte för närvarande.
 
 ### <a name="connection-procedure"></a>Anslutnings procedur
 

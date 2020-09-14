@@ -3,17 +3,16 @@ title: Resource Health för Cloud Services (klassisk)
 description: Den här artikeln pratar om stöd för Resource Health Check (RHC) för Microsoft Azure Cloud Services (klassisk)
 services: cloud-services
 author: tanmaygore
-manager: vashan
 ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: 969390b0988c59940cb210c14821cbee42edfa7a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665128"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056070"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Stöd för Resource Health Check (RHC) för Azure Cloud Services (klassisk)
 Den här artikeln pratar om stöd för Resource Health Check (RHC) för [Microsoft Azure Cloud Services (klassisk)](https://azure.microsoft.com/services/cloud-services)
@@ -22,6 +21,7 @@ Den här artikeln pratar om stöd för Resource Health Check (RHC) för [Microso
 
 Azures status rapporter om problem som påverkar en bred uppsättning Azure-kunder. Resource Health ger dig en anpassad instrument panel med hälso tillståndet för dina resurser. Resource Health visar alla tider som resurserna har varit otillgängliga på grund av problem med Azure-tjänsten. Dessa data gör det enkelt för dig att se om ett SLA bröts.
 
+:::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="Bild visar bladet för resurs hälso kontroll i Azure Portal.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>Hur kontrol leras och rapporteras hälso tillståndet?
 Resurs hälsan rapporteras på en distributions-eller roll nivå. Hälso kontrollen sker på roll instans nivå, vi sammanställer status och rapporterar den på roll nivå. T.ex. Om alla roll instanser är tillgängliga är roll statusen tillgänglig. På samma sätt sammanställer vi hälso status för alla roller och rapporterar den på distributions nivå. T.ex. Om alla roller är tillgängliga blir distributions statusen tillgänglig. 

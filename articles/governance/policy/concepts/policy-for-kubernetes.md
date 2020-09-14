@@ -126,11 +126,11 @@ När ovanstående nödvändiga steg har slutförts installerar du Azure Policy-t
 
   1. Välj **principer (förhands granskning)** på vänster sida av Kubernetes-tjänst sidan.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Skärm bild av noden "policies (Preview)" på Kubernetes-tjänst sidan." border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Skärm bild av noden policies (Preview) på Kubernetes-tjänst sidan." border="false":::
 
   1. På huvud sidan väljer du knappen **aktivera tillägg** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Skärm bild av knappen "aktivera tillägg" på sidan onboard to Azure Policy for the Azure Kubernetes Services (A K S).":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Skärm bild av knappen aktivera tillägg på sidan onboard to Azure Policy for the Azure Kubernetes Services (A K S).":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -466,11 +466,11 @@ Om du vill ta bort Azure Policy-tillägget från AKS-klustret använder du antin
 
   1. Välj **principer (förhands granskning)** på vänster sida av Kubernetes-tjänst sidan.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Skärm bild av noden "policies (Preview)" på Kubernetes-tjänst sidan." border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Skärm bild av noden policies (Preview) på Kubernetes-tjänst sidan." border="false":::
 
   1. På huvud sidan väljer du knappen **Inaktivera tillägg** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Skärm bild av knappen "Inaktivera tillägg" på sidan onboard to Azure Policy for the Azure Kubernetes Services (A K S)." border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Skärm bild av knappen Inaktivera tillägg på sidan onboard to Azure Policy for the Azure Kubernetes Services (A K S)." border="false":::
 
 - Azure CLI
 

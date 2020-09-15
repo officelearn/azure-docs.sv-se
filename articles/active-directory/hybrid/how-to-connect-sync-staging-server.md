@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356958"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090133"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: mellanlagrings Server och haveri beredskap
 Med en server i mellanlagrings läge kan du göra ändringar i konfigurationen och förhandsgranska ändringarna innan du gör servern aktiv. Du kan också köra fullständig import och fullständig synkronisering för att kontrol lera att alla ändringar förväntas innan du gör dessa ändringar i produktions miljön.
@@ -57,7 +57,7 @@ Följ dessa steg om du vill använda den här metoden:
 
 #### <a name="prepare"></a>Förbereda
 1. Installera Azure AD Connect, Välj **mellanlagrings läge**och avmarkera **Starta synkronisering** på den sista sidan i installations guiden. Med det här läget kan du köra Synkroniseringsmotorn manuellt.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![Skärm bild som visar sidan klar att konfigurera i dialog rutan Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Logga ut/logga in och välj **synkroniseringstjänst**i Start-menyn.
 
 #### <a name="configuration"></a>Konfiguration
@@ -72,8 +72,8 @@ Om du har gjort anpassade ändringar på den primära servern och vill jämföra
 Nu har du mellanlagrat export ändringar till Azure AD och lokala AD (om du använder Exchange hybrid-distribution). I nästa steg kan du kontrol lera vad som ska ändras innan du börjar exportera till katalogerna.
 
 #### <a name="verify"></a>Verifiera
-1. Starta en kommando tolk och gå till`%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` namnet på anslutningen kan hittas i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – AAD" för Azure AD.
+1. Starta en kommando tolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` namnet på anslutningen kan hittas i synkroniseringstjänsten. Det har ett namn som liknar "contoso.com – Azure AD" för Azure AD.
 3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i% temp% med namnet export.csv som kan undersökas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
 4. Gör nödvändiga ändringar i data eller konfiguration och kör de här stegen igen (importera och synkronisera och verifiera) tills ändringarna som ska exporteras förväntas.
 

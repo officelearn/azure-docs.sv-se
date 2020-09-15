@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 09/10/2020
 ms.author: victorh
-ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a0333f9afa69b533ac28dc302987e6d057bfeeb1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827230"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090167"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
 
@@ -72,6 +72,49 @@ Måtten är lätta att använda och kan ge stöd för scenarier i nästan real t
    }
 
    ```
+
+* **DNS-proxy-logg**
+
+   DNS-proxykonfigurationen sparas till ett lagrings konto, strömmas till händelse nav och/eller skickas till Azure Monitor loggar endast om du har aktiverat det för varje Azure-brandvägg. Den här loggen spårar DNS-meddelanden till en DNS-server som är konfigurerad med DNS-proxy. Data loggas i JSON-format, som du ser i följande exempel:
+
+
+   ```
+   Category: DNS proxy logs.
+   Time: log timestamp.
+   Properties: currently contains the full message.
+   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+   ```
+
+   Resultatet
+   ```json
+   {
+     "category": "AzureFirewallDnsProxy",
+     "time": "2020-09-02T19:12:33.751Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallDnsProxyLog",
+     "properties": {
+         "msg": "DNS Request: 11.5.0.7:48197 – 15676 AAA IN md-l1l1pg5lcmkq.blob.core.windows.net. udp 55 false 512 NOERROR - 0 2.000301956s"
+     }
+   }
+   ```
+
+   Bröt
+
+   ```json
+   {
+     "category": "AzureFirewallDnsProxy",
+     "time": "2020-09-02T19:12:33.751Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallDnsProxyLog",
+     "properties": {
+         "msg": " Error: 2 time.windows.com.reddog.microsoft.com. A: read udp 10.0.1.5:49126->168.63.129.160:53: i/o timeout”
+     }
+   }
+   ```
+
+   MSG-format:
+
+   `[client’s IP address]:[client’s port] – [query ID] [type of the request] [class of the request] [name of the request] [protocol used] [request size in bytes] [EDNS0 DO (DNSSEC OK) bit set in the query] [EDNS0 buffer size advertised in the query] [response CODE] [response flags] [response size] [response duration]`
 
 Du har tre alternativ för att lagra dina loggar:
 

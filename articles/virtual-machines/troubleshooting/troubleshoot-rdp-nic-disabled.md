@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0e79efc9de43fc0a3044e9ae1e3959f63bb6e69f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078637"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090282"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärr skrivbordet till en virtuell dator eftersom nätverks gränssnittet är inaktiverat
 
@@ -28,6 +28,11 @@ Den här artikeln förklarar hur du löser ett problem där du inte kan göra en
 
 Du kan inte upprätta en RDP-anslutning eller någon annan typ av anslutning till andra portar till en virtuell dator i Azure eftersom nätverks gränssnittet i den virtuella datorn är inaktiverat.
 
+![Skärm bild som visar en virtuell dator där nätverks gränssnittet är frånkopplat.](./media/troubleshoot-rdp-nic-disabled/disconnected.png)
+
+![Skärm bild som visar en virtuell dator där nätverks gränssnittet är inaktiverat.](./media/troubleshoot-rdp-nic-disabled/disabled.png)
+
+
 ## <a name="solution"></a>Lösning
 
 Innan du följer de här stegen ska du ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
@@ -36,8 +41,7 @@ Om du vill aktivera gränssnittet för den virtuella datorn använder du seriell
 
 ### <a name="use-serial-control"></a>Använd seriell kontroll
 
-1. Anslut till [serie konsolen och öppna cmd-instansen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Om serie konsolen inte är aktive rad på den virtuella datorn, se [Återställ nätverks gränssnitt](#reset-network-interface).
+1. Anslut till [serie konsolen och öppna cmd-instansen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Om serie konsolen inte är aktive rad på den virtuella datorn, se [Återställ nätverks gränssnitt](#reset-network-interface).
 2. Kontrol lera nätverks gränssnittets status:
 
     ```console

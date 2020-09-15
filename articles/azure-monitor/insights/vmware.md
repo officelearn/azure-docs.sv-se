@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322915"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090184"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
 
@@ -66,7 +66,7 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
 
 1. I Azure Portal utför du en logg fråga för `VMware_CL` . När Azure Monitor samlar in syslog-data, behåller det syslog-formatet. I portalen samlas vissa fält in, till exempel *hostname* och *processname*.  
 
-    ![typ](./media/vmware/type.png)  
+    ![Skärm bild som visar en logg fråga för typ = VMware_CL med ett tidsstämplat resultat.](./media/vmware/type.png)  
 
     Om Sök resultatet för visnings loggen liknar bilden ovan, är du inställd på att använda instrument panelen för VMware-övervaknings lösningen.  
 
@@ -75,7 +75,7 @@ VMware-övervakning lösning samlar in olika prestanda mått och loggdata från 
 
 I följande tabell visas metoder för data insamling och annan information om hur data samlas in.
 
-| plattform | Log Analytics agent för Linux | SCOM-agent | Azure Storage | SCOM krävs? | SCOM agent-data som skickats via hanterings grupp | samlings frekvens |
+| plattform | Log Analytics agent för Linux | System Center Operations Manager agent | Azure Storage | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | samlings frekvens |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |var 3: e minut |
 
@@ -105,7 +105,7 @@ I följande tabell visas exempel på data fält som samlas in av VMware-övervak
 ## <a name="vmware-monitoring-solution-overview"></a>Översikt över VMware-övervakning lösning
 VMware-panelen visas i din Log Analytics-arbetsyta. Det ger en övergripande bild av eventuella problem. När du klickar på panelen går du till en instrument panel.
 
-![kakelsättning](./media/vmware/tile.png)
+![Skärm bild som visar VMware-panelen, som visar nio problem.](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Navigera i vyn instrument panel
 I vyn **VMware** Dashboard organiseras blad efter:
@@ -147,13 +147,13 @@ Om du vill se ytterligare data om att skapa virtuella ESXi-värdar klickar du p�
 #### <a name="common-log-queries"></a>Vanliga logg frågor
 Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera dina ESXi-värdar, till exempel lagrings utrymme, lagrings svars tid och Sök vägs fel.
 
-![skickar](./media/vmware/queries.png)
+![Skärm bild som visar rekommenderade sökningar, som är användbara lagrade frågor.](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Spara frågor
 Att spara logg frågor är en standard funktion i Azure Monitor och kan hjälpa dig att hålla alla frågor som du har hittat användbara. När du har skapat en fråga som du tycker är användbar sparar du den genom att klicka på **Favoriter**. Med en sparad fråga kan du enkelt återanvända den senare från [min instrument panels](../learn/tutorial-logs-dashboards.md) sida där du kan skapa dina egna anpassade instrument paneler.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![Skärm bild som visar en del av en anpassad instrument panel med en loggs ökning med ikoner för att ångra, exportera, Avisera, spara, favoriter och historik.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
 När du har skapat dina frågor kanske du vill använda frågorna för att varna dig när vissa händelser inträffar. Information om hur du skapar aviseringar finns [i varningar i Log Analytics](../platform/alerts-overview.md) . Exempel på aviserings frågor och andra fråge exempel finns i [Övervaka VMware med Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blogg inlägg.

@@ -5,58 +5,57 @@ documentationcenter: ios
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d47974554534a0614eb98b473c1e5539ff4d9aa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018016"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090371"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich push
 
 ## <a name="overview"></a>Översikt
 
-För att kunna engagera användare med omedelbar innehålls rik information kan ett program behöva push-överföra mer än vanligt text. Dessa meddelanden marknadsför användar interaktioner och visar innehåll som webb adresser, ljud, bilder/kuponger med mera. Den här själv studie Kursen bygger vidare på avsnittet [meddela användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) och visar hur du skickar push-meddelanden som inkluderar nytto laster (till exempel bild).
+För att kunna engagera användare med omedelbar innehålls rik information kan ett program behöva push-överföra mer än vanligt text. Dessa meddelanden marknadsför användar interaktioner och visar innehåll som webb adresser, ljud, bilder/kuponger med mera. Den här självstudien bygger på själv studie kursen om att [meddela användarna](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) och visar hur du skickar push-meddelanden som inkluderar nytto laster (till exempel bilder).
 
-Den här självstudien är kompatibel med iOS 7 & 8.
+Den här självstudien är kompatibel med iOS 7 och 8.
 
   ![Tre skärm bilder: en app-skärm med knappen Skicka push, en Start skärm på en enhet och en Windows-logotyp med en tillbaka-knapp.][IOS1]
 
 På hög nivå:
 
 1. Server delen för appen:
-   * Lagrar den omfattande nytto lasten (i det här fallet avbildning) i backend-databasen/lokal lagring
-   * Skickar ID för det här omfattande meddelandet till enheten
+   * Lagrar den omfattande nytto lasten (i det här fallet avbildning) i Server delens databas/lokal lagring.
+   * Skickar ID för det här omfattande meddelandet till enheten.
 2. App på enheten:
-   * Kontaktar Server delen som begär den omfattande nytto lasten med det ID som tas emot
-   * Skickar användar meddelanden på enheten när data hämtningen är klar och visar nytto lasten direkt när användarna trycker för att läsa mer
+   * Kontaktar Server delen som begär den omfattande nytto lasten med det ID som den tar emot.
+   * Skickar användar meddelanden på enheten när data hämtningen är klar och visar nytto lasten direkt när användarna trycker för att läsa mer.
 
 ## <a name="webapi-project"></a>WebAPI-projekt
 
 1. Öppna det **AppBackend** -projekt som du skapade i självstudien [meddela användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) i Visual Studio.
 2. Hämta en avbildning som du vill meddela användare med och Lägg den i en **img** -mapp i projekt katalogen.
 3. Klicka på **Visa alla filer** i Solution Explorer och högerklicka på mappen som ska tas med **i projektet**.
-4. När du har valt avbildningen ändrar du dess build-åtgärd i Fönstret Egenskaper till **inbäddad resurs**.
+4. När du har valt bilden ändrar du dess **build-åtgärd** i fönstret **Egenskaper** till **inbäddad resurs**.
 
     ![Skärm bild av Solution Explorer. Avbildnings filen väljs, och i rutan Egenskaper visas inbäddad resurs som bygg åtgärd.][IOS2]
-5. I `Notifications.cs` lägger du till följande using-instruktion:
+5. I `Notifications.cs` lägger du till följande- `using` uttryck:
 
     ```csharp
     using System.Reflection;
     ```
-6. Uppdatera hela `Notifications` klassen med följande kod. Se till att ersätta plats hållarna med autentiseringsuppgifterna för Notification Hub och bild fil namnet.
+
+6. Ersätt `Notifications` klassen med följande kod. Se till att ersätta plats hållarna med autentiseringsuppgifterna för Notification Hub och bild fil namnet:
 
     ```csharp
     public class Notification {
@@ -103,10 +102,7 @@ På hög nivå:
     }
     ```
 
-   > [!NOTE]
-   > valfritt Se [hur du kan bädda in och få åtkomst till resurser med hjälp av Visual C#](https://support.microsoft.com/kb/319292) för mer information om hur du lägger till och hämtar projekt resurser.
-
-7. I `NotificationsController.cs` omdefinierar du NotificationsController med följande kodfragment. Detta skickar ett inledande tyst meddelande-ID till enheten och gör det möjligt att hämta avbildningen på klient sidan:
+7. I `NotificationsController.cs` omdefinierar `NotificationsController` du med följande kod. Detta skickar ett inledande tyst meddelande-ID till enheten och gör det möjligt att hämta avbildningen på klient sidan:
 
     ```csharp
     // Return http response with image binary
@@ -137,42 +133,46 @@ På hög nivå:
         return Request.CreateResponse(HttpStatusCode.OK);
     }
     ```
-8. Nu kommer vi att omdistribuera den här appen till en Azure-webbplats för att göra den tillgänglig från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
-9. Välj Azure-webbplats som publicerings mål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna URL-egenskapen för **målet** på fliken **anslutning** . Vi kommer att referera till denna URL som *backend-slutpunkt* senare i den här självstudien. Klicka på **Publicera**.
+
+8. Distribuera nu appen på nytt till en Azure-webbplats för att göra den tillgänglig från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
+9. Välj **Azure-webbplats** som publicerings mål. Logga in med ditt Azure-konto och välj en befintlig eller ny webbplats och anteckna URL-egenskapen för **målet** på fliken **anslutning** . Vi refererar till denna URL som *backend-slutpunkt* senare i den här självstudien. Välj **Publicera**.
 
 ## <a name="modify-the-ios-project"></a>Ändra iOS-projektet
 
-Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett meddelande, ändrar du din iOS-app så att den hanterar detta ID och hämtar det avancerade meddelandet från Server delen.
+Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett meddelande, ändra din iOS-app för att hantera detta ID och hämta det omfattande meddelandet från Server delen:
 
 1. Öppna ditt iOS-projekt och aktivera fjärraviseringar genom att gå till huvudappens mål i avsnittet **mål** .
-2. Klicka på **funktioner**, aktivera **bakgrunds lägen**och markera kryss rutan **fjärraviseringar** .
+2. Välj **funktioner**, aktivera **bakgrunds lägen**och markera kryss rutan **fjärraviseringar** .
 
     ![Skärm bild av iOS-projektet som visar funktions skärmen. Bakgrunds lägen är aktiverat och kryss rutan fjärraviseringar är markerad.][IOS3]
-3. Öppna `Main.storyboard` och kontrol lera att du har en Visa kontrollant (kallas start visare i den här självstudien) från guiden [meddela användaren](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
-4. Lägg till en **navigerings kontroll** på din storyboard och kontrol lera att du använder den för att **dra den till** en trädvy. Kontrol lera att den **initiala View-kontrollanten** i attribut kontroll bara är markerad för navigerings kontroll enheten.
+3. Öppna `Main.storyboard` och kontrol lera att du har en Visa kontrollant (kallas för start visning i den här självstudien) från självstudien [meddela användaren](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+4. Lägg till en **navigerings kontroll** på din storyboard och kontrol lera att start-och bakgrunds vyn är den **grundläggande vyn** . Se till att **kontrollanten är initierad View** i attributs-kontrollanten bara är markerad för navigerings kontroll enheten.
 5. Lägg till en **View-kontrollant** i storyboard och Lägg till en **bildvy**. Det här är sidan användare ser när de väljer att lära sig mer genom att klicka på meddelandet. Din storyboard bör se ut så här:
 
     ![Skärm bild av en storyboard. Tre appar visas: en vy för navigering, en start sida och en bildvy.][IOS4]
-6. Klicka på **hem visnings styrenheten** på storyboard och kontrol lera att den har **HomeViewController** som dess **anpassade klass** och **storyboard-ID** under identitets kontrollen.
-7. Gör samma sak för bildview-kontrollanten som **imageViewController**.
+6. Klicka på **Start-kontrollanten** i storyboard och kontrol lera att den har **HomeViewController** som dess **anpassade klass** och **storyboard-ID** under identitets kontrollen.
+7. Gör samma sak för bildview-styrenheten som **imageViewController**.
 8. Skapa sedan en ny View Controller-klass med namnet **imageViewController** för att hantera det användar gränssnitt som du nyss skapade.
-9. I **imageViewController. h**lägger du till följande i kontrollantens gränssnitts deklarationer. Kontrol lera att du drar från vyn storyboard bild till dessa egenskaper för att länka två:
+9. I **imageViewController. h**lägger du till följande kod i kontrollantens gränssnitts deklarationer. Kontrol lera att du drar från vyn storyboard bild till dessa egenskaper för att länka två:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
+
 10. I `imageViewController.m` lägger du till följande i slutet av `viewDidload` :
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
+
 11. I `AppDelegate.m` importerar du den avbildnings styrenhet som du skapade:
 
     ```objc
     #import "imageViewController.h"
     ```
+
 12. Lägg till ett gränssnitts avsnitt med följande deklaration:
 
     ```objc
@@ -190,6 +190,7 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
 
     @end
     ```
+
 13. I `AppDelegate` kontrollerar du att din App registrerar sig för meddelanden om tyst meddelande i `application: didFinishLaunchingWithOptions` :
 
     ```objc
@@ -234,7 +235,7 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
     return YES;
     ```
 
-14. Ersätt följande implementering för `application:didRegisterForRemoteNotificationsWithDeviceToken` att ta ändringar i storyboard-gränssnittet i kontot:
+14. Ersätt följande implementering för `application:didRegisterForRemoteNotificationsWithDeviceToken` att ta ändringar i storyboard-användar gränssnittet i kontot:
 
     ```objc
     // Access navigation controller which is at the root of window
@@ -243,6 +244,7 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
     homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
     hvc.deviceToken = deviceToken;
     ```
+
 15. Lägg sedan till följande metoder för `AppDelegate.m` att hämta avbildningen från din slut punkt och skicka ett lokalt meddelande när hämtningen är klar. Se till att ersätta plats hållaren `{backend endpoint}` med Server dels slut punkten:
 
     ```objc
@@ -324,7 +326,8 @@ Nu när du har ändrat appens Server del för att skicka bara *ID: t* för ett m
         // Add "else if" here to handle more types of rich content such as url, sound files, etc.
     }
     ```
-16. Hantera det lokala meddelandet ovan genom att öppna bildvyns kontrollant i `AppDelegate.m` med följande metoder:
+
+16. Hantera föregående lokala meddelande genom att öppna bildvyns-kontrollanten i `AppDelegate.m` med följande metoder:
 
     ```objc
     // Helper: redirect users to image view controller

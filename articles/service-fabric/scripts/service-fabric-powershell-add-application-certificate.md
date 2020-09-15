@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3d26bc33ca6679b80b858f50d212366d326207fa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 0f5a7d49200c7dec08f71f9cb0256630728e4711
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078987"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090150"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Distribuera ett programcertifikat till ett Service Fabric-kluster
 
@@ -81,7 +81,7 @@ $CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultSe
 $VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
 
 # If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
-$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
+$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($CertConfig)
 
 # Otherwise use
 $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
@@ -98,7 +98,7 @@ Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMS
 
 Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Skapar en InMemory-princip som representerar certifikatet |
 | [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Distribuerar principen till Key Vault certifikat |

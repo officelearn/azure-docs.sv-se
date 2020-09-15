@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022131"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090354"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs säker push
 
@@ -119,8 +119,8 @@ För att uppnå det här målet måste vi skriva logiken för att hämta det sä
 
     Den här metoden anropar appens Server del för att hämta meddelande innehållet med hjälp av de autentiseringsuppgifter som lagras i delade inställningar.
 
-4. Nu måste vi hantera det inkommande meddelandet och använda metoden ovan för att hämta innehållet som ska visas. Först måste vi aktivera att iOS-appen ska köras i bakgrunden när du tar emot ett push-meddelande. I **Xcode**väljer du ditt app-projekt på den vänstra panelen och klickar sedan på ditt huvud program mål i avsnittet **mål** i fönstret Central.
-5. Klicka sedan på fliken **funktioner** överst i det centrala fönstret och markera kryss rutan **fjärraviseringar** .
+4. Hantera nu det inkommande meddelandet och Använd metoden ovan för att hämta innehållet som ska visas. Börja med att låta din iOS-app köras i bakgrunden när du tar emot ett push-meddelande. I **Xcode**väljer du ditt app-projekt på den vänstra panelen och klickar sedan på ditt huvud program mål i avsnittet **mål** i fönstret Central.
+5. Klicka sedan på fliken **funktioner** överst i det centrala fönstret och markera rutan **fjärraviseringar** .
 
     ![Skärm bild av XCode med valt app-projekt och fliken funktioner öppen. Kryss rutan fjärraviseringar är markerad.][IOS1]
 

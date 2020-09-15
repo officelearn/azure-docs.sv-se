@@ -7,16 +7,19 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 2b1fe86c09349a25c8ebfda38ffc3ec352fdaba3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 36107f69fb51e16ef8f8a6213afc9b153165ab4c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019563"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090596"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexeringsprinciper i Azure Cosmos DB
 
 I Azure Cosmos DB indexeras data efter [indexerings principer](index-policy.md) som definierats för varje behållare. Standardprincipen för indexering för nyligen skapade containrar framtvingar intervallindex för strängar eller nummer. Du kan åsidosätta den här principen med din egen anpassade indexeringsprincip.
+
+> [!NOTE]
+> Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core). Läs mer om indexering i [Azure Cosmos DBS API för MongoDB](mongodb-indexing.md).
 
 ## <a name="indexing-policy-examples"></a>Exempel på indexeringsprincip
 

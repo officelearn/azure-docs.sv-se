@@ -1,21 +1,21 @@
 ---
-title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Server-utvärdering
-description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
+title: Utvärdera virtuella VMware-datorer för migrering till virtuella Azure-datorer med Server utvärdering i Azure Migrate
+description: Lär dig hur du bedömer virtuella VMware-datorer för migrering till virtuella Azure-datorer med Server utvärdering.
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
+ms.openlocfilehash: 01db7128cd990098caa25ba2cd79f2f2a2b28d78
 ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090480"
+ms.locfileid: "90109009"
 ---
-# <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Självstudie: utvärdera fysiska servrar för migrering till Azure
+# <a name="tutorial-assess-vmware-vms-for-migration-to-azure-vms"></a>Självstudie: utvärdera virtuella VMware-datorer för migrering till virtuella Azure-datorer
 
 Som en del av migreringen till Azure bedömer du dina lokala arbets belastningar för att mäta moln beredskap, identifiera risker och beräkna kostnader och komplexitet.
 
-Den här artikeln visar hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av verktyget Azure Migrate: Server bedömning.
+Den här artikeln visar hur du bedömer identifierade virtuella VMware-datorer (VM: ar) som förberedelse för migrering till virtuella Azure-datorer med hjälp av verktyget Azure Migrate: Server bedömning.
 
 
 I den här guiden får du lära dig att:
@@ -31,10 +31,10 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Innan du följer den här självstudien för att utvärdera datorerna för migrering till virtuella Azure-datorer kontrollerar du att du har identifierat de datorer som du vill utvärdera:
-    - [Följ den här självstudien](tutorial-discover-physical.md)för att identifiera datorer som använder Azure Migrate-installationen. 
-    - [Följ den här självstudien](tutorial-discover-import.md)för att identifiera datorer som använder en importerad CSV-fil.
-- Kontrol lera att fysiska datorer som du vill utvärdera inte kör Windows Server 2003 eller SUSE Linux. Utvärderingen stöds inte för de här datorerna.
+Innan du följer den här självstudien för att utvärdera datorerna för migrering till virtuella Azure-datorer kontrollerar du att du har identifierat de datorer som du vill utvärdera:
+
+- [Följ den här självstudien](tutorial-discover-vmware.md)för att identifiera datorer som använder Azure Migrate-installationen. 
+- [Följ den här självstudien](tutorial-discover-import.md)för att identifiera datorer som använder en importerad CSV-fil.
 
 
 ## <a name="decide-which-assessment-to-run"></a>Bestäm vilken utvärdering som ska köras
@@ -47,17 +47,18 @@ Bestäm om du vill köra en utvärdering med storleks kriterier baserat på dato
 **Som lokal** | Utvärdera baserat på dator konfigurations data/metadata.  | Rekommenderad storlek på virtuell Azure-dator baseras på den lokala virtuella dator storleken.<br/><br> Den rekommenderade typen av Azure-disk baseras på vad du väljer i inställningen lagrings typ i utvärderingen.
 **Prestanda-baserade** | Utvärdera baserat på insamlade dynamiska prestanda data. | Rekommenderad storlek på virtuell Azure-dator baseras på processor-och minnes användnings data.<br/><br/> Den rekommenderade disk typen baseras på IOPS och data flödet för de lokala diskarna.
 
+
 ## <a name="run-an-assessment"></a>Köra en utvärdering
 
 Kör en utvärdering på följande sätt:
 
 1. På sidan **servrar** > **Windows-och Linux-servrar**klickar du på **utvärdera och migrera servrar**.
 
-   ![Knappen utvärdera och migrera servrar](./media/tutorial-assess-physical/assess.png)
+   ![Knappen utvärdera och migrera servrar](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. Klicka på **utvärdera**i **Azure Migrate: Server bedömning**.
 
-    ![Utvärderings knappens placering](./media/tutorial-assess-physical/assess-servers.png)
+    ![Utvärderings knappens placering](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. I **Assess servers**  >  **utvärderings typ av utvärderings**servrar väljer du **virtuell Azure-dator**.
 4. I **identifierings källa**:
@@ -65,12 +66,12 @@ Kör en utvärdering på följande sätt:
     - Om du har identifierat datorer som använder-enheten väljer du **datorer som identifierats från Azure Migrate**-installationen.
     - Om du har identifierat datorer som använder en importerad CSV-fil väljer du **importerade datorer**. 
     
-5. Ange ett namn för utvärderingen. 
-6. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
+1. Ange ett namn för utvärderingen. 
+1. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
-    ![Placering av knappen Visa alla för att granska bedömnings egenskaper](./media/tutorial-assess-physical/assessment-name.png)
+    ![Placering av knappen Visa alla för att granska bedömnings egenskaper](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
-7. I **Egenskaper för kontroll**  >  **mål**:
+1. I **Egenskaper för kontroll**  >  **mål**:
     - Ange den Azure-region som du vill migrera till på **mål platsen**.
         - Storleks-och kostnads rekommendationer baseras på den plats som du anger.
         - I Azure Government kan du rikta in dig på utvärderingar i [dessa regioner](migrate-support-matrix.md#supported-geographies-azure-government)
@@ -80,7 +81,7 @@ Kör en utvärdering på följande sätt:
     - I **reserverade instanser**anger du om du vill använda reserverade instanser för den virtuella datorn när du migrerar den.
         - Om du väljer att använda en reserverad instans kan du inte ange**rabatt (%)** eller **VM-drift tid**. 
         - [Läs mer](https://aka.ms/azurereservedinstances).
-8. I **VM-storlek**:
+ 7. I **VM-storlek**:
  
     - I **storleks kriterium**väljer du om du vill basera utvärderingen på dator konfigurations data/metadata eller på prestandabaserade data. Om du använder prestanda data:
         - I **prestanda historik**anger du den data varaktighet som du vill basera utvärderingen på.
@@ -88,9 +89,9 @@ Kör en utvärdering på följande sätt:
     - I **VM-serien**anger du den Azure VM-serien som du vill ta hänsyn till.
         - Om du använder Performance-baserad utvärdering föreslår Azure Migrate ett värde för dig.
         - Ändra inställningarna efter behov. Om du till exempel inte har en produktions miljö som behöver en-seriens virtuella datorer i Azure kan du undanta en-serien från listan över serier.
-    - I **komfort faktor**anger du den buffert som du vill använda under utvärderingen. Dessa konton för problem som säsongs användning, kort prestanda historik och sannolika ökningar i framtida användning. Om du till exempel använder en bekvämlighets faktor på två: **komponent**  |  **effektiv användning**  |  **Lägg till bekvämlighets faktor (2,0)** kärnor | 2 | 4 minne | 8 GB | 16 GB    
+    - I **komfort faktor**anger du den buffert som du vill använda under utvärderingen. Dessa konton för problem som säsongs användning, kort prestanda historik och sannolika ökningar i framtida användning. Om du till exempel använder en bekvämlighets faktor på två: **komponent**  |  **effektiv användning**  |  **Lägg till bekvämlighets faktor (2,0)** kärnor | 2 | 4 minne | 8 GB | 16 GB     
    
-9. I **prissättning**:
+8. I **prissättning**:
     - I **erbjudandet**anger du [Azure-erbjudandet](https://azure.microsoft.com/support/legal/offer-details/) om du är registrerad. Server utvärderingen beräknar kostnaden för det erbjudandet.
     - I **valuta**väljer du fakturerings valutan för ditt konto.
     - I **rabatt (%)**, Lägg till eventuella prenumerations rabatter som du får ovanpå Azure-erbjudandet. Standardinställningen är 0%.
@@ -102,14 +103,17 @@ Kör en utvärdering på följande sätt:
     - I **EA-prenumeration**anger du om du vill att prenumerations rabatten för Enterprise-avtal (EA) ska tas med i kontot för kostnads uppskattning. 
     - I **Azure Hybrid-förmån**anger du om du redan har en Windows Server-licens. Om du gör det, och de omfattas med aktiva Software Assurance för Windows Server-prenumerationer, kan du ansöka om [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/) när du använder licenser i Azure.
 
-10. Klicka på **Spara** om du gör ändringar.
+9. Klicka på **Spara** om du gör ändringar.
 
-    ![Bedömnings egenskaper](./media/tutorial-assess-physical/assessment-properties.png)
+    ![Bedömnings egenskaper](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-11. I **utvärdera servrar**klickar du på **Nästa**.
-12. I **Välj datorer att utvärdera**väljer du **Skapa ny**och anger ett grupp namn. 
-13. Välj enheten och välj de virtuella datorer som du vill lägga till i gruppen. Klicka på **Nästa**.
-14. Granska utvärderings informationen i * * granska och skapa utvärdering och klicka på **Skapa utvärdering** för att skapa gruppen och köra utvärderingen.
+10. I **utvärdera servrar**klickar du på **Nästa**.
+11. I **Välj datorer att utvärdera**väljer du **Skapa ny**och anger ett grupp namn. 
+12. Välj enheten och välj de virtuella datorer som du vill lägga till i gruppen. Klicka på **Nästa**.
+
+     ![Lägga till virtuella datorer i en grupp](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
+
+13. Granska utvärderings informationen i * * granska och skapa utvärdering och klicka på **Skapa utvärdering** för att skapa gruppen och köra utvärderingen.
 
 
     > [!NOTE]
@@ -128,7 +132,7 @@ Så här visar du en utvärdering:
 1. I **servrar**  >  **Azure Migrate: Server bedömning**klickar du på siffran bredvid **utvärderingar**.
 2. I **utvärderingar**väljer du en utvärdering för att öppna den. Som exempel (uppskattningar och kostnader endast för exempel): 
 
-    ![Utvärderings Sammanfattning](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Utvärderings Sammanfattning](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
 
 3. Granska utvärderings sammanfattningen. Du kan också redigera bedömnings egenskaperna eller beräkna om utvärderingen.
  
@@ -161,7 +165,7 @@ Utvärderings sammanfattningen visar den beräknade beräknings-och lagrings kos
 
 Server utvärderingen tilldelar en förtroende bedömning till prestandabaserade utvärderingar. Omdömet är från en stjärna (lägst) till fem stjärnor (högst).
 
-![Säkerhetsomdöme](./media/tutorial-assess-physical/confidence-rating.png)
+![Säkerhetsomdöme](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
 
 Förtroende omdömet hjälper dig att beräkna tillförlitligheten för storleks rekommendationer i utvärderingen. Omdömet baseras på tillgängligheten för data punkter som behövs för att beräkna utvärderingen.
 
@@ -183,4 +187,4 @@ Tillförlitlighets klassificeringen är som följer.
 ## <a name="next-steps"></a>Nästa steg
 
 - Hitta dator beroenden med hjälp av [beroende mappning](concepts-dependency-visualization.md).
-- Konfigurera en [agent-baserad](how-to-create-group-machine-dependencies.md) beroende mappning.
+- Konfigurera en [agent utan agent](how-to-create-group-machine-dependencies-agentless.md) eller [agent](how-to-create-group-machine-dependencies.md) beroende mappning.

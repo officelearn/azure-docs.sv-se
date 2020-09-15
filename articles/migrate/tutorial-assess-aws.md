@@ -1,22 +1,21 @@
 ---
-title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Server-utvärdering
-description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
+title: Utvärdera AWS-instanser för migrering till Azure med Azure Migrate Server-utvärdering
+description: Beskriver hur du bedömer AWS-instanser för migrering till Azure med hjälp av Azure Migrate Server bedömning.
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
+ms.openlocfilehash: 14928c8a3249cca172ad088f290b54a22a125ae7
 ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090480"
+ms.locfileid: "90109025"
 ---
-# <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Självstudie: utvärdera fysiska servrar för migrering till Azure
+# <a name="tutorial-assess-aws-instances-for-migration-to-azure"></a>Självstudie: utvärdera AWS-instanser för migrering till Azure
 
 Som en del av migreringen till Azure bedömer du dina lokala arbets belastningar för att mäta moln beredskap, identifiera risker och beräkna kostnader och komplexitet.
 
-Den här artikeln visar hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av verktyget Azure Migrate: Server bedömning.
-
+Den här artikeln visar hur du bedömer Amazon Web Services-instanser (AWS) för migrering till Azure med hjälp av verktyget Azure Migrate: Server bedömning.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -31,10 +30,8 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Innan du följer den här självstudien för att utvärdera datorerna för migrering till virtuella Azure-datorer kontrollerar du att du har identifierat de datorer som du vill utvärdera:
-    - [Följ den här självstudien](tutorial-discover-physical.md)för att identifiera datorer som använder Azure Migrate-installationen. 
-    - [Följ den här självstudien](tutorial-discover-import.md)för att identifiera datorer som använder en importerad CSV-fil.
-- Kontrol lera att fysiska datorer som du vill utvärdera inte kör Windows Server 2003 eller SUSE Linux. Utvärderingen stöds inte för de här datorerna.
+- Innan du följer stegen i den här självstudien slutför du den första självstudien i den här serien för att [identifiera din lokala inventering](tutorial-discover-aws.md). 
+- Se till att AWS-instanser inte kör Windows Server 2003 eller SUSE Linux. Utvärderingen stöds inte för de här datorerna.
 
 
 ## <a name="decide-which-assessment-to-run"></a>Bestäm vilken utvärdering som ska köras
@@ -53,22 +50,21 @@ Kör en utvärdering på följande sätt:
 
 1. På sidan **servrar** > **Windows-och Linux-servrar**klickar du på **utvärdera och migrera servrar**.
 
-   ![Knappen utvärdera och migrera servrar](./media/tutorial-assess-physical/assess.png)
+   ![Knappen utvärdera och migrera servrar](./media/tutorial-assess-aws/assess.png)
 
-2. Klicka på **utvärdera**i **Azure Migrate: Server bedömning**.
+2. Klicka på **utvärdera**i * * Azure Migrate: Server bedömning.
 
-    ![Utvärderings knappens placering](./media/tutorial-assess-physical/assess-servers.png)
+    ![Utvärderings knappens placering](./media/tutorial-assess-aws/assess-servers.png)
 
 3. I **Assess servers**  >  **utvärderings typ av utvärderings**servrar väljer du **virtuell Azure-dator**.
 4. I **identifierings källa**:
 
     - Om du har identifierat datorer som använder-enheten väljer du **datorer som identifierats från Azure Migrate**-installationen.
     - Om du har identifierat datorer som använder en importerad CSV-fil väljer du **importerade datorer**. 
-    
 5. Ange ett namn för utvärderingen. 
 6. Klicka på **Visa alla** för att granska utvärderingsegenskaperna.
 
-    ![Placering av knappen Visa alla för att granska bedömnings egenskaper](./media/tutorial-assess-physical/assessment-name.png)
+    ![Placering av knappen Visa alla för att granska bedömnings egenskaper](./media/tutorial-assess-aws/assessment-name.png)
 
 7. I **Egenskaper för kontroll**  >  **mål**:
     - Ange den Azure-region som du vill migrera till på **mål platsen**.
@@ -88,7 +84,7 @@ Kör en utvärdering på följande sätt:
     - I **VM-serien**anger du den Azure VM-serien som du vill ta hänsyn till.
         - Om du använder Performance-baserad utvärdering föreslår Azure Migrate ett värde för dig.
         - Ändra inställningarna efter behov. Om du till exempel inte har en produktions miljö som behöver en-seriens virtuella datorer i Azure kan du undanta en-serien från listan över serier.
-    - I **komfort faktor**anger du den buffert som du vill använda under utvärderingen. Dessa konton för problem som säsongs användning, kort prestanda historik och sannolika ökningar i framtida användning. Om du till exempel använder en bekvämlighets faktor på två: **komponent**  |  **effektiv användning**  |  **Lägg till bekvämlighets faktor (2,0)** kärnor | 2 | 4 minne | 8 GB | 16 GB    
+    - I **komfort faktor**anger du den buffert som du vill använda under utvärderingen. Dessa konton för problem som säsongs användning, kort prestanda historik och sannolika ökningar i framtida användning. Om du t. ex. använder en bekvämlighets faktor på två: **information**  |  **användning**  |  **Lägg till bekvämlighets faktor (2,0)** läsa IOPS | 100 | 200 Skriv IOPS | 100 | 200 Läs data flöde | 100 Mbit/s | 200 Mbps Skriv data flöde | 100 Mbit/s | 200 Mbit/s
    
 9. I **prissättning**:
     - I **erbjudandet**anger du [Azure-erbjudandet](https://azure.microsoft.com/support/legal/offer-details/) om du är registrerad. Server utvärderingen beräknar kostnaden för det erbjudandet.
@@ -104,7 +100,7 @@ Kör en utvärdering på följande sätt:
 
 10. Klicka på **Spara** om du gör ändringar.
 
-    ![Bedömnings egenskaper](./media/tutorial-assess-physical/assessment-properties.png)
+    ![Bedömnings egenskaper](./media/tutorial-assess-aws/assessment-properties.png)
 
 11. I **utvärdera servrar**klickar du på **Nästa**.
 12. I **Välj datorer att utvärdera**väljer du **Skapa ny**och anger ett grupp namn. 
@@ -128,7 +124,7 @@ Så här visar du en utvärdering:
 1. I **servrar**  >  **Azure Migrate: Server bedömning**klickar du på siffran bredvid **utvärderingar**.
 2. I **utvärderingar**väljer du en utvärdering för att öppna den. Som exempel (uppskattningar och kostnader endast för exempel): 
 
-    ![Utvärderings Sammanfattning](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Utvärderings Sammanfattning](./media/tutorial-assess-aws/assessment-summary.png)
 
 3. Granska utvärderings sammanfattningen. Du kan också redigera bedömnings egenskaperna eller beräkna om utvärderingen.
  
@@ -161,12 +157,13 @@ Utvärderings sammanfattningen visar den beräknade beräknings-och lagrings kos
 
 Server utvärderingen tilldelar en förtroende bedömning till prestandabaserade utvärderingar. Omdömet är från en stjärna (lägst) till fem stjärnor (högst).
 
-![Säkerhetsomdöme](./media/tutorial-assess-physical/confidence-rating.png)
+![Säkerhetsomdöme](./media/tutorial-assess-aws/confidence-rating.png)
 
 Förtroende omdömet hjälper dig att beräkna tillförlitligheten för storleks rekommendationer i utvärderingen. Omdömet baseras på tillgängligheten för data punkter som behövs för att beräkna utvärderingen.
 
 > [!NOTE]
 > Förtroende klassificeringar tilldelas inte om du skapar en utvärdering som baseras på en CSV-fil.
+
 
 Tillförlitlighets klassificeringen är som följer.
 

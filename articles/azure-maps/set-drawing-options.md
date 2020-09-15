@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 82c5d87be084e85b6de9f890bd042babca9df476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282831"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090507"
 ---
 # <a name="use-the-drawing-tools-module"></a>Använda modulen för ritningsverktyg
 
-Azure Maps Web SDK tillhandahåller en *modul för rit verktyg*. Den här modulen gör det enkelt att rita och redigera former på kartan med en indataenhet, till exempel en mus eller touch-skärm. Huvud klassen för den här modulen är [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Ritnings hanteraren innehåller alla funktioner som behövs för att rita och redigera former på kartan. Den kan användas direkt och är integrerad med ett anpassat verktygsfälts gränssnitt. Du kan också använda den inbyggda verktygs klassen [Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) . 
+Azure Maps Web SDK tillhandahåller en *modul för rit verktyg*. Den här modulen gör det enkelt att rita och redigera former på kartan med en indataenhet, till exempel en mus eller touch-skärm. Huvud klassen för den här modulen är [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Ritnings hanteraren innehåller alla funktioner som behövs för att rita och redigera former på kartan. Den kan användas direkt och är integrerad med ett anpassat verktygsfälts gränssnitt. Du kan också använda den inbyggda verktygs klassen [Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) . 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Läsa in modulen för rit verktyg på en webb sida
 
@@ -44,13 +44,13 @@ Azure Maps Web SDK tillhandahåller en *modul för rit verktyg*. Den här module
 
 ## <a name="use-the-drawing-manager-directly"></a>Använda Drawing Manager direkt
 
-När modulen Drawing Tools har lästs in i ditt program kan du aktivera funktioner för att rita och redigera med [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Du kan ange alternativ för ritnings hanteraren när du instansierar den eller också använder du `drawingManager.setOptions()` funktionen.
+När modulen Drawing Tools har lästs in i ditt program kan du aktivera funktioner för att rita och redigera med [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Du kan ange alternativ för ritnings hanteraren när du instansierar den eller också använder du `drawingManager.setOptions()` funktionen.
 
 ### <a name="set-the-drawing-mode"></a>Ange rit läge
 
 Följande kod skapar en instans av Drawing Manager och anger alternativet för rit **läge** . 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon"
@@ -70,13 +70,13 @@ Se pennan genom att <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Rita en 
 
 Drawing Manager har stöd för tre olika sätt att interagera med kartan för att rita former.
 
-* `click`-Koordinater läggs till när musen eller touchen klickas.
-* `freehand `-Koordinater läggs till när musen eller touchen dras på kartan. 
-* `hybrid`-Koordinater läggs till när musen eller touchen klickas eller dras.
+* `click` -Koordinater läggs till när musen eller touchen klickas.
+* `freehand ` -Koordinater läggs till när musen eller touchen dras på kartan. 
+* `hybrid` -Koordinater läggs till när musen eller touchen klickas eller dras.
 
 Följande kod aktiverar polygonens ritläge och anger vilken typ av ritnings interaktion som ritnings hanteraren ska följa `freehand` . 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon",
@@ -122,10 +122,10 @@ Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

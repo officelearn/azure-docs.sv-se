@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/15/2020
+ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440583"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090609"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -40,7 +40,7 @@ Du kan installera både kostnads fria (olicensierade) och betalda (licensierade)
 
 Följande begränsningar gäller endast för anpassade standardinställningar:
 
-- Om du vill använda *gacutil.exe* i skriptet för att installera sammansättningar i GAC (Global Assembly Cache) måste du ange *gacutil.exe* som en del av din anpassade installation. Eller så kan du använda kopian som finns i vår *offentliga för hands versions* behållare, som beskrivs senare i avsnittet "instruktioner".
+- Om du vill använda *gacutil.exe* i skriptet för att installera sammansättningar i GAC (Global Assembly Cache) måste du ange *gacutil.exe* som en del av din anpassade installation. Eller så kan du använda kopian som finns i *exempel* mappen i vår *offentliga för hands versions* behållare, se avsnittet **standard anpassade installations exempel** nedan.
 
 - Om du vill referera till en undermapp i skriptet kan *msiexec.exe* inte använda `.\` notationen för att referera till rotmappen. Använd ett kommando som `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` i stället för `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 
@@ -48,7 +48,7 @@ Följande begränsningar gäller endast för anpassade standardinställningar:
 
 - IBM iSeries Access ODBC-drivrutinen stöds inte på Azure-SSIS IR. Du kan se installations fel under den anpassade installationen. Kontakta IBM-supporten om du behöver hjälp.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

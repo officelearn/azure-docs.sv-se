@@ -3,12 +3,12 @@ title: Konfigurera Azure Arc-aktiverat Kubernetes-kluster med Azure Monitor för
 description: Den här artikeln beskriver hur du konfigurerar övervakning med Azure Monitor för behållare på Azure Arc-aktiverade Kubernetes-kluster.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092889"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090626"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Aktivera övervakning av Azure Arc-aktiverade Kubernetes-kluster
 
@@ -124,7 +124,7 @@ Om du vill aktivera övervakning av klustret med PowerShell-eller bash-skriptet 
 4. Om du vill använda befintlig Azure Monitor Log Analytics arbets yta konfigurerar du variabeln `$logAnalyticsWorkspaceResourceId` med motsvarande värde som representerar arbets ytans resurs-ID. Annars ställer du in variabeln till `""` och skriptet skapar en standard arbets yta i kluster prenumerationens standard resurs grupp om det inte redan finns en sådan i regionen. Standard arbets ytan som skapats liknar formatet *DefaultWorkspace- \<SubscriptionID> - \<Region> *.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Om ditt Arc-aktiverade Kubernetes-kluster kommunicerar via en proxyserver konfigurerar du variabeln `$proxyEndpoint` med URL: en för proxyservern. Om klustret inte kommunicerar via en proxyserver kan du ange värdet till `""` .  Mer information finns i [Konfigurera proxy-slutpunkt](#configure-proxy-endpoint) längre fram i den här artikeln.
@@ -199,7 +199,7 @@ När du har aktiverat övervakning kan det ta ungefär 15 minuter innan du kan v
 
 Med den behållar agenten för Azure Monitor för behållare kan du konfigurera en proxy-slutpunkt så att den kan kommunicera via proxyservern. Kommunikation mellan behållarens agent och Azure Monitor kan vara en HTTP-eller HTTPS-proxyserver, och både anonym och grundläggande autentisering (användar namn/lösen ord) stöds.
 
-Konfiguration svärdet för proxyn har följande syntax:`[protocol://][user:password@]proxyhost[:port]`
+Konfiguration svärdet för proxyn har följande syntax: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Om proxyservern inte kräver autentisering måste du fortfarande ange ett psuedo användar namn/lösen ord. Detta kan vara valfritt användar namn eller lösen ord.
@@ -212,7 +212,7 @@ Konfiguration svärdet för proxyn har följande syntax:`[protocol://][user:pass
 |proxyhost | Adress eller FQDN för proxyservern |
 |port | Valfritt port nummer för proxyservern |
 
-Exempel: `http://user01:password@proxy01.contoso.com:3128`
+Exempelvis: `http://user01:password@proxy01.contoso.com:3128`
 
 Om du anger protokollet som **http**skapas HTTP-begäranden med hjälp av SSL/TLS-säker anslutning. Proxyservern måste ha stöd för SSL/TLS-protokoll.
 

@@ -2,17 +2,17 @@
 title: SRE-händelse lista | Microsoft Docs
 description: Delta i den globala SRE-communityn genom att delta i de här händelserna.
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 5360ada6dab19564bfa88697d2adc6ef751f3935
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c36b517943ac6d18b0658ea5cb97c47503de26b1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254803"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090303"
 ---
 # <a name="participate-in-the-global-site-reliability-engineering-community"></a>Delta i den globala webbplatsen för Tillförlitlighets teknik i hela världen
 

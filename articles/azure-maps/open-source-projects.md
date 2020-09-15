@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815699"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090524"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community-projekt med öppen källkod
 
@@ -29,13 +29,19 @@ Nedan visas några av de populäraste Azure Maps projekt och exempel med öppen 
 | [Bot Framework – orienterings punkt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Orienterings punkten ger POI-relaterade funktioner till en virtuell assistent med hjälp av Azure Maps med Azure Bot Service-och bot-ramverket. |
 | [BotBuilder-plats](https://github.com/Microsoft/BotBuilder-Location) | En plats väljare för öppen källkod för Microsoft bot Framework som drivs av Bing Maps REST-tjänster. |
 
+<a name="open-web-sdk-modules"></a>
+
 **Öppna Web SDK-moduler**
 
 Följande är en lista med projekt med öppen källkod som utökar funktionerna i Azure Maps Web SDK.
 
 | Projektnamn | Beskrivning |
 |-|-|
-| [Modul för Azure Maps animering](https://github.com/Azure-Samples/azure-maps-animations)| Ett avancerat bibliotek med animeringar som används med Azure Maps Web SDK. |
+| [Modul för Azure Maps animering](https://github.com/Azure-Samples/azure-maps-animations) | Ett avancerat bibliotek med animeringar som används med Azure Maps Web SDK. |
+| [Azure Maps modulen för kontroll av geolokalisering](https://github.com/Azure-Samples/azure-maps-geolocation-control) | En Azure Maps Web SDK-modul som tillhandahåller en kontroll som använder webbläsarens API för geolokalisering för att hitta användaren på kartan. |
+| [Azure Maps helskärm-kontrollmodul](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | En Azure Maps Web SDK-modul som ger en kontroll för att visa kartan i hel skärms läge. |
+| [Modul för Azure Maps urvals kontroll](https://github.com/Azure-Samples/azure-maps-selection-control) | En Azure Maps Web SDK-modul som tillhandahåller kontroller för att markera data i en data källa med hjälp av rit verktyg eller genom att begära ett flödes intervall polygon. |
+| [Azure Maps Sync Map-modul](https://github.com/Azure-Samples/azure-maps-sync-maps) | En Azure Maps Web SDK-modul som synkroniserar kameror med två eller flera Maps. |
 | [Modul för Azure Maps Services-gränssnittet](https://github.com/Azure-Samples/azure-maps-services-ui) | En uppsättning webb GRÄNSSNITTs kontroller som radbryter Azure Maps REST-tjänsterna. |
 
 **Exempel**
@@ -46,7 +52,7 @@ Följande är en lista med projekt med öppen källkod som utökar funktionerna 
 | [Azure Maps gov Cloud kod exempel](https://github.com/Azure-Samples/AzureMapsCodeSamples) | En samling kod exempel för att använda Azure Maps via molnet för Azure Government. |
 | [Azure Maps & Azure Active Directory exempel](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | En samling exempel som visar hur du använder Azure Active Directory med Azure Maps. | 
 | [Azure Maps Jupyter Notebook exempel](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | En samling python-exempel som använder Azure Maps REST-tjänsterna. |
-| [Azure Maps .NET UWP IoT fjärr styrning](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Detta är ett exempel program som visar hur du skapar en fjärrstyrd mappning med hjälp av Azure Maps och IoT Hub-tjänster. |
+| [Azure Maps .NET UWP IoT fjärr styrning](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Det här är ett exempel program som visar hur du skapar en fjärrstyrd mappning med hjälp av Azure Maps och IoT Hub-tjänster. |
 | [Implementera rumslig IoT-analys med Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Att spåra och fånga relevanta händelser som inträffar i utrymme och tid är ett vanligt IoT-scenario. |
 
 **Verktyg och resurser**

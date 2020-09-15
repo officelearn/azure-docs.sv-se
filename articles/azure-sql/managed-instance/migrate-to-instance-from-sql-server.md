@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209480"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090235"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server instans migrering till Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ På en hög nivå ser databasens migreringsprocessen ut så här:
 
 Kontrol lera först om SQL-hanterad instans är kompatibel med programmets databas krav. SQL-hanterad instans är utformad för att ge enkel växel och Shift-migrering för de flesta befintliga program som använder SQL Server. Du kan dock ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för hög.
 
-Använd [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. Om det finns rapporterade spärrnings problem kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på den virtuella Azure-datorn](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här är några exempel:
+Använd [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. Om det finns rapporterade spärrnings problem kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på den virtuella Azure-datorn](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
 
 - Om du behöver direkt åtkomst till operativ systemet eller fil systemet, till exempel för att installera tredje part eller anpassade agenter på samma virtuella dator med SQL Server.
 - Om du har strikt beroende på funktioner som fortfarande inte stöds, till exempel FileStream/FileTable-, PolyBase-och kors instans transaktioner.
@@ -126,7 +126,7 @@ Mer information om det här scenariot och konfigurations stegen för Database Mi
 
 Följande diagram ger en övergripande översikt över processen:
 
-![migration-flöde](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![Diagrammet visar SQL Server med en pil med etiketten säkerhets kopiering/uppladdning till URL som flödar till Azure Storage och en andra pil som har etiketten Återställ från URL: en som flödar från Azure Storage till en hanterad instans av SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 Följande tabell innehåller mer information om de metoder som du kan använda, beroende på vilken käll SQL Servers version du kör:
 

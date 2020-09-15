@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462181"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090320"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Självstudie: distribuera din app till virtuella Linux-datorer i Azure med Azure DevOps Services och Azure-pipelines
 
@@ -147,6 +147,7 @@ Du behöver en pipeline för kontinuerlig integrering (CI) som publicerar ditt w
 Välj **Start** mal len och kopiera nedanstående yaml-kodfragment som skapar ditt Java-projekt och kör tester med Apache maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ För ytterligare vägledning följer du stegen i [utveckla din Node.js-app med G
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definiera de CD-steg som ska distribueras till den virtuella Linux-datorn
 
-1. Redigera pipelinen ovan och inkludera ett [distributions jobb](/azure/devops/pipelines/process/deployment-jobs) genom att referera till miljön och de VM-resurser som du har tidigare med yaml-syntaxen nedan:
+1. Ändra YAML-filen för den ovan pipelinen för att inkludera ett [distributions jobb](/azure/devops/pipelines/process/deployment-jobs) genom att referera till miljön och de VM-resurser som du har tidigare med yaml-syntaxen nedan:
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ För ytterligare vägledning följer du stegen i [utveckla din Node.js-app med G
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Du kan välja olika uppsättningar av virtuella datorer från miljön för att ta emot distributionen genom att ange de **taggar** som du har definierat för varje virtuell dator i miljön.
 [Här](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) är det fullständiga yaml-schemat för distributions jobb.

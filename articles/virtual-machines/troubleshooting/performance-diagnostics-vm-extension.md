@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028557"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090660"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azures VM-tillägg för prestandadiagnostik för Windows
 
@@ -29,7 +29,15 @@ Med VM-tillägget för Azure Performance Diagnostics kan du samla in prestanda d
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Tillägget kan installeras på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Den kan också installeras på Windows 8,1 och Windows 10.
+Tillägget kan installeras på
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8,1
+* Windows 8
 
 ## <a name="extension-schema"></a>Tilläggsschema
 Följande JSON visar schemat för Azure Performance Diagnostics VM-tillägget. Det här tillägget kräver namnet och nyckeln för ett lagrings konto för att lagra utdata och rapporter för diagnostik. Dessa värden är känsliga. Lagrings konto nyckeln ska lagras i en konfiguration för en skyddad inställning. Skyddade inställnings data för Azure VM-tillägg krypteras och dekrypteras bara på den virtuella mål datorn. Observera att **storageAccountName** och **storageAccountKey** är Skift läges känsliga. Andra nödvändiga parametrar visas i följande avsnitt.

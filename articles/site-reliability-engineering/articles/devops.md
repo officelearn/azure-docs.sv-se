@@ -3,17 +3,17 @@ title: 'Vanliga frågor och svar: SRE och DevOps | Microsoft Docs'
 titleSuffix: Azure
 description: 'Vanliga frågor och svar: förstå relationen mellan SRE och DevOps'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: e917c609b484b1a58377fea2f6cdd75dde30ca6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196418"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090337"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Vanliga frågor och svar: Vad är relationen mellan SRE och DevOps?
 
@@ -24,8 +24,8 @@ Det finns en uppsättning vanliga frågor som kommer runt förhållandet mellan 
 SRE och DevOps är både moderna drift metoder som har skapats och utvecklats som svar på utmaningar som ingår:
 
 - en växande komplexitet i våra produktions miljöer och utvecklings processer
-- öka affärs beroendet för den kontinuerliga driften av dessa miljöer
-- möjligheten att skala personal styrkan linjärt med storleken på dessa miljöer
+- ökande affärsberoende på kontinuerlig drift i sådana miljöer
+- oförmågan att skala arbetsstyrkan linjärt med storleken på dessa miljöer
 - behovet av att gå snabbare samtidigt som drifts stabiliteten hålls kvar
 
 Båda drifts metodernas värde riktar sig mot ämnen som är viktiga för att hantera dessa utmaningar som övervakning/undersöknings-, automatiserings-, dokumentations-och samarbets verktyg för program utveckling.
@@ -52,7 +52,7 @@ sedan är det enkelt att säga ordet för SRE är "tillförlitlighet". Att ha de
 
 Om vi använder den här definitionen av DevOps från [Azure DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/):
 
-> DevOps är en union av människor, processer och produkter för kontinuerlig leverans av värde till våra slutanvändare.
+> DevOps är en union av människor, processer och produkter för kontinuerlig värdeleverans till våra slutanvändare.
 
 sedan kan en liknande destillation för DevOps bli "Delivery".
 
@@ -78,6 +78,6 @@ Svaret på den här frågan är en Emphatic "Ja!".
 
 Vi hoppas att de tidigare svaren ger någon uppfattning om hur de två drifts metoderna överlappar och, om de inte överlappar, hur de kan komplettera i fokus. Organisationer med en etablerad DevOps-praxis kan experimentera med SRE-praxis på en liten skala (till exempel testa SLIs och SLO: erna) utan att du behöver göra något för att skapa SRE-positioner eller team. Det här är ett ganska vanligt SREt införande mönster.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Vill du veta mer om hur du lär dig mer om platsens tillförlitlighet eller DevOps? Kolla på vår [webbplats för Tillförlitlighets teknik](../index.yml) och [Azure DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/).

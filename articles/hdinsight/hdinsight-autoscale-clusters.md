@@ -1,6 +1,6 @@
 ---
-title: Skala Azure HDInsight-kluster automatiskt
-description: Använd funktionen automatisk skalning i Azure HDInsight för att automatiskt Apache Hadoop skalnings kluster
+title: Skala Azure HDInsight-kluster med autoskalning
+description: Använd funktionen automatisk skalning i Azure HDInsight för att automatiskt skala Apache Hadoop kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757871"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090116"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
+# <a name="autoscale-azure-hdinsight-clusters"></a>Autoskala Azure HDInsight-kluster
 
 Azure HDInsight: s kostnads fria funktioner för automatisk skalning kan öka eller minska antalet arbetsnoder i klustret baserat på tidigare angivna villkor. Du anger ett lägsta och högsta antal noder när klustret skapas, upprättar skalnings kriterier med hjälp av ett dags schema eller vissa prestanda mått, och HDInsight-plattformen gör resten.
 
@@ -243,41 +243,43 @@ Välj **mått** under **övervakning**. Välj sedan **Lägg till mått** och **A
 
 ![Aktivera schema baserat på arbetsnodens mått för autoskalning](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>Ytterligare överväganden
+## <a name="best-practices"></a>Bästa praxis
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Beakta svars tiden för skalning upp-eller nedskalning
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>Beakta svars tiden för skalning upp-och nedskalning
 
 Det kan ta 10 till 20 minuter för en skalnings åtgärd att slutföras. När du ställer in ett anpassat schema bör du planera för den här fördröjningen. Om du till exempel behöver kluster storleken 20 kl. 9:00 kan du ange schema utlösaren till en tidigare tidpunkt, till exempel 8:30 AM, så att skalnings åtgärden slutförs med 9:00.
 
-### <a name="preparation-for-scaling-down"></a>Förberedelse för skalning
+### <a name="prepare-for-scaling-down"></a>Förbered för skalning
 
-Under processen för kluster skalning nedåt inaktiverar autoskalning noderna för att uppfylla mål storleken. Om aktiviteter körs på dessa noder kommer autoskalning att vänta tills aktiviteterna har slutförts. Eftersom varje arbetsnoden också betjänar en roll i HDFS, flyttas temporära data till de återstående noderna. Därför bör du se till att det finns tillräckligt med utrymme på de återstående noderna som är värdar för alla temporära data.
+När processen för kluster skalning är aktive rad inaktiverar autoskalning noderna för att uppfylla mål storleken. Om aktiviteter körs på dessa noder väntar autoskalning tills aktiviteterna har slutförts. Eftersom varje arbetsnoden även hanterar en roll i HDFS, flyttas temporära data till de återstående noderna. Se till att det finns tillräckligt med utrymme på de återstående noderna för att vara värd för alla temporära data.
 
 De jobb som körs kommer att fortsätta. Väntande jobb väntar på schemaläggning med färre tillgängliga arbetsnoder.
 
-### <a name="minimum-cluster-size"></a>Minsta kluster storlek
+### <a name="be-aware-of-the-minimum-cluster-size"></a>Var medveten om den minsta kluster storleken
 
-Skala inte upp klustret till färre än tre noder. Om du skalar klustret till färre än tre noder kan det bli fastnat i fel säkert läge på grund av otillräcklig filreplikering.  Mer information finns i avsnittet [komma fastna i fel säkert läge](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+Skala inte upp klustret till färre än tre noder. Om du skalar klustret till färre än tre noder kan det bli fastnat i fel säkert läge på grund av otillräcklig filreplikering. Mer information finns i avsnittet [komma fastna i fel säkert läge](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="increase-the-number-of-mappers-and-reducers"></a>Öka antalet mappningar och Minskare
+
+Autoskalning för Hadoop-kluster övervakar också HDFS-användning. Om HDFS är upptagen antar det att klustret fortfarande behöver de aktuella resurserna. När det finns enorma data som ingår i frågan kan du öka antalet mappningar och reducerare för att öka parallellitet och påskynda HDFS-åtgärderna. På så sätt utlöses en korrekt skalning när det finns extra resurser. 
+
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Ange att Hive-konfigurationen ska innehålla maximalt antal samtidiga frågor i scenariot för hög användning
+
+Autoskalning-händelser ändrar inte Hive-konfigurationen *maximalt antal samtidiga frågor* i Ambari. Det innebär att den interaktiva tjänsten för Hive Server 2 bara kan hantera det aktuella antalet samtidiga frågor vid en viss tidpunkt, även om antalet LLAP daemons skalas upp och ned baserat på belastning och schema. Den allmänna rekommendationen är att ställa in den här konfigurationen för scenariot med hög användning för att undvika manuella åtgärder.
+
+Det kan dock uppstå ett startfel om att starta om en Hive-Server 2 om det bara finns ett litet antal arbetsnoder och värdet för maximalt antal samtidiga frågor har kon figurer ATS för hög. Minst måste du ha det lägsta antalet arbetsnoder som kan hantera det angivna antalet Tez-AMS (lika med den maximala konfigurationen för samtidiga frågor). 
+
+## <a name="limitations"></a>Begränsningar
+
+### <a name="node-label-file-missing"></a>Node etikett filen saknas
+
+Med den automatiska skalningen i HDInsight används en Node-fil för att avgöra om en nod är redo att köra uppgifter. Filens etikett fil lagras i HDFS med tre repliker. Om kluster storleken dramatiskt skalas ned och det finns stora mängder temporära data, finns det en liten chans att alla tre repliker kan släppas. Om detta inträffar går klustret in i ett fel tillstånd.
 
 ### <a name="llap-daemons-count"></a>Antal LLAP-Daemonar
 
-Om du använder autoskalning aktiverade LLAP-kluster skalar du upp/ned-händelsen för autoskalning också upp/ned antalet LLAP-daemonar till antalet aktiva arbetsnoder. Men den här ändringen av antalet daemonar är inte beständig i **num_llap_nodes** config i Ambari. Om Hive-tjänster startas om manuellt återställs antalet LLAP-daemonar enligt konfigurationen i Ambari.
+I händelse av autoscae-aktiverade LLAP-kluster skalar en autoskalning upp/ned-händelse också upp/ned antalet LLAP-daemonar till antalet aktiva arbetsnoder. Ändringen av antalet daemonar är inte beständig i `num_llap_nodes` konfigurationen i Ambari. Om Hive-tjänster startas om manuellt återställs antalet LLAP-daemonar enligt konfigurationen i Ambari.
 
-Vi tar följande scenario:
-1. Ett LLAP-aktiverat kluster för automatisk skalning skapas med tre arbetsnoder och belastnings utjämning är aktiverat med minst tre arbetsnoder som 3 och högsta antal arbetsnoder som 10.
-2. Konfigurationen av LLAP daemons räknas enligt LLAP-konfigurationen och Ambari är 3, eftersom klustret har skapats med tre arbetsnoder.
-3. Sedan utlöses automatisk uppskalning på grund av belastningen på klustret. klustret skalas nu till 10 noder.
-4. Den automatiska skalnings kontrollen som körs med jämna mellanrum är 3, men antalet aktiva arbetsnoder är 10, och den automatiska skalnings processen kommer nu att öka antalet LLAP-daemon till 10, men den här ändringen är inte kvar i Ambari num_llap_nodes-LLAP.
-5. Autoskalning är nu inaktiverat.
-6. Klustret har nu 10 arbetsnoder och 10 LLAP-daemonar.
-7. LLAP-tjänsten startas om manuellt.
-8. Under omstarten kontrollerar den num_llap_nodes config i LLAP-konfigurationen och märker värdet som 3, så det snurrar tre instansen av daemon, men antalet arbetsnoder är 10. Det finns nu ett matchnings fel mellan de två.
-
-När detta inträffar måste du manuellt ändra **num_llap_node konfigurationen (antal noder till för att köra Hive-LLAP) under avancerad Hive-interaktiv-miljö** för att matcha det aktuella antalet aktiva arbetsnoder.
-
-**Obs!**
-
-Autoskalning-händelser ändrar inte det **maximala antalet samtidiga frågor** för Hive-konfiguration i Ambari. Det innebär att den interaktiva tjänsten för Hive Server 2 **bara kan hantera det aktuella antalet samtidiga frågor vid en viss tidpunkt, även om antalet LLAP daemons skalas upp och ned baserat på belastning/schema**. Den allmänna rekommendationen är att ställa in den här konfigurationen för scenariot med hög användning så att du kan undvika det manuella ingreppet. Men en bör vara medveten om att **inställning av ett högt värde för maximal total mängd för samtidiga frågor kan Miss lyckas med Hive Server 2-omstart av interaktiva tjänster om det minsta antalet arbetsnoder inte kan hantera det angivna antalet Tez-AMS (lika med det maximala antalet samtidiga frågor som konfigureras)**
+Om LLAP-tjänsten startas om manuellt måste du manuellt ändra `num_llap_node` konfigurationen (antalet noder som krävs för att köra Hive-LLAP daemon) under *Avancerad Hive-Interactive-miljö* för att matcha det aktuella antalet aktiva arbets noder.
 
 ## <a name="next-steps"></a>Nästa steg
 

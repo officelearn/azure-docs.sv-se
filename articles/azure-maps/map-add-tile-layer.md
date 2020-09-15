@@ -9,35 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c96916c029c9c49ad7d4c493fed8859354508ebe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 70fecc52832ab6b922d8177ec9c006613acf8aa8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010182"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090728"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panelskikt till en karta
 
 Den här artikeln visar hur du lägger till ett panel lager på kartan. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om hur du Azure Maps i systemet finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
 
-Ett panel lager läses in i paneler från en server. Dessa bilder kan antingen förrenderas eller renderas dynamiskt. Förrenderade bilder lagras som en annan bild på en server med hjälp av en namngivnings konvention som panel lagret förstår. Dynamiskt återgivna bilder använder en tjänst för att läsa in bilderna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) -klassen: 
+Ett panel lager läses in i paneler från en server. Dessa bilder kan antingen förrenderas eller renderas dynamiskt. Förrenderade bilder lagras som en annan bild på en server med hjälp av en namngivnings konvention som panel lagret förstår. Dynamiskt återgivna bilder använder en tjänst för att läsa in bilderna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) -klassen: 
 
 * X, Y, zoom notation-X är kolumnen, Y är panelens rad position i panel rutnätet och zoomningen formaterar ett värde baserat på zoomnivån.
 * Quadkey-notation – kombinerar x-, y-och zoomnings information till ett enda sträng värde. Detta sträng värde blir en unik identifierare för en enda panel.
 * Avgränsnings ruta – ange en bild i markerings rutans koordinater-format: `{west},{south},{east},{north}` . Det här formatet används ofta av [Web mappnings tjänster (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) är ett bra sätt att visualisera stora data uppsättningar på kartan. Om du inte bara vill att ett panel lager ska genereras från en bild kan vektor data även återges som ett panel lager. Genom att återge vektor data som ett panel lager behöver kart kontrollen bara läsa in panelerna som är mindre i fil storleken än de vektor data de representerar. Den här tekniken används ofta för att återge miljon tals rader med data på kartan.
+> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) är ett bra sätt att visualisera stora data uppsättningar på kartan. Om du inte bara vill att ett panel lager ska genereras från en bild kan vektor data även återges som ett panel lager. Genom att återge vektor data som ett panel lager behöver kart kontrollen bara läsa in panelerna som är mindre i fil storleken än de vektor data de representerar. Den här tekniken används ofta för att återge miljon tals rader med data på kartan.
 
 Panel-URL: en som skickas till ett panel lager måste vara en http-eller HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`-X position i rutan. Du måste också ha `{y}` och `{z}` .
-* `{y}`-Y position i panelen. Du måste också ha `{x}` och `{z}` .
-* `{z}`-Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
-* `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
-* `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
-* `{subdomain}`– En plats hållare för under domänens värden, om den är angiven, `subdomain` kommer att läggas till.
-* `{azMapsDomain}`– En plats hållare för att justera domänen och autentiseringen av panel begär Anden med samma värden som används av kartan.
+* `{x}` -X position i rutan. Du måste också ha `{y}` och `{z}` .
+* `{y}` -Y position i panelen. Du måste också ha `{x}` och `{z}` .
+* `{z}` -Zoomnings nivå i panelen. Du måste också ha `{x}` och `{y}` .
+* `{quadkey}` -Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
+* `{bbox-epsg-3857}` – En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
+* `{subdomain}` – En plats hållare för under domänens värden, om den är angiven, `subdomain` kommer att läggas till.
+* `{azMapsDomain}` – En plats hållare för att justera domänen och autentiseringen av panel begär Anden med samma värden som används av kartan.
 
 ## <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 
@@ -57,7 +57,7 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Panel lager med X, Y och Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>panels lagret med X, Y och Z</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Panel lager med X, Y och Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>panels lagret med X, Y och Z</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-tile-layer"></a>Anpassa ett panel lager
@@ -66,7 +66,7 @@ Panel skikts klassen har många format alternativ. Här är ett verktyg för att
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Alternativ för panel lager' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativ för Penn <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>panels lager</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Alternativ för panel lager' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativ för Penn <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>panels lager</a> efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -74,10 +74,10 @@ Panel skikts klassen har många format alternativ. Här är ett verktyg för att
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
+> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 > [!div class="nextstepaction"]
-> [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest)
+> [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 

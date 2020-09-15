@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090116"
+ms.locfileid: "90532196"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Autoskala Azure HDInsight-kluster
 
@@ -68,7 +68,7 @@ Vid nedskalning skickar autoskalning en begäran om att ta bort ett visst antal 
 > [!Important]
 > Autoskalningsfunktionen i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark- och Hadoop-kluster och innehöll förbättringar som inte var tillgängliga i förhandsversionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda autoskalningsfunktionen i ditt kluster är den rekommenderade vägen att skapa ett nytt kluster och aktivera autoskalning i det nya klustret.
 >
-> Autoskalning för Interactive Query-kluster (LLAP) och HBase-kluster är fortfarande i förhandsversion. Autoskalning är bara tillgängligt för Spark-, Hadoop-, Interactive Query- och HBase-kluster.
+> Autoskalning för interaktiv fråga (LLAP) släpptes för allmän tillgänglighet för augusti 27, 2020. HBase-kluster är fortfarande i för hands version. Autoskalning är bara tillgängligt för Spark-, Hadoop-, Interactive Query- och HBase-kluster.
 
 I följande tabell beskrivs de kluster typer och versioner som är kompatibla med funktionen för autoskalning.
 
@@ -225,7 +225,7 @@ Kluster statusen som visas i Azure Portal kan hjälpa dig att övervaka automati
 
 Alla de kluster status meddelanden som du kan se förklaras i listan nedan.
 
-| Klusterstatus | Beskrivning |
+| Klusterstatus | Description |
 |---|---|
 | Körs | Klustret fungerar normalt. Alla tidigare autoskalning-aktiviteter har slutförts. |
 | Uppdatera  | Konfigurationen för automatisk skalning av klustret uppdateras.  |

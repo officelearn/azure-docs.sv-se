@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077309"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532536"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Använd Azure AD som identitets leverantör för vCenter på CloudSimple privata moln
 
@@ -46,7 +46,7 @@ Innan du börjar måste du ha åtkomst till din Azure-prenumeration med globala 
 > [!NOTE]
 > Om du redan har Azure AD kan du hoppa över det här avsnittet.
 
-1. Konfigurera Azure AD på din prenumeration enligt beskrivningen i [Azure AD-dokumentationen](../active-directory/fundamentals/active-directory-whatis.md).
+1. Konfigurera Azure AD på din prenumeration enligt beskrivningen i  [Azure AD-dokumentationen](../active-directory/fundamentals/active-directory-whatis.md).
 2. Aktivera Azure Active Directory Premium på din prenumeration enligt beskrivningen i [Registrera dig för Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
 3. Konfigurera ett anpassat domän namn och kontrol lera det anpassade domän namnet enligt beskrivningen i [Lägg till ett anpassat domän namn i Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Konfigurera en DNS-post på din domän registrator med den information som finns på Azure.
@@ -64,7 +64,7 @@ Du kan också konfigurera andra funktioner i Azure AD.  Dessa krävs inte för a
 3. Konfigurera administratörs gruppen för hantering av Azure AD Domain Services enligt beskrivningen i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../active-directory-domain-services/tutorial-create-instance.md).
 4. Uppdatera DNS-inställningarna för din Azure AD Domain Services enligt beskrivningen i [aktivera Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Om du vill ansluta till AD via Internet konfigurerar du DNS-posten för den offentliga IP-adressen för Azure AD Domain Services till domän namnet.
 5. Aktivera synkronisering av lösen ords-hash för användare.  Det här steget gör det möjligt att synkronisera lösen ords-hashar som krävs för NTLM (NT LAN Manager) och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat lösenordshashsynkronisering kan användarna logga in till den hanterade domänen med sina företagsuppgifter. Se [aktivera hash-synkronisering av lösen ord för att Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
-    1. Om enbart moln användare finns, måste de ändra sitt lösen ord med hjälp av <a href="http://myapps.microsoft.com/" target="_blank">Azure AD Access panel</a> för att säkerställa att lösen ords-hashar lagras i det format som krävs av NTLM eller Kerberos.  Följ anvisningarna i [aktivera hash-synkronisering av lösen ord till din hanterade domän för användar konton som endast är moln](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Det här steget måste göras för enskilda användare och alla nya användare som har skapats i Azure AD-katalogen med hjälp av Azure Portal eller Azure AD PowerShell-cmdletar. Användare som behöver åtkomst till Azure AD Domain Services måste använda <a href="http://myapps.microsoft.com/" target="_blank">Azure AD-åtkomst panelen</a> och komma åt sin profil för att ändra lösen ordet.
+    1. Om enbart moln användare finns, måste de ändra sitt lösen ord med hjälp av <a href="https://myapps.microsoft.com/" target="_blank">Azure AD Access panel</a> för att säkerställa att lösen ords-hashar lagras i det format som krävs av NTLM eller Kerberos.  Följ anvisningarna i [aktivera hash-synkronisering av lösen ord till din hanterade domän för användar konton som endast är moln](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Det här steget måste göras för enskilda användare och alla nya användare som har skapats i Azure AD-katalogen med hjälp av Azure Portal eller Azure AD PowerShell-cmdletar. Användare som behöver åtkomst till Azure AD Domain Services måste använda <a href="https://myapps.microsoft.com/" target="_blank">Azure AD-åtkomst panelen</a> och komma åt sin profil för att ändra lösen ordet.
 
         > [!NOTE]
         > Om organisationen endast har molnbaserade användarkonton måste användare som behöver använda Azure Active Directory Domain Services ändra sina lösenord. Ett endast molnbaserat användarkonto är ett konto som skapats i Azure AD-katalogen med antingen Azure Portal eller Azure AD PowerShell-cmdletar. Dessa användarkonton är inte synkroniserade från en lokal katalog.
@@ -86,10 +86,10 @@ Du kan också konfigurera andra funktioner i Azure AD.  Dessa krävs inte för a
     | **Alternativ** | **Beskrivning** |
     |------------|-----------------|
     | **Namn** | Namnet på identitets källan. |
-    | **Grundläggande DN för användare** | Grundläggande unikt namn för användare.  För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
+    | **Grundläggande DN för användare** | Grundläggande unikt namn för användare.  För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
     | **Domän namn** | FQDN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
     | **Domän Ali Aset** | *(valfritt)* Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
-    | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` exempel:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. För Azure AD använder du: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  exempel: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet  `ldaps://hostname:port` . Porten är vanligt vis 636 för LDAPs-anslutningar. <br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPs-slutpunkten för Active Directory-servern krävs när du använder  `ldaps://`   i den primära eller sekundära LDAP-URL: en. |
     | **Sekundär server-URL** | Adress till en sekundär domänkontrollant LDAP-server som används för redundans. |
     | **Välj certifikat** | Om du vill använda LDAPs med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har skrivit  `ldaps://`   i text rutan URL. Det krävs ingen sekundär URL. |

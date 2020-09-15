@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att ansluta till, konfigurera, aktivera Azure Stack Edge-enhet med GPU i Azure Portal | Microsoft Docs
-description: Självstudie för att distribuera Azure Stack Edge GPU instruerar dig att ansluta, konfigurera och aktivera den fysiska enheten.
+description: Lär dig hur du kan ansluta till din Azure Stack Edge-enhet med en onboard-GPU med hjälp av det lokala webb gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: ac3ba2583e0f9a42b7f139538eee04de8980b492
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421364"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532264"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Självstudie: Anslut till Azure Stack Edge med GPU
 
@@ -26,11 +26,11 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Krav
+> * Förutsättningar
 > * Ansluta till en fysisk enhet
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste du kontrol lera att:
 
@@ -48,17 +48,17 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge-enhet med GPU måste
     Enhetens bakgrunds plan kan se annorlunda ut beroende på vilken modell du har fått. Mer information finns i [kabeln till enheten](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
 
-3. Öppna ett webbläsarfönster och öppna det lokala webb gränssnittet för enheten på `https://192.168.100.10` .  
-    Den här åtgärden kan ta några minuter efter att enheten har Aktiver ATS.
+3. Öppna en webbläsare och anslut till enhetens lokala webbgränssnitt på `https://192.168.100.10`.  
+    Den här åtgärden kan ta några minuter efter att du har aktiverat enheten.
 
-    Du ser ett fel eller en varning som anger att det är problem med webbplatsens säkerhetscertifikat. 
+    Du ser ett fel eller en varning om ett problem med webbplatsens säkerhetscertifikat. 
    
     ![Webbplats säkerhets certifikat fel meddelande](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
 4. Välj **Fortsätt till den här webb sidan**.  
     De här stegen kan variera beroende på vilken webbläsare du använder.
 
-5. Logga in på enhetens webb gränssnitt. Standard lösen ordet är *Password1*. 
+5. Logga in i enhetens webbgränssnitt. Standard lösen ordet är *Password1*. 
    
     ![Inloggnings sida för Azure Stack Edge-enhet](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
@@ -73,7 +73,7 @@ Du är nu på sidan **Översikt** på enheten. Nästa steg är att konfigurera n
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Krav
+> * Förutsättningar
 > * Ansluta till en fysisk enhet
 
 

@@ -2,13 +2,13 @@
 title: Vad är nytt med Azure Arc-aktiverade servrar (för hands version)
 description: Den här artikeln innehåller viktig information om Azure Arc-aktiverade servrar (för hands version). För många av de sammanfattade problemen finns det länkar till ytterligare information.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 0f5060189d6f9cac620b49f414e0e27bed3e356e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/14/2020
+ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236772"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532179"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>Vad är nytt med Azure Arc-aktiverade servrar (för hands version)
 
@@ -18,11 +18,39 @@ Azure Arc-aktiverade servrar (förhands granskning) anslutna dator agenter får 
 - Kända problem
 - Felkorrigeringar
 
+## <a name="september-2020"></a>September 2020
+
+Version: 1,0 (allmän tillgänglighet)
+
+### <a name="plan-for-change"></a>Planera för ändring
+
+- Stöd för förhands gransknings agenter (alla versioner som är äldre än 1,0) tas bort i en framtida tjänst uppdatering.
+- Stöd har tagits bort för återställnings slut punkt `.azure-automation.net` . Om du har en proxyserver måste du tillåta slut punkten `*.his.arc.azure.com` .
+- Om den anslutna dator agenten är installerad på en virtuell dator som finns i Azure, kan VM-tillägg inte installeras eller ändras från resursen för Arc-aktiverade servrar. Detta är för att undvika motstridiga tilläggs åtgärder som utförs från den virtuella datorns **Microsoft. Compute** -och **Microsoft. HybridCompute** -resurs. Använd **Microsoft. Compute** -resursen för datorn för alla förlängnings åtgärder.
+- Namnet på gäst konfigurations processen har ändrats från *GCD* till *gcad* på Linux och *gcservice* till *gcarcservice* i Windows.
+
+### <a name="new-feature"></a>Ny funktion
+
+- Alternativet har lagts `azcmagent logs` till för att samla in information om support.
+- Alternativet har lagts `azcmagent license` till för att Visa EULA.
+- Alternativet har lagts `azcmagent show --json` till för tillstånd för utmatnings agent i lätt att tolkas.
+- Flagga har lagts `azcmagent show` till i utdata för att ange om servern finns på en virtuell dator som finns i Azure.
+- Alternativet har lagts `azcmagent disconnect --force-local-only` till för att tillåta återställning av lokalt agent tillstånd när det inte går att nå Azure-tjänsten.
+- Alternativet har lagts `azcmagent connect --cloud` till för att stödja ytterligare moln. I den här versionen stöds endast Azure av service i samband med agent versionen.
+- Agenten har lokaliserats till Azure-språk som stöds.
+
+### <a name="fixed"></a>Fast
+
+- Förbättringar av anslutnings kontrollen.
+- Korrigerat problem med proxyserverinställningar försvinner när du uppgraderar agenten på Linux.
+- Lösta problem vid försök att installera agenten på en server som kör Windows Server 2012 R2.
+- Förbättringar av ökad tillförlitlighet för tillägg
+
 ## <a name="august-2020"></a>Augusti 2020
 
 Version: 0,11
 
-- Stöd för Ubuntu 20,04.
+- Den här versionen meddelade tidigare stöd för Ubuntu 20,04. Eftersom vissa Azure VM-tillägg inte stöder Ubuntu 20,04 tas stöd för den här versionen av Ubuntu bort.
 
 - Tillförlitlighets förbättringar för tilläggs distributioner.
 

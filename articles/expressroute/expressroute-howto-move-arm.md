@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b88fb32fd4bc07bbaaaf8834646e8d585491dc6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395697"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532553"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Flytta ExpressRoute-kretsar från klassisk till Resource Manager-distributions modell med PowerShell
 
@@ -95,14 +95,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 I klassiskt läge har en ExpressRoute-krets inte konceptet att vara knuten till en region. I Resource Manager måste du dock mappas varje resurs till en Azure-region. Den region som anges i cmdleten Move-AzExpressRouteCircuit kan tekniskt vara vilken region som helst. I organisatoriskt syfte kanske du vill välja en region som står nära din peering-plats.
 
 > [!NOTE]
-> När flyttningen har avslut ATS kommer det nya namnet som anges i föregående cmdlet att användas för att adressera resursen. Kretsen kommer i huvudsak att byta namn.
-> 
+> * När du har flyttat din klassiska ExpressRoute-krets till distributions modellen Resource Manager, kommer den att ha åtkomst till både klassiska distributions modeller för och Resource Manager som standard.
+> * Det nya namnet som anges i föregående cmdlet kommer att användas för att adressera resursen. Kretsen kommer i huvudsak att byta namn.
 
 ## <a name="modify-circuit-access"></a>Ändra krets åtkomst
 
 ### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Så här aktiverar du ExpressRoute krets åtkomst för båda distributions modellerna
 
-När du har flyttat din klassiska ExpressRoute-krets till distributions modellen Resource Manager kan du ge åtkomst till båda distributions modellerna. Kör följande cmdlets för att ge åtkomst till båda distributions modellerna:
+Du kan aktivera åtkomst till den klassiska distributions modellen för ExpressRoute-kretsar som har skapats i distributions modellen för Resource Manager. Kör följande cmdlets för att ge åtkomst till båda distributions modellerna:
 
 1. Hämta krets information.
 

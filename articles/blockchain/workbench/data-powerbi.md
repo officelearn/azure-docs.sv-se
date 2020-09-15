@@ -4,12 +4,12 @@ description: Lär dig hur du läser in och visar SQL DB-data i Azure Blockchain 
 ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214238"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532383"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Använda Azure Blockchain Workbench-data med Microsoft Power BI
 
@@ -17,7 +17,7 @@ Microsoft Power BI ger möjlighet att enkelt generera kraftfulla rapporter från
 
 Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i Azure Blockchain Workbench från PowerBI Desktop, skapar en rapport och sedan distribuerar rapporten till powerbi.com.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ladda ned [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
@@ -41,7 +41,7 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
 6.  När anslutningen till databasen har upprättats visas de tabeller och vyer som är tillgängliga i databasen i dialogrutan **Navigatör**. Vyerna är utformade för rapportering och har prefixet **vw**.
 
-    ![Navigatör](./media/data-powerbi/navigator.png)
+    ![Skärm bild av Power BI skriv bord med dialog rutan Navigator med vwContractAction valt.](./media/data-powerbi/navigator.png)
 
 7.  Välj de vyer som du vill ta med. I demonstrations syfte omfattar vi **vwContractAction**, som innehåller information om de åtgärder som har vidtagits i ett avtal.
 

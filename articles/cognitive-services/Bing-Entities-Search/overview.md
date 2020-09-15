@@ -1,7 +1,7 @@
 ---
 title: Vad är API:et för entitetssökning i Bing?
 titleSuffix: Azure Cognitive Services
-description: Använd API för entitetsökning i Bing för att extrahera och söka efter entiteter och platser från sökfrågor.
+description: Lär dig mer om API för entitetsökning i Bing och hur du extraherar och söker efter entiteter och platser från Sök frågor.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4afb20699d52ea80d7ba6cf9760a465b61cc6d6b
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: e0402b1695e1d5f5c9f29d128f4cd405f219e724
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604819"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532502"
 ---
 # <a name="what-is-bing-entity-search-api"></a>Vad är API för entitetsökning i Bing?
 
 API:et för entitetsökning i Bing skickar en sökfråga till Bing och hämtar resultat som innehåller entiteter och platser. Platsresultat omfattar restauranger, hotell eller andra lokala företag. Bing returnerar platser om frågan anger namnet på det lokala företaget eller frågar efter en typ av verksamhet (exempelvis restauranger i närheten). Bing returnerar entiteter om frågan anger välkända personer, platser (turist Attractions, stater, länder/regioner osv.) eller saker.
 
-|Funktion  |Description  |
+|Funktion  |Beskrivning  |
 |---------|---------|
 |[Sökförslag i realtid](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Ge sökförslag som kan visas som en listruta när dina användare skriver.       | 
 | [Tvetydiga entiteter](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Hämta flera entiteter för frågor med flera möjliga innebörder. |

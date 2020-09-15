@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061214"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532400"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -369,7 +369,7 @@ Det här felet utlöses troligen av ett syntaxfel i kommandot Join-AzStorageAcco
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Azure Files lokal AD DS-autentisering stöd för AES 256 Kerberos-kryptering
 
-Vi introducerade AES 256 Kerberos-kryptering för Azure Files lokal AD DS-autentisering med [AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Om du har aktiverat AD DS-autentisering med en version som är lägre än v-0.2.2 måste du ladda ned den senaste AzFilesHybrid-modulen (v 0.2.2 +) och köra PowerShell nedan. Om du inte har aktiverat AD DS-autentisering på ditt lagrings konto ännu kan du följa den här [vägledningen](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) för aktivering. Du behöver inte köra PowerShell igen nedan om du genomförde funktionen med AzFilesHybrid module v 0.2.2 eller senare. 
+Vi introducerade AES 256 Kerberos-kryptering för Azure Files lokal AD DS-autentisering med [AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Om du har aktiverat AD DS-autentisering med en version som är lägre än v-0.2.2 måste du ladda ned den senaste AzFilesHybrid-modulen (v 0.2.2 +) och köra PowerShell nedan. Om du inte har aktiverat AD DS-autentisering på ditt lagrings konto ännu kan du följa den här [vägledningen](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) för aktivering. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

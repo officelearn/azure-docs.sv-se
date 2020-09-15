@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight-kluster med disk kryptering förlorar Key Vault åtkomst
-description: Fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
+description: Fel söknings steg och möjliga lösningar för Key Vault åtkomst problem när du interagerar med Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461539"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532570"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenario: Azure HDInsight-kluster med disk kryptering förlorar Key Vault åtkomst
 
@@ -32,7 +32,7 @@ Gå till Apache Ambari UI om du vill ha mer information om aviseringen från **d
 
 ### <a name="kvaad-outage"></a>KV/AAD-avbrott
 
-Mer information finns på sidan [Azure Key Vault tillgänglighet och redundans](../../key-vault/general/disaster-recovery-guidance.md) och Azure-status.https://status.azure.com/
+Mer information finns på sidan [Azure Key Vault tillgänglighet och redundans](../../key-vault/general/disaster-recovery-guidance.md) och Azure-status. https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>KV, oavsiktlig borttagning
 

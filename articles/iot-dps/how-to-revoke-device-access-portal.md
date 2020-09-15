@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299272"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532349"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Så här avregistrerar du en enhet från Azure IoT Hub Device Provisioning Service
 
 Korrekt hantering av autentiseringsuppgifter för enheten är avgörande för system med hög profil som IoT-lösningar. Bästa praxis för sådana system är att ha en tydlig plan för hur du återkallar åtkomst för enheter när deras autentiseringsuppgifter, om en SAS-token (signatur för delad åtkomst) eller ett X. 509-certifikat kan ha komprometterats. 
 
-Registrering i enhets etablerings tjänsten gör det möjligt att tillhandahålla en enhet [automatiskt](concepts-auto-provisioning.md). En etablerad enhet är en som har registrerats med IoT Hub, vilket gör att den kan ta emot sin ursprungliga [enhet med dubbla](~/articles/iot-hub/iot-hub-devguide-device-twins.md) tillstånd och börja rapportera telemetridata. Den här artikeln beskriver hur du avregistrerar en enhet från din etablerings tjänst instans, vilket gör att den inte kan tillhandahållas igen i framtiden.
+Registrering i enhets etablerings tjänsten gör det möjligt [att tillhandahålla en enhet.](about-iot-dps.md#provisioning-process) En etablerad enhet är en som har registrerats med IoT Hub, vilket gör att den kan ta emot sin ursprungliga [enhet med dubbla](~/articles/iot-hub/iot-hub-devguide-device-twins.md) tillstånd och börja rapportera telemetridata. Den här artikeln beskriver hur du avregistrerar en enhet från din etablerings tjänst instans, vilket gör att den inte kan tillhandahållas igen i framtiden.
 
 > [!NOTE] 
 > Var medveten om principen för återförsök för enheter som du återkallar åtkomst för. Till exempel kan en enhet som har en oändlig återförsöks princip kontinuerligt försöka registrera med etablerings tjänsten. Den situationen förbrukar tjänst resurser och kan påverka prestandan.

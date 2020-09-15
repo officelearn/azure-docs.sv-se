@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394762"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532298"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -24,7 +24,7 @@ Med Key Vault kan du på ett säkert sätt komma åt känslig information i dina
 - Ditt program kan använda nycklar för signering och kryptering, men behåller nyckel hanteringen externt från ditt program, vilket gör att din lösning kan användas som en geografiskt distribuerad app.
 - Hantera Key Vault certifikat. Mer information finns i [certifikat](../certificates/about-certificates.md)
 
-Mer allmän information om Azure Key Vault finns i [Vad är Key Vault](overview.md)).
+Mer allmän information om Azure Key Vault finns i [Vad är Key Vault](overview.md).
 
 ## <a name="public-previews"></a>Offentliga för hands versionerna
 
@@ -140,7 +140,7 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault översikter och begrepp
 
-- [Key Vault beteende vid mjuk borttagning](soft-delete-overview.md)) beskriver en funktion som gör det möjligt att återställa borttagna objekt, oavsett om borttagningen är oavsiktlig eller avsiktlig.
+- [Key Vault beteende för mjuk borttagning](soft-delete-overview.md) beskriver en funktion som gör det möjligt att återställa borttagna objekt, om borttagningen var oavsiktligt eller avsiktligt.
 - [Key Vault klient begränsningen](overview-throttling.md) orienterar dig till de grundläggande begreppen för begränsning och erbjuder en metod för din app.
 - [Key Vault säkerhets världar](overview-security-worlds.md) beskriver relationerna mellan regioner och säkerhets områden.
 

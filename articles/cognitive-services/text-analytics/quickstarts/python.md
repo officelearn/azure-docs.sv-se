@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Python'
 titleSuffix: Azure Cognitive Services
-description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du använder python för att hämta information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 34d1b62ed97b966c000ff81e8f7676c30338b6a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0ef870b6b2d3b88b13c16c8c2acbfcee7ed551c1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876775"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527249"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabb start: använda python-REST API för att anropa tjänsten Textanalys kognitiv 
 <a name="HOLTop"></a>
@@ -65,7 +65,7 @@ I följande avsnitt beskrivs hur du anropar var och en av API-funktionerna.
 
 ## <a name="detect-languages"></a>Identifiera språk
 
-Lägg till i `/text/analytics/v3.0/languages` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`
+Lägg till i `/text/analytics/v3.0/languages` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v3.0/languages"
@@ -90,7 +90,7 @@ languages = response.json()
 pprint(languages)
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```json
 {
@@ -132,7 +132,7 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument lägger du till `/text/analytics/v3.0/sentiment` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
+Om du vill identifiera sentiment (som sträcker sig mellan positivt eller negativt) i en uppsättning dokument lägger du till `/text/analytics/v3.0/sentiment` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v3.0/sentiment"
@@ -158,7 +158,7 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poäng som visar en mer positiv sentiment.
 
@@ -221,7 +221,7 @@ Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poän
 
 ## <a name="extract-key-phrases"></a>Extrahering av diskussionsämne
  
-Extrahera nyckel fraserna från en uppsättning dokument genom att lägga till i `/text/analytics/v3.0/keyPhrases` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+Extrahera nyckel fraserna från en uppsättning dokument genom att lägga till i `/text/analytics/v3.0/keyPhrases` textanalys bas slut punkten för att skapa URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v3.0/keyphrases"
@@ -249,7 +249,7 @@ key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```json
 {
@@ -295,7 +295,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga till i `/text/analytics/v3.0/entities/recognition/general` textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+Identifiera välkända entiteter (personer, platser och saker) i text dokument genom att lägga till i `/text/analytics/v3.0/entities/recognition/general` textanalys bas slut punkten för att bilda URL: en för språk identifiering. Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
     
 ```python
 entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general"
@@ -318,7 +318,7 @@ entities = response.json()
 pprint(entities)
 ```
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```json
 {

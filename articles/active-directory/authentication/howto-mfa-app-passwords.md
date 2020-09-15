@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224925"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526909"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivera och Använd Azure Multi-Factor Authentication med äldre program med applösenord
 
-Vissa program, t. ex. Office 2010 eller tidigare och Apple Mail före iOS 11, stöder inte Multi-Factor Authentication. Apparna har inte kon figurer ATS för att acceptera en sekundär form av autentisering eller prompt. Om du vill använda dessa program på ett säkert sätt med Azure Multi-Factor Authentication aktiverat för användar konton kan du använda applösenord. Dessa applösenord ersatte ditt traditionella lösen ord för att tillåta att en app kringgår Multi-Factor Authentication och fungerar som den ska.
+Vissa äldre appar än webb läsar program, t. ex. Office 2010 eller tidigare och Apple Mail före iOS 11, förstår inte pauser eller avbrott i autentiseringsprocessen. Om en användare är aktive rad för Azure Multi-Factor Authentication och försöker använda en av dessa äldre appar, som inte är webbläsarbaserade, kan de inte autentisera sig. Om du vill använda dessa program på ett säkert sätt med Azure Multi-Factor Authentication aktiverat för användar konton kan du använda applösenord. Dessa applösenord ersatte ditt traditionella lösen ord för att tillåta att en app kringgår Multi-Factor Authentication och fungerar som den ska.
 
 Modern autentisering stöds för Microsoft Office 2013-klienter och senare. Office 2013-klienter, inklusive Outlook, stöder moderna autentiseringsprotokoll och kan aktive ras för att fungera med tvåstegsverifiering. När klienten har Aktiver ATS krävs inte applösenord för klienten.
 

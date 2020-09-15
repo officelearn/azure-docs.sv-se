@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068820"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526892"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Följande Azure Multi-Factor Authentication-inställningar är tillgängliga i A
 | [Blockera/avblockera användare](#block-and-unblock-users) | Blockera vissa användare från att kunna ta emot Azure Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är fortfarande blockerade i 90 dagar från den tid som de är blockerade eller har avblockerats manuellt. |
 | [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar som tillåter att användare rapporterar falska verifierings begär Anden. |
 | [Aviseringar](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
-| [OATH-token](concept-authentication-methods.md#oath-tokens) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
+| [OATH-token](concept-authentication-oath-tokens.md) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
 | [Telefonsamtals inställningar](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för moln miljöer och lokala miljöer. |
 | Leverantörer | Då visas befintliga autentiseringsproviders som du kan ha associerat med ditt konto. Nya autentiseringsproviders får inte skapas från den 1 september 2018 |
 

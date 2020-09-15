@@ -3,15 +3,15 @@ title: Vad är Windows Virtual Desktop? – Azure
 description: En översikt över virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661120"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527181"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop?
 
@@ -110,12 +110,10 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Microsoft Store-klient
 
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
-
-> [!IMPORTANT]
-> Windows Virtual Desktop stöder för närvarande inte fjärr skrivbords klienten från Windows Store. Support för den här klienten kommer att läggas till i en framtida version.
 
 Om du vill veta mer om webb adresser måste du häva blockeringen för att använda klienterna i [listan säker URL](safe-url-list.md).
 
@@ -138,12 +136,12 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 Enterprise (multi-session), version 2004|Ja|Ja|Ja|Ja|
 |Windows 10 Enterprise (multi-session), version 1909|Ja|Ja|Ja|Ja|
-|Windows 10 Enterprise (multi-session), version 1903|Ja|Ja|Nej|Nej|
-|Windows 10 Enterprise (multi-session), version 1809|Ja|Ja|Nej|Nej|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
-|Windows Server 2019|Ja|Ja|Nej|Nej|
+|Windows 10 Enterprise (multi-session), version 1903|Ja|Ja|Inga|Inga|
+|Windows 10 Enterprise (multi-session), version 1809|Ja|Ja|Inga|Inga|
+|Windows 7 Enterprise|Ja|Ja|Inga|Inga|
+|Windows Server 2019|Ja|Ja|Inga|Inga|
 |Windows Server 2016|Ja|Ja|Ja|Ja|
-|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
+|Windows Server 2012 R2|Ja|Ja|Inga|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Använd Node.js för att anropa Textanalys REST API'
 titleSuffix: Azure Cognitive Services
-description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur använder Node.js för att hämta information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: fe9877649d850796b03e9f1c3554a1b9aa7344c3
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ecab49ce61e17853f6f8b48d68391798a37da0fd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407752"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527283"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabb start: Använd Node.js för att anropa tjänsten Textanalys kognitiv  
 <a name="HOLTop"></a>

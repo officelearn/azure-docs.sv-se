@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717004"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526977"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Aktivera lösen ords lös säkerhets nyckel inloggning till lokala resurser med Azure Active Directory (för hands version)
 
@@ -46,7 +46,7 @@ Organisationer måste utföra stegen för att [Aktivera lösen ords lös säkerh
 
 Organisationer måste också uppfylla följande program varu krav.
 
-- Enheter måste köra Windows 10 Insider build 18945 eller senare.
+- Enheter måste köra Windows 10 version 2004 eller senare.
 - Du måste ha version 1.4.32.0 eller senare av [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Mer information om tillgängliga alternativ för Azure AD hybrid-autentisering finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../hybrid/choose-ad-authn.md) och [Välj vilken Installations typ som ska användas för Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Windows Server-domän kontrol Lanterna måste ha följande korrigeringsfiler installerade:

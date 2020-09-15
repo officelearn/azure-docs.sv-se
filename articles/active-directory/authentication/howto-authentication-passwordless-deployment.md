@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717157"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527011"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
 
@@ -160,7 +160,7 @@ Du måste aktivera **kompatibla FIDO2 säkerhets nycklar**. Microsoft har lanser
 -    Windows 10 version 1809 har stöd för FIDO2-inloggning och kan kräva att program vara från FIDO2 Key-tillverkaren distribueras. Vi rekommenderar att du använder version 1903 eller senare. 
 
 **För anslutna Hybrid Azure Active Directory domänanslutna enheter**: 
--    Windows 10 Insider version 18945 eller senare
+-    Windows 10 version 2004 eller senare
 -    Fullständigt korrigerade domän servrar som kör Windows Server 2016 eller 2019.
 -    Senaste versionen av Azure AD Connect
 
@@ -292,7 +292,7 @@ Följ stegen som är anpassade till den valda metoden nedan.
 
 ### <a name="required-administrative-roles"></a>Administrativa roller som krävs
 
-| Azure AD-roll | Beskrivning |
+| Azure AD-roll | Description |
 | --- | --- |
 | Global administratör|Minst privilegie rad roll kan implementera kombinerad registrerings upplevelse. |
 | Administratör för autentisering | Minst privilegie rad roll kan implementera och hantera autentiseringsmetoder. |

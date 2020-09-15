@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226437"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526762"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du använder HTTP-utlösare och HTTP-åtgärder så 
 
 Information om kryptering, säkerhet och auktorisering för utgående samtal från din Logic app, t. ex. [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL), självsignerade certifikat eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för utgående anrop till andra tjänster och system](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -104,7 +104,7 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
 Här är mer information om utdata från en HTTP-utlösare eller åtgärd som returnerar denna information:
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |----------|------|-------------|
 | `headers` | JSON-objekt | Huvudena från begäran |
 | `body` | JSON-objekt | Objektet med bröd text innehållet från begäran |
@@ -167,6 +167,14 @@ Här är samma exempel som visar HTTP-åtgärdens JSON-definition i den underlig
    "type": "Http"
 }
 ```
+
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Innehåll med Application/x-www-form-urlencoded-typ
+
+Om du vill tillhandahålla urlencoded data i bröd texten för en HTTP-begäran måste du ange att data har `application/x-www-form-urlencoded` innehålls typen. Lägg till rubriken i HTTP-utlösaren eller åtgärden `content-type` . Ange värdet för header till `application/x-www-form-urlencoded` .
+
+Anta till exempel att du har en logisk app som skickar en HTTP POST-begäran till en webbplats som stöder `application/x-www-form-urlencoded` typen. Så här kan den här åtgärden se ut:
+
+![Skärm bild som visar en HTTP-begäran med rubriken "Content-Type" inställd på "Application/x-www-form-urlencoded"](./media/connectors-native-http/http-action-urlencoded.png)
 
 <a name="asynchronous-pattern"></a>
 
@@ -263,4 +271,3 @@ Mer information om utlösare och åtgärds parametrar finns i följande avsnitt:
 
 * [Säker åtkomst och data åtkomst för utgående anrop till andra tjänster och system](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Anslutningsappar för Logic Apps](../connectors/apis-list.md)
-

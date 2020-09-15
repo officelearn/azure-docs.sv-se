@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646857"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527096"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -71,9 +71,7 @@ Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Re
 
 ### <a name="test-drive"></a>Test enhet
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. Om du vill veta mer kan du börja med [Vad är Test Drive](../what-is-test-drive.md).
-
-Om du vill aktivera en testenhet under en fast tids period markerar du kryss rutan **Aktivera en testenhet** . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet.
+I det här skedet stöder Dynamics 365 Business Central-erbjudanden inte Test Drive. Om du vill ta bort test enheten från erbjudandet avmarkerar du kryss rutan **Aktivera en testenhet** .
 
 ### <a name="customer-leads"></a>Kund ledare
 
@@ -131,7 +129,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Beskrivning
+9. Description
 10. Skärm bilder/videor
 
 ### <a name="name"></a>Name
@@ -142,7 +140,7 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -200,7 +198,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skärm bilder krävs och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 

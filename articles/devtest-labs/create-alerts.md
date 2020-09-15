@@ -3,12 +3,12 @@ title: Skapa aktivitets loggs aviseringar för labb i Azure DevTest Labs
 description: Den här artikeln innehåller steg för att skapa aktivitets logg aviseringar för labb i Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6c859e70ab8a101c533e16f9cb118e26727baa52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100184"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526365"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Skapa aktivitets loggs aviseringar för labb i Azure DevTest Labs
 Den här artikeln beskriver hur du skapar aktivitets logg aviseringar för labb i Azure DevTest Labs (till exempel: när en virtuell dator skapas eller när en virtuell dator tas bort).
@@ -64,7 +64,7 @@ I det här exemplet skapar du en avisering för alla administrativa åtgärder i
 ## <a name="view-alerts"></a>Visa aviseringar 
 1. **Aviseringar visas för alla** administrativa åtgärder (i det här exemplet). Det kan ta en stund innan aviseringarna visas. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Aviseringar":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Skärm dum par visar aviseringar på instrument panelen.":::
 1. Om du väljer tal i en kolumn (till exempel: **Totalt antal aviseringar**) visas de aviseringar som har Aktiver ATS. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Alla aviseringar":::
@@ -77,6 +77,6 @@ I det här exemplet skapar du en avisering för alla administrativa åtgärder i
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur du skapar åtgärds grupper med olika åtgärds typer finns i [skapa och hantera åtgärds grupper i Azure Portal](../azure-monitor/platform/action-groups.md).
-- Mer information om aktivitets loggar finns i [Azure aktivitets logg](../azure-monitor/platform/activity-log.md).
+- Mer information om aktivitets loggar finns i  [Azure aktivitets logg](../azure-monitor/platform/activity-log.md).
 - Information om hur du anger aviseringar för aktivitets loggar finns i avsnittet [om aviseringar i aktivitets loggen](../azure-monitor/platform/activity-log-alerts.md).
 

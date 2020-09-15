@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d5f239540a74c431e381c581f00514a1f7acd5e3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: dbac5f28723b712788df61eda34a0db61b9c5652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030394"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526484"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -140,7 +140,7 @@ LogRhythm är en ledare i NextGen SIEM och ger organisationer på sex kontinente
 
 Mikrofokus **drifts brygga** övervakar automatiskt alla hybrid IT-resurser – alla enheter, operativ system, databaser, program eller tjänster, oavsett var den körs och tillämpar AIOps för alla data typer – händelser, statistik, loggar och beroenden. Det ger en unik kombination av övervakning av tjänst kvalitet, tillsammans med djup Application Health Analytics och innehåller omfattande övervakning av prestanda och tillgänglighet för Microsoft Azure tjänster. Med drifts bryggor kan kunder tillhandahålla en enda ruta av glas, som är tillgängligt på valfri enhet med en webbläsare, på ett sätt som både företag och IT-intressenter kan förstå.
 
-Mer information
+Läs mer
 - [Översikt över OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Ladda ned](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) – SiteScope är en komponent i Operations Bridge Suite.
@@ -149,7 +149,7 @@ Mer information
 
 ## <a name="moogsoft"></a>Moogsoft
 
-![Moogsoft](./media/partners/moogsoft.png)
+![Moogsoft-logotyp](./media/partners/moogsoft.png)
 
 Moogsoft AIOps påskyndar den flexibla affärs omvandlingen.
 

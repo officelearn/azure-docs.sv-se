@@ -3,12 +3,12 @@ title: Skapa en anpassad Azure Resource Manager roll och tilldela till tjänsten
 description: Den här artikeln innehåller vägledning om hur du skapar en anpassad Azure Resource Manager roll och tilldelar tjänstens huvud namn för video analys på IoT Edge med Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043170"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526586"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Skapa anpassad Azure Resource Manager roll och tilldela till tjänstens huvud namn
 
@@ -43,7 +43,7 @@ Om du inte har ett media service-konto kan du skapa ett med hjälp av följande 
 1. Bläddra till [Cloud Shell](https://shell.azure.com/).
 1. Välj "bash" som din miljö i list rutan till vänster i Shell-fönstret
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![Skärm capturs visar bash som valts från Shell-fönstret.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Ange din Azure-prenumeration som standard konto med hjälp av följande kommando mal len:
     
     ```
@@ -163,7 +163,7 @@ az ad sp show --id "<appId>" | Select-String "objectId"
 ```
 
 > [!NOTE]
-> `<appId>`kan hämtas från utdata från steget [skapa tjänstens huvud namn](#create-service-principal) .
+> `<appId>` kan hämtas från utdata från steget [skapa tjänstens huvud namn](#create-service-principal) .
 
 Kommandot ovan kommer att skriva ut objectId för tjänstens huvud namn. 
 
@@ -179,7 +179,7 @@ az role assignment create --role “LVAEdge User” --assignee-object-id < objec
 
 Parametrar:
 
-|Parametrar|Beskrivning| 
+|Parametrar|Description| 
 |---|---|
 |--roll |Namn eller ID för anpassad roll. I vårt exempel: "LVAEdge User".|
 |--tilldelad person-objekt-ID|Objekt-ID för tjänstens huvud namn som du kommer att använda.|

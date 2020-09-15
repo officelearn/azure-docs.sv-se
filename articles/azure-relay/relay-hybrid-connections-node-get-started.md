@@ -4,12 +4,12 @@ description: Skriv ett Node.js-konsolprogram för Azure Relay-hybridanslutningar
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386307"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527419"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Komma igång med Azure Relay-hybridanslutningar med WebSockets i Node.js
 
@@ -52,7 +52,7 @@ För att skicka meddelanden till Relay skriver du ett Node.js-konsolprogram.
 2. Kör klientprogrammet: från en Node.js-kommandotolken skriver du in `node sender.js` och anger lite text.
 3. Se till att serverprogramkonsolen matar ut den text som angavs i klientprogrammet.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Konsol fönster som testar både server-och klient program.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Grattis, du har skapat ett hybridanslutningsprogram från slutpunkt till slutpunkt med hjälp av Node.js!
 

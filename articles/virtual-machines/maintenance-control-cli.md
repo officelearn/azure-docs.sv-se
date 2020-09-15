@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675867"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528184"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Styra uppdateringar med underhålls kontroll och Azure CLI
 
@@ -37,7 +37,7 @@ Kopiera konfigurations-ID: t från de utdata som ska användas senare.
 
 Med `--maintenanceScope host` ser du till att underhålls konfigurationen används för att styra uppdateringar av värden.
 
-Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din prenumeration.
+Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din resurs grupp.
 
 Du kan fråga efter tillgängliga underhålls konfigurationer med `az maintenance configuration list` .
 

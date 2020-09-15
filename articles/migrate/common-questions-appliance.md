@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.date: 09/15/2020
+ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514551"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526569"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -76,7 +76,7 @@ Data som samlas in av Azure Migrates enheten lagras på den Azure-plats där du 
 Här är mer information om hur data lagras:
 
 - Insamlade data lagras säkert i CosmosDB i en Microsoft-prenumeration. Data tas bort när du tar bort Azure Migrate-projektet. Lagringen hanteras av Azure Migrate. Du kan inte specifikt välja ett lagrings konto för insamlade data.
-- Om du använder [beroende visualisering](concepts-dependency-visualization.md)lagras de data som samlas in i USA i en Azure Log Analytics-arbetsyta som skapats i din Azure-prenumeration. Data tas bort när du tar bort Log Analytics arbets ytan i din prenumeration.
+- Om du använder [beroende visualisering](concepts-dependency-visualization.md)lagras de data som samlas in i en Azure Log Analytics-arbetsyta som skapats i din Azure-prenumeration. Data tas bort när du tar bort Log Analytics arbets ytan i din prenumeration. 
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Hur mycket data överförs under kontinuerlig profilering?
 

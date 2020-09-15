@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 2c6d1873aadbbf19f1b7650f9b432b3b6bed2841
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068378"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527385"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -35,7 +35,7 @@ Om du använder Azure-ExpressRoute eller en VPN-anslutning från ditt lokala nä
 
 ![kund-miljö](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Normalt skyddas nätverk med brand väggar och nätverks säkerhets grupper (NSG: er). Brand väggar använder URL-eller IP-baserade vit listning för att kontrol lera nätverks anslutningen. NSG: er tillhandahåller regler som använder IP-adressintervall för att kontrol lera nätverks anslutningen.
+Normalt skyddas nätverk med brand väggar och nätverks säkerhets grupper (NSG: er). Service märken ska användas för att kontrol lera nätverks anslutningen. NSG: er bör tillåta flera service märken att kontrol lera utgående anslutningar.
 
 >[!IMPORTANT]
 > Att använda en autentiserad proxy för att kontrol lera nätverks anslutningen stöds inte av Site Recovery, och det går inte att aktivera replikering.
@@ -45,6 +45,8 @@ Normalt skyddas nätverk med brand väggar och nätverks säkerhets grupper (NSG
 
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar kan du tillåta följande Site Recovery webb adresser:
 
+>[!NOTE]
+> IP-vit listning ska inte utföras för att kontrol lera utgående anslutningar.
 
 **URL** | **Information**
 --- | ---
@@ -65,8 +67,8 @@ Om du använder en NSG för att kontrol lera utgående anslutningar måste dessa
 - Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/security-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
 - Skapa en EventsHub service tag-baserad NSG-regel för mål regionen, vilket ger åtkomst till Site Recovery övervakning.
 - Skapa en AzureSiteRecovery service tag-baserad NSG-regel för att tillåta åtkomst till Site Recovery tjänst i vilken region som helst.
-- Skapa en AzureKeyVault service tag-baserad NSG-regel. Detta krävs endast för att aktivera replikering av ADE-aktiverade virtuella datorer via portalen.
-- Skapa en GuestAndHybridManagement service tag-baserad NSG-regel. Detta krävs endast för att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen.
+- Skapa en AzureKeyVault-baserad NSG-regel. Detta krävs endast för att aktivera replikering av ADE-aktiverade virtuella datorer via portalen.
+- Skapa en GuestAndHybridManagement-baserad NSG-regel. Detta krävs endast för att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen.
 - Vi rekommenderar att du skapar de nödvändiga NSG-reglerna på en test-NSG och kontrollerar att det inte finns några problem innan du skapar reglerna på en produktions NSG.
 
 ## <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration

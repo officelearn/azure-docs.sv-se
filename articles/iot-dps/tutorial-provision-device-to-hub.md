@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74975048"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526450"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: etablera enheten till en IoT-hubb med Azure-IoT Hub Device Provisioning Service
 
@@ -28,12 +28,12 @@ I den förra självstudien lärde du dig att konfigurera en enhet för att anslu
 
 Innan du fortsätter måste du konfigurera din enhet enligt anvisningarna i självstudien [Konfigurera en enhet för etablering med Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-device.md).
 
-Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter.
+Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten innan du fortsätter.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Registrera enheten
 
-I det här steget ska du lägga till enhetens unika säkerhetsartefakter till enhetsetableringstjänsten. Säkerhetsartefakterna baseras på enhetens [attesteringsmekanism](concepts-device.md#attestation-mechanism) enligt följande:
+I det här steget ska du lägga till enhetens unika säkerhetsartefakter till enhetsetableringstjänsten. Säkerhetsartefakterna baseras på enhetens [attesteringsmekanism](concepts-service.md#attestation-mechanism) enligt följande:
 
 - För TPM-baserade enheter behöver du:
     - *Bekräftelsenyckeln* som är unik för varje TPM-krets eller -simulering, som hämtas från tillverkaren av TPM-kretsen.  Läs [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Förstå TPM-bekräftelsenyckeln) för mer information.
@@ -48,7 +48,7 @@ I det här steget ska du lägga till enhetens unika säkerhetsartefakter till en
 
 Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 
-- **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient. Mer information om identitetsattestering för registreringsgrupper finns i [Säkerhet](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+- **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient. Mer information om identitetsattestering för registreringsgrupper finns i [Säkerhet](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Lägg till grupp registrering för X. 509-attestering i portalen](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 

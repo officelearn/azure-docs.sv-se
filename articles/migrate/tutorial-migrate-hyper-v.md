@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 370712ea976db027abee943d786f6ce81ac99c4a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 10e17a4fba1adbccf71497c54060fda2f60088ab
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376017"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525345"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -34,7 +34,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 Innan du börjar de här självstudierna bör du:
@@ -121,7 +121,7 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 10. I **Azure Hybrid-förmån**:
 
     - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
-    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
+    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka på **Nästa**.
 
     ![Mål inställningar](./media/tutorial-migrate-hyper-v/target-settings.png)
 
@@ -133,11 +133,11 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 
     ![Inställningar för VM-beräkning](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-12. I **Diskar** anger du om VM-diskarna ska replikeras till Azure och disktypen (standard SSD/HDD eller premiumhanterade diskar) i Azure. Klicka sedan på **Nästa**.
+12. I **Diskar** anger du om VM-diskarna ska replikeras till Azure och disktypen (standard SSD/HDD eller premiumhanterade diskar) i Azure. Klicka på **Nästa**.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 
-    ![Diskar](./media/tutorial-migrate-hyper-v/disks.png)
+    ![Skärm bild som visar fliken diskar i dialog rutan replikera.](./media/tutorial-migrate-hyper-v/disks.png)
 
 13. I **Granska och starta replikering** kontrollerar du inställningarna och klickar på **Replikera** för att påbörja den första replikeringen för servrarna.
 

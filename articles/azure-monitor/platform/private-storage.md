@@ -1,241 +1,100 @@
 ---
-title: Kundägda lagrings konton för logg inmatning
-description: Använd ditt eget lagrings konto för inmatning av loggdata till en Log Analytics arbets yta i Azure Monitor.
+title: Använda kund hanterade lagrings konton i Azure Monitor Log Analytics
+description: Använd ditt eget lagrings konto för Log Analytics scenarier
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/20/2020
-ms.openlocfilehash: 58d6f98c87e37254e77bcc8dda1cdca6e608cafc
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+author: noakup
+ms.author: noakuper
+ms.date: 09/03/2020
+ms.openlocfilehash: 9d54e6eb84e3269eb95f8d314875474f78536652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962680"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526433"
 ---
-# <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Kundägda lagrings konton för logg inmatning i Azure Monitor
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Använda kund hanterade lagrings konton i Azure Monitor Log Analytics
 
-Azure Monitor använder lagrings konton i inmatnings processen för vissa data typer, till exempel [anpassade loggar](data-sources-custom-logs.md) och vissa [Azure-loggar](./diagnostics-extension-logs.md). Under inmatnings processen skickas loggar först till ett lagrings konto och senare matas in i Log Analytics eller Application Insights. Om du vill ha kontroll över dina data under inmatningen kan du använda dina egna lagrings konton i stället för den tjänst hanterade lagringen. Genom att använda ditt eget lagrings konto får du kontroll över åtkomst, innehåll, kryptering och kvarhållning av loggarna under inmatningen. Vi refererar till detta som att ta din egen lagring eller BYOS. 
+Log Analytics förlitar sig på Azure Storage i många olika scenarier. Den här användningen hanteras vanligt vis automatiskt. Vissa fall kräver dock att du anger och hanterar ditt eget lagrings konto, även kallat ett kundhanterat lagrings konto. Det här dokumentet innehåller information om användningen av kundhanterad lagring för inmatning av WAD/LAD-loggar, privat länk specifika scenarier och CMK kryptering. 
 
-Ett scenario som kräver BYOS är nätverks isolering via privata länkar. När du använder ett virtuellt nätverk är nätverks isolering ofta ett krav och åtkomst till offentligt Internet är begränsad. I sådana fall blockeras åtkomsten till Azure Monitor tjänst lagring för logg inmatning antingen helt och hållet eller anses vara en felaktig praxis. I stället ska loggar matas in via ett kundägda lagrings konto i VNet eller enkelt åtkomlig från det.
+> [!NOTE]
+> Vi rekommenderar att du inte tar ett beroende på innehållet Log Analytics uppladdningar till kundhanterad lagring, eftersom formatering och innehåll kan ändras.
 
-Ett annat scenario är kryptering av loggar med Kundhanterade nycklar (CMK). Kunder kan kryptera loggade data genom att använda CMK på de kluster som lagrar loggarna. Samma nyckel kan också användas för att kryptera loggar under inmatnings processen.
+## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Mata in Azure-diagnostik anknytnings loggar (WAD/LAD)
+Azure-diagnostik tilläggs agenter (kallas även WAD och LAD för Windows respektive Linux-agenter) samlar in olika operativ system loggar och lagrar dem på ett kundhanterat lagrings konto. Du kan sedan mata in dessa loggar i Log Analytics för att granska och analysera dem.
+Hur du samlar in Azure-diagnostik tilläggs loggar från ditt lagrings konto ansluter lagrings kontot till arbets ytan Log Analytics som en lagrings data källa med hjälp av [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs#collect-logs-from-azure-storage) eller genom att anropa [API: et för Storage Insights](https://docs.microsoft.com/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
 
-## <a name="data-types-supported"></a>Data typer som stöds
+Data typer som stöds:
+* Syslog
+* Windows-händelser
+* Service Fabric
+* ETW-händelser
+* IIS-loggar
 
-Följande data typer matas in från ett lagrings konto: Mer information om inmatningen av dessa typer finns i [samla in data från Azure Diagnostics-tillägget till Azure Monitor-loggar](./diagnostics-extension-logs.md) .
+## <a name="using-private-links"></a>Använda privata länkar
+Kund hanterade lagrings konton krävs i vissa användnings fall när privata länkar används för att ansluta till Azure Monitor resurser. Ett sådant fall är inmatningen av anpassade loggar eller IIS-loggar. De här data typerna laddas först upp som blobbar till ett mellanliggande Azure Storage konto och hämtas bara till en arbets yta. På samma sätt kan vissa Azure Monitor-lösningar använda lagrings konton för att lagra stora filer, till exempel Watson-dumpfiler, som används av Azure Security Center-lösningen. 
 
-| Typ | Tabell information |
-|:-----|:------------------|
-| IIS-loggar | BLOB: wad-IIS-loggfiler|
-|Windows-händelseloggar | Tabell: WADWindowsEventLogsTable |
-| Syslog | Tabell: LinuxsyslogVer2v0 |
-| Windows ETW-loggar | Tabell: WADETWEventTable|
-| Service fabric | Tabell: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
-| Anpassade loggar | saknas |
-| Azure Security Center Watson-dumpfiler | saknas|  
+##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Privata länk scenarier som kräver en kundhanterad lagring
+* Inmatning av anpassade loggar och IIS-loggar
+* Tillåter ASC-lösning för att samla in Watson-dumpfiler
 
-## <a name="storage-account-requirements"></a>Krav för lagringskonto 
-Lagrings kontot måste uppfylla följande krav:
+### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Använda ett kundhanterat lagrings konto via en privat länk
+##### <a name="workspace-requirements"></a>Krav på arbets yta
+När du ansluter till Azure Monitor via en privat länk kan Log Analytics agenter bara skicka loggar till arbets ytor som är länkade till nätverket via en privat länk. Den här regeln kräver att du konfigurerar Azure Monitor ett AMPLS-objekt (Private Link scope) korrekt, ansluter det till dina arbets ytor och ansluter AMPLS till nätverket via en privat länk. Mer information om konfigurations proceduren för AMPLS finns i [använda Azure Private Link för att ansluta nätverk på ett säkert sätt till Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security). 
+##### <a name="storage-account-requirements"></a>Krav för lagringskonto
+För att lagrings kontot ska kunna ansluta till din privata länk måste det:
+* Finnas i ditt VNet eller i ett peer-nätverk och är anslutet till ditt VNet via en privat länk. Detta gör det möjligt för agenter på ditt VNet att skicka loggar till lagrings kontot.
+* Finnas i samma region som arbets ytan som den är länkad till.
+* Tillåt Azure Monitor åtkomst till lagrings kontot. Om du väljer att endast tillåta utvalda nätverk att komma åt ditt lagrings konto bör du även tillåta detta undantag: "Tillåt betrodda Microsoft-tjänster för att få åtkomst till det här lagrings kontot". Detta gör att Log Analytics kan läsa de loggar som matas in på det här lagrings kontot.
+* Om din arbets yta även hanterar trafik från andra nätverk bör du konfigurera lagrings kontot så att inkommande trafik kommer från relevanta nätverk/Internet.
 
-- Tillgängligt för resurser i ditt VNet som skriver loggar till lagringen.
-- Måste finnas i samma region som arbets ytan som den är länkad till.
-- Tillåt Azure Monitor-åtkomst – om du har valt att begränsa åtkomsten till ditt lagrings konto för att välja nätverk, se till att tillåta detta undantag: *Tillåt betrodda Microsoft-tjänster att komma åt det här lagrings kontot*.
+##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Länka ditt lagrings konto till en Log Analytics-arbetsyta
+Du kan länka ditt lagrings konto till arbets ytan via [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) eller [REST API](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts). Tillämpliga dataSourceType-värden:
+* CustomLogs – om du vill använda lagrings utrymmet för anpassade loggar och IIS-loggar under inmatning.
+* AzureWatson – Använd lagringen för Watson-dumpfiler som laddats upp av ASC-lösningen (Azure Security Center). Mer information om hur du hanterar kvarhållning, ersätter ett länkat lagrings konto och övervakar din lagrings konto aktivitet finns i [Hantera länkade lagrings konton](#managing-linked-storage-accounts). 
 
-## <a name="process-to-configure-customer-owned-storage"></a>Process för att konfigurera kundägda lagrings enheter
-Den grundläggande processen med att använda ditt eget lagrings konto för inmatning är följande:
+## <a name="encrypting-data-with-cmk"></a>Kryptera data med CMK
+Azure Storage krypterar alla data i vila i ett lagrings konto. Som standard krypterar den data med Microsoft-hanterade nycklar (MMK). Azure Storage kan dock i stället använda en kundhanterad nyckel (CMK) från Azure Key Vault för att kryptera dina lagrings data. Du kan antingen importera egna nycklar till Azure Key Vault, eller så kan du använda Azure Key Vault-API: er för att generera nycklar.
+##### <a name="cmk-scenarios-that-require-a-customer-managed-storage-account"></a>CMK-scenarier som kräver ett kundhanterat lagrings konto
+* Kryptera logg – aviserings frågor med CMK
+* Kryptera sparade frågor med CMK
 
-1. Skapa ett lagrings konto eller Välj ett befintligt konto.
-2. Länka lagrings kontot till en Log Analytics-arbetsyta.
-3. Hantera lagringen genom att granska belastningen och kvarhållning för att säkerställa att den fungerar som förväntat.
+### <a name="how-to-apply-cmk-to-customer-managed-storage-accounts"></a>Så här tillämpar du CMK på kund hanterade lagrings konton
+##### <a name="storage-account-requirements"></a>Krav för lagringskonto
+Lagrings kontot och nyckel valvet måste finnas i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Storage kryptering och nyckel hantering finns i [Azure Storage kryptering för data i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-Den enda metoden som är tillgänglig för att skapa och ta bort länkar är via REST API. Information om den speciella API-begäran som krävs för varje process finns i avsnitten nedan.
+##### <a name="apply-cmk-to-your-storage-accounts"></a>Tillämpa CMK på dina lagrings konton
+Om du vill konfigurera ditt Azure Storage-konto så att det använder Kundhanterade nycklar med Azure Key Vault använder du [Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal?toc=/azure/storage/blobs/toc.json), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-powershell?toc=/azure/storage/blobs/toc.json) eller [CLI](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-cli?toc=/azure/storage/blobs/toc.json). 
 
-## <a name="command-line-and-rest-api"></a>Kommando rad och REST API
+## <a name="managing-linked-storage-accounts"></a>Hantera länkade lagrings konton
 
-### <a name="command-line"></a>Kommandorad
-Om du vill skapa och hantera länkade lagrings konton använder du [AZ Monitor Log-Analytics arbets yta länkad lagring](/cli/azure/monitor/log-analytics/workspace/linked-storage). Med det här kommandot kan du länka och ta bort länkar till lagrings konton från en arbets yta och lista de länkade lagrings kontona.
+Om du vill länka eller ta bort länk till lagrings konton till arbets ytan använder du [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) eller [REST API](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts).
 
-### <a name="request-and-cli-values"></a>Request-och CLI-värden
+##### <a name="create-or-modify-a-link"></a>Skapa eller ändra en länk
+När du länkar ett lagrings konto till en arbets yta börjar Log Analytics att använda det i stället för det lagrings konto som ägs av tjänsten. Du kan 
+* Registrera flera lagrings konton för att sprida belastningen på loggar mellan dem
+* Återanvänd samma lagrings konto för flera arbets ytor
 
-#### <a name="datasourcetype"></a>dataSourceType 
+##### <a name="unlink-a-storage-account"></a>Ta bort länk till ett lagrings konto
+Om du vill sluta använda ett lagrings konto tar du bort länken till lagringen från arbets ytan. Om du tar bort länken för alla lagrings konton från en arbets yta innebär Log Analytics att de ska förlita sig på tjänst hanterade lagrings konton. Om nätverket har begränsad åtkomst till Internet, kanske dessa lagringar inte är tillgängliga och alla scenarier som förlitar sig på lagringen Miss lyckas.
 
-- AzureWatson – Använd det här värdet för Azure Security Center Azure Watson dump-filer.
-- CustomLogs – Använd det här värdet för följande data typer:
-  - Anpassade loggar
-  - IIS-loggar
-  - Händelser (Windows)
-  - Syslog (Linux)
-  - ETW-loggar
-  - Service Fabric händelser
-  - Utvärderings data  
+##### <a name="replace-a-storage-account"></a>Ersätta ett lagrings konto
+För att ersätta ett lagrings konto som används för inmatning,
+1.  **Skapa en länk till ett nytt lagrings konto.** Loggnings agenterna kommer att hämta den uppdaterade konfigurationen och börja skicka data till den nya lagrings platsen. Processen kan ta några minuter.
+2.  **Ta sedan bort länken till det gamla lagrings kontot så att agenter slutar skriva till det borttagna kontot.** Vid inmatnings processen sparas data från det här kontot tills allt har matats in. Ta inte bort lagrings kontot förrän du ser att alla loggar har matats in.
 
-#### <a name="storage_account_resource_id"></a>storage_account_resource_id
-Det här värdet använder följande struktur:
+### <a name="maintaining-storage-accounts"></a>Underhålla lagrings konton
+##### <a name="manage-log-retention"></a>Hantera logg kvarhållning
+När du använder ditt eget lagrings konto är kvarhållning upp till dig. Med andra ord tar Log Analytics inte bort loggar som lagras i din privata lagring. I stället bör du konfigurera en princip för att hantera belastningen enligt dina inställningar.
 
-```
-subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName1}
-```
-
-
-## <a name="get-linked-storage-accounts"></a>Hämta länkade lagrings konton
-
-### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Hämta länkade lagrings konton för alla typer av data källor
-
-#### <a name="api-request"></a>API-begäran
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Svarsåtgärder
-
-```json
-{
-    [
-        {
-            "properties":
-            {
-                "dataSourceType": "CustomLogs",
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_1>",
-                    "<storage_account_resource_id_2>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-            "name": "CustomLogs",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        },
-        {
-            "properties":
-            {
-                "dataSourceType": " AzureWatson "
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_3>",
-                    "<storage_account_resource_id_4>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/AzureWatson",
-            "name": "AzureWatson",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        }
-    ]
-}
-```
-
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Hämta länkade lagrings konton för en bestämd typ av data Källa
-
-#### <a name="api-request"></a>API-begäran
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Svarsåtgärder 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-## <a name="create-or-modify-a-link"></a>Skapa eller ändra en länk
-
-När du länkar ett lagrings konto till en arbets yta börjar Log Analytics att använda det i stället för det lagrings konto som ägs av tjänsten. Du kan registrera en lista över lagrings konton samtidigt, och du kan använda samma lagrings konto för flera arbets ytor.
-
-Om din arbets yta hanterar både VNet-resurser och resurser utanför ett VNet bör du se till att den inte avvisar trafik som kommer från Internet. Lagringen ska ha samma inställningar som din arbets yta och göras tillgänglig för resurser utanför ditt VNet. 
-
-### <a name="api-request"></a>API-begäran
-
-```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-### <a name="payload"></a>Innehållet
-
-```json
-{
-    "properties":
-    {
-        "storageAccountIds  " : 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    }
-}
-```
-
-### <a name="response"></a>Svarsåtgärder
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs"
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-"id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-"name": "CustomLogs",
-"type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-
-## <a name="unlink-a-storage-account"></a>Ta bort länk till ett lagrings konto
-Om du väljer att sluta använda ett lagrings konto för inmatning eller ersätta arbets ytan du använder, bör du ta bort länken till lagringen från arbets ytan.
-
-Om du tar bort länken för alla lagrings konton från en arbets yta görs ett försök att förlita dig på tjänst hanterade lagrings konton. Om dina agenter körs i ett VNet med begränsad åtkomst till Internet förväntas inmatningen att fungera. Arbets ytan måste ha ett länkat lagrings konto som kan kommas åt från dina övervakade resurser.
-
-Innan du tar bort ett lagrings konto bör du kontrol lera att alla data som den innehåller har matats in i arbets ytan. Som en försiktighet bör du hålla ditt lagrings konto tillgängligt när du har länkat ett alternativt lagrings utrymme. Ta bara bort den när allt innehåll har matats in och du kan se att nya data skrivs till det nyanslutna lagrings kontot.
-
-
-### <a name="api-request"></a>API-begäran
-```
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-## <a name="replace-a-storage-account"></a>Ersätta ett lagrings konto
-
-Om du vill ersätta ett lagrings konto som används för inmatning måste du först skapa en länk för ett nytt lagrings konto. Loggnings agenterna kommer att hämta den uppdaterade konfigurationen och börja skicka data till den nya lagrings platsen.
-
-Ta sedan bort länken till det gamla lagrings kontot så att agenter slutar skriva till det borttagna kontot. Vid inmatnings processen sparas data från det här kontot tills allt har matats in. Ta inte bort lagrings kontot förrän du ser att alla loggar har matats in.
-
-Agent konfigurationen kommer att uppdateras efter några minuter och de växlar till den nya lagrings platsen.
-
-## <a name="manage-storage-account"></a>Hantera lagrings konto
-
-### <a name="load"></a>Inläsning
-
-Lagrings konton kan hantera en viss belastning av Läs-och skriv förfrågningar innan de startar begränsnings begär Anden. Begränsningen påverkar hur lång tid det tar att mata in loggar och kan leda till förlorade data. Om lagringen är överbelastad registrerar du ytterligare lagrings konton och sprider belastningen mellan dem. 
+##### <a name="consider-load"></a>Läs igenom
+Lagrings konton kan hantera en viss belastning av Läs-och skriv förfrågningar innan de startar begränsnings begär Anden (se [skalbarhets-och prestanda mål för Blob Storage](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account) för mer information). Begränsningen påverkar hur lång tid det tar att mata in loggar. Om ditt lagrings konto är överbelastat registrerar du ett ytterligare lagrings konto för att sprida belastningen mellan dem. Du övervakar lagrings kontots kapacitet och prestanda genom att granska [insikter i Azure Portal]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
 
 ### <a name="related-charges"></a>Relaterade avgifter
-
-Lagrings konton debiteras av volymen lagrade data, typer av lagring och typen av redundans. Mer information finns i avsnittet om [priser för Block-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) och [Table Storage prissättning](https://azure.microsoft.com/pricing/details/storage/tables/).
-
-Om det registrerade lagrings kontot för din arbets yta finns i en annan region debiteras du för utgående trafik enligt dessa [pris uppgifter för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
-
+Lagrings konton debiteras av volymen lagrade data, typen av lagring och typen av redundans. Mer information finns i avsnittet om [priser för Block-Blob](https://azure.microsoft.com/pricing/details/storage/blobs) och [Table Storage prissättning](https://azure.microsoft.com/pricing/details/storage/tables).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du konfigurerar en privat länk finns i [använda Azure Private Link för att ansluta nätverk på ett säkert sätt till Azure Monitor](private-link-security.md)
-
+- Lär dig mer om att [använda Azures privata länk för att ansluta nätverk på ett säkert sätt till Azure Monitor](private-link-security.md)
+- Lär dig mer om att [Azure Monitor Kundhanterade nycklar](customer-managed-keys.md)

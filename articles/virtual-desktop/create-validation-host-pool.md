@@ -6,21 +6,21 @@ ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008720"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526518"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar
 
 >[!IMPORTANT]
 >Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Innan du distribuerar lagringspooler till produktions miljön rekommenderar vi starkt att du skapar en pool för validerings värdar. Uppdateringar tillämpas först på verifiering av värdbaserade pooler, så att du kan övervaka tjänst uppdateringar innan du återställer dem till produktions miljön. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i produktions miljön.
+Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop-miljö. Vi rekommenderar starkt att du skapar en pool för validering av värdar där tjänst uppdateringar tillämpas först. På så sätt kan du övervaka tjänst uppdateringar innan tjänsten tillämpar dem i din standard miljö eller icke-validerings miljö. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i din standard miljö.
 
-För att se till att dina appar fungerar med de senaste uppdateringarna bör verifierings värddatorn vara lika likadan som lagringspooler i produktions miljön som möjligt. Användarna bör ansluta så ofta som de använder för att köra en pool för värden för autentisering. Om du har automatiserat tester på din värd-pool bör du inkludera automatiserad testning på verifierings värds poolen.
+För att se till att dina appar fungerar med de senaste uppdateringarna bör verifierings värd poolen vara lika likadan som värdar i miljön som inte verifieras som möjligt. Användarna bör ansluta så ofta som de använder sig av en standardpool för validering av värden. Om du har automatiserat tester på din värd-pool bör du inkludera automatiserad testning på verifierings värds poolen.
 
 Du kan felsöka problem i poolen för validering av värdar med hjälp [av en diagnostisk funktion](diagnostics-role-service.md) eller [fel söknings artiklarna för Windows Virtual Desktop](troubleshoot-set-up-overview.md).
 

@@ -3,12 +3,12 @@ title: Azure Event Grid prenumerationer via portalen
 description: I den här artikeln beskrivs hur du skapar Event Grid prenumerationer för källor som stöds, till exempel Azure Blob Storage, genom att använda Azure Portal.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: acbf83d6df0c7d74da5e561d98d0c3df23d5fbd5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119998"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526467"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Prenumerera på händelser via portalen
 
@@ -24,7 +24,7 @@ Följ stegen nedan om du vill skapa en Event Grid-prenumeration för någon av d
 
 1. Sök efter **Event Grid prenumerationer** och välj den från de tillgängliga alternativen.
 
-   ![Sök](./media/subscribe-through-portal/search.png)
+   ![Skärm dum par visar sökningen i Azure Portal med Event Grid prenumerationer valda.](./media/subscribe-through-portal/search.png)
 
 1. Välj **+ Händelseprenumeration**.
 

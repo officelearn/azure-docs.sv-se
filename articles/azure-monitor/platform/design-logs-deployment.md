@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551330"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527317"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Utforma en distribution med Azure Monitor-loggar
 
-Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta, som är en Azure-resurs och en behållare där data samlas in, aggregeras och fungerar som en administrativ gränser. Även om du kan distribuera en eller flera arbets ytor i din Azure-prenumeration finns det flera saker du bör känna till för att säkerställa att din första distribution följer våra rikt linjer för att ge dig ett kostnads effektivt, hanterbart och skalbart distributions möte som dina organisationer behöver.
+Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta, som är en Azure-resurs och en behållare där data samlas in, aggregeras och fungerar som en administrativ gränser. Även om du kan distribuera en eller flera arbets ytor i din Azure-prenumeration finns det flera saker du bör känna till för att säkerställa att din första distribution följer våra rikt linjer för att ge dig en kostnads effektiv, hanterbar och skalbar distribution som uppfyller organisationens behov.
 
 Data i en arbets yta är indelade i tabeller, där var och en lagrar olika typer av data och har en egen unik uppsättning egenskaper baserade på den resurs som genererar data. De flesta data källor skrivs till sina egna tabeller i en Log Analytics-arbetsyta.
 
@@ -131,7 +131,7 @@ Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som 
 
 När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den i genom att öppna en support förfrågan. 
 
-Om du vill få ett meddelande på approching eller nått gränsen för inläsnings volym på din arbets yta skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik Base om antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
+Om du vill få ett meddelande om approching eller nått gränsen för inläsnings volym på arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
 
 Inläsnings volymens hastighet nådde 80% av tröskelvärdet:
 ```Kusto
@@ -152,9 +152,9 @@ Operation
 
 ![Design exempel för resurs kontext](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-Det här scenariot täcker en enskild design av arbets ytan i IT-organisationens prenumeration som inte är begränsad av data suveränitet eller reglerande krav eller som måste mappas till de regioner som resurserna distribueras i. Det gör att organisationens säkerhets-och IT-administratör kan utnyttja den förbättrade integreringen med Azure Access Management och säkrare åtkomst kontroll.
+Det här scenariot täcker en enskild design av arbets ytan i IT-organisationens prenumeration som inte är begränsad av data suveränitet eller reglerande krav eller som måste mappas till de regioner som resurserna distribueras i. Det ger din organisations säkerhets-och IT-administratör möjlighet att utnyttja den förbättrade integreringen med Azure Access Management och säkrare åtkomst kontroll.
 
-Alla resurser, övervaknings lösningar och insikter som Application Insights och Azure Monitor for VMs, stöd för infrastruktur och program som underhålls av de olika teamen konfigureras för att vidarebefordra insamlade loggdata till IT-organisationernas centraliserade arbets yta. Användare i varje team beviljas åtkomst till loggar för resurser som de har fått åtkomst till.
+Alla resurser, övervaknings lösningar och insikter som Application Insights och Azure Monitor for VMs, stöd för infrastruktur och program som underhålls av de olika teamen konfigureras för att vidarebefordra insamlade loggdata till IT-organisationens centraliserade delade arbets yta. Användare i varje team beviljas åtkomst till loggar för resurser som de har fått åtkomst till.
 
 När du har distribuerat din arbets ytas arkitektur kan du framtvinga detta på Azure-resurser med [Azure policy](../../governance/policy/overview.md). Det är ett sätt att definiera principer och se till att dina Azure-resurser är kompatibla så att de skickar alla resurs loggar till en viss arbets yta. Till exempel kan du använda befintliga principer som utvärderar arbets ytans efterlevnad och rapport resultat, eller anpassa för att åtgärda om det inte är kompatibelt, med Azure Virtual Machines eller Virtual Machine Scale Sets.  
 

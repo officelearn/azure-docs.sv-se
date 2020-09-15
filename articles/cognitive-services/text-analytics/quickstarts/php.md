@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av PHP'
 titleSuffix: Azure Cognitive Services
-description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du använder PHP för att hämta information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: aahi
-ms.openlocfilehash: 4627cc83de70f596ae4917d0449f785a33bf720f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09901c514a1f2b94edc3e4108ec46051a284a6db
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261362"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527266"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av PHP
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar senti
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 

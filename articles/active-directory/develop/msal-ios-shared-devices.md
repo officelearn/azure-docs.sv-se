@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649099"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528136"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Läge för delad enhet för iOS-enheter
 
@@ -60,9 +60,18 @@ Enheten måste konfigureras för att stödja delat enhets läge. Den måste ha i
 
     - **Typ**: omdirigera
     - **Tilläggs-ID**: com. Microsoft. azureauthenticator. ssoextension
-    - **Team-ID**: SGGM6D27TK
-    - **URL: er**: https://login.microsoftonline.com
-    - Ytterligare data att konfigurera:
+    - **Team-ID**: (det här fältet behövs inte för iOS)
+    - **URL: er**:   
+        - `https://login.microsoftonline.com`
+        - `https://login.microsoft.com`
+        - `https://sts.windows.net`
+        - `https://login.partner.microsoftonline.cn`
+        - `https://login.chinacloudapi.cn`
+        - `https://login.microsoftonline.de`
+        - `https://login.microsoftonline.us`
+        - `https://login.usgovcloudapi.net`
+        - `https://login-us.microsoftonline.com`
+    - **Ytterligare data att konfigurera**:
       - Nyckel: sharedDeviceMode
       - Typ: boolesk
       - Värde: true

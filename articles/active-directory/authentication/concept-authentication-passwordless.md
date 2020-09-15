@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084336"
+ms.locfileid: "90527028"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -82,11 +82,15 @@ För att komma igång med lösen ords lös inloggning, slutför du följande anv
 
 ## <a name="fido2-security-keys"></a>FIDO2 säkerhets nycklar
 
+Alliansen FIDO (snabb identitet Online) hjälper till att främja Open Authentication-standarder och minska användaren av lösen ord som en form av autentisering. FIDO2 är den senaste standarden som införlivar webbautentiseringen (webauthn)-standarden.
+
 FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Med FIDO kan användare och organisationer utnyttja standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 
-Anställda kan använda säkerhets nycklar för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till sina moln resurser och lokala resurser. Användare kan också logga in i webbläsare som stöds. FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
+Användare kan registrera sig och sedan välja en säkerhets nyckel för FIDO2 i inloggnings gränssnittet som deras huvudsakliga autentiserings sätt. Dessa säkerhets nycklar för FIDO2 är vanligt vis USB-enheter, men kan också använda Bluetooth eller NFC. Med en maskin varu enhet som hanterar autentiseringen ökar säkerheten för ett konto eftersom det inte finns något lösen ord som kan exponeras eller gissas.
 
-Logga in med FIDO2 säkerhets nycklar till Azure AD finns för närvarande i för hands version.
+FIDO2-säkerhetsnycklar kan användas för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till deras moln resurser och lokala resurser. Användare kan också logga in i webbläsare som stöds. FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
+
+Logga in med FIDO2 säkerhets nycklar till Azure AD finns för närvarande i för hands version. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 ![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -141,7 +145,6 @@ Kom igång med FIDO2-säkerhetsnycklar genom att utföra följande instruktioner
 > [!div class="nextstepaction"]
 > [Aktivera lösen ords skydd med FIDO2-säkerhetsnycklar](howto-authentication-passwordless-security-key.md)
 
-
 ## <a name="what-scenarios-work-with-the-preview"></a>Vilka scenarier fungerar med för hands versionen?
 
 Inloggnings funktionerna i Azure AD är för närvarande en för hands version. Följande gäller:
@@ -161,7 +164,7 @@ Här följer några faktorer som du bör tänka på när du väljer Microsoft-l�
 
 ||**Windows Hello för företag**|**Lösen ords återsignering med Microsoft Authenticator-appen**|**FIDO2 säkerhets nycklar**|
 |:-|:-|:-|:-|
-|**Krav**| Windows 10, version 1809 eller senare<br>Azure Active Directory| Microsoft Authenticator-appen<br>Telefon (iOS-och Android-enheter som kör Android 6,0 eller senare)|Windows 10, version 1809 eller senare<br>Azure Active Directory|
+|**Krav**| Windows 10, version 1809 eller senare<br>Azure Active Directory| Microsoft Authenticator-appen<br>Telefon (iOS-och Android-enheter som kör Android 6,0 eller senare)|Windows 10, version 1903 eller senare<br>Azure Active Directory|
 |**Läge**|Plattform|Programvara|Maskinvara|
 |**System och enheter**|PC med inbyggd Trusted Platform Module (TPM)<br>PIN-kod och biometrik-igenkänning |PIN-kod och biometrik-igenkänning på telefon|FIDO2 säkerhets enheter som är Microsoft-kompatibla|
 |**Användarupplevelse**|Logga in med en PIN-kod eller bio metrisk igenkänning (ansikts, iris eller finger avtryck) med Windows-enheter.<br>Windows Hello-autentisering är knuten till enheten. användaren behöver både enheten och en inloggnings komponent som en PIN-kod eller bio metrisk faktor för att få åtkomst till företags resurser.|Logga in med en mobil telefon med finger avtrycks skanning, ansikts-eller iris eller PIN-kod.<br>Användarna loggar in på arbetet eller det personliga kontot från sin dator eller mobil telefon.|Logga in med FIDO2-säkerhetsenheten (biometrik, PIN och NFC)<br>Användaren kan komma åt enheten baserat på organisations kontroller och autentiseras baserat på PIN-kod, biometrik med enheter som USB-säkerhetsnycklar och NFC-aktiverade smartkort, nycklar eller wearables.|

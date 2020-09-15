@@ -1,6 +1,6 @@
 ---
 title: Självstudie – pilot Azure AD Connect Cloud etablering för en befintlig synkroniserad AD-skog
-description: gång.
+description: Lär dig hur du piloterar moln etablering för en test Active Directory skog som redan har synkroniserats med Azure Active Directory (Azure AD) Connect-synkronisering.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86146807"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526943"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
@@ -76,7 +76,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
     **Tagg:** Lämna detta tomt<br>
     ![Anpassad regel](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
- 4. På sidan **omfångs filter** anger du den organisationsenhet eller säkerhets grupp som du vill att piloten ska baseras på.  Om du vill filtrera på OU lägger du till OU-delen av det unika namnet. Den här regeln gäller för alla användare som finns i ORGANISATIONSENHETen.  Så om DN slutar med "OU = processors, DC = contoso, DC = com, lägger du till det här filtret.  Klicka sedan på **Nästa**. 
+ 4. På sidan **omfångs filter** anger du den organisationsenhet eller säkerhets grupp som du vill att piloten ska baseras på.  Om du vill filtrera på OU lägger du till OU-delen av det unika namnet. Den här regeln gäller för alla användare som finns i ORGANISATIONSENHETen.  Så om DN slutar med "OU = processors, DC = contoso, DC = com, lägger du till det här filtret.  Klicka på **Nästa**. 
 
     |Regel|Attribut|Operator|Värde|
     |-----|----|----|-----|
@@ -109,7 +109,7 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
     
     ![Anpassad regel](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
- 3. På sidan **omfångs filter** väljer du **CloudNoFlow** lika med **Sant**. Klicka sedan på **Nästa**.
+ 3. På sidan **omfångs filter** väljer du **CloudNoFlow** lika med **Sant**. Klicka på **Nästa**.
  ![Anpassad regel](media/how-to-cloud-custom-user-rule/user7.png)</br>
  
  4. Klicka på **Nästa**på sidan **Anslut** regler.
@@ -141,7 +141,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 

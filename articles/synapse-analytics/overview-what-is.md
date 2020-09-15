@@ -6,15 +6,15 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
+ms.date: 09/12/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b93814c69a08dd757a390232804a00b2777bc20e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052007"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524954"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -22,13 +22,7 @@ ms.locfileid: "90052007"
 
 Enterprise Analytics måste arbeta massivt på alla typer av data, oavsett om de är RAW, raffinerade eller mycket anpassade. Detta krävs för att företag ska kunna häfta samman Big data och data lagrings tekniker som Spark och SQL till omfattande datapipeliner som fungerar mellan data i Relations lager och data sjöar. Lösningar som detta är svåra att bygga, säkra och underhålla. Komplexitets fördröjningen för att leverera Insight Enteprises-behovet.
 
-**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden för att bli inblick i informations lager och Big data analys system. På grund av detta samlar Azure Synapse det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används för Big data och **pipelines** för data integrering och ETL/ELT.
-
-Azure Synapse tillhandahåller en webbaserad **Studio** -upplevelse som tillhandahåller en enda plats för hantering, övervakning, kodning och säkerhet.
-
-Azure Synapse erbjuder det enklaste och snabbaste sättet för ett företag att samla in insikter om alla data i valfri storlek, med hjälp av de analyser som de är mest bekanta med. Den integreras kraftigt med **Power BI** som gör det möjligt för data tekniker att skapa analys lösningar som fungerar från slut punkt till slut punkt för att ge Business Intelligence.
-
-Dessutom underlättar Azure-Synapse förutsägelse modell utveckling och avancerad analys med Machine Learning via det inbyggda stödet för **azureml**.
+**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden för att bli inblick i informations lager och Big data analys system. Azure-Synapse kombinerar i sin kärna det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används för Big data och **pipelines** för data integrering och ETL/ELT. Synapse har en webbaserad **Studio** som ger en enda plats för hantering, övervakning, kodning och säkerhet. Synapse innehåller djupgående integrering med andra Azure-tjänster som **PowerBI**, **CosmosDB**och **azureml**.
 
 ## <a name="key-features--benefits"></a>Viktiga funktioner & förmåner
 

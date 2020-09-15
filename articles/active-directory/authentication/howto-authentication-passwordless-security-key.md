@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116605"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526960"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösen ords skydd (för hands version)
 
@@ -32,15 +32,15 @@ Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Aktivera [kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-- Webauthn kräver Windows 10 version 1809 eller högre * *
+- Webauthn kräver Windows 10 version 1903 eller högre * *
 
 Om du vill använda säkerhets nycklar för att logga in på webbappar och tjänster måste du ha en webbläsare som stöder webauthn-protokollet. Det kan vara Microsoft Edge, Chrome, Firefox och Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
 
-Azure AD-anslutna enheter som du pilot med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
+Azure AD-anslutna enheter som du pilot med måste köra Windows 10 version 1909 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
 
-Hybrid Azure AD-anslutna enheter måste köra Windows 10 Insider build 18945 eller senare.
+Hybrid Azure AD-anslutna enheter måste köra Windows 10 version 2004 eller senare.
 
 ## <a name="enable-passwordless-authentication-method"></a>Aktivera autentiseringsmetod för lösen ord
 
@@ -73,7 +73,7 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 
 ## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord
 
-I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnyckel. Användaren kan välja att logga in på webben med sin FIDO2 säkerhets nyckel i en webbläsare som stöds i Windows 10 version 1809 eller senare.
+I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnyckel. Användaren kan välja att logga in på webben med sin FIDO2 säkerhets nyckel i en webbläsare som stöds i Windows 10 version 1903 eller senare.
 
 ![Inloggning av säkerhets nyckel Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

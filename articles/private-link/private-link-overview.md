@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 2d2a520540ad69697da869833d52ab10e63a7730
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488430"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527198"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -22,8 +22,6 @@ Trafik mellan ditt virtuella nätverk och tjänsten flyttar Microsoft stamnät n
 
 > [!IMPORTANT]
 > Azures privata länk är nu allmänt tillgänglig. Både privat och privat länk tjänst (tjänsten bakom en standard belastningsutjämnare) är allmänt tillgängliga. Olika Azure-PaaS kommer att publiceras på en privat Azure-länk vid olika scheman. Avsnittet om att kontrol lera [tillgänglighet](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) nedan för korrekt status för Azure-PaaS på en privat länk. Information om kända begränsningar finns i [privat slut punkt](private-endpoint-overview.md#limitations) och [privat länk tjänst](private-link-service-overview.md#limitations). 
-
-![Översikt över privat slut punkt](media/private-link-overview/private-endpoint.png)
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 Azure Private-länken ger följande fördelar:  

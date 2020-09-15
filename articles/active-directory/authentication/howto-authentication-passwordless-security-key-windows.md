@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717973"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526994"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivera inloggning med lösen ord utan lösen ord till Windows 10-enheter med Azure Active Directory (för hands version)
 
@@ -32,8 +32,8 @@ Det här dokumentet fokuserar på att aktivera FIDO2-säkerhetsnyckel baserad l�
 | [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md) | X | X |
 | Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| Webauthn kräver Windows 10 version 1809 eller senare | X | X |
-| [Azure AD-anslutna enheter](../devices/concept-azure-ad-join.md) kräver Windows 10 version 1903 eller senare | X |   |
+| Webauthn kräver Windows 10 version 1903 eller senare | X | X |
+| [Azure AD-anslutna enheter](../devices/concept-azure-ad-join.md) kräver Windows 10 version 1909 eller senare | X |   |
 | [Hybrid Azure AD-anslutna enheter](../devices/concept-azure-ad-join-hybrid.md) kräver Windows 10 version 2004 eller senare |   | X |
 | Fullständigt korrigerade Windows Server 2016/2019-domänkontrollanter. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 eller senare |   | X |
@@ -56,7 +56,7 @@ Följande scenarier stöds inte:
 
 ## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
 
-Azure AD-anslutna enheter som du piloterar under för hands versionen av funktionen med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
+Azure AD-anslutna enheter som du piloterar under för hands versionen av funktionen med måste köra Windows 10 version 1909 eller senare.
 
 Hybrid Azure AD-anslutna enheter måste köra Windows 10 version 2004 eller senare.
 
@@ -125,7 +125,7 @@ För enheter som inte hanteras av Intune kan ett konfigurations paket installera
 1. Om du vill använda etablerings paketet som du har skapat läser du [Använd ett konfigurations paket](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> Enheter som kör Windows 10 version 1809 måste också aktivera Shared PC Mode (*EnableSharedPCMode*). Mer information om hur du aktiverar den här funktionen finns i [Konfigurera en delad eller gäst dator med Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
+> Enheter som kör Windows 10 version 1903 måste också aktivera Shared PC Mode (*EnableSharedPCMode*). Mer information om hur du aktiverar den här funktionen finns i [Konfigurera en delad eller gäst dator med Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Aktivera med grupprincip
 

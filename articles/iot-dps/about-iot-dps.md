@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 450d0675f81f161e68a207fbe0460c68fcafef29
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81683298"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526382"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service (DPS) är en hjälp tjänst för IoT Hub som möjliggör Zero-Touch och just-in-Time-etablering till rätt IoT Hub utan mänsklig inblandning. DPS möjliggör etablering av miljon tals enheter på ett säkert och skalbart sätt.
@@ -88,7 +88,7 @@ DPS har många funktioner, vilket gör det idealiskt för att konfigurera enhete
 * **Kryptering av data i vila** gör att data i DPS krypteras och dekrypteras transparent med hjälp av 256-bitars AES-kryptering, en av de starkaste block krypteringarna som är tillgängliga och är FIPS 140-2-kompatibla.
 
 
-Du kan lära dig mer om de begrepp och funktioner som ingår i enhetsetablering i [enhetsbegrepp](concepts-device.md), [tjänstebegrepp](concepts-service.md) och [säkerhetsbegrepp](concepts-security.md).
+Du kan lära dig mer om de koncept och funktioner som ingår i enhets etableringen genom att läsa avsnittet om [DPS-terminologi](concepts-service.md) tillsammans med andra konceptuella ämnen i samma avsnitt.
 
 ## <a name="cross-platform-support"></a>Stöd för alla plattformar
 Precis som med alla Azure IoT-tjänster arbetar DPS mellan olika plattformar med olika operativ system. Azure erbjuder SDK:er med öppen källkod i en mängd [språk](https://github.com/Azure/azure-iot-sdks), vilket underlättar anslutning av enheter och hantering av tjänsten. DPS stöder följande protokoll för att ansluta enheter:
@@ -124,6 +124,6 @@ DPS automatiserar enhets etablering med Azure IoT Hub. Läs mer om [IoT Hub](htt
 ## <a name="next-steps"></a>Nästa steg
 Nu har du en översikt över etablering av IoT-enheter i Azure. Nästa steg är att testa ett IoT-scenario från slutpunkt till slutpunkt.
 > [!div class="nextstepaction"]
-> [Konfigurera IoT Hub Device Provisioning service med Azure Portal](quick-setup-auto-provision.md)
-> [skapa och etablera en simulerad enhet](quick-create-simulated-device.md)
-> [Konfigurera enhet för etablering](tutorial-set-up-device.md)
+> [Konfigurera IoT Hub Device Provisioning service med Azure Portal](quick-setup-auto-provision.md) 
+>  [Skapa och etablera en simulerad enhet](quick-create-simulated-device.md) 
+>  [Konfigurera enhet för etablering](tutorial-set-up-device.md)

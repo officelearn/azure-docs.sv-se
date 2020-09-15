@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717361"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526875"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Aktivera Azure Active Directory lösen ords återställning via självbetjäning på Windows inloggnings skärm
 
@@ -40,7 +40,7 @@ Följande begränsningar gäller för att använda SSPR från Windows-inloggning
 - Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter. Det innebär att enheterna måste antingen vara i organisationens interna nätverk eller på ett VPN med nätverks åtkomst till en lokal domänkontrollant.
 - Om du använder en avbildning innan du kör Sysprep kontrollerar du att webbcachen har rensats för den inbyggda administratören innan du utför CopyProfile-steget. Mer information om det här steget finns i Support artikeln [dåliga prestanda när du använder anpassad standard användar profil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Följande inställningar är kända för att störa möjligheten att använda och återställa lösen ord på Windows 10-enheter:
-    - Om Ctrl + Alt + del krävs av en princip i versioner av Windows 10 innan v1809, så fungerar inte **återställa lösen ord** .
+    - Om Ctrl + Alt + del krävs av en princip i versioner av Windows 10 innan v1909, så fungerar inte **återställa lösen ord** .
     - Om meddelanden från Lås skärmen stängs av fungerar inte **Återställ lösen ord** .
     - *HideFastUserSwitching* har angetts till Enabled eller 1
     - *DontDisplayLastUserName* har angetts till Enabled eller 1

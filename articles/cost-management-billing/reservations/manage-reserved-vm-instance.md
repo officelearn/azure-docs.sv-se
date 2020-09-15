@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684787"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400134"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -73,7 +73,7 @@ Så här delegerar du åtkomstbehörighet för en reservation:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dela upp en reservation i två reservationer
 
- När du har köpt fler än en resursinstans i en reservation kanske du vill tilldela instanserna i reservationen till olika prenumerationer. Som standard har alla instanser en omfattning – antingen en enskild prenumeration eller delad. Anta att du har köpt 10 reservationsinstanser och angett omfånget som prenumeration A. Nu kanske du vill ändra omfånget så att sju reservationer hör till prenumeration A och de återstående tre till prenumeration B. Om du delar upp en reservation kan du fördela instanserna och hantera omfången detaljerat. Allokeringen till olika prenumerationer blir enklare om du väljer ett delat omfång. Om budgeten är begränsad kan du dock allokera specifika antal till specifika prenumerationer.
+ När du har köpt fler än en resursinstans i en reservation kanske du vill tilldela instanserna i reservationen till olika prenumerationer. Som standard har alla instanser ett omfång – antingen en enskild prenumeration, resursgrupp eller delad. Anta att du har köpt en reservation för tio VM-instanser och angett omfånget som prenumeration A. Nu vill du ändra omfånget för sju VM-instanser till prenumeration A och de återstående tre till prenumeration B. Det kan du göra genom att dela upp en reservation. När du har delat en reservation annulleras det ursprungliga ReservationID och två nya reservationer skapas. Delning påverkar inte reservationsordningen – delningen leder inte till en ny kommersiell transaktion och de nya reservationerna har samma slutdatum som den som delades.
 
  Du kan dela upp en reservation i två reservationer via PowerShell, CLI eller API:et.
 

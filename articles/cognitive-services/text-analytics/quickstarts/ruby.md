@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Ruby'
 titleSuffix: Azure Cognitive Services
-description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabb starten visar hur du använder ruby för att hämta information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: 92a80dc69afbda76d57a09e01efc9b91ecb286ba
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 076276068b62ed1b7b30864e9a4227cd449c680e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027917"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527232"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Ruby
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar senti
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -306,7 +306,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ```
 <a name="Entities"></a>
 
-## <a name="entity-recognition"></a>Enhetsidentifiering
+## <a name="entity-recognition"></a>Igenkänning av enhet
 
 API:et för entiteter identifierar entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
 

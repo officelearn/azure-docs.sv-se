@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 7e78c0d2538dbb6326df30d63ec1c38de48b62e6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 9c5c4247ab01a571613cad4f33832de152909b11
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057222"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527113"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MySQL
 
@@ -87,7 +87,7 @@ Inga åtgärder krävs om du inte använder SSL/TLS.
 Nej, du behöver inte starta om databas servern för att börja använda det nya certifikatet. Detta rot certifikat är en ändring på klient sidan och inkommande klient anslutningar måste använda det nya certifikatet för att säkerställa att de kan ansluta till databas servern.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. Vad händer om jag inte uppdaterar rot certifikatet före den 26 oktober 2020 (10/26/2020)?
-Om du inte uppdaterar rot certifikatet före den 30 november 2020 kommer dina program som ansluter via SSL/TLS och som verifierar för rot certifikatet inte att kunna kommunicera med MySQL-databasservern och programmet kommer att uppleva anslutnings problem till din MySQL Database-Server.
+Om du inte uppdaterar rot certifikatet före den 26 oktober 2020 kommer dina program som ansluter via SSL/TLS och som verifierar för rot certifikatet inte att kunna kommunicera med MySQL-databasservern och programmet kommer att uppleva anslutnings problem till din MySQL Database-Server.
 
 ### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. måste jag planera ett underhålls avbrott för den här ändringen?<BR>
 Nej. Eftersom ändringen bara finns på klient sidan för att ansluta till databas servern, finns det inga underhålls avbrott som krävs för den här ändringen.
@@ -95,7 +95,7 @@ Nej. Eftersom ändringen bara finns på klient sidan för att ansluta till datab
 ### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 26 oktober 2020 (10/26/2020)?
 Eftersom klienterna som används för att ansluta till servern måste uppdatera certifikat informationen enligt beskrivningen i avsnittet åtgärda [här](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), behöver vi inte något drift stopp för-servern i det här fallet.
 
-###  <a name="6-if-i-create-a-new-server-after-nov-30-2020-will-i-be-impacted"></a>6. om jag skapar en ny server efter den 30 november 2020 kommer jag att påverkas?
+###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. om jag skapar en ny server efter den 26 oktober 2020 kommer jag att påverkas?
 För servrar som skapats efter den 26 oktober 2020 (10/26/2020) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
 
 ### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?

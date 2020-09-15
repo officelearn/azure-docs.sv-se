@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: e87ecc14907c6e0618de47ffdbd334d8ba03ec99
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500632"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526348"
 ---
 # <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hyperspace – ett indexerings under system för Apache Spark
 
@@ -392,7 +392,8 @@ En spark-DataFrame som refererar till de data som ska indexeras.
 Ett index konfigurations objekt: IndexConfig, som anger index namn, indexerade och inkluderade kolumner i indexet.
 Du börjar med att skapa tre hyperspace-index för våra exempel data: två index på avdelnings data uppsättningen med namnet "deptIndex1" och "deptIndex2", och ett index för den anställdas data uppsättning med namnet "empIndex". För varje index behöver du en motsvarande IndexConfig för att avbilda namnet tillsammans med kolumn listor för de indexerade och inkluderade kolumnerna. Om du kör under cellen skapas dessa indexConfigs och dess utdata visas.
 
-Obs! en index kolumn är en kolumn som visas i dina filter eller som ansluts till villkor. En inkluderad kolumn är en kolumn som visas i ditt urval/projekt.
+> [!Note]
+> En index kolumn är en kolumn som visas i dina filter eller som ansluts till villkor. En inkluderad kolumn är en kolumn som visas i ditt urval/projekt.
 
 I följande fråga kan du till exempel:
 
@@ -508,8 +509,9 @@ Koden nedan visar hur du kan visa en lista över alla tillgängliga index i en h
 
 Under cellen används DataFrame ' Show '-åtgärd för att skriva ut raderna och Visa information om våra index i ett tabell format. För varje index kan du se all information som hyperspace har lagrat i metadata. Du kommer omedelbart att märka följande:
 
-"config. indexName", "config. indexedColumns", "config. includedColumns" och "status. status" är de fält som en användare vanligt vis refererar till.
-"dfSignature" genereras automatiskt av hyperspace och är unikt för varje index. Hyperspace använder den här signaturen internt för att underhålla indexet och utnyttja det vid tidpunkten för frågan.
+* "config. indexName", "config. indexedColumns", "config. includedColumns" och "status. status" är de fält som en användare vanligt vis refererar till.
+* "dfSignature" genereras automatiskt av hyperspace och är unikt för varje index. Hyperspace använder den här signaturen internt för att underhålla indexet och utnyttja det vid tidpunkten för frågan.
+
 I utdata nedan ska alla tre index ha "aktiv" som status och deras namn, indexerade kolumner och inkluderade kolumner ska överensstämma med det som vi definierade i index konfigurationerna ovan.
 
 :::zone pivot = "programming-language-scala"
@@ -839,7 +841,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;visar bara de fem översta raderna &nbsp;&nbsp;
+&nbsp;&nbsp;Detta visar bara de 5 översta raderna &nbsp;&nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -1369,8 +1371,8 @@ Om de ursprungliga data som ett index har skapats på inte längre kommer att f�
 
 De två cellerna nedan visar ett exempel för det här scenariot:
 
-Första cellen lägger till två fler avdelningar till de ursprungliga avdelnings data. Den läser och skriver ut en lista med avdelningar för att kontrol lera att nya avdelningar läggs till korrekt. Utdata visar sex avdelningar totalt: fyra gamla och två nya. Anropar "refreshIndex"-uppdateringar "deptIndex1" så att index fångar in nya avdelningar.
-Andra cellen kör vårt urvals exempel fråga. Resultaten bör nu innehålla fyra avdelningar: två är de som visas innan vi körde frågan ovan och två är de nya avdelningar som vi nyss lade till.
+* Första cellen lägger till två fler avdelningar till de ursprungliga avdelnings data. Den läser och skriver ut en lista med avdelningar för att kontrol lera att nya avdelningar läggs till korrekt. Utdata visar sex avdelningar totalt: fyra gamla och två nya. Anropar "refreshIndex"-uppdateringar "deptIndex1" så att index fångar in nya avdelningar.
+* Andra cellen kör vårt urvals exempel fråga. Resultaten bör nu innehålla fyra avdelningar: två är de som visas innan vi körde frågan ovan och två är de nya avdelningar som vi nyss lade till.
 
 ### <a name="specific-index-refresh"></a>Detaljerad uppdatering av index
 

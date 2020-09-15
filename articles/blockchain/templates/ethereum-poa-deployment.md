@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386120"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527164"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -33,7 +33,7 @@ Lösningsmallar | IaaS | Solution templates är Azure Resource Manager mallar so
 [Azure Blockchain Service](../service/overview.md) | PaaS | För hands versionen av Azure blockchain service fören klar investeringen, hanteringen och styrningen av konsortiet blockchain-nätverk. Använd Azure blockchain-tjänsten för lösningar som kräver PaaS, konsortiets hantering eller kontrakt och transaktions sekretess.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS och PaaS | Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Använd Azure blockchain Workbench för prototyp av en blockchain-lösning eller ett koncept för blockchain-program. Azure Blockchain Workbench tillhandahålls utan serviceavtal. Använd [sidan Microsoft Q&en fråga](/answers/topics/azure-blockchain-workbench.html) för support.
 
-## <a name="solution-architecture"></a>Lösningsarkitekturen
+## <a name="solution-architecture"></a>Lösningsarkitektur
 
 Med hjälp av mallen för Ethereum-lösningar kan du distribuera en enda eller flera regioner-baserade Ethereum-nätverk med flera medlemmar.
 
@@ -84,22 +84,22 @@ I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** i det �
 
 Välj **blockchain**  >  **Ethereum proof-of-Authority Consortium (för hands version)**.
 
-### <a name="basics"></a>Grunderna
+### <a name="basics"></a>Grundläggande inställningar
 
 Under **grunderna**anger du värden för standard parametrar för alla distributioner.
 
-![Grunderna](./media/ethereum-poa-deployment/basic-blade.png)
+![Grundläggande inställningar](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
 Skapa ett nytt nätverk eller Anslut till ett befintligt nätverk | Du kan skapa ett nytt konsortiums nätverk eller ansluta till ett befintligt konsortiums nätverk. För att kunna ansluta till ett befintligt nätverk krävs ytterligare parametrar. | Skapa ny
 E-postadress | Du får ett e-postmeddelande när distributionen är klar med information om distributionen. | En giltig e-postadress
 Användar namn för virtuell dator | Administratörs användar namn för varje distribuerad virtuell dator | 1-64 alfanumeriska tecken
-Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | lösenordsinställning
-lösenordsinställning | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
+Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | Lösenord
+Lösenord | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
 Prenumeration | Den prenumeration som används för att distribuera konsortiets nätverk |
 Resursgrupp| Den resurs grupp som används för att distribuera konsortial nätverket. | myResourceGroup
-Position | Azure-regionen för resurs gruppen. | USA, västra 2
+Plats | Azure-regionen för resurs gruppen. | USA, västra 2
 
 Välj **OK**.
 
@@ -168,7 +168,7 @@ Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
 Övervakning | Alternativ för att aktivera övervakning | Aktivera
 Ansluta till befintliga Azure Monitor loggar | Alternativ för att skapa en ny Azure Monitor loggar instans eller ansluta till en befintlig instans | Skapa ny
-Position | Den region där den nya instansen distribueras | East US
+Plats | Den region där den nya instansen distribueras | East US
 Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||NA
 Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||NA
 
@@ -192,7 +192,7 @@ Om du anger en e-postadress ([avsnittet grundläggande](#basics)) skickas ett e-
 
 ![e-postdistribution](./media/ethereum-poa-deployment/deployment-email.png)
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 
 När distributionen har slutförts och alla resurser har etablerats kan du Visa utdataparametrar i resurs gruppen.
 
@@ -279,7 +279,7 @@ Portalen visar först nätverks statistik och node-översikt på hög nivå.
 
 ![Övervaka kategorier](./media/ethereum-poa-deployment/monitor-categories.png)
 
-Om du väljer **node-översikt** visas infrastruktur statistik per nod.
+Om du väljer **node-översikt**  visas infrastruktur statistik per nod.
 
 ![Nods statistik](./media/ethereum-poa-deployment/node-stats.png)
 
@@ -325,7 +325,7 @@ Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för n
 
 1. Välj regeln **Allow-SSH** .
 
-    ![SSH-Tillåt](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Skärm dum par visar ett översikts fönster med alternativet SSH-Allow markerat.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Ändra **åtgärd** att **tillåta**
 
@@ -333,7 +333,7 @@ Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för n
 
 1. Välj **Spara**. Det kan ta några minuter att göra ändringar.
 
-Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Ett exempel:
+Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Exempel:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.

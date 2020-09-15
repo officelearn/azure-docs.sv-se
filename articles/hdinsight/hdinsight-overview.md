@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 676d287969933d4815260f040b164753ec5803e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: f66eaaa3be0b300f6a0aa68bd43a2c336f4b4d23
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754879"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526637"
 ---
 # <a name="what-is-azure-hdinsight"></a>Vad är Azure HDInsight?
 
@@ -27,7 +27,7 @@ Mer information om tillgängliga stackkomponenter med Hadoop-teknik i HDInsight 
 
 ## <a name="what-is-big-data"></a>Vad är stordata?
 
-Stordata samlas in i ständigt växande volymer, med allt högre hastighet och i fler olika format än någonsin tidigare. De kan vara historiska (dvs. lagrade) eller realtidsdata (vilket innebär att de strömmas direkt från källan). Under [Scenarier för att använda HDInsight](#scenarios-for-using-hdinsight) kan du läsa mer om vanliga användningsområden för stordata.
+Stordata samlas in i ständigt växande volymer, med allt högre hastighet och i fler olika format än någonsin tidigare. De kan vara historiska (lagrade) eller realtidsbaserade (vilket innebär att de strömmas från källan). Under [Scenarier för att använda HDInsight](#scenarios-for-using-hdinsight) kan du läsa mer om vanliga användningsområden för stordata.
 
 ## <a name="why-should-i-use-azure-hdinsight"></a>Varför ska jag använda Azure HDInsight?
 
@@ -79,7 +79,7 @@ Med HDInsight kan du utöka din befintliga lokala infrastruktur för stordata ti
 
 HDInsight omfattar specifika klustertyper och anpassningsmöjligheter för klustret, till exempel funktioner för att lägga till komponenter, verktyg och språk. HDInsight erbjuder följande klustertyper:
 
-|Typ av kluster | Beskrivning |
+|Typ av kluster | Description |
 |---|---|
 |[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|Ett ramverk som använder HDFS, YARN-resurshantering och en enkel MapReduce-programmeringsmodell för att behandla och analysera batchdata parallellt.|
 |[Apache Spark](./spark/apache-spark-overview.md)|Ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Se [Vad är Apache Spark i HDInsight?](./spark/apache-spark-overview.md).|
@@ -128,6 +128,16 @@ Välbekanta verktyg för Business Intelligence (BI) hämtar, analyserar och rapp
 * [Ansluta Excel till Apache Hadoop med Power Query](./hadoop/apache-hadoop-connect-excel-power-query.md) (kräver Windows)
 
 * [Ansluta Excel till Apache Hadoop med Microsoft Hives ODBC-drivrutin](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (kräver Windows)
+
+
+## <a name="in-region-data-residency"></a>Placering för region data 
+
+Spark, Hadoop, LLAP, storm och MLService lagrar inte kund information, så dessa tjänster uppfyller automatiskt data placerings krav i region, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/). 
+
+Kafka och HBase lagrar kund information. Dessa data lagras automatiskt av Kafka och HBase i en enda region, så den här tjänsten uppfyller de nationella data placering kraven, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/). 
+
+
+Välkända Business Intelligence-verktyg (BI) hämtar, analyserar och rapporterar data som integreras med HDInsight med hjälp av antingen Power Query-tillägget eller Microsoft Hive ODBC-drivrutinen.
 
 ## <a name="next-steps"></a>Nästa steg
 

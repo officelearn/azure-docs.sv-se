@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669240"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525005"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Förbered käll datorn för push-installation av mobilitets agenten
 
@@ -63,7 +63,7 @@ Gör följande på varje Linux-dator som du vill skydda:
 11. På fliken **Hantera konton** väljer du **Lägg till konto**.
 12. Lägg till kontot som du skapade.
 13. Ange autentiseringsuppgifterna som du använder när du aktiverar replikering för en dator.
-1. Ytterligare steg för att uppdatera eller skydda SUSE Linux Enterprise Server 11 SP3-datorer. [Se till att den senaste versionen är tillgänglig på konfigurations servern](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. Ytterligare steg för att uppdatera eller skydda SUSE Linux Enterprise Server 11 SP3-eller RHEL 5-eller CentOS 5-eller Debian 7-datorer. [Se till att den senaste versionen är tillgänglig på konfigurations servern](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Virus skydd på replikerade datorer
 

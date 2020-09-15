@@ -3,18 +3,18 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89439630"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526331"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
 Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
@@ -107,7 +107,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     * **IoT Edge modulens namn**: lvaEdge
     * **Bild-URI**: MCR.Microsoft.com/media/Live-Video-Analytics:1.0    
     
-    ![Lägg till](./media/deploy-iot-edge-device/add.png)
+    ![Skärm bild som visar fliken modul inställningar.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare**och fliken **dubbla inställningar** enligt beskrivningen i den här proceduren.
@@ -217,7 +217,7 @@ När du har skapat distributionen återgår du till IoT Edge sida i IoT Hub.
 Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
 Status kod: 200 – OK innebär att [den IoT Edge körningen](../../iot-edge/iot-edge-runtime.md) är felfri och fungerar bra.
 
-![Status](./media/deploy-iot-edge-device/status.png)
+![Skärm bild visar ett status värde för en IoT Edge Runtime.](./media/deploy-iot-edge-device/status.png)
 
 #### <a name="invoke-a-direct-method"></a>Anropa en direktmetod
 
@@ -225,7 +225,7 @@ Sedan kan du testa exemplet genom att anropa en direkt metod. Läs [direkt metod
 
 1. När du klickar på den Edge-modul som du skapade, kommer du till konfigurations sidan.  
 
-    ![Moduler](./media/deploy-iot-edge-device/modules.png)
+    ![Skärm bild som visar konfigurations sidan för en Edge-modul.](./media/deploy-iot-edge-device/modules.png)
 1. Klicka på meny alternativet Direct-metod.
 
     > [!NOTE] 

@@ -1,6 +1,6 @@
 ---
 title: Självstudie – integrera en befintlig skog och en ny skog med en enda Azure AD-klient med Azure AD Connect moln etablering.
-description: gång.
+description: Lär dig hur du lägger till moln etablering i en befintlig hybrid identitets miljö. .
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba35d6ffb4cbeb25d64d42adb2429636f1d56ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 25e70809becd59ceeb3c45867b9e35119df497a3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228484"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526926"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrera en befintlig skog med en ny skog med en enskild Azure AD-klientorganisation
 
@@ -28,7 +28,7 @@ Du kan använda den miljö som du skapar i den här självstudien för att testa
 
 I det här scenariot synkroniseras en befintlig skog med hjälp av Azure AD Connect synkronisering till en Azure AD-klient. Och du har en ny skog som du vill synkronisera till samma Azure AD-klient. Du kommer att konfigurera moln etablering för den nya skogen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="in-the-azure-active-directory-admin-center"></a>I Azure Active Directory administrations Center
 
 1. Skapa ett globalt administratörs konto för molnet på Azure AD-klienten. På så sätt kan du hantera konfigurationen av din klient organisation om dina lokala tjänster kraschar eller blir otillgängliga. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../fundamentals/add-users-azure-active-directory.md). Att slutföra det här steget är viktigt för att säkerställa att du inte blir utelåst från din klient.
@@ -80,7 +80,7 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 

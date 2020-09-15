@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80529524"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527215"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Säkerhets rutiner för Azure IoT Device-tillverkare
 Eftersom fler tillverkare släpper IoT-enheter är det bra att identifiera vägledning kring vanliga metoder. Den här artikeln sammanfattar rekommenderade säkerhets metoder för att tänka på när du tillverkar enheter för användning med Azure IoT Device Provisioning-tjänsten (DPS).  
@@ -182,7 +182,7 @@ En enhet kan sitta i ett lager i 6-12 månader innan den distribueras.
 #### <a name="step-5-device-is-installed-into-the-location"></a>Steg 5: enheten installeras på platsen
 När enheten har nått sin slutgiltiga plats går den igenom automatiserad etablering med DPS.
 
-Mer information finns i [autoetablering av koncept](concepts-auto-provisioning.md) och [TPM-attestering](concepts-tpm-attestation.md). 
+Mer information finns i [etablering](about-iot-dps.md#provisioning-process) och [TPM-attestering](concepts-tpm-attestation.md). 
 
 ## <a name="resources"></a>Resurser
 

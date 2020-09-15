@@ -4,12 +4,12 @@ description: Skriv ett C#-konsol program för Azure Relay Hybridanslutningar Web
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bf22b8b11dc386644803b43ee4e3a51d04b70419
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934267"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527436"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -52,7 +52,7 @@ För att skicka meddelanden till Relay skriver du ett C#-konsolprogram i Visual 
 2. Kör klientprogrammet och skriv in lite text.
 3. Se till att serverprogramkonsolen visar den text som angavs i klientprogrammet.
 
-    ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![Konsol fönster som testar både server-och klient program.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Grattis, du har skapat ett komplett Hybridanslutningar-program!
 

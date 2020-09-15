@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-exempel – Använd en anpassad VM-avbildning
-description: Det här skriptet skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning som källa för de virtuella datorinstanserna.
+description: Det här Azure CLI-skriptet skapar en skalnings uppsättning för virtuella datorer som använder en anpassad VM-avbildning som källa för VM-instanserna.
 author: axayjo
 ms.author: akjosh
 ms.topic: sample
@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 8f8384667eb9f0c3fc0b3368ac38cbb3e25e979b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d5b7c2814bd6b4be5c0a2243cc61af3405054db4
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499729"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526773"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Skapa en VM-skalningsuppsättning från en anpassad virtuell datoravbildning med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning som källa för de virtuella datorinstanserna.

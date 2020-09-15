@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 251159c4fcf27ceb4d8b0dddeecbe501c7346e9e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 05ff5d2f7ff87d2ce58f135330487f746cc5c1c7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073241"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528388"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -24,7 +24,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,13 +41,13 @@ Key Vault detaljerad referensinformation för PowerShell finns i [Azure Key Vaul
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Beskrivning | Användar behörighet |
+| Åtgärd | Description | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft. nyckel-valv/platser/deletedVaults/rensning/åtgärd|
 
-Mer information om behörigheter och åtkomst kontroll finns i [skydda nyckel valvet](secure-your-key-vault.md).
+Mer information om behörigheter och åtkomst kontroll finns i [skydda ditt nyckel valv](secure-your-key-vault.md).
 
 ## <a name="enabling-soft-delete"></a>Aktivera mjuk borttagning
 
@@ -282,5 +282,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Andra resurser
 
-- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](soft-delete-overview.md)).
-- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](overview.md)).
+- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](soft-delete-overview.md).
+- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](overview.md).

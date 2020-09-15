@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684617"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398434"
 ---
 # <a name="reservation-recommendations"></a>Reservationsrekommendationer
 
@@ -25,6 +25,7 @@ Följande steg definierar hur rekommendationer beräknas:
 2. Motorn simulerar dina kostnader med och utan reservationer enligt dessa förbrukningsdata.
 3. Kostnaderna simuleras enligt olika kvantiteter och den kvantitet som maximerar dina besparingar rekommenderas.
 4. Om dina resurser stängs av regelbundet kommer simuleringen inte att hitta några besparingsmöjligheter och inte ge dig någon inköpsrekommendation.
+5. Alla rabatter som du kan ha för dina priser för användning på begäran tas med i beräkningen för rekommendationer.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Rekommendationer på Azure-portalen
 
@@ -52,11 +53,11 @@ Om du vill maximera besparingarna med reservationer försöker du köpa reservat
 
 Rekommendationer för reservationsköp finns i Azure Advisor. Tänk på följande punkter:
 
-- Advisor tillhandahåller endast rekommendationer som omfattas av en prenumeration.
-- Rekommendationerna beräknas utifrån trenden för de senaste 30 dagarnas användning.
+- Advisor tillhandahåller endast rekommendationer som omfattas av en prenumeration. Om du vill se rekommendationer för hela faktureringsomfånget (faktureringskonto eller faktureringsprofil) går du till Azure-portalen > Reservationer > Lägg till och välj den typ som du vill visa rekommendationer för.
+- Rekommendationerna som är tillgängliga i Advisor baseras på trenden för de senaste 30 dagarnas användning.
 - Den rekommenderade kvantiteten och besparingar är för en 3-årig reservation, om tillgängligt. Om en 3 års reservation inte säljs för tjänsten beräknas rekommendationen med priset för 1 års reservation.
-- Rekommendationer tar i beaktande alla rabatter som du kan ha för dina priser för användning på begäran.
-- Om du köper en reservation med delad omfattning kan det ta upp till 30 dagar innan Advisors rekommendationer slutar att visas.
+- Alla rabatter som du kan ha för dina priser för användning på begäran tas med i beräkningarna för rekommendationer.
+- Om du köper en reservation med delat omfång kan det ta upp till 5 dagar innan Advisors rekommendationer om reservationsköp slutar att visas.
 
 ## <a name="other-expected-api-behavior"></a>Annat förväntat API-beteende
 

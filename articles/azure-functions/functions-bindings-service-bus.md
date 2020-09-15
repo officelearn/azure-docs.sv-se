@@ -6,23 +6,27 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111209"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530377"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus bindningar för Azure Functions
 
 Azure Functions integreras med [Azure Service Bus](https://azure.microsoft.com/services/service-bus) via [utlösare och bindningar](./functions-triggers-bindings.md). Genom att integrera med Service Bus kan du bygga funktioner som reagerar på och skickar kö-eller ämnes meddelanden.
 
-| Åtgärd | Typ |
+| Action | Typ |
 |---------|---------|
 | Köra en funktion när en Service Bus kö eller ett ämnes meddelande skapas | [Utlösare](./functions-bindings-service-bus-trigger.md) |
 | Skicka Azure Service Bus meddelanden |[Utgående bindning](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
+
+> [!NOTE]
+> Service Bus-bindningen stöder för närvarande inte autentisering med en hanterad identitet. Använd i stället en [Service Bus signatur för delad åtkomst](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x och senare
 

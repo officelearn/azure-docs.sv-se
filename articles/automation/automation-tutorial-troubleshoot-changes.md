@@ -7,12 +7,12 @@ keywords: ändring, spårning, ändrings spårning, inventering, automatisering
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185814"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530547"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Felsöka ändringar på en virtuell Azure-dator
 
@@ -99,7 +99,7 @@ Med ändrings spårning väljer du de filer och register nycklar som ska samlas 
     |---------|---------|
     |Enabled     | Fastställer om inställningen tillämpas        |
     |Objektnamn     | Eget namn på filen som ska spåras        |
-    |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+    |Group     | Ett gruppnamn för att gruppera filer logiskt        |
     |Windows-registernyckel   | Sökvägen för att söka efter filen Till exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="add-a-windows-file"></a>Lägga till en Windows-fil
@@ -112,7 +112,7 @@ Med ändrings spårning väljer du de filer och register nycklar som ska samlas 
     |---------|---------|
     |Enabled     | Fastställer om inställningen tillämpas        |
     |Objektnamn     | Eget namn på filen som ska spåras        |
-    |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+    |Group     | Ett gruppnamn för att gruppera filer logiskt        |
     |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"         |
     |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
     |Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
@@ -127,7 +127,7 @@ Med ändrings spårning väljer du de filer och register nycklar som ska samlas 
     |---------|---------|
     |Enabled     | Fastställer om inställningen tillämpas        |
     |Objektnamn     | Eget namn på filen som ska spåras        |
-    |Grupp     | Ett gruppnamn för att gruppera filer logiskt        |
+    |Group     | Ett gruppnamn för att gruppera filer logiskt        |
     |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”/etc/*.conf”       |
     |Sökvägstyp     | Typ av objekt som ska spåras, möjliga värden är Fil och Katalog        |
     |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
@@ -220,7 +220,7 @@ Det kan vara användbart att granska ändringar i Azure-portalen, men det är b�
 
 19. Välj **e-postämne**för **Skapa regel**och välj sedan **skapa aviserings regel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning. Följande bild är ett exempel på ett e-postmeddelande som tas emot när W3SVC-tjänsten stoppas.
 
-    ![e-post](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![Skärm dum par visar ett e-postmeddelande som tas emot när d-tjänsterna på d-serien stoppas.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

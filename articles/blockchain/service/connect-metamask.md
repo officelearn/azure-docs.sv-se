@@ -4,12 +4,12 @@ description: Anslut till ett Azure blockchain service-nätverk med MetaMask och 
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920577"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530445"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Snabb start: använda MetaMask för att ansluta och distribuera ett smart kontrakt
 
@@ -41,7 +41,7 @@ Du behöver Azure blockchain-tjänstens slut punkts adress för att ansluta till
 ## <a name="connect-metamask"></a>Anslut MetaMask
 
 1. Öppna MetaMask browser extension och logga in.
-1. I list rutan nätverk väljer du **anpassad RPC**.
+1. I list rutan nätverk väljer du  **anpassad RPC**.
 
     ![Anpassat RPC](./media/connect-metamask/custom-rpc.png)
 
@@ -87,9 +87,9 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
     ```
 
     Det **enkla kontraktet** deklarerar en tillstånds variabel med namnet **Saldo**. Två funktioner har definierats. Funktionen **Add** lägger till ett tal att **balansera**. Funktionen **Get** returnerar värdet för **saldot**.
-1. För att kompilera kontraktet väljer du först fönstret halvledare compiler och väljer sedan **compile Simple. sol**.
+1. För att kompilera kontraktet väljer du först fönstret halvledare compiler och väljer sedan  **compile Simple. sol**.
 
-    ![Kompileringsfel](./media/connect-metamask/compile.png)
+    ![Skärm dum par visar ett kontrakt som kompileras.](./media/connect-metamask/compile.png)
 
 1. Välj rutan **distribuera & körning** och ange sedan att **miljön** ska **injicera Web3** för att ansluta via MetaMask till din blockchain-medlem.
 
@@ -97,7 +97,7 @@ Remix är en webbläsarbaserad utvecklings miljö. Med MetaMask och Remix tillsa
 
 1. Välj det **enkla** kontraktet och **distribuera**.
 
-    ![Distribuera](./media/connect-metamask/deploy.png)
+    ![Skärm dum par visar distributions-och körnings transaktioner med ett kontrakt valt och distribuera valt.](./media/connect-metamask/deploy.png)
 
 
 1. Ett MetaMask-meddelande varnar dig om otillräckliga medel för att utföra transaktionen.

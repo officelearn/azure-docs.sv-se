@@ -7,17 +7,17 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: f5110a7644d3ca33da5755f783f61ac35484ddb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399284"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531890"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Åtgärder för Azure Front Door-regelmotorn
 
@@ -92,14 +92,14 @@ Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefor
 
 Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar och om innehållet ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet stannar i cacheminnet för begär Anden som regler matchar villkoren anger. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du gör detta visas följande alternativ: 
 
-Cache-beteende |  Beskrivning              
+Cache-beteende |  Description              
 ---------------|----------------
 Ignorera frågesträngar | När till gången har cachelagrats ignorerar alla efterföljande förfrågningar frågesträngarna tills den cachelagrade till gången upphör att gälla.
 Cachelagra varje unik URL | Varje begäran med en unik URL, inklusive frågesträngen, behandlas som en unik till gång med sin egen cache.
 Ignorera angivna frågesträngar | Fråge strängar för URL: en som anges i inställningen frågeparametrar ignoreras för cachelagring.
 Inkludera angivna frågesträngar | Fråge strängar för URL: en som anges i inställningen frågeparametrar används för cachelagring.
 
-Ytterligare fält |  Beskrivning 
+Ytterligare fält |  Description 
 ------------------|---------------
 Dynamisk komprimering | Front dörren kan dynamiskt komprimera innehåll på gränsen, vilket resulterar i ett mindre och snabbare svar.
 Frågeparametrar | En kommaavgränsad lista över tillåtna (eller otillåtna) parametrar som ska användas som grund för cachelagring.

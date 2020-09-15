@@ -3,12 +3,12 @@ title: Azure Event Hubs process Apache Kafka händelser
 description: 'Självstudie: den här artikeln visar hur du bearbetar Kafka-händelser som matas in via Event Hub med hjälp av Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074918"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531295"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Självstudie: bearbeta Apache Kafka för Event Hubs händelser med Stream Analytics 
 Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem med Azure Stream Analytics. Det vägleder dig genom följande steg: 
@@ -136,7 +136,7 @@ När du har en Stream Analytics-jobbkonfiguration för att läsa en inkommande d
 3. Ersätt `[YourInputAlias]` med det angivna aliaset som du skapade tidigare. 
 4. Välj **Spara** i verktygsfältet. 
 
-    ![Söka i data](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Skärm dum par visar frågefönstret med värden för indata-och utmatnings-variabler.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet

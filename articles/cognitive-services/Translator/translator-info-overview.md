@@ -10,13 +10,14 @@ ms.subservice: translator-text
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: swmachan
+ms.custom: cog-serv-seo-aug-2020
 keywords: översättare, text översättning, maskin översättning, översättnings tjänst
-ms.openlocfilehash: a3c82546c8aa6467aee0a3e4bb59d68b0123a9c2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 32ae7f75c1b953e8af7dfef83c1971c2f78b0b62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084540"
+ms.locfileid: "90530343"
 ---
 # <a name="what-is-the-translator-service"></a>Vad är tjänsten Translator?
 

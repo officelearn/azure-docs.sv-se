@@ -10,20 +10,35 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: b8741d17c55a786d7a90d1c311039f2855adf43b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759214"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530666"
 ---
 # <a name="whats-new-in-computer-vision"></a>Vad är nytt i Visuellt innehåll
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
+## <a name="september-2020"></a>September 2020
+
+### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Read API v 3.1 offentlig för hands version lägger till OCR för japanska
+I Visuellt innehåll Läs-API v 3.1, som är allmänt tillgänglig, läggs dessa funktioner till:
+* OCR för japanskt språk
+* För varje textrad anger du om utseendet är hand skrift eller utskrifts format, tillsammans med en förtroende poäng (endast latinska språk).
+* För ett flersidigt dokument extrahera text enbart för markerade sidor eller sid intervall.
+
+* Den här för hands versionen av Read API stöder engelska, nederländska, franska, tyska, italienska, japanska, portugisiska, kinesiska (förenklad) och spanska språk.
+
+Mer information finns i [Översikt över Read API](concept-recognizing-text.md) .
+
+> [!div class="nextstepaction"]
+> [Läs mer om Read API v 3.1 Public Preview 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
 ## <a name="july-2020"></a>Juli 2020
 
-### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Read API v 3.1 offentlig för hands version lägger till stöd för förenklad kinesiska
+### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Read API v 3.1 offentlig för hands version med OCR för förenklad kinesiska
 Visuellt innehåll s Read API v 3.1 allmän för hands version lägger till stöd för förenklad kinesiska.
 
 * Den här för hands versionen av Read API stöder engelska, nederländska, franska, tyska, italienska, portugisiska, kinesiska (förenklad) och spanska språk.
@@ -31,7 +46,7 @@ Visuellt innehåll s Read API v 3.1 allmän för hands version lägger till stö
 Mer information finns i [Översikt över Read API](concept-recognizing-text.md) .
 
 > [!div class="nextstepaction"]
-> [Läs mer om den offentliga för hands versionen av Read API v 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Läs mer om Read API v 3.1 offentlig för hands version 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maj 2020
 API för visuellt innehåll v 3.0 angav allmän tillgänglighet, med uppdateringar för [Read API](concept-recognizing-text.md):

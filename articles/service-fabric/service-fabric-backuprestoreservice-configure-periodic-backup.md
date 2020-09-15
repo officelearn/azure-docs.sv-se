@@ -1,16 +1,16 @@
 ---
 title: Förstå konfiguration av regelbunden säkerhetskopiering
-description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
+description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att konfigurera regelbunden säkerhets kopiering av dina pålitliga tillstånds känsliga tjänster eller Reliable Actors.
 author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261220"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530921"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
 
@@ -119,7 +119,7 @@ En säkerhets kopierings princip består av följande konfigurationer:
 >
 
 * **Bevarande princip**: anger principen för att behålla säkerhets kopior i den konfigurerade lagringen. Det finns bara stöd för grundläggande bevarande principer.
-    1. **Princip för grundläggande bevarande**: den här bevarande principen gör det möjligt att säkerställa optimal lagrings användning genom att ta bort säkerhetskopierade filer som inte behövs längre. `RetentionDuration`kan anges för att ställa in tidsintervallet för vilka säkerhets kopieringar måste behållas i lagringen. `MinimumNumberOfBackups`är en valfri parameter som kan anges för att se till att det angivna antalet säkerhets kopior alltid behålls oberoende av `RetentionDuration` . I exemplet nedan visas konfigurationen för att bevara säkerhets kopior i _10_ dagar och antalet säkerhets kopior kan inte gå under _20_.
+    1. **Princip för grundläggande bevarande**: den här bevarande principen gör det möjligt att säkerställa optimal lagrings användning genom att ta bort säkerhetskopierade filer som inte behövs längre. `RetentionDuration` kan anges för att ställa in tidsintervallet för vilka säkerhets kopieringar måste behållas i lagringen. `MinimumNumberOfBackups` är en valfri parameter som kan anges för att se till att det angivna antalet säkerhets kopior alltid behålls oberoende av `RetentionDuration` . I exemplet nedan visas konfigurationen för att bevara säkerhets kopior i _10_ dagar och antalet säkerhets kopior kan inte gå under _20_.
 
         ```json
         {

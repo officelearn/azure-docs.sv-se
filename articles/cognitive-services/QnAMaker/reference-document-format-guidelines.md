@@ -1,14 +1,14 @@
 ---
 title: Importera dokument format rikt linjer – QnA Maker
-description: 'Förstå hur olika typer av URL: er används för att importera och skapa QnA-par.'
+description: Använd de här rikt linjerna för att importera dokument för att få bästa möjliga resultat för ditt innehåll.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804341"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530785"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Format rikt linjer för importerade dokument och webb adresser
 
@@ -16,7 +16,7 @@ Granska dessa rikt linjer för formatering för att få bästa möjliga resultat
 
 ## <a name="formatting-considerations"></a>Överväganden vid formatering
 
-När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehållet i [markdown-formatet](https://en.wikipedia.org/wiki/Markdown). Konverterings processen lägger till nya rader i texten, t `\n\n`. ex.. En kunskap om markdown-formatet hjälper dig att förstå det konverterade innehållet och hantera ditt kunskaps bas innehåll.
+När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehållet i [markdown-formatet](https://en.wikipedia.org/wiki/Markdown). Konverterings processen lägger till nya rader i texten, t `\n\n` . ex.. En kunskap om markdown-formatet hjälper dig att förstå det konverterade innehållet och hantera ditt kunskaps bas innehåll.
 
 Om du lägger till eller redigerar innehållet direkt i din kunskaps bas använder du **markdown-formatering** för att skapa RTF-innehåll eller ändra markdown format innehåll som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få RTF-funktioner till ditt innehåll. Men klient programmet, till exempel en chatt-robot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klient programmets visning av svar.
 
@@ -110,7 +110,7 @@ Om du importerar en kunskaps bas ersätts innehållet i den befintliga kunskaps 
 
 * Använd rubriker och under rubriker för att beteckna hierarkier. Till exempel kan du ange den överordnade QnA och H2 för att ange den QnA som ska tas med i frågan. Använd liten rubrik storlek för att beteckna efterföljande hierarkier. Använd inte formatmall, färg eller någon annan mekanism för att göra en struktur i ditt dokument, QnA Maker inte extraherar flera inaktiverade prompter.
 * Första bokstaven i rubriken måste vara kapitaliserad.
-* Avsluta inte en rubrik med ett frågetecken, `?`.
+* Avsluta inte en rubrik med ett frågetecken, `?` .
 
 **Exempel dokument**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso-förmåner (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso-förmåner (PDF)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 

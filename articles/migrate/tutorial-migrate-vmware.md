@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent lös migrering av virtuella VMware-da
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: c9a7e76496c2851b90c8fd1d164645c46d02609b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376049"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530530"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -101,8 +101,8 @@ Aktivera replikering på följande sätt:
 
 9. I **Azure Hybrid-förmån**:
 
-    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
-    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
+    - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka på **Nästa**.
+    - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka på **Nästa**.
 
     ![Mål inställningar](./media/tutorial-migrate-vmware/target-settings.png)
 
@@ -119,9 +119,9 @@ Aktivera replikering på följande sätt:
 
  ![Inställningar för VM-beräkning](./media/tutorial-migrate-vmware/compute-settings.png)
 
-11. I **Diskar** anger du om VM-diskarna ska replikeras till Azure och disktypen (standard SSD/HDD eller premiumhanterade diskar) i Azure. Klicka sedan på **Nästa**.
+11. I **Diskar** anger du om VM-diskarna ska replikeras till Azure och disktypen (standard SSD/HDD eller premiumhanterade diskar) i Azure. Klicka på **Nästa**.
    
-    ![Diskar](./media/tutorial-migrate-vmware/disks.png)
+    ![Skärm bild som visar fliken diskar i dialog rutan replikera.](./media/tutorial-migrate-vmware/disks.png)
 
 12. I **Granska och starta replikering** kontrollerar du inställningarna och klickar på **Replikera** för att påbörja den första replikeringen för servrarna.
 

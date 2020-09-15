@@ -3,12 +3,13 @@ title: Nätverksalternativ för Azure Functions
 description: En översikt över alla nätverks alternativ som är tillgängliga i Azure Functions.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385950"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530104"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -71,7 +72,7 @@ När du skapar en Function-app måste du skapa eller länka till ett allmänt Az
 
 Mer information finns i [krav för lagrings konton](./functions-create-function-app-portal.md#storage-account-requirements).
 
-## <a name="use-key-vault-references"></a>Använda Key Vault referenser
+## <a name="use-key-vault-references"></a>Använda Key Vault-referenser
 
 Du kan använda Azure Key Vault referenser för att använda hemligheter från Azure Key Vault i Azure Functions program utan att behöva göra några kod ändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
 
@@ -86,7 +87,7 @@ För närvarande kan du använda icke-HTTP-utlösare i ett virtuellt nätverk p�
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Premium plan med virtuella nätverks utlösare
 
-När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen **stöd för virtuell nätverks utlösare** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar**.
+När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen för **körnings skalnings övervakning** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -98,7 +99,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Virtuella nätverks utlösare stöds i version 2. x och senare av Functions-körningen. Följande typer av icke-HTTP-utlösare stöds.
 
-| Filnamnstillägg | Lägsta version |
+| Anknytning | Lägsta version |
 |-----------|---------| 
 |[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 eller senare |
 |[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 eller senare|

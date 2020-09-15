@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 3621d0c22aa6f35fc845f449d07bce8dcf0ba1fa
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461892"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531227"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -639,7 +639,7 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
 
 -   **Key Vault**. När du använder länkade tjänster vars anslutnings information lagras i Azure Key Vault rekommenderar vi att du håller separata nyckel valv för olika miljöer. Du kan också konfigurera separata behörighets nivåer för varje nyckel valv. Till exempel kanske du inte vill att dina team medlemmar ska ha behörighet till produktions hemligheter. Om du följer den här metoden rekommenderar vi att du behåller samma hemliga namn i alla steg. Om du behåller samma hemliga namn behöver du inte Parameterisera varje anslutnings sträng i CI/CD-miljöer eftersom det enda som ändras är nyckel valvets namn, som är en separat parameter.
 
--  **Resurs namn** Använd begränsningen ARM-mallar, problem i distributionen kan uppstå om dina resurser innehåller blank steg i namnet. Azure Data Factorys teamet rekommenderar att du använder "_" eller "-" tecken i stället för utrymme för resurser. Till exempel är Pipeline_1 ett hellre namn över "pipelining 1".
+-  **Resurs namn** På grund av begränsningar i ARM-mallar kan problem i distributionen uppstå om dina resurser innehåller blank steg i namnet. Azure Data Factorys teamet rekommenderar att du använder "_" eller "-" tecken i stället för utrymme för resurser. Till exempel är Pipeline_1 ett hellre namn över "pipelining 1".
 
 ## <a name="unsupported-features"></a>Funktioner som inte stöds
 

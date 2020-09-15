@@ -3,12 +3,12 @@ title: Uppspelning av flera dagars inspelningar – Azure
 description: 'I den här självstudien får du lära dig hur du använder Azure Media Service-API: er för att spela upp en kontinuerlig video inspelning på flera dagar.'
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649099"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530581"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Självstudie: uppspelning av flera dagars inspelningar  
 
@@ -72,11 +72,11 @@ Gå sedan till Visual Studio Code och öppna src/AMS-Asset-Player. Den här mapp
 
 I Visual Studio Code kan du klicka på Run-ikonen till vänster (eller CTRL + SHIFT + D) för att visa tillgängliga program för körning:
 
-![Kör](./media/playback-multi-day-recordings-tutorial/run.png)
+![Skärm bild som visar en meny i Visual Studio Code med alternativet Kör markerat.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Välj programmet AMS Asset Player i list rutan som visas nedan och tryck på F5 för att starta fel sökningen.
 
-![Felsökning](./media/playback-multi-day-recordings-tutorial/debug.png)
+![Skärm bild som visar en meny i Visual Studio Code med AMS till gångs spelare vald.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 Exempel programmet skapar och startar din standardapp för webbläsare och öppnar sidan AMS Asset Player.
 

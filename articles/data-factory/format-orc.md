@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: f71b739242cf4f6a3549927a2a7e61400b2f987e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061096"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531737"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>ORC-format i Azure Data Factory
 
@@ -30,8 +30,8 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Orc**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Orc**. | Yes      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Yes      |
 
 Nedan visas ett exempel på en ORC-datauppsättning på Azure Blob Storage:
 
@@ -72,8 +72,8 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSource**. | Yes      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
 
 ### <a name="orc-as-sink"></a>ORC som mottagare
 
@@ -81,17 +81,17 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSink**. | Ja      |
-| formatSettings | En grupp med egenskaper. Se **Orc Write Settings** Table nedan. |    Inga      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Inga       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **OrcSink**. | Yes      |
+| formatSettings | En grupp med egenskaper. Se **Orc Write Settings** Table nedan. |    No      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | No       |
 
 **Skriv inställningar för Orc** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **OrcWriteSettings**. | Ja                                                   |
-| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Inga |
-| fileNamePrefix | Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Inga |
+| typ          | Typen för formatSettings måste anges till **OrcWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | No |
+| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | No |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Använda egen värd Integration Runtime
 

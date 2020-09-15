@@ -1,6 +1,6 @@
 ---
 title: Övervaka Apache Spark-program i Synapse Studio
-description: Använd Synapse Studio för att övervaka dina Apache Spark-program.
+description: Lär dig hur du övervakar Apache Spark program med hjälp av Synapse Studio.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: b5ad9e6a448747ac8f33829b1137b1af434e7a9c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385593"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530819"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Använd Synapse Studio (för hands version) för att övervaka dina Apache Spark-program
 

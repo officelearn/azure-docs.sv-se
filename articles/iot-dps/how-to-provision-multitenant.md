@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434739"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531431"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera innehavare 
 
-De allokeringsregler som definieras av etablerings tjänsten har stöd för olika fördelnings scenarier. Två vanliga scenarier:
+Den här artikeln visar hur du på ett säkert sätt kan etablera flera symmetriska nyckel enheter till en grupp med IoT-hubbar med hjälp av en [resursallokeringsprincip](concepts-service.md#allocation-policy). De allokeringsregler som definieras av etablerings tjänsten har stöd för olika fördelnings scenarier. Två vanliga scenarier:
 
 * **Geolokalisering/lång latens**: när en enhet flyttas mellan platser förbättras nätverks fördröjningen genom att enheten tillhandahålls till IoT-hubben närmast varje plats. I det här scenariot väljs en grupp IoT-hubbar, som sträcker sig över flera regioner, för registreringar. Den **lägsta latens** tilldelnings principen väljs för dessa registreringar. Den här principen gör att enhets etablerings tjänsten utvärderar enhets fördröjning och fastställer garderob IoT Hub från gruppen med IoT-hubbar. 
 
@@ -36,7 +36,7 @@ I den här artikeln används ett simulerat enhets exempel från [Azure IoT C SDK
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
 
@@ -83,7 +83,7 @@ I det här avsnittet ska du använda Azure Cloud Shell för att skapa två nya r
 
 I det här avsnittet ska du skapa en ny registrerings grupp för klient enheterna.  
 
-För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-security.md#x509-certificates) med en förtroende kedja.
+För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-x509-attestation.md) med en förtroende kedja.
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din enhets etablerings tjänst instans.
 

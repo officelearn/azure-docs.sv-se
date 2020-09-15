@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7733859c4ca4de8b580a228d8a73b899f0afa953
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001985"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530904"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Använda anpassade principer för allokering
 
@@ -44,7 +44,7 @@ Du utför följande steg i den här artikeln:
 
 Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
 
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
@@ -298,7 +298,7 @@ I det här avsnittet skapar du en Azure-funktion som implementerar din anpassade
 
 ## <a name="create-the-enrollment"></a>Skapa registreringen
 
-I det här avsnittet ska du skapa en ny registrerings grupp som använder den anpassade allokeringsregeln. För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-security.md#x509-certificates) med en förtroende kedja.
+I det här avsnittet ska du skapa en ny registrerings grupp som använder den anpassade allokeringsregeln. För enkelhetens skull använder den här artikeln [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) med registreringen. För en säkrare lösning bör du överväga att använda [X. 509 certifikat attestering](concepts-x509-attestation.md) med en förtroende kedja.
 
 1. Öppna etablerings tjänsten fortfarande på [Azure Portal](https://portal.azure.com).
 

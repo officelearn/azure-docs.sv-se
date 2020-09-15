@@ -1,16 +1,16 @@
 ---
 title: Regelbunden säkerhets kopiering/återställning i fristående Azure-Service Fabric
-description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
+description: Använd en fristående Service Fabric regelbunden säkerhets kopierings-och återställnings funktion för att aktivera regelbunden säkerhets kopiering av program data.
 author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 07a6260c176165af5ced5ce275b9e4b365707d77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dd91b8eb120de24d752073fd80157e9d2a663594
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261242"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531329"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Periodisk säkerhets kopiering och återställning i en fristående Service Fabric
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Service Fabric innehåller en uppsättning API: er för att uppnå följande fun
 - Tillfälligt inaktivera säkerhets kopieringar
 - Bevarande hantering av säkerhets kopior (kommande)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Service Fabric kluster med Fabric version 6,4 eller senare. Läs den här [artikeln](service-fabric-cluster-creation-for-windows-server.md) för steg för att ladda ned det nödvändiga paketet.
 * X. 509-certifikat för kryptering av hemligheter som behövs för att ansluta till lagring för att lagra säkerhets kopior. Se [artikeln](service-fabric-windows-cluster-x509-security.md) för att lära dig hur du hämtar eller skapar ett självsignerat X. 509-certifikat.
 

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9f7f2974646e047d4523643ad2acd94b27add83b
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 1793517a76fce3c252c95fb73299d4c4e8c5a216
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061146"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531822"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat text format i Azure Data Factory
 
@@ -30,17 +30,17 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` .  | Ja      |
-| columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. <br>Standardvärdet är **kommatecken `,` **. När kolumn avgränsaren definieras som en tom sträng, vilket innebär att ingen avgränsare görs, tas hela raden som en enda kolumn.<br>För närvarande stöds inte kolumn avgränsare som tom sträng eller flera tecken för att mappa data flöde, men inte kopierings aktivitet.  | Inga       |
-| rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil. <br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När rad avgränsaren har angetts till ingen avgränsare (tom sträng), måste kolumn avgränsaren anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet ska behandlas som ett enda värde.<br>För närvarande stöds inte rad avgränsare som en tom sträng för data flöde för mappning, men inte kopierings aktivitet. | Inga       |
-| quoteChar        | Det enkla tecknet för att citera kolumn värden om det innehåller kolumn avgränsare. <br>Standardvärdet är **dubbla citat tecken** `"` . <br>För att mappa data flödet `quoteChar` får inte vara en tom sträng. <br>För kopierings aktiviteten, när `quoteChar` definieras som en tom sträng, innebär det att det inte finns något citat tecken och kolumnvärdet inte är citerat, och `escapeChar` används för att undanta kolumn avgränsaren och sig själv. | Inga       |
-| escapeChar       | Det enda tecken som ska Escape-citat innanför ett citerat värde.<br>Standardvärdet är **omvänt snedstreck `\` **. <br>För att mappa data flödet `escapeChar` får inte vara en tom sträng. <br/>För kopierings aktiviteten, när `escapeChar` definieras som en tom sträng, `quoteChar` måste även anges som en tom sträng, och i så fall se till att alla kolumn värden inte innehåller avgränsare. | Inga       |
-| firstRowAsHeader | Anger om du vill behandla/skapa den första raden som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard).<br>När första raden som rubrik är falskt, antecknings gränssnittet för för hands versions-och Sök efter-aktivitet genererar automatiskt kolumn namn som Prop_ {n} (från 0), kopierings aktiviteten kräver [explicit mappning](copy-activity-schema-and-type-mapping.md#explicit-mapping) från källan till Sink och letar upp kolumner efter ordnings tal (från och med 1) och visar kolumner med namnet som Column_ {n} (från 1).  | Inga       |
-| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | Inga       |
-| encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Data flödet för antecknings mappning stöder inte UTF-7-kodning. | Inga       |
-| compressionCodec | Komprimerings-codec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **TarGzip**, **fästfunktionen**eller **lz4**. Standardvärdet är inte komprimerat. <br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** / **TarGzip** -fil (er) och skriva till filbaserat mottagar data lager, extraheras filerna som standard till mappen: `<path specified in dataset>/<folder named as source compressed file>/` , används `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` vid [kopiering av aktivitets källan](#delimited-text-as-source) för att kontrol lera om zip-filnamnet ska bevaras i mappstrukturen. | Inga       |
-| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Inga       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Yes      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` .  | Yes      |
+| columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. <br>Standardvärdet är **kommatecken `,` **. När kolumn avgränsaren definieras som en tom sträng, vilket innebär att ingen avgränsare görs, tas hela raden som en enda kolumn.<br>För närvarande stöds inte kolumn avgränsare som tom sträng eller flera tecken för att mappa data flöde, men inte kopierings aktivitet.  | No       |
+| rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil. <br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När rad avgränsaren har angetts till ingen avgränsare (tom sträng), måste kolumn avgränsaren anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet ska behandlas som ett enda värde.<br>För närvarande stöds inte rad avgränsare som en tom sträng för data flöde för mappning, men inte kopierings aktivitet. | No       |
+| quoteChar        | Det enkla tecknet för att citera kolumn värden om det innehåller kolumn avgränsare. <br>Standardvärdet är **dubbla citat tecken** `"` . <br>För att mappa data flödet `quoteChar` får inte vara en tom sträng. <br>För kopierings aktiviteten, när `quoteChar` definieras som en tom sträng, innebär det att det inte finns något citat tecken och kolumnvärdet inte är citerat, och `escapeChar` används för att undanta kolumn avgränsaren och sig själv. | No       |
+| escapeChar       | Det enda tecken som ska Escape-citat innanför ett citerat värde.<br>Standardvärdet är **omvänt snedstreck `\` **. <br>För att mappa data flödet `escapeChar` får inte vara en tom sträng. <br/>För kopierings aktiviteten, när `escapeChar` definieras som en tom sträng, `quoteChar` måste även anges som en tom sträng, och i så fall se till att alla kolumn värden inte innehåller avgränsare. | No       |
+| firstRowAsHeader | Anger om du vill behandla/skapa den första raden som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard).<br>När första raden som rubrik är falskt, antecknings gränssnittet för för hands versions-och Sök efter-aktivitet genererar automatiskt kolumn namn som Prop_ {n} (från 0), kopierings aktiviteten kräver [explicit mappning](copy-activity-schema-and-type-mapping.md#explicit-mapping) från källan till Sink och letar upp kolumner efter ordnings tal (från och med 1) och visar kolumner med namnet som Column_ {n} (från 1).  | No       |
+| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | No       |
+| encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Data flödet för antecknings mappning stöder inte UTF-7-kodning. | No       |
+| compressionCodec | Komprimerings-codec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **TarGzip**, **fästfunktionen**eller **lz4**. Standardvärdet är inte komprimerat. <br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". <br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** / **TarGzip** -fil (er) och skriva till filbaserat mottagar data lager, extraheras filerna som standard till mappen: `<path specified in dataset>/<folder named as source compressed file>/` , används `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` vid [kopiering av aktivitets källan](#delimited-text-as-source) för att kontrol lera om namnet på den komprimerade filen/filerna är kvar som mappstruktur. | No       |
+| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Nedan visas ett exempel på en avgränsad text uppsättning på Azure Blob Storage:
 
@@ -80,19 +80,19 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Ja      |
-| formatSettings | En grupp med egenskaper. Läs **Inställningar för avgränsad text** i tabellen nedan. |  Inga       |
-| storeSettings  | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | Inga       |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Yes      |
+| formatSettings | En grupp med egenskaper. Läs **Inställningar för avgränsad text** i tabellen nedan. |  No       |
+| storeSettings  | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | No       |
 
 **Läs inställningar för avgränsad text** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typen för formatSettings måste anges till **DelimitedTextReadSettings**. | Ja      |
-| skipLineCount | Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | Inga       |
-| compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | Inga       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `ZipDeflateReadSettings` *) |  Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)**, Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false**skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | Inga |
-| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `TarGZipReadSettings` *)  | Gäller när indata-dataset konfigureras med **TarGzip** -komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)**, Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false**Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | Inga |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextReadSettings**. | Yes      |
+| skipLineCount | Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | No       |
+| compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | No       |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `ZipDeflateReadSettings` *) |  Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)**, Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false**skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties` -> `type` som `TarGZipReadSettings` *)  | Gäller när indata-dataset konfigureras med **TarGzip** -komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)**, Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false**Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | No |
 
 ```json
 "activities": [
@@ -128,18 +128,18 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *
 
 | Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Ja      |
-| formatSettings | En grupp med egenskaper. Se tabellen med **avgränsade text skriv inställningar** nedan. |    Inga      |
-| storeSettings  | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` .  | Inga       |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Yes      |
+| formatSettings | En grupp med egenskaper. Se tabellen med **avgränsade text skriv inställningar** nedan. |    No      |
+| storeSettings  | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` .  | No       |
 
 **Inställningar för avgränsad text** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSettings**. | Ja                                                   |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSettings**. | Yes                                                   |
 | fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, till exempel, `.csv` `.txt` . Det måste anges när `fileName` har inte angetts i data uppsättningen utgående DelimitedText. När fil namnet har kon figurer ATS i data uppsättningen för utdata används den som mottagar fil namn och fil namns inställningen ignoreras.  | Ja när fil namnet inte anges i data uppsättningen för utdata |
-| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | Inga |
-| fileNamePrefix | Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | Inga |
+| maxRowsPerFile | När du skriver data till en mapp kan du välja att skriva till flera filer och ange max rader per fil.  | No |
+| fileNamePrefix | Gäller när `maxRowsPerFile` har kon figurer ATS.<br> Ange prefixet för fil namn när du skriver data till flera filer, vilket resulterade i det här mönstret: `<fileNamePrefix>_00000.<fileExtension>` . Om inget anges skapas prefixet för fil namn automatiskt. Den här egenskapen gäller inte när källan är filbaserad lagring eller [partition-alternativ-aktiverat data lager](copy-activity-performance-features.md).  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 

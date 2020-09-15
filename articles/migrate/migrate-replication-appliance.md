@@ -3,12 +3,12 @@ title: Azure Migrate-replikeringsinstallation
 description: Lär dig mer om Azure Migrate Replication-enhet för agent-baserad VMWare-migrering.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122106"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532128"
 ---
 # <a name="replication-appliance"></a>Replikeringsfil
 
@@ -26,7 +26,7 @@ Replikeringen distribueras när du konfigurerar en agent-baserad migrering av vi
 
 ## <a name="appliance-deployment"></a>Distribution av utrustning
 
-**Används för** | **Detaljer**
+**Används för** | **Information**
 --- |  ---
 **VM-baserad migrering i VMware** | Du hämtar en embryo-mall från Azure Migrate hubben och importerar till vCenter Server för att skapa den virtuella datorn.
 **VM-baserad migrering för fysisk dator** | Om du inte har en VMware-infrastruktur, eller om du inte kan skapa en virtuell VMware-dator med en ägg-mall, laddar du ned ett installations program från Azure Migrate hubben och kör det för att konfigurera installations programmet för datorn.
@@ -59,7 +59,7 @@ MySQL | MySQL bör installeras på enheten.<br/> MySQL ska installeras. Du kan i
 Andra appar | Kör inte andra appar på replikerings enheten.
 Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
-IIS | -Ingen befintlig standard webbplats <br> -Ingen befintlig webbplats/program som lyssnar på port 443 <br>-Aktivera [Anonym autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Aktivera [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) -inställning
+IIS | -Ingen befintlig standard webbplats <br> -Ingen befintlig webbplats/program som lyssnar på port 443 <br>-Aktivera  [Anonym autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Aktivera [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) -inställning
 **Nätverksinställningar** |
 IP-adresstyp | Statisk
 Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)
@@ -69,7 +69,7 @@ Typ av nätverkskort | VMXNET3
 
 MySQL måste vara installerat på datorn för replikerings enheten. Den kan installeras med någon av dessa metoder.
 
-**Metod** | **Detaljer**
+**Metod** | **Information**
 --- | ---
 Ladda ned och installera manuellt | Hämta MySQL-programmet & placera det i mappen C:\Temp\ASRSetup och installera manuellt.<br/> När du konfigurerar installationen av MySQL visas som redan installerad.
 Utan nedladdning online | Placera programmet MySQL installations program i mappen C:\Temp\ASRSetup. När du installerar installationen och klickar för att ladda ned och installera MySQL använder installations programmet det installations program som du har lagt till.
@@ -79,7 +79,7 @@ Hämta och installera i Azure Migrate | När du installerar installationen och t
 
 Replication-enheten behöver åtkomst till dessa URL: er i det offentliga Azure-molnet.
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
 \*.backup.windowsazure.com | Används för replikerad data överföring och samordning
 \*.store.core.windows.net | Används för replikerad data överföring och samordning
@@ -96,7 +96,7 @@ https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-
 
 Replication-enheten behöver åtkomst till dessa URL: er i Azure Government.
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
 \*. backup.windowsazure.us | Används för replikerad data överföring och samordning
 \*.store.core.windows.net | Används för replikerad data överföring och samordning
@@ -129,7 +129,7 @@ Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar 
     - Processervern tar emot replikeringsdata, optimerar och krypterar den och skickar den till Azure Storage via port 443 utgående.
 5. Replikeringsdata loggar första marken i ett cache Storage-konto i Azure. Dessa loggar bearbetas och data lagras på en Azure-hanterad disk.
 
-![Arkitektur](./media/migrate-replication-appliance/architecture.png)
+![Diagrammet visar replikeringens arkitektur.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Installations program
 

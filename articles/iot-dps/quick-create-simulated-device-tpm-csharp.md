@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74977003"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528428"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad TPM-enhet med C#-enhets-SDK för IoT Hub Device Provisioning Service
 
@@ -23,7 +23,7 @@ De här stegen visar hur du använder [Azure IoT-exempel för C# ](https://githu
 
 Exempelkoden använder Windows TPM-simulatorn som enhetens [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/). 
 
-Om du inte är bekant med processen för automatisk etablering, se till att du även granskar de [automatiska etablerings begreppen](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+Om du inte är bekant med processen för autoetablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten. Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 
@@ -49,7 +49,7 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="provision-the-simulated-device"></a>Etablera den simulerade enheten
 
-1. Logga in på Azure-portalen. Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten. På bladet **Översikt** noterar du värdet för **_ID-omfång_** .
+1. Logga in på Azure Portal. Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten. På bladet **Översikt** noterar du värdet för **_ID-omfång_** .
 
     ![Kopiera omfångs-ID för etableringstjänsten från portalbladet](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
@@ -65,7 +65,7 @@ Den här artikeln visar enskilda registreringar.
     dotnet run <IDScope>
     ```
 
-    Det här kommandot startar simulatorn för TPM-chip i en separat kommandotolk. I Windows kan du stöta på en Windows-säkerhetsavisering som frågar om du vill tillåta att Simulator. exe kommunicerar i offentliga nätverk. I det här exemplet kan du avbryta begäran.
+    Det här kommandot startar simulatorn för TPM-chip i en separat kommandotolk. I Windows kan du stöta på en säkerhets avisering i Windows som frågar om du vill tillåta Simulator.exe att kommunicera i offentliga nätverk. I det här exemplet kan du avbryta begäran.
 
 1. Det ursprungliga kommando fönstret visar **_bekräftelse nyckeln_**, **_registrerings-ID_** och ett föreslaget **_enhets-ID_** som krävs för enhets registrering. Anteckna värdena. Du använder dessa värden för att skapa en enskild registrering i din instans av enhetsetableringstjänsten. 
    > [!NOTE]

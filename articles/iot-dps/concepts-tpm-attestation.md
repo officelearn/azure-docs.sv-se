@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12860629d78391ed271306daba29a51aeb326c1d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975286"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531601"
 ---
 # <a name="tpm-attestation"></a>TPM-attestering
 
 IoT Hub Device Provisioning Service är en hjälp tjänst för IoT Hub som du använder för att konfigurera enhets etablering med noll touch till en angiven IoT-hubb. Med enhets etablerings tjänsten kan du etablera miljon tals enheter på ett säkert sätt.
 
-I den här artikeln beskrivs processen för identitets attestering när du använder en [TPM](./concepts-device.md). TPM står för Trusted Platform Module och är en typ av HSM (Hardware Security Module). Den här artikeln förutsätter att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskret, inbyggd program vara eller integrerade TPM: er. Vi rekommenderar inte att du använder programvaru-TPM: er i produktion. Mer information om typer av TPM: er finns i [en kort introduktion till TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+I den här artikeln beskrivs processen för identitets attestering när du använder en Trusted Platform Module (TPM). En TPM är en typ av HSM (Hardware Security Module). Den här artikeln förutsätter att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskret, inbyggd program vara eller integrerade TPM: er. Vi rekommenderar inte att du använder programvaru-TPM: er i produktion. Mer information om typer av TPM: er finns i [en kort introduktion till TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Den här artikeln är endast relevant för enheter som använder TPM 2,0 med stöd för HMAC-nycklar och deras bekräftelse nycklar. Det är inte för enheter som använder X. 509-certifikat för autentisering. TPM är en ISO-standard som är bransch standard från Trusted Computing Group och du kan läsa mer om TPM i den [fullständiga tpm 2,0-specifikationen](https://trustedcomputinggroup.org/tpm-library-specification/) eller [ISO/IEC 11889-specifikationen](https://www.iso.org/standard/66510.html). Den här artikeln förutsätter också att du är van vid offentliga och privata nyckel par och hur de används för kryptering.
 
@@ -67,5 +67,5 @@ Enheten kan sedan signera en SAS-token med hjälp av dekrypterad nonce och åter
 
 Enheten ansluter nu till IoT Hub och du är säker på att dina enhets nycklar lagras på ett säkert sätt. Nu när du vet hur enhets etablerings tjänsten verifierar en enhets identitet på ett säkert sätt med hjälp av TPM kan du läsa mer i följande artiklar:
 
-* [Lär dig mer om alla koncept vid automatisk etablering](./concepts-auto-provisioning.md)
+* [Lär dig mer om begreppen etablering](about-iot-dps.md#provisioning-process)
 * [Kom igång med automatisk etablering](./quick-setup-auto-provision.md) med hjälp av SDK: er för att ta hand om flödet.

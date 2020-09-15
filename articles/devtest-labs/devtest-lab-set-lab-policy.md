@@ -3,12 +3,12 @@ title: Hantera labb principer i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du definierar labb principer som VM-storlekar, maximalt antal virtuella datorer per användare och avstängnings automatisering.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290417"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530360"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera alla principer för ett labb i Azure DevTest Labs
 
@@ -105,7 +105,7 @@ Med principen Autostart kan du ange när de virtuella datorerna i det aktuella l
 
 1. I rutan **konfiguration och principer** för labb väljer du automatisk **Start**.
    
-    ![Starta automatiskt](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Skärm dum par visar alternativ för automatisk start för en virtuell dator.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Välj **på** för att aktivera den här principen och **Inaktivera för att** inaktivera den.
 

@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 261d85c60473749719830c380d8a4866d7561874
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438048"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530462"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -87,5 +87,5 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skydda nyckel valvet](secure-your-key-vault.md))
+* [Skydda ditt nyckel valv](secure-your-key-vault.md)
 * [Konfigurera Azure Key Vault brand väggar och virtuella nätverk](network-security.md)

@@ -7,17 +7,17 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 99a590fd3adacc9a63c2ec482965ccd9ff162ac3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399250"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531873"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Matchningsvillkor för Azure Front Door-regelmotorn
 
@@ -150,7 +150,7 @@ Identifierar begär Anden som innehåller det angivna fil namns tillägget i fil
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Filnamnstillägg | Skift läges omvandling
+Operator | Anknytning | Skift läges omvandling
 ---------|-----------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Gemener, versaler, trim, ta bort blank steg, URL-kod, URL-avkodning
 

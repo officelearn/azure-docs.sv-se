@@ -3,12 +3,12 @@ title: Flytta Azure App Service resurser
 description: Använd Azure Resource Manager för att flytta App Service resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 27555a4616befca41c7e970e947afa1cd1ff7248
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042067"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531380"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Flytta vägledning för App Service resurser
 
@@ -42,7 +42,7 @@ Välj alternativet för rekommenderade steg för att flytta webb programmet.
 
 Du ser de rekommenderade åtgärderna innan du flyttar resurserna. Informationen omfattar den ursprungliga resurs gruppen för webbappen.
 
-![Rekommendationer](./media/app-service-move-limitations/recommendations.png)
+![Skärmdumpen visar rekommenderade steg för att flytta Microsoft dot-webbresurser.](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>Stöd för att flytta
 

@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684464"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531499"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Skapa och etablera en IoT Edge enhet med en TPM på Linux
 
-Den här artikeln visar hur du testar automatisk etablering på en Linux IoT Edge-enhet med hjälp av en Trusted Platform Module (TPM). Du kan etablera Azure IoT Edge-enheter automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml). Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Den här artikeln visar hur du testar automatisk etablering på en Linux IoT Edge-enhet med hjälp av en Trusted Platform Module (TPM). Du kan etablera Azure IoT Edge-enheter automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml). Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](../iot-dps/about-iot-dps.md#provisioning-process) översikten innan du fortsätter.
 
 Uppgifterna är följande:
 

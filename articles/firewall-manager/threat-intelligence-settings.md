@@ -1,22 +1,22 @@
 ---
 title: Konfiguration av Azure Firewall Threat Intelligence
-description: Threat Intelligence-baserad filtrering kan aktive ras för brand väggen för att varna och neka trafik från/till kända skadliga IP-adresser och domäner.
+description: Lär dig hur du konfigurerar Hot information-baserad filtrering för din Azure Firewall-princip för att varna och neka trafik från och till kända skadliga IP-adresser och domäner.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 136ceeb271bec29bdbfc4572626936ee67f05556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569060"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530649"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Konfiguration av Azure Firewall Threat Intelligence
 
-Hot information-baserad filtrering kan konfigureras för din Azure Firewall-princip för att varna och neka trafik från och till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet. [Intelligent Security graphs](https://www.microsoft.com/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.<br>
+Hot information-baserad filtrering kan konfigureras för din Azure Firewall-princip för att varna och neka trafik från och till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet. [Intelligent Security graphs](https://www.microsoft.com/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.<br>
 
 Om du har konfigurerat Threat Intelligence-baserad filtrering bearbetas de associerade reglerna före någon av NAT-reglerna, nätverks reglerna eller program reglerna.
 

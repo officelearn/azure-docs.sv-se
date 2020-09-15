@@ -5,16 +5,16 @@ description: Interaktivt felsöka Azure Machine Learning kod, pipelines och dist
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661683"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530309"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktiv fel sökning med Visual Studio Code
 
@@ -26,7 +26,7 @@ Lär dig att interaktivt felsöka Azure Machine Learning pipelines och distribut
 
 I vissa fall kan du behöva interaktivt felsöka python-koden som används i ML-pipeline. Genom att använda VS Code och debugpy kan du ansluta till koden när den körs i tränings miljön.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En __Azure Machine Learning arbets yta__ som har kon figurer ATS för att använda en __Azure-Virtual Network__.
 * En __Azure Machine Learning pipeline__ som använder Python-skript som en del av stegen i pipelinen. Till exempel en PythonScriptStep.

@@ -1,6 +1,6 @@
 ---
 title: Skapa filter med Azure Media Services .NET SDK
-description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma vissa delar av en ström. Media Services skapar dynamiska manifest för att uppnå denna selektiva strömning.
+description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma vissa delar av en ström. Media Services .NET SDK skapar dynamiska manifest för att uppnå den här selektiva strömningen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,12 +16,12 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8db58da092858a3f18b56b82d245b04f768b2e35
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 862385d1117e0a1b5d2220c06885e0fd0ecfa4d7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268711"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531636"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Skapa filter med Media Services .NET SDK
 

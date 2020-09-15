@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020345"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531567"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
 
 I den här artikeln beskrivs processen för identitets attestering när du använder symmetriska nycklar med enhets etablerings tjänsten. 
 
-Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med ett [TPM](concepts-tpm-attestation.md) eller ett [X. 509-certifikat](concepts-security.md#x509-certificates) är säkrare och bör användas för mer långtgående säkerhets krav.
+Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med ett [TPM](concepts-tpm-attestation.md) eller ett [X. 509-certifikat](concepts-x509-attestation.md) är säkrare och bör användas för mer långtgående säkerhets krav.
 
 Symmetrisk nyckel registrering ger också ett bra sätt för äldre enheter, med begränsade säkerhetsfunktioner, för att starta molnet via Azure IoT. Mer information om symmetrisk nyckel attestering med äldre enheter finns i [så här använder du symmetriska nycklar med äldre enheter](how-to-legacy-device-symm-key.md).
 
@@ -109,12 +109,12 @@ Tänk på följande diagram som visar en tabell med enhets nycklar som har gener
 
 Identiteten för varje enhet representeras av registrerings-ID och härledd enhets nyckel som installeras på fabriken. Enhets nyckeln kopieras aldrig till en annan plats och grupp nyckeln lagras aldrig på en enhet.
 
-Om enhets nycklarna inte är installerade i fabriken, ska en [modul för maskin varu säkerhet](concepts-security.md#hardware-security-module) användas för att lagra enhets identiteten på ett säkert sätt.
+Om enhets nycklarna inte är installerade i fabriken, ska en [modul för maskin varu säkerhet](concepts-service.md#hardware-security-module) användas för att lagra enhets identiteten på ett säkert sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har en förståelse för symmetrisk nyckel attestering kan du läsa mer i följande artiklar:
 
 * [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
-* [Lär dig mer om begreppen i automatisk etablering](./concepts-auto-provisioning.md)
+* [Lär dig mer om begreppen etablering](about-iot-dps.md#provisioning-process)
 * [Kom igång med automatisk etablering](./quick-setup-auto-provision.md) 

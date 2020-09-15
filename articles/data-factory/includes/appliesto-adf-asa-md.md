@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 61a47e06bde2182b3b09d341edb7d7e0ca13bacb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 624ff7e3fbb902927f804d2a3f6b524906d9fbe8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86497630"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531048"
 ---
-<Token>**gäller för:** ![ Ja ](../media/applies-to/yes.png) Azure Data Factory ![ Ja ](../media/applies-to/yes.png) Azure Synapse Analytics (för hands version) </Token> 
+<Token>**gäller för:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Synapse Analytics (för hands version) </Token> 
 

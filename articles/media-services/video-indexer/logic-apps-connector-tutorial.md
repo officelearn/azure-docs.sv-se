@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c46195572fc4495b35f5ec44421440975ab9ffc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047105"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531363"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
@@ -58,13 +58,13 @@ Om du vill konfigurera det första flödet måste du ange din Video Indexer API-
 
 När du har anslutit till Azure Storage och Video Indexer konton går du till avsnittet "när en BLOB läggs till eller ändras) och väljer den behållare som du vill placera dina videofiler i. 
 
-![Container](./media/logic-apps-connector-tutorial/container.png)
+![Lagrings behållare](./media/logic-apps-connector-tutorial/container.png)
 
 Gå sedan till åtgärden "skapa SAS-URI per sökväg" och välj lista över filernas sökväg från alternativen för dynamiskt innehåll.  
 
 ![SAS-URI med sökväg](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Fyll i [kontots plats och ID](./video-indexer-use-apis.md#account-id)   för att hämta video Indexer-kontots token.
+Fyll i [kontots plats](regions.md) och [konto-ID](./video-indexer-use-apis.md#account-id)   för att hämta video Indexer-kontots token.
 
 ![Hämta konto åtkomst-token](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Om du vill konfigurera det här flödet måste du ange din Video Indexer API-nyc
 
 För utlösaren visas ett fält för HTTP POST-URL. URL: en genereras inte förrän du har sparat ditt flöde. du behöver dock URL: en slutligen. Vi kommer att komma tillbaka till detta. 
 
-Fyll i [kontots plats och ID](./video-indexer-use-apis.md#account-id)   för att hämta video Indexer-kontots token.  
+Fyll i [kontots plats](regions.md) och [konto-ID](./video-indexer-use-apis.md#account-id)   för att hämta video Indexer-kontots token.  
 
 Gå till åtgärden "Hämta video index" och fyll i de obligatoriska parametrarna. För video-ID skriver du följande uttryck: triggerOutputs () [' frågor '] [' ID '] 
 

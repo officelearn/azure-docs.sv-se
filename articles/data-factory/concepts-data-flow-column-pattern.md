@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606123"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531172"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Använda kolumn mönster i mappnings data flödet
 
@@ -27,17 +27,17 @@ Kolumn mönster är för närvarande tillgängliga i omvandlingarna härledd kol
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Kolumn mönster i härledd kolumn och mängd
 
-Om du vill lägga till ett kolumn mönster i en härledd kolumn eller fliken Aggregator i en mängd omvandling, klickar du på plus ikonen till höger om en befintlig kolumn. Välj **Lägg till kolumn mönster**. 
+Om du vill lägga till ett kolumn mönster i en härledd kolumn-, samlings-eller fönster omvandling klickar du på **Lägg till** ovanför kolumn listan eller plus ikonen bredvid en befintlig härledd kolumn. Välj **Lägg till kolumn mönster**.
 
-![kolumn mönster](media/data-flow/columnpattern.png "Kolumnmönster")
+![kolumn mönster](media/data-flow/add-column-pattern.png "Kolumnmönster")
 
 Använd [uttrycks verktyget](concepts-data-flow-expression-builder.md) för att ange matchnings villkor. Skapa ett booleskt uttryck som matchar kolumner baserat på `name` `type` kolumnens,, `stream` och `position` . Mönstret påverkar alla kolumner, som anges eller definieras, där villkoret returnerar true.
 
 De två uttrycks rutorna under matchnings villkoret anger de nya namnen och värdena för de berörda kolumnerna. Används `$$` för att referera till det befintliga värdet för det matchade fältet. Rutan till vänster-uttryck definierar det namn och den högra resultat rutan som definierar värdet.
 
-![kolumn mönster](media/data-flow/columnpattern2.png "Kolumnmönster")
+![kolumn mönster](media/data-flow/edit-column-pattern.png "Kolumnmönster")
 
-Mönstret ovan matchar alla kolumner av typen Double och skapar en sammanställd kolumn per matchning. Namnet på den nya kolumnen är den matchade kolumnens namn sammanfogat med _total. Värdet för den nya kolumnen är den rundade, aggregerade summan av det befintliga dubbla värdet.
+Mönstret ovan matchar alla kolumner av typen Double och skapar en härledd kolumn per matchning. Genom att ange `$$` kolumn namn fältet uppdateras varje matchad kolumn med samma namn. Värdet för varje kolumn är det befintliga värdet avrundat till två decimaler.
 
 För att kontrol lera att ditt matchnings villkor är korrekt kan du validera schemat för definierade kolumner på fliken **Granska** eller hämta en ögonblicks bild av data på fliken **data förhands granskning** . 
 
@@ -73,15 +73,15 @@ Om din definierade projektion har en hierarki kan du använda regelbaserade mapp
 
 ![regel baserad mappning](media/data-flow/rule-based-hierarchy.png "Regel baserad mappning")
 
-Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a`innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
+Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a` innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Mönster matchnings uttrycks värden.
 
-* `$$`översätts till namnet eller värdet för varje matchning vid körning
-* `name`representerar namnet på varje inkommande kolumn
-* `type`representerar data typen för varje inkommande kolumn
-* `stream`representerar namnet som är kopplat till varje data ström eller omvandling i ditt flöde
-* `position`är ordnings punkten för kolumner i ditt data flöde
+* `$$` översätts till namnet eller värdet för varje matchning vid körning
+* `name` representerar namnet på varje inkommande kolumn
+* `type` representerar data typen för varje inkommande kolumn
+* `stream` representerar namnet som är kopplat till varje data ström eller omvandling i ditt flöde
+* `position` är ordnings punkten för kolumner i ditt data flöde
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om data flödes [uttrycks språket](data-flow-expression-functions.md) för data omvandlingar

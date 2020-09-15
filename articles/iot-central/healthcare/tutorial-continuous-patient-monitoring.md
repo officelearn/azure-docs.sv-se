@@ -1,6 +1,6 @@
 ---
-title: Skapa en app för kontinuerlig övervakning av patienter med Azure IoT Central | Microsoft Docs
-description: Lär dig att bygga ett kontinuerligt program för patient övervakning med hjälp av Azure IoT Central programmallar.
+title: Självstudie – Skapa en kontinuerlig app för patient övervakning med Azure IoT Central | Microsoft Docs
+description: I den här självstudien får du lära dig att bygga ett kontinuerligt program för patient övervakning med hjälp av Azure IoT Central programmallar.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -8,18 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001833"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531278"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudie: Distribuera och genom gång av en kontinuerlig app-mall för patient övervakning
 
-
-
-Den här självstudien visar dig som Solution Builder och hur du kommer igång genom att distribuera en IoT Central kontinuerlig övervaknings program mal len för patienter. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kan göra härnäst.
+Den här självstudien visar dig som Solution Builder och hur du kommer igång genom att distribuera en IoT Central kontinuerlig övervaknings program mal len för patienter. Du lär dig hur du distribuerar och använder mallen.
 
 I den här guiden får du lära dig att:
 
@@ -29,10 +27,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-an-application-template"></a>Skapa en Programmall
 
-Gå till [webbplatsen för Azure IoT Central Application Manager](https://apps.azureiotcentral.com/). Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **hälso vård** . 
+Gå till [webbplatsen för Azure IoT Central Application Manager](https://apps.azureiotcentral.com/). Välj **Bygg** i det vänstra navigerings fältet och välj sedan fliken **hälso vård** .
 
->[!div class="mx-imgBorder"] 
->![App Manager-hälsovård](media/app-manager-health.png)
+:::image type="content" source="media/app-manager-health.png" alt-text="Healthcre app-mall":::
 
 Klicka på knappen **skapa app** för att börja skapa ditt program och logga sedan in med ett Microsoft personal-, arbets-eller skol konto. Det tar dig till sidan **nytt program** .
 
@@ -52,7 +49,7 @@ Så här skapar du ditt program:
 
 ### <a name="dashboards"></a>Instrumentpaneler
 
-När du har distribuerat app-mallen hamnar du först på **lamna instrument panel för patient övervakning**. Lamna sjukvård är ett fiktivt sjukhus system som innehåller två sjukhus: Sparbanken sjukhus och Burkville sjukhus. På instrument panelen för den här operatorn för Sparbanken kommer du att se information och telemetri om enheterna i den här mallen tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Från instrument panelen kan du:
+När du har distribuerat app-mallen hamnar du först på **lamna instrument panel för patient övervakning**. Lamna sjukvård är ett fiktivt sjukhus system som innehåller två sjukhus: Sparbanken sjukhus och Burkville sjukhus. På sjukhusets instrument panel kan du:
 
 * Se telemetri och egenskaper för enheten, till exempel enhetens **batteri nivå** eller dess **anslutnings** status.
 
@@ -64,75 +61,69 @@ När du har distribuerat app-mallen hamnar du först på **lamna instrument pane
 
 * Ändra enhetens **patient status** för att ange om enheten används för ett pågående eller ett fjärrscenario.
 
->[!div class="mx-imgBorder"] 
->![Lamna in-patient](media/lamna-in-patient.png)
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Status för patienter":::
 
-Du kan också klicka på **gå till instrument panelen för fjär patienter** för att se den andra operatorn för instrument panelen som används för Burkville sjukhus. Den här instrument panelen innehåller en liknande uppsättning åtgärder, telemetri och information. Dessutom kan du se att flera enheter används och att du kan **Uppdatera den inbyggda program varan** på var och en.
+Du kan också välja **gå till instrument panelen för en fjärran sluten patient** för att se instrument panelen för Burkville sjukhus. Den här instrument panelen innehåller en liknande uppsättning åtgärder, telemetri och information. Du kan också se flera enheter som används och välja att **Uppdatera den inbyggda program varan** på var och en.
 
->[!div class="mx-imgBorder"] 
->![Lamna-fjärr](media/lamna-remote.png)
+:::image type="content" source="media/lamna-remote.png" alt-text="Instrument panel för fjärr operatör":::
 
-På båda instrument panelerna kan du alltid länka tillbaka till den här dokumentationen.
+### <a name="device-templates"></a>Enhetsmallar
 
-### <a name="device-templates"></a>Enhets mallar
+Om du väljer **enhets mallar**visas de två enhets typerna i mallen:
 
-Om du klickar på fliken **enhets mallar** ser du att det finns två olika enhets typer som är en del av mallen:
+* **Smart Vital-korrigering**: den här enheten representerar en korrigering som mäter olika viktiga tecken. Den används för att övervaka patienter i och utanför sjukhus. Om du väljer mallen ser du att korrigerings filen skickar både enhets data, till exempel batteri nivå och enhets temperatur samt patient hälso data som andnings frekvens och blod tryck.
 
-* **Smart Vital-korrigering**: den här enheten representerar en korrigering som mäter olika typer av viktiga tecken. Den kan användas för att övervaka patienter i och utanför sjukhus. Om du klickar på mallen, ser du att förutom att skicka enhets data, till exempel batteri nivå och enhets temperatur, så skickar korrigeringen även patient hälso data, till exempel andnings frekvensen och blod trycket.
+* **Smart Knee-klammer**: den här enheten representerar en Knee-klammer som patienter använder vid återställning från en Knee-reoperation. Om du väljer den här mallen visas funktioner som enhets data, rörelse intervall och acceleration.
 
-* **Smart Knee-klammer**: den här enheten representerar en Knee-klammer som patienter kan använda vid återställning från en Knee. Om du klickar på den här mallen ser du funktioner som rörelse-och accelerations intervall, förutom enhets data.
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Mall för smart korrigering":::
 
->[!div class="mx-imgBorder"] 
->![Enhets mal len Smart Vital patch](media/smart-vitals-device-template.png)
+### <a name="device-groups"></a>Enhetsgrupper
 
-### <a name="device-groups"></a>Enhetsgrupper 
-Med enhets grupper kan du logiskt gruppera en uppsättning enheter för att sedan utföra Mass frågor eller åtgärder. 
+Använd enhets grupper för att logiskt gruppera en uppsättning enheter och sedan köra Mass frågor eller åtgärder på dem.
 
-Om du klickar på fliken enhets grupper ser vi att vi har skapat några standard enhets grupper för var och en av enhets mallarna i programmet. Du ser att vi också har skapat två ytterligare exempel enhets grupper som heter "etablera enheter" och "enheter med inaktuell inbyggd program vara". Vi använder dessa exempel enhets grupper som indata för att köra vissa [jobb](#jobs).
+Om du väljer fliken enhets grupper visas en standard enhets grupp för varje enhets mall i programmet. Dessutom skapas två ytterligare exempel enhets grupper som kallas **etablera enheter** och **enheter med inaktuell inbyggd program vara**. Du kan använda dessa exempel enhets grupper som indata för att köra vissa av [jobben](#jobs) i programmet.
 
 ### <a name="rules"></a>Regler
 
-När du hoppar till fliken regler visas tre regler som finns i program mal len:
+Om du väljer **regler**visas de tre reglerna i mallen:
 
-* **Klammerparentes temperatur hög**: den här regeln utlöses när enhetens temperatur på den smarta Knee-klammern är större än 95 &deg; F över ett 5-minuters fönster. Du kan använda den här regeln för att meddela patient-och sjukvårds teamet, och att fjärrlagra enheten.
+* **Klammerparentes temperatur hög**: den här regeln utlöses när den smarta Knee-klammerns enhets temperatur är större än 95 &deg; F över ett 5-minuters fönster. Använd den här regeln för att avisera patient-och sjukvårds teamet och fjärrlagra enheten.
 
-* **Identifierad**: den här regeln utlöses om en patient befinner sig. Du kan använda den här regeln för att konfigurera en åtgärd för att distribuera ett drifts team för att hjälpa patienten som har fallit.
+* **Identifierad**: den här regeln utlöses om en patient sjunker. Använd den här regeln om du vill konfigurera en åtgärd för att distribuera ett drifts team för att hjälpa patienten som har fallit.
 
-* **Korrigerings batteri låg**: den här regeln utlöses när batteri nivån på enheten hamnar under 10%. Du kan använda den här regeln för att utlösa en avisering till patienten att debitera enheten.
+* **Korrigerings batteri låg**: den här regeln utlöses när batteri nivån på enheten hamnar under 10%. Använd den här regeln för att utlösa en avisering till patienten för att debitera enheten.
 
->[!div class="mx-imgBorder"] 
->![Hög regel för klammerns temperatur](media/brace-temp-rule.png)
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Uttryck":::
 
 ### <a name="jobs"></a>Jobb
 
-Med jobb kan du köra Mass åtgärder på en uppsättning enheter, med hjälp av [enhets grupper](#device-groups) som inmatade. Vi har dirigerat program mal len med två exempel jobb som en lösnings operatör kan behöva köra vid någon tidpunkt i enhetens livs cykel:
-* **Uppdatera Knee-inbyggd program vara**: det här jobbet hittar enheter i enhets gruppens enheter med gammal inbyggd program vara och kör ett kommando för att uppdatera enheterna till den senaste versionen av den inbyggda program varan för Knee-klammern. Det här exemplet förutsätter att enheterna har funktioner för att ta emot ett "Update"-kommando och hämta den inbyggda program varans filer från molnet direkt.  
+Med jobb kan du köra Mass åtgärder på en uppsättning enheter, med hjälp av [enhets grupper](#device-groups) som inmatade. Program mal len har två exempel jobb som en operatör kan köra:
 
-* **Reprovision-enheter**: om du har en uppsättning enheter som nyligen har returnerats till sjukhus och som måste etableras på nytt för nästa uppsättning patienter kan du köra det här jobbet för att skapa en Mass uppdatering av dina etablerings enheter. I det här fallet tar vi alla enheter från en enhets grupp som kallas "etablera enheter" och vi kör ett kommando för att etablera dem. 
+* **Uppdatera Knee-inbyggd program vara**: det här jobbet söker efter enheter i enhets grupps **enheter med inaktuell inbyggd program vara** och kör ett kommando för att uppdatera enheterna till den senaste versionen av den inbyggda program varan Detta exempel jobb förutsätter att enheterna kan hantera ett **uppdaterings** kommando och sedan hämta de inbyggda program vara från molnet.  
 
-### <a name="devices"></a>Enheter
+* **Reprovision-enheter**: du har en uppsättning enheter som nyligen har returnerats till sjukhus. Det här jobbet hittar enheter i enhets gruppen **etablera enheter** och kör ett kommando för att etablera om dem för nästa uppsättning patienter.
 
-Klicka på fliken **enheter** och välj sedan en instans av den **smarta Knee-klammern**. Du ser att det finns tre vyer för att utforska information om den specifika enhet som du har valt. Dessa vyer skapas och publiceras när du skapar enhets mal len för enheten, vilket innebär att de kommer att vara konsekventa över alla enheter som du ansluter eller simulerar.
+### <a name="devices"></a>Egenskaper
 
-I vyn **instrument panel** får du en översikt över telemetri och egenskaper som kommer från den enhet som är inriktad på operatör.
+Välj fliken **enheter** och välj sedan en instans av den **smarta Knee-klammern**. Det finns tre vyer för att utforska information om den enhet som du har valt. Dessa vyer skapas och publiceras när du skapar enhets mal len för enheten. Därför är dessa vyer konsekventa för alla enheter som du ansluter eller simulerar.
+
+I vyn **instrument panel** får du en översikt över dubbelriktad telemetri och egenskaper från enheten.
 
 På fliken **Egenskaper** kan du redigera moln egenskaper och egenskaper för läsa/skriva enhet.
 
-På fliken **kommandon** kan du köra kommandon som har modeller ATS som en del av din enhets mall.
+På fliken **kommandon** kan du köra kommandon på enheten.
 
->[!div class="mx-imgBorder"] 
->![Vyer för Knee-klammer](media/knee-brace-dashboard.png)
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Knee-klammer":::
 
 ### <a name="data-export"></a>Dataexport
 
-Med data export kan du exportera IoT Central enhets data kontinuerligt till andra Azure-tjänster, inklusive [Azure API för FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
+Med data export kan du exportera enhets data kontinuerligt till andra Azure-tjänster, inklusive [Azure API för FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte kommer att fortsätta att använda det här programmet kan du ta bort programmet genom att gå till **Administration > program inställningar** och klicka på **ta bort**.
 
->[!div class="mx-imgBorder"] 
->![Ta bort app](media/admin-delete.png)
+:::image type="content" source="media/admin-delete.png" alt-text="Städade resurser":::
 
 ## <a name="next-steps"></a>Nästa steg
 

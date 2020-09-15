@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002257"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531312"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitets planering och skalning för Azure Service Fabric
 
@@ -36,6 +36,9 @@ Om du använder automatisk skalning via skalnings uppsättningar för virtuella 
 
 > [!NOTE]
 > Den Service Fabric tillstånds känsliga Service Fabric:/system/InfastructureService/<NODE_TYPE_NAME> körs på varje nodtyp som har silver eller högre hållbarhet. Det är den enda system tjänst som stöds för att köras i Azure på någon av dina kluster Node-typer.
+
+> [!IMPORTANT]
+> Service Fabric automatisk skalning stöder `Default` `NewestVM` [skalnings uppsättningar för](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md)virtuella datorers skalnings uppsättning.
 
 ## <a name="vertical-scaling-considerations"></a>Överväganden vid vertikal skalning
 
@@ -168,7 +171,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > När du skalar i ett kluster ser du att den borttagna noden/VM-instansen visas i ett ohälsosamt tillstånd i Service Fabric Explorer. En förklaring av det här problemet finns [i beteenden som du kan studera i Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Du kan:
-> * Anropa [kommandot Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) med rätt nodnamn.
+> * Anropa [kommandot Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) med rätt nodnamn.
 > * Distribuera [Service Fabric AutoScale Helper-programmet](https://github.com/Azure/service-fabric-autoscale-helper/) i klustret. Det här programmet ser till att de skalade noderna rensas från Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Tillförlitlighets nivåer

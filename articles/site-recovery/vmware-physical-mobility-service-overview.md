@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 19d6933497b469148687dc9c5012513ab7d0314b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047215"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530071"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
@@ -33,11 +33,11 @@ Om datorer som du vill replikera kör antivirus program, utesluter du mobilitets
 
 Push-installation är en integrerad del av jobbet som körs från Azure Portal för att [Aktivera replikering](vmware-azure-enable-replication.md#enable-replication). När du har valt den uppsättning med virtuella datorer som du vill skydda och aktivera replikering, skickar konfigurations servern mobilitets tjänst agenten till servrarna, installerar agenten och slutför agentens registrering med konfigurations servern.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att alla [krav](vmware-azure-install-mobility-service.md) för push-installation är uppfyllda.
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
-- Från, [9,36-versionen](https://support.microsoft.com/help/4578241/) , för SUSE Linux Enterprise Server 11 SP4, se till att det senaste installations programmet är [tillgängligt på konfigurations servern och den skalbara processervern](#download-latest-mobility-agent-installer-for-suse-11-sp3-server)
+- Från och med 9,36-versionen, för SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 Se till att det senaste installations programmet är [tillgängligt på konfigurations servern och den skalbara processervern](#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)
 
 Arbets flödet för push-installation beskrivs i följande avsnitt:
 
@@ -69,7 +69,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ## <a name="install-the-mobility-service-using-ui"></a>Installera mobilitets tjänsten med hjälp av användar gränssnittet
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
 - [Leta upp installations programmet](#locate-installer-files) för serverns operativ system.
@@ -97,7 +97,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Installera mobilitets tjänsten med hjälp av kommando tolken
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Se till att alla serverkonfigurationer uppfyller kriterierna i [support mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure](vmware-physical-azure-support-matrix.md).
 - [Leta upp installations programmet](#locate-installer-files) för serverns operativ system.
@@ -202,30 +202,62 @@ Gå till mappen _%programdata%\ASR\home\svsystems\pushinstallsvc\repository_på 
 Installations fil | Operativ system (endast 64-bitars)
 --- | ---
 `Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 </br> Windows Server 2012 R2 </br> Windows Server 2012 </br> Windows Server 2008 R2 SP1
+[Ska laddas ned och placeras i den här mappen manuellt](#rhel-5-or-centos-5-server) | Red Hat Enterprise Linux (RHEL) 5 </br> CentOS 5
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
+`Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 8 </br> CentOS 8
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Innehåller SP2 och SP3.
-[Ska laddas ned och placeras i den här mappen manuellt](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 SP3
+[Ska laddas ned och placeras i den här mappen manuellt](#suse-11-sp3-server) | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
+`Microsoft-ASR_UA_version_SLES15-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 15 
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6,4 </br> Oracle Enterprise Linux 6,5
+`Microsoft-ASR_UA_version_OL7-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 7 
+`Microsoft-ASR_UA_version_OL8-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 8
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14,04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Ubuntu Linux 16,04 LTS-Server
-`Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
+`Microsoft-ASR_UA_version_UBUNTU-18.04-64_GA_date_release.tar.gz` | Ubuntu Linux 18,04 LTS-Server
+`Microsoft-ASR_UA_version_UBUNTU-20.04-64_GA_date_release.tar.gz` | Ubuntu Linux 20,04 LTS-Server
+[Ska laddas ned och placeras i den här mappen manuellt](#debian-7-server) | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
+`Microsoft-ASR_UA_version_DEBIAN9-64_GA_date_release.tar.gz` | Debian 9
 
-### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Hämta de senaste installations program för mobilitets agenten för SUSE 11 SP3-Server
+## <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server"></a>Hämta de senaste installations program för mobilitets agenten för SUSE 11 SP3, RHEL 5, Debian 7-Server
 
-Som ett **krav för att uppdatera eller skydda SUSE Linux Enterprise Server 11 SP3-datorer** från [9,36-versionen](https://support.microsoft.com/help/4578241/) och senare:
+### <a name="suse-11-sp3-server"></a>SUSE 11 SP3-Server
+
+Som ett **krav för att uppdatera eller skydda SUSE Linux Enterprise Server 11 SP3-datorer** från 9,36-versionen och senare:
 
 1. Se till att det senaste installations programmet för mobilitets agenten har laddats ned från Microsoft Download Center och placerats i push Installer-lagringsplatsen på konfigurations servern
-2. [Hämta](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) installations programmet för SUSE Linux Enterprise Server 11 SP3-agenten.
-3. Gå till konfigurations servern, kopiera installations programmet för SUSE Linux Enterprise Server 11 SP3-agenten på följande sökvägar
-    1. INSTALL_DIR \home\svsystems\pushinstallsvc\repository
-    1.  INSTALL_DIR \home\svsystems\admin\web\sw-mappar
-4. Navigera nu till associerade skalbara process servrar & kopiera installations programmet i båda Sök vägarna som nämns i tredje steget.
-5. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
+2. [Hämta](site-recovery-whats-new.md) senaste SUSE Linux Enterprise Server 11 SP3-agentens installations program. Den senaste mobilitets agent versionen är [9,37](https://support.microsoft.com/help/4582666/)
+3. Gå till konfigurations servern, kopiera installations programmet för SUSE Linux Enterprise Server 11 SP3-agenten på sökvägen – INSTALL_DIR \home\svsystems\pushinstallsvc\repository
+1. När du har kopierat det senaste installations programmet startar du om InMage PushInstall-tjänsten. 
+1. Gå nu till de tillhör ande process servrarna för skalbarhet, upprepa steg 3 och steg 4.
+1. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
-    1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\admin\web\sw-sökväg
+
+### <a name="rhel-5-or-centos-5-server"></a>RHEL 5 eller CentOS 5-Server
+
+Som ett **krav för att uppdatera eller skydda RHEL 5-datorer från och** med 9,36-versionen:
+
+1. Se till att det senaste installations programmet för mobilitets agenten har laddats ned från Microsoft Download Center och placerats i push Installer-lagringsplatsen på konfigurations servern
+2. [Hämta](site-recovery-whats-new.md) de senaste RHEL 5-eller CentOS 5-agent installations programmet. Den senaste mobilitets agent versionen är [9,37](https://support.microsoft.com/help/4582666/)
+3. Gå till konfigurations servern, kopiera RHEL 5-eller CentOS 5-agentens installations program på sökvägen – INSTALL_DIR \home\svsystems\pushinstallsvc\repository
+1. När du har kopierat det senaste installations programmet startar du om InMage PushInstall-tjänsten. 
+1. Gå nu till de tillhör ande process servrarna för skalbarhet, upprepa steg 3 och steg 4.
+1. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
+    1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+
+## <a name="debian-7-server"></a>Debian 7-Server
+
+Som ett **krav för att uppdatera eller skydda Debian 7-datorer från och** med 9,36-versionen:
+
+1. Se till att det senaste installations programmet för mobilitets agenten har laddats ned från Microsoft Download Center och placerats i push Installer-lagringsplatsen på konfigurations servern
+2. [Hämta](site-recovery-whats-new.md) de senaste Debian 7-agentens installations program. Den senaste mobilitets agent versionen är [9,37](https://support.microsoft.com/help/4582666/)
+3. Gå till konfigurations servern, kopiera Debian 7-agentens installations program på sökvägen – INSTALL_DIR \home\svsystems\pushinstallsvc\repository
+1. När du har kopierat det senaste installations programmet startar du om InMage PushInstall-tjänsten. 
+1. Gå nu till de tillhör ande process servrarna för skalbarhet, upprepa steg 3 och steg 4.
+1. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
+    1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="next-steps"></a>Nästa steg
 

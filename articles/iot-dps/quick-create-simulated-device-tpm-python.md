@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 53590344a45990187b5ca8aba4eca18da526f308
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 6e778541023befc756e61be9b9646bf37c82c47c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872624"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530615"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad TPM-enhet med python-enhets-SDK för IoT Hub Device Provisioning Service
 
@@ -24,7 +24,7 @@ I den här snabb starten skapar du en simulerad IoT-enhet på en Windows-dator. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Granskning av [koncept för automatisk etablering](concepts-auto-provisioning.md).
+- Bekant med [etablerings](about-iot-dps.md#provisioning-process) koncept.
 - Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Visual Studio 2015 +](https://visualstudio.microsoft.com/vs/) med Skriv bords utveckling med C++.
@@ -125,7 +125,7 @@ Den här artikeln visar enskilda registreringar.
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-1. Med Python IDE redigerar du python-skriptet **provisioning\_device\_client\_sample.py**. Ändra variablerna *Global \_ förhandlings- \_ URI* och *ID- \_ omfång* till de värden som anges ovan. Kontrollera också att *SECURITY\_DEVICE\_TYPE* har getts värdet `ProvisioningSecurityDeviceType.TPM`
+1. Med Python IDE redigerar du python-skriptet **provisioning\_device\_client\_sample.py**. Ändra variablerna *Global \_ förhandlings- \_ URI* och  *ID- \_ omfång* till de värden som anges ovan. Kontrollera också att *SECURITY\_DEVICE\_TYPE* har getts värdet `ProvisioningSecurityDeviceType.TPM`
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -159,7 +159,7 @@ Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
 1. Stäng fönstret för TPM-simulatorn på datorn.
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
+1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för enheten som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
 1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna bladet **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg

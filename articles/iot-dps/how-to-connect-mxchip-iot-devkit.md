@@ -1,23 +1,23 @@
 ---
 title: Använda Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera IoT-DevKit för MXChip med IoT Hub | Microsoft Docs
 description: Så här använder du automatisk etablering i Azure IoT Hub Device Provisioning Service (DPS) för att registrera MXChip IoT-DevKit med IoT Hub.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotgra
+ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975660"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528661"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Använd Azure IoT Hub Device Provisioning Service automatisk etablering för att registrera MXChip IoT-DevKit med IoT Hub
 
-Den här artikeln beskriver hur du använder Azure IoT Hub Device Provisioning Service [Automatisk etablering](concepts-auto-provisioning.md), för att registrera MXChip IoT-DevKit med Azure IoT Hub. I den här guiden får du lära dig att:
+Den här artikeln beskriver hur du använder Azure-IoT Hub Device Provisioning Service för att [tillhandahålla](about-iot-dps.md#provisioning-process) IoT-DevKit för MXChip till en Azure-IoT Hub. I den här guiden får du lära dig att:
 
 * Konfigurera den globala slut punkten för enhets etablerings tjänsten på en enhet.
 * Använd en unik enhets hemlighet (UDS) för att generera ett X. 509-certifikat.
@@ -45,7 +45,7 @@ Utför stegen i den här självstudien genom att först utföra följande uppgif
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Spara en unik enhets hemlighet på enhetens säkerhets lagring
 
-Automatisk etablering kan konfigureras på en enhet baserat på enhetens [mekanism för attestering](concepts-security.md#attestation-mechanism). MXChip IoT-DevKit använder [enhetens identitets sammansättnings motor](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) från [Trusted Computing Group](https://trustedcomputinggroup.org). En **unik enhets hemlighet** (UDS) som sparas i en STSAFE Security chip ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) på DevKit används för att generera enhetens unika [X. 509-certifikat](concepts-security.md#x509-certificates). Certifikatet används senare för registrerings processen i Device Provisioning-tjänsten och under registreringen vid körning.
+Automatisk etablering kan konfigureras på en enhet baserat på enhetens [mekanism för attestering](concepts-service.md#attestation-mechanism). MXChip IoT-DevKit använder [enhetens identitets sammansättnings motor](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) från [Trusted Computing Group](https://trustedcomputinggroup.org). En **unik enhets hemlighet** (UDS) som sparas i en STSAFE Security chip ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) på DevKit används för att generera enhetens unika [X. 509-certifikat](concepts-x509-attestation.md). Certifikatet används senare för registrerings processen i Device Provisioning-tjänsten och under registreringen vid körning.
 
 En typisk UDS är en sträng på 64 tecken, som visas i följande exempel:
 

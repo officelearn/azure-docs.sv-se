@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299276"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531414"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Så här återställer du X. 509 enhets certifikat
 
@@ -20,14 +20,14 @@ Under livs cykeln för din IoT-lösning måste du registrera certifikat. Två av
 
 Rullande certifikat är en säker säkerhets metod för att skydda systemet i händelse av en överträdelse. Som en del av den här [metoden](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)är det viktigt att du behöver ha återaktiva säkerhets processer på plats tillsammans med förebyggande åtgärder. Att återställa enhetens certifikat bör ingå som en del av de här säkerhets processerna. Hur ofta du kan återställa dina certifikat beror på lösningens säkerhets behov. Kunder med lösningar som har mycket känsliga data kan förnya certifikat dagligen, medan andra registrerar sina certifikat varje år.
 
-Rullande enhets certifikat innebär att uppdatera det certifikat som lagras på enheten och IoT Hub. Därefter kan enheten reetablera sig själv med IoT Hub med hjälp av normal [Automatisk etablering](concepts-auto-provisioning.md) med Device Provisioning-tjänsten.
+Rullande enhets certifikat innebär att uppdatera det certifikat som lagras på enheten och IoT Hub. Därefter kan enheten reetablera sig själv med IoT Hub med hjälp av normal [etablering](about-iot-dps.md#provisioning-process) med enhets etablerings tjänsten (DPS).
 
 
 ## <a name="obtain-new-certificates"></a>Hämta nya certifikat
 
 Det finns många sätt att hämta nya certifikat för dina IoT-enheter. Dessa omfattar att hämta certifikat från enhets fabriken, skapa egna certifikat och låta en tredje part hantera certifikat som skapas åt dig. 
 
-Certifikat signeras av varandra för att bilda en kedja av förtroende från ett rot certifikat från en rot certifikat utfärdare till ett [löv certifikat](concepts-security.md#end-entity-leaf-certificate). Ett signerings certifikat är det certifikat som används för att signera löv certifikatet i slutet av förtroende kedjan. Ett signerings certifikat kan vara ett certifikat från en rot certifikat utfärdare eller ett mellanliggande certifikat i förtroende kedjan. Mer information finns i avsnittet om [X. 509-certifikat](concepts-security.md#x509-certificates).
+Certifikat signeras av varandra för att bilda en kedja av förtroende från ett rot certifikat från en rot certifikat utfärdare till ett [löv certifikat](concepts-x509-attestation.md#end-entity-leaf-certificate). Ett signerings certifikat är det certifikat som används för att signera löv certifikatet i slutet av förtroende kedjan. Ett signerings certifikat kan vara ett certifikat från en rot certifikat utfärdare eller ett mellanliggande certifikat i förtroende kedjan. Mer information finns i avsnittet om [X. 509-certifikat](concepts-x509-attestation.md#x509-certificates).
  
 Det finns två olika sätt att hämta ett signerings certifikat. Det första sättet, som rekommenderas för produktions system, är att köpa ett signerings certifikat från en rot certifikat utfärdare (CA). På så sätt går säkerhetserna vidare till en betrodd källa. 
 
@@ -36,7 +36,7 @@ Det andra sättet är att skapa egna X. 509-certifikat med hjälp av ett verktyg
 
 ## <a name="roll-the-certificate-on-the-device"></a>Återställa certifikatet på enheten
 
-Certifikat på en enhet bör alltid lagras på en säker plats som en [maskinvaru-säkerhetsmodul (HSM)](concepts-device.md#hardware-security-module). Hur du registrerar enhets certifikat beror på hur de har skapats och installerats i enheterna på den första platsen. 
+Certifikat på en enhet bör alltid lagras på en säker plats som en [maskinvaru-säkerhetsmodul (HSM)](concepts-service.md#hardware-security-module). Hur du registrerar enhets certifikat beror på hur de har skapats och installerats i enheterna på den första platsen. 
 
 Om du fick dina certifikat från en tredje part måste du se hur de registrerar sina certifikat. Processen kan ingå i din ordning, eller så kan det vara en separat tjänst som de erbjuder. 
 
@@ -75,7 +75,7 @@ Om du rullar certifikat som svar på en säkerhets överträdelse bör du använ
 
     De här stegen bör utföras för det primära och sekundära certifikatet, om båda komprometteras.
 
-    ![Hantera enskilda registreringar](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Hantera enskilda registreringar med en säkerhets överträdelse](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. När det komprometterade certifikatet har tagits bort från etablerings tjänsten kan certifikatet fortfarande användas för att göra enhets anslutningar till IoT-hubben så länge en enhets registrering finns där. Du kan hantera följande två sätt: 
 
@@ -96,7 +96,7 @@ Senare när det sekundära certifikatet också snart upphör att gälla och mås
 
 2. Klicka på **sekundärt certifikat** och klicka sedan på mappikonen för att välja det nya certifikat som ska överföras för registrerings posten. Klicka på **Spara**.
 
-    ![Hantera enskilda registreringar med hjälp av det sekundära certifikatet](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Hantera enskilda registreringar med förfallo datum för sekundärt certifikat](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. Senare när det primära certifikatet har upphört att gälla, kom tillbaka och ta bort det primära certifikatet genom att klicka på knappen **ta bort aktuellt certifikat** .
 
@@ -118,7 +118,7 @@ Om du vill uppdatera en grupp registrering som svar på en säkerhets överträd
 
 5. Klicka på **ca-certifikat**och välj ditt nya rot certifikat för certifikat utfärdare. Klicka sedan på **Spara**. 
 
-    ![Välj det nya rot certifikat utfärdarens certifikat](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Välj det nya rot certifikat utfärdarens certifikat för ett komprometterat certifikat](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. När det komprometterade certifikatet har tagits bort från etablerings tjänsten kan certifikatet fortfarande användas för att göra enhets anslutningar till IoT-hubben så länge enhets registreringar finns där. Du kan hantera följande två sätt: 
 
@@ -136,9 +136,9 @@ Om du vill uppdatera en grupp registrering som svar på en säkerhets överträd
 
 2. Klicka på **mellanliggande certifikat**och **ta bort aktuellt certifikat**. Klicka på mappikonen för att navigera till det nya mellanliggande certifikatet som ska överföras för registrerings gruppen. Klicka på **Spara** när du är klar. De här stegen bör utföras för både det primära och sekundära certifikatet, om båda komprometteras.
 
-    Det nya mellanliggande certifikatet bör signeras av ett verifierat rot certifikat för certifikat utfärdare som redan har lagts till i etablerings tjänsten. Mer information finns i avsnittet om [X. 509-certifikat](concepts-security.md#x509-certificates).
+    Det nya mellanliggande certifikatet bör signeras av ett verifierat rot certifikat för certifikat utfärdare som redan har lagts till i etablerings tjänsten. Mer information finns i avsnittet om [X. 509-certifikat](concepts-x509-attestation.md#x509-certificates).
 
-    ![Hantera enskilda registreringar](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Hantera enskilda registreringar för en komprometterad mellanliggande](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. När det komprometterade certifikatet har tagits bort från etablerings tjänsten kan certifikatet fortfarande användas för att göra enhets anslutningar till IoT-hubben så länge enhets registreringar finns där. Du kan hantera följande två sätt: 
@@ -164,7 +164,7 @@ Senare när det sekundära certifikatet också snart upphör att gälla och mås
 
 3. Klicka på **ca-certifikat**och välj ditt nya rot certifikat för certifikat utfärdare under den **sekundära certifikat** konfigurationen. Klicka sedan på **Spara**. 
 
-    ![Välj det nya rot certifikat utfärdarens certifikat](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Välj det nya rot certifikat utfärdarens certifikat för förfallo datum](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. Senare när det primära certifikatet har upphört att gälla klickar du på fliken **certifikat** för din enhets etablerings tjänst instans. Klicka på certifikatet har förfallit i listan och klicka sedan på knappen **ta bort** . Bekräfta borttagningen genom att ange certifikat namnet och klicka på **OK**.
 
@@ -179,9 +179,9 @@ Senare när det sekundära certifikatet också snart upphör att gälla och mås
 
 2. Klicka på **sekundärt certifikat** och klicka sedan på mappikonen för att välja det nya certifikat som ska överföras för registrerings posten. Klicka på **Spara**.
 
-    Det nya mellanliggande certifikatet bör signeras av ett verifierat rot certifikat för certifikat utfärdare som redan har lagts till i etablerings tjänsten. Mer information finns i avsnittet om [X. 509-certifikat](concepts-security.md#x509-certificates).
+    Det nya mellanliggande certifikatet bör signeras av ett verifierat rot certifikat för certifikat utfärdare som redan har lagts till i etablerings tjänsten. Mer information finns i avsnittet om [X. 509-certifikat](concepts-x509-attestation.md#x509-certificates).
 
-   ![Hantera enskilda registreringar med hjälp av det sekundära certifikatet](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Hantera registrerings grupper med det sekundära certifikatet som upphör att gälla](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. Senare när det primära certifikatet har upphört att gälla, kom tillbaka och ta bort det primära certifikatet genom att klicka på knappen **ta bort aktuellt certifikat** .
 
@@ -208,6 +208,6 @@ När ett certifikat ingår som en del av en inaktive rad registrerings post komm
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om X. 509-certifikat i Device Provisioning-tjänsten finns i [säkerhet](concepts-security.md) 
+- Om du vill veta mer om X. 509-certifikat i Device Provisioning-tjänsten, se [X. 509 certifikat attestering](concepts-x509-attestation.md) 
 - Läs mer om hur du kan använda certifikat för X. 509 CA-certifikat med Azure IoT Hub Device Provisioning Service i [så här verifierar du certifikat](how-to-verify-certificates.md)
 - Information om hur du använder portalen för att skapa en registrerings grupp finns i [Hantera enhets registreringar med Azure Portal](how-to-manage-enrollments.md).

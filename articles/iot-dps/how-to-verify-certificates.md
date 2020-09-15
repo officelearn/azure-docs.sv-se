@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74973449"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530870"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Så här gör du ett certifikat för X. 509 CA-certifikat med enhets etablerings tjänsten
 
@@ -23,7 +23,7 @@ Du måste utföra följande steg:
 2. Skapa ett verifierings certifikat för X. 509 med verifierings koden som ämne och signera certifikatet med den privata nyckel som är kopplad till ditt X. 509 CA-certifikat.
 3. Ladda upp det signerade verifierings certifikatet till tjänsten. Tjänsten verifierar verifierings certifikatet med hjälp av den offentliga delen av CA-certifikatet som ska verifieras, vilket styrker att du har till gång till certifikat utfärdarens privata nyckel.
 
-Verifierade certifikat spelar en viktig roll när du använder registrerings grupper. Verifierar att certifikat ägarskapet ger ett extra säkerhets lager genom att se till att omladdningen av certifikatet är i besittning av certifikatets privata nyckel. Verifiering hindrar en skadlig aktör att identifiera din trafik från att extrahera ett mellanliggande certifikat och använda certifikatet för att skapa en registrerings grupp i sin egen etablerings tjänst, vilket skapar en effektiv kapning av dina enheter. Genom att bevisa ägande rätt till roten eller ett mellanliggande certifikat i en certifikat kedja, bevisa du att du har behörighet att generera löv certifikat för de enheter som ska registreras som en del av den registrerings gruppen. Därför måste rot-eller mellanliggande certifikat som kon figurer ATS i en registrerings grupp antingen vara ett verifierat certifikat eller måste sammanställas till ett verifierat certifikat i certifikat kedjan som en enhet presenterar när den autentiserar med tjänsten. Läs mer om registrerings grupper i [X. 509-certifikat](concepts-security.md#x509-certificates) och [kontrol lera enhets åtkomst till etablerings tjänsten med X. 509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Verifierade certifikat spelar en viktig roll när du använder registrerings grupper. Verifierar att certifikat ägarskapet ger ett extra säkerhets lager genom att se till att omladdningen av certifikatet är i besittning av certifikatets privata nyckel. Verifiering hindrar en skadlig aktör att identifiera din trafik från att extrahera ett mellanliggande certifikat och använda certifikatet för att skapa en registrerings grupp i sin egen etablerings tjänst, vilket skapar en effektiv kapning av dina enheter. Genom att bevisa ägande rätt till roten eller ett mellanliggande certifikat i en certifikat kedja, bevisa du att du har behörighet att generera löv certifikat för de enheter som ska registreras som en del av den registrerings gruppen. Därför måste rot-eller mellanliggande certifikat som kon figurer ATS i en registrerings grupp antingen vara ett verifierat certifikat eller måste sammanställas till ett verifierat certifikat i certifikat kedjan som en enhet presenterar när den autentiserar med tjänsten. Om du vill veta mer om X. 509 certifikat attestering, se [X. 509-certifikat](concepts-x509-attestation.md) och [kontrol lera enhets åtkomst till etablerings tjänsten med X. 509-certifikat](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registrera den offentliga delen av ett X. 509-certifikat och få en verifierings kod
 
@@ -63,7 +63,7 @@ PowerShell-och bash-skripten som anges i dokumentationen och SDK: er förlitar s
 
 ## <a name="upload-the-signed-verification-certificate"></a>Ladda upp det signerade verifierings certifikatet
 
-1. Överför den resulterande signaturen som ett verifierings certifikat till etablerings tjänsten i portalen. I **certifikat information** på Azure Portal använder du ikonen för _Utforskaren_ bredvid fältet **verifierings certifikat. pem eller CER-fil** för att överföra det signerade verifierings certifikatet från systemet.
+1. Överför den resulterande signaturen som ett verifierings certifikat till etablerings tjänsten i portalen. I **certifikat information** på Azure Portal använder du ikonen för  _Utforskaren_ bredvid fältet **verifierings certifikat. pem eller CER-fil** för att överföra det signerade verifierings certifikatet från systemet.
 
 2. När certifikatet har laddats upp klickar du på **Verifiera**. **Status** för ditt certifikat ändras till **_verifierat_** i listan **certifikat Utforskaren** . Klicka på **Uppdatera** om den inte uppdateras automatiskt.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8acc8b1e32304705b4221fe5570f7445720eafed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307921"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528439"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Snabb start: etablera en simulerad enhet för att IoT Hub med symmetriska nycklar
 
@@ -22,7 +22,7 @@ I den här snabbstarten får lära dig att skapa och köra en enhetssimulator p�
 
 Även om den här artikeln visar etablering med en enskild registrering kan du använda registrerings grupper. Det finns vissa skillnader när du använder registrerings grupper. Du måste till exempel använda en härledd enhets nyckel med ett unikt registrerings-ID för enheten. Även om registreringsgrupper för symmetrisk nyckel inte är begränsade till äldre enheter finns det ett exempel för registreringsgrupper i avsnittet om [hur du etablerar äldre enheter med symmetrisk nyckelattestering](how-to-legacy-device-symm-key.md). Mer information finns i avsnittet om [gruppregistreringar för symmetrisk nyckelattestering](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Om du inte känner till processen för automatisk etablering bör du gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). 
+Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten. 
 
 Se även till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub-enhetsetableringstjänsten med Azure-portalen) innan du fortsätter med den här snabbstarten. Den här snabbstarten kräver att du redan har skapat en Device Provisioning Service-instans.
 
@@ -32,7 +32,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Kontrol lera att du har [Java se Development Kit 8](https://aka.ms/azure-jdks) eller senare installerat på datorn.
 
@@ -146,7 +146,7 @@ I det här avsnittet ska du uppdatera enhets exempel koden för att skicka enhet
 Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
+1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för enheten som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
 1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för enheten som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,25 +1,27 @@
 ---
-title: Etablera äldre enheter med hjälp av symmetriska nycklar – Azure IoT Hub Device Provisioning Service
-description: Använda symmetriska nycklar för att etablera äldre enheter med din DPS-instans (Device Provisioning service)
+title: Etablera enheter med hjälp av symmetriska nycklar – Azure IoT Hub Device Provisioning Service
+description: Använda symmetriska nycklar för att etablera enheter med enhets etablerings tjänst instansen (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotga
+ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434720"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529408"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Så här etablerar du äldre enheter med symmetriska nycklar
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Så här etablerar du enheter med hjälp av symmetrisk nyckel registrerings grupper
 
-Ett vanligt problem med många äldre enheter är att de ofta har en identitet som består av en enda del av informationen. Den här identitets informationen är vanligt vis en MAC-adress eller ett serie nummer. Äldre enheter kanske inte har något certifikat, TPM eller någon annan säkerhetsfunktion som kan användas för att identifiera enheten på ett säkert sätt. Enhets etablerings tjänsten för IoT Hub innehåller symmetrisk nyckel attestering. Symmetrisk nyckel attestering kan användas för att identifiera en enhet baserat på information som MAC-adressen eller ett serie nummer.
+Den här artikeln visar hur du på ett säkert sätt kan etablera flera symmetriska nyckel enheter till en enda IoT Hub med hjälp av en registrerings grupp.
 
-Om du enkelt kan installera en [maskinvaru-säkerhetsmodul (HSM)](concepts-security.md#hardware-security-module) och ett certifikat kan det vara en bättre metod för att identifiera och etablera dina enheter. Eftersom den metoden kan göra det möjligt att kringgå uppdateringen av koden som distribuerats till alla dina enheter och du inte har en hemlig nyckel inbäddad i enhets avbildningen.
+En del enheter kanske inte har något certifikat, TPM eller någon annan säkerhetsfunktion som kan användas för att identifiera enheten på ett säkert sätt. Enhets etablerings tjänsten innehåller [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md). Symmetrisk nyckel attestering kan användas för att identifiera en enhet baserat på unik information, t. ex. MAC-adressen eller ett serie nummer.
+
+Om du enkelt kan installera en [maskinvaru-säkerhetsmodul (HSM)](concepts-service.md#hardware-security-module) och ett certifikat kan det vara en bättre metod för att identifiera och etablera dina enheter. Eftersom den metoden kan göra det möjligt att kringgå uppdateringen av koden som distribuerats till alla dina enheter och du inte har en hemlig nyckel inbäddad i enhets avbildningen.
 
 Den här artikeln förutsätter att varken HSM eller ett certifikat är ett lämpligt alternativ. Det förutsätts dock att du har en del metod för att uppdatera enhets koden för att använda enhets etablerings tjänsten för att etablera enheterna. 
 
@@ -41,13 +43,13 @@ Enhets koden som visas i den här artikeln följer samma mönster som [snabb sta
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
 
 Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
 
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
@@ -73,7 +75,7 @@ SDK innehåller exempel koden för den simulerade enheten. Den här simulerade e
 
     Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-4. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. Kör följande kommandon från `azure-iot-sdk-c` katalogen:
+4. Skapa en under `cmake` katalog i rot katalogen på git-lagringsplatsen och navigera till mappen. Kör följande kommandon från `azure-iot-sdk-c` katalogen:
 
     ```cmd/sh
     mkdir cmake
@@ -147,7 +149,8 @@ Skapa ett unikt registrerings-ID för din enhet. Giltiga tecken är alfanumerisk
 
 Generera enhets nyckeln genom att använda gruppens huvud nyckel för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av det unika registrerings-ID: t för enheten och konvertera resultatet till base64-format.
 
-Ta inte med din grupp huvud nyckel i enhets koden.
+> [!WARNING]
+> Enhets koden ska bara innehålla den härledda enhets nyckeln för den enskilda enheten. Ta inte med din grupp huvud nyckel i enhets koden. En komprometterad huvud nyckel har möjlighet att kompromettera säkerheten för alla enheter som autentiseras med den.
 
 
 #### <a name="linux-workstations"></a>Linux-arbetsstationer

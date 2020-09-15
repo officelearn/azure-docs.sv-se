@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1e4dfb399432278ee09d1c016faae8fd3b584647
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 844ef8c09f10e1df888ef4990db22be8705d5c01
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318054"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530207"
 ---
 # <a name="language-support-for-computer-vision"></a>Språk stöd för Visuellt innehåll
 
@@ -40,7 +40,7 @@ Visuellt innehålls OCR-API: er stöder flera språk. De kräver inte att du ang
 |Grekiska | `el` |✔ | | |
 |Ungerska | `hu` |✔ | | |
 |Italienska | `it` |✔ |✔ |✔ |
-|Japanska | `ja` |✔ | | |
+|Japanska | `ja` |✔ | |✔ |
 |Koreanska | `ko` |✔ | | |
 |Norska | `nb` |✔ | | |
 |Polska | `pl` |✔ | | |
@@ -58,7 +58,7 @@ Visuellt innehålls OCR-API: er stöder flera språk. De kräver inte att du ang
 
 Vissa åtgärder för API: et [analys-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan returnera resultat på andra språk, som anges med `language` Frågeparametern. Andra åtgärder returnerar resultat på engelska oavsett vilket språk som anges, och andra genererar ett undantag för språk som inte stöds. Åtgärder anges med `visualFeatures` `details` parametrarna och, se en lista över alla [Overview](overview.md) åtgärder som du kan utföra med bild analys.
 
-|Språk | Språkkod | Kategorier | Taggar | Beskrivning | Vuxen | Varumärken | Color | Ansikten | ImageType | Objekt | Kändisar | Landmärken |
+|Språk | Språkkod | Kategorier | Taggar | Description | Vuxen | Varumärken | Color (Färg) | Ansikten | ImageType | Objekt | Kändisar | Landmärken |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Kinesiska | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Engelska | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

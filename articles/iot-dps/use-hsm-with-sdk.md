@@ -1,8 +1,8 @@
 ---
 title: Använd olika mekanismer för attestering med Azure IoT Hub Device Provisioning Service client SDK
 description: Azure så här använder du olika attesterings metoder med klient-SDK för enhets etablerings tjänsten (DPS) i Azure
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -10,18 +10,18 @@ services: iot-dps
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: c110e90f26f595bcbf181b72e13f12a6de2fa8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a32e2f055b2914fa0008e043e80092ac2da0814
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687210"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531516"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 
-I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-security.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etableringstjänsten stöder autentisering för två typer av attesteringsmetoder: X.509 och TPM (Trusted Platform Module).
+I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-service.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etableringstjänsten stöder autentisering för två typer av attesteringsmetoder: X.509 och TPM (Trusted Platform Module).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development environment" (förbereda utvecklingsmiljön) i guiden [Create and provision simulated device](./quick-create-simulated-device.md) (Skapa och etablera en simulerad enhet).
 
@@ -29,11 +29,11 @@ Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development enviro
 
 Som enhetens tillverkare måste du först välja attesteringsmetod (eller HSM:er) som baseras på någon av typerna som stöds. För närvarande erbjuder [klient-SDK för enhetsetableringstjänsten för C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) stöd för följande HSM:er: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM är en etablerad standard för de flesta plattformar för Windows-baserade enheter, samt några Linux-/Ubuntu-baserade enheter. Som enhetens tillverkare kan du välja denna attesteringsmetod om du kör något av dessa operativsystem på dina enheter och du vill ha en etablerad standard. Med TPM-kretsar kan du endast registrera varje enhet individuellt till enhetsetableringstjänsten. I utvecklingssyfte kan du använda TPM-simulatorn på din Windows- eller Linux-utvecklingsdator.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM är en etablerad standard för de flesta plattformar för Windows-baserade enheter, samt några Linux-/Ubuntu-baserade enheter. Som enhets tillverkare kan du välja den här mekanismen för attestering om du har något av dessa operativ system som körs på dina enheter och du letar efter en etablerad standard. Med TPM-kretsar kan du endast registrera varje enhet individuellt till enhetsetableringstjänsten. I utvecklingssyfte kan du använda TPM-simulatorn på din Windows- eller Linux-utvecklingsdator.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509-certifikat kan lagras i relativt nya HSM-kretsar, så kallade [maskinvarubaserade säkerhetsmoduler](concepts-security.md#hardware-security-module). Arbetet fortlöper också inom Microsoft, på RIoT- eller DICE-kretsar, som implementerar X.509-certifikaten. Med X.509-kretsar kan du göra massregistrering av enheter i portalen. De stöder även vissa icke-Windows-operativsystem som embedOS. I utvecklingssyfte stöder klient-SDK:er för enhetsetableringstjänster en X.509-enhetssimulator. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509-certifikat kan lagras i relativt nya HSM-kretsar, så kallade [maskinvarubaserade säkerhetsmoduler](concepts-service.md#hardware-security-module). Arbetet fortlöper också inom Microsoft, på RIoT- eller DICE-kretsar, som implementerar X.509-certifikaten. Med X.509-kretsar kan du göra massregistrering av enheter i portalen. De stöder även vissa icke-Windows-operativsystem som embedOS. I utvecklingssyfte stöder klient-SDK:er för enhetsetableringstjänster en X.509-enhetssimulator. 
 
-Läs mer i informationen om [säkerhetsbegrepp](concepts-security.md) för IoT Hub Device Provisioning-tjänsten och [automatisk etablering](/azure/iot-dps/concepts-auto-provisioning).
+Mer information finns i IoT Hub Device Provisioning Service [attesterings metoder](concepts-service.md#attestation-mechanism).
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Aktivera autentisering för attesteringsmetoder som stöds
 

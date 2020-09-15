@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956380"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530836"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
@@ -163,6 +163,7 @@ Typ av flytande IP-regel är grunden för flera konfigurations mönster för bel
 
 * Flera klient dels konfigurationer stöds endast med virtuella IaaS-datorer.
 * Med den flytande IP-regeln måste programmet använda den primära IP-konfigurationen för utgående SNAT-flöden. Om programmet binder till klient delens IP-adress som kon figurer ATS i loopback-gränssnittet i gäst operativ systemet, är Azures utgående SNAT inte tillgängligt för att skriva om det utgående flödet och flödet Miss lyckas.  Granska [utgående scenarier](load-balancer-outbound-connections.md).
+* Flytande IP stöds för närvarande inte på sekundära IP-konfigurationer för interna belastnings Utjämnings scenarier.
 * Offentliga IP-adresser har en inverkan på faktureringen. Mer information finns i pris information för [IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Prenumerations begränsningar gäller. Mer information finns i [tjänst begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) för mer information.
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: a87769e1b67187a15daf3a256a2c1f4c79e10040
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6ed8e1deba7b3b2df03fa517a922721bcb8f8ad1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055528"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531244"
 ---
 # <a name="whats-new-in-custom-vision"></a>Vad är nytt i Custom Vision
 
@@ -25,7 +25,19 @@ Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig information, 
 
 ### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Information om hur du hanterar åtkomst till dina Custom Vision-projekt finns i [rollbaserad åtkomst kontroll](./role-based-access-control.md).
+* Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Information om hur du hanterar åtkomst till dina Custom Vision-projekt finns i [rollbaserad åtkomst kontroll](./role-based-access-control.md).
+
+### <a name="subset-training"></a>Del uppsättning utbildning
+
+* När du tränar ett objekt identifierings projekt kan du välja att bara träna på en delmängd av dina använda taggar. Du kanske vill göra detta om du inte har använt tillräckligt med vissa Taggar ännu, men du har tillräckligt med andra. Följ snabb starten för [klient biblioteket](./quickstarts/object-detection.md) för C# eller python om du vill veta mer.
+
+### <a name="azure-storage-notifications"></a>Azure Storage-meddelanden
+
+* Du kan integrera ditt Custom Vision-projekt med en Azure Blob Storage-kö för att få push-meddelanden om projekt utbildning/-export-aktivitet och säkerhets kopior av publicerade modeller. Den här funktionen är användbar för att undvika kontinuerlig avsökning av tjänsten för resultat när tids krävande åtgärder körs. I stället kan du integrera meddelanden i lagrings kön i ditt arbets flöde. Mer information finns i [lagrings integrerings](./storage-integration.md) guiden.
+
+### <a name="copy-and-move-projects"></a>Kopiera och flytta projekt
+
+* Nu kan du kopiera projekt från ett Custom Vision konto till andra. Du kanske vill flytta ett projekt från en utveckling till produktions miljön eller säkerhetskopiera ett projekt till ett konto i en annan Azure-region för ökad data säkerhet. Läs mer i guiden [Kopiera och flytta projekt](./copy-move-projects.md) .
 
 ## <a name="september-2019"></a>September 2019
 

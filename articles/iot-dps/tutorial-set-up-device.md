@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687149"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531533"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: Konfigurera en enhet för etablering med hjälp av Azure-IoT Hub Device Provisioning Service
 
-I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hub Device Provisioning-tjänsten för att automatiskt etablera dina enheter till din IoT-hubb. I den här kursen visar vi hur du konfigurerar din enhet under tillverkningsprocessen och gör så att den kan etableras automatiskt med IoT-hubben. Enheten etableras baserat på dess [attesteringsmetod](concepts-device.md#attestation-mechanism) vid den första starten och anslutningen till etableringstjänsten. Den här självstudien omfattar följande uppgifter:
+I den tidigare självstudiekursen fick du lära dig att konfigurera Azure IoT Hub Device Provisioning-tjänsten för att automatiskt etablera dina enheter till din IoT-hubb. I den här kursen visar vi hur du konfigurerar din enhet under tillverkningsprocessen och gör så att den kan etableras automatiskt med IoT-hubben. Enheten etableras baserat på dess [attesteringsmetod](concepts-service.md#attestation-mechanism) vid den första starten och anslutningen till etableringstjänsten. Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Bygga ett plattformsspecifikt klient-SDK för enhetsetableringstjänster
@@ -29,7 +29,7 @@ Den här självstudien förutsätter att du redan har skapat din instans för en
 
 I den här kursen används [lagringsplatsen för Azure IoT SDK:er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c), som innehåller klient-SDK:t för enhetsetableringstjänsten för C. Detta SDK har för närvarande stöd för TPM och X.509 för enheter som körs på Windows- eller Ubuntu-implementeringar. Den här självstudien baseras på användning av en Windows-utvecklingsprogram, som även förutsätter grundläggande kunskaper i Visual Studio. 
 
-Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter. 
+Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](about-iot-dps.md#provisioning-process) översikten innan du fortsätter. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Om du inte är bekant med processen för automatisk etablering ska du läsa [Aut
 
 Följande förutsättningar gäller för en Windows-utvecklings miljö. För Linux eller macOS, se lämpligt avsnitt i [förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) i SDK-dokumentationen.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 med arbets belastningen ["Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) aktiverat. Visual Studio 2015 och Visual Studio 2017 stöds också.
 
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
@@ -100,9 +100,9 @@ Beroende på om du har byggt SDK för att använda attestering för en fysisk TP
 
 - För en X.509-enhet måste du erhålla de certifikat som utfärdats till dina enheter. Etableringstjänsten visar två typer av registreringsposter som styr åtkomst för enheter med hjälp av X.509-attesteringsmetoden. Vilka certifikat som krävs beror på de registreringstyper som du kommer att använda.
 
-    - Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
+    - Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulerade enheter
 

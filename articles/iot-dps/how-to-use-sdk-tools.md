@@ -1,21 +1,21 @@
 ---
 title: Använd Azure IoT Hub Device Provisioning Service SDK-verktyg
 description: 'Det här dokumentet granskar de verktyg som finns i Azure IoT Hub Device Provisioning Service (DPS) SDK: er för utveckling'
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691636"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530853"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktyg som finns i SDK: er för att förenkla utvecklingen av etableringen
-IoT Hub Device Provisioning Service fören klar etablerings processen med Zero Touch, just-in-Time [-etablering automatiskt](concepts-auto-provisioning.md) på ett säkert och skalbart sätt.  Säkerhets attestering i form av X. 509-certifikat eller Trusted Platform Module (TPM) krävs.  Microsoft samarbetar även med [andra säkerhets maskin varu partner](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för att förbättra säkerheten vid IoT-distribution. Att förstå kraven på maskin varu säkerhet kan vara mycket utmanande för utvecklare. En uppsättning SDK: er för Azure IoT Provisioning-tjänsten tillhandahålls så att utvecklare kan använda ett bekvämlighets lager för att skriva klienter som kommunicerar med etablerings tjänsten. SDK: er innehåller också exempel på vanliga scenarier och en uppsättning verktyg för att förenkla säkerheten i utvecklingen.
+IoT Hub Device Provisioning Service fören klar etablerings processen med Zero Touch och just-in-Time- [etablering](about-iot-dps.md#provisioning-process) på ett säkert och skalbart sätt.  Säkerhets attestering i form av X. 509-certifikat eller Trusted Platform Module (TPM) krävs.  Microsoft samarbetar även med [andra säkerhets maskin varu partner](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för att förbättra säkerheten vid IoT-distribution. Att förstå kraven på maskin varu säkerhet kan vara mycket utmanande för utvecklare. En uppsättning SDK: er för Azure IoT Provisioning-tjänsten tillhandahålls så att utvecklare kan använda ett bekvämlighets lager för att skriva klienter som kommunicerar med etablerings tjänsten. SDK: er innehåller också exempel på vanliga scenarier och en uppsättning verktyg för att förenkla säkerheten i utvecklingen.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Trusted Platform Module (TPM) Simulator
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) kan referera till en standard för säker lagring av nycklar för att autentisera plattformen, eller så kan den referera till i/O-gränssnittet som används för att interagera med modulerna som implementerar standarden. TPM: er kan finnas som diskret maskin vara, integrerad maskin vara, inbyggd program vara eller programvarubaserad.  I produktion finns TPM på enheten, antingen som diskret maskin vara, integrerad maskin vara eller inbyggd program vara. I test fasen tillhandahålls en programvarubaserad TPM-Simulator till utvecklare.  Den här simulatorn är bara tillgänglig för utveckling på Windows-plattformen för tillfället.
@@ -52,7 +52,7 @@ Skapa X. 509-certifikat med den här generatorn:
 2. Ändra roten till Azure-IoT-SDK-Java.
 3. Kör ```mvn install -DskipTests=true``` för att hämta alla nödvändiga paket och kompilera SDK: n
 4. Navigera till rot for X. 509 Certificate Generator i ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator``` .
-5. Bygg med```mvn clean install```
+5. Bygg med ```mvn clean install```
 6. Kör verktyget med följande kommandon:
    ```
    cd target

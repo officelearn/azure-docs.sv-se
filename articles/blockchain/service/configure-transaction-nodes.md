@@ -4,12 +4,12 @@ description: Så här konfigurerar du Azure blockchain service Transaction Nodes
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212572"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530394"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera noder i Azure blockchain service Transactions
 
@@ -35,10 +35,10 @@ Så här lägger du till en Transaction-nod:
 
     ![Lägg till Transaction-nod](./media/configure-transaction-nodes/add-node.png)
 
-    | Inställningen | Beskrivning |
+    | Inställning | Beskrivning |
     |---------|-------------|
     | Name | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Till exempel `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
-    | lösenordsinställning | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
+    | Lösenord | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
 
 1. Välj **Skapa**.
 
@@ -52,7 +52,7 @@ Så här visar du slut punkts information för en Transaction-nod:
 
 1. I Azure Portal navigerar du till en av dina Azure blockchain service member Transaction-noder och väljer **Översikt**.
 
-    ![Slutpunkter](./media/configure-transaction-nodes/endpoints.png)
+    ![Skärm dum par visar en översikt över Transaction Nodes för en blockchain-medlem.](./media/configure-transaction-nodes/endpoints.png)
 
 Transaction Node-slutpunkter är säkra och kräver autentisering. Du kan ansluta till en transaktions slut punkt med Azure AD-autentisering, HTTPS Basic-autentisering och använda en åtkomst nyckel över HTTPS eller WebSocket över TLS.
 
@@ -67,7 +67,7 @@ Så här beviljar du Azure AD Access Control till din slut punkt:
 
     ![Lägg till IAM-rollen](./media/configure-transaction-nodes/add-role.png)
 
-    | Inställningen | Åtgärd |
+    | Inställning | Action |
     |---------|-------------|
     | Roll | Välj **ägare**, **deltagare**eller **läsare**.
     | Tilldela åtkomst till | Välj **Azure AD-användare, grupp eller tjänstens huvud namn**.

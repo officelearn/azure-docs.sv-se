@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: 71f5488b1f689e8892155b013730bcbb3c8e0e35
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606542"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531974"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet
 
@@ -29,17 +29,18 @@ Välj en befintlig kolumn eller skapa en ny beräknad kolumn som ska användas s
 
 En Group by-sats är valfri i en mängd omvandling.
 
-## <a name="aggregate-column"></a>Sammanställd kolumn 
+## <a name="aggregate-columns"></a>Sammanställda kolumner
 
-Gå till fliken **Aggregator** för att bygga agg regerings uttryck. Du kan antingen skriva över en befintlig kolumn med en agg regering eller skapa ett nytt fält med ett nytt namn. Agg regerings uttrycket anges i den högra rutan bredvid kolumn namns väljaren. Redigera uttrycket genom att klicka på text rutan för att öppna uttrycks verktyget. Om du vill lägga till fler agg regeringar hovrar du över ett befintligt uttryck och klickar på plus ikonen för att skapa ett nytt agg regerings kolumn-eller [kolumn mönster](concepts-data-flow-column-pattern.md).
+Gå till fliken **Aggregator** för att bygga agg regerings uttryck. Du kan antingen skriva över en befintlig kolumn med en agg regering eller skapa ett nytt fält med ett nytt namn. Agg regerings uttrycket anges i den högra rutan bredvid kolumn namns väljaren. Redigera uttrycket genom att klicka på text rutan och öppna uttrycks verktyget. Om du vill lägga till fler mängd kolumner klickar du på **Lägg till** ovanför kolumn listan eller plus ikonen bredvid en befintlig sammanslagen kolumn. Välj antingen **Lägg till kolumn** eller **Lägg till kolumn mönster**. Varje agg regerings uttryck måste innehålla minst en mängd funktion.
 
-Varje agg regerings uttryck måste innehålla minst en mängd funktion.
-
-![Mängd inställningar för sammanställd transformering](media/data-flow/agg2.png "Mängd inställningar för sammanställd transformering")
-
+![Samlings inställningar](media/data-flow/aggregate-columns.png "Samlings inställningar")
 
 > [!NOTE]
 > I fel söknings läge kan uttrycks verktyget inte producera data för hands versionerna med mängd funktioner. Om du vill visa data förhands granskningar för sammanställda transformeringar stänger du uttrycks verktyget och visar data via fliken Data förhands granskning.
+
+### <a name="column-patterns"></a>Kolumnmönster
+
+Använd [kolumn mönster](concepts-data-flow-column-pattern.md) för att använda samma agg regering för en uppsättning kolumner. Detta är användbart om du vill behålla många kolumner från schemat när de ignoreras som standard. Använd en tumregel, till exempel `first()` för att bevara inmatade kolumner genom agg regeringen.
 
 ## <a name="reconnect-rows-and-columns"></a>Återanslut rader och kolumner
 

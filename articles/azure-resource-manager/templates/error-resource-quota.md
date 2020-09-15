@@ -3,12 +3,12 @@ title: Kvot fel
 description: Beskriver hur du löser resurs kvot fel när du distribuerar resurser med Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007809"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530428"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Åtgärda fel för resurskvoter
 
@@ -95,7 +95,7 @@ Om du vill begära en kvot ökning går du till portalen och filen ett support �
 
 1. Välj **Prenumerationer**.
 
-   ![Prenumerationer](./media/error-resource-quota/subscriptions.png)
+   ![Skärm dum par visar Azure Portal-menyn med valda prenumerationer.](./media/error-resource-quota/subscriptions.png)
 
 2. Välj den prenumeration som behöver en ökad kvot.
 

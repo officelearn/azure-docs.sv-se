@@ -6,114 +6,114 @@ ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
-ms.date: 10/20/2019
-ms.openlocfilehash: eac43ae68b10436b3e45452c6b1d03bec3ae4c9c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 09/11/2020
+ms.openlocfilehash: 5818e57f29558cbb5a29592cd4e1d7ae2eebbec1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000562"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531550"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Självstudie: Distribuera och gå igenom en ansluten logistik-Programmall
 
+I den här självstudien lär du dig hur du kommer igång med den IoT Central *anslutna logistik* -programmallen. Du lär dig hur du distribuerar och använder mallen.
 
+I den här guiden får du lära dig att:
 
-Den här självstudien visar hur du kommer igång genom att distribuera en IoT Central **ansluten logistik** -Programmall. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kanske vill göra härnäst.
+> [!div class="checklist"]
+> * Skapa ett anslutet logistik program.
+> * Använd viktiga funktioner i programmet.
 
-I den här självstudien får du lära dig hur du,
+## <a name="prerequisites"></a>Förutsättningar
 
-* skapa ett anslutet logistik program
-* gå igenom programmet 
+* Det finns inga särskilda krav som krävs för att distribuera den här appen.
+* Du kan använda den kostnads fria pris planen eller använda en Azure-prenumeration.
 
-## <a name="prerequisites"></a>Krav
+## <a name="create-connected-logistics-application"></a>Skapa ett anslutet logistik program
 
-* Inga särskilda krav krävs för att distribuera den här appen
-* Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
+Skapa programmet med följande steg:
 
-## <a name="create-connected-logistics-application-template"></a>Skapa mall för kopplad logistik-app
+1. Gå till bygg webbplatsen för [Azure IoT Central](https://aka.ms/iotcentral) . Logga sedan in med ett Microsoft personal-, arbets-eller skol konto. Välj **Bygg** i det vänstra navigerings fältet och välj sedan fliken **åter försäljning** :
 
-Du kan skapa program med följande steg
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Ansluten logistik mall":::
 
-1. Gå till webbplatsen för Azure IoT Central Application Manager. Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **detalj handel** .
+2. Välj **skapa app** under **Connected logistik Application**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
+3. **Skapa app** öppnar formuläret **ny** app. Ange följande uppgifter:
 
-2. Välj **skapa app** under **ansluten logistik program**
+    * **Program namn**: du kan använda det föreslagna standard namnet eller ange ett eget program namn.
+    * **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, unik minnes adress. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Du kan börja med en kostnads fri utvärderings prenumerations plan på 7 dagar och välja att konvertera till en standard pris plan när som helst innan det kostnads fria slutet går ut.
+    * **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
+    * **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
-3. **Skapa app** öppnar nytt program formulär och fyller i den begärda informationen som visas nedan.
-   * **Program namn**: du kan använda det föreslagna standard namnet eller ange ett eget program namn.
-   * **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, unik minnes adress. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Du kan börja med en kostnads fri utvärderings prenumerations plan på 7 dagar och välja att konvertera till en standard pris plan när som helst innan det kostnads fria slutet går ut.
-   * **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
-   * **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="App-mall för ansluten logistik":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Fakturerings information för ansluten logistik":::
 
-    > [!div class="mx-imgBorder"]
-    > ![Fakturerings information för ansluten logistik](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
+## <a name="walk-through-the-application"></a>Gå igenom programmet
 
-## <a name="walk-through-the-application"></a>Gå igenom programmet 
+I följande avsnitt får du stegvisa anvisningar genom de viktigaste funktionerna i programmet:
 
-## <a name="dashboard"></a>Instrumentpanel
+### <a name="dashboard"></a>Instrumentpanel
 
-När du har distribuerat app-mallen är standard instrument panelen en fokuserad portal som är fokuserad på logistik operatör. Northwind-näringsidkare är en fiktiv logistik leverantör som hanterar Last flottan i havet och på marken. På den här instrument panelen kan du se två olika gateways som tillhandahåller telemetri om leveranser tillsammans med tillhör ande kommandon, jobb och åtgärder som du kan göra. Den här instrument panelen är förkonfigurerad för att demonstrera den kritiska logistik enhetens Operations-aktivitet.
-Instrument panelen delas logiskt mellan två olika hanterings åtgärder för gateway-enheter, 
-   * Logistik väg för leverans av laster och plats information för leverans av frakten är ett viktigt element för all den multi-modala transporten
-   * Visa Gateway-status & relevant information 
+När du har distribuerat program mal len är standard instrument panelen en riktad Portal operatör med fokus på portalen. Northwind-näringsidkare är en fiktiv logistik leverantör som hanterar en Last flotta till sjöss och på marken. På den här instrument panelen visas två olika gateways som tillhandahåller telemetri från försändelser, tillsammans med tillhör ande kommandon, jobb och åtgärder.
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png)
+Den här instrument panelen är förkonfigurerad för att visa den kritiska logistik enhetens Operations-aktivitet.
 
-   * Du kan enkelt spåra det totala antalet gatewayer, aktiva och okända taggar.
-   * Du kan utföra enhets hanterings åtgärder, till exempel uppdatera inbyggd program vara, inaktivera sensor, aktivera sensor, uppdatera sensor tröskel, uppdatera telemetridata, & uppdatera enhets Service kontrakt.
-   * Visa enhetens batteri förbrukning
+Instrument panelen möjliggör två olika hanterings åtgärder för gateway-enheter:
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png)
+* Visa logistik vägar för Last bils leveranser och plats information om havs sändningar.
+* Visa Gateway-status och annan relevant information.
 
-## <a name="device-template"></a>Enhets mall
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Ansluten logistik instrument panel":::
 
-Klicka på fliken Mallar på enheten så visas kapacitets modellen för gateway. En kapacitets modell är strukturerad runt två olika gränssnitts- **Gateway-telemetri & egenskaper** och **Gateway-kommandon**
+* Du kan spåra det totala antalet gatewayer, aktiva och okända taggar.
+* Du kan utföra enhets hanterings åtgärder, till exempel: Uppdatera inbyggd program vara, inaktivera och aktivera sensorer, uppdatera ett sensor tröskelvärde, uppdatera telemetri intervall och uppdatera enhets tjänst kontrakt.
+* Visa enhetens batteri förbrukning.
 
-**& egenskap för gateway-telemetri** – det här gränssnittet representerar all telemetri som rör sensorer, plats och enhets information samt enhetens dubbla egenskaps funktion, till exempel sensor tröskelvärden & uppdaterings intervall.
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Status för ansluten logistik instrument panel":::
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png)
+#### <a name="device-template"></a>Enhets mall
 
-**Gateway-kommandon** – det här gränssnittet organiserar alla gatewayens kommando funktioner
+Välj **enhets mallar** för att se kapacitets modellen för gateway. En kapacitets modell är strukturerad runt **Gateway-telemetri & egenskaps** -och **Gateway-kommando** gränssnitt.
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png)
+**& egenskap för gateway-telemetri** – det här gränssnittet definierar all telemetri som rör sensorer, plats och enhets information. Gränssnittet definierar också enhetens dubbla egenskaps funktioner, till exempel sensor trösklar och uppdaterings intervall.
 
-## <a name="rules"></a>Regler
-Välj fliken regler för att se två olika regler som finns i den här program mal len. Dessa regler är konfigurerade för e-postaviseringar till operatörerna för ytterligare undersökningar.
- 
-**Avisering om Gateway-stöld**: den här regeln utlöses när det finns oväntad ljus identifiering av sensorer under resan. Operatörer måste meddelas snart för att undersöka potentiell stöld.
- 
-**Svarar**inte på Gateway: den här regeln utlöses om gatewayen inte rapporterar till molnet under en längre period. Det gick inte att svara på gatewayen på grund av låg energi läge, anslutningens hälso status och enhetens hälso tillstånd.
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Telemetri-och egenskaps gränssnitt":::
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png)
+**Gateway-kommandon** – det här gränssnittet organiserar alla gateway-kommando funktioner:
 
-## <a name="jobs"></a>Jobb
-Välj fliken jobb för att se fem olika jobb som finns som en del av den här program mal len:
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Gränssnitt för gateway-kommandon":::
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
+### <a name="rules"></a>Regler
 
-Du kan använda jobb funktionen om du vill utföra åtgärder i hela lösningen. Följande jobb använder enhets kommandona och den dubbla funktionen för att utföra åtgärder, till exempel inaktivera vissa sensorer i gatewayen eller ändra sensor tröskeln beroende på leverans läge och väg. 
-   * Det är en standard åtgärd för att inaktivera stötande sensorer under skeppning av havet för att spara batteri eller minska temperatur tröskeln under transport av kall kedja. 
- 
-   * Med jobb kan du utföra systemomfattande åtgärder som att uppdatera den inbyggda program varan på gatewayerna eller uppdatera service kontraktet för att hålla dig uppdaterad om underhålls aktiviteter.
+Välj fliken **regler** för reglerna i den här program mal len. Dessa regler är konfigurerade för e-postaviseringar till operatörerna för ytterligare undersökningar:
+
+**Avisering om Gateway-stöld**: den här regeln utlöses när det finns oväntad ljus identifiering av sensorer under resan. Operatörer måste meddelas omedelbart för att undersöka potentiell stöld.
+
+**Svarar**inte på Gateway: den här regeln utlöses om gatewayen inte rapporterar till molnet under en längre period. Det gick inte att svara på gatewayen på grund av låg batteri nivå, förlust av anslutning eller enhets skada.
+
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Regel definitioner":::
+
+### <a name="jobs"></a>Jobb
+
+Välj fliken **jobb** för att se jobben i det här programmet:
+
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Jobb som ska köras":::
+
+Du kan använda jobb för att utföra åtgärder i hela programmet. Jobben i det här programmet använder enhets kommandon och dubbla funktioner för att utföra åtgärder, till exempel inaktivera specifika sensorer för alla gatewayer eller ändra sensor tröskeln beroende på leverans läge och väg:
+
+* Det är en standard åtgärd för att inaktivera stötande sensorer under skeppning av havet för att spara batteri eller lägre temperatur tröskel under transport av kall kedja.
+
+* Med jobb kan du utföra systemomfattande åtgärder som att uppdatera den inbyggda program varan på gatewayerna eller uppdatera service kontraktet för att hålla dig uppdaterad om underhålls aktiviteter.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations** > **program inställningar** och klicka på **ta bort**.
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
+Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations**  >  **programmets inställningar** och väljer **ta bort**.
+
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Rensa mall":::
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Lär dig mer om den [anslutna logistik konceptet](./architecture-connected-logistics.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail.md)
-* Läs mer om [IoT Central översikt](../core/overview-iot-central.md)

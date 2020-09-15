@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 46ffb5bfe52fe4f398594a1dfed76a6ea6c0fd81
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400032"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530802"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
@@ -69,14 +69,14 @@ I det här scenariot behöver vi dock tänka på vilka statiska vägar som ska k
 
 Med det här alternativet är de statiska vägar som vi behöver i standard tabellen för att skicka trafik till NVA ekrar bakom NVA VNet följande:
 
-| Beskrivning | Routningstabell | Statisk väg              |
+| Description | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
 | VNet 2       | Standardvärde     | 10.2.0.0/16-> eastusconn |
 | VNet 4       | Standardvärde     | 10.4.0.0/16-> weconn     |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används. Här kommer vi att använda de kortare prefixen (/24 i stället för längre/16) för att se till att dessa vägar har prioritet över vägar som importeras från NVA-virtuella nätverk (VNet 2 och VNet 4):
 
-| Beskrivning | Anslutning | Statisk väg            |
+| Description | Anslutning | Statisk väg            |
 | ----------- | ---------- | ----------------------- |
 | VNet 5       | eastusconn | 10.2.1.0/24 – > 10.2.0.5 |
 | VNet 6       | eastusconn | 10.2.2.0/24 – > 10.2.0.5 |
@@ -112,6 +112,8 @@ Om du vill konfigurera routning via NVA följer du stegen nedan:
    * Från VNet 7 och VNet 8 till VNet 4 NVA IP 
    
    Du behöver inte ansluta virtuella nätverk 5, 6, 7, 8 till de virtuella hubbarna direkt. Se till att NSG: er i virtuella nätverk 5, 6, 7, 8 tillåter trafik för grenen (VPN/ER/P2S) eller virtuella nätverk som är anslutna till sin fjärran sluten virtuella nätverk. Till exempel måste virtuella nätverk 5, 6 säkerställa att NSG: er tillåter trafik för lokala adressprefix och virtuella nätverk 7, 8 som är anslutna till fjärrhubben 2.
+
+Det virtuella WAN-nätverket har inte stöd för ett scenario där virtuella nätverk 5, 6 ansluter till en virtuell hubb och kommunicerar via VNet 2 NVA IP; Därför måste du ansluta virtuella nätverk 5, 6 till VNet2 och på samma sätt som VNet 7, 8 till VNet 4.
 
 2. Lägg till en sammanställd statisk väg post för virtuella nätverk 2, 5, 6 till hubb 1 standard väg tabell.
 

@@ -1,6 +1,6 @@
 ---
 title: Så här anpassar du en Synkroniseringsregel i Azure AD Connect | Microsoft Docs
-description: Det här avsnittet innehåller anvisningar för hur du felsöker problem med att installera Azure AD Connect.
+description: Lär dig hur du använder synkroniseringsregeln för att redigera eller skapa en ny Synkroniseringsregel.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f33cbb8caaf81b862198d694b0562d461de8a74
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e2bb86988454141dc692b4a9967997c4ff7574a2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279286"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530496"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>Så här skapar och anpassar du en synkroniseringsregel
 

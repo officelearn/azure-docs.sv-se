@@ -9,16 +9,16 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e01255a34e97f6c11e4909287b98fcd3d15fca92
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669046"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530751"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Skapa och etablera en IoT Edge-enhet med X. 509-certifikat
 
-Med [Azure-IoT Hub Device Provisioning service (DPS)](../iot-dps/index.yml)kan du automatiskt etablera IoT Edge enheter med X. 509-certifikat. Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Med [Azure-IoT Hub Device Provisioning service (DPS)](../iot-dps/index.yml)kan du automatiskt etablera IoT Edge enheter med X. 509-certifikat. Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](../iot-dps/about-iot-dps.md#provisioning-process) översikten innan du fortsätter.
 
 Den här artikeln visar hur du skapar en registrering av enhets etablerings tjänsten med X. 509-certifikat på en IoT Edge enhet med följande steg:
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du skapar en registrering av enhets etablerings tjä
 
 Att använda X. 509-certifikat som en mekanism för attestering är ett utmärkt sätt att skala produktion och förenkla enhets etablering. Normalt är X. 509-certifikat ordnade i en certifikat kedja med förtroende. Från och med ett självsignerat eller betrott rot certifikat signerar varje certifikat i kedjan nästa lägre certifikat. Det här mönstret skapar en delegerad kedja av förtroende från rot certifikatet nedåt genom varje mellanliggande certifikat till det slutliga "löv"-certifikatet som är installerat på en enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv IoT Hub.
 * En fysisk eller virtuell enhet som IoT Edge enheten.

@@ -4,12 +4,12 @@ description: Översikt över Azure blockchain-tjänsten
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 2a28baeb6de3c8ca1e8ad89e11d45b492f33588c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8364f4b8f063611df08275ba4cbb3acb4be5d196
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076947"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530037"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Vad är Azure Blockchain Service?
 
@@ -45,7 +45,7 @@ Som en hanterad tjänst ser Azure blockchain-tjänsten till att din blockchain-m
 
 Dessutom tillhandahåller Azure blockchain-tjänsten omfattande mått genom Azure Monitor tjänst som ger insikter om noders CPU, minne och lagrings användning.  Azure Monitor ger också till gång till insikter om blockchain nätverks aktivitet, till exempel transaktioner och block används, transaktions köns djup och aktiva anslutningar.  Mått kan anpassas för att ge vyer i de insikter som är viktiga för ditt blockchain-program.  Dessutom kan tröskelvärden definieras via aviseringar som gör det möjligt för användare att utlösa åtgärder som att skicka ett e-postmeddelande eller SMS, köra en Logic app, Azure Function eller skicka till en anpassad, webhook.
 
-![Mått](./media/overview/metrics.png)
+![Skärm dum par visar övervakning, med värden för block, transaktioner, väntande transaktioner och hanterade begär Anden.](./media/overview/metrics.png)
 
 Via Azure Log Analytics kan användare visa loggar relaterade till kvorum-redovisningen eller annan viktig information, till exempel försöks anslutningar till Transaction-noderna.
 

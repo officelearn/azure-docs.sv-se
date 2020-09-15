@@ -1,14 +1,14 @@
 ---
-title: Video analys i real tid för IoT Edge kvoter – Azure
+title: Video analys i real tid med IoT Edge kvoter och begränsningar – Azure
 description: I den här artikeln beskrivs video analys i real tid för IoT Edge kvoter och begränsningar.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750222"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529238"
 ---
 # <a name="quotas-and-limitations"></a>Kvoter och begränsningar
 
@@ -65,6 +65,10 @@ I samband med för hands versionen stöder Live Video Analytics på IoT Edge int
 * Möjlighet att migrera Media Service-kontot från en prenumeration till en annan utan avbrott.
 * Möjligheten att använda mer än ett lagrings konto med Media Service-kontot.
 * Möjligheten att ändra tjänstens huvud namns information i önskade egenskaper för modulen dynamiskt, utan att starta om.
+
+Du kan bara använda IP-kameror som stöder RTSP-protokollet. Du hittar IP-kameror som har stöd för RTSP på sidan [ONVIF-produkter](https://www.onvif.org/conformant-products) . Sök efter enheter som uppfyller profilerna G, S eller T.
+
+Ytterligare bör du konfigurera dessa kameror att använda H. 264 video och AAC-ljud. Andra codecenheter stöds inte för närvarande. 
 
 ## <a name="next-steps"></a>Nästa steg
 

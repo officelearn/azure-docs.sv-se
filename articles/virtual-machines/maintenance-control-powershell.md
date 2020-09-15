@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 3204de6ea497666108ce63b1a3cfa77c6faa6b59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028659"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530768"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -59,7 +59,7 @@ $config = New-AzMaintenanceConfiguration `
 
 Med `-MaintenanceScope host` ser du till att underhålls konfigurationen används för att styra uppdateringar av värden.
 
-Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din prenumeration.
+Om du försöker skapa en konfiguration med samma namn, men på en annan plats, får du ett fel meddelande. Konfigurations namn måste vara unika för din resurs grupp.
 
 Du kan fråga efter tillgängliga underhålls konfigurationer med [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 

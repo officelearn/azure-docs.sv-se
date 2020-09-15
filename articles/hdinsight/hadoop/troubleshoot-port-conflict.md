@@ -1,18 +1,18 @@
 ---
 title: Port konflikt vid start av tjänster i Azure HDInsight
-description: Fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
+description: Fel söknings steg och möjliga lösningar på problem med port konflikter när du interagerar med Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 4cb0d464a82d8da0a09f5391eb1d06dfacd84290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d39f31e9d52359d0c91317280a7f8db06c1c1b0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76776227"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530972"
 ---
 # <a name="scenario-port-conflict-when-starting-services-in-azure-hdinsight"></a>Scenario: port konflikt vid start av tjänster i Azure HDInsight
 

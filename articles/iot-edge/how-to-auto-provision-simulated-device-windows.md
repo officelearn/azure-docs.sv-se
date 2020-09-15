@@ -8,16 +8,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8a31f2739e497d8e203a9806d25b21608e5701f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131042"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531482"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
 
-Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](../iot-dps/about-iot-dps.md#provisioning-process) översikten innan du fortsätter.
 
 DPS stöder symmetrisk nyckel attestering för IoT Edge enheter i både enskilda registreringar och grupp registrering. Om du markerar alternativet "är IoT Edge enhet" för att få en grupp registrering markeras alla enheter som är registrerade under den registrerings gruppen som IoT Edge enheter.
 

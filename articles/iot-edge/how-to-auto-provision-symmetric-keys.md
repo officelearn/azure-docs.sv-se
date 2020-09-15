@@ -9,16 +9,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eb9a302c4da027d7fe00056e7d5ac0ba7fc1dd9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131019"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531465"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
-Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering, granskar du [etablerings](../iot-dps/about-iot-dps.md#provisioning-process) översikten innan du fortsätter.
 
 Den här artikeln visar hur du skapar en individuell registrering av enhets etablerings tjänsten med hjälp av symmetrisk nyckel attestering på en IoT Edge enhet med följande steg:
 
@@ -81,7 +81,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
    1. Välj **hur du vill att enhets data ska hanteras vid ny etablering** när enheter begär etablering efter första gången.
 
-   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Till exempel:
+   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Exempel:
 
       ```json
       {

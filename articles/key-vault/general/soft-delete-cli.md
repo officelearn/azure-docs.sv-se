@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: da821da08594180b9dd94728252e1a43c04fbde2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662053"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531669"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
@@ -25,7 +25,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure CLI – om du inte har den här inställningen för din miljö kan du läsa [hantera Key Vault med Azure CLI](manage-with-cli2.md)).
+- Azure CLI – om du inte har den här inställningen för din miljö kan du läsa [hantera Key Vault med Azure CLI](manage-with-cli2.md).
 
 Information om Key Vault-detaljerad referensinformation för CLI finns i [referens för Azure CLI Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -33,13 +33,13 @@ Information om Key Vault-detaljerad referensinformation för CLI finns i [refere
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Beskrivning | Användar behörighet |
+| Åtgärd | Description | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
 |Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft. nyckel-valv/platser/deletedVaults/rensning/åtgärd|
 
-Mer information om behörigheter och åtkomst kontroll finns i [skydda nyckel valvet](secure-your-key-vault.md).
+Mer information om behörigheter och åtkomst kontroll finns i [skydda ditt nyckel valv](secure-your-key-vault.md).
 
 ## <a name="enabling-soft-delete"></a>Aktivera mjuk borttagning
 
@@ -241,6 +241,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>Andra resurser
 
-- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](soft-delete-overview.md)).
-- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](overview.md)).
+- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](soft-delete-overview.md).
+- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](overview.md)
 

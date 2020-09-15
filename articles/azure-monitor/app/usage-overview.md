@@ -3,12 +3,12 @@ title: Användnings analys med Azure Application Insights | Microsoft-dokument
 description: Förstå dina användare och vad de gör med din app.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800219"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532111"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -54,7 +54,7 @@ Ta reda på när användarna använder din app, vilka sidor de är mest intresse
 
 Rapporterna användare och sessioner filtrerar dina data efter sidor eller anpassade händelser och segmenterar dem efter egenskaper som plats, miljö och sida. Du kan också lägga till egna filter.
 
-![Användare](./media/usage-overview/users.png)  
+![Skärm dum par visar översikts sidan användare för ett fiktivt företag.](./media/usage-overview/users.png)  
 
 Insikter på den högra punkten för att ta reda på intressanta mönster i data uppsättningen.  
 
@@ -71,7 +71,7 @@ Kvarhållning hjälper dig att förstå hur ofta dina användare kommer att anv�
 - Formulär Hypotheses baserat på verkliga användar data 
 - Ta reda på om kvarhållning är ett problem i din produkt 
 
-![Kvarhållning](./media/usage-overview/retention.png) 
+![Skärm dum par visar sidan Översikt över kvarhållning som visar information om hur ofta användarna kommer att använda sina appar.](./media/usage-overview/retention.png) 
 
 Med kontrollerna för kvarhållning i överkant kan du definiera enskilda händelser och tidsintervall för att beräkna kvarhållning. Grafen i mitten ger en visuell representation av den övergripande kvarhållning procenten med det angivna tidsintervallet. Diagrammet längst ned representerar individuell kvarhållning under en viss tids period. Den här detalj nivån gör att du kan förstå vad dina användare gör och vad som kan påverka användare med en mer detaljerad granularitet.  
 
@@ -110,7 +110,7 @@ Läs mer om [anpassade händelser](./api-custom-events-metrics.md#trackevent) oc
 ### <a name="slice-and-dice-events"></a>Händelser för segment och tärning
 
 I verktygen användare, sessioner och händelser kan du segmentera och tärninga anpassade händelser efter användare, händelse namn och egenskaper.
-![Användare](./media/usage-overview/users.png)  
+![Skärm dum par visar översikts sidan användare för ett fiktivt företag.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Utforma telemetri med appen
 

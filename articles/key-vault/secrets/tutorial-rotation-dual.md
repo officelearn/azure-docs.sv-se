@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: f1a29866715c746e7a7eef82f11237bcbd159925
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086835"
+ms.locfileid: "90529425"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser med två uppsättningar autentiseringsuppgifter för autentisering
 
@@ -80,7 +80,7 @@ Funktionen appens rotations funktioner kräver dessa komponenter och konfigurati
 
 1. Välj distributions länk för Azure-mallar: 
 
-   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. I listan **resurs grupp** väljer du **akvrotation**.
 1. I **lagrings kontots namn**skriver du namnet på lagrings kontot med åtkomst nycklar som ska roteras

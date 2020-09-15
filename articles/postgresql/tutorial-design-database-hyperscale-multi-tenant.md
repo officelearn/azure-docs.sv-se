@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: utforma en databas för flera innehavare (citus) – Azure Database for PostgreSQL'
-description: Den här självstudien visar hur du skapar, fyller i och frågar distribuerade tabeller på Azure Database for PostgreSQL citus.
+description: I den här självstudien visas hur du utformar en databas med flera innehavare med hjälp av Azure Database for PostgreSQL citus-skalning.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b28307783957af2613152c2a8305f3650aa352ac
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386408"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530734"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en databas med flera innehavare med Azure Database for PostgreSQL – storskalig (citus)
 

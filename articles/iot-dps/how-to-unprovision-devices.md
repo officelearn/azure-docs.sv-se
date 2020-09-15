@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294398"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531397"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Så här avetablerar du enheter som tidigare var automatiskt etablerade 
 
@@ -43,7 +43,7 @@ Avetablera en enhet som har en enskild registrering:
 
 
 ## <a name="enrollment-groups"></a>Registrerings grupper
-Med X. 509-attestering kan enheter också tillhandahållas via en registrerings grupp. Registrerings grupper konfigureras med ett signerings certifikat, antingen ett mellanliggande certifikat eller ett rotcertifikatutfärdarcertifikat och styr åtkomsten till etablerings tjänsten för enheter med certifikatet i certifikat kedjan. Mer information om registrerings grupper och X. 509-certifikat med etablerings tjänsten finns i [X. 509-certifikat](concepts-security.md#x509-certificates). 
+Med X. 509-attestering kan enheter också tillhandahållas via en registrerings grupp. Registrerings grupper konfigureras med ett signerings certifikat, antingen ett mellanliggande certifikat eller ett rotcertifikatutfärdarcertifikat och styr åtkomsten till etablerings tjänsten för enheter med certifikatet i certifikat kedjan. Mer information om registrerings grupper och X. 509-certifikat med etablerings tjänsten finns i avsnittet om [certifikat attestering i X. 509](concepts-x509-attestation.md). 
 
 Om du vill se en lista över enheter som har etablerats via en registrerings grupp kan du Visa information om registrerings gruppen. Det här är ett enkelt sätt att förstå vilken IoT-hubb varje enhet har etablerats till. Så här visar du enhets listan: 
 

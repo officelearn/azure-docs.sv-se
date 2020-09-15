@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: erhopf
+ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator-tjänst, översätta text, translittererad text, språk identifiering
-ms.openlocfilehash: 4cf070a0ae3de716e1b6aede0a77d781dcc6142b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1cffe99389b3e3e782c53aeae8c29fbc8f55b6a0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90109044"
+ms.locfileid: "90530683"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Snabb start: kom igång med Translator
 
@@ -101,7 +102,7 @@ När du anropar Translator-tjänsten via REST måste du se till att följande ru
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>Authentication-huvud (er)</td>
     <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>

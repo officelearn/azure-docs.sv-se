@@ -1,6 +1,6 @@
 ---
 title: Skapa filter med Azure Media Services REST API | Microsoft Docs
-description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma vissa delar av en ström. Media Services skapar dynamiska manifest för att uppnå denna selektiva strömning.
+description: I det här avsnittet beskrivs hur du skapar filter så att klienten kan använda dem för att strömma vissa delar av en ström. Media Services REST API skapar dynamiska manifest för att uppnå denna selektiva strömning.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: a77da9726c6c081ba5129b9b8815c3ac560e3b54
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 04a9776ca2686aebbb7668c86f5afcd61f5f9238
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256862"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530190"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Skapa filter med Azure Media Services REST API
 

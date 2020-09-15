@@ -3,15 +3,15 @@ title: Konfigurera Azure-Multi-Factor Authentication för Windows Virtual Deskto
 description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017793"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089929"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
 
@@ -48,10 +48,19 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
 7. Välj **Klar**.
 8. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
 9. Välj en av följande appar baserat på vilken version av Windows Virtual Desktop som du använder.
-   - Om du använder Windows Virtual Desktop (klassisk) väljer du den här appen:
+   
+   - Om du använder Windows Virtual Desktop (klassisk) väljer du de här apparna:
+       
        - **Windows Virtual Desktop** (app-ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows Virtual Desktop-klient** (app-ID fa4345a4-a730-4230-84a8-7d9651b86739), som gör att du kan ange principer för webb klienten
+       
+        Därefter går du vidare till steg 11.
+
    - Om du använder Windows Virtual Desktop väljer du den här appen i stället:
+       
        -  **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       
+        Sedan går du till steg 10.
 
    >[!IMPORTANT]
    > Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.

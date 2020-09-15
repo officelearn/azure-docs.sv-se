@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79082820"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090099"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Självstudie: skapa ett mått diagram i Azure Monitor
 Mått Utforskaren är en funktion i Azure Monitor i Azure Portal som gör att du kan skapa diagram från metriska värden, visuellt korrelera trender och undersöka toppar och DIP i metriska värden. Använd Mät Utforskaren för att undersöka hälsan och användningen av dina Azure-resurser eller för att rita diagram från anpassade mått. 
@@ -52,7 +52,7 @@ Du kan öppna Metrics Explorer antingen från Azure Monitor-menyn eller från en
 
 4. Du kan också ändra mått **agg regeringen**. Detta definierar hur Metric-värden ska aggregeras över tids kornig het för grafen. Om tids kornigheten exempelvis är inställt på 15 minuter och agg regeringen är inställd på sum, kommer varje punkt i diagrammet att vara summan av alla insamlade värden under varje 15-minuters segment.
 
-    ![Diagram](media/tutorial-metrics-explorer/chart.png)
+    ![Skärm bild som visar ett diagram med rubriken Summa ingress för contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
 5. Använd knappen **Lägg till mått** och upprepa de här stegen om du vill se flera mått som är ritade i samma diagram. För flera diagram i en vy väljer du knappen **nytt diagram** .
 

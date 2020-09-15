@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505847"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090082"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Självstudie: samla in och analysera resurs loggar från en Azure-resurs
 
@@ -84,7 +84,7 @@ Data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som s
     > [!NOTE]
     > Om du öppnade loggar från Azure Monitor-menyn, ställs området in på arbets ytan Log Analytics. I det här fallet inkluderar alla frågor alla poster i arbets ytan.
    
-    ![Loggar](media/tutorial-resource-logs/logs.png)
+    ![Skärm bild som visar loggar för en Logic app som visar en ny fråga med namnet på den logiska appen markerad.](media/tutorial-resource-logs/logs.png)
 
 4. Tjänsten som visas i exemplet skriver resurs loggar till tabellen **AzureDiagnostics** , men andra tjänster kan skriva till andra tabeller. Se [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/resource-logs-schema.md) för tabeller som används av olika Azure-tjänster.
 

@@ -1,23 +1,23 @@
 ---
-title: Felsök problem med frågor när du använder Azure Cosmos DB
+title: Felsöka problem med frågor när du använder Azure Cosmos DB
 description: Lär dig att identifiera, diagnostisera och felsöka Azure Cosmos DB problem med SQL-frågor.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117921"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089997"
 ---
-# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsöka problem med frågor när du använder Azure Cosmos DB
 
-Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. Även om du inte bör tänka på de steg som beskrivs i den här artikeln får du ett fullständigt försvar mot potentiella frågor, men vi har inkluderat de vanligaste prestanda tipsen här. Du bör använda den här artikeln som en start plats för fel sökning av långsamma eller dyra frågor i API för Azure Cosmos DB Core (SQL). Du kan också använda [diagnostikloggar](cosmosdb-monitor-resource-logs.md) för att identifiera frågor som är långsamma eller som förbrukar stora mängder data flöden.
+Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. Även om du inte bör tänka på de steg som beskrivs i den här artikeln får du ett fullständigt försvar mot potentiella frågor, men vi har inkluderat de vanligaste prestanda tipsen här. Använd den här artikeln som utgångspunkt vid felsökning av långsamma eller resurskrävande frågor i SQL-API:et i Azure Cosmos DB. Du kan också använda [diagnostikloggarna](cosmosdb-monitor-resource-logs.md) till att identifiera vilka frågor som är långsamma eller som förbrukar stora mängder dataflöde.
 
 Du kan i stort sett kategorisera optimeringar av frågor i Azure Cosmos DB:
 
@@ -26,22 +26,21 @@ Du kan i stort sett kategorisera optimeringar av frågor i Azure Cosmos DB:
 
 Om du minskar avgifts avgiften för en fråga kommer du nästan absolut bara att minska svars tiden.
 
-Den här artikeln innehåller exempel som du kan återskapa med hjälp av [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
+Den här artikeln innehåller exempel som du kan återskapa med hjälp av [närings data uppsättningen](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Vanliga SDK-problem
 
 Innan du läser den här guiden är det bra att överväga vanliga SDK-problem som inte är relaterade till frågemotor.
 
-- Följ dessa [prestanda tips](performance-tips.md)för bästa prestanda.
-    > [!NOTE]
-    > För bättre prestanda rekommenderar vi Windows 64-bitars värd bearbetning. SQL-SDK: n innehåller en intern ServiceInterop.dll för att analysera och optimera frågor lokalt. ServiceInterop.dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds där ServiceInterop.dll inte är tillgänglig, kommer ett ytterligare nätverks anrop att göras till gatewayen för att hämta den optimerade frågan.
+- Följ de här [tipsen för SDK-prestanda](performance-tips.md).
+    - [Fel söknings guide för .NET SDK](troubleshoot-dot-net-sdk.md)
+    - [Fel söknings guide för Java SDK](troubleshoot-java-sdk-v4-sql.md)
 - SDK gör det möjligt att ställa in en `MaxItemCount` för dina frågor, men du kan inte ange ett minsta antal objekt.
     - Koden ska hantera vilken sid storlek som helst, från noll till `MaxItemCount` .
-    - Antalet objekt på en sida är alltid mindre eller lika med det angivna `MaxItemCount` . Det `MaxItemCount` är dock bara maximalt och det kan finnas färre resultat än den här mängden.
 - Ibland kan frågor ha tomma sidor även om det finns resultat på en kommande sida. Orsaker till detta kan vara:
     - SDK kan utföra flera nätverks anrop.
     - Frågan kan ta lång tid att hämta dokumenten.
-- Alla frågor har en fortsättnings-token som gör att frågan kan fortsätta. Se till att tömma frågan helt. Titta på SDK-exemplen och Använd en `while` loop på `FeedIterator.HasMoreResults` för att tömma hela frågan.
+- Alla frågor har en fortsättnings-token som gör att frågan kan fortsätta. Se till att tömma frågan helt. Läs mer om hur du [hanterar flera resultat sidor](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Hämta frågans mått
 

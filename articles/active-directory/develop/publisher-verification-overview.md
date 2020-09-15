@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005799"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089759"
 ---
 # <a name="publisher-verification"></a>Utgivarens verifiering
 
@@ -33,7 +33,7 @@ Utgivar verifieringen ger följande fördelar:
 
 - **Förbättrat varumärke**– ett "verifierat"-märke visas på sidan Azure AD [medgivande](application-consent-experience.md), sidan företags appar och ytterligare UX-ytor som används av slutanvändare och administratörer. 
 
-- **Smidigare företags införande**– administratörer kan konfigurera nya principer för användar medgivande och statusen för utgivarens verifiering är ett av de primära princip villkoren. 
+- **Smidigare företags införande**– administratörer kan konfigurera [principer för användar medgivande](../manage-apps/configure-user-consent.md), med status för utgivarens verifierings status som ett av de primära princip villkoren. 
 
 - **Förbättrad riskbedömning**– Microsofts identifieringar för riskhanterings begär Anden kommer att inkludera utgivar verifiering som en signal. 
 
@@ -52,6 +52,8 @@ Det finns några krav för utgivar verifiering, varav vissa redan har slutförts
 
     -  Den här användaren måste ha följande [roller](/partner-center/permissions-overview)i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD).
     
+-  Den användare som utför verifieringen måste logga in med [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md).
+
 -  Utgivaren accepterar [användnings villkoren för Microsoft Identity Platform för utvecklare](/legal/microsoft-identity-platform/terms-of-use).
 
 Utvecklare som redan har uppfyllt dessa krav kan verifieras på några minuter. Om kraven inte har uppfyllts är hämtnings inställningen kostnads fri. 

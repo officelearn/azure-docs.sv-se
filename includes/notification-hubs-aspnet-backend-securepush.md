@@ -1,21 +1,21 @@
 ---
 author: sethmanheim
-ms.service: service-bus
+ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/14/2020
 ms.author: sethm
-ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74260894"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089961"
 ---
 ## <a name="webapi-project"></a>WebAPI-projekt
 
 1. Öppna det **AppBackend** -projekt som du skapade i självstudien **meddela användare** i Visual Studio.
 2. I Notifications.cs ersätter du hela **meddelande** klassen med följande kod. Se till att ersätta plats hållarna med din anslutnings sträng (med fullständig åtkomst) för Notification Hub och hubbens namn. Du kan hämta dessa värden från [Azure Portal](https://portal.azure.com). Den här modulen representerar nu de olika säkra meddelanden som kommer att skickas. I en fullständig implementering kommer meddelandena att lagras i en databas. för enkelhetens skull lagrar vi dem i minnet.
-   
+
    ```csharp
     public class Notification
     {
@@ -56,8 +56,8 @@ ms.locfileid: "74260894"
     }
     ```
 
-1. I NotificationsController.cs ersätter du koden inuti definitionen av **NotificationsController** -klassen med följande kod. Den här komponenten implementerar ett sätt för enheten att hämta meddelandet på ett säkert sätt och ger också ett sätt (i den här självstudien) att utlösa en säker push-överföring till dina enheter. Observera att när du skickar meddelandet till Notification Hub skickar vi bara ett RAW-meddelande med ID för meddelandet (och inget faktiskt meddelande):
-   
+3. I NotificationsController.cs ersätter du koden inuti definitionen av **NotificationsController** -klassen med följande kod. Den här komponenten implementerar ett sätt för enheten att hämta meddelandet på ett säkert sätt och ger också ett sätt (i den här självstudien) att utlösa en säker push-överföring till dina enheter. Observera att när du skickar meddelandet till Notification Hub skickar vi bara ett RAW-meddelande med ID för meddelandet (och inget faktiskt meddelande):
+
    ```csharp
     public NotificationsController()
     {

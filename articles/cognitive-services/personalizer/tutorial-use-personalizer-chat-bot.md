@@ -4,12 +4,12 @@ description: Anpassa en C# .NET chatt-robot med en anpassad-slinga för att ge r
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935661"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089895"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Självstudie: använda Personanpassaren i .NET Chat-robot
 
@@ -21,7 +21,7 @@ Använd en C# .NET chatt-robot med en användarvänlig slinga för att ge rätt 
 > [!div class="checklist"]
 > * Ställa in Azure-resurser
 > * Konfigurera och köra bot
-> * Interagera med bot med hjälp av bot-emulator
+> * Interagera med bot med bot Framework-emulator
 > * Förstå var och hur bot-roboten använder Personanpassaren
 
 
@@ -174,7 +174,7 @@ Håll webbplatsen igång eftersom självstudien förklarar vad roboten gör, så
 
 ## <a name="set-up-the-bot-emulator"></a>Konfigurera bot-emulatorn
 
-1. Öppna bot-emulatorn och välj **Öppna bot**.
+1. Öppna bot Framework-emulatorn och välj **Öppna bot**.
 
     :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Skärm bild av Start skärmen för bot-emulatorn.":::
 

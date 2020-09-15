@@ -1,17 +1,17 @@
 ---
 title: Felsöka tjänst anslutning Windows Virtual Desktop – Azure
-description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows-klient för virtuella skriv bord.
+description: Lösa problem när du konfigurerar tjänst anslutningar i en Windows-klient för virtuella skriv bord.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009383"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089912"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Anslutningar till virtuella Windows-datorer
 
@@ -39,6 +39,12 @@ En användare kan starta fjärr skrivbords klienter och kan autentisera, men anv
 3. Om webb klienten används kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
 
 4. Om användaren är en del av en Azure Active Directory (AD)-användar grupp kontrollerar du att användar gruppen är en säkerhets grupp i stället för en distributions grupp. Virtuella Windows-datorer stöder inte Azure AD-distributions grupper.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>Användaren förlorar en befintlig feed och ingen fjär resurs visas (ingen feed)
+
+Det här felet visas vanligt vis när en användare har flyttat prenumerationen från en Azure AD-klient till en annan. Därför förlorar tjänsten spårning av användar tilldelningar eftersom de fortfarande är knutna till den gamla Azure AD-klienten.
+
+För att lösa detta behöver du bara tilldela om användarna till sina app-grupper.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,30 +1,28 @@
 ---
 title: Azure Notification Hubs säker push för Windows
 description: Lär dig hur du skickar säkra push-meddelanden i Azure. Kodexempel som skrivits i C# med hjälp av .NET-API.
-documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
+editor: thsomasu
 services: notification-hubs
-ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c75af054a342e74606696f09c227822f385e096
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017999"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089962"
 ---
-# <a name="securely-push-notifications-from-azure-notification-hubs"></a>Push-meddelanden på ett säkert sätt från Azure Notification Hubs
+# <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Skicka säkra push-meddelanden från Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -48,10 +46,10 @@ På hög nivå är flödet följande:
 
 Det är viktigt att Observera att i föregående flöde (och i den här självstudien) förutsätter vi att enheten lagrar en autentiseringstoken i lokal lagring efter att användaren har loggat in. Detta garanterar en helt sömlös upplevelse eftersom enheten kan hämta meddelandets säkra nytto last med denna token. Om ditt program inte lagrar autentiseringstoken på enheten, eller om dessa token kan ha upphört att gälla, bör enhetens app vid mottagandet av meddelandet Visa ett allmänt meddelande där användaren uppmanas att starta appen. Appen autentiserar sedan användaren och visar meddelande nytto lasten.
 
-Den här säkra självstudien visar hur du skickar ett push-meddelande på ett säkert sätt. Själv studie Kursen bygger vidare på själv studie kursen om att [meddela användarna](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , så du bör slutföra stegen i den här självstudien först.
+I den här självstudien visas hur du skickar ett push-meddelande på ett säkert sätt. Själv studie Kursen bygger vidare på själv studie kursen om att [meddela användarna](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , så du bör slutföra stegen i den här självstudien först.
 
 > [!NOTE]
-> I den här självstudien förutsätter vi att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> I den här självstudien förutsätter vi att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [skicka meddelanden till universell Windows-plattform appar](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 > Observera också att Windows Phone 8,1 kräver Windows-autentiseringsuppgifter (inte Windows Phone) och att bakgrunds aktiviteterna inte fungerar på Windows Phone 8,0 eller Silverlight 8,1. För Windows Store-program kan du få aviseringar via en bakgrunds aktivitet endast om appen är aktive rad (Klicka i kryss rutan i appmanifest).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -63,6 +61,7 @@ Den här säkra självstudien visar hur du skickar ett push-meddelande på ett s
     ```csharp
     RegisterBackgroundTask();
     ```
+
 2. Lägg fortfarande till följande kod direkt efter metoden i App.xaml.cs `OnLaunched()` :
 
     ```csharp
@@ -80,12 +79,14 @@ Den här säkra självstudien visar hur du skickar ett push-meddelande på ett s
         }
     }
     ```
+
 3. Lägg till följande- `using` instruktioner överst i app.XAML.cs-filen:
 
     ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
+
 4. Klicka på **Spara alla** från menyn **Arkiv** i Visual Studio.
 
 ## <a name="create-the-push-background-component"></a>Skapa komponenten för push-bakgrund
@@ -143,6 +144,7 @@ Nästa steg är att skapa komponenten push-bakgrund.
             }
         }
     ```
+
 5. I Solution Explorer högerklickar du på projektet **PushBackgroundComponent (Windows Phone 8,1)** och klickar sedan på **Hantera NuGet-paket**.
 6. Klicka på **Online** till vänster.
 7. Skriv **Http-klient** i rutan **Sök**.
@@ -160,6 +162,7 @@ Nästa steg är att skapa komponenten push-bakgrund.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
+
 11. I Solution Explorer i projektet **NotifyUserWindowsPhone (Windows Phone 8,1)** högerklickar du på **referenser**och klickar sedan på **Lägg till referens...**. I dialog rutan referens hanterare markerar du kryss rutan bredvid **PushBackgroundComponent**och klickar sedan på **OK**.
 12. I Solution Explorer dubbelklickar du på **Package. appxmanifest** i **NotifyUserWindowsPhone-projektet (Windows Phone 8,1)** . Under **aviseringar**ställer du in **popup-funktion** till **Ja**.
 

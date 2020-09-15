@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198300"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089317"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Interaktions typer och kortkommandon i modulen rit verktyg
 
@@ -21,9 +21,9 @@ Den här artikeln beskriver alla olika sätt att rita och redigera former med hj
 
 Drawing Manager har stöd för tre olika sätt att interagera med kartan, för att rita former.
 
-* `click`-Koordinater läggs till när musen eller touchen klickas.
-* `freehand `-Koordinater läggs till när musen eller touchen dras på kartan.
-* `hybrid`-Koordinater läggs till när musen eller touchen klickas eller dras.
+* `click` -Koordinater läggs till när musen eller touchen klickas.
+* `freehand ` -Koordinater läggs till när musen eller touchen dras på kartan.
+* `hybrid` -Koordinater läggs till när musen eller touchen klickas eller dras.
 
 ## <a name="how-to-draw-shapes"></a>Rita former
 
@@ -135,7 +135,7 @@ När ritnings hanteraren är i `draw-circle` läget kan du utföra följande åt
 
 Rit verktygen stöder kortkommandon. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Tangent      | Åtgärd                            |
+| Tangent      | Action                            |
 |----------|-----------------------------------|
 | `C` | Slutför alla ritningar som pågår och ställer in ritnings läget på inaktiv. Fokus flyttas till ett kart element på översta nivån.  |
 | `Escape` | Avbryter alla ritningar som pågår och ställer in ritnings läget på inaktivt. Fokus flyttas till ett kart element på översta nivån.  |
@@ -146,7 +146,7 @@ Rit verktygen stöder kortkommandon. Dessa kortkommandon fungerar när kartan ä
 Läs mer om klasserna i modulen rit verktyg:
 
 > [!div class="nextstepaction"]
-> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

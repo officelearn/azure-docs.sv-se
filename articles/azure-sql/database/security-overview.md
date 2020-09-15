@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986856"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088416"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner för Azure SQL Database och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ Säkerhet på radnivå gör det möjligt för kunder att styra åtkomsten till r
 
 ![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
 
-## <a name="threat-protection"></a>Skydd mot hot
+## <a name="threat-protection"></a>Hotskydd
 
 SQL Database och SQL-hanterad instans säkra kunddata genom att tillhandahålla funktioner för granskning och hot identifiering.
 
@@ -89,7 +89,7 @@ SQL Database-och SQL-hanterad instans granskning spårar databas aktiviteter och
 
 ### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Avancerat skydd analyserar dina loggar för att identifiera onormalt beteende och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter, till exempel SQL-inmatning, potentiell data intrånget och brutna force-attacker eller för avvikelser i åtkomst mönster för att fånga in behörighets eskaleringar och avslöjade autentiseringsuppgifter. Aviseringar visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/), där information om misstänkta aktiviteter tillhandahålls och rekommendationer för ytterligare undersökning ges tillsammans med åtgärder för att minimera hotet. Avancerat skydd kan aktive ras per server för ytterligare en avgift. Mer information finns i [Kom igång med SQL Database Avancerat skydd](threat-detection-configure.md).
+Avancerat skydd analyserar dina loggar för att identifiera onormalt beteende och potentiellt skadliga försök att komma åt eller utnyttja databaser. Aviseringar skapas för misstänkta aktiviteter, till exempel SQL-inmatning, potentiell data intrånget och brutna force-attacker eller för avvikelser i åtkomst mönster för att fånga in behörighets eskaleringar och avslöjade autentiseringsuppgifter. Aviseringar visas från  [Azure Security Center](https://azure.microsoft.com/services/security-center/), där information om misstänkta aktiviteter tillhandahålls och rekommendationer för ytterligare undersökning ges tillsammans med åtgärder för att minimera hotet. Avancerat skydd kan aktive ras per server för ytterligare en avgift. Mer information finns i [Kom igång med SQL Database Avancerat skydd](threat-detection-configure.md).
 
 ![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
@@ -103,7 +103,7 @@ SQL Database och SQL-hanterad instans upprätthåller kryptering (SSL/TLS) hela 
 
 Som bästa praxis rekommenderar vi att du i anslutnings strängen som används av programmet anger en krypterad anslutning och _**inte**_ litar på Server certifikatet. Detta tvingar ditt program att verifiera Server certifikatet och förhindrar därför att ditt program är sårbart för människor i mellan typ attacker.
 
-Till exempel när du använder ADO.NET-drivrutinen utförs detta via **kryptera = True** och **TrustServerCertificate = false**. Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
+Till exempel när du använder ADO.NET-drivrutinen utförs detta via  **kryptera = True** och **TrustServerCertificate = false**. Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
 
 > [!IMPORTANT]
 > Observera att vissa driv rutiner som inte kommer från Microsoft kanske inte använder TLS som standard eller som förlitar sig på en äldre version av TLS (<1,2) för att fungera. I det här fallet tillåter servern fortfarande att du ansluter till din databas. Vi rekommenderar dock att du utvärderar säkerhets riskerna med att tillåta att driv rutiner och program ansluter till SQL Database, särskilt om du lagrar känsliga data.
@@ -150,7 +150,7 @@ Mer information finns i [Kom igång med identifiering och klassificering av data
 
 ### <a name="compliance"></a>Efterlevnad
 
-Förutom de ovanstående funktionerna och funktionerna som kan hjälpa ditt program att uppfylla olika säkerhets krav, kan Azure SQL Database också delta i vanliga revisioner och har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
+Förutom de ovanstående funktionerna och funktionerna som kan hjälpa ditt program att uppfylla olika säkerhets krav, kan Azure SQL Database också delta i vanliga revisioner och har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

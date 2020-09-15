@@ -6,16 +6,16 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 005068c8e81adb9a79a4e6dc7e86a9bfb39902a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505830"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088654"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
-Azure Monitor maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
+Azure Monitor maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de är beroende av.
 
 Några exempel på vad du kan göra med Azure Monitor är:
 
@@ -42,13 +42,13 @@ Alla data som samlas in av Azure Monitor passar in i en av två grundläggande t
 
 För många Azure-resurser kommer du att se data som samlas in av Azure Monitor direkt på sidan Översikt i Azure Portal. Ta en titt på vilken virtuell dator som helst, så ser du till exempel flera diagram som visar prestanda mått. Klicka på något av diagrammen för att öppna data i [mått Utforskaren](platform/metrics-charts.md) i Azure Portal, vilket gör att du kan skapa diagram över värdena för flera mått över tid.  Du kan visa diagrammen interaktivt eller fästa dem på en instrument panel för att visa dem med andra visualiseringar.
 
-![Mått](media/overview/metrics.png)
+![Diagrammet visar Mät data som flödar till Metrics Explorer som ska användas i visualiseringar.](media/overview/metrics.png)
 
 Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) för att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [Log Analytics](./log-query/log-query-overview.md) i Azure Portal och sedan antingen analysera data direkt med olika verktyg eller spara frågor för användning med [visualiseringar](visualizations.md) eller [varnings regler](platform/alerts-overview.md).
 
 Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/) som används av Azure datautforskaren som är lämplig för enkla logg frågor, men även avancerade funktioner som agg regeringar, kopplingar och smart analys. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 
-![Loggar](media/overview/logs.png)
+![Diagrammet visar loggar data som flödar till Log Analytics för analys.](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Vilka data samlar Azure Monitor in?
 
@@ -103,12 +103,12 @@ Förutom att göra det möjligt att interaktivt analysera övervaknings data, m�
 
 Varnings regler i Azure Monitor använda [Åtgärds grupper](platform/action-groups.md)som innehåller unika uppsättningar av mottagare och åtgärder som kan delas över flera regler. Utifrån dina krav kan åtgärds grupper utföra sådana åtgärder som att använda Webhooks för att få aviseringar att starta externa åtgärder eller integrera med dina ITSM-verktyg.
 
-![Aviseringar](media/overview/alerts.png)
+![Skärm bild som visar aviseringar i Azure Monitor med allvarlighets grad, totala aviseringar och annan information.](media/overview/alerts.png)
 
-### <a name="autoscale"></a>Autoskalning
+### <a name="autoscale"></a>Automatisk skalning
 Med autoskalning kan du använda rätt mängd resurser för att hantera belastningen på ditt program. Det gör att du kan skapa regler som använder mått som samlas in av Azure Monitor för att avgöra när du ska lägga till resurser automatiskt för att hantera belastningen och även spara pengar genom att ta bort resurser som är inaktiva. Du anger ett minsta och högsta antal instanser och logiken för när du vill öka eller minska resurserna.
 
-![Autoskalning](media/overview/autoscale.png)
+![Diagrammet visar autoskalning, med flera servrar på en rad med etiketten processor tid > 80% och två servrar som har marker ATS som minst tre servrar som aktuell kapacitet och fem som Max.](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Visualiserar övervaknings data
 [Visualiseringar](visualizations.md) som diagram och tabeller är effektiva verktyg för att sammanfatta övervaknings data och presentera dem för olika mål grupper. Azure Monitor har egna funktioner för visualisering av övervaknings data och utnyttjar andra Azure-tjänster för att publicera den till olika mål grupper.
@@ -116,12 +116,12 @@ Med autoskalning kan du använda rätt mängd resurser för att hantera belastni
 ### <a name="dashboards"></a>Instrumentpaneler
 Med [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md) kan du kombinera olika typer av data, inklusive både mått och loggar, i ett enda fönster i [Azure Portal](https://portal.azure.com). Du kan välja att dela instrument panelen med andra Azure-användare. Element i hela Azure Monitor kan läggas till i en Azure-instrumentpanel förutom utdata från eventuella logg frågor eller mått diagram. Du kan till exempel skapa en instrument panel som kombinerar paneler som visar ett diagram över mått, en tabell med aktivitets loggar, ett användnings diagram från Application Insights och utdata från en logg fråga.
 
-![Instrumentpanel](media/overview/dashboard.png)
+![Skärm bild som visar en Azure-instrumentpanel, som innehåller program-och säkerhets paneler, tillsammans med annan anpassningsbar information.](media/overview/dashboard.png)
 
 ### <a name="views"></a>Vyer
 [Vyer](./platform/view-designer.md) visar visuellt logg data i Azure Monitor.  Varje vy innehåller en enda panel som går nedåt till en kombination av visualiseringar som stapel-och linje diagram förutom listor som sammanfattar viktiga data.  Övervaknings lösningar innehåller vyer som sammanfattar data för ett visst program och du kan skapa egna vyer för att presentera data från alla logg frågor. Precis som andra element i Azure Monitor kan vyer läggas till i Azure-instrumentpaneler.
 
-![Vy](media/overview/view.png)
+![Skärm bild som visar en panel för övervakning av behållar övervakning och den detaljerade vyn som öppnas om du väljer panelen.](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) är en Business Analytics-tjänst som tillhandahåller interaktiva visualiseringar över flera olika data källor och är ett effektivt sätt att göra data tillgängliga för andra inom och utanför din organisation. Du kan konfigurera Power BI att [automatiskt importera logg data från Azure Monitor](./platform/powerbi.md) för att dra nytta av dessa ytterligare visualiseringar.

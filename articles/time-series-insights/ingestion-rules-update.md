@@ -10,49 +10,50 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: lyhughes
-ms.openlocfilehash: cdf90614e1f766fc37e04a1416081bd35e19b74e
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9a345661a50b18d53411d073ccf12375fe17cdb9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168209"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088603"
 ---
-# <a name="upcoming-changes-to-the-json-flattening-and-escaping-rules-for-new-environments"></a>Kommande ändringar av JSON-förenkling och undantags regler för nya miljöer
+# <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Kommande ändringar av JSON-förenkling och undantags regler för nya miljöer
 
-**Ändringarna tillämpas på *nyligen skapade* Azure Time Series Insights Gen2-miljöer. Dessa ändringar gäller inte för gen1-miljöer.**
+> [!IMPORTANT]
+> Dessa ändringar kommer att tillämpas på *nyligen skapade* Microsoft Azure Time Series Insights Gen2-miljöer. Ändringarna gäller inte för gen1-miljöer.
 
-Din Azure Time Series Insights Gen2-miljö skapar dynamiskt dina lagrings kolumner genom att följa en viss uppsättning namngivnings konventioner. När en händelse matas in används en uppsättning regler för JSON-nyttolasten och egenskaps namnen. Ändringar av hur JSON-data förenklas och lagras börjar gälla för nya Azure Time Series Insights Gen2-miljöer i juli 2020. Den här ändringen påverkar dig i följande fall:
+Din Azure Time Series Insights Gen2-miljö skapar dynamiskt dina lagrings kolumner genom att följa en viss uppsättning namngivnings konventioner. När en händelse matas in använder Time Series Insights en uppsättning regler för JSON-nyttolasten och egenskaps namnen. Ändringar i hur JSON-data förenklas och lagras i praktiken för nya Azure Time Series Insights Gen2-miljöer i juli 2020. Den här ändringen påverkar dig i följande fall:
 
-* Om JSON-nyttolasten innehåller kapslade objekt
-* Om JSON-nyttolasten innehåller matriser
-* Om du använder något av följande fyra specialtecken i ett JSON-egenskaps namn: [\. '
-* Om en eller flera av egenskaperna för ditt TS-ID är i ett kapslat objekt.
+* Din JSON-nyttolast innehåller kapslade objekt.
+* Din JSON-nyttolast innehåller matriser.
+* Du använder något av följande fyra specialtecken i ett JSON-egenskaps namn: `[` `\` `.``'`
+* En eller flera av egenskaperna för din tids serie (TS) ID är i ett kapslat objekt.
 
-Om du skapar en ny miljö och en eller flera av de fall som gäller ovan gäller din händelse nytto Last, ser du dina data som utplattas och lagras på olika sätt. Nedan visas en sammanfattning av ändringarna:
+Om du skapar en ny miljö och en eller flera av dessa fall gäller för din händelse nytto Last, kommer dina data att förenklas och lagras på olika sätt. I följande tabell sammanfattas ändringarna:
 
-| Aktuell regel | Ny regel | Exempel-JSON | Föregående kolumn namn | Nytt kolumn namn
+| Aktuell regel | Ny regel | Exempel-JSON | Föregående kolumn namn | Nytt kolumnnamn
 |---|---| ---| ---|  ---|
-| Kapslad JSON förenklas med ett under streck som avgränsare |Kapslad JSON förenklas med en punkt som avgränsare  | ``{"series" : { "value" : 19.338 }}`` | `series_value_double` |`series.value_double` |
-| Specialtecken undantas inte | JSON-egenskaps namn som innehåller specialtecknen. [\ och "föregås av [" och "]. I ["och"] finns det ytterligare undantag av enkla citat tecken och omvänt snedstreck. Ett enkelt citat sätt skrivs som \' och ett omvänt snedstreck skrivs som\\\  | ```"Foo's Law Value": "17.139999389648"``` | `Foo's Law Value_double` | `['Foo\'s Law Value']_double` |
-| Matriser med primitiver lagras som en sträng | Matriser med primitiva typer lagras som en dynamisk typ  | `"values": [154, 149, 147]` | `values_string`  | `values_dynamic` |
-Objekts mat ris förenklas alltid och genererar flera händelser | Om objekten i en matris inte har något av de TS-ID: n eller tidsstämpeln som är giltiga (får), lagras matrisen med objekt som en dynamisk typ | `"values": [{"foo" : 140}, {"bar" : 149}]` | `values_foo_long | values_bar_long` | `values_dynamic` |
+| Kapslad JSON förenklas med ett under streck som avgränsare. |Kapslad JSON förenklas med en punkt som avgränsare.  | ``{"series" : { "value" : 19.338 }}`` | `series_value_double` |`series.value_double` |
+| Specialtecken är inte undantags tecken. | JSON-egenskaps namn som innehåller specialtecknen `.` `[`   `\` och som `'` är undantagna med `['` och `']` . Inom `['` och `']` finns det ytterligare undantag av enkla citat tecken och omvänt snedstreck. Ett enkelt citat sätt skrivs som `\'` och ett omvänt snedstreck som `\\` .  | ```"Foo's Law Value": "17.139999389648"``` | `Foo's Law Value_double` | `['Foo\'s Law Value']_double` |
+| Matriser med primitiver lagras som en sträng. | Matriser med primitiva typer lagras som en dynamisk typ.  | `"values": [154, 149, 147]` | `values_string`  | `values_dynamic` |
+Objekts mat ris förenklas alltid och genererar flera händelser. | Om objekten i en matris inte har något av egenskaperna för TS-ID eller tidsstämpel, lagras matrisen med objekt som en dynamisk typ. | `"values": [{"foo" : 140}, {"bar" : 149}]` | `values_foo_long | values_bar_long` | `values_dynamic` |
 
 ## <a name="recommended-changes-for-new-environments"></a>Rekommenderade ändringar för nya miljöer
 
 ### <a name="if-your-ts-id-andor-timestamp-property-is-nested-within-an-object"></a>Om ditt TS-ID och/eller timestamp-egenskapen är kapslade i ett objekt
 
-* Alla nya distributioner måste matcha de nya inmatnings reglerna. Om ditt TS-ID t. ex. är `telemetry_tagId` måste du uppdatera alla Azure Resource Manager (arm) mallar eller automatiserade distributions skript för att konfigurera `telemetry.tagId` som TS-ID för miljön. Den här ändringen krävs även för tids stämplingar för händelse källan i kapslad JSON.
+Alla nya distributioner måste matcha de nya inmatnings reglerna. Om ditt TS-ID t. ex. är måste `telemetry_tagId` du uppdatera Azure Resource Manager mallar eller automatiserade distributions skript för att konfigurera `telemetry.tagId` som TS-ID för miljön. Du behöver också denna ändring för händelse källans tidsstämplar i kapslad JSON.
 
 ### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Om nytto lasten innehåller kapslad JSON eller specialtecken och du automatiserar redigering av [tids serie modell](.\time-series-insights-update-tsm.md) variabel uttryck
 
-* Uppdatera din klient kod som kör [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Till exempel ska ett tidigare [tids serie uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) `"value": {"tsx": "$event.series_value.Double"}` uppdateras till ett av följande alternativ:
+Uppdatera din klient kod som kör [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Du bör till exempel uppdatera ett tidigare [tids serie uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) på `"value": {"tsx": "$event.series_value.Double"}` något av följande alternativ:
   * `"value": {"tsx": "$event.series.value.Double"}`
   * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [Azure Time Series Insights Gen2-lagring och ingress](./time-series-insights-update-storage-ingress.md).
+* Lär dig mer om [Azure Time Series Insights Gen2-lagring och ingress](./time-series-insights-update-storage-ingress.md).
 
-* Läs mer om hur du frågar dina data med [API: er för Time Series-frågor](./concepts-query-overview.md).
+* Lär dig hur du frågar dina data med hjälp av [API: er för Time Series-frågor](./concepts-query-overview.md).
 
 * Läs mer om den [nya syntaxen för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).

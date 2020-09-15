@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: f8df1a62ace8a1f094a708b752e175f3299d0ee0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 268470f846f31e3577b12c217ddcb3c128136101
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053182"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086648"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -28,9 +28,10 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 
 ### <a name="2115-08232020"></a>2.11.5 (08/23/2020)
 
-- Den här versionen lägger till två nya start alternativ för Cosmos-emulator: 
-* "/EnablePreview" – den aktiverar för hands versions funktioner för Cosmos-emulatorn. dessa funktioner är fortfarande utvecklade och kan nås via CI och exempel skrivning.
-* "/EnableAadAuthentication" – det gör att Cosmos-emulatorn kan acceptera anpassade AAD-token som ett alternativ till Cosmos huvud nycklar. Den här funktionen håller fortfarande på att utvecklas. Det finns inte stöd för vissa roll tilldelningar och andra behörighets inställningar för tillfället.
+Den här versionen lägger till två nya start alternativ för Cosmos-emulator: 
+
+* "/EnablePreview" – den aktiverar förhands gransknings funktioner för emulatorn. För hands versions funktionerna som fortfarande är under utveckling och som kan nås via CI och exempel skrivning.
+* "/EnableAadAuthentication" – det gör att emulatorn kan acceptera anpassade AAD-token som ett alternativ till huvud nycklarna i Azure Cosmos. Den här funktionen är fortfarande under utveckling; Det finns för närvarande inte stöd för vissa roll tilldelningar och andra inställningar för behörighet.
 
 ### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
 

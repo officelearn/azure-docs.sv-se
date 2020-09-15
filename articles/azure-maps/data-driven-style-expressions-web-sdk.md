@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009145"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089453"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 
@@ -72,7 +72,12 @@ I alla exempel i det här dokumentet används följande funktion för att demons
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-        "zoneColor": "red"
+        "zoneColor": "red",
+        "abcArray": ['a', 'b', 'c'],
+        "array2d": [['a', 'b'], ['x', 'y']],
+        "_style": {
+            "fillColor": 'red'
+        }
     }
 }
 ```
@@ -137,6 +142,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 På samma sätt kommer konturen för polygoner att återges i linje lager. Om du vill inaktivera det här beteendet i ett linje lager lägger du till ett filter som endast tillåter `LineString` och- `MultiLineString` funktioner.  
 
+Här följer några ytterligare exempel på hur du använder data uttryck:
+
+```javascript
+//Get item [2] from an array "properties.abcArray[1]" = "c"
+['at', 2, ['get', 'abcArray']]
+
+//Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
+['at', 1, ['at', 0, ['get', 'array2d']]]
+
+//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+['in', 'a', ['get', 'abcArray']]
+
+//Get the length of an array "properties.abcArray.length" = 3
+['length', ['get', 'abcArray']]
+
+//Get the value of a subproperty "properties._style.fillColor" = "red"
+['get', 'fillColor', ['get', '_style']]
+
+//Check that "fillColor" exists as a subproperty of "_style".
+['has', 'fillColor', ['get', '_style']]
+```
+
 ## <a name="math-expressions"></a>Matematiska uttryck
 
 Matematiska uttryck tillhandahåller matematiska operatorer för att utföra data drivna beräkningar i uttrycks ramverket.
@@ -181,14 +208,14 @@ Ett agg regerings uttryck tar i tre värden: ett operator värde och ett start v
 ```
 
 - operator: en uttrycks funktion som sedan tillämpas på alla värden som beräknas av `mapExpression` för varje punkt i klustret. Operatorer som stöds: 
-    - För siffror: `+` , `*` , `max` ,`min`
-    - För booleska värden: `all` ,`any`
+    - För siffror: `+` , `*` , `max` , `min`
+    - För booleska värden: `all` , `any`
 - initialValue: ett initialt värde där det första beräknade värdet aggregeras mot.
 - mapExpression: ett uttryck som tillämpas mot varje punkt i data uppsättningen.
 
 **Exempel**
 
-Om alla funktioner i en data uppsättning har en `revenue` -egenskap, vilket är ett tal. Sedan kan den totala intäkten för alla punkter i ett kluster, som skapas från data uppsättningen, beräknas. Den här beräkningen görs med följande mängd uttryck:`['+', 0, ['get', 'revenue']]`
+Om alla funktioner i en data uppsättning har en `revenue` -egenskap, vilket är ett tal. Sedan kan den totala intäkten för alla punkter i ett kluster, som skapas från data uppsättningen, beräknas. Den här beräkningen görs med följande mängd uttryck: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Booleska uttryck
 
@@ -410,7 +437,7 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 | `['typeof', value]` | sträng | Returnerar en sträng som beskriver typen för det aktuella värdet. |
 
 > [!TIP]
-> Om ett fel meddelande liknar det `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` som visas i webb läsar konsolen betyder det att det finns ett uttryck någonstans i koden som har en matris som inte har en sträng för det första värdet. Om du vill att uttrycket ska returnera en matris omsluter du matrisen med `literal` uttrycket. I följande exempel anges ikon `offset` alternativet för ett symbol lager, som måste vara en matris som innehåller två siffror, genom att använda ett `match` uttryck för att välja mellan två offset-värden baserat på värdet för `entityType` egenskapen för punkt funktionen.
+> Om ett fel meddelande liknar det `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` som visas i webb läsar konsolen betyder det att det finns ett uttryck någonstans i koden som har en matris som inte har en sträng för det första värdet. Om du vill att uttrycket ska returnera en matris omsluter du matrisen med `literal` uttrycket. I följande exempel anges ikon `offset` alternativet för ett symbol lager, som måste vara en matris som innehåller två siffror, genom att använda ett `match` uttryck för att välja mellan två offset-värden baserat på värdet för  `entityType` egenskapen för punkt funktionen.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -490,7 +517,7 @@ Uttrycket ovan återger en PIN-kod på kartan med texten "64 °F" som står ovan
 
 <center>
 
-![Uttrycks exempel ](media/how-to-expressions/string-operator-expression.png) för sträng operator</center>
+![Uttrycks exempel ](media/how-to-expressions/string-operator-expression.png) för sträng operator </center>
 
 ## <a name="interpolate-and-step-expressions"></a>Interpolerade och steg uttryck
 
@@ -502,9 +529,9 @@ Ett `interpolate` uttryck kan användas för att beräkna en kontinuerlig, mjuk 
 
 Det finns tre typer av interpolation-metoder som kan användas i ett `interpolate` uttryck:
  
-* `['linear']`– Interpolerar linjärt mellan stopp paret.
-* `['exponential', base]`– Interpolerar exponentiellt mellan stoppen. `base`Värdet styr den hastighet som utdata ökar. Högre värden gör att utdata ökar till den övre delen av intervallet. Ett `base` värde nära 1 ger utdata som ökar linjärt.
-* `['cubic-bezier', x1, y1, x2, y2]`– Interpolerar med en [kubikmeter-kurva](https://developer.mozilla.org/docs/Web/CSS/timing-function) som definieras av de angivna kontroll punkterna.
+* `['linear']` – Interpolerar linjärt mellan stopp paret.
+* `['exponential', base]` – Interpolerar exponentiellt mellan stoppen. `base`Värdet styr den hastighet som utdata ökar. Högre värden gör att utdata ökar till den övre delen av intervallet. Ett `base` värde nära 1 ger utdata som ökar linjärt.
+* `['cubic-bezier', x1, y1, x2, y2]` – Interpolerar med en [kubikmeter-kurva](https://developer.mozilla.org/docs/Web/CSS/timing-function) som definieras av de angivna kontroll punkterna.
 
 Här är ett exempel på hur de olika typerna av interpolerar ser ut. 
 
@@ -553,7 +580,7 @@ Följande bild visar hur färgerna väljs för uttrycket ovan.
  
 <center>
 
-![Exempel ](media/how-to-expressions/interpolate-expression-example.png) på interpolerat uttryck</center>
+![Exempel ](media/how-to-expressions/interpolate-expression-example.png) på interpolerat uttryck </center>
 
 ### <a name="step-expression"></a>Steg uttryck
 
@@ -609,7 +636,7 @@ Särskilda uttryck som endast gäller för specifika lager.
 
 ### <a name="heat-map-density-expression"></a>Uttryck för termisk kart täthet
 
-Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']` . Det här värdet är ett tal mellan `0` och `1` . Den används i kombination med ett `interpolation` eller- `step` uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) för värme kart skiktet.
+Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']` . Det här värdet är ett tal mellan `0` och `1` . Den används i kombination med ett `interpolation` eller- `step` uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) för värme kart skiktet.
 
 > [!TIP]
 > Färgen vid index 0, i ett interpolation-uttryck eller standard färgen för en steg färg definierar färgen för det utrymme där det inte finns några data. Färgen vid index 0 kan användas för att definiera en bakgrunds färg. Många föredrar att ange det här värdet som transparent eller en halv genomskinlig svart.
@@ -653,7 +680,7 @@ Mer information finns i dokumentationen för att [lägga till en termisk kart sk
 
 ### <a name="line-progress-expression"></a>Uttryck för linje förlopp
 
-Ett uttryck för linje förlopp hämtar förloppet längs en övertoningsfyllning i ett linje lager och definieras som `['line-progress']` . Värdet är ett tal mellan 0 och 1. Den används i kombination med ett `interpolation` or- `step` uttryck. Det här uttrycket kan bara användas med [alternativet strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) för rad skiktet. 
+Ett uttryck för linje förlopp hämtar förloppet längs en övertoningsfyllning i ett linje lager och definieras som `['line-progress']` . Värdet är ett tal mellan 0 och 1. Den används i kombination med ett `interpolation` or- `step` uttryck. Det här uttrycket kan bara användas med [alternativet strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) för rad skiktet. 
 
 > [!NOTE]
 > Alternativet `strokeGradient` för linje skiktet kräver att du `lineMetrics` anger alternativet för den data källa som ska anges till `true` .
@@ -684,9 +711,9 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 Format uttrycket för textfält kan användas med `textField` alternativet för egenskapen symbol lager `textOptions` för att ge blandad textformatering. Med det här uttrycket kan du ange en uppsättning med indatatyps strängar och formaterings alternativ. Följande alternativ kan anges för varje Indatasträngen i det här uttrycket.
 
- * `'font-scale'`– Anger skalnings faktorn för tecken storleken. Om det här värdet anges åsidosätts `size` egenskapen för för den `textOptions` enskilda strängen.
- * `'text-font'`-Anger en eller flera teckensnitts familjer som ska användas för den här strängen. Om det här värdet anges åsidosätts `font` egenskapen för för den `textOptions` enskilda strängen.
- * `'text-color'`-Anger en färg som ska användas för en text vid åter givning. 
+ * `'font-scale'` – Anger skalnings faktorn för tecken storleken. Om det här värdet anges åsidosätts `size` egenskapen för för den `textOptions` enskilda strängen.
+ * `'text-font'` -Anger en eller flera teckensnitts familjer som ska användas för den här strängen. Om det här värdet anges åsidosätts `font` egenskapen för för den `textOptions` enskilda strängen.
+ * `'text-color'` -Anger en färg som ska användas för en text vid åter givning. 
 
 Följande pseudocode definierar strukturen för text fältets format uttryck. 
 
@@ -749,10 +776,10 @@ Det här lagret återger punkt funktionen som visas på bilden nedan:
 
 `number-format`Uttrycket kan bara användas med `textField` ett symbol skikts alternativ. Det här uttrycket konverterar det angivna talet till en formaterad sträng. Det här uttrycket radbryter JavaScript-funktionen [number. toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) och har stöd för följande uppsättning alternativ.
 
- * `locale`– Ange det här alternativet för att konvertera siffror till strängar på ett sätt som justeras med det angivna språket. Skicka en [language-tagg för BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) till det här alternativet.
- * `currency`– Om du vill konvertera talet till en sträng som representerar en valuta. Möjliga värden är [ISO 4217-valuta koderna](https://en.wikipedia.org/wiki/ISO_4217), till exempel "USD" för amerikanska dollar, "EUR" för euron, eller "CNY" för kinesiska RMB.
- * `'min-fraction-digits'`– Anger det minsta antalet decimaler som ska ingå i sträng versionen av talet.
- * `'max-fraction-digits'`-Anger det maximala antalet decimaler som ska ingå i sträng versionen av talet.
+ * `locale` – Ange det här alternativet för att konvertera siffror till strängar på ett sätt som justeras med det angivna språket. Skicka en [language-tagg för BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) till det här alternativet.
+ * `currency` – Om du vill konvertera talet till en sträng som representerar en valuta. Möjliga värden är [ISO 4217-valuta koderna](https://en.wikipedia.org/wiki/ISO_4217), till exempel "USD" för amerikanska dollar, "EUR" för euron, eller "CNY" för kinesiska RMB.
+ * `'min-fraction-digits'` – Anger det minsta antalet decimaler som ska ingå i sträng versionen av talet.
+ * `'max-fraction-digits'` -Anger det maximala antalet decimaler som ska ingå i sträng versionen av talet.
 
 Följande pseudocode definierar strukturen för text fältets format uttryck. 
 
@@ -791,7 +818,7 @@ Det här lagret återger punkt funktionen som visas på bilden nedan:
 
 <center>
 
-![Uttrycks exempel ](media/how-to-expressions/number-format-expression.png) för tal format</center>
+![Uttrycks exempel ](media/how-to-expressions/number-format-expression.png) för tal format </center>
 
 ### <a name="image-expression"></a>Bild uttryck
 
@@ -829,7 +856,7 @@ Det här lagret återger textfältet i symbol skiktet som visas på bilden nedan
 
 <center>
 
-![Exempel ](media/how-to-expressions/image-expression.png) på bild uttryck</center>
+![Exempel ](media/how-to-expressions/image-expression.png) på bild uttryck </center>
 
 ## <a name="zoom-expression"></a>Uttryck för zoomning
 
@@ -916,16 +943,16 @@ I följande artiklar finns fler kod exempel som implementerar uttryck:
 Läs mer om de lager alternativ som stöder uttryck:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)

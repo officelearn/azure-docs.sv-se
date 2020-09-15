@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Hybrid Runbook Worker
 description: Den här artikeln innehåller en översikt över Hybrid Runbook Worker som du kan använda för att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448081"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087904"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -42,7 +42,7 @@ Processen för att installera en Hybrid Runbook Worker är beroende av operativ 
 
 Den rekommenderade installations metoden är att använda en Azure Automation Runbook för att helt automatisera processen med att konfigurera en Windows-dator. Om det inte är möjligt kan du följa en steg-för-steg-procedur för att manuellt installera och konfigurera rollen. För Linux-datorer kör du ett Python-skript för att installera agenten på datorn.
 
-## <a name="network-planning"></a><a name="network-planning"></a>Nätverks planering
+## <a name="network-planning"></a><a name="network-planning"></a>Planera för nätverk
 
 För att Hybrid Runbook Worker ska kunna ansluta till och registrera med Azure Automation måste den ha åtkomst till port numret och URL-adresserna som beskrivs i det här avsnittet. Arbets tagaren måste också ha åtkomst till de [portar och URL: er som krävs för att Log Analytics agenten](../azure-monitor/platform/agent-windows.md) ska kunna ansluta till Azure Monitor Log Analytics-arbetsytan.
 
@@ -51,9 +51,9 @@ För att Hybrid Runbook Worker ska kunna ansluta till och registrera med Azure A
 Följande port och URL-adresser krävs för Hybrid Runbook Worker:
 
 * Port: endast TCP 443 krävs för utgående Internet åtkomst
-* Global URL:`*.azure-automation.net`
-* Global URL för US Gov, Virginia:`*.azure-automation.us`
-* Agent tjänst:`https://<workspaceId>.agentsvc.azure-automation.net`
+* Global URL: `*.azure-automation.net`
+* Global URL för US Gov, Virginia: `*.azure-automation.us`
+* Agent tjänst: `https://<workspaceId>.agentsvc.azure-automation.net`
 
 Om du har ett Automation-konto som har definierats för en viss region kan du begränsa Hybrid Runbook Worker kommunikation till det regionala data centret. Granska [DNS-posterna som används av Azure Automation](how-to/automation-region-dns-records.md) för de DNS-poster som krävs.
 
@@ -63,11 +63,11 @@ Om du använder en proxyserver för kommunikation mellan Azure Automation och da
 
 ### <a name="firewall-use"></a>Brand Väggs användning
 
-Om du använder en brand vägg för att begränsa åtkomsten till Internet, måste du konfigurera brand väggen för att tillåta åtkomst. Om du använder Log Analytics gateway som proxy kontrollerar du att den har kon figurer ATS för Hybrid Runbook Worker. Se [konfigurera Log Analytics Gateway för Automation hybrid Worker](../azure-monitor/platform/gateway.md).
+Om du använder en brand vägg för att begränsa åtkomsten till Internet, måste du konfigurera brand väggen för att tillåta åtkomst. Om du använder Log Analytics gateway som proxy kontrollerar du att den har kon figurer ATS för Hybrid Runbook Worker. Se [konfigurera Log Analytics Gateway för Automation hybrid Runbook Worker](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Tjänsttaggar
 
-Azure Automation stöder service tag-Taggar i Azure Virtual Network, från och med service tag- [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement** i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
+Azure Automation stöder service tag-Taggar i Azure Virtual Network, från och med service tag- [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement**  i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
 
 Service Tag-numret för Azure Automation-tjänsten tillhandahåller endast IP-adresser som används för följande scenarier:
 
@@ -115,6 +115,20 @@ Om den Hybrid Runbook Worker värddatorn startar om, körs pågående Runbook-jo
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Runbook-behörigheter för en Hybrid Runbook Worker
 
 Eftersom de använder icke-Azure-resurser kan Runbooks som körs på en Hybrid Runbook Worker inte använda den autentiseringsmekanism som vanligt vis används av Runbooks som autentiserar sig för Azure-resurser. En Runbook ger antingen sin egen autentisering till lokala resurser eller konfigurerar autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Du kan också ange ett Kör som-konto för att tillhandahålla en användar kontext för alla Runbooks.
+
+## <a name="view-hybrid-runbook-workers"></a>Visa hybrid Runbook Worker
+
+När Uppdateringshantering funktionen är aktive rad på Windows-servrar eller virtuella datorer kan du inventera listan över system hybrid Runbook Worker-grupper i Azure Portal. Du kan visa upp till 2 000 arbetare i portalen genom att välja fliken **hybrid** arbetare i alternativet hybrid Worker i **gruppen alternativ hybrid arbetare** från den vänstra rutan för det valda Automation-kontot.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Sidan för Hybrid arbets grupper i Automation-konto" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Om du har mer än 2 000 hybrid arbetare kan du köra följande PowerShell-skript för att hämta en lista över alla:
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

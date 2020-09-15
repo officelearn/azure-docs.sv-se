@@ -7,13 +7,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.custom: devx-track-azurecli, subject-armqs
+ms.openlocfilehash: c8f431a609dafc1064b901cfdda8d170124cf0f9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987519"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089283"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -67,6 +67,14 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
+# <a name="template"></a>[Mall](#tab/template)
+
+Inga.  
+
+Använd Azure Portal, PowerShell eller Azure CLI för att registrera dig för Azure NetApp Files och NetApp-resurs leverantören.  
+
+Mer information finns i [Registrera för Azure NetApp Files](azure-netapp-files-register.md) . 
+
 ---
 
 ## <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
@@ -105,7 +113,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
     > [!NOTE]
     > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
-    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du`Get-AzLocation | select Location`
+    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du `Get-AzLocation | select Location`
     >
 
 1. Skapa en ny resurs grupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
@@ -132,7 +140,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
     > [!NOTE]
     > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
-    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du`az account list-locations --query "[].{Region:name}" --out table`
+    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du `az account list-locations --query "[].{Region:name}" --out table`
     >
 
 2. Skapa en ny resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) :
@@ -151,6 +159,17 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
         --location $LOCATION \
         --account-name $ANF_ACCOUNT_NAME
     ```
+
+# <a name="template"></a>[Mall](#tab/template)
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Följande kodfragment visar hur du skapar ett NetApp-konto i en Azure Resource Manager-mall (ARM-mall) med hjälp av resursen [Microsoft. NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) . Om du vill köra koden laddar du ned [hela arm-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
+
+<!-- Block begins with "type": "Microsoft.NetApp/netAppAccounts", -->
+
 ---
 
 ## <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
@@ -213,6 +232,16 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
         --size $POOL_SIZE_TiB \
         --service-level $SERVICE_LEVEL
     ```
+
+# <a name="template"></a>[Mall](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+
+Följande kodfragment visar hur du skapar en pool för kapacitet i en Azure Resource Manager-mall (ARM-mall) med hjälp av resursen [Microsoft. NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools) . Om du vill köra koden laddar du ned [hela arm-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
+
+<!-- LN 185, block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools", -->
 
 ---
 
@@ -353,6 +382,20 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
         --protocol-types "NFSv3"
     ```
 
+# <a name="template"></a>[Mall](#tab/template)
+
+<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
+
+Följande kodfragment visar hur du konfigurerar ett VNet och skapar en Azure NetApp Files volym i en Azure Resource Manager mall (ARM-mall). VNet-installationen använder [Microsoft. Network/virtualNetworks-](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks) resursen. Med volym skapande används resursen [Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) . Om du vill köra koden laddar du ned [hela arm-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
+
+<!-- Block begins with  "type": "Microsoft.Network/virtualNetworks", -->
+
+:::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="197-229":::
+
+<!-- Block begins with  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes", -->
+
 ---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -379,7 +422,7 @@ När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att
 
 4. Ange namnet på resurs gruppen (myRG1) för att bekräfta att du vill ta bort resurs gruppen och alla resurser i den permanent och klicka sedan på **ta bort**.
 
-    ![Ta bort resursgrupp](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+    ![Bekräfta borttagning av resurs grupp](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -407,6 +450,13 @@ När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att
     az group delete \
         --name $RESOURCE_GROUP
     ```
+
+# <a name="template"></a>[Mall](#tab/template)
+
+Inga.
+
+Använd Azure Portal, PowerShell eller Azure CLI för att ta bort resurs gruppen.   
+
 ---
 
 ## <a name="next-steps"></a>Nästa steg  

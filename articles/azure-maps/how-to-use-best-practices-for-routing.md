@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b957453758b9b8e34989877516a9083f06a85ed8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400796"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086410"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
 
@@ -30,7 +30,7 @@ API: er för väg riktning och väg mat ris i Azure Maps [Route service](https:/
 > * Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
 > * Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
@@ -275,7 +275,7 @@ Bilden nedan är ett exempel på hur du kan återge alternativa vägar med angiv
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Använda routningstjänsten i en webbapp
 
-Azure Maps Web SDK tillhandahåller en [service-modul](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-API: er i webb-eller Node.js program med hjälp av Java Script eller TypeScript. Service-modulen kan användas för att återge de returnerade vägarna på kartan. Modulen avgör automatiskt vilket API som ska användas med GET-och POST-förfrågningar.
+Azure Maps Web SDK tillhandahåller en [service-modul](https://docs.microsoft.com/javascript/api/azure-maps-rest/). Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-API: er i webb-eller Node.js program med hjälp av Java Script eller TypeScript. Service-modulen kan användas för att återge de returnerade vägarna på kartan. Modulen avgör automatiskt vilket API som ska användas med GET-och POST-förfrågningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

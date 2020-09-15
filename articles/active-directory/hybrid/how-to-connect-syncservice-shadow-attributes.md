@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356669"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088978"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect Shadow-attribut för synkroniseringstjänst
 De flesta attributen visas på samma sätt i Azure AD som i din lokala Active Directory. Men vissa attribut har viss specifik hantering och attributvärdet i Azure AD kan skilja sig från vad som Azure AD Connect synkroniseras.
@@ -32,7 +32,7 @@ Vissa attribut har två representationer i Azure AD. Både det lokala värdet oc
 Du kan inte se Shadow-attributen med hjälp av Azure Portal eller med PowerShell. Men om du förstår konceptet kan du felsöka vissa scenarier där attributet har olika värden lokalt och i molnet.
 
 För att bättre förstå beteendet kan du titta på det här exemplet från Fabrikam:  
-![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Skärm bild som visar Active Directory UPN-suffix för flera exempel med ett motsvarande Azure AD-domän värde som inte har lagts till, inte verifierats och verifierats.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 De har flera UPN-suffix i sina lokala Active Directory, men de har bara verifierat ett.
 
 ### <a name="userprincipalname"></a>userPrincipalName

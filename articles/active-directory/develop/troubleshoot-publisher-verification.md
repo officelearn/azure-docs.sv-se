@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007561"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088331"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Felsöka verifiering av utgivare
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller om du får oväntade beteenden: 
@@ -39,10 +39,10 @@ Nedan visas några vanliga problem som kan uppstå under processen.
     1. Om det redan finns ett MPN-konto kommer detta att identifieras och du kommer att läggas till i kontot 
     1. Gå till [sidan partner profil](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) där MPN-ID och primär konto kontakt visas
 
-- **Jag vet inte som min Azure AD global-administratör (även kallat företags administratör eller klient organisations administratör), hur hittar jag dem? Vad gäller för program administratören eller en annan administratörs roll?**
+- **Jag vet inte som global administratör för Azure AD (även kallat företags administratör eller klient organisations administratör), hur hittar jag dem? Vad gäller för program administratören eller moln program administratören?**
     1. Logga in på [Azure AD-portalen](https://aad.portal.azure.com) med ett användar konto i din organisations primära klient organisation
     1. Navigera till [roll hantering](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    1. Klicka på global administratör eller önskad administratörs roll
+    1. Klicka på önskad administratörs roll
     1. Listan över användare som har tilldelats rollen kommer att visas
 
 - **Jag vet inte vem som är administratör (er) för mitt MPN-konto** Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och filtrera användar listan för att se vilka användare som finns i olika administratörs roller.
@@ -51,22 +51,25 @@ Nedan visas några vanliga problem som kan uppstå under processen.
     1. Gå till din [partner profil](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) och kontrol lera att: 
         - MPN-ID: t är korrekt. 
         - Det finns inga fel eller "väntande åtgärder" visas och verifierings statusen under juridisk företags profil och partner information anger både "auktoriserad" eller "lyckad".
-    1. Gå till [sidan för MPN-klient hantering](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) och bekräfta att klienten som appen är registrerad i och att du loggar med ett användar konto från finns i listan över associerade klienter.
-    1. Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och bekräfta att användaren som du loggar in som är antingen en global administratör, MPN-administratör eller konto administratör.
+    1. Gå till [sidan för MPN-klient hantering](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) och bekräfta att klienten som appen är registrerad i och att du loggar med ett användar konto från finns i listan över associerade klienter. Om du behöver lägga till ytterligare en klient, följer du anvisningarna [här](https://docs.microsoft.com/partner-center/multi-tenant-account). Observera att alla globala administratörer för alla klient organisationer som du lägger till beviljas globala administratörs behörigheter på ditt partner Center-konto.
+    1. Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och bekräfta att användaren som du loggar in som är antingen en global administratör, MPN-administratör eller konto administratör. Om du behöver lägga till en användare till en roll i Partner Center följer du instruktionerna [här](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
 
 - **När jag loggar in på Azure AD-portalen ser jag inga appar registrerade. Varför?** 
-    Dina registrerings program kan ha skapats med ett annat användar konto eller i en annan klient. Se till att du är inloggad med rätt konto i klient organisationen där dina app-registreringar skapades.
+    Dina app-registreringar kan ha skapats med ett annat användar konto i den här klienten, ett personligt/konsument konto eller en annan klient. Se till att du är inloggad med rätt konto i klient organisationen där dina app-registreringar skapades.
 
-- **Hur gör jag för att vet vem ägaren till en app-registrering i Azure AD är?** 
-    När du är inloggad på en klient där appen är registrerad, navigerar du till bladet program registreringar, klickar på en app och klickar sedan på ägare.
+- **Jag får ett fel som rör Multi-Factor Authentication. Vad ska jag göra?** 
+    Kontrol lera att [Multi-Factor Authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) har Aktiver ATS och krävs för den användare som du loggar in med och för det här scenariot. MFA kan till exempel vara:
+    - Krävs alltid för den användare som du loggar in med
+    - [Krävs för Azure-hantering](../conditional-access/howto-conditional-access-policy-azure-management.md).
+    - [Krävs för den typ av administratör](../conditional-access/howto-conditional-access-policy-admin-mfa.md) som du loggar in med.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Göra Microsoft Graph API-anrop 
 
 Om du har problem men inte kan förstå varför baserat på vad du ser i användar gränssnittet, kan det vara bra att utföra ytterligare fel sökning genom att använda Microsoft Graph anrop för att utföra samma åtgärder som du kan utföra i appens registrerings Portal.
 
-Det enklaste sättet att göra dessa förfrågningar med hjälp av [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också överväga andra alternativ som att använda [Postman](https://www.postman.com/)eller använda PowerShell för att [anropa en webbegäran](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
+Det enklaste sättet att göra dessa förfrågningar med hjälp av [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Du kan också överväga andra alternativ som att använda [Postman](https://www.postman.com/)eller använda PowerShell för att [anropa en webbegäran](/powershell/module/microsoft.powershell.utility/invoke-webrequest).  
 
-Du kan använda Microsoft Graph för att både ange och inaktivera appens verifierade utgivare och kontrol lera resultatet när du har utfört någon av dessa åtgärder. Resultatet kan visas [både för programobjektet](/graph/api/resources/application?view=graph-rest-beta) som motsvarar din app-registrering och alla [tjänst huvud namn](/graph/api/resources/serviceprincipal?view=graph-rest-beta) som har instansierats från appen. Mer information om relationen mellan dessa objekt finns i: [program-och tjänst huvud objekt i Azure Active Directory](app-objects-and-service-principals.md).  
+Du kan använda Microsoft Graph för att både ange och inaktivera appens verifierade utgivare och kontrol lera resultatet när du har utfört någon av dessa åtgärder. Resultatet kan visas [både för programobjektet](/graph/api/resources/application) som motsvarar din app-registrering och alla [tjänst huvud namn](/graph/api/resources/serviceprincipal) som har instansierats från appen. Mer information om relationen mellan dessa objekt finns i: [program-och tjänst huvud objekt i Azure Active Directory](app-objects-and-service-principals.md).  
 
 Här följer några exempel på några användbara förfrågningar:  
 
@@ -105,7 +108,7 @@ Svarsåtgärder
 ### <a name="get-verified-publisher-info-from-application"></a>Hämta en verifierad utgivar information från programmet 
  
 ```
-GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+GET https://graph.microsoft.com/v1.0/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
 
 HTTP/1.1 200 OK 
 
@@ -124,7 +127,7 @@ HTTP/1.1 200 OK
 
 ### <a name="get-verified-publisher-info-from-service-principal"></a>Hämta en verifierad utgivar information från tjänstens huvud namn 
 ```
-GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+GET https://graph.microsoft.com/v1.0/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
 
 HTTP/1.1 200 OK 
 
@@ -183,11 +186,7 @@ Den här funktionen stöds inte i en verifierad e-postklient.
 
 ### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
 
-Mål programmet ( <AppId> ) måste ha en utgivares domän uppsättning. Ange en utgivar domän och försök igen. 
-
-### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotDNSVerified  
-
-Mål programmets utgivare domän ( <publisherDomain> ) är ingen verifierad domän i den här klienten. Verifiera en klient domän med hjälp av DNS-verifiering och försök igen. 
+Mål programmet ( \<AppId\> ) måste ha en utgivares domän uppsättning. Ange en utgivar domän och försök igen.
 
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 

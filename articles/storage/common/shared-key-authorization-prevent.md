@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019724"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088807"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Förhindra auktorisering av delad nyckel för ett Azure Storage konto (förhands granskning)
 
@@ -216,7 +216,7 @@ Vissa Azure-verktyg ger dig möjlighet att använda Azure AD-auktorisering för 
 | Azure Portal | Stöds. Information om hur du auktoriserar med ditt Azure AD-konto från Azure Portal finns i [Välj hur du godkänner åtkomst till BLOB-data i Azure Portal](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Stöds för Blob Storage. Information om hur du auktoriserar AzCopy-åtgärder finns i [Välj hur du ska ange autentiseringsuppgifter för auktorisering](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) i AzCopy-dokumentationen. |
 | Azure Lagringsutforskaren | Stöds endast för Blob Storage och Azure Data Lake Storage Gen2. Azure AD-åtkomst till Queue Storage stöds inte. Se till att välja rätt Azure AD-klient. Mer information finns i [Kom igång med Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Stöds. Information om hur du auktoriserar PowerShell-kommandon med Azure AD för åtkomst till blob-och Queue-data finns i [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](authorize-active-directory-powershell.md). |
+| Azure PowerShell | Stöds. Information om hur du auktoriserar PowerShell-kommandon för BLOB-eller Queue-åtgärder med Azure AD finns i [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data](../blobs/authorize-active-directory-powershell.md) eller [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att komma åt köa data](../queues/authorize-active-directory-powershell.md) |
 | Azure CLI | Stöds. Information om hur du auktoriserar Azure CLI-kommandon med Azure AD för åtkomst till blob-och Queue-data finns i [köra Azure CLI-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Stöds. Mer information finns i [IoT Hub stöd för virtuella nätverk](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell är ett integrerat gränssnitt i Azure Portal. Azure Cloud Shell Hosts-filer för persistence i en Azure-filresurs i ett lagrings konto. De här filerna blir otillgängliga om inte auktorisering av den delade nyckeln är tillåtet för det lagrings kontot. Mer information finns i [Anslut lagringen för Microsoft Azure filer](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Om du vill köra kommandon i Azure Cloud Shell för att hantera lagrings konton för vilka åtkomst till den delade nyckeln är otillåten, kontrol lera först att du har beviljats de behörigheter som krävs för dessa konton via rollbaserad åtkomst kontroll (RBAC). Mer information finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md). |

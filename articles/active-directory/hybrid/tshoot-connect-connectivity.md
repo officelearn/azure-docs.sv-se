@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541744"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088314"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
@@ -33,7 +33,7 @@ Azure AD Connect använder modern autentisering (med ADAL-biblioteket) för aute
 I den här artikeln visar vi hur Fabrikam ansluter till Azure AD via dess proxy. Proxyservern heter fabrikamproxy och använder port 8080.
 
 Först måste vi kontrol lera att [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) är korrekt konfigurerad och att **Microsoft Azure AD Sync-tjänsten** har startats om en gång efter machine.config fil uppdateringen.
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+![Skärm bild som visar en del av Machine dot config-filen.](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > I vissa andra Bloggar än Microsoft är det dokumenterat att ändringar ska göras i miiserver.exe.config i stället. Den här filen skrivs dock över vid varje uppgradering, så även om den fungerar under den första installationen slutar systemet att fungera vid första uppgraderingen. Av den anledningen är rekommendationen att uppdatera machine.config i stället.
@@ -44,7 +44,7 @@ Proxyservern måste också ha de webb adresser som krävs öppna. Den officiella
 
 I dessa URL: er är följande tabell det absoluta minimala alternativet för att kunna ansluta till Azure AD. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösen ord eller Azure AD Connect Health. Den dokumenteras här för att hjälpa till med fel sökning av den inledande konfigurationen.
 
-| URL | Port | Description |
+| URL | Port | Beskrivning |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*. verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
@@ -60,7 +60,7 @@ Följande problem är de vanligaste felen som du stöter på i installations gui
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Installations guiden har inte kon figurer ATS korrekt
 Det här felet visas när själva guiden inte kan komma åt proxyn.
-![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![Skärm bilden visar ett fel: det gick inte att validera autentiseringsuppgifterna.](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Om det här felet visas kontrollerar du att [machine.config](how-to-connect-install-prerequisites.md#connectivity) har kon figurer ATS korrekt.
 * Om det ser korrekt ut följer du stegen i [Verifiera proxyanslutningar](#verify-proxy-connectivity) för att se om problemet finns utanför guiden.
@@ -83,7 +83,7 @@ Om installations guiden lyckas ansluta till Azure AD, men själva lösen ordet i
 ### <a name="verify-proxy-connectivity"></a>Verifiera proxy-anslutning
 Du kan kontrol lera om den Azure AD Connect servern har faktisk anslutning till proxyn och Internet genom att använda en PowerShell för att se om proxyn tillåter webb förfrågningar eller inte. Kör i PowerShell-prompten `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc` . (Tekniskt det första anropet är till `https://login.microsoftonline.com` och denna URI fungerar också, men den andra URI: n är snabbare att svara.)
 
-PowerShell använder konfigurationen i machine.config för att kontakta proxyn. Inställningarna i WinHTTP/netsh bör inte påverka dessa cmdletar.
+PowerShell använder konfigurationen i machine.config för att kontakta proxyn. Inställningarna i winhttp/netsh bör inte påverka dessa cmdletar.
 
 Om proxyservern har kon figurer ATS korrekt ska du få statusen lyckades: ![ proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
@@ -225,14 +225,14 @@ Visas som ett oväntat fel i installations guiden. Kan inträffa om du försöke
 Med versioner som börjar med build Number 1.1.105.0 (lanserades februari 2016) drogs inloggnings assistenten tillbaka. Det här avsnittet och konfigurationen ska inte längre krävas, utan behålls som referens.
 
 För att enkel inloggnings assistenten ska fungera måste WinHTTP konfigureras. Den här konfigurationen kan göras med [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
-![kontext](./media/tshoot-connect-connectivity/netsh.png)
+![Skärm bild som visar ett kommando tolks fönster som kör Netsh-verktyget för att ställa in en proxy.](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Inloggnings assistenten har inte kon figurer ATS korrekt
 Det här felet visas när inloggnings assistenten inte kan komma åt proxyservern eller så tillåter inte proxyservern begäran.
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+![Skärm bild som visar ett fel: det gick inte att validera autentiseringsuppgifter, verifiera nätverks anslutningen och brand väggen eller proxyinställningarna.](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * Om det här felet visas tittar du på proxykonfigurationen i [netsh](how-to-connect-install-prerequisites.md#connectivity) och kontrollerar att den är korrekt.
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
+  ![Skärm bild visar ett kommando tolks fönster som kör Netsh-verktyget för att Visa proxykonfigurationen.](./media/tshoot-connect-connectivity/netshshow.png)
 * Om det ser korrekt ut följer du stegen i [Verifiera proxyanslutningar](#verify-proxy-connectivity) för att se om problemet finns utanför guiden.
 
 ## <a name="next-steps"></a>Nästa steg

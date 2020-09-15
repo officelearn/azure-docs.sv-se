@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060925"
+ms.locfileid: "90069585"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
@@ -69,6 +69,9 @@ Så här tilldelar du administratörs medgivande från klient organisationen fr�
 4. Välj **API-behörigheter** och klicka sedan på **bevilja administrativt medgivande**.
 5. Granska de behörigheter som programmet kräver noggrant.
 6. Om du samtycker till de behörigheter som krävs för programmet måste du bevilja medgivande. Annars klickar du på **Avbryt** eller Stäng fönstret.
+
+> [!WARNING]
+> Om du beviljar ett klient organisations medgivande via **Appregistreringar** återkallar du alla behörigheter som tidigare har beviljats för hela klienten. Behörigheter som tidigare har beviljats av användare i ett eget ställe påverkas inte. 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Skapa URL: en för att bevilja administratörs tillåtelse för hela klienten
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e97db598556d10538746242fa67449631394cd55
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030658"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086682"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -59,7 +59,8 @@ Använda data Plans-API: er:
    - Du kan visa [SDK Reference-dokumentationen](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
    - Du kan se detaljerade informations-och användnings exempel genom att gå vidare till avsnittet [.net (C#) SDK (data plan)](#net-c-sdk-data-plane) i den här artikeln.
 * Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
-   - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
+   - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - Du kan visa [SDK Reference-dokumentationen](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
 * Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också utföra API: er för datum plan genom att interagera med Azure Digitals flätar via [CLI](how-to-use-cli.md).

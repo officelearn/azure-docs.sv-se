@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e1cce536a9ec498304cbbc591fc56a0ee1b21b13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036450"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087277"
 ---
 # <a name="interact-with-the-map"></a>Interagera med kartan
 
@@ -26,7 +26,7 @@ Spela upp med kartan nedan och se motsvarande mus händelser markerade till hög
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagerar med kartan – mus händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagerar med kartan – mus händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Interagera med kart skikt
@@ -35,7 +35,7 @@ Följande kod visar händelsen utlöst när du interagerar med symbol skiktet. S
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagera med karta – skikt händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagerar med kartan – skikt händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med karta – skikt händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagerar med kartan – skikt händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Interagera med HTML-markör
@@ -44,7 +44,7 @@ Följande kod lägger till Java Script Map-händelser till en HTML-markör. Den 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 I följande tabell visas alla de mappnings klass händelser som stöds.
@@ -98,11 +98,11 @@ I följande tabell visas alla de mappnings klass händelser som stöds.
 | `sourceremoved`     | Utlöses när en `DataSource` eller tas `VectorTileSource` bort från kartan.|
 | `styledata`         | Utlöses när kartans format läses in eller ändras.|
 | `styleimagemissing` | Utlöses när ett lager försöker läsa in en bild från den bild-Sprite som inte finns |
-| `tokenacquired`     | Utlöses när en AAD-åtkomsttoken hämtas.|
-| `touchcancel`       | Utlöses när en touchcancel-händelse inträffar inom kartan.|
-| `touchend`          | Utlöses när en touchEnd-händelse inträffar inom kartan.|
-| `touchmove`         | Utlöses när en touchMove-händelse inträffar inom kartan.|
-| `touchstart`        | Utlöses när en touchstart-händelse inträffar inom kartan.|
+| `tokenacquired`     | Utlöses när en Azure Active Directory åtkomsttoken hämtas.|
+| `touchcancel`       | Utlöses när en `touchcancel` händelse inträffar i kartan.|
+| `touchend`          | Utlöses när en `touchend` händelse inträffar i kartan.|
+| `touchmove`         | Utlöses när en `touchmove` händelse inträffar i kartan.|
+| `touchstart`        | Utlöses när en `touchstart` händelse inträffar i kartan.|
 | `wheel`             | Utlöses när en mus hjuls händelse inträffar i kartan.|
 | `zoom`              | Utlöses upprepade gånger under en animerad över gång från en zoomnings nivå till en annan, som ett resultat av användar interaktion eller metoder.|
 | `zoomend`           | Utlöses strax efter att kartan har slutfört en över gång från en zoomnivå till en annan, som ett resultat av användar interaktion eller metoder.|

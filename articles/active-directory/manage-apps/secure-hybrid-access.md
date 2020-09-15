@@ -11,36 +11,36 @@ ms.workload: identity
 ms.date: 9/10/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94a118b6d526d538015b7aa076b2715ed68af338
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 4d64f7423d537958b6d3c388cb12f23bd2e30e36
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032082"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087108"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Säker hybrid åtkomst: säkra äldre appar med Azure Active Directory
 
 Nu kan du skydda dina lokala och molnbaserade program för äldre autentisering genom att ansluta dem till Azure Active Directory (AD) med:
 
-- [Azure-AD-programproxy](#secure-hybrid-access-through-azure-ad-application-proxy)
+- [Azure-AD-programproxy](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
 
-- [Dina befintliga program leverans styrenheter och nätverk](#secure-hybrid-access-through-networking-and-delivery-controllers)
+- [Dina befintliga program leverans styrenheter och nätverk](#sha-through-networking-and-delivery-controllers)
 
-- [VPN-program (virtuellt privat nätverk)](#secure-hybrid-access-through-vpn-applications)
+- [Virtuella privata nätverk (VPN) och programvarubaserade perimeter-program (program varu definition)](#sha-through-vpn-and-sdp-applications)
 
 Du kan överbrygga luckan och förstärka din säkerhets position över alla program med Azure AD-funktioner som Azure AD- [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) och Azure AD [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
 
-## <a name="secure-hybrid-access-through-azure-ad-application-proxy"></a>Skydda hybrid åtkomst via Azure AD-programproxy
+## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Säker hybrid åtkomst (SHA) via Azure AD-programproxy
   
 Med [Application Proxy](https://aka.ms/whyappproxy) kan du ge [säker fjärråtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) till dina lokala webb program. Användarna behöver inte använda en VPN. Användare drar nytta av att enkelt ansluta till sina program från valfri enhet efter en [enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-sso). Programproxyn tillhandahåller fjärråtkomst som en tjänst och gör att du [enkelt kan publicera dina lokala program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application) till användare utanför företags nätverket. Det hjälper dig att skala din hantering av moln åtkomst utan att du behöver ändra dina lokala program. [Planera en Azure AD-programproxy-distribution](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) som nästa steg.
 
 ## <a name="azure-ad-partner-integrations"></a>Integrering av Azure AD-partner
 
-### <a name="secure-hybrid-access-through-networking-and-delivery-controllers"></a>Skydda hybrid åtkomst via nätverk och leverans kontroller
+### <a name="sha-through-networking-and-delivery-controllers"></a>SHA via nätverk och leverans kontroller
 
 Förutom [Azure AD-programproxy](https://aka.ms/whyappproxy)så att du kan använda det här [ramverket utan förtroende](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), och Microsoft samarbetar med leverantörer från tredje part. Du kan använda dina befintliga nätverks-och leverans styrenheter och enkelt skydda äldre program som är viktiga för dina affärs processer, men som du inte kunde skydda tidigare med Azure AD. Det är troligt att du redan har allt du behöver för att börja skydda programmen.
 
-![Bild som visar säker hybrid åtkomst med nätverks partners och App proxy](media/secure-hybrid-access/secure-hybrid-access.png)
+![Bild som visar säker hybrid åtkomst med nätverks partners och App proxy](./media/secure-hybrid-access/secure-hybrid-access.png)
 
 Följande nätverks leverantörer erbjuder färdiga lösningar och detaljerad vägledning för integrering med Azure AD.
 
@@ -52,13 +52,13 @@ Följande nätverks leverantörer erbjuder färdiga lösningar och detaljerad v�
 
 - [Kemp:](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
 
-### <a name="secure-hybrid-access-through-vpn-applications"></a>Skydda hybrid åtkomst via VPN-program
+### <a name="sha-through-vpn-and-sdp-applications"></a>SHA via VPN och SDP-program
 
-Med hjälp av VPN-lösningar kan du ge säker åtkomst till företagets nätverk från valfri enhet, när som helst, var som helst och samtidigt skydda din organisations data. Genom att ha Azure AD som en identitetsprovider (IDP) kan du använda moderna autentiserings-och auktoriseringsregler som Azure AD [enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) och [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) för att skydda dina lokala äldre program.  
+Med hjälp av VPN-och SDP-lösningar kan du när som helst tillhandahålla säker åtkomst till företagets nätverk från vilken enhet som helst, oavsett var de befinner sig och skyddar din organisations data. Genom att ha Azure AD som en identitetsprovider (IDP) kan du använda moderna autentiserings-och auktoriseringsregler som Azure AD [enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) och [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) för att skydda dina lokala äldre program.  
 
-![Bild som visar säker hybrid åtkomst med VPN-partners och App proxy ](media/secure-hybrid-access/app-proxy-vpn.png)
+![Bild som visar säker hybrid åtkomst med VPN-partners och App proxy ](./media/secure-hybrid-access/app-proxy-vpn.png)
 
-Följande VPN-leverantörer erbjuder färdiga lösningar och detaljerad vägledning för integrering med Azure AD.
+Följande VPN-och SDP-leverantörer erbjuder färdiga lösningar och detaljerad vägledning för integrering med Azure AD.
 
 • [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 

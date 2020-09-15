@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607522"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089521"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
-I Azure Cosmos DB har varje behållare en indexerings princip som avgör hur behållarens objekt ska indexeras. Standard indexerings principen för nyligen skapade behållare indexerar varje egenskap för varje objekt och framtvingar intervall index för valfri sträng eller siffra. På så sätt kan du få höga prestanda för frågor utan att behöva tänka på indexering och index hantering.
+I Azure Cosmos DB har varje container en indexeringspolicy som avgör hur containerns objekt ska indexeras. Standardprincipen för indexering för nyligen skapade containrar indexerar alla egenskaper för alla objekt och tillämpar intervallindex för alla strängar och tal. På så sätt kan du få goda frågeprestanda utan att behöva tänka på indexering eller indexhantering från början.
 
 I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
 
@@ -30,7 +30,7 @@ Azure Cosmos DB stöder två indexerings lägen:
 - **Ingen**: indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
 
 > [!NOTE]
-> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-behållare bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (förutom om du använder ett Azure Cosmos-konto i ett [Server](serverless.md) fritt läge som inte stöder Lazy-indexering).
+> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazy-indexering utför uppdateringar av indexet på en mycket lägre prioritetsnivå när motorn inte utför något annat arbete. Detta kan ge **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-container bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (förutom om du använder ett Azure Cosmos-konto i ett [Server](serverless.md) fritt läge som inte stöder Lazy-indexering).
 
 Indexerings principen är som standard inställd på `automatic` . Den uppnås genom att ställa in `automatic` egenskapen i indexerings principen på `true` . Genom att ange den här egenskapen kan `true` Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 
@@ -81,7 +81,7 @@ Alla indexerings principer måste innehålla rot Sök vägen `/*` antingen som e
 
 När du inkluderar och exkluderar sökvägar kan du stöta på följande attribut:
 
-- `kind` kan vara antingen `range` eller `hash` . Funktionen Range index innehåller alla funktioner i ett hash-index, så vi rekommenderar att du använder ett intervall index.
+- `kind` kan vara antingen `range` eller `hash` . Stöd för hash-index är begränsat till likhets filter. Funktionen områdes index innehåller alla funktioner i hash-index samt effektiv sortering, intervall filter, system funktioner. Vi rekommenderar alltid att du använder ett intervall index.
 
 - `precision` är ett tal definierat på index nivå för inkluderade sökvägar. Värdet `-1` anger maximal precision. Vi rekommenderar att alltid ange det här värdet till `-1` .
 

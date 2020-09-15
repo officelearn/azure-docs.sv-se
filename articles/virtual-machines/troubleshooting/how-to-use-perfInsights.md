@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526647"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088569"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Så här använder du PerfInsights i Azure
 
@@ -165,7 +165,15 @@ Diskspd I/O-arbetsbelastnings test (OS-disk [Write] och pool enheter [läsa/skri
 
 -  Det här verktyget måste köras på den virtuella datorn som har prestanda problemet. 
 
--  Följande operativ system stöds: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016; Windows 8,1 och Windows 10.
+-  Följande operativsystem stöds:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8,1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Möjliga problem när du kör verktyget på virtuella produktions datorer
 
@@ -247,7 +255,7 @@ När spårningen eller åtgärderna har slutförts visas en ny fil i samma mapp 
 
 ## <a name="review-the-diagnostics-report"></a>Granska den diagnostiska rapporten
 
-I **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen och öppnar sedan filen **PerfInsights Report.html** .
+I **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen kan du hitta en HTML-rapport som innehåller information om resultaten av PerfInsights. Om du vill granska rapporten expanderar du **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen och öppnar sedan filen **PerfInsights Report.html** .
 
 Välj fliken **resultat** .
 
@@ -312,4 +320,4 @@ Följande skärm bild visar ett meddelande som liknar det du kan få:
 
 Följ anvisningarna i meddelandet för att komma åt fil överförings arbets ytan. För ytterligare säkerhet måste du ändra ditt lösen ord vid första användningen.
 
-När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip-** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialog ruta där du kan ladda upp **PerformanceDiagnostics \_ åååå-mm-dd \_hh-mm-ss-fff.zip- ** filen som samlats in av PerfInsights.

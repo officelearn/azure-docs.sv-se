@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708084"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087872"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Skapa en IoT-hubb med Azure CLI
 
@@ -20,9 +20,9 @@ ms.locfileid: "84708084"
 
 Den här artikeln visar hur du skapar en IoT Hub med Azure CLI.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,21 +44,21 @@ Använd Azure CLI för att skapa en resurs grupp och Lägg sedan till en IoT-hub
 
 1. När du skapar en IoT-hubb måste du skapa den i en resurs grupp. Använd en befintlig resursgrupp eller kör följande [kommando för att skapa en resursgrupp](https://docs.microsoft.com/cli/azure/resource):
     
-   ```azurecli
+   ```azurecli-interactive
    az group create --name {your resource group name} --location westus
    ```
 
    > [!TIP]
    > I föregående exempel skapas en resursgrupp i USA, västra. Du kan visa en lista över tillgängliga platser genom att köra det här kommandot: 
    >
-   >``` bash
-   >az account list-locations -o table
-   >```
+   > ```azurecli-interactive
+   > az account list-locations -o table
+   > ```
    >
 
 2. Kör följande [kommando för att skapa en IoT-hubb](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) i resurs gruppen med ett globalt unikt namn för din IoT Hub:
     
-   ```azurecli
+   ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
       --resource-group {your resource group name} --sku S1
    ```
@@ -74,14 +74,14 @@ Du kan använda Azure CLI för att [ta bort en enskild resurs](https://docs.micr
 
 Om du vill [ta bort en IoT-hubb](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)kör du följande kommando:
 
-```azurecli
+```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
 Om du vill [ta bort en resurs grupp](https://docs.microsoft.com/cli/azure/group#az-group-delete) och alla dess resurser kör du följande kommando:
 
-```azurecli
+```azurecli-interactive
 az group delete --name {your resource group name}
 ```
 

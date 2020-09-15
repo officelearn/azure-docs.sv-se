@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752006"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088501"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -71,7 +71,7 @@ Om du vill börja använda Ultra disks, se vår artikel på ämnet: [använda Az
 
 Azure Premium SSD levererar hög prestanda och disk support med låg latens för virtuella datorer med indata/utdata (i/o)-intensiva arbets belastningar. Om du vill dra nytta av hastighet och prestanda för Premium Storage-diskar kan du migrera befintliga VM-diskar till Premium-SSD. Premium-SSD är lämpliga för verksamhets kritiska produktions program. Premium-SSD kan bara användas med VM-serien som är Premium Storage-kompatibla.
 
-Mer information om enskilda VM-typer och storlekar i Azure för Windows eller Linux, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella datorer i Azure](sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella datorer i Azure](sizes.md). Från någon av dessa artiklar måste du kontrol lera varje enskild artikel för VM-storlek för att avgöra om den är Premium Storage-kompatibel.
+Mer information om enskilda VM-typer och storlekar i Azure för Windows eller Linux, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella datorer i Azure](sizes.md). I den här artikeln måste du kontrol lera varje enskild artikel för VM-storlek för att avgöra om den är Premium Storage-kompatibel.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]

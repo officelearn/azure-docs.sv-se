@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat för Hyper-V
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella Hyper-V-datorer.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 21d88c4a2b2095fe677fe479bd7320f7a494db9e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929961"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087158"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
 
@@ -59,7 +59,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hashen för den virtuella hård disken
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  För version 2.19.11.12 ska den genererade hashen matcha de här [inställningarna](./tutorial-assess-hyper-v.md#verify-security).
+
 
 
 
@@ -74,9 +74,9 @@ Importera den hämtade filen och skapa den virtuella datorn.
     ![Distribuera virtuell hård disk](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. I guiden Importera virtuell dator > **innan du börjar klickar du**på **Nästa**.
-3. I **hitta mapp**anger du den mapp som innehåller den extraherade virtuella hård disken. Klicka sedan på **Nästa**.
+3. I **hitta mapp**anger du den mapp som innehåller den extraherade virtuella hård disken. Klicka på **Nästa**.
 1. I **Välj virtuell dator**klickar du på **Nästa**.
-2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka sedan på **Nästa**.
+2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)**. Klicka på **Nästa**.
 3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Nästa**.
 4. Lämna standardinställningen i **Storage Folders**. Klicka på **Nästa**.
 5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure.

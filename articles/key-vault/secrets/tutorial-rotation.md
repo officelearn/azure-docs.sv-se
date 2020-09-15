@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378023"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086915"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser som använder en uppsättning autentiseringsuppgifter för autentisering
 
@@ -24,7 +24,7 @@ Det bästa sättet att autentisera till Azure-tjänster är genom att använda e
 
 Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster som använder en uppsättning autentiseringsuppgifter för autentisering. Mer specifikt roterar SQL Server lösen ord som lagras i Azure Key Vault genom att använda en funktion som utlöses av Azure Event Grid meddelande:
 
-![Diagram över rotations lösning](../media/rotate1.png)
+![Diagram över rotations lösning](../media/rotate-1.png)
 
 1. Trettio dagar före utgångs datumet för en hemlighet, Key Vault publicerar händelsen "nära förfallo datum" för att Event Grid.
 1. Event Grid kontrollerar händelse prenumerationerna och använder HTTP POST för att anropa funktions-app-slutpunkten som prenumereras på händelsen.
@@ -34,7 +34,7 @@ Den här självstudien visar hur du automatiserar den periodiska rotationen av h
 > [!NOTE]
 > Det kan finnas en fördröjning mellan steg 3 och 4. Under den tiden kan hemligheten i Key Vault inte autentisera till SQL Server. Om något av stegen Miss lyckas Event Grid försök i två timmar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
@@ -49,7 +49,7 @@ Nedan kan du använda distributions länken, om du inte har befintliga Key Vault
 1. Välj **Granska + skapa**.
 1. Välj **Skapa**
 
-    ![Skapa en resursgrupp](../media/rotate2.png)
+    ![Skapa en resursgrupp](../media/rotate-2.png)
 
 Nu har du en Key Vault och en SQL Server instans. Du kan kontrol lera den här installationen i Azure CLI genom att köra följande kommando:
 
@@ -91,7 +91,7 @@ Function-appen kräver följande komponenter:
 1. Välj **Granska + skapa**.
 1. Välj **Skapa**.
 
-   ![Välj granska + skapa](../media/rotate3.png)
+   ![Välj granska + skapa](../media/rotate-3.png)
 
 När du har slutfört föregående steg har du ett lagrings konto, en Server grupp och en Function-app. Du kan kontrol lera den här installationen i Azure CLI genom att köra följande kommando:
 
@@ -207,11 +207,11 @@ Att skapa en hemlighet med ett kort utgångs datum kommer att publicera en `Secr
 
 Om du vill kontrol lera att hemligheten har roterats går du till **Key Vault**  >  **hemligheter**:
 
-![Gå till hemligheter](../media/rotate8.png)
+![Gå till hemligheter](../media/rotate-8.png)
 
 Öppna **sqlPassword** -hemligheten och Visa de ursprungliga och roterade versionerna:
 
-![Öppna sqluser-hemligheten](../media/rotate9.png)
+![Öppna sqluser-hemligheten](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
@@ -242,9 +242,9 @@ https://akvrotation-app.azurewebsites.net/
 
 När programmet öppnas i webbläsaren visas det **genererade hemliga värdet** och värdet *Sant*för **databas anslutet** .
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 
 - Självstudie: [rotation för resurser med två uppsättningar autentiseringsuppgifter](tutorial-rotation-dual.md)
-- Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](../general/event-grid-overview.md)
+- Översikt: [övervaka Key Vault med Azure Event Grid](../general/event-grid-overview.md)
 - Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](../general/event-grid-logicapps.md)
-- [Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid händelse schema för Azure Key Vault](../../event-grid/event-schema-key-vault.md)

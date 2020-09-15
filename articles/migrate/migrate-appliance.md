@@ -1,14 +1,14 @@
 ---
 title: Azure Migrate-installation
-description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
+description: Innehåller en sammanfattning av stödet för den Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060738"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084778"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -71,7 +71,7 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **PowerShell-skript** | Läs mer i den här [artikeln](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
 **Krav för Hyper-V** | Om du distribuerar installationen med VHD-mallen, är den virtuella Azure Migrate datorns virtuella Hyper-V-dator version 5,0.<br/><br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare. 
-**Hash-värde – VHD** | [Verifiera](tutorial-assess-hyper-v.md#verify-security) hash-värden för VHD-mallen.
+**Hash-värde – VHD** | Hash-värden för VHD-mall.
 **Hash-värde – PowerShell-skript** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 
 
@@ -84,7 +84,7 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Distribution som stöds** | Distribuera som dedikerad fysisk dator eller en virtuell dator med hjälp av ett PowerShell-installations skript. Skriptet är tillgängligt för hämtning från portalen.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 1000 fysiska servrar.
-**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad [mapp från portalen eller härifrån.](https://go.microsoft.com/fwlink/?linkid=2140334) [Läs mer](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> Hämtnings storleken är 85 MB.
+**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad [mapp från portalen eller härifrån.](https://go.microsoft.com/fwlink/?linkid=2140334) [Läs mer](tutorial-discover-physical.md).<br/><br/> Hämtnings storleken är 85 MB.
 **Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.<br/> Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.
 **Hash-värde** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 

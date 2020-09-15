@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9c9f286b9d81c89844582698ac98833f10bcaade
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923712"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086665"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -322,12 +322,13 @@ Observera att det inte uppstår något fel när de dubblarna skapas den andra g�
 
 Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram**. [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
 
-Om du vill kunna skapa relationer lägger du till en `using` instruktion för Relations bastypen i SDK: hoppa över detta om det redan har lagts till.
+Du behöver namn området för att kunna skapa relationer `Azure.DigitalTwins.Core.Serialization` . Du har lagt till detta i projektet tidigare med den här `using` instruktionen:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Lägg sedan till en ny statisk metod till `Program` -klassen under `Main` metoden:
+Lägg till en ny statisk metod till `Program` -klassen under `Main` metoden:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

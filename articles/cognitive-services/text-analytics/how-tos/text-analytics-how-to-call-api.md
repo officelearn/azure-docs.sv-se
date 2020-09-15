@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fec85a03b74155b5b18145bfaddc5d326c910bc9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561012"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087311"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Så här anropar du Textanalys REST API
 
@@ -59,10 +59,10 @@ Tjänsten accepterar en begäran på upp till 1 MB. Om du använder Postman (ell
 
    Resurs slut punkter är följande (din region kan variera):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/entities/recognition/general`
 
 2. Ange de tre begärandehuvuden:
 
@@ -80,10 +80,10 @@ Tjänsten accepterar en begäran på upp till 1 MB. Om du använder Postman (ell
 
 5. Klistra in vissa JSON-dokument i ett format som är giltigt för den avsedda analysen. Mer information om en viss analys finns i avsnitten nedan:
 
-  + [Språk identifiering](text-analytics-how-to-language-detection.md)  
-  + [Extrahering av nyckel fraser](text-analytics-how-to-keyword-extraction.md)  
-  + [Sentiment-analys](text-analytics-how-to-sentiment-analysis.md)  
-  + [Enhets igenkänning](text-analytics-how-to-entity-linking.md)  
+  + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
+  + [Extrahering av nyckelfraser](text-analytics-how-to-keyword-extraction.md)  
+  + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
+  + [Igenkänning av enhet](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klicka på **Skicka** för att skicka begäran. I avsnittet [data begränsningar](../overview.md#data-limits) i översikt finns information om antalet förfrågningar som du kan skicka per minut och sekund.

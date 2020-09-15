@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279592"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087017"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Faktorer som påverkar prestandan för Azure AD Connect
 
@@ -41,7 +41,7 @@ Syftet med det här dokumentet är att beskriva de faktorer som påverkar presta
 
 Följande diagram visar en hög nivå arkitektur för etablerings motorn som ansluter till en enda skog, även om flera skogar stöds. Den här arkitekturen visar hur de olika komponenterna interagerar med varandra.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Diagram visar hur anslutna kataloger och Azure AD Connect etablerings motorn interagerar, inklusive anslutnings utrymme och metaversum-komponenter i en SQL Database. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 Etablerings motorn ansluter till varje Active Directory skog och till Azure AD. Processen med att läsa information från varje katalog kallas importera. Export syftar på att uppdatera katalogerna från etablerings motorn. Synkronisering utvärderar reglerna för hur objekten kommer att flöda i etablerings motorn. För en djupare inblick kan du referera till [Azure AD Connect Sync: förstå arkitekturen](./concept-azure-ad-connect-sync-architecture.md).
 

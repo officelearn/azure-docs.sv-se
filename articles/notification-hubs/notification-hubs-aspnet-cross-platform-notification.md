@@ -5,24 +5,23 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
+editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3acfc9e3a856ec777bfada68d535b6a1e9878a08
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bf9670ae8fd22342a05f8d506f743c7a5c395e5f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017931"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088144"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Skicka aviseringar mellan plattformar med Azure Notification Hubs
 
@@ -38,9 +37,9 @@ Den här artikeln visar hur du kan dra nytta av mallar för att skicka ett medde
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Skicka meddelanden mellan plattformar med mallar
 
-I det här avsnittet används den exempel kod som du skapade i [skicka meddelanden till vissa användare med hjälp av Azure Notification Hubs] själv studie kursen. Du kan hämta exemplet från [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+I det här avsnittet används den exempel kod som du skapade i [skicka meddelanden till vissa användare med hjälp av Azure Notification Hubs] själv studie kursen. Du kan [Hämta hela exemplet från GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-Gör så här om du vill skicka meddelanden mellan plattformar med hjälp av mallar:
+Om du vill skicka meddelanden mellan plattformar med hjälp av mallar gör du följande:
 
 1. I Visual Studio i **Solution Explorer**expanderar du mappen **kontrollanter** och öppnar sedan filen *RegisterController.cs* .
 
@@ -77,7 +76,7 @@ Gör så här om du vill skicka meddelanden mellan plattformar med hjälp av mal
 
     Den här koden anropar den plattformsspecifika metoden för att skapa en mall registrering i stället för en intern registrering. Eftersom mallens registreringar härleds från interna registreringar behöver du inte ändra befintliga registreringar.
 
-1. Öppna *NotificationsController.cs* -filen i mappen **kontrollanter** i **Solution Explorer**. Ersätt metoden `Post` med följande kod:
+1. Öppna **NotificationsController.cs** -filen i mappen **kontrollanter** i **Solution Explorer**. Ersätt metoden `Post` med följande kod:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

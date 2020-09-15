@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799810"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088297"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Aktivera Azure Monitor for VMs med Azure Policy
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för virtuella Azure-datorer eller en hybrid virtuell dator som är ansluten till Azure ARC (för hands version) med Azure Policy. Med Azure Policy kan du tilldela princip definitioner som installerar de agenter som krävs för Azure Monitor for VMs i Azure-miljön och automatiskt aktivera övervakning av virtuella datorer när varje virtuell dator skapas. Azure Monitor for VMs tillhandahåller en funktion som gör att du kan identifiera och reparera icke-kompatibla virtuella datorer i din miljö. Använd den här funktionen i stället för att arbeta direkt med Azure Policy.
@@ -46,7 +46,7 @@ Detta är samma sida för att tilldela ett initiativ i Azure Policy förutom att
 På sidan **parametrar** väljer du en **Log Analytics arbets yta** som ska användas av alla virtuella datorer i tilldelningen. Om du vill ange olika arbets ytor för olika virtuella datorer måste du skapa flera tilldelningar, var och en med sin egen omfattning. 
 
    > [!NOTE]
-   > Om arbets ytan överskrider tilldelningens omfattning beviljar du *Log Analytics deltagar* behörighet till princip tilldelningens huvud-ID. Om du inte gör det kan du se ett distributions haveri som`The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > Om arbets ytan överskrider tilldelningens omfattning beviljar du *Log Analytics deltagar* behörighet till princip tilldelningens huvud-ID. Om du inte gör det kan du se ett distributions haveri som `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 [![Arbetsyta](media/vminsights-enable-at-scale-policy/assignment-workspace.png)](media/vminsights-enable-at-scale-policy/assignment-workspace.png#lightbox)
 
@@ -102,7 +102,7 @@ Om du vill skapa en reparations uppgift för att åtgärda kompatibilitetsproble
 
 Klicka på **Reparera** om du vill skapa en reparations uppgift och **Reparera** sedan för att starta den. Du behöver förmodligen skapa flera reparations uppgifter, en för varje princip definition. Du kan inte skapa en reparations uppgift för ett initiativ.
 
-[![Åtgärder](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Skärm bild som visar fönstret princip reparation för övervakaren | Virtual Machines.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 När reparations åtgärderna är klara bör de virtuella datorerna vara kompatibla med agenter installerade och aktiverade för Azure Monitor for VMs. 

@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588882"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087991"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Använd Logic Apps för att ta emot e-post om status ändringar för Key Vault-hemligheter
 
 I den här guiden får du lära dig hur du svarar på Azure Key Vault händelser som tas emot via [Azure Event Grid](../../event-grid/index.yml) med [Azure Logic Apps](../../logic-apps/index.yml). När du är klar har du en Azure Logic app som är konfigurerad för att skicka ett e-postmeddelande varje gång en hemlighet skapas i Azure Key Vault.
 
-En översikt över Azure Key Vault/Azure Event Grid-integrering finns i [övervaknings Key Vault med Azure Event Grid (för hands version)](event-grid-overview.md).
+En översikt över Azure Key Vault/Azure Event Grid-integrering finns i [övervaknings Key Vault med Azure Event Grid](event-grid-overview.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -56,7 +56,7 @@ Följ dessa steg om du vill skapa en Azure Event Grid-prenumeration:
 1. Sök efter **E-post**. Baserat på din e-leverantör söker du och väljer matchande anslutningsapp. I den här självstudien används **Office 365 Outlook**. Stegen för andra e-postleverantörer liknar dessa.
 1. Välj åtgärden **Skicka ett e-postmeddelande (v2)** .
 
-   ![Logic App Designer – Lägg till e-post](../media/eventgrid-logicappdesigner3.png)
+   ![Logic app designer – skicka e-post](../media/eventgrid-logicappdesigner3.png)
 
 1. Bygg din e-postmall:
     - **För att:** Ange e-postadressen som e-postmeddelandena ska skickas till. I den här självstudien använder du ett e-postkonto som du kan komma åt för testning.
@@ -64,18 +64,18 @@ Följ dessa steg om du vill skapa en Azure Event Grid-prenumeration:
 
     Din e-postmall kan se ut som i det här exemplet.
 
-    ![Logic App Designer – Lägg till e-post](../media/eventgrid-logicappdesigner4.png)
+    ![Logic App Designer – e-postbrödtext](../media/eventgrid-logicappdesigner4.png)
 
 8. Klicka på **Spara som**.
 9. Ange ett **namn** på den nya Logic-appen och klicka på **skapa**.
     
-    ![Logic App Designer – Lägg till e-post](../media/eventgrid-logicappdesigner5.png)
+    ![Logic App Designer – Skapa](../media/eventgrid-logicappdesigner5.png)
 
 ## <a name="test-and-verify"></a>Testa och verifiera
 
 1.  Gå till ditt nyckel valv på Azure Portal och välj **händelser > händelse prenumerationer**.  Verifiera att en ny prenumeration har skapats
     
-    ![Logic App Designer – Lägg till e-post](../media/eventgrid-logicapps-kvnewsubs.png)
+    ![Logic App Designer – testa och verifiera](../media/eventgrid-logicapps-kvnewsubs.png)
 
 1.  Gå till ditt nyckel valv, Välj **hemligheter**och välj **+ generera/importera**. Skapa en ny hemlighet för testnings ändamål och ge nyckeln och Behåll de återstående parametrarna i standardinställningarna.
 
@@ -87,8 +87,8 @@ När hemligheten skapas tas ett e-postmeddelande emot via de konfigurerade adres
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](event-grid-overview.md)
+- Översikt: [övervaka Key Vault med Azure Event Grid](event-grid-overview.md)
 - Gör så här: [skicka meddelanden till nyckel valv till Azure Automation](event-grid-tutorial.md).
-- [Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid händelse schema för Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - Läs mer om [Azure Event Grid](../../event-grid/index.yml).
 - Läs mer om [Logic Apps-funktionen i Azure App Service](../../logic-apps/index.yml).

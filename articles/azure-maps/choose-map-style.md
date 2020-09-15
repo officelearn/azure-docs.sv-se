@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fe07d6d54296a3c55cb0b2cadb4d4ae0a311873b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036801"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089572"
 ---
 # <a name="change-the-style-of-the-map"></a>Ändra formatet för kartan
 
@@ -82,7 +82,7 @@ Det grundläggande kart formatet kan uppdateras med hjälp av `setStyle` funktio
 map.setStyle({ style: 'satellite' });
 ```
 
-I följande kod, efter att en kart instans har lästs in, uppdateras kart formatet från `grayscale_dark` till `satellite` med hjälp av funktionen [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) .
+I följande kod, efter att en kart instans har lästs in, uppdateras kart formatet från `grayscale_dark` till `satellite` med hjälp av funktionen [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) .
 
 <br/>
 
@@ -97,14 +97,14 @@ Format väljaren har två olika layoutalternativ: `icon` och `list` . Med stil V
 
 Bilden nedan visar den stil väljar kontroll som visas i `icon` layouten.
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Layout för format väljare":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Ikon layout för format väljare":::
 
 Bilden nedan visar den stil väljar kontroll som visas i `list` layouten.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout för format väljare":::
 
 > [!IMPORTANT]
->Som standard visar format väljar kontrollen alla formatmallar som är tillgängliga under S0 pris nivå för Azure Maps. Om du vill minska antalet formatmallar i den här listan skickar du en matris med de format som du vill ska visas i listan till `mapStyle` alternativet för format väljaren. Om du använder S1 och vill visa alla tillgängliga stilar väljer du `mapStyles` alternativet för format väljare till `"all"` .
+> Som standard visar format väljar kontrollen alla formatmallar som är tillgängliga under S0 pris nivå för Azure Maps. Om du vill minska antalet formatmallar i den här listan skickar du en matris med de format som du vill ska visas i listan till `mapStyle` alternativet för format väljaren. Om du använder S1 och vill visa alla tillgängliga stilar väljer du `mapStyles` alternativet för format väljare till `"all"` .
 
 Följande kod visar hur du åsidosätter standard `mapStyles` mal listan. I det här exemplet ska vi ställa in `mapStyles` alternativet för att visa vilka grund format vi vill ska visas av format väljar kontrollen.
 
@@ -118,7 +118,7 @@ Följande kod visar hur du åsidosätter standard `mapStyles` mal listan. I det 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)

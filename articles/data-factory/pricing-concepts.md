@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949972"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087192"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory-priser genom exempel
 
@@ -130,9 +130,13 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Använda fel sökning av data flödes fel sökning för en normal arbets dag
 
-Som data tekniker ansvarar du för att utforma, skapa och testa mappnings data flöden varje dag. Du loggar in på ADF-gränssnittet i morgon och aktiverar fel söknings läge för data flöden. Standard-TTL för debug-sessioner är 60 minuter. Du arbetar under hela dagen i 8 timmar, så att din Felsök-session aldrig upphör att gälla. Avgiften för dagen blir därför:
+Som data tekniker ansvarar Sam för att utforma, skapa och testa mappnings data flöden varje dag. Sam loggar in i ADF-gränssnittet i morgon och aktiverar fel söknings läge för data flöden. Standard-TTL för debug-sessioner är 60 minuter. Sam fungerar dygnet runt i 8 timmar, så att fel söknings sessionen upphör att gälla. Därför blir Sam: s avgifter för dagen:
 
 **8 (timmar) x 8 (Compute-optimerade kärnor) x $0,193 = $12,35**
+
+Vid samma tillfälle loggar Christer, en annan data tekniker, även in i användar gränssnittet för ADF-läsaren för data profilering och ETL-design. Christer fungerar inte i ADF hela dagen som Sam. Christer behöver bara använda data Flow-felsökaren i 1 timme under samma period och samma dag som Sam ovan. Detta är de avgifter som Chris ådrar sig för fel söknings användning:
+
+**1 (timme) x 8 (generella användnings kärnor) x $0,274 = $2,19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformera data i BLOB Store med mappnings data flöden
 
@@ -213,6 +217,6 @@ Nu när du förstår priserna för Azure Data Factory kan du komma igång!
 
 - [Skapa en data fabrik med hjälp av Azure Data Factory gränssnittet](quickstart-create-data-factory-portal.md)
 
-- [introduktion till Azure Data Factory](introduction.md)
+- [Introduktion till Azure Data Factory](introduction.md)
 
 - [Visuell redigering i Azure Data Factory](author-visually.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4926e18aa6b00fe36608843ea5253903ace774e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067506"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089116"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Enkla loggar i Azure Monitor (för hands version)
 Azure Monitor ger en [rikare upplevelse](get-started-portal.md) för att skapa [logg frågor](log-query-overview.md) med KQL-språket. Du behöver inte ha full effekt på KQL, men du föredrar en förenklad upplevelse för grundläggande krav på frågor. Med enkel inloggnings upplevelsen kan du skapa grundläggande frågor utan att direkt interagera med KQL. Du kan också använda enkla loggar som ett utbildnings verktyg för KQL eftersom du behöver mer avancerade frågor.
@@ -26,11 +26,11 @@ De enkla loggarna hämtar data från *AzureDiagnostics*-, *AzureMetrics*-och *Az
 ## <a name="using-simple-logs"></a>Använda enkla loggar
 Navigera till en Cosmos DB eller Key Vault i din Azure-prenumeration med [diagnostikinställningar som kon figurer ATS för att samla in loggar i en Log Analytics arbets yta](../platform/resource-logs.md#send-to-azure-storage). Klicka på **loggar** på menyn **övervakning** för att öppna de enkla loggarna.
 
-![Meny](media/simple-logs/menu.png)
+![Skärm bild som visar menyn övervakare med loggar valt.](media/simple-logs/menu.png)
 
 Välj ett **fält** och en **operator** och ange ett **värde** för jämförelse. Klicka **+** och ange **och/eller** om du vill lägga till ytterligare kriterier.
 
-![Kriterie](media/simple-logs/criteria.png)
+![Skärm bild som visar sökningen i fönstret loggar med enkla loggar markerade.](media/simple-logs/criteria.png)
 
 Klicka på **Kör** för att visa resultatet av frågan.
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705069"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086716"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -517,10 +517,11 @@ cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
 diffDiskSettings | Inställningar för tillfälliga diskar
 diskSizeGB | Disk storlek i GB
+encryptionSettings | Krypterings inställningar för disken
 image   | Virtuell hård disk för käll användar avbildning
-enheten     | Diskens logiska enhets nummer
 managedDisk | Parametrar för hanterade diskar
 name    | Disknamn
+osType  | Typ av operativ system som ingår i disken
 disken     | Virtuell hårddisk
 writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
@@ -532,11 +533,10 @@ cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
 diffDiskSettings | Inställningar för tillfälliga diskar
 diskSizeGB | Disk storlek i GB
-encryptionSettings | Krypterings inställningar för disken
 image   | Virtuell hård disk för käll användar avbildning
+enheten     | Diskens logiska enhets nummer
 managedDisk | Parametrar för hanterade diskar
 name    | Disknamn
-osType  | Typ av operativ system som ingår i disken
 disken     | Virtuell hårddisk
 writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
@@ -926,7 +926,7 @@ Använd problem typen `Management` och välj `Instance Metadata Service` som kat
 
 ![Stöd för instansen metadata](./media/instance-metadata-service/InstanceMetadata-support.png "Skärm bild: öppna ett support ärende när du har problem med Instance Metadata Service")
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om:
 1.  [Hämta en åtkomsttoken för den virtuella datorn](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).

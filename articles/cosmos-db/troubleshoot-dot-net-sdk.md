@@ -3,18 +3,18 @@ title: Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 description: Använd funktioner som loggning på klient sidan och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Cosmos DB problem när du använder .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021909"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086995"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -28,6 +28,7 @@ Den här artikeln beskriver vanliga problem, lösningar, diagnostiska steg och v
 .NET SDK tillhandahåller logisk representation på klient sidan för att få åtkomst till Azure Cosmos DB SQL API. I den här artikeln beskrivs verktyg och metoder för att hjälpa dig om du stöter på problem.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Check lista för fel söknings problem
+
 Överväg följande check lista innan du flyttar ditt program till produktion. Genom att använda check listan förhindrar du flera vanliga problem som du kan se. Du kan också snabbt diagnostisera när ett problem uppstår:
 
 *    Använd den senaste [SDK: n](sql-api-sdk-dotnet-standard.md). Preview SDK: er bör inte användas för produktion. Detta förhindrar att kända problem som redan har åtgärd ATS visas.
@@ -99,10 +100,15 @@ Den här fördröjningen kan ha flera orsaker:
     * Aktivera [accelererat nätverk på en befintlig virtuell dator](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Överväg att använda en [högre slut virtuell dator](../virtual-machines/windows/sizes.md).
 
-### <a name="slow-query-performance"></a>Långsam frågans prestanda
-[Frågans mått](sql-api-query-metrics.md) hjälper till att avgöra var frågan kostar det mesta av tiden. Från frågans mått kan du se hur mycket av det som ägnas åt Server delen jämfört med klienten.
+### <a name="common-query-issues"></a>Vanliga frågor om frågor
+
+[Frågans mått](sql-api-query-metrics.md) hjälper till att avgöra var frågan kostar det mesta av tiden. Från frågans mått kan du se hur mycket av det som ägnas åt Server delen jämfört med klienten. Läs mer om hur du [felsöker frågans prestanda](troubleshoot-query-performance.md).
+
 * Om backend-frågan returnerar snabbt och ägnar en lång tid på klienten kontrollerar du belastningen på datorn. Det beror förmodligen på att det inte finns tillräckligt med resurser och att SDK väntar på att resurser ska kunna hantera svaret.
-* Om Server dels frågan är långsam försöker du [optimera frågan](optimize-cost-queries.md) och titta på den aktuella [indexerings principen](index-overview.md) 
+* Om backend-frågan är långsam kan du försöka att [optimera frågan](troubleshoot-query-performance.md) och titta på den aktuella [indexerings principen](index-overview.md)
+
+    > [!NOTE]
+    > För bättre prestanda rekommenderar vi Windows 64-bitars värd bearbetning. SQL-SDK: n innehåller en intern ServiceInterop.dll för att analysera och optimera frågor lokalt. ServiceInterop.dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds där ServiceInterop.dll inte är tillgänglig, kommer ett ytterligare nätverks anrop att göras till gatewayen för att hämta den optimerade frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 

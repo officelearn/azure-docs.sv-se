@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5a85efc5de0d99904da568c97672adf40ce8a414
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646566"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088926"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
 Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration. Med den avancerade Sök funktionen kan du identifiera resurs beroenden som möjliggör scenarier som att identifiera resurser som är värdar för din webbplats genom att söka efter namnet på den värdbaserade webbplatsen.
@@ -30,7 +30,7 @@ Vyn resurs hälsa och aviseringar kan anpassas med hjälp av filter som **prenum
 
 Du kan använda sökrutan för att söka efter resurser och associerade resurser. Till exempel är en offentlig IP-adress kopplad till en Application Gateway. Om du söker efter offentliga IP DNS-namn identifieras både offentlig IP-adress och tillhör ande Application Gateway.
 
-![Search](media/network-insights-overview/search.png)
+![Skärm bild som visar resultatet av en sökning efter ett DNS-namn.](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health och mått

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874239"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088365"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Självstudie: kom igång med Log Analytics frågor
 
@@ -42,7 +42,7 @@ Ett *schema* är en samling tabeller grupperade under logiska kategorier. Demo s
 
 Schema tabellerna visas på fliken **tabeller** i arbets ytan Log Analytics. Tabellerna innehåller kolumner, var och en med en datatyp som visas med ikonen bredvid kolumn namnet. **Händelse** tabellen innehåller till exempel text kolumner som **dator** och numeriska kolumner som **EventCategory**.
 
-![Schema](media/get-started-portal/schema.png)
+![Skärm bild som visar sidan med Azure Portal loggar med en ny fråga och markerar rutan tabeller med dator-och EventCategory markerade.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>Skriv och kör grundläggande frågor
 
@@ -120,7 +120,7 @@ Filtrera `Event` frågeresultaten till **fel** händelser genom att filtrera fr�
    
 1. Välj **filter**.
    
-   ![Filter](media/get-started-portal/filter.png)
+   ![Skärm bild som visar en tabell med resultat med en snabb meny för att filtrera resultat efter EventLevelName.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Sortera, gruppera och Välj kolumner
 Om du vill sortera frågeresultaten efter en speciell kolumn, t. ex. **TimeGenerated [UTC]**, väljer du kolumn rubriken. Välj rubriken igen om du vill växla mellan stigande och fallande ordning.
@@ -129,7 +129,7 @@ Om du vill sortera frågeresultaten efter en speciell kolumn, t. ex. **TimeGener
 
 Ett annat sätt att ordna resultaten är av grupper. Om du vill gruppera resultatet efter en speciell kolumn drar du kolumn rubriken till fältet ovanför resultat tabellen med etiketten **dra en kolumn rubrik och släpper den här för att gruppera efter den kolumnen**. Dra andra kolumner till den övre stapeln om du vill skapa under grupper. Du kan arrangera om hierarkin och sorteringen av grupper och under grupper i fältet.
 
-![Grupper](media/get-started-portal/groups.png)
+![Skärm bild som visar frågeresultat med under grupper för EventLevelName och dator.](media/get-started-portal/groups.png)
 
 Om du vill dölja eller Visa kolumner i resultaten väljer du **kolumner** ovanför tabellen och markerar eller avmarkerar sedan de kolumner som du vill använda i list rutan.
 

@@ -564,7 +564,7 @@
               href: platform/itsmc-overview.md
             - name: IT Service Management-anslutningar
               href: platform/itsmc-connections.md
-            - name: Säker exportintegrering
+            - name: Integrera med Secure Export
               href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Skapa Service Manager-webbapp
               href: platform/itsmc-service-manager-script.md

@@ -479,7 +479,7 @@
                   items:
                     - name: Från en virtuell dator
                       href: ../image-version-vm-cli.md
-                    - name: Från en virtuell hårddisk eller en ögonblicksbild
+                    - name: Från en hanterad disk eller ögonblicksbild
                       href: ../image-version-snapshot-cli.md
                     - name: Migrera från en hanterad avbildning
                       href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
                   items:
                     - name: Från en virtuell dator
                       href: ../image-version-vm-powershell.md
-                    - name: Från en virtuell hårddisk eller en ögonblicksbild
+                    - name: Från en hanterad disk eller ögonblicksbild
                       href: ../image-version-snapshot-powershell.md
                     - name: Migrera från en hanterad avbildning
                       href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
               href: image-builder-overview.md
             - name: Använda Azure CLI
               href: image-builder.md
-            - name: Skapa VM med ett virtuellt nätverk – CLI
+            - name: Använda ett vNET – CLI
               href: image-builder-vnet.md
-            - name: Konfigurera behörigheter – CLI
-              href: image-builder-permissions-cli.md
-            - name: Konfigurera behörigheter – PowerShell
-              href: image-builder-permissions-powershell.md
             - name: Nätverksalternativ
               href: image-builder-networking.md
+            - name: Konfigurera behörigheter
+              items:
+                - name: CLI
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
             - name: DevOps-uppgift
               href: image-builder-devops-task.md
             - name: Referens för ARM-mall

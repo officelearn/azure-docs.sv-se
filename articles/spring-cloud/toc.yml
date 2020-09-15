@@ -47,6 +47,8 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuera Azure Spring Cloud i virtuellt nätverk
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+    - name: Använda en hanterad identitet för anropa Azure Functions från en Azure Spring Cloud-app
+      href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Begrepp
   items:
     - name: Förstå appar och distribution

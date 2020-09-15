@@ -83,6 +83,8 @@
           href: troubleshoot-critical-service-failed-boot-error.md
         - name: Felsök startfel – status hittades inte
           href: boot-error-status-not-found.md
+        - name: Felsökning av Windows kunde inte slutföra konfigurationen av systemet
+          href: windows-could-not-configure-system.md
         - name: Felsök installationskapacitet för Windows Update
           href: windows-update-installation-capacity.md
         - name: Ingen startbar disk

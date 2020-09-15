@@ -2,11 +2,37 @@
   href: index.yml
 - name: Introduktion
   href: introduction.md
-- name: Säkerhetskontroller
+- name: Säkerhetskontroller (v2)
   expanded: true
   items:
     - name: Översikt över Azure-säkerhetskontroller
       href: overview.md
+    - name: Nätverkssäkerhet
+      href: security-controls-v2-network-security.md
+    - name: Identitetshantering
+      href: security-controls-v2-identity-management.md
+    - name: Privilegierad åtkomst
+      href: security-controls-v2-privileged-access.md
+    - name: Dataskydd
+      href: security-controls-v2-data-protection.md
+    - name: Tillgångshantering
+      href: security-controls-v2-asset-management.md
+    - name: Loggning och hotidentifiering
+      href: security-controls-v2-logging-threat-detection.md
+    - name: Incidenthantering
+      href: security-controls-v2-incident-response.md
+    - name: Status- och sårbarhetshantering
+      href: security-controls-v2-posture-vulnerability-management.md
+    - name: Slutpunktsskydd
+      href: security-controls-v2-endpoint-security.md
+    - name: Säkerhetskopiering och återställning
+      href: security-controls-v2-backup-recovery.md
+    - name: Styrning och strategi
+      href: security-controls-v2-governance-strategy.md
+- name: Säkerhetskontroller (v1)
+  items:
+    - name: Översikt över Azure-säkerhetskontroller (v1)
+      href: overview-v1.md
     - name: Nätverkssäkerhet
       href: security-control-network-security.md
     - name: Loggning och övervakning

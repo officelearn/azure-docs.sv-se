@@ -392,14 +392,20 @@
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
         - name: Hantera
           items:
+            - name: Hantera beroenden
+              items:
+                - name: Hantera Spark-programberoenden
+                  href: ./spark/apache-spark-manage-dependencies.md
+                - name: Hantera Jar-beroenden säkert
+                  href: ./spark/safely-manage-jar-dependency.md
+                - name: Hantera Python-miljö säkert
+                  href: ./spark/apache-spark-python-package-installation.md
             - name: Hantera klusterresurser
               href: ./spark/apache-spark-resource-manager.md
             - name: Hantera Apache Spark-program med hjälp av den utökade historikservern
               href: ./spark/apache-azure-spark-history-server.md
             - name: Aktivera cachelagring med I/O-cache
               href: ./spark/apache-spark-improve-performance-iocache.md
-            - name: Hantera Jar-beroenden
-              href: ./spark/manage-jar-dependency.md
             - name: Använda anteckningsböcker med Apache Spark
               items:
                 - name: Använda en lokal Jupyter Notebook
@@ -408,8 +414,6 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Använda externa paket med Jupyter med cellfunktioner
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
-                  href: ./spark/apache-spark-python-package-installation.md
                 - name: Använda Apache Zeppelin-anteckningsböcker
                   href: ./spark/apache-spark-zeppelin-notebook.md
             - name: Använda med andra Azure-tjänster

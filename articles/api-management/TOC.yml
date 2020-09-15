@@ -17,6 +17,8 @@
       href: get-started-create-service-instance.md
     - name: Skapa en instans – PowerShell
       href: powershell-create-service-instance.md
+    - name: Skapa en instans – Visual Studio Code
+      href: vscode-create-service-instance.md
 - name: Självstudier
   items:
     - name: 1 – Importera ditt första API

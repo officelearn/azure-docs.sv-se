@@ -33,6 +33,14 @@
           href: tutorial-ev-routing.md
         - name: Analysera väderdata med Azure Notebooks (Python)
           href: weather-service-tutorial.md
+    - name: Migrera från Bing Maps
+      items:
+        - name: Migrera från Bing Maps
+          href: migrate-from-bing-maps.md
+        - name: Migrera en webbapp
+          href: migrate-from-bing-maps-web-app.md
+        - name: Migrera en webbtjänst
+          href: migrate-from-bing-maps-web-services.md
     - name: Migrera från Google Maps
       items:
         - name: Migrera från Google Maps

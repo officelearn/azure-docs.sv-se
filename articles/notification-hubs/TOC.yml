@@ -113,7 +113,7 @@
       href: notification-hubs-send-push-notifications-scheduled.md
     - name: Distribuera och hantera Notification Hubs med Azure PowerShell
       href: notification-hubs-deploy-and-manage-powershell.md
-    - name: Skicka säkert push-meddelanden till användare
+    - name: Skicka säkra meddelanden till användare
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
     - name: Exportera och importera många registreringar samtidigt
       href: export-modify-registrations-bulk.md

@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Dokumentation om Azure Security Benchmark
+title: Dokumentation om benchmark för Azure-säkerhet
 summary: Läs mer om hur du skyddar dina molnlösningar på Azure med våra metodtips och riktlinjer.
 metadata:
-  title: Benchmark-värden för Azure-säkerhet
+  title: Benchmark för Azure-säkerhet
   description: Azure Security Benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data i Azure.
   services: security
   ms.service: security
@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 705757e3021ff7421dd88e3a2661b1b51f3f927a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: addc6aab30d23ab1aaca691e5d1ee1f0b9d12c39
+  ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88213561"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90058673"
 landingContent:
 - title: Om benchmark för Azure-säkerhet
   linkLists:
@@ -34,22 +34,22 @@ landingContent:
       url: ../../security-center/index.yml
     - text: Grunderna i Azure-säkerhet
       url: ../fundamentals/index.yml
-- title: Kontroller för benchmark för Azure-säkerhet
+- title: Kontroller för benchmark för Azure-säkerhet V2
   linkLists:
   - linkListType: overview
     links:
     - text: Nätverkssäkerhet
-      url: security-control-network-security.md
-    - text: Loggning och övervakning
-      url: security-control-logging-monitoring.md
-    - text: Identitets- och åtkomstkontroll
-      url: security-control-identity-access-control.md
+      url: security-controls-v2-network-security.md
+    - text: Identitetshantering
+      url: security-controls-v2-identity-management.md
+    - text: Privilegierad åtkomst
+      url: security-controls-v2-privileged-access.md
     - text: Dataskydd
-      url: security-control-data-protection.md
-    - text: Sårbarhetshantering
-      url: security-control-vulnerability-management.md
+      url: security-controls-v2-data-protection.md
+    - text: Tillgångshantering
+      url: security-controls-v2-asset-management.md
     - text: Mer information
-      url: security-control-inventory-asset-management.md
+      url: security-controls-v2-logging-threat-detection.md
 - title: Säkerhetsbaslinjer för beräkning
   linkLists:
   - linkListType: overview

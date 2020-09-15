@@ -2,20 +2,20 @@
 title: Azure-front dörr – stöd för domäner med jokertecken
 description: Den här artikeln hjälper dig att förstå hur Azures front dörr stöder mappning och hantering av jokertecken i listan över anpassade domäner.
 services: frontdoor
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
-ms.author: sharadag
-ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768314"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398757"
 ---
 # <a name="wildcard-domains"></a>Domäner med jokertecken
 
@@ -67,7 +67,7 @@ WAF-principer kan kopplas till domäner med jokertecken, ungefär som andra dom�
 
 Om du inte vill att en WAF-princip ska köras för en under domän kan du skapa en tom WAF-princip utan några hanterade eller anpassade rulesets.
 
-## <a name="routing-rules"></a>Dirigeringsregler
+## <a name="routing-rules"></a>Hanteringsregler
 
 När du konfigurerar en regel för routning kan du välja en domän med jokertecken som en klient dels värd. Du kan också ha olika väg beteenden för domäner och under domäner med jokertecken. Som det beskrivs i [hur Azure-frontend använder väg matchning](front-door-route-matching.md), väljs den mest exakta matchningen för domänen över olika regler för routning vid körning.
 

@@ -1,19 +1,19 @@
 ---
 title: Migrera ett HBase-kluster till en ny version – Azure HDInsight
 description: Så här migrerar du Apache HBase-kluster till en nyare version i Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 23843743b58db91d457b509fa38243f110b76b41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079555"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504000"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
 
@@ -30,18 +30,18 @@ Innan du uppgraderar Apache HBase kontrollerar du att HBase-versionerna på käl
 
 Här är ett exempel på en versions mat ris. Y indikerar kompatibilitet och N anger en möjlig inkompatibilitet:
 
-| Typ av kompatibilitet | Huvud version| Lägre version | Patch |
+| Typ av kompatibilitet | Högre version| Delversion | Patch |
 | --- | --- | --- | --- |
-| Kompatibilitet med klient serverns tråd | N | J | Y |
-| Server-Server-kompatibilitet | N | J | Y |
-| Kompatibilitet för fil format | N | J | Y |
-| Kompatibilitet för klient-API | N | J | Y |
+| Kompatibilitet med klient serverns tråd | N | J | J |
+| Server-Server-kompatibilitet | N | J | J |
+| Kompatibilitet för fil format | N | J | J |
+| Kompatibilitet för klient-API | N | J | J |
 | Klient-binär kompatibilitet | N | N | J |
 | **Begränsad API-kompatibilitet på Server Sidan** |  |  |  |
-| Stable | N | J | Y |
+| Stable | N | J | J |
 | Utvecklas | N | N | J |
 | Instabil | N | N | N |
-| Beroende kompatibilitet | N | J | Y |
+| Beroende kompatibilitet | N | J | J |
 | Operationell kompatibilitet | N | N | J |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uppgradera med samma Apache HBase huvud version

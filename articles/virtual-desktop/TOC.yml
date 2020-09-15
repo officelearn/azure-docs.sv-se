@@ -20,6 +20,8 @@
       href: set-up-service-alerts.md
 - name: Så här gör du
   items:
+    - name: Migrera manuellt
+      href: manual-migration.md
     - name: Ansluta till Windows Virtual Desktop-resurser
       items:
         - name: Ansluta med Windows-skrivbordsklienten

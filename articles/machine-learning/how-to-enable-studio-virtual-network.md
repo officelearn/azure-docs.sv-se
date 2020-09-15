@@ -39,7 +39,7 @@ Se de andra artiklarna i den här serien:
 > Även om de flesta Studio fungerar med data som lagras i ett virtuellt nätverk gör integrerade antecknings böcker __inte__det. Integrerade antecknings böcker stöder inte användning av lagring som finns i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok]() .
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Läs [översikten över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 

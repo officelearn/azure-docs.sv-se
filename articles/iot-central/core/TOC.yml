@@ -6,7 +6,7 @@
       href: overview-iot-central.md
     - name: Genomgång av användargränssnittet
       href: overview-iot-central-tour.md
-    - name: Utveckla enheter
+    - name: Ansluta och utveckla enheter
       href: overview-iot-central-developer.md
     - name: Senaste uppdateringarna
       items:
@@ -39,7 +39,7 @@
       href: quick-monitor-devices.md
 - name: Självstudier
   items:
-    - name: Kom igång med anslutningen
+    - name: Ansluta och utveckla enheter
       items:
         - name: Ansluta en enhet (Node.js)
           href: tutorial-connect-device-nodejs.md
@@ -75,7 +75,7 @@
       href: concepts-iot-edge.md
 - name: Anvisningar
   items:
-    - name: Kom igång med anslutningen
+    - name: Ansluta och utveckla enheter
       items:
         - name: Konfigurera en enhetsmall
           href: howto-set-up-template.md

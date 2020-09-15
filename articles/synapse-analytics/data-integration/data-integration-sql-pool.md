@@ -20,7 +20,7 @@ ms.locfileid: "90033208"
 
 I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto i en SQL-pool med Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**: du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.

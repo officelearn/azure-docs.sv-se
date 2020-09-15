@@ -6,6 +6,10 @@
       href: overview.md
     - name: Vilket MySQL-alternativ bör jag välja?
       href: select-right-deployment-type.md
+    - name: Tjänstuppdateringar
+      items:
+        - name: SSL-rotcertifikatet upphör att gälla
+          href: concepts-certificate-rotation.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -52,7 +56,7 @@
   items:
     - name: 1 – Utforma en databas
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -178,13 +182,13 @@
           href: howto-create-manage-server-portal.md
     - name: Brandväggsregler
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Återställ en server
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -218,7 +222,7 @@
           href: howto-redirection.md
     - name: Konfigurera serverparametrar
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
@@ -226,7 +230,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Lagring som växer automatiskt
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -236,13 +240,13 @@
       items:
         - name: Långsamma frågeloggar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-server-logs-in-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
         - name: Granskningsloggar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -278,19 +282,19 @@
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-manage-vnet-using-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
     - name: Private Link
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Datakryptering
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
@@ -312,7 +316,7 @@
           href: howto-deny-public-network-access.md
     - name: Starta om servern
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md

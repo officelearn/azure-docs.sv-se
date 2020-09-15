@@ -91,6 +91,8 @@
           href: ipv6-public-ip-address-prefix.md
         - name: Routningsprioritet
           href: routing-preference-overview.md
+        - name: Säkerhetsbaslinje för offentlig IP-adress
+          href: public-ip-security-baseline.md
     - name: Säkerhet
       items:
         - name: Nätverkssäkerhetsgrupper

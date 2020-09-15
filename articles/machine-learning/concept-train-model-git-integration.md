@@ -68,7 +68,7 @@ Om dina utbildningsbaserade filer inte finns i en git-lagringsplats i utveckling
 
 Git-informationen lagras i egenskaperna för en utbildnings körning. Du kan visa den här informationen med hjälp av Azure Portal, python SDK och CLI. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Välj din arbets yta från [Azure Portal](https://portal.azure.com).
 1. Välj __experiment__och välj sedan ett av experimenten.

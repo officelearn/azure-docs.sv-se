@@ -25,6 +25,8 @@
   items:
     - name: Skapa en serverlös realtidsapp med autentisering
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Skapa en Blazor Server-chattapp
+      href: signalr-tutorial-build-blazor-server-chat-app.md
 - name: Exempel
   items:
     - name: Kodexempel

@@ -2,18 +2,18 @@
 title: 'Azure-ExpressRoute: Konfigurera ExpressRoute Global Reach: CLI'
 description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk och aktivera Global Reach.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2018
-ms.author: jaredro
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e4f7b53ffd3642869e6246e546e3feeda3cf529
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 20ec5bb565a506d935ef7de6475e5062a21faa22
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495904"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395493"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Konfigurera ExpressRoute Global Reach med hjälp av Azure CLI
 
@@ -54,7 +54,7 @@ Du kan aktivera ExpressRoute Global Reach mellan två ExpressRoute-kretsar, för
 
 Observera följande krav för parameter värden när du kör kommandot för att aktivera anslutning:
 
-* *peer-kretsen* bör vara det fullständiga resurs-ID: t. Ett exempel:
+* *peer-kretsen* bör vara det fullständiga resurs-ID: t. Exempel:
 
   > /Subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

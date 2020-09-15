@@ -39,6 +39,8 @@
       href: use-prediction-api.md
     - name: Använda Smart Labeler
       href: suggested-tags.md
+    - name: Rollbaserad åtkomstkontroll
+      href: role-based-access-control.md
     - name: Exportera modeller
       items:
         - name: Exportera din modell till mobil

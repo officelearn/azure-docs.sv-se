@@ -61,6 +61,8 @@
       href: ../../azure-databricks/security-baseline.md
     - name: Säkerhetsbaslinje för Azure DNS
       href: ../../dns/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure DevTest Labs
+      href: ../../devtest-labs/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Firewall
       href: ../../firewall/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Functions
@@ -73,8 +75,14 @@
       href: ../../machine-learning/security-baseline.md
     - name: Azure Policy-säkerhetsbaslinje
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+    - name: Säkerhetsbaslinje för Azure Private Link
+      href: ../../private-link/security-baseline.md
+    - name: Säkerhetsbaslinje för offentlig IP-adress i Azure
+      href: ../../virtual-network/public-ip-security-baseline.md
     - name: Säkerhetsbaslinje för Azure Resource Graph
       href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Säkerhetsbaslinje för Azure Sentinel
+      href: ../../sentinel/security-baseline.md
     - name: Säkerhetsbaslinje för Azure SQL Database
       href: ../../sql-database/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Storage

@@ -41,6 +41,8 @@
       href: advisor-quick-fix.md
     - name: Advisor-data i Azure Resource Graph
       href: advisor-azure-resource-graph.md
+    - name: Använda Advisor-poäng
+      href: azure-advisor-score.md
 - name: Referens
   items:
     - name: Security Center

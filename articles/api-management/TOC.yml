@@ -11,6 +11,8 @@
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Skapa en instans – CLI
+      href: get-started-create-service-instance-cli.md
     - name: Skapa en instans – portalen
       href: get-started-create-service-instance.md
     - name: Skapa en instans – PowerShell

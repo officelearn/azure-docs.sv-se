@@ -224,12 +224,10 @@
               href: log-query/get-started-queries.md
         - name: Loggdata
           items:
-            - name: Loggdatastruktur
-              href: log-query/logs-structure.md
             - name: Frågeomfång
               href: log-query/scope.md
-            - name: Standardegenskaper
-              href: platform/log-standard-properties.md
+            - name: Standardkolumner
+              href: platform/log-standard-columns.md
             - name: Datorgrupper
               href: platform/computer-groups.md
         - name: Frågespråk

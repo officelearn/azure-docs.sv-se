@@ -4,7 +4,7 @@
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Översikt
   items:
-    - name: Vad är Azure Synapse Analytics?
+    - name: Vad är Azure Synapse?
       href: overview-what-is.md
     - name: Kom igång
       items:
@@ -36,10 +36,10 @@
   items:
     - name: Skapa en Synapse-arbetsyta med hjälp av Azure-portalen
       href: quickstart-create-workspace.md
-    - name: Distribuera med en mall
-      href: quickstart-deployment-template-workspaces.md
     - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
       href: quickstart-create-workspace-cli.md
+    - name: Distribuera med en mall
+      href: quickstart-deployment-template-workspaces.md
     - name: Använda Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Länka en Power BI-arbetsyta
@@ -70,7 +70,7 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Självstudier
   items:
-    - name: Köra Apache Spark-program för Spark-pooler
+    - name: Kör Apache Spark-program
       href: ./spark/intellij-tool-synapse.md
     - name: Spark-jobbdefinitioner
       href: ./spark/apache-spark-job-definitions.md
@@ -84,7 +84,7 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Dataanalytiker
       items:
-        - name: Använda SQL på begäran för att analysera och Synapse Studio för att visualisera
+        - name: Använda SQL på begäran för att analysera data
           href: ./sql/tutorial-data-analyst.md
 - name: Exempel
   href: 'https://github.com/Azure-Samples/Synapse'
@@ -224,7 +224,7 @@
                   href: ./spark/apache-spark-azure-portal-add-libraries.md
                 - name: Stöd för körningsspråk och bibliotek
                   href: ./spark/apache-spark-version-support.md
-            - name: Bärbara Azure Synapse Studio-datorer
+            - name: Azure Synapse Studio-notebook-filer
               href: ./spark/apache-spark-development-using-notebooks.md
             - name: Skydda autentiseringsuppgifter med TokenLibrary
               href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
@@ -372,9 +372,9 @@
           href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'Verktygsintegrering (AI, ETL, BI)'
       items:
-        - name: Felsöka Synapse Analytics Studio
+        - name: Felsöka Synapse Studio
           href: troubleshoot/troubleshoot-synapse-studio.md
-        - name: Felsöka Synapse Analytics Studio med PowerShell
+        - name: Felsöka anslutningsproblem med Synapse Studio
           href: troubleshoot/troubleshoot-synapse-studio-powershell.md
 - name: Gör så här för att
   items:
@@ -422,7 +422,7 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Uppgradera till Gen2
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Förberedelse och inhämtning av data
+    - name: Mata in och förbereda data
       items:
         - name: Till informationslagret
           items:
@@ -869,7 +869,7 @@
               href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Felsökning av lokalt installerad integrationskörning
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Ansluta verktyg till Synapse Analytics
+    - name: Ansluta verktyg till Synapse-arbetsytor
       items:
         - name: Synapse SQL
           items:

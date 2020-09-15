@@ -2,17 +2,17 @@
 title: 'Azure-ExpressRoute: optimera routning'
 description: Den här sidan innehåller information om hur du optimerar routning när du har mer än en ExpressRoute-krets för att ansluta till Microsoft från ditt företagsnätverk.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
-ms.author: charwen
-ms.openlocfilehash: 2672068e505b7c86127b8b765372e7c607c3875a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.author: duau
+ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259777"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395238"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.

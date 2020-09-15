@@ -24,7 +24,7 @@
   items:
     - name: Ansluta din app med Dynamics 365 Field Services
       href: how-to-configure-connected-field-services.md
-    - name: Ansluta enheter
+    - name: Ansluta och utveckla enheter
       items:
         - name: Förbereda och ansluta en Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json

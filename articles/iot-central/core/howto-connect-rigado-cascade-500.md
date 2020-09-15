@@ -29,7 +29,7 @@ I den här artikeln beskrivs hur du kan ansluta en Rigado kaskad 500-gateway-enh
 
 Cascade 500 är förcertifierat för Azure IoT Plug and Play (för hands version) och gör det möjligt för våra lösnings byggare att på ett enkelt sätt publicera enheten i sina slut-till-slut-lösningar. Med överlappande Gateway kan du trådlöst ansluta till en mängd olika villkor som övervakar sensorer som är i närheten av gateway-enheten. Dessa sensorer kan registreras i IoT Central via gateway-enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här instruktions guiden behöver du följande resurser:
 
 * En Rigado kaskad 500-enhet. Mer information finns på [Rigado](https://www.rigado.com/).

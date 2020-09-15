@@ -7,8 +7,10 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en Front Door
+    - name: Skapa en Front Door – portalen
       href: quickstart-create-front-door.md
+    - name: Skapa en Front Door – ARM-mall
+      href: quickstart-create-front-door-template.md
 - name: Självstudier
   items:
     - name: Lägg till en anpassad domän i din Front Door

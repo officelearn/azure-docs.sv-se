@@ -101,6 +101,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: Den virtuella datorn svarar inte när granskningskonfigurationsprincipen tillämpas
           href: vm-unresponsive-applying-audit-configuration-policy.md
+        - name: Den virtuella datorn svarar inte när standardpolicyn för domänkontrollanter tillämpas
+          href: vm-unresponsive-domain-controllers-policy.md
         - name: Den virtuella datorn svarar inte när grupprincipen tillämpas
           href: unresponsive-vm-apply-group-policy.md
         - name: Den virtuella datorn svarar inte när säkerhetsprincipen tillämpas
